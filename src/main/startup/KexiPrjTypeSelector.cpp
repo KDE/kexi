@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2004 Jaroslaw Staniek <js@iidea.pl>
+   Copyright (C) 2005 Jaroslaw Staniek <js@iidea.pl>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -17,19 +17,28 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "KexiDBTitlePage.h"
-
+#include "KexiPrjTypeSelector.h"
 #include <qlabel.h>
+#include <kiconloader.h>
+#include <kmimetype.h>
+#include <kexidb/driver.h>
 
-KexiDBTitlePage::KexiDBTitlePage( const QString& labelText, QWidget* parent, const char* name )
- : KexiDBTitlePageBase( parent, name )
+KexiPrjTypeSelector::KexiPrjTypeSelector( QWidget* parent,  const char* name, WFlags fl )
+	: KexiPrjTypeSelectorBase( parent, name, fl )
 {
-	if (!labelText.isEmpty())
-		label->setText(labelText);
+	QString none;
+	icon_file->setPixmap( 
+		KGlobal::iconLoader()->loadIcon( KMimeType::mimeType( 
+			KexiDB::Driver::defaultFileBasedDriverMimeType() )->icon(none,0), KIcon::Desktop, 48
+		)
+	);
+	icon_file->setFixedSize(icon_file->pixmap()->size()/2);
+	icon_server->setPixmap( DesktopIcon("network", 48) );
+	icon_server->setFixedSize(icon_server->pixmap()->size()/2);
 }
 
-KexiDBTitlePage::~KexiDBTitlePage()
+KexiPrjTypeSelector::~KexiPrjTypeSelector()
 {
 }
 
-#include "KexiDBTitlePage.moc"
+#include "KexiPrjTypeSelector.moc"
