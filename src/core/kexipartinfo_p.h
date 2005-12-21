@@ -1,5 +1,6 @@
 /* This file is part of the KDE project
-   Copyright (C) 2005 Jaroslaw Staniek <js@iidea.pl>
+   Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
+   Copyright (C) 2003 Jaroslaw Staniek <js@iidea.pl>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -17,19 +18,34 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXITXTMSGHANDLER_H
-#define KEXITXTMSGHANDLER_H
+#ifndef KEXIPROJECTPARTITEM_P_H
+#define KEXIPROJECTPARTITEM_P_H
 
-#include "kexiguimsghandler.h"
+#include "kexipartinfo.h"
+#include <kservice.h>
 
-class KEXICORE_EXPORT KexiTextMessageHandler : public KexiGUIMessageHandler
+namespace KexiPart
+{
+//! @internal
+class Info::Private
 {
 	public:
-		KexiTextMessageHandler(QString &messageTarget, QString &detailsTarget);
-		virtual ~KexiTextMessageHandler();
-		virtual void showMessage(MessageType type, const QString &title, const QString &details);
-	
-		QString *m_messageTarget, *m_detailsTarget;
+		Private(const KService::Ptr& aPtr);
+
+		//! used in StaticItem class
+		Private();
+
+		KService::Ptr ptr;
+		QString errorMessage;
+		QString groupName;
+		QCString mimeType;
+		QString itemIcon;
+		QString objectName;
+		int projectPartID;
+		bool broken : 1;
+		bool isVisibleInNavigator : 1;
+		bool idStoredInPartDatabase : 1;
 };
+}
 
 #endif
