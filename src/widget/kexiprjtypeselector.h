@@ -17,28 +17,21 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "KexiPrjTypeSelector.h"
-#include <qlabel.h>
-#include <kiconloader.h>
-#include <kmimetype.h>
-#include <kexidb/driver.h>
+#ifndef KEXIPRJTYPESELECTOR_H
+#define KEXIPRJTYPESELECTOR_H
 
-KexiPrjTypeSelector::KexiPrjTypeSelector( QWidget* parent,  const char* name, Qt::WFlags fl )
-	: KexiPrjTypeSelectorBase( parent, name, fl )
+#include "KexiPrjTypeSelectorBase.h"
+
+//! @short A simple widget with radio buttons with "show file/server-based projects" options
+class KEXIMAIN_EXPORT KexiPrjTypeSelector : public KexiPrjTypeSelectorBase
 {
-	QString none;
-	icon_file->setPixmap( 
-		KGlobal::iconLoader()->loadIcon( KMimeType::mimeType( 
-			KexiDB::Driver::defaultFileBasedDriverMimeType() )->icon(none,0), K3Icon::Desktop, 48
-		)
-	);
-	icon_file->setFixedSize(icon_file->pixmap()->size()/2);
-	icon_server->setPixmap( DesktopIcon("network", 48) );
-	icon_server->setFixedSize(icon_server->pixmap()->size()/2);
-}
+	Q_OBJECT
 
-KexiPrjTypeSelector::~KexiPrjTypeSelector()
-{
-}
+public:
+	KexiPrjTypeSelector( QWidget* parent = 0, const char* name = 0, WFlags fl = 0 );
+	~KexiPrjTypeSelector();
 
-#include "KexiPrjTypeSelector.moc"
+
+};
+
+#endif // KEXIPRJTYPESELECTOR_H
