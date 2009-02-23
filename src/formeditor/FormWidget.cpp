@@ -1,6 +1,7 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2009 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003 Lucijan Busch <lucijan@gmx.at>
+   Copyright (C) 2004 Cedric Pasteur <cedric.pasteur@free.fr>
+   Copyright (C) 2004-2009 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -18,29 +19,19 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#include "KexiMainWindowIface.h"
+#include "FormWidget.h"
+#include "form.h"
 
-#include <kdebug.h>
+using namespace KFormDesigner;
 
-//K_GLOBAL_STATIC(KexiMainWindow, kexiMainWindow)
-#ifdef __GNUC__
-#warning not threadsafe
-#else
-#pragma WARNING( not threadsafe )
-#endif
-KexiMainWindowIface* kexiMainWindow = 0;
-
-KexiMainWindowIface::KexiMainWindowIface()
-        : KexiSharedActionHost(this)
-{
-    kexiMainWindow = this; //for singleton
-}
-
-KexiMainWindowIface::~KexiMainWindowIface()
+FormWidget::FormWidget()
+    : m_form(0)
 {
 }
 
-KexiMainWindowIface* KexiMainWindowIface::global()
+FormWidget::~FormWidget()
 {
-    return kexiMainWindow;
+    if (m_form) {
+        m_form->setFormWidget(0);
+    }
 }
