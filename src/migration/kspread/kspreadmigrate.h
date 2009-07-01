@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-Copyright (C) 2004-2009 Adam Pigg <adam@piggz.co.uk>
+Copyright (C) 2009 Adam Pigg <adam@piggz.co.uk>
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU Library General Public
@@ -22,6 +22,13 @@ the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 
 #include <migration/keximigrate.h>
 #include <QFile>
+#include <kspread/part/Doc.h>
+#include <kspread/Map.h>
+#include <kspread/Sheet.h>
+#include <KoStore.h>
+#include <KoOdfWriteStore.h>
+#include <KoEmbeddedDocumentSaver.h>
+#include <KoDocument.h>
 
 namespace KexiMigration
 {
@@ -29,14 +36,14 @@ namespace KexiMigration
 /**
 @author Adam Pigg
 */
-class TxtMigrate : public KexiMigrate
+class KSpreadMigrate : public KexiMigrate
 {
     Q_OBJECT
     KEXIMIGRATION_DRIVER
 public:
-    TxtMigrate(QObject *parent, const QStringList &args = QStringList());
+    KSpreadMigrate(QObject *parent, const QStringList &args = QStringList());
 
-    virtual ~TxtMigrate();
+    virtual ~KSpreadMigrate();
 
   protected:
     //! Connect to source
@@ -53,33 +60,33 @@ public:
     //! Read schema for a given table
     virtual bool drv_readTableSchema(const QString& originalName, KexiDB::TableSchema& tableSchema);
 
-    //!Position the source dataset at the start of a table
+    //! Position the source dataset at the start of a table
     virtual bool drv_readFromTable(const QString & tableName);
 
-    //!Move to the next row
+    //! Move to the next row
     virtual bool drv_moveNext();
 
-    //!Move to the previous row
+    //! Move to the previous row
     virtual bool drv_movePrevious();
+    
+    //! Move to the next row
+    virtual bool drv_moveFirst();
 
-    //!Read the data at the given row/field
+    //! Move to the previous row
+    virtual bool drv_moveLast();
+    
+    //! Read the data at the given row/field
     virtual QVariant drv_value(uint i);
 
   private:
-    QString m_Folder;
-
     QString m_FileName;
-
-    QString m_LastLine;
-
-    QFile *m_DataFile;
+    KSpread::Sheet *m_CurSheet;
+    
+    KSpread::Doc *m_KSDoc;
 
     QStringList m_FieldNames;
-    QVector<QStringList> m_FieldValues;
 
-    long m_Row;
-    
-    long m_FileRow;
+    unsigned long m_Row;
 
 };
 
