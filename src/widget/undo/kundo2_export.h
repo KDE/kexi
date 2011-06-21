@@ -1,7 +1,5 @@
-/* This file is part of the KDE project
-    Copyright (C) 2003 Jarosław Staniek <staniek@kde.org>
-
-    (version information based on calligraversion.h)
+/*  This file is part of the KDE project
+    Copyright (C) 2007 David Faure <faure@kde.org>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Library General Public
@@ -16,35 +14,30 @@
     You should have received a copy of the GNU Library General Public License
     along with this library; see the file COPYING.LIB.  If not, write to
     the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA 02110-1301, USA.
+    Boston, MA 02110-1301, USA.
 */
 
-#include "kexi_version.h"
+#ifndef KUNDO2_EXPORT_H
+#define KUNDO2_EXPORT_H
 
-using namespace Kexi;
+/* needed for KDE_EXPORT and KDE_IMPORT macros */
+#include <kdemacros.h>
 
-KEXICORE_EXPORT unsigned int version()
-{
-    return KEXI_VERSION;
-}
+#ifndef KUNDO2_EXPORT
+# if defined(KDELIBS_STATIC_LIBS)
+   /* No export/import for static libraries */
+#  define KUNDO2_EXPORT
+# elif defined(MAKE_KUNDO2_LIB)
+   /* We are building this library */ 
+#  define KUNDO2_EXPORT KDE_EXPORT
+# else
+   /* We are using this library */ 
+#  define KUNDO2_EXPORT KDE_IMPORT
+# endif
+#endif
 
-KEXICORE_EXPORT unsigned int versionMajor()
-{
-    return KEXI_VERSION_MAJOR;
-}
+# ifndef KUNDO2_EXPORT_DEPRECATED
+#  define KUNDO2_EXPORT_DEPRECATED KDE_DEPRECATED KUNDO2_EXPORT
+# endif
 
-KEXICORE_EXPORT unsigned int versionMinor()
-{
-    return KEXI_VERSION_MINOR;
-}
-
-KEXICORE_EXPORT unsigned int versionRelease()
-{
-    return KEXI_VERSION_RELEASE;
-}
-
-KEXICORE_EXPORT const char *versionString()
-{
-    return KEXI_VERSION_STRING;
-}
-
+#endif
