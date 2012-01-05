@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003 Joseph Wenninger <jowenn@kde.org>
+   Copyright (C) 2011 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -17,25 +17,25 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXICONTEXTHELP_H
-#define KEXICONTEXTHELP_H
+#ifndef KEXISEARCHABLEMODEL_H
+#define KEXISEARCHABLEMODEL_H
 
+#include <kexi_global.h>
 
-#include "keximainwindow.h"
-#include <KoContextHelp.h>
+class QModelIndex;
+class QVariant;
 
-class KEXICORE_EXPORT KexiContextHelp : public KoContextHelpWidget
+class KEXICORE_EXPORT KexiSearchableModel
 {
-    Q_OBJECT
-
 public:
-    KexiContextHelp(KexiMainWindow *view, QWidget *parent = 0);
-    ~KexiContextHelp();
-private slots:
-    void linkClickedInternal(const QString &link);
-
-signals:
-    void unhandledLink(const QString& link);
+    KexiSearchableModel();
+    virtual ~KexiSearchableModel();
+    virtual int searchableObjectCount() const = 0;
+    virtual QModelIndex sourceIndexForSearchableObject(int objectIndex) const = 0;
+    virtual QVariant searchableData(const QModelIndex &sourceIndex, int role) const = 0;
+    virtual QString pathFromIndex(const QModelIndex &sourceIndex) const = 0;
+    virtual bool highlightSearchableObject(const QModelIndex &index) = 0;
+    virtual bool activateSearchableObject(const QModelIndex &index) = 0;
 };
 
 #endif
