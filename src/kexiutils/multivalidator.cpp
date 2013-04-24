@@ -17,21 +17,7 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#include "validator.h"
-
-namespace KexiUtils
-{
-class Validator::Private
-{
-public:
-    Private()
-            : acceptsEmptyValue(false) {
-    }
-    bool acceptsEmptyValue : 1;
-};
-}
-
-//-----------------------------------------------------------
+#include "multivalidator.h"
 
 namespace KexiUtils
 {
@@ -54,66 +40,16 @@ public:
 
 using namespace KexiUtils;
 
-Validator::Validator(QObject * parent)
-        : QValidator(parent)
-        , d(new Private)
-{
-}
-
-Validator::~Validator()
-{
-    delete d;
-}
-
-Validator::Result Validator::check(const QString &valueName, const QVariant& v,
-                                   QString &message, QString &details)
-{
-    if (v.isNull() || (v.type() == QVariant::String && v.toString().isEmpty())) {
-        if (!d->acceptsEmptyValue) {
-            message = Validator::msgColumnNotEmpty().arg(valueName);
-            return Error;
-        }
-        return Ok;
-    }
-    return internalCheck(valueName, v, message, details);
-}
-
-Validator::Result Validator::internalCheck(const QString & /*valueName*/,
-        const QVariant& /*v*/, QString & /*message*/, QString & /*details*/)
-{
-    return Error;
-}
-
-QValidator::State Validator::validate(QString & , int &) const
-{
-    return QValidator::Acceptable;
-}
-
-void Validator::setAcceptsEmptyValue(bool set)
-{
-    d->acceptsEmptyValue = set;
-}
-
-bool Validator::acceptsEmptyValue() const
-{
-    return d->acceptsEmptyValue;
-}
-
-const QString Validator::msgColumnNotEmpty()
-{
-    return I18N_NOOP("\"%1\" value has to be entered.");
-}
-
 //-----------------------------------------------------------
 
 MultiValidator::MultiValidator(QObject* parent)
-        : Validator(parent)
+        : KexiDB::Validator(parent)
         , d(new Private)
 {
 }
 
 MultiValidator::MultiValidator(QValidator *validator, QObject * parent)
-        : Validator(parent)
+        : KexiDB::Validator(parent)
         , d(new Private)
 {
     addSubvalidator(validator);
@@ -151,15 +87,15 @@ void MultiValidator::fixup(QString & input) const
     }
 }
 
-Validator::Result MultiValidator::internalCheck(
+KexiDB::Validator::Result MultiValidator::internalCheck(
     const QString &valueName, const QVariant& v,
     QString &message, QString &details)
 {
     Result r;
     bool warning = false;
     foreach(QValidator* validator, d->subValidators) {
-        if (dynamic_cast<Validator*>(validator))
-            r = dynamic_cast<Validator*>(validator)->internalCheck(valueName, v, message, details);
+        if (dynamic_cast<KexiDB::Validator*>(validator))
+            r = dynamic_cast<KexiDB::Validator*>(validator)->internalCheck(valueName, v, message, details);
         else
             r = Ok; //ignore
         if (r == Error)
@@ -169,4 +105,3 @@ Validator::Result MultiValidator::internalCheck(
     }
     return warning ? Warning : Ok;
 }
-
