@@ -205,6 +205,24 @@ typedef struct {
 	unsigned char needs_quotes;
 } MdbBackendType;
 
+enum {
+	MDB_BACKEND_ACCESS = 1,
+	MDB_BACKEND_ORACLE,
+	MDB_BACKEND_SYBASE,
+	MDB_BACKEND_POSTGRES,
+	MDB_BACKEND_MYSQL,
+	MDB_BACKEND_SQLITE,
+};
+
+enum {
+	MDB_BACKEND_ACCESS = 1,
+	MDB_BACKEND_ORACLE,
+	MDB_BACKEND_SYBASE,
+	MDB_BACKEND_POSTGRES,
+	MDB_BACKEND_MYSQL,
+	MDB_BACKEND_SQLITE,
+};
+
 typedef struct {
 	guint32 capabilities; /* see MDB_SHEXP_* */
 	MdbBackendType *types_table;
