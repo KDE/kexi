@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2004 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2014 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -17,22 +17,31 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXIACTIONPROXY_P_H
-#define KEXIACTIONPROXY_P_H
+#ifndef KEXIBUGREPORTDIALOG_H
+#define KEXIBUGREPORTDIALOG_H
 
-#include <QObject>
+#include <KBugReport>
 
-class KexiActionProxy;
-
-//! @internal a tool for emitting signal
-class KexiActionProxySignal : public QObject
+//! A bug report dialog dedicated for Kexi.
+//! It reports proper app version, platform and OS, hides unnecessary information.
+class KexiBugReportDialog : public KBugReport
 {
     Q_OBJECT
+
 public:
-    explicit KexiActionProxySignal(QObject *parent) : QObject(parent) {}
-    void activate() { emit invoke(); }
-signals:
-    void invoke();
+    explicit KexiBugReportDialog(QWidget *parent = 0);
+
+public Q_SLOTS:
+    virtual void accept();
+
+private:
+    KAboutData *copyAboutData();
+    void collectData();
+
+    KAboutData *m_aboutData;
+    QString m_op_sys;
+    QString m_rep_platform;
+    Q_DISABLE_COPY(KexiBugReportDialog)
 };
 
 #endif
