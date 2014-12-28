@@ -128,7 +128,7 @@ MdbTableDef *mdb_read_table_by_name(MdbHandle *mdb, gchar *table_name, int obj_t
 
 	for (i=0; i<mdb->num_catalog; i++) {
 		entry = g_ptr_array_index(mdb->catalog, i);
-		if (!strcasecmp(entry->object_name, table_name))
+		if (!g_ascii_strcasecmp(entry->object_name, table_name))
 			return mdb_read_table(entry);
 	}
 
@@ -166,9 +166,9 @@ read_pg_if_8(MdbHandle *mdb, int *cur_pos)
  * are still advanced and the page cursor is still updated.
  */
 void *
-read_pg_if_n(MdbHandle *mdb, void *void_buf, int *cur_pos, size_t len)
+read_pg_if_n(MdbHandle *mdb, void *buf, int *cur_pos, size_t len)
 {
-	gchar *buf = void_buf;
+	char* _buf = buf;
 	/* Advance to page which contains the first byte */
 	while (*cur_pos >= mdb->fmt->pg_size) {
 		mdb_read_pg(mdb, mdb_get_int32(mdb->pg_buf,4));
@@ -177,20 +177,20 @@ read_pg_if_n(MdbHandle *mdb, void *void_buf, int *cur_pos, size_t len)
 	/* Copy pages into buffer */
 	while ((ssize_t)(*cur_pos + len) >= mdb->fmt->pg_size) {
 		int piece_len = mdb->fmt->pg_size - *cur_pos;
-		if (buf) {
-			memcpy(buf, mdb->pg_buf + *cur_pos, piece_len);
-			buf += piece_len;
+		if (_buf) {
+			memcpy(_buf, mdb->pg_buf + *cur_pos, piece_len);
+			_buf += piece_len;
 		}
 		len -= piece_len;
 		mdb_read_pg(mdb, mdb_get_int32(mdb->pg_buf,4));
 		*cur_pos = 8;
 	}
 	/* Copy into buffer from final page */
-	if (len && buf) {
-		memcpy(buf, mdb->pg_buf + *cur_pos, len);
+	if (len && _buf) {
+		memcpy(_buf, mdb->pg_buf + *cur_pos, len);
 	}
 	*cur_pos += len;
-	return buf;
+	return _buf;
 }
 
 
