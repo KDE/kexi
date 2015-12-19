@@ -37,7 +37,7 @@
 #include <kexiutils/utils.h>
 #include <kexiutils/KexiCloseButton.h>
 #include <kexiutils/KexiTester.h>
-#include <kexi_version.h>
+#include <KexiVersion.h>
 #include <core/KexiWindow.h>
 #include <core/KexiRecentProjects.h>
 #include <core/kexiaboutdata.h>

@@ -62,5 +62,5 @@ generate_export_header(kformdesigner)
 
 target_link_libraries(kformdesigner ${kformdesigner_LIBS})
 
-set_target_properties(kformdesigner PROPERTIES VERSION ${GENERIC_CALLIGRA_LIB_VERSION} SOVERSION ${GENERIC_CALLIGRA_LIB_SOVERSION} )
+set_target_properties(kformdesigner PROPERTIES VERSION ${GENERIC_KEXI_LIB_VERSION} SOVERSION ${GENERIC_KEXI_LIB_SOVERSION} )
 install(TARGETS kformdesigner  ${INSTALL_TARGETS_DEFAULT_ARGS})

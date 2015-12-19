@@ -17,7 +17,7 @@
 #    libraries keximain, kexicore, kexiextendedwidgets.
 #
 
-macro(CALLIGRA_ADD_TEST __test_prefix __test_basename)
+macro(KEXI_ADD_TEST __test_prefix __test_basename)
     set(_args "")
     list(APPEND _libs ${ARGV})
     list(REMOVE_AT _libs 0 1)
@@ -33,4 +33,4 @@ macro(CALLIGRA_ADD_TEST __test_prefix __test_basename)
 #if (BUILD_TEST_COVERAGE)
 #    target_link_libraries(${_test_name} gcov)
 #endif ()
-endmacro(CALLIGRA_ADD_TEST)
+endmacro(KEXI_ADD_TEST)

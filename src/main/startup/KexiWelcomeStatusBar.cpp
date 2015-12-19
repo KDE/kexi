@@ -21,7 +21,7 @@
 #include "KexiWelcomeStatusBar_p.h"
 
 #include <core/KexiMainWindowIface.h>
-#include <kexi_version.h>
+#include <KexiVersion.h>
 #include <kexiutils/utils.h>
 #include <kexiutils/KexiContextMessage.h>
 #include <kexiutils/KexiFadeWidgetEffect.h>

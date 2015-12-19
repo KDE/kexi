@@ -63,7 +63,7 @@ target_link_libraries(kexiutils
 generate_export_header(kexiutils)
 
 set_target_properties(kexiutils PROPERTIES
-    VERSION ${GENERIC_CALLIGRA_LIB_VERSION} SOVERSION ${GENERIC_CALLIGRA_LIB_SOVERSION}
+    VERSION ${GENERIC_KEXI_LIB_VERSION} SOVERSION ${GENERIC_KEXI_LIB_SOVERSION}
 )
 
 install(TARGETS kexiutils  ${INSTALL_TARGETS_DEFAULT_ARGS})

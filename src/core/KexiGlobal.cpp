@@ -1,7 +1,7 @@
 /* This file is part of the KDE project
     Copyright (C) 2003-2012 Jarosław Staniek <staniek@kde.org>
 
-    (version information based on calligraversion.h)
+    (version information based on KexiVersion.h)
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Library General Public
@@ -19,13 +19,13 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#include "kexi_version.h"
-#include <calligragitversion.h>
+#include "KexiVersion.h"
+
 #include <QString>
 
 static const char FULL_VERSION[]
-#ifdef CALLIGRA_GIT_SHA1_STRING
-    = KEXI_VERSION_STRING " (git " CALLIGRA_GIT_SHA1_STRING " " CALLIGRA_GIT_BRANCH_STRING ")";
+#ifdef KEXI_GIT_SHA1_STRING
+    = KEXI_VERSION_STRING " (git " KEXI_GIT_SHA1_STRING " " KEXI_GIT_BRANCH_STRING ")";
 #else
     = KEXI_VERSION_STRING;
 #endif
@@ -62,17 +62,17 @@ KEXICORE_EXPORT const char *Kexi::fullVersionString()
 
 KEXICORE_EXPORT unsigned int Kexi::stableVersionMajor()
 {
-    return CALLIGRA_STABLE_VERSION_MAJOR;
+    return KEXI_STABLE_VERSION_MAJOR;
 }
 
 KEXICORE_EXPORT unsigned int Kexi::stableVersionMinor()
 {
-    return CALLIGRA_STABLE_VERSION_MINOR;
+    return KEXI_STABLE_VERSION_MINOR;
 }
 
 KEXICORE_EXPORT unsigned int Kexi::stableVersionRelease()
 {
-    return CALLIGRA_STABLE_VERSION_RELEASE;
+    return KEXI_STABLE_VERSION_RELEASE;
 }
 
 KEXICORE_EXPORT QString Kexi::stableVersionString()

@@ -19,7 +19,7 @@
 
 #include "KexiUserFeedbackAgent.h"
 
-#include <kexi_version.h>
+#include <KexiVersion.h>
 #include <KexiMainWindowIface.h>
 
 #include <KIO/Job>

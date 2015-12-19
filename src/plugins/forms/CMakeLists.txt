@@ -106,6 +106,6 @@ target_link_libraries(kexiformutils
         Qt5::Xml
 )
 
-set_target_properties(kexiformutils PROPERTIES VERSION ${GENERIC_CALLIGRA_LIB_VERSION}
-                      SOVERSION ${GENERIC_CALLIGRA_LIB_SOVERSION})
+set_target_properties(kexiformutils PROPERTIES VERSION ${GENERIC_KEXI_LIB_VERSION}
+                      SOVERSION ${GENERIC_KEXI_LIB_SOVERSION})
 install(TARGETS kexiformutils  ${INSTALL_TARGETS_DEFAULT_ARGS})

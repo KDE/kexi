@@ -33,7 +33,7 @@
 #include <KColorUtils>
 #include <KIconLoader>
 #include <kexiutils/utils.h>
-#include <kexi_version.h>
+#include <KexiVersion.h>
 #include <KLocalizedString>
 
 #include <QDebug>

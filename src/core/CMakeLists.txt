@@ -1,7 +1,7 @@
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44020)
 
 set(kexicore_LIB_SRCS
-   kexi_global.cpp
+   KexiGlobal.cpp
    kexi.cpp
    kexiaboutdata.cpp
    KexiMainWindowIface.cpp
@@ -63,7 +63,7 @@ target_link_libraries(kexicore
 )
 
 set_target_properties(kexicore PROPERTIES
-    VERSION ${GENERIC_CALLIGRA_LIB_VERSION} SOVERSION ${GENERIC_CALLIGRA_LIB_SOVERSION}
+    VERSION ${GENERIC_KEXI_LIB_VERSION} SOVERSION ${GENERIC_KEXI_LIB_SOVERSION}
 )
 install(TARGETS kexicore  ${INSTALL_TARGETS_DEFAULT_ARGS})
 #install(FILES kexihandler.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR})

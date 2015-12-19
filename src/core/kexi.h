@@ -24,7 +24,7 @@
 
 #include <KDbDriver>
 
-#include <kexi_version.h>
+#include <KexiVersion.h>
 #include "kexiprojectdata.h"
 #include "kexidbconnectionset.h"
 #include "kexiprojectset.h"

@@ -30,5 +30,5 @@ target_link_libraries(kexiguiutils
     KF5::XmlGui #KActionCollection...
 )
 
-set_target_properties(kexiguiutils PROPERTIES VERSION ${GENERIC_CALLIGRA_LIB_VERSION} SOVERSION ${GENERIC_CALLIGRA_LIB_SOVERSION} )
+set_target_properties(kexiguiutils PROPERTIES VERSION ${GENERIC_KEXI_LIB_VERSION} SOVERSION ${GENERIC_KEXI_LIB_SOVERSION} )
 install(TARGETS kexiguiutils  ${INSTALL_TARGETS_DEFAULT_ARGS})

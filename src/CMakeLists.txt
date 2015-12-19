@@ -51,6 +51,7 @@ set(KEXI_FORM_WIDGETS_PLUGIN_INSTALL_DIR ${PLUGIN_INSTALL_DIR}/kexi/forms/widget
 #no default: add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44010)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config-kexi.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kexi.h )
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/KexiVersion.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/KexiVersion.h)
 
 include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}

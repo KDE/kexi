@@ -23,7 +23,7 @@
 #include "kexiinternalpart.h"
 #include "kexipartinfo.h"
 //! @todo KEXI3 #include "kexistaticpart.h"
-#include "kexi_version.h"
+#include "KexiVersion.h"
 #include "KexiJsonTrader.h"
 
 #include <KDbConnection>

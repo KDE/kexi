@@ -21,7 +21,7 @@
 #include "KexiUserFeedbackAgent.h"
 #include <core/KexiMainWindowIface.h>
 #include <kexiutils/utils.h>
-#include <kexi_version.h>
+#include <KexiVersion.h>
 
 #include <KAboutData>
 #include <KTitleWidget>
