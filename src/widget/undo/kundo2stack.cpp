@@ -64,8 +64,11 @@
 #include "kundo2stack.h"
 #include "kundo2stack_p.h"
 #include "kundo2group.h"
-#include <KoIcon.h>
-#include<QtGlobal>
+
+#include <core/kexi.h>
+#include <kexiutils/KexiIcon.h>
+
+#include <QtGlobal>
 
 
 #ifndef QT_NO_UNDOCOMMAND
@@ -1346,7 +1349,7 @@ QAction* KUndo2Stack::createRedoAction(KActionCollection* actionCollection, cons
         action->setObjectName(actionName);
     }
 
-    action->setIcon(koIcon("edit-redo"));
+    action->setIcon(KexiIcon("edit-redo"));
     action->setIconText(i18n("Redo"));
     action->setShortcuts(KStandardShortcut::redo());
 

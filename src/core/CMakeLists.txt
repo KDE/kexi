@@ -39,6 +39,7 @@ set(kexicore_LIB_SRCS
    KexiRecordNavigatorHandler.cpp
    KexiRecordNavigatorIface.cpp
    KexiSearchableModel.cpp
+   KexiGroupButton.cpp #TODO belongs to widget/?
 )
 
 add_library(kexicore SHARED ${kexicore_LIB_SRCS})
@@ -56,7 +57,6 @@ target_link_libraries(kexicore
         KF5::XmlGui
 
         kexiutils
-        kowidgetutils # KoGroupButton
 
         KDb
         KPropertyWidgets

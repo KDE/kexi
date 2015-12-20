@@ -22,8 +22,6 @@
 
 #include <QPointer>
 
-#include <KDbDriver>
-
 #include <KexiVersion.h>
 #include "kexiprojectdata.h"
 #include "kexidbconnectionset.h"

@@ -1,4 +1,4 @@
-include_directories(${CMAKE_SOURCE_DIR}/kexi/core ${CMAKE_SOURCE_DIR}/kexi/widget)
+include_directories(${CMAKE_SOURCE_DIR}/src/core ${CMAKE_SOURCE_DIR}/src/widget)
 
 # the main plugin
 set(kexi_csvimportexportplugin_SRCS

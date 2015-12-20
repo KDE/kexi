@@ -1,4 +1,4 @@
-include_directories(${CMAKE_SOURCE_DIR}/kexi/formeditor ${CMAKE_SOURCE_DIR}/kexi/core)
+include_directories(${CMAKE_SOURCE_DIR}/src/formeditor ${CMAKE_SOURCE_DIR}/src/core)
 
 set(kexiforms_standardwidgetsplugin_SRCS
     KexiStandardFormWidgetsFactory.cpp
@@ -11,7 +11,7 @@ kcoreaddons_desktop_to_json(kexiforms_standardwidgetsplugin kexiforms_standardwi
 
 target_link_libraries(kexiforms_standardwidgetsplugin
     kformdesigner
-    kundo2
+    kexiundo
 
     Qt5::Core
     Qt5::Gui

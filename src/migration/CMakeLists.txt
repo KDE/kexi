@@ -1,5 +1,5 @@
-include_directories(${CMAKE_SOURCE_DIR}/kexi/core
-  ${CMAKE_SOURCE_DIR}/kexi/widget ${CMAKE_BINARY_DIR}/kexi/widget
+include_directories(${CMAKE_SOURCE_DIR}/src/core
+  ${CMAKE_SOURCE_DIR}/src/widget ${CMAKE_BINARY_DIR}/src/widget
 )
 
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44000)

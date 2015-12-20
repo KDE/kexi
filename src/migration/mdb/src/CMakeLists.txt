@@ -5,7 +5,7 @@ if (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_GNUC)
     add_definitions(-Wno-unused-parameter)
 endif ()
 
-set(MDBTOOLS_SOURCE_DIR "${CMAKE_SOURCE_DIR}/kexi/migration/mdb/3rdparty/mdbtools")
+set(MDBTOOLS_SOURCE_DIR "${CMAKE_SOURCE_DIR}/src/migration/mdb/3rdparty/mdbtools")
 
 include_directories(  ${GLIB2_INCLUDE_DIR} ${MDBTOOLS_SOURCE_DIR}/include )
 

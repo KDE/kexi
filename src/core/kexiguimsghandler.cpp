@@ -22,6 +22,7 @@
 #include <kexiutils/utils.h>
 
 #include <KDbUtils>
+#include <KDb>
 
 #include <KMessageBox>
 #include <KLocalizedString>

@@ -3,6 +3,8 @@
    Copyright (C) 2012 Jean-Nicolas Artaud <jeannicolasartaud@gmail.com>
    Copyright (C) 2012 Jarosław Staniek <staniek@kde.org>
 
+   Based on Calligra libs' KoGroupButton
+
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
    License version 2 as published by the Free Software Foundation.
@@ -17,10 +19,11 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
-#ifndef KOGROUPBUTTON_H
-#define KOGROUPBUTTON_H
 
-#include "kowidgetutils_export.h"
+#ifndef KEXIGROUPBUTTON_H
+#define KEXIGROUPBUTTON_H
+
+#include "kexicore_export.h"
 
 // Qt
 #include <QToolButton>
@@ -32,7 +35,7 @@
  * 
  * For groupping layout can be used. For exclusive checkable behaviour assign QButtonGroup on the buttons.
  */
-class KOWIDGETUTILS_EXPORT KoGroupButton : public QToolButton
+class KEXICORE_EXPORT KexiGroupButton : public QToolButton
 {
     Q_OBJECT
     Q_ENUMS( GroupPosition )
@@ -48,18 +51,18 @@ public:
         GroupCenter  //!< The button is on the center of the group, so it would have separators on both sides
     };
 
-    explicit KoGroupButton(GroupPosition position, QWidget* parent = 0);
+    explicit KexiGroupButton(GroupPosition position, QWidget* parent = 0);
 
     /**
      * Creates button with no NoGroup position.
      */
-    explicit KoGroupButton(QWidget* parent = 0);
+    explicit KexiGroupButton(QWidget* parent = 0);
 
-    virtual ~KoGroupButton();
+    virtual ~KexiGroupButton();
 
-    void setGroupPosition(KoGroupButton::GroupPosition groupPosition);
+    void setGroupPosition(KexiGroupButton::GroupPosition groupPosition);
 
-    KoGroupButton::GroupPosition groupPosition() const;
+    KexiGroupButton::GroupPosition groupPosition() const;
 
 protected:
     virtual void paintEvent(QPaintEvent* event);
@@ -69,4 +72,4 @@ private:
     Private *const d;
 };
 
-#endif /* KOGROUPBUTTON_H */
+#endif /* KEXIGROUPBUTTON_H */

@@ -1,6 +1,6 @@
 include_directories(
-    ${CMAKE_SOURCE_DIR}/kexi/formeditor
-    ${CMAKE_SOURCE_DIR}/kexi/core
+    ${CMAKE_SOURCE_DIR}/src/formeditor
+    ${CMAKE_SOURCE_DIR}/src/core
     ${MARBLE_INCLUDE_DIR}
 )
 

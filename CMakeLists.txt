@@ -373,28 +373,6 @@ macro_log_feature(Qt5WebKitWidgets_FOUND "Qt WebkitWidgets" "QWidgets module for
 include(MacroCalligraAddBenchmark)
 include(MacroCalligraAddTest)
 
- ####################
-#####################
-## Define includes ##
-#####################
-####################
-
-# WARNING: make sure that QT_INCLUDES is the first directory to be added to include_directory before
-#          any other include directory
-
-# for config.h and <toplevel/foo.h> includes (if any?)
-include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_SOURCE_DIR}/interfaces )
-
-set(KUNDO2_INCLUDES ${CMAKE_SOURCE_DIR}/libs/kundo2
-                    ${CMAKE_BINARY_DIR}/libs/kundo2)
-
-# Widgets depends on kotext and flake
-set(KOWIDGETS_INCLUDES
-                   ${CMAKE_SOURCE_DIR}/libs/widgetutils
-                   ${CMAKE_BINARY_DIR}/libs/widgetutils
-                   ${CMAKE_SOURCE_DIR}/libs/widgets
-                   ${CMAKE_BINARY_DIR}/libs/widgets)
-
  ###################################################
 ####################################################
 ## Detect which products/features can be compiled ##
@@ -456,7 +434,6 @@ if(SHOULD_BUILD_DOC)
 endif()
 
 # non-app directories are moved here because they can depend on SHOULD_BUILD_{appname} variables set above
-add_subdirectory(libs)
 add_subdirectory(cmake)
 add_subdirectory(plugins)
 add_subdirectory(devtools)
@@ -465,8 +442,6 @@ macro_display_feature_log()
 
 calligra_product_deps_report("product_deps")
 calligra_log_should_build()
-
-add_custom_target(apidox doc/api/gendocs.pl WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
 configure_file(KoConfig.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/KoConfig.h )
 install( FILES  ${CMAKE_CURRENT_BINARY_DIR}/KoConfig.h DESTINATION ${INCLUDE_INSTALL_DIR}/calligra COMPONENT Devel)

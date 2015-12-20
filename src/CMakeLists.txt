@@ -56,8 +56,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/KexiVersion.h.cmake ${CMAKE_CURRENT_B
 include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_BINARY_DIR}
-  ${KOMAIN_INCLUDES}
-  ${CMAKE_SOURCE_DIR}/libs
+  ${CMAKE_CURRENT_BINARY_DIR}/core
 )
 
 add_subdirectory( kexiutils )

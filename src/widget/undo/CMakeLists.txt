@@ -1,6 +1,4 @@
-include_directories(${KUNDO2_INCLUDES})
-
-set(kundo2_LIB_SRCS
+set(kexiundo_LIB_SRCS
 	kundo2stack.cpp
 	kundo2group.cpp
 	kundo2view.cpp
@@ -9,10 +7,10 @@ set(kundo2_LIB_SRCS
 	kundo2commandextradata.cpp
 )
 
-add_library(kundo2 SHARED ${kundo2_LIB_SRCS})
-generate_export_header(kundo2 BASE_NAME kundo2)
+add_library(kexiundo SHARED ${kexiundo_LIB_SRCS})
+generate_export_header(kexiundo BASE_NAME kexiundo)
 
-target_link_libraries(kundo2
+target_link_libraries(kexiundo
     PUBLIC
         KF5::I18n
         KF5::XmlGui
@@ -20,15 +18,18 @@ target_link_libraries(kundo2
         Qt5::Widgets
     PRIVATE
         KF5::ConfigWidgets
+        KF5::IconThemes #KI conLoader
+        kexicore # TODO remove when KexiIcon() goes out of core/
+        KDb # TODO remove when KexiIcon() goes out of core/
 )
 
-set_target_properties(kundo2 PROPERTIES
+set_target_properties(kexiundo PROPERTIES
     VERSION ${GENERIC_KEXI_LIB_VERSION} SOVERSION ${GENERIC_KEXI_LIB_SOVERSION}
 )
-install(TARGETS kundo2 ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kexiundo ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/kundo2_export.h
+    ${CMAKE_CURRENT_BINARY_DIR}/kexiundo_export.h
     kundo2stack.h
     kundo2qstack.h
     kundo2group.h

@@ -1,6 +1,7 @@
-add_subdirectory( utils )
 add_subdirectory( dataviewcommon )
 add_subdirectory( relations )
+add_subdirectory( undo )
+add_subdirectory( utils )
 
 if(KEXI_MOBILE)
 
@@ -10,7 +11,7 @@ endif()
 
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44023)
 
-include_directories(${CMAKE_SOURCE_DIR}/kexi/widget/tableview ${CMAKE_SOURCE_DIR}/kexi/core)
+include_directories(${CMAKE_SOURCE_DIR}/src/widget/tableview ${CMAKE_SOURCE_DIR}/src/core)
 
 
 ########### next target ###############
@@ -61,6 +62,7 @@ else ()
     kexiprjtypeselector.cpp
     KexiConnectionSelectorWidget.cpp
     KexiFileWidget.cpp
+    KexiFileDialog.cpp
     KexiPasswordWidget.cpp
     KexiDBPasswordDialog.cpp
   )

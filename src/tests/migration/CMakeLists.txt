@@ -1,6 +1,6 @@
 
 
-include_directories(${CMAKE_SOURCE_DIR}/kexi/core)
+include_directories(${CMAKE_SOURCE_DIR}/src/core)
 
 # temp
 #ADD_DEFINITIONS( -DNO_GUI=1 )

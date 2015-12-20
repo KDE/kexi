@@ -10,8 +10,8 @@ endif()
 find_package(Qt4 REQUIRED)
 
 include_directories( ${CMAKE_CURRENT_BINARY_DIR}
-    ${CMAKE_SOURCE_DIR}/kexi/core
-    ${CMAKE_SOURCE_DIR}/kexi/widget
+    ${CMAKE_SOURCE_DIR}/src/core
+    ${CMAKE_SOURCE_DIR}/src/widget
 )
 
 set(KexiMobile_SRCS main.cpp

@@ -62,7 +62,7 @@
 #include <QListView>
 #include <QString>
 
-#include "kundo2_export.h"
+#include "kexiundo_export.h"
 
 #ifndef QT_NO_UNDOVIEW
 
@@ -71,7 +71,7 @@ class KUndo2QStack;
 class KUndo2Group;
 class QIcon;
 
-class KUNDO2_EXPORT KUndo2View : public QListView
+class KEXIUNDO_EXPORT KUndo2View : public QListView
 {
     Q_OBJECT
     Q_PROPERTY(QString emptyLabel READ emptyLabel WRITE setEmptyLabel)

@@ -1,6 +1,6 @@
-include_directories( ${CMAKE_SOURCE_DIR}/kexi/core
-    ${CMAKE_SOURCE_DIR}/kexi/widget/utils ${CMAKE_SOURCE_DIR}/kexi/widget
-    ${CMAKE_SOURCE_DIR}/kexi/formeditor)
+include_directories( ${CMAKE_SOURCE_DIR}/src/core
+    ${CMAKE_SOURCE_DIR}/src/widget/utils ${CMAKE_SOURCE_DIR}/src/widget
+    ${CMAKE_SOURCE_DIR}/src/formeditor)
 
 if(MARBLE_FOUND)
   add_subdirectory(widgets/mapbrowser)

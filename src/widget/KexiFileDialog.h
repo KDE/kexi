@@ -1,6 +1,8 @@
 /* This file is part of the KDE project
    Copyright (C) 2013 - 2014 Yue Liu <yue.liu@mail.com>
 
+   Based on Calligra libs' KoFileDialog
+
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
    License as published by the Free Software Foundation; either
@@ -17,10 +19,10 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KOFILEDIALOG_H
-#define KOFILEDIALOG_H
+#ifndef KEXIFILEDIALOG_H
+#define KEXIFILEDIALOG_H
 
-#include "kowidgetutils_export.h"
+#include "kexiextwidgets_export.h"
 
 #include <QFileDialog>
 #include <QString>
@@ -33,7 +35,7 @@
  * Wrapper around QFileDialog providing native file dialogs
  * on KDE/Gnome/Windows/OSX/etc.
  */
-class KOWIDGETUTILS_EXPORT KoFileDialog : public QObject
+class KEXIEXTWIDGETS_EXPORT KexiFileDialog : public QObject
 {
     Q_OBJECT
 
@@ -58,11 +60,11 @@ public:
      * @return The name of the entry user selected in the file dialog
      *
      */
-    KoFileDialog(QWidget *parent,
-                 KoFileDialog::DialogType type,
+    KexiFileDialog(QWidget *parent,
+                 KexiFileDialog::DialogType type,
                  const QString &dialogName);
 
-    ~KoFileDialog();
+    ~KexiFileDialog();
 
     void setCaption(const QString &caption);
 
@@ -152,4 +154,4 @@ private:
     Private * const d;
 };
 
-#endif /* KOFILEDIALOG_H */
+#endif /* KEXIFILEDIALOG_H */

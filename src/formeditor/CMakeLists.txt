@@ -1,7 +1,7 @@
 add_subdirectory( factories )
 
-include_directories(${CMAKE_SOURCE_DIR}/kexi/widget ${CMAKE_SOURCE_DIR}/kexi/widget/utils
-${CMAKE_SOURCE_DIR}/kexi/widget/tableview ${CMAKE_SOURCE_DIR}/kexi/core)
+include_directories(${CMAKE_SOURCE_DIR}/src/widget ${CMAKE_SOURCE_DIR}/src/widget/utils
+${CMAKE_SOURCE_DIR}/src/widget/tableview ${CMAKE_SOURCE_DIR}/src/core)
 
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44010)
 
@@ -41,8 +41,7 @@ set(kformdesigner_LIBS
   kexiutils
   kexicore
   kexiextendedwidgets
-  kundo2
-  kowidgets # KoFileDialog
+  kexiundo
 
   KDb
   KPropertyWidgets

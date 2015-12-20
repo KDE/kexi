@@ -30,6 +30,7 @@
 
 #include <KDbQuerySchema>
 #include <KDbUtils>
+#include <KDb>
 
 #include <QApplication>
 #include <QFontMetrics>

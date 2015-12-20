@@ -26,7 +26,7 @@
 #include <kexiutils/SmallToolButton.h>
 #include <kexiutils/FlowLayout.h>
 
-#include <widgetutils/KoGroupButton.h>
+#include "KexiGroupButton.h"
 
 #include <KPropertySet>
 
@@ -131,7 +131,7 @@ public:
         return m_mainMenu;
     }
 
-    KoGroupButton *addViewButton(KoGroupButton::GroupPosition pos,
+    KexiGroupButton *addViewButton(KexiGroupButton::GroupPosition pos,
                                  Kexi::ViewMode mode, QWidget *parent, const char *slot,
                                  const QString &text, QHBoxLayout *btnLyr)
     {
@@ -141,7 +141,7 @@ public:
         QAction *a = new KexiToggleViewModeAction(mode, q);
         toggleViewModeActions.insert(mode, a);
 
-        KoGroupButton *btn = new KoGroupButton(pos, parent);
+        KexiGroupButton *btn = new KexiGroupButton(pos, parent);
         toggleViewModeButtons.insert(mode, btn);
         connect(btn, SIGNAL(toggled(bool)), q, slot);
         btn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -163,7 +163,7 @@ public:
     QWidget *topBarHWidget;
     KexiFlowLayout *topBarLyr;
     QHash<Kexi::ViewMode, QAction*> toggleViewModeActions;
-    QHash<Kexi::ViewMode, KoGroupButton*> toggleViewModeButtons;
+    QHash<Kexi::ViewMode, KexiGroupButton*> toggleViewModeButtons;
 
     KexiSmallToolButton* saveDesignButton;
 
@@ -654,13 +654,13 @@ void KexiView::createViewModeToggleButtons()
     d->topBarLyr->addWidget(btnCont);
     d->topBarLyr->addSpacing(KexiUtils::spacingHint());
 
-    d->addViewButton(KoGroupButton::GroupLeft, Kexi::DataViewMode, btnCont,
+    d->addViewButton(KexiGroupButton::GroupLeft, Kexi::DataViewMode, btnCont,
                      SLOT(slotSwitchToDataViewModeInternal(bool)), xi18n("Data"), btnLyr);
-    d->addViewButton(d->window->supportsViewMode(Kexi::TextViewMode) ? KoGroupButton::GroupCenter
-                                                                     : KoGroupButton::GroupRight,
+    d->addViewButton(d->window->supportsViewMode(Kexi::TextViewMode) ? KexiGroupButton::GroupCenter
+                                                                     : KexiGroupButton::GroupRight,
                      Kexi::DesignViewMode, btnCont,
                      SLOT(slotSwitchToDesignViewModeInternal(bool)), xi18n("Design"), btnLyr);
-    KoGroupButton *btn = d->addViewButton(KoGroupButton::GroupRight, Kexi::TextViewMode,
+    KexiGroupButton *btn = d->addViewButton(KexiGroupButton::GroupRight, Kexi::TextViewMode,
                                           btnCont, SLOT(slotSwitchToTextViewModeInternal(bool)),
                                           QString(), btnLyr);
     if (btn) {
@@ -703,7 +703,7 @@ void KexiView::slotSwitchToViewModeInternal(Kexi::ViewMode mode)
 
     if (d->viewMode != mode) {
         //switch back visually
-        KoGroupButton *b = d->toggleViewModeButtons.value(mode);
+        KexiGroupButton *b = d->toggleViewModeButtons.value(mode);
         d->slotSwitchToViewModeInternalEnabled = false;
         b->setChecked(false);
         d->slotSwitchToViewModeInternalEnabled = true;

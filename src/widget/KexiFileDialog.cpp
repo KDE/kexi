@@ -17,7 +17,7 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#include "KoFileDialog.h"
+#include "KexiFileDialog.h"
 #include <QDebug>
 #include <QFileDialog>
 #include <QApplication>
@@ -32,11 +32,11 @@
 #include <QMimeDatabase>
 #include <QMimeType>
 
-class Q_DECL_HIDDEN KoFileDialog::Private
+class Q_DECL_HIDDEN KexiFileDialog::Private
 {
 public:
     Private(QWidget *parent_,
-            KoFileDialog::DialogType dialogType_,
+            KexiFileDialog::DialogType dialogType_,
             const QString caption_,
             const QString defaultDir_,
             const QString dialogName_)
@@ -89,7 +89,7 @@ public:
     }
 
     QWidget *parent;
-    KoFileDialog::DialogType type;
+    KexiFileDialog::DialogType type;
     QString dialogName;
     QString caption;
     QString defaultDirectory;
@@ -102,24 +102,24 @@ public:
     bool swapExtensionOrder;
 };
 
-KoFileDialog::KoFileDialog(QWidget *parent,
-                           KoFileDialog::DialogType type,
+KexiFileDialog::KexiFileDialog(QWidget *parent,
+                           KexiFileDialog::DialogType type,
                            const QString &dialogName)
     : d(new Private(parent, type, "", getUsedDir(dialogName), dialogName))
 {
 }
 
-KoFileDialog::~KoFileDialog()
+KexiFileDialog::~KexiFileDialog()
 {
     delete d;
 }
 
-void KoFileDialog::setCaption(const QString &caption)
+void KexiFileDialog::setCaption(const QString &caption)
 {
     d->caption = caption;
 }
 
-void KoFileDialog::setDefaultDir(const QString &defaultDir, bool override)
+void KexiFileDialog::setDefaultDir(const QString &defaultDir, bool override)
 {
     if (override || d->defaultDirectory.isEmpty() || !QFile(d->defaultDirectory).exists()) {
         QFileInfo f(defaultDir);
@@ -127,12 +127,12 @@ void KoFileDialog::setDefaultDir(const QString &defaultDir, bool override)
     }
 }
 
-void KoFileDialog::setOverrideDir(const QString &overrideDir)
+void KexiFileDialog::setOverrideDir(const QString &overrideDir)
 {
     d->defaultDirectory = overrideDir;
 }
 
-void KoFileDialog::setImageFilters()
+void KexiFileDialog::setImageFilters()
 {
     QStringList imageMimeTypes;
     foreach(const QByteArray &mimeType, QImageReader::supportedMimeTypes()) {
@@ -141,10 +141,10 @@ void KoFileDialog::setImageFilters()
     setMimeTypeFilters(imageMimeTypes);
 }
 
-void KoFileDialog::setNameFilter(const QString &filter)
+void KexiFileDialog::setNameFilter(const QString &filter)
 {
     d->filterList.clear();
-    if (d->type == KoFileDialog::SaveFile) {
+    if (d->type == KexiFileDialog::SaveFile) {
         QStringList mimeList;
         d->filterList << splitNameFilter(filter, &mimeList);
         d->defaultFilter = d->filterList.first();
@@ -154,12 +154,12 @@ void KoFileDialog::setNameFilter(const QString &filter)
     }
 }
 
-void KoFileDialog::setNameFilters(const QStringList &filterList,
+void KexiFileDialog::setNameFilters(const QStringList &filterList,
                                   QString defaultFilter)
 {
     d->filterList.clear();
 
-    if (d->type == KoFileDialog::SaveFile) {
+    if (d->type == KexiFileDialog::SaveFile) {
         QStringList mimeList;
         foreach(const QString &filter, filterList) {
             d->filterList << splitNameFilter(filter, &mimeList);
@@ -180,7 +180,7 @@ void KoFileDialog::setNameFilters(const QStringList &filterList,
 
 }
 
-void KoFileDialog::setMimeTypeFilters(const QStringList &filterList,
+void KexiFileDialog::setMimeTypeFilters(const QStringList &filterList,
                                       QString defaultFilter)
 {
     d->filterList = getFilterStringListFromMime(filterList, true);
@@ -194,17 +194,17 @@ void KoFileDialog::setMimeTypeFilters(const QStringList &filterList,
     d->defaultFilter = defaultFilter;
 }
 
-void KoFileDialog::setHideNameFilterDetailsOption()
+void KexiFileDialog::setHideNameFilterDetailsOption()
 {
     d->hideDetails = true;
 }
 
-QStringList KoFileDialog::nameFilters() const
+QStringList KexiFileDialog::nameFilters() const
 {
     return d->filterList;
 }
 
-QString KoFileDialog::selectedNameFilter() const
+QString KexiFileDialog::selectedNameFilter() const
 {
     if (!d->useStaticForNative) {
         return d->fileDialog->selectedNameFilter();
@@ -214,7 +214,7 @@ QString KoFileDialog::selectedNameFilter() const
     }
 }
 
-QString KoFileDialog::selectedMimeType() const
+QString KexiFileDialog::selectedMimeType() const
 {
     if (d->mimeType.isValid()) {
         return d->mimeType.name();
@@ -224,7 +224,7 @@ QString KoFileDialog::selectedMimeType() const
     }
 }
 
-void KoFileDialog::createFileDialog()
+void KexiFileDialog::createFileDialog()
 {
     d->fileDialog.reset(new QFileDialog(d->parent, d->caption, d->defaultDirectory));
 
@@ -272,7 +272,7 @@ void KoFileDialog::createFileDialog()
     connect(d->fileDialog.data(), SIGNAL(filterSelected(QString)), this, SLOT(filterSelected(QString)));
 }
 
-QString KoFileDialog::filename()
+QString KexiFileDialog::filename()
 {
     QString url;
     if (!d->useStaticForNative) {
@@ -352,7 +352,7 @@ QString KoFileDialog::filename()
     return url;
 }
 
-QStringList KoFileDialog::filenames()
+QStringList KexiFileDialog::filenames()
 {
     QStringList urls;
 
@@ -386,7 +386,7 @@ QStringList KoFileDialog::filenames()
     return urls;
 }
 
-void KoFileDialog::filterSelected(const QString &filter)
+void KexiFileDialog::filterSelected(const QString &filter)
 {
     // "Windows BMP image ( *.bmp )";
     int start = filter.lastIndexOf("*.") + 2;
@@ -397,7 +397,7 @@ void KoFileDialog::filterSelected(const QString &filter)
     d->fileDialog->setDefaultSuffix(extension);
 }
 
-QStringList KoFileDialog::splitNameFilter(const QString &nameFilter, QStringList *mimeList)
+QStringList KexiFileDialog::splitNameFilter(const QString &nameFilter, QStringList *mimeList)
 {
     Q_ASSERT(mimeList);
 
@@ -431,7 +431,7 @@ QStringList KoFileDialog::splitNameFilter(const QString &nameFilter, QStringList
     return filters;
 }
 
-const QStringList KoFileDialog::getFilterStringListFromMime(const QStringList &mimeList,
+const QStringList KexiFileDialog::getFilterStringListFromMime(const QStringList &mimeList,
                                                             bool withAllSupportedEntry)
 {
     QStringList mimeSeen;
@@ -478,7 +478,7 @@ const QStringList KoFileDialog::getFilterStringListFromMime(const QStringList &m
     return ret;
 }
 
-QString KoFileDialog::getUsedDir(const QString &dialogName)
+QString KexiFileDialog::getUsedDir(const QString &dialogName)
 {
     if (dialogName.isEmpty()) return "";
 
@@ -488,7 +488,7 @@ QString KoFileDialog::getUsedDir(const QString &dialogName)
     return dir;
 }
 
-void KoFileDialog::saveUsedDir(const QString &fileName,
+void KexiFileDialog::saveUsedDir(const QString &fileName,
                                const QString &dialogName)
 {
 

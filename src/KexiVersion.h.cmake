@@ -25,7 +25,7 @@
 #ifndef KEXIVERSION_H
 #define KEXIVERSION_H
 
-#include "kexicore_export.h"
+#include <core/kexicore_export.h>
 
 // -- WARNING: do not edit values below, instead edit KEXI_* constants in /CMakeLists.txt --
 

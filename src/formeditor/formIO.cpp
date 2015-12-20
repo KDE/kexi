@@ -37,7 +37,7 @@
 #include <QImageWriter>
 #include <QDebug>
 
-#include <KoFileDialog.h>
+#include <KexiFileDialog.h>
 #include <KAcceleratorManager>
 #include <KLocalizedString>
 
@@ -119,7 +119,7 @@ FormIO::saveFormToFile(Form *form, const QString &filename)
     }
 
     if (filename.isEmpty()) {
-        KoFileDialog dlg(0, KoFileDialog::SaveFile, "SaveForm");
+        KexiFileDialog dlg(0, KexiFileDialog::SaveFile, "SaveForm");
         dlg.setNameFilter("*.ui|" + xi18n("Qt Designer UI Files"));
         _filename = dlg.filename();
         if (_filename.isEmpty()) {
@@ -295,7 +295,7 @@ FormIO::loadFormFromFile(Form *form, QWidget *container, const QString &filename
     QString _filename;
 
     if (filename.isEmpty()) {
-        KoFileDialog dlg(0, KoFileDialog::OpenFile, "LoadForm");
+        KexiFileDialog dlg(0, KexiFileDialog::OpenFile, "LoadForm");
         dlg.setNameFilter("*.ui|" + xi18n("Qt Designer UI Files"));
         _filename = dlg.filename();
         if (_filename.isEmpty()) {

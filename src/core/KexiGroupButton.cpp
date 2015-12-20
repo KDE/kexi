@@ -18,7 +18,7 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "KoGroupButton.h"
+#include "KexiGroupButton.h"
 
 // Qt
 #include <QAction>
@@ -29,10 +29,10 @@
 // KF5
 #include <KLocalizedString>
 
-class Q_DECL_HIDDEN KoGroupButton::Private
+class Q_DECL_HIDDEN KexiGroupButton::Private
 {
 public:
-    Private(KoGroupButton *qq, const GroupPosition position) : groupPosition(position)
+    Private(KexiGroupButton *qq, const GroupPosition position) : groupPosition(position)
     {
         // Make the policy closer to QPushButton's default but horizontal shouldn't be Fixed,
         // otherwise spacing gets broken
@@ -41,32 +41,32 @@ public:
     GroupPosition groupPosition;
 };
 
-KoGroupButton::KoGroupButton(GroupPosition position, QWidget* parent)
+KexiGroupButton::KexiGroupButton(GroupPosition position, QWidget* parent)
  : QToolButton(parent), d(new Private(this, position))
 {
 }
 
-KoGroupButton::KoGroupButton(QWidget* parent)
+KexiGroupButton::KexiGroupButton(QWidget* parent)
  : QToolButton(parent), d(new Private(this, NoGroup))
 {
 }
 
-KoGroupButton::~KoGroupButton()
+KexiGroupButton::~KexiGroupButton()
 {
     delete d;
 }
 
-void KoGroupButton::setGroupPosition(KoGroupButton::GroupPosition groupPosition)
+void KexiGroupButton::setGroupPosition(KexiGroupButton::GroupPosition groupPosition)
 {
     d->groupPosition = groupPosition;
 }
 
-KoGroupButton::GroupPosition KoGroupButton::groupPosition() const
+KexiGroupButton::GroupPosition KexiGroupButton::groupPosition() const
 {
     return d->groupPosition;
 }
 
-void KoGroupButton::paintEvent(QPaintEvent* event)
+void KexiGroupButton::paintEvent(QPaintEvent* event)
 {
     if (groupPosition() == NoGroup) {
         QToolButton::paintEvent(event);

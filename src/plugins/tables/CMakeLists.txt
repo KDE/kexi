@@ -1,5 +1,5 @@
-include_directories(${CMAKE_SOURCE_DIR}/kexi/core ${CMAKE_SOURCE_DIR}/kexi/widget
- ${CMAKE_SOURCE_DIR}/kexi/widget/tableview)
+include_directories(${CMAKE_SOURCE_DIR}/src/core ${CMAKE_SOURCE_DIR}/src/widget
+ ${CMAKE_SOURCE_DIR}/src/widget/tableview)
 
 # the main plugin
 set(kexi_tableplugin_SRCS
@@ -21,7 +21,7 @@ target_link_libraries(kexi_tableplugin
         kexidatatable
         kexiextendedwidgets
         kexiutils
-        kundo2
+        kexiundo
 
         KDb
         KPropertyWidgets
