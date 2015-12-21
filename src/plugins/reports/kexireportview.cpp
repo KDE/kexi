@@ -321,9 +321,10 @@ void KexiReportView::slotExportAsWebPage()
     const int answer =
         KMessageBox::questionYesNo(
             this,
-            xi18n("Would you like to export using a Cascading Style Sheet (CSS), "
-                 "which will give an output closer to the original, "
-                 "or export using a HTML Table, which outputs a much simpler format?"),
+            xi18nc("@info",
+                   "Would you like to use Cascading Style Sheets (CSS) in the exported "
+                   "web page or use HTML tables?"
+                   "<note>CSS give output closer to the original.</note>"),
             dialogTitle,
             KGuiItem(xi18nc("@action:button", "Use CSS")),
             KGuiItem(xi18nc("@action:button", "Use Table")));
