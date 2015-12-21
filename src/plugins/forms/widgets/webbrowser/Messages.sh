@@ -1,5 +1,5 @@
 #! /bin/sh
-source ../../../../../calligra_xgettext.sh
+source ../../../../../kexi_xgettext.sh
 
 potfile=kformdesigner_webbrowser
 find_exclude $potfile
@@ -9,5 +9,5 @@ LIST=`find . \( $EXCLUDE \) -prune -o \( -name \*.h -o -name \*.cpp -o -name \*.
     if ! grep -q '^#warning noi18n ' $f ; then echo $f; fi \
 done \
 `
-calligra_xgettext $potfile.pot $LIST
+kexi_xgettext $potfile.pot $LIST
 rm -f rc.cpp

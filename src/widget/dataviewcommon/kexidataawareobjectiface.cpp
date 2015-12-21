@@ -121,7 +121,7 @@ void KexiDataAwareObjectInterface::setData(KDbTableViewData *data, bool owner)
     // set column widths
     if (horizontalHeader()) {
         int i = 0;
-        horizontalHeader()->setResizeMode(QHeaderView::Interactive); // set before using resizeSection()
+        horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive); // set before using resizeSection()
         foreach(KDbTableViewColumn *col, *m_data->columns()) {
             if (col->isVisible()) {
                 int w = col->width();
@@ -138,7 +138,7 @@ void KexiDataAwareObjectInterface::setData(KDbTableViewData *data, bool owner)
     if (verticalHeader()) {
         //TODO
         verticalHeader()->update();
-        verticalHeader()->setResizeMode(QHeaderView::Fixed);
+        verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
         verticalHeader()->headerDataChanged(Qt::Vertical, 0, data->count() - 1);
     }
 //!Change the following:

@@ -46,7 +46,7 @@ public:
 
 //=========================================================
 
-KexiDBLabel::KexiDBLabel(QWidget *parent, Qt::WFlags f)
+KexiDBLabel::KexiDBLabel(QWidget *parent, Qt::WindowFlags f)
         : QLabel(parent, f)
         , KexiDBTextWidgetInterface()
         , KexiFormDataItemInterface()
@@ -55,7 +55,7 @@ KexiDBLabel::KexiDBLabel(QWidget *parent, Qt::WFlags f)
     init();
 }
 
-KexiDBLabel::KexiDBLabel(const QString& text, QWidget *parent, Qt::WFlags f)
+KexiDBLabel::KexiDBLabel(const QString& text, QWidget *parent, Qt::WindowFlags f)
         : QLabel(parent, f)
         , KexiDBTextWidgetInterface()
         , KexiFormDataItemInterface()

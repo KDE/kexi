@@ -572,7 +572,7 @@ void KexiMenuWidgetPrivate::updateActionRects() const
                 } else {
                     QKeySequence seq = action->shortcut();
                     if (!seq.isEmpty())
-                        tabWidth = qMax(int(tabWidth), qfm.width(seq));
+                        tabWidth = qMax(int(tabWidth), qfm.width(seq.toString()));
     #endif
                 }
                 sz.setWidth(fm.boundingRect(QRect(), Qt::TextSingleLine | Qt::TextShowMnemonic, s).width());
@@ -1268,8 +1268,12 @@ void KexiMenuWidgetPrivate::activateAction(QAction *action, QAction::ActionEvent
 #ifndef QT_NO_ACCESSIBILITY
         if (QAccessible::isActive()) {
             int actionIndex = indexOf(action) + 1;
-            QAccessible::updateAccessibility(q, actionIndex, QAccessible::Focus);
-            QAccessible::updateAccessibility(q, actionIndex, QAccessible::Selection);
+            QAccessibleEvent focusEvent(q, QAccessible::Focus);
+            focusEvent.setChild(actionIndex);
+            QAccessible::updateAccessibility(&focusEvent);
+            QAccessibleEvent selectionEvent(q, QAccessible::Selection);
+            selectionEvent.setChild(actionIndex);
+            QAccessible::updateAccessibility(&selectionEvent);
         }
 #endif
         action->showStatusText(topCausedWidget());
@@ -1281,7 +1285,7 @@ void KexiMenuWidgetPrivate::activateAction(QAction *action, QAction::ActionEvent
 void KexiMenuWidget::actionTriggered()
 {
     if (QAction *action = qobject_cast<QAction *>(sender())) {
-        QWeakPointer<QAction> actionGuard = action;
+        QPointer<QAction> actionGuard = action;
         emit triggered(action);
 
         if (!d->activationRecursionGuard && actionGuard) {
@@ -1412,7 +1416,7 @@ void KexiMenuWidget::initStyleOption(QStyleOptionMenuItem *option, const QAction
     if (textAndAccel.indexOf(QLatin1Char('\t')) == -1) {
         QKeySequence seq = action->shortcut();
         if (!seq.isEmpty())
-            textAndAccel += QLatin1Char('\t') + QString(seq);
+            textAndAccel += QLatin1Char('\t') + seq.toString();
     }
 #endif
     option->text = textAndAccel;
@@ -2179,7 +2183,9 @@ void KexiMenuWidget::hideEvent(QHideEvent *)
         d->eventLoop->exit();
     d->setCurrentAction(0);
 #ifndef QT_NO_ACCESSIBILITY
-    QAccessible::updateAccessibility(this, 0, QAccessible::PopupMenuEnd);
+    QAccessibleEvent event(this, QAccessible::PopupMenuEnd);
+    event.setChild(0);
+    QAccessible::updateAccessibility(&event);
 #endif
     d->mouseDown = 0;
     d->hasHadMouse = false;

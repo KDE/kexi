@@ -63,7 +63,7 @@ using namespace KexiMigration;
 
 #define ROWS_FOR_PREVIEW 3
 
-ImportTableWizard::ImportTableWizard ( KDbConnection* curDB, QWidget* parent, QMap<QString, QString>* args, Qt::WFlags flags)
+ImportTableWizard::ImportTableWizard ( KDbConnection* curDB, QWidget* parent, QMap<QString, QString>* args, Qt::WindowFlags flags)
     : KAssistantDialog ( parent, flags ),
       m_args(args)
 {

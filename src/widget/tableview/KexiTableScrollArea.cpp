@@ -832,7 +832,7 @@ void KexiTableScrollArea::paintEmptyArea(QPainter *p, int cx, int cy, int cw, in
     QRegion reg(QRect(cx, cy, cw, ch));
     //qDebug() << "---cy-- " << verticalScrollBar()->value();
     // Subtract the table from it
-    reg = reg.subtract(QRect(QPoint(0, 0), ts - QSize(0, + verticalScrollBar()->value())));
+    reg = reg.subtracted(QRect(QPoint(0, 0), ts - QSize(0, + verticalScrollBar()->value())));
 
     // And draw the rectangles (transformed inc contents coordinates as needed)
     const QVector<QRect> rects(reg.rects());
@@ -1993,12 +1993,12 @@ void KexiTableScrollArea::setColumnResizeEnabled(int column, bool set)
     if (column < 0 || column >= columnCount()) {
         return;
     }
-    d->horizontalHeader->setResizeMode(column, set ? QHeaderView::Interactive : QHeaderView::Fixed);
+    d->horizontalHeader->setSectionResizeMode(column, set ? QHeaderView::Interactive : QHeaderView::Fixed);
 }
 
 void KexiTableScrollArea::setColumnsResizeEnabled(bool set)
 {
-    d->horizontalHeader->setResizeMode(set ? QHeaderView::Interactive : QHeaderView::Fixed);
+    d->horizontalHeader->setSectionResizeMode(set ? QHeaderView::Interactive : QHeaderView::Fixed);
 }
 
 bool KexiTableScrollArea::stretchLastColumn() const

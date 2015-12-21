@@ -29,6 +29,7 @@
 #include <QHeaderView>
 #include <QPushButton>
 #include <QTabWidget>
+#include <QVBoxLayout>
 #include <QDebug>
 
 static DebugWindow* debugWindow = 0;

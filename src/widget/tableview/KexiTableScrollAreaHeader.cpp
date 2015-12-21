@@ -112,9 +112,9 @@ KexiTableScrollAreaHeader::KexiTableScrollAreaHeader(Qt::Orientation orientation
         : QHeaderView(orientation, parent)
         , d(new Private)
 {
-    setMovable(false);
+    setSectionsMovable(false);
     setSortingEnabled(parent->isSortingEnabled() && orientation == Qt::Horizontal);
-    setResizeMode(orientation == Qt::Horizontal ?  QHeaderView::Interactive : QHeaderView::Fixed);
+    setSectionResizeMode(orientation == Qt::Horizontal ?  QHeaderView::Interactive : QHeaderView::Fixed);
     setSelectionMode(QAbstractItemView::SingleSelection);
     setHighlightSections(true);
     setModel(parent->headerModel());
@@ -332,7 +332,7 @@ QSize KexiTableScrollAreaHeader::sizeHint() const
 
 void KexiTableScrollAreaHeader::setSortingEnabled(bool set)
 {
-    setClickable(set);
+    setSectionsClickable(set);
     setSortIndicatorShown(set);
 }
 

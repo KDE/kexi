@@ -458,7 +458,8 @@ void KexiCompletionModel::filter(const QStringList& parts)
 void KexiCompletionModel::resetModel()
 {
     if (rowCount() == 0) {
-        reset();
+        beginResetModel();
+        endResetModel();
         return;
     }
 

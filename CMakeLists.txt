@@ -29,7 +29,7 @@ endif()
 #######################
 ######################
 
-# define common versions of Calligra applications, used to generate KexiVersion.h
+# define common versions of Kexi components used to generate KexiVersion.h
 # update these version for every release:
 set(KEXI_VERSION_STRING "3.0 Alpha")
 set(KEXI_STABLE_VERSION_MAJOR 3) # 3 for 3.x, 4 for 4.x, etc.
@@ -46,7 +46,7 @@ endif()
 
 message(STATUS "Kexi version: ${KEXI_VERSION_STRING}")
 
-# Define the generic version of the Calligra libraries here
+# Define the generic version of the Kexi libraries here
 # This makes it easy to advance it when the next Kexi release comes.
 # 14 was the last GENERIC_KEXI_LIB_VERSION_MAJOR of the previous Kexi series
 # (2.x) so we're starting with 15 in 3.x series.
@@ -107,7 +107,7 @@ option(PACKAGERS_BUILD "Build support of multiple CPU architectures in one binar
 ########################
 #######################
 
-# For predefined productsets see the definitions in CalligraProducts.cmake and
+# For predefined productsets see the definitions in KexiProducts.cmake and
 # in the files in the folder cmake/productsets.
 
 # Finding out the products & features to build is done in 5 steps:
@@ -121,7 +121,7 @@ option(PACKAGERS_BUILD "Build support of multiple CPU architectures in one binar
 include(CalligraProductSetMacros)
 
 # get the definitions of products, features and product sets
-include(CalligraProducts.cmake)
+include(KexiProducts.cmake)
 
 set(PRODUCTSET_DEFAULT "ALL")
 
@@ -169,12 +169,9 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings)
 # own macros
-include(MacroBoolTo01)
 include(MacroLogFeature)
 include(MacroOptionalFindPackage)
 include(MacroEnsureVersion)
-include(MacroJPEG)
-
 
 find_package(KF5 5.7.0 REQUIRED COMPONENTS 
         Archive 
@@ -183,61 +180,23 @@ find_package(KF5 5.7.0 REQUIRED COMPONENTS
         Config 
         ConfigWidgets 
         CoreAddons
-        DBusAddons
         GuiAddons 
         I18n 
         IconThemes 
         ItemViews
-        KDELibs4Support
         KIO 
-        Kross 
-        Parts 
-        Sonnet
         TextEditor 
         TextWidgets 
-        ThreadWeaver
-        Wallet 
         WidgetsAddons 
-        WindowSystem
         XmlGui 
-        NotifyConfig
-        Notifications
     OPTIONAL_COMPONENTS
-        Activities
-        KHtml
 )
 if(KF5_Activities_FOUND)
     set(HAVE_KACTIVITIES TRUE)
 endif()
 
-find_package(Qt5 5.3.0 REQUIRED COMPONENTS Core Gui Widgets Xml Network PrintSupport
-                                           Script Svg Test)
-find_package(Qt5 5.3.0 COMPONENTS UiTools Sql WebKit WebKitWidgets DBus Declarative Qml Quick OpenGL)
-
-set(HAVE_OPENGL ${Qt5OpenGL_FOUND})
-
-if (GHNS)
-    find_package(Attica)
-    find_package(NewStuff)
-    macro_log_feature(LIBATTICA_FOUND "LibAttica" "Attica is used for Get Hot New Stuff." "https://projects.kde.org/projects/kdesupport/attica" FALSE "" "You need at least version 3.0 for uploading of resources to work.")
-
-    if (NOT LIBATTICA_FOUND)
-        set(GHNS FALSE)
-    else ()
-        message(STATUS "WARNING: You are compiling with Get Hot New Stuff enabled. Do not do that when building distribution packages. GHNS is unusable these days until someone starts maintaining it again.")
-    endif ()
-endif ()
-
-find_package(X11)
-if(X11_FOUND)
-    find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS
-                 X11Extras
-    )
-    set(HAVE_X11 TRUE)
-    add_definitions(-DHAVE_X11)
-else()
-    set(HAVE_X11 FALSE)
-endif()
+find_package(Qt5 5.3.0 REQUIRED COMPONENTS Core Gui Widgets Xml Network PrintSupport Test)
+find_package(Qt5 5.3.0 COMPONENTS UiTools WebKit WebKitWidgets)
 
 # use sane compile flags
 add_definitions(
@@ -265,7 +224,7 @@ if(WIN32)
     set(WIN32_PLATFORM_NET_LIBS ws2_32.lib netapi32.lib)
 endif()
 
-# set custom calligra plugin installdir
+# set custom Kexi plugin installdir
 set(KEXI_PLUGIN_INSTALL_DIR ${LIB_INSTALL_DIR}/kexi)
 
 # TEMPORARY: for initial Qt5/KF5 build porting phase deprecation warnings are only annoying noise
@@ -337,7 +296,7 @@ else()
         message( WARNING "MarbleControlBox.h not found, could not properly set the SETMARBLEWIDGET define." )
     endif()
 endif()
-macro_log_feature(MARBLE_FOUND "Marble" "KDE World Globe Widget library" "https://marble.kde.org/" FALSE "${MARBLE_MIN_VERSION}" "Required by RDF, Kexi Forms and Reports to show locations on a map")
+macro_log_feature(MARBLE_FOUND "Marble" "KDE World Globe Widget library" "https://marble.kde.org/" FALSE "${MARBLE_MIN_VERSION}" "Required by Kexi form map widget")
 
 if(WIN32)
     set(LIB_INSTALL_DIR ${LIB_INSTALL_DIR}
@@ -358,7 +317,7 @@ endif()
 ##
 ## Test for Qt WebKitWidgets
 ##
-macro_log_feature(Qt5WebKitWidgets_FOUND "Qt WebkitWidgets" "QWidgets module for Webkit, the HTML engine." "http://qt.io" FALSE "" "Required for the web Kexi for widget")
+macro_log_feature(Qt5WebKitWidgets_FOUND "Qt WebkitWidgets" "QWidgets module for Webkit, the HTML engine." "http://qt.io" FALSE "" "Required by Kexi form web widget")
 
 ##
 ## Generate a file for prefix information
@@ -394,14 +353,6 @@ calligra_drop_product_on_bad_condition( APP_KEXI
 )
 
 #############################################
-####  Backward compatibility BUILD_x=off ####
-#############################################
-
-# workaround: disable directly all products which might be activated by internal
-# dependencies, but belong to scope of old flag
-calligra_drop_products_on_old_flag(kexi APP_KEXI)
-
-#############################################
 ####      Temporarily broken products    ####
 #############################################
 
@@ -435,13 +386,8 @@ endif()
 
 # non-app directories are moved here because they can depend on SHOULD_BUILD_{appname} variables set above
 add_subdirectory(cmake)
-add_subdirectory(plugins)
-add_subdirectory(devtools)
 
 macro_display_feature_log()
 
 calligra_product_deps_report("product_deps")
 calligra_log_should_build()
-
-configure_file(KoConfig.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/KoConfig.h )
-install( FILES  ${CMAKE_CURRENT_BINARY_DIR}/KoConfig.h DESTINATION ${INCLUDE_INSTALL_DIR}/calligra COMPONENT Devel)

@@ -31,6 +31,7 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QDesktopServices>
+#include <QUrlQuery>
 
 /*! Make a deep copy so we can modify the version.
  We need to override the version since it sometimes can look like
@@ -100,10 +101,11 @@ void KexiBugReportDialog::accept()
 {
     // override, based on KBugReport::accept()
     QUrl url("https://bugs.kde.org/enter_bug.cgi");
-    url.addQueryItem("format", "guided"); // use the guided form
+    QUrlQuery query;
+    query.addQueryItem("format", "guided"); // use the guided form
     // the string format is product/component, where component is optional
-    url.addQueryItem("product", "kexi");
-    url.addQueryItem("version", KEXI_VERSION_STRING);
+    query.addQueryItem("product", "kexi");
+    query.addQueryItem("version", KEXI_VERSION_STRING);
 #if 0   //! @todo add when enter_bug.cgi supports adding comments or when Kexi gets
     //! own Bug Report GUI and communicates using RPC.
     QString desc;
@@ -111,10 +113,11 @@ void KexiBugReportDialog::accept()
         desc += futureI18nc("Full version of Kexi app", "Full version: %1", Kexi::fullVersionString());
     }
     body += futureI18n("(filed directly from Kexi app)");
-    url.addQueryItem("comment", m_aboutData->version());
+    query.addQueryItem("comment", m_aboutData->version());
 #endif
-    url.addQueryItem("op_sys", m_op_sys);
-    url.addQueryItem("rep_platform", m_rep_platform);
+    query.addQueryItem("op_sys", m_op_sys);
+    query.addQueryItem("rep_platform", m_rep_platform);
+    url.setQuery(query);
     QDesktopServices::openUrl(url);
     QDialog::accept();
 }

@@ -18,7 +18,7 @@ target_link_libraries(kexiundo
         Qt5::Widgets
     PRIVATE
         KF5::ConfigWidgets
-        KF5::IconThemes #KI conLoader
+        KF5::IconThemes #KIconLoader
         kexicore # TODO remove when KexiIcon() goes out of core/
         KDb # TODO remove when KexiIcon() goes out of core/
 )
@@ -28,6 +28,7 @@ set_target_properties(kexiundo PROPERTIES
 )
 install(TARGETS kexiundo ${INSTALL_TARGETS_DEFAULT_ARGS})
 
+if(FALSE) # no need to install
 install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/kexiundo_export.h
     kundo2stack.h
@@ -37,5 +38,6 @@ install(FILES
     kundo2model.h
     kundo2command.h
     kundo2magicstring.h
-    DESTINATION ${INCLUDE_INSTALL_DIR}/calligra COMPONENT Devel
+    DESTINATION ${INCLUDE_INSTALL_DIR}/kexi COMPONENT Devel
 )
+endif()
