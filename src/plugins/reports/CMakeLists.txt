@@ -37,12 +37,6 @@ target_link_libraries(kexi_reportplugin
         KDb
         KReport
         KPropertyWidgets
-
-        KF5::KrossCore
-        KF5::KDELibs4Support
-
-        Qt5::Gui
-        Qt5::Script
 )
 
 if (KEXI_MOBILE)

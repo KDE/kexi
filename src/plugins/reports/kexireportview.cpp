@@ -39,10 +39,10 @@
 #include <KReportScriptHandler>
 #include "krscriptfunctions.h"
 
-#include <KIO/NetAccess>
 #include <KRun>
 #include <KActionMenu>
 #include <KMessageBox>
+#include <KFileWidget>
 
 #include <QLayout>
 #include <QPainter>
@@ -225,40 +225,16 @@ void KexiReportView::slotExportAsPdf()
 QUrl KexiReportView::getExportUrl(const QString &mimetype, const QString &caption,
                                   const QString &lastExportPath, const QString &extension)
 {
-    QUrl result;
     QString defaultSavePath;
-
-    if (lastExportPath.startsWith("kfiledialog:///")) {
-        defaultSavePath = lastExportPath + window()->partItem()->captionOrName() + "." + extension;
-    }
+    QString recentDirClass;
+    defaultSavePath = KFileWidget::getStartUrl(QUrl(lastExportPath), recentDirClass).toLocalFile()
+        + '/' + window()->partItem()->captionOrName() + '.' + extension;
 
     // loop until an url has been chosen or the file selection has been cancelled
     const QMimeDatabase db;
     const QString filterString = db.mimeTypeForName(mimetype).filterString();
 
-    while (true) {
-        QUrl result = QFileDialog::getSaveFileUrl(this, caption, QUrl::fromLocalFile(defaultSavePath),
-                                             filterString);
-
-        // not cancelled?
-        if (result.isValid()) {
-            if (KIO::NetAccess::exists(result, KIO::NetAccess::DestinationSide, this)) {
-                const KMessageBox::ButtonCode answer = KMessageBox::warningContinueCancel(this,
-                    xi18n("The file %1 exists.\nDo you want to overwrite it?", result.path()),
-                    caption, KGuiItem(xi18nc("@action:button Overwrite File", "Overwrite")));
-
-                // if overwriting not wanted, let select another url
-                if (answer == KMessageBox::Cancel) {
-                    continue;
-                }
-            }
-        }
-
-        // decision has been made, leave loop
-        break;
-    }
-
-    return result;
+    return QFileDialog::getSaveFileUrl(this, caption, QUrl(defaultSavePath), filterString);
 }
 
 void KexiReportView::openExportedDocument(const QUrl &destination)

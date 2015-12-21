@@ -77,7 +77,6 @@ private:
     KRScriptFunctions *m_functions;
     KReportRendererFactory m_factory;
 
-    //! @todo KEXI3 add equivalent of kfiledialog:/// for lastExportPathOrVariable
     QUrl getExportUrl(const QString &mimetype, const QString &caption,
                       const QString &lastExportPathOrVariable, const QString &extension);
 
