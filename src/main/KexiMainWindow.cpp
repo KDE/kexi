@@ -343,12 +343,10 @@ int KexiMainWindow::create(int &argc, char *argv[], const QString &componentName
     KexiMainWindow *win = new KexiMainWindow();
 #ifdef KEXI_DEBUG_GUI
     QWidget* debugWindow = 0;
-    if (GUIenabled) {
-        KConfigGroup generalGroup = KSharedConfig::openConfig()->group("General");
-        if (generalGroup.readEntry("ShowInternalDebugger", false)) {
-            debugWindow = KexiUtils::createDebugWindow(win);
-            debugWindow->show();
-        }
+    KConfigGroup generalGroup = KSharedConfig::openConfig()->group("General");
+    if (generalGroup.readEntry("ShowInternalDebugger", false)) {
+        debugWindow = KexiUtils::createDebugWindow(win);
+        debugWindow->show();
     }
 #endif
 

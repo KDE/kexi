@@ -265,7 +265,7 @@ FormIO::loadFormFromString(Form *form, QWidget *container, QString *src, bool pr
     int errCol;
 
 #ifdef KEXI_DEBUG_GUI
-    form->m_recentlyLoadedUICode = src;
+    form->m_recentlyLoadedUICode = *src;
 #endif
 
     QDomDocument inBuf;

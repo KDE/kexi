@@ -1489,7 +1489,7 @@ tristate KexiTableDesignerView::simulateAlterTableExecution(QString *debugTarget
     KDbAlterTableHandler::ActionList actions;
     /*tristate res =*/ buildAlterTableActions(actions);
 //! @todo result?
-    KDbAlterTableHandler alterTableHandler(*conn);
+    KDbAlterTableHandler alterTableHandler(conn);
     alterTableHandler.setActions(actions);
     KDbAlterTableHandler::ExecutionArguments args;
     if (debugTarget) {
@@ -1497,7 +1497,7 @@ tristate KexiTableDesignerView::simulateAlterTableExecution(QString *debugTarget
     } else {
         args.simulate = true;
     }
-    (void)alterTableHandler.execute(tempData()->table->name(), args);
+    (void)alterTableHandler.execute(tempData()->table->name(), &args);
     return args.result;
 # else
     Q_UNUSED(debugTarget);

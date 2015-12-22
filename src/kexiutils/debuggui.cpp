@@ -23,7 +23,7 @@
 
 #include <KDb>
 
-#include <KGuiItem>
+#include <KStandardGuiItem>
 
 #include <QThread>
 #include <QHeaderView>
@@ -56,7 +56,7 @@ static void addKexiDBDebug(const QString& text)
         QPushButton *btn_copy = new QPushButton(page);
         btn_copy->setIcon(koSmallIcon("edit-copy"));
         hbox->addWidget(btn_copy);
-        QPushButton *btn_clear = new QPushButton(KGuiItem("Clear", koIconName("edit-clear-locationbar-rtl")), page);
+        QPushButton *btn_clear = new QPushButton(KStandardGuiItem::clear().icon(), KStandardGuiItem::clear().text(), page);
         hbox->addWidget(btn_clear);
 
         kexiDBDebugPage = new KexiDBDebugTreeWidget(page);
@@ -69,7 +69,7 @@ static void addKexiDBDebug(const QString& text)
         kexiDBDebugPage->header()->hide();
         kexiDBDebugPage->setSortingEnabled(false);
         kexiDBDebugPage->setAllColumnsShowFocus(true);
-        kexiDBDebugPage->header()->setResizeMode(0, QHeaderView::Stretch);
+        kexiDBDebugPage->header()->setSectionResizeMode(0, QHeaderView::Stretch);
         kexiDBDebugPage->header()->setStretchLastSection(true);
         kexiDBDebugPage->setRootIsDecorated(true);
         kexiDBDebugPage->setWordWrap(true);
@@ -104,12 +104,12 @@ static void addAlterTableActionDebug(const QString& text, int nestingLevel)
         QHBoxLayout *hbox = new QHBoxLayout(page);
         vbox->addLayout(hbox);
         hbox->addStretch(1);
-        QPushButton *btn_exec = new QPushButton(KGuiItem("Real Alter Table", koIconName("document-save")), page);
+        QPushButton *btn_exec = new QPushButton(KStandardGuiItem::save().icon(), "Real Alter Table", page);
         btn_exec->setObjectName("executeRealAlterTable");
         hbox->addWidget(btn_exec);
-        QPushButton *btn_clear = new QPushButton(KGuiItem("Clear", koIconName("edit-clear-locationbar-rtl")), page);
+        QPushButton *btn_clear = new QPushButton(KStandardGuiItem::clear().icon(), KStandardGuiItem::clear().text(), page);
         hbox->addWidget(btn_clear);
-        QPushButton *btn_sim = new QPushButton(KGuiItem("Simulate Execution", koIconName("system-run")), page);
+        QPushButton *btn_sim = new QPushButton(QIcon::fromTheme("system-run"), "Simulate Execution", page);
         btn_sim->setObjectName("simulateAlterTableExecution");
         hbox->addWidget(btn_sim);
 
@@ -122,7 +122,7 @@ static void addAlterTableActionDebug(const QString& text, int nestingLevel)
         kexiAlterTableActionDebugPage->header()->hide();
         kexiAlterTableActionDebugPage->setSortingEnabled(false);
         kexiAlterTableActionDebugPage->setAllColumnsShowFocus(true);
-        kexiAlterTableActionDebugPage->header()->setResizeMode(0, QHeaderView::Stretch);
+        kexiAlterTableActionDebugPage->header()->setSectionResizeMode(0, QHeaderView::Stretch);
         kexiAlterTableActionDebugPage->setRootIsDecorated(true);
         debugWindowTab->addTab(page, "AlterTable Actions");
         debugWindowTab->setCurrentWidget(page);

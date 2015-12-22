@@ -36,6 +36,7 @@
 #include <KTextEdit>
 #include <KToolBar>
 #include <KSharedConfig>
+#include <KConfigGroup>
 
 #include <formeditor/form.h>
 #include <formeditor/widgetlibrary.h>
@@ -470,7 +471,6 @@ void KexiFormManager::showFormUICode()
     uiCodeDialog.setFaceType(KPageDialog::Tabbed);
     uiCodeDialog.setModal(true);
     uiCodeDialog.setWindowTitle(xi18nc("@title:window", "Form's UI Code"));
-    uiCodeDialog.setButtons(QDialog::Close);
     uiCodeDialog.resize(700, 600);
     KTextEdit *currentUICodeDialogEditor = new KTextEdit(&uiCodeDialog);
     uiCodeDialog.addPage(currentUICodeDialogEditor, xi18n("Current"));
