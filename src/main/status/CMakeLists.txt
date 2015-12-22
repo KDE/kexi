@@ -1,12 +1,7 @@
 set(status_qrc "${CMAKE_CURRENT_SOURCE_DIR}/status.qrc")
 set(status_rcc "${CMAKE_CURRENT_BINARY_DIR}/status.rcc")
 
-add_custom_command(OUTPUT "${status_rcc}"
-    COMMAND "${QT_RCC_EXECUTABLE}" -binary -o "${status_rcc}" "${status_qrc}"
-    DEPENDS "${status_qrc}"
-    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
-    COMMENT "Building external Qt resource ${status_rcc}"
-    VERBATIM)
+qt5_add_binary_resources(build_status_rcc "${status_qrc}" OPTIONS -binary DESTINATION "${status_rcc}")
 
 add_custom_target(build_status_rcc DEPENDS "${status_rcc}" SOURCES "${status_qrc}")
 
