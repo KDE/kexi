@@ -1,6 +1,4 @@
-
-Introduction:
-=============
+# Introduction
 
 Kexi is a visual database applications builder. It can be used for designing
 database applications, inserting and editing data, performing queries,
@@ -18,31 +16,24 @@ lack of Rapid Application Development (RAD) tools for database systems that
 are sufficiently powerful, inexpensive, open standards driven and portable
 across many operating systems and hardware platforms.
 
+# Contact
 
-Contacts:
-=========
+- Developers: http://kexi-project.org/contact.html
 
-Developers: http://kexi-project.org/contact.html
+- Users mailing list: kexi@kde.org
+  (subscribe at https://mail.kde.org/mailman/listinfo/kexi)
 
-Kexi users mailing list: kexi@kde.org
-   (subscribe at https://mail.kde.org/mailman/listinfo/kexi)
+- Developers mailing list: kexi-devel@kde.org
+  (subscribe at https://mail.kde.org/mailman/listinfo/kexi-devel)
 
-Kexi developers mailing list: kexi-devel@kde.org
-   (subscribe at https://mail.kde.org/mailman/listinfo/kexi-devel)
-
-Kexi Users and Contributors Forum: http://forum.kde.org/kexi
-
-If you have questions about Calligra in general please mail to the Calligra
-development mailing list: calligra-devel@kde.org
-(subscription recommended at https://mail.kde.org/mailman/listinfo/calligra-devel)
-or visit Calligra Users Forum at http://forum.kde.org/calligra
+- Users and Contributors Forum: http://forum.kde.org/kexi
 
 
-Links:
-======
-Kexi within the Calligra suite: http://www.calligra.org/kexi
-Kexi Project Home Page: http://kexi-project.org
+# Links
 
---
+- Kexi Project Home Page: http://kexi-project.org
+- Kexi within the Calligra suite: http://www.calligra.org/kexi
+
+
 Have fun,
-The Kexi Team
+--- Your Kexi Team
