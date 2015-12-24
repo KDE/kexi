@@ -148,15 +148,9 @@ find_package(ECM 1.7.0 REQUIRED NOMODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 # CMake macros
-include(CMakePackageConfigHelpers)
-include(WriteBasicConfigVersionFile)
 include(CheckFunctionExists)
-include(CheckTypeSize)
-include(CheckIncludeFile)
 include(GenerateExportHeader)
-include(FeatureSummary)
 # ECM macros
-include(ECMOptionalAddSubdirectory)
 include(ECMInstallIcons)
 include(ECMAddAppIcon)
 include(ECMSetupVersion)
@@ -170,7 +164,6 @@ include(KDECMakeSettings)
 include(KDECompilerSettings)
 # own macros
 include(MacroLogFeature)
-include(MacroOptionalFindPackage)
 include(MacroEnsureVersion)
 
 find_package(KF5 5.7.0 REQUIRED COMPONENTS 
@@ -242,24 +235,24 @@ endif ()
 ##
 ## Test for KDb
 ##
-macro_optional_find_package(KDb 2.96.1)
+find_package(KDb 2.96.1 REQUIRED)
 macro_log_feature(KDb_FOUND "KDb" "A database connectivity and creation framework"
                             "http://community.kde.org/KDb" FALSE "" "Required by Kexi and its plugins")
 
 ##
 ## Test for KReport
 ##
-macro_optional_find_package(KReport 2.96.1)
+find_package(KReport 2.96.1 REQUIRED)
 if (KReport_FOUND AND KREPORT_SCRIPTING)
     set(KReport_WITH_SCRIPTING_FOUND TRUE)
 endif()
 macro_log_feature(KReport_WITH_SCRIPTING_FOUND "KReport" "A framework for the creation and generation of reports in multiple formats (scripting support required)"
-                                               "http://community.kde.org/KReport" FALSE "" "Required by Kexi")
+                                               "http://community.kde.org/KReport" FALSE "" "Required by Kexi reports")
 
 ##
 ## Test for KPropertyWidgets
 ##
-macro_optional_find_package(KPropertyWidgets 2.98.0)
+find_package(KPropertyWidgets 2.98.0 REQUIRED)
 macro_log_feature(KPropertyWidgets_FOUND "KPropertyWidgets" "A property editing framework with editor widget"
                                   "http://community.kde.org/KProperty" FALSE "" "Required by Kexi")
 
@@ -274,7 +267,7 @@ macro_log_feature(KPropertyWidgets_FOUND "KPropertyWidgets" "A property editing 
 ## Test for marble
 ##
 set(MARBLE_MIN_VERSION "0.19.2")
-macro_optional_find_package(CalligraMarble)
+find_package(KexiMarble)
 if(NOT MARBLE_FOUND)
     set(CAN_USE_MARBLE FALSE)
     set(MARBLE_INCLUDE_DIR "")
@@ -286,9 +279,9 @@ else()
     ## with commit ea177ca. This is for compatibility with older versions.
     ##
     find_file(MARBLECONTROLBOX_H MarbleControlBox.h ${MARBLE_INCLUDE_DIR} PATH_SUFFIXES marble)
-    if( MARBLECONTROLBOX_H )
-    file(READ ${MARBLECONTROLBOX_H} MARBLECONTROLBOX_H_CONTENT)
-    string(REGEX MATCH "setMarbleWidget" SETMARBLEWIDGET ${MARBLECONTROLBOX_H_CONTENT})
+    if(MARBLECONTROLBOX_H)
+        file(READ ${MARBLECONTROLBOX_H} MARBLECONTROLBOX_H_CONTENT)
+        string(REGEX MATCH "setMarbleWidget" SETMARBLEWIDGET ${MARBLECONTROLBOX_H_CONTENT})
         if( SETMARBLEWIDGET )
             add_definitions(-DHAVE_SETMARBLEWIDGET)
         endif()

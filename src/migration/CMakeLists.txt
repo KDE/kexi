@@ -6,24 +6,32 @@ add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44000)
 
 add_subdirectory(txt)
 
+find_package(MySQL)
+macro_log_feature(MYSQL_FOUND "libmysqlclient" "MySQL Client Library" "http://www.mysql.com" FALSE "" "Required by Kexi MySQL migration driver")
 if (MYSQL_FOUND)
   add_subdirectory( mysql )
 endif ()
 
-if (POSTGRESQL_FOUND AND PQXX_FOUND AND PQXX_VERSION VERSION_GREATER PQXX_MIN_VERSION AND PQXX_VERSION VERSION_LESS PQXX_MAX_VERSION)
+find_package(KexiPostgreSQL)
+macro_log_feature(POSTGRESQL_FOUND "libpq" "C application programmer's interface to PostgreSQL" "http://www.postgresql.org" FALSE "" "Required by Kexi PostgreSQL migration driver")
+if (POSTGRESQL_FOUND)
   add_subdirectory( pqxx )
 endif ()
 
+find_package(FreeTDS)
+macro_log_feature(FREETDS_FOUND "FreeTDS" "Open source implementation of the TDS (Tabular Data Stream) protocol" "http://www.freetds.org" FALSE "" "Required by Kexi Sybase migration driver")
 if(FREETDS_FOUND)
   add_subdirectory(sybase)
 endif()
 
+find_package(XBase)
+macro_log_feature(XBASE_FOUND "XBase" "XBase compatible C++ class library" "http://linux.techass.com/projects/xdb" FALSE "" "Required by Kexi XBase migration driver")
 if(XBASE_FOUND)
   add_subdirectory(xbase)
 endif()
 
-macro_optional_find_package(GLIB2)
-
+find_package(GLIB2)
+macro_log_feature(GLIB2_FOUND "GLIB2" "Common C routines used by GTK+ and other libs" "http://www.gtk.org" FALSE "" "Required by Kexi MS Access migration driver")
 if (GLIB2_FOUND)
     add_subdirectory( mdb )
 endif()
