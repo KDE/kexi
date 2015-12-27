@@ -1,6 +1,20 @@
 [Desktop Entry]
 Name=Database Widgets
+Name[ca]=Estris de base de dades
+Name[ca@valencia]=Estris de base de dades
+Name[nl]=Databasewidgets
+Name[pl]=Baza danych elementów interfejsu
+Name[pt]=Elementos de Bases de Dados
+Name[uk]=Віджети бази даних
+Name[x-test]=xxDatabase Widgetsxx
 Comment=Kexi plugin providing database form widgets
+Comment[ca]=Connector del Kexi que proporciona estris de formularis de bases de dades
+Comment[ca@valencia]=Connector del Kexi que proporciona estris de formularis de bases de dades
+Comment[nl]=Kexi-plug-in levert formulierwidgets voor database
+Comment[pl]=Wtyczka Kexi dostarczająca formularze bazodanowe
+Comment[pt]='Plugin' do Kexi que oferece elementos gráficos de formulários de bases de dados
+Comment[uk]=Додаток до Kexi, що забезпечує роботу віджетів форм бази даних
+Comment[x-test]=xxKexi plugin providing database form widgetsxx
 Type=Service
 Icon=form
 Encoding=UTF-8

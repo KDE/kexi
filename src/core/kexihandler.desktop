@@ -2,6 +2,14 @@
 Type=ServiceType
 X-KDE-ServiceType=Kexi/Handler
 Comment=Kexi Project Handlers
+Comment[ca]=Gestors de projectes del Kexi
+Comment[ca@valencia]=Gestors de projectes del Kexi
+Comment[fr]=Gestionnaires de projet Kexi
+Comment[nl]=Kexi projecthandlers
+Comment[pl]=Pliki obsługi projektu Kexi
+Comment[pt]=Gestores de Projectos do Kexi
+Comment[uk]=Обробники проекту Kexi
+Comment[x-test]=xxKexi Project Handlersxx
 
 [PropertyDef::X-Kexi-PartVersion]
 Type=int

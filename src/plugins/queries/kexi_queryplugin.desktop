@@ -1,6 +1,21 @@
 [Desktop Entry]
 Name=Query
+Name[ca]=Consulta
+Name[ca@valencia]=Consulta
+Name[fr]=Requête
+Name[nl]=Query
+Name[pl]=Zapytanie
+Name[pt]=Procura
+Name[uk]=Запит
+Name[x-test]=xxQueryxx
 Comment=Kexi plugin for handling queries
+Comment[ca]=Connector del Kexi per gestionar consultes
+Comment[ca@valencia]=Connector del Kexi per gestionar consultes
+Comment[nl]=Kexi-plug-in voor behandeling van queries
+Comment[pl]=Wtyczka Kexi do obsługi zapytań
+Comment[pt]='Plugin' do Kexi para lidar com pesquisas
+Comment[uk]=Додаток до Kexi для обробки запитів
+Comment[x-test]=xxKexi plugin for handling queriesxx
 Type=Service
 Icon=query
 Encoding=UTF-8

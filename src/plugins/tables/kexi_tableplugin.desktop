@@ -1,6 +1,21 @@
 [Desktop Entry]
 Name=Table
+Name[ca]=Taula
+Name[ca@valencia]=Taula
+Name[fr]=Tableau
+Name[nl]=Tabel
+Name[pl]=Tabela
+Name[pt]=Tabela
+Name[uk]=Таблиця
+Name[x-test]=xxTablexx
 Comment=Kexi plugin for handling tables
+Comment[ca]=Connector del Kexi per gestionar taules
+Comment[ca@valencia]=Connector del Kexi per gestionar taules
+Comment[nl]=Kexi-plug-in voor behandeling van tabellen
+Comment[pl]=Wtyczka Kexi do obsługi tabel
+Comment[pt]='Plugin' do Kexi para lidar com tabelas
+Comment[uk]=Додаток до Kexi для обробки таблиць
+Comment[x-test]=xxKexi plugin for handling tablesxx
 Type=Service
 Icon=table
 Encoding=UTF-8

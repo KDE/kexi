@@ -1,6 +1,21 @@
 [Desktop Entry]
 Name=Report
+Name[ca]=Informe
+Name[ca@valencia]=Informe
+Name[fr]=Rapport
+Name[nl]=Rapport
+Name[pl]=Raport
+Name[pt]=Relatório
+Name[uk]=Звіт
+Name[x-test]=xxReportxx
 Comment=Kexi plugin for handling reports
+Comment[ca]=Connector del Kexi per gestionar informes
+Comment[ca@valencia]=Connector del Kexi per gestionar informes
+Comment[nl]=Kexi-plug-in voor behandeling van rapporten
+Comment[pl]=Wtyczka Kexi do obsługi raportów
+Comment[pt]='Plugin' do Kexi para lidar com relatórios
+Comment[uk]=Додаток до Kexi для обробки звітів
+Comment[x-test]=xxKexi plugin for handling reportsxx
 Type=Service
 Icon=report
 Encoding=UTF-8
