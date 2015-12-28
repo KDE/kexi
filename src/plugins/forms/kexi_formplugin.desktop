@@ -2,10 +2,12 @@
 Name=Form
 Name[ca]=Formulari
 Name[ca@valencia]=Formulari
+Name[fi]=Lomake
 Name[fr]=Formulaire
 Name[nl]=Formulier
 Name[pl]=Formularz
 Name[pt]=Formulário
+Name[sk]=Formulár
 Name[uk]=Форма
 Name[x-test]=xxFormxx
 Comment=Kexi plugin for handling forms

@@ -2,10 +2,12 @@
 Name=Report
 Name[ca]=Informe
 Name[ca@valencia]=Informe
+Name[fi]=Raportti
 Name[fr]=Rapport
 Name[nl]=Rapport
 Name[pl]=Raport
 Name[pt]=Relatório
+Name[sk]=Výkaz
 Name[uk]=Звіт
 Name[x-test]=xxReportxx
 Comment=Kexi plugin for handling reports

@@ -4,10 +4,12 @@ X-KDE-ServiceType=Kexi/WidgetFactory
 Comment=Widget Factory Base
 Comment[ca]=Factoria base d'estris
 Comment[ca@valencia]=Factoria base d'estris
+Comment[fi]=Käyttöliittymäelementtien pohja
 Comment[fr]=Base de création de composants graphiques
 Comment[nl]=Widget Factory Base
 Comment[pl]=Podstawowa fabryka widżetów
 Comment[pt]=Fábrica de Elementos
+Comment[sk]=Základ pre vytváracie rozhranie prvkov
 Comment[uk]=База фабрики віджетів
 Comment[x-test]=xxWidget Factory Basexx
 

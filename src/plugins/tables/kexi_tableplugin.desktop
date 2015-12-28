@@ -2,10 +2,12 @@
 Name=Table
 Name[ca]=Taula
 Name[ca@valencia]=Taula
+Name[fi]=Taulu
 Name[fr]=Tableau
 Name[nl]=Tabel
 Name[pl]=Tabela
 Name[pt]=Tabela
+Name[sk]=Tabuľka
 Name[uk]=Таблиця
 Name[x-test]=xxTablexx
 Comment=Kexi plugin for handling tables
