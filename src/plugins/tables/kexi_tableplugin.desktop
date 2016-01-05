@@ -2,6 +2,8 @@
 Name=Table
 Name[ca]=Taula
 Name[ca@valencia]=Taula
+Name[de]=Tabelle
+Name[es]=Tabla
 Name[fi]=Taulu
 Name[fr]=Tableau
 Name[gl]=Táboa
@@ -17,6 +19,7 @@ Name[x-test]=xxTablexx
 Comment=Kexi plugin for handling tables
 Comment[ca]=Connector del Kexi per gestionar taules
 Comment[ca@valencia]=Connector del Kexi per gestionar taules
+Comment[de]=Kexi-Modul für die Bearbeitung von Tabellen
 Comment[gl]=Complemento para Kexi de manexo de táboas.
 Comment[it]=Estensione per gestire le tabelle di Kexi
 Comment[nl]=Kexi-plug-in voor behandeling van tabellen

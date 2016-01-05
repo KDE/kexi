@@ -2,6 +2,8 @@
 Name=PostgreSQL
 Name[ca]=PostgreSQL
 Name[ca@valencia]=PostgreSQL
+Name[de]=PostgreSQL
+Name[es]=PostgreSQL
 Name[fi]=PostgreSQL
 Name[fr]=PostgreSQL
 Name[gl]=PostgreSQL
@@ -17,6 +19,8 @@ Name[x-test]=xxPostgreSQLxx
 Comment=PostgreSQL Import Plugin for Kexi
 Comment[ca]=Connector d'importació de PostgreSQL per al Kexi
 Comment[ca@valencia]=Connector d'importació de PostgreSQL per al Kexi
+Comment[de]=PostgreSQL-Importmodul für Kexi
+Comment[es]=Complemento de importación de PostgreSQL de Kexi
 Comment[fi]=PostgreSQL-tuontiliitännäinen Kexille
 Comment[fr]=Module d'importation PostgreSQL pour Kexi
 Comment[gl]=Complemento para Kexi de importación de PostgreSQL.

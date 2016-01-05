@@ -2,6 +2,8 @@
 Name=xBase
 Name[ca]=xBase
 Name[ca@valencia]=xBase
+Name[de]=xBase
+Name[es]=xBase
 Name[fi]=xBase
 Name[fr]=xBase
 Name[gl]=xBase
@@ -17,6 +19,8 @@ Name[x-test]=xxxBasexx
 Comment=xBase Import Plugin for Kexi
 Comment[ca]=Connector d'importació xBase per al Kexi
 Comment[ca@valencia]=Connector d'importació xBase per al Kexi
+Comment[de]=xBase-Importmodul für Kexi
+Comment[es]=Complemento de importación de xBase de Kexi
 Comment[fi]=xBase-tuontiliitännäinen Kexille
 Comment[fr]=Module d'importation xBase pour Kexi
 Comment[gl]=Complemento para Kexi de importación de xBase.

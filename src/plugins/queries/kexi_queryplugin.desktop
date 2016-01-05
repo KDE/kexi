@@ -2,6 +2,8 @@
 Name=Query
 Name[ca]=Consulta
 Name[ca@valencia]=Consulta
+Name[de]=Abfrage
+Name[es]=Consulta
 Name[fi]=Kysely
 Name[fr]=Requête
 Name[gl]=Consulta
@@ -17,6 +19,7 @@ Name[x-test]=xxQueryxx
 Comment=Kexi plugin for handling queries
 Comment[ca]=Connector del Kexi per gestionar consultes
 Comment[ca@valencia]=Connector del Kexi per gestionar consultes
+Comment[de]=Kexi-Modul für die Bearbeitung von Abfragen
 Comment[gl]=Complemento para Kexi de manexo de consultas.
 Comment[it]=Estensione per gestire le query di Kexi
 Comment[nl]=Kexi-plug-in voor behandeling van queries

@@ -2,6 +2,8 @@
 Name=Report
 Name[ca]=Informe
 Name[ca@valencia]=Informe
+Name[de]=Bericht
+Name[es]=Informe
 Name[fi]=Raportti
 Name[fr]=Rapport
 Name[gl]=Informe
@@ -17,6 +19,7 @@ Name[x-test]=xxReportxx
 Comment=Kexi plugin for handling reports
 Comment[ca]=Connector del Kexi per gestionar informes
 Comment[ca@valencia]=Connector del Kexi per gestionar informes
+Comment[de]=Kexi-Modul für die Bearbeitung von Berichten
 Comment[gl]=Complemento para Kexi de manexo de informes.
 Comment[it]=Estensione per gestire i rapporti di Kexi
 Comment[nl]=Kexi-plug-in voor behandeling van rapporten
