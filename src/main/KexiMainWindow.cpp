@@ -3108,7 +3108,7 @@ KexiMainWindow::openObject(KexiPart::Item* item, Kexi::ViewMode viewMode, bool *
         *openingCancelled = true;
         return 0;
     }
-    qDebug() << d->prj << item;
+    //qDebug() << d->prj << item;
 
     KexiWindow *prevWindow = currentWindow();
 
