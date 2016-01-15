@@ -27,6 +27,7 @@
 #include <widget/fields/KexiFieldComboBox.h>
 #include <kexiutils/SmallToolButton.h>
 #include <kexiutils/KexiFadeWidgetEffect.h>
+#include <kexiutils/utils.h>
 #include <kexiproject.h>
 #include <formeditor/commands.h>
 
@@ -74,6 +75,7 @@ KexiDataSourcePage::KexiDataSourcePage(QWidget *parent)
     m_widgetDSLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
     m_widgetDSLabel->setAlignment(Qt::AlignLeft | Qt::AlignBottom);
     hlyr->addWidget(m_widgetDSLabel);
+    mainLayout()->addSpacing(KexiUtils::spacingHint()); // needed because unlike m_dataSourceLabel we have no button in hlyr
 
 #if 0
     m_clearWidgetDSButton = new KexiSmallToolButton(
