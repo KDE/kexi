@@ -48,6 +48,8 @@ KexiPropertyEditorView::KexiPropertyEditorView(QWidget* parent)
 //    setWindowIcon(KexiMainWindowIface::global()->thisWidget()->windowIcon());
 
     d->editor = new KPropertyEditorView(this);
+    d->editor->setGridLineColor(QColor());
+    d->editor->setFrameShape(QFrame::NoFrame);
     layout()->addWidget(d->editor);
     setFocusProxy(d->editor);
     infoLabel()->setBuddy(d->editor);
