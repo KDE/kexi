@@ -386,7 +386,7 @@ void KexiFormManager::setFormDataSource(const QString& pluginId, const QString& 
         propValues.insert("dataSource", name);
         propValues.insert("dataSourcePartClass", pluginId);
         KFormDesigner::PropertyCommandGroup *group = new KFormDesigner::PropertyCommandGroup(
-            xi18n("Set Form's Data Source to \"%1\"", name));
+            xi18n("Set form's data source to <resource>%1</resource>", name));
         formViewWidget->form()->createPropertyCommandsInDesignMode(
             formWidget, propValues, group, true /*addToActiveForm*/);
     }

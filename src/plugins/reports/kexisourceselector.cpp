@@ -101,7 +101,7 @@ KexiSourceSelector::KexiSourceSelector(KexiProject* project, QWidget* parent)
 
 //!@TODO enable when adding external data
 
-    d->layout->addWidget(new QLabel(xi18n("Source Type:"), this));
+    d->layout->addWidget(new QLabel(xi18n("Source type:"), this));
     d->layout->addWidget(d->sourceType);
     d->layout->addSpacing(10);
 #else
@@ -109,12 +109,12 @@ KexiSourceSelector::KexiSourceSelector(KexiProject* project, QWidget* parent)
     d->externalSource->setVisible(false);
 #endif
 
-    d->layout->addWidget(new QLabel(xi18n("Internal Source:"), this));
+    d->layout->addWidget(new QLabel(xi18n("Report's data source:"), this));
     d->layout->addWidget(d->internalSource);
     d->layout->addSpacing(10);
 
 #ifndef NO_EXTERNAL_SOURCES
-    d->layout->addWidget(new QLabel(xi18n("External Source:"), this));
+    d->layout->addWidget(new QLabel(xi18n("External source:"), this));
     d->layout->addWidget(d->externalSource);
 #endif
     d->layout->addSpacing(20);

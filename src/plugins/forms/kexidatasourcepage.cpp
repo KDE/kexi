@@ -69,7 +69,7 @@ KexiDataSourcePage::KexiDataSourcePage(QWidget *parent)
 // m_widgetDSLabel = new QLabel(futureI18nc("Table Field, Query Field or Expression", "Source field or expression"), this);
 #else
     m_widgetDSLabel = new QLabel(
-        xi18nc("Table Field or Query Field", "Widget's data source"), this);
+        xi18nc("Table Field or Query Field", "Widget's data source:"), this);
 #endif
     m_widgetDSLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
     m_widgetDSLabel->setAlignment(Qt::AlignLeft | Qt::AlignBottom);
@@ -100,7 +100,7 @@ KexiDataSourcePage::KexiDataSourcePage(QWidget *parent)
     hlyr = new QHBoxLayout();
     hlyr->setContentsMargins(0, 0, 0, 0);
     mainLayout()->addLayout(hlyr);
-    m_dataSourceLabel = new QLabel(xi18n("Form's data source"), this);
+    m_dataSourceLabel = new QLabel(xi18n("Form's data source:"), this);
     m_dataSourceLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
     m_dataSourceLabel->setAlignment(Qt::AlignLeft | Qt::AlignBottom);
     hlyr->addWidget(m_dataSourceLabel);
