@@ -3,7 +3,7 @@
    Copyright (C) 2003 Lucijan Busch <lucijan@gmx.at>
    Copyright (C) 2003 Daniel Molkentin <molkentin@kde.org>
    Copyright (C) 2003 Joseph Wenninger <jowenn@kde.org>
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and,or
    modify it under the terms of the GNU Library General Public
@@ -71,4 +71,17 @@ void KexiTableScrollArea::Private::setSpreadSheetMode(bool set)
     Appearance a = appearance;
     a.navigatorEnabled = tv->m_navPanelEnabled;
     tv->setAppearance(a);
+}
+
+int KexiTableScrollArea::Private::columnOffset() const
+{
+    const QByteArray s(tv->style()->objectName().toLatin1().toLower());
+    // hardcode, no choice
+    if (s == "breeze" || s == "windows") {
+        return 1;
+    }
+    if (s == "oxygen" || s == "qtcurve" ) {
+        return 2;
+    }
+    return 0;
 }

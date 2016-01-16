@@ -3,7 +3,7 @@
    Copyright (C) 2003 Lucijan Busch <lucijan@gmx.at>
    Copyright (C) 2003 Daniel Molkentin <molkentin@kde.org>
    Copyright (C) 2003 Joseph Wenninger <jowenn@kde.org>
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -284,8 +284,9 @@ void KexiTableScrollArea::updateWidgetContentsSize()
 void KexiTableScrollArea::updateScrollAreaWidgetSize()
 {
     QSize s(tableSize());
-    s.setWidth(qMax(s.width(), viewport()->width()));
-    s.setHeight(qMax(s.height(), viewport()->height()));
+    const int colOffset = d->columnOffset();
+    s.setWidth(qMax(s.width() + colOffset, viewport()->width()));
+    s.setHeight(qMax(s.height() + colOffset, viewport()->height()));
     d->scrollAreaWidget->resize(s);
 }
 
@@ -1588,8 +1589,9 @@ void KexiTableScrollArea::updateGeometries()
     if (d->horizontalHeader->offset() && ts.width() < (d->horizontalHeader->offset() + d->horizontalHeader->width())) {
         horizontalScrollBar()->setValue(ts.width() - d->horizontalHeader->width());
     }
-    int frameLeftMargin = style()->pixelMetric(QStyle::PM_FocusFrameVMargin, 0, this) + 2;
-    int frameTopMargin = style()->pixelMetric(QStyle::PM_FocusFrameHMargin, 0, this) + 2;
+    const int colOffset = d->columnOffset();
+    const int frameLeftMargin = style()->pixelMetric(QStyle::PM_FocusFrameVMargin, 0, this) + colOffset;
+    const int frameTopMargin = style()->pixelMetric(QStyle::PM_FocusFrameHMargin, 0, this) + colOffset;
     d->horizontalHeader->move(leftMargin() + frameLeftMargin, frameTopMargin);
     d->verticalHeader->move(frameLeftMargin,
                             d->horizontalHeader->geometry().bottom() + 1);

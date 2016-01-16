@@ -72,6 +72,10 @@ public:
 
     void setSpreadSheetMode(bool set);
 
+    //! @return offset of column grid lines depending on current QStyle, needed for proper
+    //! alignment to header section separators
+    int columnOffset() const;
+
     KexiTableScrollArea *tv;
     KexiTableScrollAreaWidget *scrollAreaWidget;
 
