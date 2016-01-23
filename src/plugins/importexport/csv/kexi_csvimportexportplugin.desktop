@@ -18,6 +18,7 @@ Name[x-test]=xxCSV import/exportxx
 Comment=Kexi Plugin for CSV data import/export
 Comment[ca]=Connector del Kexi d'importació/exportació de CSV
 Comment[ca@valencia]=Connector del Kexi d'importació/exportació de CSV
+Comment[cs]=Modul Kexi pro import a export dat CSV
 Comment[de]=Kexi-Modul für CSV-Daten-Import/Export
 Comment[en_GB]=Kexi Plugin for CSV data import/export
 Comment[es]=Complemento de Kexi para importar y exportar datos CSV

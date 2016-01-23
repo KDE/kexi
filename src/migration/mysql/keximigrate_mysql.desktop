@@ -2,6 +2,7 @@
 Name=MySQL
 Name[ca]=MySQL
 Name[ca@valencia]=MySQL
+Name[cs]=MySQL
 Name[de]=MySQL
 Name[en_GB]=MySQL
 Name[es]=MySQL
@@ -21,6 +22,7 @@ Name[x-test]=xxMySQLxx
 Comment=MySQL Import Plugin for Kexi
 Comment[ca]=Connector d'importació de MySQL per al Kexi
 Comment[ca@valencia]=Connector d'importació de MySQL per al Kexi
+Comment[cs]=Modul Kexi pro import MySQL
 Comment[de]=MySQL-Importmodul für Kexi
 Comment[en_GB]=MySQL Import Plugin for Kexi
 Comment[es]=Complemento de importación de MySQL de Kexi

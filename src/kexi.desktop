@@ -2,6 +2,7 @@
 Name=Kexi
 Name[ca]=Kexi
 Name[ca@valencia]=Kexi
+Name[cs]=Kexi
 Name[de]=Kexi
 Name[en_GB]=Kexi
 Name[es]=Kexi
@@ -44,6 +45,7 @@ GenericName[x-test]=xxVisual database apps builderxx
 Comment=Visually develop database applications
 Comment[ca]=Desenvolupament visual d'aplicacions de bases de dades
 Comment[ca@valencia]=Desenvolupament visual d'aplicacions de bases de dades
+Comment[cs]=Vyvíjejte vizuálně databázové aplikace
 Comment[de]=Visuelle Entwicklung von Datenbankanwendungen
 Comment[en_GB]=Visually develop database applications
 Comment[es]=Desarrollo visual de aplicaciones de bases de datos
