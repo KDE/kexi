@@ -43,6 +43,7 @@
 #include <QStyle>
 #include <QHeaderView>
 #include <QKeyEvent>
+#include <QScopedValueRollback>
 
 #include <limits.h>
 
@@ -673,8 +674,7 @@ bool KexiDataAwareObjectInterface::acceptRecordEditing()
         m_internal_acceptsRecordEditingAfterCellAccepting = true;
         return true;
     }
-    m_inside_acceptRecordEdit = true; // avoid recursion
-    KexiUtils::Setter<bool> acceptRecordEditingSetter(&m_inside_acceptRecordEdit, false);
+    QScopedValueRollback<bool> acceptRecordEditingSetter(m_inside_acceptRecordEdit, true); // avoid recursion
 
     m_internal_acceptsRecordEditingAfterCellAccepting = false;
 
@@ -831,8 +831,7 @@ bool KexiDataAwareObjectInterface::acceptEditor()
     if (!m_editor || m_inside_acceptEditor)
         return true;
 
-    m_inside_acceptEditor = true; // avoid recursion
-    KexiUtils::Setter<bool> acceptRecordEditingSetter(&m_inside_acceptEditor, false);
+    QScopedValueRollback<bool> acceptRecordEditingSetter(m_inside_acceptEditor, true); // avoid recursion
 
     QVariant newval;
     KDbValidator::Result res = KDbValidator::Ok;
