@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2002, 2003 Lucijan Busch <lucijan@gmx.at>
-   Copyright (C) 2003-2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2010 Adam Pigg <adam@piggz.co.uk>
 
    This library is free software; you can redistribute it and/or
@@ -565,6 +565,12 @@ void KexiProjectNavigator::slotExportToFileAsDataTable()
 KexiPart::Item* KexiProjectNavigator::selectedPartItem() const
 {
     KexiProjectModelItem *it = static_cast<KexiProjectModelItem*>(d->list->currentIndex().internalPointer());
+    return it ? it->partItem() : 0;
+}
+
+KexiPart::Item* KexiProjectNavigator::partItemWithSearchHighlight() const
+{
+    KexiProjectModelItem *it = static_cast<KexiProjectModelItem*>(d->model->itemWithSearchHighlight().internalPointer());
     return it ? it->partItem() : 0;
 }
 

@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2002, 2003 Lucijan Busch <lucijan@gmx.at>
-   Copyright (C) 2003-2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2010 Adam Pigg <adam@piggz.co.uk>
 
    This library is free software; you can redistribute it and/or
@@ -113,7 +113,12 @@ public:
      empty (i.e. all part classes are displayed). */
     QString itemsPluginId() const;
 
+    //! @return selected part item or nullptr is no item is selected
     KexiPart::Item* selectedPartItem() const;
+
+    //! @return part item which is highlighted because of global searching
+    //!         or nullptr is no item is highlighted
+    KexiPart::Item* partItemWithSearchHighlight() const;
 
     bool actionEnabled(const QString& actionName) const;
 

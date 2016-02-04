@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2012 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2012-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -25,6 +25,8 @@
 #include <main/KexiMainWindow.h>
 #include <kexiutils/KexiTester.h>
 #include <widget/navigator/KexiProjectNavigator.h>
+
+#include <KActionCollection>
 
 #include <QApplication>
 #include <QtTest>
@@ -64,20 +66,55 @@ public:
     char **vals;
 };
 
+//! A helper that creates Kexi main window, and manages its lifetime.
+//! It is needed because lifetime of QApplication, main window and command line arguments
+//! should be synchronized. This class is designed for using on a stack of test blocks.
+class KexiMainWindowCreator
+{
+public:
+    //! A helper that creates Kexi main window, passing @a filename to it.
+    //! @a testObject (required) is used only to obtain test object name for debugging.
+    KexiMainWindowCreator(char *argv[], const QString& filename, QObject *testObject)
+        : args(argv)
+    {
+        Q_ASSERT(testObject);
+        args.vals[args.count - 1] = qstrdup(QFile::encodeName(filename).constData());
+        result = KexiMainWindow::create(args.count, args.vals,
+                                        testObject->metaObject()->className());
+    }
+
+    //! Executes action @a name. @return true if action was found.
+    bool executeAction(const QString &name) {
+        KActionCollection *actionCollection = KexiMainWindowIface::global()->actionCollection();
+        QAction *a = actionCollection->action(name);
+        if (a) {
+            a->trigger();
+        }
+        return a;
+    }
+
+    ~KexiMainWindowCreator() {
+        delete KexiMainWindowIface::global();
+        delete qApp;
+    }
+    int result;
+
+private:
+    NewArgs args;
+};
+
 GlobalSearchTest::GlobalSearchTest(int &argc, char **argv, bool goToEventLoop)
  : m_argc(argc), m_argv(argv), m_goToEventLoop(goToEventLoop)
 {
 }
+
 void GlobalSearchTest::testGlobalSearch()
 {
     QString filename(QFile::decodeName(FILES_DATA_DIR "/GlobalSearchTest.kexi"));
     qDebug() << filename;
-    NewArgs args(m_argv);
-    args.vals[args.count - 1] = qstrdup(QFile::encodeName(filename).constData());
-
-    int result = KexiMainWindow::create(args.count, args.vals, metaObject()->className());
+    KexiMainWindowCreator windowCreator(m_argv, filename, this);
     QVERIFY(qApp);
-    QCOMPARE(result, 0);
+    QCOMPARE(windowCreator.result, 0);
 
     QLineEdit *lineEdit = kexiTester().widget<QLineEdit*>("globalSearch.lineEdit");
     QVERIFY(lineEdit);
@@ -104,7 +141,19 @@ void GlobalSearchTest::testGlobalSearch()
     QTest::keyClicks(lineEdit, "cars");
     QVERIFY(treeView->isVisible());
     treeView->setFocus();
+    // no highlight initially
+    KexiProjectNavigator *projectNavigator = kexiTester().widget<KexiProjectNavigator*>("KexiProjectNavigator");
+    QVERIFY(projectNavigator);
+    QVERIFY(!projectNavigator->partItemWithSearchHighlight());
+
     QTest::keyPress(treeView, Qt::Key_Down, Qt::NoModifier, GUI_DELAY);
+
+    // selecting 1st row should highlight "cars" table
+    KexiPart::Item* highlightedPartItem = projectNavigator->partItemWithSearchHighlight();
+    QVERIFY(highlightedPartItem);
+    QCOMPARE(highlightedPartItem->name(), QLatin1String("cars"));
+    QCOMPARE(highlightedPartItem->pluginId(), QLatin1String("org.kexi-project.table"));
+
     QTest::keyPress(treeView, Qt::Key_Down, Qt::NoModifier, GUI_DELAY);
     QTest::keyPress(treeView, Qt::Key_Down, Qt::NoModifier, GUI_DELAY);
 
@@ -116,15 +165,13 @@ void GlobalSearchTest::testGlobalSearch()
     // check if proper entry of Project Navigator is selected
     QTest::keyPress(treeView, Qt::Key_Enter, Qt::NoModifier, GUI_DELAY);
 
-    KexiProjectNavigator *projectNavigator = kexiTester().widget<KexiProjectNavigator*>("KexiProjectNavigator");
-    QVERIFY(projectNavigator);
     KexiPart::Item* selectedPartItem = projectNavigator->selectedPartItem();
     QVERIFY(selectedPartItem);
     QCOMPARE(selectedPartItem->name(), QLatin1String("cars"));
     QCOMPARE(selectedPartItem->pluginId(), QLatin1String("org.kexi-project.form"));
 
     if (m_goToEventLoop) {
-        result = qApp->exec();
+        const int result = qApp->exec();
         QCOMPARE(result, 0);
     }
 }
