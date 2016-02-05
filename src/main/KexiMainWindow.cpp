@@ -101,13 +101,6 @@
 # define KexiVDebug if (0) qDebug()
 #endif
 
-#undef HAVE_KNEWSTUFF
-#ifdef HAVE_KNEWSTUFF
-#include <knewstuff/downloaddialog.h>
-#include <KSharedConfig>
-#include "kexinewstuff.h"
-#endif
-
 class KexiDockWidget::Private
 {
 public:
@@ -541,14 +534,6 @@ void KexiMainWindow::setupActions()
         xi18n("Opens an existing project. Currently opened project is not affected."));
     connect(action, SIGNAL(triggered()), this, SLOT(slotProjectOpen()));
     setupMainMenuActionShortcut(action);
-
-#ifdef HAVE_KNEWSTUFF
-    action = addAction("project_download_examples", koIcon("go-down"),
-                       futureI18n("&Download Example Databases..."));
-    action->setToolTip(futureI18n("Download example databases from the Internet"));
-    action->setWhatsThis(futureI18n("Downloads example databases from the Internet."));
-    connect(action, SIGNAL(triggered()), this, SLOT(slotGetNewStuff()));
-#endif
 
     {
         ac->addAction("project_welcome",
@@ -4074,18 +4059,6 @@ void KexiMainWindow::slotEditReplace(bool all)
 void KexiMainWindow::slotEditReplaceAll()
 {
     slotEditReplace(true);
-}
-
-/// TMP (until there's true template support)
-void KexiMainWindow::slotGetNewStuff()
-{
-#ifdef HAVE_KNEWSTUFF
-    if (!d->newStuff)
-        d->newStuff = new KexiNewStuff(this);
-    d->newStuff->download();
-
-    //KNS::DownloadDialog::open(newstuff->customEngine(), "kexi/template");
-#endif
 }
 
 void KexiMainWindow::highlightObject(const QString& pluginId, const QString& name)

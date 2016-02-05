@@ -13,7 +13,6 @@ set(keximain_LIB_SRCS
     KexiMenuWidget.cpp
     kexifinddialog.cpp
     kexistatusbar.cpp
-    #TODO: kexinewstuff.cpp
     KexiSearchLineEdit.cpp
     KexiUserFeedbackAgent.cpp
     KexiBugReportDialog.cpp

@@ -92,15 +92,6 @@ if(NOT DEFINED RELEASE_BUILD)
 endif()
 message(STATUS "Release build: ${RELEASE_BUILD}")
 
- ############
-#############
-## Options ##
-#############
-############
-
-option(GHNS "support Get Hot New Stuff" OFF)
-option(PACKAGERS_BUILD "Build support of multiple CPU architectures in one binary. Should be used by packagers only." ON)
-
  #######################
 ########################
 ## Productset setting ##

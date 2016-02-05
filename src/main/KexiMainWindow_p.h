@@ -639,9 +639,6 @@ public:
 
     bool navWasVisibleBeforeProjectClosing;
     bool saveSettingsForShowProjectNavigator;
-#ifdef HAVE_KNEWSTUFF
-    KexiNewStuff  *newStuff;
-#endif
 
     //! Used by openedCustomObjectsForItem() and addOpenedCustomObjectForItem()
     QHash<QByteArray, QObject*> m_openedCustomObjectsForItem;

@@ -523,8 +523,6 @@ protected Q_SLOTS:
     void slotToolsImportTables();
     void slotToolsCompactDatabase();
 
-    /// TMP: Display a dialog to download db examples from Internet
-    void slotGetNewStuff();
     void slotReportBug();
     void slotTipOfTheDay();
     void slotImportFile();

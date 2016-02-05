@@ -1243,9 +1243,6 @@ KexiMainWindow::Private::Private(KexiMainWindow* w)
 #ifndef KEXI_SHOW_UNIMPLEMENTED
     dummy_action = new KActionMenu(QString(), wnd);
 #endif
-#ifdef HAVE_KNEWSTUFF
-    newStuff = 0;
-#endif
     forceShowProjectNavigatorOnCreation = false;
     forceHideProjectNavigatorOnCreation = false;
     navWasVisibleBeforeProjectClosing = false;
