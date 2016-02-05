@@ -138,7 +138,7 @@ private:
 
         QStringList serviceTypes;
         serviceTypes << "Kexi/FormWidgets";
-        const QList<QPluginLoader*> offers = KexiFormWidgetsPluginTrader_instance->query(serviceTypes);
+        QList<QPluginLoader*> offers = KexiFormWidgetsPluginTrader_instance->query(serviceTypes);
         foreach(const QPluginLoader *loader, offers) {
             QScopedPointer<KexiFormWidgetsPluginMetaData> metaData(new KexiFormWidgetsPluginMetaData(*loader));
             if (metaData->id().isEmpty()) {
@@ -172,6 +172,8 @@ private:
             m_pluginsMetaData.insert(metaData->id(), metaData.data());
             metaData.take();
         }
+        qDeleteAll(offers);
+        offers.clear();
         if (m_pluginsMetaData.isEmpty()) {
             q->m_result = KDbResult(i18n("Could not find any form widget plugins."));
             m_couldNotFindAnyFormWidgetPluginsErrorDisplayed = true;

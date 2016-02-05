@@ -60,6 +60,8 @@ public:
      *
      * @return A list of QPluginLoader that satisfy the query
      * @see http://techbase.kde.org/Development/Tutorials/Services/Traders#The_KTrader_Query_Language
+     *
+     * @note Ownership of the QPluginLoader objects is transferred to the caller.
      */
      QList<QPluginLoader *> query(const QStringList &servicetypes, const QString &mimetype = QString());
 

@@ -84,6 +84,38 @@ QJsonObject KexiJsonTrader::rootObjectForPluginLoader(const QPluginLoader &plugi
     return json.value(QLatin1String("KPlugin")).toObject();
 }
 
+//! Checks loader @a loader
+static bool checkLoader(QPluginLoader *loader, const QStringList &servicetypes,
+                        const QString &mimetype)
+{
+    const QJsonObject pluginData = KexiJsonTrader::rootObjectForPluginLoader(*loader);
+    if (pluginData.isEmpty()) {
+        //qDebug() << dirIter.filePath() << "has no json!";
+        return false;
+    }
+    const QJsonArray foundServiceTypesAray = pluginData.value(QLatin1String("ServiceTypes")).toArray();
+    if (foundServiceTypesAray.isEmpty()) {
+        qWarning() << "No ServiceTypes defined for plugin" << loader->fileName() << "-- skipping!";
+        return false;
+    }
+    QStringList foundServiceTypes = KexiUtils::convertTypesUsingMethod<QVariant, QString, &QVariant::toString>(foundServiceTypesAray.toVariantList());
+    if (!supportsAtLeastServiceType(foundServiceTypes, servicetypes)) {
+        return false;
+    }
+
+    if (!mimetype.isEmpty()) {
+        QJsonObject json = metaDataObjectForPluginLoader(*loader);
+        QStringList mimeTypes = json.value(QLatin1String("X-KDE-ExtraNativeMimeTypes"))
+                .toString().split(QLatin1Char(','));
+        mimeTypes += json.value(QLatin1String("MimeType")).toString().split(QLatin1Char(';'));
+        mimeTypes += json.value(QLatin1String("X-KDE-NativeMimeType")).toString();
+        if (! mimeTypes.contains(mimetype)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 static QList<QPluginLoader *> findPlugins(const QString &path, const QStringList &servicetypes,
                                           const QString &mimetype)
 {
@@ -93,32 +125,11 @@ static QList<QPluginLoader *> findPlugins(const QString &path, const QStringList
         dirIter.next();
         if (dirIter.fileInfo().isFile()) {
             QPluginLoader *loader = new QPluginLoader(dirIter.filePath());
-            const QJsonObject pluginData = KexiJsonTrader::rootObjectForPluginLoader(*loader);
-            if (pluginData.isEmpty()) {
-                //qDebug() << dirIter.filePath() << "has no json!";
-                continue;
+            if (checkLoader(loader, servicetypes, mimetype)) {
+                list.append(loader);
+            } else {
+                delete loader;
             }
-            const QJsonArray foundServiceTypesAray = pluginData.value(QLatin1String("ServiceTypes")).toArray();
-            if (foundServiceTypesAray.isEmpty()) {
-                qWarning() << "No ServiceTypes defined for plugin" << loader->fileName() << "-- skipping!";
-                continue;
-            }
-            QStringList foundServiceTypes = KexiUtils::convertTypesUsingMethod<QVariant, QString, &QVariant::toString>(foundServiceTypesAray.toVariantList());
-            if (!supportsAtLeastServiceType(foundServiceTypes, servicetypes)) {
-                continue;
-            }
-
-            if (!mimetype.isEmpty()) {
-                QJsonObject json = metaDataObjectForPluginLoader(*loader);
-                QStringList mimeTypes = json.value(QLatin1String("X-KDE-ExtraNativeMimeTypes"))
-                        .toString().split(QLatin1Char(','));
-                mimeTypes += json.value(QLatin1String("MimeType")).toString().split(QLatin1Char(';'));
-                mimeTypes += json.value(QLatin1String("X-KDE-NativeMimeType")).toString();
-                if (! mimeTypes.contains(mimetype)) {
-                    continue;
-                }
-            }
-            list.append(loader);
         }
     }
     return list;

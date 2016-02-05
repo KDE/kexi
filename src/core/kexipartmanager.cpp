@@ -167,8 +167,8 @@ bool Manager::lookup()
     QStringList serviceTypes;
     serviceTypes << "Kexi/Viewer" << "Kexi/Designer" << "Kexi/Editor"
                  << "Kexi/ModalDialog";
-    const QList<QPluginLoader*> offers = KexiPartTrader_instance->query(serviceTypes);
-    foreach(QPluginLoader *loader, offers) {
+    QList<QPluginLoader*> offers = KexiPartTrader_instance->query(serviceTypes);
+    foreach(const QPluginLoader *loader, offers) {
         QScopedPointer<Info> info(new Info(*loader));
         if (info->id().isEmpty()) {
             qWarning() << "No plugin ID (X-KDE-PluginInfo-Name) specified for Kexi Part"
@@ -213,6 +213,8 @@ bool Manager::lookup()
         d->partsByPluginId.insert(info->pluginId(), info.data());
         info.take();
     }
+    qDeleteAll(offers);
+    offers.clear();
 
     // fill the final list using computed order
     for (int i = 0; i < orderedInfos.size(); i++) {
