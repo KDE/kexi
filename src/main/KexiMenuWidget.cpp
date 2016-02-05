@@ -399,6 +399,10 @@ KexiMenuWidgetAction::KexiMenuWidgetAction(KStandardAction::StandardAction id, Q
     setShortcut(tmp->shortcut());
 }
 
+KexiMenuWidgetAction::~KexiMenuWidgetAction()
+{
+}
+
 void KexiMenuWidgetAction::setPersistentlySelected(bool set)
 {
     if (set == d->persistentlySelected)
