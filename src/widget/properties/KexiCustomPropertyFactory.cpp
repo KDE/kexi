@@ -21,6 +21,7 @@
 #include "KexiCustomPropertyFactory_p.h"
 
 #include <KPropertyWidgetsFactory>
+#include <KPropertyWidgetsPluginManager>
 //! @todo KEXI3 #include <KCustomProperty>
 
 #include <KDb>
@@ -108,7 +109,7 @@ KexiCustomPropertyFactory::KexiCustomPropertyFactory()
 
 void KexiCustomPropertyFactory::init()
 {
-    if (KPropertyWidgetsFactoryManager::self()->isEditorForTypeAvailable(KexiCustomPropertyFactory::PixmapId))
+    if (KPropertyWidgetsPluginManager::self()->isEditorForTypeAvailable(KexiCustomPropertyFactory::PixmapId))
         return; //already registered
-    KPropertyWidgetsFactoryManager::self()->registerFactory( new KexiCustomPropertyFactory );
+    KPropertyWidgetsPluginManager::self()->registerFactory( new KexiCustomPropertyFactory );
 }
