@@ -175,7 +175,7 @@ KexiTableDesignerView::KexiTableDesignerView(QWidget *parent)
     // - setup local actions
     QList<QAction*> viewActions;
     QAction* a;
-    viewActions << (d->action_toggle_pkey = new KToggleAction(koIcon("key"), xi18n("Primary Key"), this));
+    viewActions << (d->action_toggle_pkey = new KToggleAction(KexiIcon("database-key"), xi18n("Primary Key"), this));
     a = d->action_toggle_pkey;
     a->setObjectName("tablepart_toggle_pkey");
     a->setToolTip(xi18n("Sets or removes primary key"));
@@ -233,7 +233,7 @@ void KexiTableDesignerView::initData()
             KDbField *field = tempData()->table->field(i);
             KDbRecordData *data = d->data->createItem();
             if (field->isPrimaryKey()) {
-                (*data)[COLUMN_ID_ICON] = "key";
+                (*data)[COLUMN_ID_ICON] = "database-key";
                 d->primaryKeyExists = true;
             } else {
                 KDbLookupFieldSchema *lookupFieldSchema
@@ -408,7 +408,7 @@ KexiTableDesignerView::createPropertySet(int record, const KDbField& field, bool
 
     set->addProperty(prop = new KProperty("primaryKey", QVariant(field.isPrimaryKey()),
                                                      xi18n("Primary Key")));
-    prop->setIcon(koIconName("key"));
+    prop->setIcon(KexiIconName("database-key"));
 
     set->addProperty(prop = new KProperty("unique", QVariant(field.isUniqueKey()),
                                                      xi18n("Unique")));
@@ -511,7 +511,7 @@ void KexiTableDesignerView::switchPrimaryKey(KPropertySet &propertySet,
             //show key in the table
             d->view->data()->clearRecordEditBuffer();
             d->view->data()->updateRecordEditBuffer(d->view->selectedRecord(), COLUMN_ID_ICON,
-                                                 QVariant(set ? "key" : ""));
+                                                 QVariant(set ? "database-key" : ""));
             d->view->data()->saveRecordChanges(d->view->selectedRecord(), true);
         }
         if (was_pkey || set) //change flag only if we're setting pk or really clearing it
@@ -903,7 +903,7 @@ void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& pr
 
             if (KMessageBox::Yes == KMessageBox::questionYesNo(this, msg,
                 xi18n("Setting Autonumber Field"),
-                KGuiItem(xi18nc("@action:button", "Create &Primary Key"), koIconName("key")), KStandardGuiItem::cancel()))
+                KGuiItem(xi18nc("@action:button", "Create &Primary Key"), KexiIconName("database-key")), KStandardGuiItem::cancel()))
             {
                 changePrimaryKey = true;
                 setPrimaryKey = true;
@@ -955,7 +955,7 @@ void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& pr
             qDebug() << "INVALID " << property.value().toString();
 //   if (KMessageBox::Yes == KMessageBox::questionYesNo(this, msg,
 //    xi18n("This field has primary key assigned. Setting autonumber field"),
-//    KGuiItem(xi18nc("@action:button", "Create &Primary Key"), koIconName("key")), KStandardGuiItem::cancel() ))
+//    KGuiItem(xi18nc("@action:button", "Create &Primary Key"), KexiIconName("database-key")), KStandardGuiItem::cancel() ))
         }
         KDbField::Type type = KDb::intToFieldType(set["type"].value().toInt());
         QString typeName;
@@ -1075,7 +1075,7 @@ void KexiTableDesignerView::slotAboutToDeleteRecord(
 {
     Q_UNUSED(result)
     Q_UNUSED(repaint)
-    if ((*data)[COLUMN_ID_ICON].toString() == "key")
+    if ((*data)[COLUMN_ID_ICON].toString() == "database-key")
         d->primaryKeyExists = false;
 
     if (d->addHistoryCommand_in_slotAboutToDeleteRecord_enabled) {
@@ -1193,7 +1193,7 @@ tristate KexiTableDesignerView::buildSchema(KDbTableSchema &schema, bool beSilen
                      "<para>If you want to add a primary key by hand, press <interface>Cancel</interface> "
                      "to cancel saving table design.</para>", schema.name()),
                 QString(),
-                KGuiItem(xi18nc("@action:button Add Database Primary Key to a Table", "&Add Primary Key"), koIconName("key")),
+                KGuiItem(xi18nc("@action:button Add Database Primary Key to a Table", "&Add Primary Key"), KexiIconName("database-key")),
                 KGuiItem(xi18nc("@action:button Do Not Add Database Primary Key to a Table", "Do &Not Add"), KStandardGuiItem::no().icon()),
                 KStandardGuiItem::cancel(),
                 "autogeneratePrimaryKeysOnTableDesignSaving");

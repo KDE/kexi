@@ -20,6 +20,7 @@
 
 #include "KexiFieldListModelItem.h"
 #include <kexiutils/utils.h>
+#include <core/kexi.h>
 #include <KexiIcon.h>
 
 #include <KDbUtils>
@@ -46,7 +47,7 @@ KexiFieldListModelItem::KexiFieldListModelItem(const QString &fname,
         : d(new Private(fname, dtype))
 {
     if (pkey) {
-        d->icon = koIcon("key");
+        d->icon = KexiIcon("database-key");
     } else {
         d->icon = KexiUtils::emptyIcon(KIconLoader::Small);
     }

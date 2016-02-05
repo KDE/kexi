@@ -12,6 +12,8 @@ ecm_install_icons(ICONS
     16-actions-kexi_macro.svg 22-actions-kexi_macro.svg 32-actions-kexi_macro.svg
     16-actions-kexi_script.svg 22-actions-kexi_script.svg 32-actions-kexi_script.svg
 
+    16-actions-kexi_database-key.svg 22-actions-kexi_database-key.svg
+
     DESTINATION ${ICON_INSTALL_DIR}
     THEME hicolor
 )

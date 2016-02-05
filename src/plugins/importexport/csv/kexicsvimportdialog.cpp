@@ -294,7 +294,7 @@ KexiCSVImportDialog::KexiCSVImportDialog(Mode mode, QWidget * parent)
     m_minimumYearFor100YearSlidingWindow = importExportGroup.readEntry(
         "MinimumYearFor100YearSlidingWindow", MINIMUM_YEAR_FOR_100_YEAR_SLIDING_WINDOW);
 
-    m_pkIcon = koSmallIcon("key");
+    m_pkIcon = SmallIcon(KexiIconName("database-key"));
 
     //! @todo KEXI3 button(ConfigureButton)->setVisible(m_mode != File);
     if (m_mode == File) {
@@ -1842,7 +1842,7 @@ void KexiCSVImportDialog::import()
                         "<para><note>An imported table without a primary key may not be "
                         "editable (depending on database type).</note></para>"),
                    QString(),
-                   KGuiItem(xi18nc("@action:button Add Database Primary Key to a Table", "&Add Primary Key"), koIconName("key")),
+                   KGuiItem(xi18nc("@action:button Add Database Primary Key to a Table", "&Add Primary Key"), KexiIconName("database-key")),
                    KGuiItem(xi18nc("@action:button Do Not Add Database Primary Key to a Table", "Do &Not Add"), KStandardGuiItem::no().icon()))))
         {
             if (msgboxResult == KMessageBox::Cancel) {

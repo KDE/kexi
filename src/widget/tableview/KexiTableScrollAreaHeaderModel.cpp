@@ -20,6 +20,7 @@
 #include "KexiTableScrollAreaHeaderModel.h"
 #include "KexiTableScrollArea.h"
 #include <KexiIcon.h>
+#include <core/kexi.h>
 
 #include <KDbTableViewColumn>
 
@@ -94,7 +95,7 @@ QVariant KexiTableScrollAreaHeaderModel::headerData(int section, Qt::Orientation
                 return icon;
             }
             if (col->field() && col->field()->isPrimaryKey()) {
-                return koSmallIcon("key");
+                return SmallIcon(KexiIconName("database-key"));
             }
             break;
         }

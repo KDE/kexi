@@ -15,7 +15,6 @@ ecm_install_icons(ICONS
     16-actions-frame.png
     16-actions-groupbox.png
     16-actions-insert_table_row.png
-    16-actions-key.png
     16-actions-line.png
     16-actions-line_horizontal.png
     16-actions-line_vertical.png
@@ -58,7 +57,6 @@ ecm_install_icons(ICONS
     22-actions-frame.png
     22-actions-groupbox.png
     22-actions-insert_table_row.png
-    22-actions-key.png
     22-actions-label.png
     22-actions-line.png
     22-actions-line_horizontal.png
@@ -91,13 +89,11 @@ ecm_install_icons(ICONS
     32-actions-delete_table_row.png
     32-actions-form_action.png
     32-actions-insert_table_row.png
-    32-actions-key.png
     32-actions-new_sign.png
     32-actions-pixmaplabel.png
     32-actions-state_data.png
     32-actions-state_sql.png
     48-actions-form_action.png
-    48-actions-key.png
     64-actions-form_action.png
     DESTINATION ${DATA_INSTALL_DIR}/kexi/icons
     THEME hicolor
