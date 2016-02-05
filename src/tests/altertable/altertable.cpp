@@ -634,9 +634,11 @@ tristate AlterTableTester::run(bool *closeAppRequested)
 int quit(int result)
 {
     testFile.close();
-    delete qApp;
-    if (newArgv)
+    if (newArgv) {
+        delete [] newArgv[0];
+        delete [] newArgv[1];
         delete [] newArgv;
+    }
     return result;
 }
 
@@ -670,6 +672,7 @@ int main(int argc, char *argv[])
     newArgc = 2;
     newArgv = new char*[newArgc];
     newArgv[0] = qstrdup(argv[0]);
+    newArgv[1] = 0;
 
     KAboutData aboutdata;
     aboutdata.setProgramName("Kexi Alter Table Test");
