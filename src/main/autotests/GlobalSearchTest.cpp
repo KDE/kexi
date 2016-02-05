@@ -57,7 +57,7 @@ public:
     }
     ~NewArgs() {
         for (int i = 0; i < count; i++) {
-            delete vals[i];
+            delete [] vals[i];
         }
         delete [] vals;
     }
@@ -209,7 +209,7 @@ int main(int argc, char *argv[])
 
     // Clean up
     for (int i = 0; i < argc; i++) {
-        delete realVals[i];
+        delete [] realVals[i];
     }
     delete [] realVals;
     return result;
