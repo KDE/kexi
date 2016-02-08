@@ -20,6 +20,7 @@ Name[sk]=Otázka
 Name[sv]=Fråga
 Name[uk]=Запит
 Name[x-test]=xxQueryxx
+Name[zh_CN]=查询
 Comment=Kexi plugin for handling queries
 Comment[ca]=Connector del Kexi per gestionar consultes
 Comment[ca@valencia]=Connector del Kexi per gestionar consultes
