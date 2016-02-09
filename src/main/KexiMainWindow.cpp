@@ -746,7 +746,7 @@ void KexiMainWindow::setupActions()
     d->action_edit_delete_row->setToolTip(xi18n("Delete the current record"));
     d->action_edit_delete_row->setWhatsThis(xi18n("Deletes the current record."));
 
-    d->action_edit_clear_table = createSharedAction(xi18n("Clear Table Contents"),
+    d->action_edit_clear_table = createSharedAction(xi18n("Clear Table Contents..."),
                                  koIconName("clear_table_contents"), QKeySequence(), "edit_clear_table");
     d->action_edit_clear_table->setToolTip(xi18n("Clear table contents"));
     d->action_edit_clear_table->setWhatsThis(xi18n("Clears table contents."));
