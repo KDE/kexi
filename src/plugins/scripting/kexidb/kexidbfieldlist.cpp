@@ -67,17 +67,13 @@ const QStringList KexiDBFieldList::names() const
 bool KexiDBFieldList::addField(QObject* field)
 {
     KexiDBField* f = dynamic_cast<KexiDBField*>(field);
-    if (! f) return false;
-    m_fieldlist->addField(f->field());
-    return true;
+    return f && m_fieldlist->addField(f->field());
 }
 
 bool KexiDBFieldList::insertField(int index, QObject* field)
 {
     KexiDBField* f = dynamic_cast<KexiDBField*>(field);
-    if (! f) return false;
-    m_fieldlist->insertField(index, f->field());
-    return true;
+    return f && m_fieldlist->insertField(index, f->field());
 }
 
 bool KexiDBFieldList::removeField(QObject* field)

@@ -210,10 +210,7 @@ void KexiComboBoxPopup::setData(KDbTableViewColumn *column, KDbField *field)
                 qDebug() << visibleAndBoundColumns;
                 foreach (int index, visibleAndBoundColumns) {
                     KDbQueryColumnInfo *columnInfo = fieldsExpanded.value(index);
-                    if (columnInfo && columnInfo->field) {
-                        d->privateQuery->addField(columnInfo->field);
-                    }
-                    else {
+                    if (!columnInfo || !columnInfo->field || !d->privateQuery->addField(columnInfo->field)) {
                         columnsFound = false;
                         break;
                     }
@@ -282,7 +279,11 @@ void KexiComboBoxPopup::setData(KDbTableViewColumn *column, KDbField *field)
 
             KDbField *f = new KDbField();
             f->setExpression(expr);
-            d->privateQuery->addField(f);
+            if (!d->privateQuery->addField(f)) {
+                qWarning() << "d->privateQuery->addField(f)";
+                delete f;
+                return;
+            }
             QString errorMessage, errorDescription;
             //! @todo KEXI3 check d->privateQuery->validate()
             if (!d->privateQuery->validate(&errorMessage, &errorDescription)) {

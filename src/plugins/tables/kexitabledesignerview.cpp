@@ -1248,7 +1248,10 @@ tristate KexiTableDesignerView::buildSchema(KDbTableSchema &schema, bool beSilen
         KDbField * f = buildField(*s);
         if (!f)
             continue; //hmm?
-        schema.addField(f);
+        if (!schema.addField(f)) {
+            qWarning() << "!schema.addField(f)";
+            return false;
+        }
         if (   !(*s)["rowSource"].value().toString().isEmpty()
             && !(*s)["rowSourceType"].value().toString().isEmpty())
         {

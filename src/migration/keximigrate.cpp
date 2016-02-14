@@ -333,10 +333,9 @@ bool KexiMigrate::performImport(Kexi::ObjectStatus* result)
                         break;
                     }
                     KDbField* f = destConn->setupField(data);
-                    if (f)
-                        t->addField(f);
-                    else
+                    if (!f || !t->addField(f)) {
                         ok = false;
+                    }
                 }
                 if (ok)
                     ok = destConn->drv_createTable(*t);

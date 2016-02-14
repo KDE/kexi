@@ -127,6 +127,7 @@ bool SpreadsheetMigrate::drv_readTableSchema(const QString& originalName, KexiDB
   
   Calligra::Sheets::Cell *cell;
   
+  bool ok = true;
   forever {
       cell = new Calligra::Sheets::Cell(sheet, col, row);
       if (cell->isEmpty()) {
@@ -149,12 +150,17 @@ bool SpreadsheetMigrate::drv_readTableSchema(const QString& originalName, KexiDB
       }
       KexiDB::Field *fld = new KexiDB::Field(fieldName, KexiDB::Field::Text);
       fld->setCaption(fieldCaption);
-      tableSchema.addField( fld );
+      if (!tableSchema.addField( fld )) {
+          return fld;
+          tableSchema.clear();
+          ok = false;
+          break;
+      }
       qDebug() << fieldName;
       col++;
   }
   
-  return true;
+  return ok;
 }
 
 bool SpreadsheetMigrate::drv_readFromTable(const QString & tableName)

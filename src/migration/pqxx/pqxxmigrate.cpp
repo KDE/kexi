@@ -88,6 +88,7 @@ bool PqxxMigrate::drv_readTableSchema(
     if (!query("select * from " + drv_escapeIdentifier(originalName) + " limit 1"))
         return false;
     //Loop round the fields
+    bool ok = true;
     for (int i = 0; i < m_res->columns(); i++) {
         QString fldName(m_res->column_name(i));
         KDbField::Type fldType = type(m_res->column_type(i), fldName);
@@ -100,10 +101,15 @@ bool PqxxMigrate::drv_readTableSchema(
         f->setPrimaryKey(primaryKey(toid, i));
         f->setUniqueKey(uniqueKey(toid, i));
         f->setAutoIncrement(autoInc(toid, i));//This should be safe for all field types
-        tableSchema.addField(f);
+        if (!tableSchema.addField(f)) {
+            delete f;
+            tableSchema.clear();
+            ok = false;
+            break;
+        }
         //qDebug() << "Added field [" << f->name() << "] type [" << f->typeName() << ']';
     }
-    return true;
+    return ok;
 }
 
 //==================================================================================

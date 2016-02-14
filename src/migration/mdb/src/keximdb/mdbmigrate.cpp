@@ -174,7 +174,11 @@ bool MDBMigrate::drv_readTableSchema(const QString& originalName,
 
         //qDebug() << "size" << col->col_size << "type" << type(col->col_type);
         fld->setCaption(fldName);
-        tableSchema.addField(fld);
+        if (!tableSchema.addField(fld)) {
+            delete fld;
+            tableSchema.clear();
+            return false;
+        }
     }
 
     getPrimaryKey(&tableSchema, tableDef);
@@ -410,27 +414,33 @@ bool MDBMigrate::getPrimaryKey(KDbTableSchema* table, MdbTableDef* tableDef)
     // MDBTools counts columns from 1 - subtract 1 where necessary
     KDbIndexSchema* p_idx = new KDbIndexSchema(table);
 
+    bool ok = true;
     for (unsigned int i = 0; i < idx->num_keys; i++) {
         key_col_num[i] = idx->key_col_num[i];
         qDebug() << "key" << i + 1 << " col " << key_col_num[i]
                  << table->field(idx->key_col_num[i] - 1)->name();
-        p_idx->addField(table->field(idx->key_col_num[i] - 1));
+        if (!p_idx->addField(table->field(idx->key_col_num[i] - 1))) {
+            delete p_idx;
+            ok = false;
+            break;
+        }
     }
 
-    //qDebug() << *p_idx;
-
-    // ... and add it to the table definition
-    // but only if the PK has only one field, so far :o(
-
-    KDbField *f;
-    if (idx->num_keys == 1 && (f = table->field(idx->key_col_num[0] - 1))) {
-        f->setPrimaryKey(true);
-    } else {
-        //! @todo: How to add a composite PK to a KDbTableSchema?
+    if (ok) {
+        //qDebug() << *p_idx;
+    
+        // ... and add it to the table definition
+        // but only if the PK has only one field, so far :o(
+    
+        KDbField *f;
+        if (idx->num_keys == 1 && (f = table->field(idx->key_col_num[0] - 1))) {
+            f->setPrimaryKey(true);
+        } else {
+            //! @todo: How to add a composite PK to a KDbTableSchema?
+        }
     }
-
     mdb_free_indices(tableDef->indices);
-    return true;
+    return ok;
 }
 
 bool MDBMigrate::drv_getTableSize(const QString& table, quint64& size)

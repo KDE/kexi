@@ -68,16 +68,23 @@ bool TxtMigrate::drv_tableNames(QStringList& tablenames)
 
 bool TxtMigrate::drv_readTableSchema(const QString& originalName, KDbTableSchema& tableSchema)
 {
-  if (drv_readFromTable(originalName))
-  {
-    for (int i = 0; i < m_FieldNames.count(); ++i)
-    {
-      tableSchema.addField( new KDbField(m_FieldNames[i], KDbField::Text) );
+    if (!drv_readFromTable(originalName)) {
+        return false;
     }
-    tableSchema.setName(originalName);
-    return true;
-  }
-  return false;
+    bool ok = true;
+    for (int i = 0; i < m_FieldNames.count(); ++i) {
+        KDbField *f = new KDbField(m_FieldNames[i], KDbField::Text);
+        if (!tableSchema.addField(f)) {
+            delete f;
+            tableSchema.clear();
+            ok = false;
+            break;
+        }
+    }
+    if (ok) {
+        tableSchema.setName(originalName);
+    }
+    return ok;
 }
 
 bool TxtMigrate::drv_readFromTable(const QString & tableName)

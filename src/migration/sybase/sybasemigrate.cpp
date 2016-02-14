@@ -83,53 +83,59 @@ bool SybaseMigrate::drv_readTableSchema(
     if (!query(sqlStatement))
         return false;
 
+    bool ok = true;
     unsigned int numFlds = dbnumcols(d->dbProcess);
     QVector<KDbField*> fieldVector;
     for (unsigned int i = 1; i <= numFlds; i++) {
         //  dblib indexes start from 1
-        DBCOL* colInfo = new DBCOL;
-        if (dbcolinfo(d->dbProcess, CI_REGULAR, i , 0, colInfo) != SUCCEED) {
+        DBCOL colInfo;
+        if (dbcolinfo(d->dbProcess, CI_REGULAR, i , 0, &colInfo) != SUCCEED) {
             return false;
         }
 
-        QString fldName(dbcolname(d->dbProcess, i));
-        QString fldID(KDb::stringToIdentifier(fldName));
+        const QString fldName(dbcolname(d->dbProcess, i));
+        const QString fldID(KDb::stringToIdentifier(fldName));
 
         KDbField *fld =
             new KDbField(fldID, type(originalName, dbcoltype(d->dbProcess, i)));
         fld->setCaption(fldName);
-        fld->setAutoIncrement(colInfo->Identity == true ? true : false);
-        fld->setNotNull(colInfo->Null == false ? true : false);
+        fld->setAutoIncrement(colInfo.Identity == true ? true : false);
+        fld->setNotNull(colInfo.Null == false ? true : false);
 
         // collect the fields for post-processing
         fieldVector.append(fld);
-        tableSchema.addField(fld);
-
+        if (!tableSchema.addField(fld)) {
+            delete fld;
+            tableSchema.clear();
+            ok = false;
+            break;
+        }
         //qDebug() << fld->caption() << "No.of fields in tableSchema" << tableSchema.fieldCount();
-        delete colInfo;
     }
 
-    // read all the indexes on this table
-    QList<KDbIndexSchema*> indexList = readIndexes(originalName, tableSchema);
-    foreach(KDbIndexSchema* index, indexList) {
-        // We are only looking for indexes on single fields
-        // **kexi limitation**
-        // generalise this when we get full support for indexes
-        if (index->fieldCount() != 1) {
-            continue;
-        }
-        KDbField* fld = index->field(0);
+    if (ok) {
+        // read all the indexes on this table
+        QList<KDbIndexSchema*> indexList = readIndexes(originalName, tableSchema);
+        foreach(KDbIndexSchema* index, indexList) {
+            // We are only looking for indexes on single fields
+            // **kexi limitation**
+            // generalise this when we get full support for indexes
+            if (index->fieldCount() != 1) {
+                continue;
+            }
+            KDbField* fld = index->field(0);
 
-        if (!fld)
-            return false;
+            if (!fld)
+                return false;
 
-        if (index->isPrimaryKey()) {
-            fld->setPrimaryKey(true);
-            tableSchema.setPrimaryKey(index);
-        } else if (index->isUnique()) {
-            fld->setUniqueKey(true);
-        } else {
-            fld->setIndexed(true);
+            if (index->isPrimaryKey()) {
+                fld->setPrimaryKey(true);
+                tableSchema.setPrimaryKey(index);
+            } else if (index->isUnique()) {
+                fld->setUniqueKey(true);
+            } else {
+                fld->setIndexed(true);
+            }
         }
     }
     return true;
@@ -515,6 +521,8 @@ QList<KDbIndexSchema*> KexiMigration::SybaseMigrate::readIndexes(const QString& 
             sqlStatement = QString("Select index_col('%1',%2, %3 )").arg(drv_escapeIdentifier(tableName)).arg(indexId).arg(i);
 
             if (!query(sqlStatement)) {
+                delete indexSchema;
+                qDeleteAll(indexList);
                 return QList<KDbIndexSchema*>();
             }
 
@@ -522,7 +530,11 @@ QList<KDbIndexSchema*> KexiMigration::SybaseMigrate::readIndexes(const QString& 
                 // only one row is expected
                 QString fieldName = value(0);
                 //qDebug() << fieldName;
-                indexSchema->addField(fieldHash[fieldName]);
+                if (!indexSchema->addField(fieldHash[fieldName])) {
+                    delete indexSchema;
+                    qDeleteAll(indexList);
+                    return QList<KDbIndexSchema*>();
+                }
             }
         }
 

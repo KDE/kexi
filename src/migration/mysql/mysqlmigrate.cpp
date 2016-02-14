@@ -113,6 +113,7 @@ bool MySQLMigrate::drv_readTableSchema(
     unsigned int numFlds = mysql_num_fields(res);
     MYSQL_FIELD *fields = mysql_fetch_fields(res);
 
+    bool ok = true;
     for (unsigned int i = 0; i < numFlds; i++) {
         QString fldName(fields[i].name);
         QString fldID(KDb::stringToIdentifier(fldName.toLower()));
@@ -127,10 +128,15 @@ bool MySQLMigrate::drv_readTableSchema(
         fld->setCaption(fldName);
         getConstraints(fields[i].flags, fld);
         getOptions(fields[i].flags, fld);
-        tableSchema.addField(fld);
+        if (!tableSchema.addField(fld)) {
+            delete fld;
+            tableSchema.clear();
+            ok = false;
+            break;
+        }
     }
     mysql_free_result(res);
-    return true;
+    return ok;
 }
 
 

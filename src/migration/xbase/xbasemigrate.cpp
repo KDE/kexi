@@ -153,6 +153,7 @@ bool xBaseMigrate::drv_readTableSchema(
 
   xbLong numFlds = tableDbf->FieldCount();
 
+  bool ok = true;
   for( xbShort i = 0; i < numFlds; ++i ) {
     QString fldName = QString::fromLatin1( tableDbf->GetFieldName( i ) );
     QString fldID( KDb::stringToIdentifier( fldName.toLower() ) );
@@ -173,9 +174,14 @@ bool xBaseMigrate::drv_readTableSchema(
 
     getConstraints(originalName, fld);
 
-    tableSchema.addField(fld);
+    if (!tableSchema.addField(fld)) {
+      delete fld;
+      tableSchema.clear();
+      ok = false;
+      break;
+    }
   }
-  return true;
+  return ok;
 }
 
 

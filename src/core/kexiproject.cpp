@@ -501,12 +501,12 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
 
     KDbInternalTableSchema *t_blobs = new KDbInternalTableSchema("kexi__blobs");
     t_blobs->addField(new KDbField("o_id", KDbField::Integer,
-                                        KDbField::PrimaryKey | KDbField::AutoInc, KDbField::Unsigned))
-    .addField(new KDbField("o_data", KDbField::BLOB))
-    .addField(new KDbField("o_name", KDbField::Text))
-    .addField(new KDbField("o_caption", KDbField::Text))
-    .addField(new KDbField("o_mime", KDbField::Text, KDbField::NotNull))
-    .addField(new KDbField("o_folder_id",
+                                        KDbField::PrimaryKey | KDbField::AutoInc, KDbField::Unsigned));
+    t_blobs->addField(new KDbField("o_data", KDbField::BLOB));
+    t_blobs->addField(new KDbField("o_name", KDbField::Text));
+    t_blobs->addField(new KDbField("o_caption", KDbField::Text));
+    t_blobs->addField(new KDbField("o_mime", KDbField::Text, KDbField::NotNull));
+    t_blobs->addField(new KDbField("o_folder_id",
                                 KDbField::Integer, 0, KDbField::Unsigned) //references kexi__gallery_folders.f_id
               //If null, the BLOB only points to virtual "All" folder
               //WILL BE USED in Kexi >=2.0
@@ -559,10 +559,10 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
     KDbInternalTableSchema *t_parts = new KDbInternalTableSchema("kexi__parts");
     t_parts->addField(
         new KDbField("p_id", KDbField::Integer, KDbField::PrimaryKey | KDbField::AutoInc, KDbField::Unsigned)
-    )
-    .addField(new KDbField("p_name", KDbField::Text))
-    .addField(new KDbField("p_mime", KDbField::Text))
-    .addField(new KDbField("p_url", KDbField::Text));
+    );
+    t_parts->addField(new KDbField("p_name", KDbField::Text));
+    t_parts->addField(new KDbField("p_mime", KDbField::Text));
+    t_parts->addField(new KDbField("p_url", KDbField::Text));
 
     const tristate containsKexi__partsTable = d->connection->drv_containsTable("kexi__parts");
     if (~containsKexi__partsTable) {
@@ -606,10 +606,10 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
 
     // User data storage
     KDbInternalTableSchema *t_userdata = new KDbInternalTableSchema("kexi__userdata");
-    t_userdata->addField(new KDbField("d_user", KDbField::Text, KDbField::NotNull))
-        .addField(new KDbField("o_id", KDbField::Integer, KDbField::NotNull, KDbField::Unsigned))
-        .addField(new KDbField("d_sub_id", KDbField::Text, KDbField::NotNull | KDbField::NotEmpty))
-        .addField(new KDbField("d_data", KDbField::LongText));
+    t_userdata->addField(new KDbField("d_user", KDbField::Text, KDbField::NotNull));
+    t_parts->addField(new KDbField("o_id", KDbField::Integer, KDbField::NotNull, KDbField::Unsigned));
+    t_parts->addField(new KDbField("d_sub_id", KDbField::Text, KDbField::NotNull | KDbField::NotEmpty));
+    t_parts->addField(new KDbField("d_data", KDbField::LongText));
 
     const tristate containsKexi__userdataTable = d->connection->drv_containsTable("kexi__userdata");
     if (~containsKexi__userdataTable) {

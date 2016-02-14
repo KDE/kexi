@@ -479,7 +479,9 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                 //! @todo
             } else if (tableName == "*") {
                 //all tables asterisk
-                temp->query()->addAsterisk(new KDbQueryAsterisk(temp->query(), 0), fieldVisible);
+                if (!temp->query()->addAsterisk(new KDbQueryAsterisk(temp->query(), 0), fieldVisible)) {
+                    return false;
+                }
                 if (fieldVisible)
                     fieldsFound = true;
                 continue;
@@ -487,7 +489,9 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                 KDbTableSchema *t = d->conn->tableSchema(tableName);
                 if (fieldName == "*") {
                     //single-table asterisk: <tablename> + ".*" + number
-                    temp->query()->addAsterisk(new KDbQueryAsterisk(temp->query(), t), fieldVisible);
+                    if (!temp->query()->addAsterisk(new KDbQueryAsterisk(temp->query(), t), fieldVisible)) {
+                        return false;
+                    }
                     if (fieldVisible)
                         fieldsFound = true;
                 } else {
@@ -506,7 +510,9 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                         qDebug() << "invisible field with sorting: do not add it to the fields list";
                         continue;
                     }
-                    temp->query()->addField(currentField, fieldVisible);
+                    if (!temp->query()->addField(currentField, fieldVisible)) {
+                        return false;
+                    }
                     if (fieldVisible)
                         fieldsFound = true;
                     if (!alias.isEmpty())

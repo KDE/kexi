@@ -1878,7 +1878,13 @@ void KexiCSVImportDialog::import()
             ); //no description and width for now
             field->setPrimaryKey(true);
             field->setAutoIncrement(true);
-            m_destinationTableSchema->addField(field);
+            if (!m_destinationTableSchema->addField(field)) {
+                msg.showErrorMessage(KDbMessageHandler::Error, xi18n("Cannot add column."));
+                delete field;
+                delete m_destinationTableSchema;
+                m_destinationTableSchema = 0;
+                return;
+            }
         }
 
         for (int col = 0; col < numCols; col++) {
@@ -1930,7 +1936,13 @@ void KexiCSVImportDialog::import()
                 field->setPrimaryKey(true);
                 field->setAutoIncrement(true);
             }
-            m_destinationTableSchema->addField(field);
+            if (!m_destinationTableSchema->addField(field)) {
+                msg.showErrorMessage(KDbMessageHandler::Error, xi18n("Cannot add column."));
+                delete field;
+                delete m_destinationTableSchema;
+                m_destinationTableSchema = 0;
+                return;
+            }
         }
     } else {
         m_implicitPrimaryKeyAdded = false;
