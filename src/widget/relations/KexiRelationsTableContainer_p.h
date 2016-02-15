@@ -51,7 +51,7 @@ Q_SIGNALS:
     void tableScrolling();
 
 protected Q_SLOTS:
-    void slotContentsMoving(int, int);
+    void slotContentsMoving();
 
 protected:
     virtual void dragEnterEvent(QDragEnterEvent* event);

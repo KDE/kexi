@@ -155,8 +155,8 @@ KexiRelationsTableFieldList::KexiRelationsTableFieldList(
     setSchema(tableOrQuerySchema);
     setAcceptDrops(true);
 
-    connect(this, SIGNAL(contentsMoving(int,int)),
-            this, SLOT(slotContentsMoving(int,int)));
+    connect(horizontalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(slotContentsMoving()));
+    connect(verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(slotContentsMoving()));
 
     horizontalScrollBar()->installEventFilter(this);
     verticalScrollBar()->installEventFilter(this);
@@ -299,7 +299,7 @@ void KexiRelationsTableFieldList::dropEvent(QDropEvent *event)
 #endif
 }
 
-void KexiRelationsTableFieldList::slotContentsMoving(int, int)
+void KexiRelationsTableFieldList::slotContentsMoving()
 {
     emit tableScrolling();
 }
