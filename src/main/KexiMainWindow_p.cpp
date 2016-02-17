@@ -1351,7 +1351,7 @@ void KexiMainWindow::Private::setTabBarVisible(KMultiTabBar::KMultiTabBarPositio
     else if (!mtbar->tab(id)) {
         QString t(dockWidget->windowTitle());
         t.remove('&');
-        mtbar->appendTab(QPixmap(), id, t);
+        mtbar->appendTab(QIcon(), id, t);
         KMultiTabBarTab *tab = mtbar->tab(id);
         QObject::connect(tab, SIGNAL(clicked(int)),
                          wnd, SLOT(slotMultiTabBarTabClicked(int)),
