@@ -90,11 +90,11 @@
      <property name="maxCount">
       <number>10</number>
      </property>
-     <property name="duplicatesEnabled">
-      <bool>false</bool>
-     </property>
      <property name="autoCompletion">
       <bool>true</bool>
+     </property>
+     <property name="duplicatesEnabled">
+      <bool>false</bool>
      </property>
     </widget>
    </item>
@@ -138,11 +138,11 @@
      <property name="maxCount">
       <number>10</number>
      </property>
-     <property name="duplicatesEnabled">
-      <bool>false</bool>
-     </property>
      <property name="autoCompletion">
       <bool>true</bool>
+     </property>
+     <property name="duplicatesEnabled">
+      <bool>false</bool>
      </property>
     </widget>
    </item>
@@ -218,7 +218,16 @@
    </item>
    <item row="0" column="3" rowspan="8">
     <layout class="QVBoxLayout">
-     <property name="margin">
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
       <number>0</number>
      </property>
      <item>
@@ -240,19 +249,6 @@
        </property>
        <property name="default">
         <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="m_btnClose">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string/>
        </property>
       </widget>
      </item>
@@ -326,7 +322,6 @@
   <tabstop>m_textToFind</tabstop>
   <tabstop>m_textToReplace</tabstop>
   <tabstop>m_btnFind</tabstop>
-  <tabstop>m_btnClose</tabstop>
   <tabstop>m_btnReplace</tabstop>
   <tabstop>m_btnReplaceAll</tabstop>
   <tabstop>m_lookIn</tabstop>
@@ -337,22 +332,5 @@
   <tabstop>m_promptOnReplace</tabstop>
  </tabstops>
  <resources/>
- <connections>
-  <connection>
-   <sender>m_btnClose</sender>
-   <signal>clicked()</signal>
-   <receiver>KexiFindDialog</receiver>
-   <slot>reject()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>20</x>
-     <y>20</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

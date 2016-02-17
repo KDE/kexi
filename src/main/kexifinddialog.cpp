@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2004-2007 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -36,6 +36,7 @@
 #include <QPointer>
 #include <QAction>
 #include <QDesktopWidget>
+#include <QKeyEvent>
 
 #include <kexi_global.h>
 
@@ -84,7 +85,8 @@ public:
 
 KexiFindDialog::KexiFindDialog(QWidget* parent)
         : QDialog(parent,
-                  Qt::Dialog | Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::Tool)
+                  Qt::Dialog | Qt::WindowTitleHint | Qt::WindowSystemMenuHint | Qt::Tool
+                  | Qt::WindowCloseButtonHint)
         , d(new Private())
 {
     setObjectName("KexiFindDialog");
@@ -97,15 +99,12 @@ KexiFindDialog::KexiFindDialog(QWidget* parent)
     m_btnFind->setText(a->text());
     m_btnFind->setIcon(a->icon());
     delete a;
-    m_btnClose->setText(KStandardGuiItem::close().text());
-    m_btnClose->setIcon(KStandardGuiItem::close().icon());
     connect(m_btnFind, SIGNAL(clicked()), this, SIGNAL(findNext()));
-    connect(m_btnClose, SIGNAL(clicked()), this, SLOT(slotCloseClicked()));
     connect(m_btnReplace, SIGNAL(clicked()), this, SIGNAL(replaceNext()));
     connect(m_btnReplaceAll, SIGNAL(clicked()), this, SIGNAL(replaceAll()));
-    connect(m_textToFind, SIGNAL(activated()), this, SLOT(addToFindHistory()));
+    connect(m_textToFind, SIGNAL(activated(int)), this, SLOT(addToFindHistory()));
     connect(m_btnFind, SIGNAL(clicked()), this, SLOT(addToFindHistory()));
-    connect(m_textToReplace, SIGNAL(activated()), this, SLOT(addToReplaceHistory()));
+    connect(m_textToReplace, SIGNAL(activated(int)), this, SLOT(addToReplaceHistory()));
     connect(m_btnReplace, SIGNAL(clicked()), this, SLOT(addToReplaceHistory()));
     connect(m_btnReplaceAll, SIGNAL(clicked()), this, SLOT(addToReplaceHistory()));
     // clear message after the text is changed
@@ -283,12 +282,6 @@ void KexiFindDialog::addToReplaceHistory()
     m_textToReplace->addToHistory(m_textToReplace->currentText());
 }
 
-
-void KexiFindDialog::slotCloseClicked()
-{
-    reject();
-}
-
 void KexiFindDialog::show()
 {
     m_textToFind->setFocus();
@@ -314,3 +307,13 @@ KexiSearchAndReplaceViewInterface::Options KexiFindDialog::options() const
     return options;
 }
 
+bool KexiFindDialog::event(QEvent *e)
+{
+    if (e->type() == QEvent::ShortcutOverride && static_cast<QKeyEvent*>(e)->key() == Qt::Key_Escape
+        && static_cast<QKeyEvent*>(e)->modifiers() == Qt::NoModifier)
+    {
+        reject();
+        return true;
+    }
+    return QDialog::event(e);
+}
