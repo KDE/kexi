@@ -140,8 +140,8 @@ public:
     void initSortColumnPreferredWidth(const QVector<QString> &items)
     {
         int maxw = -1;
-        foreach (const QString &text, items) {
-            maxw = qMax(maxw, q->fontMetrics().width(text + " "));
+        for (int i=0; i < items.size(); ++i) {
+            maxw = qMax(maxw, q->fontMetrics().width(items[i] + QLatin1String(" ")));
         }
         sortColumnPreferredWidth = maxw + KexiUtils::comboBoxArrowSize(q->style()).width();
     }
