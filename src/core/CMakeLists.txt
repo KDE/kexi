@@ -62,6 +62,11 @@ target_link_libraries(kexicore
         KPropertyWidgets
 )
 
+if(WIN32)
+    target_include_directories(kexicore PUBLIC "${KDEWIN_INCLUDES}")
+    target_link_libraries(kexicore PUBLIC ${KDEWIN_LIBRARIES})
+endif()
+
 set_target_properties(kexicore PROPERTIES
     VERSION ${GENERIC_KEXI_LIB_VERSION} SOVERSION ${GENERIC_KEXI_LIB_SOVERSION}
 )
