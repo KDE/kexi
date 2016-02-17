@@ -607,9 +607,9 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
     // User data storage
     KDbInternalTableSchema *t_userdata = new KDbInternalTableSchema("kexi__userdata");
     t_userdata->addField(new KDbField("d_user", KDbField::Text, KDbField::NotNull));
-    t_parts->addField(new KDbField("o_id", KDbField::Integer, KDbField::NotNull, KDbField::Unsigned));
-    t_parts->addField(new KDbField("d_sub_id", KDbField::Text, KDbField::NotNull | KDbField::NotEmpty));
-    t_parts->addField(new KDbField("d_data", KDbField::LongText));
+    t_userdata->addField(new KDbField("o_id", KDbField::Integer, KDbField::NotNull, KDbField::Unsigned));
+    t_userdata->addField(new KDbField("d_sub_id", KDbField::Text, KDbField::NotNull | KDbField::NotEmpty));
+    t_userdata->addField(new KDbField("d_data", KDbField::LongText));
 
     const tristate containsKexi__userdataTable = d->connection->drv_containsTable("kexi__userdata");
     if (~containsKexi__userdataTable) {
