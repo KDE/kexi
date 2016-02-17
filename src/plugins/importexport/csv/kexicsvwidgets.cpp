@@ -37,10 +37,6 @@
 #define KEXICSV_OTHER_NUMBER_OF_SIGNS 2
 #define KEXICSV_OTHER_commentSymbol_INDEX 1
 
-#ifdef Q_CC_MSVC
-Q_TEMPLATE_EXTERN template class Q_CORE_EXPORT QVector<QString>;
-#endif
-
 class KexiCSVInfoLabel::Private
 {
 public:

@@ -29,9 +29,4 @@ target_link_libraries(kexi_csvimportexportplugin
         Qt5::Gui
 )
 
-if(MSVC)
-   # avoid LNK1169 errors
-   set_target_properties(kexi_csvimportexportplugin PROPERTIES LINK_FLAGS /FORCE:MULTIPLE)
-endif()
-
 install(TARGETS kexi_csvimportexportplugin  DESTINATION ${KEXI_PLUGIN_INSTALL_DIR})
