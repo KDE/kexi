@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -87,6 +87,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KConfigGroup>
+#include <KAcceleratorManager>
 
 #include <QApplication>
 #include <QFile>
@@ -118,6 +119,10 @@ KexiDockWidget::KexiDockWidget(const QString & title, QWidget *parent)
     setFeatures(QDockWidget::NoDockWidgetFeatures);//DockWidgetClosable);
     setAllowedAreas(Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea);
     setFocusPolicy(Qt::NoFocus);
+    if (style()->objectName().compare("windowsvista", Qt::CaseInsensitive) == 0) {
+        // windowsvista style has broken accelerator visualization support
+        KAcceleratorManager::setNoAccel(this);
+    }
 
     QStyleOptionDockWidgetV2 dockOpt;
     dockOpt.initFrom(this);
