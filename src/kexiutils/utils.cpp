@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    Contains code from kglobalsettings.cpp:
    Copyright (C) 2000, 2006 David Faure <faure@kde.org>
@@ -56,6 +56,7 @@
 #include <QDebug>
 #include <QFileDialog>
 #include <QDesktopServices>
+#include <QStyleHints>
 
 #include <KRun>
 #include <KToolInvocation>
@@ -901,8 +902,13 @@ GraphicEffects KexiUtils::graphicEffectsLevel()
 
 bool KexiUtils::activateItemsOnSingleClick(QWidget *widget)
 {
+#if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
+    Q_UNUSED(widget)
+    return QApplication::styleHints()->singleClickActivation();
+#else
     QStyle *style = widget ? widget->style() : QApplication::style();
     return style->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick, 0, widget);
+#endif
 }
 
 // NOTE: keep this in sync with kdebase/workspace/kcontrol/colors/colorscm.cpp

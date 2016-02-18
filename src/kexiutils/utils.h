@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    Contains code from kglobalsettings.h:
    Copyright (C) 2000, 2006 David Faure <faure@kde.org>
@@ -547,8 +547,10 @@ KEXIUTILS_EXPORT QColor activeTextColor();
 
 /*! @return @c true if whether the app runs in a single click mode (the default).
     @c false if returned if the app runs in double click mode.
-    This information is taken from @a widget widget's style. If there is no widget
+    For Qt < 5.5 this information is taken from @a widget widget's style. If there is no widget
     specified, QApplication::style() is used.
+    For Qt >= 5.5 the result is equal to QApplication::styleHints()->singleClickActivation()
+    and @a widget is ignored.
     @note This is a replacement for bool KGlobalSettings::singleClick().
 */
 KEXIUTILS_EXPORT bool activateItemsOnSingleClick(QWidget *widget = 0);
