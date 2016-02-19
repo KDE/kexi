@@ -1454,7 +1454,7 @@ void KexiCSVImportDialog::detectTypeAndUniqueness(int row, int col, const QStrin
     }
 
     type = d->detectedType(col);
-    qDebug() << type;
+    //qDebug() << type;
 
     if (type == KDbField::Integer) {
         // check uniqueness for this value
