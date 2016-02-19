@@ -181,7 +181,20 @@ void KexiDBConnectionSet::load()
     const QStringList dirs(QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
                                                      "kexi/connections",
                                                      QStandardPaths::LocateDirectory));
+    QSet<QString> foundDirs;
     foreach(const QString &dir, dirs) {
+        const QString realDir(QDir(dir).canonicalPath());
+        // make sure we don't visit the same dir twice to avoid duplication of connection data:
+        // - follow symlinks
+        // - QStandardPaths::locateAll sometimes returns duplicated entries (e.g. on Windows)
+        if (foundDirs.contains(realDir)) {
+            continue;
+        }
+        foundDirs.insert(realDir);
+        QFileInfo realDirInfo(realDir);
+        if (!realDirInfo.exists()) {
+            continue;
+        }
         QDirIterator it(dir, QStringList() << "*.kexic", QDir::Files | QDir::Readable,
                         QDirIterator::FollowSymlinks);
         while (it.hasNext()) {
