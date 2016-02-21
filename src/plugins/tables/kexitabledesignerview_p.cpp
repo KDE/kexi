@@ -222,15 +222,16 @@ bool KexiTableDesignerViewPrivate::updatePropertiesVisibility(KDbField::Type fie
     return changed;
 }
 
-QString KexiTableDesignerViewPrivate::messageForSavingChanges(bool *emptyTable, bool skipWarning)
+KLocalizedString KexiTableDesignerViewPrivate::messageForSavingChanges(bool *emptyTable, bool skipWarning)
 {
     Q_ASSERT(emptyTable);
     KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     *emptyTable = true == conn->isEmpty(designerView->tempData()->table);
-    return xi18n("Do you want to save the design now?")
-           + ((*emptyTable || skipWarning) ? QString() :
-              (QString("\n\n") + designerView->part()->i18nMessage(":additional message before saving design",
-                      designerView->window()).toString()));
+    return kxi18nc("@info", "<para>Do you want to save the design now?</para>%1")
+           .subs((*emptyTable || skipWarning)
+                  ? KLocalizedString()
+                  : (designerView->part()->i18nMessage(":additional message before saving design",
+                                                       designerView->window())));
 }
 
 void KexiTableDesignerViewPrivate::updateIconForRecord(KDbRecordData *data, KPropertySet *set)

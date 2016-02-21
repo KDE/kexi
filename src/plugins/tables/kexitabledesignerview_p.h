@@ -91,7 +91,7 @@ public:
      \a emptyTable is set to true if the table designed contains no rows.
      If \a skipWarning is true, no warning about data loss is appended (useful when
      only non-physical altering actions will be performed). */
-    QString messageForSavingChanges(bool *emptyTable, bool skipWarning = false);
+    KLocalizedString messageForSavingChanges(bool *emptyTable, bool skipWarning = false);
 
     /*! Updates icon in the first column, depending on property set \a set.
      For example, when "rowSource" and "rowSourceType" propertiesa are not empty,

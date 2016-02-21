@@ -576,12 +576,25 @@ tristate KexiTableDesignerView::beforeSwitchTo(Kexi::ViewMode mode, bool *dontSt
 //   cancelled = (KMessageBox::No == KMessageBox::questionYesNo(this, xi18n("Saving changes for existing table design is not yet supported.\nDo you want to discard your changes now?")));
 //   KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
             bool emptyTable;
+            bool isPhysicalAlteringNeeded = this->isPhysicalAlteringNeeded();
+            KLocalizedString message(
+                kxi18nc("@info", "<para>Saving changes for existing table design is now required.</para>%1")
+                       .subs(d->messageForSavingChanges(&emptyTable, /*skip warning?*/!isPhysicalAlteringNeeded)));
+            if (emptyTable) {
+                isPhysicalAlteringNeeded = false; // eventually, not needed because there's no data
+            }
+            KGuiItem saveItem(KStandardGuiItem::save());
+            saveItem.setToolTip(QString());
+            KGuiItem discardItem(KStandardGuiItem::discard());
+            discardItem.setToolTip(QString());
+            if (isPhysicalAlteringNeeded) {
+                saveItem.setText(xi18nc("@action:button", "Save Design and Remove Table Data"));
+                discardItem.setText(xi18nc("@action:button", "Discard Design"));
+            }
             const KMessageBox::ButtonCode r = KMessageBox::warningYesNoCancel(this,
-                xi18n("Saving changes for existing table design is now required.")
-                + "\n"
-                + d->messageForSavingChanges(&emptyTable, /*skip warning?*/!isPhysicalAlteringNeeded()),
+                message.toString(),
                 QString(),
-                KStandardGuiItem::save(), KStandardGuiItem::discard(), KStandardGuiItem::cancel(),
+                saveItem, discardItem, KStandardGuiItem::cancel(),
                 QString(),
                 KMessageBox::Notify | KMessageBox::Dangerous);
             if (r == KMessageBox::Cancel)
@@ -1427,7 +1440,7 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
             // - inform about removing the current table and ask for confirmation
             if (!d->dontAskOnStoreData && !dontAsk) {
                 bool emptyTable;
-                const QString msg = d->messageForSavingChanges(&emptyTable);
+                const QString msg = d->messageForSavingChanges(&emptyTable).toString();
                 if (!emptyTable) {
                     if (KMessageBox::No == KMessageBox::questionYesNo(this, msg))
                         res = cancelled;
