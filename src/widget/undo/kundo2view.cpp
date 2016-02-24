@@ -90,45 +90,38 @@
 class KUndo2ViewPrivate
 {
 public:
-    KUndo2ViewPrivate() :
+    KUndo2ViewPrivate(KUndo2View *view) :
 #ifndef QT_NO_UNDOGROUP
         group(0),
 #endif
-        model(0) {}
+        q(view)
+    {
+        model = new KUndo2Model(q);
+        q->setModel(model);
+        q->setSelectionModel(model->selectionModel());
+    }
 
 #ifndef QT_NO_UNDOGROUP
     QPointer<KUndo2Group> group;
 #endif
     KUndo2Model *model;
-    KUndo2View* q;
-
-    void init(KUndo2View* view);
+    KUndo2View* const q;
 };
-
-void KUndo2ViewPrivate::init(KUndo2View* view)
-{
-    q = view;
-    model = new KUndo2Model(q);
-    q->setModel(model);
-    q->setSelectionModel(model->selectionModel());
-}
 
 /*!
     Constructs a new view with parent \a parent.
 */
 
-KUndo2View::KUndo2View(QWidget *parent) : QListView(parent), d(new KUndo2ViewPrivate)
+KUndo2View::KUndo2View(QWidget *parent) : QListView(parent), d(new KUndo2ViewPrivate(this))
 {
-    d->init(this);
 }
 
 /*!
     Constructs a new view with parent \a parent and sets the observed stack to \a stack.
 */
 
-KUndo2View::KUndo2View(KUndo2QStack *stack, QWidget *parent) : QListView(parent), d(new KUndo2ViewPrivate)
+KUndo2View::KUndo2View(KUndo2QStack *stack, QWidget *parent) : QListView(parent), d(new KUndo2ViewPrivate(this))
 {
-    d->init(this);
     setStack(stack);
 }
 
@@ -140,9 +133,8 @@ KUndo2View::KUndo2View(KUndo2QStack *stack, QWidget *parent) : QListView(parent)
     The view will update itself autmiatically whenever the active stack of the group changes.
 */
 
-KUndo2View::KUndo2View(KUndo2Group *group, QWidget *parent) : QListView(parent), d(new KUndo2ViewPrivate)
+KUndo2View::KUndo2View(KUndo2Group *group, QWidget *parent) : QListView(parent), d(new KUndo2ViewPrivate(this))
 {
-    d->init(this);
     setGroup(group);
 }
 
