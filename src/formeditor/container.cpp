@@ -420,10 +420,10 @@ Container::eventFilter(QObject *s, QEvent *e)
             return true;
         }
         else if (mev->buttons() == Qt::LeftButton && mev->modifiers() == Qt::ControlModifier) {
-            // draw the insert rect for the copied widget
-            if (s == widget()) {
-                return true;
-            }
+            //! @todo draw the insert rect for the copied widget
+//            if (s == widget()) {
+//                return true;
+//            }
             return true;
         }
         else if ( (   (mev->buttons() == Qt::LeftButton && mev->modifiers() == Qt::NoModifier)
