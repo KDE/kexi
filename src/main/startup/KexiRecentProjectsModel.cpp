@@ -68,21 +68,20 @@ static QString openedString(const QDateTime& opened)
         const int minutes = opened.secsTo(cur) / 60;
         const int hours = minutes / 60;
         if (hours < 1) {
-            if (minutes == 0)
+            if (minutes == 0) {
                 return xi18n("Opened less than minute ago");
-            else
-                return xi18np("Opened 1 minute ago", "Opened %1 minutes ago", minutes);
-        } else {
-            return xi18np("Opened 1 hour ago", "Opened %1 hours ago", hours);
+            }
+            return xi18np("Opened 1 minute ago", "Opened %1 minutes ago", minutes);
         }
-    } else {
-        if (days < 30)
-            return xi18np("Opened yesterday", "Opened %1 days ago", days);
-        if (days < 365)
-            return xi18np("Opened over a month ago", "Opened %1 months ago", days / 30);
-        return xi18np("Opened one year ago", "Opened %1 years ago", days / 365);
+        return xi18np("Opened 1 hour ago", "Opened %1 hours ago", hours);
     }
-    return QString();
+    if (days < 30) {
+        return xi18np("Opened yesterday", "Opened %1 days ago", days);
+    }
+    if (days < 365) {
+        return xi18np("Opened over a month ago", "Opened %1 months ago", days / 30);
+    }
+    return xi18np("Opened one year ago", "Opened %1 years ago", days / 365);
 }
 
 QVariant KexiRecentProjectsModel::data(const QModelIndex& index, int role) const
