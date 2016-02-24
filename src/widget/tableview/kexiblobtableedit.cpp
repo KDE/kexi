@@ -209,6 +209,7 @@ KexiBlobTableEdit::setupContents(QPainter *p, bool focused, const QVariant& val,
         // the key is unique for this tuple: (checksum, w, h)
         qulonglong sum((((qulonglong(qChecksum(array.constData(), array.length())) << 32) + w) << 16) + h);
         pp = d->cachedPixmaps.object(sum);
+        bool insertToCache = false;
         if (!pp) {
             QPixmap pixmap;
             if (val.canConvert(QVariant::ByteArray) && pixmap.loadFromData(val.toByteArray())) {
@@ -224,12 +225,17 @@ KexiBlobTableEdit::setupContents(QPainter *p, bool focused, const QVariant& val,
                     pp = new PixmapAndPos;
                     pp->pixmap = pixmap;
                     pp->pos = pos;
-                    d->cachedPixmaps.insert(sum, pp);
+                    insertToCache = true;
                 }
             }
         }
         if (pp) {
             p->drawPixmap(pp->pos, pp->pixmap);
+        }
+        if (insertToCache) {
+            // Do that afterwards because in theory QCache can delete pp immediately (COVERITY CID #1354236)
+            //! @todo use cost other than 1
+            d->cachedPixmaps.insert(sum, pp);
         }
     }
 }
