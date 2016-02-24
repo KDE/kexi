@@ -3366,7 +3366,6 @@ tristate KexiMainWindow::removeObject(KexiPart::Item *item, bool dontAsk)
 
     if (window) {//close existing window
         const bool tmp = d->forceWindowClosing;
-        window->partItem()->neverSaved();
         d->forceWindowClosing = true;
         res = closeWindow(window);
         d->forceWindowClosing = tmp; //restore
