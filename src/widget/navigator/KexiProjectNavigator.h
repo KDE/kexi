@@ -63,7 +63,7 @@ public:
 
     //! Rebuilds the menu entirely using information obtained from \a partInfo
     //! and \a partItem.
-    void update(KexiPart::Info* partInfo, KexiPart::Item* partItem);
+    void update(const KexiPart::Info& partInfo, const KexiPart::Item& partItem);
 };
 
 /*! @internal */

@@ -303,7 +303,9 @@ void KexiProjectNavigator::contextMenuEvent(QContextMenuEvent* event)
     if (bit->partItem()) {
         pm = d->itemMenu;
         KexiProjectModelItem *par_it = static_cast<KexiProjectModelItem*>(bit->parent());
-        d->itemMenu->update(par_it->partInfo(), bit->partItem());
+        if (par_it->partInfo() && bit->partItem()) {
+            d->itemMenu->update(*par_it->partInfo(), *bit->partItem());
+        }
     }
     if (pm) {
         pm->exec(event->globalPos());
@@ -697,26 +699,26 @@ KexiItemMenu::~KexiItemMenu()
 {
 }
 
-void KexiItemMenu::update(KexiPart::Info* partInfo, KexiPart::Item* partItem)
+void KexiItemMenu::update(const KexiPart::Info& partInfo, const KexiPart::Item& partItem)
 {
     clear();
     addSection(QString());
-    KexiContextMenuUtils::updateTitle(this, partItem->name(), partInfo->name(),
-                                      KexiIconName(partInfo->iconName()));
+    KexiContextMenuUtils::updateTitle(this, partItem.name(), partInfo.name(),
+                                      KexiIconName(partInfo.iconName()));
 
     if (m_actionCollection->action("open_object")
             && m_actionCollection->action("open_object")->isEnabled()
-            && partItem && (partInfo->supportedViewModes() & Kexi::DataViewMode)) {
+            && (partInfo.supportedViewModes() & Kexi::DataViewMode)) {
         addAction("open_object");
     }
     if (m_actionCollection->action("design_object")
             && m_actionCollection->action("design_object")->isEnabled()
-            && partItem && (partInfo->supportedViewModes() & Kexi::DesignViewMode)) {
+            && (partInfo.supportedViewModes() & Kexi::DesignViewMode)) {
         addAction("design_object");
     }
     if (m_actionCollection->action("editText_object")
             && m_actionCollection->action("editText_object")->isEnabled()
-            && partItem && (partInfo->supportedViewModes() & Kexi::TextViewMode)) {
+            && (partInfo.supportedViewModes() & Kexi::TextViewMode)) {
         addAction("editText_object");
     }
     addSeparator();
@@ -727,11 +729,11 @@ void KexiItemMenu::update(KexiPart::Info* partInfo, KexiPart::Item* partItem)
     //! @todo addSeparator();
 #endif
     bool addSep = false;
-    if (partItem && partInfo->isExecuteSupported()) {
+    if (partInfo.isExecuteSupported()) {
         addAction("data_execute");
         addSep = true;
     }
-    if (partItem && partInfo->isDataExportSupported()) {
+    if (partInfo.isDataExportSupported()) {
         addAction("export_object");
         addSep = true;
     }
@@ -739,9 +741,9 @@ void KexiItemMenu::update(KexiPart::Info* partInfo, KexiPart::Item* partItem)
         addSeparator();
 
 #ifdef KEXI_QUICK_PRINTING_SUPPORT
-    if (partItem && partInfo->isPrintingSupported())
+    if (partInfo.isPrintingSupported())
         addAction("print_object");
-    if (partItem && partInfo->isPrintingSupported())
+    if (partInfo.isPrintingSupported())
         addAction("pageSetupForObject");
     if (m_actionCollection->action("edit_rename") || m_actionCollection->action("edit_delete"))
         addSeparator();
