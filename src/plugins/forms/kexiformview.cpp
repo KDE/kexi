@@ -833,7 +833,7 @@ KexiFormView::storeData(bool dontAsk)
             if (widgetItem)
                 widgetItem->addModifiedProperty("storedPixmapId", oldStoredPixmapId);
             else
-                qWarning() << "no" << widgetItem->name() << "widget found within a form";
+                qWarning() << "no" << it.key()->objectName() << "widget found within a form";
         }
     }
 
