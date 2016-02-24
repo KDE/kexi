@@ -110,7 +110,7 @@ void KexiDropDownButton::keyPressEvent(QKeyEvent * e)
 {
     const int k = e->key();
     const bool dropDown =
-        (e->modifiers() == Qt::NoButton
+        (e->modifiers() == Qt::NoModifier
          && (k == Qt::Key_Space || k == Qt::Key_Enter || k == Qt::Key_Return || k == Qt::Key_F2
              || k == Qt::Key_F4)
         )

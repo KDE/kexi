@@ -428,7 +428,7 @@ bool KexiBlobTableEdit::handleKeyPress(QKeyEvent* ke, bool editorActive)
             QMouseEvent me(QEvent::MouseButtonPress, QPoint(2, 2), Qt::LeftButton, Qt::NoButton,
                            Qt::NoModifier);
             QApplication::sendEvent(d->button, &me);
-        } else if (ke->modifiers() == Qt::NoButton
+        } else if (ke->modifiers() == Qt::NoModifier
                    && (k == Qt::Key_F2 || k == Qt::Key_Space || k == Qt::Key_Enter || k == Qt::Key_Return)) {
             d->menu->insertFromFile();
         } else
@@ -464,9 +464,9 @@ bool KexiBlobTableEdit::eventFilter(QObject *o, QEvent *e)
 {
     if (o == d->menu && e->type() == QEvent::KeyPress) {
         QKeyEvent* ke = static_cast<QKeyEvent*>(e);
-        const int mods = ke->modifiers();
+        const Qt::KeyboardModifiers mods = ke->modifiers();
         const int k = ke->key();
-        if ((mods == Qt::NoButton && (k == Qt::Key_Tab || k == Qt::Key_Left || k == Qt::Key_Right))
+        if ((mods == Qt::NoModifier && (k == Qt::Key_Tab || k == Qt::Key_Left || k == Qt::Key_Right))
                 || (mods == Qt::ShiftModifier && k == Qt::Key_Backtab)
            ) {
             d->menu->hide();
