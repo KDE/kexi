@@ -88,12 +88,12 @@ KDbObject* KexiReportDesignView::storeNewData(const KDbObject& object,
                                                        bool *cancel)
 {
     KDbObject *s = KexiView::storeNewData(object, options, cancel);
-    qDebug() << "new id:" << s->id();
-
     if (!s || *cancel) {
         delete s;
         return 0;
     }
+    qDebug() << "new id:" << s->id();
+
     if (!storeData()) {
         //failure: remove object's object data to avoid garbage
         KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
