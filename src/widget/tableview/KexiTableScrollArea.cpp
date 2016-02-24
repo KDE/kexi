@@ -733,7 +733,7 @@ void KexiTableScrollArea::paintCell(QPainter* p, KDbRecordData *data, int record
     if (!d->appearance.horizontalGridEnabled)
         y_offset++; //correction because we're not drawing cell borders
 
-    if (d->appearance.fullRecordSelection && d->appearance.fullRecordSelection) {
+    if (d->appearance.fullRecordSelection) {
     }
     if (m_currentRecord == data && (column == m_curColumn || d->appearance.fullRecordSelection)) {
         if (edit && (   (d->appearance.recordHighlightingEnabled && !d->appearance.fullRecordSelection)
