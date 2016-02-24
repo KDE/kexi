@@ -136,6 +136,7 @@ QList<QVariant> KexiQueryParameters::getParameters(QWidget *parent,
         case KDbField::BLOB: {
 //! @todo BLOB input unsupported
             values.append(QByteArray());
+            break;
         }
         default:
             qWarning() << "unsupported type " << KDbField::typeName(parameter.type)
