@@ -53,7 +53,7 @@ public:
      \return true on success (data is then copied from \a newData to \a oldData) */
     bool saveConnectionData(KDbConnectionData *oldData, const KDbConnectionData &newData);
 
-    /*! Removed \a data from this set.
+    /*! Removes \a data from this set without deleting the object.
      \return true on successful removing of corresponding .kexic file */
     bool removeConnectionData(KDbConnectionData *data);
 
