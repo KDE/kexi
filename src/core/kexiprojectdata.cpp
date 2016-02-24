@@ -236,10 +236,11 @@ bool KexiProjectData::load(const QString& fileName, QString* _groupKey)
         if (_groupKey)
             *_groupKey = groupKey;
     } else {
-        if (!config.hasGroup(*_groupKey))
+        if (!config.hasGroup(*_groupKey)) {
             m_result = KDbResult(xi18n("File <filename>%1</filename> does not contain group <resource>%2</resource>.",
                                        fileName, *_groupKey));
             return false;
+        }
         groupKey = *_groupKey;
     }
 
