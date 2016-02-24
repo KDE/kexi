@@ -84,7 +84,6 @@ class KActionCollection;
 class KEXIUNDO_EXPORT KUndo2Command
 {
     KUndo2CommandPrivate *d;
-    int timedID;
 
 public:
     explicit KUndo2Command(KUndo2Command *parent = 0);
