@@ -216,7 +216,7 @@ void KexiGUIMessageHandler::showWarningContinueMessage(const QString &title,
     if (!KMessageBox::shouldBeShownContinue(dontShowAgainName))
         return;
     //! @todo what about the result?
-    KMessageBox::warningContinueCancel(parentWidget(),
+    (void)KMessageBox::warningContinueCancel(parentWidget(),
                                        title + (details.isEmpty() ? QString() : (QString("\n") + details)),
                                        QString(),
                                        KStandardGuiItem::cont(),
