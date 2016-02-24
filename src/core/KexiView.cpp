@@ -565,10 +565,7 @@ void KexiView::setFocus()
         d->lastFocusedChildBeforeFocusOut = 0;
         w->setFocus();
     } else {
-        if (hasFocus())
-            setFocusInternal();
-        else
-            setFocusInternal();
+        setFocusInternal();
     }
     KexiMainWindowIface::global()->invalidateSharedActions(this);
 }
