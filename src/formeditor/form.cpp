@@ -794,10 +794,11 @@ bool Form::addCommand(Command *command, AddCommandOption option)
     if (saveExecutingCommand)
         d->executingCommand = command;
 
-    d->undoStack.push(command);
+    const bool pushed = d->undoStack.push(command);
 
-    if (saveExecutingCommand)
+    if (saveExecutingCommand || !pushed) {
         d->executingCommand = 0;
+    }
     //qDebug() << "ADDED:" << *command;
     return true;
 }
