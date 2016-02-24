@@ -151,7 +151,6 @@ void KexiBlobTableEdit::setValueInternal(const QVariant& add, bool removeOld)
 bool KexiBlobTableEdit::valueIsNull()
 {
 //! @todo
-    d->value.size();
     return d->value.isEmpty();
 }
 
