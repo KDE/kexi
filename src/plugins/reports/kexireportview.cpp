@@ -171,21 +171,20 @@ KexiReportView::~KexiReportView()
 
 void KexiReportView::slotPrintReport()
 {
+    QScopedPointer<KReportRendererBase> renderer(m_factory.createInstance("print"));
+    if (!renderer) {
+        return;
+    }
     QPrinter printer(QPrinter::HighResolution);
-    QPainter painter;
-    KReportRendererBase *renderer;
-
-    renderer = m_factory.createInstance("print");
-    QPointer<QPrintDialog> dialog = new QPrintDialog(&printer, this);
-    if (dialog->exec() == QDialog::Accepted) {
+    QPrintDialog dialog(&printer, this);
+    if (dialog.exec() == QDialog::Accepted) {
         KReportRendererContext cxt;
+        QPainter painter;
         cxt.printer = &printer;
         cxt.painter = &painter;
 
         renderer->render(cxt, m_reportDocument);
     }
-    delete dialog;
-    delete renderer;
 }
 
 void KexiReportView::slotExportAsPdf()
@@ -254,12 +253,9 @@ void KexiReportView::openExportedDocument(const QUrl &destination)
 
 void KexiReportView::slotExportAsSpreadsheet()
 {
-    KReportRendererBase *renderer;
-    KReportRendererContext cxt;
-
-    renderer = m_factory.createInstance("ods");
-
+    QScopedPointer<KReportRendererBase> renderer(m_factory.createInstance("ods"));
     if (renderer) {
+        KReportRendererContext cxt;
         cxt.destinationUrl = getExportUrl(QLatin1String("application/vnd.oasis.opendocument.spreadsheet"),
                                           xi18n("Export Report as Spreadsheet"),
                                           "kfiledialog:///LastVisitedODSExportPath/",
@@ -280,12 +276,11 @@ void KexiReportView::slotExportAsSpreadsheet()
 
 void KexiReportView::slotExportAsTextDocument()
 {
-    KReportRendererBase *renderer;
-    KReportRendererContext cxt;
-
-    renderer = m_factory.createInstance("odt");
-
+    QScopedPointer<KReportRendererBase> renderer(m_factory.createInstance("odt"));
+    //! @todo Show error or don't show the commands to the user if the plugin isn't available.
+    //!       The same for other createInstance() calls.
     if (renderer) {
+        KReportRendererContext cxt;
         cxt.destinationUrl = getExportUrl(QLatin1String("application/vnd.oasis.opendocument.text"),
                                           xi18n("Export Report as Text Document"),
                                           "kfiledialog:///LastVisitedODTExportPath/",
@@ -306,10 +301,8 @@ void KexiReportView::slotExportAsTextDocument()
 
 void KexiReportView::slotExportAsWebPage()
 {
-    KReportRendererContext cxt;
-    KReportRendererBase *renderer;
-
     const QString dialogTitle = xi18n("Export Report as Web Page");
+    KReportRendererContext cxt;
     cxt.destinationUrl = getExportUrl(QLatin1String("text/html"),
                                       dialogTitle,
                                       "kfiledialog:///LastVisitedHTMLExportPath/",
@@ -329,11 +322,10 @@ void KexiReportView::slotExportAsWebPage()
             KGuiItem(xi18nc("@action:button", "Use CSS")),
             KGuiItem(xi18nc("@action:button", "Use Table")));
 
-    if (answer == KMessageBox::Yes) {
-        renderer = m_factory.createInstance("htmlcss");
-    }
-    else {
-        renderer = m_factory.createInstance("htmltable");
+    QScopedPointer<KReportRendererBase> renderer(
+         m_factory.createInstance(answer == KMessageBox::Yes ? "htmlcss" : "htmltable"));
+    if (!renderer) {
+        return;
     }
 
     if (!renderer->render(cxt, m_reportDocument)) {
