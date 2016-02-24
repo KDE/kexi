@@ -707,7 +707,7 @@ tristate KexiStartupHandler::init()
         KexiStartupData::setAction(ShowWelcomeScreen);
         return true;
 //! @todo remove startup dialog code
-
+#if 0
         if (!d->startupDialog) {
             //create startup dialog for reuse because it can be used again after conn err.
             d->startupDialog = new KexiStartupDialog(
@@ -783,6 +783,7 @@ tristate KexiStartupHandler::init()
 
         if (!KexiStartupData::projectData())
             return true;
+#endif
     }
 
     if (KexiStartupData::projectData() && (openExisting || (createDB && isSet(options().createAndOpenDb)))) {
