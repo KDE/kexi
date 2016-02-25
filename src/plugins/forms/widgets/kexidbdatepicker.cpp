@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2005 Cedric Pasteur <cedric.pasteur@free.fr>
-   Copyright (C) 2004-2005 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2012 Oleg Kukharchuk <oleg.kuh@gmail.com>
 
    This program is free software; you can redistribute it and/or
@@ -26,7 +26,8 @@
 KexiDBDatePicker::KexiDBDatePicker(QWidget *parent)
         : KDatePicker(parent)
         , KexiFormDataItemInterface()
-        , m_dateEditFocused(false)
+        , m_invalidState(false)
+        , m_readOnly(false)
 {
     connect(this, SIGNAL(dateChanged(QDate)), this, SLOT(slotValueChanged()));
     connect(this, SIGNAL(dateEntered(QDate)), this, SLOT(slotValueChanged()));
