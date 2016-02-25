@@ -518,6 +518,19 @@ KexiActionSelectionDialog::KexiActionSelectionDialog(
     d->actionToExecuteLbl->setText(xi18n("Action to execute:"));
     d->secondAnd3rdColumnGrLyr->addWidget(d->actionToExecuteLbl, 0, 1, Qt::AlignTop | Qt::AlignLeft);
 
+    // buttons
+    d->buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QPushButton *okButton = d->buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(d->buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(d->buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    d->actionWidgetName = actionWidgetName;
+    d->buttonBox->button(QDialogButtonBox::Ok)->setText(xi18nc("Assign action", "&Assign"));
+    //buttonBox->button(QDialogButtonBox::Ok)->setIcon(koIconName("dialog-ok"));
+    d->buttonBox->button(QDialogButtonBox::Ok)->setToolTip(xi18n("Assign action"));
+    mainLayout->addWidget(d->buttonBox);
+
     // temporary show all sections to avoid resizing the dialog in the future
     d->actionCategoriesListView->selectAction("table");
     d->setActionToExecuteSectionVisible(true);
@@ -558,19 +571,6 @@ KexiActionSelectionDialog::KexiActionSelectionDialog(
         d->actionCategoriesListView->selectAction("noaction");
         d->actionCategoriesListView->setFocus();
     }
-
-    // buttons
-    d->buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
-    QPushButton *okButton = d->buttonBox->button(QDialogButtonBox::Ok);
-    okButton->setDefault(true);
-    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
-    connect(d->buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(d->buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
-    d->actionWidgetName = actionWidgetName;
-    d->buttonBox->button(QDialogButtonBox::Ok)->setText(xi18nc("Assign action", "&Assign"));
-    //buttonBox->button(QDialogButtonBox::Ok)->setIcon(koIconName("dialog-ok"));
-    d->buttonBox->button(QDialogButtonBox::Ok)->setToolTip(xi18n("Assign action"));
-    mainLayout->addWidget(d->buttonBox);
 }
 
 KexiActionSelectionDialog::~KexiActionSelectionDialog()
