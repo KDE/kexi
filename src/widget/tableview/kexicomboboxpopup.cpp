@@ -182,7 +182,7 @@ void KexiComboBoxPopup::setData(KDbTableViewColumn *column, KDbField *field)
     delete d->privateQuery;
     d->privateQuery = 0;
     const QList<int> visibleColumns(lookupFieldSchema ? lookupFieldSchema->visibleColumns() : QList<int>());
-    if (!visibleColumns.isEmpty() && lookupFieldSchema->boundColumn() >= 0) {
+    if (!visibleColumns.isEmpty() && lookupFieldSchema && lookupFieldSchema->boundColumn() >= 0) {
         const bool multipleLookupColumnJoined = visibleColumns.count() > 1;
 //! @todo support more RowSourceType's, not only table and query
         KDbCursor *cursor = 0;

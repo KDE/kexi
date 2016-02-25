@@ -396,9 +396,9 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
     //build query schema
     KexiQueryPart::TempData * temp = tempData();
     if (temp->query()) {
-        KexiView *queryDataView = window()->viewForMode(Kexi::DataViewMode);
+        KexiQueryView *queryDataView = dynamic_cast<KexiQueryView*>(window()->viewForMode(Kexi::DataViewMode));
         if (queryDataView) {
-            dynamic_cast<KexiQueryView*>(queryDataView)->setData(0);
+            queryDataView->setData(0);
         }
         temp->clearQuery();
     } else {

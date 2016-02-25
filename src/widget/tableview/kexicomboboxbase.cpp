@@ -28,6 +28,7 @@
 
 #include <KDbTableSchema>
 
+#include <QScopedValueRollback>
 #include <QDebug>
 
 KexiComboBoxBase::KexiComboBoxBase()
@@ -377,8 +378,11 @@ void KexiComboBoxBase::createPopup(bool show)
     //qDebug() << show << field() << popup() << m_updatePopupSelectionOnShow;
     if (!field())
         return;
-    m_insideCreatePopup = true;
     QWidget* thisWidget = dynamic_cast<QWidget*>(this);
+    if (!thisWidget) {
+        return;
+    }
+    QScopedValueRollback<bool> insideCreatePopuRollback(m_insideCreatePopup, true);
     QWidget *widgetToFocus = internalEditor() ? internalEditor() : thisWidget;
     //qDebug() << "widgetToFocus:" << widgetToFocus;
 
@@ -465,7 +469,6 @@ void KexiComboBoxBase::createPopup(bool show)
             widgetToFocus->setFocus();
         }
     }
-    m_insideCreatePopup = false;
 }
 
 void KexiComboBoxBase::hide()
@@ -524,7 +527,9 @@ void KexiComboBoxBase::slotRecordSelected(KDbRecordData*)
         if (valueToSet.toString().isEmpty() && !m_insideCreatePopup) {
             clear();
             QWidget* thisWidget = dynamic_cast<QWidget*>(this);
-            thisWidget->parentWidget()->setFocus();
+            if (thisWidget) {
+                thisWidget->parentWidget()->setFocus();
+            }
             return;
         }
     }

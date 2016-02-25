@@ -176,11 +176,11 @@ KexiDBAutoField::createEditor()
     if (newSubwidget) {
         newSubwidget->setObjectName(
             QString::fromLatin1("KexiDBAutoField_") + newSubwidget->metaObject()->className());
-        dynamic_cast<KexiDataItemInterface*>(newSubwidget)->setParentDataItemInterface(this);
-        dynamic_cast<KexiFormDataItemInterface*>(newSubwidget)
-            ->setColumnInfo(columnInfo()); //needed at least by KexiDBImageBox
-        dynamic_cast<KexiFormDataItemInterface*>(newSubwidget)
-            ->setVisibleColumnInfo(visibleColumnInfo()); //needed at least by KexiDBComboBox
+        KexiDataItemInterface *iface = dynamic_cast<KexiDataItemInterface*>(newSubwidget);
+        iface->setParentDataItemInterface(this);
+        KexiFormDataItemInterface *formIface = dynamic_cast<KexiFormDataItemInterface*>(newSubwidget);
+        formIface->setColumnInfo(columnInfo()); //needed at least by KexiDBImageBox
+        formIface->setVisibleColumnInfo(visibleColumnInfo()); //needed at least by KexiDBComboBox
         newSubwidget->setProperty("dataSource", dataSource()); //needed at least by KexiDBImageBox
         KFormDesigner::DesignTimeDynamicChildWidgetHandler::childWidgetAdded(this);
         newSubwidget->show();
@@ -252,7 +252,7 @@ KexiDBAutoField::setLabelPosition(LabelPosition position)
         if (position == Left && d->widgetType != Boolean)
             d->layout->addSpacing(KexiDBAutoField_SPACING);
         d->layout->addWidget(subwidget(), 1);
-        KexiSubwidgetInterface *subwidgetInterface = dynamic_cast<KexiSubwidgetInterface*>((QWidget*)subwidget());
+        KexiSubwidgetInterface *subwidgetInterface = dynamic_cast<KexiSubwidgetInterface*>(subwidget());
         if (subwidgetInterface) {
             if (subwidgetInterface->appendStretchRequired(this))
                 d->layout->addStretch(0);
@@ -276,9 +276,10 @@ KexiDBAutoField::setLabelPosition(LabelPosition position)
     //a hack to force layout to be refreshed (any better idea for this?)
     resize(size() + QSize(1, 0));
     resize(size() - QSize(1, 0));
-    if (dynamic_cast<KexiDBAutoField*>((QWidget*)subwidget())) {
+    KexiDBAutoField* autoField = dynamic_cast<KexiDBAutoField*>(subwidget());
+    if (autoField) {
         //needed for KexiDBComboBox
-        dynamic_cast<KexiDBAutoField*>((QWidget*)subwidget())->setLabelPosition(position);
+        autoField->setLabelPosition(position);
     }
 }
 
@@ -773,8 +774,9 @@ bool KexiDBAutoField::eventFilter(QObject *o, QEvent *e)
 void KexiDBAutoField::setDisplayDefaultValue(QWidget* widget, bool displayDefaultValue)
 {
     KexiFormDataItemInterface::setDisplayDefaultValue(widget, displayDefaultValue);
-    if (dynamic_cast<KexiFormDataItemInterface*>((QWidget*)subwidget()))
-        dynamic_cast<KexiFormDataItemInterface*>((QWidget*)subwidget())->setDisplayDefaultValue(subwidget(), displayDefaultValue);
+    KexiFormDataItemInterface *formIface = dynamic_cast<KexiFormDataItemInterface*>(subwidget());
+    if (formIface)
+        formIface->setDisplayDefaultValue(subwidget(), displayDefaultValue);
 }
 
 void KexiDBAutoField::moveCursorToEnd()

@@ -268,8 +268,8 @@ int KexiTableEdit::widthForValue(const QVariant &val, const QFontMetrics &fm)
 void KexiTableEdit::repaintRelatedCell()
 {
 #ifndef KEXI_MOBILE
-    if (dynamic_cast<KexiDataAwareObjectInterface*>(parentWidget())) {
-        dynamic_cast<KexiDataAwareObjectInterface*>(parentWidget())->updateCurrentCell();
+    if (KexiDataAwareObjectInterface *iface = dynamic_cast<KexiDataAwareObjectInterface*>(parentWidget())) {
+        iface->updateCurrentCell();
     }
 #endif
 }

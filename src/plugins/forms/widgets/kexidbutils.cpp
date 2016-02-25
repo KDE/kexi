@@ -125,9 +125,10 @@ void KexiDBWidgetContextMenuExtender::updateActions(QMenu *menu)
 
     // title
     QString icon;
-    if (dynamic_cast<QWidget*>(d->iface)) {
+    const QWidget *thisWidget = dynamic_cast<QWidget*>(d->iface);
+    if (thisWidget) {
         icon = KexiFormManager::self()->library()->iconName(
-                   dynamic_cast<QWidget*>(d->iface)->metaObject()->className());
+                   thisWidget->metaObject()->className());
     }
     KexiContextMenuUtils::updateTitle(
         menu, d->iface->columnInfo()->captionOrAliasOrName(),

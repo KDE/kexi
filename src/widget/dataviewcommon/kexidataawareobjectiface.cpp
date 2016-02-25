@@ -1227,7 +1227,8 @@ void KexiDataAwareObjectInterface::reloadData()
     }
     clearVariables();
 
-    if (dynamic_cast<QWidget*>(this) && dynamic_cast<QWidget*>(this)->isVisible())
+    const QWidget* thisWidget = dynamic_cast<QWidget*>(this);
+    if (thisWidget && thisWidget->isVisible())
         initDataContents();
     else
         m_initDataContentsOnShow = true;
@@ -1577,7 +1578,7 @@ void KexiDataAwareObjectInterface::verticalScrollBarValueChanged(int v)
     if (m_scrollbarToolTipsEnabled && verticalScrollBar()->isSliderDown()) {
         QWidget* thisWidget = dynamic_cast<QWidget*>(this);
         const int record = lastVisibleRecord() + 1;
-        if (record > 0) {
+        if (thisWidget && record > 0) {
             const QString toolTipText( xi18n("Record: %1", record) );
             QToolTip::showText(
                 QPoint(
