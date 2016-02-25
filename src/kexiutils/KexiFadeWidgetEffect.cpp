@@ -97,7 +97,6 @@ KexiFadeWidgetEffect::KexiFadeWidgetEffect(QWidget *destWidget, int defaultDurat
     : QWidget(destWidget ? destWidget->parentWidget() : 0),
       d(new KexiFadeWidgetEffectPrivate(destWidget))
 {
-    d->q = this;
     d->defaultDuration = defaultDuration;
     Q_ASSERT(destWidget && destWidget->parentWidget());
     if (!destWidget || !destWidget->parentWidget() || !destWidget->isVisible() ||

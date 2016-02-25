@@ -29,8 +29,7 @@
 class KexiFadeWidgetEffectPrivate
 {
 public:
-    KexiFadeWidgetEffectPrivate(QWidget *_destWidget);
-    KexiFadeWidgetEffect *q;
+    explicit KexiFadeWidgetEffectPrivate(QWidget *_destWidget);
 
     QPixmap transition(const QPixmap &from, const QPixmap &to, qreal amount) const;
     void finished();

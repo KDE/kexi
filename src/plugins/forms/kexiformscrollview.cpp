@@ -447,10 +447,15 @@ void KexiFormScrollView::valueChanged(KexiDataItemInterface* item)
         dbFormWidget()->editedItem = dynamic_cast<KexiFormDataItemInterface*>(item);
         startEditCurrentCell();
     }
-    fillDuplicatedDataItems(dynamic_cast<KexiFormDataItemInterface*>(item), item->value());
-
-    //value changed: clear 'default value' mode (e.g. a blue italic text)
-    dynamic_cast<KexiFormDataItemInterface*>(item)->setDisplayDefaultValue(dynamic_cast<QWidget*>(item), false);
+    KexiFormDataItemInterface *formItem = dynamic_cast<KexiFormDataItemInterface*>(item);
+    if (formItem) {
+        fillDuplicatedDataItems(formItem, item->value());
+        QWidget *widget = dynamic_cast<QWidget*>(item);
+        if (widget) {
+            //value changed: clear 'default value' mode (e.g. a blue italic text)
+            formItem->setDisplayDefaultValue(widget, false);
+        }
+    }
 }
 
 bool KexiFormScrollView::cursorAtNewRecord() const
@@ -524,16 +529,14 @@ bool KexiFormScrollView::cancelEditor()
 void KexiFormScrollView::updateAfterCancelRecordEditing()
 {
     foreach(KexiFormDataItemInterface *dataItemIface, m_dataItems) {
-        if (dynamic_cast<QWidget*>(dataItemIface)) {
-            qDebug()
-                << dynamic_cast<QWidget*>(dataItemIface)->metaObject()->className() << " "
-                << dynamic_cast<QWidget*>(dataItemIface)->objectName();
+        QWidget *w = dynamic_cast<QWidget*>(dataItemIface);
+        if (w) {
+            qDebug() << w->metaObject()->className() << w->objectName();
+            const bool displayDefaultValue = shouldDisplayDefaultValueForItem(dataItemIface);
+            dataItemIface->undoChanges();
+            if (dataItemIface->hasDisplayedDefaultValue() != displayDefaultValue)
+                dataItemIface->setDisplayDefaultValue(w, displayDefaultValue);
         }
-        const bool displayDefaultValue = shouldDisplayDefaultValueForItem(dataItemIface);
-        dataItemIface->undoChanges();
-        if (dataItemIface->hasDisplayedDefaultValue() != displayDefaultValue)
-            dataItemIface->setDisplayDefaultValue(
-                dynamic_cast<QWidget*>(dataItemIface), displayDefaultValue);
     }
     recordNavigator()->showEditingIndicator(false);
     dbFormWidget()->editedItem = 0;

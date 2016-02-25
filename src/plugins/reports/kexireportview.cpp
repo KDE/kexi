@@ -54,7 +54,7 @@
 #include <QMimeDatabase>
 
 KexiReportView::KexiReportView(QWidget *parent)
-        : KexiView(parent), m_preRenderer(0), m_reportDocument(0) //! @todo KEXI3, m_kexi(0), m_functions(0)
+        : KexiView(parent), m_preRenderer(0), m_reportDocument(0), m_functions(0) //! @todo KEXI3, m_kexi(0)
 {
     setObjectName("KexiReportDesigner_DataView");
 
@@ -372,7 +372,7 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
 //            }
 //            m_preRenderer->registerScriptObject(m_kexi, "Kexi");
             //If using a kexidb source, add a functions scripting object
-            if (tempData()->connectionDefinition.attribute("type") == "internal") {
+            if (!m_functions && tempData()->connectionDefinition.attribute("type") == "internal") {
                 m_functions = new KRScriptFunctions(reportData, KexiMainWindowIface::global()->project()->dbConnection());
                 m_preRenderer->registerScriptObject(m_functions, "field");
                 connect(m_preRenderer, SIGNAL(groupChanged(QMap<QString, QVariant>)),

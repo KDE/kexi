@@ -136,20 +136,28 @@ KDbObject* KexiQueryView::storeNewData(const KDbObject& object,
                                                 bool *cancel)
 {
     KexiView * view = window()->viewThatRecentlySetDirtyFlag();
-    if (dynamic_cast<KexiQueryDesignerGuiEditor*>(view))
-        return dynamic_cast<KexiQueryDesignerGuiEditor*>(view)->storeNewData(object, options, cancel);
-    if (dynamic_cast<KexiQueryDesignerSQLView*>(view))
-        return dynamic_cast<KexiQueryDesignerSQLView*>(view)->storeNewData(object, options, cancel);
+    KexiQueryDesignerGuiEditor *guiView = dynamic_cast<KexiQueryDesignerGuiEditor*>(view);
+    if (guiView) {
+        return guiView->storeNewData(object, options, cancel);
+    }
+    KexiQueryDesignerSQLView *sqlView = dynamic_cast<KexiQueryDesignerSQLView*>(view);
+    if (sqlView) {
+        return sqlView->storeNewData(object, options, cancel);
+    }
     return 0;
 }
 
 tristate KexiQueryView::storeData(bool dontAsk)
 {
     KexiView * view = window()->viewThatRecentlySetDirtyFlag();
-    if (dynamic_cast<KexiQueryDesignerGuiEditor*>(view))
-        return dynamic_cast<KexiQueryDesignerGuiEditor*>(view)->storeData(dontAsk);
-    if (dynamic_cast<KexiQueryDesignerSQLView*>(view))
-        return dynamic_cast<KexiQueryDesignerSQLView*>(view)->storeData(dontAsk);
+    KexiQueryDesignerGuiEditor *guiView = dynamic_cast<KexiQueryDesignerGuiEditor*>(view);
+    if (guiView) {
+        return guiView->storeData(dontAsk);
+    }
+    KexiQueryDesignerSQLView *sqlView = dynamic_cast<KexiQueryDesignerSQLView*>(view);
+    if (sqlView) {
+        return sqlView->storeData(dontAsk);
+    }
     return false;
 }
 

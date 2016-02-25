@@ -71,7 +71,6 @@ public:
     QString commentSymbol;
     QVector<QString> availablecommentSymbols;
     KComboBox* combo;
-    QLineEdit* commentSymbolEdit;
 };
 
 KexiCSVDelimiterWidget::KexiCSVDelimiterWidget(bool lineEditOnBottom, QWidget * parent)

@@ -1003,8 +1003,9 @@ void InsertWidgetCommand::execute()
     }
     //assign item for its widget if it supports DesignTimeDynamicChildWidgetHandler interface
     //(e.g. KexiDBAutoField)
-    if (d->form->mode() == Form::DesignMode && dynamic_cast<DesignTimeDynamicChildWidgetHandler*>(w)) {
-        dynamic_cast<DesignTimeDynamicChildWidgetHandler*>(w)->assignItem(item);
+    DesignTimeDynamicChildWidgetHandler *childHandler = dynamic_cast<DesignTimeDynamicChildWidgetHandler*>(w);
+    if (d->form->mode() == Form::DesignMode && childHandler) {
+        childHandler->assignItem(item);
     }
 
     // We add the autoSaveProperties in the modifProp list of the ObjectTreeItem, so that they are saved later

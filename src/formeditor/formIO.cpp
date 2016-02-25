@@ -1141,8 +1141,9 @@ void FormIO::loadWidget(Container *container, const QDomElement &el, QWidget *pa
     }
     //assign item for its widget if it supports DesignTimeDynamicChildWidgetHandler interface
     //(e.g. KexiDBAutoField)
-    if (container->form()->mode() == Form::DesignMode && dynamic_cast<DesignTimeDynamicChildWidgetHandler*>(w)) {
-        dynamic_cast<DesignTimeDynamicChildWidgetHandler*>(w)->assignItem(item);
+    DesignTimeDynamicChildWidgetHandler *childHandler = dynamic_cast<DesignTimeDynamicChildWidgetHandler*>(w);
+    if (container->form()->mode() == Form::DesignMode && childHandler) {
+        childHandler->assignItem(item);
     }
 
     // if we are inside a Grid, we need to insert the widget in the good cell

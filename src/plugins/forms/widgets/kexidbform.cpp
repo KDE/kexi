@@ -319,8 +319,10 @@ bool KexiDBForm::eventFilter(QObject * watched, QEvent * e)
 
                     if (widgetToFocus) {
                         widgetToFocus->setFocus();
-                        if (dynamic_cast<KexiFormDataItemInterface*>(widgetToFocus))
-                            dynamic_cast<KexiFormDataItemInterface*>(widgetToFocus)->selectAllOnFocusIfNeeded();
+                        KexiFormDataItemInterface *formItem = dynamic_cast<KexiFormDataItemInterface*>(widgetToFocus);
+                        if (formItem) {
+                            formItem->selectAllOnFocusIfNeeded();
+                        }
                     }
                     else {
                         qWarning() << "widgetToFocus not found!";
@@ -360,11 +362,18 @@ bool KexiDBForm::eventFilter(QObject * watched, QEvent * e)
                     return true; //ignore
                 //the watched widget can be a subwidget of a real widget, e.g. autofield: find it
                 //QWidget* realWidget = static_cast<QWidget*>(watched);
-                while (dynamic_cast<KexiDataItemInterface*>(realWidget) && dynamic_cast<KexiDataItemInterface*>(realWidget)->parentDataItemInterface())
-                    realWidget = dynamic_cast<QWidget*>(dynamic_cast<KexiDataItemInterface*>(realWidget)->parentDataItemInterface());
+                KexiDataItemInterface *iface;
+                while ((iface = dynamic_cast<KexiDataItemInterface*>(realWidget))
+                       && iface->parentDataItemInterface())
+                {
+                    realWidget = dynamic_cast<QWidget*>(iface->parentDataItemInterface());
+                }
 
                 d->setOrderedFocusWidgetsIteratorTo(realWidget);
-                dynamic_cast<KexiDataItemInterface*>(realWidget)->moveCursorToEnd();
+                iface = dynamic_cast<KexiDataItemInterface*>(realWidget);
+                if (iface) {
+                    iface->moveCursorToEnd();
+                }
 
                 //qDebug() << realWidget->objectName();
 
@@ -429,9 +438,10 @@ bool KexiDBForm::eventFilter(QObject * watched, QEvent * e)
                         (*d->orderedFocusWidgetsIterator)->setFocus();
                         //qDebug() << "focusing " << (*d->orderedFocusWidgetsIterator)->objectName();
                     }
-                    if (dynamic_cast<KexiFormDataItemInterface*>(widgetToSelectAll)) {
+                    KexiFormDataItemInterface *formItem = dynamic_cast<KexiFormDataItemInterface*>(widgetToSelectAll);
+                    if (formItem) {
                         //qDebug() << "widgetToSelectAll:" << widgetToSelectAll;
-                        dynamic_cast<KexiFormDataItemInterface*>(widgetToSelectAll)->selectAllOnFocusIfNeeded();
+                        formItem->selectAllOnFocusIfNeeded();
                     }
                 }
                 return true;

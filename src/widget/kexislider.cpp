@@ -79,13 +79,13 @@ protected:
         QStyleOptionSlider option;
         initStyleOption(&option);
 
-        const int& ticks( option.tickPosition );
+        const QSlider::TickPosition ticks( option.tickPosition );
         const int available(style()->proxy()->pixelMetric(QStyle::PM_SliderSpaceAvailable, &option, this));
         int interval = option.tickInterval;
         if( interval < 1 ) interval = option.pageStep;
         if( interval < 1 ) return;
 
-        const QRect& r(option.rect);
+        const QRect r(option.rect);
         const QPalette palette(option.palette);
         const int fudge(style()->proxy()->pixelMetric(QStyle::PM_SliderLength, &option, this) / 2);
         int current(option.minimum);

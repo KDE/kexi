@@ -110,9 +110,10 @@ bool KexiDataTableView::loadTableViewSettings(KDbTableViewData* data)
 void
 KexiDataTableView::setData(KDbCursor *c)
 {
-    if (!dynamic_cast<KexiDataTableScrollArea*>(mainWidget()))
+    KexiDataTableScrollArea* area = dynamic_cast<KexiDataTableScrollArea*>(mainWidget());
+    if (!area)
         return;
-    dynamic_cast<KexiDataTableScrollArea*>(mainWidget())->setData(c);
+    area->setData(c);
 }
 
 void KexiDataTableView::filter()

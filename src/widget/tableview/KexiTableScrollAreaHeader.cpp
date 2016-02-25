@@ -51,42 +51,44 @@ public:
         const KexiTableScrollAreaHeader *headerWidget
                 = qobject_cast<const KexiTableScrollAreaHeader*>(parent());
         if (ce == CE_Header && option) {
-            QStyleOptionHeader newOption(*qstyleoption_cast<const QStyleOptionHeader*>(option));
+            const QStyleOptionHeader *existingOption = qstyleoption_cast<const QStyleOptionHeader*>(option);
+            QScopedPointer<QStyleOptionHeader> newOption(
+                    existingOption ? new QStyleOptionHeader(*existingOption) : new QStyleOptionHeader);
             const int currentSection = headerWidget->orientation() == Qt::Horizontal
                                      ? headerWidget->currentIndex().column()
                                      : headerWidget->currentIndex().row();
 //            qDebug() << headerWidget->orientation() << currentSection <<
 //                        headerWidget->currentIndex().row() << headerWidget->currentIndex().column();
 
-            if (newOption.section >= 0) {
+            if (newOption->section >= 0) {
                 int f1 = 0, f2 = 0;
-                if (newOption.section == currentSection) {
+                if (newOption->section == currentSection) {
                     f1 = 34;
                     f2 = 66;
                 }
                 else if (headerWidget->scrollArea()->appearance().recordMouseOverHighlightingEnabled
                          && headerWidget->orientation() == Qt::Vertical
-                         && newOption.section == headerWidget->scrollArea()->highlightedRecordNumber())
+                         && newOption->section == headerWidget->scrollArea()->highlightedRecordNumber())
                 {
                     f1 = 10;
                     f2 = 90;
                 }
                 if (f1 > 0) {
-                    newOption.palette.setColor(QPalette::Button,
+                    newOption->palette.setColor(QPalette::Button,
                         KexiUtils::blendedColors(
                             headerWidget->selectionBackgroundColor(),
                             headerWidget->palette().color(headerWidget->backgroundRole()), f1, f2));
 
                     //set background color as well (e.g. for thinkeramik)
-                    newOption.palette.setColor(QPalette::Window, newOption.palette.color(QPalette::Button));
+                    newOption->palette.setColor(QPalette::Window, newOption->palette.color(QPalette::Button));
                 }
                 if (headerWidget->orientation() == Qt::Vertical) {
                     // For mouse-over styles such as Breeze fill color and animate,
                     // what's in conflict with what we do: disable this.
-                    newOption.state &= (0xffffffff ^ QStyle::State_MouseOver);
-                    //qDebug() << newOption.rect;
+                    newOption->state &= (0xffffffff ^ QStyle::State_MouseOver);
+                    //qDebug() << newOption->rect;
                 }
-                QProxyStyle::drawControl(ce, &newOption, painter, widget);
+                QProxyStyle::drawControl(ce, newOption.data(), painter, widget);
                 return;
             }
         }

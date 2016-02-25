@@ -45,7 +45,8 @@ void DesignModeStyle::drawControl(ControlElement element, const QStyleOption *op
 template <class StyleOptionClass>
 static StyleOptionClass *cloneStyleOption(const QStyleOption *option)
 {
-    return new StyleOptionClass( *qstyleoption_cast<const StyleOptionClass*>(option) );
+    const StyleOptionClass *o = qstyleoption_cast<const StyleOptionClass*>(option);
+    return o ? new StyleOptionClass(*o) : new StyleOptionClass();
 }
 
 QStyleOption* DesignModeStyle::alterOption(ControlElement element, const QStyleOption *option) const

@@ -345,17 +345,18 @@ KexiFormView* KexiFormManager::activeFormViewWidget() const
     KexiWindow *currentWindow = KexiMainWindowIface::global()->currentWindow();
     if (!currentWindow)
         return 0;
-    KexiView *currentView = currentWindow->selectedView();
-    KFormDesigner::Form *form;
-    if (!currentView
-        || currentView->viewMode()!=Kexi::DesignViewMode
-        || !dynamic_cast<KexiFormView*>(currentView)
-        || !(form = dynamic_cast<KexiFormView*>(currentView)->form())
-       )
-    {
+    KexiFormView *currentView = dynamic_cast<KexiFormView*>(currentWindow->selectedView());
+    if (!currentView || currentView->viewMode()!=Kexi::DesignViewMode) {
+        return 0;
+    }
+    KFormDesigner::Form *form = currentView->form();
+    if (!form) {
         return 0;
     }
     KexiDBForm *dbform = dynamic_cast<KexiDBForm*>(form->formWidget());
+    if (!dbform) {
+        return 0;
+    }
     KexiFormScrollView *scrollViewWidget = dynamic_cast<KexiFormScrollView*>(dbform->dataAwareObject());
     if (!scrollViewWidget)
         return 0;

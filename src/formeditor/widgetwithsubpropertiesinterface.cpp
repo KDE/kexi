@@ -56,15 +56,15 @@ void WidgetWithSubpropertiesInterface::setSubwidget(QWidget *widget)
     d->subwidget = widget;
     d->subproperties.clear();
     QSet<QByteArray> addedSubproperties;
-    if (d->subwidget) {
+    const QObject *thisObject = dynamic_cast<const QObject*>(this);
+    if (thisObject && d->subwidget) {
         //remember properties in the subwidget that are not present in the parent
         for (const QMetaObject *metaObject = d->subwidget->metaObject(); metaObject;
                 metaObject = metaObject->superClass()) {
             QList<QMetaProperty> properties(
                 KexiUtils::propertiesForMetaObjectWithInherited(metaObject));
             foreach(const QMetaProperty &property, properties) {
-                if (dynamic_cast<QObject*>(this)
-                    && -1 != dynamic_cast<QObject*>(this)->metaObject()->indexOfProperty(property.name())
+                if (-1 != thisObject->metaObject()->indexOfProperty(property.name())
                     && !addedSubproperties.contains(property.name()))
                 {
                     d->subproperties.insert(property.name());
