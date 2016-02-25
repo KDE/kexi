@@ -345,7 +345,7 @@ void KexiProjectNavigator::slotSelectionChanged(const QModelIndex& i)
         return;
     }
 
-    const bool gotitem = it && it->partItem();
+    const bool gotitem = it->partItem();
 //! @todo also check if the item is not read only
     if (d->deleteAction) {
         d->deleteAction->setEnabled(gotitem && !d->readOnly);
@@ -379,7 +379,7 @@ void KexiProjectNavigator::slotSelectionChanged(const QModelIndex& i)
         #endif
         }
     }
-    emit selectionChanged(it ? it->partItem() : 0);
+    emit selectionChanged(it->partItem());
 }
 
 void KexiProjectNavigator::slotRemove()

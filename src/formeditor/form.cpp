@@ -476,6 +476,7 @@ void Form::selectWidgets(const QList<QWidget*>& widgets, WidgetSelectionFlags fl
             flags = LastSelection;
         }
         selectWidget(widget, flags);
+        ++i;
     }
 }
 
@@ -1562,7 +1563,7 @@ void Form::createPropertiesForWidget(QWidget *w)
             else {
                 int realType = subwinfo->customTypeForProperty(propertyName);
                 if (realType == KProperty::Invalid || realType == KProperty::Auto) {
-                    realType = meta.type();
+                    realType = int(meta.type());
                 }
                 newProp = new KProperty(
                     propertyName,

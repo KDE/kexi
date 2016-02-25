@@ -554,8 +554,8 @@ void KexiSearchLineEdit::keyPressEvent(QKeyEvent *event)
         case Qt::Key_Select:
             if (!QApplication::keypadNavigationEnabled())
                 break;
-#endif
             d->completer->popup()->hide(); // just hide. will end up propagating to parent
+#endif
         default:
             break; // normal key processing
         }

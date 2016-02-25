@@ -303,9 +303,10 @@ QString KexiConnectionSelectorWidget::selectedFileName()
         const QString firstUrl(fileWidget->locationEdit()->lineEdit()->text());
         if (QDir::isAbsolutePath(firstUrl))
             path = QUrl::fromLocalFile(firstUrl);
-        else
+        else {
             path = path.adjusted(QUrl::StripTrailingSlash);
             path.setPath(path.path() + '/' + (firstUrl));
+        }
         return path.toLocalFile();
     }
 

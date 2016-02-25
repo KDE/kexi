@@ -928,7 +928,10 @@ void KexiMenuWidget::setIcon(const QIcon &icon)
 //actually performs the scrolling
 void KexiMenuWidgetPrivate::scrollMenu(QAction *action, QMenuScroller::ScrollLocation location, bool active)
 {
-    return;
+    Q_UNUSED(action)
+    Q_UNUSED(location)
+    Q_UNUSED(active)
+#if 0
     if (!scroll || !scroll->scrollFlags)
         return;
     updateActionRects();
@@ -1037,11 +1040,14 @@ void KexiMenuWidgetPrivate::scrollMenu(QAction *action, QMenuScroller::ScrollLoc
         setCurrentAction(action);
 
     q->update();     //issue an update so we see all the new state..
+#endif
 }
 
 void KexiMenuWidgetPrivate::scrollMenu(QMenuScroller::ScrollLocation location, bool active)
 {
-    return;
+    Q_UNUSED(location)
+    Q_UNUSED(active)
+#if 0
     updateActionRects();
     QList<QAction*> actionsList = q->actions();
     if(location == QMenuScroller::ScrollBottom) {
@@ -1075,12 +1081,16 @@ void KexiMenuWidgetPrivate::scrollMenu(QMenuScroller::ScrollLocation location, b
             }
         }
     }
+#endif
 }
 
 //only directional
 void KexiMenuWidgetPrivate::scrollMenu(QMenuScroller::ScrollDirection direction, bool page, bool active)
 {
-    return;
+    Q_UNUSED(direction)
+    Q_UNUSED(page)
+    Q_UNUSED(active)
+#if 0
     if (!scroll || !(scroll->scrollFlags & direction)) //not really possible...
         return;
     updateActionRects();
@@ -1122,6 +1132,7 @@ void KexiMenuWidgetPrivate::scrollMenu(QMenuScroller::ScrollDirection direction,
             q->update();
         }
     }
+#endif
 }
 
 /* This is poor-mans eventfilters. This avoids the use of
@@ -2752,15 +2763,9 @@ void KexiMenuWidget::keyPressEvent(QKeyEvent *e)
     case Qt::Key_Left: {
         if (d->currentAction && !d->scroll) {
             QAction *nextAction = 0;
-            if (key == Qt::Key_Left) {
-                QRect actionR = d->actionRect(d->currentAction);
-                for(int x = actionR.left()-1; !nextAction && x >= 0; x--)
-                    nextAction = d->actionAt(QPoint(x, actionR.center().y()));
-            } else {
-                QRect actionR = d->actionRect(d->currentAction);
-                for(int x = actionR.right()+1; !nextAction && x < width(); x++)
-                    nextAction = d->actionAt(QPoint(x, actionR.center().y()));
-            }
+            QRect actionR = d->actionRect(d->currentAction);
+            for(int x = actionR.left()-1; !nextAction && x >= 0; x--)
+                nextAction = d->actionAt(QPoint(x, actionR.center().y()));
             if (nextAction) {
                 d->setCurrentAction(nextAction, /*popup*/-1, KexiMenuWidget::SelectedFromKeyboard);
                 key_consumed = true;

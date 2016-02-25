@@ -91,15 +91,15 @@ protected:
         int current(option.minimum);
         int nextLabel = current;
 
-        QFontMetrics fm(font());
+        const QFontMetrics fm(fontMetrics());
         int h = fm.height() + 3;
         int w = fm.width(QString::number(option.maximum)) + 3;
 
         if(available<w)
             nextLabel = -1;
 
-        float i = available/(orientation() == Qt::Horizontal ? w : h);
-        float t = option.maximum/interval;
+        qreal i = qreal(available) / qreal(orientation() == Qt::Horizontal ? w : h);
+        qreal t = qreal(option.maximum)/qreal(interval);
         int valStep = t/ i + 1;
 
         // Since there is no subrect for tickmarks do a translation here.

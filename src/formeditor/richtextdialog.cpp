@@ -179,19 +179,19 @@ RichTextDialog::slotActionTriggered(QAction* action)
     else if (action == d->superscriptTextAction) {
         if (isChecked && d->subscriptTextAction->isChecked()) {
             d->subscriptTextAction->setChecked(false);
-            QTextCharFormat currentCharFormat = d->edit->currentCharFormat();
-            currentCharFormat.setVerticalAlignment(
-                isChecked ? QTextCharFormat::AlignSuperScript : QTextCharFormat::AlignNormal);
-            d->edit->setCurrentCharFormat(currentCharFormat);
         }
+        QTextCharFormat currentCharFormat = d->edit->currentCharFormat();
+        currentCharFormat.setVerticalAlignment(
+            isChecked ? QTextCharFormat::AlignSuperScript : QTextCharFormat::AlignNormal);
+        d->edit->setCurrentCharFormat(currentCharFormat);
     } else if (action == d->subscriptTextAction) {
-        if (isChecked && d->subscriptTextAction->isChecked()) {
-            d->subscriptTextAction->setChecked(false);
-            QTextCharFormat currentCharFormat = d->edit->currentCharFormat();
-            currentCharFormat.setVerticalAlignment(
-                isChecked ? QTextCharFormat::AlignSubScript : QTextCharFormat::AlignNormal);
-            d->edit->setCurrentCharFormat(currentCharFormat);
+        if (isChecked && d->superscriptTextAction->isChecked()) {
+            d->superscriptTextAction->setChecked(false);
         }
+        QTextCharFormat currentCharFormat = d->edit->currentCharFormat();
+        currentCharFormat.setVerticalAlignment(
+            isChecked ? QTextCharFormat::AlignSubScript : QTextCharFormat::AlignNormal);
+        d->edit->setCurrentCharFormat(currentCharFormat);
     } else if (action == d->alignLeftAction) {
         if (isChecked)
             d->edit->setAlignment(Qt::AlignLeft);

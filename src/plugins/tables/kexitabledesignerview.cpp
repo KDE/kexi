@@ -847,13 +847,9 @@ void KexiTableDesignerView::slotRecordUpdated(KDbRecordData *data)
         //refresh property editor:
         propertySetSwitched();
 
-        if (record >= 0) {
-            if (d->addHistoryCommand_in_slotRecordUpdated_enabled) {
-                addHistoryCommand(new InsertFieldCommand(0, this, record, *newSet /*propertySet()*/),    //, field /*will be copied*/
-                                  false /* !execute */);
-            }
-        } else {
-            qWarning() << "record # not found  !";
+        if (d->addHistoryCommand_in_slotRecordUpdated_enabled) {
+            addHistoryCommand(new InsertFieldCommand(0, this, record, *newSet /*propertySet()*/),    //, field /*will be copied*/
+                              false /* !execute */);
         }
     }
 }
