@@ -68,7 +68,8 @@ public:
   }
 
   using QTreeWidgetItem::data;
-  QVariant data(ActionRole role) {
+  QVariant data(ActionRole role) const
+  {
       return QTreeWidgetItem::data(0, role);
   };
 
@@ -77,7 +78,7 @@ public:
       QTreeWidgetItem::setData(0, role, value);
   }
 
-  QIcon icon() {
+  QIcon icon() const {
       return QTreeWidgetItem::icon(0);
   }
 
@@ -715,25 +716,29 @@ KexiFormEventAction::ActionData KexiActionSelectionDialog::currentAction() const
     ActionSelectorDialogTreeItem *categoryItm = dynamic_cast<ActionSelectorDialogTreeItem*>(d->actionCategoriesListView->currentItem());
 
     if (categoryItm) {
-        QString actionCategory = categoryItm->data(ActionSelectorDialogTreeItem::ActionCategoryRole).toString();
+        const QString actionCategory = categoryItm->data(ActionSelectorDialogTreeItem::ActionCategoryRole).toString();
 
         if (actionCategory == "kaction") {
-            if (d->kactionListView->currentItem()) {
+            const ActionSelectorDialogTreeItem* actionToExecute = dynamic_cast<ActionSelectorDialogTreeItem*>(
+                                                    d->kactionListView->currentItem());
+            if (actionToExecute) {
                 data.string = QString("kaction:")
-                + dynamic_cast<ActionSelectorDialogTreeItem*>(d->kactionListView->currentItem())->data(ActionSelectorDialogTreeItem::ActionDataRole).toString();
+                    + actionToExecute->data(ActionSelectorDialogTreeItem::ActionDataRole).toString();
                 return data;
             }
         } else if (actionCategory == "currentForm") {
-            if (d->currentFormActionsListView->currentItem()) {
+            const ActionSelectorDialogTreeItem *actionToExecute = dynamic_cast<ActionSelectorDialogTreeItem*>(
+                                                    d->currentFormActionsListView->currentItem());
+            if (actionToExecute) {
                 data.string = QString("currentForm:")
-                              + dynamic_cast<ActionSelectorDialogTreeItem*>(
-                                  d->currentFormActionsListView->currentItem())->data(ActionSelectorDialogTreeItem::ActionDataRole).toString();
+                    + actionToExecute->data(ActionSelectorDialogTreeItem::ActionDataRole).toString();
                 return data;
             }
         } else if (actionCategory == "noaction") {
           return data;
         } else if (actionCategory == "navObject") {
-            ActionSelectorDialogTreeItem *actionToExecute = dynamic_cast<ActionSelectorDialogTreeItem*>(d->actionToExecuteListView->currentItem());
+            const ActionSelectorDialogTreeItem *actionToExecute = dynamic_cast<ActionSelectorDialogTreeItem*>(
+                                                d->actionToExecuteListView->currentItem());
             if (d->objectsListView && actionToExecute && !actionToExecute->data(ActionSelectorDialogTreeItem::ActionDataRole).toString().isEmpty()) {
                 KexiPart::Item* partItem = d->objectsListView->selectedPartItem();
                 KexiPart::Info* partInfo = partItem ? Kexi::partManager().infoForPluginId(partItem->pluginId()) : 0;
