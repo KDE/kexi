@@ -92,15 +92,17 @@ protected:
     QWidget *m_widgetDataSourceComboSpacer;
     KexiDataSourceComboBox* m_formDataSourceCombo;
     QWidget *m_formDataSourceComboSpacer;
-    QLabel *m_dataSourceLabel, *m_noDataSourceAvailableLabel,
-    *m_widgetDSLabel, *m_availableFieldsLabel,
-    *m_mousePointerLabel, *m_availableFieldsDescriptionLabel;
-    QToolButton *m_gotoButton, *m_addField;
+    QLabel *m_dataSourceLabel, *m_noDataSourceAvailableLabel, *m_widgetDSLabel;
+    QToolButton *m_gotoButton;
     QString m_noDataSourceAvailableSingleText;
     QString m_noDataSourceAvailableMultiText;
     bool m_insideClearFormDataSourceSelection;
 #ifdef KEXI_AUTOFIELD_FORM_WIDGET_SUPPORT
+    KexiFieldListView* m_availableFieldsLabel;
     KexiFieldListView* m_fieldListView;
+    QLabel *m_mousePointerLabel;
+    QLabel *m_availableFieldsDescriptionLabel;
+    QToolButton *m_addField;
 #else
     KDbTableOrQuerySchema *m_tableOrQuerySchema; //!< temp.
 #endif

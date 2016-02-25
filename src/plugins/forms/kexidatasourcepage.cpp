@@ -134,8 +134,6 @@ KexiDataSourcePage::KexiDataSourcePage(QWidget *parent)
     m_formDataSourceComboSpacer = addWidgetSpacer();
 
 #ifndef KEXI_AUTOFIELD_FORM_WIDGET_SUPPORT
-    m_availableFieldsLabel = 0;
-    m_addField = 0;
     mainLayout()->addStretch();
 #else
     //2. Inserting fields
