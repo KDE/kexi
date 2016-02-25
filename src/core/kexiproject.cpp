@@ -745,7 +745,7 @@ KexiProject::isConnected()
 KexiPart::ItemDict*
 KexiProject::items(KexiPart::Info *i)
 {
-    //qDebug();
+    clearResult();
     KDbMessageGuard mg(this);
     if (!i || !isConnected())
         return 0;
