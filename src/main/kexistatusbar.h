@@ -44,8 +44,8 @@ public:
     virtual ~KexiStatusBar();
 
 //! @todo extend to more generic API
-    QAction *m_showNavigatorAction;
-    QAction *m_showPropertyEditorAction;
+    //QAction *m_showNavigatorAction;
+    //QAction *m_showPropertyEditorAction;
 
 public Q_SLOTS:
     virtual void setStatus(const QString &str);
