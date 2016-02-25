@@ -142,9 +142,6 @@ public:
     /*! Helper for "highlighted record" effect. */
     int highlightedRecord;
 
-    /*! Id of context menu key (cached). */
-    int contextMenuKey;
-
     /*! Specifies currently displayed cell tooltip.
      Value of QPoint(-1,-1) means "no tooltip". */
     QPoint recentCellWithToolTip;
