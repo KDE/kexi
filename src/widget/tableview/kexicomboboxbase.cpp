@@ -75,6 +75,9 @@ int KexiComboBoxBase::recordToHighlightForLookupTable() const
 //! @todo for now we're assuming the id is INTEGER
     KDbTableViewData *tvData = popup()->tableView()->data();
     const int boundColumn = boundColumnIndex();
+    if (boundColumn < 0) {
+        return -1;
+    }
     int record = -1;
     for (KDbTableViewDataIterator it(tvData->begin()); it != tvData->end(); ++it) {
         record++;
@@ -291,7 +294,8 @@ QVariant KexiComboBoxBase::value()
             }
             data = selectRecordForEnteredValueInLookupTable(m_userEnteredValue);
         }
-        return data ? data->at(boundColumnIndex()) : QVariant();
+        const int boundColumn = boundColumnIndex();
+        return (data && boundColumn >= 0) ? data->at(boundColumn) : QVariant();
     } else if (popup()) {
         //use 'enum hints' model
         const int record = popup()->tableView()->currentRecord();
