@@ -139,8 +139,7 @@ void KexiFieldComboBox::setFieldOrExpression(const QString& string)
         QString objectName = name.left(pos);
         if (d->tableOrQueryName != objectName) {
             d->fieldOrExpression = name;
-            setCurrentIndex(0);
-            lineEdit()->setText(name);
+            setEditText(name);
 //! @todo show error
             qWarning() << "invalid table/query name in" << name;
             return;
@@ -148,17 +147,9 @@ void KexiFieldComboBox::setFieldOrExpression(const QString& string)
         d->fieldOrExpression = name.mid(pos + 1);
     }
 
-    const int index = findText(d->fieldOrExpression);
-    if (index == -1) {
-        setCurrentIndex(0);
-        lineEdit()->setText(d->fieldOrExpression);
-//! @todo show 'the item doesn't match' info?
-        return;
-    }
-
-    setCurrentIndex(index);
-    lineEdit()->setText(d->fieldOrExpression);
-    qDebug() << index << currentText() << currentIndex() << lineEdit()->text();
+    //! @todo show 'the item doesn't match' info?
+    setEditText(d->fieldOrExpression);
+    qDebug() << currentText() << currentIndex() << lineEdit()->text();
 }
 
 void KexiFieldComboBox::setFieldOrExpression(int index)
