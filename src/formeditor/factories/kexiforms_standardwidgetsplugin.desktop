@@ -20,6 +20,7 @@ Name[x-test]=xxStandard Widgetsxx
 Comment=Kexi plugin providing standard form widgets
 Comment[ca]=Connector del Kexi que proporciona estris estàndard de formularis
 Comment[ca@valencia]=Connector del Kexi que proporciona estris estàndard de formularis
+Comment[de]=Kexi-Modul, das Standard-Formularelemente bereitstellt
 Comment[en_GB]=Kexi plugin providing standard form widgets
 Comment[es]=Complemento de Kexi que proporciona elementos gráficos estándares para formularios
 Comment[fi]=Kexi-liitännäinen, joka tarjoaa vakiolomake-elementit
