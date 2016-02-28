@@ -510,7 +510,7 @@ tristate KexiFormView::afterSwitchFrom(Kexi::ViewMode mode)
         }
     }
 
-    if (mode != 0 && mode != Kexi::DesignViewMode) {
+    if (mode == Kexi::DataViewMode) {
         //preserve contents pos after switching to other view
         d->scrollView->horizontalScrollBar()->setValue(tempData()->scrollViewContentsPos.x());
         d->scrollView->verticalScrollBar()->setValue(tempData()->scrollViewContentsPos.y());
