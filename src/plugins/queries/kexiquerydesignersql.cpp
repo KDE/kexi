@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2004-2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -208,7 +208,7 @@ tristate KexiQueryDesignerSQLView::beforeSwitchTo(Kexi::ViewMode mode, bool *don
         if (sqlTextIsEmpty && mode == Kexi::DesignViewMode) {
             //special case: empty SQL text, allow to switch to the design view
             if (temp->query()) {
-                temp->setQueryChangedInPreviousView(true); //query changed
+                temp->setQueryChangedInView(true); //query changed
                 temp->setQuery(0);
             }
         }
@@ -221,7 +221,7 @@ tristate KexiQueryDesignerSQLView::beforeSwitchTo(Kexi::ViewMode mode, bool *don
                     && compareSQL(d->origStatement.toString(), d->editor->text()))
             {
                 //statement unchanged! - nothing to do
-                temp->setQueryChangedInPreviousView(false);
+                temp->setQueryChangedInView(false);
             } else {
                 //yes: parse SQL text
                 if (sqlTextIsEmpty || !slotCheckQuery()) {
@@ -232,7 +232,7 @@ tristate KexiQueryDesignerSQLView::beforeSwitchTo(Kexi::ViewMode mode, bool *don
                         return cancelled;
                     }
                     //do not change original query - it's invalid
-                    temp->setQueryChangedInPreviousView(false);
+                    temp->setQueryChangedInView(false);
                     //this view is no longer _just_ switched from "NoViewMode"
                     d->justSwitchedFromNoViewMode = false;
                     return true;
@@ -242,7 +242,7 @@ tristate KexiQueryDesignerSQLView::beforeSwitchTo(Kexi::ViewMode mode, bool *don
                 //replace old query schema with new one
                 temp->setQuery(d->parsedQuery);   //this will also delete temp->query()
                 d->parsedQuery = 0;
-                temp->setQueryChangedInPreviousView(true);
+                temp->setQueryChangedInView(true);
             }
         }
         d->origStatement = KDbEscapedString(d->editor->text());
@@ -276,7 +276,7 @@ KexiQueryDesignerSQLView::afterSwitchFrom(Kexi::ViewMode mode)
     if (query) {
         // Use query with Kexi keywords (but not driver-specific keywords) escaped.
         temp->setQuery(query);
-        if (temp->queryChangedInPreviousView()) {
+        if (temp->queryChangedInView() != Kexi::NoViewMode) {
             KDbSelectStatementOptions options;
             options.addVisibleLookupColumns = false;
             KDbNativeStatementBuilder builder(KexiMainWindowIface::global()->project()->dbConnection());
@@ -296,10 +296,19 @@ KexiQueryDesignerSQLView::afterSwitchFrom(Kexi::ViewMode mode)
         d->origStatement = KDbEscapedString(sql);
     }
 
-    if (!compareSQL(d->origStatement.toString(), d->editor->text())) {
-        d->slotTextChangedEnabled = false;
-        d->editor->setText(d->origStatement.toString());
-        d->slotTextChangedEnabled = true;
+    if (temp->queryChangedInView() == Kexi::DesignViewMode /* true in this scenario:
+                                                      - user switched from SQL to Design,
+                                                      - changed the design,
+                                                      - switched to Data
+                                                      - switched back to SQL */
+        || mode != Kexi::DataViewMode) /* true in this scenario: user switched from No-view
+                                          or Design view */
+    {
+        if (!compareSQL(d->origStatement.toString(), d->editor->text())) {
+            d->slotTextChangedEnabled = false;
+            d->editor->setText(d->origStatement.toString());
+            d->slotTextChangedEnabled = true;
+        }
     }
     QTimer::singleShot(100, d->editor, SLOT(setFocus()));
     return true;

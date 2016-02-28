@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2004 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2004-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -611,7 +611,7 @@ KexiQueryDesignerGuiEditor::beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore)
     if (!d->dataTable->dataAwareObject()->acceptRecordEditing())
         return cancelled;
 
-    qDebug() << "queryChangedInPreviousView:" << tempData()->queryChangedInPreviousView();
+    qDebug() << "queryChangedInView:" << tempData()->queryChangedInView();
 
     if (mode == Kexi::DesignViewMode) {
         return true;
@@ -621,7 +621,7 @@ KexiQueryDesignerGuiEditor::beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore)
             KMessageBox::information(this, msgCannotSwitch_EmptyDesign());
             return cancelled;
         }
-        if (tempData()->queryChangedInPreviousView() || !tempData()->query()) {
+        if (tempData()->queryChangedInView() != Kexi::NoViewMode || !tempData()->query()) {
             //remember current design in a temporary structure
             QString errMsg;
             //build schema; problems are not allowed
@@ -635,7 +635,7 @@ KexiQueryDesignerGuiEditor::beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore)
         return true;
     } else if (mode == Kexi::TextViewMode) {
         *dontStore = true;
-        if (tempData()->queryChangedInPreviousView() || !tempData()->query()) {
+        if (tempData()->queryChangedInView() != Kexi::NoViewMode || !tempData()->query()) {
             //remember current design in a temporary structure
             //build schema; ignore problems
             buildSchema();
@@ -689,8 +689,8 @@ KexiQueryDesignerGuiEditor::afterSwitchFrom(Kexi::ViewMode mode)
     } else if (mode == Kexi::TextViewMode || mode == Kexi::DataViewMode) {
         // Switch from text or data view. In the second case, the design could be changed as well
         // because there could be changes made in the text view before switching to the data view.
-        if (tempData()->queryChangedInPreviousView()) {
-            //previous view changed query data
+        if (tempData()->queryChangedInView() == Kexi::TextViewMode) {
+            //SQL view changed the query design
             //-clear and regenerate GUI items
             initTableRows();
             //! @todo
@@ -724,7 +724,7 @@ KexiQueryDesignerGuiEditor::afterSwitchFrom(Kexi::ViewMode mode)
         d->dataTable->tableView()->adjustColumnWidthToContents(COLUMN_ID_COLUMN);
         d->dataTable->tableView()->adjustColumnWidthToContents(COLUMN_ID_TABLE);
     }
-    tempData()->setQueryChangedInPreviousView(false);
+    tempData()->setQueryChangedInView(false);
     setFocus(); //to allow shared actions proper update
     return true;
 }
@@ -743,7 +743,7 @@ KexiQueryDesignerGuiEditor::storeNewData(const KDbObject& object,
     }
     QString errMsg;
     KexiQueryPart::TempData * temp = tempData();
-    if (!temp->query() || !(viewMode() == Kexi::DesignViewMode && !temp->queryChangedInPreviousView())) {
+    if (!temp->query() || !(viewMode() == Kexi::DesignViewMode && temp->queryChangedInView() == Kexi::NoViewMode)) {
         //only rebuild schema if it has not been rebuilt previously
         if (!buildSchema(&errMsg)) {
             KMessageBox::sorry(this, errMsg);
@@ -1269,7 +1269,7 @@ void KexiQueryDesignerGuiEditor::slotRecordInserted(KDbRecordData* data, int rec
         propertySetSwitched();
         d->droppedNewRecord = 0;
     }
-    tempData()->setQueryChangedInPreviousView(true);
+    tempData()->setQueryChangedInView(true);
 }
 
 void KexiQueryDesignerGuiEditor::slotTableAdded(KDbTableSchema* /*t*/)
@@ -1278,7 +1278,7 @@ void KexiQueryDesignerGuiEditor::slotTableAdded(KDbTableSchema* /*t*/)
         return;
     updateColumnsData();
     setDirty();
-    tempData()->setQueryChangedInPreviousView(true);
+    tempData()->setQueryChangedInView(true);
     d->dataTable->setFocus();
 }
 
@@ -1286,7 +1286,7 @@ void KexiQueryDesignerGuiEditor::slotTableHidden(KDbTableSchema* /*t*/)
 {
     updateColumnsData();
     setDirty();
-    tempData()->setQueryChangedInPreviousView(true);
+    tempData()->setQueryChangedInView(true);
 }
 
 QByteArray KexiQueryDesignerGuiEditor::generateUniqueAlias() const
@@ -1640,7 +1640,7 @@ void KexiQueryDesignerGuiEditor::slotBeforeTotalsCellChanged(KDbRecordData *data
 #else
     //! @todo unused yet
     setDirty(true);
-    tempData()->setQueryChangedInPreviousView(true);
+    tempData()->setQueryChangedInView(true);
 #endif
 }
 
@@ -1717,7 +1717,7 @@ void KexiQueryDesignerGuiEditor::slotBeforeCriteriaCellChanged(KDbRecordData *da
             (*set)["criteria"] = QVariant(); //clear it
         }
         setDirty(true);
-        tempData()->setQueryChangedInPreviousView(true);
+        tempData()->setQueryChangedInView(true);
     }
     else {
         result->success = false;
@@ -1730,13 +1730,13 @@ void KexiQueryDesignerGuiEditor::slotBeforeCriteriaCellChanged(KDbRecordData *da
 void KexiQueryDesignerGuiEditor::slotTablePositionChanged(KexiRelationsTableContainer*)
 {
     setDirty(true);
-    // this is not needed here because only position has changed: tempData()->setQueryChangedInPreviousView(true);
+    // this is not needed here because only position has changed: tempData()->setQueryChangedInView(true);
 }
 
 void KexiQueryDesignerGuiEditor::slotAboutConnectionRemove(KexiRelationsConnection*)
 {
     setDirty(true);
-    tempData()->setQueryChangedInPreviousView(true);
+    tempData()->setQueryChangedInView(true);
 }
 
 void KexiQueryDesignerGuiEditor::slotAppendFields(
@@ -1867,7 +1867,7 @@ void KexiQueryDesignerGuiEditor::slotPropertyChanged(KPropertySet& set, KPropert
             }
         }
     }
-    tempData()->setQueryChangedInPreviousView(true);
+    tempData()->setQueryChangedInView(true);
 }
 
 void KexiQueryDesignerGuiEditor::slotNewItemStored(KexiPart::Item* item)
