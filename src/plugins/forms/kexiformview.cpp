@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2004 Cedric Pasteur <cedric.pasteur@free.fr>
-   Copyright (C) 2004-2011 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -476,6 +476,10 @@ KexiFormView::beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore)
             tempData()->scrollViewContentsPos
                 = QPoint(d->scrollView->horizontalScrollBar()->value(), d->scrollView->verticalScrollBar()->value());
         }
+    }
+    if (viewMode() == Kexi::DataViewMode) {
+        //old data won't be needed nor valid
+        d->scrollView->setData(0, false);
     }
 
     // we don't store on db, but in our TempData
