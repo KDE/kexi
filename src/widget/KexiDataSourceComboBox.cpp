@@ -266,7 +266,7 @@ void KexiDataSourceComboBox::slotItemRenamed(const KexiPart::Item& item, const Q
 
 void KexiDataSourceComboBox::slotActivated(int index)
 {
-    if (index >= d->firstTableIndex() && index < count() && d->prevIndex != currentIndex()) {
+    if (index >= 0 && index < count() && d->prevIndex != currentIndex()) {
         d->prevIndex = currentIndex();
         emit dataSourceChanged();
     }
