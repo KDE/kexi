@@ -295,7 +295,7 @@ KexiBLOBBuffer::Handle KexiBLOBBuffer::objectForId(Id_t id, bool stored)
         if (item || !d->conn)
             return KexiBLOBBuffer::Handle(item);
         //retrieve stored BLOB:
-        assert(d->conn);
+        Q_ASSERT(d->conn);
         KDbTableSchema *blobsTable = d->conn->tableSchema("kexi__blobs");
         if (!blobsTable) {
             //! @todo err msg
@@ -364,7 +364,7 @@ void KexiBLOBBuffer::removeItem(Id_t id, bool stored)
 
 void KexiBLOBBuffer::takeItem(Item *item)
 {
-    assert(item);
+    Q_ASSERT(item);
     if (item->stored)
         d->storedItems.take(item->id);
     else
@@ -373,7 +373,7 @@ void KexiBLOBBuffer::takeItem(Item *item)
 
 void KexiBLOBBuffer::insertItem(Item *item)
 {
-    assert(item);
+    Q_ASSERT(item);
     if (item->stored)
         d->storedItems.insert(item->id, item);
     else
