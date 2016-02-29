@@ -1775,7 +1775,7 @@ void KexiCSVImportDialog::currentCellChanged(const QModelIndex &cur, const QMode
 }
 
 //! Used in emergency by accept()
-void KexiCSVImportDialog::dropDestinationTable(KexiProject* project, KexiPart::Item* partItemForSavedTable)
+void KexiCSVImportDialog::dropDestinationTable(KexiProject* project, KexiPart::Item* &partItemForSavedTable)
 {
     m_importingProgressBar->hide();
     project->deleteUnstoredItem(partItemForSavedTable);
@@ -1786,11 +1786,12 @@ void KexiCSVImportDialog::dropDestinationTable(KexiProject* project, KexiPart::I
 }
 
 //! Used in emergency by accept()
-void KexiCSVImportDialog::raiseErrorInAccept(KexiProject* project, KexiPart::Item* partItemForSavedTable)
+void KexiCSVImportDialog::raiseErrorInAccept(KexiProject* project, KexiPart::Item* &partItemForSavedTable)
 {
     finishButton()->setEnabled(true);
     KGuiItem::assign(finishButton(), KGuiItem(xi18nc("@action:button Import CSV", "&Import..."), _IMPORT_ICON));
     project->deleteUnstoredItem(partItemForSavedTable);
+    partItemForSavedTable = 0;
     delete m_destinationTableSchema;
     m_destinationTableSchema = 0;
     m_conn = 0;

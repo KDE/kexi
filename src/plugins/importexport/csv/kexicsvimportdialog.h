@@ -112,10 +112,12 @@ protected:
 
 private:
     //! Used in emergency by accept()
-    void dropDestinationTable(KexiProject* project, KexiPart::Item* partItemForSavedTable);
+    //! @note @a partItemForSavedTable is IN-OUT
+    void dropDestinationTable(KexiProject* project, KexiPart::Item* &partItemForSavedTable);
 
     //! Used in emergency by accept()
-    void raiseErrorInAccept(KexiProject* project, KexiPart::Item* partItemForSavedTable);
+    //! @note @a partItemForSavedTable is IN-OUT
+    void raiseErrorInAccept(KexiProject* project, KexiPart::Item* &partItemForSavedTable);
 
     QGridLayout* MyDialogLayout;
     QHBoxLayout* Layout1;
