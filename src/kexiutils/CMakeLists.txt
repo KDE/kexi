@@ -4,6 +4,7 @@ include_directories(completer)
 
 set(kexiutils_LIB_SRCS
   utils.cpp
+  FontSettings_p.cpp
   InternalPropertyMap.cpp
   SmallToolButton.cpp
   KexiCommandLinkButton.cpp

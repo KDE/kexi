@@ -30,6 +30,7 @@
 
 #include "utils.h"
 #include "utils_p.h"
+#include "FontSettings_p.h"
 #include "kexiutils_global.h"
 #include <KexiIcon.h>
 
@@ -543,19 +544,11 @@ const WidgetMargins KexiUtils::operator+ (
 
 //---------
 
-Q_GLOBAL_STATIC(QFont, _smallFont)
+Q_GLOBAL_STATIC(FontSettingsData, g_fontSettings)
 
-QFont KexiUtils::smallFont(QWidget *init)
+QFont KexiUtils::smallestReadableFont()
 {
-    if (init) {
-        *_smallFont = init->font();
-        const int wdth = QApplication::desktop()->screenGeometry(init).width();
-        int size = 10 + qMax(0, wdth - 1100) / 100;
-        size = qMin(init->fontInfo().pixelSize(), size);
-        size = qMax(QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont).pixelSize(), size);
-        _smallFont->setPixelSize(size);
-    }
-    return *_smallFont;
+    return g_fontSettings->font(FontSettingsData::SmallestReadableFont);
 }
 
 //---------------------

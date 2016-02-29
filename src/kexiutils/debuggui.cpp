@@ -61,7 +61,7 @@ static void addKexiDBDebug(const QString& text)
 
         kexiDBDebugPage = new KexiDBDebugTreeWidget(page);
         kexiDBDebugPage->setObjectName("kexiDbDebugPage");
-        kexiDBDebugPage->setFont(KexiUtils::smallFont(kexiDBDebugPage));
+        kexiDBDebugPage->setFont(KexiUtils::smallestReadableFont());
         QObject::connect(btn_copy, SIGNAL(clicked()), kexiDBDebugPage, SLOT(copy()));
         QObject::connect(btn_clear, SIGNAL(clicked()), kexiDBDebugPage, SLOT(clear()));
         vbox->addWidget(kexiDBDebugPage);
@@ -114,7 +114,7 @@ static void addAlterTableActionDebug(const QString& text, int nestingLevel)
         hbox->addWidget(btn_sim);
 
         kexiAlterTableActionDebugPage = new QTreeWidget(page);
-        kexiAlterTableActionDebugPage->setFont(KexiUtils::smallFont(kexiAlterTableActionDebugPage));
+        kexiAlterTableActionDebugPage->setFont(KexiUtils::smallestReadableFont());
         kexiAlterTableActionDebugPage->setObjectName("kexiAlterTableActionDebugPage");
         QObject::connect(btn_clear, SIGNAL(clicked()), kexiAlterTableActionDebugPage, SLOT(clear()));
         vbox->addWidget(kexiAlterTableActionDebugPage);

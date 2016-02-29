@@ -90,7 +90,7 @@ KexiRelationsConnection::drawConnection(QPainter *p)
     int rx = d->detailsTable->x() + d->scrollArea->horizontalScrollBar()->value();
     int ry = d->detailsTable->globalY(d->detailsField);
 
-    QFont f(KexiUtils::smallFont(d->scrollArea));
+    QFont f(KexiUtils::smallestReadableFont());
     f.setBold(true);
     p->setFont(f);
     QFontMetrics fm(f);

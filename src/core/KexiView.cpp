@@ -148,7 +148,7 @@ public:
         btn->setText(text);
         btn->setIcon(a->icon());
         QFont f(q->font());
-        f.setPixelSize(KexiUtils::smallFont().pixelSize());
+        f.setPointSizeF(KexiUtils::smallestReadableFont().pointSizeF());
         btn->setFont(f);
         btn->setToolTip(a->toolTip());
         btn->setWhatsThis(a->whatsThis());
@@ -239,7 +239,7 @@ KexiView::KexiView(QWidget *parent)
 
     if (parentWidget()->inherits("KexiWindow")) {
         d->topBarHWidget = new QWidget(this);
-        d->topBarHWidget->setFont(KexiUtils::smallFont());
+        d->topBarHWidget->setFont(KexiUtils::smallestReadableFont());
         d->mainLyr->addWidget(d->topBarHWidget);
         QHBoxLayout *topBarHLyr = new QHBoxLayout(d->topBarHWidget); //needed unless KexiFlowLayout properly handles contents margins
         topBarHLyr->setContentsMargins(0, 0, 0, 0);

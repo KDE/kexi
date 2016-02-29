@@ -428,8 +428,6 @@ KexiMainWindow::KexiMainWindow(QWidget *parent)
     setupMainWidget();
     updateAppCaption();
 
-    (void)KexiUtils::smallFont(this/*init*/);
-
     if (!d->userMode) {
         setupContextHelp();
         setupPropertyEditor();
@@ -1945,10 +1943,16 @@ void KexiMainWindow::setupPropertyEditor()
 //! @todo REMOVE? d->propEditor->installEventFilter(this);
 
         KConfigGroup propertyEditorGroup(d->config->group("PropertyEditor"));
-        int size = propertyEditorGroup.readEntry("FontSize", -1);
-        QFont f(KexiUtils::smallFont());
-        if (size > 0)
-            f.setPixelSize(size);
+        QFont f(KexiUtils::smallestReadableFont());
+        const qreal pointSizeF = propertyEditorGroup.readEntry("FontPointSize", -1.0f); // points are more accurate
+        if (pointSizeF > 0.0) {
+            f.setPointSizeF(pointSizeF);
+        } else {
+            const int pixelSize = propertyEditorGroup.readEntry("FontSize", -1); // compatibility with Kexi 2.x
+            if (pixelSize > 0) {
+                f.setPixelSize(pixelSize);
+            }
+        }
         d->propEditorTabWidget->setFont(f);
 
         d->enable_slotPropertyEditorVisibilityChanged = false;

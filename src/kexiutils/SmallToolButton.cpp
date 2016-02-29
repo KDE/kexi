@@ -108,7 +108,7 @@ void KexiSmallToolButton::init()
 {
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     QFont f(font());
-    f.setPixelSize(KexiUtils::smallFont().pixelSize());
+    f.setPointSizeF(KexiUtils::smallestReadableFont().pointSizeF());
     setFont(f);
     setAutoRaise(true);
     QToolButton::setToolButtonStyle(Qt::ToolButtonTextBesideIcon);

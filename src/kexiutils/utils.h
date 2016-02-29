@@ -242,10 +242,11 @@ KEXIUTILS_EXPORT QUrl getSaveImageUrl(QWidget *parent = 0, const QString &captio
                                       const QUrl &directory = QUrl());
 
 /*! A global setting for minimal readable font.
- \a init is a widget that should be passed if no qApp->mainWidget() is available yet.
- The size of font is not smaller than the one returned by
- QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont). */
-KEXIUTILS_EXPORT QFont smallFont(QWidget *init = 0);
+ This can be used in dockers, rulers and other places where space is at a premium.
+ @see QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont).
+ @todo Add integration with KDE platform theme (how to detect it?); for now we don't assume it's installed
+*/
+KEXIUTILS_EXPORT QFont smallestReadableFont();
 
 /*! \return a color being a result of blending \a c1 with \a c2 with \a factor1
  and \a factor1 factors: (c1*factor1+c2*factor2)/(factor1+factor2). */
