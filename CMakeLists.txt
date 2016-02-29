@@ -38,7 +38,7 @@ set(KEXI_VERSION_RELEASE 89)     # 89 for Alpha, increase for next test releases
 set(KEXI_ALPHA 1) # uncomment only for Alpha
 #set(KEXI_BETA 1) # uncomment only for Beta
 #set(KEXI_RC 1) # uncomment only for RC
-set(KEXI_YEAR 2015) # update every year
+set(KEXI_YEAR 2016) # update every year
 
 if(NOT DEFINED KEXI_ALPHA AND NOT DEFINED KEXI_BETA AND NOT DEFINED KEXI_RC)
     set(KEXI_STABLE 1) # do not edit
