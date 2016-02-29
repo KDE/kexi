@@ -134,6 +134,9 @@ public:
 
     /**
      * @return "New object" action for this part.
+     * @return "New object" action for this part. nullptr is returned if this part could
+     * not create instances (e.g. CSV import) or if global structures such as action
+     * collection are not (yet) set up.
      */
     QAction* newObjectAction();
 
