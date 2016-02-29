@@ -29,6 +29,8 @@
 
 #include <KDbTableSchema>
 
+#include <QApplication>
+#include <QDesktopWidget>
 #include <QScopedValueRollback>
 #include <QDebug>
 #include <QScrollBar>
@@ -434,13 +436,43 @@ void KexiComboBoxBase::createPopup(bool show)
         popup()->move(pos);
         //qDebug() << "pos:" << posMappedToGlobal + QPoint(0, thisWidget->height());
         //to avoid flickering: first resize to 0-height, then show and resize back to prev. height
-        const int w = popupWidthHint();
+        int w = popupWidthHint();
         popup()->resize(w, 0);
         if (show) {
             popup()->show();
             //qDebug() << "SHOW!!!";
         }
         popup()->updateSize(w);
+
+        // make sure the popup fits on the screen
+        const QRect screen = QApplication::desktop()->availableGeometry(posMappedToGlobal);
+        pos -= screen.topLeft(); // to simplify computation
+        w = popup()->width();
+        int h = popup()->height();
+        if (screen.width() < w) {
+            w = screen.width();
+            pos.setX(0);
+        } else if (screen.width() < (pos.x() + w - 1)) {
+            pos.setX(screen.width() - w + 1);
+        } else if (pos.x() < 0) {
+            pos.setX(0);
+        }
+        if (screen.height() < h) {
+            h = screen.height();
+            pos.setY(0);
+        } else if (screen.height() < (pos.y() + h - 1)) {
+            const int topY = pos.y() - thisWidget->height() - h;
+            if (topY >= 0 && (topY + h - 1 < screen.height())) {
+                pos.setY(pos.y() - thisWidget->height() - h);
+            } else {
+                pos.setY(screen.height() - h + 1);
+            }
+        } else if (pos.y() < 0) {
+            pos.setY(0);
+        }
+        popup()->move(pos + screen.topLeft());
+        popup()->resize(w, h);
+
         if (m_updatePopupSelectionOnShow) {
             int recordToHighlight = -1;
             KDbLookupFieldSchema *lookupFieldSchema = this->lookupFieldSchema();
