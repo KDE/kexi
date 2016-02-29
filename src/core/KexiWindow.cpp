@@ -415,6 +415,7 @@ tristate KexiWindow::switchToViewMode(
     bool *proposeOpeningInTextViewModeBecauseOfProblems)
 {
     Q_ASSERT(proposeOpeningInTextViewModeBecauseOfProblems);
+    clearStatus();
     KexiMainWindowIface::global()->acceptPropertySetEditing();
 
     const bool designModePreloadedForTextModeHack = isDesignModePreloadedForTextModeHackUsed(newViewMode);
