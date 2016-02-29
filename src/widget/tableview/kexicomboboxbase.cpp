@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2002 Peter Simonsson <psn@linux.se>
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -19,17 +19,19 @@
  */
 
 
-#include <kexi_global.h>
 #include "kexicomboboxbase.h"
+#include <kexi_global.h>
 #include <widget/utils/kexicomboboxdropdownbutton.h>
 #include "kexicomboboxpopup.h"
 #include "KexiTableScrollArea.h"
 #include "kexi.h"
+#include "KexiTableScrollAreaWidget.h"
 
 #include <KDbTableSchema>
 
 #include <QScopedValueRollback>
 #include <QDebug>
+#include <QScrollBar>
 
 KexiComboBoxBase::KexiComboBoxBase()
 {
@@ -421,8 +423,15 @@ void KexiComboBoxBase::createPopup(bool show)
     QPoint posMappedToGlobal = mapFromParentToGlobal(thisWidget->pos());
     if (posMappedToGlobal != QPoint(-1, -1)) {
 //! todo alter the position to fit the popup within screen boundaries
+        QPoint pos = posMappedToGlobal + QPoint(0, thisWidget->height());
+        if (qobject_cast<KexiTableScrollAreaWidget*>(thisWidget->parentWidget())) {
+            KexiTableScrollArea* tableScroll
+                = qobject_cast<KexiTableScrollAreaWidget*>(thisWidget->parentWidget())->scrollArea;
+            pos -= QPoint(tableScroll->horizontalScrollBar()->value(),
+                          tableScroll->verticalScrollBar()->value());
+        }
         popup()->hide();
-        popup()->move(posMappedToGlobal + QPoint(0, thisWidget->height()));
+        popup()->move(pos);
         //qDebug() << "pos:" << posMappedToGlobal + QPoint(0, thisWidget->height());
         //to avoid flickering: first resize to 0-height, then show and resize back to prev. height
         const int w = popupWidthHint();
