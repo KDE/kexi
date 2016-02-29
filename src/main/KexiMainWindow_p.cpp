@@ -250,9 +250,11 @@ void KexiMainMenu::showEvent(QShowEvent * event)
         m_menuWidget->addSeparator();
         m_menuWidget->addAction(ac->action("project_new"));
         m_menuWidget->addAction(ac->action("project_import_export_send"));
+#ifdef KEXI_SHOW_UNIMPLEMENTED
         m_menuWidget->addAction(ac->action("project_properties"));
         //! @todo project information
         m_menuWidget->addAction(ac->action("settings"));
+#endif
         m_menuWidget->addSeparator();
         m_menuWidget->addAction(ac->action("quit"));
         hlyr->addWidget(m_menuWidget);
