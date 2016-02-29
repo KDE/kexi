@@ -12,17 +12,15 @@
  * Library General Public License for more details.
  *
  * You should have received a copy of the GNU Library General Public
- * License along with this library; if not, write to the
- * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA 02110-1301, USA.
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
 #include <stdlib.h>
-
-#include <mdbtools.h>
+#include "mdbtools.h"
 
 #ifdef DMALLOC
 #include "dmalloc.h"
@@ -36,17 +34,17 @@ static int optset;
 static void load_options();
 
 void
-mdb_debug(int klass, char *fmt, ...)
+mdb_debug(int klass, const char *fmt, ...)
 {
 #ifdef DEBUG
 	va_list ap;
 
 	if (!optset) load_options();
 	if (klass & opts) {
-    	va_start(ap, fmt);
-    	vfprintf (stdout,fmt, ap);
-    	va_end(ap);
-    	fprintf(stdout,"\n");
+		va_start(ap, fmt);
+		vfprintf (stderr,fmt, ap);
+		va_end(ap);
+		fprintf(stderr,"\n");
 	}
 #endif
 }
@@ -57,26 +55,28 @@ load_options()
 	char *opt;
 	char *s;
 
-    if (!optset && (s=getenv("MDBOPTS"))) {
+	if (!optset && (s=getenv("MDBOPTS"))) {
 		opt = strtok(s, ":");
-		do {
-        	if (!strcmp(opt, "use_index")) opts |= MDB_USE_INDEX;
-        	if (!strcmp(opt, "no_memo")) opts |= MDB_NO_MEMO;
-        	if (!strcmp(opt, "debug_like")) opts |= MDB_DEBUG_LIKE;
-        	if (!strcmp(opt, "debug_write")) opts |= MDB_DEBUG_WRITE;
-        	if (!strcmp(opt, "debug_usage")) opts |= MDB_DEBUG_USAGE;
-        	if (!strcmp(opt, "debug_ole")) opts |= MDB_DEBUG_OLE;
-        	if (!strcmp(opt, "debug_row")) opts |= MDB_DEBUG_ROW;
-        	if (!strcmp(opt, "debug_all")) {
+		while (opt) {
+			if (!strcmp(opt, "use_index")) opts |= MDB_USE_INDEX;
+			if (!strcmp(opt, "no_memo")) opts |= MDB_NO_MEMO;
+			if (!strcmp(opt, "debug_like")) opts |= MDB_DEBUG_LIKE;
+			if (!strcmp(opt, "debug_write")) opts |= MDB_DEBUG_WRITE;
+			if (!strcmp(opt, "debug_usage")) opts |= MDB_DEBUG_USAGE;
+			if (!strcmp(opt, "debug_ole")) opts |= MDB_DEBUG_OLE;
+			if (!strcmp(opt, "debug_row")) opts |= MDB_DEBUG_ROW;
+			if (!strcmp(opt, "debug_props")) opts |= MDB_DEBUG_PROPS;
+			if (!strcmp(opt, "debug_all")) {
 				opts |= MDB_DEBUG_LIKE;
 				opts |= MDB_DEBUG_WRITE;
 				opts |= MDB_DEBUG_USAGE;
 				opts |= MDB_DEBUG_OLE;
 				opts |= MDB_DEBUG_ROW;
+				opts |= MDB_DEBUG_PROPS;
 			}
 			opt = strtok(NULL,":");
-		} while (opt);
-    }
+		}
+	}
 	optset = 1;
 }
 int
