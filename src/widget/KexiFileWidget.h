@@ -73,6 +73,8 @@ public:
     //! Excludes filters list
     void setExcludedFilters(const QSet<QString>& mimeTypes);
 
+    //! @return selected file.
+    //! @note Call checkSelectedFile() first
     virtual QString highlightedFile() const;
 
     //! just sets locationWidget()->setCurrentText(fn)
