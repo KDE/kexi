@@ -50,7 +50,7 @@ static void addKexiDBDebug(const QString& text)
     if (!kexiDBDebugPage) {
         QWidget *page = new QWidget(debugWindowTab);
         QVBoxLayout *vbox = new QVBoxLayout(page);
-        QHBoxLayout *hbox = new QHBoxLayout(page);
+        QHBoxLayout *hbox = new QHBoxLayout;
         vbox->addLayout(hbox);
         hbox->addStretch(1);
         QPushButton *btn_copy = new QPushButton(page);
