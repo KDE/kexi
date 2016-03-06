@@ -145,7 +145,7 @@ KexiDataSourcePage::KexiDataSourcePage(QWidget *parent)
     mainLayout()->addLayout(hlyr);
     m_mousePointerLabel = new QLabel(this);
     hlyr->addWidget(m_mousePointerLabel);
-    m_mousePointerLabel->setPixmap(koIcon("mouse_pointer"));
+    m_mousePointerLabel->setPixmap(koIcon("tool-pointer"));
     m_mousePointerLabel->setFixedWidth(m_mousePointerLabel->pixmap()
                                        ? m_mousePointerLabel->pixmap()->width() : 0);
     m_availableFieldsDescriptionLabel = new QLabel(
@@ -164,7 +164,7 @@ KexiDataSourcePage::KexiDataSourcePage(QWidget *parent)
     hlyr->addWidget(m_availableFieldsLabel);
 
     m_addField = new KexiSmallToolButton(
-        koIcon("add_field"), futureI18nc("Insert selected field into form", "Insert"), this);
+        KexiIcon("add-field"), futureI18nc("Insert selected field into form", "Insert"), this);
     m_addField->setObjectName("addFieldButton");
     m_addField->setFocusPolicy(Qt::StrongFocus);
     m_addField->setToolTip(futureI18n("Insert selected fields into form"));

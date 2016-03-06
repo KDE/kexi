@@ -152,9 +152,9 @@ QString Kexi::nameForViewMode(ViewMode mode, bool withAmpersand)
 QString Kexi::iconNameForViewMode(ViewMode mode)
 {
     const char *const id =
-        (mode == DataViewMode) ? koIconNameCStr("state_data") :
-        (mode == DesignViewMode) ? koIconNameCStr("state_edit") :
-        (mode == TextViewMode) ? koIconNameCStr("state_sql"):
+        (mode == DataViewMode) ? KexiIconNameCStr("data-view") :
+        (mode == DesignViewMode) ? KexiIconNameCStr("design-view") :
+        (mode == TextViewMode) ? KexiIconNameCStr("sql-view"):
         0;
 
     return QLatin1String(id);
@@ -363,48 +363,9 @@ QLabel *KEXI_UNFINISHED_LABEL(const QString& feature_name, const QString& extra_
 
 //--------------------------------------------------------------------------------
 
-static inline bool isFlatIconTheme()
-{
-    const QString theme(KIconTheme::current().toLower());
-    return theme.contains(QLatin1String("breeze"))
-           || theme.contains(QLatin1String("highcontrast"));
-}
-
-QString IconWithKexiPrefix(const QString &baseName)
-{
-    return QLatin1String("kexi_") + baseName;
-}
-
-QString IconWithKexiOxygenPrefix(const QString &baseName)
-{
-    return QLatin1String("kexi_ox_") + baseName;
-}
-
-QString KexiIconName(const QString &baseName)
-{
-    if (isFlatIconTheme()) {
-        //! @todo use prefix based on KIconTheme::current()?
-        return IconWithKexiPrefix(baseName);
-    }
-    return IconWithKexiOxygenPrefix(baseName);
-}
-
-QIcon KexiIcon(const QString &baseName)
-{
-    return QIcon::fromTheme(KexiIconName(baseName));
-}
-
 QString Kexi::defaultFileBasedDriverIconName()
 {
-    if (!isFlatIconTheme()) {
-        QMimeDatabase db;
-        QMimeType mimeType(db.mimeTypeForName(KDb::defaultFileBasedDriverMimeType()));
-        if (mimeType.isValid()) {
-            return mimeType.iconName();
-        }
-        qWarning() << KDb::defaultFileBasedDriverMimeType() << "mimetype not installed!";
-    }
-    return IconWithKexiPrefix("file-database");
+    return KexiIconName("file-database");
 }
 
 QIcon Kexi::defaultFileBasedDriverIcon()
@@ -414,10 +375,7 @@ QIcon Kexi::defaultFileBasedDriverIcon()
 
 QString Kexi::serverIconName()
 {
-    if (!isFlatIconTheme()) {
-        return koIconName("network-server-database");
-    }
-    return IconWithKexiPrefix("network-server-database");
+    return KexiIconName("network-server-database");
 }
 
 QIcon Kexi::serverIcon()

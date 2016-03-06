@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2012 Friedrich W. H. Kossebau <kossebau@kde.org>
-   Copyright (C) 2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2015-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -21,11 +21,10 @@
 #ifndef KEXIICON_H
 #define KEXIICON_H
 
-#include <QApplication>
-#include <QColor>
-#include <QIcon>
-#include <QPalette>
+#include <kexiutils_export.h>
 
+#include <QApplication>
+#include <QIcon>
 #include <KIconLoader>
 
 /**
@@ -41,7 +40,7 @@
  * * koIconNameCStr* returns a const char*
  */
 
-//! Use these macros for icons without any issues
+//! Use these macros for icons without any issues - global icons (breeze)
 #define koIcon(name) (QIcon::fromTheme(QLatin1String(name)))
 #define koIconName(name) (QLatin1String(name))
 #define koIconNameCStr(name) (name)
@@ -60,32 +59,17 @@
 #define koIconWanted(comment, wantedName) (QIcon())
 #define koIconNameWanted(comment, wantedName) (QString())
 
+//! Use these macros for icons without any issues - Kexi icons
+#define KexiIcon(name) koIcon(name)
+#define KexiIconName(name) koIconName(name)
+#define KexiIconNameCStr(name) koIconNameCStr(name)
+#define KexiSmallIcon(name) koSmallIcon(name)
+#define KexiDesktopIcon(name) koDesktopIcon(name)
+
 //! Use this function to load an icon that fits the current color theme
-inline QIcon themedIcon(const QString &name, bool fast = false) {
-    Q_UNUSED(fast);
+KEXIUTILS_EXPORT QIcon themedIcon(const QString &name);
 
-    static bool firstUse = true;
-    if (firstUse) {
-        // workaround for some kde-related crash
-        bool _unused = KIconLoader::global()->iconPath(name, KIconLoader::NoGroup, true).isEmpty();
-        Q_UNUSED(_unused);
-        firstUse = false;
-    }
-
-    // try load themed icon
-    QColor background = qApp->palette().background().color();
-    bool useDarkIcons = background.value() > 100;
-    const char * const prefix = useDarkIcons ? "dark_" : "light_";
-
-    QString realName = QLatin1String(prefix) + name;
-    QIcon icon = QIcon::fromTheme(realName);
-
-    // fallback
-    if (icon.isNull()) {
-        return QIcon::fromTheme(name);
-    }
-
-    return icon;
-}
+//! Use this function to find an icon name that fits the current color theme
+KEXIUTILS_EXPORT QString themedIconName(const QString &name);
 
 #endif

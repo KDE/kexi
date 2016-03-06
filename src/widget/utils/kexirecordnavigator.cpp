@@ -40,17 +40,13 @@
 #include <kexiutils/utils.h>
 #include <core/KexiRecordNavigatorHandler.h>
 
-#include "../../pics/tableview_pen.xpm"
-#include "../../pics/tableview_plus.xpm"
-#include "../../pics/tableview_pointer.xpm"
-
 //! @internal
 /*! @warning not reentrant! */
 struct KexiRecordNavigatorStatic {
     KexiRecordNavigatorStatic()
-     : pen(tableview_pen_xpm)
-     , plus(tableview_plus_xpm)
-     , pointer(tableview_pointer_xpm)
+     : pen(":/kexi-tableview-pen")
+     , plus(":/kexi-tableview-plus")
+     , pointer(":/kexi-tableview-pointer")
     {
     }
     static QPixmap replaceColors(const QPixmap &pixmap, const QPalette &palette)

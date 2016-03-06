@@ -127,7 +127,7 @@ void WidgetTreeWidgetItem::initTextAndIcon(int forcedTabPageIndex, const QString
                 //qDebug() << "d->customSortingKey" << d->customSortingKey;
                 itemFlags |= Qt::ItemIsSelectable;
                 itemFlags ^= Qt::ItemIsSelectable;
-                iconName = koIconName("tabwidget_tab");
+                iconName = KexiIconName("tabwidget-tab");
             }
         }
     }

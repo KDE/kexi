@@ -33,6 +33,7 @@
 #include "tabstopdialog.h"
 #include <kexiutils/utils.h>
 #include <KexiIcon.h>
+#include <core/kexi.h>
 
 #include <kundo2stack.h>
 
@@ -1436,7 +1437,7 @@ void Form::addWidget(QWidget *w)
         d->propertySet["this:className"].setValue("special:multiple");
         d->propertySet["this:classString"].setValue(
             xi18n("Multiple Widgets (%1)", d->selected.count()));
-        d->propertySet["this:iconName"].setValue("multiple_obj");
+        d->propertySet["this:iconName"].setValue(KexiIconName("multiple-objects"));
         //name doesn't make sense for now
         d->propertySet["objectName"].setValue("");
     }
@@ -1691,7 +1692,7 @@ void Form::createContextMenu(QWidget *w, Container *container, const QPoint& men
     QString titleText;
     if (!multiple) {
         if (w == container->form()->widget()) {
-            icon = koIcon("form");
+            icon = KexiIcon("form");
             titleText = xi18n("%1 : Form", w->objectName());
         }
         else {
@@ -1701,7 +1702,7 @@ void Form::createContextMenu(QWidget *w, Container *container, const QPoint& men
         }
     }
     else {
-        icon = koIcon("multiple_obj");
+        icon = KexiIcon("multiple-objects");
         titleText = xi18n("Multiple Widgets (%1)", widgetsCount);
     }
 

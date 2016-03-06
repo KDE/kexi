@@ -1796,7 +1796,7 @@ KexiQueryDesignerGuiEditor::createPropertySet(int row,
     //meta-info for property editor
     set->addProperty(prop = new KProperty("this:classString", xi18nc("Query column", "Column")));
     prop->setVisible(false);
-//! \todo add table_field icon (add buff->addProperty(prop = new KexiProperty("this:iconName", "table_field") );
+//! \todo add table_field icon (add buff->addProperty(prop = new KexiProperty("this:iconName", KexiIconName("table_field")) );
 // prop->setVisible(false);
 
     set->addProperty(prop = new KProperty("this:visibleObjectNameProperty", "visibleName"));

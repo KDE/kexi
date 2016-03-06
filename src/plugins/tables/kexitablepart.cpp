@@ -240,7 +240,7 @@ void KexiTablePart::setupCustomPropertyPanelTabs(QTabWidget *tab)
     d->lookupColumnPage->setProject(prj);
 
 //! @todo add lookup field icon
-    tab->addTab(d->lookupColumnPage, koIcon("combo"), QString());
+    tab->addTab(d->lookupColumnPage, KexiIcon("combobox"), QString());
     tab->setTabToolTip(tab->indexOf(d->lookupColumnPage), xi18n("Lookup column"));
 }
 

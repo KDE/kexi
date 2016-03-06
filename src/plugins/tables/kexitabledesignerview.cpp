@@ -233,7 +233,7 @@ void KexiTableDesignerView::initData()
             KDbField *field = tempData()->table->field(i);
             KDbRecordData *data = d->data->createItem();
             if (field->isPrimaryKey()) {
-                (*data)[COLUMN_ID_ICON] = "database-key";
+                (*data)[COLUMN_ID_ICON] = KexiIconName("database-key");
                 d->primaryKeyExists = true;
             } else {
                 KDbLookupFieldSchema *lookupFieldSchema
@@ -242,7 +242,7 @@ void KexiTableDesignerView::initData()
                     && lookupFieldSchema->recordSource().type() != KDbLookupFieldSchema::RecordSource::NoType
                     && !lookupFieldSchema->recordSource().name().isEmpty())
                 {
-                    (*data)[COLUMN_ID_ICON] = "combo";
+                    (*data)[COLUMN_ID_ICON] = KexiIconName("combobox");
                 }
             }
             (*data)[COLUMN_ID_CAPTION] = field->captionOrName();
@@ -320,7 +320,7 @@ KexiTableDesignerView::createPropertySet(int record, const KDbField& field, bool
     prop->setVisible(false);
     set->addProperty(prop = new KProperty("this:iconName",
 //! \todo add table_field icon
-            "lineedit" //"table_field"
+            KexiIconName("lineedit") //"table_field"
                                                     ));
     prop->setVisible(false);
     set->addProperty(prop = new KProperty("this:useCaptionAsObjectName",
@@ -510,7 +510,7 @@ void KexiTableDesignerView::switchPrimaryKey(KPropertySet &propertySet,
             //show key in the table
             d->view->data()->clearRecordEditBuffer();
             d->view->data()->updateRecordEditBuffer(d->view->selectedRecord(), COLUMN_ID_ICON,
-                                                 QVariant(set ? "database-key" : ""));
+                                                    QVariant(set ? KexiIconName("database-key") : QLatin1String("")));
             d->view->data()->saveRecordChanges(d->view->selectedRecord(), true);
         }
         if (was_pkey || set) //change flag only if we're setting pk or really clearing it
@@ -1083,7 +1083,7 @@ void KexiTableDesignerView::slotAboutToDeleteRecord(
 {
     Q_UNUSED(result)
     Q_UNUSED(repaint)
-    if ((*data)[COLUMN_ID_ICON].toString() == "database-key")
+    if ((*data)[COLUMN_ID_ICON].toString() == KexiIconName("database-key"))
         d->primaryKeyExists = false;
 
     if (d->addHistoryCommand_in_slotAboutToDeleteRecord_enabled) {
@@ -1619,7 +1619,7 @@ void KexiTableDesignerView::slotAboutToShowContextMenu()
         title = xi18nc("Empty table row", "Empty Row");
     }
 //! \todo replace lineedit with table_field icon
-    d->view->setContextMenuTitle(koIcon("lineedit"), title);
+    d->view->setContextMenuTitle(KexiIcon("lineedit"), title);
 }
 
 QString KexiTableDesignerView::debugStringForCurrentTableSchema(tristate& result)

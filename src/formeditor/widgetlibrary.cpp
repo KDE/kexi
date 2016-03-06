@@ -534,7 +534,7 @@ WidgetLibrary::iconName(const QByteArray &classname)
     if (wi)
         return wi->iconName();
 
-    return koIconName("unknown_widget");
+    return KexiIconName("unknown-widget");
 }
 
 bool

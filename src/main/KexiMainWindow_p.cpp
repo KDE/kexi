@@ -589,7 +589,8 @@ void KexiTabbedToolBar::Private::hideContentsOrMainMenu()
 
 KToolBar *KexiTabbedToolBar::Private::createToolBar(const char *name, const QString& caption)
 {
-    KToolBar *tbar = new KToolBar(q);
+    KToolBar *tbar = new KToolBar(q, true /*main toolbar*/, false /*read config*/);
+    tbar->setIconDimensions(22); //!< @todo make configurable or system-dependent?
     // needed e.g. for Windows style to remove the toolbar's frame
     tbar->setStyle(customTabBar->customStyle);
     toolbarsForName.insert(name, tbar);
@@ -673,7 +674,7 @@ KexiTabbedToolBar::KexiTabbedToolBar(QWidget *parent)
     help_about_kde_action->setWhatsThis(xi18n("Shows information about KDE."));
 
     QAction *action_show_help_menu = d->ac->action("help_show_menu");
-    KexiSmallToolButton *btn = new KexiSmallToolButton(koIcon("help-contextual"), QString(), helpWidget);
+    KexiSmallToolButton *btn = new KexiSmallToolButton(koIcon("help-about"), QString(), helpWidget);
     btn->setToolButtonStyle(Qt::ToolButtonIconOnly);
     btn->setPopupMode(QToolButton::InstantPopup);
     btn->setToolTip(action_show_help_menu->toolTip());

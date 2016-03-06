@@ -68,7 +68,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
 {
     Q_UNUSED(args);
     KFormDesigner::WidgetInfo *wFormWidget = new KFormDesigner::WidgetInfo(this);
-    wFormWidget->setIconName(koIconName("form"));
+    wFormWidget->setIconName(KexiIconName("form"));
     wFormWidget->setClassName("FormWidgetBase");
     wFormWidget->setName(xi18n("Form"));
     wFormWidget->setNamePrefix(
@@ -84,7 +84,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wFormWidget);
 
     KFormDesigner::WidgetInfo *wCustomWidget = new KFormDesigner::WidgetInfo(this);
-    wCustomWidget->setIconName(koIconName("unknown_widget"));
+    wCustomWidget->setIconName(KexiIconName("unknown-widget"));
     wCustomWidget->setClassName("CustomWidget");
     wCustomWidget->setName(/* no i18n needed */ "Custom Widget");
     wCustomWidget->setNamePrefix(/* no i18n needed */ "customWidget");
@@ -92,7 +92,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wCustomWidget);
 
     KFormDesigner::WidgetInfo *wLabel = new KFormDesigner::WidgetInfo(this);
-    wLabel->setIconName(koIconName("label"));
+    wLabel->setIconName(KexiIconName("label"));
     wLabel->setClassName("QLabel");
     wLabel->setName(/* no i18n needed */ "Text Label");
     wLabel->setNamePrefix(/* no i18n needed */ "label");
@@ -101,7 +101,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wLabel);
 
     KFormDesigner::WidgetInfo *wPixLabel = new KFormDesigner::WidgetInfo(this);
-    wPixLabel->setIconName(koIconName("pixmaplabel"));
+    wPixLabel->setIconName(KexiIconName("imagebox"));
     wPixLabel->setClassName("KexiPictureLabel");
     wPixLabel->setName(/* no i18n needed */ "Picture Label");
 //! @todo Qt designer compatibility: maybe use this class when QLabel has a pixmap set...?
@@ -112,7 +112,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wPixLabel);
 
     KFormDesigner::WidgetInfo *wLineEdit = new KFormDesigner::WidgetInfo(this);
-    wLineEdit->setIconName(koIconName("lineedit"));
+    wLineEdit->setIconName(KexiIconName("lineedit"));
     wLineEdit->setClassName("QLineEdit");
     wLineEdit->addAlternateClassName("KLineEdit");
     wLineEdit->setIncludeFileName("qlineedit.h");
@@ -122,7 +122,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wLineEdit);
 
     KFormDesigner::WidgetInfo *wPushButton = new KFormDesigner::WidgetInfo(this);
-    wPushButton->setIconName(koIconName("button"));
+    wPushButton->setIconName(KexiIconName("button"));
     wPushButton->setClassName("QPushButton");
     wPushButton->addAlternateClassName("KPushButton");
     wPushButton->setIncludeFileName("qpushbutton.h");
@@ -133,7 +133,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wPushButton);
 
     KFormDesigner::WidgetInfo *wRadioButton = new KFormDesigner::WidgetInfo(this);
-    wRadioButton->setIconName(koIconName("radio"));
+    wRadioButton->setIconName(KexiIconName("radiobutton"));
     wRadioButton->setClassName("QRadioButton");
     wRadioButton->setName(/* no i18n needed */ "Option Button");
     wRadioButton->setNamePrefix(/* no i18n needed */ "option");
@@ -141,7 +141,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wRadioButton);
 
     KFormDesigner::WidgetInfo *wCheckBox = new KFormDesigner::WidgetInfo(this);
-    wCheckBox->setIconName(koIconName("check"));
+    wCheckBox->setIconName(KexiIconName("checkbox"));
     wCheckBox->setClassName("QCheckBox");
     wCheckBox->setName(/* no i18n needed */ "Check Box");
     wCheckBox->setNamePrefix(/* no i18n needed */ "checkBox");
@@ -149,7 +149,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wCheckBox);
 
     KFormDesigner::WidgetInfo *wSpinBox = new KFormDesigner::WidgetInfo(this);
-    wSpinBox->setIconName(koIconName("spin"));
+    wSpinBox->setIconName(KexiIconName("spinbox"));
     wSpinBox->setClassName("QSpinBox");
     wSpinBox->addAlternateClassName("KIntSpinBox");
     wSpinBox->setIncludeFileName("qspinbox.h");
@@ -159,7 +159,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wSpinBox);
 
     KFormDesigner::WidgetInfo *wComboBox = new KFormDesigner::WidgetInfo(this);
-    wComboBox->setIconName(koIconName("combo"));
+    wComboBox->setIconName(KexiIconName("combobox"));
     wComboBox->setClassName("KComboBox");
     wComboBox->addAlternateClassName("QComboBox");
     wComboBox->setIncludeFileName("KComboBox");
@@ -172,7 +172,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
 #ifdef KEXI_LIST_FORM_WIDGET_SUPPORT
 // Unused, commented-out in Kexi 2.9 to avoid unnecessary translations:
 //     KFormDesigner::WidgetInfo *wListBox = new KFormDesigner::WidgetInfo(this);
-//     wListBox->setIconName(koIconName("listbox"));
+//     wListBox->setIconName(KexiIconName("listbox"));
 //     wListBox->setClassName("KListBox");
 //     wListBox->addAlternateClassName("QListBox");
 //     wListBox->addAlternateClassName("KListBox");
@@ -187,7 +187,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
 
 // Unused, commented-out in Kexi 2.9 to avoid unnecessary translations:
 //     KFormDesigner::WidgetInfo *wTreeWidget = new KFormDesigner::WidgetInfo(this);
-//     wTreeWidget->setIconName(koIconName("listwidget"));
+//     wTreeWidget->setIconName(KexiIconName("listwidget"));
 //     wTreeWidget->setClassName("QTreetWidget");
 // //?    wTreeWidget->addAlternateClassName("QListView");
 // //?    wTreeWidget->addAlternateClassName("KListView");
@@ -202,7 +202,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
 #endif
 
     KFormDesigner::WidgetInfo *wTextEdit = new KFormDesigner::WidgetInfo(this);
-    wTextEdit->setIconName(koIconName("textedit"));
+    wTextEdit->setIconName(KexiIconName("textedit"));
     wTextEdit->setClassName("KTextEdit");
     wTextEdit->addAlternateClassName("QTextEdit");
     wTextEdit->setIncludeFileName("KTextEdit");
@@ -213,7 +213,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wTextEdit);
 
     KFormDesigner::WidgetInfo *wSlider = new KFormDesigner::WidgetInfo(this);
-    wSlider->setIconName(koIconName("slider"));
+    wSlider->setIconName(KexiIconName("slider"));
     wSlider->setClassName("QSlider");
     wSlider->setName(/* no i18n needed */ "Slider");
     wSlider->setNamePrefix(/* no i18n needed */ "slider");
@@ -221,7 +221,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wSlider);
 
     KFormDesigner::WidgetInfo *wProgressBar = new KFormDesigner::WidgetInfo(this);
-    wProgressBar->setIconName(koIconName("progress"));
+    wProgressBar->setIconName(KexiIconName("progressbar"));
     wProgressBar->setClassName("QProgressBar");
     wProgressBar->setName(/* no i18n needed */ "Progress Bar");
     wProgressBar->setNamePrefix(/* no i18n needed */ "progressBar");
@@ -229,7 +229,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wProgressBar);
 
     KFormDesigner::WidgetInfo *wLine = new KFormDesigner::WidgetInfo(this);
-    wLine->setIconName(koIconName("line"));
+    wLine->setIconName(KexiIconName("line-horizontal"));
     wLine->setClassName("Line");
     wLine->setName(xi18n("Line"));
     wLine->setNamePrefix(
@@ -244,14 +244,14 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     wLine->setDescription(xi18n("A line to be used as a separator"));
     wLine->setAutoSaveProperties(QList<QByteArray>() << "orientation");
     wLine->setInternalProperty("orientationSelectionPopup", true);
-    wLine->setInternalProperty("orientationSelectionPopup:horizontalIcon", koIconName("line_horizontal"));
-    wLine->setInternalProperty("orientationSelectionPopup:verticalIcon", koIconName("line_vertical"));
+    wLine->setInternalProperty("orientationSelectionPopup:horizontalIcon", KexiIconName("line-horizontal"));
+    wLine->setInternalProperty("orientationSelectionPopup:verticalIcon", KexiIconName("line-vertical"));
     wLine->setInternalProperty("orientationSelectionPopup:horizontalText", xi18n("Insert &Horizontal Line"));
     wLine->setInternalProperty("orientationSelectionPopup:verticalText", xi18n("Insert &Vertical Line"));
     addClass(wLine);
 
     KFormDesigner::WidgetInfo *wDate = new KFormDesigner::WidgetInfo(this);
-    wDate->setIconName(koIconName("dateedit"));
+    wDate->setIconName(KexiIconName("dateedit"));
     wDate->setClassName("QDateEdit");
     wDate->addAlternateClassName("KDateWidget");
     wDate->setIncludeFileName("qdateedit.h");
@@ -262,7 +262,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wDate);
 
     KFormDesigner::WidgetInfo *wTime = new KFormDesigner::WidgetInfo(this);
-    wTime->setIconName(koIconName("timeedit"));
+    wTime->setIconName(KexiIconName("timeedit"));
     wTime->setClassName("QTimeEdit");
     wTime->addAlternateClassName("KTimeWidget");
     wTime->setIncludeFileName("qtimewidget.h");
@@ -273,7 +273,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wTime);
 
     KFormDesigner::WidgetInfo *wDateTime = new KFormDesigner::WidgetInfo(this);
-    wDateTime->setIconName(koIconName("datetimeedit"));
+    wDateTime->setIconName(KexiIconName("datetimeedit"));
     wDateTime->setClassName("QDateTimeEdit");
     wDateTime->addAlternateClassName("KDateTimeWidget");
     wDateTime->setIncludeFileName("qdatetimewidget.h");
@@ -340,7 +340,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     // --- containers ---
 
     KFormDesigner::WidgetInfo *wTabWidget = new KFormDesigner::WidgetInfo(this);
-    wTabWidget->setIconName(koIconName("tabwidget"));
+    wTabWidget->setIconName(KexiIconName("tabwidget"));
     wTabWidget->setClassName("KFDTabWidget");
     wTabWidget->addAlternateClassName("KTabWidget");
     wTabWidget->addAlternateClassName("QTabWidget");
@@ -360,7 +360,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wTabWidget);
 
     KFormDesigner::WidgetInfo *wWidget = new KFormDesigner::WidgetInfo(this);
-    wWidget->setIconName(koIconName("frame"));
+    wWidget->setIconName(KexiIconName("frame"));
     wWidget->setClassName("QWidget");
     wWidget->addAlternateClassName("ContainerWidget");
     wWidget->setName(/* no i18n needed */ "Basic container");
@@ -369,7 +369,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wWidget);
 
     KFormDesigner::WidgetInfo *wGroupBox = new KFormDesigner::WidgetInfo(this);
-    wGroupBox->setIconName(koIconName("groupbox"));
+    wGroupBox->setIconName(KexiIconName("groupbox"));
     wGroupBox->setClassName("QGroupBox");
     wGroupBox->addAlternateClassName("GroupBox");
     wGroupBox->setName(xi18n("Group Box"));
@@ -386,7 +386,7 @@ KexiStandardFormWidgetsFactory::KexiStandardFormWidgetsFactory(QObject *parent, 
     addClass(wGroupBox);
 
     KFormDesigner::WidgetInfo *wFrame = new KFormDesigner::WidgetInfo(this);
-    wFrame->setIconName(koIconName("frame"));
+    wFrame->setIconName(KexiIconName("frame"));
     wFrame->setClassName("QFrame");
     wFrame->setName(/* no i18n needed */ "Frame");
     wFrame->setNamePrefix(/* no i18n needed */ "frame");

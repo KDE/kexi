@@ -194,7 +194,7 @@ KexiTableScrollArea::KexiTableScrollArea(KDbTableViewData* data, QWidget* parent
     m_contextMenu->setObjectName("m_contextMenu");
 
 //! \todo replace lineedit with table_field icon
-//setContextMenuTitle(koIcon("lineedit"), xi18n("Record"));   // the default
+//setContextMenuTitle(KexiIcon("lineedit"), xi18n("Record"));   // the default
     // cannot display anything here - most actions in the context menu
     // are related to a single cell (Cut, Copy..) and others to entire row (Delete Row):
     setContextMenuEnabled(false);

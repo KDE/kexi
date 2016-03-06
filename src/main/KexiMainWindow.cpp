@@ -97,6 +97,7 @@
 #include <QHash>
 #include <QStylePainter>
 #include <QDesktopWidget>
+#include <QResource>
 
 #if !defined(KexiVDebug)
 # define KexiVDebug if (0) qDebug()
@@ -310,6 +311,30 @@ void KexiMainWindowTabWidget::setTabIndexFromContextMenu(int clickedIndex)
 
 //-------------------------------------------------
 
+static bool registerResource(const QString& path)
+{
+    // let QStandardPaths handle this, it will look for app local stuff
+    const QString fullPath = QFileInfo(
+        QStandardPaths::locate(QStandardPaths::AppDataLocation, path)).canonicalFilePath();
+    return QFile::exists(fullPath) && QResource::registerResource(fullPath);
+}
+
+static void setupIconTheme()
+{
+    // Register kexi resource first to have priority over the standard breeze theme.
+    // For example "table" icon exists i both resources.
+    if (registerResource("icons/kexi_breeze.rcc") && registerResource("icons/breeze.rcc")) {
+        // tell qt about the theme
+        QIcon::setThemeSearchPaths(QStringList() << QStringLiteral(":/icons"));
+        QIcon::setThemeName(QStringLiteral("breeze"));
+
+        // tell KIconLoader an co. about the theme
+        KConfigGroup cg(KSharedConfig::openConfig(), "Icons");
+        cg.writeEntry("Theme", "breeze");
+        cg.sync();
+    }
+}
+
 //static
 int KexiMainWindow::create(int &argc, char *argv[], const QString &componentName)
 {
@@ -317,7 +342,10 @@ int KexiMainWindow::create(int &argc, char *argv[], const QString &componentName
 
     //! @todo use non-GUI app when needed
     QApplication *app = qApp ? qApp : new QApplication(argc, argv);
-    QApplication::setWindowIcon(koIcon("calligrakexi"));
+
+    setupIconTheme();
+
+    QApplication::setWindowIcon(koIcon("kexi"));
     KLocalizedString::setApplicationDomain("kexi");
     app->setQuitOnLastWindowClosed(false);
     //! @todo KEXI3 app->setAttribute(Qt::AA_UseHighDpiPixmaps, true);
@@ -605,7 +633,7 @@ void KexiMainWindow::setupActions()
     setupMainMenuActionShortcut(action);
 
 #ifdef KEXI_SHOW_UNIMPLEMENTED
-    d->action_project_relations = addAction("project_relations", koIcon("relation"),
+    d->action_project_relations = addAction("project_relations", KexiIcon("database-relations"),
                                             futureI18n("&Relationships..."), "Ctrl+R");
     d->action_project_relations->setToolTip(futureI18n("Project relationships"));
     d->action_project_relations->setWhatsThis(futureI18n("Shows project relationships."));
@@ -653,7 +681,7 @@ void KexiMainWindow::setupActions()
     }
 
     d->action_project_export_data_table = addAction("project_export_data_table",
-        koIcon("table"),
+        KexiIcon("table"),
         /*! @todo: change to "file_export" with a table or so */
         xi18nc("Export->Table or Query Data to File...", "Export Data to &File..."));
     d->action_project_export_data_table->setToolTip(
@@ -683,7 +711,7 @@ void KexiMainWindow::setupActions()
         futureI18n("Shows print preview for the active table or query."));
 
     d->action_project_print_setup = addAction("project_print_setup",
-        koIcon("document-page-setup"), futureI18n("Print Set&up..."));
+        koIcon("configure"), futureI18n("Print Set&up...")); //!< @todo document-page-setup could be a better icon
     d->action_project_print_setup->setToolTip(
         futureI18n("Show print setup for the active table or query"));
     d->action_project_print_setup->setWhatsThis(
@@ -713,7 +741,7 @@ void KexiMainWindow::setupActions()
 
     d->action_edit_copy_special_data_table = addAction(
         "edit_copy_special_data_table",
-        koIcon("table"), xi18nc("Copy Special->Table or Query Data...", "Copy Special..."));
+        KexiIcon("table"), xi18nc("Copy Special->Table or Query Data...", "Copy Special..."));
     d->action_edit_copy_special_data_table->setToolTip(
         xi18n("Copy selected table or query data to clipboard"));
     d->action_edit_copy_special_data_table->setWhatsThis(
@@ -751,13 +779,13 @@ void KexiMainWindow::setupActions()
     d->action_edit_delete->setToolTip(xi18n("Delete selected object"));
     d->action_edit_delete->setWhatsThis(xi18n("Deletes currently selected object."));
 
-    d->action_edit_delete_row = createSharedAction(xi18n("Delete Record"), koIconName("delete_table_row"),
+    d->action_edit_delete_row = createSharedAction(xi18n("Delete Record"), KexiIconName("edit-table-delete-row"),
                                 QKeySequence(Qt::CTRL + Qt::Key_Delete), "edit_delete_row");
     d->action_edit_delete_row->setToolTip(xi18n("Delete the current record"));
     d->action_edit_delete_row->setWhatsThis(xi18n("Deletes the current record."));
 
     d->action_edit_clear_table = createSharedAction(xi18n("Clear Table Contents..."),
-                                 koIconName("clear_table_contents"), QKeySequence(), "edit_clear_table");
+                                 KexiIconName("edit-table-clear"), QKeySequence(), "edit_clear_table");
     d->action_edit_clear_table->setToolTip(xi18n("Clear table contents"));
     d->action_edit_clear_table->setWhatsThis(xi18n("Clears table contents."));
     setActionVolatile(d->action_edit_clear_table, true);
@@ -769,7 +797,7 @@ void KexiMainWindow::setupActions()
     d->action_edit_edititem->setWhatsThis(xi18n("Edits currently selected item."));
 
     d->action_edit_insert_empty_row = createSharedAction(xi18n("&Insert Empty Row"),
-                                      koIconName("insert_table_row"), QKeySequence(Qt::SHIFT | Qt::CTRL | Qt::Key_Insert),
+                                      KexiIconName("edit-table-insert-row"), QKeySequence(Qt::SHIFT | Qt::CTRL | Qt::Key_Insert),
                                       "edit_insert_empty_row");
     setActionVolatile(d->action_edit_insert_empty_row, true);
     d->action_edit_insert_empty_row->setToolTip(xi18n("Insert one empty row above"));
@@ -782,7 +810,7 @@ void KexiMainWindow::setupActions()
         d->action_view_mode = new QActionGroup(this);
         ac->addAction( "view_data_mode",
           d->action_view_data_mode = new KToggleAction(
-            koIcon("state_data"), xi18n("&Data View"), d->action_view_mode) );
+            KexiIcon("data-view"), xi18n("&Data View"), d->action_view_mode) );
     //  d->action_view_data_mode->setObjectName("view_data_mode");
         d->action_view_data_mode->setShortcut(QKeySequence("F6"));
         //d->action_view_data_mode->setExclusiveGroup("view_mode");
@@ -800,7 +828,7 @@ void KexiMainWindow::setupActions()
       if (!d->userMode) {
         ac->addAction( "view_design_mode",
           d->action_view_design_mode = new KToggleAction(
-            koIcon("state_edit"), xi18n("D&esign View"), d->action_view_mode) );
+            KexiIcon("design-view"), xi18n("D&esign View"), d->action_view_mode) );
     //  d->action_view_design_mode->setObjectName("view_design_mode");
         d->action_view_design_mode->setShortcut(QKeySequence("F7"));
         //d->action_view_design_mode->setExclusiveGroup("view_mode");
@@ -816,7 +844,7 @@ void KexiMainWindow::setupActions()
       if (!d->userMode) {
         ac->addAction( "view_text_mode",
           d->action_view_text_mode = new KToggleAction(
-            koIcon("state_sql"), xi18n("&Text View"), d->action_view_mode) );
+            KexiIcon("sql-view"), xi18n("&Text View"), d->action_view_mode) );
         d->action_view_text_mode->setObjectName("view_text_mode");
         d->action_view_text_mode->setShortcut(QKeySequence("F8"));
         //d->action_view_text_mode->setExclusiveGroup("view_mode");
@@ -898,7 +926,7 @@ void KexiMainWindow::setupActions()
     createSharedAction(KexiRecordNavigator::Actions::moveToNewRecord(), QKeySequence(), "data_go_to_new_record");
 
     //FORMAT MENU
-    d->action_format_font = createSharedAction(xi18n("&Font..."), koIconNameWanted("change font of selected object","fonts"),
+    d->action_format_font = createSharedAction(xi18n("&Font..."), koIconName("fonts-package"),
                             QKeySequence(), "format_font");
     d->action_format_font->setToolTip(xi18n("Change font for selected object"));
     d->action_format_font->setWhatsThis(xi18n("Changes font for selected object."));
@@ -1327,7 +1355,7 @@ tristate KexiMainWindow::openProject(const KexiProjectData& projectData)
                            "Database project %1 does not appear to have been created using Kexi.<nl/>"
                            "Do you want to import it as a new Kexi project?",
                            projectData.infoString()),
-                    QString(), KGuiItem(xi18nc("@action:button Import Database", "&Import..."), koIconName("database_import")),
+                    QString(), KGuiItem(xi18nc("@action:button Import Database", "&Import..."), KexiIconName("database-import")),
                     KStandardGuiItem::cancel()))
             {
                 const bool anotherProjectAlreadyOpened = prj;

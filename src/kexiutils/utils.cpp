@@ -974,3 +974,31 @@ QString KexiUtils::makeStandardCaption(const QString &userCaption, CaptionFlags 
     }
     return captionString;
 }
+
+QString themedIconName(const QString &name)
+{
+    static bool firstUse = true;
+    if (firstUse) {
+        // workaround for some kde-related crash
+        const bool _unused = KIconLoader::global()->iconPath(name, KIconLoader::NoGroup, true).isEmpty();
+        Q_UNUSED(_unused);
+        firstUse = false;
+    }
+
+    // try load themed icon
+    const QColor background = qApp->palette().background().color();
+    const bool useDarkIcons = background.value() > 100;
+    return QLatin1String(useDarkIcons ? "dark_" : "light_") + name;
+}
+
+QIcon themedIcon(const QString &name)
+{
+    const QString realName(themedIconName(name));
+    const QIcon icon = QIcon::fromTheme(realName);
+
+    // fallback
+    if (icon.isNull()) {
+        return QIcon::fromTheme(name);
+    }
+    return icon;
+}

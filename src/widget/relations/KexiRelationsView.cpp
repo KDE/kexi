@@ -117,12 +117,12 @@ KexiRelationsView::KexiRelationsView(QWidget *parent)
     d->areaPopup = new QMenu(this);
     d->areaPopup->setObjectName("areaPopup");
 
-    d->appendSelectedFieldAction = new QAction(koIcon("add_field"), xi18n("&Append Field"), this);
+    d->appendSelectedFieldAction = new QAction(KexiIcon("add-field"), xi18n("&Append Field"), this);
     d->appendSelectedFieldAction->setObjectName("relationsview_appendField");
     connect(d->appendSelectedFieldAction, SIGNAL(triggered()),
             this, SLOT(appendSelectedFields()));
 
-    d->appendSelectedFieldsAction = new QAction(koIcon("add_field"), xi18n("&Append Fields"), this);
+    d->appendSelectedFieldsAction = new QAction(KexiIcon("add-field"), xi18n("&Append Fields"), this);
     d->appendSelectedFieldsAction->setObjectName("relationsview_appendFields");
     connect(d->appendSelectedFieldsAction, SIGNAL(triggered()),
             this, SLOT(appendSelectedFields()));
@@ -369,7 +369,7 @@ void KexiRelationsView::aboutToShowPopupMenu()
     if (currentTableContainer /*&& currentTableContainer->schema()->table()*/) {
         /*! @todo what about query? */
         d->tableQueryPopup->clear();
-        d->tableQueryPopup->addSection(koIcon("table"),
+        d->tableQueryPopup->addSection(KexiIcon("table"),
                                      QString(d->scrollArea->focusedTableContainer()->schema()->name()) + " : " + xi18n("Table"));
         QStringList selectedFieldNames(currentTableContainer->selectedFieldNames());
         if (currentTableContainer && !selectedFieldNames.isEmpty()) {

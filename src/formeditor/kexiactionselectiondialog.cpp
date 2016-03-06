@@ -218,7 +218,7 @@ public:
         itm = new ActionSelectorDialogTreeItem(xi18n("Application actions"), this );
         itm->setData(ActionSelectorDialogTreeItem::ActionCategoryRole, "kaction");
         itm->setData(ActionSelectorDialogTreeItem::ActionDataRole, "kaction");
-        itm->setIcon(koIcon("calligrakexi"));
+        itm->setIcon(koIcon("kexi"));
 
         KexiPart::PartInfoList *pl = Kexi::partManager().infoList();
         if (pl) {
@@ -230,7 +230,7 @@ public:
                 itm->setData(ActionSelectorDialogTreeItem::ActionCategoryRole, "navObject");
                 itm->setData(ActionSelectorDialogTreeItem::ActionDataRole, info->typeName());
                 itm->setData(ActionSelectorDialogTreeItem::ActionPluginIdRole, info->pluginId());
-                itm->setIcon(QIcon::fromTheme(KexiIconName(part->info()->iconName())));
+                itm->setIcon(QIcon::fromTheme(part->info()->iconName()));
             }
         }
 
@@ -243,7 +243,7 @@ public:
 
         itm->setData(ActionSelectorDialogTreeItem::ActionCategoryRole, "currentForm");
         itm->setData(ActionSelectorDialogTreeItem::ActionDataRole, "currentForm");
-        itm->setIcon(koIcon("form"));
+        itm->setIcon(KexiIcon("form"));
 
         expandAll();
         setSortingEnabled(false);
@@ -308,13 +308,13 @@ public:
             itm = new ActionSelectorDialogTreeItem(
                 xi18nc("Note: use multiple rows if needed", "Export to File\nAs Data Table"), this);
             itm->setData(ActionSelectorDialogTreeItem::ActionDataRole , "exportToCSV");
-            itm->setIcon(koIcon("table"));
+            itm->setIcon(KexiIcon("table"));
 
             QTreeWidgetItem *eitem = itm;
 
             itm = new ActionSelectorDialogTreeItem(xi18nc("Note: use multiple rows if needed", "Copy to Clipboard\nAs Data Table"), eitem);
             itm->setData(ActionSelectorDialogTreeItem::ActionDataRole , "copyToClipboardAsCSV");
-            itm->setIcon(koIcon("table"));
+            itm->setIcon(KexiIcon("table"));
         }
 
         itm = new ActionSelectorDialogTreeItem(xi18n("Create New Object"), this);

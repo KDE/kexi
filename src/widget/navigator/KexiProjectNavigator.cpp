@@ -213,7 +213,7 @@ KexiProjectNavigator::KexiProjectNavigator(QWidget* parent, Features features)
                                    SLOT(slotExportToClipboardAsDataTable()));
     d->exportActionMenu->addAction(d->dataExportToClipboardAction);
 
-    d->dataExportToFileAction = addAction("exportToFileAsDataTable", koIcon("table"),
+    d->dataExportToFileAction = addAction("exportToFileAsDataTable", KexiIcon("table"),
                                    xi18nc("Export->To File As Data &Table... ", "To &File As Data Table..."),
                                    xi18n("Export data to a file"),
                                    xi18n("Exports data from the currently selected table or query to a file."),
@@ -226,7 +226,8 @@ KexiProjectNavigator::KexiProjectNavigator(QWidget* parent, Features features)
                               futureI18n("Prints data from the currently selected table or query."),
                               SLOT(slotPrintObject()));
 
-    d->pageSetupAction = addAction("pageSetupForObject", koIconWanted("not yet in Oxygen 4.3", "document-page-setup"),
+    //! @todo document-page-setup could be a better icon
+    d->pageSetupAction = addAction("pageSetupForObject", koIcon("configure"),
                                   futureI18n("Page Setup..."),
                                   futureI18n("Page setup for data"),
                                   futureI18n("Shows page setup for printing the active table or query."),
@@ -369,7 +370,7 @@ void KexiProjectNavigator::slotSelectionChanged(const QModelIndex& i)
             if (d->newObjectAction) {
                 d->newObjectAction->setText(
                     xi18n("&Create Object: %1...", it->partInfo()->name() ));
-                d->newObjectAction->setIcon(QIcon::fromTheme(KexiIconName(it->partInfo()->iconName())));
+                d->newObjectAction->setIcon(QIcon::fromTheme(it->partInfo()->iconName()));
             }
         #if 0
              } else {
@@ -481,7 +482,7 @@ void KexiProjectNavigator::slotRename()
     dialog.widget()->setNameText(partItem->name());
     dialog.setWindowTitle(
         xi18nc("@title:window Rename Object %1.", "Rename <resource>%1</resource>", partItem->name()));
-    dialog.setDialogIcon(KexiIconName(info->iconName()));
+    dialog.setDialogIcon(info->iconName());
     dialog.setAllowOverwriting(true);
 
     bool overwriteNeeded;
@@ -704,7 +705,7 @@ void KexiItemMenu::update(const KexiPart::Info& partInfo, const KexiPart::Item& 
     clear();
     addSection(QString());
     KexiContextMenuUtils::updateTitle(this, partItem.name(), partInfo.name(),
-                                      KexiIconName(partInfo.iconName()));
+                                      partInfo.iconName());
 
     if (m_actionCollection->action("open_object")
             && m_actionCollection->action("open_object")->isEnabled()

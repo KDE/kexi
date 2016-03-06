@@ -53,7 +53,7 @@ KexiImageContextMenu::KexiImageContextMenu(QWidget* parent)
 {
     // default title section
     addSection(QString());
-    QString iconName = "pixmaplabel"; //!< @todo pixmaplabel icon is hardcoded...
+    QString iconName = KexiIconName("imagebox"); //!< @todo pixmaplabel icon is hardcoded...
     updateTitle(this, QString(), iconName);
 
     d->actionCollection.addAction("insert",

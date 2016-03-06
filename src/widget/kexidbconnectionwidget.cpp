@@ -93,7 +93,7 @@ KexiDBConnectionWidget::KexiDBConnectionWidget(QWidget* parent)
     btnLoadDBList->setWhatsThis(
         xi18n("Loads database list from the server, so you can select one using the <interface>Name</interface> combo box."));
 
-    btnSavePasswordHelp->setIcon(koIcon("help-contextual"));
+    btnSavePasswordHelp->setIcon(koIcon("help-about"));
     btnSavePasswordHelp->setToolTip(KStandardAction::whatsThis(0, 0, btnSavePasswordHelp)->text().remove('&'));
     d->savePasswordHelpAction = QWhatsThis::createAction(chkSavePassword);
     connect(btnSavePasswordHelp, SIGNAL(clicked()), this, SLOT(slotShowSavePasswordHelp()));

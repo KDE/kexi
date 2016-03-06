@@ -55,9 +55,9 @@ KexiReportDesignView::KexiReportDesignView(QWidget *parent, KexiSourceSelector *
     m_editSectionAction = new QAction(xi18n("Edit Sections"), this);
     m_editSectionAction->setObjectName("sectionedit");
 
-    m_itemRaiseAction = new QAction(koIcon("arrow-up"), xi18n("Raise"), this);
+    m_itemRaiseAction = new QAction(koIcon("object-order-front"), xi18n("Raise"), this);
     m_itemRaiseAction->setObjectName("itemraise");
-    m_itemLowerAction = new QAction(koIcon("arrow-down"), xi18n("Lower"), this);
+    m_itemLowerAction = new QAction(koIcon("object-order-back"), xi18n("Lower"), this);
     m_itemLowerAction->setObjectName("itemlower");
     QList<QAction*> al;
     QAction *sep = new QAction(QString(), this);

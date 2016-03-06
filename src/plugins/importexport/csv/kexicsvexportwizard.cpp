@@ -150,7 +150,7 @@ KexiCSVExportWizard::KexiCSVExportWizard(const KexiCSVExport::Options& options,
     KexiPart::Info *partInfo = Kexi::partManager().infoForPluginId(
             QString("org.kexi-project.%1").arg(m_tableOrQuery->table() ? "table" : "query"));
     if (partInfo) {
-        m_infoLblFrom->setIcon(KexiIconName(partInfo->iconName()));
+        m_infoLblFrom->setIcon(partInfo->iconName());
     }
     m_infoLblFrom->separator()->hide();
     m_infoLblFrom->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);

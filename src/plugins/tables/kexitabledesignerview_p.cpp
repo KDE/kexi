@@ -240,7 +240,7 @@ void KexiTableDesignerViewPrivate::updateIconForRecord(KDbRecordData *data, KPro
     if (!set->property("rowSource").value().toString().isEmpty()
         && !set->property("rowSourceType").value().toString().isEmpty())
     {
-        icon = "combo";
+        icon = "combobox";
     }
     //show/hide icon in the table
     view->data()->clearRecordEditBuffer();

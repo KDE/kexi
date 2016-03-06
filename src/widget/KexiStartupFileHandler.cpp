@@ -429,7 +429,8 @@ void KexiStartupFileHandler::updateUrl(const QString &name)
     if (!fn.isEmpty() && !fn.endsWith(".kexi"))
         fn += ".kexi";
     url = url.adjusted(QUrl::RemoveFilename);
-    url.setPath(url.path() + fn);
+    qDebug() << url.toLocalFile();
+    url.setPath(url.toLocalFile() + fn);
     d->requester->setUrl(url);
 }
 

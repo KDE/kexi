@@ -40,7 +40,9 @@ class KexiDataSourceComboBox::Private
 {
 public:
     Private()
-            : tablesCount(0)
+            : tableIcon(KexiIcon("table"))
+            , queryIcon(KexiIcon("query"))
+            , tablesCount(0)
             , prevIndex(-1)
             , showTables(true)
             , showQueries(true) {
@@ -77,9 +79,6 @@ KexiDataSourceComboBox::KexiDataSourceComboBox(QWidget *parent)
     connect(this, SIGNAL(returnPressed(QString)),
             this, SLOT(slotReturnPressed(QString)));
     connect(this, SIGNAL(editTextChanged(QString)), this, SLOT(slotTextChanged(QString)));
-
-    d->tableIcon = koIcon("table");
-    d->queryIcon = koIcon("query");
 }
 
 KexiDataSourceComboBox::~KexiDataSourceComboBox()

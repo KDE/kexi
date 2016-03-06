@@ -150,7 +150,7 @@ void KexiFormManager::createActions(KActionCollection* collection)
     }
     else {
         d->dragConnectionAction = new KToggleAction(
-            koIcon("signalslot"), futureI18n("Connect Signals/Slots"), d->collection);
+            KexiIcon("signalslot"), futureI18n("Connect Signals/Slots"), d->collection);
         d->dragConnectionAction->setObjectName("drag_connection");
         connect(d->dragConnectionAction, SIGNAL(triggered()),
                 this, SLOT(startCreatingConnection()));
@@ -159,7 +159,7 @@ void KexiFormManager::createActions(KActionCollection* collection)
 #endif
 
     d->pointerAction = new KToggleAction(
-        koIcon("mouse_pointer"), xi18n("Pointer"), d->collection);
+        koIcon("tool-pointer"), xi18n("Pointer"), d->collection);
     d->pointerAction->setObjectName("edit_pointer");
     d->widgetActionGroup->addAction(d->pointerAction);
     connect(d->pointerAction, SIGNAL(triggered()),

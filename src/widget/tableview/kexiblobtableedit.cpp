@@ -24,6 +24,7 @@
 #include <kexiutils/utils.h>
 #include <widget/utils/kexidropdownbutton.h>
 #include <widget/utils/kexicontextmenuutils.h>
+#include <KexiIcon.h>
 
 #include <KIconLoader>
 #include <KLocalizedString>
@@ -83,7 +84,7 @@ KexiBlobTableEdit::KexiBlobTableEdit(KDbTableViewColumn &column, QWidget *parent
     if (column.columnInfo())
         KexiImageContextMenu::updateTitle(d->menu, column.columnInfo()->captionOrAliasOrName(),
 //! @todo pixmaplabel icon is hardcoded...
-                                          "pixmaplabel");
+                                          KexiIconName("imagebox"));
     d->button->setMenu(d->menu);
 
     connect(d->menu, SIGNAL(updateActionsAvailabilityRequested(bool*,bool*)),

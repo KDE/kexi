@@ -95,7 +95,7 @@ public:
 
     /*! Updates icon in the first column, depending on property set \a set.
      For example, when "rowSource" and "rowSourceType" propertiesa are not empty,
-     "combo" icon appears. */
+     "combobox" icon appears. */
     void updateIconForRecord(KDbRecordData *data, KPropertySet *set);
 
     KexiTableDesignerView* designerView;

@@ -1078,7 +1078,7 @@ void KexiDataAwareObjectInterface::deleteCurrentRecord()
         if (KMessageBox::Yes != KMessageBox::questionYesNo(
                     dynamic_cast<QWidget*>(this),
                     xi18n("Do you want to delete selected record?"), QString(),
-                    KGuiItem(xi18nc("@action:button", "&Delete Record"), koIconName("delete_table_row")), KStandardGuiItem::cancel(),
+                    KGuiItem(xi18nc("@action:button", "&Delete Record"), KexiIconName("edit-table-delete-row")), KStandardGuiItem::cancel(),
                     "AskBeforeDeleteRow"/*config entry*/,
                     KMessageBox::Notify | KMessageBox::Dangerous))
         {

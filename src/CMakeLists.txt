@@ -63,7 +63,6 @@ add_subdirectory( kexiutils )
 add_subdirectory( core )
 add_subdirectory( widget )
 add_subdirectory( data )
-add_subdirectory( pics )
 add_subdirectory( plugins )
 if (BUILD_TESTING)
 #TODO KEXI3 add_subdirectory( tests )
@@ -83,7 +82,7 @@ if(KEXI_MOBILE)
   add_subdirectory( mobile )
 else()
   set(kexi_SRCS main.cpp )
-  file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/app/*-apps-calligrakexi.png")
+  file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/data/*-apps-kexi.png")
   ecm_add_app_icon(kexi_SRCS ICONS ${ICONS_SRCS})
   add_executable(kexi ${kexi_SRCS})
   target_link_libraries(kexi
@@ -95,6 +94,8 @@ else()
   )
   install(TARGETS kexi ${INSTALL_TARGETS_DEFAULT_ARGS})
 endif()
+
+add_subdirectory( pics )
 
 ########### install files ###############
 

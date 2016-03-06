@@ -71,7 +71,7 @@ KexiDBFactory::KexiDBFactory(QObject *parent, const QVariantList &)
     QByteArray parentFactory = "org.kexi-project.form.widgets.standard";
     {
         KexiDataAwareWidgetInfo *wi = new KexiDataAwareWidgetInfo(this);
-        wi->setIconName(koIconName("form"));
+        wi->setIconName(KexiIconName("form"));
         wi->setClassName("KexiDBForm");
         wi->setName(xi18nc("Form widget", "Form"));
         wi->setNamePrefix(
@@ -90,7 +90,7 @@ KexiDBFactory::KexiDBFactory(QObject *parent, const QVariantList &)
     {
         // inherited
         KexiDataAwareWidgetInfo* wi = new KexiDataAwareWidgetInfo(this);
-        wi->setIconName(koIconName("lineedit"));
+        wi->setIconName(KexiIconName("lineedit"));
         wi->setClassName("KexiDBLineEdit");
         wi->setParentFactoryName(parentFactory);
         wi->setInheritedClassName("QLineEdit");
@@ -114,7 +114,7 @@ KexiDBFactory::KexiDBFactory(QObject *parent, const QVariantList &)
     {
         // inherited
         KexiDataAwareWidgetInfo* wi = new KexiDataAwareWidgetInfo(this);
-        wi->setIconName(koIconName("textedit"));
+        wi->setIconName(KexiIconName("textedit"));
         wi->setClassName("KexiDBTextEdit");
         wi->setParentFactoryName(parentFactory);
         wi->setInheritedClassName("KTextEdit");
@@ -138,7 +138,7 @@ KexiDBFactory::KexiDBFactory(QObject *parent, const QVariantList &)
     }
     {
         KFormDesigner::WidgetInfo* wi = new KFormDesigner::WidgetInfo(this);
-        wi->setIconName(koIconName("frame"));
+        wi->setIconName(KexiIconName("frame"));
         wi->setClassName("KexiFrame");
         wi->setParentFactoryName(parentFactory);
         wi->setInheritedClassName("QFrame"); /* we are inheriting to get i18n'd strings already translated there */
@@ -159,7 +159,7 @@ KexiDBFactory::KexiDBFactory(QObject *parent, const QVariantList &)
     }
     {
         KexiDataAwareWidgetInfo* wi = new KexiDataAwareWidgetInfo(this);
-        wi->setIconName(koIconName("label"));
+        wi->setIconName(KexiIconName("label"));
         wi->setClassName("KexiDBLabel");
         wi->setParentFactoryName(parentFactory);
         wi->setInheritedClassName("QLabel"); /* we are inheriting to get i18n'd strings already translated there */
@@ -182,7 +182,7 @@ KexiDBFactory::KexiDBFactory(QObject *parent, const QVariantList &)
 
     {
         KexiDataAwareWidgetInfo* wi = new KexiDataAwareWidgetInfo(this);
-        wi->setIconName(koIconName("pixmaplabel"));
+        wi->setIconName(KexiIconName("imagebox"));
         wi->setClassName("KexiDBImageBox");
         wi->setParentFactoryName(parentFactory);
         wi->setInheritedClassName("KexiPictureLabel"); /* we are inheriting to get i18n'd strings already translated there */
@@ -207,7 +207,7 @@ KexiDBFactory::KexiDBFactory(QObject *parent, const QVariantList &)
 
     {
         KexiDataAwareWidgetInfo* wi = new KexiDataAwareWidgetInfo(this);
-        wi->setIconName(koIconName("combo"));
+        wi->setIconName(KexiIconName("combobox"));
         wi->setClassName("KexiDBComboBox");
         wi->setParentFactoryName(parentFactory);
         wi->setInheritedClassName("KComboBox"); /* we are inheriting to get i18n'd strings already translated there */
@@ -227,7 +227,7 @@ KexiDBFactory::KexiDBFactory(QObject *parent, const QVariantList &)
     }
     {
         KexiDataAwareWidgetInfo* wi = new KexiDataAwareWidgetInfo(this);
-        wi->setIconName(koIconName("check"));
+        wi->setIconName(KexiIconName("checkbox"));
         wi->setClassName("KexiDBCheckBox");
         wi->setParentFactoryName(parentFactory);
         wi->setInheritedClassName("QCheckBox"); /* we are inheriting to get i18n'd strings already translated there */
@@ -249,7 +249,7 @@ KexiDBFactory::KexiDBFactory(QObject *parent, const QVariantList &)
     {
 // Unused, commented-out in Kexi 2.9 to avoid unnecessary translations:
 //         KexiDataAwareWidgetInfo* wi = new KexiDataAwareWidgetInfo(this);
-//         wi->setIconName(koIconName("autofield"));
+//         wi->setIconName(KexiIconName("autofield"));
 //         wi->setClassName("KexiDBAutoField");
 //         wi->addAlternateClassName("KexiDBFieldEdit", true/*override*/); //older
 //         wi->setName(xi18n("Auto Field"));
@@ -285,7 +285,7 @@ KexiDBFactory::KexiDBFactory(QObject *parent, const QVariantList &)
     {
         KFormDesigner::WidgetInfo* wi = new KFormDesigner::WidgetInfo(this);
         wi->setClassName("KexiDBCommandLinkButton");
-        wi->setIconName(koIconName("button"));
+        wi->setIconName(KexiIconName("button"));
         wi->setName(xi18nc("Link Button widget", "Link Button"));
         wi->setNamePrefix(
             xi18nc("A prefix for identifiers of link button widgets. Based on that, identifiers such as "
@@ -301,7 +301,7 @@ KexiDBFactory::KexiDBFactory(QObject *parent, const QVariantList &)
     }
     {
         KexiDataAwareWidgetInfo* wi = new KexiDataAwareWidgetInfo(this);
-        wi->setIconName(koIconName("slider"));
+        wi->setIconName(KexiIconName("slider"));
         wi->setClassName("KexiDBSlider");
         wi->setName(xi18nc("Slider widget", "Slider"));
         wi->setNamePrefix(
@@ -318,7 +318,7 @@ KexiDBFactory::KexiDBFactory(QObject *parent, const QVariantList &)
     }
     {
         KexiDataAwareWidgetInfo* wi = new KexiDataAwareWidgetInfo(this);
-        wi->setIconName(koIconName("progress"));
+        wi->setIconName(KexiIconName("progressbar"));
         wi->setClassName("KexiDBProgressBar");
         wi->setName(xi18nc("Progress Bar widget", "Progress Bar"));
         wi->setNamePrefix(
@@ -335,7 +335,7 @@ KexiDBFactory::KexiDBFactory(QObject *parent, const QVariantList &)
     }
     {
         KexiDataAwareWidgetInfo* wi = new KexiDataAwareWidgetInfo(this);
-        wi->setIconName(koIconName("dateedit"));
+        wi->setIconName(KexiIconName("dateedit"));
         wi->setClassName("KexiDBDatePicker");
         wi->setName(xi18nc("Date Picker widget", "Date Picker"));
         wi->setNamePrefix(
@@ -545,7 +545,7 @@ KexiDBFactory::createCustomActions(KActionCollection* col)
 {
     //this will create shared instance action for design mode (special collection is provided)
     col->addAction("widget_assign_action",
-                   m_assignAction = new QAction(koIcon("form_action"), xi18n("&Assign Action..."), this));
+                   m_assignAction = new QAction(KexiIcon("form-action"), xi18n("&Assign Action..."), this));
 }
 
 bool
