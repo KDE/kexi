@@ -223,7 +223,7 @@ endif ()
 ##
 ## Test for KDb
 ##
-find_package(KDb 2.96.2 REQUIRED)
+find_package(KDb 2.96.3 REQUIRED)
 macro_log_feature(KDb_FOUND "KDb" "A database connectivity and creation framework"
                             "http://community.kde.org/KDb" FALSE "" "Required by Kexi and its plugins")
 

@@ -315,12 +315,15 @@ bool KexiProjectData::load(const QString& fileName, QString* _groupKey)
     d->connData.setLocalSocketFileName(cg.readEntry("localSocketFile"));
     d->connData.setSavePassword(cg.hasKey("password") || cg.hasKey("encryptedPassword"));
     if (formatVersion >= 2) {
-        //qDebug() << cg.hasKey("encryptedPassword");
         QString password = cg.readEntry("encryptedPassword");
-        KDbUtils::simpleDecrypt(&password);
+        if (!KDbUtils::simpleDecrypt(&password)) {
+            qWarning() << "Encrypted password in connection file" << fileName << "cannot be decrypted so won't be used. "
+                          "Remove \"encryptedPassword\" line or correct it to fix this issue.";
+            password.clear();
+        }
         d->connData.setPassword(password);
     }
-    if (d->connData.password().isEmpty()) {//no "encryptedPassword", for compatibility
+    if (!cg.hasKey("encryptedPassword")) {//no "encryptedPassword", for compatibility
         //UNSAFE
         d->connData.setPassword(cg.readEntry("password"));
     }

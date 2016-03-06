@@ -134,7 +134,7 @@
         <item>
          <widget class="QCheckBox" name="chkSavePassword">
           <property name="whatsThis">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Saves password in a &lt;span style=&quot; font-style:italic;&quot;&gt;.kexic&lt;/span&gt; or &lt;span style=&quot; font-style:italic;&quot;&gt;.kexis&lt;/span&gt; connection shortcut file using a simple ROT-47 encryption. It does not guarantee security, but simply makes it difficult for anyone to read, so generally it is not safe to make such files publicly accessible.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Saves password in a &lt;span style=&quot; font-style:italic;&quot;&gt;.kexic&lt;/span&gt; or &lt;span style=&quot; font-style:italic;&quot;&gt;.kexis&lt;/span&gt; connection shortcut file using a simple encryption similar to ROT-47. It does not guarantee security, but simply makes it difficult for anyone to read, so generally it is not safe to make such files publicly accessible.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
            <string>Save password</string>
