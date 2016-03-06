@@ -90,6 +90,7 @@ void KexiMainWelcomePage::slotItemClicked(const QModelIndex& index)
 {
     if (!index.isValid())
         return;
+    m_clickedIndex = index;
     QModelIndex sourceIndex = m_recentProjectsProxyModel->mapToSource(index);
     KexiProjectData *pdata = static_cast<KexiProjectData*>(sourceIndex.internalPointer());
     //qDebug() << *pdata;
@@ -227,19 +228,50 @@ void KexiWelcomeAssistant::openProjectOrShowPasswordPage(KexiProjectData *data)
 
 void KexiWelcomeAssistant::tryAgainActionTriggered()
 {
-    messageWidget()->animatedHide();
-    currentPage()->next();
+    if (currentPage() == d->mainWelcomePage()) {
+        d->mainWelcomePage()->slotItemClicked(d->mainWelcomePage()->clickedItem());
+    } else if (currentPage() == d->passwordPage()) {
+        currentPage()->next();
+    }
 }
 
 void KexiWelcomeAssistant::cancelActionTriggered()
 {
-    if (currentPage() == d->m_passwordPage) {
+    if (currentPage() == d->mainWelcomePage()) {
+        d->mainWelcomePage()->recentProjectsView()->clearSelection();
+    } else if (currentPage() == d->passwordPage()) {
         d->passwordPage()->focusWidget()->setFocus();
     }
 }
 
-QWidget* KexiWelcomeAssistant::calloutWidget() const
+const QWidget* KexiWelcomeAssistant::calloutWidget() const
 {
-    return currentPage()->nextButton();
+    if (currentPage() == d->mainWelcomePage()) {
+        return d->mainWelcomePage()->recentProjectsView();
+    } else if (currentPage() == d->passwordPage()) {
+        return currentPage()->nextButton();
+    }
+    return 0;
 }
 
+QPoint KexiWelcomeAssistant::calloutPointerPosition() const
+{
+    if (currentPage() == d->mainWelcomePage()) {
+        const QRect clickedItemRect
+            = d->mainWelcomePage()->recentProjectsView()->visualRect(
+                    d->mainWelcomePage()->clickedItem());
+        return QPoint(clickedItemRect.center().x(), clickedItemRect.bottom());
+    } else if (currentPage() == d->passwordPage()) {
+        return KexiAssistantMessageHandler::calloutPointerPosition();
+    }
+    return QPoint();
+}
+
+KMessageWidget::CalloutPointerDirection KexiWelcomeAssistant::calloutPointerDirection() const
+{
+    if (currentPage() == d->mainWelcomePage()) {
+        return KMessageWidget::Up;
+    } else {
+        return KexiAssistantMessageHandler::calloutPointerDirection();
+    }
+}

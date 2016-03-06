@@ -21,6 +21,7 @@
 #define KEXIASSISTANTMESSAGEHANDLER_H
 
 #include <KDbMessageHandler>
+#include <kexiutils/kmessagewidget.h>
 
 class KDbObject;
 class KexiContextMessageWidget;
@@ -52,7 +53,9 @@ protected:
         const QString& caption = QString()
     );
 
-    virtual QWidget* calloutWidget() const = 0;
+    virtual const QWidget* calloutWidget() const = 0;
+    virtual QPoint calloutPointerPosition() const;
+    virtual KMessageWidget::CalloutPointerDirection calloutPointerDirection() const;
 
     KexiContextMessageWidget* messageWidget();
 

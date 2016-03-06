@@ -315,7 +315,7 @@ void KexiOpenProjectAssistant::cancelActionTriggered()
     }
 }
 
-QWidget* KexiOpenProjectAssistant::calloutWidget() const
+const QWidget* KexiOpenProjectAssistant::calloutWidget() const
 {
     return currentPage()->nextButton();
 }

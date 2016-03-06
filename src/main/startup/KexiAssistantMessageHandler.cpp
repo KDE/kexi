@@ -96,10 +96,10 @@ void KexiAssistantMessageHandler::showErrorMessage(KDbMessageHandler::MessageTyp
             d->messageWidget->setNextFocusWidget(assistant->currentPage());
         }
     }
-    d->messageWidget->setCalloutPointerDirection(KMessageWidget::Right);
-    QWidget *b = calloutWidget();
+    d->messageWidget->setCalloutPointerDirection(calloutPointerDirection());
+    const QWidget *b = calloutWidget();
     d->messageWidget->setCalloutPointerPosition(
-        b->mapToGlobal(QPoint(0, b->height() / 2)));
+        b->mapToGlobal(calloutPointerPosition()));
 }
 
 void KexiAssistantMessageHandler::showErrorMessage(const KDbResult& result,
@@ -123,4 +123,14 @@ void KexiAssistantMessageHandler::showErrorMessage(const KDbResult& result,
 KexiContextMessageWidget* KexiAssistantMessageHandler::messageWidget()
 {
     return d->messageWidget;
+}
+
+QPoint KexiAssistantMessageHandler::calloutPointerPosition() const
+{
+    return QPoint(0, calloutWidget()->height() / 2);
+}
+
+KMessageWidget::CalloutPointerDirection KexiAssistantMessageHandler::calloutPointerDirection() const
+{
+    return KMessageWidget::Right;
 }

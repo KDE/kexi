@@ -45,18 +45,24 @@ public:
     QString selectedCategory;
 
     void updateRecentProjects();
+    inline KexiCategorizedView* recentProjectsView() const { return m_recentProjects; }
+    inline QModelIndex clickedItem() const { return m_clickedIndex; }
+
+public Q_SLOTS:
+    void slotItemClicked(const QModelIndex& index);
 
 Q_SIGNALS:
     void openProject(const KexiProjectData& data, const QString& shortcutPath, bool *opened);
 
 private Q_SLOTS:
-    void slotItemClicked(const QModelIndex& index);
     void loadProjects();
+
 private:
     KexiCategorizedView* m_recentProjects;
     KexiRecentProjectsProxyModel* m_recentProjectsProxyModel;
     KexiWelcomeAssistant* m_assistant;
     KexiWelcomeStatusBar* m_statusBar;
+    QModelIndex m_clickedIndex;
 };
 
 class KexiProjectData;
@@ -88,7 +94,9 @@ Q_SIGNALS:
 protected:
     void openProjectOrShowPasswordPage(KexiProjectData *data);
     void emitOpenProject(KexiProjectData *data);
-    virtual QWidget* calloutWidget() const;
+    virtual const QWidget* calloutWidget() const;
+    virtual QPoint calloutPointerPosition() const;
+    virtual KMessageWidget::CalloutPointerDirection calloutPointerDirection() const;
 
 private:
     void createProject(

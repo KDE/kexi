@@ -130,6 +130,8 @@ protected:
 
 private Q_SLOTS:
     void actionTriggered();
+    void slotAnimatedShowFinished();
+    void slotAnimatedHideFinished();
 
 private:
     void init(QWidget *page, QFormLayout* layout,

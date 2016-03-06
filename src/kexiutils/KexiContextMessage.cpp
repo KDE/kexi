@@ -25,6 +25,7 @@
 #include <QPointer>
 #include <QMouseEvent>
 #include <QApplication>
+#include <QAbstractScrollArea>
 #include <QDebug>
 
 #include <kexiutils/utils.h>
@@ -178,6 +179,26 @@ public:
         }
     }
 
+    //! Enables or disables all viewports of QAbstractScrollArea-derived widgets inside of the page.
+    //! This is needed because disabled QAbstractScrollArea widget does not disable its viewport.
+    void setViewportsEnabled(bool set)
+    {
+        if (page) {
+            for(QAbstractScrollArea *area : page->findChildren<QAbstractScrollArea*>()) {
+                area->setEnabled(set);
+                area->repaint();
+            }
+            page->repaint();
+        }
+        if (contentsWidget) {
+            for(QAbstractScrollArea *area : contentsWidget->findChildren<QAbstractScrollArea*>()) {
+                area->setEnabled(set);
+                area->repaint();
+            }
+            contentsWidget->repaint();
+        }
+    }
+
     KexiContextMessageWidget *q;
     QPointer<QWidget> page;
     QList< QPointer<QWidget> > enabledLinks;
@@ -281,6 +302,9 @@ void KexiContextMessageWidget::init(
         if (d->context)
             d->context->setFocus();
     }
+    d->setViewportsEnabled(false);
+    connect(this, &KMessageWidget::animatedShowFinished, this, &KexiContextMessageWidget::slotAnimatedShowFinished);
+    connect(this, &KMessageWidget::animatedHideFinished, this, &KexiContextMessageWidget::slotAnimatedHideFinished);
     QTimer::singleShot(10, this, SLOT(animatedShow()));
 }
 
@@ -294,6 +318,7 @@ KexiContextMessageWidget::~KexiContextMessageWidget()
             w->unsetCursor();
         }
     }
+    d->setViewportsEnabled(true);
     repaint();
     if (d->nextFocusWidget) {
         // qDebug() << d->nextFocusWidget << d->nextFocusWidget->focusProxy();
@@ -336,6 +361,10 @@ bool KexiContextMessageWidget::eventFilter(QObject* watched, QEvent* event)
             actionTriggered();
             return true;
         }
+    }
+
+    if (watched == d->page && event->type() == QEvent::Hide) {
+        d->setViewportsEnabled(true);
     }
 
     if (watched == d->page && event->type() == QEvent::Resize) {
@@ -468,3 +497,12 @@ void KexiContextMessageWidget::setPaletteInherited()
     }
 }
 
+void KexiContextMessageWidget::slotAnimatedShowFinished()
+{
+    d->setViewportsEnabled(false);
+}
+
+void KexiContextMessageWidget::slotAnimatedHideFinished()
+{
+    d->setViewportsEnabled(true);
+}

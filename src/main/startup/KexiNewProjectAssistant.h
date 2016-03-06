@@ -178,7 +178,7 @@ Q_SIGNALS:
     void createProject(const KexiProjectData &data);
 
 protected:
-    virtual QWidget* calloutWidget() const;
+    virtual const QWidget* calloutWidget() const;
 
 private:
     void createProject(

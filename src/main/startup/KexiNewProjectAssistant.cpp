@@ -680,7 +680,7 @@ void KexiNewProjectAssistant::cancelActionTriggered()
     }
 }
 
-QWidget* KexiNewProjectAssistant::calloutWidget() const
+const QWidget* KexiNewProjectAssistant::calloutWidget() const
 {
     return currentPage()->nextButton();
 }

@@ -97,7 +97,7 @@ private Q_SLOTS:
     void slotOpenProject(KexiProjectData* data);
 
 protected:
-    virtual QWidget* calloutWidget() const;
+    virtual const QWidget* calloutWidget() const;
 
 private:
     class Private;

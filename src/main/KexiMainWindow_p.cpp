@@ -169,7 +169,21 @@ void KexiMainMenu::setContent(QWidget *contentWidget)
         contentWidgetPalette.setBrush(QPalette::Active, QPalette::WindowText, contentWidgetPalette.brush(QPalette::Active, QPalette::Text));
         contentWidgetPalette.setBrush(QPalette::Inactive, QPalette::WindowText, contentWidgetPalette.brush(QPalette::Inactive, QPalette::Text));
         contentWidgetPalette.setBrush(QPalette::Disabled, QPalette::WindowText, contentWidgetPalette.brush(QPalette::Disabled, QPalette::Text));
+        const QColor highlightDisabled(KexiUtils::blendedColors(
+                                     contentWidgetPalette.color(QPalette::Active, QPalette::Highlight),
+                                     contentWidgetPalette.color(QPalette::Disabled, QPalette::Window), 1, 2));
+        contentWidgetPalette.setBrush(QPalette::Disabled, QPalette::Highlight, highlightDisabled);
+        const QColor highlightedTextDisabled(KexiUtils::blendedColors(
+                                     contentWidgetPalette.color(QPalette::Active, QPalette::HighlightedText),
+                                     contentWidgetPalette.color(QPalette::Disabled, QPalette::WindowText), 1, 2));
+        contentWidgetPalette.setBrush(QPalette::Disabled, QPalette::HighlightedText, highlightedTextDisabled);
         m_contentWidget->setPalette(contentWidgetPalette);
+        for(QAbstractScrollArea *area : m_contentWidget->findChildren<QAbstractScrollArea*>()) {
+            QPalette pal(area->viewport()->palette());
+            pal.setBrush(QPalette::Disabled, QPalette::Base, contentWidgetPalette.brush(QPalette::Disabled, QPalette::Base));
+            pal.setBrush(QPalette::Highlight, Qt::red);
+            area->viewport()->setPalette(pal);
+        }
 
         m_contentWidget->setAutoFillBackground(true);
         m_contentWidget->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
