@@ -206,7 +206,7 @@ void KexiWelcomeStatusBarGuiUpdater::sendRequestListFilesFinished(KJob* job)
     d->tempDir = tempDir.path();
     qDebug() << tempDir.path();
     KIO::CopyJob *copyJob = KIO::copy(sourceFiles,
-                                      QUrl("file://" + tempDir.path()),
+                                      QUrl::fromLocalFile(tempDir.path()),
                                       KIO::HideProgressInfo | KIO::Overwrite);
     connect(copyJob, SIGNAL(result(KJob*)), this, SLOT(filesCopyFinished(KJob*)));
     //qDebug() << "copying from" << QUrl(uiPath(fname)) << "to"
