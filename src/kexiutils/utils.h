@@ -297,6 +297,11 @@ KEXIUTILS_EXPORT QPalette paletteWithDimmedColor(const QPalette &pal,
 /*! @return palette altered for indicating "read only" flag. */
 KEXIUTILS_EXPORT QPalette paletteForReadOnly(const QPalette &palette);
 
+/*! Convenience function that sets background color @a color for widget @a widget.
+ "autoFillBackground" property is set to true for the widget.
+ Background color role is obtained from QWidget::backgroundRole(). */
+KEXIUTILS_EXPORT void setBackgroundColor(QWidget *widget, const QColor &color);
+
 /*! \return empty (fully transparent) pixmap that can be used as a place for icon of size \a iconGroup */
 KEXIUTILS_EXPORT QPixmap emptyIcon(KIconLoader::Group iconGroup);
 

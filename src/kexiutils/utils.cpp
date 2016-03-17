@@ -648,6 +648,14 @@ QPalette KexiUtils::paletteForReadOnly(const QPalette &palette)
     return p;
 }
 
+void KexiUtils::setBackgroundColor(QWidget *widget, const QColor &color)
+{
+    widget->setAutoFillBackground(true);
+    QPalette pal(widget->palette());
+    pal.setColor(widget->backgroundRole(), color);
+    widget->setPalette(pal);
+}
+
 //---------------------
 
 void KexiUtils::installRecursiveEventFilter(QObject *object, QObject *filter)
