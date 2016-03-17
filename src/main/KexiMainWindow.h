@@ -510,9 +510,11 @@ protected Q_SLOTS:
     void slotEditReplace();
     void slotEditReplaceNext();
     void slotEditReplaceAll();
-    void slotViewNavigator();
-    void slotViewMainArea();
-    void slotViewPropertyEditor();
+    void slotActivateNavigator();
+    void slotActivateMainArea();
+    void slotActivatePropertyEditor();
+    void slotShowNavigator();
+    void slotShowPropertyEditor();
     void slotViewDataMode();
     void slotViewDesignMode();
     void slotViewTextMode(); //!< sometimes called "SQL View"

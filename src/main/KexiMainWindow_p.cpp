@@ -1240,9 +1240,10 @@ KexiMainWindow::Private::Private(KexiMainWindow* w)
     nameDialog = 0;
     m_findDialog = 0;
     focus_before_popup = 0;
-    action_view_nav = 0;
-    action_view_propeditor = 0;
-    action_view_mainarea = 0;
+    action_show_nav = 0;
+    action_show_propeditor = 0;
+    action_activate_nav = 0;
+    action_activate_propeditor = 0;
     action_welcome_projects_title_id = -1;
     action_welcome_connections_title_id = -1;
     forceWindowClosing = false;

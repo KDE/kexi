@@ -570,7 +570,10 @@ public:
     *action_edit_copy_special_data_table;
 
     //! view menu
-    QAction *action_view_nav, *action_view_propeditor, *action_view_mainarea;
+    QAction *action_show_nav, *action_show_propeditor;
+    QAction *action_activate_nav;
+    QAction *action_activate_mainarea;
+    QAction *action_activate_propeditor;
 #ifdef KEXI_SHOW_CONTEXT_HELP
     KToggleAction *action_show_helper;
 #endif

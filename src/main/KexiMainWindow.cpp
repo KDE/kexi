@@ -844,32 +844,62 @@ void KexiMainWindow::setupActions()
         d->action_view_text_mode = 0;
     */
     if (d->isProjectNavigatorVisible) {
-        d->action_view_nav = addAction("view_navigator",
-                                       xi18n("Switch to Project Navigator"),
-                                       "Alt+1");
-        d->action_view_nav->setToolTip(xi18n("Switch to Project Navigator panel"));
-        d->action_view_nav->setWhatsThis(xi18n("Switches to Project Navigator panel."));
-        connect(d->action_view_nav, SIGNAL(triggered()),
-                this, SLOT(slotViewNavigator()));
-    } else
-        d->action_view_nav = 0;
+        d->action_show_nav = addAction("view_navigator",
+                                       xi18n("Show Project Navigator"),
+                                       "Alt+0");
+        d->action_show_nav->setToolTip(xi18n("Show the Project Navigator pane"));
+        d->action_show_nav->setWhatsThis(xi18n("Shows the Project Navigator pane."));
+        connect(d->action_show_nav, SIGNAL(triggered()),
+                this, SLOT(slotShowNavigator()));
+    } else {
+        d->action_show_nav = 0;
+    }
 
-    d->action_view_mainarea = addAction("view_mainarea",
-                                        xi18n("Switch to Main Area"), "Alt+2");
-    d->action_view_mainarea->setToolTip(xi18n("Switch to main area"));
-    d->action_view_mainarea->setWhatsThis(xi18n("Switches to main area."));
-    connect(d->action_view_mainarea, SIGNAL(triggered()),
-            this, SLOT(slotViewMainArea()));
+    if (d->isProjectNavigatorVisible) {
+        // Shortcut taken from "Activate Projects pane" http://doc.qt.io/qtcreator/creator-keyboard-shortcuts.html
+        d->action_activate_nav = addAction("activate_navigator",
+                                       xi18n("Activate Project Navigator"),
+                                       "Alt+X");
+        d->action_activate_nav->setToolTip(xi18n("Activate the Project Navigator pane"));
+        d->action_activate_nav->setWhatsThis(xi18n("Activates the Project Navigator pane. If it is hidden, shows it first."));
+        connect(d->action_activate_nav, SIGNAL(triggered()),
+                this, SLOT(slotActivateNavigator()));
+    } else {
+        d->action_activate_nav = 0;
+    }
+
+    d->action_activate_mainarea = addAction("activate_mainarea",
+                                        xi18n("Activate main area")
+// , "Alt+2"?
+//! @todo activate_mainarea: pressing Esc in project nav or propeditor should move back to the main area
+                                        );
+    d->action_activate_mainarea->setToolTip(xi18n("Activate the main area"));
+    d->action_activate_mainarea->setWhatsThis(xi18n("Activates the main area."));
+    connect(d->action_activate_mainarea, SIGNAL(triggered()),
+            this, SLOT(slotActivateMainArea()));
+
+    //! @todo windows with "_3" prefix have conflicting auto shortcut set to Alt+3 -> remove that!
+    if (!d->userMode) {
+        d->action_show_propeditor = addAction("view_propeditor",
+                                              xi18n("Show Property Editor"), "Alt+3");
+        d->action_show_propeditor->setToolTip(xi18n("Show the Property Editor pane"));
+        d->action_show_propeditor->setWhatsThis(xi18n("Shows the Property Editor pane."));
+        connect(d->action_show_propeditor, SIGNAL(triggered()),
+                this, SLOT(slotShowPropertyEditor()));
+    } else {
+        d->action_show_propeditor = 0;
+    }
 
     if (!d->userMode) {
-        d->action_view_propeditor = addAction("view_propeditor",
-                                              xi18n("Switch to Property Editor"), "Alt+3");
-        d->action_view_propeditor->setToolTip(xi18n("Switch to Property Editor panel"));
-        d->action_view_propeditor->setWhatsThis(xi18n("Switches to Property Editor panel."));
-        connect(d->action_view_propeditor, SIGNAL(triggered()),
-                this, SLOT(slotViewPropertyEditor()));
-    } else
-        d->action_view_propeditor = 0;
+        d->action_activate_propeditor = addAction("activate_propeditor",
+                                              xi18n("Activate Property Editor"), "Alt+-");
+        d->action_activate_propeditor->setToolTip(xi18n("Activate the Property Editor pane"));
+        d->action_activate_propeditor->setWhatsThis(xi18n("Activates the Property Editor pane. If it is hidden, shows it first."));
+        connect(d->action_activate_propeditor, SIGNAL(triggered()),
+                this, SLOT(slotActivatePropertyEditor()));
+    } else {
+        d->action_activate_propeditor = 0;
+    }
 
     d->action_view_global_search = addAction("view_global_search",
                                              xi18n("Switch to Global Search"), "Ctrl+K");
@@ -1127,7 +1157,13 @@ void KexiMainWindow::setupActions()
 
     acat->addAction("view_navigator", Kexi::GlobalActionCategory);
 
+    acat->addAction("activate_navigator", Kexi::GlobalActionCategory);
+
     acat->addAction("view_propeditor", Kexi::GlobalActionCategory);
+
+    acat->addAction("activate_mainarea", Kexi::GlobalActionCategory);
+
+    acat->addAction("activate_propeditor", Kexi::GlobalActionCategory);
 
     acat->addAction("window_close", Kexi::GlobalActionCategory | Kexi::WindowActionCategory);
     acat->setAllObjectTypesSupported("window_close", true);
@@ -1244,11 +1280,11 @@ void KexiMainWindow::invalidateProjectWideActions()
     d->action_edit_find->setEnabled(d->prj);
 
     //VIEW MENU
-    if (d->action_view_nav)
-        d->action_view_nav->setEnabled(d->prj);
-    d->action_view_mainarea->setEnabled(d->prj);
-    if (d->action_view_propeditor)
-        d->action_view_propeditor->setEnabled(d->prj);
+    if (d->action_show_nav)
+        d->action_show_nav->setEnabled(d->prj);
+    d->action_activate_mainarea->setEnabled(d->prj);
+    if (d->action_show_propeditor)
+        d->action_show_propeditor->setEnabled(d->prj);
 #ifdef KEXI_SHOW_CONTEXT_HELP
     d->action_show_helper->setEnabled(d->prj);
 #endif
@@ -1756,9 +1792,10 @@ void KexiMainWindow::setupMainWidget()
     mainWidgetContainerLyr->setContentsMargins(0, 0, 0, 0);
     mainWidgetContainerLyr->setSpacing(0);
 
+
     KMultiTabBar *mtbar = new KMultiTabBar(KMultiTabBar::Left);
-    mtbar->setStyle(KMultiTabBar::KDEV3ICON);
-    mainWidgetContainerLyr->addWidget(mtbar, 0);
+    mtbar->setStyle(KMultiTabBar::VSNET);
+    mainWidgetContainerLyr->addWidget(mtbar);
     d->multiTabBars.insert(mtbar->position(), mtbar);
 
     d->mainWidget = new KexiMainWidget();
@@ -1770,8 +1807,8 @@ void KexiMainWindow::setupMainWidget()
     mainWidgetContainerLyr->addWidget(d->mainWidget, 1);
 
     mtbar = new KMultiTabBar(KMultiTabBar::Right);
-    mtbar->setStyle(KMultiTabBar::KDEV3ICON);
-    mainWidgetContainerLyr->addWidget(mtbar, 0);
+    mtbar->setStyle(KMultiTabBar::VSNET);
+    mainWidgetContainerLyr->addWidget(mtbar);
     d->multiTabBars.insert(mtbar->position(), mtbar);
 }
 
@@ -1904,7 +1941,7 @@ void KexiMainWindow::setupProjectNavigator()
     d->navigator->setFocus();
 
     if (d->forceShowProjectNavigatorOnCreation) {
-        slotViewNavigator();
+        slotShowNavigator();
         d->forceShowProjectNavigatorOnCreation = false;
     } else if (d->forceHideProjectNavigatorOnCreation) {
         d->forceHideProjectNavigatorOnCreation = false;
@@ -2586,7 +2623,7 @@ KexiMainWindow::slotProjectQuit()
     close();
 }
 
-void KexiMainWindow::slotViewNavigator()
+void KexiMainWindow::slotActivateNavigator()
 {
     if (!d->navigator) {
         return;
@@ -2594,13 +2631,13 @@ void KexiMainWindow::slotViewNavigator()
     d->navigator->setFocus();
 }
 
-void KexiMainWindow::slotViewMainArea()
+void KexiMainWindow::slotActivateMainArea()
 {
     if (currentWindow())
         currentWindow()->setFocus();
 }
 
-void KexiMainWindow::slotViewPropertyEditor()
+void KexiMainWindow::slotActivatePropertyEditor()
 {
     if (!d->propEditor) {
         return;
@@ -2608,6 +2645,18 @@ void KexiMainWindow::slotViewPropertyEditor()
 
     if (d->propEditorTabWidget->currentWidget())
         d->propEditorTabWidget->currentWidget()->setFocus();
+}
+
+void KexiMainWindow::slotShowNavigator()
+{
+    if (d->navDockWidget)
+        d->navDockWidget->setVisible(!d->navDockWidget->isVisible());
+}
+
+void KexiMainWindow::slotShowPropertyEditor()
+{
+    if (d->propEditorDockWidget)
+        d->propEditorDockWidget->setVisible(!d->propEditorDockWidget->isVisible());
 }
 
 tristate KexiMainWindow::switchToViewMode(KexiWindow& window, Kexi::ViewMode viewMode)
@@ -4087,7 +4136,7 @@ void KexiMainWindow::slotEditReplaceAll()
 
 void KexiMainWindow::highlightObject(const QString& pluginId, const QString& name)
 {
-    slotViewNavigator();
+    slotShowNavigator();
     if (!d->prj)
         return;
     KexiPart::Item *item = d->prj->itemForPluginId(pluginId, name);
