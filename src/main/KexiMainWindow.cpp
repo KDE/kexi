@@ -122,11 +122,10 @@ class KexiDockWidget::Private
 public:
     Private() {}
     QSize hint;
-    KexiCloseButton *closeButton;
 };
 
-KexiDockWidget::KexiDockWidget(const QString & title, QWidget *parent)
-        : QDockWidget(title, parent), d(new Private)
+KexiDockWidget::KexiDockWidget(const QString &_tabText, QWidget *parent)
+        : QDockWidget(parent), tabText(_tabText), d(new Private)
 {
     // No floatable dockers, Dolphin had problems, we don't want the same...
     // https://bugs.kde.org/show_bug.cgi?id=288629
@@ -141,24 +140,7 @@ KexiDockWidget::KexiDockWidget(const QString & title, QWidget *parent)
     KexiDockWidgetStyle *customStyle = new KexiDockWidgetStyle(style()->objectName());
     customStyle->setParent(this);
     setStyle(customStyle);
-
-    QStyleOptionDockWidgetV2 dockOpt;
-    dockOpt.initFrom(this);
-    const int addSpacing = style()->pixelMetric(QStyle::PM_DockWidgetTitleBarButtonMargin, &dockOpt, this);
-
-    QWidget *titleBar = new QWidget;
-    titleBar->setFocusPolicy(Qt::NoFocus);
-    QHBoxLayout *titleLyr = new QHBoxLayout(titleBar);
-    titleLyr->setContentsMargins(addSpacing, addSpacing, addSpacing, addSpacing);
-    titleLyr->setSpacing(0);
-    titleLyr->addStretch(1);
-
-    d->closeButton = new KexiCloseButton;
-    d->closeButton->setMarginEnabled(false);
-    connect(d->closeButton, SIGNAL(clicked()), this, SLOT(slotCloseClicked()));
-    titleLyr->addWidget(d->closeButton);
-
-    setTitleBarWidget(titleBar);
+    setTitleBarWidget(new QWidget(this)); // hide the title
     layout()->setContentsMargins(0, 0, 0, 0);
     layout()->setSpacing(0);
 }
@@ -193,21 +175,6 @@ void KexiDockWidget::setSizeHint(const QSize& hint)
 QSize KexiDockWidget::sizeHint() const
 {
     return d->hint.isValid() ? d->hint : QDockWidget::sizeHint();
-}
-
-void KexiDockWidget::slotCloseClicked()
-{
-    if (isVisible()) {
-        close();
-    }
-    else {
-        show();
-    }
-}
-
-QToolButton* KexiDockWidget::closeButton() const
-{
-    return d->closeButton;
 }
 
 //-------------------------------------------------
@@ -1878,7 +1845,6 @@ void KexiMainWindow::setupProjectNavigator()
 
         d->navDockWidget = new KexiDockWidget(d->navigator->windowTitle(), d->mainWidget);
         d->navDockWidget->setObjectName("ProjectNavigatorDockWidget");
-        d->navDockWidget->closeButton()->setToolTip(xi18n("Hide project navigator"));
         d->mainWidget->addDockWidget(
             applyRightToLeftToDockArea(Qt::LeftDockWidgetArea), d->navDockWidget,
             Qt::Vertical);
@@ -1958,7 +1924,6 @@ void KexiMainWindow::setupPropertyEditor()
 //! @todo FIX LAYOUT PROBLEMS
         d->propEditorDockWidget = new KexiDockWidget(xi18n("Property Editor"), d->mainWidget);
         d->propEditorDockWidget->setObjectName("PropertyEditorDockWidget");
-        d->propEditorDockWidget->closeButton()->setToolTip(xi18n("Hide property editor"));
         d->mainWidget->addDockWidget(
             applyRightToLeftToDockArea(Qt::RightDockWidgetArea), d->propEditorDockWidget,
             Qt::Vertical

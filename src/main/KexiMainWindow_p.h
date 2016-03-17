@@ -403,7 +403,7 @@ class KexiDockWidget : public QDockWidget
 {
     Q_OBJECT
 public:
-    KexiDockWidget(const QString &title, QWidget *parent);
+    KexiDockWidget(const QString &tabText, QWidget *parent);
 
     virtual ~KexiDockWidget();
 
@@ -411,13 +411,10 @@ public:
 
     virtual QSize sizeHint() const;
 
-    QToolButton* closeButton() const;
+    const QString tabText; //!< for tab bar tabs
 
 protected:
     virtual void paintEvent(QPaintEvent *pe);
-
-protected Q_SLOTS:
-    void slotCloseClicked();
 
 private:
     class Private;

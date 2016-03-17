@@ -1366,9 +1366,7 @@ void KexiMainWindow::Private::setTabBarVisible(KMultiTabBar::KMultiTabBarPositio
         mtbar->removeTab(id);
     }
     else if (!mtbar->tab(id)) {
-        QString t(dockWidget->windowTitle());
-        t.remove('&');
-        mtbar->appendTab(QIcon(), id, t);
+        mtbar->appendTab(koIcon("document-properties"), id, dockWidget->tabText);
         KMultiTabBarTab *tab = mtbar->tab(id);
         QObject::connect(tab, SIGNAL(clicked(int)),
                          wnd, SLOT(slotMultiTabBarTabClicked(int)),
