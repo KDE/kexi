@@ -302,23 +302,28 @@ static bool registerResource(const QString& path)
     // let QStandardPaths handle this, it will look for app local stuff
     const QString fullPath = QFileInfo(
         QStandardPaths::locate(QStandardPaths::AppDataLocation, path)).canonicalFilePath();
-    return QFile::exists(fullPath) && QResource::registerResource(fullPath);
+    const bool ok = QFile::exists(fullPath) && QResource::registerResource(fullPath);
+    if (!ok) {
+        qWarning() << "Failed to register resource" << path << "application's look may be broken.";
+    }
+    return ok;
 }
 
 static void setupIconTheme()
 {
     // Register kexi resource first to have priority over the standard breeze theme.
     // For example "table" icon exists i both resources.
-    if (registerResource("icons/kexi_breeze.rcc") && registerResource("icons/breeze.rcc")) {
-        // tell qt about the theme
-        QIcon::setThemeSearchPaths(QStringList() << QStringLiteral(":/icons"));
-        QIcon::setThemeName(QStringLiteral("breeze"));
+    (void)registerResource("icons/kexi_breeze.rcc");
+    (void)registerResource("icons/breeze.rcc");
 
-        // tell KIconLoader an co. about the theme
-        KConfigGroup cg(KSharedConfig::openConfig(), "Icons");
-        cg.writeEntry("Theme", "breeze");
-        cg.sync();
-    }
+    // Tell Qt about the theme
+    QIcon::setThemeSearchPaths(QStringList() << QStringLiteral(":/icons"));
+    QIcon::setThemeName(QStringLiteral("breeze"));
+
+    // tell KIconLoader an co. about the theme
+    KConfigGroup cg(KSharedConfig::openConfig(), "Icons");
+    cg.writeEntry("Theme", "breeze");
+    cg.sync();
 }
 
 //static
