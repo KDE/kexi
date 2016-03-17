@@ -67,6 +67,7 @@ void KexiDockableWidget::setWidget(QWidget* widget)
     d->widget = widget;
     d->widget->setParent(this);
     QVBoxLayout *lyr = new QVBoxLayout(this);
-    KexiUtils::setMargins(lyr, 0);
     lyr->addWidget(d->widget);
+    KexiUtils::setMargins(lyr, 0);
+    lyr->setSpacing(0);
 }

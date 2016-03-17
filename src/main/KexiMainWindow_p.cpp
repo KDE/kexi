@@ -181,7 +181,6 @@ void KexiMainMenu::setContent(QWidget *contentWidget)
         for(QAbstractScrollArea *area : m_contentWidget->findChildren<QAbstractScrollArea*>()) {
             QPalette pal(area->viewport()->palette());
             pal.setBrush(QPalette::Disabled, QPalette::Base, contentWidgetPalette.brush(QPalette::Disabled, QPalette::Base));
-            pal.setBrush(QPalette::Highlight, Qt::red);
             area->viewport()->setPalette(pal);
         }
 
@@ -254,9 +253,6 @@ void KexiMainMenu::showEvent(QShowEvent * event)
         setFocusProxy(m_menuWidget);
         m_menuWidget->setFrame(false);
         m_menuWidget->setAutoFillBackground(true);
-        int leftmargin, topmargin, rightmargin, bottommargin;
-        m_menuWidget->getContentsMargins(&leftmargin, &topmargin, &rightmargin, &bottommargin);
-        m_menuWidget->setContentsMargins(leftmargin, topmargin, rightmargin, bottommargin);
 
         m_menuWidget->addAction(ac->action("project_welcome"));
         m_menuWidget->addAction(ac->action("project_open"));
@@ -276,7 +272,6 @@ void KexiMainMenu::showEvent(QShowEvent * event)
         m_content->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
         m_content->installEventFilter(this);
         m_mainContentLayout = new QVBoxLayout;
-        m_mainContentLayout->addSpacing(styleName == "oxygen" ? 0 : 3);
         hlyr->addLayout(m_mainContentLayout);
         m_contentLayout = new QStackedLayout(m_content);
         m_contentLayout->setStackingMode(QStackedLayout::StackAll);
@@ -1200,8 +1195,11 @@ void KexiMainWidget::setupCentralWidget()
     m_tabWidget = new KexiMainWindowTabWidget(centralWidget, this);
     connect(m_tabWidget, SIGNAL(currentChanged(int)), this, SLOT(slotCurrentTabIndexChanged(int)));
     centralWidgetLyr->setContentsMargins(0, 0, 0, 0);
+    centralWidgetLyr->setSpacing(0);
     centralWidgetLyr->addWidget(m_tabWidget);
     setCentralWidget(centralWidget);
+    layout()->setContentsMargins(0, 0, 0, 0);
+    layout()->setSpacing(0);
 }
 
 bool KexiMainWidget::queryClose()

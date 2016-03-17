@@ -320,6 +320,18 @@ public:
                             const QWidget* widget = 0) const;
 };
 
+//! Style proxy for KexiTabbedToolBar, to fix the hardcoded margins (e.g. for Breeze).
+class KexiDockWidgetStyle : public QProxyStyle
+{
+public:
+    explicit KexiDockWidgetStyle(const QString &baseStyleName);
+
+    virtual ~KexiDockWidgetStyle();
+
+    using QProxyStyle::polish;
+    void polish(QWidget* widget) Q_DECL_OVERRIDE;
+};
+
 class KexiMainWidget;
 
 //! @internal tab widget acting as central widget for KexiMainWindow

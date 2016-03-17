@@ -632,13 +632,13 @@ void KexiActionSelectionDialog::slotActionCategorySelected(QTreeWidgetItem* item
                 d->kactionPageWidget = new QWidget();
                 d->kactionPageWidget->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
                 QVBoxLayout *vlyr = new QVBoxLayout(d->kactionPageWidget);
-                KexiUtils::setMargins(vlyr, 0);
                 vlyr->setSpacing(KexiUtils::spacingHint());
                 d->kactionListView = new KActionsListView(d->kactionPageWidget);
                 d->kactionListView->init();
                 d->kactionPageLabel  = createSelectActionLabel(d->kactionPageWidget, d->kactionListView);
                 vlyr->addWidget(d->kactionPageLabel);
                 vlyr->addWidget(d->kactionListView);
+                KexiUtils::setMargins(vlyr, 0);
                 d->secondAnd3rdColumnStack->addWidget(d->kactionPageWidget);
                 connect(d->kactionListView, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),
                         this, SLOT(slotKActionItemExecuted(QTreeWidgetItem*)));
@@ -657,7 +657,6 @@ void KexiActionSelectionDialog::slotActionCategorySelected(QTreeWidgetItem* item
                 d->currentFormActionsPageWidget->setSizePolicy(
                     QSizePolicy::Minimum, QSizePolicy::Minimum);
                 QVBoxLayout *vlyr = new QVBoxLayout(d->currentFormActionsPageWidget);
-                KexiUtils::setMargins(vlyr, 0);
                 vlyr->setSpacing(KexiUtils::spacingHint());
                 d->currentFormActionsListView = new CurrentFormActionsListView(
                     d->currentFormActionsPageWidget);
@@ -667,6 +666,7 @@ void KexiActionSelectionDialog::slotActionCategorySelected(QTreeWidgetItem* item
                 vlyr->addWidget(d->currentFormActionsPageLabel);
                 vlyr->addWidget(d->currentFormActionsListView);
                 d->secondAnd3rdColumnStack->addWidget(d->currentFormActionsPageWidget);
+                KexiUtils::setMargins(vlyr, 0);
                 connect(d->currentFormActionsListView, SIGNAL(itemActivated(QTreeWidgetItem*,int)),
                         this, SLOT(slotCurrentFormActionItemExecuted(QTreeWidgetItem*)));
                 connect(d->currentFormActionsListView, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)),

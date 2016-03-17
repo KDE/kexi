@@ -102,6 +102,21 @@
 # define KexiVDebug if (0) qDebug()
 #endif
 
+KexiDockWidgetStyle::KexiDockWidgetStyle(const QString &baseStyleName)
+ : QProxyStyle(baseStyleName)
+{
+}
+
+KexiDockWidgetStyle::~KexiDockWidgetStyle()
+{
+}
+
+void KexiDockWidgetStyle::polish(QWidget* widget)
+{
+    baseStyle()->polish(widget);
+    widget->setContentsMargins(0, 0, 0, 0);
+}
+
 class KexiDockWidget::Private
 {
 public:
@@ -123,6 +138,9 @@ KexiDockWidget::KexiDockWidget(const QString & title, QWidget *parent)
         // windowsvista style has broken accelerator visualization support
         KAcceleratorManager::setNoAccel(this);
     }
+    KexiDockWidgetStyle *customStyle = new KexiDockWidgetStyle(style()->objectName());
+    customStyle->setParent(this);
+    setStyle(customStyle);
 
     QStyleOptionDockWidgetV2 dockOpt;
     dockOpt.initFrom(this);
@@ -141,6 +159,8 @@ KexiDockWidget::KexiDockWidget(const QString & title, QWidget *parent)
     titleLyr->addWidget(d->closeButton);
 
     setTitleBarWidget(titleBar);
+    layout()->setContentsMargins(0, 0, 0, 0);
+    layout()->setSpacing(0);
 }
 
 KexiDockWidget::~KexiDockWidget()
