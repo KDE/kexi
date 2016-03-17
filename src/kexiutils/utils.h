@@ -546,6 +546,15 @@ KEXIUTILS_EXPORT QColor activeTitleColor();
 //! @note A copy of KGlobalSettings::activeTextColor() needed for porting from kdelibs4.
 KEXIUTILS_EXPORT QColor activeTextColor();
 
+//! @return Paper White color, see https://techbase.kde.org/Projects/Usability/HIG/Color
+inline QColor paperWhite() { return QColor(0xfcfcfc); }
+
+//! @return Charcoal Grey color, see https://techbase.kde.org/Projects/Usability/HIG/Color
+inline QColor charcoalGrey() { return QColor(0x31363b); }
+
+//! @return Shade Black color, see https://techbase.kde.org/Projects/Usability/HIG/Color
+inline QColor shadeBlack() { return QColor(0x232629); }
+
 /*! @return @c true if whether the app runs in a single click mode (the default).
     @c false if returned if the app runs in double click mode.
     For Qt < 5.5 this information is taken from @a widget widget's style. If there is no widget
