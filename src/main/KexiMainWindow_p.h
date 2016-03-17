@@ -47,7 +47,6 @@
 #include "KexiUserFeedbackAgent.h"
 #include "KexiMenuWidget.h"
 #include "kexifinddialog.h"
-#include "kexistatusbar.h"
 #include "KexiStartup.h"
 #include <kexiutils/utils.h>
 #include <widget/utils/KexiDockableWidget.h>
@@ -505,7 +504,6 @@ public:
     KexiMainWindow *wnd;
     KexiMainWidget *mainWidget;
     KActionCollection *actionCollection;
-    KexiStatusBar *statusBar;
     KHelpMenu *helpMenu;
     KexiProject *prj;
     KSharedConfig::Ptr config;

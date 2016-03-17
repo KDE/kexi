@@ -28,7 +28,6 @@
 #include "kexiproject.h"
 #include "kexiprojectdata.h"
 #include "kexi.h"
-#include "kexistatusbar.h"
 #include "kexiinternalpart.h"
 #include "kexiactioncategories.h"
 #include "kexifinddialog.h"
@@ -1470,7 +1469,7 @@ tristate KexiMainWindow::createProjectFromTemplate(const KexiProjectData& projec
 void KexiMainWindow::updateReadOnlyState()
 {
     const bool readOnly = d->prj && d->prj->dbConnection() && d->prj->dbConnection()->options()->isReadOnly();
-    d->statusBar->setReadOnlyFlag(readOnly);
+    //! @todo KEXI3 show read-only flag in the GUI because we have no statusbar
     if (d->navigator) {
         d->navigator->setReadOnly(readOnly);
     }
@@ -1787,9 +1786,6 @@ void KexiMainWindow::setupMainWidget()
     mtbar->setStyle(KMultiTabBar::KDEV3ICON);
     mainWidgetContainerLyr->addWidget(mtbar, 0);
     d->multiTabBars.insert(mtbar->position(), mtbar);
-
-    d->statusBar = new KexiStatusBar(this);
-    vlyr->addWidget(d->statusBar);
 }
 
 void KexiMainWindow::slotSetProjectNavigatorVisible(bool set)

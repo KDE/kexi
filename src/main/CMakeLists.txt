@@ -12,7 +12,6 @@ set(keximain_LIB_SRCS
     KexiMainWindow_p.cpp
     KexiMenuWidget.cpp
     kexifinddialog.cpp
-    kexistatusbar.cpp
     KexiSearchLineEdit.cpp
     KexiUserFeedbackAgent.cpp
     KexiBugReportDialog.cpp
