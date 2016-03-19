@@ -20,6 +20,7 @@
 
 #include "kexiquerydesignerguieditor.h"
 #include <kexiutils/utils.h>
+#include <kexiutils/KexiStyle.h>
 #include <kexiproject.h>
 #include <KexiMainWindowIface.h>
 #include <kexiinternalpart.h>
@@ -203,6 +204,7 @@ KexiQueryDesignerGuiEditor::KexiQueryDesignerGuiEditor(
     QList<int> c;
     c << COLUMN_ID_COLUMN << COLUMN_ID_TABLE << COLUMN_ID_CRITERIA;
     if (d->dataTable->tableView()/*sanity*/) {
+        KexiStyle::setupFrame(d->dataTable->tableView());
         d->dataTable->tableView()->adjustColumnWidthToContents(COLUMN_ID_VISIBLE);
         d->dataTable->tableView()->setColumnWidth(COLUMN_ID_SORTING, d->sortColumnPreferredWidth);
         d->dataTable->tableView()->setStretchLastColumn(true);

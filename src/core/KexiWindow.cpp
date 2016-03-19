@@ -169,7 +169,7 @@ KexiWindow::~KexiWindow()
 void KexiWindow::createSubwidgets()
 {
     d->mainLyr = new QVBoxLayout(this);
-    d->mainLyr->setContentsMargins(0, KexiUtils::marginHint() / 2, 0, 0);
+    d->mainLyr->setContentsMargins(0, 0, 0, 0);
     d->stack = new QStackedWidget(this);
     d->mainLyr->addWidget(d->stack);
 }

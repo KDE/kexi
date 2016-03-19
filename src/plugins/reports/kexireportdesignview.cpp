@@ -36,7 +36,7 @@ KexiReportDesignView::KexiReportDesignView(QWidget *parent, KexiSourceSelector *
         : KexiView(parent)
 {
     m_scrollArea = new QScrollArea(this);
-    layout()->addWidget(m_scrollArea);
+    setViewWidget(m_scrollArea);
     m_sourceSelector = s;
 
     m_reportDesigner = 0;

@@ -25,6 +25,7 @@ set(kexiutils_LIB_SRCS
   KexiPushButton.cpp
   KexiFadeWidgetEffect.cpp
   KexiPluginMetaData.cpp
+  KexiStyle.cpp
 
   completer/KexiCompleter.cpp
 )

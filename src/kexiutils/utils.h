@@ -563,6 +563,10 @@ inline QColor charcoalGrey() { return QColor(0x31363b); }
 //! @return Shade Black color, see https://techbase.kde.org/Projects/Usability/HIG/Color
 inline QColor shadeBlack() { return QColor(0x232629); }
 
+//! @return Shade Black color made a bit ligher. suitable for alternate base,
+//! see https://techbase.kde.org/Projects/Usability/HIG/Color
+inline QColor shadeBlackLighter() { return shadeBlack().lighter(125); }
+
 /*! @return @c true if whether the app runs in a single click mode (the default).
     @c false if returned if the app runs in double click mode.
     The flag is checked in two stages.

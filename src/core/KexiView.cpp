@@ -25,6 +25,7 @@
 #include <kexiutils/utils.h>
 #include <kexiutils/SmallToolButton.h>
 #include <kexiutils/FlowLayout.h>
+#include <kexiutils/KexiStyle.h>
 
 #include "KexiGroupButton.h"
 
@@ -533,6 +534,8 @@ void KexiView::setViewWidget(QWidget* w, bool focusProxy)
     }
     d->viewWidget = w;
     if (d->viewWidget) {
+        QFrame *frameWidget = qobject_cast<QFrame*>(d->viewWidget);
+        KexiStyle::setupFrame(frameWidget);
         d->viewWidget->setParent(this);
         d->mainLyr->addWidget(d->viewWidget, 1);
         d->viewWidget->installEventFilter(this);

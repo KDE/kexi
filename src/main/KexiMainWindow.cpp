@@ -37,6 +37,7 @@
 #define KEXI_SKIP_SETUPPRIVATEICONSRESOURCE
 #include "KexiRegisterResource_p.h"
 #include <kexiutils/utils.h>
+#include <kexiutils/KexiStyle.h>
 #include <kexiutils/KexiCloseButton.h>
 #include <kexiutils/KexiTester.h>
 #include <KexiVersion.h>
@@ -1920,6 +1921,8 @@ void KexiMainWindow::setupProjectNavigator()
         if (!projectNavigatorSize.isNull()) {
             navDockableWidget->setSizeHint(projectNavigatorSize);
         }
+        KexiStyle::setSidebarsPalette(d->navDockWidget);
+        KexiStyle::setSidebarsPalette(d->navigator);
 
         connect(d->navDockWidget, SIGNAL(visibilityChanged(bool)),
             this, SLOT(slotProjectNavigatorVisibilityChanged(bool)));
@@ -2027,6 +2030,8 @@ void KexiMainWindow::setupPropertyEditor()
             }
         }
         d->propEditorTabWidget->setFont(f);
+        KexiStyle::setSidebarsPalette(d->propEditorDockWidget);
+        KexiStyle::setSidebarsPalette(d->propEditorTabWidget);
 
         d->enable_slotPropertyEditorVisibilityChanged = false;
         d->propEditorDockWidget->setVisible(false);

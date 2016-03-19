@@ -30,6 +30,7 @@
 #include <core/KexiWindow.h>
 #include <core/KexiMainWindowIface.h>
 #include <KexiIcon.h>
+#include <kexiutils/KexiStyle.h>
 
 //! @todo KEXI3 #include "../scripting/kexiscripting/kexiscriptadaptor.h"
 
@@ -59,7 +60,8 @@ KexiReportView::KexiReportView(QWidget *parent)
     setObjectName("KexiReportDesigner_DataView");
 
     m_reportView = new KReportView(this);
-    layout()->addWidget(m_reportView);
+    setViewWidget(m_reportView);
+    KexiStyle::setupFrame(m_reportView->scrollArea());
 
 #ifndef KEXI_MOBILE
     m_pageSelector = new KexiRecordNavigator(*m_reportView->scrollArea(), m_reportView);

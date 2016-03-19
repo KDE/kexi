@@ -22,6 +22,7 @@
 #include "KexiRelationsView.h"
 #include <KexiIcon.h>
 #include <kexiutils/utils.h>
+#include <kexiutils/KexiStyle.h>
 #include <kexiproject.h>
 #include <KexiMainWindowIface.h>
 #include "KexiRelationsScrollArea.h"
@@ -95,6 +96,7 @@ KexiRelationsView::KexiRelationsView(QWidget *parent)
 
     d->scrollArea = new KexiRelationsScrollArea(mainWidget);
     d->scrollArea->setObjectName("scroll_area");
+    KexiStyle::setupFrame(d->scrollArea);
     setViewWidget(mainWidget, false/* no focus proxy */);
     setFocusProxy(d->scrollArea);
     g->addWidget(d->scrollArea, 1, 0);

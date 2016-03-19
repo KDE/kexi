@@ -21,6 +21,7 @@
 #include "KexiProjectModel.h"
 #include "KexiProjectModelItem.h"
 #include <kexiutils/utils.h>
+#include <kexiutils/KexiStyle.h>
 
 #include <KDb>
 #include <KDbIdentifierValidator>
@@ -58,7 +59,8 @@ void KexiProjectItemDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         newOption.state |= QStyle::State_MouseOver;
     }
     KexiProjectModelItem *item = static_cast<KexiProjectModelItem*>(index.internalPointer());
-    if (!item->partItem()) { // this is a group item
+    const bool isGroupItem = !item->partItem();
+    if (isGroupItem) {
         if (item->childCount() == 0) {
             return;
         }
@@ -69,6 +71,7 @@ void KexiProjectItemDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         newOption.displayAlignment = Qt::AlignLeft | Qt::AlignBottom;
         newOption.state &= (0xffffffff ^ QStyle::State_MouseOver);
         newOption.rect.setBottom(newOption.rect.bottom() - 3);
+        newOption.font = KexiStyle::titleFont(newOption.font);
     }
     QStyledItemDelegate::paint(painter, newOption, index);
 }
