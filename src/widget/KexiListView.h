@@ -1,4 +1,5 @@
 /* This file is part of the KDE project
+   Copyright (C) 2016 Jarosław Staniek <staniek@kde.org>
 
    Forked from kwidgetsaddons/src/kpageview_p.h:
    Copyright (C) 2006 Tobias Koenig (tokoe@kde.org)
@@ -20,18 +21,26 @@
  * Boston, MA 02110-1301, USA.
 */
 
+#ifndef KEXILISTVIEW_H
+#define KEXILISTVIEW_H
+
 #include <QListView>
 
-class KPageListView : public QListView
+#include "kexiextwidgets_export.h"
+
+class KEXIEXTWIDGETS_EXPORT KexiListView : public QListView
 {
     Q_OBJECT
 
 public:
-    KPageListView(QWidget *parent = 0);
-    virtual ~KPageListView();
+    explicit KexiListView(QWidget *parent = 0);
+
+    virtual ~KexiListView();
 
     void setModel(QAbstractItemModel *model) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void updateWidth();
 };
+
+#endif

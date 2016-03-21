@@ -1,4 +1,5 @@
 /* This file is part of the KDE project
+   Copyright (C) 2016 Jarosław Staniek <staniek@kde.org>
 
    Forked from kwidgetsaddons/src/kpageview_p.h:
    Copyright (C) 2006 Tobias Koenig (tokoe@kde.org)
@@ -20,31 +21,41 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#include <QAbstractItemDelegate>
+#ifndef KEXILISTVIEW_P_H
+#define KEXILISTVIEW_P_H
 
-class KPageListViewDelegate : public QAbstractItemDelegate
+#include <QAbstractItemDelegate>
+#include <QItemSelectionModel>
+
+class KexiListViewDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
 
 public:
-    KPageListViewDelegate(QObject *parent = 0);
+    explicit KexiListViewDelegate(QObject *parent = 0);
 
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
+    void paint(QPainter *painter, const QStyleOptionViewItem &option,
+               const QModelIndex &index) const Q_DECL_OVERRIDE;
+    QSize sizeHint(const QStyleOptionViewItem &option,
+                   const QModelIndex &index) const Q_DECL_OVERRIDE;
 
 private:
     void drawFocus(QPainter *, const QStyleOptionViewItem &, const QRect &) const;
 };
 
-class SelectionModel : public QItemSelectionModel
+class KexiListViewSelectionModel : public QItemSelectionModel
 {
     Q_OBJECT
 
 public:
-    SelectionModel(QAbstractItemModel *model, QObject *parent);
+    KexiListViewSelectionModel(QAbstractItemModel *model, QObject *parent);
 
 public Q_SLOTS:
     void clear() Q_DECL_OVERRIDE;
-    void select(const QModelIndex &index, QItemSelectionModel::SelectionFlags command) Q_DECL_OVERRIDE;
-    void select(const QItemSelection &selection, QItemSelectionModel::SelectionFlags command) Q_DECL_OVERRIDE;
+    void select(const QModelIndex &index,
+                QItemSelectionModel::SelectionFlags command) Q_DECL_OVERRIDE;
+    void select(const QItemSelection &selection,
+                QItemSelectionModel::SelectionFlags command) Q_DECL_OVERRIDE;
 };
+
+#endif

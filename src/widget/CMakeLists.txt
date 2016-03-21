@@ -48,6 +48,7 @@ set(kexiextendedwidgets_LIB_SRCS
     KexiNameWidget.cpp
     KexiNameDialog.cpp
     KexiStartupFileHandler.cpp
+    KexiListView.cpp
   )
 
 if (KEXI_MOBILE)

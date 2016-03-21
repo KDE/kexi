@@ -1,22 +1,47 @@
-KPageListView::KPageListView(QWidget *parent)
+/* This file is part of the KDE project
+   Copyright (C) 2016 Jarosław Staniek <staniek@kde.org>
+
+   Forked from kwidgetsaddons/src/kpageview_p.cpp:
+   Copyright (C) 2006 Tobias Koenig (tokoe@kde.org)
+   Copyright (C) 2007 Rafael Fernández López (ereslibre@kde.org)
+
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Library General Public
+   License as published by the Free Software Foundation; either
+   version 2 of the License, or (at your option) any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public License
+   along with this library; see the file COPYING.LIB.  If not, write to
+   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301, USA.
+*/
+
+#include "KexiListView.h"
+#include "KexiListView_p.h"
+
+#include <QApplication>
+#include <QPainter>
+#include <QTextLayout>
+
+KexiListView::KexiListView(QWidget *parent)
     : QListView(parent)
 {
     setViewMode(QListView::ListMode);
     setMovement(QListView::Static);
     setVerticalScrollMode(QListView::ScrollPerPixel);
-
-    QFont boldFont(font());
-    boldFont.setBold(true);
-    setFont(boldFont);
-
-    setItemDelegate(new KPageListViewDelegate(this));
+    setItemDelegate(new KexiListViewDelegate(this));
 }
 
-KPageListView::~KPageListView()
+KexiListView::~KexiListView()
 {
 }
 
-void KPageListView::setModel(QAbstractItemModel *model)
+void KexiListView::setModel(QAbstractItemModel *model)
 {
     /*
       KPageListViewProxy *proxy = new KPageListViewProxy( this );
@@ -31,12 +56,12 @@ void KPageListView::setModel(QAbstractItemModel *model)
     QListView::setModel(model);
 
     // Set our own selection model, which won't allow our current selection to be cleared
-    setSelectionModel(new KDEPrivate::SelectionModel(model, this));
+    setSelectionModel(new KexiListViewSelectionModel(model, this));
 
     updateWidth();
 }
 
-void KPageListView::updateWidth()
+void KexiListView::updateWidth()
 {
     if (!model()) {
         return;
@@ -54,7 +79,7 @@ void KPageListView::updateWidth()
 
 // ----
 
-KPageListViewDelegate::KPageListViewDelegate(QObject *parent)
+KexiListViewDelegate::KexiListViewDelegate(QObject *parent)
     : QAbstractItemDelegate(parent)
 {
 }
@@ -78,7 +103,8 @@ static int layoutText(QTextLayout *layout, int maxWidth)
     return textWidth;
 }
 
-void KPageListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void KexiListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
+                                 const QModelIndex &index) const
 {
     if (!index.isValid()) {
         return;
@@ -117,9 +143,11 @@ void KPageListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
         painter->setPen(option.palette.color(cg, QPalette::Text));
     }
 
-    painter->drawPixmap(option.rect.x() + (option.rect.width() / 2) - (wp / 2), option.rect.y() + 5, pixmap);
+    painter->drawPixmap(option.rect.x() + (option.rect.width() / 2)
+                        - (wp / 2), option.rect.y() + 5, pixmap);
     if (!text.isEmpty()) {
-        iconTextLayout.draw(painter, QPoint(option.rect.x() + (option.rect.width() / 2) - (maxWidth / 2), option.rect.y() + hp + 7));
+        iconTextLayout.draw(painter, QPoint(option.rect.x() + (option.rect.width() / 2)
+                                            - (maxWidth / 2), option.rect.y() + hp + 7));
     }
 
     painter->setPen(pen);
@@ -127,7 +155,8 @@ void KPageListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem 
     drawFocus(painter, option, option.rect);
 }
 
-QSize KPageListViewDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+QSize KexiListViewDelegate::sizeHint(const QStyleOptionViewItem &option,
+                                     const QModelIndex &index) const
 {
     if (!index.isValid()) {
         return QSize(0, 0);
@@ -143,7 +172,7 @@ QSize KPageListViewDelegate::sizeHint(const QStyleOptionViewItem &option, const 
     const QPixmap pixmap = icon.pixmap(iconSize, iconSize);
 
     QFontMetrics fm = option.fontMetrics;
-    int gap = fm.height();
+    int gap = 0; //fm.height();
     int wp = pixmap.width() / pixmap.devicePixelRatio();
     int hp = pixmap.height() / pixmap.devicePixelRatio();
 
@@ -171,7 +200,8 @@ QSize KPageListViewDelegate::sizeHint(const QStyleOptionViewItem &option, const 
     return QSize(width, height);
 }
 
-void KPageListViewDelegate::drawFocus(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+void KexiListViewDelegate::drawFocus(QPainter *painter, const QStyleOptionViewItem &option,
+                                     const QRect &rect) const
 {
     if (option.state & QStyle::State_HasFocus) {
         QStyleOptionFocusRect o;
@@ -186,123 +216,20 @@ void KPageListViewDelegate::drawFocus(QPainter *painter, const QStyleOptionViewI
     }
 }
 
-/**
- * KPageListViewProxy
- */
+// ----
 
-KPageListViewProxy::KPageListViewProxy(QObject *parent)
-    : QAbstractProxyModel(parent)
-{
-}
-
-KPageListViewProxy::~KPageListViewProxy()
-{
-}
-
-int KPageListViewProxy::rowCount(const QModelIndex &) const
-{
-    return mList.count();
-}
-
-int KPageListViewProxy::columnCount(const QModelIndex &) const
-{
-    return 1;
-}
-
-QModelIndex KPageListViewProxy::index(int row, int column, const QModelIndex &) const
-{
-    if (column > 1 || row >= mList.count()) {
-        return QModelIndex();
-    } else {
-        return createIndex(row, column, mList[ row ].internalPointer());
-    }
-}
-
-QModelIndex KPageListViewProxy::parent(const QModelIndex &) const
-{
-    return QModelIndex();
-}
-
-QVariant KPageListViewProxy::data(const QModelIndex &index, int role) const
-{
-    if (!index.isValid()) {
-        return QVariant();
-    }
-
-    if (index.row() >= mList.count()) {
-        return QVariant();
-    }
-
-    return sourceModel()->data(mList[ index.row() ], role);
-}
-
-QModelIndex KPageListViewProxy::mapFromSource(const QModelIndex &index) const
-{
-    if (!index.isValid()) {
-        return QModelIndex();
-    }
-
-    for (int i = 0; i < mList.count(); ++i) {
-        if (mList[ i ] == index) {
-            return createIndex(i, 0, index.internalPointer());
-        }
-    }
-
-    return QModelIndex();
-}
-
-QModelIndex KPageListViewProxy::mapToSource(const QModelIndex &index) const
-{
-    if (!index.isValid()) {
-        return QModelIndex();
-    }
-
-    return mList[ index.row() ];
-}
-
-void KPageListViewProxy::rebuildMap()
-{
-    mList.clear();
-
-    const QAbstractItemModel *model = sourceModel();
-    if (!model) {
-        return;
-    }
-
-    for (int i = 0; i < model->rowCount(); ++i) {
-        addMapEntry(model->index(i, 0));
-    }
-
-    for (int i = 0; i < mList.count(); ++i) {
-        qDebug("%d:0 -> %d:%d", i, mList[ i ].row(), mList[ i ].column());
-    }
-
-    emit layoutChanged();
-}
-
-void KPageListViewProxy::addMapEntry(const QModelIndex &index)
-{
-    if (sourceModel()->rowCount(index) == 0) {
-        mList.append(index);
-    } else {
-        const int count = sourceModel()->rowCount(index);
-        for (int i = 0; i < count; ++i) {
-            addMapEntry(sourceModel()->index(i, 0, index));
-        }
-    }
-}
-
-SelectionModel::SelectionModel(QAbstractItemModel *model, QObject *parent)
+KexiListViewSelectionModel::KexiListViewSelectionModel(QAbstractItemModel *model, QObject *parent)
     : QItemSelectionModel(model, parent)
 {
 }
 
-void SelectionModel::clear()
+void KexiListViewSelectionModel::clear()
 {
     // Don't allow the current selection to be cleared
 }
 
-void SelectionModel::select(const QModelIndex &index, QItemSelectionModel::SelectionFlags command)
+void KexiListViewSelectionModel::select(const QModelIndex &index,
+                                        QItemSelectionModel::SelectionFlags command)
 {
     // Don't allow the current selection to be cleared
     if (!index.isValid() && (command & QItemSelectionModel::Clear)) {
@@ -311,7 +238,8 @@ void SelectionModel::select(const QModelIndex &index, QItemSelectionModel::Selec
     QItemSelectionModel::select(index, command);
 }
 
-void SelectionModel::select(const QItemSelection &selection, QItemSelectionModel::SelectionFlags command)
+void KexiListViewSelectionModel::select(const QItemSelection &selection,
+                                        QItemSelectionModel::SelectionFlags command)
 {
     // Don't allow the current selection to be cleared
     if (!selection.count() && (command & QItemSelectionModel::Clear)) {
@@ -319,4 +247,3 @@ void SelectionModel::select(const QItemSelection &selection, QItemSelectionModel
     }
     QItemSelectionModel::select(selection, command);
 }
-
