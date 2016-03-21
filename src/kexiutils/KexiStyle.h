@@ -24,20 +24,34 @@
 
 class QFont;
 class QFrame;
+class QModelIndex;
+class QPainter;
 class QPalette;
+class QRect;
+class QStyleOptionViewItem;
 class QWidget;
 
 //! Application style.
 //! @todo make it configurable?
 namespace KexiStyle
 {
-    //! Setup style for @a frame. By flat style is set (QFrame::NoFrame).
+    //! Setup style for @a frame. By default flat style is set (QFrame::NoFrame).
     KEXIUTILS_EXPORT void setupFrame(QFrame *frame);
 
     //! Setup style for the global mode selector widget (KexiModeSelector).
     //! By default setupFrame() is called to set flat style, minimal fonts are set
     //! and alternativePalette().
     KEXIUTILS_EXPORT void setupModeSelector(QFrame *selector);
+
+    //! Overpaints entire mode selector. By default it paints a dark shadow an arrow
+    //! for selected item. If @a selectedRect is not null, provides geometry of selected item.
+    KEXIUTILS_EXPORT void overpaintModeSelector(QWidget *widget, QPainter *painter,
+                                                const QRect &selectedRect);
+
+    //! Overpaints mode selector's item. By default does nothing.
+    KEXIUTILS_EXPORT void overpaintModeSelectorItem(QPainter *painter,
+                                                    const QStyleOptionViewItem &option,
+                                                    const QModelIndex &index);
 
     //! @return alternative palette based on @a palette.
     //! By default it is dark one based on Breeze colors.

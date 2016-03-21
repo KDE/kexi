@@ -32,12 +32,19 @@ const int KEXILISTVIEW_VERTICAL_MARGIN = 10;
 const int KEXILISTVIEW_HORIZONTAL_MARGIN = 12;
 
 KexiListView::KexiListView(QWidget *parent)
-    : QListView(parent)
+    : KexiListView(UseDefaultDelegate, parent)
+{
+}
+
+KexiListView::KexiListView(UseDelegate useDelegate, QWidget *parent)
+ : QListView(parent)
 {
     setViewMode(QListView::ListMode);
     setMovement(QListView::Static);
     setVerticalScrollMode(QListView::ScrollPerPixel);
-    setItemDelegate(new KexiListViewDelegate(this));
+    if (useDelegate == UseDefaultDelegate) {
+        setItemDelegate(new KexiListViewDelegate(this));
+    }
 }
 
 KexiListView::~KexiListView()

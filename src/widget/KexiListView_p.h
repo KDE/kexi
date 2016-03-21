@@ -27,22 +27,6 @@
 #include <QAbstractItemDelegate>
 #include <QItemSelectionModel>
 
-class KexiListViewDelegate : public QAbstractItemDelegate
-{
-    Q_OBJECT
-
-public:
-    explicit KexiListViewDelegate(QObject *parent = 0);
-
-    void paint(QPainter *painter, const QStyleOptionViewItem &option,
-               const QModelIndex &index) const Q_DECL_OVERRIDE;
-    QSize sizeHint(const QStyleOptionViewItem &option,
-                   const QModelIndex &index) const Q_DECL_OVERRIDE;
-
-private:
-    void drawFocus(QPainter *, const QStyleOptionViewItem &, const QRect &) const;
-};
-
 class KexiListViewSelectionModel : public QItemSelectionModel
 {
     Q_OBJECT

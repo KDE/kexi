@@ -24,6 +24,7 @@
 #include <KLocalizedString>
 
 #include <QApplication>
+#include <QPainter>
 
 KexiModeSelectorModel::KexiModeSelectorModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -51,8 +52,22 @@ QVariant KexiModeSelectorModel::data(const QModelIndex &index, int role) const
 
 // ----
 
+KexiModeSelectorDelegate::KexiModeSelectorDelegate(QObject *parent)
+ : KexiListViewDelegate(parent)
+{
+}
+
+void KexiModeSelectorDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
+                                     const QModelIndex &index) const
+{
+    KexiListViewDelegate::paint(painter, option, index);
+    KexiStyle::overpaintModeSelectorItem(painter, option, index);
+}
+
+// ----
+
 KexiModeSelector::KexiModeSelector(QWidget *parent)
- : KexiListView(parent)
+ : KexiListView(DontUseDelegate, parent)
 {
     KexiStyle::setupModeSelector(this);
     setSpacing(0);
@@ -65,6 +80,8 @@ KexiModeSelector::KexiModeSelector(QWidget *parent)
     setUniformItemSizes(true);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+
+    setItemDelegate(new KexiModeSelectorDelegate(this));
 
     KexiMode welcomeMode;
     welcomeMode.name = xi18n("Welcome");
@@ -79,4 +96,16 @@ KexiModeSelector::KexiModeSelector(QWidget *parent)
 
 KexiModeSelector::~KexiModeSelector()
 {
+}
+
+void KexiModeSelector::paintEvent(QPaintEvent *event)
+{
+    KexiListView::paintEvent(event);
+
+    QRect selectedRect;
+    if (!selectedIndexes().isEmpty()) {
+        selectedRect = visualRect(selectedIndexes().first());
+    }
+    QPainter painter(viewport());
+    KexiStyle::overpaintModeSelector(this, &painter, selectedRect);
 }

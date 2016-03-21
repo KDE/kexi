@@ -22,6 +22,9 @@
 
 #include <widget/KexiListView.h>
 
+class QPainter;
+
+//! @internal A single global mode
 class KexiMode
 {
 public:
@@ -29,6 +32,7 @@ public:
     QIcon icon;
 };
 
+//! @internal A model for KexiModeSelector, each item has name and icon
 class KexiModeSelectorModel : public QAbstractListModel
 {
     Q_OBJECT
@@ -43,6 +47,18 @@ public:
     QList<KexiMode> modes;
 };
 
+//! @internal A delegate for items of KexiModeSelector
+class KexiModeSelectorDelegate : public KexiListViewDelegate
+{
+    Q_OBJECT
+
+public:
+    explicit KexiModeSelectorDelegate(QObject *parent = 0);
+
+    void paint(QPainter *painter, const QStyleOptionViewItem &option,
+               const QModelIndex &index) const Q_DECL_OVERRIDE;
+};
+
 //! @internal Global mode selector
 class KexiModeSelector : public KexiListView
 {
@@ -51,6 +67,9 @@ public:
     virtual ~KexiModeSelector();
 
     KexiModeSelectorModel model;
+
+protected:
+    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 };
 
 #endif // KEXIMODESELECTOR_H
