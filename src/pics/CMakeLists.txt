@@ -1,24 +1,45 @@
-set(icons_qrc "${CMAKE_CURRENT_SOURCE_DIR}/kexi_breeze.qrc")
-set(icons_rcc "${CMAKE_CURRENT_BINARY_DIR}/kexi_breeze.rcc")
+set(_RESOURCE_DIR ${CMAKE_CURRENT_BINARY_DIR}/resource)
+set(_QRC_FILE "kexi_breeze.qrc")
+set(_RCC_FILE "kexi_breeze.rcc")
+include(kexi_breeze_files.cmake)
 
-add_custom_target(build_icons_qrc)
-
-add_custom_command(TARGET build_icons_qrc
-    COMMAND ${CMAKE_COMMAND} -E remove ${icons_qrc}
-    COMMAND "${Qt5Core_RCC_EXECUTABLE}" --project -o "${icons_qrc}"
+add_custom_target(copy_icons
+    COMMAND ${CMAKE_COMMAND} -E remove_directory ${_RESOURCE_DIR}
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${_RESOURCE_DIR}
+    COMMAND ${CMAKE_COMMAND} -E copy_directory . ${_RESOURCE_DIR}
+    DEPENDS "${_FILES}"
     WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
-    COMMENT "Building Qt resource collection file ${icons_qrc}"
-    VERBATIM)
+    COMMENT "Copying icon files to ${_RESOURCE_DIR}"
+    VERBATIM
+)
 
-add_custom_command(OUTPUT "${icons_rcc}"
-    COMMAND "${Qt5Core_RCC_EXECUTABLE}" --binary --output "${icons_rcc}" "${icons_qrc}"
-    DEPENDS "${icons_qrc}"
-    WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
-    COMMENT "Building external Qt resource ${icons_rcc}"
-    VERBATIM)
+add_custom_target(colorize_icons
+    COMMAND ${CMAKE_COMMAND} -P colorize.cmake
+    DEPENDS "${_FILES}"
+    WORKING_DIRECTORY "${_RESOURCE_DIR}"
+    COMMENT "Colorizing icons in ${_RESOURCE_DIR}"
+    VERBATIM
+)
+add_dependencies(colorize_icons copy_icons)
 
-add_custom_target(build_icons_rcc DEPENDS "${icons_rcc}" SOURCES "${icons_qrc}")
-add_dependencies(kexi build_icons_rcc)
+add_custom_target(build_qrc
+    COMMAND ${Qt5Core_RCC_EXECUTABLE} --project -o "${_QRC_FILE}"
+    DEPENDS "${_FILES}"
+    WORKING_DIRECTORY "${_RESOURCE_DIR}"
+    COMMENT "Building Qt resource file ${_RESOURCE_DIR}/${_QRC_FILE}"
+    VERBATIM
+)
+add_dependencies(build_qrc colorize_icons)
 
-install(FILES ${icons_rcc}
+add_custom_target(build_rcc
+    COMMAND ${Qt5Core_RCC_EXECUTABLE} --binary --output "${_RCC_FILE}" "${_QRC_FILE}"
+    DEPENDS "${_RESOURCE_DIR}/${_QRC_FILE}" "${_FILES}"
+    WORKING_DIRECTORY "${_RESOURCE_DIR}"
+    COMMENT "Building external Qt resource ${_RESOURCE_DIR}/${_RCC_FILE}"
+    VERBATIM
+)
+add_dependencies(build_rcc build_qrc)
+add_dependencies(kexi build_rcc)
+
+install(FILES ${_RESOURCE_DIR}/${_RCC_FILE}
         DESTINATION "${ICONS_INSTALL_DIR}")
