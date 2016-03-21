@@ -34,6 +34,11 @@ namespace KexiStyle
     //! Setup style for @a frame. By flat style is set (QFrame::NoFrame).
     KEXIUTILS_EXPORT void setupFrame(QFrame *frame);
 
+    //! Setup style for the global mode selector widget (KexiModeSelector).
+    //! By default setupFrame() is called to set flat style, minimal fonts are set
+    //! and alternativePalette().
+    KEXIUTILS_EXPORT void setupModeSelector(QFrame *selector);
+
     //! @return alternative palette based on @a palette.
     //! By default it is dark one based on Breeze colors.
     KEXIUTILS_EXPORT QPalette alternativePalette(const QPalette &palette);

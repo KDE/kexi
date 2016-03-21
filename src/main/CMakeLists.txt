@@ -15,6 +15,7 @@ set(keximain_LIB_SRCS
     KexiSearchLineEdit.cpp
     KexiUserFeedbackAgent.cpp
     KexiBugReportDialog.cpp
+    KexiModeSelector.cpp
 
     startup/KexiNewProjectAssistant.cpp
     startup/KexiOpenProjectAssistant.cpp

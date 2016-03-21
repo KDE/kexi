@@ -28,6 +28,13 @@ KEXIUTILS_EXPORT void setupFrame(QFrame *frame)
     frame->setFrameStyle(QFrame::NoFrame);
 }
 
+KEXIUTILS_EXPORT void setupModeSelector(QFrame *selector)
+{
+    KexiStyle::setupFrame(selector);
+    selector->setFont(KexiUtils::smallestReadableFont());
+    selector->setPalette(KexiStyle::alternativePalette(selector->palette()));
+}
+
 KEXIUTILS_EXPORT QPalette alternativePalette(const QPalette &palette)
 {
     QPalette p(palette);

@@ -1820,6 +1820,8 @@ void KexiMainWindow::setupMainWidget()
     mainWidgetContainerLyr->setContentsMargins(0, 0, 0, 0);
     mainWidgetContainerLyr->setSpacing(0);
 
+    d->modeSelector = new KexiModeSelector;
+    mainWidgetContainerLyr->addWidget(d->modeSelector);
 
     KMultiTabBar *mtbar = new KMultiTabBar(KMultiTabBar::Left);
     mtbar->setStyle(KMultiTabBar::VSNET);
