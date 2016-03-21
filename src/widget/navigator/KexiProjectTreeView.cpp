@@ -31,6 +31,7 @@ KexiProjectTreeView::KexiProjectTreeView(QWidget *parent)
     setEditTriggers(QAbstractItemView::EditKeyPressed);
     header()->hide();
     setAllColumnsShowFocus(true);
+    setExpandsOnDoubleClick(false);
 }
 
 KexiProjectTreeView::~KexiProjectTreeView()
