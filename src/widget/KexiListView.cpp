@@ -120,7 +120,8 @@ void KexiListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
     int iconSize = style->pixelMetric(QStyle::PM_IconViewIconSize);
     const QString text = index.model()->data(index, Qt::DisplayRole).toString();
     const QIcon icon = index.model()->data(index, Qt::DecorationRole).value<QIcon>();
-    const QPixmap pixmap = icon.pixmap(iconSize, iconSize);
+    const QPixmap pixmap = icon.pixmap(iconSize, iconSize,
+        (option.state & QStyle::State_Selected) ? QIcon::Selected : QIcon::Normal);
 
     QFontMetrics fm = painter->fontMetrics();
     int wp = pixmap.width() / pixmap.devicePixelRatio();
