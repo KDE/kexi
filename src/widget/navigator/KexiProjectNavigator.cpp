@@ -312,6 +312,7 @@ void KexiProjectNavigator::contextMenuEvent(QContextMenuEvent* event)
         pm->exec(event->globalPos());
     }
     event->setAccepted(true);
+    d->list->selectionModel()->clear();
 }
 
 void KexiProjectNavigator::slotExecuteItem(const QModelIndex& vitem)
@@ -332,6 +333,8 @@ void KexiProjectNavigator::slotExecuteItem(const QModelIndex& vitem)
         emit executeItem(it->partItem());
     else
         emit openOrActivateItem(it->partItem(), Kexi::DataViewMode);
+
+    d->list->selectionModel()->clear();
 }
 
 void KexiProjectNavigator::slotSelectionChanged(const QModelIndex& i)
@@ -543,8 +546,10 @@ void KexiProjectNavigator::slotExecuteObject()
     if (!d->executeAction)
         return;
     KexiPart::Item* item = selectedPartItem();
-    if (item)
+    if (item) {
         emit executeItem(item);
+        d->list->selectionModel()->clear();
+    }
 }
 
 void KexiProjectNavigator::slotExportToClipboardAsDataTable()
