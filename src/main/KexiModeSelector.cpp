@@ -19,7 +19,6 @@
 
 #include "KexiModeSelector.h"
 #include <kexiutils/KexiStyle.h>
-#include <kexiutils/KexiIcon.h>
 
 #include <KLocalizedString>
 
@@ -83,15 +82,51 @@ KexiModeSelector::KexiModeSelector(QWidget *parent)
 
     setItemDelegate(new KexiModeSelectorDelegate(this));
 
-    KexiMode welcomeMode;
-    welcomeMode.name = xi18n("Welcome");
-    welcomeMode.icon = qApp->windowIcon();
-    model.modes << welcomeMode;
-    KexiMode projectMode;
-    projectMode.name = xi18nc("Project mode", "Project");
-    projectMode.icon = koIcon("project-development");
-    model.modes << projectMode;
-    setModel(&model);
+    KexiStyledIconParameters param;
+    param.color = palette().color(QPalette::Text);
+    param.selectedColor = palette().color(QPalette::HighlightedText);
+    {
+        KexiMode welcomeMode;
+        welcomeMode.name = xi18nc("Welcome mode", "Welcome");
+        param.context = KIconLoader::Action;
+        param.name = "mode-selector-welcome";
+        welcomeMode.icon = KexiStyle::icon(param);
+        m_model.modes << welcomeMode;
+    }
+    {
+        KexiMode projectMode;
+        projectMode.name = xi18nc("Project mode", "Project");
+        param.context = KIconLoader::Action;
+        param.name = "mode-selector-project";
+        projectMode.icon = KexiStyle::icon(param);
+        m_model.modes << projectMode;
+    }
+    {
+        KexiMode dataMode;
+        dataMode.name = xi18nc("Data mode", "Data");
+        param.context = KIconLoader::Action;
+        param.name = "mode-selector-data";
+        dataMode.icon = KexiStyle::icon(param);
+        m_model.modes << dataMode;
+    }
+    {
+        KexiMode designMode;
+        designMode.name = xi18nc("Design mode", "Design");
+        param.context = KIconLoader::Action;
+        param.name = "mode-selector-design";
+        designMode.icon = KexiStyle::icon(param);
+        m_model.modes << designMode;
+    }
+    {
+        KexiMode helpMode;
+        helpMode.name = xi18nc("Help mode", "Help");
+        param.context = KIconLoader::Action;
+        param.name = "mode-selector-help";
+        helpMode.icon = KexiStyle::icon(param);
+        m_model.modes << helpMode;
+    }
+    setModel(&m_model);
+    selectionModel()->select(model()->index(0, 0), QItemSelectionModel::Select);
 }
 
 KexiModeSelector::~KexiModeSelector()

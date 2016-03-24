@@ -121,6 +121,11 @@ icons/breeze/actions/32/groupbox.svg
 icons/breeze/actions/32/imagebox.svg
 icons/breeze/actions/32/line-horizontal.svg
 icons/breeze/actions/32/line-vertical.svg
+icons/breeze/actions/32/mode-selector-data.svg
+icons/breeze/actions/32/mode-selector-design.svg
+icons/breeze/actions/32/mode-selector-help.svg
+icons/breeze/actions/32/mode-selector-project.svg
+icons/breeze/actions/32/mode-selector-welcome.svg
 icons/breeze/actions/32/network-server-database.svg
 icons/breeze/actions/32/tabwidget-page.svg
 icons/breeze/actions/32/tabwidget.svg

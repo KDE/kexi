@@ -66,10 +66,10 @@ public:
     explicit KexiModeSelector(QWidget *parent = 0);
     virtual ~KexiModeSelector();
 
-    KexiModeSelectorModel model;
-
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+
+    KexiModeSelectorModel m_model;
 };
 
 #endif // KEXIMODESELECTOR_H
