@@ -101,6 +101,7 @@ icons/breeze/actions/32/sql-view.png
 icons/breeze/actions/32/table.svg
 icons/breeze/actions/32/validate.svg
 icons/breeze/apps/16/kexi.svg
+icons/breeze/apps/32/kexi.svg
 icons/breeze/apps/48/kexi.svg
 kexi-autonumber.png
 kexi-tableview-pen.png
