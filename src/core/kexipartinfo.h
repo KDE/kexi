@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -27,6 +27,7 @@
 #include "KexiPluginMetaData.h"
 
 class QAction;
+class QIcon;
 class KexiProject;
 class KexiWindow;
 
@@ -56,6 +57,17 @@ public:
      * Defined by a X-Kexi-GroupName[language] field in "kexi_*.desktop" information files.
      */
     QString groupName() const;
+
+    /**
+     * @return the icon for this plugin
+     * Use this method instead of iconName() to get proper support for both light and dark backgrounds.
+     */
+    QIcon icon() const;
+
+    /**
+     * @return the icon for this plugin ofr dark backgrounds
+     */
+    QIcon darkIcon() const;
 
     /**
      * @return an untranslated group name e.g. "Tables" or "Queries".

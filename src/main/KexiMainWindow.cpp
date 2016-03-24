@@ -3252,7 +3252,7 @@ KexiMainWindow::openObject(KexiPart::Item* item, Kexi::ViewMode viewMode, bool *
         d->setWindowContainerExistsFor(item->identifier(), true);
         const int tabIndex = d->mainWidget->tabWidget()->addTab(
             windowContainer,
-            QIcon::fromTheme(part ? part->info()->iconName() : QString()),
+            part ? part->info()->icon() : koIcon("object"),
             KexiWindow::windowTitleForItem(*item));
         d->mainWidget->tabWidget()->setTabToolTip(tabIndex, KexiPart::fullCaptionForItem(item, part));
         QString whatsThisText;

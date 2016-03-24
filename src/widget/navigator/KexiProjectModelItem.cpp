@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2002-2003 Lucijan Busch <lucijan@gmx.at>
-   Copyright (C) 2003-2004 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2010 Adam Pigg <adam@piggz.co.uk>
 
    This library is free software; you can redistribute it and/or
@@ -44,7 +44,6 @@ public:
     /* private: */
     QList<KexiProjectModelItem*> childItems;
     KexiProjectModelItem *parentItem;
-    QIcon icon;
     bool dirty;
     /* protected: */
     KexiPart::Info *info;
@@ -69,7 +68,6 @@ KexiProjectModelItem::KexiProjectModelItem(KexiPart::Info *i, KexiPart::Item *it
 {
     Q_ASSERT(i);
     Q_ASSERT(item);
-    d->icon = QIcon::fromTheme(i->iconName());
 }
 
 KexiProjectModelItem::~KexiProjectModelItem()
@@ -165,7 +163,7 @@ int KexiProjectModelItem::row()
 
 QIcon KexiProjectModelItem::icon() const
 {
-    return d->icon;
+    return d->item ? d->info->darkIcon() : QIcon();
 }
 
 Qt::ItemFlags KexiProjectModelItem::flags() const

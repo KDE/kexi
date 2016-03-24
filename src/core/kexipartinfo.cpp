@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -21,6 +21,8 @@
 #include "kexipartinfo_p.h"
 #include "kexipartmanager.h"
 #include "KexiMainWindowIface.h"
+#include <kexiutils/KexiStyle.h>
+#include <KexiIcon.h>
 
 #include <KDbGlobal>
 
@@ -100,7 +102,7 @@ static QString nameForCreateAction(const Info& info)
 //------------------------------
 
 KexiNewObjectAction::KexiNewObjectAction(Info* info, QObject *parent)
-    : QAction(QIcon::fromTheme(info->iconName()), info->name() + "...", parent)
+    : QAction(info->icon(), info->name() + "...", parent)
     , m_info(info)
 {
     setObjectName(nameForCreateAction(*m_info));
@@ -149,6 +151,19 @@ QString Info::typeName() const
 QString Info::groupName() const
 {
     return d->groupName;
+}
+
+QIcon Info::icon() const
+{
+    return QIcon::fromTheme(iconName());
+}
+
+QIcon Info::darkIcon() const
+{
+    if (d->icon.isNull()) {
+        d->icon = KexiStyle::darkIcon(iconName());
+    }
+    return d->icon;
 }
 
 QString Info::untranslatedGroupName() const
