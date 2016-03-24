@@ -28,6 +28,9 @@
 #include <QPainter>
 #include <QTextLayout>
 
+const int KEXILISTVIEW_VERTICAL_MARGIN = 10;
+const int KEXILISTVIEW_HORIZONTAL_MARGIN = 12;
+
 KexiListView::KexiListView(QWidget *parent)
     : QListView(parent)
 {
@@ -74,7 +77,7 @@ void KexiListView::updateWidth()
         width = qMax(width, sizeHintForIndex(model()->index(i, 0)).width());
     }
 
-    setFixedWidth(width + 25);
+    setFixedWidth(width + KEXILISTVIEW_HORIZONTAL_MARGIN * 2);
 }
 
 // ----
@@ -144,10 +147,12 @@ void KexiListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
     }
 
     painter->drawPixmap(option.rect.x() + (option.rect.width() / 2)
-                        - (wp / 2), option.rect.y() + 5, pixmap);
+                        - (wp / 2), option.rect.y() + KEXILISTVIEW_VERTICAL_MARGIN,
+                        pixmap);
     if (!text.isEmpty()) {
-        iconTextLayout.draw(painter, QPoint(option.rect.x() + (option.rect.width() / 2)
-                                            - (maxWidth / 2), option.rect.y() + hp + 7));
+        iconTextLayout.draw(painter,
+            QPoint(option.rect.x() + (option.rect.width() / 2)
+                   - (maxWidth / 2), option.rect.y() + hp + KEXILISTVIEW_VERTICAL_MARGIN + 2));
     }
 
     painter->setPen(pen);
@@ -192,7 +197,7 @@ QSize KexiListViewDelegate::sizeHint(const QStyleOptionViewItem &option,
     if (text.isEmpty()) {
         height = hp;
     } else {
-        height = hp + ht + 10;
+        height = hp + ht + 2 * KEXILISTVIEW_VERTICAL_MARGIN;
     }
 
     width = qMax(wt, wp) + gap;
