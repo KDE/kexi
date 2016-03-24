@@ -94,7 +94,7 @@ macro_log_feature(${KF5Crash_FOUND} "KCrash" "KDE's Crash Handler"
                   "Optionally used to provide crash reporting on Linux")
 
 set(REQUIRED_QT_VERSION 5.4.0)
-find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Xml Network PrintSupport Test)
+find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Xml Network PrintSupport Svg Test)
 find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS UiTools WebKit WebKitWidgets)
 
 # use sane compile flags

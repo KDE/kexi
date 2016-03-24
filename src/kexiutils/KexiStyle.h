@@ -22,14 +22,37 @@
 
 #include <kexiutils_export.h>
 
+#include <KIconLoader>
+
+#include <QColor>
+
 class QFont;
 class QFrame;
+class QIcon;
 class QModelIndex;
 class QPainter;
 class QPalette;
 class QRect;
 class QStyleOptionViewItem;
 class QWidget;
+
+//! Styled icon parameters
+class KEXIUTILS_EXPORT KexiStyledIconParameters {
+public:
+    explicit KexiStyledIconParameters(KIconLoader::Context c = KIconLoader::Action) : context(c)
+    {
+    }
+    //! Icon name
+    QString name;
+    //! Icon color, when used for normal mode (QIcon::Normal).
+    //! If the value is valid, default color will be replaced with it.
+    QColor color;
+    //! Icon color, when used for selected mode (QIcon::Selected).
+    //! If the value is valid, default color will be replaced with it.
+    QColor selectedColor;
+    //! Icon context such as "actions"
+    KIconLoader::Context context;
+};
 
 //! Application style.
 //! @todo make it configurable?
@@ -40,7 +63,7 @@ namespace KexiStyle
 
     //! Setup style for the global mode selector widget (KexiModeSelector).
     //! By default setupFrame() is called to set flat style, minimal fonts are set
-    //! and alternativePalette().
+    //! and a bit darker version of alternativePalette().
     KEXIUTILS_EXPORT void setupModeSelector(QFrame *selector);
 
     //! Overpaints entire mode selector. By default it paints a dark shadow an arrow
@@ -68,6 +91,15 @@ namespace KexiStyle
     //! @return font @a font adjusted to make it a title font.
     //! By default capitalization is set for the font.
     KEXIUTILS_EXPORT QFont titleFont(const QFont &font);
+
+    //! @return styled dark icon @a iconName of context @a iconContext. Group can be "actions", etc.
+    //! The same styled icon can be used with light and dark background. Filename for dark
+    //! variants should have "@dark" suffix.
+    //! KIconLoader::Any means KIconLoader::Action.
+    KEXIUTILS_EXPORT QIcon darkIcon(const QString &iconName,
+                                    KIconLoader::Context iconContext = KIconLoader::Action);
+
+    KEXIUTILS_EXPORT QIcon icon(const KexiStyledIconParameters &parameters);
 }
 
 #endif // KEXISTYLE_H

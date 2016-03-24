@@ -65,6 +65,9 @@ target_link_libraries(kexiutils
         KF5::I18n
         KF5::ItemViews # KCategorizedView KCategoryDrawer
         KDb
+
+    PRIVATE
+        Qt5::Svg
 )
 #target_link_libraries(kexiutils LINK_INTERFACE_LIBRARIES KF5::KIOWidgets)
 

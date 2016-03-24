@@ -19,10 +19,14 @@
 
 #include "KexiStyle.h"
 #include "utils.h"
+
 #include <QFrame>
 #include <QModelIndex>
 #include <QPainter>
 #include <QStyleOptionViewItem>
+#include <QIconEngine>
+#include <QFile>
+#include <QSvgRenderer>
 
 namespace KexiStyle {
 
@@ -37,7 +41,18 @@ KEXIUTILS_EXPORT void setupModeSelector(QFrame *selector)
 {
     KexiStyle::setupFrame(selector);
     selector->setFont(KexiUtils::smallestReadableFont());
-    selector->setPalette(KexiStyle::alternativePalette(selector->palette()));
+    QPalette p(selector->palette());
+    p.setColor(QPalette::Window, KexiUtils::shadeBlack());
+    p.setColor(QPalette::Base, KexiUtils::shadeBlack());
+    p.setColor(QPalette::Button, KexiUtils::shadeBlack());
+    p.setColor(QPalette::AlternateBase, KexiUtils::shadeBlackLighter());
+    p.setColor(QPalette::WindowText, KexiUtils::cardboardGrey());
+    p.setColor(QPalette::ButtonText, KexiUtils::cardboardGrey());
+    p.setColor(QPalette::Text, KexiUtils::cardboardGrey());
+    p.setColor(QPalette::Highlight, KexiUtils::cardboardGrey());
+    p.setColor(QPalette::Active, QPalette::Highlight, KexiUtils::plasmaBlue()); // unused anyway because mode selector has no focus
+    p.setColor(QPalette::HighlightedText, KexiUtils::charcoalGrey());
+    selector->setPalette(p);
 }
 
 KEXIUTILS_EXPORT void overpaintModeSelector(QWidget *widget, QPainter *painter,
@@ -95,6 +110,10 @@ KEXIUTILS_EXPORT QPalette alternativePalette(const QPalette &palette)
     p.setColor(QPalette::WindowText, KexiUtils::paperWhite());
     p.setColor(QPalette::ButtonText, KexiUtils::paperWhite());
     p.setColor(QPalette::Text, KexiUtils::paperWhite());
+    p.setColor(QPalette::Highlight, KexiUtils::cardboardGrey());
+    p.setColor(QPalette::Active, QPalette::Highlight, KexiUtils::plasmaBlue());
+    p.setColor(QPalette::HighlightedText, KexiUtils::charcoalGrey());
+    p.setColor(QPalette::Active, QPalette::HighlightedText, KexiUtils::cardboardGrey());
     return p;
 }
 
@@ -114,6 +133,102 @@ KEXIUTILS_EXPORT QFont titleFont(const QFont &font)
     QFont newFont(font);
     newFont.setCapitalization(QFont::AllUppercase);
     return newFont;
+}
+
+static const QString g_contexts[] = {
+    QLatin1String("actions"), // Any
+    QLatin1String("actions"),
+    QLatin1String("apps"),
+    QLatin1String("devices"),
+    QLatin1String("filesystems"),
+    QLatin1String("mimetypes"),
+    QLatin1String("animations"),
+    QLatin1String("categories"),
+    QLatin1String("emblems"),
+    QLatin1String("emotes"),
+    QLatin1String("intl"),
+    QLatin1String("places"),
+    QLatin1String("status")
+};
+
+KEXIUTILS_EXPORT QIcon darkIcon(const QString &iconName, KIconLoader::Context iconContext)
+{
+    Q_ASSERT(iconContext < (sizeof(g_contexts) / sizeof(g_contexts[0])));
+    static const QIcon::Mode modes[] = { QIcon::Normal }; //can be supported too: , QIcon::Selected };
+    const QString prefix(QLatin1String(":/icons/breeze/")
+                         + g_contexts[iconContext] + QLatin1Char('/'));
+    const QString suffixes[] = {
+        iconName + QLatin1String("@dark.svg"),
+        iconName + QLatin1String(".svg") };
+    static const QString sizesStr[] = {
+        QString::fromLatin1("32/"), // important: opposite direction
+        QString::fromLatin1("22/"),
+        QString::fromLatin1("16/") };
+    static const QSize sizes[] = { QSize(32, 32), QSize(22, 22), QSize(16, 16) }; // important: opposite direction
+    QIcon icon;
+    for (int mode = 0; mode < int(sizeof(modes) / sizeof(modes[0])); ++mode) {
+        for (int size = 0; size < int(sizeof(sizes) / sizeof(sizes[0])); ++size) {
+            //qDebug() << prefix + sizesStr[size] + suffixes[mode] << sizes[size] << modes[mode];
+            icon.addFile(prefix + sizesStr[size] + suffixes[mode], sizes[size], modes[mode], QIcon::Off);
+            icon.addFile(prefix + sizesStr[size] + suffixes[mode], sizes[size], modes[mode], QIcon::On);
+        }
+    }
+    return icon;
+}
+
+class IconEngine : public QIconEngine
+{
+public:
+    IconEngine(const KexiStyledIconParameters &parameters)
+     : m_parameters(parameters)
+    {
+    }
+    inline QIconEngine *clone() const Q_DECL_OVERRIDE {
+        return new IconEngine(*this);
+    }
+
+    //! @todo add caching?
+    QPixmap pixmap(const QSize &size, QIcon::Mode mode, QIcon::State state) Q_DECL_OVERRIDE {
+        Q_UNUSED(state)
+        QFile f(QLatin1String(":/icons/breeze/") + g_contexts[m_parameters.context] + QChar('/') + QString::number(size.width())
+                + QChar('/') + m_parameters.name + ".svg");
+        if (!f.open(QIODevice::ReadOnly)) {
+            return QPixmap();
+        }
+        QByteArray svg(f.readAll());
+        if (mode == QIcon::Selected && m_parameters.selectedColor.isValid()) {
+            svg.replace(KexiUtils::iconGrey().name().toLatin1(),
+                        m_parameters.selectedColor.name().toLatin1());
+        } else if (m_parameters.color.isValid()) {
+            svg.replace(KexiUtils::iconGrey().name().toLatin1(),
+                        m_parameters.color.name().toLatin1());
+        }
+        QSvgRenderer renderer(svg);
+        QPixmap pm(size);
+        pm.fill(Qt::transparent);
+        QPainter p(&pm);
+        renderer.render(&p, pm.rect());
+        return pm;
+    }
+
+    //! Nothing to paint extra here
+    void paint(QPainter *painter, const QRect &rect, QIcon::Mode mode, QIcon::State state) Q_DECL_OVERRIDE {
+        Q_UNUSED(painter)
+        Q_UNUSED(rect)
+        Q_UNUSED(mode)
+        Q_UNUSED(state)
+    }
+
+private:
+    //! Needed for clone()
+    IconEngine(const IconEngine &other) : m_parameters(other.m_parameters) {}
+
+    const KexiStyledIconParameters m_parameters;
+};
+
+KEXIUTILS_EXPORT QIcon icon(const KexiStyledIconParameters &parameters)
+{
+    return QIcon(new IconEngine(parameters));
 }
 
 }
