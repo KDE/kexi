@@ -50,11 +50,27 @@ class KToolBar;
 namespace Kexi {
 
 //! Describes a global mode for the application
+/*! The following describes availability of modes.
+ - Welcome mode: always ON
+ - Help mode: always ON
+ -# State: No project
+    - Project mode: OFF
+    - Edit mode:    OFF
+    - Design mode:  OFF
+ -# State: Project opened, no object opened
+    - Project mode: ON
+    - Edit mode:    ON
+    - Design mode:  OFF
+ -# State: Project opened, at least one object opened
+    - Project mode: ON
+    - Edit mode:    ON
+    - Design mode:  ON (if the current object can be designed)
+*/
 /*! @todo What about custom modes? */
 enum GlobalViewMode {
     WelcomeGlobalMode,
     ProjectGlobalMode,
-    DataGlobalMode,
+    EditGlobalMode,
     DesignGlobalMode,
     HelpGlobalMode,
     LastGlobalMode = HelpGlobalMode

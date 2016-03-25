@@ -126,7 +126,7 @@ KexiGlobalViewModeSelector::KexiGlobalViewModeSelector(QWidget *parent)
     param.disabledColor = palette().color(QPalette::Disabled, QPalette::Text);
     {
         KexiGlobalViewModeItem *welcomeMode = new KexiGlobalViewModeItem;
-        welcomeMode->name = xi18nc("Welcome mode", "Welcome");
+        welcomeMode->name = xi18nc("Welcome global view mode", "Welcome");
         param.context = KIconLoader::Action;
         param.name = "mode-selector-welcome";
         welcomeMode->icon = KexiStyle::icon(param);
@@ -135,7 +135,7 @@ KexiGlobalViewModeSelector::KexiGlobalViewModeSelector(QWidget *parent)
     {
         KexiGlobalViewModeItem *projectMode = new KexiGlobalViewModeItem;
         projectMode->enabled = false;
-        projectMode->name = xi18nc("Project mode", "Project");
+        projectMode->name = xi18nc("Project global view mode (noun)", "Project");
         param.context = KIconLoader::Action;
         param.name = "mode-selector-project";
         projectMode->icon = KexiStyle::icon(param);
@@ -143,15 +143,15 @@ KexiGlobalViewModeSelector::KexiGlobalViewModeSelector(QWidget *parent)
     }
     {
         KexiGlobalViewModeItem *dataMode = new KexiGlobalViewModeItem;
-        dataMode->name = xi18nc("Data mode", "Data");
+        dataMode->name = xi18nc("Edit global view mode (verb)", "Edit");
         param.context = KIconLoader::Action;
-        param.name = "mode-selector-data";
+        param.name = "mode-selector-edit";
         dataMode->icon = KexiStyle::icon(param);
         d->model.modes << dataMode;
     }
     {
         KexiGlobalViewModeItem *designMode = new KexiGlobalViewModeItem;
-        designMode->name = xi18nc("Design mode", "Design");
+        designMode->name = xi18nc("Design global view mode (verb)", "Design");
         param.context = KIconLoader::Action;
         param.name = "mode-selector-design";
         designMode->icon = KexiStyle::icon(param);
@@ -159,7 +159,7 @@ KexiGlobalViewModeSelector::KexiGlobalViewModeSelector(QWidget *parent)
     }
     {
         KexiGlobalViewModeItem *helpMode = new KexiGlobalViewModeItem;
-        helpMode->name = xi18nc("Help mode", "Help");
+        helpMode->name = xi18nc("Help global view mode (noun)", "Help");
         param.context = KIconLoader::Action;
         param.name = "mode-selector-help";
         helpMode->icon = KexiStyle::icon(param);
