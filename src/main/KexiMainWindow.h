@@ -97,6 +97,9 @@ public:
     /*! \return true if the application window is in the User Mode. */
     virtual bool userMode() const;
 
+    //! @return current global mode
+    Kexi::GlobalViewMode currentMode() const Q_DECL_OVERRIDE;
+
     /*! \return true if opening of item \a item in \a viewMode mode is allowed.
      userMode() is taken into account as well
      as KexiPart::PartInfo::supportedUserViewModes() for \a  item. */
@@ -416,6 +419,9 @@ protected:
     //! Activates design tab when switching to design view, according to \a pluginId.
     void activateDesignTab(const QString &pluginId);
 
+    //! Sets current global mode
+    void setCurrentMode(Kexi::GlobalViewMode mode) Q_DECL_OVERRIDE;
+
 protected Q_SLOTS:
     tristate createNewProject(const KexiProjectData &projectData);
 
@@ -608,6 +614,7 @@ protected Q_SLOTS:
     void slotProjectNavigatorVisibilityChanged(bool visible);
     void slotPropertyEditorVisibilityChanged(bool visible);
     void slotMultiTabBarTabClicked(int id);
+    void slotCurrentModeChanged();
 
 private:
     //! Adds action @a name with text @a text and optional shortcut @a shortcut.

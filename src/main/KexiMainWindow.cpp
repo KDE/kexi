@@ -1821,6 +1821,8 @@ void KexiMainWindow::setupMainWidget()
     mainWidgetContainerLyr->setSpacing(0);
 
     d->modeSelector = new KexiModeSelector;
+    connect(d->modeSelector, &KexiModeSelector::currentModeChanged,
+            this, &KexiMainWindow::slotCurrentModeChanged);
     mainWidgetContainerLyr->addWidget(d->modeSelector);
 
     KMultiTabBar *mtbar = new KMultiTabBar(KMultiTabBar::Left);
@@ -4389,4 +4391,19 @@ void KexiMainWindow::toggleFullScreen(bool isFullScreen)
         setWindowState((windowState() & ~Qt::WindowFullScreen));
         showMaximized();
     }
+}
+
+Kexi::GlobalViewMode KexiMainWindow::currentMode() const
+{
+    return d->modeSelector->currentMode();
+}
+
+void KexiMainWindow::setCurrentMode(Kexi::GlobalViewMode mode)
+{
+    d->modeSelector->setCurrentMode(mode);
+}
+
+void KexiMainWindow::slotCurrentModeChanged()
+{
+
 }

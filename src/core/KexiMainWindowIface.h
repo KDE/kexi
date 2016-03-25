@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -46,6 +46,20 @@ class Item;
 class Info;
 }
 class KToolBar;
+
+namespace Kexi {
+
+//! Describes a global mode for the application
+/*! @todo What about custom modes? */
+enum GlobalViewMode {
+    WelcomeGlobalMode,
+    ProjectGlobalMode,
+    DataGlobalMode,
+    DesignGlobalMode,
+    HelpGlobalMode,
+    LastGlobalMode = HelpGlobalMode
+};
+}
 
 /**
  * @short Kexi's main window interface
@@ -94,6 +108,9 @@ public:
     /*! Switches \a window to view \a mode.
      Activates the window if it is not the current window. */
     virtual tristate switchToViewMode(KexiWindow& window, Kexi::ViewMode viewMode) = 0;
+
+    //! @return current global mode
+    virtual Kexi::GlobalViewMode currentMode() const = 0;
 
     /*! \return true if this window is in the User Mode. */
     virtual bool userMode() const = 0;
@@ -282,6 +299,10 @@ public:
 
     //! Sets reasonable dialog size based on main window size, that is 80% of its size.
     virtual void setReasonableDialogSize(QDialog *dialog) = 0;
+
+protected:
+    //! Sets current global mode
+    virtual void setCurrentMode(Kexi::GlobalViewMode mode) = 0;
 
 protected: // Q_SLOTS:
     virtual void slotObjectRenamed(const KexiPart::Item &item, const QString& oldName) = 0;
