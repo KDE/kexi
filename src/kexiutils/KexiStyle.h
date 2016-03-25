@@ -50,6 +50,9 @@ public:
     //! Icon color, when used for selected mode (QIcon::Selected).
     //! If the value is valid, default color will be replaced with it.
     QColor selectedColor;
+    //! Icon color, when used for disabled palette group (QPalette::Disabled).
+    //! If the value is valid, default color will be replaced with it.
+    QColor disabledColor;
     //! Icon context such as "actions"
     KIconLoader::Context context;
 };

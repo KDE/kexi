@@ -196,12 +196,17 @@ public:
             return QPixmap();
         }
         QByteArray svg(f.readAll());
+        QColor color;
         if (mode == QIcon::Selected && m_parameters.selectedColor.isValid()) {
-            svg.replace(KexiUtils::iconGrey().name().toLatin1(),
-                        m_parameters.selectedColor.name().toLatin1());
+            color = m_parameters.selectedColor;
+        } else if (mode == QIcon::Disabled && m_parameters.disabledColor.isValid()) {
+            color = m_parameters.disabledColor;
+            qDebug() << m_parameters.disabledColor;
         } else if (m_parameters.color.isValid()) {
-            svg.replace(KexiUtils::iconGrey().name().toLatin1(),
-                        m_parameters.color.name().toLatin1());
+            color = m_parameters.color;
+        }
+        if (color.isValid()) {
+            svg.replace(KexiUtils::iconGrey().name().toLatin1(), color.name().toLatin1());
         }
         QSvgRenderer renderer(svg);
         QPixmap pm(size);
