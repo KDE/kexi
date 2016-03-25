@@ -43,6 +43,8 @@ public:
 
 private:
     void drawFocus(QPainter *, const QStyleOptionViewItem &, const QRect &) const;
+    void paint(QPainter *painter, const QStyle &style, QStyleOptionViewItem *option,
+               const QModelIndex &index) const;
 };
 
 class KEXIEXTWIDGETS_EXPORT KexiListView : public QListView

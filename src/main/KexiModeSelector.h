@@ -28,8 +28,10 @@ class QPainter;
 class KexiMode
 {
 public:
+    KexiMode() : enabled(true) {}
     QString name;
     QIcon icon;
+    bool enabled;
 };
 
 //! @internal A model for KexiModeSelector, each item has name and icon
@@ -40,11 +42,17 @@ class KexiModeSelectorModel : public QAbstractListModel
 public:
     explicit KexiModeSelectorModel(QObject *parent = 0);
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    ~KexiModeSelectorModel();
 
-    QVariant data(const QModelIndex &index, int role) const;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const  Q_DECL_OVERRIDE;
 
-    QList<KexiMode> modes;
+    QVariant data(const QModelIndex &index, int role) const  Q_DECL_OVERRIDE;
+
+    Qt::ItemFlags flags(const QModelIndex &index) const Q_DECL_OVERRIDE;
+
+    QModelIndex index(int row, int column, const QModelIndex& parent) const Q_DECL_OVERRIDE;
+
+    QList<KexiMode*> modes;
 };
 
 //! @internal A delegate for items of KexiModeSelector

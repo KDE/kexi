@@ -22,12 +22,18 @@
 
 #include <KLocalizedString>
 
+#include <QDebug>
 #include <QApplication>
 #include <QPainter>
 
 KexiModeSelectorModel::KexiModeSelectorModel(QObject *parent)
     : QAbstractListModel(parent)
 {
+}
+
+KexiModeSelectorModel::~KexiModeSelectorModel()
+{
+    qDeleteAll(modes);
 }
 
 int KexiModeSelectorModel::rowCount(const QModelIndex &parent) const
@@ -41,12 +47,34 @@ QVariant KexiModeSelectorModel::data(const QModelIndex &index, int role) const
     if (!index.isValid() || index.row() >= modes.size())
         return QVariant();
 
-    if (role == Qt::DisplayRole) {
-        return modes.at(index.row()).name;
-    } else if (role == Qt::DecorationRole) {
-        return modes.at(index.row()).icon;
+    KexiMode *mode = static_cast<KexiMode*>(index.internalPointer());
+    switch (role) {
+    case Qt::DisplayRole:
+        return mode->name;
+    case Qt::DecorationRole:
+        return mode->icon;
+    default:;
     }
     return QVariant();
+}
+
+Qt::ItemFlags KexiModeSelectorModel::flags(const QModelIndex &index) const
+{
+    Qt::ItemFlags flags = QAbstractListModel::flags(index);
+    KexiMode *mode = static_cast<KexiMode*>(index.internalPointer());
+    if (!mode->enabled) {
+        flags &= ~(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
+    }
+    return flags;
+}
+
+QModelIndex KexiModeSelectorModel::index(int row, int column, const QModelIndex& parent) const
+{
+    Q_UNUSED(parent);
+    if (row < 0 || row >= modes.count()) {
+        return QModelIndex();
+    }
+    return createIndex(row, column, modes.at(row));
 }
 
 // ----
@@ -85,44 +113,46 @@ KexiModeSelector::KexiModeSelector(QWidget *parent)
     KexiStyledIconParameters param;
     param.color = palette().color(QPalette::Text);
     param.selectedColor = palette().color(QPalette::HighlightedText);
+    param.disabledColor = palette().color(QPalette::Disabled, QPalette::Text);
     {
-        KexiMode welcomeMode;
-        welcomeMode.name = xi18nc("Welcome mode", "Welcome");
+        KexiMode *welcomeMode = new KexiMode;
+        welcomeMode->name = xi18nc("Welcome mode", "Welcome");
         param.context = KIconLoader::Action;
         param.name = "mode-selector-welcome";
-        welcomeMode.icon = KexiStyle::icon(param);
+        welcomeMode->icon = KexiStyle::icon(param);
         m_model.modes << welcomeMode;
     }
     {
-        KexiMode projectMode;
-        projectMode.name = xi18nc("Project mode", "Project");
+        KexiMode *projectMode = new KexiMode;
+        projectMode->enabled = false;
+        projectMode->name = xi18nc("Project mode", "Project");
         param.context = KIconLoader::Action;
         param.name = "mode-selector-project";
-        projectMode.icon = KexiStyle::icon(param);
+        projectMode->icon = KexiStyle::icon(param);
         m_model.modes << projectMode;
     }
     {
-        KexiMode dataMode;
-        dataMode.name = xi18nc("Data mode", "Data");
+        KexiMode *dataMode = new KexiMode;
+        dataMode->name = xi18nc("Data mode", "Data");
         param.context = KIconLoader::Action;
         param.name = "mode-selector-data";
-        dataMode.icon = KexiStyle::icon(param);
+        dataMode->icon = KexiStyle::icon(param);
         m_model.modes << dataMode;
     }
     {
-        KexiMode designMode;
-        designMode.name = xi18nc("Design mode", "Design");
+        KexiMode *designMode = new KexiMode;
+        designMode->name = xi18nc("Design mode", "Design");
         param.context = KIconLoader::Action;
         param.name = "mode-selector-design";
-        designMode.icon = KexiStyle::icon(param);
+        designMode->icon = KexiStyle::icon(param);
         m_model.modes << designMode;
     }
     {
-        KexiMode helpMode;
-        helpMode.name = xi18nc("Help mode", "Help");
+        KexiMode *helpMode = new KexiMode;
+        helpMode->name = xi18nc("Help mode", "Help");
         param.context = KIconLoader::Action;
         param.name = "mode-selector-help";
-        helpMode.icon = KexiStyle::icon(param);
+        helpMode->icon = KexiStyle::icon(param);
         m_model.modes << helpMode;
     }
     setModel(&m_model);

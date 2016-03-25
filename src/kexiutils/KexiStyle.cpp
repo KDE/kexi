@@ -49,6 +49,8 @@ KEXIUTILS_EXPORT void setupModeSelector(QFrame *selector)
     p.setColor(QPalette::WindowText, KexiUtils::cardboardGrey());
     p.setColor(QPalette::ButtonText, KexiUtils::cardboardGrey());
     p.setColor(QPalette::Text, KexiUtils::cardboardGrey());
+    p.setBrush(QPalette::Disabled, QPalette::Text, KexiUtils::iconGrey()); // yes, modes can be disabled
+               //generic?? KColorScheme(QPalette::Disabled, KColorScheme::View).foreground());
     p.setColor(QPalette::Highlight, KexiUtils::cardboardGrey());
     p.setColor(QPalette::Active, QPalette::Highlight, KexiUtils::plasmaBlue()); // unused anyway because mode selector has no focus
     p.setColor(QPalette::HighlightedText, KexiUtils::charcoalGrey());
