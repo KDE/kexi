@@ -37,7 +37,7 @@ KEXIUTILS_EXPORT void setupFrame(QFrame *frame)
     }
 }
 
-KEXIUTILS_EXPORT void setupModeSelector(QFrame *selector)
+KEXIUTILS_EXPORT void setupGlobalViewModeSelector(QFrame *selector)
 {
     KexiStyle::setupFrame(selector);
     selector->setFont(KexiUtils::smallestReadableFont());
@@ -57,7 +57,7 @@ KEXIUTILS_EXPORT void setupModeSelector(QFrame *selector)
     selector->setPalette(p);
 }
 
-KEXIUTILS_EXPORT void overpaintModeSelector(QWidget *widget, QPainter *painter,
+KEXIUTILS_EXPORT void overpaintGlobalViewModeSelector(QWidget *widget, QPainter *painter,
                                             const QRect &selectedRect)
 {
     // draw gradient

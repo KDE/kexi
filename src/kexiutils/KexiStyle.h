@@ -64,17 +64,17 @@ namespace KexiStyle
     //! Setup style for @a frame. By default flat style is set (QFrame::NoFrame).
     KEXIUTILS_EXPORT void setupFrame(QFrame *frame);
 
-    //! Setup style for the global mode selector widget (KexiModeSelector).
+    //! Setup style for the global view mode selector widget (KexiGlobalViewModeSelector).
     //! By default setupFrame() is called to set flat style, minimal fonts are set
     //! and a bit darker version of alternativePalette().
-    KEXIUTILS_EXPORT void setupModeSelector(QFrame *selector);
+    KEXIUTILS_EXPORT void setupGlobalViewModeSelector(QFrame *selector);
 
-    //! Overpaints entire mode selector. By default it paints a dark shadow an arrow
+    //! Overpaints entire global view mode selector. By default it paints a dark shadow an arrow
     //! for selected item. If @a selectedRect is not null, provides geometry of selected item.
-    KEXIUTILS_EXPORT void overpaintModeSelector(QWidget *widget, QPainter *painter,
-                                                const QRect &selectedRect);
+    KEXIUTILS_EXPORT void overpaintGlobalViewModeSelector(QWidget *widget, QPainter *painter,
+                                                          const QRect &selectedRect);
 
-    //! Overpaints mode selector's item. By default does nothing.
+    //! Overpaints global view mode selector's item. By default does nothing.
     KEXIUTILS_EXPORT void overpaintModeSelectorItem(QPainter *painter,
                                                     const QStyleOptionViewItem &option,
                                                     const QModelIndex &index);

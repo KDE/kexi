@@ -1820,8 +1820,8 @@ void KexiMainWindow::setupMainWidget()
     mainWidgetContainerLyr->setContentsMargins(0, 0, 0, 0);
     mainWidgetContainerLyr->setSpacing(0);
 
-    d->modeSelector = new KexiModeSelector;
-    connect(d->modeSelector, &KexiModeSelector::currentModeChanged,
+    d->modeSelector = new KexiGlobalViewModeSelector;
+    connect(d->modeSelector, &KexiGlobalViewModeSelector::currentModeChanged,
             this, &KexiMainWindow::slotCurrentModeChanged);
     mainWidgetContainerLyr->addWidget(d->modeSelector);
 

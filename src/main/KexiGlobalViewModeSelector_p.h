@@ -17,32 +17,32 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXIMODESELECTOR_P_H
-#define KEXIMODESELECTOR_P_H
+#ifndef KEXIGLOBALVIEWMODESELECTOR_P_H
+#define KEXIGLOBALVIEWMODESELECTOR_P_H
 
 #include <widget/KexiListView.h>
 
 class QPainter;
 
 //! @internal A single global mode
-class KexiModeData
+class KexiGlobalViewModeItem
 {
 public:
-    KexiModeData() : enabled(true) {}
+    KexiGlobalViewModeItem() : enabled(true) {}
     QString name;
     QIcon icon;
     bool enabled;
 };
 
-//! @internal A model for KexiModeSelector, each item has name and icon
-class KexiModeSelectorModel : public QAbstractListModel
+//! @internal A model for KexiGlobalViewModeSelector, each item has name and icon
+class KexiGlobalViewModeSelectorModel : public QAbstractListModel
 {
     Q_OBJECT
 
 public:
-    explicit KexiModeSelectorModel(QObject *parent = 0);
+    explicit KexiGlobalViewModeSelectorModel(QObject *parent = 0);
 
-    ~KexiModeSelectorModel();
+    ~KexiGlobalViewModeSelectorModel();
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const  Q_DECL_OVERRIDE;
 
@@ -52,19 +52,19 @@ public:
 
     QModelIndex index(int row, int column, const QModelIndex& parent) const Q_DECL_OVERRIDE;
 
-    QList<KexiModeData*> modes;
+    QList<KexiGlobalViewModeItem*> modes;
 };
 
-//! @internal A delegate for items of KexiModeSelector
-class KexiModeSelectorDelegate : public KexiListViewDelegate
+//! @internal A delegate for items of KexiGlobalViewModeSelector
+class KexiGlobalViewModeSelectorDelegate : public KexiListViewDelegate
 {
     Q_OBJECT
 
 public:
-    explicit KexiModeSelectorDelegate(QObject *parent = 0);
+    explicit KexiGlobalViewModeSelectorDelegate(QObject *parent = 0);
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option,
                const QModelIndex &index) const Q_DECL_OVERRIDE;
 };
 
-#endif // KEXIMODESELECTOR_P_H
+#endif // KEXIGLOBALVIEWMODESELECTOR_P_H

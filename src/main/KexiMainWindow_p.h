@@ -48,7 +48,7 @@
 #include "KexiMenuWidget.h"
 #include "kexifinddialog.h"
 #include "KexiStartup.h"
-#include "KexiModeSelector.h"
+#include "KexiGlobalViewModeSelector.h"
 #include <kexiutils/utils.h>
 #include <widget/utils/KexiDockableWidget.h>
 #include <widget/properties/KexiPropertyEditorView.h>
@@ -508,7 +508,7 @@ public:
     KexiMainWindow *wnd;
     KexiMainWidget *mainWidget;
     KActionCollection *actionCollection;
-    KexiModeSelector *modeSelector;
+    KexiGlobalViewModeSelector *modeSelector;
     KHelpMenu *helpMenu;
     KexiProject *prj;
     KSharedConfig::Ptr config;

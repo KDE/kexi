@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#include "KexiModeSelector.h"
-#include "KexiModeSelector_p.h"
+#include "KexiGlobalViewModeSelector.h"
+#include "KexiGlobalViewModeSelector_p.h"
 #include <kexiutils/KexiStyle.h>
 
 #include <KLocalizedString>
@@ -27,28 +27,28 @@
 #include <QApplication>
 #include <QPainter>
 
-KexiModeSelectorModel::KexiModeSelectorModel(QObject *parent)
+KexiGlobalViewModeSelectorModel::KexiGlobalViewModeSelectorModel(QObject *parent)
     : QAbstractListModel(parent)
 {
 }
 
-KexiModeSelectorModel::~KexiModeSelectorModel()
+KexiGlobalViewModeSelectorModel::~KexiGlobalViewModeSelectorModel()
 {
     qDeleteAll(modes);
 }
 
-int KexiModeSelectorModel::rowCount(const QModelIndex &parent) const
+int KexiGlobalViewModeSelectorModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
     return modes.count();
 }
 
-QVariant KexiModeSelectorModel::data(const QModelIndex &index, int role) const
+QVariant KexiGlobalViewModeSelectorModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid() || index.row() >= modes.size())
         return QVariant();
 
-    KexiModeData *mode = static_cast<KexiModeData*>(index.internalPointer());
+    KexiGlobalViewModeItem *mode = static_cast<KexiGlobalViewModeItem*>(index.internalPointer());
     switch (role) {
     case Qt::DisplayRole:
         return mode->name;
@@ -59,17 +59,17 @@ QVariant KexiModeSelectorModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-Qt::ItemFlags KexiModeSelectorModel::flags(const QModelIndex &index) const
+Qt::ItemFlags KexiGlobalViewModeSelectorModel::flags(const QModelIndex &index) const
 {
     Qt::ItemFlags flags = QAbstractListModel::flags(index);
-    KexiModeData *mode = static_cast<KexiModeData*>(index.internalPointer());
+    KexiGlobalViewModeItem *mode = static_cast<KexiGlobalViewModeItem*>(index.internalPointer());
     if (!mode->enabled) {
         flags &= ~(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
     }
     return flags;
 }
 
-QModelIndex KexiModeSelectorModel::index(int row, int column, const QModelIndex& parent) const
+QModelIndex KexiGlobalViewModeSelectorModel::index(int row, int column, const QModelIndex& parent) const
 {
     Q_UNUSED(parent);
     if (row < 0 || row >= modes.count()) {
@@ -80,12 +80,12 @@ QModelIndex KexiModeSelectorModel::index(int row, int column, const QModelIndex&
 
 // ----
 
-KexiModeSelectorDelegate::KexiModeSelectorDelegate(QObject *parent)
+KexiGlobalViewModeSelectorDelegate::KexiGlobalViewModeSelectorDelegate(QObject *parent)
  : KexiListViewDelegate(parent)
 {
 }
 
-void KexiModeSelectorDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
+void KexiGlobalViewModeSelectorDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
                                      const QModelIndex &index) const
 {
     KexiListViewDelegate::paint(painter, option, index);
@@ -94,17 +94,17 @@ void KexiModeSelectorDelegate::paint(QPainter *painter, const QStyleOptionViewIt
 
 // ----
 
-class KexiModeSelector::Private
+class KexiGlobalViewModeSelector::Private
 {
 public:
     Private() {}
-    KexiModeSelectorModel model;
+    KexiGlobalViewModeSelectorModel model;
 };
 
-KexiModeSelector::KexiModeSelector(QWidget *parent)
+KexiGlobalViewModeSelector::KexiGlobalViewModeSelector(QWidget *parent)
  : KexiListView(DontUseDelegate, parent), d(new Private)
 {
-    KexiStyle::setupModeSelector(this);
+    KexiStyle::setupGlobalViewModeSelector(this);
     setSpacing(0);
     setContentsMargins(0, 0, 0, 0);
     setFocusPolicy(Qt::NoFocus);
@@ -116,16 +116,16 @@ KexiModeSelector::KexiModeSelector(QWidget *parent)
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
-    setItemDelegate(new KexiModeSelectorDelegate(this));
-    connect(this, &KexiModeSelector::currentChanged,
-            this, &KexiModeSelector::currentModeChanged);
+    setItemDelegate(new KexiGlobalViewModeSelectorDelegate(this));
+    connect(this, &KexiGlobalViewModeSelector::currentChanged,
+            this, &KexiGlobalViewModeSelector::currentModeChanged);
 
     KexiStyledIconParameters param;
     param.color = palette().color(QPalette::Text);
     param.selectedColor = palette().color(QPalette::HighlightedText);
     param.disabledColor = palette().color(QPalette::Disabled, QPalette::Text);
     {
-        KexiModeData *welcomeMode = new KexiModeData;
+        KexiGlobalViewModeItem *welcomeMode = new KexiGlobalViewModeItem;
         welcomeMode->name = xi18nc("Welcome mode", "Welcome");
         param.context = KIconLoader::Action;
         param.name = "mode-selector-welcome";
@@ -133,7 +133,7 @@ KexiModeSelector::KexiModeSelector(QWidget *parent)
         d->model.modes << welcomeMode;
     }
     {
-        KexiModeData *projectMode = new KexiModeData;
+        KexiGlobalViewModeItem *projectMode = new KexiGlobalViewModeItem;
         projectMode->enabled = false;
         projectMode->name = xi18nc("Project mode", "Project");
         param.context = KIconLoader::Action;
@@ -142,7 +142,7 @@ KexiModeSelector::KexiModeSelector(QWidget *parent)
         d->model.modes << projectMode;
     }
     {
-        KexiModeData *dataMode = new KexiModeData;
+        KexiGlobalViewModeItem *dataMode = new KexiGlobalViewModeItem;
         dataMode->name = xi18nc("Data mode", "Data");
         param.context = KIconLoader::Action;
         param.name = "mode-selector-data";
@@ -150,7 +150,7 @@ KexiModeSelector::KexiModeSelector(QWidget *parent)
         d->model.modes << dataMode;
     }
     {
-        KexiModeData *designMode = new KexiModeData;
+        KexiGlobalViewModeItem *designMode = new KexiGlobalViewModeItem;
         designMode->name = xi18nc("Design mode", "Design");
         param.context = KIconLoader::Action;
         param.name = "mode-selector-design";
@@ -158,7 +158,7 @@ KexiModeSelector::KexiModeSelector(QWidget *parent)
         d->model.modes << designMode;
     }
     {
-        KexiModeData *helpMode = new KexiModeData;
+        KexiGlobalViewModeItem *helpMode = new KexiGlobalViewModeItem;
         helpMode->name = xi18nc("Help mode", "Help");
         param.context = KIconLoader::Action;
         param.name = "mode-selector-help";
@@ -169,11 +169,11 @@ KexiModeSelector::KexiModeSelector(QWidget *parent)
     setCurrentMode(Kexi::WelcomeGlobalMode);
 }
 
-KexiModeSelector::~KexiModeSelector()
+KexiGlobalViewModeSelector::~KexiGlobalViewModeSelector()
 {
 }
 
-void KexiModeSelector::paintEvent(QPaintEvent *event)
+void KexiGlobalViewModeSelector::paintEvent(QPaintEvent *event)
 {
     KexiListView::paintEvent(event);
 
@@ -182,10 +182,10 @@ void KexiModeSelector::paintEvent(QPaintEvent *event)
         selectedRect = visualRect(selectedIndexes().first());
     }
     QPainter painter(viewport());
-    KexiStyle::overpaintModeSelector(this, &painter, selectedRect);
+    KexiStyle::overpaintGlobalViewModeSelector(this, &painter, selectedRect);
 }
 
-Kexi::GlobalViewMode KexiModeSelector::currentMode() const
+Kexi::GlobalViewMode KexiGlobalViewModeSelector::currentMode() const
 {
     int index = currentIndex().row();
     if (index < 0 || index > Kexi::LastGlobalMode) {
@@ -194,7 +194,7 @@ Kexi::GlobalViewMode KexiModeSelector::currentMode() const
     return static_cast<Kexi::GlobalViewMode>(index);
 }
 
-void KexiModeSelector::setCurrentMode(Kexi::GlobalViewMode mode)
+void KexiGlobalViewModeSelector::setCurrentMode(Kexi::GlobalViewMode mode)
 {
     setCurrentIndex(model()->index(int(mode), 0));
 }

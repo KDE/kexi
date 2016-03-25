@@ -17,21 +17,21 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXIMODESELECTOR_H
-#define KEXIMODESELECTOR_H
+#ifndef KEXIGLOBALVIEWMODESELECTOR_H
+#define KEXIGLOBALVIEWMODESELECTOR_H
 
 #include <KexiMainWindowIface.h>
 #include <KexiListView.h>
 
 #include <QScopedPointer>
 
-//! @internal Global mode selector
-class KexiModeSelector : public KexiListView
+//! A global view mode selector widget
+class KexiGlobalViewModeSelector : public KexiListView
 {
     Q_OBJECT
 public:
-    explicit KexiModeSelector(QWidget *parent = 0);
-    virtual ~KexiModeSelector();
+    explicit KexiGlobalViewModeSelector(QWidget *parent = 0);
+    virtual ~KexiGlobalViewModeSelector();
 
     //! @return current mode
     Kexi::GlobalViewMode currentMode() const;
@@ -49,4 +49,4 @@ protected:
     const QScopedPointer<Private> d;
 };
 
-#endif // KEXIMODESELECTOR_H
+#endif // KEXIGLOBALVIEWMODESELECTOR_H
