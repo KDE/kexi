@@ -1519,7 +1519,8 @@ void Form::createPropertiesForWidget(QWidget *w)
         }
         const char* propertyName = meta.name();
         QWidget *subwidget = subMeta.isValid()//subpropIface
-                             ? subpropIface->subwidget() : w;
+                             ? (subpropIface ? subpropIface->subwidget() : 0)
+                             : w;
         WidgetInfo *subwinfo = subwidget ? library()->widgetInfoForClassName(
                                    subwidget->metaObject()->className()) : 0;
 //  qDebug() << "$$$ " << subwidget->className();
