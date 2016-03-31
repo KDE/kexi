@@ -97,6 +97,7 @@ KexiDBLineEdit::KexiDBLineEdit(QWidget *parent)
         , m_menuExtender(this, this)
         , m_internalReadOnly(false)
         , m_slotTextChanged_enabled(true)
+        , m_cursorPosition(0)
         , m_paletteChangeEvent_enabled(true)
         , m_inStyleChangeEvent(false)
 {

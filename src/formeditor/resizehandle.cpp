@@ -77,7 +77,7 @@ class ResizeHandle::Private
 {
 public:
     Private(ResizeHandleSet* set_, HandlePos pos_)
-        : set(set_), pos(pos_), dragging(false)
+        : set(set_), pos(pos_), dragging(false), x(0), y(0)
     {}
     ~Private() {}
 

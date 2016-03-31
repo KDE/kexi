@@ -39,7 +39,7 @@ public:
 };
 
 KexiFlowLayout::Private::Private()
-    : cached_width(0), justify(false), orientation(Qt::Horizontal)
+    : cached_width(0), cached_hfw(0), justify(false), orientation(Qt::Horizontal)
 {
 
 }
