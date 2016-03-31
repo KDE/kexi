@@ -304,7 +304,6 @@ public:
     QPointer<ResizeHandle> handles[8];
     QPointer<QWidget> widget;
     QPointer<Form>   form;
-    bool  editing;
 };
 
 ResizeHandleSet::Private::Private() : widget(0)

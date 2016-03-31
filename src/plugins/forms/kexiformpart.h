@@ -46,8 +46,6 @@ public:
     QPointer<KFormDesigner::Form> previewForm;
     QString tempForm;
     QPoint scrollViewContentsPos; //!< to preserve contents pos after switching
-    //!< to other view
-    int resizeMode; //!< form's window's resize mode -one of KexiFormView::ResizeMode items
     //! Used in KexiFormView::setUnsavedLocalBLOBs()
     QHash<QWidget*, KexiBLOBBuffer::Id_t> unsavedLocalBLOBs;
     //! Used when loading a form from (temporary) XML in Data View
