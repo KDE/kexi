@@ -42,6 +42,9 @@ public:
 Q_SIGNALS:
     void currentModeChanged();
 
+protected Q_SLOTS:
+    void currentChanged(const QModelIndex &current, const QModelIndex &previous) Q_DECL_OVERRIDE;
+
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 

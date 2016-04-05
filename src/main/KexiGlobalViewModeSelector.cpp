@@ -117,8 +117,6 @@ KexiGlobalViewModeSelector::KexiGlobalViewModeSelector(QWidget *parent)
     setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
     setItemDelegate(new KexiGlobalViewModeSelectorDelegate(this));
-    connect(this, &KexiGlobalViewModeSelector::currentChanged,
-            this, &KexiGlobalViewModeSelector::currentModeChanged);
 
     KexiStyledIconParameters param;
     param.color = palette().color(QPalette::Text);
@@ -197,4 +195,10 @@ Kexi::GlobalViewMode KexiGlobalViewModeSelector::currentMode() const
 void KexiGlobalViewModeSelector::setCurrentMode(Kexi::GlobalViewMode mode)
 {
     setCurrentIndex(model()->index(int(mode), 0));
+}
+
+void KexiGlobalViewModeSelector::currentChanged(const QModelIndex &current, const QModelIndex &previous)
+{
+    KexiListView::currentChanged(current, previous);
+    emit currentModeChanged();
 }
