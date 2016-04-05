@@ -32,6 +32,7 @@
 #include <QTimer>
 #include <QDockWidget>
 #include <QShortcut>
+#include <QStackedWidget>
 
 #include <KToolBar>
 #include <KHelpMenu>
@@ -39,7 +40,6 @@
 #include <KActionCollection>
 #include <KMultiTabBar>
 #include <KActionMenu>
-#include <KMainWindow>
 #include <KSharedConfig>
 
 #include "KexiMainWindow.h"
@@ -337,15 +337,15 @@ public:
     void polish(QWidget* widget) Q_DECL_OVERRIDE;
 };
 
-class KexiMainWidget;
+class KexiObjectViewWidget;
 
 //! @internal tab widget acting as central widget for KexiMainWindow
-class KexiMainWindowTabWidget : public QTabWidget
+class KexiObjectViewTabWidget : public QTabWidget
 {
     Q_OBJECT
 public:
-    KexiMainWindowTabWidget(QWidget *parent, KexiMainWidget *mainWidget);
-    virtual ~KexiMainWindowTabWidget();
+    KexiObjectViewTabWidget(QWidget *parent, KexiObjectViewWidget *mainWidget);
+    virtual ~KexiObjectViewTabWidget();
 public Q_SLOTS:
     void closeTab();
     tristate closeAllTabs();
@@ -360,7 +360,7 @@ protected:
 
     virtual void mousePressEvent(QMouseEvent *event);
 
-    KexiMainWidget *m_mainWidget;
+    KexiObjectViewWidget *m_mainWidget;
     QAction *m_closeAction;
     QAction *m_closeAllTabsAction;
 
@@ -370,35 +370,59 @@ private:
     void setTabIndexFromContextMenu(int clickedIndex);
 };
 
-//! @short A widget being main part of KexiMainWindow
-class KexiMainWidget : public KMainWindow
+//! @short A widget for object view, used in edit and design global view mode
+/*! Contents:
+ @verbatim
+ |---|--------------|-------------|---------------|---|
+ |   |              |     tabs    |               |   |
+ |tab|              |-------------|               |tab|
+ |bar|Prj. navigator|Object's view|Property editor|bar|
+ |   |  pane        |             |   pane        |   |
+ |---|--------------|-------------|---------------|---|
+ @endverbatim
+*/
+class KexiObjectViewWidget : public QWidget
 {
     Q_OBJECT
 public:
-    KexiMainWidget();
+    enum Flag {
+        NoFlags = 0,
+        ProjectNavigatorEnabled = 1,
+        DefaultFlags = ProjectNavigatorEnabled
+    };
+    Q_DECLARE_FLAGS(Flags, Flag)
+    Q_FLAG(Flags)
 
-    virtual ~KexiMainWidget();
+    explicit KexiObjectViewWidget(Flags flags = DefaultFlags);
 
-    void setParent(KexiMainWindow* mainWindow);
+    virtual ~KexiObjectViewWidget();
 
-    KexiMainWindowTabWidget* tabWidget() const;
+    void setMainWindow(KexiMainWindow* mainWindow);
 
-protected:
-    virtual bool queryClose();
+    KexiProjectNavigator* projectNavigator() const;
+    KexiObjectViewTabWidget* tabWidget() const;
+    QTabWidget* propertyEditorTabWidget() const;
+    KexiPropertyEditorView* propertyEditor() const;
+
+    void setSidebarWidths(int projectNavigatorWidth, int propertyEditorWidth);
+    void getSidebarWidths(int *projectNavigatorWidth, int *propertyEditorWidth) const;
+
 protected Q_SLOTS:
     void slotCurrentTabIndexChanged(int index);
 Q_SIGNALS:
     void currentTabIndexChanged(int index);
 
+protected:
+    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
+
 private:
     void setupCentralWidget();
 
-    KexiMainWindowTabWidget* m_tabWidget;
-    KexiMainWindow *m_mainWindow;
-    QPointer<KexiWindow> m_previouslyActiveWindow;
+    class Private;
+    const QScopedPointer<Private> d;
 
     friend class KexiMainWindow;
-    friend class KexiMainWindowTabWidget;
+    friend class KexiObjectViewTabWidget;
 };
 
 //------------------------------------------
@@ -481,10 +505,10 @@ public:
     /*! @a info can be provided to hadle cases when current window is not yet defined (in openObject()). */
     void updatePropEditorVisibility(Kexi::ViewMode viewMode, KexiPart::Info *info = 0);
 
-    void setTabBarVisible(KMultiTabBar::KMultiTabBarPosition position, int id,
-                          KexiDockWidget *dockWidget, bool visible);
+    //void setTabBarVisible(KMultiTabBar::KMultiTabBarPosition position, int id,
+    //                      KexiDockWidget *dockWidget, bool visible);
 
-    void setPropertyEditorTabBarVisible(bool visible);
+    //void setPropertyEditorTabBarVisible(bool visible);
 
     QObject *openedCustomObjectsForItem(KexiPart::Item* item, const char* name);
 
@@ -506,7 +530,8 @@ public:
         const QString& mimeType, const QString& databaseName, const KDbConnectionData *cdata);
 
     KexiMainWindow *wnd;
-    KexiMainWidget *mainWidget;
+    QStackedWidget *globalViewStack;
+    QPointer<KexiObjectViewWidget> objectViewWidget;
     KActionCollection *actionCollection;
     KexiGlobalViewModeSelector *modeSelector;
     KHelpMenu *helpMenu;
@@ -515,18 +540,12 @@ public:
 #ifdef KEXI_SHOW_CONTEXT_HELP
     KexiContextHelp *ctxHelp;
 #endif
-    KexiProjectNavigator *navigator;
     KexiTabbedToolBar *tabbedToolBar;
     QMap<int, QString> tabsToActivateOnShow;
-    KexiDockWidget *navDockWidget;
-    QTabWidget *propEditorTabWidget;
-    KexiDockWidget *propEditorDockWidget;
-    QPointer<KexiDockableWidget> propEditorDockableWidget;
     //! poits to kexi part which has been previously used to setup proppanel's tabs using
     //! KexiPart::setupCustomPropertyPanelTabs(), in updateCustomPropertyPanelTabs().
     QPointer<KexiPart::Part> partForPreviouslySetupPropertyPanelTabs;
     QMap<KexiPart::Part*, int> recentlySelectedPropertyPanelPages;
-    QPointer<KexiPropertyEditorView> propEditor;
     QPointer<KPropertySet> propertySet;
 
     KexiNameDialog *nameDialog;
@@ -654,7 +673,6 @@ public:
     bool wasAutoOpen;
     bool windowExistedBeforeCloseProject;
 
-    QMap<KMultiTabBar::KMultiTabBarPosition, KMultiTabBar*> multiTabBars;
     bool propertyEditorCollapsed;
 
     bool enable_slotPropertyEditorVisibilityChanged;

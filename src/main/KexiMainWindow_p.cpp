@@ -22,6 +22,7 @@
 
 #include <QPainter>
 #include <QDebug>
+#include <QSplitter>
 
 #include <KDbUtils>
 
@@ -29,7 +30,9 @@
 #include <kexiutils/KexiTester.h>
 #include <kexiutils/KexiFadeWidgetEffect.h>
 #include <KexiIcon.h>
+#include <KexiStyle.h>
 #include <core/kexipartmanager.h>
+#include <KexiProjectNavigator.h>
 
 KexiWindowContainer::KexiWindowContainer(QWidget* parent)
     : QWidget(parent)
@@ -1177,56 +1180,168 @@ void KexiTabbedToolBar::toggleRollDown()
 
 // ---
 
-KexiMainWidget::KexiMainWidget()
-        : KMainWindow(0, Qt::Widget)
-        , m_mainWindow(0)
+class KexiObjectViewWidget::Private
 {
-    setupCentralWidget();
+public:
+    Private()
+     : projectNavigatorWidthToSet(-1)
+     , propertyEditorWidthToSet(-1)
+    {
+    }
+    QPointer<KexiProjectNavigator> navigator;
+    QPointer<KexiMainWindow> mainWindow;
+    KexiObjectViewTabWidget* tabWidget;
+    QPointer<KexiWindow> previouslyActiveWindow;
+    QTabWidget *propertyEditorTabWidget;
+    KexiPropertyEditorView* propertyEditor;
+    //QMap<KMultiTabBar::KMultiTabBarPosition, KMultiTabBar*> multiTabBars;
+    QSplitter *splitter;
+    int projectNavigatorWidthToSet;
+    int propertyEditorWidthToSet;
+};
+
+
+KexiObjectViewWidget::KexiObjectViewWidget(Flags flags)
+        : QWidget()
+        , d(new Private)
+{
+    QHBoxLayout *mainLyr = new QHBoxLayout;
+    mainLyr->setContentsMargins(0, 0, 0, 0);
+    mainLyr->setSpacing(0);
+    setLayout(mainLyr);
+
+    d->splitter = new QSplitter(Qt::Horizontal);
+    mainLyr->addWidget(d->splitter);
+
+    // Left tab bar
+//    KMultiTabBar *mtbar = new KMultiTabBar(KMultiTabBar::Left);
+//    mtbar->setStyle(KMultiTabBar::VSNET);
+//    mainLyr->addWidget(mtbar);
+//    d->multiTabBars.insert(mtbar->position(), mtbar);
+
+    if (flags & ProjectNavigatorEnabled) {
+        // Project navigator
+        //    KexiDockableWidget* navDockableWidget = new KexiDockableWidget;
+        d->navigator = new KexiProjectNavigator(d->splitter);
+        kexiTester() << KexiTestObject(d->navigator, "KexiProjectNavigator");
+        //navDockableWidget->setWidget(d->navigator);
+        KexiStyle::setSidebarsPalette(d->navigator);
+    }
+
+    //d->navDockWidget = new KexiDockWidget(d->navigator->windowTitle(), d->objectViewWidget);
+    //d->navDockWidget->setObjectName("ProjectNavigatorDockWidget");
+    //d->objectViewWidget->addDockWidget(
+    //    applyRightToLeftToDockArea(Qt::LeftDockWidgetArea), d->navDockWidget,
+    //    Qt::Vertical);
+    //navDockableWidget->setParent(d->navDockWidget);
+    //d->navDockWidget->setWidget(navDockableWidget);
+
+    // Central tab widget
+    d->tabWidget = new KexiObjectViewTabWidget(d->splitter, this);
+    d->tabWidget->setTabsClosable(true);
+    connect(d->tabWidget, &KexiObjectViewTabWidget::currentChanged,
+            this, &KexiObjectViewWidget::slotCurrentTabIndexChanged);
+
+    // Property editor
+    d->propertyEditorTabWidget = new QTabWidget(d->splitter);
+    d->propertyEditorTabWidget->setDocumentMode(true);
+    d->propertyEditor = new KexiPropertyEditorView(d->propertyEditorTabWidget);
+    d->propertyEditorTabWidget->setWindowTitle(d->propertyEditor->windowTitle());
+    d->propertyEditorTabWidget->addTab(d->propertyEditor, d->propertyEditor->windowTitle());
+
+    KexiStyle::setSidebarsPalette(d->propertyEditor);
+    KexiStyle::setSidebarsPalette(d->propertyEditorTabWidget);
+
+//    mtbar = new KMultiTabBar(KMultiTabBar::Right);
+//    mtbar->setStyle(KMultiTabBar::VSNET);
+//    mainLyr->addWidget(mtbar);
+//    d->multiTabBars.insert(mtbar->position(), mtbar);
 }
 
-KexiMainWidget::~KexiMainWidget()
+KexiObjectViewWidget::~KexiObjectViewWidget()
 {
 }
 
-void KexiMainWidget::setParent(KexiMainWindow* mainWindow)
+void KexiObjectViewWidget::setMainWindow(KexiMainWindow* mainWindow)
 {
-    KMainWindow::setParent(mainWindow);
-    m_mainWindow = mainWindow;
+    d->mainWindow = mainWindow;
 }
 
-KexiMainWindowTabWidget* KexiMainWidget::tabWidget() const
+KexiProjectNavigator* KexiObjectViewWidget::projectNavigator() const
 {
-    return m_tabWidget;
+    return d->navigator;
 }
 
-void KexiMainWidget::setupCentralWidget()
+KexiObjectViewTabWidget* KexiObjectViewWidget::tabWidget() const
 {
-    QWidget *centralWidget = new QWidget(this);
-    QVBoxLayout *centralWidgetLyr = new QVBoxLayout(centralWidget);
-    m_tabWidget = new KexiMainWindowTabWidget(centralWidget, this);
-    connect(m_tabWidget, SIGNAL(currentChanged(int)), this, SLOT(slotCurrentTabIndexChanged(int)));
-    centralWidgetLyr->setContentsMargins(0, 0, 0, 0);
-    centralWidgetLyr->setSpacing(0);
-    centralWidgetLyr->addWidget(m_tabWidget);
-    setCentralWidget(centralWidget);
-    layout()->setContentsMargins(0, 0, 0, 0);
-    layout()->setSpacing(0);
+    return d->tabWidget;
 }
 
-bool KexiMainWidget::queryClose()
+QTabWidget* KexiObjectViewWidget::propertyEditorTabWidget() const
 {
-    return m_mainWindow ? m_mainWindow->queryClose() : true;
+    return d->propertyEditorTabWidget;
 }
 
-void KexiMainWidget::slotCurrentTabIndexChanged(int index)
+KexiPropertyEditorView* KexiObjectViewWidget::propertyEditor() const
 {
-    KexiWindowContainer* cont = dynamic_cast<KexiWindowContainer*>(m_tabWidget->widget(index));
-    if (! cont || (KexiWindow*)m_previouslyActiveWindow == cont->window)
+    return d->propertyEditor;
+}
+
+void KexiObjectViewWidget::slotCurrentTabIndexChanged(int index)
+{
+    KexiWindowContainer* cont = qobject_cast<KexiWindowContainer*>(d->tabWidget->widget(index));
+    if (! cont || (KexiWindow*)d->previouslyActiveWindow == cont->window)
         return;
-    if (m_mainWindow)
-        m_mainWindow->activeWindowChanged(cont->window, (KexiWindow*)m_previouslyActiveWindow);
-    m_previouslyActiveWindow = cont->window;
+    if (d->mainWindow) {
+        d->mainWindow->activeWindowChanged(cont->window, d->previouslyActiveWindow);
+    }
+    d->previouslyActiveWindow = cont->window;
     emit currentTabIndexChanged(index);
+}
+
+void KexiObjectViewWidget::setSidebarWidths(int projectNavigatorWidth, int propertyEditorWidth)
+{
+    d->projectNavigatorWidthToSet = projectNavigatorWidth;
+    d->propertyEditorWidthToSet = propertyEditorWidth;
+}
+
+void KexiObjectViewWidget::resizeEvent(QResizeEvent *e)
+{
+    QWidget::resizeEvent(e);
+    qDebug() << "___" << e->size() << size() << isVisible();
+    if (isVisible()) {
+        QList<int> sizes(d->splitter->sizes());
+        qDebug() << d->projectNavigatorWidthToSet << d->propertyEditorWidthToSet << sizes << d->splitter->width() << isVisible();
+        if (sizes.count() >= 1) {
+            if (d->projectNavigatorWidthToSet <= 0) {
+                sizes[0] = d->navigator->sizeHint().width();
+            } else {
+                sizes[0] = d->projectNavigatorWidthToSet;
+            }
+        }
+        if (sizes.count() >= 3) {
+            if (d->propertyEditorWidthToSet <= 0) {
+                sizes[2] = d->propertyEditorTabWidget->sizeHint().width();
+            } else {
+                sizes[2] = d->propertyEditorWidthToSet;
+            }
+            sizes[1] = d->splitter->width() - sizes[0] - sizes[2];
+            if (!d->propertyEditorTabWidget->isVisible()) {
+                sizes[1] += sizes[2];
+                sizes[2] = 0;
+            }
+        }
+        d->splitter->setSizes(sizes);
+        qDebug() << sizes << d->splitter->sizes();
+    }
+}
+
+void KexiObjectViewWidget::getSidebarWidths(int *projectNavigatorWidth, int *propertyEditorWidth) const
+{
+    QList<int> sizes(d->splitter->sizes());
+    *projectNavigatorWidth = (sizes.count() >= 1 && sizes.at(0) > 0) ? sizes.at(0) : -1;
+    *propertyEditorWidth = (sizes.count() >=3 && sizes.at(2) > 0) ? sizes.at(2) : -1;
+    qDebug() << "getSidebarWidths" << *projectNavigatorWidth << *propertyEditorWidth;
 }
 
 //------------------------------------------
@@ -1235,17 +1350,12 @@ KexiMainWindow::Private::Private(KexiMainWindow* w)
     : wnd(w)
 {
     actionCollection = new KActionCollection(w);
-    propEditor = 0;
-    propEditorDockWidget = 0;
-    navDockWidget = 0;
-    propEditorTabWidget = 0;
     KexiProjectData *pdata = KexiStartupHandler::global()->projectData();
     userMode = KexiStartupHandler::global()->forcedUserMode() /* <-- simply forced the user mode */
                /* project has 'user mode' set as default and not 'design mode' override is found: */
                || (pdata && pdata->userMode() && !KexiStartupHandler::global()->forcedDesignMode());
     isProjectNavigatorVisible = KexiStartupHandler::global()->isProjectNavigatorVisible();
     isMainMenuVisible = KexiStartupHandler::global()->isMainMenuVisible();
-    navigator = 0;
     prj = 0;
     config = KSharedConfig::openConfig();
     nameDialog = 0;
@@ -1349,8 +1459,9 @@ void KexiMainWindow::Private::showStartProcessMsg(const QStringList& args)
 
 void KexiMainWindow::Private::updatePropEditorVisibility(Kexi::ViewMode viewMode, KexiPart::Info *info)
 {
-    if (!propEditorDockWidget)
+    if (!objectViewWidget || !objectViewWidget->propertyEditorTabWidget()) {
         return;
+    }
     KexiWindow *currentWindow = wnd->currentWindow();
     if (!info && currentWindow) {
         info = currentWindow->part()->info();
@@ -1360,16 +1471,17 @@ void KexiMainWindow::Private::updatePropEditorVisibility(Kexi::ViewMode viewMode
     //qDebug() << "visible == " << visible;
     enable_slotPropertyEditorVisibilityChanged = false;
     if (visible && propertyEditorCollapsed) { // used when we're switching back to a window with propeditor available but collapsed
-        propEditorDockWidget->setVisible(!visible);
-        setPropertyEditorTabBarVisible(true);
+        objectViewWidget->propertyEditorTabWidget()->setVisible(!visible);
+        //setPropertyEditorTabBarVisible(true);
     }
     else {
-        propEditorDockWidget->setVisible(visible);
-        setPropertyEditorTabBarVisible(false);
+        objectViewWidget->propertyEditorTabWidget()->setVisible(visible);
+        //setPropertyEditorTabBarVisible(false);
     }
     enable_slotPropertyEditorVisibilityChanged = true;
 }
 
+/*
 void KexiMainWindow::Private::setTabBarVisible(KMultiTabBar::KMultiTabBarPosition position, int id,
                                                KexiDockWidget *dockWidget, bool visible)
 {
@@ -1392,8 +1504,8 @@ void KexiMainWindow::Private::setTabBarVisible(KMultiTabBar::KMultiTabBarPositio
 void KexiMainWindow::Private::setPropertyEditorTabBarVisible(bool visible)
 {
     setTabBarVisible(KMultiTabBar::Right, PROPERTY_EDITOR_TABBAR_ID,
-                     propEditorDockWidget, visible);
-}
+                     objectViewWidget->propertyEditorTabWidget(), visible);
+}*/
 
 QObject *KexiMainWindow::Private::openedCustomObjectsForItem(KexiPart::Item* item, const char* name)
 {

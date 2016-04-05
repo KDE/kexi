@@ -187,7 +187,7 @@ QSize KexiDockWidget::sizeHint() const
 
 //-------------------------------------------------
 
-KexiMainWindowTabWidget::KexiMainWindowTabWidget(QWidget *parent, KexiMainWidget* mainWidget)
+KexiObjectViewTabWidget::KexiObjectViewTabWidget(QWidget *parent, KexiObjectViewWidget* mainWidget)
         : QTabWidget(parent)
         , m_mainWidget(mainWidget)
         , m_tabIndex(-1)
@@ -215,11 +215,11 @@ KexiMainWindowTabWidget::KexiMainWindowTabWidget(QWidget *parent, KexiMainWidget
     tabBar()->setExpanding(true);
 }
 
-KexiMainWindowTabWidget::~KexiMainWindowTabWidget()
+KexiObjectViewTabWidget::~KexiObjectViewTabWidget()
 {
 }
 
-void KexiMainWindowTabWidget::paintEvent(QPaintEvent * event)
+void KexiObjectViewTabWidget::paintEvent(QPaintEvent * event)
 {
     if (count() > 0)
         QTabWidget::paintEvent(event);
@@ -227,7 +227,7 @@ void KexiMainWindowTabWidget::paintEvent(QPaintEvent * event)
         QWidget::paintEvent(event);
 }
 
-void KexiMainWindowTabWidget::mousePressEvent(QMouseEvent *event)
+void KexiObjectViewTabWidget::mousePressEvent(QMouseEvent *event)
 {
     //! @todo KEXI3 test KexiMainWindowTabWidget's contextMenu event port from KTabWidget
     if (event->button() == Qt::RightButton) {
@@ -243,7 +243,7 @@ void KexiMainWindowTabWidget::mousePressEvent(QMouseEvent *event)
     QTabWidget::mousePressEvent(event);
 }
 
-void KexiMainWindowTabWidget::closeTab()
+void KexiObjectViewTabWidget::closeTab()
 {
     KexiMainWindow *main = dynamic_cast<KexiMainWindow*>(KexiMainWindowIface::global());
     if (main) {
@@ -251,7 +251,7 @@ void KexiMainWindowTabWidget::closeTab()
     }
 }
 
-tristate KexiMainWindowTabWidget::closeAllTabs()
+tristate KexiObjectViewTabWidget::closeAllTabs()
 {
     tristate alternateResult = true;
     QList<KexiWindow*> windowList;
@@ -277,7 +277,7 @@ tristate KexiMainWindowTabWidget::closeAllTabs()
     return alternateResult;
 }
 
-void KexiMainWindowTabWidget::showContextMenuForTab(int index, const QPoint& point)
+void KexiObjectViewTabWidget::showContextMenuForTab(int index, const QPoint& point)
 {
     QMenu menu;
     if (index >= 0) {
@@ -294,7 +294,7 @@ void KexiMainWindowTabWidget::showContextMenuForTab(int index, const QPoint& poi
     menu.exec(point);
 }
 
-void KexiMainWindowTabWidget::setTabIndexFromContextMenu(int clickedIndex)
+void KexiObjectViewTabWidget::setTabIndexFromContextMenu(int clickedIndex)
 {
     if (currentIndex() == -1) {
         m_tabIndex = -1;
@@ -442,7 +442,7 @@ void KexiMainMenuActionShortcut::slotActivated()
 //-------------------------------------------------
 
 KexiMainWindow::KexiMainWindow(QWidget *parent)
-        : KexiMainWindowSuper(parent)
+        : QMainWindow(parent)
         , KexiMainWindowIface()
         , KexiGUIMessageHandler(this)
         , d(new KexiMainWindow::Private(this))
@@ -469,7 +469,7 @@ KexiMainWindow::KexiMainWindow(QWidget *parent)
 
     if (!d->userMode) {
         setupContextHelp();
-        setupPropertyEditor();
+        //setupPropertyEditor();
     }
 
     invalidateActions();
@@ -513,15 +513,18 @@ KActionCollection *KexiMainWindow::actionCollection() const
 
 KexiWindow* KexiMainWindow::currentWindow() const
 {
-    return windowForTab(d->mainWidget->tabWidget()->currentIndex());
+    if (!d->objectViewWidget || !d->objectViewWidget->tabWidget()) {
+        return 0;
+    }
+    return windowForTab(d->objectViewWidget->tabWidget()->currentIndex());
 }
 
 KexiWindow* KexiMainWindow::windowForTab(int tabIndex) const
 {
-    if (!d->mainWidget->tabWidget())
+    if (!d->objectViewWidget || !d->objectViewWidget->tabWidget())
         return 0;
     KexiWindowContainer *windowContainer
-        = dynamic_cast<KexiWindowContainer*>(d->mainWidget->tabWidget()->widget(tabIndex));
+        = dynamic_cast<KexiWindowContainer*>(d->objectViewWidget->tabWidget()->widget(tabIndex));
     if (!windowContainer)
         return 0;
     return windowContainer->window;
@@ -1333,11 +1336,12 @@ void KexiMainWindow::invalidateProjectWideActions()
     );
 
     //DOCKS
-    if (d->navigator) {
-        d->navigator->setEnabled(d->prj);
+    if (d->objectViewWidget && d->objectViewWidget->projectNavigator()) {
+        d->objectViewWidget->projectNavigator()->setEnabled(d->prj);
     }
-    if (d->propEditor)
-        d->propEditorTabWidget->setEnabled(d->prj);
+    if (d->objectViewWidget && d->objectViewWidget->propertyEditorTabWidget()) {
+        d->objectViewWidget->propertyEditorTabWidget()->setEnabled(d->prj);
+    }
 }
 
 tristate KexiMainWindow::startup()
@@ -1427,7 +1431,7 @@ tristate KexiMainWindow::openProject(const KexiProjectData& projectData)
 
     // success
     d->prj = prj.take();
-    setupProjectNavigator();
+    d->modeSelector->setCurrentMode(Kexi::EditGlobalMode);
     d->prj->data()->setLastOpened(QDateTime::currentDateTime());
     Kexi::recentProjects()->addProjectData(*d->prj->data());
     updateReadOnlyState();
@@ -1522,8 +1526,8 @@ void KexiMainWindow::updateReadOnlyState()
 {
     const bool readOnly = d->prj && d->prj->dbConnection() && d->prj->dbConnection()->options()->isReadOnly();
     //! @todo KEXI3 show read-only flag in the GUI because we have no statusbar
-    if (d->navigator) {
-        d->navigator->setReadOnly(readOnly);
+    if (d->objectViewWidget && d->objectViewWidget->projectNavigator()) {
+        d->objectViewWidget->projectNavigator()->setReadOnly(readOnly);
     }
 
     // update "insert ....." actions for every part
@@ -1749,16 +1753,16 @@ tristate KexiMainWindow::closeProject()
     if (!d->prj->closeConnection())
         return false;
 
-    if (d->navigator) {
-        d->navWasVisibleBeforeProjectClosing = d->navDockWidget->isVisible();
-        d->navDockWidget->hide();
-        d->navigator->setProject(0);
-        slotProjectNavigatorVisibilityChanged(true); // hide side tab
+    if (d->objectViewWidget && d->objectViewWidget->projectNavigator()) {
+        d->navWasVisibleBeforeProjectClosing = d->objectViewWidget->projectNavigator()->isVisible();
+        d->objectViewWidget->projectNavigator()->hide();
+        d->objectViewWidget->projectNavigator()->setProject(0);
+        //slotProjectNavigatorVisibilityChanged(true); // hide side tab
     }
 
-    if (d->propEditorDockWidget)
-        d->propEditorDockWidget->hide();
-
+    if (d->objectViewWidget && d->objectViewWidget->propertyEditorTabWidget()) {
+        d->objectViewWidget->propertyEditorTabWidget()->hide();
+    }
     d->clearWindows(); //sanity!
     delete d->prj;
     d->prj = 0;
@@ -1789,7 +1793,10 @@ void KexiMainWindow::setupContextHelp()
 
 void KexiMainWindow::setupMainWidget()
 {
-    QVBoxLayout *vlyr = new QVBoxLayout(this);
+    QWidget *centralWidget = new QWidget;
+    setCentralWidget(centralWidget);
+
+    QVBoxLayout *vlyr = new QVBoxLayout(centralWidget);
     vlyr->setContentsMargins(0, 0, 0, 0);
     vlyr->setSpacing(0);
 
@@ -1825,52 +1832,38 @@ void KexiMainWindow::setupMainWidget()
             this, &KexiMainWindow::slotCurrentModeChanged);
     mainWidgetContainerLyr->addWidget(d->modeSelector);
 
-    KMultiTabBar *mtbar = new KMultiTabBar(KMultiTabBar::Left);
-    mtbar->setStyle(KMultiTabBar::VSNET);
-    mainWidgetContainerLyr->addWidget(mtbar);
-    d->multiTabBars.insert(mtbar->position(), mtbar);
-
-    d->mainWidget = new KexiMainWidget();
-    d->mainWidget->setParent(this);
-
-    d->mainWidget->tabWidget()->setTabsClosable(true);
-    connect(d->mainWidget->tabWidget(), SIGNAL(tabCloseRequested(int)),
-            this, SLOT(closeWindowForTab(int)));
-    mainWidgetContainerLyr->addWidget(d->mainWidget, 1);
-
-    mtbar = new KMultiTabBar(KMultiTabBar::Right);
-    mtbar->setStyle(KMultiTabBar::VSNET);
-    mainWidgetContainerLyr->addWidget(mtbar);
-    d->multiTabBars.insert(mtbar->position(), mtbar);
+    d->globalViewStack = new QStackedWidget;
+    mainWidgetContainerLyr->addWidget(d->globalViewStack, 1);
 }
 
-void KexiMainWindow::slotSetProjectNavigatorVisible(bool set)
-{
-    if (d->navDockWidget)
-        d->navDockWidget->setVisible(set);
-}
+//void KexiMainWindow::slotSetProjectNavigatorVisible(bool set)
+//{
+//    if (d->navDockWidget)
+//        d->navDockWidget->setVisible(set);
+//}
 
-void KexiMainWindow::slotSetPropertyEditorVisible(bool set)
-{
-    if (d->propEditorDockWidget)
-        d->propEditorDockWidget->setVisible(set);
-}
+//void KexiMainWindow::slotSetPropertyEditorVisible(bool set)
+//{
+//    if (d->propEditorDockWidget)
+//        d->propEditorDockWidget->setVisible(set);
+//}
 
-void KexiMainWindow::slotProjectNavigatorVisibilityChanged(bool visible)
-{
-    d->setTabBarVisible(KMultiTabBar::Left, PROJECT_NAVIGATOR_TABBAR_ID,
-                        d->navDockWidget, !visible);
-}
+//void KexiMainWindow::slotProjectNavigatorVisibilityChanged(bool visible)
+//{
+//    d->setTabBarVisible(KMultiTabBar::Left, PROJECT_NAVIGATOR_TABBAR_ID,
+//                        d->navDockWidget, !visible);
+//}
 
-void KexiMainWindow::slotPropertyEditorVisibilityChanged(bool visible)
-{
-    if (!d->enable_slotPropertyEditorVisibilityChanged)
-        return;
-    d->setPropertyEditorTabBarVisible(!visible);
-    if (!visible)
-        d->propertyEditorCollapsed = true;
-}
+//void KexiMainWindow::slotPropertyEditorVisibilityChanged(bool visible)
+//{
+//    if (!d->enable_slotPropertyEditorVisibilityChanged)
+//        return;
+//    d->setPropertyEditorTabBarVisible(!visible);
+//    if (!visible)
+//        d->propertyEditorCollapsed = true;
+//}
 
+/*
 void KexiMainWindow::slotMultiTabBarTabClicked(int id)
 {
     if (id == PROJECT_NAVIGATOR_TABBAR_ID) {
@@ -1895,68 +1888,53 @@ static Qt::DockWidgetArea applyRightToLeftToDockArea(Qt::DockWidgetArea area)
         }
     }
     return area;
-}
+}*/
 
-void KexiMainWindow::setupProjectNavigator()
+void KexiMainWindow::setupObjectView()
 {
-    if (!d->isProjectNavigatorVisible)
+    if (d->objectViewWidget) {
         return;
-
-    if (d->navigator) {
-        d->navDockWidget->show();
     }
-    else {
-        KexiDockableWidget* navDockableWidget = new KexiDockableWidget;
-        d->navigator = new KexiProjectNavigator(navDockableWidget);
-        kexiTester() << KexiTestObject(d->navigator, "KexiProjectNavigator");
-
-        navDockableWidget->setWidget(d->navigator);
-
-        d->navDockWidget = new KexiDockWidget(d->navigator->windowTitle(), d->mainWidget);
-        d->navDockWidget->setObjectName("ProjectNavigatorDockWidget");
-        d->mainWidget->addDockWidget(
-            applyRightToLeftToDockArea(Qt::LeftDockWidgetArea), d->navDockWidget,
-            Qt::Vertical);
-        navDockableWidget->setParent(d->navDockWidget);
-        d->navDockWidget->setWidget(navDockableWidget);
-
-        KConfigGroup mainWindowGroup(d->config->group("MainWindow"));
-        const QSize projectNavigatorSize = mainWindowGroup.readEntry<QSize>("ProjectNavigatorSize", QSize());
-        if (!projectNavigatorSize.isNull()) {
-            navDockableWidget->setSizeHint(projectNavigatorSize);
-        }
-        KexiStyle::setSidebarsPalette(d->navDockWidget);
-        KexiStyle::setSidebarsPalette(d->navigator);
-
-        connect(d->navDockWidget, SIGNAL(visibilityChanged(bool)),
-            this, SLOT(slotProjectNavigatorVisibilityChanged(bool)));
+    KexiObjectViewWidget::Flags flags;
+    if (d->isProjectNavigatorVisible) {
+        flags |= KexiObjectViewWidget::ProjectNavigatorEnabled;
+    }
+    d->objectViewWidget = new KexiObjectViewWidget(flags);
+    d->objectViewWidget->setMainWindow(this);
+    connect(d->objectViewWidget->tabWidget(), SIGNAL(tabCloseRequested(int)),
+            this, SLOT(closeWindowForTab(int)));
+    d->globalViewStack->addWidget(d->objectViewWidget);
+    KexiProjectNavigator* navigator = d->objectViewWidget->projectNavigator();
+    if (navigator) {
+        //connect(d->navDockWidget, SIGNAL(visibilityChanged(bool)),
+        //    this, SLOT(slotProjectNavigatorVisibilityChanged(bool)));
 
         //Nav2 Signals
-        connect(d->navigator, SIGNAL(openItem(KexiPart::Item*,Kexi::ViewMode)),
+        connect(navigator, SIGNAL(openItem(KexiPart::Item*,Kexi::ViewMode)),
                 this, SLOT(openObject(KexiPart::Item*,Kexi::ViewMode)));
-        connect(d->navigator, SIGNAL(openOrActivateItem(KexiPart::Item*,Kexi::ViewMode)),
+        connect(navigator, SIGNAL(openOrActivateItem(KexiPart::Item*,Kexi::ViewMode)),
                 this, SLOT(openObjectFromNavigator(KexiPart::Item*,Kexi::ViewMode)));
-        connect(d->navigator, SIGNAL(newItem(KexiPart::Info*)),
+        connect(navigator, SIGNAL(newItem(KexiPart::Info*)),
                 this, SLOT(newObject(KexiPart::Info*)));
-        connect(d->navigator, SIGNAL(removeItem(KexiPart::Item*)),
+        connect(navigator, SIGNAL(removeItem(KexiPart::Item*)),
                 this, SLOT(removeObject(KexiPart::Item*)));
-        connect(d->navigator->model(), SIGNAL(renameItem(KexiPart::Item*,QString,bool*)),
+        connect(navigator->model(), SIGNAL(renameItem(KexiPart::Item*,QString,bool*)),
                 this, SLOT(renameObject(KexiPart::Item*,QString,bool*)));
-        connect(d->navigator->model(), SIGNAL(changeItemCaption(KexiPart::Item*,QString,bool*)),
+        connect(navigator->model(), SIGNAL(changeItemCaption(KexiPart::Item*,QString,bool*)),
                 this, SLOT(setObjectCaption(KexiPart::Item*,QString,bool*)));
-        connect(d->navigator, SIGNAL(executeItem(KexiPart::Item*)),
+        connect(navigator, SIGNAL(executeItem(KexiPart::Item*)),
                 this, SLOT(executeItem(KexiPart::Item*)));
-        connect(d->navigator, SIGNAL(exportItemToClipboardAsDataTable(KexiPart::Item*)),
+        connect(navigator, SIGNAL(exportItemToClipboardAsDataTable(KexiPart::Item*)),
                 this, SLOT(copyItemToClipboardAsDataTable(KexiPart::Item*)));
-        connect(d->navigator, SIGNAL(exportItemToFileAsDataTable(KexiPart::Item*)),
+        connect(navigator, SIGNAL(exportItemToFileAsDataTable(KexiPart::Item*)),
                 this, SLOT(exportItemAsDataTable(KexiPart::Item*)));
 #ifdef KEXI_QUICK_PRINTING_SUPPORT
-        connect(d->navigator, SIGNAL(printItem(KexiPart::Item*)),
+        connect(navigator, SIGNAL(printItem(KexiPart::Item*)),
                 this, SLOT(printItem(KexiPart::Item*)));
-        connect(d->navigator, SIGNAL(pageSetupForItem(KexiPart::Item*)),
+        connect(navigator, SIGNAL(pageSetupForItem(KexiPart::Item*)),
                 this, SLOT(showPageSetupForItem(KexiPart::Item*)));
 #endif
-        connect(d->navigator, SIGNAL(selectionChanged(KexiPart::Item*)),
+        connect(navigator, SIGNAL(selectionChanged(KexiPart::Item*)),
                 this, SLOT(slotPartItemSelectedInNavigator(KexiPart::Item*)));
     }
     if (d->prj->isConnected()) {
@@ -1966,19 +1944,23 @@ void KexiMainWindow::setupProjectNavigator()
             showWarningContinueMessage(partManagerErrorMessages, QString(),
                                        "ShowWarningsRelatedToPluginsLoading");
         }
-        d->navigator->setProject(d->prj, QString()/*all classes*/, &partManagerErrorMessages);
-
+        if (navigator) {
+            navigator->setProject(d->prj, QString()/*all classes*/, &partManagerErrorMessages);
+        }
     }
-    connect(d->prj, SIGNAL(newItemStored(KexiPart::Item*)), d->navigator->model(), SLOT(slotAddItem(KexiPart::Item*)));
-    connect(d->prj, SIGNAL(itemRemoved(KexiPart::Item)), d->navigator->model(), SLOT(slotRemoveItem(KexiPart::Item)));
+    if (navigator) {
+        connect(d->prj, SIGNAL(newItemStored(KexiPart::Item*)),
+                navigator->model(), SLOT(slotAddItem(KexiPart::Item*)));
+        connect(d->prj, SIGNAL(itemRemoved(KexiPart::Item)),
+                navigator->model(), SLOT(slotRemoveItem(KexiPart::Item)));
+        navigator->setFocus();
 
-    d->navigator->setFocus();
-
-    if (d->forceShowProjectNavigatorOnCreation) {
-        slotShowNavigator();
-        d->forceShowProjectNavigatorOnCreation = false;
-    } else if (d->forceHideProjectNavigatorOnCreation) {
-        d->forceHideProjectNavigatorOnCreation = false;
+        /*if (d->forceShowProjectNavigatorOnCreation) {
+            slotShowNavigator();
+            d->forceShowProjectNavigatorOnCreation = false;
+        } else if (d->forceHideProjectNavigatorOnCreation) {
+            d->forceHideProjectNavigatorOnCreation = false;
+        }*/
     }
 
     invalidateActions();
@@ -1986,61 +1968,6 @@ void KexiMainWindow::setupProjectNavigator()
 
 void KexiMainWindow::slotLastActions()
 {
-}
-
-void KexiMainWindow::setupPropertyEditor()
-{
-    if (!d->propEditor) {
-        KConfigGroup mainWindowGroup(d->config->group("MainWindow"));
-//! @todo FIX LAYOUT PROBLEMS
-        d->propEditorDockWidget = new KexiDockWidget(xi18n("Property Editor"), d->mainWidget);
-        d->propEditorDockWidget->setObjectName("PropertyEditorDockWidget");
-        d->mainWidget->addDockWidget(
-            applyRightToLeftToDockArea(Qt::RightDockWidgetArea), d->propEditorDockWidget,
-            Qt::Vertical
-        );
-        connect(d->propEditorDockWidget, SIGNAL(visibilityChanged(bool)),
-            this, SLOT(slotPropertyEditorVisibilityChanged(bool)));
-
-        d->propEditorDockableWidget = new KexiDockableWidget(d->propEditorDockWidget);
-        d->propEditorDockWidget->setWidget(d->propEditorDockableWidget);
-        const QSize propertyEditorSize = mainWindowGroup.readEntry<QSize>("PropertyEditorSize", QSize());
-        if (!propertyEditorSize.isNull()) {
-            d->propEditorDockableWidget->setSizeHint(propertyEditorSize);
-        }
-
-        QWidget *propEditorDockWidgetContents = new QWidget(d->propEditorDockableWidget);
-        d->propEditorDockableWidget->setWidget(propEditorDockWidgetContents);
-        QVBoxLayout *propEditorDockWidgetContentsLyr = new QVBoxLayout(propEditorDockWidgetContents);
-        propEditorDockWidgetContentsLyr->setContentsMargins(0, 0, 0, 0);
-
-        d->propEditorTabWidget = new QTabWidget(propEditorDockWidgetContents);
-        d->propEditorTabWidget->setDocumentMode(true);
-        propEditorDockWidgetContentsLyr->addWidget(d->propEditorTabWidget);
-        d->propEditor = new KexiPropertyEditorView(d->propEditorTabWidget);
-        d->propEditorTabWidget->setWindowTitle(d->propEditor->windowTitle());
-        d->propEditorTabWidget->addTab(d->propEditor, xi18n("Properties"));
-//! @todo REMOVE? d->propEditor->installEventFilter(this);
-
-        KConfigGroup propertyEditorGroup(d->config->group("PropertyEditor"));
-        QFont f(KexiUtils::smallestReadableFont());
-        const qreal pointSizeF = propertyEditorGroup.readEntry("FontPointSize", -1.0f); // points are more accurate
-        if (pointSizeF > 0.0) {
-            f.setPointSizeF(pointSizeF);
-        } else {
-            const int pixelSize = propertyEditorGroup.readEntry("FontSize", -1); // compatibility with Kexi 2.x
-            if (pixelSize > 0) {
-                f.setPixelSize(pixelSize);
-            }
-        }
-        d->propEditorTabWidget->setFont(f);
-        KexiStyle::setSidebarsPalette(d->propEditorDockWidget);
-        KexiStyle::setSidebarsPalette(d->propEditorTabWidget);
-
-        d->enable_slotPropertyEditorVisibilityChanged = false;
-        d->propEditorDockWidget->setVisible(false);
-        d->enable_slotPropertyEditorVisibilityChanged = true;
-    }
 }
 
 void KexiMainWindow::slotPartLoaded(KexiPart::Part* p)
@@ -2093,7 +2020,17 @@ bool KexiMainWindow::queryClose()
 
 void KexiMainWindow::closeEvent(QCloseEvent *ev)
 {
-    d->mainWidget->closeEvent(ev);
+    if (queryClose()) {
+        ev->accept();
+    } else {
+        ev->ignore();
+    }
+}
+
+void KexiMainWindow::resizeEvent(QResizeEvent *e)
+{
+    QMainWindow::resizeEvent(e);
+    qDebug() << "===" << e->size() << size() << isVisible();
 }
 
 static const QSize KEXI_MIN_WINDOW_SIZE(1024, 768);
@@ -2119,7 +2056,24 @@ KexiMainWindow::restoreSettings()
             resize(KEXI_MIN_WINDOW_SIZE);
         }
     }
-    // Saved settings
+//! @todo FIX LAYOUT PROBLEMS
+    KConfigGroup propertyEditorGroup(d->config->group("PropertyEditor"));
+    QFont f(KexiUtils::smallestReadableFont());
+    const qreal pointSizeF = propertyEditorGroup.readEntry("FontPointSize", -1.0f); // points are more accurate
+    if (pointSizeF > 0.0) {
+        f.setPointSizeF(pointSizeF);
+    } else {
+        const int pixelSize = propertyEditorGroup.readEntry("FontSize", -1); // compatibility with Kexi 2.x
+        if (pixelSize > 0) {
+            f.setPixelSize(pixelSize);
+        }
+    }
+    d->objectViewWidget->propertyEditorTabWidget()->setFont(f);
+
+    const QSize projectNavigatorSize = mainWindowGroup.readEntry<QSize>("ProjectNavigatorSize", QSize());
+    const QSize propertyEditorSize = mainWindowGroup.readEntry<QSize>("PropertyEditorSize", QSize());
+    d->objectViewWidget->setSidebarWidths(projectNavigatorSize.isValid() ? projectNavigatorSize.width() : -1,
+                                          propertyEditorSize.isValid() ? propertyEditorSize.width() : -1);
 }
 
 void
@@ -2136,12 +2090,17 @@ KexiMainWindow::storeSettings()
         mainWindowGroup.writeEntry("Geometry", geometry());
     }
 
-    if (d->navigator)
-        mainWindowGroup.writeEntry("ProjectNavigatorSize", d->navigator->parentWidget()->size());
-
-    if (d->propEditorDockableWidget)
-        mainWindowGroup.writeEntry("PropertyEditorSize", d->propEditorDockableWidget->size());
-
+    if (d->objectViewWidget) {
+        int projectNavigatorWidth;
+        int propertyEditorWidth;
+        d->objectViewWidget->getSidebarWidths(&projectNavigatorWidth, &propertyEditorWidth);
+        if (projectNavigatorWidth > 0) {
+            mainWindowGroup.writeEntry("ProjectNavigatorSize", QSize(projectNavigatorWidth, 1));
+        }
+        if (propertyEditorWidth > 0) {
+            mainWindowGroup.writeEntry("PropertyEditorSize", QSize(propertyEditorWidth, 1));
+        }
+    }
     d->config->sync();
 }
 
@@ -2172,7 +2131,7 @@ void KexiMainWindow::updateCustomPropertyPanelTabs(
     KexiPart::Part *prevWindowPart, Kexi::ViewMode prevViewMode,
     KexiPart::Part *curWindowPart, Kexi::ViewMode curViewMode)
 {
-    if (!d->propEditorTabWidget)
+    if (!d->objectViewWidget || !d->objectViewWidget->propertyEditorTabWidget())
         return;
 
     if (   !curWindowPart
@@ -2189,14 +2148,14 @@ void KexiMainWindow::updateCustomPropertyPanelTabs(
             { //..or switching to other view mode
                 d->recentlySelectedPropertyPanelPages.insert(
                         d->partForPreviouslySetupPropertyPanelTabs,
-                        d->propEditorTabWidget->currentIndex());
+                        d->objectViewWidget->propertyEditorTabWidget()->currentIndex());
             }
         }
 
         //delete old custom tabs (other than 'property' tab)
-        const int count = d->propEditorTabWidget->count();
+        const int count = d->objectViewWidget->propertyEditorTabWidget()->count();
         for (int i = 1; i < count; i++)
-            d->propEditorTabWidget->removeTab(1);
+            d->objectViewWidget->propertyEditorTabWidget()->removeTab(1);
     }
 
     //don't change anything if part is not switched nor view mode changed
@@ -2211,11 +2170,11 @@ void KexiMainWindow::updateCustomPropertyPanelTabs(
 
     if (curWindowPart) {
         //recreate custom tabs
-        curWindowPart->setupCustomPropertyPanelTabs(d->propEditorTabWidget);
+        curWindowPart->setupCustomPropertyPanelTabs(d->objectViewWidget->propertyEditorTabWidget());
 
         //restore current page number for this part
         if (d->recentlySelectedPropertyPanelPages.contains(curWindowPart)) {
-            d->propEditorTabWidget->setCurrentIndex(
+            d->objectViewWidget->propertyEditorTabWidget()->setCurrentIndex(
                 d->recentlySelectedPropertyPanelPages[ curWindowPart ]
             );
         }
@@ -2280,7 +2239,7 @@ KexiMainWindow::activateWindow(KexiWindow& window)
     //qDebug();
 
     d->focus_before_popup = &window;
-    d->mainWidget->tabWidget()->setCurrentWidget(window.parentWidget()/*container*/);
+    d->objectViewWidget->tabWidget()->setCurrentWidget(window.parentWidget()/*container*/);
     window.activate();
     return true;
 }
@@ -2330,8 +2289,10 @@ KexiProject* KexiMainWindow::createKexiProjectObject(const KexiProjectData &data
     KexiProject *prj = new KexiProject(data, this);
     connect(prj, SIGNAL(itemRenamed(KexiPart::Item,QString)), this, SLOT(slotObjectRenamed(KexiPart::Item,QString)));
 
-    if (d->navigator){
-        connect(prj, SIGNAL(itemRemoved(KexiPart::Item)), d->navigator->model(), SLOT(slotRemoveItem(KexiPart::Item)));
+    if (d->objectViewWidget && d->objectViewWidget->projectNavigator()){
+        connect(prj, SIGNAL(itemRemoved(KexiPart::Item)),
+                d->objectViewWidget->projectNavigator()->model(),
+                SLOT(slotRemoveItem(KexiPart::Item)));
     }
     return prj;
 }
@@ -2371,9 +2332,9 @@ tristate KexiMainWindow::createNewProject(const KexiProjectData &projectData)
         d->tabbedToolBar->hideMainMenu();
     }
     d->prj = prj.take();
-    setupProjectNavigator();
     d->prj->data()->setLastOpened(QDateTime::currentDateTime());
     Kexi::recentProjects()->addProjectData(*d->prj->data());
+    d->modeSelector->setCurrentMode(Kexi::EditGlobalMode);
 
     invalidateActions();
     updateAppCaption();
@@ -2666,10 +2627,10 @@ KexiMainWindow::slotProjectQuit()
 
 void KexiMainWindow::slotActivateNavigator()
 {
-    if (!d->navigator) {
+    if (!d->objectViewWidget || !d->objectViewWidget->projectNavigator()) {
         return;
     }
-    d->navigator->setFocus();
+    d->objectViewWidget->projectNavigator()->setFocus();
 }
 
 void KexiMainWindow::slotActivateMainArea()
@@ -2680,24 +2641,27 @@ void KexiMainWindow::slotActivateMainArea()
 
 void KexiMainWindow::slotActivatePropertyEditor()
 {
-    if (!d->propEditor) {
+    if (!d->objectViewWidget || !d->objectViewWidget->propertyEditor()) {
         return;
     }
 
-    if (d->propEditorTabWidget->currentWidget())
-        d->propEditorTabWidget->currentWidget()->setFocus();
+    if (d->objectViewWidget->propertyEditorTabWidget()->currentWidget()) {
+        d->objectViewWidget->propertyEditorTabWidget()->currentWidget()->setFocus();
+    }
 }
 
 void KexiMainWindow::slotShowNavigator()
 {
-    if (d->navDockWidget)
-        d->navDockWidget->setVisible(!d->navDockWidget->isVisible());
+    if (d->objectViewWidget && d->objectViewWidget->projectNavigator()) {
+        d->objectViewWidget->projectNavigator()->setVisible(!d->objectViewWidget->projectNavigator()->isVisible());
+    }
 }
 
 void KexiMainWindow::slotShowPropertyEditor()
 {
-    if (d->propEditorDockWidget)
-        d->propEditorDockWidget->setVisible(!d->propEditorDockWidget->isVisible());
+    if (d->objectViewWidget && d->objectViewWidget->propertyEditorTabWidget()) {
+        d->objectViewWidget->propertyEditorTabWidget()->setVisible(!d->objectViewWidget->propertyEditorTabWidget()->isVisible());
+    }
 }
 
 tristate KexiMainWindow::switchToViewMode(KexiWindow& window, Kexi::ViewMode viewMode)
@@ -2973,10 +2937,10 @@ tristate KexiMainWindow::closeWindow(KexiWindow *window, bool layoutTaskBar, boo
     d->insideCloseWindow = true;
 
     if (window == currentWindow() && !window->isAttached()) {
-        if (d->propEditor) {
+        if (d->objectViewWidget && d->objectViewWidget->propertyEditor()) {
             // ah, closing detached window - better switch off property buffer right now...
             d->propertySet = 0;
-            d->propEditor->editor()->changeSet(0);
+            d->objectViewWidget->propertyEditor()->editor()->changeSet(0);
         }
     }
 
@@ -3056,8 +3020,8 @@ tristate KexiMainWindow::closeWindow(KexiWindow *window, bool layoutTaskBar, boo
         }
     } else {
         //not dirty now
-        if (d->navigator) {
-            d->navigator->updateItemName(*window->partItem(), false);
+        if (d->objectViewWidget && d->objectViewWidget->projectNavigator()) {
+            d->objectViewWidget->projectNavigator()->updateItemName(*window->partItem(), false);
         }
     }
 
@@ -3066,8 +3030,8 @@ tristate KexiMainWindow::closeWindow(KexiWindow *window, bool layoutTaskBar, boo
     d->removeWindow(window_id);
     d->setWindowContainerExistsFor(window->partItem()->identifier(), false);
     QWidget *windowContainer = window->parentWidget();
-    d->mainWidget->tabWidget()->removeTab(
-        d->mainWidget->tabWidget()->indexOf(windowContainer));
+    d->objectViewWidget->tabWidget()->removeTab(
+        d->objectViewWidget->tabWidget()->indexOf(windowContainer));
 
 #ifdef KEXI_QUICK_PRINTING_SUPPORT
     //also remove from 'print setup dialogs' cache, if needed
@@ -3081,8 +3045,8 @@ tristate KexiMainWindow::closeWindow(KexiWindow *window, bool layoutTaskBar, boo
 
     //focus navigator if nothing else available
     if (d->openedWindowsCount() == 0) {
-        if (d->navigator) {
-            d->navigator->setFocus();
+        if (d->objectViewWidget && d->objectViewWidget->projectNavigator()) {
+            d->objectViewWidget->projectNavigator()->setFocus();
         }
         d->updatePropEditorVisibility(Kexi::NoViewMode);
     }
@@ -3102,7 +3066,7 @@ tristate KexiMainWindow::closeWindow(KexiWindow *window, bool layoutTaskBar, boo
         d->executeActionWhenPendingJobsAreFinished();
     }
 #endif
-    d->mainWidget->slotCurrentTabIndexChanged(d->mainWidget->tabWidget()->currentIndex());
+    d->objectViewWidget->slotCurrentTabIndexChanged(d->objectViewWidget->tabWidget()->currentIndex());
     showDesignTabIfNeeded(0);
 
     if (currentWindow()) {
@@ -3117,8 +3081,9 @@ tristate KexiMainWindow::closeWindow(KexiWindow *window, bool layoutTaskBar, boo
 QWidget* KexiMainWindow::findWindow(QWidget *w)
 {
     while (w && !acceptsSharedActions(w)) {
-        if (w == d->propEditorDockWidget)
+        if (w == d->objectViewWidget->propertyEditorTabWidget()) {
             return currentWindow();
+        }
         w = w->parentWidget();
     }
     return w;
@@ -3250,13 +3215,13 @@ KexiMainWindow::openObject(KexiPart::Item* item, Kexi::ViewMode viewMode, bool *
                                       part, viewMode);
 
         // open new tab earlier
-        windowContainer = new KexiWindowContainer(d->mainWidget->tabWidget());
+        windowContainer = new KexiWindowContainer(d->objectViewWidget->tabWidget());
         d->setWindowContainerExistsFor(item->identifier(), true);
-        const int tabIndex = d->mainWidget->tabWidget()->addTab(
+        const int tabIndex = d->objectViewWidget->tabWidget()->addTab(
             windowContainer,
             part ? part->info()->icon() : koIcon("object"),
             KexiWindow::windowTitleForItem(*item));
-        d->mainWidget->tabWidget()->setTabToolTip(tabIndex, KexiPart::fullCaptionForItem(item, part));
+        d->objectViewWidget->tabWidget()->setTabToolTip(tabIndex, KexiPart::fullCaptionForItem(item, part));
         QString whatsThisText;
         if (part) {
             whatsThisText = xi18nc("@info",
@@ -3267,8 +3232,8 @@ KexiMainWindow::openObject(KexiPart::Item* item, Kexi::ViewMode viewMode, bool *
             whatsThisText = xi18nc("@info",
                                    "Tab for <resource>%1</resource>.", item->captionOrName());
         }
-        d->mainWidget->tabWidget()->setTabWhatsThis(tabIndex, whatsThisText);
-        d->mainWidget->tabWidget()->setCurrentWidget(windowContainer);
+        d->objectViewWidget->tabWidget()->setTabWhatsThis(tabIndex, whatsThisText);
+        d->objectViewWidget->tabWidget()->setCurrentWidget(windowContainer);
 
 #ifndef KEXI_NO_PENDING_DIALOGS
         d->addItemToPendingWindows(item, Private::WindowOpeningJob);
@@ -3277,11 +3242,11 @@ KexiMainWindow::openObject(KexiPart::Item* item, Kexi::ViewMode viewMode, bool *
         if (window) {
             windowContainer->setWindow(window);
             // update text and icon
-            d->mainWidget->tabWidget()->setTabText(
-                d->mainWidget->tabWidget()->indexOf(windowContainer),
+            d->objectViewWidget->tabWidget()->setTabText(
+                d->objectViewWidget->tabWidget()->indexOf(windowContainer),
                 window->windowTitle());
-            d->mainWidget->tabWidget()->setTabIcon(
-                d->mainWidget->tabWidget()->indexOf(windowContainer),
+            d->objectViewWidget->tabWidget()->setTabIcon(
+                d->objectViewWidget->tabWidget()->indexOf(windowContainer),
                 window->windowIcon());
         }
     }
@@ -3291,8 +3256,8 @@ KexiMainWindow::openObject(KexiPart::Item* item, Kexi::ViewMode viewMode, bool *
         d->removePendingWindow(item->identifier());
 #endif
         d->setWindowContainerExistsFor(item->identifier(), false);
-        d->mainWidget->tabWidget()->removeTab(
-            d->mainWidget->tabWidget()->indexOf(windowContainer));
+        d->objectViewWidget->tabWidget()->removeTab(
+            d->objectViewWidget->tabWidget()->indexOf(windowContainer));
         delete windowContainer;
         updateCustomPropertyPanelTabs(0, Kexi::NoViewMode); //revert
         //! @todo add error msg...
@@ -3418,7 +3383,7 @@ bool KexiMainWindow::newObject(KexiPart::Info *info, bool* openingCancelled)
     }
 
     if (!it->neverSaved()) { //only add stored objects to the browser
-        d->navigator->model()->slotAddItem(it);
+        d->objectViewWidget->projectNavigator()->model()->slotAddItem(it);
     }
     return openObject(it, Kexi::DesignViewMode, openingCancelled);
 }
@@ -3583,8 +3548,9 @@ void KexiMainWindow::slotObjectRenamed(const KexiPart::Item &item, const QString
 
 void KexiMainWindow::acceptPropertySetEditing()
 {
-    if (d->propEditor)
-        d->propEditor->editor()->acceptInput();
+    if (d->objectViewWidget && d->objectViewWidget->propertyEditor()) {
+        d->objectViewWidget->propertyEditor()->editor()->acceptInput();
+    }
 }
 
 void KexiMainWindow::propertySetSwitched(KexiWindow *window, bool force,
@@ -3598,7 +3564,7 @@ void KexiMainWindow::propertySetSwitched(KexiWindow *window, bool force,
         d->propertySet = 0; //we'll need to move to another prop. set
         return;
     }
-    if (d->propEditor) {
+    if (d->objectViewWidget && d->objectViewWidget->propertyEditor()) {
         KPropertySet *newSet = _currentWindow ? _currentWindow->propertySet() : 0;
         if (!newSet || (force || static_cast<KPropertySet*>(d->propertySet) != newSet)) {
             d->propertySet = newSet;
@@ -3612,10 +3578,10 @@ void KexiMainWindow::propertySetSwitched(KexiWindow *window, bool force,
                 }
 
                 if (propertyToSelect.isEmpty()) {
-                    d->propEditor->editor()->changeSet(d->propertySet, options);
+                    d->objectViewWidget->propertyEditor()->editor()->changeSet(d->propertySet, options);
                 }
                 else {
-                    d->propEditor->editor()->changeSet(d->propertySet, propertyToSelect, options);
+                    d->objectViewWidget->propertyEditor()->editor()->changeSet(d->propertySet, propertyToSelect, options);
                 }
             }
         }
@@ -3627,13 +3593,13 @@ void KexiMainWindow::slotDirtyFlagChanged(KexiWindow* window)
     KexiPart::Item *item = window->partItem();
     //update text in navigator and app. caption
     if (!d->userMode) {
-        d->navigator->updateItemName(*item, window->isDirty());
+        d->objectViewWidget->projectNavigator()->updateItemName(*item, window->isDirty());
     }
 
     invalidateActions();
     updateAppCaption();
-    d->mainWidget->tabWidget()->setTabText(
-        d->mainWidget->tabWidget()->indexOf(window->parentWidget()),
+    d->objectViewWidget->tabWidget()->setTabText(
+        d->objectViewWidget->tabWidget()->indexOf(window->parentWidget()),
         window->windowTitle());
 }
 
@@ -4067,7 +4033,7 @@ tristate KexiMainWindow::printActionForItem(KexiPart::Item* item, PrintActionTyp
 
 void KexiMainWindow::slotEditCopySpecialDataTable()
 {
-    KexiPart::Item* item = d->navigator->selectedPartItem();
+    KexiPart::Item* item = d->objectViewWidget->projectNavigator()->selectedPartItem();
     if (item)
         copyItemToClipboardAsDataTable(item);
 }
@@ -4189,8 +4155,8 @@ void KexiMainWindow::highlightObject(const QString& pluginId, const QString& nam
     KexiPart::Item *item = d->prj->itemForPluginId(pluginId, name);
     if (!item)
         return;
-    if (d->navigator) {
-        d->navigator->selectItem(*item);
+    if (d->objectViewWidget && d->objectViewWidget->projectNavigator()) {
+        d->objectViewWidget->projectNavigator()->selectItem(*item);
     }
 }
 
@@ -4224,7 +4190,8 @@ void KexiMainWindow::addToolBarAction(const QString& toolBarName, QAction *actio
 
 void KexiMainWindow::updatePropertyEditorInfoLabel(const QString& textToDisplayForNullSet)
 {
-    d->propEditor->updateInfoLabelForPropertySet(d->propertySet, textToDisplayForNullSet);
+    d->objectViewWidget->propertyEditor()->updateInfoLabelForPropertySet(
+                d->propertySet, textToDisplayForNullSet);
 }
 
 void KexiMainWindow::addSearchableModel(KexiSearchableModel *model)
@@ -4405,5 +4372,18 @@ void KexiMainWindow::setCurrentMode(Kexi::GlobalViewMode mode)
 
 void KexiMainWindow::slotCurrentModeChanged()
 {
-
+    switch (d->modeSelector->currentMode()) {
+    case Kexi::WelcomeGlobalMode:
+        break;
+    case Kexi::ProjectGlobalMode:
+        break;
+    case Kexi::EditGlobalMode:
+        setupObjectView();
+        d->globalViewStack->setCurrentWidget(d->objectViewWidget);
+        break;
+    case Kexi::DesignGlobalMode:
+            break;
+    case Kexi::HelpGlobalMode:
+            break;
+    }
 }

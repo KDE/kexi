@@ -25,31 +25,29 @@
 
 #include "keximain_export.h"
 
-#include <KMainWindow>
 #include <core/KexiMainWindowIface.h>
 #include <core/kexiguimsghandler.h>
 
 #include <QCommandLineOption>
+#include <QMainWindow>
 #include <QTabWidget>
 
 class QPaintEvent;
 class KDbObject;
 class KDbConnectionData;
 class KexiProjectData;
-class KexiMainWidget;
+class KexiObjectViewWidget;
 namespace KexiPart
 {
 class Info;
 class Part;
 }
 
-#define KexiMainWindowSuper QWidget //KMainWindow
-
 /**
  * @short Kexi's main window implementation
  */
 class KEXIMAIN_EXPORT KexiMainWindow
-            : public QWidget /*KMainWindow*/, public KexiMainWindowIface, public KexiGUIMessageHandler
+            : public QMainWindow, public KexiMainWindowIface, public KexiGUIMessageHandler
 {
     Q_OBJECT
 
@@ -62,7 +60,7 @@ public:
 
 //! @todo virtual QWidget* focusWidget() const;
     virtual QWidget* focusWidget() const {
-        return KexiMainWindowSuper::focusWidget();
+        return QMainWindow::focusWidget();
     }
 
     /*! Used by the main Kexi's routine. Creates a new Kexi main window.
@@ -322,9 +320,9 @@ protected:
     /*! Setups main widget */
     void setupMainWidget();
 
-    /*! Creates the Project Navigator (if it's not yet created),
-     lookups items for current project and fills the nav. with not-opened items */
-    void setupProjectNavigator();
+    /*! Creates a view widget for object view, used in edit and design global view mode
+     if it's not yet created. This includes project navigator and property editor. */
+    void setupObjectView();
 
     void setupContextHelp();
 
@@ -383,6 +381,8 @@ protected:
     void updateAppCaption();
 
     virtual void closeEvent(QCloseEvent *ev);
+
+    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
 
     //! Called by KexiMainWidget::queryClose()
     bool queryClose();
@@ -609,11 +609,11 @@ protected Q_SLOTS:
      \return true on success and cancelled when the action was cancelled. */
     //! @todo reenable when ported  tristate printActionForItem(KexiPart::Item* item, PrintActionType action);
 
-    void slotSetProjectNavigatorVisible(bool set);
-    void slotSetPropertyEditorVisible(bool set);
-    void slotProjectNavigatorVisibilityChanged(bool visible);
-    void slotPropertyEditorVisibilityChanged(bool visible);
-    void slotMultiTabBarTabClicked(int id);
+    //void slotSetProjectNavigatorVisible(bool set);
+    //void slotSetPropertyEditorVisible(bool set);
+    //void slotProjectNavigatorVisibilityChanged(bool visible);
+    //void slotPropertyEditorVisibilityChanged(bool visible);
+    //void slotMultiTabBarTabClicked(int id);
     void slotCurrentModeChanged();
 
 private:
@@ -634,7 +634,7 @@ private:
     Private * const d;
 
     friend class KexiWindow;
-    friend class KexiMainWidget;
+    friend class KexiObjectViewWidget;
 };
 
 #endif
