@@ -203,7 +203,7 @@ public:
             color = m_parameters.selectedColor;
         } else if (mode == QIcon::Disabled && m_parameters.disabledColor.isValid()) {
             color = m_parameters.disabledColor;
-            qDebug() << m_parameters.disabledColor;
+            //qDebug() << m_parameters.disabledColor;
         } else if (m_parameters.color.isValid()) {
             color = m_parameters.color;
         }
