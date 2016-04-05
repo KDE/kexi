@@ -522,7 +522,7 @@ protected Q_SLOTS:
     void slotActivateNavigator();
     void slotActivateMainArea();
     void slotActivatePropertyEditor();
-    void slotShowNavigator();
+    void slotToggleProjectNavigator();
     void slotShowPropertyEditor();
     void slotViewDataMode();
     void slotViewDesignMode();

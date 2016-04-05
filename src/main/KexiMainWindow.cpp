@@ -878,7 +878,7 @@ void KexiMainWindow::setupActions()
         d->action_show_nav->setToolTip(xi18n("Show the Project Navigator pane"));
         d->action_show_nav->setWhatsThis(xi18n("Shows the Project Navigator pane."));
         connect(d->action_show_nav, SIGNAL(triggered()),
-                this, SLOT(slotShowNavigator()));
+                this, SLOT(slotToggleProjectNavigator()));
     } else {
         d->action_show_nav = 0;
     }
@@ -2650,7 +2650,7 @@ void KexiMainWindow::slotActivatePropertyEditor()
     }
 }
 
-void KexiMainWindow::slotShowNavigator()
+void KexiMainWindow::slotToggleProjectNavigator()
 {
     if (d->objectViewWidget && d->objectViewWidget->projectNavigator()) {
         d->objectViewWidget->projectNavigator()->setVisible(!d->objectViewWidget->projectNavigator()->isVisible());
