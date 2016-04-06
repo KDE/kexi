@@ -553,6 +553,7 @@ extern LIBMDB_DLL size_t mdb_ole_read_next(MdbHandle *mdb, MdbColumn *col, void 
 extern LIBMDB_DLL size_t mdb_ole_read(MdbHandle *mdb, MdbColumn *col, void *ole_ptr, int chunk_size);
 extern LIBMDB_DLL void* mdb_ole_read_full(MdbHandle *mdb, MdbColumn *col, size_t *size);
 extern LIBMDB_DLL void mdb_set_date_fmt(const char *);
+extern LIBMDB_DLL void mdb_set_boolean_fmt_words();
 extern LIBMDB_DLL int mdb_read_row(MdbTableDef *table, unsigned int row);
 
 /* dump.c */
