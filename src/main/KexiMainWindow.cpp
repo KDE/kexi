@@ -1903,6 +1903,28 @@ void KexiMainWindow::setupObjectView()
     d->objectViewWidget->setMainWindow(this);
     connect(d->objectViewWidget->tabWidget(), SIGNAL(tabCloseRequested(int)),
             this, SLOT(closeWindowForTab(int)));
+
+    // Restore settings
+    //! @todo FIX LAYOUT PROBLEMS
+    KConfigGroup propertyEditorGroup(d->config->group("PropertyEditor"));
+    QFont f(KexiUtils::smallestReadableFont());
+    const qreal pointSizeF = propertyEditorGroup.readEntry("FontPointSize", -1.0f); // points are more accurate
+    if (pointSizeF > 0.0) {
+        f.setPointSizeF(pointSizeF);
+    } else {
+        const int pixelSize = propertyEditorGroup.readEntry("FontSize", -1); // compatibility with Kexi 2.x
+        if (pixelSize > 0) {
+            f.setPixelSize(pixelSize);
+        }
+    }
+    d->objectViewWidget->propertyEditorTabWidget()->setFont(f);
+
+    KConfigGroup mainWindowGroup(d->config->group("MainWindow"));
+    const QSize projectNavigatorSize = mainWindowGroup.readEntry<QSize>("ProjectNavigatorSize", QSize());
+    const QSize propertyEditorSize = mainWindowGroup.readEntry<QSize>("PropertyEditorSize", QSize());
+    d->objectViewWidget->setSidebarWidths(projectNavigatorSize.isValid() ? projectNavigatorSize.width() : -1,
+                                          propertyEditorSize.isValid() ? propertyEditorSize.width() : -1);
+
     d->globalViewStack->addWidget(d->objectViewWidget);
     KexiProjectNavigator* navigator = d->objectViewWidget->projectNavigator();
     if (navigator) {
@@ -1937,6 +1959,7 @@ void KexiMainWindow::setupObjectView()
         connect(navigator, SIGNAL(selectionChanged(KexiPart::Item*)),
                 this, SLOT(slotPartItemSelectedInNavigator(KexiPart::Item*)));
     }
+
     if (d->prj->isConnected()) {
         QString partManagerErrorMessages;
 
@@ -2056,24 +2079,6 @@ KexiMainWindow::restoreSettings()
             resize(KEXI_MIN_WINDOW_SIZE);
         }
     }
-//! @todo FIX LAYOUT PROBLEMS
-    KConfigGroup propertyEditorGroup(d->config->group("PropertyEditor"));
-    QFont f(KexiUtils::smallestReadableFont());
-    const qreal pointSizeF = propertyEditorGroup.readEntry("FontPointSize", -1.0f); // points are more accurate
-    if (pointSizeF > 0.0) {
-        f.setPointSizeF(pointSizeF);
-    } else {
-        const int pixelSize = propertyEditorGroup.readEntry("FontSize", -1); // compatibility with Kexi 2.x
-        if (pixelSize > 0) {
-            f.setPixelSize(pixelSize);
-        }
-    }
-    d->objectViewWidget->propertyEditorTabWidget()->setFont(f);
-
-    const QSize projectNavigatorSize = mainWindowGroup.readEntry<QSize>("ProjectNavigatorSize", QSize());
-    const QSize propertyEditorSize = mainWindowGroup.readEntry<QSize>("PropertyEditorSize", QSize());
-    d->objectViewWidget->setSidebarWidths(projectNavigatorSize.isValid() ? projectNavigatorSize.width() : -1,
-                                          propertyEditorSize.isValid() ? propertyEditorSize.width() : -1);
 }
 
 void
@@ -2653,14 +2658,14 @@ void KexiMainWindow::slotActivatePropertyEditor()
 void KexiMainWindow::slotToggleProjectNavigator()
 {
     if (d->objectViewWidget && d->objectViewWidget->projectNavigator()) {
-        d->objectViewWidget->projectNavigator()->setVisible(!d->objectViewWidget->projectNavigator()->isVisible());
+        d->objectViewWidget->setProjectNavigatorVisible(!d->objectViewWidget->projectNavigator()->isVisible());
     }
 }
 
 void KexiMainWindow::slotShowPropertyEditor()
 {
     if (d->objectViewWidget && d->objectViewWidget->propertyEditorTabWidget()) {
-        d->objectViewWidget->propertyEditorTabWidget()->setVisible(!d->objectViewWidget->propertyEditorTabWidget()->isVisible());
+        d->objectViewWidget->setPropertyEditorTabWidgetVisible(!d->objectViewWidget->propertyEditorTabWidget()->isVisible());
     }
 }
 
@@ -4155,7 +4160,7 @@ void KexiMainWindow::highlightObject(const QString& pluginId, const QString& nam
     if (!item)
         return;
     if (d->objectViewWidget && d->objectViewWidget->projectNavigator()) {
-        d->objectViewWidget->projectNavigator()->setVisible(true);
+        d->objectViewWidget->setProjectNavigatorVisible(true);
         d->objectViewWidget->projectNavigator()->selectItem(*item);
     }
 }

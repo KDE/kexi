@@ -404,19 +404,26 @@ public:
     QTabWidget* propertyEditorTabWidget() const;
     KexiPropertyEditorView* propertyEditor() const;
 
+    void setProjectNavigatorVisible(bool set);
+    void setPropertyEditorTabWidgetVisible(bool set);
+
     void setSidebarWidths(int projectNavigatorWidth, int propertyEditorWidth);
     void getSidebarWidths(int *projectNavigatorWidth, int *propertyEditorWidth) const;
 
 protected Q_SLOTS:
     void slotCurrentTabIndexChanged(int index);
+    void slotSplitterMoved(int pos, int index);
+
 Q_SIGNALS:
     void currentTabIndexChanged(int index);
 
 protected:
     void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
+    void showEvent(QShowEvent *e) Q_DECL_OVERRIDE;
 
 private:
     void setupCentralWidget();
+    void updateSidebarWidths();
 
     class Private;
     const QScopedPointer<Private> d;
