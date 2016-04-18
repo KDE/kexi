@@ -51,7 +51,6 @@
 #include "KexiGlobalViewModeSelector.h"
 #include <kexiutils/utils.h>
 #include <widget/utils/KexiDockableWidget.h>
-#include <widget/properties/KexiPropertyEditorView.h>
 #include <widget/KexiNameDialog.h>
 #include <core/kexi.h>
 #include <core/KexiWindow.h>
@@ -142,23 +141,6 @@ private:
 
     class Private;
     Private * const d;
-};
-
-//! @internal window container created to speedup opening new tabs
-class KexiWindowContainer : public QWidget
-{
-    Q_OBJECT
-public:
-    explicit KexiWindowContainer(QWidget* parent);
-
-    virtual ~KexiWindowContainer();
-
-    void setWindow(KexiWindow* w);
-
-    QPointer<KexiWindow> window;
-
-private:
-    QVBoxLayout *lyr;
 };
 
 class EmptyMenuContentWidget : public QWidget
@@ -337,101 +319,6 @@ public:
     void polish(QWidget* widget) Q_DECL_OVERRIDE;
 };
 
-class KexiObjectViewWidget;
-
-//! @internal tab widget acting as central widget for KexiMainWindow
-class KexiObjectViewTabWidget : public QTabWidget
-{
-    Q_OBJECT
-public:
-    KexiObjectViewTabWidget(QWidget *parent, KexiObjectViewWidget *mainWidget);
-    virtual ~KexiObjectViewTabWidget();
-public Q_SLOTS:
-    void closeTab();
-    tristate closeAllTabs();
-
-protected:
-    //! Shows context menu for tab at @a index at point @a point.
-    //! If @a index is -1, context menu for empty area is requested.
-    void showContextMenuForTab(int index, const QPoint& point);
-
-    //! Reimplemented to hide frame when no tabs are displayed
-    virtual void paintEvent(QPaintEvent * event);
-
-    virtual void mousePressEvent(QMouseEvent *event);
-
-    KexiObjectViewWidget *m_mainWidget;
-    QAction *m_closeAction;
-    QAction *m_closeAllTabsAction;
-
-private:
-    int m_tabIndex;
-
-    void setTabIndexFromContextMenu(int clickedIndex);
-};
-
-//! @short A widget for object view, used in edit and design global view mode
-/*! Contents:
- @verbatim
- |---|--------------|-------------|---------------|---|
- |   |              |     tabs    |               |   |
- |tab|              |-------------|               |tab|
- |bar|Prj. navigator|Object's view|Property editor|bar|
- |   |  pane        |             |   pane        |   |
- |---|--------------|-------------|---------------|---|
- @endverbatim
-*/
-class KexiObjectViewWidget : public QWidget
-{
-    Q_OBJECT
-public:
-    enum Flag {
-        NoFlags = 0,
-        ProjectNavigatorEnabled = 1,
-        DefaultFlags = ProjectNavigatorEnabled
-    };
-    Q_DECLARE_FLAGS(Flags, Flag)
-    Q_FLAG(Flags)
-
-    explicit KexiObjectViewWidget(Flags flags = DefaultFlags);
-
-    virtual ~KexiObjectViewWidget();
-
-    void setMainWindow(KexiMainWindow* mainWindow);
-
-    KexiProjectNavigator* projectNavigator() const;
-    KexiObjectViewTabWidget* tabWidget() const;
-    QTabWidget* propertyEditorTabWidget() const;
-    KexiPropertyEditorView* propertyEditor() const;
-
-    void setProjectNavigatorVisible(bool set);
-    void setPropertyEditorTabWidgetVisible(bool set);
-
-    void setSidebarWidths(int projectNavigatorWidth, int propertyEditorWidth);
-    void getSidebarWidths(int *projectNavigatorWidth, int *propertyEditorWidth) const;
-
-protected Q_SLOTS:
-    void slotCurrentTabIndexChanged(int index);
-    void slotSplitterMoved(int pos, int index);
-
-Q_SIGNALS:
-    void currentTabIndexChanged(int index);
-
-protected:
-    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
-    void showEvent(QShowEvent *e) Q_DECL_OVERRIDE;
-
-private:
-    void setupCentralWidget();
-    void updateSidebarWidths();
-
-    class Private;
-    const QScopedPointer<Private> d;
-
-    friend class KexiMainWindow;
-    friend class KexiObjectViewTabWidget;
-};
-
 //------------------------------------------
 
 //! @internal Dock widget with floating disabled but still collapsible
@@ -538,7 +425,7 @@ public:
 
     KexiMainWindow *wnd;
     QStackedWidget *globalViewStack;
-    QPointer<KexiObjectViewWidget> objectViewWidget;
+    KexiObjectViewWidget *objectViewWidget;
     KActionCollection *actionCollection;
     KexiGlobalViewModeSelector *modeSelector;
     KHelpMenu *helpMenu;

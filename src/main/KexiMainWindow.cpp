@@ -36,6 +36,8 @@
 #define KEXI_SKIP_REGISTERICONSRESOURCE
 #define KEXI_SKIP_SETUPPRIVATEICONSRESOURCE
 #include "KexiRegisterResource_p.h"
+#include "KexiObjectViewWidget.h"
+#include "KexiObjectViewTabWidget.h"
 #include <kexiutils/utils.h>
 #include <kexiutils/KexiStyle.h>
 #include <kexiutils/KexiCloseButton.h>
@@ -183,124 +185,6 @@ void KexiDockWidget::setSizeHint(const QSize& hint)
 QSize KexiDockWidget::sizeHint() const
 {
     return d->hint.isValid() ? d->hint : QDockWidget::sizeHint();
-}
-
-//-------------------------------------------------
-
-KexiObjectViewTabWidget::KexiObjectViewTabWidget(QWidget *parent, KexiObjectViewWidget* mainWidget)
-        : QTabWidget(parent)
-        , m_mainWidget(mainWidget)
-        , m_tabIndex(-1)
-{
-    m_closeAction = new QAction(koIcon("tab-close"), xi18n("&Close Tab"), this);
-    m_closeAction->setToolTip(xi18n("Close the current tab"));
-    m_closeAction->setWhatsThis(xi18n("Closes the current tab."));
-    m_closeAllTabsAction = new QAction(xi18n("Cl&ose All Tabs"), this);
-    m_closeAllTabsAction->setToolTip(xi18n("Close all tabs"));
-    m_closeAllTabsAction->setWhatsThis(xi18n("Closes all tabs."));
-    connect(m_closeAction, SIGNAL(triggered()), this, SLOT(closeTab()));
-    connect(m_closeAllTabsAction, SIGNAL(triggered()), this, SLOT(closeAllTabs()));
-//! @todo  insert window list in the corner widget as in firefox
-#if 0
-    // close-tab button:
-    QToolButton* rightWidget = new QToolButton(this);
-    rightWidget->setDefaultAction(m_closeAction);
-    rightWidget->setText(QString());
-    rightWidget->setAutoRaise(true);
-    rightWidget->adjustSize();
-    setCornerWidget(rightWidget, Qt::TopRightCorner);
-#endif
-    setMovable(true);
-    setDocumentMode(true);
-    tabBar()->setExpanding(true);
-}
-
-KexiObjectViewTabWidget::~KexiObjectViewTabWidget()
-{
-}
-
-void KexiObjectViewTabWidget::paintEvent(QPaintEvent * event)
-{
-    if (count() > 0)
-        QTabWidget::paintEvent(event);
-    else
-        QWidget::paintEvent(event);
-}
-
-void KexiObjectViewTabWidget::mousePressEvent(QMouseEvent *event)
-{
-    //! @todo KEXI3 test KexiMainWindowTabWidget's contextMenu event port from KTabWidget
-    if (event->button() == Qt::RightButton) {
-        int tab = tabBar()->tabAt(event->pos());
-        const QPoint realPos(tabBar()->mapToGlobal(event->pos()));
-        if (QRect(tabBar()->mapToGlobal(QPoint(0,0)),
-              tabBar()->mapToGlobal(QPoint(tabBar()->width()-1, tabBar()->height()-1))).contains(realPos))
-        {
-            showContextMenuForTab(tab, tabBar()->mapToGlobal(event->pos()));
-            return;
-        }
-    }
-    QTabWidget::mousePressEvent(event);
-}
-
-void KexiObjectViewTabWidget::closeTab()
-{
-    KexiMainWindow *main = dynamic_cast<KexiMainWindow*>(KexiMainWindowIface::global());
-    if (main) {
-        main->closeWindowForTab(m_tabIndex);
-    }
-}
-
-tristate KexiObjectViewTabWidget::closeAllTabs()
-{
-    tristate alternateResult = true;
-    QList<KexiWindow*> windowList;
-    KexiMainWindow *main = dynamic_cast<KexiMainWindow*>(KexiMainWindowIface::global());
-    if (!main) {
-        return alternateResult;
-    }
-    for (int i = 0; i < count(); i++) {
-        KexiWindow *window = main->windowForTab(i);
-        if (window) {
-            windowList.append(window);
-        }
-    }
-    foreach (KexiWindow *window, windowList) {
-        tristate result = main->closeWindow(window);
-        if (result != true && result != false) {
-            return result;
-        }
-        if (result == false) {
-            alternateResult = false;
-        }
-    }
-    return alternateResult;
-}
-
-void KexiObjectViewTabWidget::showContextMenuForTab(int index, const QPoint& point)
-{
-    QMenu menu;
-    if (index >= 0) {
-        menu.addAction(m_closeAction);
-    }
-    if (count() > 0) {
-        menu.addAction(m_closeAllTabsAction);
-    }
-    //! @todo add "&Detach Tab"
-    if (menu.actions().isEmpty()) {
-        return;
-    }
-    setTabIndexFromContextMenu(index);
-    menu.exec(point);
-}
-
-void KexiObjectViewTabWidget::setTabIndexFromContextMenu(int clickedIndex)
-{
-    if (currentIndex() == -1) {
-        m_tabIndex = -1;
-        return;
-    }
-    m_tabIndex = clickedIndex;
 }
 
 //-------------------------------------------------
@@ -523,11 +407,7 @@ KexiWindow* KexiMainWindow::windowForTab(int tabIndex) const
 {
     if (!d->objectViewWidget || !d->objectViewWidget->tabWidget())
         return 0;
-    KexiWindowContainer *windowContainer
-        = dynamic_cast<KexiWindowContainer*>(d->objectViewWidget->tabWidget()->widget(tabIndex));
-    if (!windowContainer)
-        return 0;
-    return windowContainer->window;
+    return d->objectViewWidget->tabWidget()->window(tabIndex);
 }
 
 void KexiMainWindow::setupMainMenuActionShortcut(QAction * action)
@@ -1900,9 +1780,12 @@ void KexiMainWindow::setupObjectView()
         flags |= KexiObjectViewWidget::ProjectNavigatorEnabled;
     }
     d->objectViewWidget = new KexiObjectViewWidget(flags);
-    d->objectViewWidget->setMainWindow(this);
-    connect(d->objectViewWidget->tabWidget(), SIGNAL(tabCloseRequested(int)),
-            this, SLOT(closeWindowForTab(int)));
+    connect(d->objectViewWidget, &KexiObjectViewWidget::activeWindowChanged,
+            this, &KexiMainWindow::activeWindowChanged);
+    connect(d->objectViewWidget, &KexiObjectViewWidget::closeWindowRequested,
+            this, &KexiMainWindow::closeWindowForTab);
+    connect(d->objectViewWidget, &KexiObjectViewWidget::closeAllWindowsRequested,
+            this, &KexiMainWindow::closeAllWindows);
 
     // Restore settings
     //! @todo FIX LAYOUT PROBLEMS
@@ -2922,6 +2805,30 @@ tristate KexiMainWindow::closeWindowForTab(int tabIndex)
     return closeWindow(window);
 }
 
+tristate KexiMainWindow::closeAllWindows()
+{
+    if (!d->objectViewWidget || !d->objectViewWidget->tabWidget())
+        return true;
+    QList<KexiWindow*> windowList;
+    for (int i = 0; i < d->objectViewWidget->tabWidget()->count(); ++i) {
+        KexiWindow *window = windowForTab(i);
+        if (window) {
+            windowList.append(window);
+        }
+    }
+    tristate alternateResult = true;
+    for (KexiWindow *window : windowList) {
+        const tristate result = closeWindow(window);
+        if (~result) {
+            return result;
+        }
+        if (result == false) {
+            alternateResult = false;
+        }
+    }
+    return alternateResult;
+}
+
 tristate KexiMainWindow::closeWindow(KexiWindow *window, bool layoutTaskBar, bool doNotSaveChanges)
 {
 //! @todo KEXI3 KexiMainWindow::closeWindow()
@@ -3071,7 +2978,7 @@ tristate KexiMainWindow::closeWindow(KexiWindow *window, bool layoutTaskBar, boo
         d->executeActionWhenPendingJobsAreFinished();
     }
 #endif
-    d->objectViewWidget->slotCurrentTabIndexChanged(d->objectViewWidget->tabWidget()->currentIndex());
+    //d->objectViewWidget->slotCurrentTabIndexChanged(d->objectViewWidget->tabWidget()->currentIndex());
     showDesignTabIfNeeded(0);
 
     if (currentWindow()) {
@@ -3198,7 +3105,7 @@ KexiMainWindow::openObject(KexiPart::Item* item, Kexi::ViewMode viewMode, bool *
     *openingCancelled = false;
 
     bool alreadyOpened = false;
-    KexiWindowContainer *windowContainer = 0;
+    QWidget *windowContainer = 0;
 
     if (window) {
         if (viewMode != window->currentViewMode()) {
@@ -3219,13 +3126,11 @@ KexiMainWindow::openObject(KexiPart::Item* item, Kexi::ViewMode viewMode, bool *
                                       currentWindow() ? currentWindow()->currentViewMode() : Kexi::NoViewMode,
                                       part, viewMode);
 
+        const int tabIndex = d->objectViewWidget->tabWidget()->addEmptyContainerTab(
+                    part ? part->info()->icon() : koIcon("object"),
+                    KexiWindow::windowTitleForItem(*item));
         // open new tab earlier
-        windowContainer = new KexiWindowContainer(d->objectViewWidget->tabWidget());
         d->setWindowContainerExistsFor(item->identifier(), true);
-        const int tabIndex = d->objectViewWidget->tabWidget()->addTab(
-            windowContainer,
-            part ? part->info()->icon() : koIcon("object"),
-            KexiWindow::windowTitleForItem(*item));
         d->objectViewWidget->tabWidget()->setTabToolTip(tabIndex, KexiPart::fullCaptionForItem(item, part));
         QString whatsThisText;
         if (part) {
@@ -3238,21 +3143,18 @@ KexiMainWindow::openObject(KexiPart::Item* item, Kexi::ViewMode viewMode, bool *
                                    "Tab for <resource>%1</resource>.", item->captionOrName());
         }
         d->objectViewWidget->tabWidget()->setTabWhatsThis(tabIndex, whatsThisText);
-        d->objectViewWidget->tabWidget()->setCurrentWidget(windowContainer);
+        d->objectViewWidget->tabWidget()->setCurrentIndex(tabIndex);
 
 #ifndef KEXI_NO_PENDING_DIALOGS
         d->addItemToPendingWindows(item, Private::WindowOpeningJob);
 #endif
+        windowContainer = d->objectViewWidget->tabWidget()->widget(tabIndex);
         window = d->prj->openObject(windowContainer, item, viewMode, staticObjectArgs);
         if (window) {
-            windowContainer->setWindow(window);
+            d->objectViewWidget->tabWidget()->setWindowForTab(tabIndex, window);
             // update text and icon
-            d->objectViewWidget->tabWidget()->setTabText(
-                d->objectViewWidget->tabWidget()->indexOf(windowContainer),
-                window->windowTitle());
-            d->objectViewWidget->tabWidget()->setTabIcon(
-                d->objectViewWidget->tabWidget()->indexOf(windowContainer),
-                window->windowIcon());
+            d->objectViewWidget->tabWidget()->setTabText(tabIndex, window->windowTitle());
+            d->objectViewWidget->tabWidget()->setTabIcon(tabIndex, window->windowIcon());
         }
     }
 

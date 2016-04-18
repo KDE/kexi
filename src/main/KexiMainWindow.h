@@ -158,6 +158,9 @@ public Q_SLOTS:
     /*! Closes window inside tab @a tabIndex. */
     tristate closeWindowForTab(int tabIndex);
 
+    /*! Closes all windows. */
+    tristate closeAllWindows();
+
     /*! Internal implementation. If \a doNotSaveChanges is true,
      messages asking for saving the will be skipped and the changes will be dropped.
      This should not be usually used, maybe except for test suites
