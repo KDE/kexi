@@ -52,7 +52,6 @@
 #include <KLocalizedString>
 #include <KConfigGroup>
 
-#include <QPixmapCache>
 #include <QLabel>
 #include <QMenu>
 #include <QDialog>
