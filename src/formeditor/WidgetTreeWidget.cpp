@@ -150,7 +150,7 @@ void WidgetTreeWidgetItem::initTextAndIcon(int forcedTabPageIndex, const QString
     setText(0, itemName);
     setText(1, itemClass);
     if (!iconName.isEmpty()) {
-        QPixmap icon(koSmallIconCStr(iconName));
+        QPixmap icon(QIcon::fromTheme(iconName).pixmap(IconSize(KIconLoader::Small)));
         if (!(itemFlags & Qt::ItemIsSelectable)) {
             KIconEffect::semiTransparent(icon);
         }
