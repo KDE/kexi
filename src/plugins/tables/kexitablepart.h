@@ -52,7 +52,7 @@ public:
         KDbTableSchema *table;
         /*! true, if \a table member has changed in previous view. Used on view switching.
          We're checking this flag to see if we should refresh data for DataViewMode. */
-    bool tableSchemaChangedInPreviousView;
+        bool tableSchemaChangedInPreviousView;
     };
 
     static tristate askForClosingObjectsUsingTableSchema(
