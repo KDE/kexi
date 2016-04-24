@@ -27,6 +27,7 @@
 #include <KLocalizedString>
 
 #include <KexiIcon.h>
+#include <KexiStyle.h>
 
 #include "objecttree.h"
 #include "form.h"
@@ -219,6 +220,7 @@ WidgetTreeWidget::Private::~Private()
 WidgetTreeWidget::WidgetTreeWidget(QWidget *parent, Options options)
     : QTreeWidget(parent), d(new Private(options))
 {
+    KexiStyle::setupFrame(this);
     setRootIsDecorated(false);
     setHeaderLabels(QStringList() << xi18n("Widget name") << xi18nc("Widget's type", "Type"));
     installEventFilter(this);

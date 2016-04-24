@@ -370,7 +370,7 @@ void KexiFormPart::setupCustomPropertyPanelTabs(QTabWidget *tab)
     if (!d->widgetTreeWidget) {
         d->widgetTreeWidget = new QWidget;
         QVBoxLayout *lyr = new QVBoxLayout(d->widgetTreeWidget);
-        lyr->setContentsMargins(2, 2, 2, 2);
+        lyr->setContentsMargins(0, 0, 0, 0);
         d->widgetTree = new KFormDesigner::WidgetTreeWidget;
         d->widgetTree->setObjectName("KexiFormPart:WidgetTreeWidget");
         lyr->addWidget(d->widgetTree);
