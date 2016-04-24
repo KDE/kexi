@@ -45,7 +45,7 @@
 
 #include <QVBoxLayout>
 #include <QDomDocument>
-#include <QTabWidget>
+#include <QToolBox>
 #include <QAction>
 #include <QDebug>
 
@@ -336,7 +336,7 @@ KFormDesigner::WidgetTreeWidget* KexiFormPart::widgetTreePage() const
     return d->widgetTree;
 }
 
-void KexiFormPart::setupCustomPropertyPanelTabs(QTabWidget *tab)
+void KexiFormPart::setupPropertyPane(QToolBox *toolBox)
 {
     if (!d->dataSourcePage) {
         d->dataSourcePage = new KexiDataSourcePage(0);
@@ -364,8 +364,9 @@ void KexiFormPart::setupCustomPropertyPanelTabs(QTabWidget *tab)
     KexiProject *prj = KexiMainWindowIface::global()->project();
     d->dataSourcePage->setProject(prj);
 
-    tab->addTab(d->dataSourcePage, koIcon("server-database"), QString());
-    tab->setTabToolTip(tab->indexOf(d->dataSourcePage), xi18n("Data Source"));
+    if (toolBox->indexOf(d->dataSourcePage) == -1) {
+        toolBox->addItem(d->dataSourcePage, xi18n("Data source"));
+    }
 
     if (!d->widgetTreeWidget) {
         d->widgetTreeWidget = new QWidget;
@@ -375,8 +376,9 @@ void KexiFormPart::setupCustomPropertyPanelTabs(QTabWidget *tab)
         d->widgetTree->setObjectName("KexiFormPart:WidgetTreeWidget");
         lyr->addWidget(d->widgetTree);
     }
-    tab->addTab(d->widgetTreeWidget, KexiIcon("widgets"), QString());
-    tab->setTabToolTip(tab->indexOf(d->widgetTreeWidget), xi18n("Widgets"));
+    if (toolBox->indexOf(d->widgetTreeWidget) == -1) {
+        toolBox->addItem(d->widgetTreeWidget, xi18n("Widgets"));
+    }
 }
 
 //----------------

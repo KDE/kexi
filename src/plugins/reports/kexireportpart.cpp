@@ -20,7 +20,7 @@
 
 #include "kexireportpart.h"
 
-#include <QTabWidget>
+#include <QToolBox>
 #include <QDebug>
 
 #include <KLocalizedString>
@@ -154,13 +154,14 @@ KexiReportPartTempData::KexiReportPartTempData(QObject* parent)
 {
 }
 
-void KexiReportPart::setupCustomPropertyPanelTabs(QTabWidget *tab)
+void KexiReportPart::setupPropertyPane(QToolBox *toolBox)
 {
     if (!d->sourceSelector) {
-        d->sourceSelector = new KexiSourceSelector(KexiMainWindowIface::global()->project(), tab);
+        d->sourceSelector = new KexiSourceSelector(KexiMainWindowIface::global()->project());
     }
-    tab->addTab(d->sourceSelector, koIcon("server-database"), QString());
-    tab->setTabToolTip(tab->indexOf(d->sourceSelector), xi18n("Data Source"));
+    if (toolBox->indexOf(d->sourceSelector) == -1) {
+        toolBox->addItem(d->sourceSelector, xi18n("Data source"));
+    }
 }
 
 void KexiReportPart::slotToolboxActionTriggered(bool checked)

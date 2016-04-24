@@ -27,7 +27,7 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-class QTabWidget;
+class QToolBox;
 class KexiWindow;
 
 namespace KexiPart
@@ -76,13 +76,13 @@ public:
                                          KexiWindow *window) const;
 
     /*! @internal
-     This method can be reimplemented to setup additional tabs
-     in the property editor panel. Default implementation does nothing.
+     This method can be reimplemented to setup additional tool box items
+     in the property pane. Default implementation does nothing.
      This method is called whenever current window (KexiWindow) is switched and
-     type (mime type) of its contents differs from previous one.
+     type (mime type) of its contents differs from the previous one.
      For example, if a user switched from Table Designer to Form Designer,
-     additional tab containing Form Designer's object tree should be shown. */
-    virtual void setupCustomPropertyPanelTabs(QTabWidget *tab);
+     additional item containing Form Designer's object tree should be added. */
+    virtual void setupPropertyPane(QToolBox *toolBox);
 
 protected:
     /*!

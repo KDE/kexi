@@ -84,7 +84,7 @@ protected:
 
     virtual void initPartActions();
     virtual void initInstanceActions();
-    virtual void setupCustomPropertyPanelTabs(QTabWidget *tab);
+    virtual void setupPropertyPane(QToolBox *toolBox);
 
 private:
     class Private;

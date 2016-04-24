@@ -114,7 +114,7 @@ protected:
     virtual void initPartActions();
     virtual void initInstanceActions();
 
-    virtual void setupCustomPropertyPanelTabs(QTabWidget *tab);
+    virtual void setupPropertyPane(QToolBox *toolBox);
 
     virtual KDbObject* loadSchemaObject(KexiWindow *window, const KDbObject& object,
             Kexi::ViewMode viewMode, bool *ownedByWindow);

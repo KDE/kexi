@@ -38,6 +38,7 @@
 #include "KexiRegisterResource_p.h"
 #include "KexiObjectViewWidget.h"
 #include "KexiObjectViewTabWidget.h"
+#include "KexiPropertyPaneWidget.h"
 #include <kexiutils/utils.h>
 #include <kexiutils/KexiStyle.h>
 #include <kexiutils/KexiCloseButton.h>
@@ -789,9 +790,9 @@ void KexiMainWindow::setupActions()
     //! @todo windows with "_3" prefix have conflicting auto shortcut set to Alt+3 -> remove that!
     if (!d->userMode) {
         d->action_show_propeditor = addAction("view_propeditor",
-                                              xi18n("Show Property Editor"), "Alt+3");
-        d->action_show_propeditor->setToolTip(xi18n("Show the Property Editor pane"));
-        d->action_show_propeditor->setWhatsThis(xi18n("Shows the Property Editor pane."));
+                                              xi18n("Show Property Pane"), "Alt+3");
+        d->action_show_propeditor->setToolTip(xi18n("Show the Property pane"));
+        d->action_show_propeditor->setWhatsThis(xi18n("Shows the Property pane."));
         connect(d->action_show_propeditor, SIGNAL(triggered()),
                 this, SLOT(slotShowPropertyEditor()));
     } else {
@@ -800,11 +801,11 @@ void KexiMainWindow::setupActions()
 
     if (!d->userMode) {
         d->action_activate_propeditor = addAction("activate_propeditor",
-                                              xi18n("Activate Property Editor"), "Alt+-");
-        d->action_activate_propeditor->setToolTip(xi18n("Activate the Property Editor pane"));
-        d->action_activate_propeditor->setWhatsThis(xi18n("Activates the Property Editor pane. If it is hidden, shows it first."));
+                                              xi18n("Activate Property Pane"), "Alt+-");
+        d->action_activate_propeditor->setToolTip(xi18n("Activate the Property pane"));
+        d->action_activate_propeditor->setWhatsThis(xi18n("Activates the Property pane. If it is hidden, shows it first."));
         connect(d->action_activate_propeditor, SIGNAL(triggered()),
-                this, SLOT(slotActivatePropertyEditor()));
+                this, SLOT(slotActivatePropertyPane()));
     } else {
         d->action_activate_propeditor = 0;
     }
@@ -1219,8 +1220,8 @@ void KexiMainWindow::invalidateProjectWideActions()
     if (d->objectViewWidget && d->objectViewWidget->projectNavigator()) {
         d->objectViewWidget->projectNavigator()->setEnabled(d->prj);
     }
-    if (d->objectViewWidget && d->objectViewWidget->propertyEditorTabWidget()) {
-        d->objectViewWidget->propertyEditorTabWidget()->setEnabled(d->prj);
+    if (d->objectViewWidget && d->objectViewWidget->propertyPane()) {
+        d->objectViewWidget->propertyPane()->setEnabled(d->prj);
     }
 }
 
@@ -1640,8 +1641,8 @@ tristate KexiMainWindow::closeProject()
         //slotProjectNavigatorVisibilityChanged(true); // hide side tab
     }
 
-    if (d->objectViewWidget && d->objectViewWidget->propertyEditorTabWidget()) {
-        d->objectViewWidget->propertyEditorTabWidget()->hide();
+    if (d->objectViewWidget && d->objectViewWidget->propertyPane()) {
+        d->objectViewWidget->propertyPane()->hide();
     }
     d->clearWindows(); //sanity!
     delete d->prj;
@@ -1800,7 +1801,7 @@ void KexiMainWindow::setupObjectView()
             f.setPixelSize(pixelSize);
         }
     }
-    d->objectViewWidget->propertyEditorTabWidget()->setFont(f);
+    d->objectViewWidget->propertyPane()->setFont(f);
 
     KConfigGroup mainWindowGroup(d->config->group("MainWindow"));
     const QSize projectNavigatorSize = mainWindowGroup.readEntry<QSize>("ProjectNavigatorSize", QSize());
@@ -2019,7 +2020,7 @@ void KexiMainWindow::updateCustomPropertyPanelTabs(
     KexiPart::Part *prevWindowPart, Kexi::ViewMode prevViewMode,
     KexiPart::Part *curWindowPart, Kexi::ViewMode curViewMode)
 {
-    if (!d->objectViewWidget || !d->objectViewWidget->propertyEditorTabWidget())
+    if (!d->objectViewWidget || !d->objectViewWidget->propertyPane())
         return;
 
     if (   !curWindowPart
@@ -2028,6 +2029,8 @@ void KexiMainWindow::updateCustomPropertyPanelTabs(
            )
        )
     {
+#warning TODO KexiMainWindow::updateCustomPropertyPanelTabs()
+#if 0
         if (d->partForPreviouslySetupPropertyPanelTabs) {
             //remember current page number for this part
             if ((   prevViewMode == Kexi::DesignViewMode
@@ -2036,7 +2039,7 @@ void KexiMainWindow::updateCustomPropertyPanelTabs(
             { //..or switching to other view mode
                 d->recentlySelectedPropertyPanelPages.insert(
                         d->partForPreviouslySetupPropertyPanelTabs,
-                        d->objectViewWidget->propertyEditorTabWidget()->currentIndex());
+                        d->objectViewWidget->propertyPane()->currentIndex());
             }
         }
 
@@ -2044,6 +2047,7 @@ void KexiMainWindow::updateCustomPropertyPanelTabs(
         const int count = d->objectViewWidget->propertyEditorTabWidget()->count();
         for (int i = 1; i < count; i++)
             d->objectViewWidget->propertyEditorTabWidget()->removeTab(1);
+#endif
     }
 
     //don't change anything if part is not switched nor view mode changed
@@ -2058,16 +2062,19 @@ void KexiMainWindow::updateCustomPropertyPanelTabs(
 
     if (curWindowPart) {
         //recreate custom tabs
-        curWindowPart->setupCustomPropertyPanelTabs(d->objectViewWidget->propertyEditorTabWidget());
+        curWindowPart->setupPropertyPane(d->objectViewWidget->propertyPane()->toolBox());
 
+#warning TODO KexiMainWindow::updateCustomPropertyPanelTabs()
+#if 0
         //restore current page number for this part
         if (d->recentlySelectedPropertyPanelPages.contains(curWindowPart)) {
             d->objectViewWidget->propertyEditorTabWidget()->setCurrentIndex(
                 d->recentlySelectedPropertyPanelPages[ curWindowPart ]
             );
         }
+#endif
     }
-
+//#endif
     //new part for 'previously setup tabs'
     d->partForPreviouslySetupPropertyPanelTabs = curWindowPart;
 }
@@ -2527,15 +2534,16 @@ void KexiMainWindow::slotActivateMainArea()
         currentWindow()->setFocus();
 }
 
-void KexiMainWindow::slotActivatePropertyEditor()
+void KexiMainWindow::slotActivatePropertyPane()
 {
-    if (!d->objectViewWidget || !d->objectViewWidget->propertyEditor()) {
+    if (!d->objectViewWidget || !d->objectViewWidget->propertyPane()) {
         return;
     }
 
-    if (d->objectViewWidget->propertyEditorTabWidget()->currentWidget()) {
-        d->objectViewWidget->propertyEditorTabWidget()->currentWidget()->setFocus();
-    }
+    d->objectViewWidget->propertyPane()->setFocus();
+//    if (d->objectViewWidget->propertyPane()->currentWidget()) {
+//        d->objectViewWidget->propertyPane()->currentWidget()->setFocus();
+//    }
 }
 
 void KexiMainWindow::slotToggleProjectNavigator()
@@ -2547,8 +2555,8 @@ void KexiMainWindow::slotToggleProjectNavigator()
 
 void KexiMainWindow::slotShowPropertyEditor()
 {
-    if (d->objectViewWidget && d->objectViewWidget->propertyEditorTabWidget()) {
-        d->objectViewWidget->setPropertyEditorTabWidgetVisible(!d->objectViewWidget->propertyEditorTabWidget()->isVisible());
+    if (d->objectViewWidget && d->objectViewWidget->propertyPane()) {
+        d->objectViewWidget->setPropertyPaneVisible(!d->objectViewWidget->propertyPane()->isVisible());
     }
 }
 
@@ -2849,10 +2857,10 @@ tristate KexiMainWindow::closeWindow(KexiWindow *window, bool layoutTaskBar, boo
     d->insideCloseWindow = true;
 
     if (window == currentWindow() && !window->isAttached()) {
-        if (d->objectViewWidget && d->objectViewWidget->propertyEditor()) {
+        if (d->propertyEditor()) {
             // ah, closing detached window - better switch off property buffer right now...
             d->propertySet = 0;
-            d->objectViewWidget->propertyEditor()->editor()->changeSet(0);
+            d->propertyEditor()->editor()->changeSet(0);
         }
     }
 
@@ -2993,7 +3001,7 @@ tristate KexiMainWindow::closeWindow(KexiWindow *window, bool layoutTaskBar, boo
 QWidget* KexiMainWindow::findWindow(QWidget *w)
 {
     while (w && !acceptsSharedActions(w)) {
-        if (w == d->objectViewWidget->propertyEditorTabWidget()) {
+        if (w == d->objectViewWidget->propertyPane()) {
             return currentWindow();
         }
         w = w->parentWidget();
@@ -3455,8 +3463,8 @@ void KexiMainWindow::slotObjectRenamed(const KexiPart::Item &item, const QString
 
 void KexiMainWindow::acceptPropertySetEditing()
 {
-    if (d->objectViewWidget && d->objectViewWidget->propertyEditor()) {
-        d->objectViewWidget->propertyEditor()->editor()->acceptInput();
+    if (d->propertyEditor()) {
+        d->propertyEditor()->editor()->acceptInput();
     }
 }
 
@@ -3471,7 +3479,7 @@ void KexiMainWindow::propertySetSwitched(KexiWindow *window, bool force,
         d->propertySet = 0; //we'll need to move to another prop. set
         return;
     }
-    if (d->objectViewWidget && d->objectViewWidget->propertyEditor()) {
+    if (d->propertyEditor()) {
         KPropertySet *newSet = _currentWindow ? _currentWindow->propertySet() : 0;
         if (!newSet || (force || static_cast<KPropertySet*>(d->propertySet) != newSet)) {
             d->propertySet = newSet;
@@ -3485,10 +3493,10 @@ void KexiMainWindow::propertySetSwitched(KexiWindow *window, bool force,
                 }
 
                 if (propertyToSelect.isEmpty()) {
-                    d->objectViewWidget->propertyEditor()->editor()->changeSet(d->propertySet, options);
+                    d->propertyEditor()->editor()->changeSet(d->propertySet, options);
                 }
                 else {
-                    d->objectViewWidget->propertyEditor()->editor()->changeSet(d->propertySet, propertyToSelect, options);
+                    d->propertyEditor()->editor()->changeSet(d->propertySet, propertyToSelect, options);
                 }
             }
         }
@@ -4097,7 +4105,7 @@ void KexiMainWindow::addToolBarAction(const QString& toolBarName, QAction *actio
 
 void KexiMainWindow::updatePropertyEditorInfoLabel(const QString& textToDisplayForNullSet)
 {
-    d->objectViewWidget->propertyEditor()->updateInfoLabelForPropertySet(
+    d->propertyEditor()->updateInfoLabelForPropertySet(
                 d->propertySet, textToDisplayForNullSet);
 }
 

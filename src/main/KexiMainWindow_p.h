@@ -68,6 +68,7 @@
 
 class QPainter;
 class KexiProjectNavigator;
+class KexiPropertyEditorView;
 
 //! @short Main application's tabbed toolbar
 class KexiTabbedToolBar : public QTabWidget
@@ -422,6 +423,8 @@ public:
 
     tristate showProjectMigrationWizard(
         const QString& mimeType, const QString& databaseName, const KDbConnectionData *cdata);
+
+    KexiPropertyEditorView *propertyEditor() const;
 
     KexiMainWindow *wnd;
     QStackedWidget *globalViewStack;

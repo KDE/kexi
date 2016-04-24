@@ -25,9 +25,8 @@
 
 class KexiObjectViewTabWidget;
 class KexiProjectNavigator;
-class KexiPropertyEditorView;
+class KexiPropertyPaneWidget;
 class KexiWindow;
-class QTabWidget;
 
 //! @short A widget for object view, used in edit and design global view mode
 /*! Contents:
@@ -58,11 +57,10 @@ public:
 
     KexiProjectNavigator* projectNavigator() const;
     KexiObjectViewTabWidget* tabWidget() const;
-    QTabWidget* propertyEditorTabWidget() const;
-    KexiPropertyEditorView* propertyEditor() const;
+    KexiPropertyPaneWidget* propertyPane() const;
 
     void setProjectNavigatorVisible(bool set);
-    void setPropertyEditorTabWidgetVisible(bool set);
+    void setPropertyPaneVisible(bool set);
 
     void setSidebarWidths(int projectNavigatorWidth, int propertyEditorWidth);
     void getSidebarWidths(int *projectNavigatorWidth, int *propertyEditorWidth) const;

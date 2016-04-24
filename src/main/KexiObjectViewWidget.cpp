@@ -20,9 +20,10 @@
 
 #include "KexiObjectViewWidget.h"
 #include "KexiObjectViewTabWidget.h"
+#include "KexiPropertyPaneWidget.h"
+#include <KexiPropertyEditorView.h>
 #include <KexiWidgetWidthAnimator.h>
 #include <KexiProjectNavigator.h>
-#include <KexiPropertyEditorView.h>
 #include <KexiTester.h>
 #include <KexiStyle.h>
 #include <KexiWindow.h>
@@ -37,20 +38,19 @@ class KexiObjectViewWidget::Private
 public:
     Private()
      : projectNavigatorWidthToSet(-1)
-     , propertyEditorWidthToSet(-1)
+     , propertyPaneWidthToSet(-1)
     {
     }
     KexiProjectNavigator* navigator;
     KexiWidgetWidthAnimator* navigatorWidthAnimator;
     KexiObjectViewTabWidget* tabWidget;
     QPointer<KexiWindow> previouslyActiveWindow;
-    QTabWidget *propertyEditorTabWidget;
-    KexiWidgetWidthAnimator* propertyEditorTabWidgetWidthAnimator;
-    KexiPropertyEditorView* propertyEditor;
+    KexiPropertyPaneWidget *propertyPane;
+    KexiWidgetWidthAnimator* propertyPaneWidthAnimator;
     //QMap<KMultiTabBar::KMultiTabBarPosition, KMultiTabBar*> multiTabBars;
     QSplitter *splitter;
     int projectNavigatorWidthToSet;
-    int propertyEditorWidthToSet;
+    int propertyPaneWidthToSet;
 };
 
 
@@ -103,16 +103,11 @@ KexiObjectViewWidget::KexiObjectViewWidget(Flags flags)
             this, &KexiObjectViewWidget::closeAllWindowsRequested);
 
     // Property editor
-    d->propertyEditorTabWidget = new QTabWidget(d->splitter);
-    d->propertyEditorTabWidget->setDocumentMode(true);
-    d->propertyEditor = new KexiPropertyEditorView(d->propertyEditorTabWidget);
-    d->propertyEditorTabWidget->setWindowTitle(d->propertyEditor->windowTitle());
-    d->propertyEditorTabWidget->addTab(d->propertyEditor, d->propertyEditor->windowTitle());
+    d->propertyPane = new KexiPropertyPaneWidget(d->splitter);
+    KexiStyle::setSidebarsPalette(d->propertyPane);
+    KexiStyle::setSidebarsPalette(d->propertyPane->editor());
 
-    KexiStyle::setSidebarsPalette(d->propertyEditor);
-    KexiStyle::setSidebarsPalette(d->propertyEditorTabWidget);
-
-    d->propertyEditorTabWidgetWidthAnimator = new KexiWidgetWidthAnimator(d->propertyEditorTabWidget);
+    d->propertyPaneWidthAnimator = new KexiWidgetWidthAnimator(d->propertyPane);
 
 //    mtbar = new KMultiTabBar(KMultiTabBar::Right);
 //    mtbar->setStyle(KMultiTabBar::VSNET);
@@ -134,14 +129,9 @@ KexiObjectViewTabWidget* KexiObjectViewWidget::tabWidget() const
     return d->tabWidget;
 }
 
-QTabWidget* KexiObjectViewWidget::propertyEditorTabWidget() const
+KexiPropertyPaneWidget* KexiObjectViewWidget::propertyPane() const
 {
-    return d->propertyEditorTabWidget;
-}
-
-KexiPropertyEditorView* KexiObjectViewWidget::propertyEditor() const
-{
-    return d->propertyEditor;
+    return d->propertyPane;
 }
 
 void KexiObjectViewWidget::slotCurrentTabIndexChanged(int index)
@@ -158,7 +148,7 @@ void KexiObjectViewWidget::slotCurrentTabIndexChanged(int index)
 void KexiObjectViewWidget::setSidebarWidths(int projectNavigatorWidth, int propertyEditorWidth)
 {
     d->projectNavigatorWidthToSet = projectNavigatorWidth;
-    d->propertyEditorWidthToSet = propertyEditorWidth;
+    d->propertyPaneWidthToSet = propertyEditorWidth;
 }
 
 void KexiObjectViewWidget::resizeEvent(QResizeEvent *e)
@@ -192,11 +182,11 @@ void KexiObjectViewWidget::updateSidebarWidths()
         }
     }
     if (sizes.count() >= (PROPERTY_EDITOR_INDEX+1)) {
-        if (d->propertyEditorTabWidget->isVisible()) {
-            if (d->propertyEditorWidthToSet <= 0) {
-                d->propertyEditorWidthToSet = d->propertyEditorTabWidget->sizeHint().width();
+        if (d->propertyPane->isVisible()) {
+            if (d->propertyPaneWidthToSet <= 0) {
+                d->propertyPaneWidthToSet = d->propertyPane->sizeHint().width();
             }
-            sizes[PROPERTY_EDITOR_INDEX] = d->propertyEditorWidthToSet;
+            sizes[PROPERTY_EDITOR_INDEX] = d->propertyPaneWidthToSet;
             sizes[MAIN_AREA_INDEX] = d->splitter->width() - sizes[PROJECT_NAVIGATOR_INDEX] - sizes[PROPERTY_EDITOR_INDEX];
         } else {
             sizes[PROPERTY_EDITOR_INDEX] = 0;
@@ -214,7 +204,7 @@ void KexiObjectViewWidget::getSidebarWidths(int *projectNavigatorWidth, int *pro
     *projectNavigatorWidth = (sizes.count() >= (PROJECT_NAVIGATOR_INDEX+1) && sizes[PROJECT_NAVIGATOR_INDEX] > 0)
             ? sizes[PROJECT_NAVIGATOR_INDEX] : d->projectNavigatorWidthToSet;
     *propertyEditorWidth = (sizes.count() >= (PROPERTY_EDITOR_INDEX+1) && sizes[PROPERTY_EDITOR_INDEX] > 0)
-            ? sizes[PROPERTY_EDITOR_INDEX] : d->propertyEditorWidthToSet;
+            ? sizes[PROPERTY_EDITOR_INDEX] : d->propertyPaneWidthToSet;
     //qDebug() << "getSidebarWidths" << *projectNavigatorWidth << *propertyEditorWidth;
 }
 
@@ -229,7 +219,7 @@ void KexiObjectViewWidget::slotSplitterMoved(int pos, int index)
         }
     } else if (index == PROPERTY_EDITOR_INDEX) {
         if (sizes.count() >= (PROPERTY_EDITOR_INDEX+1)) {
-            d->propertyEditorWidthToSet = sizes[PROPERTY_EDITOR_INDEX];
+            d->propertyPaneWidthToSet = sizes[PROPERTY_EDITOR_INDEX];
         }
     }
 }
@@ -239,7 +229,7 @@ void KexiObjectViewWidget::setProjectNavigatorVisible(bool set)
     d->navigatorWidthAnimator->setVisible(set);
 }
 
-void KexiObjectViewWidget::setPropertyEditorTabWidgetVisible(bool set)
+void KexiObjectViewWidget::setPropertyPaneVisible(bool set)
 {
-    d->propertyEditorTabWidgetWidthAnimator->setVisible(set);
+    d->propertyPaneWidthAnimator->setVisible(set);
 }

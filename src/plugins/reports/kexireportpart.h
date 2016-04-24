@@ -58,7 +58,7 @@ public:
      */
     virtual ~KexiReportPart();
 
-    virtual void setupCustomPropertyPanelTabs(QTabWidget *tab);
+    virtual void setupPropertyPane(QToolBox *toolBox);
 
     virtual KLocalizedString i18nMessage(const QString& englishMessage,
                                          KexiWindow* window) const;

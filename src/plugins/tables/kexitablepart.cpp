@@ -36,7 +36,7 @@
 #include <KMessageBox>
 
 #include <QDebug>
-#include <QTabWidget>
+#include <QToolBox>
 
 KEXI_PLUGIN_FACTORY(KexiTablePart, "kexi_tableplugin.json")
 
@@ -226,10 +226,10 @@ KLocalizedString KexiTablePart::i18nMessage(
     return Part::i18nMessage(englishMessage, window);
 }
 
-void KexiTablePart::setupCustomPropertyPanelTabs(QTabWidget *tab)
+void KexiTablePart::setupPropertyPane(QToolBox *toolBox)
 {
     if (!d->lookupColumnPage) {
-        d->lookupColumnPage = new KexiLookupColumnPage(0);
+        d->lookupColumnPage = new KexiLookupColumnPage;
         connect(d->lookupColumnPage,
                 SIGNAL(jumpToObjectRequested(QString,QString)),
                 KexiMainWindowIface::global()->thisWidget(),
@@ -249,8 +249,9 @@ void KexiTablePart::setupCustomPropertyPanelTabs(QTabWidget *tab)
     d->lookupColumnPage->setProject(prj);
 
 //! @todo add lookup field icon
-    tab->addTab(d->lookupColumnPage, KexiIcon("combobox"), QString());
-    tab->setTabToolTip(tab->indexOf(d->lookupColumnPage), xi18n("Lookup column"));
+    if (toolBox->indexOf(d->lookupColumnPage) == -1) {
+        toolBox->addItem(d->lookupColumnPage, xi18n("Lookup column"));
+    }
 }
 
 KexiLookupColumnPage* KexiTablePart::lookupColumnPage() const
