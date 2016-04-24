@@ -40,7 +40,7 @@ class KexiLookupColumnPage : public KexiPropertyPaneViewBase
     Q_OBJECT
 
 public:
-    explicit KexiLookupColumnPage(QWidget *parent);
+    explicit KexiLookupColumnPage(QWidget *parent = 0);
     virtual ~KexiLookupColumnPage();
 
 public Q_SLOTS:
