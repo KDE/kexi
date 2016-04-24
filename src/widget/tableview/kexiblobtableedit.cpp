@@ -583,8 +583,7 @@ void KexiKIconTableEdit::setupContents(QPainter *p, bool /*focused*/, const QVar
             pm = *cached;
         if (pm.isNull()) {
             //cache pixmap
-            pm = KIconLoader::global()->loadIcon(key, KIconLoader::Small,
-                                                 0, KIconLoader::DefaultState , QStringList() , 0L, true/*canReturnNull*/);
+            pm = QIcon::fromTheme(key).pixmap(IconSize(KIconLoader::Small));
             if (!pm.isNull())
                 d->pixmapCache.insert(key, new QPixmap(pm));
         }
