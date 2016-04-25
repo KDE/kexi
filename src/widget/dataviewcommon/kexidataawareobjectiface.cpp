@@ -1178,7 +1178,7 @@ tristate KexiDataAwareObjectInterface::deleteAllRecords(bool ask, bool repaint)
         }
         if (KMessageBox::Cancel == KMessageBox::warningContinueCancel(dynamic_cast<QWidget*>(this),
                 xi18n("Do you want to clear the contents of table %1?", tableName),
-                0, KGuiItem(xi18nc("@action:button", "&Clear Contents"))))
+                0, KGuiItem(xi18nc("@action:button", "&Clear Contents"), koIcon("edit-table-clear"))))
         {
             return cancelled;
         }
