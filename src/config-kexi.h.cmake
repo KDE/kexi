@@ -65,6 +65,11 @@
 //! This is useful for testing but may confuse end-users.
 #cmakedefine KEXI_SHOW_UNFINISHED
 
+//! @def KEXI_SHOW_UNIMPLEMENTED
+//! @brief If defined show menu entries and dialogs just to give impression about development plans for Kexi
+//! Only recommended for test/development versions.
+#cmakedefine KEXI_SHOW_UNIMPLEMENTED
+
 //! @def KEXI_PROJECT_TEMPLATES
 //! @brief If defined, support for project templates is enabled in Kexi
 #cmakedefine KEXI_PROJECT_TEMPLATES
