@@ -35,6 +35,9 @@ public:
     ~KexiWidgetWidthAnimator();
     void setVisible(bool set);
 
+Q_SIGNALS:
+    void animationFinished(bool visible);
+
 protected:
     int width() const;
     void setWidth(int width);

@@ -157,7 +157,7 @@ void KexiObjectViewWidget::setSidebarWidths(int projectNavigatorWidth, int prope
 void KexiObjectViewWidget::resizeEvent(QResizeEvent *e)
 {
     QWidget::resizeEvent(e);
-    qDebug() << "___" << e->size() << size() << isVisible();
+    //qDebug() << "___" << e->size() << size() << isVisible();
     if (isVisible()) {
         updateSidebarWidths();
     }
@@ -229,10 +229,14 @@ void KexiObjectViewWidget::slotSplitterMoved(int pos, int index)
 
 void KexiObjectViewWidget::setProjectNavigatorVisible(bool set)
 {
+    QAction *action_show_nav = KexiMainWindowIface::global()->actionCollection()->action("view_navigator");
+    action_show_nav->setChecked(set);
     d->navigatorWidthAnimator->setVisible(set);
 }
 
 void KexiObjectViewWidget::setPropertyPaneVisible(bool set)
 {
+    QAction *action_show_propeditor = KexiMainWindowIface::global()->actionCollection()->action("view_propeditor");
+    action_show_propeditor->setChecked(set);
     d->propertyPaneWidthAnimator->setVisible(set);
 }

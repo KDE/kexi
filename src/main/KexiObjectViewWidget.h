@@ -75,6 +75,7 @@ Q_SIGNALS:
     void activeWindowChanged(KexiWindow *window, KexiWindow *prevWindow);
     void closeWindowRequested(int index);
     void closeAllWindowsRequested();
+    void projectNavigatorAnimationFinished(bool visible);
 
 protected:
     void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;

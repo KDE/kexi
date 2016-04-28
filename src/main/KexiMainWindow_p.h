@@ -424,6 +424,20 @@ public:
 
     KexiPropertyEditorView *propertyEditor() const;
 
+    //! Show mode for panes
+    enum ShowMode {
+        ShowImmediately,
+        ShowAnimated
+    };
+
+    //! Sets visibility of the project navigator without or without animating it.
+    //! Related action is checked/unchecked accordingly.
+    void setProjectNavigatorVisible(bool set, ShowMode mode = ShowImmediately);
+
+    inline void addAction(QMenu *menu, const char* actionName) {
+        menu->addAction(actionCollection->action(QLatin1String(actionName)));
+    }
+
     KexiMainWindow *wnd;
     QStackedWidget *globalViewStack;
     KexiObjectViewWidget *objectViewWidget;

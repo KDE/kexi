@@ -58,7 +58,8 @@ KEXIUTILS_EXPORT void setupGlobalViewModeSelector(QFrame *selector)
 }
 
 KEXIUTILS_EXPORT void overpaintGlobalViewModeSelector(QWidget *widget, QPainter *painter,
-                                            const QRect &selectedRect)
+                                                      const QRect &selectedRect,
+                                                      const QColor &arrowColor)
 {
     // draw gradient
     painter->save();
@@ -74,8 +75,8 @@ KEXIUTILS_EXPORT void overpaintGlobalViewModeSelector(QWidget *widget, QPainter 
     painter->fillRect(0, 0, w, widget->height(), QBrush(grad));
     painter->restore();
 
-    // draw: /|
-    //       \|
+    // draw arrow: /|
+    //             \|
     if (!selectedRect.isNull()) {
         painter->save();
         w = selectedRect.height() / 10;
@@ -87,7 +88,7 @@ KEXIUTILS_EXPORT void overpaintGlobalViewModeSelector(QWidget *widget, QPainter 
         QPolygon polygon;
         polygon << QPoint(w, 0) << QPoint(w, w * 2) << QPoint(0, w);
         painter->setPen(QPen(Qt::NoPen));
-        painter->setBrush(KexiUtils::charcoalGrey());
+        painter->setBrush(arrowColor);
         painter->drawPolygon(polygon);
         painter->restore();
     }

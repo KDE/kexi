@@ -330,6 +330,9 @@ protected:
      if it's not yet created. This includes project navigator and property editor. */
     void setupObjectView();
 
+    //! Setups object view and assigns project to the project navigator.
+    void updateObjectView();
+
     void setupContextHelp();
 
     void setupPropertyEditor();
@@ -529,7 +532,7 @@ protected Q_SLOTS:
     void slotActivateMainArea();
     void slotActivatePropertyPane();
     void slotToggleProjectNavigator();
-    void slotShowPropertyEditor();
+    void slotTogglePropertyEditor();
     void slotViewDataMode();
     void slotViewDesignMode();
     void slotViewTextMode(); //!< sometimes called "SQL View"
@@ -621,6 +624,8 @@ protected Q_SLOTS:
     //void slotPropertyEditorVisibilityChanged(bool visible);
     //void slotMultiTabBarTabClicked(int id);
     void slotCurrentModeChanged();
+
+    void slotProjectNavigatorVisibilityChanged(bool visible);
 
 private:
     //! Adds action @a name with text @a text and optional shortcut @a shortcut.

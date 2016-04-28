@@ -39,6 +39,9 @@ public:
     //! Sets current mode
     void setCurrentMode(Kexi::GlobalViewMode mode);
 
+    //! Set arrow color, it depends on color of sibling area so needs to be controlled
+    void setArrowColor(const QColor &color);
+
 Q_SIGNALS:
     void currentModeChanged();
 

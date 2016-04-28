@@ -18,6 +18,10 @@
 */
 
 #include "KexiWidgetWidthAnimator.h"
+
+#include <kexiutils/utils.h>
+
+#include <QAbstractScrollArea>
 #include <QLayout>
 #include <QPainter>
 #include <QPaintEvent>
@@ -55,6 +59,23 @@ public:
         }
     }
 
+    void setSubWidgetsScrollbarsVisible(bool set)
+    {
+        QWidget *targetWidget = qobject_cast<QWidget*>(q->parent());
+        QLayout *lyr = targetWidget->layout();
+        if (!lyr) {
+            return;
+        }
+        for (int i = 0; i < lyr->count(); ++i) {
+            QAbstractScrollArea* area = qobject_cast<QAbstractScrollArea*>(lyr->itemAt(i)->widget());
+            if (area) {
+                //! @todo remember and restore these settings instead of hardcoding!
+                area->setHorizontalScrollBarPolicy(set ? Qt::ScrollBarAsNeeded : Qt::ScrollBarAlwaysOff);
+                area->setVerticalScrollBarPolicy(set ? Qt::ScrollBarAsNeeded : Qt::ScrollBarAlwaysOff);
+            }
+        }
+    }
+
     KexiWidgetWidthAnimator * const q;
     QPropertyAnimation *widthAnimation;
     int originalWidth;
@@ -85,8 +106,9 @@ void KexiWidgetWidthAnimator::setVisible(bool set)
     }
     if (!d->widthAnimation) {
         d->widthAnimation = new QPropertyAnimation(this, "width");
-        d->widthAnimation->setDuration(500);
-        d->widthAnimation->setEasingCurve(QEasingCurve::InOutQuart);
+        const int duration = (KexiUtils::graphicEffectsLevel() & KexiUtils::SimpleAnimationEffects) ? 300 : 0;
+        d->widthAnimation->setDuration(duration);
+        d->widthAnimation->setEasingCurve(QEasingCurve::InOutQuad);
         connect(d->widthAnimation, &QPropertyAnimation::finished,
                 this, &KexiWidgetWidthAnimator::slotWidthAnimationFinished);
     }
@@ -101,19 +123,29 @@ void KexiWidgetWidthAnimator::setVisible(bool set)
     } else {
         d->widthAnimation->setStartValue(set ? 0 : d->originalWidth);
         d->widthAnimation->setEndValue(set ? d->originalWidth : 0);
+        //qDebug() << "targetWidget->isVisible():" << set << targetWidget->isVisible() << d->originalWidth << width();
+        const int w = d->originalWidth;
         if (set) {
             targetWidget->setVisible(true);
+            d->originalWidth = w; // restore because setVisible() causes resize event and changes d->originalWidth
         }
-        d->setSubWidgetsVisible(true);
-        d->frozen = false;
-        if (!set) {
+        if (d->widthAnimation->duration() > 0) {
+            d->setSubWidgetsVisible(true);
+            d->frozen = false;
+            const QSize currentSize = targetWidget->size();
+            //qDebug() << "currentSize:" << currentSize << d->originalWidth;
+            targetWidget->resize(d->originalWidth, targetWidget->height());
+            d->setSubWidgetsScrollbarsVisible(false);
+            targetWidget->updateGeometry();
             d->snapshot = targetWidget->grab();
+            targetWidget->resize(currentSize);
+            d->originalWidth = w; // restore because targetWidget->resize() causes resize event and changes d->originalWidth
+            d->frozen = true;
+            d->setSubWidgetsScrollbarsVisible(true);
+            d->setSubWidgetsVisible(false);
         }
-        d->frozen = true;
-        d->setSubWidgetsVisible(false);
         d->widthAnimation->start();
     }
-    //setUpdatesEnabled(false);
 }
 
 int KexiWidgetWidthAnimator::width() const
@@ -143,25 +175,38 @@ void KexiWidgetWidthAnimator::setWidth(int width)
 
 void KexiWidgetWidthAnimator::slotWidthAnimationFinished()
 {
+    QWidget *targetWidget = qobject_cast<QWidget*>(parent());
     if (width() == 0) {
-        QWidget *targetWidget = qobject_cast<QWidget*>(parent());
         targetWidget->setVisible(false);
     }
     d->frozen = false;
     d->setSubWidgetsVisible(true);
-    //setUpdatesEnabled(true);
+    emit animationFinished(targetWidget->isVisible());
 }
 
 bool KexiWidgetWidthAnimator::eventFilter(QObject *obj, QEvent *event)
 {
     if (obj == parent()) {
-        if (event->type() == QEvent::Paint && d->frozen) {
-            QPaintEvent *paintEvent = static_cast<QPaintEvent*>(event);
-            QWidget *targetWidget = qobject_cast<QWidget*>(parent());
-            QPainter p(targetWidget);
-            p.drawPixmap(paintEvent->rect(), d->snapshot,
-                         QRect(d->originalWidth - targetWidget->width(), 0,
-                               targetWidget->width(), targetWidget->height()));
+        switch (event->type()) {
+        case QEvent::Paint:
+            if (d->frozen) {
+                //qDebug() << "d->snapshot.size():" << d->snapshot.size();
+                QPaintEvent *paintEvent = static_cast<QPaintEvent*>(event);
+                QWidget *targetWidget = qobject_cast<QWidget*>(parent());
+                QPainter p(targetWidget);
+                p.drawPixmap(paintEvent->rect(), d->snapshot,
+                             QRect(d->originalWidth - targetWidget->width(), 0,
+                                   targetWidget->width(), targetWidget->height()));
+            }
+            break;
+        case QEvent::Resize:
+            if (!d->widthAnimation || d->widthAnimation->state() != QAbstractAnimation::Running) {
+                QResizeEvent *resizeEvent = static_cast<QResizeEvent*>(event);
+                d->originalWidth = resizeEvent->size().width();
+                //qDebug() << "new size:" << resizeEvent->size();
+            }
+            break;
+        default:;
         }
     }
     return QObject::eventFilter(obj, event);

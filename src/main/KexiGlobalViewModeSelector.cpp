@@ -99,6 +99,7 @@ class KexiGlobalViewModeSelector::Private
 public:
     Private() {}
     KexiGlobalViewModeSelectorModel model;
+    QColor arrowColor;
 };
 
 KexiGlobalViewModeSelector::KexiGlobalViewModeSelector(QWidget *parent)
@@ -180,7 +181,7 @@ void KexiGlobalViewModeSelector::paintEvent(QPaintEvent *event)
         selectedRect = visualRect(selectedIndexes().first());
     }
     QPainter painter(viewport());
-    KexiStyle::overpaintGlobalViewModeSelector(this, &painter, selectedRect);
+    KexiStyle::overpaintGlobalViewModeSelector(this, &painter, selectedRect, d->arrowColor);
 }
 
 Kexi::GlobalViewMode KexiGlobalViewModeSelector::currentMode() const
@@ -201,4 +202,10 @@ void KexiGlobalViewModeSelector::currentChanged(const QModelIndex &current, cons
 {
     KexiListView::currentChanged(current, previous);
     emit currentModeChanged();
+}
+
+void KexiGlobalViewModeSelector::setArrowColor(const QColor &color)
+{
+    d->arrowColor = color;
+    update(currentIndex());
 }

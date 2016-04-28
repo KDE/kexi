@@ -809,7 +809,7 @@ void KexiMainWindow::setupActions()
         d->action_show_propeditor->setToolTip(xi18n("Show the Property pane"));
         d->action_show_propeditor->setWhatsThis(xi18n("Shows the Property pane."));
         connect(d->action_show_propeditor, SIGNAL(triggered()),
-                this, SLOT(slotShowPropertyEditor()));
+                this, SLOT(slotTogglePropertyEditor()));
     } else {
         d->action_show_propeditor = 0;
     }
@@ -1777,13 +1777,14 @@ tristate KexiMainWindow::closeProject()
 
     if (d->objectViewWidget && d->objectViewWidget->projectNavigator()) {
         d->navWasVisibleBeforeProjectClosing = d->objectViewWidget->projectNavigator()->isVisible();
-        d->objectViewWidget->projectNavigator()->hide();
+        d->setProjectNavigatorVisible(false);
         d->objectViewWidget->projectNavigator()->setProject(0);
         //slotProjectNavigatorVisibilityChanged(true); // hide side tab
     }
 
     if (d->objectViewWidget && d->objectViewWidget->propertyPane()) {
         d->objectViewWidget->propertyPane()->hide();
+        d->action_show_propeditor->setChecked(false);
     }
     d->clearWindows(); //sanity!
     delete d->prj;
@@ -1792,6 +1793,7 @@ tristate KexiMainWindow::closeProject()
     updateReadOnlyState();
     invalidateActions();
     updateAppCaption();
+    d->modeSelector->setCurrentMode(Kexi::WelcomeGlobalMode);
 
     emit projectClosed();
     return true;
@@ -1928,6 +1930,9 @@ void KexiMainWindow::setupObjectView()
             this, &KexiMainWindow::closeWindowForTab);
     connect(d->objectViewWidget, &KexiObjectViewWidget::closeAllWindowsRequested,
             this, &KexiMainWindow::closeAllWindows);
+    connect(d->objectViewWidget, &KexiObjectViewWidget::projectNavigatorAnimationFinished,
+            this, &KexiMainWindow::slotProjectNavigatorVisibilityChanged);
+    slotProjectNavigatorVisibilityChanged(d->objectViewWidget->projectNavigator());
 
     // Restore settings
     //! @todo FIX LAYOUT PROBLEMS
@@ -1985,17 +1990,6 @@ void KexiMainWindow::setupObjectView()
                 this, SLOT(slotPartItemSelectedInNavigator(KexiPart::Item*)));
     }
 
-    if (d->prj->isConnected()) {
-        QString partManagerErrorMessages;
-
-        if (!partManagerErrorMessages.isEmpty()) {
-            showWarningContinueMessage(partManagerErrorMessages, QString(),
-                                       "ShowWarningsRelatedToPluginsLoading");
-        }
-        if (navigator) {
-            navigator->setProject(d->prj, QString()/*all classes*/, &partManagerErrorMessages);
-        }
-    }
     if (navigator) {
         connect(d->prj, SIGNAL(newItemStored(KexiPart::Item*)),
                 navigator->model(), SLOT(slotAddItem(KexiPart::Item*)));
@@ -2012,6 +2006,25 @@ void KexiMainWindow::setupObjectView()
     }
 
     invalidateActions();
+}
+
+void KexiMainWindow::updateObjectView()
+{
+    setupObjectView();
+
+    if (d->prj && d->prj->isConnected()) {
+        KexiProjectNavigator* navigator = d->objectViewWidget->projectNavigator();
+        if (navigator && !navigator->model()->project()) {
+            QString partManagerErrorMessages;
+            navigator->setProject(d->prj, QString()/*all classes*/, &partManagerErrorMessages);
+            if (partManagerErrorMessages.isEmpty()) {
+                d->setProjectNavigatorVisible(true);
+            } else {
+                showWarningContinueMessage(partManagerErrorMessages, QString(),
+                                           "ShowWarningsRelatedToPluginsLoading");
+            }
+        }
+    }
 }
 
 void KexiMainWindow::slotLastActions()
@@ -2700,11 +2713,11 @@ void KexiMainWindow::slotActivatePropertyPane()
 void KexiMainWindow::slotToggleProjectNavigator()
 {
     if (d->objectViewWidget && d->objectViewWidget->projectNavigator()) {
-        d->objectViewWidget->setProjectNavigatorVisible(!d->objectViewWidget->projectNavigator()->isVisible());
+        d->setProjectNavigatorVisible(!d->objectViewWidget->projectNavigator()->isVisible(), Private::ShowAnimated);
     }
 }
 
-void KexiMainWindow::slotShowPropertyEditor()
+void KexiMainWindow::slotTogglePropertyEditor()
 {
     if (d->objectViewWidget && d->objectViewWidget->propertyPane()) {
         d->objectViewWidget->setPropertyPaneVisible(!d->objectViewWidget->propertyPane()->isVisible());
@@ -4221,7 +4234,7 @@ void KexiMainWindow::highlightObject(const QString& pluginId, const QString& nam
     if (!item)
         return;
     if (d->objectViewWidget && d->objectViewWidget->projectNavigator()) {
-        d->objectViewWidget->setProjectNavigatorVisible(true);
+        d->setProjectNavigatorVisible(true, Private::ShowAnimated);
         d->objectViewWidget->projectNavigator()->selectItem(*item);
     }
 }
@@ -4444,12 +4457,21 @@ void KexiMainWindow::slotCurrentModeChanged()
     case Kexi::ProjectGlobalMode:
         break;
     case Kexi::EditGlobalMode:
-        setupObjectView();
+        updateObjectView();
         d->globalViewStack->setCurrentWidget(d->objectViewWidget);
         break;
     case Kexi::DesignGlobalMode:
             break;
     case Kexi::HelpGlobalMode:
             break;
+    }
+}
+
+void KexiMainWindow::slotProjectNavigatorVisibilityChanged(bool visible)
+{
+    if (d->objectViewWidget && d->objectViewWidget->projectNavigator()) {
+        d->modeSelector->setArrowColor(visible
+            ? d->objectViewWidget->projectNavigator()->palette().color(QPalette::Window)
+            : d->objectViewWidget->tabWidget()->palette().color(QPalette::Window));
     }
 }

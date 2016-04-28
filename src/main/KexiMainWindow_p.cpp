@@ -1224,14 +1224,16 @@ void KexiMainWindow::Private::updatePropEditorVisibility(Kexi::ViewMode viewMode
         && ((currentWindow && currentWindow->propertySet()) || (info && info->isPropertyEditorAlwaysVisibleInDesignMode()));
     //qDebug() << "visible == " << visible;
     enable_slotPropertyEditorVisibilityChanged = false;
+    bool set;
     if (visible && propertyEditorCollapsed) { // used when we're switching back to a window with propeditor available but collapsed
-        objectViewWidget->propertyPane()->setVisible(!visible);
-        //setPropertyEditorTabBarVisible(true);
+        set = !visible;
     }
     else {
-        objectViewWidget->propertyPane()->setVisible(visible);
-        //setPropertyEditorTabBarVisible(false);
+        set = visible;
     }
+    objectViewWidget->propertyPane()->setVisible(set);
+    action_show_propeditor->setChecked(set);
+    action_show_propeditor->setEnabled(set);
     objectViewWidget->updateSidebarWidths();
     enable_slotPropertyEditorVisibilityChanged = true;
 }
@@ -1388,6 +1390,22 @@ KexiPropertyEditorView* KexiMainWindow::Private::propertyEditor() const
 {
     return (objectViewWidget && objectViewWidget->propertyPane() && objectViewWidget->propertyPane()->editor())
             ? objectViewWidget->propertyPane()->editor() : 0;
+}
+
+void KexiMainWindow::Private::setProjectNavigatorVisible(bool set, ShowMode mode)
+{
+    if (objectViewWidget && objectViewWidget->projectNavigator()) {
+        if (mode == ShowAnimated) {
+            objectViewWidget->setProjectNavigatorVisible(set);
+            if (set) { // on showing, arrow should be updated immediately
+                wnd->slotProjectNavigatorVisibilityChanged(set);
+            }
+        } else {
+            objectViewWidget->projectNavigator()->setVisible(set);
+            action_show_nav->setChecked(set);
+            wnd->slotProjectNavigatorVisibilityChanged(set);
+        }
+    }
 }
 
 #ifndef KEXI_NO_PENDING_DIALOGS

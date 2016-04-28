@@ -72,7 +72,8 @@ namespace KexiStyle
     //! Overpaints entire global view mode selector. By default it paints a dark shadow an arrow
     //! for selected item. If @a selectedRect is not null, provides geometry of selected item.
     KEXIUTILS_EXPORT void overpaintGlobalViewModeSelector(QWidget *widget, QPainter *painter,
-                                                          const QRect &selectedRect);
+                                                          const QRect &selectedRect,
+                                                          const QColor &arrowColor);
 
     //! Overpaints global view mode selector's item. By default does nothing.
     KEXIUTILS_EXPORT void overpaintModeSelectorItem(QPainter *painter,
