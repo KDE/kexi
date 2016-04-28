@@ -46,7 +46,8 @@ public:
     enum Flag {
         NoFlags = 0,
         ProjectNavigatorEnabled = 1,
-        DefaultFlags = ProjectNavigatorEnabled
+        PropertyPaneEnabled = 2,
+        DefaultFlags = ProjectNavigatorEnabled | PropertyPaneEnabled
     };
     Q_DECLARE_FLAGS(Flags, Flag)
     Q_FLAG(Flags)

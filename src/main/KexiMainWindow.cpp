@@ -1794,7 +1794,9 @@ tristate KexiMainWindow::closeProject()
     updateReadOnlyState();
     invalidateActions();
     updateAppCaption();
-    d->modeSelector->setCurrentMode(Kexi::WelcomeGlobalMode);
+    if (d->userMode) {
+        d->modeSelector->setCurrentMode(Kexi::WelcomeGlobalMode);
+    }
 
     emit projectClosed();
     return true;
@@ -1856,6 +1858,9 @@ void KexiMainWindow::setupMainWidget()
     connect(d->modeSelector, &KexiGlobalViewModeSelector::currentModeChanged,
             this, &KexiMainWindow::slotCurrentModeChanged);
     mainWidgetContainerLyr->addWidget(d->modeSelector);
+    if (d->userMode) {
+        d->modeSelector->hide();
+    }
 
     d->globalViewStack = new QStackedWidget;
     mainWidgetContainerLyr->addWidget(d->globalViewStack, 1);
@@ -1924,6 +1929,9 @@ void KexiMainWindow::setupObjectView()
     if (d->isProjectNavigatorVisible) {
         flags |= KexiObjectViewWidget::ProjectNavigatorEnabled;
     }
+    if (!d->userMode) {
+        flags |= KexiObjectViewWidget::PropertyPaneEnabled;
+    }
     d->objectViewWidget = new KexiObjectViewWidget(flags);
     connect(d->objectViewWidget, &KexiObjectViewWidget::activeWindowChanged,
             this, &KexiMainWindow::activeWindowChanged);
@@ -1948,13 +1956,15 @@ void KexiMainWindow::setupObjectView()
             f.setPixelSize(pixelSize);
         }
     }
-    d->objectViewWidget->propertyPane()->setFont(f);
+    if (d->objectViewWidget->propertyPane()) {
+        d->objectViewWidget->propertyPane()->setFont(f);
 
-    KConfigGroup mainWindowGroup(d->config->group("MainWindow"));
-    const QSize projectNavigatorSize = mainWindowGroup.readEntry<QSize>("ProjectNavigatorSize", QSize());
-    const QSize propertyEditorSize = mainWindowGroup.readEntry<QSize>("PropertyEditorSize", QSize());
-    d->objectViewWidget->setSidebarWidths(projectNavigatorSize.isValid() ? projectNavigatorSize.width() : -1,
-                                          propertyEditorSize.isValid() ? propertyEditorSize.width() : -1);
+        KConfigGroup mainWindowGroup(d->config->group("MainWindow"));
+        const QSize projectNavigatorSize = mainWindowGroup.readEntry<QSize>("ProjectNavigatorSize", QSize());
+        const QSize propertyEditorSize = mainWindowGroup.readEntry<QSize>("PropertyEditorSize", QSize());
+        d->objectViewWidget->setSidebarWidths(projectNavigatorSize.isValid() ? projectNavigatorSize.width() : -1,
+                                              propertyEditorSize.isValid() ? propertyEditorSize.width() : -1);
+    }
 
     d->globalViewStack->addWidget(d->objectViewWidget);
     KexiProjectNavigator* navigator = d->objectViewWidget->projectNavigator();

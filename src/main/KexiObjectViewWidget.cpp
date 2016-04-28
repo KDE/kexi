@@ -40,7 +40,11 @@ class KexiObjectViewWidget::Private
 {
 public:
     Private()
-     : projectNavigatorWidthToSet(-1)
+     : navigator(0)
+     , navigatorWidthAnimator(0)
+     , propertyPane(0)
+     , propertyPaneWidthAnimator(0)
+     , projectNavigatorWidthToSet(-1)
      , propertyPaneWidthToSet(-1)
     {
     }
@@ -105,12 +109,14 @@ KexiObjectViewWidget::KexiObjectViewWidget(Flags flags)
     connect(d->tabWidget, &KexiObjectViewTabWidget::tabCloseRequested,
             this, &KexiObjectViewWidget::closeWindowRequested);
 
-    // Property editor
-    d->propertyPane = new KexiPropertyPaneWidget(d->splitter);
-    KexiStyle::setSidebarsPalette(d->propertyPane);
-    KexiStyle::setSidebarsPalette(d->propertyPane->editor());
+    if (flags & PropertyPaneEnabled) {
+        // Property editor
+        d->propertyPane = new KexiPropertyPaneWidget(d->splitter);
+        KexiStyle::setSidebarsPalette(d->propertyPane);
+        KexiStyle::setSidebarsPalette(d->propertyPane->editor());
 
-    d->propertyPaneWidthAnimator = new KexiWidgetWidthAnimator(d->propertyPane);
+        d->propertyPaneWidthAnimator = new KexiWidgetWidthAnimator(d->propertyPane);
+    }
 
 //    mtbar = new KMultiTabBar(KMultiTabBar::Right);
 //    mtbar->setStyle(KMultiTabBar::VSNET);
@@ -176,16 +182,19 @@ const int PROPERTY_EDITOR_INDEX = 2;
 void KexiObjectViewWidget::updateSidebarWidths()
 {
     QList<int> sizes(d->splitter->sizes());
+    if (sizes.count() <= 1) {
+        return;
+    }
     //qDebug() << "updateSidebarWidths" << d->projectNavigatorWidthToSet << d->propertyEditorWidthToSet << sizes << d->splitter->width() << isVisible();
-    if (sizes.count() >= 1) {
-        if (d->projectNavigatorWidthToSet <= 0) {
+    if (d->projectNavigatorWidthToSet <= 0) {
+        if (d->navigator) {
             sizes[PROJECT_NAVIGATOR_INDEX] = d->navigator->sizeHint().width();
-        } else {
-            sizes[PROJECT_NAVIGATOR_INDEX] = d->projectNavigatorWidthToSet;
         }
+    } else {
+        sizes[PROJECT_NAVIGATOR_INDEX] = d->projectNavigatorWidthToSet;
     }
     if (sizes.count() >= (PROPERTY_EDITOR_INDEX+1)) {
-        if (d->propertyPane->isVisible()) {
+        if (d->propertyPane && d->propertyPane->isVisible()) {
             if (d->propertyPaneWidthToSet <= 0) {
                 d->propertyPaneWidthToSet = d->propertyPane->sizeHint().width();
             }
@@ -203,6 +212,12 @@ void KexiObjectViewWidget::updateSidebarWidths()
 void KexiObjectViewWidget::getSidebarWidths(int *projectNavigatorWidth, int *propertyEditorWidth) const
 {
     QList<int> sizes(d->splitter->sizes());
+    if (sizes.count() < (PROPERTY_EDITOR_INDEX+1)) {
+        *projectNavigatorWidth = -1;
+        *propertyEditorWidth = -1;
+        return;
+    }
+
     //qDebug() << "getSidebarWidths" << d->propertyEditorTabWidget->width();
     *projectNavigatorWidth = (sizes.count() >= (PROJECT_NAVIGATOR_INDEX+1) && sizes[PROJECT_NAVIGATOR_INDEX] > 0)
             ? sizes[PROJECT_NAVIGATOR_INDEX] : d->projectNavigatorWidthToSet;
