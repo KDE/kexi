@@ -643,7 +643,7 @@ void KexiMainWindow::setupActions()
             this, SLOT(slotToolsImportProject()));
 
     d->action_tools_data_import = addAction("tools_import_tables", koIcon("document-import"),
-                                            xi18n("Import Tables"));
+                                            xi18n("Import Tables..."));
     d->action_tools_data_import->setToolTip(xi18n("Import data from an external source into this project"));
     d->action_tools_data_import->setWhatsThis(xi18n("Imports data from an external source into this project."));
     connect(d->action_tools_data_import, SIGNAL(triggered()), this, SLOT(slotToolsImportTables()));
