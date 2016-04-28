@@ -859,6 +859,7 @@ void KexiMainWindow::setupActions()
     //TOOLS MENU
 
     //WINDOW MENU
+    d->action_close_tab = addAction("close_tab", koIcon("tab-close"), xi18n("&Close Tab"), "Ctrl+W");
     //additional 'Window' menu items
     d->action_window_next = addAction("window_next",
                                       xi18n("&Next Window"),
@@ -885,6 +886,14 @@ void KexiMainWindow::setupActions()
     d->action_window_previous->setWhatsThis(xi18n("Switches to the previous window."));
     connect(d->action_window_previous, SIGNAL(triggered()),
             this, SLOT(activatePreviousWindow()));
+    d->action_close_tab->setToolTip(xi18n("Close the current tab"));
+    d->action_close_tab->setWhatsThis(xi18n("Closes the current tab."));
+    connect(d->action_close_tab, SIGNAL(triggered()), this, SLOT(closeCurrentWindow()));
+
+    d->action_close_all_tabs = addAction("close_all_tabs", QIcon(), xi18n("Cl&ose All Tabs"));
+    d->action_close_all_tabs->setToolTip(xi18n("Close all tabs"));
+    d->action_close_all_tabs->setWhatsThis(xi18n("Closes all tabs."));
+    connect(d->action_close_all_tabs, SIGNAL(triggered()), this, SLOT(closeAllWindows()));
 
     d->action_window_fullscreen = KStandardAction::fullScreen(this, SLOT(toggleFullScreen(bool)), this, ac);
     ac->addAction("full_screen", d->action_window_fullscreen);
@@ -1078,9 +1087,11 @@ void KexiMainWindow::setupActions()
 
     acat->addAction("activate_propeditor", Kexi::GlobalActionCategory);
 
-    acat->addAction("window_close", Kexi::GlobalActionCategory | Kexi::WindowActionCategory);
-    acat->setAllObjectTypesSupported("window_close", true);
+    acat->addAction("close_tab", Kexi::GlobalActionCategory | Kexi::WindowActionCategory);
+    acat->setAllObjectTypesSupported("close_tab", true);
 
+    acat->addAction("close_all_tabs", Kexi::GlobalActionCategory | Kexi::WindowActionCategory);
+    acat->setAllObjectTypesSupported("close_all_tabs", true);
     acat->addAction("window_next", Kexi::GlobalActionCategory);
 
     acat->addAction("window_previous", Kexi::GlobalActionCategory);
@@ -1160,6 +1171,10 @@ void KexiMainWindow::invalidateProjectWideActions()
     d->action_project_properties->setEnabled(d->prj);
     d->action_close->setEnabled(d->prj);
     d->action_project_relations->setEnabled(d->prj);
+    if (d->objectViewWidget) {
+        d->action_close_tab->setEnabled(has_window);
+        d->action_close_all_tabs->setEnabled(has_window);
+    }
 
     //DATA MENU
     if (d->action_project_import_data_table)
@@ -1171,7 +1186,7 @@ void KexiMainWindow::invalidateProjectWideActions()
     if (d->action_edit_paste_special_data_table)
         d->action_edit_paste_special_data_table->setEnabled(d->prj && !readOnly);
 
-#ifdef KEXI_QUICK_PRINTING_SUPPORT
+#ifdef KEXI_SHOW_UNIMPLEMENTED
     const bool printingActionsEnabled =
         currentWindow() && currentWindow()->part()->info()->isPrintingSupported()
         && !currentWindow()->neverSaved();

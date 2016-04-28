@@ -22,8 +22,10 @@
 #include <KexiIcon.h>
 #include <KexiTester.h>
 #include <KexiWindow.h>
+#include <KexiMainWindowIface.h>
 
 #include <KLocalizedString>
+#include <KActionCollection>
 
 #include <QAction>
 #include <QMenu>
@@ -80,15 +82,6 @@ KexiObjectViewTabWidget::KexiObjectViewTabWidget(QWidget *parent, KexiObjectView
         , m_mainWidget(mainWidget)
         , m_tabIndex(-1)
 {
-    m_closeAction = new QAction(koIcon("tab-close"), xi18n("&Close Tab"), this);
-    m_closeAction->setToolTip(xi18n("Close the current tab"));
-    m_closeAction->setWhatsThis(xi18n("Closes the current tab."));
-    m_closeAllTabsAction = new QAction(xi18n("Cl&ose All Tabs"), this);
-    m_closeAllTabsAction->setToolTip(xi18n("Close all tabs"));
-    m_closeAllTabsAction->setWhatsThis(xi18n("Closes all tabs."));
-    connect(m_closeAction, &QAction::triggered, this, &KexiObjectViewTabWidget::tabCloseRequested);
-    connect(m_closeAllTabsAction, &QAction::triggered, this, &KexiObjectViewTabWidget::allTabsCloseRequested);
-
 //! @todo  insert window list in the corner widget as in firefox
 #if 0
     // close-tab button:
@@ -145,7 +138,8 @@ void KexiObjectViewTabWidget::closeCurrentTab()
 
 void KexiObjectViewTabWidget::closeAllTabs()
 {
-    emit allTabsCloseRequested();
+    QAction *action_close_all_tabs = KexiMainWindowIface::global()->actionCollection()->action("close_all_tabs");
+    action_close_all_tabs->trigger();
 }
 
 int KexiObjectViewTabWidget::addEmptyContainerTab(const QIcon &icon, const QString &label)
@@ -170,10 +164,19 @@ void KexiObjectViewTabWidget::showContextMenuForTab(int index, const QPoint& poi
 {
     QMenu menu;
     if (index >= 0) {
-        menu.addAction(m_closeAction);
+        QAction *action_close_tab = KexiMainWindowIface::global()->actionCollection()->action("close_tab");
+        // Copy the action; we can't use the original action because instead of calling closeCurrentTab()
+        // tabCloseRequested() signal should be called.
+        QAction *closeAction = new QAction(action_close_tab->icon(), action_close_tab->text(), &menu);
+        closeAction->setToolTip(action_close_tab->toolTip());
+        closeAction->setWhatsThis(action_close_tab->whatsThis());
+        closeAction->setShortcut(action_close_tab->shortcut());
+        connect(closeAction, &QAction::triggered, this, &KexiObjectViewTabWidget::tabCloseRequested);
+        menu.addAction(closeAction);
     }
     if (count() > 0) {
-        menu.addAction(m_closeAllTabsAction);
+        QAction *action_close_all_tabs = KexiMainWindowIface::global()->actionCollection()->action("close_all_tabs");
+        menu.addAction(action_close_all_tabs);
     }
     //! @todo add "&Detach Tab"
     if (menu.actions().isEmpty()) {

@@ -503,6 +503,7 @@ public:
 
     //! window menu
     QAction *action_window_next, *action_window_previous, *action_window_fullscreen;
+    QAction *action_close_tab, *action_close_all_tabs;
 
     //! global
     QAction *action_show_help_menu;

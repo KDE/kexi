@@ -38,9 +38,6 @@ public:
     //! @return window for tab @a index
     KexiWindow *window(int index);
 
-Q_SIGNALS:
-    void allTabsCloseRequested();
-
 public Q_SLOTS:
     void closeCurrentTab();
     void closeAllTabs();
@@ -62,8 +59,6 @@ protected:
     virtual void mousePressEvent(QMouseEvent *event);
 
     KexiObjectViewWidget *m_mainWidget;
-    QAction *m_closeAction;
-    QAction *m_closeAllTabsAction;
 
 private:
     int m_tabIndex;

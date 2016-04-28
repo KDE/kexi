@@ -27,6 +27,9 @@
 #include <KexiTester.h>
 #include <KexiStyle.h>
 #include <KexiWindow.h>
+#include <KexiMainWindowIface.h>
+
+#include <KActionCollection>
 
 #include <QHBoxLayout>
 #include <QResizeEvent>
@@ -82,6 +85,8 @@ KexiObjectViewWidget::KexiObjectViewWidget(Flags flags)
         //navDockableWidget->setWidget(d->navigator);
         KexiStyle::setSidebarsPalette(d->navigator);
         d->navigatorWidthAnimator = new KexiWidgetWidthAnimator(d->navigator);
+        connect(d->navigatorWidthAnimator, &KexiWidgetWidthAnimator::animationFinished,
+                this, &KexiObjectViewWidget::projectNavigatorAnimationFinished);
     }
 
     //d->navDockWidget = new KexiDockWidget(d->navigator->windowTitle(), d->objectViewWidget);
@@ -99,8 +104,6 @@ KexiObjectViewWidget::KexiObjectViewWidget(Flags flags)
             this, &KexiObjectViewWidget::slotCurrentTabIndexChanged);
     connect(d->tabWidget, &KexiObjectViewTabWidget::tabCloseRequested,
             this, &KexiObjectViewWidget::closeWindowRequested);
-    connect(d->tabWidget, &KexiObjectViewTabWidget::allTabsCloseRequested,
-            this, &KexiObjectViewWidget::closeAllWindowsRequested);
 
     // Property editor
     d->propertyPane = new KexiPropertyPaneWidget(d->splitter);
