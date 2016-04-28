@@ -22,9 +22,11 @@
 #include <KexiSearchableModel.h>
 
 #include <KLocalizedString>
+#include <KActionCollection>
 
 #include <kexiutils/completer/KexiCompleter.h>
 #include <kexiutils/KexiTester.h>
+#include <KexiMainWindowIface.h>
 
 #include <QDebug>
 #include <QShortcut>
@@ -35,6 +37,7 @@
 #include <QStyledItemDelegate>
 #include <QTextLayout>
 #include <QPainter>
+#include <QFontMetrics>
 
 class SearchableObject
 {
@@ -399,8 +402,11 @@ KexiSearchLineEdit::KexiSearchLineEdit(QWidget *parent)
                                  // previously focus widget in KexiSearchLineEdit::setFocus().
                                  // We need this information to focus back when pressing Escape key.
     setClearButtonEnabled(true);
-    setPlaceholderText(xi18n("Search"));
+    QAction *action_tools_locate = KexiMainWindowIface::global()->actionCollection()->action("tools_locate");
+    setPlaceholderText(xi18nc("Tools->Locate textbox' placeholder text with shortcut", "Locate (%1)")
+                       .arg(action_tools_locate->shortcut().toString(QKeySequence::NativeText)));
     fixLeftMargin(this);
+    setMinimumWidth(fontMetrics().width("  " + placeholderText() + "    " + "    " + "      "));
 }
 
 KexiSearchLineEdit::~KexiSearchLineEdit()
