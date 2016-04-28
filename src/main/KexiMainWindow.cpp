@@ -1162,7 +1162,9 @@ void KexiMainWindow::setupMainMenu()
         editMenu->addAction(d->action_edit_copy);
         editMenu->addAction(d->action_edit_copy_special_data_table);
         editMenu->addAction(d->action_edit_paste);
-        editMenu->addAction(d->action_edit_paste_special_data_table);
+        if (!d->userMode) {
+            editMenu->addAction(d->action_edit_paste_special_data_table);
+        }
         editMenu->addSeparator();
         editMenu->addAction(d->action_edit_select_all);
         editMenu->addSeparator();
@@ -1206,9 +1208,11 @@ void KexiMainWindow::setupMainMenu()
     }
     {
         QMenu *dataMenu = menu->addMenu(xi18n("&Data"));
-        dataMenu->addAction(d->action_project_import_data_table);
-        dataMenu->addAction(d->action_tools_data_import);
-        dataMenu->addSeparator();
+        if (!d->userMode) {
+            dataMenu->addAction(d->action_project_import_data_table);
+            dataMenu->addAction(d->action_tools_data_import);
+            dataMenu->addSeparator();
+        }
         dataMenu->addAction(d->action_project_export_data_table);
     }
     {
