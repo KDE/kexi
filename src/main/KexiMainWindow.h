@@ -167,11 +167,11 @@ public Q_SLOTS:
      (see kexi/tests/altertable/ directory). */
     tristate closeWindow(KexiWindow *window, bool layoutTaskBar, bool doNotSaveChanges = false);
 
-    /*! Activates next window. */
-    void activateNextWindow();
+    /*! Activates next tab. */
+    void activateNextTab();
 
-    /*! Activates previous window. */
-    void activatePreviousWindow();
+    /*! Activates previous tab. */
+    void activatePreviousTab();
 
 //! @todo move part of this to KexiProject, because currently KexiProject::openObject() allows multiple opens!
     /*! Opens object pointed by \a item in a view \a viewMode.
@@ -320,6 +320,9 @@ Q_SIGNALS:
     void projectOpened();
 
 protected:
+    /*! Setups main menu with sub-menus */
+    void setupMainMenu();
+
     /*! Setups main widget */
     void setupMainWidget();
 

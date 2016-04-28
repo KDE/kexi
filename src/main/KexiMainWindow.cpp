@@ -79,6 +79,7 @@
 #include <KActionCollection>
 #include <KActionMenu>
 #include <KToggleAction>
+#include <KRecentFilesAction>
 #include <KStandardShortcut>
 #include <KStandardGuiItem>
 #include <KConfig>
@@ -103,6 +104,7 @@
 #include <QStyleFactory>
 #include <QDesktopWidget>
 #include <QResource>
+#include <QMenuBar>
 
 #if !defined(KexiVDebug)
 # define KexiVDebug if (0) qDebug()
@@ -350,6 +352,7 @@ KexiMainWindow::KexiMainWindow(QWidget *parent)
     setAcceptDrops(true);
     setupActions();
     setupMainWidget();
+    setupMainMenu();
     updateAppCaption();
 
     if (!d->userMode) {
@@ -414,9 +417,9 @@ KexiWindow* KexiMainWindow::windowForTab(int tabIndex) const
 void KexiMainWindow::setupMainMenuActionShortcut(QAction * action)
 {
     if (!action->shortcut().isEmpty()) {
-        foreach(const QKeySequence &shortcut, action->shortcuts()) {
-            (void)new KexiMainMenuActionShortcut(shortcut, action, this);
-        }
+        //foreach(const QKeySequence &shortcut, action->shortcuts()) {
+            //(void)new KexiMainMenuActionShortcut(shortcut, action, this);
+        //}
     }
 }
 
@@ -432,8 +435,9 @@ QAction * KexiMainWindow::addAction(const char *name, const QIcon &icon, const Q
     actionCollection()->addAction(name, action);
     if (shortcut) {
         action->setShortcut(QKeySequence(shortcut));
-        QShortcut *s = new QShortcut(action->shortcut(), this);
-        connect(s, SIGNAL(activated()), action, SLOT(trigger()));
+        action->setShortcutContext(Qt::ApplicationShortcut);
+        //QShortcut *s = new QShortcut(action->shortcut(), this);
+        //connect(s, SIGNAL(activated()), action, SLOT(trigger()));
     }
     return action;
 }
@@ -452,7 +456,7 @@ void KexiMainWindow::setupActions()
 
     ac->addAction("project_new",
         action = new KexiMenuWidgetAction(KStandardAction::New, this));
-    addThreeDotsToActionText(action);
+    action->setText(xi18n("&New Project..."));
     action->setShortcuts(KStandardShortcut::openNew());
     action->setToolTip(xi18n("Create a new project"));
     action->setWhatsThis(
@@ -462,11 +466,18 @@ void KexiMainWindow::setupActions()
 
     ac->addAction("project_open",
             action = new KexiMenuWidgetAction(KStandardAction::Open, this));
+    action->setText(xi18n("&Open Project..."));
+    action->setIcon(koIcon("project-open"));
     action->setToolTip(xi18n("Open an existing project"));
     action->setWhatsThis(
         xi18n("Opens an existing project. Currently opened project is not affected."));
     connect(action, SIGNAL(triggered()), this, SLOT(slotProjectOpen()));
     setupMainMenuActionShortcut(action);
+
+    ac->addAction("project_open_recent",
+                  action = KStandardAction::openRecent(this, SLOT(slotProjectOpen()), this));
+    action->setToolTip(xi18n("Open a project that was recently opened."));
+    action->setWhatsThis(xi18n("Opens a project that was recently opened."));
 
     {
         ac->addAction("project_welcome",
@@ -515,7 +526,7 @@ void KexiMainWindow::setupActions()
 
     ac->addAction("project_close",
         action = d->action_close = new KexiMenuWidgetAction(
-            koIcon("window-close"), xi18nc("Close Project", "&Close"), this));
+            koIcon("project-development-close"), xi18n("&Close Project"), this));
     action->setToolTip(xi18n("Close the current project"));
     action->setWhatsThis(xi18n("Closes the current project."));
     connect(action, SIGNAL(triggered()), this, SLOT(slotProjectClose()));
@@ -591,7 +602,7 @@ void KexiMainWindow::setupActions()
 //! @todo new QAction(xi18n("From Server..."), "network-server-database", 0,
 //!          this, SLOT(slotImportServer()), actionCollection(), "project_import_server");
 
-#ifdef KEXI_QUICK_PRINTING_SUPPORT
+#ifdef KEXI_SHOW_UNIMPLEMENTED
     ac->addAction("project_print",
                   d->action_project_print = KStandardAction::print(this, SLOT(slotProjectPrint()), this));
     d->action_project_print->setToolTip(futureI18n("Print data from the active table or query"));
@@ -613,6 +624,10 @@ void KexiMainWindow::setupActions()
         futureI18n("Shows print setup for the active table or query."));
     connect(d->action_project_print_setup, SIGNAL(triggered()),
             this, SLOT(slotProjectPageSetup()));
+#else
+    d->action_project_print = d->dummy_action;
+    d->action_project_print_preview = d->dummy_action;
+    d->action_project_print_setup = d->dummy_action;
 #endif
 
     //EDIT MENU
@@ -660,12 +675,10 @@ void KexiMainWindow::setupActions()
     ac->addAction("edit_findprevious",
                   d->action_edit_findprev = KStandardAction::findPrev(
                                                 this, SLOT(slotEditFindPrevious()), this));
-    d->action_edit_replace = 0;
-//! @todo d->action_edit_replace = KStandardAction::replace(
-//!  this, SLOT(slotEditReplace()), actionCollection(), "project_print_preview" );
-    d->action_edit_replace_all = 0;
-//! @todo d->action_edit_replace_all = new QAction( xi18n("Replace All"), "", 0,
-//!   this, SLOT(slotEditReplaceAll()), actionCollection(), "edit_replaceall");
+    ac->addAction("edit_replace",
+                  d->action_edit_replace = KStandardAction::replace(
+                                                this, SLOT(slotEditReplace()), this));
+    d->action_edit_replace_all = addAction("edit_replace_all", xi18n("Replace All"));
 
     d->action_edit_select_all =  createSharedAction(KStandardAction::SelectAll);
 
@@ -753,9 +766,10 @@ void KexiMainWindow::setupActions()
         d->action_view_text_mode = 0;
     */
     if (d->isProjectNavigatorVisible) {
-        d->action_show_nav = addAction("view_navigator",
-                                       xi18n("Show Project Navigator"),
-                                       "Alt+0");
+        ac->addAction("view_navigator",
+            d->action_show_nav = new KToggleAction(xi18n("Show Project Navigator"), this));
+        d->action_show_nav->setChecked(true);
+        d->action_show_nav->setShortcut(QKeySequence("Alt+0"));
         d->action_show_nav->setToolTip(xi18n("Show the Project Navigator pane"));
         d->action_show_nav->setWhatsThis(xi18n("Shows the Project Navigator pane."));
         connect(d->action_show_nav, SIGNAL(triggered()),
@@ -789,8 +803,9 @@ void KexiMainWindow::setupActions()
 
     //! @todo windows with "_3" prefix have conflicting auto shortcut set to Alt+3 -> remove that!
     if (!d->userMode) {
-        d->action_show_propeditor = addAction("view_propeditor",
-                                              xi18n("Show Property Pane"), "Alt+3");
+        ac->addAction("view_propeditor",
+            d->action_show_propeditor = new KToggleAction(xi18n("Show Property Pane"), this));
+        d->action_show_propeditor->setShortcut(QKeySequence("Alt+3"));
         d->action_show_propeditor->setToolTip(xi18n("Show the Property pane"));
         d->action_show_propeditor->setWhatsThis(xi18n("Shows the Property pane."));
         connect(d->action_show_propeditor, SIGNAL(triggered()),
@@ -810,10 +825,10 @@ void KexiMainWindow::setupActions()
         d->action_activate_propeditor = 0;
     }
 
-    d->action_view_global_search = addAction("view_global_search",
-                                             xi18n("Switch to Global Search"), "Ctrl+K");
-    d->action_view_global_search->setToolTip(xi18n("Switch to Global Search box"));
-    d->action_view_global_search->setWhatsThis(xi18n("Switches to Global Search box."));
+    d->action_tools_locate = addAction("tools_locate",
+                                             xi18n("Locate..."), "Ctrl+K");
+    d->action_tools_locate->setToolTip(xi18n("Switch to Global Locate box"));
+    d->action_tools_locate->setWhatsThis(xi18n("Switches to Global Locate box."));
     // (connection is added elsewhere)
 
     //DATA MENU
@@ -851,41 +866,19 @@ void KexiMainWindow::setupActions()
     createSharedAction(KexiRecordNavigator::Actions::moveToNewRecord(), QKeySequence(), "data_go_to_new_record");
 
     //FORMAT MENU
+#ifdef KEXI_SHOW_UNIMPLEMENTED
     d->action_format_font = createSharedAction(xi18n("&Font..."), koIconName("fonts-package"),
                             QKeySequence(), "format_font");
     d->action_format_font->setToolTip(xi18n("Change font for selected object"));
     d->action_format_font->setWhatsThis(xi18n("Changes font for selected object."));
+#else
+    d->action_format_font = d->dummy_action;
+#endif
 
     //TOOLS MENU
 
     //WINDOW MENU
     d->action_close_tab = addAction("close_tab", koIcon("tab-close"), xi18n("&Close Tab"), "Ctrl+W");
-    //additional 'Window' menu items
-    d->action_window_next = addAction("window_next",
-                                      xi18n("&Next Window"),
-#ifdef Q_OS_WIN
-        "Ctrl+Tab"
-#else
-        "Alt+Right"
-#endif
-    );
-    d->action_window_next->setToolTip(xi18n("Next window"));
-    d->action_window_next->setWhatsThis(xi18n("Switches to the next window."));
-    connect(d->action_window_next, SIGNAL(triggered()),
-            this, SLOT(activateNextWindow()));
-
-    d->action_window_previous = addAction("window_previous",
-                                          xi18n("&Previous Window"),
-#ifdef Q_OS_WIN
-        "Ctrl+Shift+Tab"
-#else
-        "Alt+Left"
-#endif
-    );
-    d->action_window_previous->setToolTip(xi18n("Previous window"));
-    d->action_window_previous->setWhatsThis(xi18n("Switches to the previous window."));
-    connect(d->action_window_previous, SIGNAL(triggered()),
-            this, SLOT(activatePreviousWindow()));
     d->action_close_tab->setToolTip(xi18n("Close the current tab"));
     d->action_close_tab->setWhatsThis(xi18n("Closes the current tab."));
     connect(d->action_close_tab, SIGNAL(triggered()), this, SLOT(closeCurrentWindow()));
@@ -895,17 +888,20 @@ void KexiMainWindow::setupActions()
     d->action_close_all_tabs->setWhatsThis(xi18n("Closes all tabs."));
     connect(d->action_close_all_tabs, SIGNAL(triggered()), this, SLOT(closeAllWindows()));
 
+    d->action_next_tab = addAction("next_tab", koIcon("go-next"),
+                                   KStandardShortcut::label(KStandardShortcut::TabNext));
+    d->action_next_tab->setWhatsThis(KStandardShortcut::whatsThis(KStandardShortcut::TabNext));
+    d->action_next_tab->setShortcuts(KStandardShortcut::shortcut(KStandardShortcut::TabNext));
+    connect(d->action_next_tab, SIGNAL(triggered()), this, SLOT(activateNextTab()));
+
+    d->action_previous_tab = addAction("previous_tab", koIcon("go-previous"),
+                                   KStandardShortcut::label(KStandardShortcut::TabPrev));
+    d->action_previous_tab->setWhatsThis(KStandardShortcut::whatsThis(KStandardShortcut::TabPrev));
+    d->action_previous_tab->setShortcuts(KStandardShortcut::shortcut(KStandardShortcut::TabPrev));
+    connect(d->action_previous_tab, SIGNAL(triggered()), this, SLOT(activatePreviousTab()));
+
     d->action_window_fullscreen = KStandardAction::fullScreen(this, SLOT(toggleFullScreen(bool)), this, ac);
     ac->addAction("full_screen", d->action_window_fullscreen);
-    QList<QKeySequence> shortcuts;
-    shortcuts << d->action_window_fullscreen->shortcut() << QKeySequence("F11");
-    d->action_window_fullscreen->setShortcuts(shortcuts);
-    QShortcut *s = new QShortcut(d->action_window_fullscreen->shortcut(), this);
-    connect(s, SIGNAL(activated()), d->action_window_fullscreen, SLOT(trigger()));
-    if (d->action_window_fullscreen->shortcuts().count() > 1) {
-        QShortcut *sa = new QShortcut(d->action_window_fullscreen->shortcuts().value(1), this);
-        connect(sa, SIGNAL(activated()), d->action_window_fullscreen, SLOT(trigger()));
-    }
 
     //SETTINGS MENU
 //! @todo put 'configure keys' into settings view
@@ -932,7 +928,7 @@ void KexiMainWindow::setupActions()
                   action = d->action_settings = new KexiMenuWidgetAction(
                     KStandardAction::Preferences, this));
     action->setObjectName("settings");
-    action->setText(futureI18n("Settings..."));
+    //action->setText(futureI18n("Settings..."));
     action->setToolTip(futureI18n("Show Kexi settings"));
     action->setWhatsThis(futureI18n("Shows Kexi settings."));
     connect(action, SIGNAL(triggered()), this, SLOT(slotSettings()));
@@ -946,12 +942,6 @@ void KexiMainWindow::setupActions()
     KStandardAction::tipOfDay(this, SLOT(slotTipOfTheDayAction()), actionCollection())
     ->setWhatsThis(xi18n("This shows useful tips on the use of this application."));
 #endif
-
-    // GLOBAL
-    d->action_show_help_menu = addAction("help_show_menu", xi18nc("Help Menu", "Help"), "Alt+H");
-    d->action_show_help_menu->setToolTip(xi18n("Show Help menu"));
-    d->action_show_help_menu->setWhatsThis(xi18n("Shows Help menu."));
-    // (connection is added elsewhere)
 
     // ----- declare action categories, so form's "assign action to button"
     //       (and macros in the future) will be able to recognize category
@@ -1092,9 +1082,10 @@ void KexiMainWindow::setupActions()
 
     acat->addAction("close_all_tabs", Kexi::GlobalActionCategory | Kexi::WindowActionCategory);
     acat->setAllObjectTypesSupported("close_all_tabs", true);
-    acat->addAction("window_next", Kexi::GlobalActionCategory);
 
-    acat->addAction("window_previous", Kexi::GlobalActionCategory);
+    acat->addAction("next_tab", Kexi::GlobalActionCategory);
+
+    acat->addAction("previous_tab", Kexi::GlobalActionCategory);
 
     acat->addAction("full_screen", Kexi::GlobalActionCategory);
 
@@ -1128,6 +1119,140 @@ void KexiMainWindow::setupActions()
     acat->addAction("reportpart_create", Kexi::NoActionCategory);
     acat->addAction("macropart_create", Kexi::NoActionCategory);
     acat->addAction("scriptpart_create", Kexi::NoActionCategory);
+}
+
+void KexiMainWindow::setupMainMenu()
+{
+    KActionCollection *ac = actionCollection();
+    QMenuBar *menu = menuBar();
+    {
+        QMenu *fileMenu = menu->addMenu(xi18n("&File"));
+        d->addAction(fileMenu, "project_new");
+        fileMenu->addSeparator();
+        d->addAction(fileMenu, "project_open");
+        d->addAction(fileMenu, "project_open_recent");
+        fileMenu->addSeparator();
+        fileMenu->addAction(d->action_save);
+        fileMenu->addAction(d->action_save_as);
+        fileMenu->addSeparator();
+        fileMenu->addAction(d->action_tools_import_project);
+        fileMenu->addSeparator();
+#ifdef KEXI_SHOW_UNIMPLEMENTED
+        fileMenu->addAction(d->action_project_print);
+        fileMenu->addAction(d->action_project_print_preview);
+        fileMenu->addAction(d->action_project_print_setup);
+        fileMenu->addSeparator();
+#endif
+#ifdef KEXI_SHOW_UNIMPLEMENTED
+        fileMenu->addAction(d->action_project_properties);
+        fileMenu->addSeparator();
+#endif
+        fileMenu->addAction(d->action_close_tab);
+        fileMenu->addAction(d->action_close_all_tabs);
+        fileMenu->addAction(d->action_close);
+        fileMenu->addSeparator();
+        d->addAction(fileMenu, "quit");
+    }
+    {
+        QMenu *editMenu = menu->addMenu(xi18n("&Edit"));
+        editMenu->addAction(d->action_edit_undo);
+        editMenu->addAction(d->action_edit_redo);
+        editMenu->addSeparator();
+        editMenu->addAction(d->action_edit_cut);
+        editMenu->addAction(d->action_edit_copy);
+        editMenu->addAction(d->action_edit_copy_special_data_table);
+        editMenu->addAction(d->action_edit_paste);
+        editMenu->addAction(d->action_edit_paste_special_data_table);
+        editMenu->addSeparator();
+        editMenu->addAction(d->action_edit_select_all);
+        editMenu->addSeparator();
+        {
+            QMenu *findReplaceMenu = editMenu->addMenu(xi18n("&Find/Replace"));
+            findReplaceMenu->addAction(d->action_edit_find);
+            findReplaceMenu->addAction(d->action_edit_findnext);
+            findReplaceMenu->addAction(d->action_edit_findprev);
+#ifdef KEXI_SHOW_UNIMPLEMENTED
+            findReplaceMenu->addSeparator();
+            findReplaceMenu->addAction(d->action_edit_replace);
+            findReplaceMenu->addAction(d->action_edit_replace_all);
+#endif
+        }
+        editMenu->addSeparator();
+        editMenu->addAction(d->action_edit_delete);
+        // in local toolbar already: editMenu->addAction(d->action_data_save_row);
+        // in local toolbar already: editMenu->addAction(d->action_data_cancel_row_changes);
+        //TODO move to local menu: editMenu->addAction(d->action_edit_edititem);
+        //TODO move to local menu: editMenu->addAction(d->action_edit_insert_empty_row);
+        //TODO move to local menu: editMenu->addAction(d->action_data_execute);
+        //editMenu->addSeparator();
+        //TODO move to local menu: editMenu->addAction(d->action_edit_delete);
+        //TODO move to local menu: editMenu->addAction(d->action_edit_delete_row);
+        //in local menu already editMenu->addAction(d->action_edit_clear_table);
+    }
+#ifdef KEXI_SHOW_UNIMPLEMENTED
+    {
+        QMenu *formatMenu = menu->addMenu(xi18n("F&ormat"));
+        formatMenu->addAction(d->action_format_font);
+    }
+#endif
+    {
+        QMenu *toolsMenu = menu->addMenu(xi18n("&Tools"));
+        toolsMenu->addAction(d->action_tools_locate);
+        toolsMenu->addSeparator();
+#ifdef KEXI_SHOW_UNIMPLEMENTED
+        toolsMenu->addAction(d->action_project_relations);
+#endif
+        toolsMenu->addAction(d->action_tools_compact_database);
+    }
+    {
+        QMenu *dataMenu = menu->addMenu(xi18n("&Data"));
+        dataMenu->addAction(d->action_project_import_data_table);
+        dataMenu->addAction(d->action_tools_data_import);
+        dataMenu->addSeparator();
+        dataMenu->addAction(d->action_project_export_data_table);
+    }
+    {
+        QMenu *windowMenu = menu->addMenu(xi18n("&Window"));
+        windowMenu->addAction(d->action_next_tab);
+        windowMenu->addAction(d->action_previous_tab);
+        windowMenu->addSeparator();
+        windowMenu->addAction(d->action_show_nav);
+        windowMenu->addAction(d->action_show_propeditor);
+    }
+    {
+        QMenu *settingsMenu = menu->addMenu(xi18n("&Settings"));
+        settingsMenu->addAction(d->action_window_fullscreen);
+        settingsMenu->addSeparator();
+#ifdef KEXI_SHOW_UNIMPLEMENTED
+        settingsMenu->addAction(d->action_settings);
+#endif
+    }
+    {
+        // add help menu actions... (KexiTabbedToolBar depends on them)
+        KHelpMenu *helpMenu = new KHelpMenu(this, KAboutData::applicationData(),
+                                    true/*showWhatsThis*/);
+        QAction* help_report_bug_action = helpMenu->action(KHelpMenu::menuReportBug);
+        ac->addAction(help_report_bug_action->objectName(), help_report_bug_action);
+        QObject::disconnect(help_report_bug_action, 0, 0, 0);
+        QObject::connect(help_report_bug_action, &QAction::triggered, this, &KexiMainWindow::slotReportBug);
+        help_report_bug_action->setText(xi18nc("Report a bug or wish for Kexi application", "Report a &Bug or Wish..."));
+        help_report_bug_action->setIcon(koIcon("tools-report-bug")); // good icon for toolbar
+        help_report_bug_action->setWhatsThis(xi18n("Files a bug or wish for Kexi application."));
+        QAction* help_whats_this_action =  helpMenu->action(KHelpMenu::menuWhatsThis);
+        ac->addAction(help_whats_this_action->objectName(), help_whats_this_action);
+        help_whats_this_action->setWhatsThis(xi18n("Activates a \"What's This?\" tool."));
+        QAction* help_contents_action = helpMenu->action(KHelpMenu::menuHelpContents);
+        ac->addAction(help_contents_action->objectName(), help_contents_action);
+        help_contents_action->setText(xi18n("Help"));
+        help_contents_action->setWhatsThis(xi18n("Shows Kexi Handbook."));
+        QAction* help_about_app_action = helpMenu->action(KHelpMenu::menuAboutApp);
+        ac->addAction(help_about_app_action->objectName(), help_about_app_action);
+        help_about_app_action->setWhatsThis(xi18n("Shows information about Kexi application."));
+        QAction* help_about_kde_action = helpMenu->action(KHelpMenu::menuAboutKDE);
+        ac->addAction(help_about_kde_action->objectName(), help_about_kde_action);
+        help_about_kde_action->setWhatsThis(xi18n("Shows information about KDE."));
+        menu->addMenu(helpMenu->menu());
+    }
 }
 
 void KexiMainWindow::invalidateActions()
@@ -1211,17 +1336,18 @@ void KexiMainWindow::invalidateProjectWideActions()
     if (d->action_show_nav)
         d->action_show_nav->setEnabled(d->prj);
     d->action_activate_mainarea->setEnabled(d->prj);
-    if (d->action_show_propeditor)
-        d->action_show_propeditor->setEnabled(d->prj);
-#ifdef KEXI_SHOW_CONTEXT_HELP
-    d->action_show_helper->setEnabled(d->prj);
-#endif
 
     //CREATE MENU
     if (d->tabbedToolBar && d->tabbedToolBar->createWidgetToolBar())
         d->tabbedToolBar->createWidgetToolBar()->setEnabled(d->prj);
 
     // DATA MENU
+
+    // WINDOW MENU
+    if (d->objectViewWidget) {
+        d->action_next_tab->setEnabled(d->objectViewWidget->tabWidget()->count() > 1);
+        d->action_previous_tab->setEnabled(d->objectViewWidget->tabWidget()->count() > 1);
+    }
 
     //TOOLS MENU
     // "compact db" supported if there's no db or the current db supports compacting and is opened r/w:
@@ -1706,8 +1832,8 @@ void KexiMainWindow::setupMainWidget()
             KexiUtils::marginHint() / 2, KexiUtils::marginHint() / 2);
 
         d->tabbedToolBar = new KexiTabbedToolBar(tabbedToolBarContainer);
-        Q_ASSERT(d->action_view_global_search);
-        connect(d->action_view_global_search, SIGNAL(triggered()),
+        Q_ASSERT(d->action_tools_locate);
+        connect(d->action_tools_locate, SIGNAL(triggered()),
                 d->tabbedToolBar, SLOT(activateSearchLineEdit()));
         tabbedToolBarContainerLyr->addWidget(d->tabbedToolBar);
         d->tabbedToolBar->hideTab("form"); //temporarily until createToolbar is split
@@ -2154,14 +2280,22 @@ KexiMainWindow::activateWindow(KexiWindow& window)
     return true;
 }
 
-void KexiMainWindow::activateNextWindow()
+void KexiMainWindow::activateNextTab()
 {
-//! @todo activateNextWindow()
+    int index = d->objectViewWidget->tabWidget()->currentIndex() + 1;
+    if (index >= d->objectViewWidget->tabWidget()->count()) {
+        index = 0;
+    }
+    d->objectViewWidget->tabWidget()->setCurrentIndex(index);
 }
 
-void KexiMainWindow::activatePreviousWindow()
+void KexiMainWindow::activatePreviousTab()
 {
-//! @todo activatePreviousWindow()
+    int index = d->objectViewWidget->tabWidget()->currentIndex() - 1;
+    if (index < 0) {
+        index = d->objectViewWidget->tabWidget()->count() - 1;
+    }
+    d->objectViewWidget->tabWidget()->setCurrentIndex(index);
 }
 
 void
@@ -2514,7 +2648,9 @@ void KexiMainWindow::slotProjectRelations()
     if (!d->prj)
         return;
     KexiWindow *w = KexiInternalPart::createKexiWindowInstance("org.kexi-project.relations", this);
-    activateWindow(*w);
+    if (w) {
+        activateWindow(*w);
+    }
 }
 
 void KexiMainWindow::slotImportFile()

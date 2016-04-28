@@ -22,6 +22,8 @@
 #include "KexiObjectViewWidget.h"
 #include "KexiPropertyPaneWidget.h"
 
+#include <KToggleAction>
+
 #include <QPainter>
 #include <QDebug>
 #include <QSplitter>
@@ -33,6 +35,7 @@
 #include <kexiutils/KexiFadeWidgetEffect.h>
 #include <KexiIcon.h>
 #include <KexiStyle.h>
+#include <KexiProjectNavigator.h>
 #include <core/kexipartmanager.h>
 
 EmptyMenuContentWidget::EmptyMenuContentWidget(QWidget* parent)
@@ -610,7 +613,6 @@ KexiTabbedToolBar::KexiTabbedToolBar(QWidget *parent)
     connect(tabBar(), SIGNAL(tabBarDoubleClicked(int)), this, SLOT(slotTabDoubleClicked(int)));
 
     d->ac = KexiMainWindowIface::global()->actionCollection();
-    QWidget *mainWin = KexiMainWindowIface::global()->thisWidget();
     const bool userMode = KexiMainWindowIface::global()->userMode();
     KToolBar *tbar;
 
@@ -623,60 +625,8 @@ KexiTabbedToolBar::KexiTabbedToolBar(QWidget *parent)
     helpWidget->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     QHBoxLayout *helpLyr = new QHBoxLayout(helpWidget);
     helpLyr->setContentsMargins(0, 0, 0, 0);
-
-    // * HELP MENU
-    // add help menu actions... (KexiTabbedToolBar depends on them)
-    d->helpMenu = new KHelpMenu(this, KAboutData::applicationData(),
-                                true/*showWhatsThis*/);
-    QAction* help_report_bug_action = d->helpMenu->action(KHelpMenu::menuReportBug);
-    d->ac->addAction(help_report_bug_action->objectName(), help_report_bug_action);
-    QObject::disconnect(help_report_bug_action, 0, 0, 0);
-    QObject::connect(help_report_bug_action, SIGNAL(triggered()), mainWin, SLOT(slotReportBug()));
-    help_report_bug_action->setText(xi18nc("Report a bug or wish for Kexi application", "Report a &Bug or Wish..."));
-    help_report_bug_action->setIcon(koIcon("tools-report-bug")); // good icon for toolbar
-    help_report_bug_action->setWhatsThis(xi18n("Files a bug or wish for Kexi application."));
-    QAction* help_whats_this_action =  d->helpMenu->action(KHelpMenu::menuWhatsThis);
-    d->ac->addAction(help_whats_this_action->objectName(), help_whats_this_action);
-    help_whats_this_action->setWhatsThis(xi18n("Activates a \"What's This?\" tool."));
-    QAction* help_contents_action = d->helpMenu->action(KHelpMenu::menuHelpContents);
-    d->ac->addAction(help_contents_action->objectName(), help_contents_action);
-    help_contents_action->setText(xi18n("Help"));
-    help_contents_action->setWhatsThis(xi18n("Shows Kexi Handbook."));
-    QAction* help_about_app_action = d->helpMenu->action(KHelpMenu::menuAboutApp);
-    d->ac->addAction(help_about_app_action->objectName(), help_about_app_action);
-    help_about_app_action->setWhatsThis(xi18n("Shows information about Kexi application."));
-    QAction* help_about_kde_action = d->helpMenu->action(KHelpMenu::menuAboutKDE);
-    d->ac->addAction(help_about_kde_action->objectName(), help_about_kde_action);
-    help_about_kde_action->setWhatsThis(xi18n("Shows information about KDE."));
-    QAction* help_switch_language_action = d->helpMenu->action(KHelpMenu::menuSwitchLanguage);
-    if (help_switch_language_action) {
-        d->ac->addAction(help_switch_language_action->objectName(), help_switch_language_action);
-    }
-    // extra action such as help_donate may be confusing for the user or conflicting with existing so hide it
-    QAction *extraAction = d->helpMenu->action(static_cast<KHelpMenu::MenuId>(KHelpMenu::menuSwitchLanguage + 1));
-    if (extraAction) {
-        extraAction->setVisible(false);
-    }
-
-    QAction *action_show_help_menu = d->ac->action("help_show_menu");
-    KexiSmallToolButton *btn = new KexiSmallToolButton(koIcon("help-about"), QString(), helpWidget);
-    btn->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    btn->setPopupMode(QToolButton::InstantPopup);
-    btn->setToolTip(action_show_help_menu->toolTip());
-    btn->setWhatsThis(action_show_help_menu->whatsThis());
-    btn->setFocusPolicy(Qt::NoFocus);
-    QStyleOptionToolButton opt;
-    opt.initFrom(btn);
-    int w = btn->sizeHint().width();
-    int wAdd = btn->style()->pixelMetric(QStyle::PM_MenuButtonIndicator, &opt, btn);
-    if (w <= (2 * (wAdd + 1))) {
-        w += wAdd + 2;
-    }
-    btn->setMinimumWidth(w);
-    connect(action_show_help_menu, SIGNAL(triggered()), btn, SLOT(showMenu()));
-    helpLyr->addWidget(btn);
-    btn->setMenu(d->helpMenu->menu());
     setCornerWidget(helpWidget, Qt::TopRightCorner);
+
     d->searchLineEdit = new KexiSearchLineEdit;
     kexiTester() << KexiTestObject(d->searchLineEdit, "globalSearch.lineEdit");
     d->searchLineEdit->installEventFilter(this);
@@ -804,11 +754,6 @@ bool KexiTabbedToolBar::mainMenuVisible() const
 QRect KexiTabbedToolBar::tabRect(int index) const
 {
     return tabBar()->tabRect(index);
-}
-
-KHelpMenu* KexiTabbedToolBar::helpMenu() const
-{
-    return d->helpMenu;
 }
 
 void KexiTabbedToolBar::slotSettingsChanged(int category)
@@ -1176,8 +1121,6 @@ KexiMainWindow::Private::Private(KexiMainWindow* w)
     action_show_propeditor = 0;
     action_activate_nav = 0;
     action_activate_propeditor = 0;
-    action_welcome_projects_title_id = -1;
-    action_welcome_connections_title_id = -1;
     forceWindowClosing = false;
     insideCloseWindow = false;
 #ifndef KEXI_NO_PENDING_DIALOGS

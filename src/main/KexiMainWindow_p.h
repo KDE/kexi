@@ -33,6 +33,7 @@
 #include <QDockWidget>
 #include <QShortcut>
 #include <QStackedWidget>
+#include <QMenu>
 
 #include <KToolBar>
 #include <KHelpMenu>
@@ -92,8 +93,6 @@ public:
     bool mainMenuVisible() const;
 
     QRect tabRect(int index) const;
-
-    KHelpMenu *helpMenu() const;
 
     void addSearchableModel(KexiSearchableModel *model);
 
@@ -260,7 +259,6 @@ public:
     QPropertyAnimation tabBarAnimation;
     QGraphicsOpacityEffect tabBarOpacityEffect;
     int rolledUpIndex;
-    KHelpMenu *helpMenu;
     KexiSearchLineEdit *searchLineEdit;
     void setCurrentTab(const QString& name);
     void hideTab(const QString& name);
@@ -459,14 +457,9 @@ public:
     *action_project_properties,
     *action_project_relations, *action_project_import_data_table,
     *action_project_export_data_table;
-#ifdef KEXI_QUICK_PRINTING_SUPPORT
     QAction *action_project_print, *action_project_print_preview,
         *action_project_print_setup;
-#endif
     QAction *action_project_welcome;
-    QAction *action_show_other;
-    int action_welcome_projects_title_id,
-    action_welcome_connections_title_id;
     QAction *action_settings;
 
     //! edit menu
@@ -481,14 +474,6 @@ public:
     *action_edit_paste_special_data_table,
     *action_edit_copy_special_data_table;
 
-    //! view menu
-    QAction *action_show_nav, *action_show_propeditor;
-    QAction *action_activate_nav;
-    QAction *action_activate_mainarea;
-    QAction *action_activate_propeditor;
-#ifdef KEXI_SHOW_CONTEXT_HELP
-    KToggleAction *action_show_helper;
-#endif
     //! data menu
     QAction *action_data_save_row;
     QAction *action_data_cancel_row_changes;
@@ -499,15 +484,18 @@ public:
 
     //! tools menu
     QAction *action_tools_import_project, *action_tools_compact_database, *action_tools_data_import;
-    KActionMenu *action_tools_scripts;
+    QAction *action_tools_locate;
 
     //! window menu
-    QAction *action_window_next, *action_window_previous, *action_window_fullscreen;
+    KToggleAction *action_show_nav;
+    KToggleAction *action_show_propeditor;
+    QAction *action_activate_nav;
+    QAction *action_activate_mainarea;
+    QAction *action_activate_propeditor;
     QAction *action_close_tab, *action_close_all_tabs;
+    QAction *action_next_tab, *action_previous_tab;
+    QAction *action_window_fullscreen;
 
-    //! global
-    QAction *action_show_help_menu;
-    QAction *action_view_global_search;
     //! for dock windows
 
     QPointer<QWidget> focus_before_popup;
