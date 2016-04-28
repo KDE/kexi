@@ -1463,9 +1463,6 @@ tristate KexiMainWindow::openProject(const KexiProjectData& projectData)
     QTimer::singleShot(1, this, SLOT(slotAutoOpenObjectsLater()));
     if (d->tabbedToolBar) {
         d->tabbedToolBar->showTab("create");// not needed since create toolbar already shows toolbar! move when kexi starts
-        d->tabbedToolBar->showTab("data");
-        d->tabbedToolBar->showTab("external");
-        d->tabbedToolBar->showTab("tools");
         d->tabbedToolBar->hideTab("form");//temporalily until createToolbar is split
         d->tabbedToolBar->hideTab("report");//temporalily until createToolbar is split
 

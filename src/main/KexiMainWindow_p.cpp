@@ -644,28 +644,12 @@ KexiTabbedToolBar::KexiTabbedToolBar(QWidget *parent)
         d->createWidgetToolBar = d->createToolBar("create", xi18n("Create"));
     }
 
-    tbar = d->createToolBar("data", xi18n("Data"));
-    addAction(tbar, "edit_cut");
-    addAction(tbar, "edit_copy");
-    addAction(tbar, "edit_paste");
-    if (!userMode)
-        addAction(tbar, "edit_paste_special_data_table");
-//! @todo move undo/redo to quickbar:
-
-    tbar = d->createToolBar("external", xi18n("External Data"));
-    if (!userMode) {
-        addAction(tbar, "project_import_data_table");
-        addAction(tbar, "tools_import_tables");
-    }
-
-    tbar = d->createToolBar("tools", xi18n("Tools"));
-    addAction(tbar, "tools_compact_database");
-
 //! @todo move to form plugin
     tbar = d->createToolBar("form", xi18n("Form Design"));
 
 //! @todo move to report plugin
     tbar = d->createToolBar("report", xi18n("Report Design"));
+    Q_UNUSED(tbar)
 
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(slotCurrentChanged(int)));
     setCurrentWidget(widget(KEXITABBEDTOOLBAR_SPACER_TAB_INDEX + 1)); // the default
