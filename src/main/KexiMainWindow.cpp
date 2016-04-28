@@ -540,7 +540,7 @@ void KexiMainWindow::setupActions()
 
 #ifdef KEXI_SHOW_UNIMPLEMENTED
     d->action_project_relations = addAction("project_relations", KexiIcon("database-relations"),
-                                            futureI18n("&Relationships..."), "Ctrl+R");
+                                            futureI18n("&Relationships..."));
     d->action_project_relations->setToolTip(futureI18n("Project relationships"));
     d->action_project_relations->setWhatsThis(futureI18n("Shows project relationships."));
     connect(d->action_project_relations, SIGNAL(triggered()),
