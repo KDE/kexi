@@ -397,6 +397,7 @@ KexiMenuWidgetAction::KexiMenuWidgetAction(KStandardAction::StandardAction id, Q
     setIcon(tmp->icon());
     setText(tmp->text());
     setShortcut(tmp->shortcut());
+    setToolTip(tmp->toolTip());
 }
 
 KexiMenuWidgetAction::~KexiMenuWidgetAction()
