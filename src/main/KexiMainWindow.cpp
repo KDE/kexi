@@ -1739,7 +1739,6 @@ tristate KexiMainWindow::closeProject()
     delete d->prj;
     d->prj = 0;
 
-
     updateReadOnlyState();
     invalidateActions();
     updateAppCaption();
@@ -4351,5 +4350,11 @@ void KexiMainWindow::toggleFullScreen(bool isFullScreen)
             }
         }
     }
-    KToggleFullScreenAction::setFullScreen(this, isFullScreen);
+    const Qt::WindowStates s = windowState() & Qt::WindowMaximized;
+    if (isFullScreen) {
+        setWindowState(windowState() | Qt::WindowFullScreen | s);
+    } else {
+        setWindowState((windowState() & ~Qt::WindowFullScreen));
+        showMaximized();
+    }
 }
