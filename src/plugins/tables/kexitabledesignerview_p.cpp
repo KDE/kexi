@@ -190,7 +190,7 @@ bool KexiTableDesignerViewPrivate::updatePropertiesVisibility(KDbField::Type fie
 #ifdef KEXI_SHOW_UNFINISHED
     prop = &set["precision"];
     visible = KDbField::isFPNumericType(fieldType);
-    setVisibilityIfNeeded(set, prop, visible, changed, commandGroup);
+    setVisibilityIfNeeded(set, prop, visible, &changed, commandGroup);
 #endif
     prop = &set["visibleDecimalPlaces"];
     visible = KDb::supportsVisibleDecimalPlacesProperty(fieldType);

@@ -113,8 +113,8 @@ void KexiFormPart::initInstanceActions()
                        QKeySequence(), "formpart_format_lower");
 
 #ifdef KEXI_SHOW_UNFINISHED
-    action = createSharedAction(Kexi::DesignViewMode, futureI18n("Other Widgets"), QString(),
-                                QKeySequence(), "other_widgets_menu", "KActionMenu");
+    createSharedAction(Kexi::DesignViewMode, futureI18n("Other Widgets"), QString(),
+                       QKeySequence(), "other_widgets_menu", "KActionMenu");
 #endif
 
     QAction *action = createSharedAction(Kexi::DesignViewMode, xi18n("Align Widgets Position"),
