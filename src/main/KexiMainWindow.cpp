@@ -1127,16 +1127,22 @@ void KexiMainWindow::setupMainMenu()
     QMenuBar *menu = menuBar();
     {
         QMenu *fileMenu = menu->addMenu(xi18n("&File"));
-        d->addAction(fileMenu, "project_new");
-        fileMenu->addSeparator();
-        d->addAction(fileMenu, "project_open");
-        d->addAction(fileMenu, "project_open_recent");
-        fileMenu->addSeparator();
+        if (!d->userMode) {
+            d->addAction(fileMenu, "project_new");
+            fileMenu->addSeparator();
+            d->addAction(fileMenu, "project_open");
+            d->addAction(fileMenu, "project_open_recent");
+            fileMenu->addSeparator();
+        }
         fileMenu->addAction(d->action_save);
-        fileMenu->addAction(d->action_save_as);
+        if (!d->userMode) {
+            fileMenu->addAction(d->action_save_as);
+        }
         fileMenu->addSeparator();
-        fileMenu->addAction(d->action_tools_import_project);
-        fileMenu->addSeparator();
+        if (!d->userMode) {
+            fileMenu->addAction(d->action_tools_import_project);
+            fileMenu->addSeparator();
+        }
 #ifdef KEXI_SHOW_UNIMPLEMENTED
         fileMenu->addAction(d->action_project_print);
         fileMenu->addAction(d->action_project_print_preview);
@@ -1149,7 +1155,9 @@ void KexiMainWindow::setupMainMenu()
 #endif
         fileMenu->addAction(d->action_close_tab);
         fileMenu->addAction(d->action_close_all_tabs);
-        fileMenu->addAction(d->action_close);
+        if (!d->userMode) {
+            fileMenu->addAction(d->action_close);
+        }
         fileMenu->addSeparator();
         d->addAction(fileMenu, "quit");
     }
