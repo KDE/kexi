@@ -140,9 +140,9 @@ void KexiWidgetWidthAnimator::setVisible(bool set)
             d->snapshot = targetWidget->grab();
             targetWidget->resize(currentSize);
             d->originalWidth = w; // restore because targetWidget->resize() causes resize event and changes d->originalWidth
-            d->frozen = true;
             d->setSubWidgetsScrollbarsVisible(true);
             d->setSubWidgetsVisible(false);
+            d->frozen = true;
         }
         d->widthAnimation->start();
     }
@@ -180,6 +180,7 @@ void KexiWidgetWidthAnimator::slotWidthAnimationFinished()
         targetWidget->setVisible(false);
     }
     d->frozen = false;
+    d->snapshot = QPixmap(); // no longer needed
     d->setSubWidgetsVisible(true);
     emit animationFinished(targetWidget->isVisible());
 }
