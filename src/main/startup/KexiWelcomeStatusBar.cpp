@@ -235,7 +235,7 @@ void KexiWelcomeStatusBarGuiUpdater::checkFile(const QByteArray &hash,
         fileNamesToUpdate->append(remoteFname);
         return;
     }
-    if (md5.result() != hash) {
+    if (md5.result().toHex() != hash) {
         qDebug() << "not matching file" << localFname << "- update it";
         fileNamesToUpdate->append(remoteFname);
     }
@@ -249,7 +249,8 @@ void KexiWelcomeStatusBarGuiUpdater::filesCopyFinished(KJob* job)
         return;
     }
     KIO::CopyJob* copyJob = qobject_cast<KIO::CopyJob*>(job);
-    qDebug() << "DONE" << copyJob->destUrl();
+    Q_UNUSED(copyJob)
+    //qDebug() << "DONE" << copyJob->destUrl();
 
     QString dir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
                 + QLatin1Char('/') + basePath() + '/');
@@ -262,9 +263,10 @@ void KexiWelcomeStatusBarGuiUpdater::filesCopyFinished(KJob* job)
     }
     if (ok) {
         foreach (const QString &fname, d->fileNamesToUpdate) {
-            const QByteArray oldName(QFile::encodeName(d->tempDir + fname)), newName(QFile::encodeName(dir + fname));
+            const QByteArray oldName(QFile::encodeName(d->tempDir + '/' + fname)),
+                             newName(QFile::encodeName(dir + fname));
             if (0 != ::rename(oldName.constData(), newName.constData())) {
-                qWarning() << "cannot move" << (d->tempDir + fname) << "to" << (dir + fname);
+                qWarning() << "cannot move" << (d->tempDir + '/' + fname) << "to" << (dir + fname);
             }
         }
     }
