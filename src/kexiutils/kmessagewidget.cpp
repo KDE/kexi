@@ -447,9 +447,11 @@ void KMessageWidgetPrivate::createLayout()
         top += 3;
         bottom += 3;
         right += 1;
-        int leftSp = content->radius * 2 + LAYOUT_SPACING;
-        buttonLayout->insertSpacing(0, leftSp);
-        buttonLayout->addSpacing(LAYOUT_SPACING);
+        if (buttonLayout) {
+            int leftSp = content->radius * 2 + LAYOUT_SPACING;
+            buttonLayout->insertSpacing(0, leftSp);
+            buttonLayout->addSpacing(LAYOUT_SPACING);
+        }
         break;
     }
     case KMessageWidget::Right:
