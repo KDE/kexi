@@ -113,7 +113,7 @@ KDbEscapedString KRScriptFunctions::where()
     QByteArray w;
     QMap<QString, QVariant>::const_iterator i = m_groupData.constBegin();
     while (i != m_groupData.constEnd()) {
-        w += QLatin1Char('(') + i.key() + QLatin1String(" = '") + i.value().toString() + QLatin1String("') AND ");
+        w += '(' + i.key().toUtf8() + QByteArrayLiteral(" = '") + i.value().toString().toUtf8() + QByteArrayLiteral("') AND ");
         ++i;
     }
     w.chop(4);
