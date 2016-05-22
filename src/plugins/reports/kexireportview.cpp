@@ -377,7 +377,12 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
                 delete m_reportDocument;
             }
 
-            m_reportDocument = m_preRenderer->generate();
+            if (! m_preRenderer->generateDocument()) {
+                qWarning() << "Could not generate report document";
+                return false;
+            }
+
+            m_reportDocument = m_preRenderer->document();
             if (m_reportDocument) {
                 m_reportView->setDocument(m_reportDocument);
 #ifndef KEXI_MOBILE
