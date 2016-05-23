@@ -162,10 +162,12 @@ void KexiDataSourceComboBox::setProject(KexiProject *prj, bool showTables, bool 
 void KexiDataSourceComboBox::setDataSource(const QString& pluginId, const QString& name)
 {
     if (name.isEmpty()) {
-        clearEditText();
-        setCurrentIndex(0);
-        d->prevIndex = -1;
-        emit dataSourceChanged();
+        if (currentIndex() != 0) {
+            clearEditText();
+            setCurrentIndex(0);
+            d->prevIndex = -1;
+            emit dataSourceChanged();
+        }
         return;
     }
 
@@ -177,12 +179,16 @@ void KexiDataSourceComboBox::setDataSource(const QString& pluginId, const QStrin
         if (pluginId.isEmpty())
             i = findItem("org.kexi-project.query", name);
         if (i == -1) {
-            setCurrentIndex(0);
+            if (currentIndex() != 0) {
+                setCurrentIndex(0);
+            }
             return;
         }
     }
-    setCurrentIndex(i);
-    slotActivated(i);
+    if (currentIndex() != i) {
+        setCurrentIndex(i);
+        slotActivated(i);
+    }
 }
 
 void KexiDataSourceComboBox::slotNewItemStored(KexiPart::Item* item)
