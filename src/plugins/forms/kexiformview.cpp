@@ -359,6 +359,15 @@ void KexiFormView::updateAutoFieldsDataSource()
 #endif
 }
 
+void KexiFormView::propertySetSwitched()
+{
+    KexiDataAwareView::propertySetSwitched();
+    updateDataSourcePage();
+    if (viewMode() == Kexi::DesignViewMode) {
+        formPart()->dataSourcePage()->assignPropertySet(form()->propertySet(), KexiDataSourcePage::ForceAssign);
+    }
+}
+
 void KexiFormView::updateValuesForSubproperties()
 {
 //! @todo call this when form's data source is changed
@@ -1059,9 +1068,8 @@ void
 KexiFormView::updateDataSourcePage()
 {
     if (viewMode() == Kexi::DesignViewMode) {
-        KPropertySet *set = form()->propertySet();
-        const QString dataSourcePartClass = set->propertyValue("dataSourcePartClass").toString();
-        const QString dataSource = set->propertyValue("dataSource").toString();
+        const QString dataSourcePartClass = d->dbform->dataSourcePluginId();
+        const QString dataSource = d->dbform->dataSource();
         formPart()->dataSourcePage()->setFormDataSource(dataSourcePartClass, dataSource);
     }
 }

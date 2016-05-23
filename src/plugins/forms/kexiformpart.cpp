@@ -26,7 +26,8 @@
 #include <KexiMainWindowIface.h>
 #include <kexiproject.h>
 #include <kexipartitem.h>
-#include <widget/KexiDataSourceComboBox.h>
+#include <KexiPropertyPaneWidget.h>
+#include <KexiDataSourceComboBox.h>
 #include <kexiutils/utils.h>
 #include <kexi_global.h>
 #include <formeditor/form.h>
@@ -45,7 +46,6 @@
 
 #include <QVBoxLayout>
 #include <QDomDocument>
-#include <QToolBox>
 #include <QAction>
 #include <QDebug>
 
@@ -336,7 +336,7 @@ KFormDesigner::WidgetTreeWidget* KexiFormPart::widgetTreePage() const
     return d->widgetTree;
 }
 
-void KexiFormPart::setupPropertyPane(QToolBox *toolBox)
+void KexiFormPart::setupPropertyPane(KexiPropertyPaneWidget *pane)
 {
     if (!d->dataSourcePage) {
         d->dataSourcePage = new KexiDataSourcePage(0);
@@ -364,9 +364,7 @@ void KexiFormPart::setupPropertyPane(QToolBox *toolBox)
     KexiProject *prj = KexiMainWindowIface::global()->project();
     d->dataSourcePage->setProject(prj);
 
-    if (toolBox->indexOf(d->dataSourcePage) == -1) {
-        toolBox->addItem(d->dataSourcePage, xi18n("Data source"));
-    }
+    pane->addSection(d->dataSourcePage, xi18n("Data source"));
 
     if (!d->widgetTreeWidget) {
         d->widgetTreeWidget = new QWidget;
@@ -376,9 +374,7 @@ void KexiFormPart::setupPropertyPane(QToolBox *toolBox)
         d->widgetTree->setObjectName("KexiFormPart:WidgetTreeWidget");
         lyr->addWidget(d->widgetTree);
     }
-    if (toolBox->indexOf(d->widgetTreeWidget) == -1) {
-        toolBox->addItem(d->widgetTreeWidget, xi18n("Widgets"));
-    }
+    //! @todo pane->addSection(d->widgetTreeWidget, xi18n("Widgets"));
 }
 
 //----------------
