@@ -1,5 +1,3 @@
-project(KexiMobile)
-
 cmake_minimum_required(VERSION 2.8.0)
 
 #cmake_policy CMP0017 was introduced in version 2.8.4
