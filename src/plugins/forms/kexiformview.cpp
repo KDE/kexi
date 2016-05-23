@@ -195,7 +195,7 @@ KexiFormView::KexiFormView(QWidget *parent, bool dbAware)
 KexiFormView::~KexiFormView()
 {
     deleteQuery();
-    propertySetSwitched();
+    KexiDataAwareView::propertySetSwitched();
     delete d;
 }
 
