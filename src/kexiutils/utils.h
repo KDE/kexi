@@ -573,7 +573,7 @@ inline QColor charcoalGrey() { return QColor(0x31363b); }
 //! @return Shade Black color, see https://techbase.kde.org/Projects/Usability/HIG/Color
 inline QColor shadeBlack() { return QColor(0x232629); }
 
-//! @return Shade Black color made a bit ligher. suitable for alternate base,
+//! @return Shade Black color made a bit lighter, suitable for alternate base,
 //! see https://techbase.kde.org/Projects/Usability/HIG/Color
 inline QColor shadeBlackLighter() { return shadeBlack().lighter(125); }
 
