@@ -30,7 +30,6 @@
 
 #include <QPushButton>
 #include <QPoint>
-#include <QDebug>
 #include <QLineEdit>
 
 //! @internal
@@ -129,8 +128,6 @@ void KexiFieldComboBox::setFieldOrExpression(const QString& string)
         return;
     }
     KexiUtils::BoolBlocker guard(&d->insideSetFieldOrExpression, true);
-
-    qDebug() << string;
     const QString name(string);
     const int pos = name.indexOf('.');
     if (pos == -1) {
@@ -149,12 +146,10 @@ void KexiFieldComboBox::setFieldOrExpression(const QString& string)
 
     //! @todo show 'the item doesn't match' info?
     setEditText(d->fieldOrExpression);
-    qDebug() << currentText() << currentIndex() << lineEdit()->text();
 }
 
 void KexiFieldComboBox::setFieldOrExpression(int index)
 {
-    qDebug() << index;
     if (index >= 0) {
         index++; //skip 1st empty item
     }
@@ -169,19 +164,16 @@ void KexiFieldComboBox::setFieldOrExpression(int index)
         setCurrentIndex(index);
         d->fieldOrExpression = itemData(currentIndex(), Qt::DisplayRole).toString();
         lineEdit()->setText(d->fieldOrExpression);
-        qDebug() << currentText() << currentIndex() << lineEdit()->text();
     }
 }
 
 QString KexiFieldComboBox::fieldOrExpression() const
 {
-    qDebug() << d->fieldOrExpression;
     return d->fieldOrExpression;
 }
 
 int KexiFieldComboBox::indexOfField() const
 {
-    qDebug();
     KDbTableOrQuerySchema tableOrQuery(d->prj->dbConnection(), d->tableOrQueryName.toLatin1(), d->table);
     if (!tableOrQuery.table() && !tableOrQuery.query())
         return -1;
@@ -191,14 +183,12 @@ int KexiFieldComboBox::indexOfField() const
 
 QString KexiFieldComboBox::fieldOrExpressionCaption() const
 {
-    qDebug() << itemData(currentIndex()).toString();
     return itemData(currentIndex()).toString();
 }
 
 void KexiFieldComboBox::slotActivated(int i)
 {
     d->fieldOrExpression = itemData(i, Qt::DisplayRole).toString();
-    qDebug() << i << d->fieldOrExpression;
     setFieldOrExpression(d->fieldOrExpression);
     emit selected();
 }

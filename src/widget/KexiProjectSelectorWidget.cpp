@@ -184,7 +184,6 @@ void KexiProjectSelectorWidget::slotItemExecuted(QTreeWidgetItem *item)
 
 void KexiProjectSelectorWidget::slotItemExecuted()
 {
-    qDebug();
     if (!d->selectable)
         return;
     QList<QTreeWidgetItem *> items = list()->selectedItems();

@@ -429,7 +429,6 @@ tristate KexiWindow::switchToViewMode(
             return res;
     }
 
-    qDebug();
     bool dontStore = false;
     KexiView *view = selectedView();
 
