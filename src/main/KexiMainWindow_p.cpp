@@ -20,7 +20,6 @@
 
 #include "KexiMainWindow_p.h"
 #include "KexiObjectViewWidget.h"
-#include "KexiPropertyPaneWidget.h"
 
 #include <KToggleAction>
 
@@ -30,6 +29,7 @@
 
 #include <KDbUtils>
 
+#include <KexiPropertyPaneWidget.h>
 #include <kexiutils/SmallToolButton.h>
 #include <kexiutils/KexiTester.h>
 #include <kexiutils/KexiFadeWidgetEffect.h>
@@ -1370,7 +1370,7 @@ tristate KexiMainWindow::Private::showProjectMigrationWizard(
     return true;
 }
 
-KexiPropertyEditorView* KexiMainWindow::Private::propertyEditor() const
+KPropertyEditorView* KexiMainWindow::Private::propertyEditor() const
 {
     return (objectViewWidget && objectViewWidget->propertyPane() && objectViewWidget->propertyPane()->editor())
             ? objectViewWidget->propertyPane()->editor() : 0;

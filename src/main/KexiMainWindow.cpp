@@ -38,7 +38,6 @@
 #include "KexiRegisterResource_p.h"
 #include "KexiObjectViewWidget.h"
 #include "KexiObjectViewTabWidget.h"
-#include "KexiPropertyPaneWidget.h"
 #include <kexiutils/utils.h>
 #include <KexiStyle.h>
 #include <kexiutils/KexiCloseButton.h>
@@ -50,7 +49,7 @@
 #include <core/KexiCommandLineOptions.h>
 #include <KexiIcon.h>
 #include <kexi_global.h>
-#include <widget/properties/KexiPropertyEditorView.h>
+#include <KexiPropertyPaneWidget.h>
 #include <widget/utils/kexirecordnavigator.h>
 #include <widget/utils/KexiDockableWidget.h>
 #include <widget/navigator/KexiProjectNavigator.h>
@@ -2110,7 +2109,7 @@ void KexiMainWindow::closeEvent(QCloseEvent *ev)
 void KexiMainWindow::resizeEvent(QResizeEvent *e)
 {
     QMainWindow::resizeEvent(e);
-    qDebug() << "===" << e->size() << size() << isVisible();
+    //qDebug() << "===" << e->size() << size() << isVisible();
 }
 
 static const QSize KEXI_MIN_WINDOW_SIZE(1024, 768);
@@ -2235,7 +2234,8 @@ void KexiMainWindow::updateCustomPropertyPanelTabs(
 
     if (curWindowPart) {
         //recreate custom tabs
-        curWindowPart->setupPropertyPane(d->objectViewWidget->propertyPane()->toolBox());
+        d->objectViewWidget->propertyPane()->removeAllSections();
+        curWindowPart->setupPropertyPane(d->objectViewWidget->propertyPane());
 
 #warning TODO KexiMainWindow::updateCustomPropertyPanelTabs()
 #if 0
@@ -3043,7 +3043,7 @@ tristate KexiMainWindow::closeWindow(KexiWindow *window, bool layoutTaskBar, boo
         if (d->propertyEditor()) {
             // ah, closing detached window - better switch off property buffer right now...
             d->propertySet = 0;
-            d->propertyEditor()->editor()->changeSet(0);
+            d->propertyEditor()->changeSet(0);
         }
     }
 
@@ -3647,7 +3647,7 @@ void KexiMainWindow::slotObjectRenamed(const KexiPart::Item &item, const QString
 void KexiMainWindow::acceptPropertySetEditing()
 {
     if (d->propertyEditor()) {
-        d->propertyEditor()->editor()->acceptInput();
+        d->propertyEditor()->acceptInput();
     }
 }
 
@@ -3676,10 +3676,10 @@ void KexiMainWindow::propertySetSwitched(KexiWindow *window, bool force,
                 }
 
                 if (propertyToSelect.isEmpty()) {
-                    d->propertyEditor()->editor()->changeSet(d->propertySet, options);
+                    d->propertyEditor()->changeSet(d->propertySet, options);
                 }
                 else {
-                    d->propertyEditor()->editor()->changeSet(d->propertySet, propertyToSelect, options);
+                    d->propertyEditor()->changeSet(d->propertySet, propertyToSelect, options);
                 }
             }
         }

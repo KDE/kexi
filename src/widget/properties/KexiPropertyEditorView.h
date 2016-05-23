@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2004 Cedric Pasteur <cedric.pasteur@free.fr>
-   Copyright (C) 2004-2009 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -22,13 +22,12 @@
 #define KEXIPROPERTYEDITORVIEW_H
 
 #include "kexiextwidgets_export.h"
-#include "KexiPropertyPaneViewBase.h"
 
 #include <KPropertyEditorView>
 
 //! @short The container (acts as a dock window) for KexiPropertyEditor.
-/*! The widget displays KexiObjectInfoLabel on its top, to show user what
- object the properties belong to. Read KexiObjectInfoLabel documentation for
+/*! The widget displays KexiObjectInfoWidget on its top, to show user what
+ object the properties belong to. Read the KexiObjectInfoWidget documentation for
  the description what information is displayed.
 
  There are properties obtained from KexiMainWindow's current property set
@@ -40,7 +39,7 @@
    property instead of "name" - this can be usable when we know that "caption" properties
    are available for a given type of objects (this is the case for Table Designer fields)
 */
-class KEXIEXTWIDGETS_EXPORT KexiPropertyEditorView : public KexiPropertyPaneViewBase
+class KEXIEXTWIDGETS_EXPORT KexiPropertyEditorView : public QWidget
 {
     Q_OBJECT
 
@@ -48,12 +47,13 @@ public:
     explicit KexiPropertyEditorView(QWidget* parent);
     virtual ~KexiPropertyEditorView();
 
-    virtual QSize sizeHint() const;
-    virtual QSize minimumSizeHint() const;
+    QSize sizeHint() const Q_DECL_OVERRIDE;
+    QSize minimumSizeHint() const Q_DECL_OVERRIDE;
     KPropertyEditorView *editor() const;
 
 protected Q_SLOTS:
-    void slotPropertySetChanged(KPropertySet*);
+    //! Update information about selected object
+    void slotPropertySetChanged(KPropertySet* set);
 
 protected:
     class Private;

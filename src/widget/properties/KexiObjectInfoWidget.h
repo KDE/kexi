@@ -17,37 +17,37 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXIOBJECTINFOLABEL_H
-#define KEXIOBJECTINFOLABEL_H
+#ifndef KEXIOBJECTINFOWIDGET_H
+#define KEXIOBJECTINFOWIDGET_H
 
 #include "kexiextwidgets_export.h"
 
 #include <QWidget>
 
-//! @short Helper class displaying small icon with class name and object name
-/*! The info label is displayed in a form:
- <i>[ObjectClassIcon] ClassName "ObjectName"</i>
+//! @short A widget displaying small icon with class name and editable object's name
+/*! The info widget is displayed in a form:
+ <i>[ObjectClassIcon] ClassName [ObjectName]</i>
 
- The <i>ObjectClassIcon</i> is optional. If "ClassName" is empty, the information
+ The <i>ObjectClassIcon</i> is optional. If <i>ClassName</i> is empty, the information
  is displayed as:
- <i>[ObjectClassIcon] ObjectName</i>
+ <i>[ObjectClassIcon] [ObjectName]</i>
 
  Example uses:
- - [button_icon] Button "quit"
- - [label_icon] Label "welcome"
+ - [button_icon] Button [quit]
+ - [label_icon] Label [welcome]
 */
-class KEXIEXTWIDGETS_EXPORT KexiObjectInfoLabel : public QWidget
+class KEXIEXTWIDGETS_EXPORT KexiObjectInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit KexiObjectInfoLabel(QWidget* parent);
-    virtual ~KexiObjectInfoLabel();
+    explicit KexiObjectInfoWidget(QWidget* parent = 0);
+    virtual ~KexiObjectInfoWidget();
 
     void setObjectClassIconName(const QString &name);
 
     QString objectClassIconName() const;
 
-    void setObjectClassName(const QString& name);
+        void setObjectClassName(const QString& name);
 
     QString objectClassName() const;
 
@@ -55,10 +55,7 @@ public:
 
     QString objectName() const;
 
-    void setBuddy(QWidget * buddy);
-protected:
-    void updateName();
-
+private:
     class Private;
     Private * const d;
 };

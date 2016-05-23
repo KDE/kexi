@@ -20,7 +20,6 @@
 
 #include "kexireportpart.h"
 
-#include <QToolBox>
 #include <QDebug>
 
 #include <KLocalizedString>
@@ -30,6 +29,7 @@
 #include "kexireportview.h"
 #include "kexireportdesignview.h"
 #include <core/KexiMainWindowIface.h>
+#include <KexiPropertyPaneWidget.h>
 #include "kexisourceselector.h"
 
 //! @internal
@@ -154,14 +154,12 @@ KexiReportPartTempData::KexiReportPartTempData(QObject* parent)
 {
 }
 
-void KexiReportPart::setupPropertyPane(QToolBox *toolBox)
+void KexiReportPart::setupPropertyPane(KexiPropertyPaneWidget *pane)
 {
     if (!d->sourceSelector) {
         d->sourceSelector = new KexiSourceSelector(KexiMainWindowIface::global()->project());
     }
-    if (toolBox->indexOf(d->sourceSelector) == -1) {
-        toolBox->addItem(d->sourceSelector, xi18n("Data source"));
-    }
+    pane->addSection(d->sourceSelector, xi18n("Data source"));
 }
 
 void KexiReportPart::slotToolboxActionTriggered(bool checked)

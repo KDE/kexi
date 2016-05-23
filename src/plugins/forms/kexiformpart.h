@@ -84,7 +84,7 @@ protected:
 
     virtual void initPartActions();
     virtual void initInstanceActions();
-    virtual void setupPropertyPane(QToolBox *toolBox);
+    virtual void setupPropertyPane(KexiPropertyPaneWidget *pane);
 
 private:
     class Private;

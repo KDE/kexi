@@ -22,7 +22,6 @@ set(keximain_LIB_SRCS
     KexiGlobalViewModeSelector.cpp
     KexiObjectViewWidget.cpp
     KexiObjectViewTabWidget.cpp
-    KexiPropertyPaneWidget.cpp
 
     startup/KexiNewProjectAssistant.cpp
     startup/KexiOpenProjectAssistant.cpp

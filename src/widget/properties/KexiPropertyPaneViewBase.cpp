@@ -18,7 +18,7 @@
 */
 
 #include "KexiPropertyPaneViewBase.h"
-#include "KexiObjectInfoLabel.h"
+#include "KexiObjectInfoWidget.h"
 #include <KexiMainWindowIface.h>
 #include <KPropertySet>
 #include <KProperty>
@@ -33,7 +33,6 @@ class Q_DECL_HIDDEN KexiPropertyPaneViewBase::Private
 public:
     Private() {
     }
-    KexiObjectInfoLabel *infoLabel;
 };
 
 KexiPropertyPaneViewBase::KexiPropertyPaneViewBase(QWidget* parent)
@@ -48,7 +47,7 @@ KexiPropertyPaneViewBase::KexiPropertyPaneViewBase(QWidget* parent)
     lyr->setSpacing(0);
 
     //add object class info
-    d->infoLabel = new KexiObjectInfoLabel(this);
+    d->infoLabel = new KexiObjectInfoWidget(this);
     lyr->addWidget(d->infoLabel);
 }
 
@@ -57,7 +56,7 @@ KexiPropertyPaneViewBase::~KexiPropertyPaneViewBase()
     delete d;
 }
 
-KexiObjectInfoLabel *KexiPropertyPaneViewBase::infoLabel() const
+KexiObjectInfoWidget *KexiPropertyPaneViewBase::infoLabel() const
 {
     return d->infoLabel;
 }

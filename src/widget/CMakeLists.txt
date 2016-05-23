@@ -31,10 +31,11 @@ set(kexiextendedwidgets_LIB_SRCS
     navigator/KexiProjectNavigator.cpp
     navigator/KexiProjectTreeView.cpp
 
+    properties/KexiPropertyPaneWidget.cpp
     properties/KexiCustomPropertyFactory.cpp
     properties/KexiCustomPropertyFactory_p.cpp
-    properties/KexiPropertyEditorView.cpp
-    properties/KexiPropertyPaneViewBase.cpp
+    properties/KexiObjectInfoWidget.cpp
+    properties/KexiPropertyPaneLineEdit.cpp
 
     kexiquerydesignersqleditor.cpp
     kexiqueryparameters.cpp
@@ -42,7 +43,6 @@ set(kexiextendedwidgets_LIB_SRCS
     kexidbdrivercombobox.cpp
     kexieditor.cpp
     KexiDataSourceComboBox.cpp
-    KexiObjectInfoLabel.cpp
     kexicharencodingcombobox.cpp
     KexiDBTitlePage.cpp
     KexiProjectSelectorWidget.cpp
@@ -104,6 +104,7 @@ target_link_libraries(kexiextendedwidgets
     PUBLIC
         KF5::KIOFileWidgets # KFileWidget
         KF5::TextEditor
+        KF5::ConfigWidgets
 )
 
 install(TARGETS kexiextendedwidgets  ${INSTALL_TARGETS_DEFAULT_ARGS})

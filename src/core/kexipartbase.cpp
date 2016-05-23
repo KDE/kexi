@@ -68,8 +68,8 @@ KLocalizedString PartBase::i18nMessage(const QString& englishMessage, KexiWindow
     return kxi18nc("@info", englishMessage.toLatin1());
 }
 
-void PartBase::setupPropertyPane(QToolBox *toolBox)
+void PartBase::setupPropertyPane(KexiPropertyPaneWidget *pane)
 {
-    Q_UNUSED(toolBox)
+    Q_UNUSED(pane)
 }
 

@@ -28,7 +28,7 @@ class QVBoxLayout;
 
 class KPropertySet;
 
-class KexiObjectInfoLabel;
+class KexiObjectInfoWidget;
 
 //! @short A base class for propety pane's tabs.
 /*! Defines vertical layout and offers info label on the top.
@@ -41,7 +41,7 @@ public:
     explicit KexiPropertyPaneViewBase(QWidget* parent = 0);
     virtual ~KexiPropertyPaneViewBase();
 
-    KexiObjectInfoLabel *infoLabel() const;
+    KexiObjectInfoWidget *infoLabel() const;
 
     /*! Helper function. Updates \a infoLabel widget by reusing properties provided
      by property set \a set.

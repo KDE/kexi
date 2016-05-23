@@ -1257,7 +1257,6 @@ void KexiFormView::slotWidgetNameChanged(const QByteArray& oldname, const QByteA
     Q_UNUSED(newname);
     //qDebug() << oldname << newname << form()->propertySet().propertyValue("objectName").toString();
     KexiMainWindowIface::global()->updatePropertyEditorInfoLabel();
-    formPart()->dataSourcePage()->updateInfoLabelForPropertySet(form()->propertySet());
 }
 
 void KexiFormView::slotWidgetSelectionChanged(QWidget *w, KFormDesigner::Form::WidgetSelectionFlags flags)

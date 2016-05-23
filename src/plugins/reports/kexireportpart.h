@@ -58,7 +58,7 @@ public:
      */
     virtual ~KexiReportPart();
 
-    virtual void setupPropertyPane(QToolBox *toolBox);
+    virtual void setupPropertyPane(KexiPropertyPaneWidget *pane);
 
     virtual KLocalizedString i18nMessage(const QString& englishMessage,
                                          KexiWindow* window) const;

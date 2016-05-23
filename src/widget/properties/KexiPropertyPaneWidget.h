@@ -20,23 +20,36 @@
 #ifndef KEXIPROPERTYPANEWIDGET_H
 #define KEXIPROPERTYPANEWIDGET_H
 
+#include "kexiextwidgets_export.h"
+
 #include <QWidget>
 
-class QToolBox;
-class KexiPropertyEditorView;
+class KPropertySet;
+class KPropertyEditorView;
 
 //! @short A widget handling entire Property Pane
-class KexiPropertyPaneWidget : public QWidget
+class KEXIEXTWIDGETS_EXPORT KexiPropertyPaneWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit KexiPropertyPaneWidget(QWidget *parent);
+    explicit KexiPropertyPaneWidget(QWidget *parent = 0);
 
     virtual ~KexiPropertyPaneWidget();
 
-    KexiPropertyEditorView *editor() const;
+    KPropertyEditorView *editor() const;
 
-    QToolBox* toolBox() const;
+    void addSection(QWidget *widget, const QString &title);
+
+    //! Removes all sections added by addSection() from the pane's layout and hide them.
+    //! Does not delete the sections; they should be owned by parts and can be reused later.
+    //! Used by the main window when pane should be reset.
+    void removeAllSections();
+
+    void updateInfoLabelForPropertySet(KPropertySet* set);
+
+protected Q_SLOTS:
+    //! Update information about selected object
+    void slotPropertySetChanged(KPropertySet* set);
 
 private:
     class Private;

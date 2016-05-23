@@ -24,6 +24,7 @@
 #include <core/KexiMainWindowIface.h>
 #include <core/kexiproject.h>
 #include <core/kexipartinfo.h>
+#include <KexiPropertyPaneWidget.h>
 #include <widget/tableview/KexiDataTableView.h>
 #include <widget/tableview/KexiDataTableScrollArea.h>
 #include "kexitabledesignerview.h"
@@ -36,7 +37,6 @@
 #include <KMessageBox>
 
 #include <QDebug>
-#include <QToolBox>
 
 KEXI_PLUGIN_FACTORY(KexiTablePart, "kexi_tableplugin.json")
 
@@ -226,7 +226,7 @@ KLocalizedString KexiTablePart::i18nMessage(
     return Part::i18nMessage(englishMessage, window);
 }
 
-void KexiTablePart::setupPropertyPane(QToolBox *toolBox)
+void KexiTablePart::setupPropertyPane(KexiPropertyPaneWidget *pane)
 {
     if (!d->lookupColumnPage) {
         d->lookupColumnPage = new KexiLookupColumnPage;
@@ -249,9 +249,7 @@ void KexiTablePart::setupPropertyPane(QToolBox *toolBox)
     d->lookupColumnPage->setProject(prj);
 
 //! @todo add lookup field icon
-    if (toolBox->indexOf(d->lookupColumnPage) == -1) {
-        toolBox->addItem(d->lookupColumnPage, xi18n("Lookup column"));
-    }
+    pane->addSection(d->lookupColumnPage, xi18n("Lookup column"));
 }
 
 KexiLookupColumnPage* KexiTablePart::lookupColumnPage() const

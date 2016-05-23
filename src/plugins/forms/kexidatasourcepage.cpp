@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2005-2009 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -21,8 +21,7 @@
 #include <KexiIcon.h>
 #include <KexiStyle.h>
 #include <config-kexi.h>
-#include <widget/properties/KexiPropertyEditorView.h>
-#include <widget/KexiObjectInfoLabel.h>
+#include <widget/properties/KexiObjectInfoWidget.h>
 #include <widget/KexiDataSourceComboBox.h>
 #include <widget/fields/KexiFieldListView.h>
 #include <widget/fields/KexiFieldComboBox.h>

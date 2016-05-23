@@ -20,8 +20,7 @@
 
 #include "KexiObjectViewWidget.h"
 #include "KexiObjectViewTabWidget.h"
-#include "KexiPropertyPaneWidget.h"
-#include <KexiPropertyEditorView.h>
+#include <KexiPropertyPaneWidget.h>
 #include <KexiWidgetWidthAnimator.h>
 #include <KexiProjectNavigator.h>
 #include <KexiTester.h>
@@ -29,6 +28,7 @@
 #include <KexiWindow.h>
 #include <KexiMainWindowIface.h>
 
+#include <KPropertyEditorView>
 #include <KActionCollection>
 
 #include <QHBoxLayout>
