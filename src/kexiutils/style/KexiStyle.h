@@ -25,15 +25,22 @@
 #include <KIconLoader>
 
 #include <QColor>
+#include <QMargins>
 
+class KPropertyEditorView;
+class QComboBox;
 class QFont;
 class QFrame;
+class QGridLayout;
 class QIcon;
+class QLabel;
+class QLineEdit;
 class QModelIndex;
 class QPainter;
 class QPalette;
 class QRect;
 class QStyleOptionViewItem;
+class QVBoxLayout;
 class QWidget;
 
 //! Styled icon parameters
@@ -104,6 +111,37 @@ namespace KexiStyle
                                     KIconLoader::Context iconContext = KIconLoader::Action);
 
     KEXIUTILS_EXPORT QIcon icon(const KexiStyledIconParameters &parameters);
+
+    //! Style definition for property pane
+    class KEXIUTILS_EXPORT PropertyPane {
+    public:
+        PropertyPane();
+        void setupEditor(KPropertyEditorView *view) const;
+        QPalette sectionTitlePalette(const QPalette &palette) const;
+        QPalette labelPalette(const QPalette &palette) const;
+        QPalette warningLabelPalette(const QPalette &palette) const;
+        QFont font() const;
+        void alterLineEditStyle(QLineEdit *edit) const;
+        void alterComboBoxStyle(QComboBox *combo) const;
+        void alterTitleFont(QWidget *widget) const;
+        Q_REQUIRED_RESULT QVBoxLayout* createVLayout(QWidget *widget) const;
+        Q_REQUIRED_RESULT QGridLayout* createFormLayout(QVBoxLayout *parentLayout) const;
+        Q_REQUIRED_RESULT QLabel* createLabel(const QString &labelText) const;
+        Q_REQUIRED_RESULT QLabel* createWarningLabel(const QString &labelText) const;
+        QLabel* createTitleLabel(const QString &title, QVBoxLayout *lyr) const;
+        void addLabelAndWidget(const QString &labelText, QWidget *widget, QGridLayout *formLayout) const;
+        void setFormLabelAndWidgetVisible(QWidget *widget, QGridLayout *formLayout, bool set) const;
+
+        const QMargins margins;
+        const int verticalSpacing;
+        const int sectionTitleIndent;
+        const int horizontalSpacingAfterIcon;
+        const int horizontalSpacingAfterLabel;
+    private:
+        Q_DISABLE_COPY(PropertyPane)
+    };
+
+    KEXIUTILS_EXPORT const PropertyPane& propertyPane();
 }
 
 #endif // KEXISTYLE_H

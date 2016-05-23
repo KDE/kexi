@@ -1,4 +1,7 @@
-include_directories(${CMAKE_SOURCE_DIR}/src/core)
+include_directories(
+    ${CMAKE_SOURCE_DIR}/src/core
+    ${CMAKE_SOURCE_DIR}/src/kexiutils/style
+)
 
 ########### next target ###############
 

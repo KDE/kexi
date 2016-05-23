@@ -2,6 +2,7 @@
 
 include_directories(${CMAKE_SOURCE_DIR}/src/core
 ${CMAKE_SOURCE_DIR}/src/kexiutils
+${CMAKE_SOURCE_DIR}/src/kexiutils/style
 ${CMAKE_SOURCE_DIR}/src/main ${CMAKE_SOURCE_DIR}/src/main/startup
 ${CMAKE_SOURCE_DIR}/src/widget ${CMAKE_BINARY_DIR}/src/widget
 ${CMAKE_SOURCE_DIR}/src/widget/navigator

@@ -19,7 +19,7 @@
 
 #include "KexiGlobalViewModeSelector.h"
 #include "KexiGlobalViewModeSelector_p.h"
-#include <kexiutils/KexiStyle.h>
+#include <KexiStyle.h>
 
 #include <KLocalizedString>
 

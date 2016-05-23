@@ -18,15 +18,25 @@
 */
 
 #include "KexiStyle.h"
+#include "KexiPropertyPaneLineEditStyle.h"
 #include "utils.h"
 
+#include <KPropertyEditorView>
+
+#include <QComboBox>
+#include <QFile>
+#include <QFont>
+#include <QFormLayout>
 #include <QFrame>
+#include <QGridLayout>
+#include <QIconEngine>
+#include <QLabel>
+#include <QLineEdit>
 #include <QModelIndex>
 #include <QPainter>
 #include <QStyleOptionViewItem>
-#include <QIconEngine>
-#include <QFile>
 #include <QSvgRenderer>
+#include <QVBoxLayout>
 
 namespace KexiStyle {
 
@@ -108,11 +118,15 @@ KEXIUTILS_EXPORT QPalette alternativePalette(const QPalette &palette)
     QPalette p(palette);
     p.setColor(QPalette::Window, KexiUtils::charcoalGrey());
     p.setColor(QPalette::Base, KexiUtils::shadeBlack());
+    p.setColor(QPalette::Disabled, QPalette::Base, KexiUtils::charcoalGrey());
     p.setColor(QPalette::Button, KexiUtils::shadeBlack());
     p.setColor(QPalette::AlternateBase, KexiUtils::shadeBlackLighter());
     p.setColor(QPalette::WindowText, KexiUtils::paperWhite());
+    p.setColor(QPalette::Disabled, QPalette::WindowText, KexiUtils::iconGrey().lighter(125));
     p.setColor(QPalette::ButtonText, KexiUtils::paperWhite());
+    p.setColor(QPalette::Disabled, QPalette::ButtonText, KexiUtils::cardboardGreyAlternative());
     p.setColor(QPalette::Text, KexiUtils::paperWhite());
+    p.setColor(QPalette::Disabled, QPalette::Text, p.color(QPalette::Disabled, QPalette::WindowText));
     p.setColor(QPalette::Highlight, KexiUtils::cardboardGrey());
     p.setColor(QPalette::Active, QPalette::Highlight, KexiUtils::plasmaBlue());
     p.setColor(QPalette::HighlightedText, KexiUtils::charcoalGrey());
@@ -239,4 +253,176 @@ KEXIUTILS_EXPORT QIcon icon(const KexiStyledIconParameters &parameters)
     return QIcon(new IconEngine(parameters));
 }
 
+const int propertyPaneMargin = 2;
+
+Q_GLOBAL_STATIC(PropertyPane, s_propertyPane)
+
+KEXIUTILS_EXPORT const PropertyPane& propertyPane()
+{
+    return *s_propertyPane;
 }
+
+PropertyPane::PropertyPane()
+ : margins(propertyPaneMargin, propertyPaneMargin * 2, propertyPaneMargin, propertyPaneMargin) //left top right bottom
+ , verticalSpacing(5)
+ , sectionTitleIndent(8)
+ , horizontalSpacingAfterIcon(2)
+ , horizontalSpacingAfterLabel(5)
+{
+}
+
+void PropertyPane::setupEditor(KPropertyEditorView *view) const
+{
+    view->setGridLineColor(QColor());
+    view->setFrameShape(QFrame::NoFrame);
+}
+
+QPalette PropertyPane::sectionTitlePalette(const QPalette &palette) const
+{
+    QPalette pal(palette);
+    pal.setColor(QPalette::WindowText, KexiUtils::cardboardGreyAlternative());
+    return pal;
+}
+
+QPalette PropertyPane::labelPalette(const QPalette &palette) const
+{
+    QPalette pal(palette);
+    pal.setColor(QPalette::WindowText, QColor(0x7f8c8d));
+    return pal;
+}
+
+QPalette PropertyPane::warningLabelPalette(const QPalette &palette) const
+{
+    QPalette pal(palette);
+    QColor c(0xffa92d); // orange
+    c.setAlpha(120);
+    pal.setColor(QPalette::WindowText, c);
+    return pal;
+}
+
+QFont PropertyPane::font() const
+{
+    return KexiUtils::smallestReadableFont();
+}
+
+void PropertyPane::alterLineEditStyle(QLineEdit *edit) const
+{
+    alterPropertyPaneLineEditProxyStyle(edit);
+}
+
+void PropertyPane::alterComboBoxStyle(QComboBox *combo) const
+{
+    if (combo) {
+        combo->setContentsMargins(0, 0, 0, 0);
+        alterPropertyPaneLineEditProxyStyle(combo);
+        alterPropertyPaneLineEditProxyStyle(combo->lineEdit());
+    }
+}
+
+void PropertyPane::alterTitleFont(QWidget *widget) const
+{
+    QFont f(widget->font());
+    f.setCapitalization(QFont::AllUppercase);
+    widget->setFont(f);
+}
+
+QVBoxLayout* PropertyPane::createVLayout(QWidget *widget) const
+{
+    QVBoxLayout *lyr = new QVBoxLayout(widget);
+    lyr->setContentsMargins(0, 0, 0, 0);
+    lyr->setSpacing(0);
+    return lyr;
+}
+
+QGridLayout* PropertyPane::createFormLayout(QVBoxLayout *parentLayout) const
+{
+    const PropertyPane &s = KexiStyle::propertyPane();
+    QGridLayout *formLyr = new QGridLayout;
+    formLyr->setContentsMargins(0, 0, s.margins.right(), 0);
+    formLyr->setVerticalSpacing(0);
+    parentLayout->addLayout(formLyr);
+    return formLyr;
+}
+
+static QLabel* createLabelInternal(const QString &labelText)
+{
+    QLabel *label = new QLabel(labelText);
+    label->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    label->setWordWrap(true);
+    label->setContentsMargins(0, 0, 0, 0);
+    return label;
+}
+
+QLabel* PropertyPane::createLabel(const QString &labelText) const
+{
+    const PropertyPane &s = KexiStyle::propertyPane();
+    QLabel* label = createLabelInternal(labelText);
+    label->setPalette(s.labelPalette(label->palette()));
+    return label;
+}
+
+QLabel* PropertyPane::createWarningLabel(const QString &labelText) const
+{
+    const PropertyPane &s = KexiStyle::propertyPane();
+    QLabel* label = createLabelInternal(labelText);
+    label->setPalette(s.warningLabelPalette(label->palette()));
+    return label;
+}
+
+QLabel* PropertyPane::createTitleLabel(const QString &title, QVBoxLayout *layout) const
+{
+    const PropertyPane &s = KexiStyle::propertyPane();
+    QLabel *lbl = new QLabel(title);
+    lbl->setIndent(s.sectionTitleIndent);
+    s.alterTitleFont(lbl);
+    lbl->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    lbl->setPalette(s.sectionTitlePalette(lbl->palette()));
+    layout->addWidget(lbl);
+    layout->addSpacing(verticalSpacing);
+    return lbl;
+}
+
+void PropertyPane::addLabelAndWidget(const QString &labelText, QWidget *widget,
+                                     QGridLayout *formLayout) const
+{
+    const PropertyPane &s = KexiStyle::propertyPane();
+    QLabel * label = new QLabel(labelText);
+    label->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
+    label->setContentsMargins(s.sectionTitleIndent * 2, 0, s.horizontalSpacingAfterLabel, 0);
+    label->setPalette(s.labelPalette(label->palette()));
+
+    QComboBox* comboBox = qobject_cast<QComboBox*>(widget);
+    if (comboBox) {
+        s.alterComboBoxStyle(comboBox);
+    }
+    widget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Minimum);
+    label->setBuddy(widget);
+    formLayout->addWidget(label, formLayout->rowCount(), 0, Qt::AlignRight | Qt::AlignTop);
+    formLayout->addWidget(widget, formLayout->rowCount() - 1, 1);
+    formLayout->addItem(new QSpacerItem(1, verticalSpacing, QSizePolicy::Fixed, QSizePolicy::Fixed), formLayout->rowCount(), 1);
+}
+
+void PropertyPane::setFormLabelAndWidgetVisible(QWidget *widget, QGridLayout *formLayout, bool set) const
+{
+    if (!widget) {
+        return;
+    }
+    const int index = formLayout->indexOf(widget);
+    if (index == -1) {
+        qWarning() << "No widget" << widget << "in form layout" << formLayout;
+        return;
+    }
+    int row, column, rowSpan, columnSpan;
+    formLayout->getItemPosition(index, &row, &column, &rowSpan, &columnSpan);
+    QLayoutItem *labelItem = formLayout->itemAtPosition(row, 0);
+    if (labelItem->widget()) {
+        labelItem->widget()->setVisible(set);
+    }
+    widget->setVisible(set);
+    QLayoutItem *spacerItem = formLayout->itemAtPosition(row + 1, 1);
+    if (spacerItem && spacerItem->spacerItem()) {
+        spacerItem->spacerItem()->changeSize(set ? 1 : 0, set ? verticalSpacing : 0);
+    }
+}
+
+} // namespace KexiStyle

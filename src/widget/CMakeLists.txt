@@ -11,8 +11,11 @@ endif()
 
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44023)
 
-include_directories(${CMAKE_SOURCE_DIR}/src/widget/tableview ${CMAKE_SOURCE_DIR}/src/core)
-
+include_directories(
+    ${CMAKE_SOURCE_DIR}/src/widget/tableview
+    ${CMAKE_SOURCE_DIR}/src/core
+    ${CMAKE_SOURCE_DIR}/src/kexiutils/style
+)
 
 ########### next target ###############
 

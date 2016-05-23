@@ -20,7 +20,7 @@
 
 #include "kexiquerydesignerguieditor.h"
 #include <kexiutils/utils.h>
-#include <kexiutils/KexiStyle.h>
+#include <KexiStyle.h>
 #include <kexiproject.h>
 #include <KexiMainWindowIface.h>
 #include <kexiinternalpart.h>

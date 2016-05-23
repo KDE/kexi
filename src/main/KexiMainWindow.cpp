@@ -40,7 +40,7 @@
 #include "KexiObjectViewTabWidget.h"
 #include "KexiPropertyPaneWidget.h"
 #include <kexiutils/utils.h>
-#include <kexiutils/KexiStyle.h>
+#include <KexiStyle.h>
 #include <kexiutils/KexiCloseButton.h>
 #include <kexiutils/KexiTester.h>
 #include <KexiVersion.h>
@@ -1954,7 +1954,7 @@ void KexiMainWindow::setupObjectView()
     // Restore settings
     //! @todo FIX LAYOUT PROBLEMS
     KConfigGroup propertyEditorGroup(d->config->group("PropertyEditor"));
-    QFont f(KexiUtils::smallestReadableFont());
+    QFont f(KexiStyle::propertyPane().font());
     const qreal pointSizeF = propertyEditorGroup.readEntry("FontPointSize", -1.0f); // points are more accurate
     if (pointSizeF > 0.0) {
         f.setPointSizeF(pointSizeF);

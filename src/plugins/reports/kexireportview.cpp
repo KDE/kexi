@@ -30,7 +30,7 @@
 #include <core/KexiWindow.h>
 #include <core/KexiMainWindowIface.h>
 #include <KexiIcon.h>
-#include <kexiutils/KexiStyle.h>
+#include <KexiStyle.h>
 
 //! @todo KEXI3 #include "../scripting/kexiscripting/kexiscriptadaptor.h"
 

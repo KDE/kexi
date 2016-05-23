@@ -21,7 +21,7 @@
 #include "KexiProjectModel.h"
 #include "KexiProjectModelItem.h"
 #include <kexiutils/utils.h>
-#include <kexiutils/KexiStyle.h>
+#include <KexiStyle.h>
 
 #include <KDb>
 #include <KDbIdentifierValidator>

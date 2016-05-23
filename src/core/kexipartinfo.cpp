@@ -21,7 +21,7 @@
 #include "kexipartinfo_p.h"
 #include "kexipartmanager.h"
 #include "KexiMainWindowIface.h"
-#include <kexiutils/KexiStyle.h>
+#include <KexiStyle.h>
 #include <KexiIcon.h>
 
 #include <KDbGlobal>

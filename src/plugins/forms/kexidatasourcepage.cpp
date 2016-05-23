@@ -19,6 +19,7 @@
 
 #include "kexidatasourcepage.h"
 #include <KexiIcon.h>
+#include <KexiStyle.h>
 #include <config-kexi.h>
 #include <widget/properties/KexiPropertyEditorView.h>
 #include <widget/KexiObjectInfoLabel.h>

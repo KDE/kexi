@@ -25,7 +25,7 @@
 #include <kexiutils/utils.h>
 #include <kexiutils/SmallToolButton.h>
 #include <kexiutils/FlowLayout.h>
-#include <kexiutils/KexiStyle.h>
+#include <KexiStyle.h>
 
 #include "KexiGroupButton.h"
 
