@@ -570,6 +570,10 @@ inline QColor iconGrey() { return QColor(0x4d4d4d); }
 //! @return Charcoal Grey color, see https://techbase.kde.org/Projects/Usability/HIG/Color
 inline QColor charcoalGrey() { return QColor(0x31363b); }
 
+//! @return Charcoal Grey color made a bit darker, suitable for disabled dark base,
+//! see https://techbase.kde.org/Projects/Usability/HIG/Color
+//inline QColor charcoalGreyDarker() { return charcoalGrey().darker(125); }
+
 //! @return Shade Black color, see https://techbase.kde.org/Projects/Usability/HIG/Color
 inline QColor shadeBlack() { return QColor(0x232629); }
 
