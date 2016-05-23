@@ -416,20 +416,24 @@ protected:
 
     /*! Updates info label of the property editor by reusing properties provided
      by the current property set.
-     Read documentation of KexiPropertyEditorView class for information about accepted properties.
+     Read documentation of KexiPropertyPaneWidget class for information about accepted properties.
      If the current property is 0 and @a textToDisplayForNullSet string is not empty, this string is displayed
      (without icon or any other additional part).
      If the current property is 0 and @a textToDisplayForNullSet string is empty, the info label widget becomes
      hidden.
      Implemented for KexiMainWindow.
      @see KexiPropertyPaneViewBase::updateInfoLabelForPropertySet() */
-    virtual void updatePropertyEditorInfoLabel(const QString& textToDisplayForNullSet);
+    void updatePropertyEditorInfoLabel(const QString& textToDisplayForNullSet = QString()) Q_DECL_OVERRIDE;
 
     //! Activates design tab when switching to design view, according to \a pluginId.
     void activateDesignTab(const QString &pluginId);
 
     //! Sets current global mode
     void setCurrentMode(Kexi::GlobalViewMode mode) Q_DECL_OVERRIDE;
+
+    void beginPropertyPaneUpdate() Q_DECL_OVERRIDE;
+
+    void endPropertyPaneUpdate() Q_DECL_OVERRIDE;
 
 protected Q_SLOTS:
     tristate createNewProject(const KexiProjectData &projectData);

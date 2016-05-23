@@ -56,6 +56,7 @@
 #include <core/kexi.h>
 #include <core/KexiWindow.h>
 #include <core/kexipartinfo.h>
+#include <KexiFadeWidgetEffect.h>
 
 #define KEXI_NO_PROCESS_EVENTS
 
@@ -69,7 +70,7 @@
 
 class QPainter;
 class KexiProjectNavigator;
-class KexiPropertyEditorView;
+class KPropertyEditorView;
 
 //! @short Main application's tabbed toolbar
 class KexiTabbedToolBar : public QTabWidget
@@ -422,7 +423,7 @@ public:
     tristate showProjectMigrationWizard(
         const QString& mimeType, const QString& databaseName, const KDbConnectionData *cdata);
 
-    KexiPropertyEditorView *propertyEditor() const;
+    KPropertyEditorView *propertyEditor() const;
 
     //! Show mode for panes
     enum ShowMode {
@@ -441,6 +442,7 @@ public:
     KexiMainWindow *wnd;
     QStackedWidget *globalViewStack;
     KexiObjectViewWidget *objectViewWidget;
+    QPointer<KexiFadeWidgetEffect> propertyPaneAnimation;
     KActionCollection *actionCollection;
     KexiGlobalViewModeSelector *modeSelector;
     KHelpMenu *helpMenu;

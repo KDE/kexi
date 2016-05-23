@@ -4288,8 +4288,25 @@ void KexiMainWindow::addToolBarAction(const QString& toolBarName, QAction *actio
 
 void KexiMainWindow::updatePropertyEditorInfoLabel(const QString& textToDisplayForNullSet)
 {
-    d->propertyEditor()->updateInfoLabelForPropertySet(
-                d->propertySet, textToDisplayForNullSet);
+    d->objectViewWidget->propertyPane()->updateInfoLabelForPropertySet(
+                d->propertySet);
+}
+
+void KexiMainWindow::beginPropertyPaneUpdate()
+{
+    if (d->propertyPaneAnimation) {
+        d->propertyPaneAnimation->hide();
+        d->propertyPaneAnimation->deleteLater();
+    }
+    d->propertyPaneAnimation = new KexiFadeWidgetEffect(d->objectViewWidget->propertyPane());
+}
+
+void KexiMainWindow::endPropertyPaneUpdate()
+{
+    if (d->propertyPaneAnimation) {
+        d->objectViewWidget->propertyPane()->repaint();
+        d->propertyPaneAnimation->start(150);
+    }
 }
 
 void KexiMainWindow::addSearchableModel(KexiSearchableModel *model)

@@ -34,6 +34,7 @@
 #include <kexiutils/utils.h>
 #include <KexiIcon.h>
 #include <core/kexi.h>
+#include <KexiMainWindowIface.h>
 
 #include <kundo2stack.h>
 
@@ -1646,6 +1647,7 @@ void Form::updatePropertiesForSelection(QWidget *w, WidgetSelectionFlags flags)
 //! @todo clearSet()?
         return;
     }
+    KexiMainWindowIface::global()->beginPropertyPaneUpdate();
 
     // if our list is empty,don't use add parameter value
     if (d->selected.isEmpty() == 0) {
@@ -1664,7 +1666,8 @@ void Form::updatePropertiesForSelection(QWidget *w, WidgetSelectionFlags flags)
     if (flags & LastSelection) {
         emit propertySetSwitched();
     }
- }
+    KexiMainWindowIface::global()->endPropertyPaneUpdate();
+}
 
 KPropertySet* Form::propertySet()
 {

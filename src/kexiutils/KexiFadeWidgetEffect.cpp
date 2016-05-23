@@ -22,7 +22,7 @@
 #include "KexiFadeWidgetEffect.h"
 #include "KexiFadeWidgetEffect_p.h"
 
-#include <QtCore/QEvent>
+#include <QCoreApplication>
 #include <QPaintEngine>
 #include <QPainter>
 #include <QStyle>
@@ -94,7 +94,7 @@ QPixmap KexiFadeWidgetEffectPrivate::transition(const QPixmap &from, const QPixm
 }
 
 KexiFadeWidgetEffect::KexiFadeWidgetEffect(QWidget *destWidget, int defaultDuration)
-    : QWidget(destWidget ? destWidget->parentWidget() : 0),
+    : QWidget(destWidget),
       d(new KexiFadeWidgetEffectPrivate(destWidget))
 {
     d->defaultDuration = defaultDuration;
@@ -105,6 +105,8 @@ KexiFadeWidgetEffect::KexiFadeWidgetEffect(QWidget *destWidget, int defaultDurat
         hide();
         return;
     }
+    destWidget->updateGeometry();
+    destWidget->repaint();
     setGeometry(QRect(destWidget->mapTo(parentWidget(), QPoint(0, 0)), destWidget->size()));
     d->oldPixmap = destWidget->grab();
     d->timeLine.setFrameRange(0, 255);
@@ -133,8 +135,14 @@ void KexiFadeWidgetEffect::start(int duration)
         deleteLater();
         return;
     }
+    d->destWidget->updateGeometry();
+    d->destWidget->update();
+    qApp->processEvents();
+    hide();
     d->newPixmap = d->destWidget->grab();
     d->timeLine.setDuration(duration);
+    show();
+    raise();
     d->timeLine.start();
 }
 

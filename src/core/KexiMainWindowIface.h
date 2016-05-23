@@ -179,6 +179,10 @@ public:
                                      bool sortedProperties = false,
                                      const QByteArray& propertyToSelect = QByteArray()) = 0;
 
+    virtual void beginPropertyPaneUpdate() = 0;
+
+    virtual void endPropertyPaneUpdate() = 0;
+
     //! Options used in saveObject()
     enum SaveObjectOption
     {
