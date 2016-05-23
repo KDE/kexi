@@ -316,7 +316,7 @@ KexiTableDesignerView::createPropertySet(int record, const KDbField& field, bool
     prop->setVisible(false);
 
     //meta-info for property editor
-    set->addProperty(prop = new KProperty("this:classString", xi18n("Table field")));
+    set->addProperty(prop = new KProperty("this:classString", xi18nc("Table field", "Field")));
     prop->setVisible(false);
     set->addProperty(prop = new KProperty("this:iconName",
 //! \todo add table_field icon
