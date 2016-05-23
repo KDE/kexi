@@ -113,6 +113,14 @@ public:
     {
     }
 
+    bool thisSingleWidgetSelected() const
+    {
+        const QWidget *selected = form->selectedWidget();
+        return selected
+            && oldValues.count() == 1
+            && oldValues.contains(selected->objectName().toLatin1());
+    }
+
     Form *form;
     QVariant value;
     QHash<QByteArray, QVariant> oldValues; //!< (widget_name -> value) hash
@@ -195,16 +203,8 @@ void PropertyCommand::setUniqueId(int id)
 
 void PropertyCommand::execute()
 {
-    QWidget *selected = d->form->selectedWidget();
-    bool reSelectWidgets = true;
-    if (selected
-        && d->oldValues.count() == 1
-        && d->oldValues.contains(selected->objectName().toLatin1()) )
-    {
-        // do not reselect widget; this e.g. avoids removing resize handles
-        reSelectWidgets = false;
-    }
-
+    // do not reselect widget; this e.g. avoids removing resize handles
+    const bool reSelectWidgets = !d->thisSingleWidgetSelected();
     if (reSelectWidgets) {
         d->form->selectFormWidget();
     }
@@ -235,7 +235,11 @@ void PropertyCommand::execute()
 
 void PropertyCommand::undo()
 {
-    d->form->selectFormWidget();
+    // do not reselect widget; this e.g. avoids removing resize handles
+    const bool reSelectWidgets = !d->thisSingleWidgetSelected();
+    if (reSelectWidgets) {
+        d->form->selectFormWidget();
+    }
     d->form->setUndoing(true);
 
     QHash<QByteArray, QVariant>::ConstIterator endIt = d->oldValues.constEnd();
@@ -244,7 +248,9 @@ void PropertyCommand::undo()
         if (!item)
             continue; //better this than a crash
         QWidget *widget = item->widget();
-        d->form->selectWidget(widget, Form::AddToPreviousSelection | Form::LastSelection | Form::Raise);
+        if (reSelectWidgets) {
+            d->form->selectWidget(widget, Form::AddToPreviousSelection | Form::LastSelection | Form::Raise);
+        }
 
         WidgetWithSubpropertiesInterface* subpropIface = dynamic_cast<WidgetWithSubpropertiesInterface*>(widget);
         QWidget *subWidget = (subpropIface && subpropIface->subwidget()) ? subpropIface->subwidget() : widget;
