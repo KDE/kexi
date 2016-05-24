@@ -265,8 +265,9 @@ KexiDBFactory::KexiDBFactory(QObject *parent, const QVariantList &)
     {
         // inherited
         KFormDesigner::WidgetInfo* wi = new KFormDesigner::WidgetInfo(this);
-        wi->addAlternateClassName("KexiDBPushButton");
-        wi->addAlternateClassName("KexiPushButton");
+        wi->setClassName("KexiDBPushButton");
+        wi->setIconName(KexiIconName("button"));
+        wi->addAlternateClassName("KexiPushButton", true/*override*/);
         wi->setName(xi18nc("Button widget", "Button"));
         wi->setNamePrefix(
             xi18nc("A prefix for identifiers of button widgets. Based on that, identifiers such as "
