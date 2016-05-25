@@ -67,7 +67,6 @@ KexiFieldComboBox::KexiFieldComboBox(QWidget *parent)
             this, SLOT(slotActivated(int)));
     connect(this, SIGNAL(returnPressed(QString)),
             this, SLOT(slotReturnPressed(QString)));
-
 }
 
 KexiFieldComboBox::~KexiFieldComboBox()
@@ -90,7 +89,6 @@ KexiProject* KexiFieldComboBox::project() const
 
 void KexiFieldComboBox::setTableOrQuery(const QString& name, bool table)
 {
-
     d->tableOrQueryName = name;
     d->table = table;
     clear();
@@ -217,4 +215,3 @@ void KexiFieldComboBox::focusOutEvent(QFocusEvent *e)
         slotReturnPressed(currentText());
     }
 }
-
