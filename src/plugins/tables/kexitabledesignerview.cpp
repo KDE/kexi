@@ -293,8 +293,8 @@ KexiTableDesignerView::getSubTypeListData(KDbField::TypeGroup fieldTypeGroup,
     stringsList = KDb::fieldTypeStringsForGroup(fieldTypeGroup);
     namesList = KDb::fieldTypeNamesForGroup(fieldTypeGroup);
 // }
-    qDebug() << "subType strings: " <<
-        stringsList.join("|") << "\nnames: " << namesList.join("|");
+    //qDebug() << "subType strings: " <<
+    //    stringsList.join("|") << "\nnames: " << namesList.join("|");
 }
 
 KPropertySet *
@@ -719,7 +719,7 @@ void KexiTableDesignerView::slotBeforeCellChanged(
         subTypeValue = KDbField::typeString(fieldType);
         //}
         KProperty *subTypeProperty = &set["subType"];
-        qDebug() << subTypeProperty->value();
+        //qDebug() << subTypeProperty->value();
 
         // *** this action contains subactions ***
         Command *changeDataTypeCommand = new Command(
@@ -776,7 +776,7 @@ void KexiTableDesignerView::slotBeforeCellChanged(
             return;
         //update field desc.
         QVariant oldValue((*propertySetForRecord)["description"].value());
-        qDebug() << oldValue;
+        //qDebug() << oldValue;
         propertySetForRecord->changeProperty("description", *newValue);
     }
 }
@@ -845,7 +845,7 @@ void KexiTableDesignerView::slotRecordUpdated(KDbRecordData *data)
             default:;
         }
 
-        qDebug() << field;
+        //qDebug() << field;
 
         //create a new property set:
         KPropertySet *newSet = createPropertySet(record, field, true);
@@ -868,8 +868,8 @@ void KexiTableDesignerView::updateActions()
 void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& property)
 {
     const QByteArray pname(property.name());
-    qDebug() << pname << " = " << property.value()
-        << " (oldvalue = " << property.oldValue() << ")";
+    //qDebug() << pname << " = " << property.value()
+    //    << " (oldvalue = " << property.oldValue() << ")";
 
     // true if PK should be altered
     bool changePrimaryKey = false;
@@ -981,7 +981,7 @@ void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& pr
         d->setPropertyValueIfNeeded(set, "subType", property.value(), property.oldValue(),
                                     changeFieldTypeCommand);
 
-        qDebug() << set["type"].value();
+        //qDebug() << set["type"].value();
         const KDbField::Type newType = KDbField::typeForString(property.value().toString());
         set["type"].setValue(newType);
 
@@ -1188,7 +1188,7 @@ tristate KexiTableDesignerView::buildSchema(KDbTableSchema &schema, bool beSilen
     //check for pkey; automatically add a pkey if user wanted
     if (!d->primaryKeyExists) {
         if (beSilent) {
-            qDebug() << "no primay key defined...";
+            //qDebug() << "no primay key defined...";
         } else {
             const int questionRes = KMessageBox::questionYesNoCancel(this,
                 xi18nc("@info",
@@ -1458,7 +1458,7 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
             static_cast<KDbObject&>(*newTable)
                 = static_cast<KDbObject&>(*tempData()->table());
             res = buildSchema(*newTable);
-            qDebug() << "BUILD SCHEMA:" << *newTable;
+            //qDebug() << "BUILD SCHEMA:" << *newTable;
 
             res = conn->alterTable(tempData()->table(), newTable);
             if (res != true)
@@ -1467,10 +1467,10 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
             KDbAlterTableHandler::ExecutionArguments args;
             newTable = alterTableHandler->execute(tempData()->table()->name(), &args);
             res = args.result;
-            qDebug() << "ALTER TABLE EXECUTE: "
-            << res.toString();
+            //qDebug() << "ALTER TABLE EXECUTE:"
+            //         << res.toString();
             if (true != res) {
-                qDebug() << alterTableHandler->result();
+                //qDebug() << alterTableHandler->result();
                 window()->setStatus(alterTableHandler, "");
             }
         }

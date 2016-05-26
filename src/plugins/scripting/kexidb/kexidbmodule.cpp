@@ -126,7 +126,7 @@ QObject* KexiDBModule::createConnectionDataByFile(const QString& filename)
             }
         }
         if (groupkey.isNull()) {
-            qDebug() << "No groupkey, filename=" << filename;
+            //qDebug() << "No groupkey, filename=" << filename;
             return 0;
         }
 
@@ -165,7 +165,7 @@ QObject* KexiDBModule::createConnectionDataByFile(const QString& filename)
 
     const QStringList driverIds = m_drivermanager.driverIdsForMimeType(mimename);
     if (driverIds.isEmpty()) {
-        qDebug() << "No driver, filename=" << filename << "mimename=" << mimename;
+        //qDebug() << "No driver, filename=" << filename << "mimename=" << mimename;
         return 0;
     }
 

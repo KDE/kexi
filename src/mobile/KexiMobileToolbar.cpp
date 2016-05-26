@@ -65,13 +65,13 @@ KexiMobileToolbar::~KexiMobileToolbar()
 
 void KexiMobileToolbar::gotoNavigatorClicked()
 {
-    qDebug() << "Goto Navigator";
+    //qDebug() << "Goto Navigator";
     emit(pageNavigator());
 }
 
 void KexiMobileToolbar::openFileClicked()
 {
-    qDebug() << "Open File";
+    //qDebug() << "Open File";
     emit(pageOpenFile());
 }
 
@@ -93,7 +93,7 @@ void KexiMobileToolbar::recordPrevious()
 
 void KexiMobileToolbar::setRecordHandler(KexiRecordNavigatorHandler* handler)
 {
-    qDebug() << handler;
+    //qDebug() << handler;
     m_recordHandler = handler;
     updatePage();
 }

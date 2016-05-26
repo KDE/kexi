@@ -959,7 +959,7 @@ bool KexiTableScrollArea::handleContentsMousePressOrRelease(QMouseEvent* e, bool
                 return false;
             }
             newrow++;
-            qDebug() << "Clicked just on 'insert' record.";
+            //qDebug() << "Clicked just on 'insert' record.";
         } else {
             // get new focus cell
             newrow = recordNumberAt(e->pos().y());
@@ -1116,7 +1116,7 @@ void KexiTableScrollArea::keyPressEvent(QKeyEvent* e)
         }
     } else if (recordEditing() >= 0) {// if a row is in edit mode, do some special stuff
         if (shortCutPressed(e, "data_save_row")) {
-            qDebug() << "shortCutPressed!!!";
+            //qDebug() << "shortCutPressed!!!";
             acceptRecordEditing();
             return;
         }
@@ -1213,9 +1213,9 @@ void KexiTableScrollArea::keyPressEvent(QKeyEvent* e)
                 //this condition is moved after handleKeyPress() to allow to everride enter key as well
                 startEditOrToggleValue();
             } else {
-                qDebug() << "default";
+                //qDebug() << "default";
                 if (e->text().isEmpty() || !e->text()[0].isPrint()) {
-                    qDebug() << "NOT PRINTABLE: 0x0" << QString("%1").arg(k, 0, 16);
+                    //qDebug() << "NOT PRINTABLE: 0x0" << QString("%1").arg(k, 0, 16);
                     //    e->ignore();
                     QScrollArea::keyPressEvent(e);
                     return;
@@ -1228,12 +1228,12 @@ void KexiTableScrollArea::keyPressEvent(QKeyEvent* e)
     if (printable && !ro) {
         KDbTableViewColumn *tvcol = m_data->column(curCol);
         if (tvcol->acceptsFirstChar(e->text()[0])) {
-            qDebug() << "ev pressed: acceptsFirstChar()==true";
+            //qDebug() << "ev pressed: acceptsFirstChar()==true";
             const CreateEditorFlags flags = DefaultCreateEditorFlags | ReplaceOldValue;
             createEditor(curRow, curCol, e->text(), flags);
         } else {
 //! @todo show message "key not allowed eg. on a statusbar"
-            qDebug() << "ev pressed: acceptsFirstChar()==false";
+            //qDebug() << "ev pressed: acceptsFirstChar()==false";
         }
     }
 

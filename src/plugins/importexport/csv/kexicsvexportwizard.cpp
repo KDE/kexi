@@ -295,9 +295,9 @@ void KexiCSVExportWizard::next()
         if (!m_fileSaveWidget->checkSelectedFile()) {
             return;
         }
-        qDebug() << "selectedFile:" << m_fileSaveWidget->selectedFile();
+        /*qDebug() << "selectedFile:" << m_fileSaveWidget->selectedFile();
         qDebug() << "selectedUrl:" << m_fileSaveWidget->selectedUrl();
-        qDebug() << "highlightedFile:" << m_fileSaveWidget->highlightedFile();
+        qDebug() << "highlightedFile:" << m_fileSaveWidget->highlightedFile();*/
         KAssistantDialog::next();
         return;
     }
@@ -308,7 +308,7 @@ void KexiCSVExportWizard::done(int result)
 {
     if (QDialog::Accepted == result) {
         if (m_fileSavePage) {
-            qDebug() << m_fileSaveWidget->highlightedFile();
+            //qDebug() << m_fileSaveWidget->highlightedFile();
             m_options.fileName = m_fileSaveWidget->highlightedFile();
         }
         m_options.delimiter = m_delimiterWidget->delimiter();

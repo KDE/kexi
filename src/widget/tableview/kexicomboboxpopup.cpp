@@ -212,7 +212,7 @@ void KexiComboBoxPopup::setData(const KDbTableViewColumn *column, KDbField *fiel
                 bool columnsFound = true;
                 QList<int> visibleAndBoundColumns = visibleColumns;
                 visibleAndBoundColumns.append(lookupFieldSchema->boundColumn());
-                qDebug() << visibleAndBoundColumns;
+                //qDebug() << visibleAndBoundColumns;
                 foreach (int index, visibleAndBoundColumns) {
                     KDbQueryColumnInfo *columnInfo = fieldsExpanded.value(index);
                     if (!columnInfo || !columnInfo->field() || !d->privateQuery->addField(columnInfo->field())) {
@@ -280,7 +280,7 @@ void KexiComboBoxPopup::setData(const KDbTableViewColumn *column, KDbField *fiel
                     expr = fieldExpr;
                 }
             }
-            qDebug() << expr;
+            //qDebug() << expr;
 
             KDbField *f = new KDbField();
             f->setExpression(expr);
@@ -306,7 +306,7 @@ void KexiComboBoxPopup::setData(const KDbTableViewColumn *column, KDbField *fiel
 // </remove later>
 #endif
 //! @todo ...
-            qDebug() << "--- Private query:" << *d->privateQuery;
+            //qDebug() << "--- Private query:" << *d->privateQuery;
             cursor = field->table()->connection()->prepareQuery(d->privateQuery);
         }
         if (!cursor)
@@ -335,7 +335,7 @@ void KexiComboBoxPopup::setData(const KDbTableViewColumn *column, KDbField *fiel
     for (int i = 0; i < hints.size(); i++) {
         KDbRecordData *newData = data->createItem();
         (*newData)[0] = QVariant(hints[i]);
-        qDebug() << "added: '" << hints[i] << "'";
+        //qDebug() << "added: '" << hints[i] << "'";
         data->append(newData);
     }
     setDataInternal(data, true);
@@ -437,12 +437,12 @@ bool KexiComboBoxPopup::eventFilter(QObject *o, QEvent *e)
     }
 #endif
     if (o == this && (e->type() == QEvent::Hide || e->type() == QEvent::FocusOut)) {
-        qDebug() << "HIDE!!!";
+        //qDebug() << "HIDE!!!";
         emit hidden();
     } else if (e->type() == QEvent::MouseButtonPress) {
-        qDebug() << "QEvent::MousePress";
+        //qDebug() << "QEvent::MousePress";
     } else if (o == d->tv) {
-        qDebug() << "QEvent::KeyPress TV";
+        //qDebug() << "QEvent::KeyPress TV";
         if (e->type() == QEvent::KeyPress) {
             QKeyEvent *ke = static_cast<QKeyEvent*>(e);
             const int k = ke->key();

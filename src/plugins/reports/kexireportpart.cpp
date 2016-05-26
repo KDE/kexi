@@ -126,7 +126,7 @@ KDbObject* KexiReportPart::loadSchemaObject(
     if (!doc.setContent(layout)) {
         return 0;
     }
-    qDebug() << doc.toString();
+    //qDebug() << doc.toString();
 
     KexiReportPartTempData * temp = static_cast<KexiReportPartTempData*>(window->data());
     const QDomElement root = doc.documentElement();

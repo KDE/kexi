@@ -114,8 +114,6 @@ KexiDBForm::KexiDBForm(QWidget *parent, KexiDataAwareObjectInterface* dataAwareO
     editedItem = 0;
     d->dataAwareObject = dataAwareObject;
     KexiDataItemInterface::setHasFocusableWidget(false);
-
-    qDebug() << ":";
     setCursor(QCursor(Qt::ArrowCursor)); //to avoid keeping Size cursor when moving from form's boundaries
     setAcceptDrops(true);
     setAutoFillBackground(true);
@@ -168,8 +166,8 @@ void KexiDBForm::updateTabStopsOrder(KFormDesigner::Form* form)
     foreach (KFormDesigner::ObjectTreeItem* titem, *form->tabStops()) {
         if (titem->widget()->focusPolicy() & Qt::TabFocus) {
             if (fromWidget) {
-                qDebug() << "tab order: "
-                    << fromWidget->objectName() << "->" << titem->widget()->objectName();
+                //qDebug() << "tab order:"
+                //         << fromWidget->objectName() << "->" << titem->widget()->objectName();
             }
             fromWidget = titem->widget();
             d->orderedFocusWidgets.append(titem->widget());
@@ -179,17 +177,17 @@ void KexiDBForm::updateTabStopsOrder(KFormDesigner::Form* form)
         //also filter events for data-aware children of this widget (i.e. KexiDBAutoField's editors)
         QList<QWidget*> children(titem->widget()->findChildren<QWidget*>());
         foreach(QWidget* widget, children) {
-            qDebug() << "also adding '"
+            /*qDebug() << "also adding '"
                 << widget->metaObject()->className()
                 << " " << widget->objectName()
-                << "' child to filtered widgets";
+                << "' child to filtered widgets";*/
             widget->installEventFilter(this);
         }
         KexiFormDataItemInterface* dataItem
             = dynamic_cast<KexiFormDataItemInterface*>(titem->widget());
         if (dataItem && !dataItem->dataSource().isEmpty()) {
-            qDebug() << "#" << numberOfDataAwareWidgets << ": "
-                << dataItem->dataSource() << " (" << titem->widget()->objectName() << ")";
+            //qDebug() << "#" << numberOfDataAwareWidgets << ": "
+            //         << dataItem->dataSource() << " (" << titem->widget()->objectName() << ")";
 
 //! @todo d->indicesForDataAwareWidgets SHOULD NOT BE UPDATED HERE BECAUSE
 //! THERE CAN BE ALSO NON-TABSTOP DATA WIDGETS!

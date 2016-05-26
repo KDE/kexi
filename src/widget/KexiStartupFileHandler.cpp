@@ -137,18 +137,18 @@ KexiStartupFileHandler::~KexiStartupFileHandler()
 void KexiStartupFileHandler::saveRecentDir()
 {
     if (!d->recentDirClass.isEmpty()) {
-        qDebug() << d->recentDirClass;
+        //qDebug() << d->recentDirClass;
 
         QUrl dirUrl;
         if (d->requester)
             dirUrl = d->requester->url();
 //removed in KEXI3        else if (d->dialog)
 //removed in KEXI3            dirUrl = d->dialog->selectedUrl();
-        qDebug() << dirUrl;
+        //qDebug() << dirUrl;
         if (dirUrl.isValid() && dirUrl.isLocalFile()) {
             dirUrl = dirUrl.adjusted(QUrl::RemoveFilename);
             dirUrl.setPath(dirUrl.path() + QString());
-            qDebug() << "Added" << dirUrl.url() << "to recent dirs class" << d->recentDirClass;
+            //qDebug() << "Added" << dirUrl.url() << "to recent dirs class" << d->recentDirClass;
             KRecentDirs::add(d->recentDirClass, dirUrl.url());
         }
     }
@@ -334,7 +334,7 @@ bool KexiStartupFileHandler::checkSelectedUrl()
         url = d->requester->url();
 //removed in KEXI3    else
 //removed in KEXI3       url = d->dialog->selectedUrl();
-    qDebug() << url;
+    //qDebug() << url;
 #if 0
     if (/*d->highlightedUrl.isEmpty() &&*/ !locationEdit()->lineEdit()->text().isEmpty()) {
         qDebug() << locationEdit()->lineEdit()->text();
@@ -382,7 +382,7 @@ bool KexiStartupFileHandler::checkSelectedUrl()
                     defaultExtension = filters.first().trimmed().mid(2); //first one
                 }
                 path += (QLatin1String(".") + defaultExtension);
-                qDebug() << "appended extension, result:" << path;
+                //qDebug() << "appended extension, result:" << path;
                 url = QUrl(path);
                 d->setUrl(url);
             }
@@ -436,7 +436,7 @@ void KexiStartupFileHandler::updateUrl(const QString &name)
     if (!fn.isEmpty() && !fn.endsWith(".kexi"))
         fn += ".kexi";
     url = url.adjusted(QUrl::RemoveFilename);
-    qDebug() << url.toLocalFile();
+    //qDebug() << url.toLocalFile();
     url.setPath(url.toLocalFile() + fn);
     d->requester->setUrl(url);
 }

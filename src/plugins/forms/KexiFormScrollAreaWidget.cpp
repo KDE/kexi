@@ -118,8 +118,8 @@ void KexiFormScrollAreaWidget::mouseMoveEvent(QMouseEvent *e)
         }
         // needs update?
         if (neww != -1 && mainAreaWidget->size() != QSize(neww, newh)) {
-            qDebug() << "mainAreaWidget->size():" << mainAreaWidget->size()
-                     << "neww, newh:" << neww << newh;
+            //qDebug() << "mainAreaWidget->size():" << mainAreaWidget->size()
+            //         << "neww, newh:" << neww << newh;
             mainAreaWidget->resize(neww, newh);
             scrollArea->refreshContentsSize();
             emit resized();

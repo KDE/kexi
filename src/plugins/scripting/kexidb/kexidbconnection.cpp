@@ -119,7 +119,7 @@ const QStringList KexiDBConnection::queryNames() const
     bool ok = true;
     QStringList queries = m_connection->objectNames(KDb::QueryObjectType, &ok);
     if (! ok) {
-        qDebug() << QString("Failed to determinate querynames.");
+        qDebug() << "Failed to determinate querynames.";
         return QStringList();
     }
     return queries;

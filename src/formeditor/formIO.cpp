@@ -431,7 +431,7 @@ FormIO::savePropertyValue(ObjectTreeItem *item, QDomElement &parentNode, QDomDoc
         addSubwidgetFlag = true;
     }
     if (!propertyIsName && propertyId == -1) {
-        qDebug() << "The object doesn't have this property. Let's try the WidgetLibrary.";
+        //qDebug() << "The object doesn't have this property. Let's try the WidgetLibrary.";
         if (form->library())
             form->library()->saveSpecialProperty(item->widget()->metaObject()->className(), name, value,
                                                  item->widget(), parentNode, parent);
@@ -1226,8 +1226,8 @@ FormIO::createToplevelWidget(Form *form, QWidget *container, QDomElement &el)
     {
         ObjectTreeItem *item = form->objectTree()->lookup(it.key());
         if (!item || !item->widget()) {
-            qDebug() << "Cannot assign buddy for widget "
-                << it.value()->objectName() << " to " << it.key();
+            qDebug() << "Cannot assign buddy for widget"
+                     << it.value()->objectName() << "to" << it.key();
             continue;
         }
         it.value()->setBuddy(item->widget());

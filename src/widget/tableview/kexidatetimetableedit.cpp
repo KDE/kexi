@@ -37,7 +37,7 @@ KexiDateTimeTableEdit::KexiDateTimeTableEdit(KDbTableViewColumn &column, QWidget
 
 //! @todo add QValidator so time like "99:88:77" cannot be even entered
 
-    qDebug() << KexiDateTimeFormatter::inputMask(m_dateFormatter, m_timeFormatter);
+    //qDebug() << KexiDateTimeFormatter::inputMask(m_dateFormatter, m_timeFormatter);
     m_lineedit->setInputMask(
         KexiDateTimeFormatter::inputMask(m_dateFormatter, m_timeFormatter));
 }

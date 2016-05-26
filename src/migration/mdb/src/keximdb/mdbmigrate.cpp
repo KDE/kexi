@@ -408,7 +408,7 @@ bool MDBMigrate::getPrimaryKey(KDbTableSchema* table, MdbTableDef* tableDef)
 
     //! @todo: MDB index order (asc, desc)
 
-    qDebug() << "num_keys" << idx->num_keys;
+    //qDebug() << "num_keys" << idx->num_keys;
 
     //! Create the KdbIndexSchema ...
     QVector<int> key_col_num(idx->num_keys);
@@ -420,8 +420,8 @@ bool MDBMigrate::getPrimaryKey(KDbTableSchema* table, MdbTableDef* tableDef)
     bool ok = true;
     for (unsigned int i = 0; i < idx->num_keys; i++) {
         key_col_num[i] = idx->key_col_num[i];
-        qDebug() << "key" << i + 1 << " col " << key_col_num[i]
-                 << table->field(idx->key_col_num[i] - 1)->name();
+        //qDebug() << "key" << i + 1 << "col" << key_col_num[i]
+        //         << table->field(idx->key_col_num[i] - 1)->name();
         if (!p_idx->addField(table->field(idx->key_col_num[i] - 1))) {
             delete p_idx;
             ok = false;

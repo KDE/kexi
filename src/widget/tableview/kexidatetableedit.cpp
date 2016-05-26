@@ -37,7 +37,7 @@ KexiDateTableEdit::KexiDateTableEdit(KDbTableViewColumn &column, QWidget *parent
 
 //! @todo add QValidator so date like "2006-59-67" cannot be even entered
 
-    qDebug() << m_formatter.inputMask();
+    //qDebug() << m_formatter.inputMask();
     m_lineedit->setInputMask(m_formatter.inputMask());
 }
 

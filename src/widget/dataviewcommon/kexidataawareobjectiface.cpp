@@ -107,7 +107,7 @@ void KexiDataAwareObjectInterface::setData(KDbTableViewData *data, bool owner)
 {
     const bool theSameData = m_data && m_data == data;
     if (m_owner && m_data && m_data != data/*don't destroy if it's the same*/) {
-        qDebug() << "destroying old data (owned)";
+        //qDebug() << "destroying old data (owned)";
         delete m_data; //destroy old data
         m_data = 0;
         m_itemIterator = KDbTableViewDataIterator();
@@ -694,16 +694,16 @@ bool KexiDataAwareObjectInterface::acceptRecordEditing()
         //qDebug() << "-- NOTHING TO ACCEPT!!!";
     } else {//not empty edit buffer or new row to insert:
         if (m_newRecordEditing) {
-            qDebug() << "-- INSERTING:" << *m_data->recordEditBuffer();
+            //qDebug() << "-- INSERTING:" << *m_data->recordEditBuffer();
             success = m_data->saveNewRecord(m_currentRecord);
         }
         else {
             if (success) {
                 //accept changes for this row:
-                qDebug() << "-- UPDATING:" << *m_data->recordEditBuffer();
-                qDebug() << "-- BEFORE:" << *m_currentRecord;
+                //qDebug() << "-- UPDATING:" << *m_data->recordEditBuffer();
+                //qDebug() << "-- BEFORE:" << *m_currentRecord;
                 success = m_data->saveRecordChanges(m_currentRecord);
-                qDebug() << "-- AFTER:" << *m_currentRecord;
+                //qDebug() << "-- AFTER:" << *m_currentRecord;
             }
         }
     }
@@ -717,7 +717,7 @@ bool KexiDataAwareObjectInterface::acceptRecordEditing()
         m_recordEditing = -1;
         m_newRecordEditing = false;
         updateAfterAcceptRecordEditing();
-        qDebug() << "EDIT RECORD ACCEPTED:";
+        //qDebug() << "EDIT RECORD ACCEPTED:";
 
         if (inserting) {
             //update navigator's data
@@ -789,7 +789,7 @@ bool KexiDataAwareObjectInterface::cancelRecordEditing()
     }
 
 //! \todo (js): cancel changes for this row!
-    qDebug() << "EDIT RECORD CANCELLED.";
+    //qDebug() << "EDIT RECORD CANCELLED.";
 
     /*emit*/ recordEditingTerminated(m_curRecord);
     return true;
@@ -858,36 +858,36 @@ bool KexiDataAwareObjectInterface::acceptEditor()
         }
         else if (m_editor->valueIsNull()) {//null value entered
             if (m_editor->field()->isNotNull() && !autoIncColumnCanBeOmitted) {
-                qDebug() << "NULL NOT ALLOWED!";
+                //qDebug() << "NULL NOT ALLOWED!";
                 res = KDbValidator::Error;
                 msg = KDbValidator::messageColumnNotEmpty().arg(m_editor->field()->captionOrName())
                       + "\n\n" + KDbTableViewData::messageYouCanImproveData();
                 desc = xi18n("The column's constraint is declared as NOT NULL (required).");
             } else {
-                qDebug() << "NULL VALUE WILL BE SET";
+                //qDebug() << "NULL VALUE WILL BE SET";
                 //ok, just leave newval as NULL
                 setNull = true;
             }
         } else if (m_editor->valueIsEmpty()) {//empty value entered
             if (m_editor->field()->hasEmptyProperty()) {
                 if (m_editor->field()->isNotEmpty() && !autoIncColumnCanBeOmitted) {
-                    qDebug() << "EMPTY NOT ALLOWED!";
+                    //qDebug() << "EMPTY NOT ALLOWED!";
                     res = KDbValidator::Error;
                     msg = KDbValidator::messageColumnNotEmpty().arg(m_editor->field()->captionOrName())
                           + "\n\n" + KDbTableViewData::messageYouCanImproveData();
                     desc = xi18n("The column's constraint is declared as NOT EMPTY (text should be filled).");
                 } else {
-                    qDebug() << "EMPTY VALUE WILL BE SET";
+                    //qDebug() << "EMPTY VALUE WILL BE SET";
                 }
             } else {
                 if (m_editor->field()->isNotNull() && !autoIncColumnCanBeOmitted) {
-                    qDebug() << "NEITHER NULL NOR EMPTY VALUE CAN BE SET!";
+                    //qDebug() << "NEITHER NULL NOR EMPTY VALUE CAN BE SET!";
                     res = KDbValidator::Error;
                     msg = KDbValidator::messageColumnNotEmpty().arg(m_editor->field()->captionOrName())
                           + "\n\n" + KDbTableViewData::messageYouCanImproveData();
                     desc = xi18n("The column's constraint is declared as NOT EMPTY and NOT NULL.");
                 } else {
-                    qDebug() << "NULL VALUE WILL BE SET BECAUSE EMPTY IS NOT ALLOWED";
+                    //qDebug() << "NULL VALUE WILL BE SET BECAUSE EMPTY IS NOT ALLOWED";
                     //ok, just leave newval as NULL
                     setNull = true;
                 }
@@ -921,7 +921,7 @@ bool KexiDataAwareObjectInterface::acceptEditor()
         if (   (!setNull && !valueChanged)
             || (m_editor->field()->type() != KDbField::Boolean && setNull && m_currentRecord->at(realFieldNumber).isNull()))
         {
-            qDebug() << "VALUE NOT CHANGED.";
+            //qDebug() << "VALUE NOT CHANGED.";
             removeEditor();
             if (m_acceptsRecordEditAfterCellAccepting || m_internal_acceptsRecordEditingAfterCellAccepting)
                 acceptRecordEditing();
@@ -968,9 +968,9 @@ bool KexiDataAwareObjectInterface::acceptEditor()
                                               &newval, /*allowSignals*/true,
                                               currentTVColumn->visibleLookupColumnInfo() ? &visibleValue : 0))
         {
-            qDebug() << "------ EDIT BUFFER CHANGED TO:" << *m_data->recordEditBuffer();
+            //qDebug() << "------ EDIT BUFFER CHANGED TO:" << *m_data->recordEditBuffer();
         } else {
-            qDebug() << "------ CHANGE FAILED";
+            //qDebug() << "------ CHANGE FAILED";
             res = KDbValidator::Error;
 
             //now: there might be called cancelEditor() in updateRecordEditBuffer() handler,

@@ -29,8 +29,8 @@
 KexiBoolTableEdit::KexiBoolTableEdit(KDbTableViewColumn &column, QWidget *parent)
         : KexiTableEdit(column, parent)
 {
-    qDebug() << "KexiDataItemInterface::d->origValue.typeName()==" << KexiDataItemInterface::originalValue().typeName();
-    qDebug() << "type== " << field()->typeName();
+    //qDebug() << "KexiDataItemInterface::d->origValue.typeName()==" << KexiDataItemInterface::originalValue().typeName();
+    //qDebug() << "type== " << field()->typeName();
     KexiDataItemInterface::setHasFocusableWidget(false);
     KexiDataItemInterface::setAcceptEditorAfterDeleteContents(true);
     m_usesSelectedTextColor = false;
@@ -122,7 +122,7 @@ void KexiBoolTableEdit::clickedOnContents()
         else
             m_currentValue = m_currentValue.toBool() ? QVariant(false) : QVariant();
     }
-    qDebug() << KexiDataItemInterface::originalValue() << m_currentValue;
+    //qDebug() << KexiDataItemInterface::originalValue() << m_currentValue;
     if (oldValue != m_currentValue) {
         signalValueChanged();
     }

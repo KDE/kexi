@@ -43,8 +43,8 @@ KFormDesigner::removeChildrenFromList(QWidgetList &list)
         // If any widget in the list is a child of this widget, we remove it from the list
         foreach (QWidget *widg, list) {
             if ((w != widg) && (w->findChild<QWidget*>(widg->objectName()))) {
-                qDebug() << "Removing the widget " << widg->objectName()
-                    << "which is a child of " << w->objectName();
+                //qDebug() << "Removing the widget " << widg->objectName()
+                //    << "which is a child of " << w->objectName();
                 toRemove.insert(widg);
             }
         }
@@ -159,8 +159,8 @@ public:
         else
             y2 = w2->mapTo(m_topLevelWidget, QPoint(0, 0)).y();
 
-        qDebug() << w1->objectName() << ": " << y1 << " "
-            << " | " << w2->objectName() << ": " << y2;
+        //qDebug() << w1->objectName() << ": " << y1 << " "
+        //    << " | " << w2->objectName() << ": " << y2;
 
 
         //qDebug() << w1->name() << ": " << w1->mapTo(m_topLevelWidget, QPoint(0,0)) << " " << w1->y()

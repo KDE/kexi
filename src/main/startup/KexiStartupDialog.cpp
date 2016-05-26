@@ -344,7 +344,7 @@ void KexiStartupDialog::updateDialogOKButton(KPageWidgetItem *pageWidgetItem)
                  || currenTemplatesPageWidgetItem == d->templPageWidgetItem_ImportExisting;
 #endif
     } else if (pageWidgetItem == d->pageOpenExisting) {
-        qDebug() << "d->openExistingFileWidget->highlightedFile(): " << d->openExistingFileWidget->highlightedFile();
+        //qDebug() << "d->openExistingFileWidget->highlightedFile(): " << d->openExistingFileWidget->highlightedFile();
         enable =
             (d->openExistingConnWidget->selectedConnectionType() == KexiConnectionSelectorWidget::FileBased)
             ? !d->openExistingFileWidget->highlightedFile().isEmpty()

@@ -98,7 +98,7 @@ void KexiDBReportDataSource::addCondition(const QString &field, const QVariant &
             }
         }
     } else {
-        qDebug() << "Unable to add expresstion to null schema";
+        qWarning() << "Unable to add expresstion to null schema";
     }
 }
 
@@ -118,14 +118,14 @@ bool KexiDBReportDataSource::open()
         }
         else if ( d->copySchema)
         {
-            qDebug() << "Opening cursor.." << *d->copySchema;
+            //qDebug() << "Opening cursor.." << *d->copySchema;
             d->cursor = d->connection->executeQuery(d->copySchema, KDbCursor::Option::Buffered);
         }
 
 
         if ( d->cursor )
         {
-            qDebug() << "Moving to first record..";
+            //qDebug() << "Moving to first record..";
             return d->cursor->moveFirst();
         }
         else
@@ -157,14 +157,14 @@ bool KexiDBReportDataSource::getSchema(const QString& pluginId)
         if ((pluginId.isEmpty() || pluginId == "org.kexi-project.table")
                 && d->connection->tableSchema(d->objectName))
         {
-            qDebug() << d->objectName <<  "is a table..";
+            //qDebug() << d->objectName <<  "is a table..";
             d->originalSchema = new KDbQuerySchema(d->connection->tableSchema(d->objectName));
         }
         else if ((pluginId.isEmpty() || pluginId == "org.kexi-project.query")
                  && d->connection->querySchema(d->objectName))
         {
-            qDebug() << d->objectName <<  "is a query..";
-            qDebug() << *d->connection->querySchema(d->objectName);
+            //qDebug() << d->objectName <<  "is a query..";
+            //qDebug() << *d->connection->querySchema(d->objectName);
             d->originalSchema = new KDbQuerySchema(*(d->connection->querySchema(d->objectName)));
         }
 
@@ -172,18 +172,18 @@ bool KexiDBReportDataSource::getSchema(const QString& pluginId)
             const KDbNativeStatementBuilder builder(d->connection);
             KDbEscapedString sql;
             if (builder.generateSelectStatement(&sql, d->originalSchema)) {
-                qDebug() << "Original:" << sql;
+                //qDebug() << "Original:" << sql;
             } else {
-                qDebug() << "Original: ERROR";
+                qWarning() << "Original: ERROR";
             }
-            qDebug() << *d->originalSchema;
+            //qDebug() << *d->originalSchema;
 
             d->copySchema = new KDbQuerySchema(*d->originalSchema);
-            qDebug() << *d->copySchema;
+            //qDebug() << *d->copySchema;
             if (builder.generateSelectStatement(&sql, d->copySchema)) {
-                qDebug() << "Copy:" << sql;
+                //qDebug() << "Copy:" << sql;
             } else {
-                qDebug() << "Copy: ERROR";
+                qWarning() << "Copy: ERROR";
             }
         }
         return true;
@@ -307,13 +307,13 @@ QStringList KexiDBReportDataSource::scriptList() const
         QList<int> scriptids = d->connection->objectIds(KexiPart::ScriptObjectType);
         QStringList scriptnames = d->connection->objectNames(KexiPart::ScriptObjectType);
 
-        qDebug() << scriptids << scriptnames;
+        //qDebug() << scriptids << scriptnames;
 
         //A blank entry
         scripts << "";
         int i = 0;
         foreach(int id, scriptids) {
-            qDebug() << "ID:" << id;
+            //qDebug() << "ID:" << id;
             tristate res;
             QString script;
             res = d->connection->loadDataBlock(id, &script, QString());
@@ -329,15 +329,15 @@ QStringList KexiDBReportDataSource::scriptList() const
                         scripts << scriptnames[i];
                     }
                 } else {
-                    qDebug() << "Unable to parse script";
+                    qWarning() << "Unable to parse script";
                 }
             } else {
-                qDebug() << "Unable to loadDataBlock";
+                qWarning() << "Unable to loadDataBlock";
             }
             ++i;
         }
 
-        qDebug() << scripts;
+        //qDebug() << scripts;
     }
     return scripts;
 }
@@ -352,7 +352,7 @@ QString KexiDBReportDataSource::scriptCode(const QString& scriptname) const
 
         int i = 0;
         foreach(int id, scriptids) {
-            qDebug() << "ID:" << id;
+            //qDebug() << "ID:" << id;
             tristate res;
             QString script;
             res = d->connection->loadDataBlock(id, &script, QString());
@@ -361,19 +361,19 @@ QString KexiDBReportDataSource::scriptCode(const QString& scriptname) const
                 bool parsed = domdoc.setContent(script, false);
 
                 if (! parsed) {
-                    qDebug() << "XML parsing error";
+                    qWarning() << "XML parsing error";
                     return QString();
                 }
 
                 QDomElement scriptelem = domdoc.namedItem("script").toElement();
                 if (scriptelem.isNull()) {
-                    qDebug() << "script domelement is null";
+                    //qDebug() << "script domelement is null";
                     return QString();
                 }
 
                 QString interpretername = scriptelem.attribute("language");
-                qDebug() << scriptelem.attribute("scripttype");
-                qDebug() << scriptname << scriptnames[i];
+                //qDebug() << scriptelem.attribute("scripttype");
+                //qDebug() << scriptname << scriptnames[i];
 
                 if ((isInterpreterSupported(interpretername) && scriptelem.attribute("scripttype") == "module")
                     || scriptname == scriptnames[i])
@@ -382,7 +382,7 @@ QString KexiDBReportDataSource::scriptCode(const QString& scriptname) const
                 }
                 ++i;
             } else {
-                qDebug() << "Unable to loadDataBlock";
+                qWarning() << "Unable to loadDataBlock";
             }
         }
     }

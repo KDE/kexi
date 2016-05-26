@@ -1330,13 +1330,13 @@ tristate KexiCSVImportDialog::loadRows(QString &field, int &row, int &column, in
         }
 
         if (inGUI && row > (m_maximumRowsForPreview + (m_table->firstRowForFieldNames() ? 1 : 0))) {
-            qDebug() << "loading stopped at row #" << m_maximumRowsForPreview;
+            //qDebug() << "loading stopped at row #" << m_maximumRowsForPreview;
             break;
         }
         if (nextRow) {
             nextRow = false;
             //additional speedup: stop processing now if too many bytes were loaded for preview
-            qDebug() << offset;
+            //qDebug() << offset;
             if (inGUI && offset >= m_maximumBytesForPreview && row >= 2) {
                 m_stoppedAt_MAX_BYTES_TO_PREVIEW = true;
                 return true;
@@ -1746,7 +1746,7 @@ void KexiCSVImportDialog::textquoteSelected(int)
     else
         m_textquote = tq[0];
 
-    qDebug() << m_textquote;
+    //qDebug() << m_textquote;
 
     //delayed, otherwise combobox won't be repainted
     fillTableLater();

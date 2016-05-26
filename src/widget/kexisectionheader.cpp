@@ -116,7 +116,7 @@ bool KexiSectionHeader::eventFilter(QObject *o, QEvent *e)
 
 void KexiSectionHeader::slotFocus(bool in)
 {
-    qDebug() << in;
+    //qDebug() << in;
     in = in || qApp->focusWidget() == this;
     QPalette pal(d->lbl->palette());
     pal.setBrush(QPalette::Window,

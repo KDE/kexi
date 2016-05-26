@@ -255,8 +255,8 @@ void PropertyCommand::undo()
         WidgetWithSubpropertiesInterface* subpropIface = dynamic_cast<WidgetWithSubpropertiesInterface*>(widget);
         QWidget *subWidget = (subpropIface && subpropIface->subwidget()) ? subpropIface->subwidget() : widget;
         if (subWidget && -1 != subWidget->metaObject()->indexOfProperty(d->propertyName)) {
-            qDebug() << "OLD" << d->propertyName << subWidget->property(d->propertyName);
-            qDebug() << "NEW" << d->propertyName << it.value();
+            //qDebug() << "OLD" << d->propertyName << subWidget->property(d->propertyName);
+            //qDebug() << "NEW" << d->propertyName << it.value();
             subWidget->setProperty(d->propertyName, it.value());
         }
     }

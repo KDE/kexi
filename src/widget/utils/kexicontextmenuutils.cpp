@@ -153,7 +153,7 @@ void KexiImageContextMenu::saveAs()
     if (QFileInfo(url.toLocalFile()).completeSuffix().isEmpty()) {
         url.setPath(url.toLocalFile() + QLatin1Char('.') + fileExtension);
     }
-    qDebug() << url;
+    //qDebug() << url;
     QFile f(url.toLocalFile());
     if (f.exists() && KMessageBox::Yes != KMessageBox::warningYesNo(this,
             xi18n("<para>File <filename>%1</filename> already exists.</para>"

@@ -91,15 +91,13 @@ qreal KRScriptFunctions::count(const QString &field)
 
 QVariant KRScriptFunctions::value(const QString &field)
 {
-    QVariant val;
     if (!m_cursor) {
-        qDebug() << "No cursor to get value of field " << field;
-        return val;
+        qDebug() << "No cursor to get value of field" << field;
+        return QVariant();
     }
 
     QStringList fields = m_cursor->fieldNames();
-
-    val = m_cursor->value(fields.indexOf(field));
+    QVariant val = m_cursor->value(fields.indexOf(field));
     if (val.type() == QVariant::String) {
         // UTF-8 values are expected so convert this
         return val.toString().toUtf8();

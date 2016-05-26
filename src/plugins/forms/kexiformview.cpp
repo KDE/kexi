@@ -715,7 +715,7 @@ void KexiFormView::initDataSource()
             deleteQuery();
         }
         else {
-            qDebug() << d->query->parameters();
+            //qDebug() << d->query->parameters();
             // like in KexiQueryView::executeQuery()
             QList<QVariant> params;
             {

@@ -98,7 +98,7 @@ KexiView* KexiTablePart::createView(QWidget *parent, KexiWindow* window,
         = static_cast<KexiTablePartTempData*>(window->data());
     if (!temp->table()) {
         temp->setTable(win->project()->dbConnection()->tableSchema(item->name()));
-        qDebug() << "schema is " << temp->table();
+        //qDebug() << "schema is " << temp->table();
     }
 
     if (viewMode == Kexi::DesignViewMode) {

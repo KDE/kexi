@@ -355,7 +355,7 @@ void ImportTableWizard::arriveSrcDBPage()
         //! @todo Back button doesn't work after selecting a file to import
     } else if (!m_srcDBName) {
         m_srcDBPageWidget->hide();
-        qDebug() << "Looks like we need a project selector widget!";
+        //qDebug() << "Looks like we need a project selector widget!";
 
         KDbConnectionData* conndata = m_srcConnSel->selectedConnectionData();
         if (conndata) {
@@ -584,7 +584,7 @@ KexiMigrate* ImportTableWizard::prepareImport(Kexi::ObjectStatus *result)
     if (!result->error()) {
         sourceDriver = m_migrateManager.driver(sourceDriverId);
         if (!sourceDriver || m_migrateManager.result().isError()) {
-            qDebug() << "Import migrate driver error...";
+            //qDebug() << "Import migrate driver error...";
             result->setStatus(m_migrateManager.resultable());
         }
     }

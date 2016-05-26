@@ -223,7 +223,7 @@ KexiProjectTitleSelectionPage::~KexiProjectTitleSelectionPage()
 
 void KexiProjectTitleSelectionPage::askForOverwriting(const KexiContextMessage& message)
 {
-    qDebug() << message.text();
+    //qDebug() << message.text();
     delete messageWidget;
     messageWidget = new KexiContextMessageWidget(this,
                                                  contents->formLayout,

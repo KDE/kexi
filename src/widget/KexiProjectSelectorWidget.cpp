@@ -212,7 +212,7 @@ void KexiProjectSelectorWidget::setProjectSet(KexiProjectSet* prj_set)
         return;
 //! @todo what with project set's ownership?
     if (d->prj_set->result().isError()) {
-        qDebug() << "d->prj_set->error()" << d->prj_set->result();
+        //qDebug() << "d->prj_set->error()" << d->prj_set->result();
         return;
     }
     KDbDriverManager manager;

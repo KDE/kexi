@@ -88,7 +88,7 @@ KexiFileWidget::KexiFileWidget(
         :  KFileWidget(startDirOrVariable, parent)
         , d(new Private())
 {
-    qDebug() << startDirOrVariable.scheme();
+    //qDebug() << startDirOrVariable.scheme();
     if (startDirOrVariable.scheme() == "kfiledialog") {
 //! @todo KEXI3 test it
         KFileWidget::getStartUrl(startDirOrVariable, d->recentDirClass);
@@ -105,7 +105,7 @@ KexiFileWidget::KexiFileWidget(
 
 KexiFileWidget::~KexiFileWidget()
 {
-    qDebug() << d->recentDirClass;
+    //qDebug() << d->recentDirClass;
     if (!d->recentDirClass.isEmpty()) {
         QString hf = highlightedFile();
         QUrl dir;
@@ -117,8 +117,8 @@ KexiFileWidget::~KexiFileWidget()
             QString dirStr = fi.isDir() ? fi.absoluteFilePath() : fi.dir().absolutePath();
             dir = QUrl::fromLocalFile(dirStr);
         }
-        qDebug() << dir;
-        qDebug() << highlightedFile();
+        //qDebug() << dir;
+        //qDebug() << highlightedFile();
         if (!dir.isEmpty())
             KRecentDirs::add(d->recentDirClass, dir.url());
     }
@@ -127,7 +127,7 @@ KexiFileWidget::~KexiFileWidget()
 
 void KexiFileWidget::slotExistingFileHighlighted(const QUrl& url)
 {
-    qDebug() << url;
+    //qDebug() << url;
     d->highlightedUrl = url;
     emit fileHighlighted();
 }
@@ -199,7 +199,7 @@ void KexiFileWidget::updateFilters()
 
     if (normalOpeningMode) {
         const QStringList supportedFileMimeTypes = KexiMainWindowIface::global()->migrateManager()->supportedFileMimeTypes();
-        qDebug() << supportedFileMimeTypes;
+        //qDebug() << supportedFileMimeTypes;
         foreach (const QString& supportedFileMimeType, supportedFileMimeTypes) {
             d->addFilterForType(&filter, &allfilters, supportedFileMimeType);
         }
@@ -298,12 +298,12 @@ QString KexiFileWidget::selectedFile() const
 
 bool KexiFileWidget::checkSelectedFile()
 {
-    qDebug() << "d->highlightedUrl: " << d->highlightedUrl;
+    //qDebug() << "d->highlightedUrl: " << d->highlightedUrl;
 
     if (!locationEdit()->lineEdit()->text().isEmpty()) {
-        qDebug() << locationEdit()->lineEdit()->text();
-        qDebug() << locationEdit()->urls();
-        qDebug() << baseUrl();
+        //qDebug() << locationEdit()->lineEdit()->text();
+        //qDebug() << locationEdit()->urls();
+        //qDebug() << baseUrl();
 
         d->highlightedUrl = baseUrl();
         const QString firstUrl(locationEdit()->lineEdit()->text());   // FIXME: find first...
@@ -315,7 +315,7 @@ bool KexiFileWidget::checkSelectedFile()
         }
     }
 
-    qDebug() << "d->highlightedUrl: " << d->highlightedUrl;
+    //qDebug() << "d->highlightedUrl:" << d->highlightedUrl;
     if (d->highlightedUrl.isEmpty()) {
         KMessageBox::error(this, xi18n("Enter a filename."));
         return false;
@@ -341,14 +341,14 @@ bool KexiFileWidget::checkSelectedFile()
                     defaultExtension = filters.first().trimmed().mid(2); //first one
                 }
                 path += (QLatin1String(".")+defaultExtension);
-                qDebug() << "appended extension" << path;
+                //qDebug() << "appended extension" << path;
                 setSelection( path );
                 d->highlightedUrl = QUrl(path);
             }
         }
     }
 
-    qDebug() << "KexiFileWidget::checkURL() path: " << d->highlightedUrl;
+//qDebug() << "KexiFileWidget::checkURL() path: " << d->highlightedUrl;
 // qDebug() << "KexiFileWidget::checkURL() fname: " << url.fileName();
 //! @todo if ( url.isLocalFile() ) {
     QFileInfo fi(d->highlightedUrl.toLocalFile());
@@ -377,7 +377,7 @@ bool KexiFileWidget::checkSelectedFile()
 
 void KexiFileWidget::accept()
 {
-    qDebug() << "KexiFileWidget::accept()...";
+    //qDebug() << "KexiFileWidget::accept()...";
 
     KFileWidget::accept();
 // qDebug() << selectedFile();
@@ -411,7 +411,7 @@ void KexiFileWidget::accept()
 
 void KexiFileWidget::reject()
 {
-    qDebug() << "KexiFileWidget: reject!";
+    //qDebug() << "KexiFileWidget: reject!";
     emit rejected();
 }
 

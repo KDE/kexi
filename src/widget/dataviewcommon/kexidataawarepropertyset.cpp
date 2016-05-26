@@ -223,7 +223,7 @@ void KexiDataAwarePropertySet::slotRecordsDeleted(const QList<int> &_record)
             int i = prev_r;
             KPropertySet *set = d->sets.at(i + num_removed);
             d->sets.remove(i + num_removed);
-            qDebug() << "property set " << i + num_removed << " deleted";
+            //qDebug() << "property set" << i + num_removed << "deleted";
             delete set;
             num_removed++;
         }

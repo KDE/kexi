@@ -104,13 +104,13 @@ KexiProject *KexiMobileMainWindow::openProject(const QUrl &url)
     QString driverName = driverManager.lookupByMime(mime.name());
     driver = driverManager.driver(driverName.toLower());
 
-    qDebug() << driverManager.driverNames();
-    qDebug() << driverName;
+    //qDebug() << driverManager.driverNames();
+    //qDebug() << driverName;
 
     KexiProjectData *project_data = new KexiProjectData;
     project_data->setDatabaseName(url.path());
 
-    qDebug() << driver;
+    //qDebug() << driver;
 
     if (driver && driver->isFileDriver()) {
         project_data->connectionData()->setFileName(url.path());
@@ -138,8 +138,6 @@ KexiMobileMainWindow::openObject(KexiPart::Item* item, Kexi::ViewMode viewMode, 
                                  QMap<QString, QVariant>* staticObjectArgs, QString* errorMessage)
 {
     Q_ASSERT(openingCancelled);
-    qDebug() << "KexiMobileMainWindow::openObject";
-
     KexiWindow *window = 0;
 
     if (!openingAllowed(item, viewMode, errorMessage)) {
@@ -151,7 +149,7 @@ KexiMobileMainWindow::openObject(KexiPart::Item* item, Kexi::ViewMode viewMode, 
         *openingCancelled = true;
         return 0;
     }
-    qDebug() << m_project << item;
+    //qDebug() << m_project << item;
 
     if (!m_project || !item)
         return 0;
@@ -191,7 +189,7 @@ KexiMobileMainWindow::openObject(KexiPart::Item* item, Kexi::ViewMode viewMode, 
 
 bool KexiMobileMainWindow::openingAllowed(KexiPart::Item* item, Kexi::ViewMode viewMode, QString* errorMessage)
 {
-    qDebug() << viewMode;
+    //qDebug() << viewMode;
     //! @todo this can be more complex once we deliver ACLs...
     //1 Load the part
     //2 Return true if the part loads AND the part supports the view mode AND the viewmode is Data
@@ -202,7 +200,7 @@ bool KexiMobileMainWindow::openingAllowed(KexiPart::Item* item, Kexi::ViewMode v
             *errorMessage = Kexi::partManager().errorMsg();
         }
     }
-    qDebug() << part << item->pluginId();
+    //qDebug() << part << item->pluginId();
     /*if (part)
         qDebug() << item->pluginId() << part->supportedUserViewModes();*/
     return part /*&& (part->supportedUserViewModes() & viewMode)*/ && (viewMode == Kexi::DataViewMode);

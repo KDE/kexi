@@ -350,10 +350,11 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
     if (tempData()->reportSchemaChangedInPreviousView) {
         tempData()->reportSchemaChangedInPreviousView = false;
 
-        qDebug() << "Schema changed";
+        //qDebug() << "Schema changed";
         delete m_preRenderer;
 
         //qDebug() << tempData()->reportDefinition.tagName();
+
         m_preRenderer = new KReportPreRenderer(tempData()->reportDefinition);
         if (m_preRenderer->isValid()) {
             KReportDataSource *reportData = 0;
@@ -383,7 +384,7 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
                 qWarning() << "Could not generate report document";
                 return false;
             }
-            
+
             m_reportView->setDocument(m_preRenderer->document());
 #ifndef KEXI_MOBILE
             m_pageSelector->setRecordCount(m_reportView->pageCount());

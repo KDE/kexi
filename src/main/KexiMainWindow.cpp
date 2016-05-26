@@ -337,9 +337,9 @@ KexiMainWindow::KexiMainWindow(QWidget *parent)
     setAttribute(Qt::WA_DeleteOnClose);
     kexiTester() << KexiTestObject(this);
 
-    if (d->userMode)
-        qDebug() << "starting up in the User Mode";
-
+    if (d->userMode) {
+        //qDebug() << "starting up in the User Mode";
+    }
     setAsDefaultHost(); //this is default host now.
 
     //get informed
@@ -2482,7 +2482,7 @@ tristate KexiMainWindow::openProject(const QString& aFileName,
             return false;
         }
         //file-based project
-        qDebug() << "Project File: " << aFileName;
+        //qDebug() << "Project File: " << aFileName;
         KDbConnectionData fileConnData;
         fileConnData.setDatabaseName(aFileName);
         QString detectedDriverId;

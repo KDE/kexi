@@ -100,8 +100,9 @@ void KexiIdentifierPropertyEditor::setValue(const QString &value)
         return;
     }
     const QString identifier(KDb::stringToIdentifier(value));
-    if (identifier != value)
-        qDebug() << QString("String \"%1\" converted to identifier \"%2\".").arg(value).arg(identifier);
+    if (identifier != value) {
+        //qDebug() << QString("String \"%1\" converted to identifier \"%2\".").arg(value).arg(identifier);
+    }
     KPropertyStringEditor::setValue(identifier);
 }
 

@@ -157,7 +157,7 @@ int KexiProjectModelItem::row()
          //qDebug() << d->parentItem->d->childItems << this << data(0);
          return d->parentItem->d->childItems.indexOf(this);
      }
-     qDebug() << "No parent item!";
+     //qDebug() << "No parent item!";
      return 0;
 }
 

@@ -300,8 +300,7 @@ void KexiScriptDesignView::updateProperties()
     d->properties->addProperty(t);
 
     QStringList interpreters = manager->interpreters();
-
-    qDebug() << interpreters;
+    //qDebug() << interpreters;
 
     KPropertyListData* proplist = new KPropertyListData(interpreters, interpreters);
     KProperty* prop = new KProperty(
@@ -347,7 +346,7 @@ void KexiScriptDesignView::slotPropertyChanged(KPropertySet& /*set*/, KProperty&
 
     if (property.name() == "language") {
         QString language = property.value().toString();
-        qDebug() << "language:" << language;
+        //qDebug() << "language:" << language;
         d->scriptaction->setInterpreter(language);
         // We assume Kross and the HighlightingInterface are using same
         // names for the support languages...
@@ -399,7 +398,7 @@ bool KexiScriptDesignView::loadData()
 {
     QString data;
     if (!loadDataBlock(&data)) {
-        qDebug() << "no DataBlock";
+        //qDebug() << "no DataBlock";
         return false;
     }
 
@@ -411,13 +410,13 @@ bool KexiScriptDesignView::loadData()
     bool parsed = domdoc.setContent(data, false, &errMsg, &errLine, &errCol);
 
     if (! parsed) {
-        qDebug() << "XML parsing error line: " << errLine << " col: " << errCol << " message: " << errMsg;
+        //qDebug() << "XML parsing error line: " << errLine << " col: " << errCol << " message: " << errMsg;
         return false;
     }
 
     QDomElement scriptelem = domdoc.namedItem("script").toElement();
     if (scriptelem.isNull()) {
-        qDebug() << "script domelement is null";
+        //qDebug() << "script domelement is null";
         return false;
     }
 
@@ -459,7 +458,7 @@ KDbObject* KexiScriptDesignView::storeNewData(const KDbObject& object,
         delete s;
         return 0;
     }
-    qDebug() << "new id:" << s->id();
+    //qDebug() << "new id:" << s->id();
 
     if (! storeData()) {
         qWarning() << "Failed to store the data.";

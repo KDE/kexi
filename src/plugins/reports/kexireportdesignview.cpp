@@ -94,7 +94,7 @@ KDbObject* KexiReportDesignView::storeNewData(const KDbObject& object,
         delete s;
         return 0;
     }
-    qDebug() << "new id:" << s->id();
+    //qDebug() << "new id:" << s->id();
 
     if (!storeData()) {
         //failure: remove object's object data to avoid garbage
@@ -115,34 +115,35 @@ tristate KexiReportDesignView::storeData(bool dontAsk)
     QDomElement root = doc.createElement("kexireport");
     QDomElement conndata = m_sourceSelector->connectionData();
 
-    if (conndata.isNull())
-        qDebug() << "Null conn data!";
+    if (conndata.isNull()) {
+        //qDebug() << "Null conn data!";
+    }
 
     root.appendChild(m_reportDesigner->document());
     root.appendChild(conndata);
     doc.appendChild(root);
 
     QString src  = doc.toString();
-    qDebug() << src;
+    //qDebug() << src;
 
     if (storeDataBlock(src, "layout")) {
-        qDebug() << "Saved OK";
+        //qDebug() << "Saved OK";
         setDirty(false);
         return true;
     }
 
-    qDebug() << "NOT Saved OK";
+    //qDebug() << "NOT Saved OK";
     return false;
 }
 
 tristate KexiReportDesignView::beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore)
 {
-    qDebug() << mode;
+    //qDebug() << mode;
     *dontStore = true;
     if (m_reportDesigner && mode == Kexi::DataViewMode) {
-        qDebug() << "Saving temp data";
+        //qDebug() << "Saving temp data";
         tempData()->reportDefinition = m_reportDesigner->document();
-        qDebug() << m_reportDesigner->document().toDocument().toString();
+        //qDebug() << m_reportDesigner->document().toDocument().toString();
         tempData()->reportSchemaChangedInPreviousView = true;
     }
     return true;
