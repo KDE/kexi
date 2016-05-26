@@ -141,7 +141,7 @@ void KActionsListViewBase::init()
     QList<QAction*> sharedActions(KexiMainWindowIface::global()->allActions());
     const Kexi::ActionCategories *acat = Kexi::actionCategories();
     foreach(QAction *action, sharedActions) {
-//   qDebug() << (*it)->name() << " " << (*it)->text();
+//   qDebug() << (*it)->name() << (*it)->text();
         //! @todo group actions
         //! @todo: store QAction * here?
         const int actionCategories = acat->actionCategories(action->objectName().toLatin1());

@@ -36,15 +36,15 @@ int cursorsTest()
     }
 
     KDbCursor *cursor = conn->executeQuery("select * from persons", cursor_options);
-    qDebug() << "executeQuery() = " << !!cursor;
+    qDebug() << "executeQuery() =" << !!cursor;
     if (!cursor)
         return 1;
 
     qDebug() << "Cursor::moveLast() ---------------------";
-    qDebug() << "-- Cursor::moveLast() == " << cursor->moveLast();
+    qDebug() << "-- Cursor::moveLast() ==" << cursor->moveLast();
     cursor->moveLast();
     qDebug() << "Cursor::moveFirst() ---------------------";
-    qDebug() << "-- Cursor::moveFirst() == " << cursor->moveFirst();
+    qDebug() << "-- Cursor::moveFirst() ==" << cursor->moveFirst();
 
     /*  qDebug()<<"Cursor::moveNext() == "<<cursor->moveNext();
       qDebug()<<"Cursor::moveNext() == "<<cursor->moveNext();

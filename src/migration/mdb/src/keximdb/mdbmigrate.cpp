@@ -154,7 +154,7 @@ bool MDBMigrate::drv_readTableSchema(const QString& originalName,
         return false;
     }
     mdb_read_columns(tableDef);
-    //qDebug() << "#cols = " << tableDef->num_cols;
+    //qDebug() << "#cols =" << tableDef->num_cols;
 
     /*! Convert column data to Kexi KDbTableSchema
         Nice mix of terminology here, MDBTools has columns, Kexi has fields. */
@@ -286,7 +286,7 @@ bool MDBMigrate::drv_copyTable(const QString& srcTable,
     bool ok = true;
     while (mdb_fetch_row(tableDef)) {
         QList<QVariant> vals;
-//    qDebug() << kdLoc << "Copying " << tableDef->num_cols << " cols";
+//    qDebug() << kdLoc << "Copying" << tableDef->num_cols << "cols";
         for (unsigned int i = 0; i < tableDef->num_cols; i++) {
             MdbColumn *col = (MdbColumn*) g_ptr_array_index(tableDef->columns, i);
 

@@ -1045,7 +1045,7 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
             rowPropertySet = createPropertySet(row_num, tableName, field->name(), true /*newOne*/);
             propertySetSwitched();
             //qDebug() << "\tSetting \"" << *orderByColumn << "\" sorting for invisible field"
-            //         << field->name() << ", table " << tableName << " -row #" << row_num;
+            //         << field->name() << ", table" << tableName << "-row #" << row_num;
             row_num++;
         }
         //alter sorting for either existing or new row

@@ -477,7 +477,7 @@ tristate AlterTableTester::run(bool *closeAppRequested)
     while (!m_finishedCopying)
         qApp->processEvents(300);
 
-    //qDebug() << "Database copied to temporary: " << dbFilename;
+    //qDebug() << "Database copied to temporary:" << dbFilename;
 
     if (!checkItemsNumber(2))
         return false;

@@ -1041,7 +1041,7 @@ void InsertWidgetCommand::execute()
             w->metaObject()->className(), w, item->container() ? item->container() : container);
     }
 //! @todo update widget's width for entered text's metrics
-    //qDebug() << "widget added " << this;
+    //qDebug() << "widget added" << this;
 }
 
 void InsertWidgetCommand::undo()
@@ -1157,7 +1157,7 @@ void PasteWidgetCommand::execute()
 
     if (!parsed) {
         qWarning() << errMsg;
-        qWarning() << "line: " << errLine << "col: " << errCol;
+        qWarning() << "line:" << errLine << "col:" << errCol;
         return;
     }
 
@@ -1321,7 +1321,7 @@ void PasteWidgetCommand::moveWidgetBy(QDomElement &el, Container *container, con
     int rw = wi.text().toInt();
     int rh = h.text().toInt();
     QRect r(rx + p.x(), ry + p.y(), rw, rh);
-    //qDebug() << "Moving widget by " << p << "from " << rx << ry << "to" << r.topLeft();
+    //qDebug() << "Moving widget by" << p << "from" << rx << ry << "to" << r.topLeft();
 
     QWidget *w = d->form->widget()->childAt(r.x() + 6, r.y() + 6);
 

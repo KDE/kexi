@@ -272,7 +272,7 @@ KexiRelationsScrollArea::addConnection(const SourceConnection& _conn)
 
     KexiRelationsConnection *connView = new KexiRelationsConnection(master, details, conn, this);
     d->relationsConnections.insert(connView);
-    //qDebug() << "connView->connectionRect() " << connView->connectionRect();
+    //qDebug() << "connView->connectionRect()" << connView->connectionRect();
     d->areaWidget->update();
 
     /*! @todo will be moved up to relation/query part as this is only visual class

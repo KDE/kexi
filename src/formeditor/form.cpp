@@ -274,8 +274,8 @@ Container* Form::toplevelContainer() const
 
 void Form::createToplevel(QWidget *container, FormWidget *formWidget, const QByteArray &)
 {
-    //qDebug() << "container= " << (container ? container->objectName() : "<NULL>")
-    //         << " formWidget=" << formWidget;
+    //qDebug() << "container=" << (container ? container->objectName() : "<NULL>")
+    //         << "formWidget=" << formWidget;
 
     setFormWidget(formWidget);
     d->toplevel = new Container(0, container, this);
@@ -866,7 +866,7 @@ static void collectContainers(ObjectTreeItem* item, QSet<Container*>& containers
         return;
     if (!containers.contains(item->container())) {
         //qDebug() << item->container()->objectTree()->className()
-        //         << " " << item->container()->objectTree()->name();
+        //         << item->container()->objectTree()->name();
         containers.insert(item->container());
     }
     foreach (ObjectTreeItem *child, *item->children()) {
@@ -886,7 +886,7 @@ void Form::autoAssignTabStops()
 
     foreach (ObjectTreeItem *item, d->tabstops) {
         if (item->widget()) {
-            //qDebug() << "Widget to sort: " << item->widget();
+            //qDebug() << "Widget to sort:" << item->widget();
             list.append(item->widget());
         }
     }
@@ -934,7 +934,7 @@ void Form::autoAssignTabStops()
         foreach (QWidget *w, hlist) {
             ObjectTreeItem *tree = d->topTree->lookup(w->objectName());
             if (tree) {
-                //qDebug() << "adding " << tree->name();
+                //qDebug() << "adding" << tree->name();
                 d->tabstops.append(tree);
             }
         }
@@ -1486,13 +1486,13 @@ void Form::createPropertiesForWidget(QWidget *w)
         const QSet<QByteArray> subproperties(subpropIface->subproperties());
         foreach(const QByteArray& propName, subproperties) {
             propNames.insert(propName);
-            //qDebug() << "Added subproperty: " << propName;
+            //qDebug() << "Added subproperty:" << propName;
         }
     }
 
     // iterate over the property list, and create Property objects
     foreach(const QByteArray& propName, propNames) {
-        //qDebug() << ">> " << propName;
+        //qDebug() << ">>" << propName;
         const QMetaProperty subMeta = // special case - subproperty
             subpropIface ? subpropIface->findMetaSubproperty(propName) : QMetaProperty();
         const QMetaProperty meta = subMeta.isValid() ? subMeta
@@ -1507,7 +1507,7 @@ void Form::createPropertiesForWidget(QWidget *w)
                              : w;
         WidgetInfo *subwinfo = subwidget ? library()->widgetInfoForClassName(
                                    subwidget->metaObject()->className()) : 0;
-//  qDebug() << "$$$ " << subwidget->className();
+//  qDebug() << "$$$" << subwidget->className();
 
         if (   subwinfo
             && meta.isDesignable(subwidget)

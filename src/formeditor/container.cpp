@@ -975,7 +975,7 @@ Container::createGridLayout(bool testOnly)
                 end = w->geometry().bottom();
         }
     }
-    //qDebug() << "the new grid will have n rows: n == " << rows.size();
+    //qDebug() << "the new grid will have n rows: n ==" << rows.size();
 
     end = -10000;
     same = false;
@@ -1001,7 +1001,7 @@ Container::createGridLayout(bool testOnly)
                 end = w->geometry().right();
         }
     }
-    //qDebug() << "the new grid will have n columns: n == " << cols.size();
+    //qDebug() << "the new grid will have n columns: n ==" << cols.size();
 
     // We create the layout ..
     QGridLayout *layout = 0;
@@ -1040,8 +1040,8 @@ Container::createGridLayout(bool testOnly)
             }
             i++;
         }
-        //qDebug() << "the widget " << w->objectName() << " will be in the row " << wrow <<
-        //" and will go to the row " << endrow;
+        //qDebug() << "the widget" << w->objectName() << "will be in the row" << wrow <<
+        //"and will go to the row" << endrow;
 
         // .. and column(s)
         i = 0;
@@ -1063,8 +1063,8 @@ Container::createGridLayout(bool testOnly)
             }
             i++;
         }
-        //qDebug() << "the widget " << w->objectName() << " will be in the col " << wcol <<
-        // " and will go to the col " << endcol;
+        //qDebug() << "the widget" << w->objectName() << "will be in the col" << wcol <<
+        // "and will go to the col" << endcol;
 
         ObjectTreeItem *item = d->form->objectTree()->lookup(w->objectName());
         if (item) {

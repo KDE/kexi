@@ -435,8 +435,8 @@ bool KexiMigrate::performImportInternal(Kexi::ObjectStatus* result)
                     tablesIt.remove();
                 }
             }
-        //qDebug() << "KDb-compatible tables: " << kexiDBTables;
-        //qDebug() << "non-KDb tables: " << tables;
+            //qDebug() << "KDb-compatible tables:" << kexiDBTables;
+            //qDebug() << "non-KDb tables:" << tables;
         }
     }
 
@@ -521,7 +521,7 @@ bool KexiMigrate::performImportInternal(Kexi::ObjectStatus* result)
         foreach(KDbTableSchema* ts, d->tableSchemas) {
             ok = destConn->createTable(ts);
             if (!ok) {
-                qWarning() << "Failed to create a table " << ts->name();
+                qWarning() << "Failed to create a table" << ts->name();
                 qWarning() << destConn->result();
                 if (result) {
                     result->setStatus(destConn->parentConnection()->result(), nullptr,
@@ -688,7 +688,7 @@ void KexiMigrate::updateProgress(qulonglong step)
         int percent = (d->progressDone + 1) * 100 / d->progressTotal;
         d->progressNextReport = ((percent + 1) * d->progressTotal) / 100;
         /*qDebug() << (ulong)d->progressDone << "/"
-            << (ulong)d->progressTotal << " (" << percent << "%) next report at"
+            << (ulong)d->progressTotal << "(" << percent << "%) next report at"
             << (ulong)d->progressNextReport;*/
         emit progressPercent(percent);
     }

@@ -163,7 +163,7 @@ void KexiSharedActionHost::invalidateSharedActions(QObject *o)
             }
         }
         a->setEnabled(avail);
-  //qDebug() << "Action " << a->name() << (avail ? " enabled." : " disabled.");
+  //qDebug() << "Action" << a->name() << (avail ? "enabled." : "disabled.");
     }
 }
 

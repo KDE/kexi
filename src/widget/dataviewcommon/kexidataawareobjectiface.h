@@ -1006,7 +1006,7 @@ inline KDbRecordData *KexiDataAwareObjectInterface::recordAt(int pos) const
         /*  qDebug() << "record:" << record;
             int i=1;
             for (KexiTableItem::Iterator it = item->begin();it!=item->end();++it,i++)
-              qDebug() << i<<": " << (*it).toString();*/
+              qDebug() << i<<":" << (*it).toString();*/
     }
     return data;
 }

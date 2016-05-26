@@ -69,7 +69,7 @@ public:
             indicesForDataAwareWidgets.find(item));
         if (indicesForDataAwareWidgetsIt == indicesForDataAwareWidgets.constEnd())
             return -1;
-        //qDebug() << "column # for item: " << indicesForDataAwareWidgetsIt.value();
+        //qDebug() << "column # for item:" << indicesForDataAwareWidgetsIt.value();
         return indicesForDataAwareWidgetsIt.value();
     }
 
@@ -179,7 +179,7 @@ void KexiDBForm::updateTabStopsOrder(KFormDesigner::Form* form)
         foreach(QWidget* widget, children) {
             /*qDebug() << "also adding '"
                 << widget->metaObject()->className()
-                << " " << widget->objectName()
+                << widget->objectName()
                 << "' child to filtered widgets";*/
             widget->installEventFilter(this);
         }
@@ -187,7 +187,7 @@ void KexiDBForm::updateTabStopsOrder(KFormDesigner::Form* form)
             = dynamic_cast<KexiFormDataItemInterface*>(titem->widget());
         if (dataItem && !dataItem->dataSource().isEmpty()) {
             //qDebug() << "#" << numberOfDataAwareWidgets << ": "
-            //         << dataItem->dataSource() << " (" << titem->widget()->objectName() << ")";
+            //         << dataItem->dataSource() << "(" << titem->widget()->objectName() << ")";
 
 //! @todo d->indicesForDataAwareWidgets SHOULD NOT BE UPDATED HERE BECAUSE
 //! THERE CAN BE ALSO NON-TABSTOP DATA WIDGETS!
@@ -201,8 +201,8 @@ void KexiDBForm::updateTabStopsOrder(KFormDesigner::Form* form)
         //restore ordering
         for (QPtrListIterator<QWidget> it(d->orderedFocusWidgets); it.current(); ++it) {
           if (fromWidget) {
-            qDebug() << "tab order: " << fromWidget->name()
-              << " -> " << it.current()->name();
+            qDebug() << "tab order:" << fromWidget->name()
+              << "->" << it.current()->name();
             setTabOrder( fromWidget, it.current() );
           }
           fromWidget = it.current();
@@ -433,9 +433,9 @@ bool KexiDBForm::eventFilter(QObject * watched, QEvent * e)
                 if (widgetToFocus && d->dataAwareObject->acceptEditor()) {
                     if (tab) {
                         widgetToFocus->setFocus();
-                        //qDebug() << "focusing " << widgetToFocus->objectName();
+                        //qDebug() << "focusing" << widgetToFocus->objectName();
                         (*d->orderedFocusWidgetsIterator)->setFocus();
-                        //qDebug() << "focusing " << (*d->orderedFocusWidgetsIterator)->objectName();
+                        //qDebug() << "focusing" << (*d->orderedFocusWidgetsIterator)->objectName();
                     }
                     KexiFormDataItemInterface *formItem = dynamic_cast<KexiFormDataItemInterface*>(widgetToSelectAll);
                     if (formItem) {
@@ -455,7 +455,7 @@ bool KexiDBForm::eventFilter(QObject * watched, QEvent * e)
         }
 
         if (focusDataWidget) {
-            //qDebug() << "FocusIn: " << watched->metaObject()->className() << " " << watched->objectName();
+            //qDebug() << "FocusIn:" << watched->metaObject()->className() << watched->objectName();
             if (d->dataAwareObject) {
                 QWidget *dataItem = dynamic_cast<QWidget*>(watched);
                 while (dataItem) {
@@ -465,7 +465,7 @@ bool KexiDBForm::eventFilter(QObject * watched, QEvent * e)
                     if (!dataItem) {
                         break;
                     }
-                    //qDebug() << "FocusIn: FOUND " << dataItem->metaObject()->className() << " " << dataItem->objectName();
+                    //qDebug() << "FocusIn: FOUND" << dataItem->metaObject()->className() << dataItem->objectName();
 
                     const int index = d->indexOfDataAwareWidget(dataItem);
                     if (index >= 0) {
@@ -489,7 +489,7 @@ bool KexiDBForm::eventFilter(QObject * watched, QEvent * e)
         } else {
             d->popupFocused = false;
         }
-//  qDebug() << "e->type()==QEvent::FocusOut " << watched->className() << " " <<watched->name();
+//  qDebug() << "e->type()==QEvent::FocusOut" << watched->className() << watched->name();
     }
     return QWidget::eventFilter(watched, e);
 }

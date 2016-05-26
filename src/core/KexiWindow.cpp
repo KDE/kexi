@@ -503,8 +503,8 @@ tristate KexiWindow::switchToViewMode(
         KexiUtils::removeWaitCursor();
         if (!newView) {
             //js TODO error?
-            qWarning() << "Switching to mode " << newViewMode << " failed. Previous mode "
-            << d->currentViewMode << " restored.";
+            qWarning() << "Switching to mode" << newViewMode << "failed. Previous mode "
+            << d->currentViewMode << "restored.";
             return false;
         }
         d->creatingViewsMode = Kexi::NoViewMode;
@@ -527,8 +527,8 @@ tristate KexiWindow::switchToViewMode(
     if (!res) {
         removeView(newViewMode);
         delete newView;
-        qWarning() << "Switching to mode " << newViewMode << " failed. Previous mode "
-        << d->currentViewMode << " restored.";
+        qWarning() << "Switching to mode" << newViewMode << "failed. Previous mode"
+                   << d->currentViewMode << "restored.";
         return false;
     }
     d->currentViewMode = newViewMode;
@@ -547,8 +547,8 @@ tristate KexiWindow::switchToViewMode(
     if (!res) {
         removeView(newViewMode);
         delete newView;
-        qWarning() << "Switching to mode " << newViewMode << " failed. Previous mode "
-        << prevViewMode << " restored.";
+        qWarning() << "Switching to mode" << newViewMode << "failed. Previous mode"
+                   << prevViewMode << "restored.";
         const Kexi::ObjectStatus status(*this);
         setStatus(KexiMainWindowIface::global()->project()->dbConnection(),
                   xi18n("Switching to other view failed (%1).", Kexi::nameForViewMode(newViewMode)), "");
@@ -825,7 +825,7 @@ tristate KexiWindow::storeDataAs(KexiPart::Item *item, KexiView::StoreNewDataOpt
 void KexiWindow::activate()
 {
     KexiView *v = selectedView();
-    //qDebug() << "focusWidget(): " << focusWidget()->name();
+    //qDebug() << "focusWidget():" << focusWidget()->name();
     if (!KDbUtils::hasParent(v, KexiMainWindowIface::global()->focusWidget())) {
         //ah, focused widget is not in this view, move focus:
         if (v)

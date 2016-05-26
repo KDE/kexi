@@ -30,7 +30,7 @@ KexiBoolTableEdit::KexiBoolTableEdit(KDbTableViewColumn &column, QWidget *parent
         : KexiTableEdit(column, parent)
 {
     //qDebug() << "KexiDataItemInterface::d->origValue.typeName()==" << KexiDataItemInterface::originalValue().typeName();
-    //qDebug() << "type== " << field()->typeName();
+    //qDebug() << "type==" << field()->typeName();
     KexiDataItemInterface::setHasFocusableWidget(false);
     KexiDataItemInterface::setAcceptEditorAfterDeleteContents(true);
     m_usesSelectedTextColor = false;

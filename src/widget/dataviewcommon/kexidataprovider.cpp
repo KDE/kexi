@@ -141,8 +141,8 @@ void KexiFormDataProvider::fillDuplicatedDataItems(
         for (it_dup = tmpDuplicatedItems.constBegin(); it_dup != tmpDuplicatedItems.constEnd(); ++it_dup) {
             if (it_dup.value() > 1) {
                 m_duplicatedItems->insert(it_dup.key());
-                //qDebug() << "duplicated item: " << static_cast<KDbField*>(it_dup.key())->name()
-                //    << " (" << it_dup.value() << " times)";
+                //qDebug() << "duplicated item:" << static_cast<KDbField*>(it_dup.key())->name()
+                //    << "(" << it_dup.value() << "times)";
             }
         }
     }
@@ -150,7 +150,7 @@ void KexiFormDataProvider::fillDuplicatedDataItems(
         foreach(KexiFormDataItemInterface *dataItemIface, m_dataItems) {
             if (dataItemIface != item && item->columnInfo()->field() == dataItemIface->columnInfo()->field()) {
                 //qDebug() << "- setting a copy of value for item '"
-                //    << dynamic_cast<QObject*>(dataItemIface)->objectName() << "' == " << value;
+                //    << dynamic_cast<QObject*>(dataItemIface)->objectName() << "'==" << value;
                 dataItemIface->setValue(value);
             }
         }

@@ -111,7 +111,7 @@ bool KexiDateTimeTableEdit::valueIsValid()
 
 bool KexiDateTimeTableEdit::valueChanged()
 {
-    //qDebug() << m_origValue.toString() << " ? " << m_lineedit->text();
+    //qDebug() << m_origValue.toString() << "?" << m_lineedit->text();
     return KexiDataItemInterface::originalValue() != m_lineedit->text();
 }
 

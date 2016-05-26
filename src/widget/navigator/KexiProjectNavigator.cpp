@@ -577,7 +577,7 @@ bool KexiProjectNavigator::actionEnabled(const QString& actionName) const
 {
     if (actionName == "project_export_data_table" && (d->features & ContextMenus))
         return d->exportActionMenu->isVisible();
-    qWarning() << "no such action: " << actionName;
+    qWarning() << "no such action:" << actionName;
     return false;
 }
 

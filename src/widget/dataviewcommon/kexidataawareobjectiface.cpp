@@ -502,7 +502,7 @@ void KexiDataAwareObjectInterface::setCursorPosition(int record, int col/*=-1*/,
     newRecord = qMax(0, record);
     newRecord = qMin(recordCount() - 1 + (isInsertingEnabled() ? 1 : 0), newRecord);
 
-// qDebug() << "setCursorPosition(): d->curRow=" << d->curRow << " oldRow=" << oldRow << " d->curCol=" << d->curCol << " oldCol=" << oldCol;
+// qDebug() << "setCursorPosition(): d->curRow=" << d->curRow << "oldRow=" << oldRow << "d->curCol=" << d->curCol << "oldCol=" << oldCol;
     const bool forceSet = flags & ForceSetCursorPosition;
     if (forceSet || m_curRecord != newRecord || m_curColumn != newCol) {
 #ifdef setCursorPosition_DEBUG

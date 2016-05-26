@@ -2482,7 +2482,7 @@ tristate KexiMainWindow::openProject(const QString& aFileName,
             return false;
         }
         //file-based project
-        //qDebug() << "Project File: " << aFileName;
+        //qDebug() << "Project File:" << aFileName;
         KDbConnectionData fileConnData;
         fileConnData.setDatabaseName(aFileName);
         QString detectedDriverId;
@@ -3657,7 +3657,7 @@ void KexiMainWindow::propertySetSwitched(KexiWindow *window, bool force,
     KexiWindow* _currentWindow = currentWindow();
     //qDebug() << "currentWindow(): "
     //    << (_currentWindow ? _currentWindow->windowTitle() : QString("NULL"))
-    //    << " window: " << (window ? window->windowTitle() : QString("NULL"));
+    //    << "window:" << (window ? window->windowTitle() : QString("NULL"));
     if (_currentWindow && _currentWindow != window) {
         d->propertySet = 0; //we'll need to move to another prop. set
         return;

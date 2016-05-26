@@ -108,7 +108,7 @@ void KexiBLOBBuffer::Handle::setStoredWidthID(KexiBLOBBuffer::Id_t id)
     if (!m_item)
         return;
     if (m_item->stored) {
-        qWarning() << "object for id=" << id << " is aleady stored";
+        qWarning() << "object for id=" << id << "is aleady stored";
         return;
     }
 

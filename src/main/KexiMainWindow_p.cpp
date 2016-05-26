@@ -1206,7 +1206,7 @@ void KexiMainWindow::Private::updatePropEditorVisibility(Kexi::ViewMode viewMode
     }
     const bool visible = (viewMode == Kexi::DesignViewMode)
         && ((currentWindow && currentWindow->propertySet()) || (info && info->isPropertyEditorAlwaysVisibleInDesignMode()));
-    //qDebug() << "visible == " << visible;
+    //qDebug() << "visible ==" << visible;
     enable_slotPropertyEditorVisibilityChanged = false;
     bool set;
     if (visible && propertyEditorCollapsed) { // used when we're switching back to a window with propeditor available but collapsed
@@ -1437,7 +1437,7 @@ void KexiMainWindow::Private::addItemToPendingWindows(const KexiPart::Item* item
 bool KexiMainWindow::Private::pendingWindowsExist()
 {
     if (pendingWindows.begin() != pendingWindows.end())
-        qDebug() <<  pendingWindows.constBegin().key() << " " << (int)pendingWindows.constBegin().value();
+        qDebug() <<  pendingWindows.constBegin().key() << (int)pendingWindows.constBegin().value();
 //! @todo (threads)  QMutexLocker dialogsLocker( &dialogsMutex );
     return !pendingWindows.isEmpty();
 }

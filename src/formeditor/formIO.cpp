@@ -275,7 +275,7 @@ FormIO::loadFormFromString(Form *form, QWidget *container, const QString &src, b
 
     if (!parsed) {
         qWarning() << errMsg;
-        qWarning() << "line:" << errLine << "col: " << errCol;
+        qWarning() << "line:" << errLine << "col:" << errCol;
         return false;
     }
 
@@ -311,7 +311,7 @@ FormIO::loadFormFromFile(Form *form, QWidget *container, const QString &filename
     QFile file(_filename);
     if (!file.open(QIODevice::ReadOnly)) {
 //! @todo show err msg to the user
-        qWarning() << "Cannot open the file " << _filename;
+        qWarning() << "Cannot open the file" << _filename;
         return false;
     }
     QDomDocument doc;
@@ -418,7 +418,7 @@ FormIO::savePropertyValue(ObjectTreeItem *item, QDomElement &parentNode, QDomDoc
                           const char *name, const QVariant &value)
 {
     // Widget specific properties and attributes
-// qDebug() << "Saving the property: " << name;
+// qDebug() << "Saving the property:" << name;
     Form *form = item->container() ? item->container()->form() : item->parent()->container()->form();
     WidgetWithSubpropertiesInterface* subpropIface = dynamic_cast<WidgetWithSubpropertiesInterface*>(item->widget());
     QWidget *subwidget = item->widget();

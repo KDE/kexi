@@ -410,7 +410,7 @@ bool KexiScriptDesignView::loadData()
     bool parsed = domdoc.setContent(data, false, &errMsg, &errLine, &errCol);
 
     if (! parsed) {
-        //qDebug() << "XML parsing error line: " << errLine << " col: " << errCol << " message: " << errMsg;
+        //qDebug() << "XML parsing error line:" << errLine << "col:" << errCol << "message:" << errMsg;
         return false;
     }
 
@@ -474,7 +474,7 @@ KDbObject* KexiScriptDesignView::storeNewData(const KDbObject& object,
 
 tristate KexiScriptDesignView::storeData(bool /*dontAsk*/)
 {
-    qDebug(); //<< window()->partItem()->name() << " [" << window()->id() << "]";
+    qDebug(); //<< window()->partItem()->name() << "[" << window()->id() << "]";
 
     QDomDocument domdoc("script");
     QDomElement scriptelem = domdoc.createElement("script");

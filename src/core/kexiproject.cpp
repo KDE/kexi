@@ -329,7 +329,7 @@ KexiProject::openInternal(bool *incompatibleWithKexi)
             return cancelled;
         }
         qWarning() << "!d->connection->useDatabase() "
-                   << d->data->databaseName() << " " << d->data->connectionData()->driverId();
+                   << d->data->databaseName() << d->data->connectionData()->driverId();
 
         if (d->connection->result().code() == ERR_NO_DB_PROPERTY) {
 //<temp>
@@ -662,13 +662,13 @@ KexiProject::createConnection()
     d->connection = driver->createConnection(*d->data->connectionData(), connectionOptions);
     if (!d->connection) {
         m_result = driver->result();
-        qWarning() << "error create connection: " << m_result;
+        qWarning() << "error create connection:" << m_result;
         return false;
     }
 
     if (!d->connection->connect()) {
         m_result = d->connection->result();
-        qWarning() << "error connecting: " << m_result;
+        qWarning() << "error connecting:" << m_result;
         delete d->connection; //this will also clear connection for BLOB buffer
         d->connection = 0;
         return false;
@@ -932,7 +932,7 @@ KexiPart::Part *KexiProject::findPartFor(const KexiPart::Item& item)
     KDbMessageTitleSetter et(this);
     KexiPart::Part *part = Kexi::partManager().partForPluginId(item.pluginId());
     if (!part) {
-        qWarning() << "!part: " << item.pluginId();
+        qWarning() << "!part:" << item.pluginId();
         m_result = Kexi::partManager().result();
     }
     return part;
@@ -1303,14 +1303,14 @@ bool KexiProject::createIdForPart(const KexiPart::Info& info)
         return false;
     }
     QScopedPointer<KDbFieldList> fl(ts->subList("p_id", "p_name", "p_mime", "p_url"));
-    //qDebug() << "fieldlist: " << (fl ? *fl : QString());
+    //qDebug() << "fieldlist:" << (fl ? *fl : QString());
     if (!fl)
         return false;
 
     //qDebug() << info.ptr()->untranslatedGenericName();
 //  QStringList sl = part()->info()->ptr()->propertyNames();
 //  for (QStringList::ConstIterator it=sl.constBegin();it!=sl.constEnd();++it)
-   //qDebug() << *it << " " << part()->info()->ptr()->property(*it).toString();
+   //qDebug() << *it << part()->info()->ptr()->property(*it).toString();
     if (!d->connection->insertRecord(
                 fl.data(),
                 QVariant(typeId),
@@ -1324,7 +1324,7 @@ bool KexiProject::createIdForPart(const KexiPart::Info& info)
 
     //qDebug() << "insert success!";
     d->savePluginId(info.id(), typeId);
-    //qDebug() << "new id is: " << p_id;
+    //qDebug() << "new id is:" << p_id;
     return true;
 }
 

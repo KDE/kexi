@@ -74,7 +74,7 @@ void exitRoutine()
 
 #define RETURN(code) \
     exitRoutine(); \
-    qDebug()<< test_name << " TEST: " << (code==0?"PASSED":"ERROR"); \
+    qDebug()<< test_name << "TEST:" << (code==0?"PASSED":"ERROR"); \
     return code
 
 int main(int argc, char** argv)
@@ -187,7 +187,7 @@ int main(int argc, char** argv)
         manager.debugError();
         RETURN(1);
     }
-    qDebug() << "MIME type for '" << drv_info.name << "': " << drv_info.fileDBMimeType;
+    qDebug() << "MIME type for '" << drv_info.name << "':" << drv_info.fileDBMimeType;
 
     //open connection
     if (args->count() >= 2)
@@ -255,7 +255,7 @@ int main(int argc, char** argv)
     } else if (test_name == "dr_prop")
         r = drPropTest();
     else {
-        qWarning() << "No such test: " << test_name;
+        qWarning() << "No such test:" << test_name;
 //  usage();
         RETURN(1);
     }
@@ -264,7 +264,7 @@ int main(int argc, char** argv)
         app->exec();
 
     if (r)
-        qDebug() << "RECENT SQL STATEMENT: " << conn->recentSQLString();
+        qDebug() << "RECENT SQL STATEMENT:" << conn->recentSQLString();
 
     if (project) {
         if (!project->closeConnection())
@@ -274,8 +274,8 @@ int main(int argc, char** argv)
 //    if (conn && !conn->disconnect())
 //        r = 1;
 
-// qDebug() << "!!! KDbTransaction::globalcount == " << KDbTransaction::globalCount();
-// qDebug() << "!!! KDbTransactionData::globalcount == " << KDbTransactionData::globalCount();
+// qDebug() << "!!! KDbTransaction::globalcount ==" << KDbTransaction::globalCount();
+// qDebug() << "!!! KDbTransactionData::globalcount ==" << KDbTransactionData::globalCount();
 
     delete app;
 

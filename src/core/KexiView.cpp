@@ -70,7 +70,7 @@ public:
             setToolTip(xi18n("Switch to text view"));
             setWhatsThis(xi18n("Switches to text view."));
         } else {
-            qWarning() << "KexiToggleViewModeAction: invalid mode " << mode;
+            qWarning() << "KexiToggleViewModeAction: invalid mode" << mode;
         }
     }
 };
@@ -505,8 +505,8 @@ bool KexiView::eventFilter(QObject *o, QEvent *e)
                 emit focus(true);
             }
             if (e->type() == QEvent::FocusOut) {
-//    qDebug() << focusWidget()->className() << " " << focusWidget()->name();
-//    qDebug() << o->className() << " " << o->name();
+//    qDebug() << focusWidget()->className() << focusWidget()->name();
+//    qDebug() << o->className() << o->name();
                 KexiView *v = KDbUtils::findParent<KexiView*>(o);
                 if (v) {
                     while (v->d->parentView)
@@ -561,7 +561,7 @@ void KexiView::removeView(Kexi::ViewMode mode)
 void KexiView::setFocus()
 {
     if (!d->lastFocusedChildBeforeFocusOut.isNull()) {
-//  qDebug() << "FOCUS: " << d->lastFocusedChildBeforeFocusOut->className() << " " << d->lastFocusedChildBeforeFocusOut->name();
+//  qDebug() << "FOCUS:" << d->lastFocusedChildBeforeFocusOut->className() << d->lastFocusedChildBeforeFocusOut->name();
         QWidget *w = d->lastFocusedChildBeforeFocusOut;
         d->lastFocusedChildBeforeFocusOut = 0;
         w->setFocus();

@@ -279,7 +279,7 @@ QString KexiStartupFileDialog::selectedFile() const
 #ifdef Q_OS_WIN
 // QString path = selectedFile();
   //js @todo
-// qDebug() << "selectedFile() == " << path << " '" << url().fileName() << "' " << m_lineEdit->text();
+// qDebug() << "selectedFile() ==" << path << "'" << url().fileName() << "'" << m_lineEdit->text();
   QString path = dir()->absolutePath();
   if (!path.endsWith('/') && !path.endsWith("\\"))
     path.append("/");
@@ -288,20 +288,20 @@ QString KexiStartupFileDialog::selectedFile() const
 #else
 // QString path = locationEdit->currentText().trimmed(); //url.path().trimmed(); that does not work, if the full path is not in the location edit !!!!!
   QString path( KFileWidget::selectedFile() );
-  qDebug() << "prev selectedFile() == " << path;
-  qDebug() << "locationEdit == " << locationEdit()->currentText().trimmed();
+  qDebug() << "prev selectedFile() ==" << path;
+  qDebug() << "locationEdit ==" << locationEdit()->currentText().trimmed();
   //make sure user-entered path is acceped:
 //! @todo KEXI3 setSelection( locationEdit()->currentText().trimmed() );
 // path = KFileWidget::selectedFile();
   path = locationEdit()->currentText().trimmed();
-  qDebug() << "selectedFile() == " << path;
+  qDebug() << "selectedFile() ==" << path;
 
 #endif
 
   if (!currentFilter().isEmpty()) {
     if (d->mode & SavingFileBasedDB) {
       const QStringList filters( currentFilter().split(' ') );
-      qDebug()<< " filter == " << filters;
+      qDebug()<< "filter ==" << filters;
       QString ext( QFileInfo(path).suffix() );
       bool hasExtension = false;
       foreach (const QString& filter, filters) {
@@ -316,18 +316,18 @@ QString KexiStartupFileDialog::selectedFile() const
         if (defaultExtension.isEmpty())
           defaultExtension = filters.first().trimmed().mid(2); //first one
         path += (QString(".")+defaultExtension);
-        qDebug() << "KexiStartupFileDialog::checkURL(): append extension, " << path;
+        qDebug() << "KexiStartupFileDialog::checkURL(): append extension," << path;
       }
     }
   }
-  qDebug() << "KexiStartupFileDialog::currentFileName() == " << path;
+  qDebug() << "KexiStartupFileDialog::currentFileName() ==" << path;
   return path;
 }
 */
 
 bool KexiStartupFileHandler::checkSelectedUrl()
 {
-    //qDebug() << "d->highlightedUrl: " << d->highlightedUrl;
+    //qDebug() << "d->highlightedUrl:" << d->highlightedUrl;
 
     QUrl url;
     if (d->requester)
@@ -349,7 +349,7 @@ bool KexiStartupFileHandler::checkSelectedUrl()
             d->highlightedUrl.addPath(firstUrl);
     }
 #endif
-    //qDebug() << "d->highlightedUrl: " << d->highlightedUrl;
+    //qDebug() << "d->highlightedUrl:" << d->highlightedUrl;
     if (!url.isValid() || QFileInfo(url.path()).isDir()) {
         KMessageBox::error(d->requester->parentWidget(), xi18n("Enter a filename."));
         return false;
@@ -389,8 +389,8 @@ bool KexiStartupFileHandler::checkSelectedUrl()
         }
     }
 
-// qDebug() << "KexiStartupFileDialog::checkURL() path: " << d->highlightedUrl;
-// qDebug() << "KexiStartupFileDialog::checkURL() fname: " << url.fileName();
+// qDebug() << "KexiStartupFileDialog::checkURL() path:" << d->highlightedUrl;
+// qDebug() << "KexiStartupFileDialog::checkURL() fname:" << url.fileName();
 //! @todo if ( url.isLocalFile() ) {
     QFileInfo fi(url.toLocalFile());
     if (d->mode & KFile::ExistingOnly) {

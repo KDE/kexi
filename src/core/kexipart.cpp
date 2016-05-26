@@ -180,7 +180,7 @@ QAction * Part::createSharedAction(Kexi::ViewMode mode, const QString &text,
 {
     GUIClient *instanceGuiClient = d->instanceGuiClients.value((int)mode);
     if (!instanceGuiClient) {
-        qWarning() << "no gui client for mode " << mode << "!";
+        qWarning() << "no gui client for mode" << mode << "!";
         return 0;
     }
     return KexiMainWindowIface::global()->createSharedAction(text, pix_name, cut, name,
@@ -313,7 +313,7 @@ KexiWindow* Part::openInstance(QWidget* parent, KexiPart::Item *item, Kexi::View
         d->status = window->status();
         window->close();
         delete window;
-        qWarning() << "!window, switching to view mode failed, " <<
+        qWarning() << "!window, switching to view mode failed," <<
             Kexi::nameForViewMode(viewMode);
         return 0;
     }

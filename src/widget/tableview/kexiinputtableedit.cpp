@@ -69,8 +69,8 @@ KexiInputTableEdit::~KexiInputTableEdit()
 void KexiInputTableEdit::init()
 {
 // qDebug() << "m_origValue.typeName()==" << m_origValue.typeName();
-// qDebug() << "type== " << field()->typeName();
-// qDebug() << "displayed type== " << displayedField()->typeName();
+// qDebug() << "type==" << field()->typeName();
+// qDebug() << "displayed type==" << displayedField()->typeName();
 
     m_textFormatter.setField( field() );
     KexiTextFormatter::OverrideDecimalPlaces overrideDecimalPlaces;

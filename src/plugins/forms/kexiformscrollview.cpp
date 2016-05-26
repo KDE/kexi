@@ -411,7 +411,7 @@ bool KexiFormScrollView::columnEditable(int col)
     foreach(KexiFormDataItemInterface *dataItemIface, m_dataItems) {
         qDebug() << (dynamic_cast<QWidget*>(dataItemIface)
                      ? dynamic_cast<QWidget*>(dataItemIface)->objectName() : "")
-            << " " << dataItemIface->dataSource();
+            << dataItemIface->dataSource();
     }
     //qDebug() << "-- focus widgets --";
     foreach(QWidget* widget, *dbFormWidget()->orderedFocusWidgets()) {

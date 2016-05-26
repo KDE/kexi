@@ -293,8 +293,8 @@ KexiTableDesignerView::getSubTypeListData(KDbField::TypeGroup fieldTypeGroup,
     stringsList = KDb::fieldTypeStringsForGroup(fieldTypeGroup);
     namesList = KDb::fieldTypeNamesForGroup(fieldTypeGroup);
 // }
-    //qDebug() << "subType strings: " <<
-    //    stringsList.join("|") << "\nnames: " << namesList.join("|");
+    //qDebug() << "subType strings:" <<
+    //    stringsList.join("|") << "\nnames:" << namesList.join("|");
 }
 
 KPropertySet *
@@ -624,8 +624,8 @@ void KexiTableDesignerView::slotBeforeCellChanged(
 {
     if (!d->slotBeforeCellChanged_enabled)
         return;
-    // qDebug() << d->view->selectedRecord() << " " << item
-    //<< " " << d->sets->at( d->view->currentRecord() ) << " " << propertySet();
+    // qDebug() << d->view->selectedRecord() << item
+    //<< d->sets->at( d->view->currentRecord() ) << propertySet();
     if (colnum == COLUMN_ID_CAPTION) {//'caption'
         //if 'type' is not filled yet
         if (data->at(COLUMN_ID_TYPE).isNull()) {
@@ -868,8 +868,8 @@ void KexiTableDesignerView::updateActions()
 void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& property)
 {
     const QByteArray pname(property.name());
-    //qDebug() << pname << " = " << property.value()
-    //    << " (oldvalue = " << property.oldValue() << ")";
+    //qDebug() << pname << "=" << property.value()
+    //    << "(oldvalue =" << property.oldValue() << ")";
 
     // true if PK should be altered
     bool changePrimaryKey = false;
@@ -954,7 +954,7 @@ void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& pr
         if (set["primaryKey"].value().toBool() == true
                 && property.value().toString() != KDbField::typeString(KDbField::BigInteger))
         {
-            qDebug() << "INVALID " << property.value().toString();
+            qDebug() << "INVALID" << property.value().toString();
 //   if (KMessageBox::Yes == KMessageBox::questionYesNo(this, msg,
 //    xi18n("This field has primary key assigned. Setting autonumber field"),
 //    KGuiItem(xi18nc("@action:button", "Create &Primary Key"), KexiIconName("database-key")), KStandardGuiItem::cancel() ))
@@ -1313,7 +1313,7 @@ tristate KexiTableDesignerView::buildAlterTableActions(
     actions.clear();
     qDebug()
         << d->history->count()
-        << " top-level command(s) to process...";
+        << "top-level command(s) to process...";
 
     for (int i = 0; i < d->history->count(); ++i) {
       copyAlterTableActions(d->history->command(i), actions);
@@ -1825,7 +1825,7 @@ void KexiTableDesignerView::changeFieldProperty(int fieldUID,
     //find a property by UID
     const int record = d->sets->findRecordForPropertyValue("uid", fieldUID);
     if (record < 0) {
-        qWarning() << "field with uid=" << fieldUID << " not found!";
+        qWarning() << "field with uid=" << fieldUID << "not found!";
         return;
     }
     changeFieldPropertyForRecord(record, propertyName, newValue, listData, addCommand);
