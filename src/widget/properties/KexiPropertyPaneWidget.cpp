@@ -147,7 +147,6 @@ void KexiPropertyPaneWidget::updateInfoLabelForPropertySet(KPropertySet* set)
     d->infoLabel->setObjectClassName(className);
     d->infoLabel->setObjectName(objectName);
 
-    d->editor->setEnabled(set);
     d->infoLabel->layout()->update();
     update();
 }
