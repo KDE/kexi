@@ -195,13 +195,16 @@ Kexi::GlobalViewMode KexiGlobalViewModeSelector::currentMode() const
 
 void KexiGlobalViewModeSelector::setCurrentMode(Kexi::GlobalViewMode mode)
 {
-    setCurrentIndex(model()->index(int(mode), 0));
+    if (mode <= Kexi::LastGlobalMode) {
+        setCurrentIndex(model()->index(int(mode), 0));
+    }
 }
 
 void KexiGlobalViewModeSelector::currentChanged(const QModelIndex &current, const QModelIndex &previous)
 {
+    const Kexi::GlobalViewMode previousMode = currentMode();
     KexiListView::currentChanged(current, previous);
-    emit currentModeChanged();
+    emit currentModeChanged(previousMode);
 }
 
 void KexiGlobalViewModeSelector::setArrowColor(const QColor &color)

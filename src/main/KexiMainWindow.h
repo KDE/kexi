@@ -627,7 +627,7 @@ protected Q_SLOTS:
     //void slotProjectNavigatorVisibilityChanged(bool visible);
     //void slotPropertyEditorVisibilityChanged(bool visible);
     //void slotMultiTabBarTabClicked(int id);
-    void slotCurrentModeChanged();
+    void slotCurrentModeChanged(Kexi::GlobalViewMode previousMode);
 
     void slotProjectNavigatorVisibilityChanged(bool visible);
 

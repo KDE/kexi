@@ -2273,6 +2273,8 @@ void KexiMainWindow::activeWindowChanged(KexiWindow *window, KexiWindow *prevWin
 
     if (windowChanged) {
         if (currentWindow() && currentWindow()->currentViewMode() != 0 && window) {
+            setCurrentMode(viewModeToGlobal(currentWindow()->currentViewMode()));
+
             //on opening new dialog it can be 0; we don't want this
             d->updatePropEditorVisibility(currentWindow()->currentViewMode());
 
@@ -2765,6 +2767,8 @@ tristate KexiMainWindow::switchToViewMode(KexiWindow& window, Kexi::ViewMode vie
                                 currentWindow()->part()->info()->name()));
         return false;
     }
+    setCurrentMode(viewModeToGlobal(viewMode));
+
     updateCustomPropertyPanelTabs(currentWindow()->part(), prevViewMode,
                                   currentWindow()->part(), viewMode);
     tristate res = currentWindow()->switchToViewMode(viewMode);
@@ -4485,8 +4489,10 @@ void KexiMainWindow::setCurrentMode(Kexi::GlobalViewMode mode)
     d->modeSelector->setCurrentMode(mode);
 }
 
-void KexiMainWindow::slotCurrentModeChanged()
+void KexiMainWindow::slotCurrentModeChanged(Kexi::GlobalViewMode previousMode)
 {
+    const Kexi::ViewMode viewMode = currentWindow()
+            ? currentWindow()->currentViewMode() : Kexi::NoViewMode;
     switch (d->modeSelector->currentMode()) {
     case Kexi::WelcomeGlobalMode:
         break;
@@ -4495,11 +4501,25 @@ void KexiMainWindow::slotCurrentModeChanged()
     case Kexi::EditGlobalMode:
         updateObjectView();
         d->globalViewStack->setCurrentWidget(d->objectViewWidget);
+        if (viewMode == Kexi::DesignViewMode || viewMode == Kexi::TextViewMode) {
+            if (true != switchToViewMode(*currentWindow(), Kexi::DataViewMode)) {
+                setCurrentMode(previousMode);
+            }
+        }
         break;
     case Kexi::DesignGlobalMode:
-            break;
+        updateObjectView();
+        d->globalViewStack->setCurrentWidget(d->objectViewWidget);
+        if (viewMode == Kexi::DataViewMode) {
+            if (true != switchToViewMode(*currentWindow(), Kexi::DesignViewMode)) {
+                setCurrentMode(previousMode);
+            }
+        }
+        break;
     case Kexi::HelpGlobalMode:
-            break;
+        break;
+    case Kexi::NoGlobalMode:
+        break;
     }
 }
 

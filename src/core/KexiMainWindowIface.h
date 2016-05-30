@@ -73,8 +73,15 @@ enum GlobalViewMode {
     EditGlobalMode,
     DesignGlobalMode,
     HelpGlobalMode,
-    LastGlobalMode = HelpGlobalMode
+    LastGlobalMode = HelpGlobalMode,
+    NoGlobalMode //!< special
 };
+
+//! @return global view mode for window view mode @a viewMode.
+//! EditGlobalMode is mapped from data view, DesignGlobalMode and for design and text view.
+//! NoGlobalMode is returned for other values.
+KEXICORE_EXPORT GlobalViewMode viewModeToGlobal(Kexi::ViewMode viewMode);
+
 }
 
 /**

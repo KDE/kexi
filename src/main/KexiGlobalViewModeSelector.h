@@ -43,7 +43,7 @@ public:
     void setArrowColor(const QColor &color);
 
 Q_SIGNALS:
-    void currentModeChanged();
+    void currentModeChanged(Kexi::GlobalViewMode previousMode);
 
 protected Q_SLOTS:
     void currentChanged(const QModelIndex &current, const QModelIndex &previous) Q_DECL_OVERRIDE;
