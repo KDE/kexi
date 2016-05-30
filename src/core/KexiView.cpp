@@ -26,6 +26,7 @@
 #include <kexiutils/SmallToolButton.h>
 #include <kexiutils/FlowLayout.h>
 #include <KexiStyle.h>
+#include <KexiIcon.h>
 
 #include "KexiGroupButton.h"
 
@@ -119,11 +120,10 @@ public:
             return 0;
         }
         KexiSmallToolButton* menuButton = new KexiSmallToolButton(
-                         QIcon(),
-                         window->part()->info()->name() + " ",
-                         topBarHWidget);
-        menuButton->setToolTip(xi18n("Menu for the current window"));
-        menuButton->setWhatsThis(xi18n("Shows menu for the current window."));
+             koIcon("application-menu"), QString(), topBarHWidget);
+        menuButton->setToolTip(xi18nc("@tooltip", "Menu for <resource>%1</resource>")
+                               .arg(window->partItem()->captionOrName()));
+        menuButton->setWhatsThis(xi18n("Shows context menu for the current view."));
         menuButton->setPopupMode(QToolButton::InstantPopup);
         topBarLyr->insertWidget(0, menuButton);
 
