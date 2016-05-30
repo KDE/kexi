@@ -42,6 +42,11 @@ public:
     //! Set arrow color, it depends on color of sibling area so needs to be controlled
     void setArrowColor(const QColor &color);
 
+    //! @return keyboard modifiers (CTRL, SHIFT, etc.) pressed while item was recently clicked.
+    //! Use with currentModeChanged();
+    //! Useful for handling "Edit text" mode as CTRL+Design.
+    Qt::KeyboardModifiers keyboardModifiers() const;
+
 Q_SIGNALS:
     void currentModeChanged(Kexi::GlobalViewMode previousMode);
 
@@ -50,6 +55,15 @@ protected Q_SLOTS:
 
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+
+    //! Reimplemented to handle keyboardModifiers() and disable modifiers for selections
+    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+
+    //! Emptied to disable double clicks
+    void mouseDoubleClickEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+
+    //! Emptied to disable dragging over items that changes selection
+    void mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
 
     class Private;
     const QScopedPointer<Private> d;

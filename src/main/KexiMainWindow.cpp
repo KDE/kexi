@@ -4511,7 +4511,15 @@ void KexiMainWindow::slotCurrentModeChanged(Kexi::GlobalViewMode previousMode)
         updateObjectView();
         d->globalViewStack->setCurrentWidget(d->objectViewWidget);
         if (viewMode == Kexi::DataViewMode) {
-            if (true != switchToViewMode(*currentWindow(), Kexi::DesignViewMode)) {
+            Kexi::ViewMode newViewMode;
+            if (currentWindow()->supportsViewMode(Kexi::TextViewMode)
+                && d->modeSelector->keyboardModifiers() == Qt::CTRL)
+            {
+                newViewMode = Kexi::TextViewMode;
+            } else {
+                newViewMode = Kexi::DesignViewMode;
+            }
+            if (true != switchToViewMode(*currentWindow(), newViewMode)) {
                 setCurrentMode(previousMode);
             }
         }

@@ -258,7 +258,7 @@ void KexiListViewSelectionModel::select(const QModelIndex &index,
                                         QItemSelectionModel::SelectionFlags command)
 {
     // Don't allow the current selection to be cleared
-    if (!index.isValid() && (command & QItemSelectionModel::Clear)) {
+    if (!index.isValid() && (command & Clear || command & Deselect)) {
         return;
     }
     QItemSelectionModel::select(index, command);

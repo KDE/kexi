@@ -26,6 +26,7 @@
 #include <QDebug>
 #include <QApplication>
 #include <QPainter>
+#include <QMouseEvent>
 
 KexiGlobalViewModeSelectorModel::KexiGlobalViewModeSelectorModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -97,9 +98,10 @@ void KexiGlobalViewModeSelectorDelegate::paint(QPainter *painter, const QStyleOp
 class KexiGlobalViewModeSelector::Private
 {
 public:
-    Private() {}
+    Private() : keyboardModifiers(Qt::NoModifier) {}
     KexiGlobalViewModeSelectorModel model;
     QColor arrowColor;
+    Qt::KeyboardModifiers keyboardModifiers;
 };
 
 KexiGlobalViewModeSelector::KexiGlobalViewModeSelector(QWidget *parent)
@@ -112,6 +114,7 @@ KexiGlobalViewModeSelector::KexiGlobalViewModeSelector(QWidget *parent)
     setEditTriggers(NoEditTriggers);
     setDropIndicatorShown(false);
     setSelectionBehavior(SelectRows);
+    setSelectionMode(SingleSelection);
     setSelectionRectVisible(false);
     setUniformItemSizes(true);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -205,6 +208,29 @@ void KexiGlobalViewModeSelector::currentChanged(const QModelIndex &current, cons
     const Kexi::GlobalViewMode previousMode = currentMode();
     KexiListView::currentChanged(current, previous);
     emit currentModeChanged(previousMode);
+}
+
+void KexiGlobalViewModeSelector::mousePressEvent(QMouseEvent *event)
+{
+    d->keyboardModifiers = event->modifiers();
+    QMouseEvent newEvent = *event;
+    newEvent.setModifiers(Qt::NoModifier); // otherwise affects selection
+    KexiListView::mousePressEvent(&newEvent);
+}
+
+void KexiGlobalViewModeSelector::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    Q_UNUSED(event);
+}
+
+void KexiGlobalViewModeSelector::mouseMoveEvent(QMouseEvent *event)
+{
+    Q_UNUSED(event);
+}
+
+Qt::KeyboardModifiers KexiGlobalViewModeSelector::keyboardModifiers() const
+{
+    return d->keyboardModifiers;
 }
 
 void KexiGlobalViewModeSelector::setArrowColor(const QColor &color)
