@@ -219,9 +219,9 @@ KexiView::KexiView(QWidget *parent)
         , d(new Private(this))
 {
     QWidget *wi = this;
-    while ((wi = wi->parentWidget()) && !wi->inherits("KexiWindow")) {
+    while ((wi = wi->parentWidget()) && !qobject_cast<KexiWindow*>(wi)) {
     }
-    d->window = (wi && wi->inherits("KexiWindow")) ? static_cast<KexiWindow*>(wi) : 0;
+    d->window = (wi && qobject_cast<KexiWindow*>(wi)) ? qobject_cast<KexiWindow*>(wi) : nullptr;
     if (d->window) {
         //init view mode number for this view (obtained from window where this view is created)
         if (d->window->supportsViewMode(d->window->creatingViewsMode()))
@@ -237,7 +237,7 @@ KexiView::KexiView(QWidget *parent)
     d->mainLyr = new QVBoxLayout(this);
     d->mainLyr->setContentsMargins(0, 0, 0, 0);
 
-    if (parentWidget()->inherits("KexiWindow")) {
+    if (qobject_cast<KexiWindow*>(parentWidget())) {
         d->topBarHWidget = new QWidget(this);
         d->topBarHWidget->setFont(KexiUtils::smallestReadableFont());
         d->mainLyr->addWidget(d->topBarHWidget);
@@ -256,9 +256,7 @@ KexiView::KexiView(QWidget *parent)
             // nothing to do: only single view mode supported
         }
         else {
-            if (parentWidget()->inherits("KexiWindow")) {
-                createViewModeToggleButtons();
-            }
+            createViewModeToggleButtons();
         }
 
         (void)d->mainMenu();
