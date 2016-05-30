@@ -47,7 +47,7 @@ public:
 
     QString objectClassIconName() const;
 
-        void setObjectClassName(const QString& name);
+    void setObjectClassName(const QString& name);
 
     QString objectClassName() const;
 
