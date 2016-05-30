@@ -23,8 +23,7 @@
 #include <KColorScheme>
 #include <KColorUtils>
 
-#include <QDebug>
-#include <QEvent>
+#include <QKeyEvent>
 #include <QProxyStyle>
 #include <QStyleOption>
 
@@ -45,4 +44,18 @@ KexiPropertyPaneLineEdit::KexiPropertyPaneLineEdit(QWidget* parent)
 KexiPropertyPaneLineEdit::~KexiPropertyPaneLineEdit()
 {
     delete d;
+}
+
+void KexiPropertyPaneLineEdit::keyPressEvent(QKeyEvent *event)
+{
+    QLineEdit::keyPressEvent(event);
+    if (event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return) {
+        emit enterPressed();
+    }
+}
+
+void KexiPropertyPaneLineEdit::focusOutEvent(QFocusEvent *event)
+{
+    emit focusOut();
+    QLineEdit::focusOutEvent(event);
 }

@@ -25,17 +25,27 @@
 #include <KPropertyEditorView>
 #include <KLocalizedString>
 
+#include <QCoreApplication>
+#include <QPointer>
 #include <QVBoxLayout>
 
 class KexiPropertyPaneWidget::Private
 {
 public:
-    Private() {}
+    Private() : focusObjectNameBoxOnChange(false) {}
     QVBoxLayout *mainLyr;
     KexiObjectInfoWidget *infoLabel;
     KPropertyEditorView *editor;
     //! Needed by removeAllSections()
     int firstSectionIndex;
+    QPointer<KPropertySet> propertySet;
+    bool focusObjectNameBoxOnChange;
+
+    const char* objectNamePropertyName() const {
+        const bool useCaptionAsObjectName
+            = propertySet->propertyValue("this:useCaptionAsObjectName", false).toBool();
+        return useCaptionAsObjectName ? "caption" : "objectName";
+    }
 };
 
 KexiPropertyPaneWidget::KexiPropertyPaneWidget(QWidget *parent)
@@ -52,7 +62,8 @@ KexiPropertyPaneWidget::KexiPropertyPaneWidget(QWidget *parent)
     d->infoLabel = new KexiObjectInfoWidget;
     d->mainLyr->addWidget(d->infoLabel);
     d->infoLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Preferred);
-
+    connect(d->infoLabel, &KexiObjectInfoWidget::objectNameChangeAccepted,
+            this, &KexiPropertyPaneWidget::slotObjectNameChangeAccepted);
     d->mainLyr->addSpacing(s.verticalSpacing);
 
     d->editor = new KPropertyEditorView(this);
@@ -95,6 +106,7 @@ void KexiPropertyPaneWidget::removeAllSections()
 
 void KexiPropertyPaneWidget::addSection(QWidget *widget, const QString &title)
 {
+    Q_UNUSED(title);
     if (d->mainLyr->indexOf(widget) != -1) {
         return;
     }
@@ -105,6 +117,7 @@ void KexiPropertyPaneWidget::addSection(QWidget *widget, const QString &title)
 
 void KexiPropertyPaneWidget::slotPropertySetChanged(KPropertySet* set)
 {
+    d->propertySet = set;
     updateInfoLabelForPropertySet(set);
 }
 
@@ -116,6 +129,7 @@ void KexiPropertyPaneWidget::updateInfoLabelForPropertySet(KPropertySet* set)
         iconName = set->propertyValue("this:iconName").toString();
         const bool useCaptionAsObjectName
             = set->propertyValue("this:useCaptionAsObjectName", false).toBool();
+        d->infoLabel->setObjectNameIsIdentifier(!useCaptionAsObjectName);
         objectName = set->propertyValue(
             useCaptionAsObjectName ? "caption" : "objectName").toString();
         if (objectName.isEmpty() && useCaptionAsObjectName) {
@@ -145,8 +159,20 @@ void KexiPropertyPaneWidget::updateInfoLabelForPropertySet(KPropertySet* set)
 
     d->infoLabel->setObjectClassIconName(iconName);
     d->infoLabel->setObjectClassName(className);
+    if (d->focusObjectNameBoxOnChange) {
+        d->focusObjectNameBoxOnChange = false;
+        if (d->propertySet && d->propertySet->propertyValue(d->objectNamePropertyName()).toString() != d->infoLabel->objectName()) {
+            d->infoLabel->focusObjectNameBox();
+        }
+    }
     d->infoLabel->setObjectName(objectName);
 
     d->infoLabel->layout()->update();
     update();
+}
+
+void KexiPropertyPaneWidget::slotObjectNameChangeAccepted()
+{
+    d->propertySet->changeProperty(d->objectNamePropertyName(), d->infoLabel->objectName());
+    d->focusObjectNameBoxOnChange = true;
 }

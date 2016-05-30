@@ -55,6 +55,24 @@ public:
 
     QString objectName() const;
 
+    void focusObjectNameBox();
+
+    bool checkObjectName();
+
+    //! If @a set is @c true, object name is assumed to be identifier (as in programming).
+    //! Otherwise it can be any text.
+    void setObjectNameIsIdentifier(bool set);
+
+    //! @return true if object name is assumed to be identifier (as in programming).
+    bool isObjectNameIdentifier() const;
+
+Q_SIGNALS:
+    //! Possible name change accepted by the user with Enter or Return key or after Focus Out
+    void objectNameChangeAccepted();
+
+protected Q_SLOTS:
+    void slotObjectNameEnterPressed();
+
 private:
     class Private;
     Private * const d;

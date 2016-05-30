@@ -28,9 +28,18 @@
 /*! The widget has modified look */
 class KEXIEXTWIDGETS_EXPORT KexiPropertyPaneLineEdit : public QLineEdit
 {
+    Q_OBJECT
 public:
     explicit KexiPropertyPaneLineEdit(QWidget* parent = 0);
     virtual ~KexiPropertyPaneLineEdit();
+
+Q_SIGNALS:
+    void enterPressed();
+    void focusOut();
+
+protected:
+    void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
+    void focusOutEvent(QFocusEvent *event) Q_DECL_OVERRIDE;
 
 private:
     class Private;

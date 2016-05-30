@@ -20,6 +20,9 @@
 #include "KexiObjectInfoWidget.h"
 #include "KexiPropertyPaneLineEdit.h"
 #include <KexiStyle.h>
+#include <kexiutils/utils.h>
+
+#include <KDbIdentifierValidator>
 
 #include <QCoreApplication>
 #include <QEvent>
@@ -30,15 +33,20 @@
 
 #include <KIconLoader>
 #include <KLocalizedString>
+#include <KMessageBox>
 
 class KexiObjectInfoWidget::Private
 {
 public:
-    Private() {}
+    Private() : isObjectNameIdentifier(false), objectNameValidator(nullptr)
+    , slotObjectNameEnterPressedEnabled(true) {}
     QString classIconName;
     QLabel *objectIconLabel;
     QLabel *objectClassLabel;
     KexiPropertyPaneLineEdit *objectNameBox;
+    bool isObjectNameIdentifier;
+    KDbIdentifierValidator *objectNameValidator;
+    bool slotObjectNameEnterPressedEnabled;
 };
 
 KexiObjectInfoWidget::KexiObjectInfoWidget(QWidget* parent)
@@ -65,6 +73,8 @@ KexiObjectInfoWidget::KexiObjectInfoWidget(QWidget* parent)
     hlyr->addSpacing(s.horizontalSpacingAfterLabel);
 
     d->objectNameBox = new KexiPropertyPaneLineEdit;
+    connect(d->objectNameBox, &KexiPropertyPaneLineEdit::enterPressed, this, &KexiObjectInfoWidget::slotObjectNameEnterPressed);
+    connect(d->objectNameBox, &KexiPropertyPaneLineEdit::focusOut, this, &KexiObjectInfoWidget::slotObjectNameEnterPressed);
     hlyr->addWidget(d->objectNameBox, 2);
     d->objectNameBox->setClearButtonEnabled(true);
     d->objectNameBox->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
@@ -114,5 +124,42 @@ QString KexiObjectInfoWidget::objectName() const
 void KexiObjectInfoWidget::setObjectName(const QString& name)
 {
     d->objectNameBox->setText(name);
-    d->objectNameBox->setCursorPosition(0);
+    d->objectNameBox->end(false);
+}
+
+void KexiObjectInfoWidget::focusObjectNameBox()
+{
+    d->objectNameBox->setFocus();
+}
+
+void KexiObjectInfoWidget::setObjectNameIsIdentifier(bool set)
+{
+    if (d->isObjectNameIdentifier == set) {
+        return;
+    }
+    if (set) {
+        d->objectNameValidator = new KDbIdentifierValidator(this);
+        d->objectNameBox->setValidator(d->objectNameValidator);
+    } else {
+        d->objectNameBox->setValidator(0);
+        delete d->objectNameValidator;
+        d->objectNameValidator = 0;
+    }
+}
+
+bool KexiObjectInfoWidget::isObjectNameIdentifier() const
+{
+    return d->isObjectNameIdentifier;
+}
+
+void KexiObjectInfoWidget::slotObjectNameEnterPressed()
+{
+    emit objectNameChangeAccepted();
+}
+
+bool KexiObjectInfoWidget::checkObjectName()
+{
+    const KDbValidator::Result result = d->objectNameValidator->check(
+        QString(), d->objectNameBox->text(), nullptr, nullptr);
+    return result == KDbValidator::Ok;
 }

@@ -56,6 +56,7 @@
 #include <QDebug>
 #include <QFontDialog>
 #include <QMimeData>
+#include <QTimer>
 
 using namespace KFormDesigner;
 
@@ -397,8 +398,15 @@ void Form::setMode(Mode mode)
 
 void Form::selectWidget(QWidget *w, WidgetSelectionFlags flags)
 {
-    if (!d->selectWidgetEnabled)
+    if (!d->selectWidgetEnabled) {
         return;
+    }
+    if (selectedWidget() && !checkNameValidity(d->propertySet.propertyValue("objectName").toString(), CheckValidityOnly)) {
+        // current selection has invalid objectName: don't allow to switch so user is able to fix it!
+        //qDebug() << "disallow!";
+        return;
+    }
+
     d->selectWidgetEnabled = false;
     selectWidgetInternal(w, flags);
     d->selectWidgetEnabled = true;
@@ -1221,8 +1229,11 @@ void Form::slotPropertyChanged(KPropertySet& set, KProperty& p)
             qWarning() << "changing objectName property only allowed for single selection";
             return;
         }
-        if (!isNameValid(value.toString()))
+        if (!checkNameValidity(value.toString(), CheckValidityOnly)) {
+            // Tricky: revert later so if there's selectWidget() before, we can cancel selectWidget()
+            QTimer::singleShot(500, this, &Form::checkNameValidityForSelection);
             return;
+        }
     }
     else if (property == "paletteBackgroundPixmap") {
         // a widget with a background pixmap should have its own origin
@@ -1308,39 +1319,51 @@ void Form::slotPropertyReset(KPropertySet& set, KProperty& property)
     }
 }
 
-bool Form::isNameValid(const QString &name) const
+bool Form::checkNameValidity(const QString &name, CheckValidityMode mode) const
 {
     if (d->selected.isEmpty())
         return false;
 //! @todo add to the undo buffer
     QWidget *w = d->selected.first();
-    //also update widget's name in QObject member
-    if (!KDb::isIdentifier(name)) {
-        KMessageBox::sorry(widget(),
-                           xi18nc("@info",
-                                  "Could not rename widget <resource>%1</resource> to "
-                                  "<resource>%2</resource> because "
-                                  "<resource>%3</resource> is not a valid name (identifier) for a widget.",
-                                  w->objectName(), name, name));
-        d->slotPropertyChangedEnabled = false;
-        d->propertySet["objectName"].resetValue();
-        d->slotPropertyChangedEnabled = true;
+
+    if (name.isEmpty()) {
+        if (mode == CheckValidityShowMessages) {
+            KMessageBox::sorry(widget(), xi18n("Widget name could not be empty."));
+        }
         return false;
     }
-
-    if (objectTree()->lookup(name)) {
-        KMessageBox::sorry(widget(),
-                           xi18nc("@info",
-                                  "Could not rename widget <resource>%1</resource> to <resource>%2</resource> "
-                                  "because a widget with the name <resource>%3</resource> already exists.",
-                                  w->objectName(), name, name));
-        d->slotPropertyChangedEnabled = false;
-        d->propertySet["objectName"].resetValue();
-        d->slotPropertyChangedEnabled = true;
+    if (!KDb::isIdentifier(name)) {
+        if (mode == CheckValidityShowMessages) {
+            KMessageBox::sorry(widget(),
+                               xi18nc("@info",
+                                      "Could not rename widget <resource>%1</resource> to "
+                                      "<resource>%2</resource> because "
+                                      "<resource>%3</resource> is not a valid name (identifier) for a widget.",
+                                    w->objectName(), name, name));
+        }
+        return false;
+    }
+    if (name != w->objectName() && objectTree()->lookup(name)) {
+        if (mode == CheckValidityShowMessages) {
+            KMessageBox::sorry(widget(),
+                               xi18nc("@info",
+                                      "Could not rename widget <resource>%1</resource> to <resource>%2</resource> "
+                                      "because a widget with the name <resource>%3</resource> already exists.",
+                                      w->objectName(), name, name));
+        }
         return false;
     }
 
     return true;
+}
+
+void Form::checkNameValidityForSelection()
+{
+    if (!checkNameValidity(d->propertySet.propertyValue("objectName").toString(), CheckValidityShowMessages)) {
+        KexiUtils::BoolBlocker blocker(&d->slotPropertyChangedEnabled, false);
+        d->propertySet["objectName"].resetValue();
+        KexiMainWindowIface::global()->updatePropertyEditorInfoLabel();
+    }
 }
 
 void Form::undo()

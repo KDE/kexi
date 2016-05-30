@@ -51,6 +51,9 @@ protected Q_SLOTS:
     //! Update information about selected object
     void slotPropertySetChanged(KPropertySet* set);
 
+    //! Possible name change accepted by the user
+    void slotObjectNameChangeAccepted();
+
 private:
     class Private;
     Private * const d;

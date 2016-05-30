@@ -589,6 +589,10 @@ protected Q_SLOTS:
 
     void widgetDestroyed();
 
+    //! Called as delayed slot when invalid name is entered.
+    //! @see checkNameValidity()
+    void checkNameValidityForSelection();
+
 Q_SIGNALS:
     /*! This signal is emitted by selectWidget() when user selects a new widget,
      to update both the Property Editor and the Object Tree View.
@@ -667,9 +671,14 @@ protected:
 
     void disableWidgetActions();
 
+    enum CheckValidityMode {
+        CheckValidityOnly,
+        CheckValidityShowMessages
+    };
+
     /*! Checks if the name entered by user is valid, ie that it is
      a valid identifier, and that there is no name conflict.  */
-    bool isNameValid(const QString &name) const;
+    bool checkNameValidity(const QString &name, CheckValidityMode mode) const;
 
     void addWidget(QWidget *w);
 
