@@ -534,7 +534,7 @@ void KexiView::setViewWidget(QWidget* w, bool focusProxy)
     d->viewWidget = w;
     if (d->viewWidget) {
         d->viewWidget->setParent(this);
-        d->mainLyr->addWidget(d->viewWidget);
+        d->mainLyr->addWidget(d->viewWidget, 1);
         d->viewWidget->installEventFilter(this);
         //}
         if (focusProxy)

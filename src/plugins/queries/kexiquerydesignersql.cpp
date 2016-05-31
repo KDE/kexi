@@ -92,19 +92,21 @@ KexiQueryDesignerSQLView::KexiQueryDesignerSQLView(QWidget *parent)
         : KexiView(parent)
         , d(new Private())
 {
-    d->splitter = new QSplitter(this);
-    d->splitter->setOrientation(Qt::Vertical);
-    d->head = new KexiSectionHeader(xi18n("SQL Query Text"), Qt::Vertical, d->splitter);
+    d->splitter = new QSplitter(Qt::Vertical, this);
+    d->splitter->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
+    d->splitter->setChildrenCollapsible(false);
+    d->head = new KexiSectionHeader(xi18n("SQL Query Text"), Qt::Vertical);
     d->splitter->addWidget(d->head);
     d->splitter->setStretchFactor(
         d->splitter->indexOf(d->head), 3/*stretch*/);
     d->editor = new KexiQueryDesignerSQLEditor(d->head);
     d->editor->setObjectName("sqleditor");
+    d->editor->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
     d->head->setWidget(d->editor);
     connect(d->editor, SIGNAL(textChanged()), this, SLOT(slotTextChanged()));
 
     // -- bottom pane (status)
-    d->bottomPane = new QWidget(d->splitter);
+    d->bottomPane = new QWidget;
     QVBoxLayout *bottomPaneLyr = new QVBoxLayout(d->bottomPane);
     d->splitter->addWidget(d->bottomPane);
     d->splitter->setStretchFactor(
@@ -121,7 +123,6 @@ KexiQueryDesignerSQLView::KexiQueryDesignerSQLView(QWidget *parent)
     pal.setBrush(QPalette::Base, QToolTip::palette().brush(QPalette::Button));
     d->statusMainWidget->setPalette(pal);
 
-    d->splitter->setCollapsible(1, false);
     d->statusHLyr = new QHBoxLayout(d->statusMainWidget);
     d->statusHLyr->setContentsMargins(0, KexiUtils::marginHint() / 2, 0, KexiUtils::marginHint() / 2);
     d->statusHLyr->setSpacing(0);
@@ -140,7 +141,7 @@ KexiQueryDesignerSQLView::KexiQueryDesignerSQLView(QWidget *parent)
     d->lblStatus->setMinimumHeight(d->statusPixmapOk.width());
 
     addChildView(d->editor);
-    setViewWidget(d->splitter, false/* no focus proxy*/);
+    setViewWidget(d->splitter);
     d->splitter->setFocusProxy(d->editor);
     setFocusProxy(d->editor);
 
