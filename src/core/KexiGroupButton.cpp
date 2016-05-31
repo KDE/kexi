@@ -1,7 +1,7 @@
 /* This file is part of the KDE libraries
    Copyright (C) 2007 Aurélien Gâteau <agateau@kde.org>
    Copyright (C) 2012 Jean-Nicolas Artaud <jeannicolasartaud@gmail.com>
-   Copyright (C) 2012 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2012-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -76,6 +76,7 @@ void KexiGroupButton::paintEvent(QPaintEvent* event)
     QStyleOptionToolButton opt;
     initStyleOption(&opt);
     QStyleOptionToolButton panelOpt = opt;
+    panelOpt.state |= QStyle::State_MouseOver; // force border
 
     // Panel
     QRect& panelRect = panelOpt.rect;
@@ -140,5 +141,12 @@ void KexiGroupButton::paintEvent(QPaintEvent* event)
     if (!actions().isEmpty()) {
         QAction* action = actions().first();
         setToolTip(i18nc("@info:tooltip of custom triple button", "%1", action->toolTip()));
+    }
+}
+
+void KexiGroupButton::mousePressEvent(QMouseEvent *e)
+{
+    if (!isChecked()) { // only allow clicking to check; unchecking happens automatically
+        QToolButton::mousePressEvent(e);
     }
 }
