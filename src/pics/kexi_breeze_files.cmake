@@ -19,7 +19,7 @@ icons/breeze/actions/16/form-action.png
 icons/breeze/actions/16/form.svg
 icons/breeze/actions/16/frame.png
 icons/breeze/actions/16/groupbox.png
-icons/breeze/actions/16/imagebox.png
+icons/breeze/actions/16/imagebox.svg
 icons/breeze/actions/16/lineedit.png
 icons/breeze/actions/16/line-horizontal.png
 icons/breeze/actions/16/line-vertical.png
@@ -59,7 +59,7 @@ icons/breeze/actions/22/form-action.png
 icons/breeze/actions/22/form.svg
 icons/breeze/actions/22/frame.png
 icons/breeze/actions/22/groupbox.png
-icons/breeze/actions/22/imagebox.png
+icons/breeze/actions/22/imagebox.svg
 icons/breeze/actions/22/label.png
 icons/breeze/actions/22/lineedit.png
 icons/breeze/actions/22/line-horizontal.png
@@ -91,7 +91,7 @@ icons/breeze/actions/32/edit-table-delete-row.png
 icons/breeze/actions/32/file-database.svg
 icons/breeze/actions/32/form-action.png
 icons/breeze/actions/32/form.svg
-icons/breeze/actions/32/imagebox.png
+icons/breeze/actions/32/imagebox.svg
 icons/breeze/actions/32/macro.svg
 icons/breeze/actions/32/network-server-database.svg
 icons/breeze/actions/32/query.svg
