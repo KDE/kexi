@@ -71,6 +71,7 @@ KEXICORE_EXPORT QString version();
   so supported internal properties affecting its behaviour are:
   - newObjectsAreDirty: True if newly created, unsaved objects are dirty. False by default.
   - textViewModeCaption: custum i18n'd action text replacing standard "Text View" text.
+  - textViewModeToolTip: custum i18n'd action tool tip replacing standard "Switch to text view" text.
     Used in for query's "SQL View".
   In general: a whole set of i18n'd action names, initialised on KexiPart::Part subclass ctor.
   The names are useful because the same action can have other name for each part,

@@ -45,7 +45,8 @@ KexiQueryPart::KexiQueryPart(QObject *parent, const QVariantList &l)
         xi18nc("what's this", "Creates new query."),
         l)
 {
-    setInternalPropertyValue("textViewModeCaption", xi18n("SQL"));
+    setInternalPropertyValue("textViewModeCaption", xi18nc("@action:button SQL query design view", "SQL"));
+    setInternalPropertyValue("textViewModeToolTip", xi18nc("@info:tooltip SQL query design view", "Switch to SQL design view"));
 }
 
 KexiQueryPart::~KexiQueryPart()

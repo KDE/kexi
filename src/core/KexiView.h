@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2004-2012 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -340,11 +340,11 @@ protected:
 
 private Q_SLOTS:
     void slotSwitchToViewModeInternal(Kexi::ViewMode mode);
-    void slotSwitchToDataViewModeInternal(bool);
     void slotSwitchToDesignViewModeInternal(bool);
     void slotSwitchToTextViewModeInternal(bool);
 
 private:
+    void createTopBar();
     void createViewModeToggleButtons();
 
     class Private;
