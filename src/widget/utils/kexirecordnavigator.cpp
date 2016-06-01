@@ -191,8 +191,7 @@ QToolButton* KexiRecordNavigator::createAction(const KGuiItem& item)
     // add the button outside of the layout: needed because oxygen, and especially qtcurve draw strange margins
     QWidget *par = new QWidget(this);
     d->lyr->addWidget(par, 0, Qt::AlignVCenter);
-    QToolButton *toolButton = new KexiSmallToolButton(item.icon(), QString(), par);
-    toolButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    QToolButton *toolButton = new KexiSmallToolButton(item.icon(), par);
     toolButton->setMinimumWidth(toolButton->sizeHint().width() + 2*3);
     par->setMinimumWidth(toolButton->minimumWidth());
     toolButton->setFocusPolicy(Qt::NoFocus);

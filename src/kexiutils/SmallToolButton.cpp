@@ -69,6 +69,15 @@ KexiSmallToolButton::KexiSmallToolButton(const QIcon& icon, const QString& text,
     update(text, icon);
 }
 
+KexiSmallToolButton::KexiSmallToolButton(const QIcon& icon, QWidget* parent)
+        : QToolButton(parent)
+        , d(new Private)
+{
+    init();
+    update(QString(), icon);
+    QToolButton::setToolButtonStyle(Qt::ToolButtonIconOnly);
+}
+
 KexiSmallToolButton::KexiSmallToolButton(QAction* action, QWidget* parent)
         : QToolButton(parent)
         , d(new Private)

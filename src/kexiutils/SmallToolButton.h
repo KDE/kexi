@@ -37,6 +37,8 @@ public:
 
     KexiSmallToolButton(const QIcon& icon, const QString& text, QWidget* parent = 0);
 
+    explicit KexiSmallToolButton(const QIcon& icon, QWidget* parent = 0);
+
     explicit KexiSmallToolButton(QAction *action, QWidget* parent = 0);
 
     virtual ~KexiSmallToolButton();
