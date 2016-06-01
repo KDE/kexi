@@ -831,13 +831,13 @@ void KexiMainWindow::setupActions()
     // (connection is added elsewhere)
 
     //DATA MENU
-    d->action_data_save_row = createSharedAction(xi18n("&Save Record"), koIconName("dialog-ok"),
+    d->action_data_save_row = createSharedAction(xi18n("&Accept"), koIconName("dialog-ok"),
                               QKeySequence(Qt::SHIFT + Qt::Key_Return), "data_save_row");
-    d->action_data_save_row->setToolTip(xi18n("Save changes made to the current record"));
-    d->action_data_save_row->setWhatsThis(xi18n("Saves changes made to the current record."));
+    d->action_data_save_row->setToolTip(xi18n("Accept changes made to the current record"));
+    d->action_data_save_row->setWhatsThis(xi18n("Accepts changes made to the current record."));
 //temp. disable because of problems with volatile actions setActionVolatile( d->action_data_save_row, true );
 
-    d->action_data_cancel_row_changes = createSharedAction(xi18n("&Cancel Record Changes"),
+    d->action_data_cancel_row_changes = createSharedAction(xi18n("&Cancel"),
                                         koIconName("dialog-cancel"), QKeySequence(Qt::Key_Escape), "data_cancel_row_changes");
     d->action_data_cancel_row_changes->setToolTip(
         xi18n("Cancel changes made to the current record"));
