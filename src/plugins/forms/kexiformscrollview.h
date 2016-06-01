@@ -69,6 +69,9 @@ public:
 
     KFormDesigner::Form* form() const;
 
+    //! Needed to avoid conflict with QWidget::data().
+    inline KDbTableViewData* data() const { return KexiDataAwareObjectInterface::data(); }
+
     /*! Reimplemented from KexiDataAwareObjectInterface
      for checking 'readOnly' flag from a widget
      ('readOnly' flag from data member is still checked though). */

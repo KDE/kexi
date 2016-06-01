@@ -477,7 +477,7 @@ KexiFormView::beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore)
                 = QPoint(d->scrollView->horizontalScrollBar()->value(), d->scrollView->verticalScrollBar()->value());
         }
     }
-    if (viewMode() == Kexi::DataViewMode) {
+    if (d->scrollView->data() && viewMode() == Kexi::DataViewMode) {
         //old data won't be needed nor valid
         d->scrollView->setData(0, false);
     }
