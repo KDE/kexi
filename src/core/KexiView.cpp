@@ -120,8 +120,8 @@ public:
             return 0;
         }
         KexiSmallToolButton* menuButton = new KexiSmallToolButton(
-             koIcon("application-menu"), QString(), topBarHWidget);
-        menuButton->setToolTip(xi18nc("@tooltip", "Menu for <resource>%1</resource>")
+             koIcon("application-menu"), topBarHWidget);
+        menuButton->setToolTip(xi18nc("@info:tooltip", "Menu for <resource>%1</resource>")
                                .arg(window->partItem()->captionOrName()));
         menuButton->setWhatsThis(xi18n("Shows context menu for the current view."));
         menuButton->setPopupMode(QToolButton::InstantPopup);
