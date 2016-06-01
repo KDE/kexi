@@ -702,9 +702,12 @@ void KexiView::initViewActions()
             btn->setText(action->text());
             btn->setToolTip(action->toolTip());
             btn->setWhatsThis(action->whatsThis());
+            //! @todo Local toolbar actions are hardcoded as icons-only, maybe add view option?
+#if 0
             if (action->dynamicPropertyNames().contains("iconOnly") && action->property("iconOnly").toBool() ) {
-                btn->setToolButtonStyle(Qt::ToolButtonIconOnly);
-            }
+#endif
+            btn->setToolButtonStyle(Qt::ToolButtonIconOnly);
+            //}
             d->topBarLyr->addWidget(btn);
         }
     }
