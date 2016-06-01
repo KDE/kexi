@@ -247,7 +247,7 @@ void KexiView::createTopBar()
     QHBoxLayout *topBarHLyr = new QHBoxLayout(d->topBarHWidget); //needed unless KexiFlowLayout properly handles contents margins
     topBarHLyr->setContentsMargins(0, 0, 0, 0);
     topBarHLyr->addSpacing(KexiUtils::spacingHint() / 2);
-    d->topBarLyr = new KexiFlowLayout(topBarHLyr, 0, 2);
+    d->topBarLyr = new KexiFlowLayout(topBarHLyr, 0, 0);
 
     bool toggleModePossible = !KexiMainWindowIface::global()->userMode();
     if (   !(d->window->supportedViewModes() & Kexi::DesignViewMode)
@@ -264,7 +264,7 @@ void KexiView::createTopBar()
     if (d->viewMode == Kexi::DesignViewMode || d->viewMode == Kexi::TextViewMode) {
         QAction *a = sharedAction("project_save");
         d->saveDesignButton = new KexiSmallToolButton(a, d->topBarHWidget);
-        d->saveDesignButton->setText(xi18n("Save"));
+        d->saveDesignButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
         d->saveDesignButton->setToolTip(xi18n("Save current design"));
         d->saveDesignButton->setWhatsThis(xi18n("Saves changes made to the current design."));
         d->topBarLyr->addWidget(d->saveDesignButton);
@@ -694,9 +694,6 @@ void KexiView::initViewActions()
 {
     if (!d->topBarLyr)
         return;
-    if (!d->viewActions.isEmpty() && d->saveDesignButton) {
-        d->topBarLyr->addWidget(new KexiToolBarSeparator(d->topBarHWidget));
-    }
     foreach(QAction* action, d->viewActions) {
         if (action->isSeparator()) {
             d->topBarLyr->addWidget(new KexiToolBarSeparator(d->topBarHWidget));
