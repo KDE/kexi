@@ -153,8 +153,8 @@ void KexiDBImageBox::setValueInternal(const QVariant& add, bool removeOld, bool 
         m_value = KexiDataItemInterface::originalValue().toByteArray();
     bool ok = !m_value.isEmpty();
     if (ok) {
-        ok = loadPixmap ? m_pixmap.loadFromData(m_value) : true;
         if (loadPixmap) {
+            ok = KexiUtils::loadPixmapFromData(&m_pixmap, m_value);
             m_currentScaledPixmap = QPixmap(); // clear cache
         }
         if (!ok) {

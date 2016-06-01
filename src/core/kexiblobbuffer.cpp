@@ -18,6 +18,7 @@
 */
 
 #include "kexiblobbuffer.h"
+#include <kexiutils/utils.h>
 
 #include <assert.h>
 
@@ -155,7 +156,7 @@ QPixmap KexiBLOBBuffer::Item::pixmap() const
         const QMimeType mime(db.mimeTypeForName(mimeType));
         if (!mime.isValid()
             || !QImageReader::supportedMimeTypes().contains(mimeType.toLatin1())
-            || !m_pixmap->loadFromData(*m_data, mime.preferredSuffix().toLatin1()))
+            || !KexiUtils::loadPixmapFromData(m_pixmap, *m_data, mime.preferredSuffix().toLatin1()))
         {
             //! @todo inform about error?
         }

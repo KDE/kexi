@@ -359,6 +359,19 @@ KEXIUTILS_EXPORT QPixmap scaledPixmap(const WidgetMargins& margins, const QRect&
                                       bool scaledContents, bool keepAspectRatio,
                                       Qt::TransformationMode transformMode = Qt::FastTransformation);
 
+//! This function should be used instead of QPixmap::loadFromData().
+/** Loads a pixmap from @a data into @a pixmap. First tries to detect format, on failure
+ * tries to load most common formats: png, jpg, bmp, tif. Then tries to load any of format
+ * returned by QImageReader::supportedImageFormats().
+ * If @a format is provided, only this format is tried.
+ * @return on success.
+ * @note This function exists because QPixmap::loadFromData() not always works when there
+ *       are broken image format plugins installed (as it was the case with KRA plugin).
+ * @todo Idea: Support while/black list of supported image formats. It would be useful
+ *       for security reasons because files can be loaded from remote locations.
+ * @todo For the black/white list an enum describing local/remote data source is needed. */
+KEXIUTILS_EXPORT bool loadPixmapFromData(QPixmap *pixmap, const QByteArray &data, const char *format = nullptr);
+
 //! A helper for automatic deleting of contents of containers.
 template <typename Container>
 class ContainerDeleter

@@ -472,6 +472,36 @@ QPixmap KexiUtils::scaledPixmap(const WidgetMargins& margins, const QRect& rect,
     return px;
 }
 
+bool KexiUtils::loadPixmapFromData(QPixmap *pixmap, const QByteArray &data, const char *format)
+{
+    bool ok = pixmap->loadFromData(data, format);
+    if (ok) {
+        return true;
+    }
+    if (format) {
+        return false;
+    }
+    const QList<QByteArray> commonFormats({"png", "jpg", "bmp", "tif"});
+    QList<QByteArray> formats(commonFormats);
+    for(int i=0; ; ++i) {
+        ok = pixmap->loadFromData(data, formats[i]);
+        if (ok) {
+            return true;
+        }
+        if (i == formats.count()) {// try harder
+            if (i == commonFormats.count()) {
+                formats += QImageReader::supportedImageFormats();
+                if (formats.count() == commonFormats.count()) {
+                    break; // sanity check
+                }
+            } else {
+                break;
+            }
+        }
+    }
+    return false;
+}
+
 void KexiUtils::setFocusWithReason(QWidget* widget, Qt::FocusReason reason)
 {
     if (!widget)

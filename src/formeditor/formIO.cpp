@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2004 Cedric Pasteur <cedric.pasteur@free.fr>
-   Copyright (C) 2005-2009 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -1521,9 +1521,11 @@ FormIO::loadImage(QDomDocument domDoc, const QString& name)
         ba[2] = (len & 0x0000ff00) >> 8;
         ba[3] = (len & 0x000000ff);
         QByteArray baunzip = qUncompress(ba, baSize);
-        pix.loadFromData((const uchar*)baunzip.data(), baunzip.size(), format.left(format.indexOf('.')).toLatin1());
-    } else
-        pix.loadFromData((const uchar*)ba + lengthOffset, baSize - lengthOffset, format.toLatin1());
+        KexiUtils::loadPixmapFromData(&pix, baunzip, format.left(format.indexOf('.')).toLatin1());
+    } else {
+        QByteArray b(QByteArray::fromRawData((const char*)ba + lengthOffset, baSize - lengthOffset));
+        KexiUtils::loadPixmapFromData(&pix, b, format.toLatin1());
+    }
 
     delete[] ba;
 

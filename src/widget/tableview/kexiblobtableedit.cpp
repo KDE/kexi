@@ -212,7 +212,7 @@ KexiBlobTableEdit::setupContents(QPainter *p, bool focused, const QVariant& val,
         bool insertToCache = false;
         if (!pp) {
             QPixmap pixmap;
-            if (val.canConvert(QVariant::ByteArray) && pixmap.loadFromData(val.toByteArray())) {
+            if (val.canConvert(QVariant::ByteArray) && KexiUtils::loadPixmapFromData(&pixmap, val.toByteArray())) {
 #if 0
         KexiUtils::drawPixmap(*p, KexiUtils::WidgetMargins()/*lineWidth*/, QRect(x, y_offset, w, h),
                               pixmap, Qt::AlignCenter, true/*scaledContents*/, true/*keepAspectRatio*/);
@@ -318,8 +318,9 @@ void KexiBlobTableEdit::handleCopyAction()
 void KexiBlobTableEdit::executeCopyAction(const QByteArray& data)
 {
     QPixmap pixmap;
-    if (!pixmap.loadFromData(data))
+    if (!KexiUtils::loadPixmapFromData(&pixmap, data)) {
         return;
+    }
     qApp->clipboard()->setPixmap(pixmap, QClipboard::Clipboard);
 }
 
