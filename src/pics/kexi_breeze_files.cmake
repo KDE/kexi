@@ -21,8 +21,8 @@ icons/breeze/actions/16/frame.png
 icons/breeze/actions/16/groupbox.png
 icons/breeze/actions/16/imagebox.svg
 icons/breeze/actions/16/lineedit.png
-icons/breeze/actions/16/line-horizontal.png
-icons/breeze/actions/16/line-vertical.png
+icons/breeze/actions/16/line-horizontal.svg
+icons/breeze/actions/16/line-vertical.svg
 icons/breeze/actions/16/macro.svg
 icons/breeze/actions/16/multiple-objects.png
 icons/breeze/actions/16/network-server-database.svg
@@ -62,8 +62,8 @@ icons/breeze/actions/22/groupbox.png
 icons/breeze/actions/22/imagebox.svg
 icons/breeze/actions/22/label.png
 icons/breeze/actions/22/lineedit.png
-icons/breeze/actions/22/line-horizontal.png
-icons/breeze/actions/22/line-vertical.png
+icons/breeze/actions/22/line-horizontal.svg
+icons/breeze/actions/22/line-vertical.svg
 icons/breeze/actions/22/macro.svg
 icons/breeze/actions/22/multiple-objects.png
 icons/breeze/actions/22/network-server-database.svg
@@ -92,6 +92,8 @@ icons/breeze/actions/32/file-database.svg
 icons/breeze/actions/32/form-action.png
 icons/breeze/actions/32/form.svg
 icons/breeze/actions/32/imagebox.svg
+icons/breeze/actions/32/line-horizontal.svg
+icons/breeze/actions/32/line-vertical.svg
 icons/breeze/actions/32/macro.svg
 icons/breeze/actions/32/network-server-database.svg
 icons/breeze/actions/32/query.svg
