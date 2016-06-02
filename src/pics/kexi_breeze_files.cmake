@@ -4,7 +4,7 @@ calligra-logo-white-glow.png
 icons/breeze/actions/16/add-field.png
 icons/breeze/actions/16/autofield.png
 icons/breeze/actions/16/button.png
-icons/breeze/actions/16/checkbox.png
+icons/breeze/actions/16/checkbox.svg
 icons/breeze/actions/16/combobox.png
 icons/breeze/actions/16/database-key.svg
 icons/breeze/actions/16/database-relations.png
@@ -40,7 +40,7 @@ icons/breeze/actions/16/validate.svg
 icons/breeze/actions/16/widgets.png
 icons/breeze/actions/22/autofield.png
 icons/breeze/actions/22/button.png
-icons/breeze/actions/22/checkbox.png
+icons/breeze/actions/22/checkbox.svg
 icons/breeze/actions/22/combobox.png
 icons/breeze/actions/22/database-import.svg
 icons/breeze/actions/22/database-key.svg
@@ -83,6 +83,7 @@ icons/breeze/actions/22/timeedit.png
 icons/breeze/actions/22/unknown-widget.png
 icons/breeze/actions/22/validate.svg
 icons/breeze/actions/22/widgets.png
+icons/breeze/actions/32/checkbox.svg
 icons/breeze/actions/32/database-key.svg
 icons/breeze/actions/32/data-view.png
 icons/breeze/actions/32/document-empty.svg
