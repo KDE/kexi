@@ -14,8 +14,8 @@
    height="22"
    id="svg3760"
    version="1.1"
-   inkscape:version="0.48.5 r10040"
-   sodipodi:docname="database-change-key.svg">
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="database-key.svg">
   <defs
      id="defs3762">
     <style
@@ -158,7 +158,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="16.485509"
-     inkscape:cx="7.3415113"
+     inkscape:cx="-1.9696965"
      inkscape:cy="10.003657"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -235,7 +235,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -244,35 +244,10 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-553.72253,-583.11926)">
-    <g
-       id="g4176"
-       transform="matrix(-1,0,0,1,1129.4451,3)">
-      <rect
-         y="591.11926"
-         x="556.72253"
-         height="1"
-         width="10.999996"
-         id="rect4154"
-         style="fill:#4d4d4d;fill-opacity:1;stroke:none" />
-      <path
-         inkscape:connector-curvature="0"
-         id="rect4156"
-         d="m 567.72253,587.11926 0,9 5,0 0,-9 -5,0 z m 1,1 3,0 0,7 -3,0 0,-7 z"
-         style="fill:#4d4d4d;fill-opacity:1;stroke:none" />
-      <rect
-         y="592.11926"
-         x="557.72253"
-         height="2"
-         width="1"
-         id="rect4170"
-         style="fill:#4d4d4d;fill-opacity:1;stroke:none" />
-      <rect
-         y="592.11926"
-         x="559.72253"
-         height="2"
-         width="1"
-         id="rect4172"
-         style="fill:#4d4d4d;fill-opacity:1;stroke:none" />
-    </g>
+    <path
+       id="rect4172"
+       transform="scale(-1,1)"
+       style="fill:#4d4d4d;fill-opacity:1;stroke:none"
+       d="m -569.7226,595.11926 1,0 0,2 -1,0 z m -2,0 1,0 0,2 -1,0 z m 10.00003,-5 0,9 5,0 0,-9 -5,0 z m 1,1 3,0 0,7 -3,0 0,-7 z m -12.00003,3 11,0 0,1 -11,0 z" />
   </g>
 </svg>

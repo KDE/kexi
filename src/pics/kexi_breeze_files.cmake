@@ -83,6 +83,7 @@ icons/breeze/actions/22/timeedit.png
 icons/breeze/actions/22/unknown-widget.png
 icons/breeze/actions/22/validate.svg
 icons/breeze/actions/22/widgets.png
+icons/breeze/actions/32/database-key.svg
 icons/breeze/actions/32/data-view.png
 icons/breeze/actions/32/document-empty.svg
 icons/breeze/actions/32/edit-table-clear.svg
