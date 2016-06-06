@@ -409,11 +409,11 @@ void WidgetTreeWidget::addItem(KFormDesigner::ObjectTreeItem *item)
         return;
 
     WidgetTreeWidgetItem::LoadTreeFlags flags;
-    if (dynamic_cast<const InsertPageCommand*>(d->form->executingCommand())) {
+    const KUndo2Command *topCommand = d->form->command(d->form->commandsCount() - 1);
+    if (dynamic_cast<const InsertPageCommand*>(topCommand)) {
         //qDebug() << "InsertPageCommand";
         flags |= WidgetTreeWidgetItem::LoadTreeForAddedTabPage;
-    }
-    if (dynamic_cast<const RemovePageCommand*>(d->form->executingCommand())) {
+    } else if (dynamic_cast<const RemovePageCommand*>(topCommand)) {
         //qDebug() << "undoing RemovePageCommand";
         flags |= WidgetTreeWidgetItem::LoadTreeForAddedTabPage;
     }
@@ -424,7 +424,8 @@ void WidgetTreeWidget::removeItem(KFormDesigner::ObjectTreeItem *item)
 {
     if (!item)
         return;
-    if (dynamic_cast<const RemovePageCommand*>(d->form->executingCommand())) {
+    const KUndo2Command *topCommand = d->form->command(d->form->commandsCount() - 1);
+    if (dynamic_cast<const RemovePageCommand*>(topCommand)) {
         //qDebug() << "RemovePageCommand";
     }
     WidgetTreeWidgetItem *it = findItem(item->name());
@@ -507,8 +508,9 @@ void WidgetTreeWidget::loadTree(ObjectTreeItem *item, WidgetTreeWidgetItem *pare
     if (!item)
         return;
 
+    const KUndo2Command *topCommand = d->form->command(d->form->commandsCount() - 1);
     const RemovePageCommand* removePageCommand
-        = dynamic_cast<const RemovePageCommand*>(d->form->executingCommand());
+        = dynamic_cast<const RemovePageCommand*>(topCommand);
     int forcedTabPageIndex;
     QString forcedTabPageName;
     if (removePageCommand) {

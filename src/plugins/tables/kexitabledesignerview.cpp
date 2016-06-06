@@ -1569,14 +1569,9 @@ void KexiTableDesignerView::addHistoryCommand(KexiTableDesignerCommands::Command
     debugCommand(command, 0);
 # endif
     if (!execute) {
-        command->setRedoEnabled(false);
+        command->blockRedoOnce();
     }
-    const bool pushed = d->history->push(command);
-    if (!execute) {
-        if (pushed) { // only if not merged, it merged it's deleted already (COVERITY CID #1354238)
-            command->setRedoEnabled(true);
-        }
-    }
+    d->history->push(command);
     updateUndoRedoActions();
 #endif
 }

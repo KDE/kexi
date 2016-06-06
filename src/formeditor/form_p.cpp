@@ -168,7 +168,6 @@ FormPrivate::FormPrivate(Form *form, WidgetLibrary* _library)
     designModeStyle = 0;
     idOfPropertyCommand = 0;
     selectWidgetEnabled = true;
-    executingCommand = 0;
     pixmapsStoredInline = false;
 }
 

@@ -64,7 +64,7 @@ public:
 
     friend KFORMDESIGNER_EXPORT QDebug operator<<(QDebug dbg, const Command &c);
 protected:
-    //! Used to block execution of redo() once, on ading the command to the stack.
+    //! Used to block execution of redo() once, on adding the command to the stack.
     void blockRedoOnce();
 
     friend class Form;

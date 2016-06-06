@@ -780,26 +780,13 @@ void Form::emitChildRemoved(ObjectTreeItem *item)
     emit childRemoved(item);
 }
 
-const Command* Form::executingCommand() const
-{
-    return d->executingCommand;
-}
-
 bool Form::addCommand(Command *command, AddCommandOption option)
 {
     setModified(true);
     if (option == DontExecuteCommand) {
         command->blockRedoOnce();
     }
-    const bool saveExecutingCommand = !d->executingCommand;
-    if (saveExecutingCommand)
-        d->executingCommand = command;
-
-    const bool pushed = d->undoStack.push(command);
-
-    if (saveExecutingCommand || !pushed) {
-        d->executingCommand = 0;
-    }
+    d->undoStack.push(command);
     //qDebug() << "ADDED:" << *command;
     return true;
 }
@@ -1358,18 +1345,9 @@ void Form::undo()
         qWarning() << "cannot redo";
         return;
     }
-
-    const bool saveExecutingCommand = !d->executingCommand;
-    //qDebug() << "saveExecutingCommand:" << saveExecutingCommand;
-    if (saveExecutingCommand)
-        d->executingCommand = dynamic_cast<const Command*>(d->undoStack.command(0));
-    //qDebug() << d->undoStack.index();
-    //qDebug() << d->executingCommand;
-
+    d->isUndoing = true;
     d->undoStack.undo();
-
-    if (saveExecutingCommand)
-        d->executingCommand = 0;
+    d->isUndoing = false;
 }
 
 void Form::redo()
@@ -1381,17 +1359,7 @@ void Form::redo()
         return;
     }
     d->isRedoing = true;
-    const bool saveExecutingCommand = !d->executingCommand;
-    //qDebug() << "saveExecutingCommand:" << saveExecutingCommand;
-    if (saveExecutingCommand)
-        d->executingCommand = dynamic_cast<const Command*>(d->undoStack.command(d->undoStack.index()));
-    //qDebug() << d->undoStack.index();
-    //qDebug() << *d->executingCommand;
-
     d->undoStack.redo();
-
-    if (saveExecutingCommand)
-        d->executingCommand = 0;
     d->isRedoing = false;
 }
 
@@ -1408,6 +1376,16 @@ void Form::setUndoing(bool undoing)
 bool Form::isUndoing() const
 {
     return d->isUndoing;
+}
+
+int Form::commandsCount() const
+{
+    return d->undoStack.count();
+}
+
+const KUndo2Command* Form::command(int index) const
+{
+    return d->undoStack.command(index);
 }
 
 bool Form::isPropertyVisible(const QByteArray &property, bool isTopLevel,
