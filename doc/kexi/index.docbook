@@ -47,7 +47,7 @@
 <chapter id="introduction"><title>Introduction</title> 
 <para>&kexi; is a database management application. It can be used for creating databases, inserting data, performing queries, and processing data. Forms can be created to provide a custom interface to your data. All database objects - tables, queries and forms - are stored in the database, making it easy to share data and design.
 </para>
-<para>&kexi; is part of the &calligra; productivity suite for KDE.
+<para>&kexi; is part of the &calligra; productivity suite by KDE.
 </para>
 <para>In addition to storing your &kexi; databases in files, &kexi; can also store your data on a database server. Using a database server allows you to share your database with other people, and also allows more than one person to use the database at one time. The following database servers are supported by &kexi;:
 </para>
