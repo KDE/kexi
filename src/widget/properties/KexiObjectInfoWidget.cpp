@@ -122,6 +122,11 @@ QString KexiObjectInfoWidget::objectName() const
     return d->objectNameBox->text();
 }
 
+void KexiObjectInfoWidget::setObjectVisible(bool set)
+{
+    d->objectNameBox->setVisible(set);
+}
+
 void KexiObjectInfoWidget::setObjectName(const QString& name)
 {
     d->objectNameBox->setText(name);

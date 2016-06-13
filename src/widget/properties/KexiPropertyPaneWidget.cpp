@@ -21,6 +21,7 @@
 #include "KexiObjectInfoWidget.h"
 #include <KexiStyle.h>
 
+#include <KDb>
 #include <KPropertySet>
 #include <KPropertyEditorView>
 #include <KLocalizedString>
@@ -118,10 +119,11 @@ void KexiPropertyPaneWidget::addSection(QWidget *widget, const QString &title)
 void KexiPropertyPaneWidget::slotPropertySetChanged(KPropertySet* set)
 {
     d->propertySet = set;
-    updateInfoLabelForPropertySet(set);
+    updateInfoLabelForPropertySet(set, QString());
 }
 
-void KexiPropertyPaneWidget::updateInfoLabelForPropertySet(KPropertySet* set)
+void KexiPropertyPaneWidget::updateInfoLabelForPropertySet(KPropertySet* set,
+                                                   const QString& textToDisplayForNullSet)
 {
     QString className, iconName, objectName;
     if (set) {
@@ -137,18 +139,17 @@ void KexiPropertyPaneWidget::updateInfoLabelForPropertySet(KPropertySet* set)
             objectName = set->propertyValue("objectName").toString();
         }
     }
-    if (!set || objectName.isEmpty()) {
-//! @todo don't hardcode
-        QString textToDisplayForNullSet(xi18n("No field selected"));
-        objectName = textToDisplayForNullSet;
-        className.clear();
+    if (!set) {
+        className = KDb::iifNotEmpty(textToDisplayForNullSet, xi18n("No field selected"));
         iconName.clear();
     }
 
-    if (className.isEmpty() && objectName.isEmpty())
+    if (className.isEmpty() && objectName.isEmpty()) {
         d->infoLabel->hide();
-    else
+    } else {
+        d->infoLabel->setObjectVisible(set);
         d->infoLabel->show();
+    }
 
     if (d->infoLabel->objectClassName() == className
             && d->infoLabel->objectClassIconName() == iconName

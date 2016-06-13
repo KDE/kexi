@@ -55,6 +55,8 @@ public:
 
     QString objectName() const;
 
+    void setObjectVisible(bool set);
+
     void focusObjectNameBox();
 
     bool checkObjectName();

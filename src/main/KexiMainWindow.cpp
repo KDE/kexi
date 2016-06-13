@@ -4293,7 +4293,7 @@ void KexiMainWindow::addToolBarAction(const QString& toolBarName, QAction *actio
 void KexiMainWindow::updatePropertyEditorInfoLabel(const QString& textToDisplayForNullSet)
 {
     d->objectViewWidget->propertyPane()->updateInfoLabelForPropertySet(
-                d->propertySet);
+                d->propertySet, textToDisplayForNullSet);
 }
 
 void KexiMainWindow::beginPropertyPaneUpdate()

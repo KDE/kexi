@@ -45,7 +45,10 @@ public:
     //! Used by the main window when pane should be reset.
     void removeAllSections();
 
-    void updateInfoLabelForPropertySet(KPropertySet* set);
+    /*! Updates info label of the property editor by reusing properties provided
+     by the current property set.
+     Read documentation of KexiMainWindow::updatePropertyEditorInfoLabel() for more information. */
+    void updateInfoLabelForPropertySet(KPropertySet* set, const QString& textToDisplayForNullSet);
 
 protected Q_SLOTS:
     //! Update information about selected object

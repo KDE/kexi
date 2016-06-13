@@ -422,7 +422,7 @@ protected:
      If the current property is 0 and @a textToDisplayForNullSet string is empty, the info label widget becomes
      hidden.
      Implemented for KexiMainWindow.
-     @see KexiPropertyPaneViewBase::updateInfoLabelForPropertySet() */
+     @see KexiPropertyPaneWidget::updateInfoLabelForPropertySet() */
     void updatePropertyEditorInfoLabel(const QString& textToDisplayForNullSet = QString()) Q_DECL_OVERRIDE;
 
     //! Activates design tab when switching to design view, according to \a pluginId.
