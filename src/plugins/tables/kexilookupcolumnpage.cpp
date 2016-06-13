@@ -20,7 +20,6 @@
 #include "kexilookupcolumnpage.h"
 #include <KexiIcon.h>
 
-#include <widget/properties/KexiPropertyPaneViewBase.h>
 #include <widget/KexiDataSourceComboBox.h>
 #include <widget/fields/KexiFieldListView.h>
 #include <widget/fields/KexiFieldComboBox.h>
