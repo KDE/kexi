@@ -132,6 +132,9 @@ namespace KexiStyle
         void addLabelAndWidget(const QString &labelText, QWidget *widget, QGridLayout *formLayout) const;
         void setFormLabelAndWidgetVisible(QWidget *widget, QGridLayout *formLayout, bool set) const;
 
+        //! @return icon suitable for use in the property pane's background
+        QIcon icon(const QString &iconName) const;
+
         const QMargins margins;
         const int verticalSpacing;
         const int sectionTitleIndent;

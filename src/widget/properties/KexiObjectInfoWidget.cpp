@@ -99,11 +99,12 @@ void KexiObjectInfoWidget::setObjectClassIconName(const QString &iconName)
     d->classIconName = iconName;
     if (d->classIconName.isEmpty()) {
         d->objectIconLabel->setFixedWidth(0);
+        d->objectIconLabel->setPixmap(QPixmap());
     }
     else {
         d->objectIconLabel->setMaximumWidth(IconSize(KIconLoader::Small) + s.horizontalSpacingAfterIcon);
+        d->objectIconLabel->setPixmap(s.icon(iconName).pixmap(IconSize(KIconLoader::Small)));
     }
-    d->objectIconLabel->setPixmap(QIcon::fromTheme(iconName).pixmap(IconSize(KIconLoader::Small)));
 }
 
 QString KexiObjectInfoWidget::objectClassName() const

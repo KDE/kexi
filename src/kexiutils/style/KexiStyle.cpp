@@ -428,4 +428,9 @@ void PropertyPane::setFormLabelAndWidgetVisible(QWidget *widget, QGridLayout *fo
     }
 }
 
+QIcon PropertyPane::icon(const QString &iconName) const
+{
+    return KexiStyle::darkIcon(iconName);
+}
+
 } // namespace KexiStyle
