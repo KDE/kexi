@@ -105,7 +105,7 @@ namespace KexiStyle
 
     //! @return styled dark icon @a iconName of context @a iconContext. Group can be "actions", etc.
     //! The same styled icon can be used with light and dark background. Filename for dark
-    //! variants should have "@dark" suffix.
+    //! variants should have "@dark" suffix. If proper file does not exist, null icon is returned.
     //! KIconLoader::Any means KIconLoader::Action.
     KEXIUTILS_EXPORT QIcon darkIcon(const QString &iconName,
                                     KIconLoader::Context iconContext = KIconLoader::Action);

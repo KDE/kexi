@@ -185,9 +185,12 @@ KEXIUTILS_EXPORT QIcon darkIcon(const QString &iconName, KIconLoader::Context ic
     QIcon icon;
     for (int mode = 0; mode < int(sizeof(modes) / sizeof(modes[0])); ++mode) {
         for (int size = 0; size < int(sizeof(sizes) / sizeof(sizes[0])); ++size) {
-            //qDebug() << prefix + sizesStr[size] + suffixes[mode] << sizes[size] << modes[mode];
-            icon.addFile(prefix + sizesStr[size] + suffixes[mode], sizes[size], modes[mode], QIcon::Off);
-            icon.addFile(prefix + sizesStr[size] + suffixes[mode], sizes[size], modes[mode], QIcon::On);
+            const QString fileName(prefix + sizesStr[size] + suffixes[mode]);
+            //qDebug() << fileName << sizes[size] << modes[mode];
+            if (QFile::exists(fileName)) {
+                icon.addFile(fileName, sizes[size], modes[mode], QIcon::Off);
+                icon.addFile(fileName, sizes[size], modes[mode], QIcon::On);
+            }
         }
     }
     return icon;
