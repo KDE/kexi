@@ -643,13 +643,17 @@ void KexiDBImageBox::paintEvent(QPaintEvent *pe)
         }
         QFont f(qApp->font());
         p.setFont(f);
+        const QFontMetrics fm(fontMetrics());
         QString text;
         if (dataSource().isEmpty()) {
-            text = objectName() + "\n" + xi18nc("Unbound Image Box", "(unbound)");
+            if ((fm.height() * 2) > height()) {
+                text = xi18nc("Unbound Image Box", "%1 (unbound)", objectName());
+            } else {
+                text = xi18nc("Unbound Image Box", "%1\n(unbound)", objectName());
+            }
         }
         else {
             text = dataSource();
-            const QFontMetrics fm(fontMetrics());
             const QPixmap dataSourceTagIcon(KexiFormUtils::dataSourceTagIcon());
             if (width() >= (dataSourceTagIcon.width() + 2 + fm.boundingRect(r, Qt::AlignCenter, text).width())) {
                 r.setLeft( r.left() + dataSourceTagIcon.width() + 2 ); // make some room for the [>] icon
