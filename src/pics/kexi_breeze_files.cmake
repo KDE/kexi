@@ -73,6 +73,7 @@ icons/breeze/actions/16/checkbox.svg
 icons/breeze/actions/16/combobox.svg
 icons/breeze/actions/16/database-key.svg
 icons/breeze/actions/16/data-source-tag.svg
+icons/breeze/actions/16/edit-clear-small.svg
 icons/breeze/actions/16/edit-table-clear.svg
 icons/breeze/actions/16/edit-table-delete-row.svg
 icons/breeze/actions/16/edit-table-insert-row.svg

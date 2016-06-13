@@ -18,6 +18,8 @@
 */
 
 #include "KexiPropertyPaneLineEditStyle.h"
+#include <KexiIcon.h>
+#include "KexiStyle.h"
 
 #include <KColorScheme>
 #include <KColorUtils>
@@ -158,6 +160,15 @@ public:
             //qDebug() << frameRect << "frameRect";
             painter->drawRoundedRect(frameRect, radius, radius);
         }
+    }
+
+    QIcon standardIcon(StandardPixmap standardIcon, const QStyleOption *option = nullptr,
+                       const QWidget *widget = nullptr) const Q_DECL_OVERRIDE
+    {
+        if (standardIcon == SP_LineEditClearButton) {
+            return koDarkIcon("edit-clear-small");
+        }
+        return QProxyStyle::standardIcon(standardIcon, option, widget);
     }
 
 private:
