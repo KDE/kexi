@@ -65,7 +65,7 @@ KexiPropertyPaneWidget::KexiPropertyPaneWidget(QWidget *parent)
     d->infoLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Preferred);
     connect(d->infoLabel, &KexiObjectInfoWidget::objectNameChangeAccepted,
             this, &KexiPropertyPaneWidget::slotObjectNameChangeAccepted);
-    d->mainLyr->addSpacing(s.verticalSpacing);
+    d->mainLyr->addSpacing(s.margins.top());
 
     d->editor = new KPropertyEditorView(this);
     s.setupEditor(d->editor);
@@ -73,6 +73,7 @@ KexiPropertyPaneWidget::KexiPropertyPaneWidget(QWidget *parent)
     // Note: QWidgetItem is used instead of addWidget() so the editor's sizeHint() is used.
     // This displays as many property items as possible.
     d->mainLyr->addItem(new QWidgetItem(d->editor));
+    d->mainLyr->addSpacing(s.verticalSpacing); // extra spacing after the editor
 
     d->mainLyr->addSpacing(s.verticalSpacing);
 
