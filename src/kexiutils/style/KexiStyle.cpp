@@ -29,6 +29,7 @@
 #include <QFormLayout>
 #include <QFrame>
 #include <QGridLayout>
+#include <QGuiApplication>
 #include <QIconEngine>
 #include <QLabel>
 #include <QLineEdit>
@@ -341,7 +342,10 @@ QGridLayout* PropertyPane::createFormLayout(QVBoxLayout *parentLayout) const
 {
     const PropertyPane &s = KexiStyle::propertyPane();
     QGridLayout *formLyr = new QGridLayout;
-    formLyr->setContentsMargins(0, 0, s.margins.right(), 0);
+    QMargins formMargins(0, 0, s.margins.right(), 0);
+    KexiUtils::adjustIfRtl(&formMargins);
+    formLyr->setContentsMargins(formMargins);
+
     formLyr->setVerticalSpacing(0);
     parentLayout->addLayout(formLyr);
     return formLyr;
@@ -353,6 +357,9 @@ static QLabel* createLabelInternal(const QString &labelText)
     label->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     label->setWordWrap(true);
     label->setContentsMargins(0, 0, 0, 0);
+    if (QGuiApplication::isRightToLeft()) {
+        label->setAlignment(Qt::AlignRight);
+    }
     return label;
 }
 
@@ -377,6 +384,9 @@ QLabel* PropertyPane::createTitleLabel(const QString &title, QVBoxLayout *layout
     const PropertyPane &s = KexiStyle::propertyPane();
     QLabel *lbl = new QLabel(title);
     lbl->setIndent(s.sectionTitleIndent);
+    if (QGuiApplication::isRightToLeft()) {
+        lbl->setAlignment(Qt::AlignRight);
+    }
     s.alterTitleFont(lbl);
     lbl->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     lbl->setPalette(s.sectionTitlePalette(lbl->palette()));
@@ -391,7 +401,12 @@ void PropertyPane::addLabelAndWidget(const QString &labelText, QWidget *widget,
     const PropertyPane &s = KexiStyle::propertyPane();
     QLabel * label = new QLabel(labelText);
     label->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
-    label->setContentsMargins(s.sectionTitleIndent * 2, 0, s.horizontalSpacingAfterLabel, 0);
+    QMargins labelMargins(s.sectionTitleIndent * 2, 0, s.horizontalSpacingAfterLabel, 0);
+    KexiUtils::adjustIfRtl(&labelMargins);
+    label->setContentsMargins(labelMargins);
+    if (QGuiApplication::isRightToLeft()) {
+        label->setAlignment(Qt::AlignRight);
+    }
     label->setPalette(s.labelPalette(label->palette()));
 
     QComboBox* comboBox = qobject_cast<QComboBox*>(widget);
