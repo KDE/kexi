@@ -214,12 +214,12 @@ KexiBlobTableEdit::setupContents(QPainter *p, bool focused, const QVariant& val,
             QPixmap pixmap;
             if (val.canConvert(QVariant::ByteArray) && KexiUtils::loadPixmapFromData(&pixmap, val.toByteArray())) {
 #if 0
-        KexiUtils::drawPixmap(*p, KexiUtils::WidgetMargins()/*lineWidth*/, QRect(x, y_offset, w, h),
+        KexiUtils::drawPixmap(*p, QMargins()/*lineWidth*/, QRect(x, y_offset, w, h),
                               pixmap, Qt::AlignCenter, true/*scaledContents*/, true/*keepAspectRatio*/);
 #endif
                 QPoint pos;
-                pixmap = KexiUtils::scaledPixmap(KexiUtils::WidgetMargins()/*lineWidth*/, QRect(x, y_offset, w, h),
-                             pixmap, pos, Qt::AlignCenter, true/*scaledContents*/, true/*keepAspectRatio*/,
+                pixmap = KexiUtils::scaledPixmap(QMargins()/*lineWidth*/, QRect(x, y_offset, w, h),
+                             pixmap, &pos, Qt::AlignCenter, true/*scaledContents*/, true/*keepAspectRatio*/,
                              Qt::SmoothTransformation);
                 if (!pixmap.isNull()) {
                     pp = new PixmapAndPos;

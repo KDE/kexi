@@ -130,8 +130,7 @@ KexiRecordNavigator::KexiRecordNavigator(QAbstractScrollArea &parentView, QWidge
 
     d->navRecordNumber = new QLineEdit(this);
     d->lyr->addWidget(d->navRecordNumber, 0, Qt::AlignVCenter);
-    KexiUtils::WidgetMargins margins;
-    margins.copyToWidget(d->navRecordNumber);
+    d->navRecordNumber->setContentsMargins(QMargins());
     d->navRecordNumber->setFrame(false);
     d->navRecordNumber->setFixedHeight(fm.height() + 2);
     d->navRecordNumber->setAlignment(Qt::AlignRight | (/*winStyle ? Qt::AlignBottom :*/ Qt::AlignVCenter));

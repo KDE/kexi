@@ -377,17 +377,18 @@ QPixmap KexiUtils::emptyIcon(KIconLoader::Group iconGroup)
     return noIcon;
 }
 
-static void drawOrScalePixmapInternal(QPainter* p, const WidgetMargins& margins, const QRect& rect,
-                                      QPixmap& pixmap, QPoint &pos, Qt::Alignment alignment,
+static void drawOrScalePixmapInternal(QPainter* p, const QMargins& margins, const QRect& rect,
+                                      QPixmap* pixmap, QPoint* pos, Qt::Alignment alignment,
                                       bool scaledContents, bool keepAspectRatio,
                                       Qt::TransformationMode transformMode = Qt::FastTransformation)
 {
-    if (pixmap.isNull())
+    Q_ASSERT(pos);
+    if (pixmap->isNull())
         return;
 
     const bool fast = false;
-    const int w = rect.width() - margins.left - margins.right;
-    const int h = rect.height() - margins.top - margins.bottom;
+    const int w = rect.width() - margins.left() - margins.right();
+    const int h = rect.height() - margins.top() - margins.bottom();
 //! @todo we can optimize painting by drawing rescaled pixmap here
 //! and performing detailed painting later (using QTimer)
 //    QPixmap pixmapBuffer;
@@ -401,74 +402,76 @@ static void drawOrScalePixmapInternal(QPainter* p, const WidgetMargins& margins,
 //! @todo only create buffered pixmap of the minimum size and then do not fillRect()
 // target->fillRect(0,0,rect.width(),rect.height(), backgroundColor);
 
-    pos = rect.topLeft() + QPoint(margins.left, margins.top);
+    *pos = rect.topLeft() + QPoint(margins.left(), margins.top());
     if (scaledContents) {
         if (keepAspectRatio) {
-            QImage img(pixmap.toImage());
+            QImage img(pixmap->toImage());
             img = img.scaled(w, h, Qt::KeepAspectRatio, transformMode);
             if (img.width() < w) {
                 if (alignment & Qt::AlignRight)
-                    pos.setX(pos.x() + w - img.width());
+                    pos->setX(pos->x() + w - img.width());
                 else if (alignment & Qt::AlignHCenter)
-                    pos.setX(pos.x() + w / 2 - img.width() / 2);
+                    pos->setX(pos->x() + w / 2 - img.width() / 2);
             }
             else if (img.height() < h) {
                 if (alignment & Qt::AlignBottom)
-                    pos.setY(pos.y() + h - img.height());
+                    pos->setY(pos->y() + h - img.height());
                 else if (alignment & Qt::AlignVCenter)
-                    pos.setY(pos.y() + h / 2 - img.height() / 2);
+                    pos->setY(pos->y() + h / 2 - img.height() / 2);
             }
             if (p) {
-                p->drawImage(pos, img);
+                p->drawImage(*pos, img);
             }
             else {
-                pixmap = QPixmap::fromImage(img);
+                *pixmap = QPixmap::fromImage(img);
             }
         } else {
             if (!fast) {
-                pixmap = pixmap.scaled(w, h, Qt::IgnoreAspectRatio, transformMode);
+                *pixmap = pixmap->scaled(w, h, Qt::IgnoreAspectRatio, transformMode);
                 if (p) {
-                    p->drawPixmap(pos, pixmap);
+                    p->drawPixmap(*pos, *pixmap);
                 }
             }
         }
     }
     else {
         if (alignment & Qt::AlignRight)
-            pos.setX(pos.x() + w - pixmap.width());
+            pos->setX(pos->x() + w - pixmap->width());
         else if (alignment & Qt::AlignHCenter)
-            pos.setX(pos.x() + w / 2 - pixmap.width() / 2);
+            pos->setX(pos->x() + w / 2 - pixmap->width() / 2);
         else //left, etc.
-            pos.setX(pos.x());
+            pos->setX(pos->x());
 
         if (alignment & Qt::AlignBottom)
-            pos.setY(pos.y() + h - pixmap.height());
+            pos->setY(pos->y() + h - pixmap->height());
         else if (alignment & Qt::AlignVCenter)
-            pos.setY(pos.y() + h / 2 - pixmap.height() / 2);
+            pos->setY(pos->y() + h / 2 - pixmap->height() / 2);
         else //top, etc.
-            pos.setY(pos.y());
-        pos += QPoint(margins.left, margins.top);
+            pos->setY(pos->y());
+        *pos += QPoint(margins.left(), margins.top());
         if (p) {
-            p->drawPixmap(pos, pixmap);
+            p->drawPixmap(*pos, *pixmap);
         }
     }
 }
 
-void KexiUtils::drawPixmap(QPainter& p, const WidgetMargins& margins, const QRect& rect,
-                           const QPixmap& pixmap, Qt::Alignment alignment, bool scaledContents, bool keepAspectRatio,
-                           Qt::TransformationMode transformMode)
+void KexiUtils::drawPixmap(QPainter* p, const QMargins& margins, const QRect& rect,
+                           const QPixmap& pixmap, Qt::Alignment alignment, bool scaledContents,
+                           bool keepAspectRatio, Qt::TransformationMode transformMode)
 {
     QPixmap px(pixmap);
     QPoint pos;
-    drawOrScalePixmapInternal(&p, margins, rect, px, pos, alignment, scaledContents, keepAspectRatio, transformMode);
+    drawOrScalePixmapInternal(p, margins, rect, &px, &pos, alignment, scaledContents,
+                              keepAspectRatio, transformMode);
 }
 
-QPixmap KexiUtils::scaledPixmap(const WidgetMargins& margins, const QRect& rect,
-                                const QPixmap& pixmap, QPoint& pos, Qt::Alignment alignment,
-                                bool scaledContents, bool keepAspectRatio, Qt::TransformationMode transformMode)
+QPixmap KexiUtils::scaledPixmap(const QMargins& margins, const QRect& rect,
+                                const QPixmap& pixmap, QPoint* pos, Qt::Alignment alignment,
+                                bool scaledContents, bool keepAspectRatio,
+                                Qt::TransformationMode transformMode)
 {
     QPixmap px(pixmap);
-    drawOrScalePixmapInternal(0, margins, rect, px, pos, alignment, scaledContents, keepAspectRatio, transformMode);
+    drawOrScalePixmapInternal(0, margins, rect, &px, pos, alignment, scaledContents, keepAspectRatio, transformMode);
     return px;
 }
 
@@ -520,56 +523,13 @@ void KexiUtils::unsetFocusWithReason(QWidget* widget, Qt::FocusReason reason)
 
 //--------
 
-KexiUtils::WidgetMargins::WidgetMargins()
-        : left(0), top(0), right(0), bottom(0)
+void KexiUtils::adjustIfRtl(QMargins *margins)
 {
-}
-
-KexiUtils::WidgetMargins::WidgetMargins(QWidget *widget)
-{
-    copyFromWidget(widget);
-}
-
-KexiUtils::WidgetMargins::WidgetMargins(int _left, int _top, int _right, int _bottom)
-        : left(_left), top(_top), right(_right), bottom(_bottom)
-{
-}
-
-KexiUtils::WidgetMargins::WidgetMargins(int commonMargin)
-        : left(commonMargin), top(commonMargin), right(commonMargin), bottom(commonMargin)
-{
-}
-
-void KexiUtils::WidgetMargins::copyFromWidget(QWidget *widget)
-{
-    Q_ASSERT(widget);
-    widget->getContentsMargins(&left, &top, &right, &bottom);
-}
-
-void KexiUtils::WidgetMargins::copyToWidget(QWidget *widget)
-{
-    widget->setContentsMargins(left, top, right, bottom);
-}
-
-WidgetMargins& KexiUtils::WidgetMargins::operator+= (const WidgetMargins & margins)
-{
-    left += margins.left;
-    top += margins.top;
-    right += margins.right;
-    bottom += margins.bottom;
-    return *this;
-}
-
-const WidgetMargins KexiUtils::operator+ (
-    const WidgetMargins& margins1, const WidgetMargins & margins2)
-{
-    // margins2 is not used
-    Q_UNUSED(margins2);
-    return WidgetMargins(
-               margins1.left + margins1.left,
-               margins1.top + margins1.top,
-               margins1.right + margins1.right,
-               margins1.bottom + margins1.bottom);
+    if (margins && QGuiApplication::isRightToLeft()) {
+        const int left = margins->left();
+        margins->setLeft(margins->right());
+        margins->setRight(left);
+    }
 }
 
 //---------

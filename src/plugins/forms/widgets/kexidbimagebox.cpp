@@ -604,10 +604,10 @@ int KexiDBImageBox::realLineWidth() const
     }
 }
 
-static QPixmap *scaledImageBoxIcon(const KexiUtils::WidgetMargins& margins, const QSize& size)
+static QPixmap *scaledImageBoxIcon(const QMargins& margins, const QSize& size)
 {
-    const int realHeight = size.height() - margins.top - margins.bottom;
-    const int realWidth = size.width() - margins.left - margins.right;
+    const int realHeight = size.height() - margins.top() - margins.bottom();
+    const int realWidth = size.width() - margins.left() - margins.right();
     if (   realHeight <= KexiDBImageBox_static->pixmap->height()
         || realWidth <= KexiDBImageBox_static->pixmap->width())
     {
@@ -627,19 +627,19 @@ void KexiDBImageBox::paintEvent(QPaintEvent *pe)
         return;
     QPainter p(this);
     p.setClipRect(pe->rect());
-    const int _realLineWidth = realLineWidth();
-    KexiUtils::WidgetMargins margins(this);
-    margins += KexiUtils::WidgetMargins(_realLineWidth);
+    QMargins margins(contentsMargins());
+    margins += realLineWidth();
     const QBrush bgBrush(palette().brush(backgroundRole()));
     if (designMode() && pixmap().isNull()) {
         QRect r(
-            QPoint(margins.left, margins.top),
-            size() - QSize(margins.left + margins.right, margins.top + margins.bottom));
+            QPoint(margins.left(), margins.top()),
+            size() - QSize(margins.left() + margins.right(), margins.top() + margins.bottom()));
 
         updatePixmap();
         QPixmap *imagBoxPm = scaledImageBoxIcon(margins, size());
         if (imagBoxPm) {
-            p.drawPixmap(2, height() - margins.top - margins.bottom - imagBoxPm->height() - 2, *imagBoxPm);
+            p.drawPixmap(2, height() - margins.top() - margins.bottom() - imagBoxPm->height() - 2,
+                         *imagBoxPm);
         }
         QFont f(qApp->font());
         p.setFont(f);
@@ -676,7 +676,7 @@ void KexiDBImageBox::paintEvent(QPaintEvent *pe)
             m_currentRect = internalRect;
             m_currentPixmapPos = QPoint(0, 0);
             m_currentScaledPixmap = KexiUtils::scaledPixmap(
-                margins, m_currentRect, pixmap(), m_currentPixmapPos, m_alignment,
+                margins, m_currentRect, pixmap(), &m_currentPixmapPos, m_alignment,
                 m_scaledContents, m_keepAspectRatio,
                 m_smoothTransformation ? Qt::SmoothTransformation : Qt::FastTransformation);
         }

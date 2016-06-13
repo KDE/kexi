@@ -59,12 +59,12 @@ void KexiDBTextWidgetInterface::paint(
                     KexiUtils::blendedColors(
                         m_autonumberDisplayParameters->textColor, w->palette().color(QPalette::Base), 1, 3));
             }
-            KexiUtils::WidgetMargins margins(w);
+            QMargins margins(w->contentsMargins());
             KexiDisplayUtils::paintAutonumberSign(*m_autonumberDisplayParameters, p,
-                                                  2 + addMargin + margins.left,
-                                                  addMargin + margins.top,
-                                                  w->width() - margins.left - margins.right - 2 - 2,
-                                                  w->height() - margins.top - margins.bottom - 2, alignment, hasFocus);
+                                                  2 + addMargin + margins.left(),
+                                                  addMargin + margins.top(),
+                                                  w->width() - margins.left() - margins.right() - 2 - 2,
+                                                  w->height() - margins.top() - margins.bottom() - 2, alignment, hasFocus);
         }
     }
 }

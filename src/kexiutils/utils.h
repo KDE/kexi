@@ -321,41 +321,21 @@ KEXIUTILS_EXPORT void setFocusWithReason(QWidget* widget, Qt::FocusReason reason
 //! Unsets focus for widget \a widget with reason \a reason.
 KEXIUTILS_EXPORT void unsetFocusWithReason(QWidget* widget, Qt::FocusReason reason);
 
-//! @short A convenience class that simplifies usage of QWidget::getContentsMargins() and QWidget::setContentsMargins
-class KEXIUTILS_EXPORT WidgetMargins
-{
-public:
-    //! Creates object with all margins set to 0
-    WidgetMargins();
-    //! Creates object with margins copied from \a widget
-    explicit WidgetMargins(QWidget *widget);
-    //! Creates object with margins set to given values
-    WidgetMargins(int _left, int _top, int _right, int _bottom);
-    //! Creates object with all margins set to commonMargin
-    explicit WidgetMargins(int commonMargin);
-    //! Copies margins from \a widget to this object
-    void copyFromWidget(QWidget *widget);
-    //! Creates margins from this object copied to \a widget
-    void copyToWidget(QWidget *widget);
-    //! Adds the given margins \a margins to this object, and returns a reference to this object
-    WidgetMargins& operator+= (const WidgetMargins& margins);
-
-    int left, top, right, bottom;
-};
-
-//! \return the sum of \a margins1 and \a margins1; each component is added separately.
-const WidgetMargins operator+ (const WidgetMargins& margins1, const WidgetMargins& margins2);
+//! If the application's layout direction, swaps left and right margins.
+//! @see QGuiApplication::isRightToLeft()
+void adjustIfRtl(QMargins *margins);
 
 //! Draws pixmap @a pixmap on painter @a p using predefined parameters.
 //! Used in KexiDBImageBox and KexiBlobTableEdit.
-KEXIUTILS_EXPORT void drawPixmap(QPainter& p, const WidgetMargins& margins, const QRect& rect,
-                                 const QPixmap& pixmap, Qt::Alignment alignment, bool scaledContents, bool keepAspectRatio,
+KEXIUTILS_EXPORT void drawPixmap(QPainter* p, const QMargins& margins, const QRect& rect,
+                                 const QPixmap& pixmap, Qt::Alignment alignment,
+                                 bool scaledContents, bool keepAspectRatio,
                                  Qt::TransformationMode transformMode = Qt::FastTransformation);
 
 //! Scales pixmap @a pixmap on painter @a p using predefined parameters.
 //! Used in KexiDBImageBox and KexiBlobTableEdit.
-KEXIUTILS_EXPORT QPixmap scaledPixmap(const WidgetMargins& margins, const QRect& rect,
-                                      const QPixmap& pixmap, QPoint& pos, Qt::Alignment alignment,
+KEXIUTILS_EXPORT QPixmap scaledPixmap(const QMargins& margins, const QRect& rect,
+                                      const QPixmap& pixmap, QPoint* pos, Qt::Alignment alignment,
                                       bool scaledContents, bool keepAspectRatio,
                                       Qt::TransformationMode transformMode = Qt::FastTransformation);
 
