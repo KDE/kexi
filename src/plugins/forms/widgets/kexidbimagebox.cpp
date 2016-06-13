@@ -709,17 +709,18 @@ void KexiDBImageBox::updatePixmap()
         return;
 
     if (!KexiDBImageBox_static->pixmap) {
-        QPixmap pm( KIconLoader::global()->loadMimeTypeIcon(
-            koIconNameCStr("image-x-generic"), KIconLoader::NoGroup, KIconLoader::SizeLarge, KIconLoader::DisabledState) );
-        if (!pm.isNull()) {
-            KIconEffect::semiTransparent(pm);
-            KIconEffect::semiTransparent(pm);
+        const QIcon icon(KexiIcon("imagebox"));
+        KexiDBImageBox_static->pixmap = new QPixmap(
+            icon.pixmap(KIconLoader::SizeLarge, KIconLoader::SizeLarge, QIcon::Disabled));
+        if (!KexiDBImageBox_static->pixmap->isNull()) {
+            KIconEffect::semiTransparent(*KexiDBImageBox_static->pixmap);
+            KIconEffect::semiTransparent(*KexiDBImageBox_static->pixmap);
         }
-        KexiDBImageBox_static->pixmap = new QPixmap(pm);
         KexiDBImageBox_static->small = new QPixmap(
-            KexiDBImageBox_static->pixmap->scaled(
-                KexiDBImageBox_static->pixmap->width() / 2, KexiDBImageBox_static->pixmap->height() / 2,
-                Qt::KeepAspectRatio, Qt::SmoothTransformation) );
+            icon.pixmap(KIconLoader::SizeSmall, KIconLoader::SizeSmall, QIcon::Disabled));
+        if (!KexiDBImageBox_static->small->isNull()) {
+            KIconEffect::semiTransparent(*KexiDBImageBox_static->small); // once is enough for small
+        }
     }
 }
 
