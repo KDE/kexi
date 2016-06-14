@@ -75,18 +75,19 @@ KEXIUTILS_EXPORT void overpaintGlobalViewModeSelector(QWidget *widget, QPainter 
     // draw gradient
     painter->save();
     int w = widget->fontMetrics().height() * 3 / 2;
-    painter->translate(widget->width() - w, 0);
+    const bool rtl = QGuiApplication::isRightToLeft();
+    painter->translate(rtl ? 0 : (widget->width() - w), 0);
     QLinearGradient grad(0, 0, w, 0);
     QColor c(widget->palette().base().color());
     c.setAlpha(0);
-    grad.setColorAt(0, c);
+    grad.setColorAt(rtl ? 1.0 : 0.0, c);
     c.setAlpha(15);
     grad.setColorAt(0.5, c);
-    grad.setColorAt(1.0, QColor(0, 0, 0, 50));
+    grad.setColorAt(rtl ? 0.0 : 1.0, QColor(0, 0, 0, 50));
     painter->fillRect(0, 0, w, widget->height(), QBrush(grad));
     painter->restore();
 
-    // draw arrow: /|
+    // draw arrow: /|  (or reversed for RTL)
     //             \|
     if (!selectedRect.isNull()) {
         painter->save();
@@ -94,10 +95,15 @@ KEXIUTILS_EXPORT void overpaintGlobalViewModeSelector(QWidget *widget, QPainter 
         if (w % 2 == 0) {
             ++w;
         }
-        painter->translate(selectedRect.x() + selectedRect.width() - w,
-                           selectedRect.y() + (selectedRect.height() - w * 2) / 2 - 0.5);
+        painter->translate(
+            selectedRect.x() + (rtl ? 0 : (selectedRect.width() - w)),
+            selectedRect.y() + (selectedRect.height() - w * 2) / 2 - 0.5);
         QPolygon polygon;
-        polygon << QPoint(w, 0) << QPoint(w, w * 2) << QPoint(0, w);
+        if (rtl) {
+            polygon << QPoint(0, 0) << QPoint(w, w) << QPoint(0, w * 2);
+        } else {
+            polygon << QPoint(w, 0) << QPoint(w, w * 2) << QPoint(0, w);
+        }
         painter->setPen(QPen(Qt::NoPen));
         painter->setBrush(arrowColor);
         painter->drawPolygon(polygon);
