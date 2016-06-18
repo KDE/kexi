@@ -323,7 +323,7 @@ public:
 
         itm = new ActionSelectorDialogTreeItem(xi18n("Create New Object (%1)", part->info()->name().toLower()), this);
         itm->setData(ActionSelectorDialogTreeItem::ActionDataRole , "new");
-        itm->setIcon(koIcon("document-new"));
+        itm->setIcon(koIcon("list-add"));
 
         if (supportedViewModes & Kexi::DesignViewMode) {
             itm = new ActionSelectorDialogTreeItem(xi18n("Open in Design View"), this);
