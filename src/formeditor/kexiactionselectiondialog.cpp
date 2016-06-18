@@ -366,17 +366,17 @@ public:
         if (actionType == "noaction")
             return QString();
         if (actionType == "kaction" || actionType == "currentForm")
-            return xi18n("&Select action to be executed after clicking <interface>%1</interface> button:",
+            return xi18n("&Select action to be executed after clicking <resource>%1</resource> button:",
                         actionWidgetName);
         // hardcoded, but it's not that bad
         if (actionType == "org.kexi-project.macro")
-            return xi18n("&Select macro to be executed after clicking <interface>%1</interface> button:",
+            return xi18n("&Select macro to be executed after clicking <resource>%1</resource> button:",
                         actionWidgetName);
         if (actionType == "org.kexi-project.script")
-            return xi18n("&Select script to be executed after clicking <interface>%1</interface> button:",
+            return xi18n("&Select script to be executed after clicking <resource>%1</resource> button:",
                         actionWidgetName);
         //default: org.kexi-project.table/query/form/report...
-        return xi18n("&Select object to be opened after clicking <interface>%1</interface> button:",
+        return xi18n("&Select object to be opened after clicking <resource>%1</resource> button:",
                     actionWidgetName);
     }
 
