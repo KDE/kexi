@@ -83,6 +83,8 @@ icons/breeze/actions/16/groupbox.svg
 icons/breeze/actions/16/imagebox.svg
 icons/breeze/actions/16/line-horizontal.svg
 icons/breeze/actions/16/line-vertical.svg
+icons/breeze/actions/16/mode-selector-design.svg
+icons/breeze/actions/16/mode-selector-edit.svg
 icons/breeze/actions/16/mode-selector-sql.svg
 icons/breeze/actions/16/network-server-database.svg
 icons/breeze/actions/16/tabwidget-page.svg
@@ -104,6 +106,8 @@ icons/breeze/actions/22/groupbox.svg
 icons/breeze/actions/22/imagebox.svg
 icons/breeze/actions/22/line-horizontal.svg
 icons/breeze/actions/22/line-vertical.svg
+icons/breeze/actions/22/mode-selector-design.svg
+icons/breeze/actions/22/mode-selector-edit.svg
 icons/breeze/actions/22/mode-selector-sql.svg
 icons/breeze/actions/22/network-server-database.svg
 icons/breeze/actions/22/tabwidget-page.svg
