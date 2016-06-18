@@ -317,7 +317,7 @@ public:
             itm->setIcon(KexiIcon("table"));
         }
 
-        itm = new ActionSelectorDialogTreeItem(xi18n("Create New Object"), this);
+        itm = new ActionSelectorDialogTreeItem(xi18n("Create New Object (%1)", part->info()->name().toLower()), this);
         itm->setData(ActionSelectorDialogTreeItem::ActionDataRole , "new");
         itm->setIcon(koIcon("document-new"));
 
