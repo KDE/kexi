@@ -126,7 +126,7 @@ KexiScriptDesignView::KexiScriptDesignView(
     a->setSeparator(true);
     viewActions << a;
 
-    KActionMenu *menu = new KActionMenu(koIcon("document-properties"), xi18n("Edit"), this);
+    KActionMenu *menu = new KActionMenu(koIcon("document-edit"), xi18n("Edit"), this);
     menu->setObjectName("script_edit_menu");
     menu->setToolTip(xi18n("Edit actions"));
     menu->setWhatsThis(xi18n("Provides Edit menu."));

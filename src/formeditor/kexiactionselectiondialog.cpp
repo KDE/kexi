@@ -284,7 +284,7 @@ public:
         if (supportedViewModes & Kexi::DataViewMode) {
             itm = new ActionSelectorDialogTreeItem(xi18n("Open in Data View"), this);
             itm->setData(ActionSelectorDialogTreeItem::ActionDataRole , "open");
-            itm->setIcon(koIcon("document-open"));
+            itm->setIcon(KexiIcon("mode-selector-edit"));
         }
         if (part->info()->isExecuteSupported()) {
             itm = new ActionSelectorDialogTreeItem(xi18n("Execute"), this);
@@ -328,7 +328,7 @@ public:
         if (supportedViewModes & Kexi::DesignViewMode) {
             itm = new ActionSelectorDialogTreeItem(xi18n("Open in Design View"), this);
             itm->setData(ActionSelectorDialogTreeItem::ActionDataRole , "design");
-            itm->setIcon(koIcon("document-properties"));
+            itm->setIcon(KexiIcon("mode-selector-design"));
         }
         if (supportedViewModes & Kexi::TextViewMode) {
             QString actionText;

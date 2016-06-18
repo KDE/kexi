@@ -185,7 +185,7 @@ KexiProjectNavigator::KexiProjectNavigator(QWidget* parent, Features features)
         //! @todo plugSharedAction("edit_paste",SLOT(slotPaste()));
 #endif
 
-        d->designAction = addAction("design_object", koIcon("document-properties"), xi18n("&Design"),
+        d->designAction = addAction("design_object", KexiIcon("mode-selector-design"), xi18n("&Design"),
                                    xi18n("Design object"),
                                    xi18n("Starts designing of the object selected in the list."),
                                    SLOT(slotDesignObject()));
