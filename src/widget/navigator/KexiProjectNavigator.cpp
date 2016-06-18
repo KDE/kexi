@@ -190,7 +190,7 @@ KexiProjectNavigator::KexiProjectNavigator(QWidget* parent, Features features)
                                    xi18n("Starts designing of the object selected in the list."),
                                    SLOT(slotDesignObject()));
 
-        d->editTextAction = addAction("editText_object", QIcon(), xi18n("Design in &Text View"),
+        d->editTextAction = addAction("editText_object", QIcon(), "Design in Text View", // <- no icon, no i18n, will be updated before use
                                      xi18n("Design object in text view"),
                                      xi18n("Starts designing of the object in the list in text view."),
                                      SLOT(slotEditTextObject()));
@@ -713,10 +713,16 @@ void KexiItemMenu::update(const KexiPart::Info& partInfo, const KexiPart::Item& 
             && (partInfo.supportedViewModes() & Kexi::DesignViewMode)) {
         addAction("design_object");
     }
-    if (m_actionCollection->action("editText_object")
-            && m_actionCollection->action("editText_object")->isEnabled()
-            && (partInfo.supportedViewModes() & Kexi::TextViewMode)) {
-        addAction("editText_object");
+    QAction *a = m_actionCollection->action("editText_object");
+    if (a && a->isEnabled()
+          && (partInfo.supportedViewModes() & Kexi::TextViewMode))
+    {
+        QString actionText;
+        QString iconName;
+        KexiPart::getTextViewAction(partInfo.id(), &actionText, &iconName);
+        a->setText(actionText);
+        a->setIcon(QIcon::fromTheme(iconName));
+        QMenu::addAction(a);
     }
     addSeparator();
 

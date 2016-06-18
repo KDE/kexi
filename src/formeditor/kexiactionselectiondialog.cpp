@@ -331,9 +331,12 @@ public:
             itm->setIcon(koIcon("document-properties"));
         }
         if (supportedViewModes & Kexi::TextViewMode) {
-            itm = new ActionSelectorDialogTreeItem(xi18n("Open in Text View"), this);
+            QString actionText;
+            QString iconName;
+            KexiPart::getTextViewAction(pluginId, &actionText, &iconName);
+            itm = new ActionSelectorDialogTreeItem(actionText, this);
             itm->setData(ActionSelectorDialogTreeItem::ActionDataRole , "editText");
-            itm->setIcon(noIcon);
+            itm->setIcon(iconName.isEmpty() ? noIcon : QIcon::fromTheme(iconName));
         }
 
         itm = new ActionSelectorDialogTreeItem( xi18n("Close View"), this);

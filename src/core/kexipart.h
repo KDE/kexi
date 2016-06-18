@@ -279,6 +279,11 @@ private:
  otherwise it will be in a form of "name", e.g. "Employees". */
 KEXICORE_EXPORT QString fullCaptionForItem(KexiPart::Item *item, KexiPart::Part *part);
 
+/*! \return i18n'd actionText and iconName for "Open in text view" action specific for @a pluginId.
+ Currently it the only special is for "org.kexi-project.query".
+ The default is "Design in Text View" and no icon. */
+KEXICORE_EXPORT void getTextViewAction(const QString& pluginId, QString *actionText, QString *iconName);
+
 } // namespace KexiPart
 
 #endif
