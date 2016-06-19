@@ -54,7 +54,7 @@
 #include <QMimeDatabase>
 
 KexiReportView::KexiReportView(QWidget *parent)
-        : KexiView(parent), m_preRenderer(0), m_reportDocument(0), m_functions(0) //! @todo KEXI3, m_kexi(0)
+        : KexiView(parent), m_preRenderer(0), m_functions(0) //! @todo KEXI3, m_kexi(0)
 {
     setObjectName("KexiReportDesigner_DataView");
 
@@ -159,7 +159,6 @@ KexiReportView::~KexiReportView()
 {
     qDebug();
     delete m_preRenderer;
-    delete m_reportDocument;
 }
 
 void KexiReportView::slotPrintReport()
@@ -176,7 +175,7 @@ void KexiReportView::slotPrintReport()
         cxt.printer = &printer;
         cxt.painter = &painter;
 
-        renderer->render(cxt, m_reportDocument);
+        renderer->render(cxt, m_preRenderer->document());
     }
 }
 
@@ -204,7 +203,7 @@ void KexiReportView::slotExportAsPdf()
         painter.begin(&printer);
         cxt.printer = &printer;
         cxt.painter = &painter;
-        if (!renderer->render(cxt, m_reportDocument)) {
+        if (!renderer->render(cxt, m_preRenderer->document())) {
             KMessageBox::error(this,
                                xi18n("Exporting the report as PDF to %1 failed.", cxt.destinationUrl.toDisplayString()),
                                xi18n("Export Failed"));
@@ -257,7 +256,7 @@ void KexiReportView::slotExportAsSpreadsheet()
             return;
         }
 
-        if (!renderer->render(cxt, m_reportDocument)) {
+        if (!renderer->render(cxt, m_preRenderer->document())) {
             KMessageBox::error(this,
                                xi18n("Failed to export the report as spreadsheet to %1.", cxt.destinationUrl.toDisplayString()),
                                xi18n("Export Failed"));
@@ -282,7 +281,7 @@ void KexiReportView::slotExportAsTextDocument()
             return;
         }
 
-        if (!renderer->render(cxt, m_reportDocument)) {
+        if (!renderer->render(cxt, m_preRenderer->document())) {
             KMessageBox::error(this,
                                xi18n("Exporting the report as text document to %1 failed.", cxt.destinationUrl.toDisplayString()),
                                xi18n("Export Failed"));
@@ -321,7 +320,7 @@ void KexiReportView::slotExportAsWebPage()
         return;
     }
 
-    if (!renderer->render(cxt, m_reportDocument)) {
+    if (!renderer->render(cxt, m_preRenderer->document())) {
         KMessageBox::error(this,
                            xi18n("Exporting the report as web page to %1 failed.", cxt.destinationUrl.toDisplayString()),
                            xi18n("Export Failed"));
@@ -344,6 +343,8 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
 
     qDebug();
     if (tempData()->reportSchemaChangedInPreviousView) {
+        tempData()->reportSchemaChangedInPreviousView = false;
+
         qDebug() << "Schema changed";
         delete m_preRenderer;
 
@@ -372,34 +373,19 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
                         m_functions, SLOT(setGroupData(QMap<QString, QVariant>)));
             }
 
-            if (m_reportDocument) {
-                qDebug() << "=======================================Deleting old document";
-                delete m_reportDocument;
-            }
-
-                            qDebug() << "=======================================Generating new document";
-
-            if (! m_preRenderer->generateDocument()) {
+            if (!m_preRenderer->generateDocument()) {
                 qWarning() << "Could not generate report document";
                 return false;
             }
-
-                            qDebug() << "=======================================Getting new document";
-
-            m_reportDocument = m_preRenderer->document();
-            if (m_reportDocument) {
-                m_reportView->setDocument(m_reportDocument);
+            
+            m_reportView->setDocument(m_preRenderer->document());
 #ifndef KEXI_MOBILE
-                m_pageSelector->setRecordCount(m_reportView->pageCount());
-                m_pageSelector->setCurrentRecordNumber(1);
+            m_pageSelector->setRecordCount(m_reportView->pageCount());
+            m_pageSelector->setCurrentRecordNumber(1);
 #endif
-            }
         } else {
             KMessageBox::error(this, xi18n("Report schema appears to be invalid or corrupt"), xi18n("Opening failed"));
         }
-
-
-        tempData()->reportSchemaChangedInPreviousView = false;
     }
     return true;
 }

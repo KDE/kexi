@@ -64,7 +64,6 @@ public:
 
 private:
     KReportPreRenderer *m_preRenderer;
-    ORODocument *m_reportDocument;
     KReportView *m_reportView;
 
 #ifndef KEXI_MOBILE
