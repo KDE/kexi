@@ -74,9 +74,9 @@ protected:
 
 private Q_SLOTS:
     void slotDesignerPropertySetChanged();
-
+    
 public Q_SLOTS:
-    void slotSetData(KReportData*);
+    void slotSourceDataChanged();
 };
 
 #endif

@@ -353,7 +353,7 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
         if (m_preRenderer->isValid()) {
             KReportData *reportData = 0;
             if (!tempData()->connectionDefinition.isNull())  {
-                reportData = sourceData(tempData()->connectionDefinition);
+                reportData = createSourceData(tempData()->connectionDefinition);
             }
             m_preRenderer->setSourceData(reportData);
 
@@ -377,10 +377,14 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
                 delete m_reportDocument;
             }
 
+                            qDebug() << "=======================================Generating new document";
+
             if (! m_preRenderer->generateDocument()) {
                 qWarning() << "Could not generate report document";
                 return false;
             }
+
+                            qDebug() << "=======================================Getting new document";
 
             m_reportDocument = m_preRenderer->document();
             if (m_reportDocument) {
@@ -400,7 +404,7 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
     return true;
 }
 
-KReportData* KexiReportView::sourceData(QDomElement e)
+KReportData* KexiReportView::createSourceData(QDomElement e)
 {
     KReportData *kodata = 0;
 

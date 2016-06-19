@@ -199,10 +199,11 @@ KexiReportPart::TempData* KexiReportDesignView::tempData() const
     return static_cast<KexiReportPart::TempData*>(window()->data());
 }
 
-void KexiReportDesignView::slotSetData(KReportData* kodata)
+void KexiReportDesignView::slotSourceDataChanged()
 {
-    m_reportDesigner->setReportData(kodata);
+    m_reportDesigner->setReportData(m_sourceSelector->createSourceData());
     tempData()->connectionDefinition = m_sourceSelector->connectionData();
+    setDirty(true);
 }
 
 void KexiReportDesignView::triggerAction(const QString &action)

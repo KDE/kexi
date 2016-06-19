@@ -72,7 +72,7 @@ private:
 #endif
 
     KexiReportPart::TempData* tempData() const;
-    KReportData* sourceData(QDomElement e);
+    KReportData* createSourceData(QDomElement e);
     //! @todo KEXI3 KexiScriptAdaptor *m_kexi;
     KRScriptFunctions *m_functions;
     KReportRendererFactory m_factory;

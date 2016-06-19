@@ -39,19 +39,11 @@ class KexiSourceSelector::Private
 {
 public:
     Private()
-      : kexiDBData(0)
     {
     }
 
     ~Private()
     {
-        delete kexiDBData;
-#ifndef KEXI_MOBILE
-//! @todo KEXI3
-#if 0
-        delete kexiMigrateData;
-#endif
-#endif
     }
 
     KDbConnection *conn;
@@ -61,15 +53,6 @@ public:
     KexiDataSourceComboBox *internalSource;
     QLineEdit *externalSource;
     QPushButton *setData;
-
-    KexiDBReportData *kexiDBData;
-
-#ifndef KEXI_MOBILE
-//! @todo KEXI3
-#if 0
-    KexiMigrateReportData *kexiMigrateData;
-#endif
-#endif
 };
 
 KexiSourceSelector::KexiSourceSelector(KexiProject* project, QWidget* parent)
@@ -77,13 +60,6 @@ KexiSourceSelector::KexiSourceSelector(KexiProject* project, QWidget* parent)
         , d(new Private)
 {
     d->conn = project->dbConnection();
-    d->kexiDBData = 0;
-
-#ifndef KEXI_MOBILE
-#ifdef HAVE_KEXIMMIGRATE
-    d->kexiMigrateData = 0;
-#endif
-#endif
 
     d->layout = new QVBoxLayout(this);
     d->sourceType = new QComboBox(this);
@@ -92,7 +68,7 @@ KexiSourceSelector::KexiSourceSelector(KexiProject* project, QWidget* parent)
     d->externalSource = new QLineEdit(this);
     d->setData = new QPushButton(xi18n("Set Data"));
 
-    connect(d->setData, SIGNAL(clicked()), this, SLOT(setDataClicked()));
+    connect(d->setData, &QPushButton::clicked, this, &KexiSourceSelector::sourceDataChanged);
 
     d->sourceType->addItem(xi18n("Internal"), QVariant("internal"));
     d->sourceType->addItem(xi18n("External"), QVariant("external"));
@@ -140,7 +116,7 @@ void KexiSourceSelector::setConnectionData(QDomElement c)
         d->externalSource->setText(c.attribute("source"));
     }
 
-    emit(setData(sourceData()));
+    emit sourceDataChanged();
 }
 
 QDomElement KexiSourceSelector::connectionData()
@@ -166,35 +142,19 @@ QDomElement KexiSourceSelector::connectionData()
     return conndata;
 }
 
-KReportData* KexiSourceSelector::sourceData()
+KReportData* KexiSourceSelector::createSourceData() const
 {
-    if (d->kexiDBData) {
-        delete d->kexiDBData;
-        d->kexiDBData = 0;
-    }
-
-#ifndef KEXI_MOBILE
-//! @todo KEXI3
-#if 0
-    if (d->kexiMigrateData) {
-        delete d->kexiMigrateData;
-        d->kexiMigrateData = 0;
-    }
-#endif
-#endif
-
 //!@TODO Fix when enable external data
 #ifndef NO_EXTERNAL_SOURCES
     if (d->sourceType->itemData(d->sourceType->currentIndex()).toString() == "internal" && d->internalSource->isSelectionValid()) {
-        d->kexiDBData = new KexiDBReportData(d->internalSource->selectedName(), d->internalSource->selectedPluginId(), d->conn);
-        return d->kexiDBData;
+        return new KexiDBReportData(d->internalSource->selectedName(), d->internalSource->selectedPluginId(), d->conn);
     }
 
 #ifndef KEXI_MOBILE
 //! @todo KEXI3
 #if 0
     if (d->sourceType->itemData(d->sourceType->currentIndex()).toString() == "external") {
-        d->kexiMigrateData = new KexiMigrateReportData(d->externalSource->text());
+        return new KexiMigrateReportData(d->externalSource->text());
         return d->kexiMigrateData;
     }
 #endif
@@ -202,14 +162,9 @@ KReportData* KexiSourceSelector::sourceData()
 
 #else
     if (d->internalSource->isSelectionValid()) {
-        d->kexiDBData = new KexiDBReportData(d->internalSource->selectedName(), d->conn);
-        return d->kexiDBData;
+        retrun new KexiDBReportData(d->internalSource->selectedName(), d->conn);
     }
 #endif
     return 0;
 }
 
-void KexiSourceSelector::setDataClicked()
-{
-    emit(setData(sourceData()));
-}
