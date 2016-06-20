@@ -249,7 +249,7 @@ void KexiView::createTopBar()
     topBarHLyr->addSpacing(KexiUtils::spacingHint() / 2);
     d->topBarLyr = new KexiFlowLayout(topBarHLyr, 0, 0);
 
-    bool toggleModePossible = !KexiMainWindowIface::global()->userMode();
+    bool toggleModePossible = viewMode() != Kexi::DataViewMode && !KexiMainWindowIface::global()->userMode();
     if (   !(d->window->supportedViewModes() & Kexi::DesignViewMode)
         || !(d->window->supportedViewModes() & Kexi::TextViewMode))
     {
