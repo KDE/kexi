@@ -670,7 +670,7 @@ void KexiActionSelectionDialog::slotActionCategorySelected(QTreeWidgetItem* item
                 vlyr->addWidget(d->currentFormActionsListView);
                 d->secondAnd3rdColumnStack->addWidget(d->currentFormActionsPageWidget);
                 KexiUtils::setMargins(vlyr, 0);
-                connect(d->currentFormActionsListView, SIGNAL(itemActivated(QTreeWidgetItem*,int)),
+                connect(d->currentFormActionsListView, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)),
                         this, SLOT(slotCurrentFormActionItemExecuted(QTreeWidgetItem*)));
                 connect(d->currentFormActionsListView, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)),
                         this, SLOT(slotCurrentFormActionItemSelected(QTreeWidgetItem*)));
