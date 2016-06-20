@@ -51,9 +51,9 @@ class KEXICORE_EXPORT KexiToggleViewModeAction : public QAction
 public:
     //! Creates action for toggling to view mode @a mode. @a slot should have signature
     //! matching switchedTo(Kexi::ViewMode mode) signal.
-    KexiToggleViewModeAction(Kexi::ViewMode mode, QObject* parent)
+    KexiToggleViewModeAction(const QString& pluginId, Kexi::ViewMode mode, QObject* parent)
         : QAction(
-            QIcon::fromTheme(Kexi::iconNameForViewMode(mode)),
+            QIcon::fromTheme(Kexi::iconNameForViewMode(pluginId, mode)),
             Kexi::nameForViewMode(mode, true/*withAmpersand*/),
             parent)
     {
@@ -131,7 +131,7 @@ public:
         if (!window->supportsViewMode(mode)) {
             return 0;
         }
-        QAction *a = new KexiToggleViewModeAction(mode, q);
+        QAction *a = new KexiToggleViewModeAction(q->part()->info()->id(), mode, q);
         toggleViewModeActions.insert(mode, a);
 
         KexiGroupButton *btn = new KexiGroupButton(pos, parent);

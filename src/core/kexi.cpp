@@ -20,6 +20,7 @@
 #include "kexi.h"
 #include "KexiRecentProjects.h"
 #include "KexiMainWindowIface.h"
+#include "kexipart.h"
 #include "kexipartmanager.h"
 #include <KexiIcon.h>
 
@@ -150,15 +151,19 @@ QString Kexi::nameForViewMode(ViewMode mode, bool withAmpersand)
 }
 
 //--------------------------------------------------------------------------------
-QString Kexi::iconNameForViewMode(ViewMode mode)
+QString Kexi::iconNameForViewMode(const QString& pluginId, ViewMode mode)
 {
-    const char *const id =
-        (mode == DataViewMode) ? KexiIconNameCStr("data-view") :
-        (mode == DesignViewMode) ? KexiIconNameCStr("design-view") :
-        (mode == TextViewMode) ? KexiIconNameCStr("sql-view"):
-        0;
-
-    return QLatin1String(id);
+    switch(mode) {
+    case DataViewMode: return KexiIconName("mode-selector-edit");
+    case DesignViewMode: return KexiIconName("mode-selector-design");
+    case TextViewMode: {
+        QString iconName;
+        KexiPart::getTextViewAction(pluginId, 0, &iconName);
+        return iconName;
+    }
+    default: break;
+    }
+    return QString();
 }
 
 //--------------------------------------------------------------------------------

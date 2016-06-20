@@ -444,13 +444,19 @@ KEXICORE_EXPORT QString KexiPart::fullCaptionForItem(KexiPart::Item *item, KexiP
 KEXICORE_EXPORT void KexiPart::getTextViewAction(const QString& pluginId, QString *actionText,
                                                  QString *iconName)
 {
-    Q_ASSERT(actionText);
-    Q_ASSERT(iconName);
     if (pluginId == QLatin1String("org.kexi-project.query")) {
-        *actionText = xi18n("Design in SQL View");
-        *iconName = KexiIconName("mode-selector-sql");
+        if (actionText) {
+            *actionText = xi18n("Design in SQL View");
+        }
+        if (iconName) {
+            *iconName = KexiIconName("mode-selector-sql");
+        }
     } else {
-        *actionText = xi18n("Design in Text View");
-        iconName->clear();
+        if (actionText) {
+            *actionText = xi18n("Design in Text View");
+        }
+        if (iconName) {
+            iconName->clear();
+        }
     }
 }
