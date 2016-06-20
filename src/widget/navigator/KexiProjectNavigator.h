@@ -91,7 +91,8 @@ public:
                                                    //!< the project (e.g. delete, rename).
         ContextMenus = 2,                          //!< Supports context menus
         Borders      = 4,                          //!< Show borders like in a list view
-        DefaultFeatures = Writable | ContextMenus  //!< The default
+        ClearSelectionAfterAction = 8,             //! Don't keep selection after item is open or executed
+        DefaultFeatures = Writable | ContextMenus | ClearSelectionAfterAction //!< The default
     };
     //! Specifies features of a navigator
     Q_DECLARE_FLAGS(Features, Feature)

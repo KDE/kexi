@@ -79,6 +79,12 @@ public:
         delete model;
     }
 
+    void clearSelectionIfNeeded() {
+        if (features & ClearSelectionAfterAction) {
+            list->selectionModel()->clear();
+        }
+    }
+
     Features features;
     KexiProjectNavigator *q;
     QVBoxLayout *lyr;
@@ -311,7 +317,7 @@ void KexiProjectNavigator::contextMenuEvent(QContextMenuEvent* event)
         pm->exec(event->globalPos());
     }
     event->setAccepted(true);
-    d->list->selectionModel()->clear();
+    d->clearSelectionIfNeeded();
 }
 
 void KexiProjectNavigator::slotExecuteItem(const QModelIndex& vitem)
@@ -333,7 +339,7 @@ void KexiProjectNavigator::slotExecuteItem(const QModelIndex& vitem)
     else
         emit openOrActivateItem(it->partItem(), Kexi::DataViewMode);
 
-    d->list->selectionModel()->clear();
+    d->clearSelectionIfNeeded();
 }
 
 void KexiProjectNavigator::slotSelectionChanged(const QModelIndex& i)
@@ -547,7 +553,7 @@ void KexiProjectNavigator::slotExecuteObject()
     KexiPart::Item* item = selectedPartItem();
     if (item) {
         emit executeItem(item);
-        d->list->selectionModel()->clear();
+        d->clearSelectionIfNeeded();
     }
 }
 
