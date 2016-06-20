@@ -137,7 +137,7 @@ public:
         KexiGroupButton *btn = new KexiGroupButton(pos, parent);
         toggleViewModeButtons.insert(mode, btn);
         connect(btn, SIGNAL(toggled(bool)), q, slot);
-        btn->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        btn->setToolButtonStyle(Qt::ToolButtonTextOnly);
         btn->setText(text);
         btn->setIcon(a->icon());
         QFont f(q->font());
