@@ -307,8 +307,7 @@ KexiTableDesignerView::getSubTypeListData(KDbField::TypeGroup fieldTypeGroup,
 KPropertySet *
 KexiTableDesignerView::createPropertySet(int record, const KDbField& field, bool newOne)
 {
-    QString typeName = "KDbField::" + field.typeGroupString();
-    KPropertySet *set = new KPropertySet(d->sets, typeName);
+    KPropertySet *set = new KPropertySet(d->sets);
     if (KexiMainWindowIface::global()->project()->dbConnection()->options()->isReadOnly())
         set->setReadOnly(true);
 

@@ -111,7 +111,7 @@ EditListViewDialog::EditListViewDialog(QWidget *parent)
     // The "item properties" field
     m_editor = new KPropertyEditorView(m_columnsPageItem->widget());
     m_editor->setObjectName("editcolumn_propeditor");
-    m_propSet = new KPropertySet(this, "columns");
+    m_propSet = new KPropertySet(this);
     m_propSet->addProperty(
         new KProperty("caption", "Caption", xi18n("Caption"), xi18n("Caption")));
     m_propSet->addProperty(

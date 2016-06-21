@@ -1790,15 +1790,23 @@ KexiQueryDesignerGuiEditor::createPropertySet(int row,
         const QString& tableName, const QString& fieldName, bool newOne)
 {
     //const bool asterisk = isAsterisk(tableName, fieldName);
-    QString typeName = "KexiQueryDesignerGuiEditor::Column";
-    KPropertySet *set = new KPropertySet(d->sets, typeName);
+    KPropertySet *set = new KPropertySet(d->sets);
     KProperty *prop;
 
     //meta-info for property editor
-    set->addProperty(prop = new KProperty("this:classString", xi18n("Query column")));
+    set->addProperty(prop = new KProperty("this:classString", xi18nc("Query column", "Column")));
     prop->setVisible(false);
 //! \todo add table_field icon (add buff->addProperty(prop = new KexiProperty("this:iconName", "table_field") );
 // prop->setVisible(false);
+
+    set->addProperty(prop = new KProperty("this:visibleObjectNameProperty", "visibleName"));
+    prop->setVisible(false);//always hidden
+
+    set->addProperty(prop = new KProperty("this:objectNameReadOnly", true));
+    prop->setVisible(false);//always hidden
+
+    set->addProperty(prop = new KProperty("visibleName", QVariant(tableName + '.' + fieldName)));
+    prop->setVisible(false);//always hidden
 
     set->addProperty(prop = new KProperty("table", QVariant(tableName)));
     prop->setVisible(false);//always hidden

@@ -175,7 +175,7 @@ KexiScriptDesignView::KexiScriptDesignView(
 
     loadData();
 
-    d->properties = new KPropertySet(this, "KexiScripting");
+    d->properties = new KPropertySet(this);
     connect(d->properties, SIGNAL(propertyChanged(KPropertySet&,KProperty&)),
             this, SLOT(slotPropertyChanged(KPropertySet&,KProperty&)));
 
