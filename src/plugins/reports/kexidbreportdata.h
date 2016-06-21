@@ -69,7 +69,7 @@ public:
     virtual QStringList scriptList() const;
     virtual QString scriptCode(const QString& script) const;
     virtual QStringList dataSources() const;
-    virtual KReportData* data(const QString&);
+    virtual KReportData* create(const QString& source) const Q_REQUIRED_RESULT;
 
 private:
     class Private;
