@@ -26,14 +26,23 @@
 #include <KexiWindow.h>
 #include <kexiproject.h>
 #include <kexipartinfo.h>
+#include <KexiPropertyPaneWidget.h>
 
 #include <KDbCursor>
 #include <KDbParser>
 #include <KDbQuerySchema>
 
 #include <QDebug>
+#include <QVBoxLayout>
 
 KEXI_PLUGIN_FACTORY(KexiQueryPart, "kexi_queryplugin.json")
+
+class KexiQueryPart::Private
+{
+public:
+    Private() : propertyPaneSpacer(0) {}
+    QWidget *propertyPaneSpacer; //!< needed until we have at least one property pane section
+};
 
 KexiQueryPart::KexiQueryPart(QObject *parent, const QVariantList &l)
   : KexiPart::Part(parent,
@@ -44,6 +53,7 @@ KexiQueryPart::KexiQueryPart(QObject *parent, const QVariantList &l)
         xi18nc("tooltip", "Create new query"),
         xi18nc("what's this", "Creates new query."),
         l)
+  , d2(new Private)
 {
     setInternalPropertyValue("textViewModeCaption", xi18nc("@action:button SQL query design view", "SQL"));
     setInternalPropertyValue("textViewModeToolTip", xi18nc("@info:tooltip SQL query design view", "Switch to SQL design view"));
@@ -51,6 +61,7 @@ KexiQueryPart::KexiQueryPart(QObject *parent, const QVariantList &l)
 
 KexiQueryPart::~KexiQueryPart()
 {
+    delete d2;
 }
 
 KexiWindowData* KexiQueryPart::createWindowData(KexiWindow* window)
@@ -187,6 +198,16 @@ tristate KexiQueryPart::rename(KexiPart::Item *item, const QString& newName)
     KexiMainWindowIface::global()->project()->dbConnection()
         ->setQuerySchemaObsolete(item->name());
     return true;
+}
+
+void KexiQueryPart::setupPropertyPane(KexiPropertyPaneWidget* pane)
+{
+    if (!d2->propertyPaneSpacer) {
+        d2->propertyPaneSpacer = new QWidget;
+        QVBoxLayout *lyr = new QVBoxLayout(d2->propertyPaneSpacer);
+        lyr->addStretch(1);
+    }
+    pane->addSection(d2->propertyPaneSpacer, QString());
 }
 
 //----------------

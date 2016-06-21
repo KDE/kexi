@@ -102,6 +102,8 @@ public:
      Reimplemented to mark the query obsolete by using KDbConnection::setQuerySchemaObsolete(). */
     virtual tristate rename(KexiPart::Item *item, const QString& newName);
 
+    void setupPropertyPane(KexiPropertyPaneWidget* pane) Q_DECL_OVERRIDE;
+
 protected:
     virtual KexiWindowData* createWindowData(KexiWindow* window);
 
@@ -114,6 +116,11 @@ protected:
 
     virtual KDbObject* loadSchemaObject(KexiWindow *window,
             const KDbObject& object, Kexi::ViewMode viewMode, bool *ownedByWindow);
+
+    Q_DISABLE_COPY(KexiQueryPart)
+
+    class Private;
+    Private * const d2;
 };
 
 #endif
