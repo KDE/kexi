@@ -352,7 +352,7 @@ KToolBar* KexiMobileMainWindow::toolBar(const QString& name) const
     return 0;
 }
 
-void KexiMobileMainWindow::updatePropertyEditorInfoLabel(const QString& textToDisplayForNullSet)
+void KexiMobileMainWindow::updatePropertyEditorInfoLabel()
 {
 
 }

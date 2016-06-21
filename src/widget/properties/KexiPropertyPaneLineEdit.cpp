@@ -59,3 +59,9 @@ void KexiPropertyPaneLineEdit::focusOutEvent(QFocusEvent *event)
     emit focusOut();
     QLineEdit::focusOutEvent(event);
 }
+
+void KexiPropertyPaneLineEdit::setReadOnly(bool set)
+{
+    QLineEdit::setReadOnly(set);
+    setCursor(QCursor(Qt::IBeamCursor));
+}

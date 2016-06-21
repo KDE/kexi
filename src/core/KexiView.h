@@ -138,6 +138,10 @@ public:
     /*! For KexiQueryView */
     virtual QList<QVariant> currentParameters() const;
 
+    //! @return i18n'd message text to be displayed in the property pane if the current
+    //! property set is @c nullptr.
+    QString textToDisplayForNullSet() const;
+
 public Q_SLOTS:
     virtual void setFocus();
 
@@ -337,6 +341,10 @@ protected:
 
     //! Sets properties in the Property Editor to be sorted if @a set is true.
     void setSortedProperties(bool set);
+
+    /*! Sets i18n'd message text to be displayed in the property pane if the current property set
+     is @c nullptr. By default it is empty, what means "No object selected" is displayed. */
+    void setTextToDisplayForNullSet(const QString& text);
 
 private Q_SLOTS:
     void slotSwitchToViewModeInternal(Kexi::ViewMode mode);

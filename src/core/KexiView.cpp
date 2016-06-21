@@ -200,6 +200,8 @@ public:
     //! Needed because there is another slotSwitchToViewModeInternal() calls if d->window->switchToViewModeInternal(mode)
     //! did not succeed, so for the second time we block this call.
     tristate recentResultOfSwitchToViewModeInternal;
+
+    QString textToDisplayForNullSet;
 private:
     QMenu* m_mainMenu;
 };
@@ -749,6 +751,16 @@ void KexiView::setDefaultIconName(const QString& iconName)
 QList<QVariant> KexiView::currentParameters() const
 {
     return QList<QVariant>();
+}
+
+QString KexiView::textToDisplayForNullSet() const
+{
+    return d->textToDisplayForNullSet;
+}
+
+void KexiView::setTextToDisplayForNullSet(const QString& text)
+{
+    d->textToDisplayForNullSet = text;
 }
 
 #include "KexiView.moc"

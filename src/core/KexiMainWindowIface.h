@@ -308,12 +308,8 @@ public:
 
     /*! Updates info label of the property editor by reusing properties provided
      by the current property set.
-     Read documentation of KexiPropertyPaneWidget class for information about accepted properties.
-     If the current property is 0 and @a textToDisplayForNullSet string is not empty, this string is displayed
-     (without icon or any other additional part).
-     If the current property is 0 and @a textToDisplayForNullSet string is empty, the info label widget becomes
-     hidden. */
-    virtual void updatePropertyEditorInfoLabel(const QString& textToDisplayForNullSet = QString()) = 0;
+     Read documentation of KexiPropertyPaneWidget class for information about accepted properties. */
+    virtual void updatePropertyEditorInfoLabel() = 0;
 
     /*! Add searchable model to the main window. This extends search to a new area.
      One example is Project Navigator. */

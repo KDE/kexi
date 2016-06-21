@@ -194,6 +194,7 @@ KexiQueryDesignerGuiEditor::KexiQueryDesignerGuiEditor(
     d->dataTable->dataAwareObject()->setSpreadSheetMode(true);
 
     d->data = new KDbTableViewData(); //just empty data
+    setTextToDisplayForNullSet(xi18nc("No query column selected in the Query Designer", "No column selected"));
     d->sets = new KexiDataAwarePropertySet(this, d->dataTable->dataAwareObject());
     connect(d->sets, SIGNAL(propertyChanged(KPropertySet&,KProperty&)),
             this, SLOT(slotPropertyChanged(KPropertySet&,KProperty&)));

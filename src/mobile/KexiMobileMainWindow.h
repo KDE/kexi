@@ -74,7 +74,7 @@ public Q_SLOTS:
     virtual void slotObjectRenamed(const KexiPart::Item& item, const QString& oldName);
     virtual tristate switchToViewMode(KexiWindow& window, Kexi::ViewMode viewMode);
     virtual KToolBar* toolBar(const QString& name) const;
-    virtual void updatePropertyEditorInfoLabel(const QString& textToDisplayForNullSet = QString());
+    virtual void updatePropertyEditorInfoLabel();
     virtual KexiUserFeedbackAgent* userFeedbackAgent() const;
     virtual bool userMode() const;
 

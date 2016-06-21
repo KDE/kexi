@@ -22,9 +22,10 @@
 
 #include "kexiextwidgets_export.h"
 
+#include <KPropertyEditorView>
+
 #include <QWidget>
 
-class KPropertySet;
 class KPropertyEditorView;
 
 //! @short A widget handling entire Property Pane
@@ -45,15 +46,37 @@ public:
     //! Used by the main window when pane should be reset.
     void removeAllSections();
 
+    /*! Changes property set to @a set.
+      If @a set is @c nullptr and @a textToDisplayForNullSet string is not empty, this
+      string is displayed (without icon or any other additional part).
+      If not specified, "No object selected" message is used. */
+    void changePropertySet(KPropertySet* set,
+                           const QByteArray& propertyToSelect = QByteArray(),
+                           KPropertyEditorView::SetOptions options = KPropertyEditorView::SetOption::None,
+                           const QString& textToDisplayForNullSet = QString());
+
     /*! Updates info label of the property editor by reusing properties provided
      by the current property set.
-     Read documentation of KexiMainWindow::updatePropertyEditorInfoLabel() for more information. */
-    void updateInfoLabelForPropertySet(KPropertySet* set, const QString& textToDisplayForNullSet);
+
+     Following internal properties in @a set can customize displaying this information:
+     - "this:classString" property of type string describes object's class name
+     - "this:iconName" property of type string describes class' icon, if missing, the icon
+        will be hidden
+     - "objectName" or "caption" property of type string describes object's name
+     - "this:visibleObjectNameProperty" property of type string specified name of property
+        that contains "object name" to display; this can be usable when we know that e.g.
+        "caption" property is available for a given type of objects and is better to use
+        (this is the case for Table Designer fields); if missing, "objectName" property is used
+     - "this:objectNameReadOnly" property of type boolean makes the object name box
+        read-only for the user; false by default
+
+     If object's class and name is empty, the entire info label widget becomes hidden.
+     If @a set is @c nullptr, the property editor (editor()) becomes hidden.
+
+     @see KexiMainWindow::updatePropertyEditorInfoLabel() */
+    void updateInfoLabelForPropertySet(const QString& textToDisplayForNullSet);
 
 protected Q_SLOTS:
-    //! Update information about selected object
-    void slotPropertySetChanged(KPropertySet* set);
-
     //! Possible name change accepted by the user
     void slotObjectNameChangeAccepted();
 

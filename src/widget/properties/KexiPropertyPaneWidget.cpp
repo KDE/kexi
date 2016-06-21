@@ -39,13 +39,14 @@ public:
     KPropertyEditorView *editor;
     //! Needed by removeAllSections()
     int firstSectionIndex;
-    QPointer<KPropertySet> propertySet;
     bool focusObjectNameBoxOnChange;
 
     const char* objectNamePropertyName() const {
-        const bool useCaptionAsObjectName
-            = propertySet->propertyValue("this:useCaptionAsObjectName", false).toBool();
-        return useCaptionAsObjectName ? "caption" : "objectName";
+        if (!editor->propertySet()) {
+            return "objectName";
+        }
+        return editor->propertySet()->propertyValue("this:visibleObjectNameProperty",
+                                                    "objectName").toByteArray().constData();
     }
 };
 
@@ -81,10 +82,7 @@ KexiPropertyPaneWidget::KexiPropertyPaneWidget(QWidget *parent)
     setFocusProxy(d->editor);
     setFocusPolicy(Qt::WheelFocus);
 
-    connect(d->editor, &KPropertyEditorView::propertySetChanged,
-            this, &KexiPropertyPaneWidget::slotPropertySetChanged);
-
-    slotPropertySetChanged(0);
+    changePropertySet(0);
 }
 
 KexiPropertyPaneWidget::~KexiPropertyPaneWidget()
@@ -119,38 +117,44 @@ void KexiPropertyPaneWidget::addSection(QWidget *widget, const QString &title)
     widget->show();
 }
 
-void KexiPropertyPaneWidget::slotPropertySetChanged(KPropertySet* set)
+void KexiPropertyPaneWidget::changePropertySet(KPropertySet* set,
+                                               const QByteArray& propertyToSelect,
+                                               KPropertyEditorView::SetOptions options,
+                                               const QString& textToDisplayForNullSet)
 {
-    d->propertySet = set;
-    updateInfoLabelForPropertySet(set, QString());
+    if (set != d->editor->propertySet()) {
+        slotObjectNameChangeAccepted(); // last chance to update
+        d->editor->changeSet(set, propertyToSelect, options);
+    }
+    updateInfoLabelForPropertySet(textToDisplayForNullSet);
 }
 
-void KexiPropertyPaneWidget::updateInfoLabelForPropertySet(KPropertySet* set,
-                                                   const QString& textToDisplayForNullSet)
+void KexiPropertyPaneWidget::updateInfoLabelForPropertySet(const QString& textToDisplayForNullSet)
 {
+    const KPropertySet* set = d->editor->propertySet();
     QString className, iconName, objectName;
     if (set) {
         className = set->propertyValue("this:classString").toString();
         iconName = set->propertyValue("this:iconName").toString();
-        const bool useCaptionAsObjectName
-            = set->propertyValue("this:useCaptionAsObjectName", false).toBool();
-        d->infoLabel->setObjectNameIsIdentifier(!useCaptionAsObjectName);
-        objectName = set->propertyValue(
-            useCaptionAsObjectName ? "caption" : "objectName").toString();
-        if (objectName.isEmpty() && useCaptionAsObjectName) {
-            // get name if there is no caption
+        const bool useNameAsObjectName = qstrcmp(d->objectNamePropertyName(), "objectName") == 0;
+        d->infoLabel->setObjectNameIsIdentifier(useNameAsObjectName);
+        objectName = set->propertyValue(d->objectNamePropertyName()).toString();
+        if (objectName.isEmpty() && !useNameAsObjectName) {
+            // get name if there is no caption/etc.
             objectName = set->propertyValue("objectName").toString();
         }
-    }
-    if (!set) {
-        className = KDb::iifNotEmpty(textToDisplayForNullSet, xi18n("No field selected"));
+        d->infoLabel->setObjectNameReadOnly(
+            set->propertyValue("this:objectNameReadOnly", false).toBool());
+    } else {
+        className = KDb::iifNotEmpty(textToDisplayForNullSet, xi18n("No object selected"));
         iconName.clear();
     }
+    d->editor->setVisible(set);
 
     if (className.isEmpty() && objectName.isEmpty()) {
         d->infoLabel->hide();
     } else {
-        d->infoLabel->setObjectVisible(set);
+        d->infoLabel->setObjectNameVisible(set);
         d->infoLabel->show();
     }
 
@@ -165,7 +169,7 @@ void KexiPropertyPaneWidget::updateInfoLabelForPropertySet(KPropertySet* set,
     d->infoLabel->setObjectClassName(className);
     if (d->focusObjectNameBoxOnChange) {
         d->focusObjectNameBoxOnChange = false;
-        if (d->propertySet && d->propertySet->propertyValue(d->objectNamePropertyName()).toString() != d->infoLabel->objectName()) {
+        if (set && set->propertyValue(d->objectNamePropertyName()).toString() != d->infoLabel->objectName()) {
             d->infoLabel->focusObjectNameBox();
         }
     }
@@ -177,6 +181,8 @@ void KexiPropertyPaneWidget::updateInfoLabelForPropertySet(KPropertySet* set,
 
 void KexiPropertyPaneWidget::slotObjectNameChangeAccepted()
 {
-    d->propertySet->changeProperty(d->objectNamePropertyName(), d->infoLabel->objectName());
-    d->focusObjectNameBoxOnChange = true;
+    if (d->editor->propertySet()) {
+        d->editor->propertySet()->changeProperty(d->objectNamePropertyName(), d->infoLabel->objectName());
+        d->focusObjectNameBoxOnChange = true;
+    }
 }

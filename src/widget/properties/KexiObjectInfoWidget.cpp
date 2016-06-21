@@ -63,11 +63,13 @@ KexiObjectInfoWidget::KexiObjectInfoWidget(QWidget* parent)
     hlyr->addSpacing(s.sectionTitleIndent);
     d->objectIconLabel = new QLabel;
     d->objectIconLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
+    d->objectIconLabel->setFocusPolicy(Qt::NoFocus);
     hlyr->addWidget(d->objectIconLabel, 3);
 
     d->objectClassLabel = new QLabel;
     d->objectClassLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
     d->objectClassLabel->setPalette(s.sectionTitlePalette(d->objectClassLabel->palette()));
+    d->objectClassLabel->setFocusPolicy(Qt::NoFocus);
     hlyr->addWidget(d->objectClassLabel, 0);
 
     hlyr->addSpacing(s.horizontalSpacingAfterLabel);
@@ -76,9 +78,8 @@ KexiObjectInfoWidget::KexiObjectInfoWidget(QWidget* parent)
     connect(d->objectNameBox, &KexiPropertyPaneLineEdit::enterPressed, this, &KexiObjectInfoWidget::slotObjectNameEnterPressed);
     connect(d->objectNameBox, &KexiPropertyPaneLineEdit::focusOut, this, &KexiObjectInfoWidget::slotObjectNameEnterPressed);
     hlyr->addWidget(d->objectNameBox, 2);
-    d->objectNameBox->setClearButtonEnabled(true);
     d->objectNameBox->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
-    d->objectClassLabel->setBuddy(d->objectNameBox);
+    setObjectNameReadOnly(false);
 
     hlyr->addSpacing(s.margins.right());
 }
@@ -123,7 +124,14 @@ QString KexiObjectInfoWidget::objectName() const
     return d->objectNameBox->text();
 }
 
-void KexiObjectInfoWidget::setObjectVisible(bool set)
+void KexiObjectInfoWidget::setObjectNameReadOnly(bool set)
+{
+    d->objectNameBox->setReadOnly(set);
+    d->objectNameBox->setClearButtonEnabled(!set);
+    d->objectNameBox->setFocusPolicy(set ? Qt::NoFocus : Qt::ClickFocus);
+}
+
+void KexiObjectInfoWidget::setObjectNameVisible(bool set)
 {
     d->objectNameBox->setVisible(set);
 }
@@ -152,6 +160,7 @@ void KexiObjectInfoWidget::setObjectNameIsIdentifier(bool set)
         delete d->objectNameValidator;
         d->objectNameValidator = 0;
     }
+    d->isObjectNameIdentifier = set;
 }
 
 bool KexiObjectInfoWidget::isObjectNameIdentifier() const

@@ -3679,12 +3679,11 @@ void KexiMainWindow::propertySetSwitched(KexiWindow *window, bool force,
                     options |= KPropertyEditorView::SetOption::AlphabeticalOrder;
                 }
 
-                if (propertyToSelect.isEmpty()) {
-                    d->propertyEditor()->changeSet(d->propertySet, options);
-                }
-                else {
-                    d->propertyEditor()->changeSet(d->propertySet, propertyToSelect, options);
-                }
+                d->objectViewWidget->propertyPane()->changePropertySet(
+                            d->propertySet, propertyToSelect, options,
+                            (_currentWindow && _currentWindow->selectedView())
+                                ? _currentWindow->selectedView()->textToDisplayForNullSet()
+                                : QString());
             }
         }
     }
@@ -4290,10 +4289,14 @@ void KexiMainWindow::addToolBarAction(const QString& toolBarName, QAction *actio
         d->tabbedToolBar->addAction(toolBarName, action);
 }
 
-void KexiMainWindow::updatePropertyEditorInfoLabel(const QString& textToDisplayForNullSet)
+void KexiMainWindow::updatePropertyEditorInfoLabel()
 {
-    d->objectViewWidget->propertyPane()->updateInfoLabelForPropertySet(
-                d->propertySet, textToDisplayForNullSet);
+    if (d->objectViewWidget && d->objectViewWidget->propertyPane()) {
+        d->objectViewWidget->propertyPane()->updateInfoLabelForPropertySet(
+            (currentWindow() && currentWindow()->selectedView())
+                    ? currentWindow()->selectedView()->textToDisplayForNullSet()
+                    : QString());
+    }
 }
 
 void KexiMainWindow::beginPropertyPaneUpdate()

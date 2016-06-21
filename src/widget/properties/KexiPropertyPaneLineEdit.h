@@ -33,6 +33,8 @@ public:
     explicit KexiPropertyPaneLineEdit(QWidget* parent = 0);
     virtual ~KexiPropertyPaneLineEdit();
 
+    void setReadOnly(bool set);
+
 Q_SIGNALS:
     void enterPressed();
     void focusOut();

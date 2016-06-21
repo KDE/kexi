@@ -105,6 +105,7 @@ KexiTableDesignerView::KexiTableDesignerView(QWidget *parent)
         , d(new KexiTableDesignerViewPrivate(this))
 {
     setObjectName("KexiTableDesignerView");
+    setTextToDisplayForNullSet(xi18nc("No table field selected in the Table Designer", "No field selected"));
     //needed for custom "identifier" property editor widget
     KexiCustomPropertyFactory::init();
 
@@ -316,8 +317,7 @@ KexiTableDesignerView::createPropertySet(int record, const KDbField& field, bool
             KexiIconName("lineedit") //"table_field"
                                                     ));
     prop->setVisible(false);
-    set->addProperty(prop = new KProperty("this:useCaptionAsObjectName",
-            QVariant(true), QString())); //we want "caption" to be displayed in the header, not name
+    set->addProperty(prop = new KProperty("this:visibleObjectNameProperty", "caption", QString())); //we want "caption" to be displayed in the header, not name
     prop->setVisible(false);
 
     //name
