@@ -79,8 +79,28 @@ KPropertySet *KexiReportDesignView::propertySet()
     return m_reportDesigner->itemPropertySet();
 }
 
+//! Finds or creates property
+static KProperty* findOrCreateProperty(KPropertySet *set, const char *name, const QVariant &value)
+{
+    KProperty *prop;
+    if (set->contains(name)) {
+        prop = &set->property(name);
+        prop->setValue(value);
+    } else {
+        prop = new KProperty(name, value);
+        prop->setVisible(false);
+        set->addProperty(prop);
+    }
+    return prop;
+}
+
 void KexiReportDesignView::slotDesignerPropertySetChanged()
 {
+    KPropertySet *set = propertySet();
+    if (set) {
+        KProperty *prop = findOrCreateProperty(set, "this:visibleObjectNameProperty", "name");
+        Q_UNUSED(prop)
+    }
     propertySetReloaded(true);
     propertySetSwitched();
 }
