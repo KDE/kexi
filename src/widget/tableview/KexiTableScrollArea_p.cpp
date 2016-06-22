@@ -75,13 +75,7 @@ void KexiTableScrollArea::Private::setSpreadSheetMode(bool set)
 
 int KexiTableScrollArea::Private::columnOffset() const
 {
-    const QByteArray s(tv->style()->objectName().toLatin1().toLower());
-    // hardcode, no choice
-    if (s == "breeze" || s == "windows") {
-        return 1;
-    }
-    if (s == "oxygen" || s == "qtcurve" ) {
-        return 2;
-    }
-    return 0;
+    //const QByteArray s(tv->style()->objectName().toLatin1().toLower());
+    // Now in Qt 5 it's enough to just return this. Let's see if this will last forever.
+    return -1;
 }
