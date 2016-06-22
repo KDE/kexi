@@ -755,6 +755,16 @@ void KexiTableScrollArea::paintCell(QPainter* p, KDbRecordData *data, int record
         && !d->appearance.fullRecordSelection)
     {
 //  qDebug() << ">>> CURRENT CELL ("<<m_curColumn<<"," << m_curRecord<<") focus="<<has_focus;
+        QRect focusRect(-1, 0, x2 + 1, y2);
+        if (column == 0) {
+            focusRect.setX(0);
+        }
+        if (column == (columnCount() - 1)) {
+            if ((tableSize().width() - d->horizontalHeader->offset() - 1) >= viewport()->width()) {
+                // move left if this is the last column and it adheres to the right border
+                focusRect.setWidth(focusRect.width() - 1);
+            }
+        }
         if (isEnabled()) {
             p->setPen(d->appearance.textColor);
         } else {
@@ -762,10 +772,12 @@ void KexiTableScrollArea::paintCell(QPainter* p, KDbRecordData *data, int record
             gray_pen.setColor(d->appearance.gridColor);
             p->setPen(gray_pen);
         }
-        if (edit)
-            edit->paintFocusBorders(p, cellValue, 0, 0, x2, y2);
-        else
-            p->drawRect(0, 0, x2, y2);
+        if (edit) {
+            edit->paintFocusBorders(p, cellValue, focusRect.x(), focusRect.y(),
+                                    focusRect.width(), focusRect.height());
+        } else {
+            p->drawRect(focusRect);
+        }
     }
 
     if (   (data == m_insertRecord)
