@@ -241,7 +241,7 @@ macro_log_feature(KReport_WITH_SCRIPTING_FOUND "KReport" "A framework for the cr
 ##
 ## Test for KPropertyWidgets
 ##
-find_package(KPropertyWidgets 2.98.0 REQUIRED)
+find_package(KPropertyWidgets 2.99.0 REQUIRED)
 macro_log_feature(KPropertyWidgets_FOUND "KPropertyWidgets" "A property editing framework with editor widget"
                                   "http://community.kde.org/KProperty" FALSE "" "Required by Kexi")
 
