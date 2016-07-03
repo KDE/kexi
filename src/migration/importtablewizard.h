@@ -81,7 +81,7 @@ Q_OBJECT
         QPushButton* m_importOptionsButton;
         bool m_importComplete;
         bool m_importWasCanceled;
-        unsigned m_rowCount;
+        unsigned m_recordCount;
         bool doImport();
 
         //Page Items
