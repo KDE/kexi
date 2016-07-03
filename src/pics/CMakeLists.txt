@@ -41,7 +41,22 @@ add_custom_target(build_rcc
     VERBATIM
 )
 add_dependencies(build_rcc build_qrc)
-add_dependencies(kexi build_rcc)
 
-install(FILES ${_RESOURCE_DIR}/${_RCC_FILE}
+set(_GLOBAL_RCC_FILE breeze.rcc)
+add_custom_target(fetch_global_breeze_rcc
+    COMMAND ${CMAKE_COMMAND} -D_RCC_MD5_FILE=${CMAKE_CURRENT_SOURCE_DIR}/${_GLOBAL_RCC_FILE}.md5
+            -D_RCC_FILE=${_GLOBAL_RCC_FILE}
+            -P "${CMAKE_CURRENT_SOURCE_DIR}/fetch_global_breeze_rcc.cmake"
+    DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/fetch_global_breeze_rcc.cmake"
+    SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/fetch_global_breeze_rcc.cmake"
+    WORKING_DIRECTORY "${_RESOURCE_DIR}"
+    COMMENT "Fetching global Breeze icons Qt resource ${_RESOURCE_DIR}/${_GLOBAL_RCC_FILE}"
+    VERBATIM
+)
+add_dependencies(fetch_global_breeze_rcc copy_icons)
+
+add_dependencies(kexi build_rcc)
+add_dependencies(kexi fetch_global_breeze_rcc)
+
+install(FILES ${_RESOURCE_DIR}/${_RCC_FILE} ${_RESOURCE_DIR}/${_GLOBAL_RCC_FILE}
         DESTINATION "${ICONS_INSTALL_DIR}")
