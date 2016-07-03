@@ -62,6 +62,8 @@ target_link_libraries(
     Qt5::Gui
     )
 
+generate_export_header(keximigrate)
+
 set_target_properties(keximigrate PROPERTIES VERSION ${GENERIC_KEXI_LIB_VERSION} SOVERSION ${GENERIC_KEXI_LIB_SOVERSION} )
 install(TARGETS keximigrate  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
