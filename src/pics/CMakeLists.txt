@@ -16,6 +16,7 @@ add_custom_target(copy_icons
 add_custom_target(colorize_icons
     COMMAND ${CMAKE_COMMAND} -P colorize.cmake
     DEPENDS "${_FILES}"
+    SOURCES colorize.cmake
     WORKING_DIRECTORY "${_RESOURCE_DIR}"
     COMMENT "Colorizing icons in ${_RESOURCE_DIR}"
     VERBATIM
