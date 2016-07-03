@@ -33,7 +33,8 @@ add_custom_target(build_qrc
 add_dependencies(build_qrc colorize_icons)
 
 add_custom_target(build_rcc
-    COMMAND ${Qt5Core_RCC_EXECUTABLE} --binary --output "${_RCC_FILE}" "${_QRC_FILE}"
+    COMMAND ${Qt5Core_RCC_EXECUTABLE} --compress 9 --threshold 0 --binary
+            --output "${_RCC_FILE}" "${_QRC_FILE}"
     DEPENDS "${_RESOURCE_DIR}/${_QRC_FILE}" "${_FILES}"
     WORKING_DIRECTORY "${_RESOURCE_DIR}"
     COMMENT "Building external Qt resource ${_RESOURCE_DIR}/${_RCC_FILE}"
