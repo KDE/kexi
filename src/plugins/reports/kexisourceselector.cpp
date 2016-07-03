@@ -104,7 +104,7 @@ KexiSourceSelector::~KexiSourceSelector()
     delete d;
 }
 
-void KexiSourceSelector::setConnectionData(QDomElement c)
+void KexiSourceSelector::setConnectionData(const QDomElement &c)
 {
     if (c.attribute("type") == "internal") {
         d->sourceType->setCurrentIndex(d->sourceType->findData("internal"));

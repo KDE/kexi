@@ -341,15 +341,13 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
 {
     Q_UNUSED(mode);
 
-    qDebug();
     if (tempData()->reportSchemaChangedInPreviousView) {
         tempData()->reportSchemaChangedInPreviousView = false;
 
         qDebug() << "Schema changed";
         delete m_preRenderer;
 
-        qDebug() << tempData()->reportDefinition.tagName();
-
+        //qDebug() << tempData()->reportDefinition.tagName();
         m_preRenderer = new KReportPreRenderer(tempData()->reportDefinition);
         if (m_preRenderer->isValid()) {
             KReportData *reportData = 0;
