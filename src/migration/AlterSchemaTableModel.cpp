@@ -23,13 +23,13 @@
 
 #include <QDebug>
 
-#define ROWS_FOR_PREVIEW 3
+#define RECORDS_FOR_PREVIEW 3
 
 AlterSchemaTableModel::AlterSchemaTableModel ( QObject* parent ) : QAbstractTableModel ( parent )
 {
     qDebug();
     m_schema = 0;
-    m_rowCount = ROWS_FOR_PREVIEW;
+    m_recordCount = RECORDS_FOR_PREVIEW;
 }
 
 AlterSchemaTableModel::~AlterSchemaTableModel()
@@ -88,7 +88,7 @@ int AlterSchemaTableModel::columnCount ( const QModelIndex& parent ) const
 int AlterSchemaTableModel::rowCount ( const QModelIndex& parent ) const
 {
     Q_UNUSED(parent);
-    return m_rowCount;
+    return m_recordCount;
 }
 
 void AlterSchemaTableModel::setSchema(KDbTableSchema *ts)
@@ -109,8 +109,8 @@ void AlterSchemaTableModel::setData(const QList<KDbRecordData>& data)
 
 void AlterSchemaTableModel::setRowCount(int i)
 {
-    if (i != m_rowCount) {
-        m_rowCount = i;
+    if (i != m_recordCount) {
+        m_recordCount = i;
         emit layoutChanged();
     }
 }

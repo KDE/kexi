@@ -61,7 +61,7 @@
 
 using namespace KexiMigration;
 
-#define ROWS_FOR_PREVIEW 3
+#define RECORDS_FOR_PREVIEW 3
 
 ImportTableWizard::ImportTableWizard ( KDbConnection* curDB, QWidget* parent, QMap<QString, QString>* args, Qt::WindowFlags flags)
     : KAssistantDialog ( parent, flags ),
@@ -461,7 +461,7 @@ void ImportTableWizard::arriveAlterTablePage()
                                            m_importTableName));
     }
     QList<KDbRecordData> data;
-    for (int i = 0; i < ROWS_FOR_PREVIEW; ++i) {
+    for (int i = 0; i < RECORDS_FOR_PREVIEW; ++i) {
         KDbRecordData row;
         row.resize(ts->fieldCount());
         for (int j = 0; j < ts->fieldCount(); ++j) {
