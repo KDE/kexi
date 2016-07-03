@@ -101,11 +101,11 @@ KexiCSVExportWizard::KexiCSVExportWizard(const KexiCSVExport::Options& options,
     }
 
     QString text = "\n" + captionOrName;
-    int m_rowCount = KDb::recordCount(m_tableOrQuery);
+    int m_recordCount = KDb::recordCount(m_tableOrQuery);
     int columns = KDb::fieldCount(m_tableOrQuery);
     text += "\n";
-    if (m_rowCount > 0)
-        text += xi18n("(rows: %1, columns: %2)", m_rowCount, columns);
+    if (m_recordCount > 0)
+        text += xi18n("(rows: %1, columns: %2)", m_recordCount, columns);
     else
         text += xi18n("(columns: %1)", columns);
     infoLblFromText.append(text);

@@ -154,7 +154,7 @@ private:
     QTreeView *m_fieldsListView;
     QLabel *m_tableCaptionLabel;
     QLabel *m_tableNameLabel;
-    QLabel *m_rowCountLabel;
+    QLabel *m_recordCountLabel;
     QLabel *m_colCountLabel;
 
     QWidget *m_importWidget;

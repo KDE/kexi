@@ -474,7 +474,7 @@ void KexiCSVImportDialog::slotShowSchema(KexiPart::Item *item)
             );
     m_tableCaptionLabel->setText(tableOrQuery->captionOrName());
     m_tableNameLabel->setText(tableOrQuery->name());
-    m_rowCountLabel->setText(QString::number(KDb::recordCount(tableOrQuery)));
+    m_recordCountLabel->setText(QString::number(KDb::recordCount(tableOrQuery)));
     m_colCountLabel->setText(QString::number(tableOrQuery->fieldCount()));
 
     delete m_fieldsListModel;
@@ -761,7 +761,7 @@ void KexiCSVImportDialog::createTableNamePage()
 
     m_tableNameLabel = new QLabel(tableDetailsWidget);
     m_tableCaptionLabel = new QLabel(tableDetailsWidget);
-    m_rowCountLabel = new QLabel(tableDetailsWidget);
+    m_recordCountLabel = new QLabel(tableDetailsWidget);
     m_colCountLabel = new QLabel(tableDetailsWidget);
 
     QGridLayout *gridLayout = new QGridLayout(tableDetailsWidget);
@@ -770,7 +770,7 @@ void KexiCSVImportDialog::createTableNamePage()
     gridLayout->addWidget(nameLbl, 1, 0);
     gridLayout->addWidget(m_tableNameLabel, 1, 1);
     gridLayout->addWidget(rowCntLbl, 2, 0);
-    gridLayout->addWidget(m_rowCountLabel, 2, 1);
+    gridLayout->addWidget(m_recordCountLabel, 2, 1);
     gridLayout->addWidget(colCntLbl, 3, 0);
     gridLayout->addWidget(m_colCountLabel, 3, 1);
 
