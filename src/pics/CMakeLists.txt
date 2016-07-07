@@ -51,7 +51,6 @@ add_custom_target(fetch_global_breeze_rcc
             -P "${CMAKE_CURRENT_SOURCE_DIR}/fetch_global_breeze_rcc.cmake"
     DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/fetch_global_breeze_rcc.cmake"
     SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/fetch_global_breeze_rcc.cmake"
-    WORKING_DIRECTORY "${_GLOBAL_RESOURCE_DIR}"
     COMMENT "Fetching global Breeze icons Qt resource ${_GLOBAL_RCC_FILE}, version ${_GLOBAL_RCC_FILE_VERSION}"
     VERBATIM
 )
