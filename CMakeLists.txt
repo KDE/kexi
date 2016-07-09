@@ -237,8 +237,6 @@ if (KReport_FOUND)
         message(FATAL_ERROR "Kexi requires KReport package with scripting support enabled (KREPORT_SCRIPTING)")
     endif()
 endif()
-macro_log_feature(KReport_WITH_SCRIPTING_FOUND "KReport" "A framework for the creation and generation of reports in multiple formats (scripting support required)"
-                                               "http://community.kde.org/KReport" FALSE "" "Required by Kexi reports")
 
 ##
 ## Test for KPropertyWidgets
