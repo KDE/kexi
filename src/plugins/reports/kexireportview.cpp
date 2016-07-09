@@ -364,13 +364,14 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
 //            }
 //            m_preRenderer->registerScriptObject(m_kexi, "Kexi");
             //If using a kexidb source, add a functions scripting object
-            if (!m_functions && tempData()->connectionDefinition.attribute("type") == "internal") {
+            if (tempData()->connectionDefinition.attribute("type") == "internal") {
                 m_functions = new KRScriptFunctions(reportData, KexiMainWindowIface::global()->project()->dbConnection());
+            
                 m_preRenderer->registerScriptObject(m_functions, "field");
                 connect(m_preRenderer, SIGNAL(groupChanged(QMap<QString, QVariant>)),
                         m_functions, SLOT(setGroupData(QMap<QString, QVariant>)));
             }
-
+            
             if (!m_preRenderer->generateDocument()) {
                 qWarning() << "Could not generate report document";
                 return false;
