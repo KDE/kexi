@@ -171,7 +171,7 @@ bool KexiTableDesignerViewPrivate::updatePropertiesVisibility(KDbField::Type fie
     setVisibilityIfNeeded(set, prop,  visible, &changed, commandGroup);
 
     prop = &set["unsigned"];
-    visible = KDbField::isNumericType(fieldType);
+    visible = KDbField::isIntegerType(fieldType);
     setVisibilityIfNeeded(set, prop, visible, &changed, commandGroup);
 
     prop = &set["maxLength"];
