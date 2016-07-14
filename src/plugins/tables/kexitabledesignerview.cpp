@@ -1100,8 +1100,9 @@ void KexiTableDesignerView::slotAboutToDeleteRecord(
 KDbField * KexiTableDesignerView::buildField(const KPropertySet &set) const
 {
     //create a map of property values
-    qDebug() << set["type"].value();
+    const KDbField::Type type = KDb::intToFieldType(set["type"].value().toInt());
     QMap<QByteArray, QVariant> values(set.propertyValues());
+    //qDebug() << values;
     //remove internal values, to avoid creating custom field's properties
     KDbField *field = new KDbField();
 
@@ -1110,8 +1111,11 @@ KDbField * KexiTableDesignerView::buildField(const KPropertySet &set) const
         const QByteArray propName(it.key());
         if (d->internalPropertyNames.contains(propName)
                 || propName.startsWith("this:")
-                || (/*sanity*/propName == "objectType"
-                    && KDbField::BLOB != KDb::intToFieldType(set["type"].value().toInt()))
+                || (/*sanity*/propName == "objectType" && type != KDbField::BLOB)
+                || (propName == "unsigned" && !KDbField::isIntegerType(type))
+                || (propName == "maxLength" && type != KDbField::Text)
+                || (propName == "precision" && !KDbField::isFPNumericType(type))
+                || (propName == "scale" && !KDbField::isFPNumericType(type))
            )
         {
             it.remove();
