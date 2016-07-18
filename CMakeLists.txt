@@ -158,7 +158,7 @@ include(MacroBoolTo01)
 include(MacroLogFeature)
 include(MacroEnsureVersion)
 
-set(REQUIRED_KF5_VERSION 5.7.0)
+set(REQUIRED_KF5_VERSION 5.16.0)
 find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS
         Archive 
         Codecs 
@@ -226,7 +226,7 @@ endif ()
 ##
 ## Test for KDb
 ##
-find_package(KDb 2.96.3 REQUIRED)
+find_package(KDb 2.96.4 REQUIRED)
 macro_log_feature(KDb_FOUND "KDb" "A database connectivity and creation framework"
                             "http://community.kde.org/KDb" FALSE "" "Required by Kexi and its plugins")
 
