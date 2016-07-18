@@ -486,11 +486,12 @@ bool KexiUtils::loadPixmapFromData(QPixmap *pixmap, const QByteArray &data, cons
     }
     const QList<QByteArray> commonFormats({"png", "jpg", "bmp", "tif"});
     QList<QByteArray> formats(commonFormats);
-    for(int i=0; ; ++i) {
+    for(int i=0; ;) {
         ok = pixmap->loadFromData(data, formats[i]);
         if (ok) {
             return true;
         }
+        ++i;
         if (i == formats.count()) {// try harder
             if (i == commonFormats.count()) {
                 formats += QImageReader::supportedImageFormats();
