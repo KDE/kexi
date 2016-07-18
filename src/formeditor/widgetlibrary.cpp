@@ -142,13 +142,13 @@ private:
         foreach(const QPluginLoader *loader, offers) {
             QScopedPointer<KexiFormWidgetsPluginMetaData> metaData(new KexiFormWidgetsPluginMetaData(*loader));
             if (metaData->id().isEmpty()) {
-                qWarning() << "No plugin ID (X-KDE-PluginInfo-Name) specified for Kexi Form Widgets plugin"
+                qWarning() << "No plugin ID specified for Kexi Form Widgets plugin"
                            << metaData->fileName() << "-- skipping!";
                 continue;
             }
             // check version
             if (metaData->majorVersion() != KFormDesigner::version()) {
-                qWarning() << "Kexi Form Widgets plugin" << metaData->id() << "has version (X-KDE-PluginInfo-Version)"
+                qWarning() << "Kexi Form Widgets plugin" << metaData->id() << "has version"
                            << metaData->majorVersion() << "but required version is" << KFormDesigner::version()
                            << "-- skipping!";
                 continue;
@@ -232,7 +232,7 @@ private:
     WidgetFactory *loadFactory(KexiFormWidgetsPluginMetaData *pluginMetaData) {
         KPluginFactory *factory = qobject_cast<KPluginFactory*>(pluginMetaData->instantiate());
         if (!factory) {
-            q->m_result = KDbResult(ERR_OBJECT_NOT_FOUND,
+            q->m_result = KDbResult(ERR_CANNOT_LOAD_OBJECT,
                                     xi18nc("@info", "Could not load Kexi Form Widgets plugin file \"%1\".",
                                     pluginMetaData->fileName()));
             q->setErrorMessage(pluginMetaData, q->result().message());
