@@ -275,7 +275,7 @@ void KexiConnectionSelectorWidget::showSimpleConn()
         }
     }
     d->stack->setCurrentWidget(fileWidget);
-    connect(fileWidget->locationEdit(), SIGNAL(editTextChanged()), this, SLOT(slotConnectionSelected()));
+    connect(fileWidget, SIGNAL(fileHighlighted()), this, SLOT(slotConnectionSelected()));
 }
 
 KexiConnectionSelectorWidget::ConnectionType KexiConnectionSelectorWidget::selectedConnectionType() const
