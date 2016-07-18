@@ -333,7 +333,6 @@ endif()
 
 calligra_drop_product_on_bad_condition( APP_KEXI
     KDb_FOUND "KDb not found"
-    KReport_WITH_SCRIPTING_FOUND "KReport with scripting support not found"
     KPropertyWidgets_FOUND "KPropertyWidgets not found"
     Qt5UiTools_FOUND "Qt5UiTools not found"
 )
