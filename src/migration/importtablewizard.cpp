@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2009 Adam Pigg <adam@piggz.co.uk>
-   Copyright (C) 2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2014-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -70,7 +70,6 @@ ImportTableWizard::ImportTableWizard ( KDbConnection* curDB, QWidget* parent, QM
     m_connection = curDB;
     m_migrateDriver = 0;
     m_prjSet = 0;
-    m_migrateManager = new MigrateManager();
     m_importComplete = false;
     m_importWasCanceled = false;
 
@@ -93,11 +92,10 @@ ImportTableWizard::ImportTableWizard ( KDbConnection* curDB, QWidget* parent, QM
 }
 
 
-ImportTableWizard::~ImportTableWizard() {
-  delete m_migrateManager;
-  delete m_prjSet;
-  delete m_srcConnSel;
-
+ImportTableWizard::~ImportTableWizard()
+{
+    delete m_prjSet;
+    delete m_srcConnSel;
 }
 
 void ImportTableWizard::back() {
@@ -385,7 +383,7 @@ void ImportTableWizard::arriveTableSelectPage(KPageWidgetItem *prevPage)
         Kexi::ObjectStatus result;
         KexiUtils::WaitCursor wait;
         m_tableListWidget->clear();
-        m_migrateDriver = prepareImport(result);
+        m_migrateDriver = prepareImport(&result);
 
         if (m_migrateDriver) {
             if (!m_migrateDriver->connectSource()) {
@@ -460,15 +458,14 @@ void ImportTableWizard::arriveAlterTablePage()
         KMessageBox::information(this,xi18n("No data has been found in table <resource>%1</resource>. Select different table or cancel importing.",
                                            m_importTableName));
     }
-    QList<KDbRecordData> data;
+    QList<KDbRecordData*> data;
     for (int i = 0; i < RECORDS_FOR_PREVIEW; ++i) {
-        KDbRecordData row;
-        row.resize(ts->fieldCount());
+        KDbRecordData *row = new KDbRecordData(ts->fieldCount());
         for (int j = 0; j < ts->fieldCount(); ++j) {
-            row[j] = m_migrateDriver->value(j);
+            (*row)[j] = m_migrateDriver->value(j);
         }
         data.append(row);
-        if (!m_migrateDriver->moveNext()) { // rowCount < 3 (3 is default)
+        if (!m_migrateDriver->moveNext()) {
             m_alterSchemaWidget->model()->setRowCount(i+1);
             break;
         }
@@ -503,7 +500,7 @@ void ImportTableWizard::arriveImportingPage()
     bool showOptions = false;
     if (fileBasedSrcSelected()) {
         Kexi::ObjectStatus result;
-        KexiMigrate* sourceDriver = prepareImport(result);
+        KexiMigrate* sourceDriver = prepareImport(&result);
         if (sourceDriver) {
             showOptions = !result.error()
             && sourceDriver->propertyValue("source_database_has_nonunicode_encoding").toBool();
@@ -524,19 +521,18 @@ void ImportTableWizard::arriveProgressPage()
 {
     m_progressLbl->setText(xi18nc("@info", "Please wait while the table is imported."));
 
-    //! @todo KEXI3 user1Button->setEnabled(false);
-    //! @todo KEXI3 user2Button->setEnabled(false);
-    //! @todo KEXI3 user3Button->setEnabled(false);
+    backButton()->setEnabled(false);
+    nextButton()->setEnabled(false);
 
-    connect(buttonBox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()),
-            this, SLOT(slotCancelClicked()));
+    connect(button(QDialogButtonBox::Cancel), &QPushButton::clicked,
+            this, &ImportTableWizard::slotCancelClicked);
 
     QApplication::setOverrideCursor(Qt::BusyCursor);
     m_importComplete = doImport();
     QApplication::restoreOverrideCursor();
 
-    disconnect(buttonBox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()),
-               this, SLOT(slotCancelClicked()));
+    disconnect(button(QDialogButtonBox::Cancel), &QPushButton::clicked,
+               this, &ImportTableWizard::slotCancelClicked);
 
     next();
 }
@@ -552,9 +548,7 @@ void ImportTableWizard::arriveFinishPage()
                                   m_alterSchemaWidget->nameWidget()->nameText()));
     }
 
-    //! @todo KEXI3 user2Button->setEnabled(false);
-    //! @todo KEXI3 user3Button->setEnabled(false);
-    buttonBox->button(QDialogButtonBox::Cancel)->setEnabled(false);
+    button(QDialogButtonBox::Cancel)->setEnabled(false);
 }
 
 bool ImportTableWizard::fileBasedSrcSelected() const
@@ -562,29 +556,27 @@ bool ImportTableWizard::fileBasedSrcSelected() const
     return m_srcConnSel->selectedConnectionType() == KexiConnectionSelectorWidget::FileBased;
 }
 
-KexiMigrate* ImportTableWizard::prepareImport(Kexi::ObjectStatus& result)
+KexiMigrate* ImportTableWizard::prepareImport(Kexi::ObjectStatus *result)
 {
     // Find a source (migration) driver name
-    QString sourceDriverName;
-
-    sourceDriverName = driverNameForSelectedSource();
-    if (sourceDriverName.isEmpty())
-        result.setStatus(xi18n("No appropriate migration driver found."),
-                            m_migrateManager->possibleProblemsMessage());
-
+    QString sourceDriverId = driverIdForSelectedSource();
+    if (sourceDriverId.isEmpty()) {
+        result->setStatus(xi18n("No appropriate migration driver found."),
+                            m_migrateManager.possibleProblemsMessage());
+    }
 
     // Get a source (migration) driver
     KexiMigrate* sourceDriver = 0;
-    if (!result.error()) {
-        sourceDriver = m_migrateManager->driver(sourceDriverName);
-        if (!sourceDriver || m_migrateManager->error()) {
+    if (!result->error()) {
+        sourceDriver = m_migrateManager.driver(sourceDriverId);
+        if (!sourceDriver || m_migrateManager.result().isError()) {
             qDebug() << "Import migrate driver error...";
-            result.setStatus(m_migrateManager);
+            result->setStatus(m_migrateManager.resultable());
         }
     }
 
     // Set up source (migration) data required for connection
-    if (sourceDriver && !result.error()) {
+    if (sourceDriver && !result->error()) {
         #if 0
         // Setup progress feedback for the GUI
         if (sourceDriver->progressSupported()) {
@@ -616,7 +608,7 @@ KexiMigrate* ImportTableWizard::prepareImport(Kexi::ObjectStatus& result)
 
         if (fileBasedSrcSelected()) {
             KDbConnectionData* conn_data = new KDbConnectionData();
-            conn_data->setFileName(m_srcConnSel->selectedFileName());
+            conn_data->setDatabaseName(m_srcConnSel->selectedFileName());
             md->source = conn_data;
             md->sourceName.clear();
         } else {
@@ -635,7 +627,7 @@ KexiMigrate* ImportTableWizard::prepareImport(Kexi::ObjectStatus& result)
 
 //===========================================================
 //
-QString ImportTableWizard::driverNameForSelectedSource()
+QString ImportTableWizard::driverIdForSelectedSource()
 {
     if (fileBasedSrcSelected()) {
         QMimeDatabase db;
@@ -645,12 +637,17 @@ QString ImportTableWizard::driverNameForSelectedSource()
             || mime.name() == "text/plain")
         {
             //try by URL:
-            mime = db.mimeTypeForUrl(m_srcConnSel->selectedFileName());
+            mime = db.mimeTypeForFile(m_srcConnSel->selectedFileName());
         }
-        return mime.isValid() ? m_migrateManager->driverForMimeType(mime.name()) : QString();
+        if (!mime.isValid()) {
+            return QString();
+        }
+        const QStringList ids(m_migrateManager.driverIdsForMimeType(mime.name()));
+        //! @todo do we want to return first migrate driver for the mime type or allow to select it?
+        return ids.isEmpty() ? QString() : ids.first();
     }
-
-    return m_srcConnSel->selectedConnectionData() ? m_srcConnSel->selectedConnectionData()->driverName : QString();
+    return m_srcConnSel->selectedConnectionData()
+           ? m_srcConnSel->selectedConnectionData()->databaseName() : QString();
 }
 
 bool ImportTableWizard::doImport()
@@ -659,19 +656,19 @@ bool ImportTableWizard::doImport()
 
     KexiProject* project = KexiMainWindowIface::global()->project();
     if (!project) {
-        msg.showErrorMessage(xi18n("No project available."));
+        msg.showErrorMessage(KDbMessageHandler::Error, xi18n("No project available."));
         return false;
     }
 
     KexiPart::Part *part = Kexi::partManager().partForPluginId("org.kexi-project.table");
     if (!part) {
-        msg.showErrorMessage(&Kexi::partManager());
+        msg.showErrorMessage(Kexi::partManager().result());
         return false;
     }
 
     KDbTableSchema* newSchema = m_alterSchemaWidget->newSchema();
     if (!newSchema) {
-        msg.showErrorMessage(xi18n("No table was selected to import."));
+        msg.showErrorMessage(KDbMessageHandler::Error, xi18n("No table was selected to import."));
         return false;
     }
     newSchema->setName(m_alterSchemaWidget->nameWidget()->nameText());
@@ -679,14 +676,15 @@ bool ImportTableWizard::doImport()
 
     KexiPart::Item* partItemForSavedTable = project->createPartItem(part->info(), newSchema->name());
     if (!partItemForSavedTable) {
-        msg.showErrorMessage(project);
+        msg.showErrorMessage(project->result());
         return false;
     }
 
     //Create the table
     if (!m_connection->createTable(newSchema, true)) {
-        msg.showErrorMessage(xi18n("Unable to create table <resource>%1</resource>.",
-                                  newSchema->name()));
+        msg.showErrorMessage(KDbMessageHandler::Error,
+                             xi18n("Unable to create table <resource>%1</resource>.",
+                                   newSchema->name()));
         return false;
     }
     m_alterSchemaWidget->takeTableSchema(); //m_connection takes ownership of the KDbTableSchema object
@@ -697,7 +695,7 @@ bool ImportTableWizard::doImport()
     unsigned int fieldCount = newSchema->fieldCount();
     m_migrateDriver->moveFirst();
     KDbTransactionGuard tg(m_connection);
-    if (m_connection->error()) {
+    if (m_connection->result().isError()) {
         QApplication::restoreOverrideCursor();
         return false;
     }
@@ -711,7 +709,7 @@ bool ImportTableWizard::doImport()
             }
             row.append(m_migrateDriver->value(i));
         }
-        m_connection->insertRecord(*newSchema, row);
+        m_connection->insertRecord(newSchema, row);
         row.clear();
     } while (m_migrateDriver->moveNext());
     if (!tg.commit()) {

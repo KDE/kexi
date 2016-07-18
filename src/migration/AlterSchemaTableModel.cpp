@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2009 Adam Pigg <adam@piggz.co.uk>
-   Copyright (C) 2009 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2009-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -23,21 +23,20 @@
 
 #include <QDebug>
 
-#define RECORDS_FOR_PREVIEW 3
+const int RECORDS_FOR_PREVIEW = 3;
 
-AlterSchemaTableModel::AlterSchemaTableModel ( QObject* parent ) : QAbstractTableModel ( parent )
+AlterSchemaTableModel::AlterSchemaTableModel(QObject* parent)
+    : QAbstractTableModel(parent)
+    , m_schema(0)
+    , m_recordCount(RECORDS_FOR_PREVIEW)
 {
-    qDebug();
-    m_schema = 0;
-    m_recordCount = RECORDS_FOR_PREVIEW;
 }
 
 AlterSchemaTableModel::~AlterSchemaTableModel()
 {
-    qDebug();
 }
 
-QVariant AlterSchemaTableModel::data ( const QModelIndex& index, int role ) const
+QVariant AlterSchemaTableModel::data(const QModelIndex& index, int role) const
 {
     if (!index.isValid())
         return QVariant();
@@ -47,17 +46,11 @@ QVariant AlterSchemaTableModel::data ( const QModelIndex& index, int role ) cons
 
     if (role == Qt::DisplayRole) {
         if (m_data.length() > index.row()) {
-            const KDbRecordData r( m_data[index.row()] );
-            if (r.size() <= index.column())
-                return QVariant();
-            return r[index.column()];
-        }
-        else {
-            return QVariant();
+            const KDbRecordData* r(m_data.value(index.row()));
+            return r->value(index.column());
         }
     }
-    else
-        return QVariant();
+    return QVariant();
 }
 
 QVariant AlterSchemaTableModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -85,24 +78,25 @@ int AlterSchemaTableModel::columnCount ( const QModelIndex& parent ) const
     return 0;
 }
 
-int AlterSchemaTableModel::rowCount ( const QModelIndex& parent ) const
+int AlterSchemaTableModel::rowCount(const QModelIndex& parent) const
 {
     Q_UNUSED(parent);
     return m_recordCount;
 }
 
-void AlterSchemaTableModel::setSchema(KDbTableSchema *ts)
+void AlterSchemaTableModel::setSchema(KDbTableSchema *schema)
 {
-    m_schema = ts;
-    qDebug() << m_schema->fieldCount();
-
+    m_schema = schema;
+    if (!m_schema) {
+        return;
+    }
     beginInsertColumns(QModelIndex(), 0, m_schema->fieldCount() - 1);
     endInsertColumns();
 
     emit layoutChanged();
 }
 
-void AlterSchemaTableModel::setData(const QList<KDbRecordData>& data)
+void AlterSchemaTableModel::setData(const QList<KDbRecordData*>& data)
 {
     m_data = data;
 }

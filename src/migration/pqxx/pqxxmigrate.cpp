@@ -19,7 +19,7 @@
 */
 
 #include "pqxxmigrate.h"
-#include <migration/keximigrate_p.h>
+#include <kexi.h>
 
 #ifndef _MSC_VER
 #  define _MSC_VER 0 // avoid warning in server/c.h
@@ -52,7 +52,7 @@ to compile, let alone work.  This is meant as an example of
 what the system might be and is a work in progress
 */
 
-K_EXPORT_KEXIMIGRATE_DRIVER(PqxxMigrate, pqxx)
+KEXI_PLUGIN_FACTORY(PqxxMigrate, "keximigrate_postgresql.json")
 
 //==================================================================================
 

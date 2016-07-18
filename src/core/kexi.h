@@ -92,7 +92,7 @@ public:
 
     ObjectStatus(const QString& message, const QString& description);
 
-    ObjectStatus(KDbResultable* resultable, const QString& message, const QString& description);
+    ObjectStatus(const KDbResultable* resultable, const QString& message, const QString& description);
 
     ~ObjectStatus();
 
@@ -104,13 +104,13 @@ public:
 
     //! Note: for safety, \a dbObject needs to be derived from QObject,
     //! otherwise it won't be assigned
-    void setStatus(KDbResultable* resultable,
+    void setStatus(const KDbResultable* resultable,
                    const QString& message = QString(), const QString& description = QString());
 
     void setStatus(KDbResultInfo* resultInfo,
                    const QString& message = QString(), const QString& description = QString());
 
-    void setStatus(KDbResultable* resultable, KDbResultInfo* resultInfo,
+    void setStatus(const KDbResultable* resultable, KDbResultInfo* resultInfo,
                    const QString& message = QString(), const QString& description = QString());
 
     void setStatus(const KDbResult& result, KDbResultInfo* resultInfo,
@@ -122,7 +122,7 @@ public:
 
     void append(const ObjectStatus& otherStatus);
 
-    KDbResultable* resultable() const { return m_resultable; }
+    const KDbResultable* resultable() const { return m_resultable; }
 
     //! Helper returning pseudo handler that just updates this ObjectStatus object
     //! by receiving a message
@@ -130,7 +130,7 @@ public:
 
     QString message, description;
 protected:
-    KDbResultable* m_resultable;
+    const KDbResultable* m_resultable;
     KDbMessageHandler* m_msgHandler;
 };
 

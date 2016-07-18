@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2004 Adam Pigg <adam@piggz.co.uk>
-   Copyright (C) 2004-2012 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2005 Martin Ellis <martin.ellis@kdemail.net>
 
    This program is free software; you can redistribute it and/or
@@ -25,6 +25,7 @@
 
 #include <KDb>
 #include <KDbDriverManager>
+#include <KDbDriverMetaData>
 #include <KDbUtils>
 
 #include <QDebug>
@@ -36,7 +37,8 @@ class KexiMigrate::Private
 {
 public:
     Private()
-      : migrateData(0)
+      : metaData(0)
+      , migrateData(0)
       , destPrj(0)
     {
     }
@@ -49,7 +51,9 @@ public:
         delete migrateData;
     }
 
-    /* protected */
+    //! Info about the driver's plugin
+    const KexiMigratePluginMetaData *metaData;
+
     //! @todo Remove this! KexiMigrate should be usable for multiple concurrent migrations!
     //! Migrate Options
     KexiMigration::Data* migrateData;
@@ -89,6 +93,7 @@ public:
 
 KexiMigrate::KexiMigrate(QObject *parent, const QVariantList&)
         : QObject(parent)
+        , KDbResultable()
         , d(new Private)
 {
 }
@@ -117,6 +122,17 @@ KexiMigrate::~KexiMigrate()
     delete d;
 }
 
+const KexiMigratePluginMetaData* KexiMigrate::metaData() const
+{
+    return d->metaData;
+}
+
+void KexiMigrate::setMetaData(const KexiMigratePluginMetaData *metaData)
+{
+    d->metaData = metaData;
+    //! @todo KEXI3 d->initInternalProperties();
+}
+
 bool KexiMigrate::checkIfDestinationDatabaseOverwritingNeedsAccepting(Kexi::ObjectStatus* result,
         bool *acceptingNeeded)
 {
@@ -127,9 +143,9 @@ bool KexiMigrate::checkIfDestinationDatabaseOverwritingNeedsAccepting(Kexi::Obje
 
     KDbDriverManager drvManager;
     KDbDriver *destDriver = drvManager.driver(
-                                     d->migrateData->destination->connectionData()->driverName);
+                                d->migrateData->destination->connectionData()->driverId());
     if (!destDriver) {
-        result->setStatus(&drvManager,
+        result->setStatus(drvManager.resultable(),
                           xi18n("Could not create database \"%1\".",
                                d->migrateData->destination->databaseName()));
         return false;
@@ -137,20 +153,19 @@ bool KexiMigrate::checkIfDestinationDatabaseOverwritingNeedsAccepting(Kexi::Obje
 
     // For file-based dest. projects, we've already asked about overwriting
     // existing project but for server-based projects we need to ask now.
-    if (destDriver->isFileDriver())
+    if (destDriver->metaData()->isFileBased()) {
         return true; //nothing to check
-    KDbConnection *tmpConn
-        = destDriver->createConnection(*d->migrateData->destination->connectionData());
-    if (!tmpConn || destDriver->error() || !tmpConn->connect()) {
+    }
+    QScopedPointer<KDbConnection> tmpConn(
+        destDriver->createConnection(*d->migrateData->destination->connectionData()));
+    if (!tmpConn || destDriver->result().isError() || !tmpConn->connect()) {
         m_result = destDriver->result();
-        delete tmpConn;
         return true;
     }
     if (tmpConn->databaseExists(d->migrateData->destination->databaseName())) {
         *acceptingNeeded = true;
     }
     tmpConn->disconnect();
-    delete tmpConn;
     return true;
 }
 
@@ -158,15 +173,12 @@ bool KexiMigrate::isSourceAndDestinationDataSourceTheSame() const
 {
     KDbConnectionData* sourcedata = d->migrateData->source;
     KDbConnectionData* destinationdata = d->migrateData->destination->connectionData();
-    return (
-               sourcedata && destinationdata &&
-               d->migrateData->sourceName == d->migrateData->destination->databaseName() && // same database name
-               sourcedata->driverName == destinationdata->driverName && // same driver
-               sourcedata->hostName == destinationdata->hostName && // same host
-               sourcedata->fileName() == destinationdata->fileName() && // same filename
-               sourcedata->dbPath() == destinationdata->dbPath() && // same database path
-               sourcedata->databaseName() == destinationdata->databaseName() // same database filename
-           );
+    return
+        sourcedata && destinationdata &&
+        d->migrateData->sourceName == d->migrateData->destination->databaseName() && // same database name
+        sourcedata->driverId() == destinationdata->driverId()&& // same driver
+        sourcedata->hostName() == destinationdata->hostName() && // same host
+        sourcedata->databaseName() == destinationdata->databaseName(); // same database name/filename
 }
 
 //=============================================================================
@@ -178,9 +190,9 @@ bool KexiMigrate::performImport(Kexi::ObjectStatus* result)
 
     KDbDriverManager drvManager;
     KDbDriver *destDriver = drvManager.driver(
-                                     d->migrateData->destination->connectionData()->driverName);
+                                     d->migrateData->destination->connectionData()->driverId());
     if (!destDriver) {
-        result->setStatus(&drvManager,
+        result->setStatus(drvManager.resultable(),
                           xi18n("Could not create database \"%1\".",
                                d->migrateData->destination->databaseName()));
         return false;
@@ -223,7 +235,7 @@ bool KexiMigrate::performImport(Kexi::ObjectStatus* result)
     tables.sort();
     d->tableSchemas.clear();
     if (!destDriver) {
-        result->setStatus(&drvManager);
+        result->setStatus(drvManager.resultable());
         return false;
     }
     const bool kexi__objects_exists = tables.contains("kexi__objects");
@@ -358,8 +370,8 @@ bool KexiMigrate::performImport(Kexi::ObjectStatus* result)
         foreach(KDbTableSchema* ts, d->tableSchemas) {
             ok = destConn->createTable(ts);
             if (!ok) {
-                qDebug() << "Failed to create a table " << ts->name();
-                destConn->debugError();
+                qWarning() << "Failed to create a table " << ts->name();
+                qWarning() << destConn->result();
                 if (result)
                     result->setStatus(destConn,
                                       xi18n("Could not create database \"%1\".",
@@ -386,7 +398,7 @@ bool KexiMigrate::performImport(Kexi::ObjectStatus* result)
     }
 
     if (ok) {
-        if (d->destPrj->error()) {
+        if (d->destPrj->result().isError()) {
             ok = false;
             if (result)
                 result->setStatus(d->destPrj,
@@ -468,7 +480,7 @@ bool KexiMigrate::performImport(Kexi::ObjectStatus* result)
                           xi18n("Could not import data from data source \"%1\".",
                                d->migrateData->source->toUserVisibleString()));
     if (destConn) {
-        destConn->debugError();
+        qWarning() << destConn->result();
         destConn->rollbackTransaction(trans);
     }
     drv_disconnect();
@@ -546,7 +558,7 @@ KDbField::Type KexiMigrate::userType(const QString& fname)
     const QStringList typeNames(KDbField::typeNames());
     bool ok;
     const QString res
-        = QInputDialog::getItem(this, xi18nc("@title:window", "Field Type"),
+        = QInputDialog::getItem(nullptr, xi18nc("@title:window", "Field Type"),
             xi18n("The data type for field <resource>%1</resource> could not be determined. "
                   "Please select one of the following data types.", fname),
             typeNames, 0, false/* !editable */, &ok);
@@ -700,8 +712,8 @@ QVariant KexiMigrate::value(int i)
 
 //------------------------
 
-DatabaseVersionInfo KexiMigration::version()
+KDbVersionInfo KexiMigration::version()
 {
-    return KEXI_MIGRATION_VERSION;
+    return KDbVersionInfo(KEXI_MIGRATION_VERSION_MAJOR, KEXI_MIGRATION_VERSION_MINOR, 0);
 }
 

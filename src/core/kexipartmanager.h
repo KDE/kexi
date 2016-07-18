@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -26,6 +26,8 @@
 
 #include <KDbResult>
 
+class KexiInternal;
+
 namespace KexiPart
 {
 class Info;
@@ -47,10 +49,6 @@ class KEXICORE_EXPORT Manager : public QObject, public KDbResultable
     Q_OBJECT
 
 public:
-    /**
-     * creates an empty instance
-     */
-    explicit Manager(QObject *parent = 0);
     ~Manager();
 
     /**
@@ -93,6 +91,11 @@ protected:
 
 private:
     /**
+     * creates an empty instance
+     */
+    explicit Manager(QObject *parent = 0);
+
+    /**
      * Queries the plugin system and creates a list of available parts.
      * @return false if required servicetype was not found (what means the installation is broken).
      */
@@ -109,6 +112,7 @@ private:
     Private* const d;
 
     //! @todo KEXI3 friend KexiPart::StaticPart::StaticPart(const QString&, const QString&, const QString&);
+    friend class ::KexiInternal;
     friend KexiInternalPart* KexiInternalPart::part(KDbMessageHandler*, const QString&);
 };
 

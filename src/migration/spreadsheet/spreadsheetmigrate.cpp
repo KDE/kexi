@@ -21,6 +21,7 @@
 #include "spreadsheetmigrate.h"
 
 #include <kexiutils/identifier.h>
+#include <kexi.h>
 
 #include <sheets/Value.h>
 #include <KoComponentData.h>
@@ -29,10 +30,9 @@
 
 #include <QDebug>
 
-namespace KexiMigration
-{
+using namespace KexiMigration;
 
-K_EXPORT_KEXIMIGRATE_DRIVER(SpreadsheetMigrate, spreadsheet)
+KEXI_PLUGIN_FACTORY(SpreadsheetMigrate, "keximigrate_spreadsheet.json")
 
 //! a KoPart used to fill required part in spreadsheet Doc object
 class MockPart : public KoPart
@@ -223,6 +223,4 @@ bool SpreadsheetMigrate::drv_moveLast()
 QVariant SpreadsheetMigrate::drv_value(uint i)
 {
     return Calligra::Sheets::Cell(m_CurSheet, i+1, m_Row).value().asVariant();
-}
-
 }

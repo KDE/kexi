@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 
     KexiMigration::MigrateManager mm;
 
-    qDebug() << mm.driverNames();
+    qDebug() << mm.driverIds();
 
     //Text File Test
     KexiMigration::KexiMigrate *m = mm.driver("Text");

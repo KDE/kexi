@@ -52,7 +52,6 @@
 #include <widget/KexiFileWidget.h>
 #include <widget/KexiNameDialog.h>
 #include <widget/KexiNameWidget.h>
-//! @todo KEXI3 #include <migration/migratemanager.h>
 #include <widget/KexiDBPasswordDialog.h>
 #include "startup/KexiStartup.h"
 #include "startup/KexiNewProjectAssistant.h"
@@ -4314,23 +4313,14 @@ KexiUserFeedbackAgent* KexiMainWindow::userFeedbackAgent() const
     return &d->userFeedback;
 }
 
-//! @todo KEXI3 remove when Migation is ported
-KexiMigrateManagerTemp::~KexiMigrateManagerTemp() {}
-
-QStringList KexiMigrateManagerTemp::supportedFileMimeTypes() { return QStringList(); }
-
 KexiMigrateManagerInterface* KexiMainWindow::migrateManager()
 {
-    if (d->migrateManager.isNull()) {
-        //! @todo KEXI3
-#if 0
-        d->migrateManager.reset(new KexiMigration::MigrateManager());
-#else
-        // tmp
-        d->migrateManager.reset(new KexiMigrateManagerTemp());
-#endif
+    if (!d->migrateManager) {
+        d->migrateManager = dynamic_cast<KexiMigrateManagerInterface*>(
+                    KexiInternalPart::createObjectInstance(
+                        "org.kexi-project.migration", "manager", this, this, nullptr));
     }
-    return d->migrateManager.data();
+    return d->migrateManager;
 }
 
 void KexiMainWindow::toggleFullScreen(bool isFullScreen)

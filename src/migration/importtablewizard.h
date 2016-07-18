@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2009 Adam Pigg <adam@piggz.co.uk>
-   Copyright (C) 2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2014-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -20,10 +20,14 @@
 #ifndef IMPORTTABLEWIZARD_H
 #define IMPORTTABLEWIZARD_H
 
+#include "keximigrate_export.h"
+#include "migratemanager.h"
+
 #include <KAssistantDialog>
 
 #include <QPointer>
 
+class QDialogButtonBox;
 class QListWidget;
 class QLabel;
 class QProgressBar;
@@ -43,7 +47,7 @@ class MigrateManager;
 class KexiMigrate;
 class AlterSchemaWidget;
 
-class KEXIMIGR_EXPORT ImportTableWizard : public KAssistantDialog
+class KEXIMIGRATE_EXPORT ImportTableWizard : public KAssistantDialog
 {
 Q_OBJECT
     public:
@@ -62,7 +66,7 @@ Q_OBJECT
 
         KDbConnection* m_connection;
         KexiConnectionSelectorWidget *m_srcConnSel;
-        KexiMigration::MigrateManager *m_migrateManager;
+        KexiMigration::MigrateManager m_migrateManager;
         QPointer<KexiMigration::KexiMigrate> m_migrateDriver;
         QListWidget *m_tableListWidget;
         AlterSchemaWidget *m_alterSchemaWidget;
@@ -72,8 +76,8 @@ Q_OBJECT
         QMap<QString, QString>* m_args;
 
         bool fileBasedSrcSelected() const;
-        QString driverNameForSelectedSource();
-        KexiMigrate* prepareImport(Kexi::ObjectStatus& result);
+        QString driverIdForSelectedSource();
+        KexiMigrate* prepareImport(Kexi::ObjectStatus* result);
 
         QLabel *m_lblImportingTxt, *m_lblImportingErrTxt, *m_progressLbl, *m_rowsImportedLbl, *m_finishLbl;
         QProgressBar *m_importingProgressBar;
@@ -82,6 +86,7 @@ Q_OBJECT
         bool m_importComplete;
         bool m_importWasCanceled;
         unsigned m_recordCount;
+
         bool doImport();
 
         //Page Items

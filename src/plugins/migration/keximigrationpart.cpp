@@ -21,6 +21,7 @@
 
 #include <migration/importwizard.h>
 #include <migration/importtablewizard.h>
+#include <migration/migratemanager.h>
 #include <core/KexiMainWindowIface.h>
 #include <core/kexiproject.h>
 #include <core/kexipart.h>
@@ -52,6 +53,20 @@ QWidget *KexiMigrationPart::createWidget(const char* widgetClass,
 
     w->setObjectName(objName);
     return w;
+}
+
+QObject *KexiMigrationPart::createObject(const char* objectClass,
+                                         QObject * parent, const char * objName,
+                                         QMap<QString, QString>* args)
+{
+    Q_UNUSED(args)
+    if (0 == qstrcmp(objectClass, "manager")) {
+        KexiMigration::MigrateManager *manager = new KexiMigration::MigrateManager;
+        manager->setParent(parent);
+        manager->setObjectName(objName);
+        return manager;
+    }
+    return 0;
 }
 
 #include "keximigrationpart.moc"

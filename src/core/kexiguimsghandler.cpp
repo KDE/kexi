@@ -42,7 +42,7 @@ KexiGUIMessageHandler* KexiGUIMessageHandler::guiRedirection()
 }
 
 void
-KexiGUIMessageHandler::showErrorMessage(const QString& message, KDbResultable* resultable)
+KexiGUIMessageHandler::showErrorMessage(const QString& message, const KDbResultable* resultable)
 {
     if (!messagesEnabled()) {
         return;
@@ -88,7 +88,7 @@ KexiGUIMessageHandler::showSorryMessage(const QString &title, const QString &det
 }
 
 void KexiGUIMessageHandler::showErrorMessage(const QString &message, const QString &details,
-                                             KDbResultable *resultable)
+                                             const KDbResultable *resultable)
 {
     if (!messagesEnabled()) {
         return;

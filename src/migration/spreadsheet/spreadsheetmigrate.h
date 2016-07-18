@@ -22,7 +22,6 @@
 #define KEXIMIGRATIONSPREADSHEETMIGRATE_H
 
 #include <migration/keximigrate.h>
-#include <migration/keximigrate_p.h>
 #include <sheets/part/Doc.h>
 #include <sheets/Map.h>
 #include <sheets/Sheet.h>
@@ -39,7 +38,7 @@ namespace KexiMigration
 class SpreadsheetMigrate : public KexiMigrate
 {
     Q_OBJECT
-    KEXIMIGRATION_DRIVER
+
 public:
     explicit SpreadsheetMigrate(QObject *parent, const QVariantList &args = QVariantList());
 

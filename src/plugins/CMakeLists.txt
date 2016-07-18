@@ -7,7 +7,7 @@ else ()
   add_subdirectory( queries )
   add_subdirectory( forms )
   add_subdirectory( reports )
-  # KEXI3 TODO add_subdirectory( migration )
+  add_subdirectory( migration )
   add_subdirectory( importexport )
 
   if(SHOULD_BUILD_FEATURE_SCRIPTING AND KEXI_SCRIPTS_SUPPORT)

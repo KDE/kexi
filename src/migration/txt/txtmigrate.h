@@ -31,7 +31,7 @@ namespace KexiMigration
 class TxtMigrate : public KexiMigrate
 {
     Q_OBJECT
-    KEXIMIGRATION_DRIVER
+
 public:
     explicit TxtMigrate(QObject *parent, const QVariantList &args = QVariantList());
 

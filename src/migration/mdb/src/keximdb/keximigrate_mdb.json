@@ -1,0 +1,27 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "kexi@kde.org",
+                "Name": "Kexi Team"
+            }
+        ], 
+        "Category": "",
+        "Dependencies": [],
+        "Description": "MS Access (MDB) Import Plugin for Kexi",
+        "EnabledByDefault": true, 
+        "Icon": "", 
+        "Id": "org.kexi-project.migration.mdb",
+        "License": "LGPL",
+        "MimeTypes": [
+            "application/vnd.ms-access"
+        ],
+        "Name": "MS Access",
+        "ServiceTypes": [
+            "Kexi/MigrationDriver"
+        ],
+        "Version": "3.0",
+        "Website": "http://kexi-project.org"
+     },
+     "X-Kexi-FileBased": "true"
+}

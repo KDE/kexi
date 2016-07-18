@@ -4,19 +4,46 @@ include_directories(${CMAKE_SOURCE_DIR}/src/core
 
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44000)
 
+option(KEXI_MIGRATEMANAGER_DEBUG "Enable debugging for the migrate driver manager" OFF)
+
+set(KEXI_MIGRATE_PLUGIN_INSTALL_DIR ${KEXI_PLUGIN_INSTALL_DIR}/migrate)
+
+# -----------------------
+function(build_and_install_kexi_migrate_driver _name _srcs _extra_libs _includes _defines)
+    set(_target keximigrate_${_name})
+    ecm_create_qm_loader(_srcs ${_target}_qt)
+    add_library(${_target} MODULE ${_srcs})
+    target_link_libraries(${_target}
+        PUBLIC
+            keximigrate
+            ${_extra_libs}
+    )
+    target_include_directories(${_target} PRIVATE ${_includes})
+    target_compile_definitions(${_target} PRIVATE ${_defines})
+    # Needed for examples and autotests:
+    set_target_properties(${_target}
+                          PROPERTIES LIBRARY_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/plugins/migrate")
+
+    install(TARGETS ${_target} DESTINATION ${KEXI_MIGRATE_PLUGIN_INSTALL_DIR})
+endfunction()
+# -----------------------
+
+if(false) # TODO KEXI3
+
 add_subdirectory(txt)
 
 find_package(MySQL)
 macro_log_feature(MYSQL_FOUND "libmysqlclient" "MySQL Client Library" "http://www.mysql.com" FALSE "" "Required by Kexi MySQL migration driver")
-if (MYSQL_FOUND)
-  add_subdirectory( mysql )
-endif ()
+if(MYSQL_FOUND)
+  add_subdirectory(mysql)
+endif()
 
-find_package(KexiPostgreSQL)
-macro_log_feature(POSTGRESQL_FOUND "libpq" "C application programmer's interface to PostgreSQL" "http://www.postgresql.org" FALSE "" "Required by Kexi PostgreSQL migration driver")
-if (POSTGRESQL_FOUND)
-  add_subdirectory( pqxx )
-endif ()
+#KEXI3 TODO
+#find_package(KexiPostgreSQL)
+#macro_log_feature(POSTGRESQL_FOUND "libpq" "C application programmer's interface to PostgreSQL" "http://www.postgresql.org" FALSE "" "Required by Kexi PostgreSQL migration driver")
+#if(POSTGRESQL_FOUND)
+#  add_subdirectory(postgresql)
+#endif()
 
 find_package(FreeTDS)
 macro_log_feature(FREETDS_FOUND "FreeTDS" "Open source implementation of the TDS (Tabular Data Stream) protocol" "http://www.freetds.org" FALSE "" "Required by Kexi Sybase migration driver")
@@ -30,10 +57,17 @@ if(XBASE_FOUND)
   add_subdirectory(xbase)
 endif()
 
+endif() # KEXI3
+
 find_package(GLIB2)
-macro_log_feature(GLIB2_FOUND "GLIB2" "Common C routines used by GTK+ and other libs" "http://www.gtk.org" FALSE "" "Required by Kexi MS Access migration driver")
-if (GLIB2_FOUND)
-    add_subdirectory( mdb )
+set(_REQUIRED_BY_MDB "Required by Kexi MS Access migration driver")
+macro_log_feature(GLIB2_FOUND "GLIB2" "Common C routines used by GTK+ and other libs" "http://www.gtk.org" FALSE "" ${_REQUIRED_BY_MDB})
+
+include(FindIconv)
+macro_log_feature(ICONV_FOUND "Iconv" "A library to convert between different character encodings" "https://www.gnu.org/software/libiconv" FALSE "" ${_REQUIRED_BY_MDB})
+
+if(GLIB2_FOUND AND ICONV_FOUND)
+    add_subdirectory(mdb)
 endif()
 
 add_subdirectory(tests)
@@ -41,6 +75,7 @@ add_subdirectory(tests)
 ########### next target ###############
 
 set(keximigrate_LIB_SRCS AlterSchemaTableModel.cpp
+   KexiMigratePluginMetaData.cpp
    keximigrate.cpp
    keximigratedata.cpp
    migratemanager.cpp
@@ -51,24 +86,26 @@ set(keximigrate_LIB_SRCS AlterSchemaTableModel.cpp
 
 add_library(keximigrate SHARED ${keximigrate_LIB_SRCS})
 
-target_link_libraries(
-    keximigrate
-    kexicore
-    kexiextendedwidgets
-    kexiutils
+target_link_libraries(keximigrate
+    PUBLIC
+        kexicore
+        kexiextendedwidgets
+        kexiutils
 
-    KDb
+        KDb
 
-    Qt5::Gui
-    )
+        Qt5::Gui
+)
 
 generate_export_header(keximigrate)
 
-set_target_properties(keximigrate PROPERTIES VERSION ${GENERIC_KEXI_LIB_VERSION} SOVERSION ${GENERIC_KEXI_LIB_SOVERSION} )
+set_target_properties(keximigrate PROPERTIES VERSION ${GENERIC_KEXI_LIB_VERSION} SOVERSION ${GENERIC_KEXI_LIB_SOVERSION})
 install(TARGETS keximigrate  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
 if(FALSE) # TODO: install when we move to independent place
-    install( FILES  keximigrate.h keximigratedata.h migratemanager.h  DESTINATION ${INCLUDE_INSTALL_DIR}/kexidb COMPONENT Devel)
+    install(FILES KexiMigratePluginMetaData.h keximigrate.h keximigratedata.h migratemanager.h
+            DESTINATION ${INCLUDE_INSTALL_DIR}/kexidb COMPONENT Devel
+    )
 endif()

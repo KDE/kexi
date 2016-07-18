@@ -39,7 +39,7 @@ Icon=document-import
 Encoding=UTF-8
 
 X-KDE-Library=kexi_csvimportexportplugin
-X-KDE-ServiceTypes=Kexi/ModalDialog
+X-KDE-ServiceTypes=Kexi/Internal
 X-KDE-PluginInfo-Author=Kexi Team
 X-KDE-PluginInfo-Email=kexi@kde.org
 X-KDE-PluginInfo-Name=org.kexi-project.importexport.csv

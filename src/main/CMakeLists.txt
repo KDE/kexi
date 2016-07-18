@@ -52,7 +52,6 @@ PUBLIC
 PRIVATE
     kexiextendedwidgets
     kexiguiutils
-#TODO: KEXI3    keximigrate
 
     Qt5::UiTools
 )

@@ -66,6 +66,14 @@ public:
                                          KDbMessageHandler *msgHdr,
                                          QWidget *parent, const char *objName = 0, QMap<QString, QString>* args = 0);
 
+    /*! Creates a new object instance using part pointed by \a className.
+     \a widgetClass is a pseudo class used in case when the part offers more
+     than one object type. */
+    static QObject* createObjectInstance(const QString &className,
+                                         const char* objectClass, KDbMessageHandler *msgHdr,
+                                         QObject *parent, const char *objName = 0,
+                                         QMap<QString, QString>* args = 0);
+
     /*! Creates a new KexiWindow instance. If such instance already exists,
      and is unique (see uniqueWindow()) it is just returned.
      The part knows about destroying its window instance (if it is uinque),
@@ -121,6 +129,11 @@ public:
 protected:
     /*! Used internally */
     KexiWindow *findOrCreateKexiWindow(const char *objName);
+
+    /*! Reimplement this if your internal part has to return objects. */
+    virtual QObject *createObject(const char* objectClass,
+                                  QObject * parent, const char * objName = 0,
+                                  QMap<QString, QString>* args = 0);
 
     /*! Reimplement this if your internal part has to return widgets
      or QDialog objects. */

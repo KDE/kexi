@@ -28,8 +28,8 @@
 #endif
 
 #include "mysqlmigrate.h"
-#include <migration/keximigrate_p.h>
 #include <migration/keximigratedata.h>
+#include <kexi.h>
 
 #include <KDbCursor>
 #include <KDbField>
@@ -55,7 +55,7 @@
 using namespace KexiMigration;
 
 /* This is the implementation for the MySQL specific import routines. */
-K_EXPORT_KEXIMIGRATE_DRIVER(MySQLMigrate, mysql)
+KEXI_PLUGIN_FACTORY(MySQLMigrate, "keximigrate_mysql.json")
 
 /* ************************************************************************** */
 //! Constructor (needed for trading interface)

@@ -19,7 +19,7 @@
 */
 
 #include "mdbmigrate.h"
-#include <migration/keximigrate_p.h>
+#include <kexi.h>
 
 #include <KDb>
 
@@ -34,7 +34,7 @@
 using namespace KexiMigration;
 
 /* This is the implementation for the MDB file import routines. */
-K_EXPORT_KEXIMIGRATE_DRIVER(MDBMigrate, mdb)
+KEXI_PLUGIN_FACTORY(MDBMigrate, "keximigrate_mdb.json")
 
 static QByteArray isNonUnicodePropId("source_database_has_nonunicode_encoding");
 static QByteArray nonUnicodePropId("source_database_nonunicode_encoding");
@@ -80,7 +80,7 @@ bool MDBMigrate::drv_connect()
     KDbConnectionData *data = this->data()->source;
 
     // mdb_open takes a char*, not const char*, hence this nonsense.
-    char *filename = qstrdup(QFile::encodeName(data->fileName()));
+    char *filename = qstrdup(QFile::encodeName(data->databaseName()));
     m_mdb = mdb_open(filename, MDB_NOFLAGS);
     delete [] filename;
 
@@ -286,7 +286,7 @@ bool MDBMigrate::drv_copyTable(const QString& srcTable,
             vals << var;
         }
 
-        if (!destConn->insertRecord(*dstTable, vals)) {
+        if (!destConn->insertRecord(dstTable, vals)) {
             ok = false;
             break;
         }
@@ -430,7 +430,7 @@ bool MDBMigrate::getPrimaryKey(KDbTableSchema* table, MdbTableDef* tableDef)
     return ok;
 }
 
-bool MDBMigrate::drv_getTableSize(const QString& table, quint64& size)
+bool MDBMigrate::drv_getTableSize(const QString& table, quint64* size)
 {
     // Get the column meta-data, which contains the table size
     MdbTableDef *tableDef = getTableDef(table);
@@ -438,7 +438,9 @@ bool MDBMigrate::drv_getTableSize(const QString& table, quint64& size)
         qWarning() << "couldn't find table " << table;
         return false;
     }
-    size = (qulonglong)(tableDef->num_rows);
+    *size = quint64(tableDef->num_rows);
     mdb_free_tabledef(tableDef);
     return true;
 }
+
+#include "mdbmigrate.moc"

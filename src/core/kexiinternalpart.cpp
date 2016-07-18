@@ -79,6 +79,19 @@ KexiInternalPart* KexiInternalPart::part(KDbMessageHandler *msgHdr, const QStrin
 }
 
 //static
+QObject* KexiInternalPart::createObjectInstance(const QString &className,
+        const char* objectClass, KDbMessageHandler *msgHdr,
+        QObject *parent, const char *objName, QMap<QString, QString>* args)
+{
+    KexiInternalPart *part = KexiInternalPart::part(msgHdr, className);
+    if (!part) {
+        return nullptr; //fatal!
+    }
+    return part->createObject(objectClass, parent,
+                              objName ? objName : qPrintable(className), args);
+}
+
+//static
 QWidget* KexiInternalPart::createWidgetInstance(const QString &className,
         const char* widgetClass, KDbMessageHandler *msgHdr,
         QWidget *parent, const char *objName, QMap<QString, QString>* args)
@@ -180,6 +193,17 @@ bool KexiInternalPart::executeCommand(const QString &className,
         return 0; //fatal!
     }
     return part->executeCommand(commandName, args);
+}
+
+QObject* KexiInternalPart::createObject(const char* objectClass,
+                              QObject * parent, const char * objName,
+                              QMap<QString, QString>* args)
+{
+    Q_UNUSED(objectClass);
+    Q_UNUSED(parent);
+    Q_UNUSED(objName);
+    Q_UNUSED(args);
+    return 0;
 }
 
 QWidget* KexiInternalPart::createWidget(const char* widgetClass,

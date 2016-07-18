@@ -20,6 +20,7 @@
 #include <migration/importwizard.h>
 #include <QApplication>
 #include <KAboutData>
+#include <KLocalizedString>
 
 /*
 This is in no way meant to compile let alone work
@@ -29,17 +30,16 @@ This will be an example program to demonstrate how to import an existing db into
 a new kexi based db
 */
 
-using namespace KexiMigration;
-
 int main(int argc, char *argv[])
 {
-    KAboutData aboutData("keximigratetest", 0, kxi18n("Kexi Migrate Test"), "2.0");
-    KCmdLineArgs::init(argc, argv, &aboutData);
-    KApplication app;
+    QApplication app(argc, argv);
+    KAboutData aboutData("keximigratetest", xi18n("Kexi Migrate Test"), "2.0", QString(),
+                         KAboutLicense::GPL_V2);
+    KAboutData::setApplicationData(aboutData);
 
-    ImportWizard* iw = new ImportWizard();
-    iw->setGeometry(300, 300, 300, 250);
-    iw->show();
+    KexiMigration::ImportWizard wizard;
+    wizard.setGeometry(300, 300, 300, 250);
+    wizard.show();
 
     return app.exec();
 }

@@ -33,6 +33,10 @@ public:
      or QDialog objects. */
     virtual QWidget *createWidget(const char* /*widgetClass*/,
                                   QWidget *parent, const char *objName = 0, QMap<QString, QString>* args = 0);
+
+    QObject *createObject(const char* objectClass,
+                          QObject * parent, const char * objName = 0,
+                          QMap<QString, QString>* args = 0) Q_DECL_OVERRIDE;
 };
 
 #endif

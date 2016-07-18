@@ -31,7 +31,6 @@ namespace KexiMigration
 class xBaseMigrate : public KexiMigrate, protected xbXBase
 {
   Q_OBJECT
-  KEXIMIGRATION_DRIVER
 
   public:
     xBaseMigrate(QObject *parent, const QVariantList& args = QVariantList());

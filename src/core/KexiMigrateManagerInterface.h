@@ -31,7 +31,7 @@ class KEXICORE_EXPORT KexiMigrateManagerInterface
 public:
     virtual ~KexiMigrateManagerInterface() {}
 
-    //! Implement to return the list offile MIME types that are supported by migration drivers
+    //! Implement to return the list of file MIME types that are supported by migration drivers
     virtual QStringList supportedFileMimeTypes() = 0;
 };
 
