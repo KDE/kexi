@@ -41,7 +41,7 @@ class AlterSchemaWidget : public QWidget
         ~AlterSchemaWidget();
 
         void setTableSchema(KDbTableSchema *schema, const QString &suggestedCaption = QString());
-        void setData(const QList<KDbRecordData>& data);
+        void setData(const QList<KDbRecordData*> &data);
 
         KDbTableSchema* newSchema();
         KDbTableSchema* takeTableSchema();

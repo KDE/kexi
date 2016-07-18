@@ -1264,6 +1264,7 @@ KexiMainWindow::Private::Private(KexiMainWindow* w)
     saveSettingsForShowProjectNavigator = true;
     propertyEditorCollapsed = false;
     enable_slotPropertyEditorVisibilityChanged = true;
+    migrateManager = 0;
 }
 
 KexiMainWindow::Private::~Private()

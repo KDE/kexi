@@ -33,6 +33,7 @@
 #include <QComboBox>
 #include <QCheckBox>
 #include <QLabel>
+#include <QLineEdit>
 #include <QDebug>
 
 using namespace KexiMigration;
@@ -55,7 +56,7 @@ AlterSchemaWidget::AlterSchemaWidget(QWidget *parent) : QWidget(parent)
     m_types.removeFirst(); //Remove InvalidTypes
 
     for (unsigned int i = KDbField::FirstType; i <= KDbField::LastType; ++i) {
-        m_columnType->addItem(KDbField::typeName(i), i);
+        m_columnType->addItem(KDbField::typeName(KDb::intToFieldType(i)), i);
     }
 
     m_layout->addWidget(m_tableNameWidget, 0, 0, 2, 3);
@@ -101,7 +102,7 @@ void AlterSchemaWidget::setTableSchema(KDbTableSchema* ts, const QString& sugges
     tableClicked(m_model->index(0,0));
 }
 
-void AlterSchemaWidget::setData(const QList<KDbRecordData>& data)
+void AlterSchemaWidget::setData(const QList<KDbRecordData*> &data)
 {
     m_model->setData(data);
 }
@@ -191,7 +192,8 @@ QString AlterSchemaWidget::suggestedItemCaption(const QString& baseCaption)
 
 bool AlterSchemaWidget::nameExists(const QString & name) const
 {
-    KexiPart::ItemDict* list = KexiMainWindowIface::global()->project()->itemsForClass("org.kexi-project.table");
+    KexiPart::ItemDict* list
+      = KexiMainWindowIface::global()->project()->itemsForPluginId("org.kexi-project.table");
     if (!list) {
         return false;
     }

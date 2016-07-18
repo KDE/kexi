@@ -173,7 +173,7 @@ ObjectStatus::ObjectStatus(const QString& message, const QString& description)
     setStatus(message, description);
 }
 
-ObjectStatus::ObjectStatus(KDbResultable* resultable, const QString& message, const QString& description)
+ObjectStatus::ObjectStatus(const KDbResultable* resultable, const QString& message, const QString& description)
         : m_resultable(0), m_msgHandler(0)
 {
     setStatus(resultable, message, description);
@@ -202,7 +202,7 @@ void ObjectStatus::setStatus(const QString& message, const QString& description)
     this->description = description;
 }
 
-void ObjectStatus::setStatus(KDbResultable* resultable, const QString& message, const QString& description)
+void ObjectStatus::setStatus(const KDbResultable* resultable, const QString& message, const QString& description)
 {
     m_resultable = resultable;
     this->message = message;
@@ -225,7 +225,7 @@ void ObjectStatus::setStatus(KDbResultInfo* resultInfo, const QString& message, 
         clearStatus();
 }
 
-void ObjectStatus::setStatus(KDbResultable* resultable, KDbResultInfo* resultInfo,
+void ObjectStatus::setStatus(const KDbResultable* resultable, KDbResultInfo* resultInfo,
                              const QString& message, const QString& description)
 {
     if (!resultable)

@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2004 Adam Pigg <adam@piggz.co.uk>
-   Copyright (C) 2004-2006 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2005 Martin Ellis <martin.ellis@kdemail.net>
 
    This program is free software; you can redistribute it and/or
@@ -34,22 +34,17 @@ namespace Kexi
 {
 class ObjectStatus;
 }
-
-//! Empty for now
-#define KEXIMIGRATION_DRIVER
+class KexiMigratePluginMetaData;
 
 /*! KexiMigration implementation version.
  It is altered after every change:
- - major number is increased after every major Kexi release,
- - minor is increased after adding binary-incompatible change.
- In external code: do not use this to get library version information:
- use KexiMigration::version() instead to get real version.
+ - major number is increased after incompatible change ofthe plugin interface/behavior
+ - minor number is increased after minor changes
+ @note Do not use these constants to get library version information in external code.
+       Use KexiMigratePluginMetaData::*version() functions instead.
 */
-#define KEXI_MIGRATION_VERSION_MAJOR 1
-#define KEXI_MIGRATION_VERSION_MINOR 1
-
-/*! KexiMigration implementation version. @see KEXI_MIGRATION_VERSION_MAJOR, KEXI_MIGRATION_VERSION_MINOR */
-#define KEXI_MIGRATION_VERSION KDbDatabaseVersionInfo(KEXI_MIGRATION_VERSION_MAJOR, KEXI_MIGRATION_VERSION_MINOR)
+#define KEXI_MIGRATION_VERSION_MAJOR 3
+#define KEXI_MIGRATION_VERSION_MINOR 0
 
 /*!
  * \namespace KexiMigration
@@ -58,10 +53,10 @@ class ObjectStatus;
 namespace KexiMigration
 {
 
-//! \return KexiMigration version info
-KEXIMIGR_EXPORT KDbDatabaseVersionInfo version();
+//! \return KexiMigration library version info
+KEXIMIGRATE_EXPORT KDbVersionInfo version();
 
-//! @short Imports non-native databases into Kexi projects.
+//! @short A migrate plugin for importing non-native databases into Kexi projects.
 /*! A generic API for importing schema and data from an existing
 database into a new Kexi project. Can be also used for importing native Kexi databases.
 
@@ -75,12 +70,15 @@ Basic idea is this:
 
 See kexi/doc/dev/kexi_import.txt for more info.
 */
-class KEXIMIGR_EXPORT KexiMigrate : public QObject, public KDbObject
+class KEXIMIGRATE_EXPORT KexiMigrate : public QObject, public KDbResultable
 {
     Q_OBJECT
 
 public:
     virtual ~KexiMigrate();
+
+    //! Info about the driver's plugin
+    const KexiMigratePluginMetaData* metaData() const;
 
 //! @todo Remove this! KexiMigrate should be usable for multiple concurrent migrations!
     KexiMigration::Data* data();
@@ -171,6 +169,9 @@ Q_SIGNALS:
 protected:
     //! Used by MigrateManager.
     explicit KexiMigrate(QObject *parent, const QVariantList &args = QVariantList());
+
+    /*! Used by the migration driver manager to set metaData for just loaded driver. */
+    void setMetaData(const KexiMigratePluginMetaData *metaData);
 
     //! Connect to source database (driver specific)
     virtual bool drv_connect() = 0;
@@ -314,6 +315,7 @@ private:
     Private * const d;
 
     friend class MigrateManager;
+    friend class MigrateManagerInternal;
 };
 
 } //namespace KexiMigration

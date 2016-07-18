@@ -1,5 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2009 Adam Pigg <adam@piggz.co.uk>
+   Copyright (C) 2009-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -29,25 +30,27 @@ class KDbTableSchema;
 class AlterSchemaTableModel : public QAbstractTableModel
 {
     public:
-        explicit AlterSchemaTableModel( QObject* parent = 0 );
+        explicit AlterSchemaTableModel(QObject* parent = nullptr);
         ~AlterSchemaTableModel();
 
-        virtual QVariant data( const QModelIndex& index, int role = Qt::DisplayRole ) const;
+        virtual QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
         virtual QVariant headerData(int section, Qt::Orientation orientation, int role) const;
-        virtual int columnCount( const QModelIndex& parent = QModelIndex() ) const;
-        virtual int rowCount( const QModelIndex& parent = QModelIndex() ) const;
+        virtual int columnCount(const QModelIndex& parent = QModelIndex()) const;
+        virtual int rowCount(const QModelIndex& parent = QModelIndex()) const;
 
-        void setSchema(KDbTableSchema*);
-        void setData(const QList<KDbRecordData>& data);
+        void setSchema(KDbTableSchema *schema);
+        void setData(const QList<KDbRecordData*> &data);
         void setRowCount(int i);
     private:
         //! Reimplemented just to avoid 'hidden' warnings
-        virtual bool setData(const QModelIndex & index, const QVariant & value, int role = Qt::EditRole) {
+        bool setData(const QModelIndex & index, const QVariant & value,
+                     int role = Qt::EditRole) Q_DECL_OVERRIDE
+        {
             return QAbstractTableModel::setData(index, value, role);
         }
 
         KDbTableSchema *m_schema;
-        QList<KDbRecordData> m_data; //Small amount of data to display to user
+        QList<KDbRecordData*> m_data; //Small amount of data to display to user
         int m_recordCount;
 };
 

@@ -35,7 +35,7 @@ namespace KexiMigration
 
 class MDBMigrate : public KexiMigrate
 {
-    KEXIMIGRATION_DRIVER
+    Q_OBJECT
 
 public:
     explicit MDBMigrate(QObject *parent, const QVariantList& args = QVariantList());

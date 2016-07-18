@@ -29,7 +29,6 @@ namespace KexiMigration
 class SybaseMigrate : public KexiMigrate
 {
     Q_OBJECT
-    KEXIMIGRATION_DRIVER
 
 public:
     explicit SybaseMigrate(QObject *parent, const QVariantList& args = QVariantList());

@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -35,35 +35,35 @@ namespace KexiMigration
 class MigrateManagerInternal;
 
 //! @short Migration library management, for finding and loading migration drivers.
-class KEXIMIGR_EXPORT MigrateManager : public QObject, public KDbObject,
-                                       public KexiMigrateManagerInterface
+class KEXIMIGRATE_EXPORT MigrateManager : public QObject,
+                                          public KexiMigrateManagerInterface
 {
 public:
-    typedef QMap<QString, KService::Ptr> ServicesMap;
-
     MigrateManager();
+
     virtual ~MigrateManager();
 
-    /*! Tries to load db driver with named name \a name.
-      The name is case insensitive.
-      \return db driver, or 0 if error (then error message is also set) */
-    KexiMigrate* driver(const QString& name);
+    //! @return result of the recent operation.
+    KDbResult result() const;
 
-    /*! returns list of available drivers names.
+    //! @return KDbResultable object for the recent operation.
+    //! It adds serverResultName() in addition to the result().
+    const KDbResultable* resultable() const;
+
+    /*! Tries to load db driver with identifier @a id.
+      The id is case insensitive.
+      \return db driver, or @c nullptr on error (then error message is also set) */
+    KexiMigrate* driver(const QString &id);
+
+    /*! returns list of available drivers IDs.
       That drivers can be loaded by first use of driver() method. */
-    const QStringList driverNames();
+    const QStringList driverIds();
 
-    /*! Looks up a drivers list by MIME type of database file.
-     Only file-based database drivers are checked.
-     The lookup is case insensitive.
-     \return driver name or null string if no driver found.
-    */
-    QString driverForMimeType(const QString &mimeType);
-
-    //! server error is set if there is error at KService level (useful for debugging)
-    virtual QString serverErrorMsg();
-    virtual int serverResult();
-    virtual QString serverResultName();
+    /*! @return list of driver IDs for @a mimeType mime type.
+     Empty list is returned if no driver has been found.
+     Works only with drivers of file-based databases such as SQLite.
+     The lookup is case insensitive. */
+    QStringList driverIdsForMimeType(const QString &mimeType);
 
 //! @todo copied from KDbDriverManager, merge it.
     /*! HTML information about possible problems encountered.
@@ -71,15 +71,8 @@ public:
      Currently it contains a list of incompatible migration drivers. */
     QString possibleProblemsMessage() const;
 
-    //! @return the list of file MIME types that are supported by migration drivers.
-    //! Implements MigrateManagerInterface
-    virtual QStringList supportedFileMimeTypes();
-
-protected:
-    virtual void drv_clearServerResult();
-
-private:
-    MigrateManagerInternal *d_int;
+    //! @return list of file MIME types that are supported by migration drivers
+    QStringList supportedFileMimeTypes() Q_DECL_OVERRIDE;
 };
 
 } //namespace KexiMigrate

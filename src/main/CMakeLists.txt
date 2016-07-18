@@ -51,7 +51,6 @@ PRIVATE
     kexiutils
     kexiextendedwidgets
     kexiguiutils
-#TODO: KEXI3    keximigrate
 
     KDb
     KPropertyWidgets

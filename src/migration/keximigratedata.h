@@ -23,6 +23,7 @@
 #define KEXI_MIGRATE_DATA_H
 
 #include <KDbConnection>
+#include "keximigrate_export.h"
 
 class KexiProjectData;
 
@@ -31,7 +32,7 @@ namespace KexiMigration
 //Use this class to store all possible options that could be used by keximigrate.
 //The current members are not meant to be a definite set, for example, i envisage
 //adding table/field lists if we allow only importing certain tables/fields
-class KEXIMIGR_EXPORT Data
+class KEXIMIGRATE_EXPORT Data
 {
 public:
     Data();

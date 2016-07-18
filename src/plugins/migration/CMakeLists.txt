@@ -1,16 +1,14 @@
-
 include_directories( ${CMAKE_SOURCE_DIR}/src/core ${CMAKE_SOURCE_DIR}/src/widget ${CMAKE_SOURCE_DIR}/src/migration)
 
+set(kexi_migrationplugin_PART_SRCS keximigrationpart.cpp)
 
-########### next target ###############
+add_library(kexi_migrationplugin MODULE ${kexi_migrationplugin_PART_SRCS})
+kcoreaddons_desktop_to_json(kexi_migrationplugin kexi_migrationplugin.desktop)
 
-set(kexihandler_migration_PART_SRCS keximigrationpart.cpp )
+target_link_libraries(kexi_migrationplugin
+    PRIVATE
+        kexicore
+        keximigrate
+)
 
-
-add_library(kexihandler_migration MODULE ${kexihandler_migration_PART_SRCS})
-
-
-
-target_link_libraries(kexihandler_migration   kexicore keximigrate )
-
-install(TARGETS kexihandler_migration  DESTINATION ${KEXI_PLUGIN_INSTALL_DIR})
+install(TARGETS kexi_migrationplugin DESTINATION ${KEXI_PLUGIN_INSTALL_DIR})

@@ -8,21 +8,11 @@ if (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_GNUC)
     add_definitions(-Wno-cast-qual)
 endif (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_GNUC)
 
-set(MDBTOOLS_SOURCE_DIR "${CMAKE_SOURCE_DIR}/src/migration/mdb/3rdparty/mdbtools")
+set(MDBTOOLS_SOURCE_DIR ${CMAKE_SOURCE_DIR}/src/migration/mdb/3rdparty/mdbtools)
+set(keximigrate_mdb_INCLUDES ${GLIB2_INCLUDE_DIR} ${ICONV_INCLUDE_DIR} ${MDBTOOLS_SOURCE_DIR}/include)
+set(keximigrate_mdb_LIBRARIES ${GLIB2_LIBRARIES} ${ICONV_LIBRARIES})
 
-include_directories(  ${GLIB2_INCLUDE_DIR} ${MDBTOOLS_SOURCE_DIR}/include )
-
-include(FindIconv)
-if(ICONV_FOUND)
-    add_definitions(-DHAVE_ICONV=1)
-    include_directories(${ICONV_INCLUDE_DIR})
-else()
-    message(FATAL_ERROR "Could not find library with iconv and iconv headers. Required for MS Access import plugin.")
-endif()
-
-########### mdb migrate target ###############
-
-set(keximigrate_mdbmigrate_PART_SRCS keximdb/mdbmigrate.cpp
+set(keximigrate_mdb_PART_SRCS keximdb/mdbmigrate.cpp
 ${MDBTOOLS_SOURCE_DIR}/libmdb/catalog.c
 ${MDBTOOLS_SOURCE_DIR}/libmdb/data.c
 ${MDBTOOLS_SOURCE_DIR}/libmdb/dump.c
@@ -42,18 +32,9 @@ ${MDBTOOLS_SOURCE_DIR}/libmdb/worktable.c
 ${MDBTOOLS_SOURCE_DIR}/libmdb/write.c
 )
 
-
-add_library(keximigrate_mdb MODULE ${keximigrate_mdbmigrate_PART_SRCS})
-
-
-
-target_link_libraries(keximigrate_mdb
-    ${GLIB2_LIBRARIES}
-    ${ICONV_LIBRARIES}
-    keximigrate
-    kexiutils
-
-    KDb
+build_and_install_kexi_migrate_driver(mdb
+    "${keximigrate_mdb_PART_SRCS}"
+    "${keximigrate_mdb_LIBRARIES}"
+    "${keximigrate_mdb_INCLUDES}"
+    "-DHAVE_ICONV=1"
 )
-
-install(TARGETS keximigrate_mdb  DESTINATION ${KEXI_PLUGIN_INSTALL_DIR})

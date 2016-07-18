@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -17,68 +17,61 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXI_MIGRATE_MNGR_P_H
-#define KEXI_MIGRATE_MNGR_P_H
+#ifndef KEXI_MIGRATE_MANAGER_P_H
+#define KEXI_MIGRATE_MANAGER_P_H
 
 #include <QMap>
 
 #include <KDbObject>
+#include <KDbResult>
+
+class KexiMigratePluginMetaData;
 
 namespace KexiMigration
 {
 
-/*! Internal class of driver manager.
-*/
-class MigrateManagerInternal : public QObject, public KDbObject
+//! Internal class of the migrate manager.
+class MigrateManagerInternal : public QObject, public KDbResultable
 {
     Q_OBJECT
 public:
+    /*! Used by self() */
+    MigrateManagerInternal();
+
     ~MigrateManagerInternal();
 
-    /*! Tries to load db driver \a name.
-      \return db driver, or 0 if error (then error message is also set) */
-    KexiMigrate* driver(const QString& name);
+    QStringList driverIds();
 
-    static MigrateManagerInternal *self();
+    /*! Tries to load migrate driver @a id.
+      @return driver, or @c nullptr on error (then error result is also set) */
+    KexiMigrate* driver(const QString& id);
 
-    /*! increments the refcount for the manager */
-    void incRefCount();
+    const KexiMigratePluginMetaData* driverMetaData(const QString &id);
 
-    /*! decrements the refcount for the manager
-      if the refcount reaches a value less than 1 the manager is freed */
-    void decRefCount();
+    QStringList driverIdsForMimeType(const QString &mimeType);
+
+    QStringList possibleProblemsMessage() const;
+
+    //! @return list of file MIME types that are supported by migration drivers
+    QStringList supportedFileMimeTypes();
 
 protected Q_SLOTS:
     /*! Used to destroy all drivers on QApplication quit, so even if there are
-     DriverManager's static instances that are destroyed on program
+     manager's static instances that are destroyed on program
      "static destruction", drivers are not kept after QApplication death.
     */
     void slotAppQuits();
 
 protected:
-    /*! Used by self() */
-    MigrateManagerInternal();
-
     bool lookupDrivers();
 
-    static MigrateManagerInternal* s_self;
+    void clear();
 
-    MigrateManager::ServicesMap m_services; //! services map
-    MigrateManager::ServicesMap m_services_lcase; //! as above but service names in lowercase
-    MigrateManager::ServicesMap m_services_by_mimetype;
-
-    QMap<QByteArray, KexiMigrate*> m_drivers;
-    ulong m_refCount;
-
-    QString m_serverErrMsg;
-    int m_serverResultNum;
-    QString m_serverResultName;
-
-    bool lookupDriversNeeded;
-
-    QStringList possibleProblems;
-
-    friend class MigrateManager;
+    QMultiMap<QString, KexiMigratePluginMetaData*> m_metadata_by_mimetype;
+    QMap<QString, KexiMigratePluginMetaData*> m_driversMetaData; //!< used to store driver metadata
+    QMap<QString, KexiMigrate*> m_drivers; //!< for owning drivers
+    QStringList m_possibleProblems;
+    bool m_lookupDriversNeeded;
 };
 }
 

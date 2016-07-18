@@ -30,7 +30,6 @@ namespace KexiMigration
 class MySQLMigrate : public KexiMigrate
 {
     Q_OBJECT
-    KEXIMIGRATION_DRIVER
 
 public:
     explicit MySQLMigrate(QObject *parent, const QVariantList& args = QVariantList());

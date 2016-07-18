@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -426,16 +426,6 @@ private:
 //! @internal safer dictionary
 typedef QMap< int, KexiWindow* > KexiWindowDict;
 
-//! @todo KEXI3 remove when Migation is ported
-class KexiMigrateManagerTemp : public QObject, public KexiMigrateManagerInterface
-{
-public:
-    virtual ~KexiMigrateManagerTemp();
-
-    //! Implement to return the list offile MIME types that are supported by migration drivers
-    virtual QStringList supportedFileMimeTypes();
-};
-
 //! @internal
 class KexiMainWindow::Private
 {
@@ -665,12 +655,7 @@ public:
 
     KexiUserFeedbackAgent userFeedback;
 
-    //! @todo KEXI3
-#if 0
-    QScopedPointer<KexiMigration::MigrateManager> migrateManager;
-#else
-    QScopedPointer<KexiMigrateManagerTemp> migrateManager;
-#endif
+    KexiMigrateManagerInterface* migrateManager;
 
 private:
     //! @todo move to KexiProject

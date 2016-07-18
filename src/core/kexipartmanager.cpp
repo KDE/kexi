@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -109,11 +109,14 @@ PartClass* Manager::part(Info *info, QHash<QString, PartClass*> *partDict)
     // actual loading
     KPluginFactory *factory = qobject_cast<KPluginFactory*>(info->instantiate());
     if (!factory) {
-        m_result = KDbResult(ERR_OBJECT_NOT_FOUND,
+        m_result = KDbResult(ERR_CANNOT_LOAD_OBJECT,
                              xi18nc("@info", "Could not load Kexi plugin file \"%1\".",
                                     info->fileName()));
+        QPluginLoader loader(info->fileName()); // use this to get the message
+        (void)loader.load();
+        m_result.setServerMessage(loader.errorString());
         info->setErrorMessage(m_result.message());
-        qWarning() << m_result.message();
+        qWarning() << m_result.message() << m_result.serverMessage();
         return 0;
     }
     p = factory->create<PartClass>(this);
@@ -166,20 +169,20 @@ bool Manager::lookup()
     QVector<Info*> orderedInfos(orderedPluginIds.count());
     QStringList serviceTypes;
     serviceTypes << "Kexi/Viewer" << "Kexi/Designer" << "Kexi/Editor"
-                 << "Kexi/ModalDialog";
+                 << "Kexi/Internal";
     QList<QPluginLoader*> offers = KexiPartTrader_instance->query(serviceTypes);
     foreach(const QPluginLoader *loader, offers) {
         QScopedPointer<Info> info(new Info(*loader));
         if (info->id().isEmpty()) {
-            qWarning() << "No plugin ID (X-KDE-PluginInfo-Name) specified for Kexi Part"
+            qWarning() << "No plugin ID specified for Kexi Part"
                        << info->fileName() << "-- skipping!";
             continue;
         }
         // check version
         if (info->majorVersion() != KEXI_PART_VERSION) {
-            qWarning() << "Kexi plugin" << info->id() << "has version (X-KDE-PluginInfo-Version)"
-                       << info->majorVersion() << "but required version is" << KEXI_PART_VERSION
-                       << "-- skipping!";
+            qWarning() << "Kexi plugin" << info->id() << "has version"
+                       << info->majorVersion() << "but version required by Kexi is" << KEXI_PART_VERSION
+                       << "-- skipping this plugin!";
             continue;
         }
         // skip experimental types
@@ -289,7 +292,10 @@ void Manager::insertStaticPart(StaticPart* part)
 KexiInternalPart* Manager::internalPartForPluginId(const QString& pluginId)
 {
     Info* info = infoForPluginId(pluginId);
-    return info ? part<KexiInternalPart>(info, &d->internalParts) : 0;
+    if (!info || !info->serviceTypes().contains("Kexi/Internal")) {
+        return nullptr;
+    }
+    return part<KexiInternalPart>(info, &d->internalParts);
 }
 
 PartInfoList* Manager::infoList()

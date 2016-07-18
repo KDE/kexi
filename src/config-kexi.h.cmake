@@ -50,6 +50,10 @@
 # error KEXI_DEBUG_GUI requires a KDB_DEBUG_GUI cmake option to be set too in KDb.
 #endif
 
+//! @def KEXI_MIGRATEMANAGER_DEBUG
+//! @brief Defined if debugging for the migrate driver manager is enabled
+#cmakedefine KEXI_MIGRATEMANAGER_DEBUG
+
 /* -- Experimental -- */
 
 //! @def KEXI_SCRIPTS_SUPPORT

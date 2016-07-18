@@ -18,16 +18,14 @@ the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 */
 
 #include "txtmigrate.h"
-#include <migration/keximigrate_p.h>
+#include <kexi.h>
 
 #include <QDebug>
 #include <QDir>
 
-namespace KexiMigration
-{
+using namespace KexiMigration;
 
-K_EXPORT_KEXIMIGRATE_DRIVER(TxtMigrate, tsv)
-
+KEXI_PLUGIN_FACTORY(TxtMigrate, "keximigrate_txt.json")
 
 TxtMigrate::TxtMigrate(QObject *parent, const QVariantList& args)
         : KexiMigrate(parent, args)
@@ -163,6 +161,4 @@ bool TxtMigrate::drv_moveLast()
     //qDebug();
     while(drv_moveNext()) {}
     return true;
-}
-
 }

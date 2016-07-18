@@ -43,7 +43,7 @@ endif()
 add_definitions(-DTRANSLATION_DOMAIN=\"kexi\")
 
 set(KEXI_PLUGIN_INSTALL_DIR ${PLUGIN_INSTALL_DIR}/kexi)
-set(KEXI_FORM_WIDGETS_PLUGIN_INSTALL_DIR ${PLUGIN_INSTALL_DIR}/kexi/forms/widgets)
+set(KEXI_FORM_WIDGETS_PLUGIN_INSTALL_DIR ${KEXI_PLUGIN_INSTALL_DIR}/forms/widgets)
 
 
 #no default: add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44010)
@@ -71,7 +71,7 @@ if(KEXI_MOBILE)
 else()
   add_subdirectory( main )
   add_subdirectory( formeditor )
-#TODO KEXI3  add_subdirectory( migration )
+  add_subdirectory( migration )
 endif()
 
 ########### next target ###############

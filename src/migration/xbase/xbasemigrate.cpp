@@ -18,8 +18,8 @@
 */
 
 #include "xbasemigrate.h"
-#include <migration/keximigrate_p.h>
 #include <migration/keximigratedata.h>
+#include <kexi.h>
 
 #include <KDbCursor>
 #include <KDbField>
@@ -36,8 +36,7 @@
 using namespace KexiMigration;
 
 /* This is the implementation for the xBase specific import routines. */
-
-K_EXPORT_KEXIMIGRATE_DRIVER(xBaseMigrate, xbase)
+KEXI_PLUGIN_FACTORY(xBaseMigrate, "keximigrate_xbase.json")
 
 //! Constructor (needed for trading interface)
 xBaseMigrate::xBaseMigrate(QObject *parent, const QVariantList& args) :

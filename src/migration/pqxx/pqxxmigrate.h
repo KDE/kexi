@@ -34,7 +34,6 @@ namespace KexiMigration
 class PqxxMigrate : public KexiMigrate
 {
     Q_OBJECT
-    KEXIMIGRATION_DRIVER
 
 public:
     explicit PqxxMigrate(QObject *parent, const QVariantList &args = QVariantList());

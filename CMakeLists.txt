@@ -149,6 +149,7 @@ include(ECMAddTests)
 include(ECMMarkAsTest)
 include(ECMMarkNonGuiExecutable)
 include(ECMGenerateHeaders)
+include(ECMPoQmTools)
 # ECM KDE macros
 include(KDEInstallDirs)
 include(KDECMakeSettings)

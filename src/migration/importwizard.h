@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2004 Adam Pigg <adam@piggz.co.uk>
-   Copyright (C) 2004-2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2005 Martin Ellis <martin.ellis@kdemail.net>
 
    This library is free software; you can redistribute it and/or
@@ -44,7 +44,7 @@ namespace KexiMigration
 class KexiMigrate;
 
 //! GUI for importing external databases (file-based and server-based)
-class KEXIMIGR_EXPORT ImportWizard : public KAssistantDialog
+class KEXIMIGRATE_EXPORT ImportWizard : public KAssistantDialog
 {
     Q_OBJECT
 public:
@@ -91,7 +91,7 @@ private:
 
     bool fileBasedSrcSelected() const;
     bool fileBasedDstSelected() const;
-    QString driverNameForSelectedSource();
+    QString driverIdForSelectedSource();
 
     void arriveSrcConnPage();
     void arriveSrcDBPage();

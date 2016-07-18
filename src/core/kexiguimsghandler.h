@@ -32,8 +32,8 @@ public:
 
     using KDbMessageHandler::showErrorMessage;
 
-    void showErrorMessage(const QString &message, const QString &details, KDbResultable *resultable);
-    void showErrorMessage(const QString &message, KDbResultable *resultable);
+    void showErrorMessage(const QString &message, const QString &details, const KDbResultable *resultable);
+    void showErrorMessage(const QString &message, const KDbResultable *resultable);
     void showErrorMessage(Kexi::ObjectStatus *status);
     void showErrorMessage(const QString &message, Kexi::ObjectStatus *status);
     void showErrorMessage(const QString &title, const QString &details);
