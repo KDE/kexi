@@ -157,7 +157,7 @@ include(KDECompilerSettings)
 include(MacroLogFeature)
 include(MacroEnsureVersion)
 
-find_package(KF5 5.7.0 REQUIRED COMPONENTS 
+find_package(KF5 5.16.0 REQUIRED COMPONENTS
         Archive 
         Codecs 
         Completion
@@ -224,7 +224,7 @@ endif ()
 ##
 ## Test for KDb
 ##
-find_package(KDb 2.96.3 REQUIRED)
+find_package(KDb 2.96.4 REQUIRED)
 macro_log_feature(KDb_FOUND "KDb" "A database connectivity and creation framework"
                             "http://community.kde.org/KDb" FALSE "" "Required by Kexi and its plugins")
 
