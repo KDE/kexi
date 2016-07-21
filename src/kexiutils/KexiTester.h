@@ -22,6 +22,7 @@
 
 #include <QPointer>
 #include <kexiutils/kexiutils_export.h>
+#include <config-kexi.h>
 
 class QWidget;
 class KexiTestObject;

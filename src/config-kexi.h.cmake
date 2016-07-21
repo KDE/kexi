@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2006-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2006-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -41,6 +41,26 @@
 
 /*! For KexiUtils::encoding() */
 #cmakedefine01 HAVE_LANGINFO_H
+
+//! @def HAVE_KCRASH
+//! @brief if defined, KCrash is available
+#cmakedefine HAVE_KCRASH
+
+//! @def HAVE_MARBLE
+//! @brief if defined, Marble widget library is available
+#cmakedefine HAVE_MARBLE
+
+//! @def HAVE_SETMARBLEWIDGET
+//! @brief if defined, Marble widget library has setMarbleWidget()
+#cmakedefine HAVE_SETMARBLEWIDGET
+
+//! @def HAVE_SETMARBLEWIDGET
+//! @brief if defined, QtWebKit widgets library is available
+#cmakedefine HAVE_QTWEBKITWIDGETS
+
+//! @def COMPILING_TESTS
+//! @brief if defined, tests are enabled
+#cmakedefine COMPILING_TESTS
 
 //! @def KEXI_DEBUG_GUI
 //! @brief If defined, a debugging GUI for Kexi is enabled
