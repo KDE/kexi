@@ -33,6 +33,7 @@
 #include "kexifinddialog.h"
 #include "kexisearchandreplaceiface.h"
 #include "KexiBugReportDialog.h"
+#include "KexiRegisterResource_p.h"
 #include <kexiutils/utils.h>
 #include <kexiutils/KexiCloseButton.h>
 #include <kexiutils/KexiTester.h>
@@ -302,48 +303,37 @@ void KexiMainWindowTabWidget::setTabIndexFromContextMenu(int clickedIndex)
 
 //-------------------------------------------------
 
-static bool registerResource(const QString& path)
-{
-    // let QStandardPaths handle this, it will look for app local stuff
-    const QString fullPath = QFileInfo(
-        QStandardPaths::locate(QStandardPaths::AppDataLocation, path)).canonicalFilePath();
-    const bool ok = QFile::exists(fullPath) && QResource::registerResource(fullPath);
-    if (!ok) {
-        qWarning() << "Failed to register resource" << path << "application's look may be broken.";
-    }
-    return ok;
-}
-
-static void setupIconTheme()
+static bool setupIconTheme(KLocalizedString *errorMessage)
 {
     // Register kexi resource first to have priority over the standard breeze theme.
-    // For example "table" icon exists i both resources.
-    (void)registerResource("icons/kexi_breeze.rcc");
-    (void)registerResource("icons/breeze.rcc");
-
-    // Tell Qt about the theme
-    QIcon::setThemeSearchPaths(QStringList() << QStringLiteral(":/icons"));
-    QIcon::setThemeName(QStringLiteral("breeze"));
+    // For example "table" icon exists in both resources.
+    if (!registerResource("icons/kexi_breeze.rcc", QStandardPaths::AppDataLocation,
+                          QString(), errorMessage)
+        || !registerGlobalBreezeIconsResource(errorMessage))
+    {
+        return false;
+    }
+    setupBreezeIconTheme();
 
     // tell KIconLoader an co. about the theme
     KConfigGroup cg(KSharedConfig::openConfig(), "Icons");
     cg.writeEntry("Theme", "breeze");
     cg.sync();
+    return true;
 }
 
 //static
 int KexiMainWindow::create(int &argc, char *argv[], const QString &componentName)
 {
-    const bool appExisted = qApp;
-
-    //! @todo use non-GUI app when needed
-    QApplication *app = qApp ? qApp : new QApplication(argc, argv);
-
-    setupIconTheme();
-
-    QApplication::setWindowIcon(koIcon("kexi"));
-    KLocalizedString::setApplicationDomain("kexi");
+    QApplication *app = qApp;
+    QScopedPointer<QApplication> guard;
+    if (!app) {
+        //! @todo use non-GUI app when needed
+        guard.reset(app = new QApplication(argc, argv));
+    }
     app->setQuitOnLastWindowClosed(false);
+
+    KLocalizedString::setApplicationDomain("kexi");
     //! @todo KEXI3 app->setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
     KexiAboutData aboutData;
@@ -356,20 +346,22 @@ int KexiMainWindow::create(int &argc, char *argv[], const QString &componentName
     KCrash::initialize();
 #endif
 
+    KLocalizedString errorMessage;
+    if (!setupIconTheme(&errorMessage)) {
+        KMessageBox::error(nullptr, errorMessage.toString());
+        qWarning() << qPrintable(errorMessage.toString(Kuit::PlainText));
+        return 1;
+    }
+    QApplication::setWindowIcon(koIcon("kexi"));
+
     tristate res = Kexi::startupHandler().init();
     if (!res || ~res) {
-        if (!appExisted) {
-            delete app;
-        }
         return (~res) ? 0 : 1;
     }
     //qDebug() << "startupActions OK";
 
     /* Exit requested, e.g. after database removing. */
     if (Kexi::startupHandler().action() == KexiStartupData::Exit) {
-        if (!appExisted) {
-            delete app;
-        }
         return 0;
     }
 
@@ -385,9 +377,6 @@ int KexiMainWindow::create(int &argc, char *argv[], const QString &componentName
 
     if (true != win->startup()) {
         delete win;
-        if (!appExisted) {
-            delete app;
-        }
         return 1;
     }
 
@@ -400,6 +389,7 @@ int KexiMainWindow::create(int &argc, char *argv[], const QString &componentName
     /*foreach (QWidget *widget, QApplication::topLevelWidgets()) {
         qDebug() << widget;
     }*/
+    guard.take();
     return 0;
 }
 
