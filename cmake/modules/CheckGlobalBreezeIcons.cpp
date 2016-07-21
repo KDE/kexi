@@ -18,7 +18,7 @@
 */
 
 #define QT_ONLY
-#include <QApplication>
+#include <QGuiApplication>
 #include <QIcon>
 #include <iostream>
 #include "../../src/main/KexiRegisterResource_p.h"
@@ -26,7 +26,7 @@
 //! @internal runtime check for existence of breeze icons
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    QGuiApplication app(argc, argv);
     QString errorMessage;
     const char *file
     = "The icon resource is invalid, please build repository "
