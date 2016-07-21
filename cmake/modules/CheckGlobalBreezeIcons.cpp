@@ -28,15 +28,15 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     QString errorMessage;
+    const char *file
+    = "The icon resource is invalid, please build repository "
+      "from https://quickgit.kde.org/?p=breeze-icons.git (with -DBINARY_ICONS_RESOURCE=ON) "
+      "or install \"breeze-icons package\" that delivers the file.\nIssue: ";
     if (!registerGlobalBreezeIconsResource(&errorMessage)) {
-        std::cerr << argv[0] << ": " << errorMessage.toStdString() << std::endl;
+        std::cerr << file << " " << errorMessage.toStdString() << std::endl;
         return 1;
     }
     setupBreezeIconTheme();
-    const char *file
-    = "The icon resource is invalid, please build repository "
-      "from https://quickgit.kde.org/?p=breeze-icons.git "
-      "or install \"breeze-icons package\" that delivers the file.\nIssue: ";
     const char *iconName = "document-save-as";
     const QIcon icon(QIcon::fromTheme(iconName));
     if (icon.themeName() != "breeze") {
