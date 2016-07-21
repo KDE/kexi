@@ -254,7 +254,9 @@ int KexiMainWindow::create(const QStringList &arguments, const QString &componen
 
     KLocalizedString errorMessage;
     KLocalizedString detailsErrorMessage;
-    if (!setupIconTheme(&errorMessage, &detailsErrorMessage)) {
+    if (!setupIconTheme(&errorMessage, &detailsErrorMessage)
+        || !KexiStyle::setupApplication(&errorMessage))
+    {
         if (detailsErrorMessage.isEmpty()) {
             KMessageBox::error(nullptr, errorMessage.toString());
         } else {

@@ -21,8 +21,11 @@
 #include "KexiPropertyPaneLineEditStyle.h"
 #include "utils.h"
 
+#include <KLocalizedString>
+
 #include <KPropertyEditorView>
 
+#include <QApplication>
 #include <QComboBox>
 #include <QFile>
 #include <QFont>
@@ -38,8 +41,28 @@
 #include <QStyleOptionViewItem>
 #include <QSvgRenderer>
 #include <QVBoxLayout>
+#include <QStyleFactory>
 
 namespace KexiStyle {
+
+KEXIUTILS_EXPORT bool setupApplication(KLocalizedString *errorMessage)
+{
+    // Only this style matches current Kexi theme and can be supported.
+    // @todo add support for more styles via theme plugins.
+    const char *name = "breeze";
+    QScopedPointer<QStyle> style(QStyleFactory::create(name));
+    if (!style || style->objectName() != name) {
+        *errorMessage = kxi18nc("@info",
+            "<para>Could not find application style <resource>%1</resource>.</para>"
+            "<para><application>Kexi</application> will not start. "
+            "Please check if <application>Kexi</application> is properly installed.</para>")
+            .subs(name);
+        return false;
+    }
+    qApp->setStyle(style.take());
+    *errorMessage = KLocalizedString();
+    return true;
+}
 
 KEXIUTILS_EXPORT void setupFrame(QFrame *frame)
 {

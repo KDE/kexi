@@ -27,6 +27,7 @@
 #include <QColor>
 #include <QMargins>
 
+class KLocalizedString;
 class KPropertyEditorView;
 class QComboBox;
 class QFont;
@@ -68,6 +69,10 @@ public:
 //! @todo make it configurable?
 namespace KexiStyle
 {
+    //! Setup style for this application. Called once after creating of application.
+    //! @return false on error, then @a errorMessage is set
+    KEXIUTILS_EXPORT bool setupApplication(KLocalizedString *errorMessage);
+
     //! Setup style for @a frame. By default flat style is set (QFrame::NoFrame).
     KEXIUTILS_EXPORT void setupFrame(QFrame *frame);
 
