@@ -46,21 +46,22 @@ add_library(keximain SHARED ${keximain_LIB_SRCS})
 generate_export_header(keximain)
 
 target_link_libraries(keximain
-PRIVATE
+PUBLIC
     kexicore
-    kexiutils
+
+PRIVATE
     kexiextendedwidgets
     kexiguiutils
 #TODO: KEXI3    keximigrate
 
-    KDb
-    KPropertyWidgets
-
-    KF5::KIOWidgets
-    KF5::XmlGui #KActionCollection...
-
     Qt5::UiTools
 )
+if(HAVE_KCRASH)
+  target_link_libraries(keximain
+      PRIVATE
+          KF5::Crash
+  )
+endif()
 
 set_target_properties(keximain PROPERTIES VERSION ${GENERIC_KEXI_LIB_VERSION} SOVERSION ${GENERIC_KEXI_LIB_SOVERSION} )
 install(TARGETS keximain  ${INSTALL_TARGETS_DEFAULT_ARGS})

@@ -153,11 +153,13 @@ include(ECMGenerateHeaders)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings)
+include(MacroBoolTo01)
 # own macros
 include(MacroLogFeature)
 include(MacroEnsureVersion)
 
-find_package(KF5 5.7.0 REQUIRED COMPONENTS 
+set(REQUIRED_KF5_VERSION 5.7.0)
+find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS
         Archive 
         Codecs 
         Completion
@@ -173,14 +175,16 @@ find_package(KF5 5.7.0 REQUIRED COMPONENTS
         TextWidgets 
         WidgetsAddons 
         XmlGui 
-    OPTIONAL_COMPONENTS
 )
-if(KF5_Activities_FOUND)
-    set(HAVE_KACTIVITIES TRUE)
-endif()
+find_package(KF5 ${REQUIRED_KF5_VERSION} QUIET OPTIONAL_COMPONENTS Crash)
+macro_bool_to_01(KF5Crash_FOUND HAVE_KCRASH)
+macro_log_feature(${KF5Crash_FOUND} "KCrash" "KDE's Crash Handler"
+                  "https://api.kde.org/frameworks/kcrash/html" FALSE ""
+                  "Optionally used to provide crash reporting on Linux")
 
-find_package(Qt5 5.3.0 REQUIRED COMPONENTS Core Gui Widgets Xml Network PrintSupport Test)
-find_package(Qt5 5.3.0 COMPONENTS UiTools WebKit WebKitWidgets)
+set(REQUIRED_QT_VERSION 5.4.0)
+find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Xml Network PrintSupport Test)
+find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS UiTools WebKit WebKitWidgets)
 
 # use sane compile flags
 add_definitions(
@@ -193,13 +197,11 @@ add_definitions(
   -DQT_USE_QSTRINGBUILDER
 )
 
-# only with this definition will all the FOO_TEST_EXPORT macro do something
+# only with COMPILING_TESTS definition will all the FOO_TEST_EXPORT macros do something
 # TODO: check if this can be moved to only those places which make use of it,
 # to reduce global compiler definitions that would trigger a recompile of
 # everything on a change (like adding/removing tests to/from the build)
-if(BUILD_TESTING)
-    add_definitions(-DCOMPILING_TESTS)
-endif()
+macro_bool_to_01(BUILD_TESTING COMPILING_TESTS)
 
 # overcome some platform incompatibilities
 if(WIN32)
@@ -259,11 +261,9 @@ include(CheckGlobalBreezeIcons)
 set(MARBLE_MIN_VERSION "0.19.2")
 find_package(KexiMarble)
 if(NOT MARBLE_FOUND)
-    set(CAN_USE_MARBLE FALSE)
     set(MARBLE_INCLUDE_DIR "")
 else()
-    set(CAN_USE_MARBLE TRUE)
-    add_definitions( -DCAN_USE_MARBLE )
+    set(HAVE_MARBLE TRUE)
     ##
     ## Marble changed addMarbleWidget to setMarbleWidget in MarbleControlBox.h
     ## with commit ea177ca. This is for compatibility with older versions.
@@ -273,7 +273,7 @@ else()
         file(READ ${MARBLECONTROLBOX_H} MARBLECONTROLBOX_H_CONTENT)
         string(REGEX MATCH "setMarbleWidget" SETMARBLEWIDGET "${MARBLECONTROLBOX_H_CONTENT}")
         if( SETMARBLEWIDGET )
-            add_definitions(-DHAVE_SETMARBLEWIDGET)
+            set(HAVE_SETMARBLEWIDGET TRUE)
         endif()
     else()
         message( WARNING "MarbleControlBox.h not found, could not properly set the SETMARBLEWIDGET define." )
@@ -293,22 +293,11 @@ string(TOLOWER "${PROJECT_NAME}" _PROJECT_NAME_LOWER)
 set(ICONS_INSTALL_DIR "${DATA_INSTALL_DIR}/${_PROJECT_NAME_LOWER}/icons")
 
 ##
-## Test for Qt Webkit
-##
-#TODO switch to Qt WebEngine
-macro_log_feature(Qt5WebKit_FOUND "Qt Webkit" "Qt binding for Webkit, the HTML engine." "http://qt.io" FALSE "" "Required for the web Kexi for widget")
-if(Qt5WebKit_FOUND)
-    add_definitions( -DCAN_USE_QTWEBKIT )
-endif()
-
-##
 ## Test for Qt WebKitWidgets
 ##
-macro_log_feature(Qt5WebKitWidgets_FOUND "Qt WebkitWidgets" "QWidgets module for Webkit, the HTML engine." "http://qt.io" FALSE "" "Required by Kexi form web widget")
-
-##
-## Generate a file for prefix information
-##
+#TODO switch to Qt WebEngine
+macro_bool_to_01(Qt5WebKitWidgets_FOUND HAVE_QTWEBKITWIDGETS)
+macro_log_feature(Qt5WebKitWidgets_FOUND "Qt WebkitWidgets" "QWidgets module for Webkit, the HTML engine." "http://qt.io" FALSE "" "Required by Kexi web form widget")
 
  ##################
 ###################
@@ -331,12 +320,6 @@ endif()
 if (NOT QT_MAC_USE_COCOA)
     set(NOT_COCOA TRUE)
 endif()
-
-calligra_drop_product_on_bad_condition( APP_KEXI
-    KDb_FOUND "KDb not found"
-    KPropertyWidgets_FOUND "KPropertyWidgets not found"
-    Qt5UiTools_FOUND "Qt5UiTools not found"
-)
 
 #############################################
 ####      Temporarily broken products    ####

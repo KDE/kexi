@@ -22,7 +22,6 @@
 #include "kexiaboutdata.h"
 #include <KexiVersion.h>
 
-#include <KexiIcon.h>
 #include <KLocalizedString>
 
 static const char description[] =

@@ -52,6 +52,7 @@
 #include <core/KexiMainWindowIface.h>
 #include <kexiutils/SmallToolButton.h>
 #include <kexiutils/utils.h>
+#include <config-kexi.h>
 
 class KexiFormManagerPrivate {
 public:
@@ -233,10 +234,10 @@ void KexiFormManager::createActions(KActionCollection* collection)
             << "library_widget_KFDTabWidget"
             << "library_widget_Line"
             << QString() //sep
-#ifdef CAN_USE_QTWEBKIT
+#ifdef HAVE_QTWEBKITWIDGETS
             << "library_widget_WebBrowserWidget"
 #endif
-#ifdef CAN_USE_MARBLE
+#ifdef HAVE_MARBLE
             << "library_widget_MapBrowserWidget"
 #endif
             << "library_widget_KexiDBSlider"

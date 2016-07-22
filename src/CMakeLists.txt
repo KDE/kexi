@@ -84,11 +84,8 @@ else()
   ecm_add_app_icon(kexi_SRCS ICONS ${ICONS_SRCS})
   add_executable(kexi ${kexi_SRCS})
   target_link_libraries(kexi
-
-    keximain
-    kexicore
-
-    KDb
+    PRIVATE
+      keximain
   )
   install(TARGETS kexi ${INSTALL_TARGETS_DEFAULT_ARGS})
 endif()

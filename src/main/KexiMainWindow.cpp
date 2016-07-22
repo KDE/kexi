@@ -103,6 +103,11 @@
 # define KexiVDebug if (0) qDebug()
 #endif
 
+#ifdef HAVE_KCRASH
+#include <kcrash.h>
+//! @todo else, add Breakpad? https://phabricator.kde.org/T1642
+#endif
+
 KexiDockWidgetStyle::KexiDockWidgetStyle(const QString &baseStyleName)
  : QProxyStyle(baseStyleName)
 {
@@ -336,6 +341,10 @@ int KexiMainWindow::create(int &argc, char *argv[], const QString &componentName
         aboutData.setComponentName(componentName);
     }
     KAboutData::setApplicationData(aboutData);
+
+#ifdef HAVE_KCRASH
+    KCrash::initialize();
+#endif
 
     KLocalizedString errorMessage;
     if (!setupIconTheme(&errorMessage)) {
