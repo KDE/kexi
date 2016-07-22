@@ -71,8 +71,7 @@ function kexi_xgettext_internal() {
 # To exclude dir for all translations but one, e.g. foo.pot, put a single "foo" line into the .i18n file.
 function find_exclude() {
     EXCLUDE=""
-# TODO KEXI3: migration/* disabled, planned move to KDb; remove "| grep -v /migration"
-    for f in `find . -name .i18n | sed 's/\/\.i18n$//g' | grep -v /migration | sort`; do
+    for f in `find . -name .i18n | sed 's/\/\.i18n$//g' | sort`; do
         if ! grep -q "^${1}$" "$f/.i18n" ; then
             if [ -n "$EXCLUDE" ] ; then EXCLUDE="$EXCLUDE -o " ; fi
             EXCLUDE="$EXCLUDE -path $f"
