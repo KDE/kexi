@@ -541,7 +541,7 @@ bool KexiMigrate::progressInitialise()
 void KexiMigrate::updateProgress(qulonglong step)
 {
     d->progressDone += step;
-    if (d->progressDone >= d->progressNextReport) {
+    if (d->progressTotal > 0 && d->progressDone >= d->progressNextReport) {
         int percent = (d->progressDone + 1) * 100 / d->progressTotal;
         d->progressNextReport = ((percent + 1) * d->progressTotal) / 100;
         qDebug() << (ulong)d->progressDone << "/"
