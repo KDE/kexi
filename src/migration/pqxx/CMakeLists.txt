@@ -4,7 +4,10 @@ kde_enable_exceptions()
 
 ########### next target ###############
 
-set(keximigrate_pqxx_PART_SRCS pqxxmigrate.cpp )
+set(keximigrate_pqxx_PART_SRCS
+    pqxxmigrate.cpp
+    Messages.sh
+)
 
 add_library(keximigrate_pqxx MODULE ${keximigrate_pqxx_PART_SRCS})
 

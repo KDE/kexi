@@ -2,11 +2,12 @@ include_directories(${MYSQL_INCLUDE_DIR})
 
 ########### next target ###############
 
-set(keximigrate_mysql_PART_SRCS mysqlmigrate.cpp )
+set(keximigrate_mysql_PART_SRCS
+    mysqlmigrate.cpp
+    Messages.sh
+)
 
 add_library(keximigrate_mysql MODULE ${keximigrate_mysql_PART_SRCS})
-
-
 
 target_link_libraries(
     keximigrate_mysql

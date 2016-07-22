@@ -8,7 +8,8 @@ if (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_GNUC)
     add_definitions(-Wno-cast-qual)
 endif (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_GNUC)
 
-set(MDBTOOLS_SOURCE_DIR ${CMAKE_SOURCE_DIR}/src/migration/mdb/3rdparty/mdbtools)
+set(MDB_SOURCE_DIR ${CMAKE_SOURCE_DIR}/src/migration/mdb)
+set(MDBTOOLS_SOURCE_DIR ${MDB_SOURCE_DIR}/3rdparty/mdbtools)
 set(keximigrate_mdb_INCLUDES ${GLIB2_INCLUDE_DIR} ${ICONV_INCLUDE_DIR} ${MDBTOOLS_SOURCE_DIR}/include)
 set(keximigrate_mdb_LIBRARIES ${GLIB2_LIBRARIES} ${ICONV_LIBRARIES})
 
@@ -30,6 +31,7 @@ ${MDBTOOLS_SOURCE_DIR}/libmdb/stats.c
 ${MDBTOOLS_SOURCE_DIR}/libmdb/table.c
 ${MDBTOOLS_SOURCE_DIR}/libmdb/worktable.c
 ${MDBTOOLS_SOURCE_DIR}/libmdb/write.c
+${MDB_SOURCE_DIR}/Messages.sh
 )
 
 build_and_install_kexi_migrate_driver(mdb

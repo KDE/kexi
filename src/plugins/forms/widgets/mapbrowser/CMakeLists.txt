@@ -6,7 +6,9 @@ include_directories(
 
 set(kexiforms_mapwidgetplugin_SRCS
     MapBrowserWidget.cpp
-    MapBrowserFactory.cpp)
+    MapBrowserFactory.cpp
+    Messages.sh
+)
 
 add_library(kexiforms_mapwidgetplugin MODULE ${kexiforms_mapwidgetplugin_SRCS})
 kcoreaddons_desktop_to_json(kexiforms_mapwidgetplugin kexiforms_mapwidgetplugin.desktop)

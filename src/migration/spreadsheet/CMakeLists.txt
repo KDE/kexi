@@ -9,7 +9,10 @@ include_directories(
 
 ########### next target ###############
 
-set(keximigrate_spreadsheet_PART_SRCS spreadsheetmigrate.cpp )
+set(keximigrate_spreadsheet_PART_SRCS
+    spreadsheetmigrate.cpp
+    Messages.sh
+)
 
 
 add_library(keximigrate_spreadsheet MODULE ${keximigrate_spreadsheet_PART_SRCS})

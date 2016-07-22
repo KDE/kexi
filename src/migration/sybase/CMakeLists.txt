@@ -2,11 +2,12 @@ include_directories( ${FreeTDS_INCLUDE_DIR} )
 
 ########### next target ###############
 
-set(keximigrate_sybase_PART_SRCS sybasemigrate.cpp )
+set(keximigrate_sybase_PART_SRCS
+    sybasemigrate.cpp
+    Messages.sh
+)
 
 add_library(keximigrate_sybase MODULE ${keximigrate_sybase_PART_SRCS})
-
-
 
 target_link_libraries(keximigrate_sybase ${FreeTDS_LIBRARIES}
                       kexiutils keximigrate KDb)
