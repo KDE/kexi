@@ -247,6 +247,7 @@ find_package(KPropertyWidgets 2.99.0 REQUIRED)
 macro_log_feature(KPropertyWidgets_FOUND "KPropertyWidgets" "A property editing framework with editor widget"
                                   "http://community.kde.org/KProperty" FALSE "" "Required by Kexi")
 
+include(CheckIfQtGuiCanBeExecuted)
 include(CheckGlobalBreezeIcons)
 
  ###########################
