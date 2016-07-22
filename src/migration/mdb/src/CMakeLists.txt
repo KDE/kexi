@@ -13,7 +13,9 @@ set(MDBTOOLS_SOURCE_DIR ${MDB_SOURCE_DIR}/3rdparty/mdbtools)
 set(keximigrate_mdb_INCLUDES ${GLIB2_INCLUDE_DIR} ${ICONV_INCLUDE_DIR} ${MDBTOOLS_SOURCE_DIR}/include)
 set(keximigrate_mdb_LIBRARIES ${GLIB2_LIBRARIES} ${ICONV_LIBRARIES})
 
-set(keximigrate_mdb_PART_SRCS keximdb/mdbmigrate.cpp
+set(keximigrate_mdb_PART_SRCS
+keximdb/mdbmigrate.cpp
+keximdb/keximigrate_mdb.json
 ${MDBTOOLS_SOURCE_DIR}/libmdb/catalog.c
 ${MDBTOOLS_SOURCE_DIR}/libmdb/data.c
 ${MDBTOOLS_SOURCE_DIR}/libmdb/dump.c

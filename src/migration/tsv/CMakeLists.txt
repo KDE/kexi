@@ -1,5 +1,6 @@
 set(keximigrate_tsv_PART_SRCS
     TsvMigrate.cpp
+    keximigrate_tsv.json
     Messages.sh
 )
 
