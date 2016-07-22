@@ -28,9 +28,9 @@ function(build_and_install_kexi_migrate_driver _name _srcs _extra_libs _includes
 endfunction()
 # -----------------------
 
-if(false) # TODO KEXI3
+add_subdirectory(tsv)
 
-add_subdirectory(txt)
+if(false) # TODO KEXI3
 
 find_package(MySQL)
 macro_log_feature(MYSQL_FOUND "libmysqlclient" "MySQL Client Library" "http://www.mysql.com" FALSE "" "Required by Kexi MySQL migration driver")
