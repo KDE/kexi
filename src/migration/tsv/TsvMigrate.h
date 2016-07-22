@@ -1,5 +1,6 @@
 /* This file is part of the KDE project
 Copyright (C) 2004-2009 Adam Pigg <adam@piggz.co.uk>
+Copyright (C) 2016 Jarosław Staniek <staniek@kde.org>
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU Library General Public
@@ -24,6 +25,8 @@ the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 
 #include <QFile>
 
+class QTextCodec;
+
 namespace KexiMigration
 {
 
@@ -47,10 +50,8 @@ public:
     //! Get table names in source
     virtual bool drv_tableNames(QStringList& tablenames);
 
-    virtual bool drv_copyTable(const QString&, KDbConnection*, KDbTableSchema*)
-    {
-        return false;
-    }
+    virtual bool drv_copyTable(const QString& srcTable, KDbConnection *destConn,
+                               KDbTableSchema* dstTable);
 
     //! Read schema for a given table
     virtual bool drv_readTableSchema(const QString& originalName, KDbTableSchema& tableSchema);
@@ -72,12 +73,10 @@ public:
     virtual bool drv_moveLast();
 
   private:
-    QString m_Folder;
+    //! @return next line read from the file split by tabs, decoded to unicode and with last \n removed
+    QStringList readLine(bool *eof);
 
-    QString m_FileName;
-
-    QString m_LastLine;
-
+    QTextCodec *m_codec;
     QFile *m_DataFile;
 
     QStringList m_FieldNames;
