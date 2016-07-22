@@ -1,7 +1,7 @@
 #! /bin/sh
 source ../../../../../kexi_xgettext.sh
 
-potfile=kformdesigner_mapbrowser
+potfile=kexiforms_mapwidgetplugin
 find_exclude $potfile
 
 # Exclude files containing "#warning noi18n"

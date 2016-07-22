@@ -79,7 +79,11 @@ endif()
 if(KEXI_MOBILE)
   add_subdirectory( mobile )
 else()
-  set(kexi_SRCS main.cpp )
+  set(kexi_SRCS
+    main.cpp
+    Messages.sh
+    ${CMAKE_SOURCE_DIR}/kexi_xgettext.sh
+  )
   file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/data/*-apps-kexi.png")
   ecm_add_app_icon(kexi_SRCS ICONS ${ICONS_SRCS})
   add_executable(kexi ${kexi_SRCS})

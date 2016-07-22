@@ -2,7 +2,10 @@ include_directories(${XBase_INCLUDE_DIR})
 
 ########### next target ###############
 
-set(keximigrate_xbase_PART_SRCS xbasemigrate.cpp )
+set(keximigrate_xbase_PART_SRCS
+    xbasemigrate.cpp
+    Messages.sh
+)
 
 add_library(keximigrate_xbase MODULE ${keximigrate_xbase_PART_SRCS})
 

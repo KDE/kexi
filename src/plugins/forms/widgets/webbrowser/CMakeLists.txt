@@ -6,6 +6,7 @@ include_directories(
 set(kexiforms_webbrowserwidgetplugin_SRCS
     WebBrowserWidget.cpp
     WebBrowserFactory.cpp
+    Messages.sh
 )
 
 add_library(kexiforms_webbrowserwidgetplugin MODULE ${kexiforms_webbrowserwidgetplugin_SRCS})

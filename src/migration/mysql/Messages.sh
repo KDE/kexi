@@ -1,7 +1,7 @@
 #! /bin/sh
 source ../../../kexi_xgettext.sh
 
-potfile=keximigrate_tsv
+potfile=keximigrate_mysql
 find_exclude $potfile
 
 # Exclude files containing "#warning noi18n"
