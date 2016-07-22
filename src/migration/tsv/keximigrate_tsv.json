@@ -1,0 +1,27 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "kexi@kde.org",
+                "Name": "Kexi Team"
+            }
+        ], 
+        "Category": "",
+        "Dependencies": [],
+        "Description": "Tab Separated Values (TSV) File Import Plugin for Kexi",
+        "EnabledByDefault": true, 
+        "Icon": "", 
+        "Id": "org.kexi-project.migration.tsv",
+        "License": "LGPL",
+        "MimeTypes": [
+            "text/tab-separated-values"
+        ],
+        "Name": "TSV",
+        "ServiceTypes": [
+            "Kexi/MigrationDriver"
+        ],
+        "Version": "3.0",
+        "Website": "http://kexi-project.org"
+     },
+     "X-Kexi-FileBased": "true"
+}

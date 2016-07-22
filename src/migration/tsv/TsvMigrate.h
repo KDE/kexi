@@ -17,8 +17,8 @@ the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXIMIGRATIONTXTMIGRATE_H
-#define KEXIMIGRATIONTXTMIGRATE_H
+#ifndef KEXITSVMIGRATE_H
+#define KEXITSVMIGRATE_H
 
 #include <migration/keximigrate.h>
 
@@ -28,14 +28,14 @@ namespace KexiMigration
 {
 
 //! "Tab Separated Values" document import plugin
-class TxtMigrate : public KexiMigrate
+class TsvMigrate : public KexiMigrate
 {
     Q_OBJECT
 
 public:
-    explicit TxtMigrate(QObject *parent, const QVariantList &args = QVariantList());
+    explicit TsvMigrate(QObject *parent, const QVariantList &args = QVariantList());
 
-    virtual ~TxtMigrate();
+    virtual ~TsvMigrate();
 
   protected:
     //! Connect to source

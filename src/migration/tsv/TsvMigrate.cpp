@@ -17,7 +17,7 @@ the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 * Boston, MA 02110-1301, USA.
 */
 
-#include "txtmigrate.h"
+#include "TsvMigrate.h"
 #include <kexi.h>
 
 #include <QDebug>
@@ -25,9 +25,10 @@ the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 
 using namespace KexiMigration;
 
-KEXI_PLUGIN_FACTORY(TxtMigrate, "keximigrate_txt.json")
+/* This is the implementation for the TSV file import routines. */
+KEXI_PLUGIN_FACTORY(TsvMigrate, "keximigrate_tsv.json")
 
-TxtMigrate::TxtMigrate(QObject *parent, const QVariantList& args)
+TsvMigrate::TsvMigrate(QObject *parent, const QVariantList& args)
         : KexiMigrate(parent, args)
 {
   m_DataFile = 0;
@@ -36,19 +37,19 @@ TxtMigrate::TxtMigrate(QObject *parent, const QVariantList& args)
 }
 
 
-TxtMigrate::~TxtMigrate()
+TsvMigrate::~TsvMigrate()
 {
 }
 
-bool TxtMigrate::drv_connect()
+bool TsvMigrate::drv_connect()
 {
   QDir d;
 
-  m_Folder = data()->source->dbPath();
+  m_Folder = data()->source->databaseName();
   return d.exists(m_Folder);
 }
 
-bool TxtMigrate::drv_disconnect()
+bool TsvMigrate::drv_disconnect()
 {
   if (m_DataFile) {
     delete m_DataFile;
@@ -58,13 +59,13 @@ bool TxtMigrate::drv_disconnect()
   return true;
 }
 
-bool TxtMigrate::drv_tableNames(QStringList& tablenames)
+bool TsvMigrate::drv_tableNames(QStringList& tablenames)
 {
   tablenames << data()->source->databaseName();
   return true;
 }
 
-bool TxtMigrate::drv_readTableSchema(const QString& originalName, KDbTableSchema& tableSchema)
+bool TsvMigrate::drv_readTableSchema(const QString& originalName, KDbTableSchema& tableSchema)
 {
     if (!drv_readFromTable(originalName)) {
         return false;
@@ -85,7 +86,7 @@ bool TxtMigrate::drv_readTableSchema(const QString& originalName, KDbTableSchema
     return ok;
 }
 
-bool TxtMigrate::drv_readFromTable(const QString & tableName)
+bool TsvMigrate::drv_readFromTable(const QString & tableName)
 {
   if (m_DataFile) {
     delete m_DataFile;
@@ -107,7 +108,7 @@ bool TxtMigrate::drv_readFromTable(const QString & tableName)
   return true;
 }
 
-bool TxtMigrate::drv_moveNext()
+bool TsvMigrate::drv_moveNext()
 {
     //qDebug();
   if (m_Row < m_FileRow)
@@ -127,7 +128,7 @@ bool TxtMigrate::drv_moveNext()
   return true;
 }
 
-bool TxtMigrate::drv_movePrevious()
+bool TsvMigrate::drv_movePrevious()
 {
     //qDebug();
   if (m_Row > 0)
@@ -138,7 +139,7 @@ bool TxtMigrate::drv_movePrevious()
   return false;
 }
 
-QVariant TxtMigrate::drv_value(int i)
+QVariant TsvMigrate::drv_value(int i)
 {
     //qDebug() << m_Row;
     //qDebug() << m_LastLine;
@@ -149,16 +150,18 @@ QVariant TxtMigrate::drv_value(int i)
     return QVariant();
 }
 
-bool TxtMigrate::drv_moveFirst()
+bool TsvMigrate::drv_moveFirst()
 {
     //qDebug();
     m_Row = -1;
     return drv_moveNext();
 }
 
-bool TxtMigrate::drv_moveLast()
+bool TsvMigrate::drv_moveLast()
 {
     //qDebug();
     while(drv_moveNext()) {}
     return true;
 }
+
+#include "TsvMigrate.moc"
