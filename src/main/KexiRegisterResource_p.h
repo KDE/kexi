@@ -17,6 +17,7 @@
  * Boston, MA 02110-1301, USA.
 */
 
+#include <QCoreApplication>
 #include <QFileInfo>
 #include <QResource>
 #include <QStandardPaths>
@@ -26,12 +27,35 @@
 #define KLocalizedString QString
 #endif
 
+static QString locateFile(const QString& path, QStandardPaths::StandardLocation location)
+{
+    // let QStandardPaths handle this, it will look for app local stuff
+    QString fullPath = QFileInfo(
+        QStandardPaths::locate(location, path)).canonicalFilePath();
+
+    if (fullPath.isEmpty() || !QFileInfo(fullPath).isReadable()) {
+        // A workaround: locations for QStandardPaths::AppDataLocation end with app name.
+        // If this is not a kexi app but a test app such as GlobalSearchTest, replace
+        // the subdir name with "kexi" so we can find Kexi file(s).
+        QRegularExpression re("/" + QCoreApplication::applicationName() + "$");
+        for(const QString &dir : QStandardPaths::standardLocations(location)) {
+            if (dir.indexOf(re) != -1) {
+                QString realDir(dir);
+                realDir.replace(re, "/kexi");
+                fullPath = realDir + "/" + path;
+                if (!fullPath.isEmpty() && QFileInfo(fullPath).isReadable()) {
+                    break;
+                }
+            }
+        }
+    }
+    return fullPath;
+}
+
 static bool registerResource(const QString& path, QStandardPaths::StandardLocation location,
                              const QString &resourceRoot, KLocalizedString *errorMessage)
 {
-    // let QStandardPaths handle this, it will look for app local stuff
-    const QString fullPath = QFileInfo(
-        QStandardPaths::locate(location, path)).canonicalFilePath();
+    const QString fullPath = locateFile(path, location);
     if (fullPath.isEmpty() || !QFileInfo(fullPath).isReadable()
         || !QResource::registerResource(fullPath, resourceRoot))
     {
