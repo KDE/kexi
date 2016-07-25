@@ -19,6 +19,7 @@
 
 #include <QCoreApplication>
 #include <QFileInfo>
+#include <QRegularExpression>
 #include <QResource>
 #include <QStandardPaths>
 #include <QDebug>
