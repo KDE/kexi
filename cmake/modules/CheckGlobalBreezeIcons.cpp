@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     const char *file
     = "The icon resource is invalid, please build repository "
       "from https://quickgit.kde.org/?p=breeze-icons.git (with -DBINARY_ICONS_RESOURCE=ON) "
-      "or install \"breeze-icons package\" that delivers the file.\nIssue: ";
+      "or install \"breeze-icons\" package that delivers the file.\nIssue: ";
     if (!registerGlobalBreezeIconsResource(&errorMessage)) {
         std::cerr << file << " " << errorMessage.toStdString() << std::endl;
         return 1;
