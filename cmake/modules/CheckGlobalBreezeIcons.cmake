@@ -33,6 +33,6 @@ endif()
 
 if(NOT ${RUN_RESULT} EQUAL 0)
     message(FATAL_ERROR "No valid breeze-icons.rcc resource file found. \
-        The CheckGlobalBreezeIcons program returned ${RUN_RESULT}. \
-        Result: ${RUN_OUTPUT}")
+The CheckGlobalBreezeIcons.cmake script returned ${RUN_RESULT}.\n \
+Result: ${RUN_OUTPUT}")
 endif()
