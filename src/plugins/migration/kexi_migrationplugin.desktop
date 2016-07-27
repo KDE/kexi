@@ -1,6 +1,18 @@
 [Desktop Entry]
 Name=Migration
+Name[ca]=Migració
+Name[nl]=Migratie
+Name[pt]=Migração
+Name[sv]=Konvertering
+Name[uk]=Перенесення
+Name[x-test]=xxMigrationxx
 Comment=Kexi plugin for handling database migration
+Comment[ca]=Connector del Kexi per gestionar migracions de bases de dades
+Comment[nl]=Kexi-plug-in voor behandeling van migratie van een database
+Comment[pt]='Plugin' do Kexi para lidar com tabelas
+Comment[sv]=Kexi-insticksprogram för att hantera databaskonvertering
+Comment[uk]=Додаток до Kexi для перенесення баз даних
+Comment[x-test]=xxKexi plugin for handling database migrationxx
 Type=Service
 Icon=database-import
 Encoding=UTF-8
