@@ -48,13 +48,13 @@ public:
     virtual bool drv_disconnect();
 
     //! Get table names in source
-    virtual bool drv_tableNames(QStringList& tablenames);
+    virtual bool drv_tableNames(QStringList *tablenames);
 
     virtual bool drv_copyTable(const QString& srcTable, KDbConnection *destConn,
                                KDbTableSchema* dstTable);
 
     //! Read schema for a given table
-    virtual bool drv_readTableSchema(const QString& originalName, KDbTableSchema& tableSchema);
+    virtual bool drv_readTableSchema(const QString& originalName, KDbTableSchema *tableSchema);
 
     //! Position the source dataset at the start of a table
     virtual bool drv_readFromTable(const QString & tableName);

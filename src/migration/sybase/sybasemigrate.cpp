@@ -73,12 +73,13 @@ bool SybaseMigrate::drv_disconnect()
 /* ************************************************************************** */
 /*! Get the types and properties for each column. */
 bool SybaseMigrate::drv_readTableSchema(
-    const QString& originalName, KDbTableSchema& tableSchema)
+    const QString& originalName, KDbTableSchema *tableSchema)
 {
 //! @todo IDEA: ask for user input for captions
 
     //Perform a query on the table to get some data
-    QString sqlStatement = QString("SELECT TOP 0 * FROM ") + drv_escapeIdentifier(originalName);
+    KDbEscapedString sqlStatement = KDbEscapedString("SELECT TOP 0 * FROM %1")
+            .arg(drv_escapeIdentifier(originalName);
 
     if (!query(sqlStatement))
         return false;
@@ -142,13 +143,13 @@ bool SybaseMigrate::drv_readTableSchema(
 }
 
 /*! Get a list of tables and put into the supplied string list */
-bool SybaseMigrate::drv_tableNames(QStringList& tableNames)
+bool SybaseMigrate::drv_tableNames(QStringList *tableNames)
 {
     if (!query("Select name from sysobjects where type='U'"))
         return false;
     while (dbnextrow(d->dbProcess) != NO_MORE_ROWS) {
         //qDebug() << value(0);
-        tableNames << value(0);
+        tableNames->append(value(0));
     }
     return true;
 }
@@ -158,7 +159,7 @@ bool SybaseMigrate::drv_tableNames(QStringList& tableNames)
  On success the result is stored in \a stringList and true is returned.
  \return cancelled if there are no records available. */
 tristate SybaseMigrate::drv_queryStringListFromSQL(
-    const QString& sqlStatement, int columnNumber, QStringList& stringList, int numRecords)
+    const KDbEscapedString& sqlStatement, int columnNumber, QStringList *stringList, int numRecords)
 {
     if (!query(sqlStatement))
         return false;
@@ -185,14 +186,14 @@ tristate SybaseMigrate::drv_queryStringListFromSQL(
                 << "columnNumber too large"
                 << columnNumber << "expected 0.." << numFields;
         }
-        stringList.append(value(i));
+        stringList->append(value(i));
     }
     return true;
 }
 
 /*! Fetches single record from result obtained
  by running \a sqlStatement. */
-tristate SybaseMigrate::drv_fetchRecordFromSQL(const QString& sqlStatement,
+tristate SybaseMigrate::drv_fetchRecordFromSQL(const KDbEscapedString& sqlStatement,
         KDbRecordData* data, bool *firstRecord)
 {
     Q_ASSERT(data);
@@ -337,7 +338,10 @@ bool SybaseMigrate::primaryKey(const QString& tableName, const QString& fieldNam
     // indid  -> index Id.
     // id   -> The id of the table on which this index exists
 
-    QString sqlStatement = QString("Select indid,keycnt,status from sysindexes where id = object_id('%1') and ( status & 2048 !=0 ) ").arg(drv_escapeIdentifier(tableName));
+    KDbEscapedString sqlStatement
+        = KDbEscapedString("SELECT indid,keycnt,status FROM sysindexes "
+                           "WHERE id = object_id('%1') and ( status & 2048 !=0 ) ")
+            .arg(drv_escapeIdentifier(tableName));
 
     if (!query(sqlStatement)) {
         return false;
@@ -358,7 +362,8 @@ bool SybaseMigrate::primaryKey(const QString& tableName, const QString& fieldNam
     }
 
     for (int i = 1; i <= keyCount; ++i) {
-        sqlStatement = QString("Select 1 where index_col('%1',%2, %3 ) = '%4' ").arg(drv_escapeIdentifier(tableName)).arg(indexId).arg(i).arg(fieldName);
+        sqlStatement = KDbEscapedString("SELECT 1 WHERE index_col('%1',%2, %3 ) = '%4' ")
+                .arg(drv_escapeIdentifier(tableName)).arg(indexId).arg(i).arg(fieldName);
 
         if (!query(sqlStatement)) {
             return false;
@@ -383,7 +388,9 @@ bool SybaseMigrate::uniqueKey(const QString& tableName, const QString& fieldName
     // indid  -> index Id.
     // id   -> The id of the table on which this index exists
 
-    QString sqlStatement = QString("Select indid,keycnt,status from sysindexes where id = object_id('%1') and ( status & 2 !=0 ) ")
+    KDbEscapedString sqlStatement
+        = KDbEscapedString("SELECT indid,keycnt,status FROM sysindexes "
+                           "WHERE id = object_id('%1') and ( status & 2 !=0 ) ")
                            .arg(drv_escapeIdentifier(tableName));
     if (!query(sqlStatement)) {
         return false;
@@ -410,7 +417,7 @@ bool SybaseMigrate::uniqueKey(const QString& tableName, const QString& fieldName
         }
 
         for (int i = 1; i <= keyCount; i++) {
-            sqlStatement = QString("Select 1 where index_col('%1',%2, %3 ) = '%4' ")
+            sqlStatement = KDbEscapedString("SELECT 1 WHERE index_col('%1',%2, %3 ) = '%4' ")
                     .arg(drv_escapeIdentifier(tableName)).arg(indexId).arg(i).arg(fieldName);
             if (!query(sqlStatement)) {
                 return false;
@@ -442,7 +449,7 @@ QString SybaseMigrate::value(int pos) const
     return QString::fromUtf8((const char*)columnValue, strlen((const char*)columnValue));
 }
 
-bool SybaseMigrate::query(const QString& sqlStatement) const
+bool SybaseMigrate::query(const KDbEscapedString& sqlStatement) const
 {
 
     //qDebug()<<sqlStatement;
@@ -474,7 +481,8 @@ QList<KDbIndexSchema*> KexiMigration::SybaseMigrate::readIndexes(const QString& 
     // id   -> The id of the table on which this index exists
 
     QList<KDbIndexSchema*> indexList;
-    QString sqlStatement = QString("Select indid,keycnt,status from sysindexes where id = object_id('%1')")
+    KDbEscapedString sqlStatement = KDbEscapedString("SELECT indid,keycnt,status FROM sysindexes "
+                                   "WHERE id = object_id('%1')")
                            .arg(drv_escapeIdentifier(tableName));
 
     if (!query(sqlStatement)) {
@@ -518,7 +526,8 @@ QList<KDbIndexSchema*> KexiMigration::SybaseMigrate::readIndexes(const QString& 
         KDbIndexSchema* indexSchema = new KDbIndexSchema(&tableSchema);
 
         for (int i = 1; i <= keyCount; i++) {
-            sqlStatement = QString("Select index_col('%1',%2, %3 )").arg(drv_escapeIdentifier(tableName)).arg(indexId).arg(i);
+            sqlStatement = KDbEscapedString("SELECT index_col('%1',%2, %3)")
+                    .arg(drv_escapeIdentifier(tableName)).arg(indexId).arg(i);
 
             if (!query(sqlStatement)) {
                 delete indexSchema;

@@ -212,7 +212,7 @@ bool KexiMigrate::performImport(Kexi::ObjectStatus* result)
 
     // Step 2 - get table names
     qDebug() << "KexiMigrate::performImport() GETTING TABLENAMES...";
-    if (!tableNames(tables)) {
+    if (!tableNames(&tables)) {
         qDebug() << "Couldnt get list of tables";
         if (result)
             result->setStatus(
@@ -242,8 +242,8 @@ bool KexiMigrate::performImport(Kexi::ObjectStatus* result)
     QStringList kexiDBTables;
     if (kexi__objects_exists) {
         tristate res = drv_queryStringListFromSQL(
-                           QString::fromLatin1("SELECT o_name FROM kexi__objects WHERE o_type=%1")
-                           .arg(int(KDb::TableObjectType)), 0, kexiDBTables, -1);
+                           KDbEscapedString("SELECT o_name FROM kexi__objects WHERE o_type=%1")
+                           .arg(int(KDb::TableObjectType)), 0, &kexiDBTables, -1);
         if (res == true) {
             // prepend KexiDB-compatible tables to 'tables' list, so we'll copy KexiDB-compatible tables first,
             // to make sure existing IDs will not be in conflict with IDs newly generated for non-KexiDB tables
@@ -270,7 +270,7 @@ bool KexiMigrate::performImport(Kexi::ObjectStatus* result)
         KDbTableSchema *tableSchema = new KDbTableSchema(tableIdentifier);
         tableSchema->setCaption(tableCaption);   //caption is equal to the original name
 
-        if (!drv_readTableSchema(tableCaption, *tableSchema)) {
+        if (!drv_readTableSchema(tableCaption, tableSchema)) {
             delete tableSchema;
             if (result)
                 result->setStatus(
@@ -324,7 +324,7 @@ bool KexiMigrate::performImport(Kexi::ObjectStatus* result)
             KDbRecordData data;
             bool firstRecord = true;
             if (true == drv_fetchRecordFromSQL(
-                        QString::fromLatin1(
+                        KDbEscapedString(
                             "SELECT o_id, o_type, o_name, o_caption, o_desc FROM kexi__objects "
                             "WHERE o_name='%1' AND o_type=%2").arg(tableName).arg(int(KDb::TableObjectType)),
                         &data, &firstRecord)
@@ -333,10 +333,10 @@ bool KexiMigrate::performImport(Kexi::ObjectStatus* result)
 //! @todo to reuse KDbConnection::setupTableSchema()'s statement somehow...
                 //load schema for every field and add it
                 firstRecord = true;
-                QString sql(
-                    QString::fromLatin1("SELECT t_id, f_type, f_name, f_length, f_precision, f_constraints, "
+                const KDbEscapedString sql
+                     = KDbEscapedString("SELECT t_id, f_type, f_name, f_length, f_precision, f_constraints, "
                                         "f_options, f_default, f_order, f_caption, f_help"
-                                        " FROM kexi__fields WHERE t_id=%1 ORDER BY f_order").arg(t->id()));
+                                        " FROM kexi__fields WHERE t_id=%1 ORDER BY f_order").arg(t->id());
                 while (ok) {
                     tristate res = drv_fetchRecordFromSQL(sql, &data, &firstRecord);
                     if (res != true) {
@@ -510,7 +510,7 @@ bool KexiMigrate::progressInitialise()
 
     //! @todo Don't copy table names here
     QStringList tables;
-    if (!tableNames(tables))
+    if (!tableNames(&tables))
         return false;
 
     // 1) Get the number of rows/bytes to import
@@ -631,13 +631,13 @@ bool KexiMigrate::isValid()
 */
 
 bool KexiMigrate::drv_queryMaxNumber(const QString& tableName,
-                                     const QString& columnName, int& result)
+                                     const QString& columnName, int *result)
 {
     QString string;
     tristate r = drv_querySingleStringFromSQL(
-                     QString::fromLatin1("SELECT MAX(%1) FROM %2")
+                     KDbEscapedString("SELECT MAX(%1) FROM %2")
                      .arg(drv_escapeIdentifier(columnName))
-                     .arg(drv_escapeIdentifier(tableName)), 0, string);
+                     .arg(drv_escapeIdentifier(tableName)), 0, &string);
     if (r == false)
         return false;
     if (~r) {
@@ -647,17 +647,17 @@ bool KexiMigrate::drv_queryMaxNumber(const QString& tableName,
     bool ok;
     int tmpResult = string.toInt(&ok);
     if (ok)
-        result = tmpResult;
+        *result = tmpResult;
     return ok;
 }
 
 tristate KexiMigrate::drv_querySingleStringFromSQL(
-    const QString& sqlStatement, int columnNumber, QString& string)
+    const KDbEscapedString& sqlStatement, int columnNumber, QString *string)
 {
     QStringList stringList;
-    const tristate res = drv_queryStringListFromSQL(sqlStatement, columnNumber, stringList, 1);
+    const tristate res = drv_queryStringListFromSQL(sqlStatement, columnNumber, &stringList, 1);
     if (true == res)
-        string = stringList.first();
+        *string = stringList.first();
     return res;
 }
 
@@ -668,15 +668,16 @@ bool KexiMigrate::connectSource()
   return drv_connect();
 }
 
-bool KexiMigrate::readTableSchema(const QString& originalName, KDbTableSchema& tableSchema)
+bool KexiMigrate::readTableSchema(const QString& originalName, KDbTableSchema *tableSchema)
 {
   return drv_readTableSchema(originalName, tableSchema);
 }
 
-bool KexiMigrate::tableNames(QStringList & tn)
+bool KexiMigrate::tableNames(QStringList *tn)
 {
     //! @todo Cache list of table names
     qDebug() << "Reading list of tables...";
+    tn->clear();
     return drv_tableNames(tn);
 }
 

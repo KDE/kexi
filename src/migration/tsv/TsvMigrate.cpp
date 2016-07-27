@@ -61,10 +61,10 @@ bool TsvMigrate::drv_disconnect()
   return true;
 }
 
-bool TsvMigrate::drv_tableNames(QStringList& tablenames)
+bool TsvMigrate::drv_tableNames(QStringList *tablenames)
 {
   // return base part of filename only so table name will look better
-  tablenames << QFileInfo(data()->source->databaseName()).baseName();
+  tablenames->append(QFileInfo(data()->source->databaseName()).baseName());
   return true;
 }
 
@@ -95,7 +95,7 @@ bool TsvMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destConn,
     return true;
 }
 
-bool TsvMigrate::drv_readTableSchema(const QString& originalName, KDbTableSchema& tableSchema)
+bool TsvMigrate::drv_readTableSchema(const QString& originalName, KDbTableSchema *tableSchema)
 {
     if (!drv_readFromTable(originalName)) {
         return false;
@@ -103,9 +103,9 @@ bool TsvMigrate::drv_readTableSchema(const QString& originalName, KDbTableSchema
     bool ok = true;
     for (int i = 0; i < m_FieldNames.count(); ++i) {
         KDbField *f = new KDbField(m_FieldNames[i], KDbField::Text);
-        if (!tableSchema.addField(f)) {
+        if (!tableSchema->addField(f)) {
             delete f;
-            tableSchema.clear();
+            tableSchema->clear();
             ok = false;
             break;
         }

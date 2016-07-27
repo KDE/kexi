@@ -131,7 +131,7 @@ bool xBaseMigrate::drv_disconnect()
 /* ************************************************************************** */
 /*! Get the types and properties for each column. */
 bool xBaseMigrate::drv_readTableSchema(
-  const QString& originalName, KDbTableSchema& tableSchema)
+  const QString& originalName, KDbTableSchema *tableSchema)
 {
   // Steps
   // 1. Get the number of fields
@@ -173,9 +173,9 @@ bool xBaseMigrate::drv_readTableSchema(
 
     getConstraints(originalName, fld);
 
-    if (!tableSchema.addField(fld)) {
+    if (!tableSchema->addField(fld)) {
       delete fld;
-      tableSchema.clear();
+      tableSchema->clear();
       ok = false;
       break;
     }
@@ -185,13 +185,11 @@ bool xBaseMigrate::drv_readTableSchema(
 
 
 /*! Get a list of tables and put into the supplied string list */
-bool xBaseMigrate::drv_tableNames(QStringList& tableNames)
+bool xBaseMigrate::drv_tableNames(QStringList *tableNames)
 {
   // Get the names from the map directly
-  tableNames<<m_tableNamePathMap.keys();
-
-  qDebug()<<"Tables "<<tableNames;
-
+  tableNames->append(m_tableNamePathMap.keys());
+  //qDebug()<<"Tables "<<tableNames;
   return true;
 }
 

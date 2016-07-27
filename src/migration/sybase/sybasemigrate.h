@@ -36,11 +36,11 @@ public:
 
 protected:
     //! Driver specific function to return table names
-    virtual bool drv_tableNames(QStringList& tablenames);
+    virtual bool drv_tableNames(QStringList *tablenames);
 
     //! Driver specific implementation to read a table schema
     virtual bool drv_readTableSchema(
-        const QString& originalName, KDbTableSchema& tableSchema);
+        const QString& originalName, KDbTableSchema *tableSchema);
 
     //! Driver specific connection implementation
     virtual bool drv_connect();
@@ -48,10 +48,10 @@ protected:
     virtual bool drv_disconnect();
 
     virtual tristate drv_queryStringListFromSQL(
-        const QString& sqlStatement, int columnNumber,
-        QStringList& stringList, int numRecords = -1);
+        const KDbEscapedString& sqlStatement, int columnNumber,
+        QStringList *stringList, int numRecords = -1);
 
-    virtual tristate drv_fetchRecordFromSQL(const QString& sqlStatement,
+    virtual tristate drv_fetchRecordFromSQL(const KDbEscapedString& sqlStatement,
                                             KDbRecordData *data, bool *firstRecord);
 
     virtual bool drv_copyTable(const QString& srcTable,
@@ -64,7 +64,7 @@ protected:
     virtual bool drv_getTableSize(const QString& table, quint64 *size);
 
 private:
-    bool query(const QString& sqlStatement) const;
+    bool query(const KDbEscapedString& sqlStatement) const;
     bool primaryKey(const QString& tableName, const QString& fieldName) const;
     bool uniqueKey(const QString& tableName, const QString& fieldName) const;
 

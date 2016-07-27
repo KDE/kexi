@@ -133,7 +133,7 @@ MdbTableDef* MDBMigrate::getTableDef(const QString& tableName)
 
 /* ************************************************************************** */
 bool MDBMigrate::drv_readTableSchema(const QString& originalName,
-                                     KDbTableSchema& tableSchema)
+                                     KDbTableSchema *tableSchema)
 {
     // Get the column meta-data
     MdbTableDef *tableDef = getTableDef(originalName);
@@ -161,14 +161,14 @@ bool MDBMigrate::drv_readTableSchema(const QString& originalName,
 
         //qDebug() << "size" << col->col_size << "type" << type(col->col_type);
         fld->setCaption(fldName);
-        if (!tableSchema.addField(fld)) {
+        if (!tableSchema->addField(fld)) {
             delete fld;
-            tableSchema.clear();
+            tableSchema->clear();
             return false;
         }
     }
 
-    getPrimaryKey(&tableSchema, tableDef);
+    getPrimaryKey(tableSchema, tableDef);
 
     // Free the column meta-data - as soon as it doesn't seg fault.
     //mdb_free_tabledef(tableDef);
@@ -176,7 +176,7 @@ bool MDBMigrate::drv_readTableSchema(const QString& originalName,
     return true;
 }
 
-bool MDBMigrate::drv_tableNames(QStringList& tableNames)
+bool MDBMigrate::drv_tableNames(QStringList *tableNames)
 {
     // Try to read the catalog of database objects
     if (!mdb_read_catalog(m_mdb, MDB_ANY)) {
@@ -194,7 +194,7 @@ bool MDBMigrate::drv_tableNames(QStringList& tableNames)
 
             if (!dbObjectName.startsWith("MSys")) {
                 //qDebug() << dbObjectName;
-                tableNames << dbObjectName;
+                tableNames->append(dbObjectName);
             }
         }
     }

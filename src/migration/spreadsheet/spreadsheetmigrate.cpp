@@ -113,7 +113,7 @@ bool SpreadsheetMigrate::drv_copyTable(const QString& srcTable, KexiDB::Connecti
     return true;
 }
 
-bool SpreadsheetMigrate::drv_readTableSchema(const QString& originalName, KexiDB::TableSchema& tableSchema)
+bool SpreadsheetMigrate::drv_readTableSchema(const QString& originalName, KexiDB::TableSchema *tableSchema)
 {
   Calligra::Sheets::Sheet *sheet = m_KSDoc->map()->findSheet(originalName);
   
@@ -143,16 +143,16 @@ bool SpreadsheetMigrate::drv_readTableSchema(const QString& originalName, KexiDB
           if (fieldNameAdd > 0) {
               fieldName.append(QLatin1Char('_') + QString::number(fieldNameAdd));
           }
-          if (!tableSchema.field(fieldName)) {
+          if (!tableSchema->field(fieldName)) {
               break;
           }
           fieldNameAdd++;
       }
       KexiDB::Field *fld = new KexiDB::Field(fieldName, KexiDB::Field::Text);
       fld->setCaption(fieldCaption);
-      if (!tableSchema.addField( fld )) {
+      if (!tableSchema->addField( fld )) {
           return fld;
-          tableSchema.clear();
+          tableSchema->clear();
           ok = false;
           break;
       }

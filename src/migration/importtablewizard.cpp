@@ -392,7 +392,7 @@ void ImportTableWizard::arriveTableSelectPage(KPageWidgetItem *prevPage)
             }
 
             QStringList tableNames;
-            if (m_migrateDriver->tableNames(tableNames)) {
+            if (m_migrateDriver->tableNames(&tableNames)) {
                 m_tableListWidget->addItems(tableNames);
             }
             if (m_tableListWidget->item(0)) {
@@ -428,7 +428,7 @@ void ImportTableWizard::arriveAlterTablePage()
 #endif
 
     KDbTableSchema *ts = new KDbTableSchema();
-    if (!m_migrateDriver->readTableSchema(m_importTableName, *ts)) {
+    if (!m_migrateDriver->readTableSchema(m_importTableName, ts)) {
         delete ts;
         return;
     }

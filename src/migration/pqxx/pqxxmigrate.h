@@ -41,18 +41,18 @@ public:
 
 protected:
     //! Driver specific function to return table names
-    virtual bool drv_tableNames(QStringList& tablenames);
+    virtual bool drv_tableNames(QStringList *tablenames);
 
     //! Driver specific implementation to read a table schema
     virtual bool drv_readTableSchema(
-        const QString& originalName, KDbTableSchema& tableSchema);
+        const QString& originalName, KDbTableSchema *tableSchema);
 
     //! Driver specific connection implementation
     virtual bool drv_connect();
     virtual bool drv_disconnect();
 
     virtual tristate drv_queryStringListFromSQL(
-        const QString& sqlStatement, int columnNumber, QStringList& stringList,
+        const KDbEscapedString& sqlStatement, int columnNumber, QStringList *stringList,
         int numRecords = -1);
 
     /*! Fetches single record from result obtained
@@ -63,7 +63,7 @@ protected:
     On success the result is stored in \a data and true is returned,
     \a data is resized to appropriate size. cancelled is returned on EOF. */
 //! @todo SQL-dependent!
-    virtual tristate drv_fetchRecordFromSQL(const QString& sqlStatement,
+    virtual tristate drv_fetchRecordFromSQL(const KDbEscapedString& sqlStatement,
                                             KDbRecordData *data, bool *firstRecord);
 
     virtual bool drv_copyTable(const QString& srcTable,
@@ -90,7 +90,7 @@ protected:
 
 private:
     //! perform a query on the database
-    bool query(const QString& statement);
+    bool query(const KDbEscapedString& statement);
 
     //! Clear the result info
     void clearResultInfo();

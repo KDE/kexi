@@ -140,10 +140,10 @@ public:
     bool connectSource();
 
     //! Get table names in source database (driver specific)
-    bool tableNames(QStringList& tablenames);
+    bool tableNames(QStringList *tablenames);
 
     //! Read schema for a given table (driver specific)
-    bool readTableSchema(const QString& originalName, KDbTableSchema& tableSchema);
+    bool readTableSchema(const QString& originalName, KDbTableSchema *tableSchema);
 
     //!Position the source dataset at the start of a table
     bool readFromTable(const QString& tableName);
@@ -179,11 +179,11 @@ protected:
     virtual bool drv_disconnect() = 0;
 
     //! Get table names in source database (driver specific)
-    virtual bool drv_tableNames(QStringList& tablenames) = 0;
+    virtual bool drv_tableNames(QStringList *tablenames) = 0;
 
     //! Read schema for a given table (driver specific)
     virtual bool drv_readTableSchema(
-        const QString& originalName, KDbTableSchema& tableSchema) = 0;
+        const QString& originalName, KDbTableSchema *tableSchema) = 0;
 
     /*! Fetches maximum number from table \a tableName, column \a columnName
      into \a result. On success true is returned. If there is no records in the table,
@@ -195,7 +195,7 @@ protected:
        backend.
     */
     virtual bool drv_queryMaxNumber(const QString& tableName,
-                                    const QString& columnName, int& result);
+                                    const QString& columnName, int *result);
 
     /*! Fetches single string at column \a columnNumber for each record from result obtained
      by running \a sqlStatement. \a numRecords can be specified to limit number of records read.
@@ -206,8 +206,9 @@ protected:
       (so e.g. keximdb driver does not need this). */
 //! @todo SQL-dependent!
     virtual tristate drv_queryStringListFromSQL(
-        const QString& sqlStatement, int columnNumber, QStringList& stringList,
-        int numRecords = -1) {
+        const KDbEscapedString& sqlStatement, int columnNumber, QStringList *stringList,
+        int numRecords = -1)
+    {
         Q_UNUSED(sqlStatement); Q_UNUSED(columnNumber); Q_UNUSED(stringList);
         Q_UNUSED(numRecords);
         return cancelled;
@@ -219,8 +220,8 @@ protected:
      \return cancelled if there are no records available.
      This implementation uses drv_queryStringListFromSQL() with numRecords == 1. */
 //! @todo SQL-dependent!
-    virtual tristate drv_querySingleStringFromSQL(const QString& sqlStatement,
-            int columnNumber, QString& string);
+    virtual tristate drv_querySingleStringFromSQL(const KDbEscapedString& sqlStatement,
+            int columnNumber, QString *string);
 
     /*! Fetches single record from result obtained
      by running \a sqlStatement.
@@ -230,7 +231,7 @@ protected:
      On success the result is stored in \a data and true is returned,
      \a data is resized to appropriate size. cancelled is returned on EOF. */
 //! @todo SQL-dependent!
-    virtual tristate drv_fetchRecordFromSQL(const QString& sqlStatement,
+    virtual tristate drv_fetchRecordFromSQL(const KDbEscapedString& sqlStatement,
                                             KDbRecordData* data,
                                             bool *firstRecord) {
         Q_UNUSED(sqlStatement); Q_UNUSED(data); Q_UNUSED(firstRecord);

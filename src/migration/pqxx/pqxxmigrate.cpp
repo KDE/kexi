@@ -80,11 +80,11 @@ PqxxMigrate::~PqxxMigrate()
 //any any other attributes required by kexi
 //helped by reading the 'tables' test program
 bool PqxxMigrate::drv_readTableSchema(
-    const QString& originalName, KDbTableSchema& tableSchema)
+    const QString& originalName, KDbTableSchema *tableSchema)
 {
     //Perform a query on the table to get some data
     //qDebug();
-    tableSchema.setName(originalName);
+    tableSchema->setName(originalName);
     if (!query("select * from " + drv_escapeIdentifier(originalName) + " limit 1"))
         return false;
     //Loop round the fields
@@ -101,9 +101,9 @@ bool PqxxMigrate::drv_readTableSchema(
         f->setPrimaryKey(primaryKey(toid, i));
         f->setUniqueKey(uniqueKey(toid, i));
         f->setAutoIncrement(autoInc(toid, i));//This should be safe for all field types
-        if (!tableSchema.addField(f)) {
+        if (!tableSchema->addField(f)) {
             delete f;
-            tableSchema.clear();
+            tableSchema->clear();
             ok = false;
             break;
         }
@@ -224,7 +224,7 @@ bool PqxxMigrate::drv_disconnect()
 }
 //==================================================================================
 //Perform a query on the database and store result in m_res
-bool PqxxMigrate::query(const QString& statement)
+bool PqxxMigrate::query(const KDbEscapedString& statement)
 {
     //qDebug() << "query: " << statement.toLatin1();
     if (!m_conn)
@@ -368,7 +368,7 @@ bool PqxxMigrate::primaryKey(pqxx::oid table_uid, int col) const
  On success the result is stored in \a string and true is returned.
  \return cancelled if there are no records available. */
 tristate PqxxMigrate::drv_queryStringListFromSQL(
-    const QString& sqlStatement, int columnNumber, QStringList& stringList, int numRecords)
+    const KDbEscapedString& sqlStatement, int columnNumber, QStringList *stringList, int numRecords)
 {
     std::string result;
     int i = 0;
@@ -377,7 +377,7 @@ tristate PqxxMigrate::drv_queryStringListFromSQL(
                 it != m_res->end() && (numRecords == -1 || i < numRecords); ++it, i++) {
             if (it.size() > 0 && it.size() > columnNumber) {
                 it.at(columnNumber).to(result);
-                stringList.append(QString::fromUtf8(result.c_str()));
+                stringList->append(QString::fromUtf8(result.c_str()));
             } else {
                 clearResultInfo();
                 return cancelled;
@@ -393,7 +393,7 @@ tristate PqxxMigrate::drv_queryStringListFromSQL(
     return true;
 }
 
-tristate PqxxMigrate::drv_fetchRecordFromSQL(const QString& sqlStatement,
+tristate PqxxMigrate::drv_fetchRecordFromSQL(const KDbEscapedString& sqlStatement,
         KDbRecordData* data, bool *firstRecord)
 {
     Q_ASSERT(data);

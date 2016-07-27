@@ -38,11 +38,11 @@ class xBaseMigrate : public KexiMigrate, protected xbXBase
 
   protected:
     //! Driver specific function to return table names
-    virtual bool drv_tableNames(QStringList& tablenames);
+    virtual bool drv_tableNames(QStringList *tablenames);
 
     //! Driver specific implementation to read a table schema
     virtual bool drv_readTableSchema(
-      const QString& originalName, KDbTableSchema& tableSchema);
+      const QString& originalName, KDbTableSchema *tableSchema);
 
     //! Driver specific connection implementation
     virtual bool drv_connect();
