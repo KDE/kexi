@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Migration
 Name[ca]=Migració
+Name[ca@valencia]=Migració
 Name[de]=Migration
 Name[es]=Migración
 Name[it]=Migrazione
@@ -12,6 +13,7 @@ Name[uk]=Перенесення
 Name[x-test]=xxMigrationxx
 Comment=Kexi plugin for handling database migration
 Comment[ca]=Connector del Kexi per gestionar migracions de bases de dades
+Comment[ca@valencia]=Connector del Kexi per gestionar migracions de bases de dades
 Comment[de]=Kexi-Modul für die Migration von Datenbanken
 Comment[es]=Complemento de Kexi para manejar la migración de bases de datos
 Comment[it]=Estensione di Kexi per gestire la migrazione della banca dati
