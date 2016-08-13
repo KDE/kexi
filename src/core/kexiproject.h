@@ -321,9 +321,9 @@ protected:
 
     /*! Kexi itself can define a number of internal database objects (mostly data structures),
      usually tables for it's own purposes.
-     Even while at KexiDB library level, such "system" tables, like "kexi__objects", "kexi__objectdata"
+     Even while at KDb library level, such "system" tables, like "kexi__objects", "kexi__objectdata"
      are created automatically on database project creation, this is not enough: there are objects
-     needed specifically for Kexi but not for other applications utilizing KexiDB library.
+     needed specifically for Kexi but not for other applications utilizing the KDb library.
      Example table created here for now is "kexi__blobs".
 
      This method is called on create() and open(): creates necessary objects
@@ -351,7 +351,7 @@ Q_SIGNALS:
     /** signal emitted on error */
     void error(const QString &title, KDbObject *obj);
 
-    /** signal emitted on error (not KexiDB-related) */
+    /** signal emitted on error (not KDb-related) */
     void error(const QString &msg, const QString &desc);
 
     /** New \a item has been stored. */

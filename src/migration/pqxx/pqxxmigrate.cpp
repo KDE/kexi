@@ -421,7 +421,7 @@ tristate PqxxMigrate::drv_fetchRecordFromSQL(const KDbEscapedString& sqlStatemen
 }
 
 //=========================================================================
-/*! Copy PostgreSQL table to KexiDB database */
+//! Copy PostgreSQL table to a KDb table
 bool PqxxMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destConn,
                                 KDbTableSchema* dstTable)
 {

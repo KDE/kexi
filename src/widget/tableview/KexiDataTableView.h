@@ -32,7 +32,7 @@ class KexiTableScrollArea;
 /*! @short Provides a data-driven (record-based) tabular view.
 
  The KexiDataTableView can display data provided "by hand"
- or from KexiDB-compatible database source.
+ or from KDb-compatible database source.
  @see KexiFormView
 */
 class KEXIDATATABLE_EXPORT KexiDataTableView : public KexiDataAwareView

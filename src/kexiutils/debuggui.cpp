@@ -74,7 +74,7 @@ static void addKexiDBDebug(const QString& text)
         kexiDBDebugPage->setRootIsDecorated(true);
         kexiDBDebugPage->setWordWrap(true);
         kexiDBDebugPage->setAlternatingRowColors(true);
-        debugWindowTab->addTab(page, "KexiDB");
+        debugWindowTab->addTab(page, "KDb");
         debugWindowTab->setCurrentWidget(page);
         kexiDBDebugPage->show();
     }

@@ -193,7 +193,7 @@ bool xBaseMigrate::drv_tableNames(QStringList *tableNames)
   return true;
 }
 
-/*! Copy xBase table to KexiDB database */
+//! Copy xBase table to KDb table
 bool xBaseMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destConn,
   KDbTableSchema* dstTable)
 {

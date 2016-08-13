@@ -219,7 +219,7 @@ tristate SybaseMigrate::drv_fetchRecordFromSQL(const KDbEscapedString& sqlStatem
     return true;
 }
 
-/*! Copy Sybase table to KexiDB database */
+//! Copy Sybase table to a KDb table
 bool SybaseMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destConn,
                                   KDbTableSchema* dstTable)
 {
@@ -260,7 +260,7 @@ bool SybaseMigrate::drv_getTableSize(const QString& table, quint64 *size)
     return true;
 }
 
-//! Convert a Sybase type to a KexiDB type, prompting user if necessary.
+//! Convert a Sybase type to a KDb type, prompting user if necessary.
 KDbField::Type SybaseMigrate::type(const QString& table,
                                         int columnType)
 {

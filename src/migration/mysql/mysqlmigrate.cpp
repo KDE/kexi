@@ -242,7 +242,7 @@ tristate MySQLMigrate::drv_fetchRecordFromSQL(const QString& sqlStatement,
     return true;
 }
 
-/*! Copy MySQL table to KexiDB database */
+//! Copy MySQL table to a KDb table
 bool MySQLMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destConn,
                                  KDbTableSchema* dstTable)
 {

@@ -380,7 +380,7 @@ KexiDBFactory::KexiDBFactory(QObject *parent, const QVariantList &)
 
     setPropertyDescription("widgetType", xi18n("Editor Type"));
 #ifdef KEXI_AUTOFIELD_FORM_WIDGET_SUPPORT
-    //for autofield's type: inherit i18n from KexiDB
+    //for autofield's type: inherit i18n from KDb
     setValueDescription("Auto", futureI18nc("AutoField editor's type", "Auto"));
     setValueDescription("Text", KDbField::typeName(KDbField::Text));
     setValueDescription("Integer", KDbField::typeName(KDbField::Integer));

@@ -138,7 +138,7 @@ bool KexiDBCursor::save()
 
     //It is needed to close the cursor before we are able to update the rows
     //since else the database could be locked (e.g. at the case of SQLite a
-    //KexiDB: Object ERROR: 6: SQLITE_LOCKED would prevent updating).
+    //KDb: Object ERROR: 6: SQLITE_LOCKED would prevent updating).
     //Maybe it works fine with other drivers like MySQL or Postqre?
     m_cursor->close();
 

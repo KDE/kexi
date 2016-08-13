@@ -38,7 +38,7 @@ protected:
     QTimer timer;
 };
 
-/*! @internal KexiDB Debug Tree */
+/*! @internal KDb Debug Tree */
 class KexiDBDebugTreeWidget : public QTreeWidget
 {
     Q_OBJECT

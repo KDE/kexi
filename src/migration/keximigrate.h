@@ -48,7 +48,7 @@ class KexiMigratePluginMetaData;
 
 /*!
  * \namespace KexiMigration
- * \brief Framework for importing databases into native KexiDB databases.
+ * \brief Framework for importing databases into native KDb databases.
  */
 namespace KexiMigration
 {
@@ -103,7 +103,7 @@ public:
     \return true if they are identical else false. */
     bool isSourceAndDestinationDataSourceTheSame() const;
 
-    //! Perform an import operation
+    //! Connects, perform an import operation, and disconnects
     bool performImport(Kexi::ObjectStatus* result = 0);
 
     //! Perform an export operation
@@ -114,24 +114,24 @@ public:
         return drv_progressSupported();
     }
 
-//! @todo This is copied from KDbDriver. One day it will be merged with KexiDB.
+//! @todo This is copied from KDbDriver. One day it will be merged with KDb.
     //! \return property value for \a propertyName available for this driver.
     //! If there's no such property defined for driver, Null QVariant value is returned.
     virtual QVariant propertyValue(const QByteArray& propertyName);
 
-//! @todo This is copied from KDbDriver. One day it will be merged with KexiDB.
+//! @todo This is copied from KDbDriver. One day it will be merged with KDb.
     void setPropertyValue(const QByteArray& propertyName, const QVariant& value);
 
-//! @todo This is copied from KDbDriver. One day it will be merged with KexiDB.
+//! @todo This is copied from KDbDriver. One day it will be merged with KDb.
     //! \return translated property caption for \a propertyName.
     //! If there's no such property defined for driver, empty string value is returned.
     QString propertyCaption(const QByteArray& propertyName) const;
 
-    //! @todo This is copied from KDbDriver. One day it will be merged with KexiDB.
+    //! @todo This is copied from KDbDriver. One day it will be merged with KDb.
     //! Set translated property caption for \a propertyName.
     void setPropertyCaption(const QByteArray& propertyName, const QString &caption);
 
-//! @todo This is copied from KDbDriver. One day it will be merged with KexiDB.
+//! @todo This is copied from KDbDriver. One day it will be merged with KDb.
     //! \return a list of property names available for this driver.
     QList<QByteArray> propertyNames() const;
 
@@ -239,8 +239,8 @@ protected:
     }
 
     //! Copy a table from source DB to target DB (driver specific)
-    //! - create copies of KexiDB tables
-    //! - create copies of non-KexiDB tables
+    //! - create copies of KDb tables
+    //! - create copies of non-KDb tables
     virtual bool drv_copyTable(const QString& srcTable, KDbConnection *destConn,
                                KDbTableSchema* dstTable) = 0;
 

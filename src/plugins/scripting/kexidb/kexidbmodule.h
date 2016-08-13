@@ -37,7 +37,7 @@ class KexiDBQuerySchema;
 
 /**
  * The KexiDBModule class provides the main entry point to deal with
- * the KexiDB functionality.
+ * the KDb functionality.
  */
 class KexiDBModule : public QObject
 {

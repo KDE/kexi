@@ -105,9 +105,9 @@ public Q_SLOTS:
     bool closeDatabase();
 
     /** Return names of all table schemas stored in currently used database include the
-    internal KexiDB system table names (kexi__*) */
+    internal KDb system table names (kexi__*) */
     const QStringList allTableNames() const;
-    /** Return names of all table schemas without the internal KexiDB system table names (kexi__*) */
+    /** Return names of all table schemas without the internal KDb system table names (kexi__*) */
     const QStringList tableNames() const;
     /** Return names of all query schemas stored in currently used database. */
     const QStringList queryNames() const;

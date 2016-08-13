@@ -41,7 +41,7 @@ public:
     explicit MDBMigrate(QObject *parent, const QVariantList& args = QVariantList());
     virtual ~MDBMigrate();
 
-    //! Convert an MDB type to a KexiDB type, prompting user if necessary.
+    //! Convert an MDB type to a KDb type, prompting user if necessary.
     KDbField::Type type(int type);
 
     //! Get the table definition for a given table name
@@ -75,7 +75,7 @@ protected:
     //! Disconnect from the db backend
     virtual bool drv_disconnect();
 
-    /*! Copy MDB table to KexiDB database */
+    //! Copy MDB table to a KDb table
     virtual bool drv_copyTable(const QString& srcTable,
                                KDbConnection *destConn, KDbTableSchema* dstTable);
 

@@ -68,7 +68,7 @@ public:
      -it's done automatically. */
     QMap<QByteArray, QString> propertyCaptions;
 
-    //! KexiDB driver. For instance, it is used for escaping identifiers
+    //! KDb driver. For instance, it is used for escaping identifiers
     QPointer<KDbDriver> kexiDBDriver;
 
     /* private */
@@ -251,12 +251,12 @@ bool KexiMigrate::performImport(Kexi::ObjectStatus* result)
             foreach(const QString& tableName, kexiDBTables) {
                 tables.removeAt(tables.indexOf(tableName));
             }
-        //qDebug() << "KexiDB-compat tables: " << kexiDBTables;
-        //qDebug() << "non-KexiDB tables: " << tables;
+        //qDebug() << "KDb-compatible tables: " << kexiDBTables;
+        //qDebug() << "non-KDb tables: " << tables;
         }
     }
 
-    // -- read table schemas and create them in memory (only for non-KexiDB-compat tables)
+    // -- read non-KDb-compatible tables schemas and create them in memory
     QMap<QString, QString> nativeNames;
     foreach(const QString& tableCaption, tables) {
         if (destDriver->isSystemObjectName(tableCaption)
@@ -264,7 +264,7 @@ bool KexiMigrate::performImport(Kexi::ObjectStatus* result)
         {
             continue;
         }
-        // this is a non-KexiDB table: generate schema from native data source
+        // this is a non-KDb table: generate schema from native data source
         const QString tableIdentifier(KDb::stringToIdentifier(tableCaption.toLower()));
         nativeNames.insert(tableIdentifier, tableCaption);
         KDbTableSchema *tableSchema = new KDbTableSchema(tableIdentifier);

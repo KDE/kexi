@@ -638,7 +638,7 @@ void KexiFormView::initDataSource()
                 if (ok && dataSourcePartClassString.isEmpty())
                     d->dbform->setDataSourcePluginId("org.kexi-project.query"); //update for compatibility
                 // query results are read-only
-//! @todo There can be read-write queries, e.g. simple "SELECT * FROM...". Add a checking function to KexiDB.
+//! @todo There can be read-write queries, e.g. simple "SELECT * FROM...". Add a checking function to KDb.
                 forceReadOnlyDataSource = true;
             }
             else { //no other classes are supported

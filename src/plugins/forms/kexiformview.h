@@ -45,7 +45,7 @@ class Container;
 
 //! The KexiFormView lass provides a data-driven (record-based) form view .
 /*! The KexiFormView can display data provided "by hand"
- or from KexiDB-compatible database source.
+ or from KDb-compatible database source.
 
  This class provides a single view used inside KexiWindow.
  It takes care of saving/loading form, of enabling actions when needed.
