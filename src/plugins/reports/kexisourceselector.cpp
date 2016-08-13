@@ -162,7 +162,7 @@ KReportData* KexiSourceSelector::createSourceData() const
 
 #else
     if (d->internalSource->isSelectionValid()) {
-        retrun new KexiDBReportData(d->internalSource->selectedName(), d->conn);
+        return new KexiDBReportData(d->internalSource->selectedName(), d->conn);
     }
 #endif
     return 0;

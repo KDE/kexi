@@ -86,7 +86,7 @@ public:
       Used on startup (by --fullscreen commandline switch). */
     bool forcedFullScreen() const;
 
-    //! @retrun command line options
+    //! @return command line options
     KexiCommandLineOptions options() const;
 
     //! Parses the options

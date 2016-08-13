@@ -125,7 +125,7 @@ public:
     bool showAdvancedProperties;
 
 private:
-    //! Performs a form widget plugins lookup. @retrun true on success.
+    //! Performs a form widget plugins lookup. @return true on success.
     //! @todo This method generates a few warnings, maybe we want to optionally display them somewhere (via the message handler)?
     bool lookup() {
         //! @todo Allow refreshing
