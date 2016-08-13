@@ -52,7 +52,7 @@ X-KDE-PluginInfo-License=LGPL
 X-KDE-PluginInfo-EnabledByDefault=true
 
 X-Kexi-GroupName=
-X-Kexi-TypeName=
+X-Kexi-TypeName=csvimportexport
 X-Kexi-ServiceTypesInUserMode=
 X-Kexi-VisibleInProjectNavigator=false
 X-Kexi-SupportsDataExport=false
