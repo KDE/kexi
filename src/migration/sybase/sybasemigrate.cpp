@@ -340,7 +340,7 @@ bool SybaseMigrate::primaryKey(const QString& tableName, const QString& fieldNam
 
     KDbEscapedString sqlStatement
         = KDbEscapedString("SELECT indid,keycnt,status FROM sysindexes "
-                           "WHERE id = object_id('%1') and ( status & 2048 !=0 ) ")
+                           "WHERE id = object_id(%1) and ( status & 2048 !=0 ) ")
             .arg(drv_escapeIdentifier(tableName));
 
     if (!query(sqlStatement)) {
@@ -362,8 +362,9 @@ bool SybaseMigrate::primaryKey(const QString& tableName, const QString& fieldNam
     }
 
     for (int i = 1; i <= keyCount; ++i) {
-        sqlStatement = KDbEscapedString("SELECT 1 WHERE index_col('%1',%2, %3 ) = '%4' ")
-                .arg(drv_escapeIdentifier(tableName)).arg(indexId).arg(i).arg(fieldName);
+        sqlStatement = KDbEscapedString("SELECT 1 WHERE index_col(%1,%2, %3) = %4 ")
+                .arg(drv_escapeIdentifier(tableName)).arg(indexId).arg(i).arg(
+                    d->sourceConnection->escapeString(fieldName));
 
         if (!query(sqlStatement)) {
             return false;
@@ -390,7 +391,7 @@ bool SybaseMigrate::uniqueKey(const QString& tableName, const QString& fieldName
 
     KDbEscapedString sqlStatement
         = KDbEscapedString("SELECT indid,keycnt,status FROM sysindexes "
-                           "WHERE id = object_id('%1') and ( status & 2 !=0 ) ")
+                           "WHERE id = object_id(%1) and ( status & 2 !=0 ) ")
                            .arg(drv_escapeIdentifier(tableName));
     if (!query(sqlStatement)) {
         return false;
@@ -417,8 +418,9 @@ bool SybaseMigrate::uniqueKey(const QString& tableName, const QString& fieldName
         }
 
         for (int i = 1; i <= keyCount; i++) {
-            sqlStatement = KDbEscapedString("SELECT 1 WHERE index_col('%1',%2, %3 ) = '%4' ")
-                    .arg(drv_escapeIdentifier(tableName)).arg(indexId).arg(i).arg(fieldName);
+            sqlStatement = KDbEscapedString("SELECT 1 WHERE index_col(%1,%2, %3 ) = %4 ")
+                    .arg(drv_escapeIdentifier(tableName).arg(indexId).arg(i)
+                         .arg(d->sourceConnection->escapeString(fieldName));
             if (!query(sqlStatement)) {
                 return false;
             }
@@ -482,7 +484,7 @@ QList<KDbIndexSchema*> KexiMigration::SybaseMigrate::readIndexes(const QString& 
 
     QList<KDbIndexSchema*> indexList;
     KDbEscapedString sqlStatement = KDbEscapedString("SELECT indid,keycnt,status FROM sysindexes "
-                                   "WHERE id = object_id('%1')")
+                                   "WHERE id = object_id(%1)")
                            .arg(drv_escapeIdentifier(tableName));
 
     if (!query(sqlStatement)) {
@@ -526,7 +528,7 @@ QList<KDbIndexSchema*> KexiMigration::SybaseMigrate::readIndexes(const QString& 
         KDbIndexSchema* indexSchema = new KDbIndexSchema(&tableSchema);
 
         for (int i = 1; i <= keyCount; i++) {
-            sqlStatement = KDbEscapedString("SELECT index_col('%1',%2, %3)")
+            sqlStatement = KDbEscapedString("SELECT index_col(%1,%2, %3)")
                     .arg(drv_escapeIdentifier(tableName)).arg(indexId).arg(i);
 
             if (!query(sqlStatement)) {
