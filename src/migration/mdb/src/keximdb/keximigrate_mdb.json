@@ -8,7 +8,7 @@
         ], 
         "Category": "",
         "Dependencies": [],
-        "Description": "MS Access (MDB) Import Plugin for Kexi",
+        "Description": "MS Access (MDB) import plugin for Kexi",
         "EnabledByDefault": true, 
         "Icon": "", 
         "Id": "org.kexi-project.migration.mdb",
