@@ -110,7 +110,11 @@ QVariant KexiFieldListModel::data(const QModelIndex& index, int role) const
         if (role == Qt::DisplayRole) {
             return item->data(index.column());
         } else if (role == Qt::DecorationRole) {
-            return item->icon();
+            if (index.column() == 0) { // icon for field name only
+                return item->icon();
+            } else {
+                return QVariant();
+            }
         } else if (role == Qt::UserRole) {
             qDebug() << item->caption();
             return item->caption();
