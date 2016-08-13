@@ -65,6 +65,11 @@ public:
      The lookup is case insensitive. */
     QStringList driverIdsForMimeType(const QString &mimeType);
 
+    /*! @return list of all migration driver IDs that support source KDb database
+     driver ID @a sourceDriverId.
+     The lookup is case insensitive. */
+    QStringList driverIdsForSourceDriver(const QString &sourceDriverId);
+
 //! @todo copied from KDbDriverManager, merge it.
     /*! HTML information about possible problems encountered.
      It's displayed in 'details' section, if an error encountered.
@@ -73,6 +78,9 @@ public:
 
     //! @return list of file MIME types that are supported by migration drivers
     QStringList supportedFileMimeTypes() Q_DECL_OVERRIDE;
+
+    //! @return list of KDb driver IDs supported that are supported by migration drivers
+    QStringList supportedSourceDriverIds() Q_DECL_OVERRIDE;
 };
 
 } //namespace KexiMigrate

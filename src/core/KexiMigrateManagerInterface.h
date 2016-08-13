@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2014-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -33,6 +33,10 @@ public:
 
     //! Implement to return the list of file MIME types that are supported by migration drivers
     virtual QStringList supportedFileMimeTypes() = 0;
+
+    //! Implement to @return list of KDb driver IDs supported that are supported by migration
+    //! drivers
+    virtual QStringList supportedSourceDriverIds() = 0;
 };
 
 #endif

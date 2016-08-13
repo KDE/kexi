@@ -689,12 +689,17 @@ QString ImportWizard::driverIdForSelectedSource()
     }
 
     //server-based
+    QString sourceDriverId;
     if (d->predefinedConnectionData) {
-        return d->predefinedConnectionData->driverId();
+        sourceDriverId = d->predefinedConnectionData->driverId();
+    } else if (d->srcConn->selectedConnectionData()) {
+        sourceDriverId = d->srcConn->selectedConnectionData()->driverId();
     }
+    const QStringList migrationDriverIds(d->migrateManager.driverIdsForSourceDriver(sourceDriverId));
 
-    return d->srcConn->selectedConnectionData()
-           ? d->srcConn->selectedConnectionData()->driverId() : QString();
+    //! @todo First found driver ID is picked. It's OK as long as there is one migration
+    //! driver per source database type. How about allowing users to pick migration driver?
+    return migrationDriverIds.isEmpty() ? QString() : migrationDriverIds.first();
 }
 
 //===========================================================

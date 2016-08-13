@@ -116,6 +116,9 @@ bool MigrateManagerInternal::lookupDrivers()
         foreach (const QString& mimeType, metaData->mimeTypes()) {
             m_metadata_by_mimetype.insertMulti(mimeType, metaData.data());
         }
+        foreach (const QString& sourceDriverId, metaData->supportedSourceDrivers()) {
+            m_metadataBySourceDrivers.insertMulti(sourceDriverId, metaData.data());
+        }
         m_driversMetaData.insert(metaData->id(), metaData.data());
         KexiMigrateManagerDebug << "registered driver" << metaData->id() << '(' << metaData->fileName() << ")";
         metaData.take();
@@ -160,6 +163,18 @@ QStringList MigrateManagerInternal::driverIdsForMimeType(const QString &mimeType
     const QList<KexiMigratePluginMetaData*> metaDatas(m_metadata_by_mimetype.values(mimeType.toLower()));
     QStringList result;
     for (const KexiMigratePluginMetaData* metaData : metaDatas) {
+        result.append(metaData->id());
+    }
+    return result;
+}
+
+QStringList MigrateManagerInternal::driverIdsForSourceDriver(const QString &sourceDriverId)
+{
+    if (!lookupDrivers()) {
+        return QStringList();
+    }
+    QStringList result;
+    for (const KexiMigratePluginMetaData* metaData : m_metadataBySourceDrivers.values(sourceDriverId.toLower())) {
         result.append(metaData->id());
     }
     return result;
@@ -226,6 +241,14 @@ QStringList MigrateManagerInternal::supportedFileMimeTypes()
     return m_metadata_by_mimetype.uniqueKeys();
 }
 
+QStringList MigrateManagerInternal::supportedSourceDriverIds()
+{
+    if (!lookupDrivers()) {
+        qWarning() << "lookupDrivers failed";
+        return QStringList();
+    }
+    return m_metadataBySourceDrivers.uniqueKeys();
+}
 
 // ---------------------------
 // --- DriverManager impl. ---
@@ -245,6 +268,11 @@ MigrateManager::~MigrateManager()
 QStringList MigrateManager::driverIdsForMimeType(const QString &mimeType)
 {
     return s_self->driverIdsForMimeType(mimeType);
+}
+
+QStringList MigrateManager::driverIdsForSourceDriver(const QString &sourceDriverId)
+{
+    return s_self->driverIdsForSourceDriver(sourceDriverId);
 }
 
 KexiMigrate* MigrateManager::driver(const QString &id)
@@ -267,6 +295,11 @@ QString MigrateManager::possibleProblemsMessage() const
 QStringList MigrateManager::supportedFileMimeTypes()
 {
     return s_self->supportedFileMimeTypes();
+}
+
+QStringList MigrateManager::supportedSourceDriverIds()
+{
+    return s_self->supportedSourceDriverIds();
 }
 
 KDbResult MigrateManager::result() const

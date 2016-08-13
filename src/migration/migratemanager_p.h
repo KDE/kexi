@@ -50,10 +50,16 @@ public:
 
     QStringList driverIdsForMimeType(const QString &mimeType);
 
+    //! @return all migration driver IDs that support source KDb database driver ID @a sourceDriverId
+    QStringList driverIdsForSourceDriver(const QString &sourceDriverId);
+
     QStringList possibleProblemsMessage() const;
 
     //! @return list of file MIME types that are supported by migration drivers
     QStringList supportedFileMimeTypes();
+
+    //! @return list of KDb driver IDs supported that are supported by migration drivers
+    QStringList supportedSourceDriverIds();
 
 protected Q_SLOTS:
     /*! Used to destroy all drivers on QApplication quit, so even if there are
@@ -68,6 +74,7 @@ protected:
     void clear();
 
     QMultiMap<QString, KexiMigratePluginMetaData*> m_metadata_by_mimetype;
+    QMultiMap<QString, KexiMigratePluginMetaData*> m_metadataBySourceDrivers;
     QMap<QString, KexiMigratePluginMetaData*> m_driversMetaData; //!< used to store driver metadata
     QMap<QString, KexiMigrate*> m_drivers; //!< for owning drivers
     QStringList m_possibleProblems;
