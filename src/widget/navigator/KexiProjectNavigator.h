@@ -91,8 +91,14 @@ public:
                                                    //!< the project (e.g. delete, rename).
         ContextMenus = 2,                          //!< Supports context menus
         Borders      = 4,                          //!< Show borders like in a list view
-        ClearSelectionAfterAction = 8,             //! Don't keep selection after item is open or executed
-        DefaultFeatures = Writable | ContextMenus | ClearSelectionAfterAction //!< The default
+        ClearSelectionAfterAction = 8,             //!< Don't keep selection after item is open or executed
+        AllowSingleClickForOpeningItems = 0x10,    //!< Allow to use single click for opening
+                                                   //!< items (if this is the system setting).
+                                                   //!< Set it off to use single click only for
+                                                   //!< selecting items and double click for
+                                                   //!< opening items.
+        DefaultFeatures = Writable | ContextMenus | ClearSelectionAfterAction
+                          | AllowSingleClickForOpeningItems //!< The default
     };
     //! Specifies features of a navigator
     Q_DECLARE_FLAGS(Features, Feature)
