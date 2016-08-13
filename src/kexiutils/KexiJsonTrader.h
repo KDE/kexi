@@ -71,7 +71,13 @@ public:
      QList<QPluginLoader *> query(const QString &servicetype, const QString &mimetype = QString());
 
      /**
-      * @return root json object for @a pluginLoader
+      * @return very top-level metadata JSON object for @a pluginLoader
+      */
+     static QJsonObject metaDataObjectForPluginLoader(const QPluginLoader &pluginLoader);
+
+     /**
+      * @return root JSON object for @a pluginLoader, a "KPlugin" child item of object
+      * returned by metaDataObjectForPluginLoader()
       */
      static QJsonObject rootObjectForPluginLoader(const QPluginLoader &pluginLoader);
 

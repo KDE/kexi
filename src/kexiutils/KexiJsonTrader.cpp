@@ -69,7 +69,8 @@ static bool supportsAtLeastServiceType(const QStringList &foundServiceTypes,
     return false;
 }
 
-static QJsonObject metaDataObjectForPluginLoader(const QPluginLoader &pluginLoader)
+//static
+QJsonObject KexiJsonTrader::metaDataObjectForPluginLoader(const QPluginLoader &pluginLoader)
 {
     return pluginLoader.metaData().value(QLatin1String("MetaData")).toObject();
 }
@@ -104,7 +105,7 @@ static bool checkLoader(QPluginLoader *loader, const QStringList &servicetypes,
     }
 
     if (!mimetype.isEmpty()) {
-        QJsonObject json = metaDataObjectForPluginLoader(*loader);
+        QJsonObject json = KexiJsonTrader::metaDataObjectForPluginLoader(*loader);
         QStringList mimeTypes = json.value(QLatin1String("X-KDE-ExtraNativeMimeTypes"))
                 .toString().split(QLatin1Char(','));
         mimeTypes += json.value(QLatin1String("MimeType")).toString().split(QLatin1Char(';'));
