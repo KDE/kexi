@@ -2010,9 +2010,7 @@ void KexiCSVImportDialog::import()
     }
 
     if (m_file) {
-        m_importProgressLabel->setText(
-            xi18n("Importing CSV Data from <filename>%1</filename> into <resource>%2</resource> table...",
-                 QDir::toNativeSeparators(m_fname), m_destinationTableSchema->name()));
+        m_importProgressLabel->setText(xi18n("Importing data..."));
         m_importingProgressBar->setMaximum(QFileInfo(*m_file).size() - 1);
         m_importingProgressBar->show();
         m_importProgressLabel->show();
