@@ -479,6 +479,7 @@ void KexiCSVImportDialog::slotShowSchema(KexiPart::Item *item)
     m_fieldsListModel = new KexiFieldListModel(m_fieldsListView, ShowDataTypes);
     m_fieldsListModel->setSchema(tableOrQuery);
     m_fieldsListView->setModel(m_fieldsListModel);
+    m_fieldsListView->header()->resizeSections(QHeaderView::ResizeToContents);
 }
 
 void KexiCSVImportDialog::slotCurrentPageChanged(KPageWidgetItem *page, KPageWidgetItem *prev)
