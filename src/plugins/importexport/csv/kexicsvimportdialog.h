@@ -26,8 +26,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXI_CSVDIALOG_H
-#define KEXI_CSVDIALOG_H
+#ifndef KEXI_CSVIMPORTDIALOG_H
+#define KEXI_CSVIMPORTDIALOG_H
 
 #include <QList>
 #include <QRegExp>
@@ -311,4 +311,5 @@ private Q_SLOTS:
     void slotShowSchema(KexiPart::Item *item);
     void import();
 };
+
 #endif
