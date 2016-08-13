@@ -167,8 +167,9 @@ void KexiFileWidget::setExcludedFilters(const QSet<QString> &mimeTypes)
     //delayed
     d->excludedMimeTypes.clear();
     //convert to lowercase
-    foreach(const QString& mimeType, mimeTypes)
-    d->excludedMimeTypes.insert(mimeType.toLower());
+    for(const QString& mimeType : mimeTypes) {
+        d->excludedMimeTypes.insert(mimeType.toLower());
+    }
     d->filtersUpdated = false;
 }
 
