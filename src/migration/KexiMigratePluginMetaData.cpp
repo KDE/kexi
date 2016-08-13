@@ -18,6 +18,10 @@
 */
 
 #include "KexiMigratePluginMetaData.h"
+#include <KexiJsonTrader.h>
+#include <QPluginLoader>
+#include <QVariant>
+#include <QDebug>
 
 static bool isTrue(const KexiMigratePluginMetaData *metaData, const char* fieldName)
 {
@@ -28,19 +32,28 @@ static bool isTrue(const KexiMigratePluginMetaData *metaData, const char* fieldN
 class KexiMigratePluginMetaData::Private
 {
 public:
-    explicit Private(const KexiMigratePluginMetaData *metaData)
+    explicit Private(const KexiMigratePluginMetaData *metaData, const QPluginLoader &pluginLoader)
         : isFileBased(isTrue(metaData, "X-Kexi-FileBased"))
+        , supportedSourceDrivers(metaData->readStringList(
+                                    KexiJsonTrader::metaDataObjectForPluginLoader(pluginLoader),
+                                    QLatin1String("X-Kexi-SupportedSourceDrivers")))
     {
     }
     const bool isFileBased;
+    const QStringList supportedSourceDrivers;
 };
 
 KexiMigratePluginMetaData::KexiMigratePluginMetaData(const QPluginLoader &loader)
-    : KexiPluginMetaData(loader), d(new Private(this))
+    : KexiPluginMetaData(loader), d(new Private(this, loader))
 {
 }
 
 KexiMigratePluginMetaData::~KexiMigratePluginMetaData()
 {
     delete d;
+}
+
+QStringList KexiMigratePluginMetaData::supportedSourceDrivers() const
+{
+    return d->supportedSourceDrivers;
 }

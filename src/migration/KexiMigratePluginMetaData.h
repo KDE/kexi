@@ -41,6 +41,12 @@ protected:
     /*! Defined by a "X-Kexi-FileBased" field in .json information files. */
     bool isFileBased() const;
 
+    //! @return list of KDb driver IDs supported for source databases by this migration driver.
+    //! Defined by a "X-Kexi-SupportedSourceDrivers" field in .json information files.
+    //! @todo This is infrlxible: the value assumes the source database is connected using
+    //! KDb drivers. For now it's used mostly for server sources.
+    QStringList supportedSourceDrivers() const;
+
     friend class KexiMigration::MigrateManagerInternal;
 
 private:
