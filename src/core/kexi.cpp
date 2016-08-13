@@ -221,8 +221,9 @@ void ObjectStatus::setStatus(KDbResultInfo* resultInfo, const QString& message, 
             this->description = resultInfo->desc;
         else
             this->description = description + " " + resultInfo->desc;
-    } else
-        clearStatus();
+    } else {
+        setStatus(message, description);
+    }
 }
 
 void ObjectStatus::setStatus(const KDbResultable* resultable, KDbResultInfo* resultInfo,
@@ -243,13 +244,21 @@ void ObjectStatus::setStatus(const KDbResult &result, KDbResultInfo* resultInfo,
 {
     //! @todo KEXI3 test this
     if (!result.isError()) {
-        setStatus(resultInfo, message, description);
+        if (resultInfo) {
+            setStatus(resultInfo, message, description);
+        } else {
+            setStatus(message, description);
+        }
     }
     else {
-        KDbResult r = result;
-        r.prependMessage(message);
-        r.prependMessage(description);
-        setStatus(resultInfo, result.messageTitle(), result.message());
+        if (resultInfo) {
+            KDbResult r = result;
+            r.prependMessage(message);
+            r.prependMessage(description);
+            setStatus(resultInfo, r.messageTitle(), r.message());
+        } else {
+            setStatus(message, description);
+        }
     }
 }
 
