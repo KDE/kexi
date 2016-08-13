@@ -81,6 +81,7 @@
 #include <QEvent>
 #include <QTextStream>
 #include <QGridLayout>
+#include <QFormLayout>
 #include <QPixmap>
 #include <QStackedWidget>
 #include <QSplitter>
@@ -740,46 +741,55 @@ void KexiCSVImportDialog::createTableNamePage()
     l->addStretch(1);
     m_tableNameWidget->addWidget(page1);
 
-    QSplitter *page2 = new QSplitter(m_tableNameWidget);
-    QWidget *tableDetailsWidget = new QWidget(page2);
-    m_tablesList = new KexiProjectNavigator(page2, KexiProjectNavigator::Borders);
+    QSplitter *splitter = new QSplitter(m_tableNameWidget);
+
+    QWidget *tablesListParentWidget = new QWidget;
+    QVBoxLayout *tablesListParentWidgetLayout = new QVBoxLayout(tablesListParentWidget);
+    tablesListParentWidgetLayout->setMargin(0);
+    QLabel *tablesListLabel = new QLabel(xi18nc("@label", "Select existing table:"));
+    tablesListParentWidgetLayout->addWidget(tablesListLabel);
+
+    KexiProjectNavigator::Features tablesListFeatures = KexiProjectNavigator::DefaultFeatures;
+    tablesListFeatures &= (~KexiProjectNavigator::AllowSingleClickForOpeningItems);
+    tablesListFeatures &= (~KexiProjectNavigator::ClearSelectionAfterAction);
+    tablesListFeatures |= KexiProjectNavigator::Borders;
+    m_tablesList = new KexiProjectNavigator(tablesListParentWidget, tablesListFeatures);
+    tablesListParentWidgetLayout->addWidget(m_tablesList, 1);
+    tablesListLabel->setBuddy(m_tablesList);
     QString errorString;
     m_tablesList->setProject(KexiMainWindowIface::global()->project(), "org.kexi-project.table", &errorString, false);
     connect (m_tablesList, SIGNAL(openOrActivateItem(KexiPart::Item*,Kexi::ViewMode)),
             this, SLOT(next()));
     connect (m_tablesList, SIGNAL(selectionChanged(KexiPart::Item*)),
             this, SLOT(slotShowSchema(KexiPart::Item*)));
-    page2->addWidget(m_tablesList);
+    splitter->addWidget(tablesListParentWidget);
 
-    QLabel *captionLbl = new QLabel(xi18nc("@label", "Caption:"), tableDetailsWidget);
-    QLabel *nameLbl = new QLabel(xi18nc("@label", "Name:"), tableDetailsWidget);
-    QLabel *rowCntLbl = new QLabel(xi18nc("@label", "Row count:"), tableDetailsWidget);
-    QLabel *colCntLbl = new QLabel(xi18nc("@label", "Column count:"), tableDetailsWidget);
-
-    m_tableNameLabel = new QLabel(tableDetailsWidget);
-    m_tableCaptionLabel = new QLabel(tableDetailsWidget);
-    m_recordCountLabel = new QLabel(tableDetailsWidget);
-    m_colCountLabel = new QLabel(tableDetailsWidget);
-
-    QGridLayout *gridLayout = new QGridLayout(tableDetailsWidget);
-    gridLayout->addWidget(captionLbl, 0, 0);
-    gridLayout->addWidget(m_tableCaptionLabel, 0, 1);
-    gridLayout->addWidget(nameLbl, 1, 0);
-    gridLayout->addWidget(m_tableNameLabel, 1, 1);
-    gridLayout->addWidget(rowCntLbl, 2, 0);
-    gridLayout->addWidget(m_recordCountLabel, 2, 1);
-    gridLayout->addWidget(colCntLbl, 3, 0);
-    gridLayout->addWidget(m_colCountLabel, 3, 1);
+    QWidget *tableDetailsWidget = new QWidget;
+    QFormLayout *formLayout = new QFormLayout(tableDetailsWidget);
+    formLayout->setContentsMargins(KexiUtils::marginHint(), 0, 0, 0);
+    formLayout->addRow(new QLabel(xi18nc("@label Preview of selected table", "Table preview:")));
+    formLayout->addRow(xi18nc("@label", "Name:"),
+                       m_tableNameLabel = new QLabel(tableDetailsWidget));
+    formLayout->addRow(xi18nc("@label", "Caption:"),
+                       m_tableCaptionLabel = new QLabel(tableDetailsWidget));
+    formLayout->addRow(xi18nc("@label", "Row count:"),
+                       m_recordCountLabel = new QLabel(tableDetailsWidget));
+    formLayout->addRow(xi18nc("@label", "Column count:"),
+                       m_colCountLabel = new QLabel(tableDetailsWidget));
+    formLayout->addItem(new QSpacerItem(1, KexiUtils::spacingHint()));
 
     m_fieldsListView = new QTreeView(tableDetailsWidget);
     m_fieldsListView->setItemsExpandable(false);
     m_fieldsListView->setRootIsDecorated(false);
+    QSizePolicy fieldsListViewPolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    fieldsListViewPolicy.setVerticalStretch(1);
+    m_fieldsListView->setSizePolicy(fieldsListViewPolicy);
+    formLayout->addRow(new QLabel(xi18nc("@label", "Fields:")));
+    formLayout->addRow(m_fieldsListView);
 
-    gridLayout->addWidget(m_fieldsListView, 4, 0, 4, 2);
-    gridLayout->setRowStretch(4, 1);
-
-    page2->addWidget(tableDetailsWidget);
-    m_tableNameWidget->addWidget(page2);
+    splitter->addWidget(tableDetailsWidget);
+    splitter->setStretchFactor(splitter->indexOf(tableDetailsWidget), 1);
+    m_tableNameWidget->addWidget(splitter);
     m_tableNamePage = new KPageWidgetItem(m_tableNameWidget, xi18nc("@label", "Choose Name of Destination Table"));
     addPage(m_tableNamePage);
 }
