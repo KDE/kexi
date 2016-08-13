@@ -33,8 +33,6 @@ Type=Service
 Icon=database-import
 Encoding=UTF-8
 
-X-KDE-ServiceTypes=Kexi/Handler
-
 X-KDE-Library=kexi_migrationplugin
 X-KDE-ServiceTypes=Kexi/Internal
 X-KDE-PluginInfo-Author=Kexi Team
