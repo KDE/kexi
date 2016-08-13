@@ -153,7 +153,8 @@ KexiProjectNavigator::KexiProjectNavigator(QWidget* parent, Features features)
     //!             connect(KGlobalSettings::self(), SIGNAL(settingsChanged(int)), SLOT(slotSettingsChanged(int)));
     slotSettingsChanged(0);
 
-    connect(d->list, SIGNAL(pressed(QModelIndex)), this,SLOT(slotSelectionChanged(QModelIndex)));
+    connect(d->list->selectionModel(), &QItemSelectionModel::currentChanged,
+            this, &KexiProjectNavigator::slotSelectionChanged);
 
     KConfigGroup mainWindowGroup = KSharedConfig::openConfig()->group("MainWindow");
     if (mainWindowGroup.readEntry("SingleClickOpensItem", true)) {
