@@ -256,8 +256,8 @@ bool KexiProjectTitleSelectionPage::isAcceptable()
     if (fileInfo.dir().isRelative()) {
         messageWidget = new KexiContextMessageWidget(contents->formLayout,
                                                      contents->file_requester,
-            xi18nc("@info", "<filename>%1</filename> is a relative path. "
-            "<note>Enter absolute path of a file to be created.</note>",
+            xi18nc("@info", "<para><filename>%1</filename> is a relative path.</para>"
+            "<para><note>Enter absolute path of a file to be created.</note></para>",
             fileInfo.filePath()));
         return false;
     }
@@ -270,8 +270,8 @@ bool KexiProjectTitleSelectionPage::isAcceptable()
     if (fileInfo.isDir()) {
         messageWidget = new KexiContextMessageWidget(contents->formLayout,
             contents->file_requester,
-            xi18nc("@info", "<filename>%1</filename> is a directory name. "
-                  "<note>Enter name of a file to be created.</note>",
+            xi18nc("@info", "<para><filename>%1</filename> is a directory name.</para>"
+                  "<para><note>Enter name of a file to be created.</note></para>",
                   fileInfo.filePath()));
         return false;
     }
@@ -282,9 +282,9 @@ bool KexiProjectTitleSelectionPage::isAcceptable()
     if (!writableChecker.isWritable()) {
         messageWidget = new KexiContextMessageWidget(contents->formLayout,
             contents->file_requester,
-            xi18nc("@info","Could not create database file <filename>%1</filename>. "
-                "<note>There is no permission to create this file. "
-                "Pick another directory or change permissions so the file can be created.</note>",
+            xi18nc("@info","<para>Could not create database file <filename>%1</filename>.</para>"
+                "<para><note>There is no permission to create this file. "
+                "Pick another directory or change permissions so the file can be created.</note></para>",
                 contents->file_requester->url().toLocalFile()));
         return false;
     }

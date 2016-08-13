@@ -489,8 +489,9 @@ void ImportTableWizard::arriveImportingPage()
     QString txt;
 
     txt = xi18nc("@info Table import wizard, final message", "<para>All required information has now been gathered. "
-                   "Click <interface>Next</interface> button to start importing table <resource>%1</resource>.</para>"
-                   "<note>Depending on size of the table this may take some time.</note>", m_alterSchemaWidget->nameWidget()->nameText());
+                 "Click <interface>Next</interface> button to start importing table <resource>%1</resource>.</para>"
+                 "<para><note>Depending on size of the table this may take some time.</note></para>",
+                 m_alterSchemaWidget->nameWidget()->nameText());
 
     m_lblImportingTxt->setText(txt);
 

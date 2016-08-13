@@ -3395,10 +3395,10 @@ tristate KexiMainWindow::removeObject(KexiPart::Item *item, bool dontAsk)
     if (!dontAsk) {
         if (KMessageBox::No == KMessageBox::questionYesNo(this,
                 xi18nc("@info Remove <objecttype> <objectname>?",
-                      "Do you want to permanently delete the following object?<nl/>"
-                      "<nl/>%1 <resource>%2</resource><nl/>"
-                      "<nl/><note>If you click <interface>Delete</interface>, "
-                      "you will not be able to undo the deletion.</note>",
+                      "<para>Do you want to permanently delete the following object?<nl/>"
+                      "<nl/>%1 <resource>%2</resource></para>"
+                      "<para><note>If you click <interface>Delete</interface>, "
+                      "you will not be able to undo the deletion.</note></para>",
                       part->info()->name(), item->name()),
                 xi18nc("@title:window Delete Object %1.",
                       "Delete <resource>%1</resource>?", item->name()),

@@ -498,26 +498,27 @@ void ImportWizard::setupFinish()
 //
 bool ImportWizard::checkUserInput()
 {
-    QString finishtxt;
+    QString issues;
 
     if (d->dstNewDBTitleLineEdit->text().isEmpty()) {
-        finishtxt = finishtxt + "<br>" + xi18n("No new database name was entered.");
+        issues = xi18nc("@info", "<para>No new database name was entered.</para>");
     }
 
     Kexi::ObjectStatus result;
     KexiMigrate* sourceDriver = prepareImport(result);
     if (sourceDriver && sourceDriver->isSourceAndDestinationDataSourceTheSame()) {
-        finishtxt = finishtxt + "<br>" + xi18n("Source database is the same as destination.");
+        issues = xi18nc("@info", "%1<para>Source database is the same as destination.</para>", issues);
     }
 
-    if (! finishtxt.isNull()) {
-        finishtxt = "<qt>" + xi18n("Following issues were found with the data you entered:") +
-                    "<br>" + finishtxt + "<br><br>" +
-                    xi18n("Please click <interface>Back</interface> button and correct these issues.");
-        d->lblImportingErrTxt->setText(finishtxt);
+    if (!issues.isEmpty()) {
+        d->lblImportingErrTxt->setText(
+            xi18nc("@info", "<para>Following issues were found with the data you entered:</para>"
+                   "%1"
+                   "<para>Please click <interface>Back</interface> button and correct these issues.</para>",
+                   issues));
+        return false;
     }
-
-    return finishtxt.isNull();
+    return true;
 }
 
 void ImportWizard::arriveSrcConnPage()

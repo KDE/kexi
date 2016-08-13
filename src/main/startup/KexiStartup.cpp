@@ -321,9 +321,9 @@ tristate KexiStartupHandler::init()
 //!       For we're displaying generic error msg.
             KMessageBox::sorry(0,
                                xi18nc("@info",
-                                     "Could not read connection information from connection shortcut "
-                                     "file <filename>%1</filename>."
-                                     "<note>Check whether the file has valid contents.</note>",
+                                     "<para>Could not read connection information from connection shortcut "
+                                     "file <filename>%1</filename>.</para>"
+                                     "<para><note>Check whether the file has valid contents.</note></para>",
                                      QDir::toNativeSeparators(connectionShortcut.fileName())));
             return false;
         }
@@ -825,9 +825,9 @@ tristate KexiStartupHandler::detectActionForFile(
     if (!finfo.isReadable()) {
         if (!(options & SkipMessages)) {
             KMessageBox::sorry(parent, xi18nc("@info",
-                                             "Could not open file <filename>%1</filename> for reading. "
-                                             "<note>Check the file's permissions and whether it is "
-                                             "already opened and locked by another application.</note>",
+                                             "<para>Could not open file <filename>%1</filename> for reading.</para>"
+                                             "<para><note>Check the file's permissions and whether it is "
+                                             "already opened and locked by another application.</note></para>",
                                              QDir::toNativeSeparators(databaseName)),
                                        xi18nc("@title:window", "Could Not Open File" ));
         }
