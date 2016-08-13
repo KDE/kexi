@@ -8,7 +8,7 @@
         ], 
         "Category": "",
         "Dependencies": [],
-        "Description": "Tab Separated Values (TSV) File Import Plugin for Kexi",
+        "Description": "Tab Separated Values (TSV) file import plugin for Kexi",
         "EnabledByDefault": true, 
         "Icon": "", 
         "Id": "org.kexi-project.migration.tsv",
