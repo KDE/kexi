@@ -1,9 +1,9 @@
 /* This file is part of the KDE project
-   Copyright (C) 2005-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2016 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2012 Oleg Kukharchuk <oleg.kuh@gmail.com>
 
    This work is based on kspread/dialogs/kspread_dlg_csv.cc
-   and will be merged back with Calligra Libraries.
+   and could be merged back with Calligra Libraries.
 
    Copyright (C) 2002-2003 Norbert Andres <nandres@web.de>
    Copyright (C) 2002-2003 Ariya Hidayat <ariya@kde.org>
@@ -240,8 +240,6 @@ private:
 
 // --
 
-//! @todo KEXI3 const QDialog::ButtonRole ConfigureButton = QDialogButtonBox::Help;
-
 KexiCSVImportDialog::KexiCSVImportDialog(Mode mode, QWidget * parent)
         : KAssistantDialog(parent),
         m_parseComments(false),
@@ -281,7 +279,7 @@ KexiCSVImportDialog::KexiCSVImportDialog(Mode mode, QWidget * parent)
     setSizeGripEnabled(true);
     KexiMainWindowIface::global()->setReasonableDialogSize(this);
 
-    //! @todo KEXI3 KGuiItem::assign(button(ConfigureButton), KStandardGuiItem::configure());
+    KGuiItem::assign(configureButton(), KStandardGuiItem::configure());
 
     finishButton()->setEnabled(false);
     backButton()->setEnabled(false);
@@ -296,7 +294,6 @@ KexiCSVImportDialog::KexiCSVImportDialog(Mode mode, QWidget * parent)
 
     m_pkIcon = SmallIcon(KexiIconName("database-key"));
 
-    //! @todo KEXI3 button(ConfigureButton)->setVisible(m_mode != File);
     if (m_mode == File) {
         createFileOpenPage();
     } else if (m_mode == Clipboard) {
@@ -373,7 +370,7 @@ KexiCSVImportDialog::KexiCSVImportDialog(Mode mode, QWidget * parent)
     connect(m_1stRowForFieldNames, SIGNAL(stateChanged(int)),
             this, SLOT(slot1stRowForFieldNamesChanged(int)));
 
-    connect(this, SIGNAL(helpClicked()), this, SLOT(optionsButtonClicked()));
+    connect(configureButton(), &QPushButton::clicked, this, &KexiCSVImportDialog::optionsButtonClicked);
 
     connect(this, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
             this, SLOT(slotCurrentPageChanged(KPageWidgetItem*,KPageWidgetItem*)));
@@ -490,7 +487,7 @@ void KexiCSVImportDialog::slotCurrentPageChanged(KPageWidgetItem *page, KPageWid
     if (page == m_importPage) {
         KGuiItem::assign(finishButton(), KGuiItem(xi18nc("@action:button Import CSV", "&Import..."), _IMPORT_ICON));
     }
-    //! @todo KEXI3 button(ConfigureButton)->setEnabled(page == m_optionsPage ? true : false);
+    configureButton()->setEnabled(page == m_optionsPage);
     nextButton()->setEnabled(page == m_importPage ? false : true);
     backButton()->setEnabled(page == m_openFilePage ? false : true);
 
@@ -2175,3 +2172,8 @@ void KexiCSVImportDialog::updateRowCountInfo()
     }
 }
 
+QPushButton* KexiCSVImportDialog::configureButton() const
+{
+    // Help button is used as Configure
+    return button(QDialogButtonBox::Help);
+}

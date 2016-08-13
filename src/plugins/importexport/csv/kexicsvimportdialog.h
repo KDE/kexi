@@ -1,9 +1,9 @@
 /* This file is part of the KDE project
-   Copyright (C) 2005-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2016 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2012 Oleg Kukharchuk <oleg.kuh@gmail.com>
 
    This work is based on kspread/dialogs/kspread_dlg_csv.cc
-   and will be merged back with Calligra Libraries.
+   and could be merged back with Calligra Libraries.
 
    Copyright (C) 2002-2003 Norbert Andres <nandres@web.de>
    Copyright (C) 2002-2003 Ariya Hidayat <ariya@kde.org>
@@ -224,6 +224,8 @@ private:
 
     //! Updates size of m_columnNames and m_changedColumnNames if needed
     void updateColumnVectorSize();
+
+    QPushButton* configureButton() const;
 
     bool m_parseComments;
     bool m_canceled;
