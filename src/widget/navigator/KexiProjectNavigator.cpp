@@ -271,6 +271,10 @@ void KexiProjectNavigator::setProject(KexiProject* prj, const QString& itemsPart
     d->list->expandAll();
     d->list->setRootIsDecorated(false);
     slotUpdateEmptyStateLabel();
+
+    // Select and set current to first item
+    d->list->setCurrentIndex(d->model->firstPartItem());
+    d->list->selectionModel()->select(d->list->currentIndex(), QItemSelectionModel::Rows);
 }
 
 QString KexiProjectNavigator::itemsPluginId() const
