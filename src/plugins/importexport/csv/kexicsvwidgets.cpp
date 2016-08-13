@@ -332,6 +332,13 @@ void KexiCSVInfoLabel::setFileName(const QString& fileName)
     }
 }
 
+void KexiCSVInfoLabel::setFileNameText(const QString& text)
+{
+    if (!d->fnameLbl)
+        return;
+    d->fnameLbl->setText(text);
+}
+
 void KexiCSVInfoLabel::setLabelText(const QString& text)
 {
     d->leftLabel->setText(text);

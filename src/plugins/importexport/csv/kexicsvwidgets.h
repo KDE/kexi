@@ -53,8 +53,17 @@ public:
     KexiCSVInfoLabel(const QString& labelText, QWidget* parent, bool showFnameLine);
     ~KexiCSVInfoLabel();
 
+    //! Sets file name to @a fileName and updates icon to matche the file type.
+    //! File name is displayed with native separators,
     void setFileName(const QString& fileName);
+
+    //! Like setFileName() but the @a text is not altered is any way and icon is not updated.
+    //! This allows to set abstract file name not reflecting physical filename,
+    //! for example database table name.
+    void setFileNameText(const QString& text);
+
     void setLabelText(const QString& text);
+
     void setCommentText(const QString& text);
 
     //! sets icon pixmap to \a iconName. Used wher setIconForFilename was false in ctor.

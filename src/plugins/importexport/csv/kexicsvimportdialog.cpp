@@ -569,7 +569,7 @@ void KexiCSVImportDialog::slotCurrentPageChanged(KPageWidgetItem *page, KPageWid
         }
     } else if (page == m_importPage) {
         m_fromLabel->setFileName(m_fname);
-        m_toLabel->setLabelText(xi18n("To table:")+"\n\n"+m_partItemForSavedTable->caption());
+        m_toLabel->setFileNameText(m_partItemForSavedTable->name());
         m_importingProgressBar->hide();
         m_importProgressLabel->hide();
 
@@ -793,7 +793,7 @@ void KexiCSVImportDialog::createImportPage()
     if (m_mode != File) {
         m_fromLabel->setIcon(koIconName("edit-paste"));
     }
-    m_toLabel = new KexiCSVInfoLabel(xi18n("To table:"), m_importWidget, true);
+    m_toLabel = new KexiCSVInfoLabel(xi18nc("@label Importing CSV data to table:", "To table:"), m_importWidget, true);
     KexiPart::Info *partInfo = Kexi::partManager().infoForPluginId("org.kexi-project.table");
     m_toLabel->setIcon(partInfo->iconName());
 
@@ -802,6 +802,7 @@ void KexiCSVImportDialog::createImportPage()
     QVBoxLayout *l = new QVBoxLayout(m_importWidget);
     l->addWidget(m_fromLabel);
     l->addWidget(m_toLabel);
+    l->addSpacing(m_importProgressLabel->fontMetrics().height());
     l->addWidget(m_importProgressLabel);
     l->addWidget(m_importingProgressBar);
     l->addStretch(1);
