@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2005,2006 Martin Ellis <martin.ellis@kdemail.net>
-   Copyright (C) 2005-2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -105,6 +105,7 @@ bool MDBMigrate::drv_connect()
 bool MDBMigrate::drv_disconnect()
 {
     mdb_close(m_mdb);
+    m_mdb = nullptr;
     return true;
 }
 
