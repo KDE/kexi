@@ -235,7 +235,9 @@ bool KexiMigrate::disconnectInternal()
     const bool ok = drv_disconnect();
     if (!ok) {
         if (!m_result.isError()) {
-            m_result = d->sourceConnection->result();
+            if (d->sourceConnection) {
+                m_result = d->sourceConnection->result();
+            }
         }
     }
     delete d->sourceConnection;
