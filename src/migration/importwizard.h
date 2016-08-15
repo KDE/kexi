@@ -91,7 +91,8 @@ private:
 
     bool fileBasedSrcSelected() const;
     bool fileBasedDstSelected() const;
-    QString driverIdForSelectedSource();
+    QString driverIdForSelectedSource() const;
+    QString findDriverIdForSelectedSource();
 
     void arriveSrcConnPage();
     void arriveSrcDBPage();

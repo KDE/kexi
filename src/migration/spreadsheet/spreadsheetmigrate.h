@@ -56,7 +56,8 @@ public:
 
     //! Copy a table from source DB to target DB (driver specific)
     virtual bool drv_copyTable(const QString& srcTable, KexiDB::Connection *destConn,
-                               KexiDB::TableSchema* dstTable);
+                               KexiDB::TableSchema* dstTable,
+                               const RecordFilter *recordFilter = nullptr);
 
     //! Read schema for a given table
     virtual bool drv_readTableSchema(const QString& originalName, KexiDB::TableSchema *tableSchema);

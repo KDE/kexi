@@ -20,6 +20,7 @@ the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 
 #include "TsvMigrate.h"
 #include <kexi.h>
+#include <KDbSqlResult>
 
 #include <QDebug>
 #include <QDir>
@@ -32,13 +33,18 @@ using namespace KexiMigration;
 /* This is the implementation for the TSV file import routines. */
 KEXI_PLUGIN_FACTORY(TsvMigrate, "keximigrate_tsv.json")
 
+namespace KexiMigration {
+struct FileInfo
+{
+    QFile file;
+    QTextCodec *codec;
+    QVector<QString> fieldNames;
+};
+}
+
 TsvMigrate::TsvMigrate(QObject *parent, const QVariantList& args)
         : KexiMigrate(parent, args)
 {
-  m_codec = 0;
-  m_DataFile = 0;
-  m_Row = -1;
-  m_FileRow = -1;
 }
 
 
@@ -46,19 +52,21 @@ TsvMigrate::~TsvMigrate()
 {
 }
 
+KDbConnection* TsvMigrate::drv_createConnection()
+{
+    // nothing to do, just success
+    m_result = KDbResult();
+    return nullptr;
+}
+
 bool TsvMigrate::drv_connect()
 {
-  return QDir().exists(data()->source->databaseName());
+    return QDir().exists(data()->source->databaseName());
 }
 
 bool TsvMigrate::drv_disconnect()
 {
-  if (m_DataFile) {
-    delete m_DataFile;
-    m_DataFile = 0;
-  }
-
-  return true;
+    return true;
 }
 
 bool TsvMigrate::drv_tableNames(QStringList *tablenames)
@@ -68,25 +76,59 @@ bool TsvMigrate::drv_tableNames(QStringList *tablenames)
   return true;
 }
 
+//! @return next line read from the file split by tabs, decoded to unicode and with last \n removed
+static QVector<QByteArray> readLine(FileInfo *info, bool *eof)
+{
+    QByteArray line = info->file.readLine();
+    int count = line.length();
+    if (line.endsWith('\n')) {
+        --count;
+    }
+    if (line.isEmpty()) {
+        *eof = true;
+        return QVector<QByteArray>();
+    }
+    *eof = false;
+    int i = 0;
+    int start = 0;
+    int fields = 0;
+    QVector<QByteArray> result(info->fieldNames.isEmpty() ? 10 : info->fieldNames.count());
+    for (; i < count; ++i) {
+        if (line[i] == '\t') {
+            if (fields >= result.size()) {
+                result.resize(result.size() * 2);
+            }
+            result[fields] = line.mid(start, i - start);
+            ++fields;
+            start = i + 1;
+        }
+    }
+    result[fields] = line.mid(start, i - start); // last value
+    result.resize(fields + 1);
+    return result;
+}
+
 bool TsvMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destConn,
-                               KDbTableSchema* dstTable)
+                               KDbTableSchema* dstTable,
+                               const RecordFilter *recordFilter)
 {
     Q_UNUSED(srcTable)
-    if (!drv_readFromTable(QString())) {
+    FileInfo info;
+    if (!openFile(&info)) {
         return false;
     }
     Q_FOREVER {
         bool eof;
-        QStringList line = readLine(&eof);
+        QVector<QByteArray> line = readLine(&info, &eof);
         if (eof) {
             break;
         }
         QList<QVariant> vals;
-        for(int i = 0; i < line.count() && i < m_FieldNames.count(); ++i) {
+        for(int i = 0; i < line.count(); ++i) {
             vals.append(line.at(i));
         }
-        for(int i = line.count(); i < m_FieldNames.count(); ++i) { // possibly missing values
-            vals.append(QVariant());
+        if (recordFilter && !(*recordFilter)(vals)) {
+            continue;
         }
         if (!destConn->insertRecord(dstTable, vals)) {
             return false;
@@ -97,124 +139,126 @@ bool TsvMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destConn,
 
 bool TsvMigrate::drv_readTableSchema(const QString& originalName, KDbTableSchema *tableSchema)
 {
-    if (!drv_readFromTable(originalName)) {
+    Q_UNUSED(originalName)
+    FileInfo info;
+    if (!openFile(&info)) {
         return false;
     }
-    bool ok = true;
-    for (int i = 0; i < m_FieldNames.count(); ++i) {
-        KDbField *f = new KDbField(m_FieldNames[i], KDbField::Text);
+    for (const QString &name : info.fieldNames) {
+        KDbField *f = new KDbField(name, KDbField::Text);
         if (!tableSchema->addField(f)) {
             delete f;
             tableSchema->clear();
-            ok = false;
-            break;
+            return false;
         }
     }
-    return ok;
+    return true;
 }
 
-QStringList TsvMigrate::readLine(bool *eof)
+class TsvRecord : public KDbSqlRecord
 {
-    QByteArray line = m_DataFile->readLine();
-    if (line.endsWith('\n')) {
-        line.chop(1);
-        *eof = false;
-    } else {
-        if (line.isEmpty()) {
-            *eof = true;
-            return QStringList();
-        }
+public:
+    inline explicit TsvRecord(const QVector<QByteArray> &values, const FileInfo &m_info)
+        : m_values(values), m_info(&m_info)
+    {
     }
-    return m_codec->toUnicode(line).split('\t');
+
+    inline QString stringValue(int index) Q_DECL_OVERRIDE {
+        return m_info->codec->toUnicode(m_values.value(index));
+    }
+
+    inline QByteArray toByteArray(int index) Q_DECL_OVERRIDE {
+        return m_values.value(index);
+    }
+
+    inline KDbSqlString cstringValue(int index) Q_DECL_OVERRIDE {
+        return KDbSqlString(m_values[index].constData(), m_values[index].length());
+    }
+
+private:
+    const QVector<QByteArray> m_values;
+    const FileInfo *m_info;
+};
+
+class TsvResult : public KDbSqlResult
+{
+public:
+    inline explicit TsvResult(FileInfo *info) : m_info(info), m_eof(false) {
+        Q_ASSERT(info);
+    }
+
+    inline int fieldsCount() Q_DECL_OVERRIDE {
+        return m_info->fieldNames.count();
+    }
+
+    //! Not needed for ImportTableWizard
+    inline KDbSqlField *field(int index) Q_DECL_OVERRIDE {
+        Q_UNUSED(index);
+        return nullptr;
+    }
+
+    //! Not needed for ImportTableWizard
+    inline KDbField* createField(const QString &tableName, int index) Q_DECL_OVERRIDE {
+        Q_UNUSED(tableName);
+        Q_UNUSED(index);
+        return nullptr;
+    }
+
+    inline KDbSqlRecord* fetchRecord() Q_DECL_OVERRIDE {
+        QVector<QByteArray> record = readLine(m_info, &m_eof);
+        if (m_eof) {
+            return nullptr;
+        }
+        return new TsvRecord(record, *m_info);
+    }
+
+    inline KDbResult lastResult() Q_DECL_OVERRIDE {
+        return KDbResult();
+    }
+
+    inline ~TsvResult() {
+        delete m_info;
+    }
+
+private:
+    FileInfo *m_info;
+    bool m_eof;
+};
+
+KDbSqlResult* TsvMigrate::drv_readFromTable(const QString &tableName)
+{
+    Q_UNUSED(tableName)
+    QScopedPointer<FileInfo> info(new FileInfo);
+    if (!openFile(info.data())) {
+        return nullptr;
+    }
+    return new TsvResult(info.take());
 }
 
-bool TsvMigrate::drv_readFromTable(const QString & tableName)
+bool TsvMigrate::openFile(FileInfo *info)
 {
-  Q_UNUSED(tableName)
-  delete m_DataFile;
-  m_DataFile = 0;
-  m_codec = 0;
-
-  m_DataFile = new QFile(data()->source->databaseName());
-
-  m_Row = -1;
-  m_FileRow = -1;
-
-  if (!m_DataFile->open(QIODevice::ReadOnly | QIODevice::Text)) {
-    delete m_DataFile;
-    m_DataFile = 0;
-    return false;
-  }
-  {
-    const QByteArray sample(m_DataFile->read(MAX_SAMPLE_TEXT_SIZE));
-    m_codec = QTextCodec::codecForUtfText(sample);
-  }
-
-  if (!m_DataFile->seek(0)) {
-      m_codec = 0;
-      delete m_DataFile;
-      m_DataFile = 0;
-      return false;
-  }
-  bool eof;
-  m_FieldNames = readLine(&eof);
-  return !eof;
-}
-
-bool TsvMigrate::drv_moveNext()
-{
-    //qDebug();
-  if (m_Row < m_FileRow)
-  {
-   m_Row++;
-  }
-  else
-  {
-    if (m_DataFile->atEnd())
-      return false;
-
-    bool eof;
-    m_FieldValues.append(readLine(&eof));
-    if (eof) {
+    info->file.setFileName(data()->source->databaseName());
+    if (!info->file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         return false;
     }
-    m_Row++;
-    m_FileRow++;
-  }
-  return true;
-}
-
-bool TsvMigrate::drv_movePrevious()
-{
-    //qDebug();
-  if (m_Row > 0)
-  {
-    m_Row--;
-    return true;
-  }
-  return false;
-}
-
-QVariant TsvMigrate::drv_value(int i)
-{
-    if (m_Row >= 0)   {
-        return QVariant(m_FieldValues[m_Row][i]);
+    {
+        const QByteArray sample(info->file.read(MAX_SAMPLE_TEXT_SIZE));
+        info->codec = QTextCodec::codecForUtfText(sample);
     }
-    return QVariant();
-}
 
-bool TsvMigrate::drv_moveFirst()
-{
-    //qDebug();
-    m_Row = -1;
-    return drv_moveNext();
-}
-
-bool TsvMigrate::drv_moveLast()
-{
-    //qDebug();
-    while(drv_moveNext()) {}
-    return true;
+    if (!info->file.seek(0)) {
+        info->codec = 0;
+        info->file.close();
+        return false;
+    }
+    bool eof;
+    QVector<QByteArray> record = readLine(info, &eof);
+    const QString s();
+    info->fieldNames.resize(record.count());
+    for (int i = 0; i < record.count(); ++i) {
+        info->fieldNames[i] = info->codec->toUnicode(record[i]);
+    }
+    return !eof;
 }
 
 #include "TsvMigrate.moc"

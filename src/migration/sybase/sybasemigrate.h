@@ -55,7 +55,8 @@ protected:
                                             KDbRecordData *data, bool *firstRecord);
 
     virtual bool drv_copyTable(const QString& srcTable,
-                               KDbConnection *destConn, KDbTableSchema* dstTable);
+                               KDbConnection *destConn, KDbTableSchema* dstTable,
+                               const RecordFilter *recordFilter = nullptr);
 
     virtual bool drv_progressSupported() {
         return true;

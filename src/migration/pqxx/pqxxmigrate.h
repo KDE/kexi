@@ -67,7 +67,8 @@ protected:
                                             KDbRecordData *data, bool *firstRecord);
 
     virtual bool drv_copyTable(const QString& srcTable,
-                               KDbConnection *destConn, KDbTableSchema* dstTable);
+                               KDbConnection *destConn, KDbTableSchema* dstTable,
+                               const RecordFilter *recordFilter = nullptr);
 
     //! Position the source dataset at the start of a table
     virtual bool drv_readFromTable(const QString & tableName);

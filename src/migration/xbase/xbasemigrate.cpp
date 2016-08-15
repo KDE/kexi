@@ -195,7 +195,7 @@ bool xBaseMigrate::drv_tableNames(QStringList *tableNames)
 
 //! Copy xBase table to KDb table
 bool xBaseMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destConn,
-  KDbTableSchema* dstTable)
+  KDbTableSchema* dstTable, const RecordFilter *recordFilter)
 {
   // Steps
   // 1. for all records in the table
@@ -278,6 +278,9 @@ bool xBaseMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destCon
           break;
       }
       vals.append( val );
+    }
+    if (recordFilter && !(*recordFilter)(vals)) {
+        continue;
     }
     if (!destConn->insertRecord(*dstTable, vals)) {
       return false;

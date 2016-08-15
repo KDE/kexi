@@ -423,7 +423,8 @@ tristate PqxxMigrate::drv_fetchRecordFromSQL(const KDbEscapedString& sqlStatemen
 //=========================================================================
 //! Copy PostgreSQL table to a KDb table
 bool PqxxMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destConn,
-                                KDbTableSchema* dstTable)
+                                KDbTableSchema* dstTable,
+                                const RecordFilter *recordFilter)
 {
     std::vector<std::string> R;
 
@@ -437,6 +438,7 @@ bool PqxxMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destConn
         QList<QVariant> vals;
         std::vector<std::string>::const_iterator i, end(R.end());
         int index = 0;
+        bool filterUsed = false --- TODO
         for (i = R.begin(); i != end; ++i, index++) {
             KDbField *field = fieldsExpanded.at(index)->field;
             const KDbField::Type type = field->type(); // cache: evaluating type of expressions can be expensive
@@ -449,9 +451,14 @@ bool PqxxMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destConn
                                                      type, (*i).size()));
             }
         }
+        updateProgress();
+        if (recordFilter && !filterUsed) {
+            if (!(*recordFilter)(vals)) {
+                continue;
+            }
+        }
         if (!destConn->insertRecord(*dstTable, vals))
             return false;
-        updateProgress();
         R.clear();
     }
     return true;

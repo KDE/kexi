@@ -24,11 +24,13 @@
 
 #include "keximigratedata.h"
 
-#include <KDbTableSchema>
 #include <KDbConnection>
+#include <KDbSqlRecord>
+#include <KDbTableSchema>
 
 #include <QVariantList>
-#include <QByteArray>
+
+class KDbConnectionProxy;
 
 namespace Kexi
 {
@@ -135,9 +137,13 @@ public:
     //! \return a list of property names available for this driver.
     QList<QByteArray> propertyNames() const;
 
-    //Extension of existing api to provide generic row access to external data.
-    //! Connect to the source data
-    bool connectSource();
+    //! Extension of existing API to provide generic row access to external data for ImportTableWizard.
+    //! @todo refactor
+    bool connectSource(Kexi::ObjectStatus* result);
+
+    //! Extension of existing API to close connection for ImportTableWizard.
+    //! @todo refactor
+    bool disconnectSource();
 
     //! Get table names in source database (driver specific)
     bool tableNames(QStringList *tablenames);
@@ -145,8 +151,8 @@ public:
     //! Read schema for a given table (driver specific)
     bool readTableSchema(const QString& originalName, KDbTableSchema *tableSchema);
 
-    //!Position the source dataset at the start of a table
-    bool readFromTable(const QString& tableName);
+    //! Starts reading data from the source dataset's table
+    KDbSqlResult* readFromTable(const QString& tableName);
 
     //!Move to the next row
     bool moveNext();
@@ -173,10 +179,49 @@ protected:
     /*! Used by the migration driver manager to set metaData for just loaded driver. */
     void setMetaData(const KexiMigratePluginMetaData *metaData);
 
-    //! Connect to source database (driver specific)
-    virtual bool drv_connect() = 0;
-    //! Disconnect from source database (driver specific)
-    virtual bool drv_disconnect() = 0;
+    //! Creates connection to source database and connects.
+    //! If it is a database supported by low-level routines of KDb, sourceConnection() will
+    //! be available afterwards.
+    //! If not, connectInternal() can still return true but sourceConnection() will return
+    //! @c nullptr.
+    //! @see drv_createConnection() drv_connect()
+    bool connectInternal(Kexi::ObjectStatus* result);
+
+    //! Disconnects from source database. If it is a database supported by low-level routines
+    //! of KDb, destroys the connection object pointed by sourceConnection() too.
+    //! @return true on success.
+    //! @see drv_disconnect() connectInternal()
+    bool disconnectInternal();
+
+    //! @return connection to source database if it is a database supported by low-level
+    //! routines of KDb. In other cases such as importing from a TSV file, this function
+    //! returns @c nullptr.
+    KDbConnectionProxy* sourceConnection();
+
+    //! Migration drivers that use low-level routines KDb to access the source database
+    //! should create and return a driver-specific KDbConnection object that handles
+    //! connection to the source database.
+    //! Migration drivers that use custom data sources (not KDb-compatible) should return
+    //! @c nullptr.
+    //! @note KexiMigrate::m_result should be set to a result of the operation.
+    virtual KDbConnection* drv_createConnection() = 0;
+
+    //! Connects to source database using (driver specific).
+    //! Default implementation calls sourceConnection()->drv_connect() and if it succeeds,
+    //! it calls sourceConnection()->drv_useDatabase(data()->sourceName), then returns
+    //! the result. If this is enough for connecting for a migration driver, there is no need
+    //! to reimplement drv_connect().
+    //! If sourceConnection() is @c nullptr (custom types of sources),
+    //! default implementation just returns @c false. In this case drv_connect() should
+    //! be implemented.
+    virtual bool drv_connect();
+
+    //! Disconnect from source database (driver specific).
+    //! If the source database is supported by low-level routines KDb,
+    //! KDbConnection::disconnect() is called for this connection.
+    //! For other types of sources @c false is returned so in these cases this method
+    //! should be reimplemented.
+    virtual bool drv_disconnect();
 
     //! Get table names in source database (driver specific)
     virtual bool drv_tableNames(QStringList *tablenames) = 0;
@@ -223,26 +268,22 @@ protected:
     virtual tristate drv_querySingleStringFromSQL(const KDbEscapedString& sqlStatement,
             int columnNumber, QString *string);
 
-    /*! Fetches single record from result obtained
-     by running \a sqlStatement.
-     \a firstRecord should be first initialized to true, so the method can run
-     the query at first call and then set it will set \a firstRecord to false,
-     so subsequent calls will only fetch records.
-     On success the result is stored in \a data and true is returned,
-     \a data is resized to appropriate size. cancelled is returned on EOF. */
-//! @todo SQL-dependent!
-    virtual tristate drv_fetchRecordFromSQL(const KDbEscapedString& sqlStatement,
-                                            KDbRecordData* data,
-                                            bool *firstRecord) {
-        Q_UNUSED(sqlStatement); Q_UNUSED(data); Q_UNUSED(firstRecord);
-        return cancelled;
-    }
+    //! A functor for filtering records
+    //! @see drv_copyTable()
+    class RecordFilter {
+    public:
+        RecordFilter() {}
+        virtual ~RecordFilter() {}
+        virtual bool operator() (const KDbSqlRecord &record) const = 0;
+        virtual bool operator() (const QList<QVariant> &record) const = 0;
+    };
 
     //! Copy a table from source DB to target DB (driver specific)
     //! - create copies of KDb tables
     //! - create copies of non-KDb tables
     virtual bool drv_copyTable(const QString& srcTable, KDbConnection *destConn,
-                               KDbTableSchema* dstTable) = 0;
+                               KDbTableSchema* dstTable,
+                               const RecordFilter *recordFilter = nullptr) = 0;
 
     virtual bool drv_progressSupported() {
         return false;
@@ -279,9 +320,9 @@ protected:
 
     //Extended API
     //! Position the source dataset at the start of a table
-    virtual bool drv_readFromTable(const QString & tableName) {
+    virtual KDbSqlResult* drv_readFromTable(const QString & tableName) {
       Q_UNUSED(tableName);
-      return false;
+      return nullptr;
     }
 
     //! Move to the next row
@@ -311,6 +352,18 @@ private:
      \return sum of the size of all tables to be copied.
     */
     bool progressInitialise();
+
+    //! Perform an import operation. It is assumed that source connection is established.
+    //! @see performImport()
+    bool performImportInternal(Kexi::ObjectStatus* result);
+
+    //! Reads schema for table @a tableName from kexi__objects and kexi__fields.
+    //! On success:
+    //! - copies one record from the original kexi__objects table to the destination
+    //!   database's table kexi__objects
+    //! - copies all related records from the original kexi__fields table to the destination
+    //!   database's table kexi__fields
+    bool importTable(const QString& tableName, KDbConnectionProxy *destConn);
 
     class Private;
     Private * const d;

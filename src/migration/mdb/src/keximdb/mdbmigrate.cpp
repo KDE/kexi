@@ -74,6 +74,14 @@ QVariant MDBMigrate::propertyValue(const QByteArray& propName)
     return KexiMigrate::propertyValue(propName);
 }
 
+KDbConnection* MDBMigrate::drv_createConnection()
+{
+    // nothing to do, just success
+    m_result = KDbResult();
+    return nullptr;
+}
+
+
 bool MDBMigrate::drv_connect()
 {
     //qDebug() << "mdb_open:";
@@ -234,7 +242,8 @@ QVariant MDBMigrate::toQVariant(const char* data, unsigned int len, int type)
 }
 
 bool MDBMigrate::drv_copyTable(const QString& srcTable,
-                               KDbConnection *destConn, KDbTableSchema* dstTable)
+                               KDbConnection *destConn, KDbTableSchema* dstTable,
+                               const RecordFilter *recordFilter)
 {
     MdbTableDef *tableDef = getTableDef(srcTable);
     if (!tableDef) {
@@ -286,12 +295,14 @@ bool MDBMigrate::drv_copyTable(const QString& srcTable,
             QVariant var = toQVariant(columnData[i], columnDataLength[i], col->col_type);
             vals << var;
         }
-
+        updateProgress();
+        if (recordFilter && !(*recordFilter)(vals)) {
+            continue;
+        }
         if (!destConn->insertRecord(dstTable, vals)) {
             ok = false;
             break;
         }
-        updateProgress();
 
 #ifdef KEXI_MIGRATION_MAX_ROWS_TO_IMPORT
 //! @todo this is risky when there are references between tables

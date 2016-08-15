@@ -69,6 +69,9 @@ protected:
     virtual bool drv_readTableSchema(
         const QString& originalName, KDbTableSchema *tableSchema);
 
+    //! Creates connection object to the source database (driver-specific).
+    KDbConnection* drv_createConnection() Q_DECL_OVERRIDE;
+
     //! Driver specific connection implementation
     virtual bool drv_connect();
 
@@ -76,8 +79,9 @@ protected:
     virtual bool drv_disconnect();
 
     //! Copy MDB table to a KDb table
-    virtual bool drv_copyTable(const QString& srcTable,
-                               KDbConnection *destConn, KDbTableSchema* dstTable);
+    bool drv_copyTable(const QString& srcTable,
+                       KDbConnection *destConn, KDbTableSchema* dstTable,
+                       const RecordFilter *recordFilter = nullptr) Q_DECL_OVERRIDE;
 
     virtual bool drv_progressSupported() {
         return true;

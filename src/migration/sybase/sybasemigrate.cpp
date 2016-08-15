@@ -221,7 +221,8 @@ tristate SybaseMigrate::drv_fetchRecordFromSQL(const KDbEscapedString& sqlStatem
 
 //! Copy Sybase table to a KDb table
 bool SybaseMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destConn,
-                                  KDbTableSchema* dstTable)
+                                  KDbTableSchema* dstTable,
+                                  const RecordFilter *recordFilter)
 {
     if (!query("Select * from " + drv_escapeIdentifier(srcTable)))  {
         return false;
@@ -236,10 +237,13 @@ bool SybaseMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destCo
             QString fieldValue = value(i);
             vals.append(KDb::cstringToVariant(fieldValue.toUtf8(), fieldsExpanded.at(i)->field, fieldValue.length()));
         }
+        updateProgress();
+        if (recordFilter && !(*recordFilter)(vals)) {
+            continue;
+        }
         if (!destConn->insertRecord(*dstTable, vals)) {
             return false;
         }
-        updateProgress();
     }
 
     if (returnCode == FAIL) {

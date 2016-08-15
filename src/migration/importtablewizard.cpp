@@ -40,11 +40,12 @@
 #include <widget/KexiFileWidget.h>
 #include <widget/KexiNameWidget.h>
 
-#include <KDbDriverManager>
-#include <KDbDriver>
 #include <KDbConnectionData>
-#include <KDbUtils>
+#include <KDbDriver>
 #include <KDbDriverManager>
+#include <KDbDriverManager>
+#include <KDbSqlResult>
+#include <KDbUtils>
 
 #include <KMessageBox>
 
@@ -388,12 +389,11 @@ void ImportTableWizard::arriveTableSelectPage(KPageWidgetItem *prevPage)
         m_tableListWidget->clear();
         m_migrateDriver = prepareImport(&result);
 
-        if (m_migrateDriver) {
-            if (!m_migrateDriver->connectSource()) {
-                qWarning() << "unable to connect to database";
-                return;
-            }
-
+        bool ok = m_migrateDriver;
+        if (ok) {
+            ok = m_migrateDriver->connectSource(&result);
+        }
+        if (ok) {
             QStringList tableNames;
             if (m_migrateDriver->tableNames(&tableNames)) {
                 m_tableListWidget->addItems(tableNames);
@@ -405,14 +405,14 @@ void ImportTableWizard::arriveTableSelectPage(KPageWidgetItem *prevPage)
                     next();
                 }
             }
-        } else {
-            qWarning() << "No driver for selected source";
+        }
+        KexiUtils::removeWaitCursor();
+        if (!ok) {
             QString errMessage =result.message.isEmpty() ? xi18n("Unknown error") : result.message;
             QString errDescription = result.description.isEmpty() ? errMessage : result.description;
             KMessageBox::error(this, errMessage, errDescription);
             setValid(m_tablesPageItem, false);
         }
-        KexiUtils::removeWaitCursor();
     }
 }
 
@@ -430,51 +430,60 @@ void ImportTableWizard::arriveAlterTablePage()
     m_importTableName = m_tableListWidget->selectedItems().first()->text();
 #endif
 
-    KDbTableSchema *ts = new KDbTableSchema();
-    if (!m_migrateDriver->readTableSchema(m_importTableName, ts)) {
-        delete ts;
+    QScopedPointer<KDbTableSchema> ts(new KDbTableSchema);
+    if (!m_migrateDriver->readTableSchema(m_importTableName, ts.data())) {
         return;
     }
-
-    qDebug() << ts->fieldCount();
 
     setValid(m_alterTablePageItem, ts->fieldCount() > 0);
     if (isValid(m_alterTablePageItem)) {
        connect(m_alterSchemaWidget->nameWidget(), SIGNAL(textChanged()), this, SLOT(slotNameChanged()), Qt::UniqueConnection);
     }
 
-    QString baseName;
-    if (fileBasedSrcSelected()) {
-        baseName = QFileInfo(m_srcConnSel->selectedFileName()).baseName();
-    } else {
-        baseName = m_srcDBName->selectedProjectData()->databaseName();
-    }
-
-    QString suggestedCaption = xi18nc("<basename-filename> <tablename>", "%1 %2", baseName, m_importTableName);
-    m_alterSchemaWidget->setTableSchema(ts, suggestedCaption);
-
-    if (!m_migrateDriver->readFromTable(m_importTableName))
-        return;
-
-    if (!m_migrateDriver->moveFirst()) {
+    m_alterSchemaWidget->setTableSchema(ts.take());
+    if (!readFromTable()) {
+        m_alterSchemaWidget->setTableSchema(nullptr);
         back();
         KMessageBox::information(this,
             xi18nc("@info", "Could not import table <resource>%1</resource>. "
                    "Select different table or cancel importing.", m_importTableName));
     }
-    QList<KDbRecordData*> data;
+}
+
+bool ImportTableWizard::readFromTable()
+{
+    QScopedPointer<KDbSqlResult> tableResult(m_migrateDriver->readFromTable(m_importTableName));
+    KDbTableSchema *newSchema = m_alterSchemaWidget->newSchema();
+    if (!tableResult || tableResult->lastResult().isError()
+            || tableResult->fieldsCount() != newSchema->fieldCount())
+    {
+        back();
+        KMessageBox::information(this,
+            xi18nc("@info", "Could not import table <resource>%1</resource>. "
+                   "Select different table or cancel importing.", m_importTableName));
+        return false;
+    }
+    QScopedPointer<QList<KDbRecordData*>> data(new QList<KDbRecordData*>);
     for (int i = 0; i < RECORDS_FOR_PREVIEW; ++i) {
-        KDbRecordData *row = new KDbRecordData(ts->fieldCount());
-        for (int j = 0; j < ts->fieldCount(); ++j) {
-            (*row)[j] = m_migrateDriver->value(j);
-        }
-        data.append(row);
-        if (!m_migrateDriver->moveNext()) {
-            m_alterSchemaWidget->model()->setRowCount(i+1);
+        QScopedPointer<KDbRecordData> record(tableResult->fetchRecordData());
+        if (!record) {
+            if (tableResult->lastResult().isError()) {
+                return false;
+            }
             break;
         }
+        data->append(record.data());
     }
-    m_alterSchemaWidget->setData(data);
+    if (data->isEmpty()) {
+        back();
+        KMessageBox::information(this,
+            xi18nc("@info", "No data has been found in table <resource>%1</resource>. "
+                   "Select different table or cancel importing.", m_importTableName));
+        return false;
+    }
+    m_alterSchemaWidget->model()->setRowCount(data->count());
+    m_alterSchemaWidget->setData(data.take());
+    return true;
 }
 
 void ImportTableWizard::arriveImportingPage()
@@ -552,6 +561,7 @@ void ImportTableWizard::arriveFinishPage()
         m_finishCheckBox->setEnabled(false);
         m_finishLbl->setText(xi18n("An error occured."));
     }
+    m_migrateDriver->disconnectSource();
 
     button(QDialogButtonBox::Cancel)->setEnabled(false);
 }

@@ -50,7 +50,8 @@ class xBaseMigrate : public KexiMigrate, protected xbXBase
     virtual bool drv_disconnect();
 
     virtual bool drv_copyTable(const QString& srcTable,
-      KDbConnection *destConn, KDbTableSchema* dstTable);
+                               KDbConnection *destConn, KDbTableSchema* dstTable,
+                               const RecordFilter *recordFilter = nullptr);
 
 //! @todo move this somewhere to low level class (MIGRATION?) virtual bool drv_getTablesList( QStringList &list );
 //! @todo move this somewhere to low level class (MIGRATION?) virtual bool drv_containsTable( const QString &tableName );

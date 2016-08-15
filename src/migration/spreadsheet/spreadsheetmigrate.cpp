@@ -104,11 +104,13 @@ bool SpreadsheetMigrate::drv_tableNames(QStringList& tablenames)
 }
 
 bool SpreadsheetMigrate::drv_copyTable(const QString& srcTable, KexiDB::Connection *destConn,
-                                       KexiDB::TableSchema* dstTable)
+                                       KexiDB::TableSchema* dstTable,
+                                       const RecordFilter *recordFilter)
 {
     Q_UNUSED(srcTable);
     Q_UNUSED(destConn);
     Q_UNUSED(dstTable);
+    Q_UNUSED(recordFilter);
     //! @todo implement data copying
     return true;
 }

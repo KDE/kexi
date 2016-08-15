@@ -30,6 +30,8 @@ class QTextCodec;
 namespace KexiMigration
 {
 
+struct FileInfo;
+
 //! "Tab Separated Values" document import plugin
 class TsvMigrate : public KexiMigrate
 {
@@ -42,7 +44,9 @@ public:
 
   protected:
     //! Connect to source
-    virtual bool drv_connect();
+    KDbConnection* drv_createConnection() Q_DECL_OVERRIDE;
+
+    bool drv_connect() Q_DECL_OVERRIDE;
 
     //! Disconnect from source
     virtual bool drv_disconnect();
@@ -50,41 +54,18 @@ public:
     //! Get table names in source
     virtual bool drv_tableNames(QStringList *tablenames);
 
-    virtual bool drv_copyTable(const QString& srcTable, KDbConnection *destConn,
-                               KDbTableSchema* dstTable);
+    bool drv_copyTable(const QString& srcTable, KDbConnection *destConn,
+                       KDbTableSchema* dstTable,
+                       const RecordFilter *recordFilter = 0) Q_DECL_OVERRIDE;
 
     //! Read schema for a given table
     virtual bool drv_readTableSchema(const QString& originalName, KDbTableSchema *tableSchema);
 
-    //! Position the source dataset at the start of a table
-    virtual bool drv_readFromTable(const QString & tableName);
-
-    //! Move to the next row
-    virtual bool drv_moveNext();
-
-    //! Move to the previous row
-    virtual bool drv_movePrevious();
-
-    //! Read the data at the given row/field
-    virtual QVariant drv_value(int i);
-
-    virtual bool drv_moveFirst();
-
-    virtual bool drv_moveLast();
+    //! Starts reading data from the source dataset's table
+    KDbSqlResult* drv_readFromTable(const QString & tableName) Q_DECL_OVERRIDE;
 
   private:
-    //! @return next line read from the file split by tabs, decoded to unicode and with last \n removed
-    QStringList readLine(bool *eof);
-
-    QTextCodec *m_codec;
-    QFile *m_DataFile;
-
-    QStringList m_FieldNames;
-    QVector<QStringList> m_FieldValues;
-
-    long m_Row;
-
-    long m_FileRow;
+    bool openFile(FileInfo *info);
 };
 
 }

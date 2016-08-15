@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2013 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -18,11 +18,24 @@
  * Boston, MA 02110-1301, USA.
 */
 
+#include "kexiproject.h"
+#include "kexiprojectdata.h"
+#include "kexipartmanager.h"
+#include "kexipartitem.h"
+#include "kexipartinfo.h"
+#include "kexipart.h"
+#include "KexiWindow.h"
+#include "KexiWindowData.h"
+#include "kexi.h"
+#include "kexiblobbuffer.h"
+#include "kexiguimsghandler.h"
+#include <kexiutils/utils.h>
+#include <KexiIcon.h>
+
 #include <QFile>
 #include <QFileInfo>
 #include <QDir>
 #include <QDebug>
-#include <KexiIcon.h>
 
 #include <KLocalizedString>
 #include <KStandardGuiItem>
@@ -38,19 +51,6 @@
 #include <KDbMessageHandler>
 #include <KDbProperties>
 #include <KDbResult>
-
-#include "kexiproject.h"
-#include "kexiprojectdata.h"
-#include "kexipartmanager.h"
-#include "kexipartitem.h"
-#include "kexipartinfo.h"
-#include "kexipart.h"
-#include "KexiWindow.h"
-#include "KexiWindowData.h"
-#include "kexi.h"
-#include "kexiblobbuffer.h"
-#include "kexiguimsghandler.h"
-#include <kexiutils/utils.h>
 
 #include <assert.h>
 
@@ -451,7 +451,7 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
     if (!ok)
         storedMinorVersion = 1;
 
-    const tristate containsKexi__blobsTable = d->connection->drv_containsTable("kexi__blobs");
+    const tristate containsKexi__blobsTable = d->connection->containsTable("kexi__blobs");
     if (~containsKexi__blobsTable) {
         return false;
     }
@@ -499,7 +499,7 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
         d->versionMinor = storedMinorVersion;
     }
 
-    KDbInternalTableSchema *t_blobs = new KDbInternalTableSchema("kexi__blobs");
+    QScopedPointer<KDbInternalTableSchema> t_blobs(new KDbInternalTableSchema("kexi__blobs"));
     t_blobs->addField(new KDbField("o_id", KDbField::Integer,
                                         KDbField::PrimaryKey | KDbField::AutoInc, KDbField::Unsigned));
     t_blobs->addField(new KDbField("o_data", KDbField::BLOB));
@@ -514,19 +514,18 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
 
     //*** create global BLOB container, if not present
     if (true == containsKexi__blobsTable) {
-        //! just insert this schema
-        d->connection->insertInternalTable(t_blobs);
         if (add_folder_id_column && !d->connection->options()->isReadOnly()) {
             // 2. "kexi__blobs" table contains no "o_folder_id" column -> add it
             //    (by copying table to avoid data loss)
-            KDbTableSchema *kexi__blobsCopy = new KDbTableSchema(*t_blobs);
+            QScopedPointer<KDbInternalTableSchema> kexi__blobsCopy(
+                new KDbInternalTableSchema(*t_blobs)); //won't be not needed - will be physically renamed to kexi_blobs
+
             kexi__blobsCopy->setName("kexi__blobs__copy");
-            if (!d->connection->drv_createTable(*kexi__blobsCopy)) {
+            if (!d->connection->createTable(kexi__blobsCopy.data(), true /*replaceExisting*/)) {
                 m_result = d->connection->result();
-                delete kexi__blobsCopy;
-                delete t_blobs;
                 return false;
             }
+            KDbInternalTableSchema *ts = kexi__blobsCopy.take(); // createTable() took ownerhip of kexi__blobsCopy
             // 2.1 copy data (insert 0's into o_folder_id column)
             if (!d->connection->executeSQL(
                         KDbEscapedString("INSERT INTO kexi__blobs (o_data, o_name, o_caption, o_mime, o_folder_id) "
@@ -534,29 +533,32 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
                     // 2.2 remove the original kexi__blobs
                     || !d->connection->executeSQL(KDbEscapedString("DROP TABLE kexi__blobs")) //lowlevel
                     // 2.3 rename the copy back into kexi__blobs
-                    || !d->connection->drv_alterTableName(kexi__blobsCopy, "kexi__blobs")
+                    || !d->connection->alterTableName(ts, "kexi__blobs", false /* no replace */)
                ) {
                 //(no need to drop the copy, ROLLBACK will drop it)
                 m_result = d->connection->result();
-                delete kexi__blobsCopy;
-                delete t_blobs;
                 return false;
             }
-            delete kexi__blobsCopy; //not needed - physically renamed to kexi_blobs
         }
+        //! just insert this schema, proper table exists
+        d->connection->insertInternalTable(t_blobs.take());
     } else {
         if (!d->connection->options()->isReadOnly()) {
-            if (!d->connection->createTable(t_blobs, true/*replaceExisting*/)) {
+            if (!d->connection->createTable(t_blobs.data(), true/*replaceExisting*/)) {
                 m_result = d->connection->result();
-                delete t_blobs;
                 return false;
             }
+            (void)t_blobs.take(); // createTable() took ownerhip of t_blobs
         }
     }
 
     //Store default part information.
     //Information for other parts (forms, reports...) are created on demand in KexiWindow::storeNewData()
-    KDbInternalTableSchema *t_parts = new KDbInternalTableSchema("kexi__parts");
+    const tristate containsKexi__partsTable = d->connection->containsTable("kexi__parts");
+    if (~containsKexi__partsTable) {
+        return false;
+    }
+    QScopedPointer<KDbInternalTableSchema> t_parts(new KDbInternalTableSchema("kexi__parts"));
     t_parts->addField(
         new KDbField("p_id", KDbField::Integer, KDbField::PrimaryKey | KDbField::AutoInc, KDbField::Unsigned)
     );
@@ -564,19 +566,18 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
     t_parts->addField(new KDbField("p_mime", KDbField::Text));
     t_parts->addField(new KDbField("p_url", KDbField::Text));
 
-    const tristate containsKexi__partsTable = d->connection->drv_containsTable("kexi__parts");
-    if (~containsKexi__partsTable) {
-        return false;
-    }
-    bool partsTableOk = true;
     if (true == containsKexi__partsTable) {
         //! just insert this schema
-        d->connection->insertInternalTable(t_parts);
+        d->connection->insertInternalTable(t_parts.take());
     } else {
         if (!d->connection->options()->isReadOnly()) {
-            partsTableOk = d->connection->createTable(t_parts, true/*replaceExisting*/);
-
-            QScopedPointer<KDbFieldList> fl(t_parts->subList("p_id", "p_name", "p_mime", "p_url"));
+            bool partsTableOk = d->connection->createTable(t_parts.data(), true/*replaceExisting*/);
+            if (!partsTableOk) {
+                m_result = d->connection->result();
+                return false;
+            }
+            KDbInternalTableSchema *ts = t_parts.take(); // createTable() took ownerhip of t_parts
+            QScopedPointer<KDbFieldList> fl(ts->subList("p_id", "p_name", "p_mime", "p_url"));
 #define INSERT_RECORD(typeId, groupName, name) \
             if (partsTableOk) { \
                 partsTableOk = d->connection->insertRecord(fl.data(), QVariant(int(KexiPart::typeId)), \
@@ -595,35 +596,34 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
             INSERT_RECORD(WebObjectType, "Web pages", "web")
             INSERT_RECORD(MacroObjectType, "Macros", "macro")
 #undef INSERT_RECORD
+            if (!partsTableOk) {
+                m_result = d->connection->result();
+                // note: kexi__parts object still exists because createTable() succeeded
+                return false;
+            }
         }
     }
 
-    if (!partsTableOk) {
-        m_result = d->connection->result();
-        delete t_parts;
+    // User data storage
+    const tristate containsKexi__userdataTable = d->connection->containsTable("kexi__userdata");
+    if (~containsKexi__userdataTable) {
         return false;
     }
-
-    // User data storage
-    KDbInternalTableSchema *t_userdata = new KDbInternalTableSchema("kexi__userdata");
+    QScopedPointer<KDbInternalTableSchema> t_userdata(new KDbInternalTableSchema("kexi__userdata"));
     t_userdata->addField(new KDbField("d_user", KDbField::Text, KDbField::NotNull));
     t_userdata->addField(new KDbField("o_id", KDbField::Integer, KDbField::NotNull, KDbField::Unsigned));
     t_userdata->addField(new KDbField("d_sub_id", KDbField::Text, KDbField::NotNull | KDbField::NotEmpty));
     t_userdata->addField(new KDbField("d_data", KDbField::LongText));
 
-    const tristate containsKexi__userdataTable = d->connection->drv_containsTable("kexi__userdata");
-    if (~containsKexi__userdataTable) {
-        return false;
-    }
     if (true == containsKexi__userdataTable) {
-        d->connection->insertInternalTable(t_userdata);
+        d->connection->insertInternalTable(t_userdata.take());
     }
     else if (!d->connection->options()->isReadOnly()) {
-        if (!d->connection->createTable(t_userdata, true/*replaceExisting*/)) {
+        if (!d->connection->createTable(t_userdata.data(), true/*replaceExisting*/)) {
             m_result = d->connection->result();
-            delete t_userdata;
             return false;
         }
+        (void)t_userdata.take(); // createTable() took ownerhip of t_userdata
     }
 
     if (insideTransaction) {
@@ -1205,7 +1205,7 @@ bool KexiProject::checkProject(const QString& singlePluginId)
         m_result = d->connection->result();
         return false;
     }
-    const tristate containsKexi__partsTable = d->connection->drv_containsTable("kexi__parts");
+    const tristate containsKexi__partsTable = d->connection->containsTable("kexi__parts");
     if (~containsKexi__partsTable) {
         return false;
     }
@@ -1462,4 +1462,3 @@ bool KexiProject::askForOpeningNonWritableFileAsReadOnly(QWidget *parent, const 
                     xi18nc("@title:window", "Could Not Open File" ),
                     openItem, KStandardGuiItem::cancel(), QString());
 }
-

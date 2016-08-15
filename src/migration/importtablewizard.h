@@ -88,6 +88,7 @@ Q_OBJECT
         unsigned m_recordCount;
 
         bool doImport();
+        bool readFromTable();
 
         //Page Items
         KPageWidgetItem *m_introPageItem, *m_srcConnPageItem, *m_srcDBPageItem, *m_tablesPageItem,

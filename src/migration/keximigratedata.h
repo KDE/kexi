@@ -24,8 +24,7 @@
 
 #include <KDbConnection>
 #include "keximigrate_export.h"
-
-class KexiProjectData;
+#include <kexiprojectdata.h>
 
 namespace KexiMigration
 {
@@ -37,6 +36,10 @@ class KEXIMIGRATE_EXPORT Data
 public:
     Data();
     ~Data();
+
+    QString sourceDatabaseInfoString() const {
+        return source ? KexiProjectData::infoString(sourceName, *source) : QString();
+    }
 
     //! Connection data for the source database
     KDbConnectionData* source;

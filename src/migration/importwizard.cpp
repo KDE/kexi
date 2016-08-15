@@ -102,6 +102,8 @@ public:
     KexiPrjTypeSelector *dstPrjTypeSelector;
 
     KexiConnectionSelectorWidget *srcConn, *dstConn;
+    QString driverIdForSelectedSource;
+
     QLineEdit *dstNewDBTitleLineEdit;
     QLabel *dstNewDBNameLabel;
     QLineEdit *dstNewDBNameLineEdit;
@@ -666,9 +668,7 @@ void ImportWizard::progressUpdated(int percent)
     qApp->processEvents();
 }
 
-//===========================================================
-//
-QString ImportWizard::driverIdForSelectedSource()
+QString ImportWizard::findDriverIdForSelectedSource()
 {
     if (fileBasedSrcSelected()) {
         QMimeDatabase db;
@@ -760,10 +760,8 @@ KexiMigrate* ImportWizard::prepareImport(Kexi::ObjectStatus& result)
     }
 
     // Find a source (migration) driver name
-    QString sourceDriverId;
     if (!result.error()) {
-        sourceDriverId = driverIdForSelectedSource();
-        if (sourceDriverId.isEmpty())
+        if (d->driverIdForSelectedSource.isEmpty())
             result.setStatus(xi18n("No appropriate migration driver found."),
                              d->migrateManager.possibleProblemsMessage());
     }
@@ -771,7 +769,7 @@ KexiMigrate* ImportWizard::prepareImport(Kexi::ObjectStatus& result)
     // Get a source (migration) driver
     KexiMigrate* sourceDriver = 0;
     if (!result.error()) {
-        sourceDriver = d->migrateManager.driver(sourceDriverId);
+        sourceDriver = d->migrateManager.driver(d->driverIdForSelectedSource);
         if (!sourceDriver || d->migrateManager.result().isError()) {
             qDebug() << "Import migrate driver error...";
             result.setStatus(d->migrateManager.resultable());
@@ -936,7 +934,8 @@ void ImportWizard::next()
             return;
         }
 
-        KexiMigrate* import = d->migrateManager.driver(driverIdForSelectedSource());
+        d->driverIdForSelectedSource = findDriverIdForSelectedSource(); // cache
+        KexiMigrate* import = d->migrateManager.driver(d->driverIdForSelectedSource);
         if (!import || d->migrateManager.result().isError()) {
             QString dbname;
             if (fileBasedSrcSelected())
@@ -976,11 +975,14 @@ void ImportWizard::next()
                 return;
             }
         }
-    } else if (currentPage() == d->dstPageItem) {
-//        if (d->fileBasedDstWasPresented) {
-//            if (fileBasedDstSelected() && !d->dstConn->fileWidget->checkSelectedFile())
-//                return;
-//        }
+    } else if (currentPage() == d->dstTitlePageItem) {
+        if (fileBasedDstSelected()) {
+            if (QFileInfo(d->dstNewDBNameUrl->url().toLocalFile()).exists()) {
+                if (!KexiFileWidget::askForOverwriting(d->dstNewDBNameUrl->url().toLocalFile(), this)) {
+                    return;
+                }
+            }
+        }
     } else if (currentPage() == d->importTypePageItem) {
         if (!fileBasedDstSelected()) {
             // make sure we have password if needed
