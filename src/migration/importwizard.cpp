@@ -157,7 +157,7 @@ ImportWizard::ImportWizard(QWidget *parent, QMap<QString, QString>* args)
     setupFinish();
 
     connect(this, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)), this, SLOT(slot_currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)));
-    connect(this, SIGNAL(helpClicked()), this, SLOT(helpClicked()));
+    connect(button(QDialogButtonBox::Help), &QPushButton::clicked, this, &ImportWizard::helpClicked);
 
     if (d->predefinedConnectionData) {
         // setup wizard for predefined server source
