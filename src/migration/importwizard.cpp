@@ -1031,6 +1031,7 @@ void ImportWizard::next()
             button(QDialogButtonBox::Cancel)->setEnabled(true);
             backButton()->setEnabled(true);
             nextButton()->setEnabled(false);
+            finishButton()->setEnabled(false);
 
             d->openImportedProjectCheckBox->hide();
             if (!res)
