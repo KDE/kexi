@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2004 Martin Ellis <m.a.ellis@ncl.ac.uk>
-   Copyright (C) 2006 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2006-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -22,7 +22,11 @@
 #define MYSQLMIGRATE_H
 
 #include <migration/keximigrate.h>
-#include <kexidb/drivers/mysql/mysqlconnection_p.h>
+
+#include <mysql/mysql_version.h>
+#include <mysql/mysql.h>
+
+class KDbConnectionProxy;
 
 namespace KexiMigration
 {
@@ -35,40 +39,24 @@ public:
     explicit MySQLMigrate(QObject *parent, const QVariantList& args = QVariantList());
     virtual ~MySQLMigrate();
 
-    KDbField::Type type(const QString& table, const MYSQL_FIELD* t);
-
-    KDbField::Type examineBlobField(const QString& table,
-                                         const MYSQL_FIELD* fld);
-
-    QStringList examineEnumField(const QString& table,
-                                 const MYSQL_FIELD* fld);
-
-    void getConstraints(int mysqlConstraints, KDbField* fld);
-
-    void getOptions(int flags, KDbField* fld);
-
 protected:
     //! Driver specific function to return table names
-    virtual bool drv_tableNames(QStringList& tablenames);
+    bool drv_tableNames(QStringList *tablenames) Q_DECL_OVERRIDE;
 
     //! Driver specific implementation to read a table schema
-    virtual bool drv_readTableSchema(
-        const QString& originalName, KDbTableSchema& tableSchema);
+    bool drv_readTableSchema(
+        const QString& originalName, KDbTableSchema *tableSchema) Q_DECL_OVERRIDE;
 
-    //! Driver specific connection implementation
-    virtual bool drv_connect();
+    //! Driver specific connection creation
+    KDbConnection* drv_createConnection() Q_DECL_OVERRIDE;
 
-    virtual bool drv_disconnect();
+    tristate drv_queryStringListFromSQL(
+        const KDbEscapedString& sqlStatement, int columnNumber,
+        QStringList *stringList, int numRecords = -1) Q_DECL_OVERRIDE;
 
-    virtual tristate drv_queryStringListFromSQL(
-        const QString& sqlStatement, int columnNumber,
-        QStringList& stringList, int numRecords = -1);
-
-    virtual tristate drv_fetchRecordFromSQL(const QString& sqlStatement,
-                                            KDbRecordData* data, bool *firstRecord);
-
-    virtual bool drv_copyTable(const QString& srcTable,
-                               KDbConnection *destConn, KDbTableSchema* dstTable);
+    bool drv_copyTable(const QString& srcTable,
+                       KDbConnection *destConn, KDbTableSchema* dstTable,
+                       const RecordFilter *recordFilter = nullptr) Q_DECL_OVERRIDE;
 
     virtual bool drv_progressSupported() {
         return true;
@@ -80,28 +68,10 @@ protected:
 //! @todo move this somewhere to low level class (MIGRATION?) virtual bool drv_containsTable( const QString &tableName );
 
     //Extended API
-    //! Position the source dataset at the start of a table
-    virtual bool drv_readFromTable(const QString & tableName);
-
-    //! Move to the next row
-    virtual bool drv_moveNext();
-
-    //! Move to the previous row
-    virtual bool drv_movePrevious();
-
-    //! Move to the next row
-    virtual bool drv_moveFirst();
-
-    //! Move to the previous row
-    virtual bool drv_moveLast();
-
-    //! Read the data at the given row/field
-    virtual QVariant drv_value(int i);
+    //! Starts reading data from the source dataset's table
+    KDbSqlResult* drv_readFromTable(const QString & tableName) Q_DECL_OVERRIDE;
 
 private:
-    MySqlConnectionInternal * const d;
-    MYSQL_RES *m_mysqlres;
-
     long m_rows;
     long m_row;
     MYSQL_ROW m_dataRow;

@@ -1,0 +1,30 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "kexi@kde.org",
+                "Name": "Kexi Team"
+            }
+        ], 
+        "Category": "",
+        "Dependencies": [
+            "org.kde.kdb.mysql"
+        ],
+        "Description": "MySQL database import plugin for Kexi",
+        "EnabledByDefault": true, 
+        "Icon": "", 
+        "Id": "org.kexi-project.migration.mysql",
+        "License": "LGPL",
+        "MimeTypes": [],
+        "Name": "MySQL",
+        "ServiceTypes": [
+            "Kexi/MigrationDriver"
+        ],
+        "Version": "3.0",
+        "Website": "http://kexi-project.org"
+     },
+     "X-Kexi-FileBased": "false",
+     "X-Kexi-SupportedSourceDrivers": [
+         "org.kde.kdb.mysql"
+     ]
+}

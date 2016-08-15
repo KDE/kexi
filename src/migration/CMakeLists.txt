@@ -30,13 +30,14 @@ endfunction()
 
 add_subdirectory(tsv)
 
-if(false) # TODO KEXI3
-
 find_package(MySQL)
-macro_log_feature(MYSQL_FOUND "libmysqlclient" "MySQL Client Library" "http://www.mysql.com" FALSE "" "Required by Kexi MySQL migration driver")
+macro_log_feature(MYSQL_FOUND "libmysqlclient" "MySQL Client Library" "http://www.mysql.com"
+                  FALSE "" "Required by Kexi MySQL migration driver")
 if(MYSQL_FOUND)
-  add_subdirectory(mysql)
+    add_subdirectory(mysql)
 endif()
+
+if(false) # TODO KEXI3
 
 #KEXI3 TODO
 #find_package(KexiPostgreSQL)

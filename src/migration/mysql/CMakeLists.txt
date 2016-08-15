@@ -1,22 +1,12 @@
-include_directories(${MYSQL_INCLUDE_DIR})
-
-########### next target ###############
-
 set(keximigrate_mysql_PART_SRCS
     mysqlmigrate.cpp
+    keximigrate_mysql.json
     Messages.sh
 )
 
-add_library(keximigrate_mysql MODULE ${keximigrate_mysql_PART_SRCS})
-
-target_link_libraries(
-    keximigrate_mysql
-    keximigrate
-    kexiutils
-
-    KDb
-
-    ${MYSQL_LIBRARIES}
-    )
-
-install(TARGETS keximigrate_mysql  DESTINATION ${KEXI_PLUGIN_INSTALL_DIR})
+build_and_install_kexi_migrate_driver(mysql
+    "${keximigrate_mysql_PART_SRCS}"
+    "${MYSQL_LIBRARIES}"
+    "${MYSQL_INCLUDE_DIR}"
+    ""
+)
