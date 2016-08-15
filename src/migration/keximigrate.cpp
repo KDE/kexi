@@ -559,8 +559,9 @@ KDbField::Type KexiMigrate::userType(const QString& fname)
     bool ok;
     const QString res
         = QInputDialog::getItem(nullptr, xi18nc("@title:window", "Field Type"),
-            xi18n("The data type for field <resource>%1</resource> could not be determined. "
-                  "Please select one of the following data types.", fname),
+            xi18nc("@info",
+                   "The data type for field <resource>%1</resource> could not be determined. "
+                   "Please select one of the following data types.", fname),
             typeNames, 0, false/* !editable */, &ok);
 
     if (!ok || res.isEmpty())

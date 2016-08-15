@@ -112,9 +112,11 @@ void ImportTableWizard::next() {
     } else if (currentPage() == m_alterTablePageItem) {
         if (m_alterSchemaWidget->nameExists(m_alterSchemaWidget->nameWidget()->nameText())) {
             KMessageBox::information(this,
-                                     xi18n("<resource>%1</resource> name is already used by an existing table. "
-                                          "Enter different table name to continue.", m_alterSchemaWidget->nameWidget()->nameText()),
-                                     xi18n("Name Already Used"));
+                 xi18nc("@info",
+                        "<resource>%1</resource> name is already used by an existing table. "
+                        "Enter different table name to continue.",
+                        m_alterSchemaWidget->nameWidget()->nameText()),
+                 xi18n("Name Already Used"));
             return;
         }
     }
@@ -153,7 +155,8 @@ void ImportTableWizard::setupIntroPage()
     lblIntro->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     lblIntro->setWordWrap(true);
     lblIntro->setText(
-        xi18n("<para>Table Importing Assistant allows you to import a table from an existing "
+        xi18nc("@info",
+             "<para>Table Importing Assistant allows you to import a table from an existing "
              "database into the current Kexi project.</para>"
              "<para>Click <interface>Next</interface> button to continue or "
              "<interface>Cancel</interface> button to exit this assistant.</para>"));
@@ -455,8 +458,9 @@ void ImportTableWizard::arriveAlterTablePage()
 
     if (!m_migrateDriver->moveFirst()) {
         back();
-        KMessageBox::information(this,xi18n("No data has been found in table <resource>%1</resource>. Select different table or cancel importing.",
-                                           m_importTableName));
+        KMessageBox::information(this,
+            xi18nc("@info", "Could not import table <resource>%1</resource>. "
+                   "Select different table or cancel importing.", m_importTableName));
     }
     QList<KDbRecordData*> data;
     for (int i = 0; i < RECORDS_FOR_PREVIEW; ++i) {
@@ -541,12 +545,12 @@ void ImportTableWizard::arriveProgressPage()
 void ImportTableWizard::arriveFinishPage()
 {
     if (m_importComplete) {
-        m_finishLbl->setText(xi18n("Table <resource>%1</resource> has been imported.",
-                                  m_alterSchemaWidget->nameWidget()->nameText()));
+        m_finishLbl->setText(xi18nc("@info",
+                                    "Table <resource>%1</resource> has been imported.",
+                                    m_alterSchemaWidget->nameWidget()->nameText()));
     } else {
         m_finishCheckBox->setEnabled(false);
-        m_finishLbl->setText(xi18n("An error occured.",
-                                  m_alterSchemaWidget->nameWidget()->nameText()));
+        m_finishLbl->setText(xi18n("An error occured."));
     }
 
     button(QDialogButtonBox::Cancel)->setEnabled(false);
@@ -684,8 +688,8 @@ bool ImportTableWizard::doImport()
     //Create the table
     if (!m_connection->createTable(newSchema, true)) {
         msg.showErrorMessage(KDbMessageHandler::Error,
-                             xi18n("Unable to create table <resource>%1</resource>.",
-                                   newSchema->name()));
+                             xi18nc("@info", "Unable to create table <resource>%1</resource>.",
+                                    newSchema->name()));
         return false;
     }
     m_alterSchemaWidget->takeTableSchema(); //m_connection takes ownership of the KDbTableSchema object

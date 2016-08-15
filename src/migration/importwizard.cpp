@@ -256,8 +256,9 @@ void ImportWizard::setupIntro()
                    "into a Kexi project.");
     }
     lblIntro->setText(msg + "\n\n"
-                      + xi18n("Click <interface>Next</interface> button to continue or "
-                             "<interface>Cancel</interface> button to exit this assistant."));
+                      + xi18nc("@info",
+                               "Click <interface>Next</interface> button to continue or "
+                               "<interface>Cancel</interface> button to exit this assistant."));
     vbox->addWidget(lblIntro);
 
     d->introPageItem = new KPageWidgetItem(d->introPageWidget,
@@ -609,7 +610,7 @@ void ImportWizard::arriveImportingPage()
 {
     d->importingPageWidget->hide();
     nextButton()->setEnabled(checkUserInput());
-    d->lblImportingTxt->setText(xi18n(
+    d->lblImportingTxt->setText(xi18nc("@info",
                                    "<para>All required information has now "
                                    "been gathered. Click <interface>Next</interface> button to start importing.</para>"
                                    "<para><note>Depending on size of the database this may take some time.</note></para>"
@@ -857,8 +858,8 @@ tristate ImportWizard::import()
         // ok, the destination-db already exists...
         if (KMessageBox::Yes != KMessageBox::warningYesNo(this,
                         xi18nc("@info (don't add tags around %1, it's done already)",
-                               "Database %1 already exists.<nl/>"
-                               "Do you want to replace it with a new one?",
+                               "<para>Database <resource>%1</resource> already exists.</para>"
+                               "<para>Do you want to replace it with a new one?</para>",
                                sourceDriver->data()->destination->infoString()),
                 0, KGuiItem(xi18nc("@action:button Replace Database", "&Replace")), KStandardGuiItem::no()))
         {
@@ -901,8 +902,11 @@ tristate ImportWizard::import()
 
         d->finishPageItem->setHeader(xi18n("Failure"));
         d->finishLbl->setText(
-            xi18n(
-                "<para>Import failed.</para><para>%1</para><para>%2</para><para>You can click <interface>Back</interface> button and try again.</para>",
+            xi18nc("@info",
+                   "<para>Import failed.</para>"
+                   "<para>%1</para>"
+                   "<para>%2</para>"
+                   "<para>You can click <interface>Back</interface> button and try again.</para>",
                 msg, details));
         return false;
     }
@@ -942,7 +946,9 @@ void ImportWizard::next()
             KMessageBox::error(this,
                                dbname.isEmpty() ?
                                xi18n("Could not import database. This type is not supported.")
-                               : xi18n("Could not import database \"%1\". This type is not supported.", dbname));
+                               : xi18nc("@info",
+                                        "Could not import database <resource>%1</resource>. "
+                                        "This type is not supported.", dbname));
             return;
         }
 
@@ -1001,8 +1007,9 @@ void ImportWizard::next()
             tristate res = import();
             if (true == res) {
                 d->finishLbl->setText(
-                    xi18n("Database has been imported into Kexi project \"%1\".",
-                         d->dstNewDBNameLineEdit->text()));
+                    xi18nc("@info",
+                           "Database has been imported into Kexi project <resource>%1</resource>.",
+                           d->dstNewDBNameLineEdit->text()));
                 button(QDialogButtonBox::Cancel)->setEnabled(false);
                 backButton()->setEnabled(false);
                 nextButton()->setEnabled(true);
