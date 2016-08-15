@@ -236,6 +236,7 @@ void ImportWizard::setupIntro()
     QLabel *lblIntro = new QLabel(d->introPageWidget);
     lblIntro->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     lblIntro->setWordWrap(true);
+    lblIntro->setTextFormat(Qt::RichText);
     QString msg;
     if (d->predefinedConnectionData) { //predefined import: server source
         msg = xi18nc("@info",
@@ -319,6 +320,7 @@ void ImportWizard::setupDstType()
     KexiUtils::setStandardMarginsAndSpacing(hbox);
     QLabel *lbl = new QLabel(xi18n("Destination database type:") /*+ ' '*/, d->dstTypePageWidget);
     lbl->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    lbl->setTextFormat(Qt::RichText);
     hbox->addWidget(lbl);
 
     d->dstPrjTypeSelector = new KexiPrjTypeSelector(d->dstTypePageWidget);
@@ -437,10 +439,12 @@ void ImportWizard::setupImporting()
     d->lblImportingTxt = new QLabel(d->importingPageWidget);
     d->lblImportingTxt->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     d->lblImportingTxt->setWordWrap(true);
+    d->lblImportingTxt->setTextFormat(Qt::RichText);
 
     d->lblImportingErrTxt = new QLabel(d->importingPageWidget);
     d->lblImportingErrTxt->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     d->lblImportingErrTxt->setWordWrap(true);
+    d->lblImportingErrTxt->setTextFormat(Qt::RichText);
 
     d->progressBar = new QProgressBar(d->importingPageWidget);
     d->progressBar->setRange(0, 100);
@@ -484,6 +488,7 @@ void ImportWizard::setupFinish()
     d->finishLbl = new QLabel(d->finishPageWidget);
     d->finishLbl->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     d->finishLbl->setWordWrap(true);
+    d->finishLbl->setTextFormat(Qt::RichText);
 
     vbox->addWidget(d->finishLbl);
     d->openImportedProjectCheckBox = new QCheckBox(xi18n("Open imported project"),
