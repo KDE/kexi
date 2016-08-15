@@ -280,7 +280,7 @@ KexiQueryDesignerSQLView::afterSwitchFrom(Kexi::ViewMode mode)
         if (temp->queryChangedInView() != Kexi::NoViewMode) {
             KDbSelectStatementOptions options;
             options.addVisibleLookupColumns = false;
-            KDbNativeStatementBuilder builder(KexiMainWindowIface::global()->project()->dbConnection());
+            KDbNativeStatementBuilder builder;
             if (!builder.generateSelectStatement(&d->origStatement, query, options)) {
                 //! @todo msg
                 return false;
