@@ -48,11 +48,13 @@ public:
 
     const KexiMigratePluginMetaData* driverMetaData(const QString &id);
 
+    //! @return all migration driver IDs that support mimetype @a mimeType
     QStringList driverIdsForMimeType(const QString &mimeType);
 
     //! @return all migration driver IDs that support source KDb database driver ID @a sourceDriverId
     QStringList driverIdsForSourceDriver(const QString &sourceDriverId);
 
+    //! @return user-visible message describing problem with lookup of migration drivers
     QStringList possibleProblemsMessage() const;
 
     //! @return list of file MIME types that are supported by migration drivers
