@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@gmx.at>
-   Copyright (C) 2003-2012 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -120,6 +120,11 @@ public:
      For file-based projects returns project's filename.
      If \a format controls format of the message (useful for displaying in message boxes). */
     QString infoString(Kuit::VisualFormat format = Kuit::PlainText) const;
+
+    //! @overload QString infoString(Kuit::VisualFormat) const;
+    //! @todo move to KDb?
+    static QString infoString(const QString &databaseName, const KDbConnectionData &data,
+                              Kuit::VisualFormat format = Kuit::PlainText);
 
     QDateTime lastOpened() const;
 

@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@gmx.at>
-   Copyright (C) 2003-2012 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -189,17 +189,25 @@ void KexiProjectData::setDescription(const QString& desc)
     return KDbObject::setDescription(desc);
 }
 
-QString KexiProjectData::infoString(Kuit::VisualFormat format) const
+// static
+QString KexiProjectData::infoString(const QString &databaseName,
+                                    const KDbConnectionData &data,
+                                    Kuit::VisualFormat format)
 {
-    if (d->connData.databaseName().isEmpty()) {
+    if (data.databaseName().isEmpty()) {
         //server-based
         return kxi18nc("@info database connection",
                        "<resource>%1</resource> (connection <resource>%2</resource>)")
-                .subs(databaseName()).subs(d->connData.toUserVisibleString()).toString(format);
+                .subs(databaseName).subs(data.toUserVisibleString()).toString(format);
     }
     //file-based
     return kxi18nc("@info database name",
-                   "<resource>%1</resource>").subs(d->connData.databaseName()).toString(format);
+                   "<resource>%1</resource>").subs(data.databaseName()).toString(format);
+}
+
+QString KexiProjectData::infoString(Kuit::VisualFormat format) const
+{
+    return infoString(databaseName(), d->connData, format);
 }
 
 void KexiProjectData::setReadOnly(bool set)
