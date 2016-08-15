@@ -7,12 +7,10 @@ if(${Qt5Core_VERSION} VERSION_LESS 5.5.0)
         WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
         COMMENT "Building external Qt resource ${status_rcc}"
         VERBATIM)
+    add_custom_target(build_status_rcc DEPENDS "${status_rcc}" SOURCES "${status_qrc}")
 else()
     qt5_add_binary_resources(build_status_rcc "${status_qrc}" OPTIONS -binary DESTINATION "${status_rcc}")
 endif()
-
-
-add_custom_target(build_status_rcc DEPENDS "${status_rcc}" SOURCES "${status_qrc}")
 
 add_dependencies(keximain build_status_rcc)
 
