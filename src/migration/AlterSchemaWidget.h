@@ -40,8 +40,8 @@ class AlterSchemaWidget : public QWidget
         explicit AlterSchemaWidget(QWidget* parent = 0);
         ~AlterSchemaWidget();
 
-        void setTableSchema(KDbTableSchema *schema, const QString &suggestedCaption = QString());
-        void setData(const QList<KDbRecordData*> &data);
+        void setTableSchema(KDbTableSchema *schema);
+        void setData(QList<KDbRecordData*>* data);
 
         KDbTableSchema* newSchema();
         KDbTableSchema* takeTableSchema();
@@ -50,8 +50,8 @@ class AlterSchemaWidget : public QWidget
         bool nameExists(const QString &name) const;
 
         AlterSchemaTableModel* model();
-    private:
 
+    private:
         QGridLayout *m_layout;
         QTableView *m_table;
         QComboBox *m_columnType;

@@ -39,7 +39,7 @@ class AlterSchemaTableModel : public QAbstractTableModel
         virtual int rowCount(const QModelIndex& parent = QModelIndex()) const;
 
         void setSchema(KDbTableSchema *schema);
-        void setData(const QList<KDbRecordData*> &data);
+        void setData(QList<KDbRecordData*> *data);
         void setRowCount(int i);
     private:
         //! Reimplemented just to avoid 'hidden' warnings
@@ -50,7 +50,7 @@ class AlterSchemaTableModel : public QAbstractTableModel
         }
 
         KDbTableSchema *m_schema;
-        QList<KDbRecordData*> m_data; //Small amount of data to display to user
+        QList<KDbRecordData*> *m_data; //!< Small amount of data to display to user
         int m_recordCount;
 };
 

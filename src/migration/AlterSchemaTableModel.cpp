@@ -27,13 +27,15 @@ const int RECORDS_FOR_PREVIEW = 3;
 
 AlterSchemaTableModel::AlterSchemaTableModel(QObject* parent)
     : QAbstractTableModel(parent)
-    , m_schema(0)
+    , m_schema(nullptr)
+    , m_data(nullptr)
     , m_recordCount(RECORDS_FOR_PREVIEW)
 {
 }
 
 AlterSchemaTableModel::~AlterSchemaTableModel()
 {
+    delete m_data;
 }
 
 QVariant AlterSchemaTableModel::data(const QModelIndex& index, int role) const
@@ -45,8 +47,8 @@ QVariant AlterSchemaTableModel::data(const QModelIndex& index, int role) const
         return QVariant();
 
     if (role == Qt::DisplayRole) {
-        if (m_data.length() > index.row()) {
-            const KDbRecordData* r(m_data.value(index.row()));
+        if (m_data->length() > index.row()) {
+            const KDbRecordData* r(m_data->value(index.row()));
             return r->value(index.column());
         }
     }
@@ -96,7 +98,7 @@ void AlterSchemaTableModel::setSchema(KDbTableSchema *schema)
     emit layoutChanged();
 }
 
-void AlterSchemaTableModel::setData(const QList<KDbRecordData*>& data)
+void AlterSchemaTableModel::setData(QList<KDbRecordData*> *data)
 {
     m_data = data;
 }

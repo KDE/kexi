@@ -84,25 +84,24 @@ AlterSchemaWidget::~AlterSchemaWidget()
     delete m_schema;
 }
 
-void AlterSchemaWidget::setTableSchema(KDbTableSchema* ts, const QString& suggestedCaption)
+void AlterSchemaWidget::setTableSchema(KDbTableSchema* ts)
 {
-    if (!ts) {
+    if (ts == m_schema) {
         return;
     }
+    m_model->setSchema(ts);
     delete m_schema;
     m_schema = ts;
 
-    m_tableNameWidget->setCaptionText(suggestedItemCaption(suggestedCaption));
+    m_tableNameWidget->setCaptionText(ts->captionOrName());
     m_tableNameWidget->captionLineEdit()->selectAll();
     m_tableNameWidget->captionLineEdit()->setFocus();
 
     m_model->setRowCount(3); // default
-
-    m_model->setSchema(m_schema);
     tableClicked(m_model->index(0,0));
 }
 
-void AlterSchemaWidget::setData(const QList<KDbRecordData*> &data)
+void AlterSchemaWidget::setData(QList<KDbRecordData*>* data)
 {
     m_model->setData(data);
 }
@@ -124,6 +123,9 @@ void AlterSchemaWidget::tableClicked(const QModelIndex& idx)
 
 void AlterSchemaWidget::typeActivated(int typ)
 {
+    if (!m_schema) {
+        return;
+    }
     m_schema->field(m_selectedColumn)->setType(KDb::intToFieldType(m_columnType->itemData(typ).toInt()));
 
     //Only set the pkey check enabled if the field type is integer
@@ -137,7 +139,11 @@ void AlterSchemaWidget::typeActivated(int typ)
     }
 }
 
-void AlterSchemaWidget::pkeyClicked(bool pkey){
+void AlterSchemaWidget::pkeyClicked(bool pkey)
+{
+    if (!m_schema) {
+        return;
+    }
     m_schema->field(m_selectedColumn)->setAutoIncrement(pkey);
     m_schema->field(m_selectedColumn)->setPrimaryKey(pkey);
 }
