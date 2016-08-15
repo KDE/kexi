@@ -1,20 +1,10 @@
-project(Kexi)
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules")
+message("CMake module path:" ${CMAKE_MODULE_PATH})
 
-cmake_minimum_required(VERSION 2.8.12 FATAL_ERROR)
-
-cmake_policy(SET CMP0002 OLD)
-cmake_policy(SET CMP0017 NEW)
-cmake_policy(SET CMP0022 OLD)
-
-if (NOT ${CMAKE_VERSION} VERSION_LESS 3.0.0)
-    cmake_policy(SET CMP0026 OLD) 
-    cmake_policy(SET CMP0046 OLD)
-endif ()
-
-if(NOT ${CMAKE_VERSION} VERSION_LESS 3.3.0)
-    cmake_policy(SET CMP0059 OLD)
-    cmake_policy(SET CMP0063 OLD)
-endif()
+include(SetKexiVersionInfo)
+include(SetKexiCMakePolicies NO_POLICY_SCOPE)
+project(Kexi VERSION ${KEXI_VERSION})
 
 # ensure out-of-source build
 string(COMPARE EQUAL "${CMAKE_SOURCE_DIR}" "${CMAKE_BINARY_DIR}" isBuildInSource)
@@ -22,47 +12,6 @@ if(isBuildInSource)
     message(FATAL_ERROR "Compiling Kexi inside the source directory is not possible. "
                         "Please refer to the build instruction https://community.kde.org/Kexi/Building")
 endif()
-
- ######################
-#######################
-## Constants defines ##
-#######################
-######################
-
-# define common versions of Kexi components used to generate KexiVersion.h
-# update these version for every release:
-set(KEXI_VERSION_STRING "3.0 Alpha")
-set(KEXI_STABLE_VERSION_MAJOR 3) # 3 for 3.x, 4 for 4.x, etc.
-set(KEXI_STABLE_VERSION_MINOR 0) # 0 for 3.0, 1 for 3.1, etc.
-set(KEXI_VERSION_RELEASE 89)     # 89 for Alpha, increase for next test releases, set 0 for first Stable, etc.
-set(KEXI_ALPHA 1) # uncomment only for Alpha
-#set(KEXI_BETA 1) # uncomment only for Beta
-#set(KEXI_RC 1) # uncomment only for RC
-set(KEXI_YEAR 2016) # update every year
-
-if(NOT DEFINED KEXI_ALPHA AND NOT DEFINED KEXI_BETA AND NOT DEFINED KEXI_RC)
-    set(KEXI_STABLE 1) # do not edit
-endif()
-
-message(STATUS "Kexi version: ${KEXI_VERSION_STRING}")
-
-# Define the generic version of the Kexi libraries here
-# This makes it easy to advance it when the next Kexi release comes.
-# 14 was the last GENERIC_KEXI_LIB_VERSION_MAJOR of the previous Kexi series
-# (2.x) so we're starting with 15 in 3.x series.
-if(KEXI_STABLE_VERSION_MAJOR EQUAL 3)
-    math(EXPR GENERIC_KEXI_LIB_VERSION_MAJOR "${KEXI_STABLE_VERSION_MINOR} + 15")
-else()
-    # let's make sure we won't forget to update the "15"
-    message(FATAL_ERROR "Reminder: please update offset == 15 used to compute GENERIC_KEXI_LIB_VERSION_MAJOR to something bigger")
-endif()
-set(GENERIC_KEXI_LIB_VERSION "${GENERIC_KEXI_LIB_VERSION_MAJOR}.0.0")
-set(GENERIC_KEXI_LIB_SOVERSION "${GENERIC_KEXI_LIB_VERSION_MAJOR}")
-
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
-                      "${CMAKE_SOURCE_DIR}/cmake/modules")
-
-message("Module path:" ${CMAKE_MODULE_PATH})
 
 # fetch git revision for the current build
 

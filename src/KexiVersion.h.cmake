@@ -66,11 +66,7 @@ class QString;
  * Generally it's the same as KEXI_STABLE_VERSION_MAJOR but for unstable x.0
  * x is decreased by one, e.g. 3.0 Beta is 2.99.
 */
-#if !defined KEXI_STABLE && @KEXI_STABLE_VERSION_MINOR@ == 0
-# define KEXI_VERSION_MAJOR (KEXI_STABLE_VERSION_MAJOR - 1)
-#else
-# define KEXI_VERSION_MAJOR KEXI_STABLE_VERSION_MAJOR
-#endif
+#define KEXI_VERSION_MAJOR @KEXI_VERSION_MAJOR@
 
 /**
  * @def KEXI_STABLE_VERSION_MINOR
@@ -89,13 +85,7 @@ class QString;
  * equal to 99 for x.0 unstable releases (e.g. it's 3.0 Beta has minor version 99),
  * and equal to KEXI_STABLE_VERSION_MINOR-1 for unstable releases other than x.0.
  */
-#ifdef KEXI_STABLE
-# define KEXI_VERSION_MINOR KEXI_STABLE_VERSION_MINOR
-#elif KEXI_STABLE_VERSION_MINOR == 0
-# define KEXI_VERSION_MINOR 99
-#else
-# define KEXI_VERSION_MINOR (KEXI_STABLE_VERSION_MINOR - 1)
-#endif
+#define KEXI_VERSION_MINOR @KEXI_VERSION_MINOR@
 
 /**
  * @def KEXI_VERSION_RELEASE
@@ -112,11 +102,7 @@ class QString;
  *
  * Equal to KEXI_VERSION_RELEASE for stable releases and 0 for unstable ones.
  */
-#ifdef KEXI_STABLE
-# define KEXI_STABLE_VERSION_RELEASE 0
-#else
-# define KEXI_STABLE_VERSION_RELEASE @KEXI_VERSION_RELEASE@
-#endif
+#define KEXI_STABLE_VERSION_RELEASE @KEXI_STABLE_VERSION_RELEASE@
 
 /**
  * @def KEXI_ALPHA
