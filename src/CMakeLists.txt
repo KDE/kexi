@@ -83,8 +83,7 @@ else()
     Messages.sh
     ${CMAKE_SOURCE_DIR}/kexi_xgettext.sh
   )
-  file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/data/*-apps-kexi.png")
-  ecm_add_app_icon(kexi_SRCS ICONS ${ICONS_SRCS})
+  kexi_add_app_icons(kexi_SRCS)
   add_executable(kexi ${kexi_SRCS})
   target_link_libraries(kexi
     PRIVATE
@@ -94,8 +93,3 @@ else()
 endif()
 
 add_subdirectory( pics )
-
-########### install files ###############
-
-install(PROGRAMS kexi.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
-install(FILES kexi.appdata.xml DESTINATION ${SHARE_INSTALL_PREFIX}/appdata/)
