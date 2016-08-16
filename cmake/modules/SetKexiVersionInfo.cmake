@@ -49,7 +49,7 @@ endif()
 
 set(KEXI_VERSION ${KEXI_VERSION_MAJOR}.${KEXI_VERSION_MINOR}.${KEXI_VERSION_RELEASE})
 
-message(STATUS "Kexi version: ${KEXI_VERSION_STRING} (${PROJECT_VERSION})")
+message(STATUS "Kexi version: ${KEXI_VERSION_STRING} (${KEXI_VERSION})")
 
 # Define the generic version of the Kexi libraries here
 # This makes it easy to advance it when the next Kexi release comes.
