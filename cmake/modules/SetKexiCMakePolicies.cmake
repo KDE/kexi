@@ -11,6 +11,6 @@ cmake_policy(SET CMP0048 NEW) # for PROJECT_VERSION
 if(POLICY CMP0059) # Don’t treat DEFINITIONS as a built-in directory property.
     cmake_policy(SET CMP0059 OLD)
 endif()
-#if(POLICY CMP0063) # Honor visibility properties for all target types (since cmake 3.3)
+if(POLICY CMP0063) # Honor visibility properties for all target types (since cmake 3.3)
     cmake_policy(SET CMP0063 NEW)
-#endif()
+endif()
