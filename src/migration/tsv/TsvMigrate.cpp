@@ -253,7 +253,6 @@ bool TsvMigrate::openFile(FileInfo *info)
     }
     bool eof;
     QVector<QByteArray> record = readLine(info, &eof);
-    const QString s();
     info->fieldNames.resize(record.count());
     for (int i = 0; i < record.count(); ++i) {
         info->fieldNames[i] = info->codec->toUnicode(record[i]);
