@@ -243,9 +243,14 @@ if(WIN32)
                         ARCHIVE ${INSTALL_TARGETS_DEFAULT_ARGS} )
     set(DATA_INSTALL_DIR "$ENV{APPDATA}")
     STRING(REGEX REPLACE "\\\\" "/" DATA_INSTALL_DIR ${DATA_INSTALL_DIR})
+    # Install own icons to CMAKE_INSTALL_FULL_ICONDIR (relative to bin/data/ on Windows) on Windows.
+    # We're consistend becayse icons from breeze-icons.git are installed there as well.
+    set(ICONS_INSTALL_DIR ${CMAKE_INSTALL_FULL_ICONDIR})
+else()
+    # On other OSes install own icons in app's data dir
+    string(TOLOWER "${PROJECT_NAME}" _PROJECT_NAME_LOWER)
+    set(ICONS_INSTALL_DIR "${DATA_INSTALL_DIR}/${_PROJECT_NAME_LOWER}/icons")
 endif()
-string(TOLOWER "${PROJECT_NAME}" _PROJECT_NAME_LOWER)
-set(ICONS_INSTALL_DIR "${DATA_INSTALL_DIR}/${_PROJECT_NAME_LOWER}/icons")
 
 ##
 ## Test for Qt WebKitWidgets

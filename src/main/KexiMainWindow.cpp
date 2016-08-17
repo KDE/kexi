@@ -302,13 +302,13 @@ void KexiMainWindowTabWidget::setTabIndexFromContextMenu(int clickedIndex)
 
 //-------------------------------------------------
 
-static bool setupIconTheme(KLocalizedString *errorMessage)
+static bool setupIconTheme(KLocalizedString *errorMessage, KLocalizedString *detailsErrorMessage)
 {
     // Register kexi resource first to have priority over the standard breeze theme.
     // For example "table" icon exists in both resources.
     if (!registerResource("icons/kexi_breeze.rcc", QStandardPaths::AppDataLocation,
-                          QString(), errorMessage)
-        || !registerGlobalBreezeIconsResource(errorMessage))
+                          QString(), QString(), errorMessage, detailsErrorMessage)
+        || !registerGlobalBreezeIconsResource(errorMessage, detailsErrorMessage))
     {
         return false;
     }
@@ -346,8 +346,13 @@ int KexiMainWindow::create(int &argc, char *argv[], const QString &componentName
 #endif
 
     KLocalizedString errorMessage;
-    if (!setupIconTheme(&errorMessage)) {
-        KMessageBox::error(nullptr, errorMessage.toString());
+    KLocalizedString detailsErrorMessage;
+    if (!setupIconTheme(&errorMessage, &detailsErrorMessage)) {
+        if (detailsErrorMessage.isEmpty()) {
+            KMessageBox::error(nullptr, errorMessage.toString());
+        } else {
+            KMessageBox::detailedError(nullptr, errorMessage.toString(), detailsErrorMessage.toString());
+        }
         qWarning() << qPrintable(errorMessage.toString(Kuit::PlainText));
         return 1;
     }

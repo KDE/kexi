@@ -11,7 +11,12 @@
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED Xml)
 
+if(WIN32)
+    # Needed so we know CMAKE_INSTALL_FULL_ICONDIR for our test
+    set(CheckGlobalBreezeIcons_defs "-DCMAKE_INSTALL_FULL_ICONDIR=\"${CMAKE_INSTALL_FULL_ICONDIR}\"")
+endif()
 set(CheckGlobalBreezeIcons_flags "-DINCLUDE_DIRECTORIES=${CMAKE_SOURCE_DIR}/src/main")
+
 if(KEXI_QTGUI_RUNTIME_AVAILABLE AND KEXI_ENABLE_QTGUI_FOR_TESTS)
     find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED Gui)
     set(CheckGlobalBreezeIcons_libs Qt5::Gui Qt5::Xml)
@@ -22,6 +27,7 @@ endif()
 try_run(RUN_RESULT COMPILE_OK
     ${CMAKE_CURRENT_BINARY_DIR}/CMakeTmp
     ${CMAKE_SOURCE_DIR}/cmake/modules/CheckGlobalBreezeIcons.cpp
+    COMPILE_DEFINITIONS ${CheckGlobalBreezeIcons_defs}
     LINK_LIBRARIES ${CheckGlobalBreezeIcons_libs}
     CMAKE_FLAGS ${CheckGlobalBreezeIcons_flags}
     COMPILE_OUTPUT_VARIABLE COMPILE_OUTPUT
