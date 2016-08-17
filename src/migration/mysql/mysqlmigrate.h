@@ -23,8 +23,8 @@
 
 #include <migration/keximigrate.h>
 
-#include <mysql/mysql_version.h>
-#include <mysql/mysql.h>
+#include <mysql_version.h>
+#include <mysql.h>
 
 class KDbConnectionProxy;
 
