@@ -30,6 +30,7 @@
 
 #include <QLabel>
 
+class QMimeType;
 class QLabel;
 class KPageWidgetItem;
 
@@ -92,6 +93,7 @@ private:
     bool fileBasedSrcSelected() const;
     bool fileBasedDstSelected() const;
     QString driverIdForSelectedSource() const;
+    QString driverIdForMimeType(const QMimeType &mime) const;
     QString findDriverIdForSelectedSource();
 
     void arriveSrcConnPage();

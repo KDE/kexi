@@ -250,6 +250,7 @@ void ImportWizard::setupIntro()
         if (!mime.isValid()) {
             qWarning() << QString("'%1' mimetype not installed!").arg(d->predefinedMimeType);
         }
+        d->driverIdForSelectedSource = driverIdForMimeType(mime);
         msg = xi18nc("@info",
                      "Database Importing Assistant is about to import <filename>%1</filename> file "
                      "of type <resource>%2</resource> into a Kexi project.",
@@ -680,6 +681,16 @@ void ImportWizard::progressUpdated(int percent)
     qApp->processEvents();
 }
 
+QString ImportWizard::driverIdForMimeType(const QMimeType &mime) const
+{
+    if (!mime.isValid()) {
+        return QString();
+    }
+    const QStringList ids(d->migrateManager.driverIdsForMimeType(mime.name()));
+    //! @todo do we want to return first migrate driver for the mime type or allow to select it?
+    return ids.isEmpty() ? QString() : ids.first();
+}
+
 QString ImportWizard::findDriverIdForSelectedSource()
 {
     if (fileBasedSrcSelected()) {
@@ -693,12 +704,7 @@ QString ImportWizard::findDriverIdForSelectedSource()
             //try by URL:
             mime = db.mimeTypeForFile(selectedSourceFileName());
         }
-        if (!mime.isValid()) {
-            return QString();
-        }
-        const QStringList ids(d->migrateManager.driverIdsForMimeType(mime.name()));
-        //! @todo do we want to return first migrate driver for the mime type or allow to select it?
-        return ids.isEmpty() ? QString() : ids.first();
+        return driverIdForMimeType(mime);
     }
 
     //server-based
