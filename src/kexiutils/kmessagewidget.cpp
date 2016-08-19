@@ -421,7 +421,7 @@ void KMessageWidgetPrivate::createLayout()
     // add margins based on outer margins
     int left, top, right, bottom;
     q->getContentsMargins(&left, &top, &right, &bottom);
-    qDebug() << "q->getContentsMargins:" << left << top << right << bottom;
+    //qDebug() << "q->getContentsMargins:" << left << top << right << bottom;
     switch (content->calloutPointerDirection()) {
     case KMessageWidget::Up:
         left += 1;
@@ -498,13 +498,13 @@ void KMessageWidgetPrivate::updateStyleSheet()
 
     int left, top, right, bottom;
     content->getContentsMargins(&left, &top, &right, &bottom);
-    qDebug() << "content->getContentsMargins:" << left << top << right << bottom;
+    //qDebug() << "content->getContentsMargins:" << left << top << right << bottom;
     if (!buttons.isEmpty()) {
         //q->setContentsMargins(0, 0, 0, 0);
         content->setContentsMargins(LAYOUT_SPACING, 0, 0, 0);
     }
     q->getContentsMargins(&left, &top, &right, &bottom);
-    qDebug() << "q->getContentsMargins:" << left << top << right << bottom;
+    //qDebug() << "q->getContentsMargins:" << left << top << right << bottom;
 #if 1
     int add = content->radius * 2;
     switch (content->calloutPointerDirection()) {
@@ -645,8 +645,8 @@ void KMessageWidget::setCalloutPointerDirection(KMessageWidget::CalloutPointerDi
 QSize KMessageWidget::sizeHint() const
 {
     ensurePolished();
-    qDebug() << "d->content->sizeHint():" << d->content->sizeHint();
-    qDebug() << "QFrame::sizeHint():" << QFrame::sizeHint();
+    //qDebug() << "d->content->sizeHint():" << d->content->sizeHint();
+    //qDebug() << "QFrame::sizeHint():" << QFrame::sizeHint();
     return QFrame::sizeHint();
 /*    QSize s1(QFrame::sizeHint());
     QSize s2(d->content->sizeHint());
@@ -656,8 +656,8 @@ QSize KMessageWidget::sizeHint() const
 QSize KMessageWidget::minimumSizeHint() const
 {
     ensurePolished();
-    qDebug() << "d->content->minimumSizeHint():" << d->content->minimumSizeHint();
-    qDebug() << "QFrame::minimumSizeHint():" << QFrame::minimumSizeHint();
+    //qDebug() << "d->content->minimumSizeHint():" << d->content->minimumSizeHint();
+    //qDebug() << "QFrame::minimumSizeHint():" << QFrame::minimumSizeHint();
     return QFrame::minimumSizeHint();
 /*    QSize s1(QFrame::minimumSizeHint());
     QSize s2(d->content->minimumSizeHint());
