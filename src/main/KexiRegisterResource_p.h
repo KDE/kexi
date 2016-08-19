@@ -138,6 +138,8 @@ static bool registerGlobalBreezeIconsResource(KLocalizedString *errorMessage,
 //! Tell Qt about the theme
 static void setupBreezeIconTheme()
 {
+#ifdef QT_GUI_LIB
     QIcon::setThemeSearchPaths(QStringList() << QStringLiteral(":/icons"));
     QIcon::setThemeName(QStringLiteral("breeze"));
+#endif
 }
