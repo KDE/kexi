@@ -357,16 +357,23 @@ bool KexiStartupFileHandler::checkSelectedUrl()
 
     if (!d->requester->filter().isEmpty()) {
         if (d->mode & SavingFileBasedDB) {
-            const QStringList filters( d->requester->filter().split(' ') );
+            const QStringList filters( d->requester->filter().split('\n') );
             QString path = url.toLocalFile();
-            qDebug()<< "filter:" << filters << "path:" << path;
+            qDebug()<< "filters:" << filters << "path:" << path;
             QString ext( QFileInfo(path).suffix() );
             bool hasExtension = false;
-            foreach (const QString& filter, filters) {
-                const QString f( filter.trimmed() );
-                hasExtension = !f.mid(2).isEmpty() && ext==f.mid(2);
-                if (hasExtension)
+            for (const QString &filter : filters) {
+                QStringList filterPatterns = filter.split('|').first().split(' ');
+                for (const QString &filterPattern : filterPatterns) {
+                    const QString f( filterPattern.trimmed() );
+                    if (!f.mid(2).isEmpty() && ext == f.mid(2)) {
+                        hasExtension = true;
+                        break;
+                    }
+                }
+                if (hasExtension) {
                     break;
+                }
             }
             if (!hasExtension) {
                 //no extension: add one
