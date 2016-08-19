@@ -891,10 +891,14 @@ tristate KexiStartupHandler::detectActionForFile(
     if (mime.isValid()) {
         if (mimename == "application/vnd.ms-access") {
             if ((options & SkipMessages) || KMessageBox::Yes != KMessageBox::questionYesNo(
-                        parent, xi18n("\"%1\" is an external file of type:\n\"%2\".\n"
-                                     "Do you want to import the file as a Kexi project?",
-                                     QDir::toNativeSeparators(databaseName), mime.comment()),
-                        xi18n("Open External File"), KGuiItem(xi18nc("@action:button Import File", "Import...")), KStandardGuiItem::cancel()))
+                parent, xi18nc("@info",
+                               "<para><filename>%1</filename> is an external file of type <resource>%2</resource>.</para>"
+                               "<para>Do you want to import the file as a Kexi project?</para>",
+                               QDir::toNativeSeparators(databaseName), mime.comment()),
+                               xi18n("Open External File"),
+                               KGuiItem(xi18nc("@action:button Import File", "Import..."),
+                                        KexiIconName("database-import")),
+                               KStandardGuiItem::cancel()))
             {
                 return cancelled;
             }

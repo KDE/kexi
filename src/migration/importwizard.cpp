@@ -239,8 +239,8 @@ void ImportWizard::setupIntro()
     lblIntro->setTextFormat(Qt::RichText);
     QString msg;
     if (d->predefinedConnectionData) { //predefined import: server source
-        msg = xi18nc("@info",
-                    "Database Importing Assistant is about to import <resource>%1</resource> database "
+        // note: don't use "@info", msg is inserted below into xi18nc()
+        msg = xi18n("Database Importing Assistant is about to import <resource>%1</resource> database "
                     "(connection <resource>%2</resource>) into a Kexi project.",
                    d->predefinedDatabaseName, d->predefinedConnectionData->toUserVisibleString());
     } else if (!d->predefinedDatabaseName.isEmpty()) { //predefined import: file source
@@ -250,18 +250,21 @@ void ImportWizard::setupIntro()
         if (!mime.isValid()) {
             qWarning() << QString("'%1' mimetype not installed!").arg(d->predefinedMimeType);
         }
-        msg = xi18nc("@info",
+        // note: don't use "@info", msg is inserted below into xi18nc()
+        msg = xi18n(
                     "Database Importing Assistant is about to import <filename>%1</filename> file "
                     "of type <resource>%2</resource> into a Kexi project.",
                     QDir::toNativeSeparators(d->predefinedDatabaseName), mime.isValid() ? mime.comment() : "???");
     } else {
+        // note: don't use "@info", msg is inserted below into xi18nc()
         msg = xi18n("Database Importing Assistant allows you to import an existing database "
                    "into a Kexi project.");
     }
-    lblIntro->setText(msg + "\n\n"
-                      + xi18nc("@info",
-                               "Click <interface>Next</interface> button to continue or "
-                               "<interface>Cancel</interface> button to exit this assistant."));
+    lblIntro->setText(xi18nc("@info",
+                             "<para>%1</para>"
+                             "<para>Click <interface>Next</interface> button to continue or "
+                             "<interface>Cancel</interface> button to exit this assistant.</para>",
+                             msg));
     vbox->addWidget(lblIntro);
 
     d->introPageItem = new KPageWidgetItem(d->introPageWidget,
