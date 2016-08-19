@@ -93,25 +93,25 @@ else()
    set(MYSQL_LIBRARIES ${_MYSQLCLIENT_LIBRARY})
 endif()
 
-find_library(MYSQL_EMBEDDED_LIBRARIES NAMES mysqld
-   PATHS
-   ${MYSQL_LIB_PATHS}
-)
-
 if(_LIBMYSQL_LIBRARY)
    get_filename_component(MYSQL_LIB_DIR ${_LIBMYSQL_LIBRARY} PATH)
    unset(_LIBMYSQL_LIBRARY)
 endif()
 
+find_library(MYSQL_EMBEDDED_LIBRARIES NAMES mysqld
+   PATHS
+   ${MYSQL_LIB_PATHS}
+)
+
 if(MYSQL_EMBEDDED_LIBRARIES)
    get_filename_component(MYSQL_EMBEDDED_LIB_DIR ${MYSQL_EMBEDDED_LIBRARIES} PATH)
-endif()
 
-macro_push_required_vars()
-set( CMAKE_REQUIRED_INCLUDES ${MYSQL_INCLUDE_DIR} )
-set( CMAKE_REQUIRED_LIBRARIES ${MYSQL_EMBEDDED_LIBRARIES} )
-check_cxx_source_compiles( "#include <mysql.h>\nint main() { int i = MYSQL_OPT_USE_EMBEDDED_CONNECTION; }" HAVE_MYSQL_OPT_EMBEDDED_CONNECTION )
-macro_pop_required_vars()
+    macro_push_required_vars()
+    set( CMAKE_REQUIRED_INCLUDES ${MYSQL_INCLUDE_DIR} )
+    set( CMAKE_REQUIRED_LIBRARIES ${MYSQL_EMBEDDED_LIBRARIES} )
+    check_cxx_source_compiles( "#include <mysql.h>\nint main() { int i = MYSQL_OPT_USE_EMBEDDED_CONNECTION; }" HAVE_MYSQL_OPT_EMBEDDED_CONNECTION )
+    macro_pop_required_vars()
+endif()
 
 # Did we find anything?
 include(FindPackageHandleStandardArgs)
