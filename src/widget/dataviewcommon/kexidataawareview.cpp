@@ -252,10 +252,14 @@ bool KexiDataAwareView::eventFilter(QObject *o, QEvent *e)
 //    if (e->type() == QEvent::FocusIn || e->type() == QEvent::FocusOut) {
 //        qDebug() << "F O C U S" << e << o;
 //    }
-    if (e->type() == QEvent::ShortcutOverride && o == this) {
-        QKeyEvent *ke = static_cast<QKeyEvent*>(e);
-        QAction *a = sharedActionRequested(ke, "data_cancel_row_changes");
-        if (a) {
+    if (o == this) {
+        switch (e->type()) {
+        case QEvent::ShortcutOverride: {
+            QKeyEvent *ke = static_cast<QKeyEvent*>(e);
+            QAction *a = sharedActionRequested(ke, "data_cancel_row_changes");
+            if (!a) {
+                break;
+            }
             KexiDataItemInterface *editor = d->dataAwareObject->editor();
             if (editor) {
                 d->dataAwareObject->cancelEditor();
@@ -267,24 +271,30 @@ bool KexiDataAwareView::eventFilter(QObject *o, QEvent *e)
             }
             return true;
         }
-        a = sharedActionRequested(ke, "data_save_row");
-        if (a) {
-            a->trigger();
-            KexiDataItemInterface *editor = d->dataAwareObject->editor();
-            if (editor) {
-                editor->moveCursorToEnd();
-                editor->selectAll();
-            }
-            return true;
-        }
-        foreach (const QByteArray& actionName,
-                 QList<QByteArray>() << "edit_copy" << "edit_cut" << "edit_paste")
-        {
-            a = sharedActionRequested(ke, actionName);
+        case QEvent::KeyPress: {
+            QKeyEvent *ke = static_cast<QKeyEvent*>(e);
+            QAction *a = sharedActionRequested(ke, "data_save_row");
             if (a) {
                 a->trigger();
+                KexiDataItemInterface *editor = d->dataAwareObject->editor();
+                if (editor) {
+                    editor->moveCursorToEnd();
+                    editor->selectAll();
+                }
                 return true;
             }
+            foreach (const QByteArray& actionName,
+                     QList<QByteArray>() << "edit_copy" << "edit_cut" << "edit_paste")
+            {
+                a = sharedActionRequested(ke, actionName);
+                if (a) {
+                    a->trigger();
+                    return true;
+                }
+            }
+            break;
+        }
+        default:;
         }
     }
     return KexiView::eventFilter(o, e);
