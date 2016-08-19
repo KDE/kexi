@@ -481,8 +481,10 @@ tristate KexiStartupHandler::init()
 
             if (isSet(options().dropDb) && !projectFileExists) {
                 KMessageBox::sorry(0,
-                                   xi18n("Could not remove project.\nThe file \"%1\" does not exist.",
-                                        QDir::toNativeSeparators(cdata.databaseName())));
+                                   xi18nc("@info",
+                                          "Could not remove project. The file "
+                                          "<filename>%1</filename> does not exist.",
+                                          QDir::toNativeSeparators(cdata.databaseName())));
                 return 0;
             }
         }
@@ -530,8 +532,9 @@ tristate KexiStartupHandler::init()
                     KexiStartupData::setProjectData(new KexiProjectData());
                     d->shortcutFileName = cdata.databaseName();
                     if (!KexiStartupData::projectData()->load(d->shortcutFileName, &d->shortcutFileGroupKey)) {
-                        KMessageBox::sorry(0, xi18n("Could not open shortcut file\n\"%1\".",
-                                                   QDir::toNativeSeparators(cdata.databaseName())));
+                        KMessageBox::sorry(0, xi18nc("@info",
+                                                     "Could not open shortcut file <filename>%1</filename>.",
+                                                     QDir::toNativeSeparators(cdata.databaseName())));
                         delete KexiStartupData::projectData();
                         KexiStartupData::setProjectData(0);
                         return false;
@@ -561,8 +564,9 @@ tristate KexiStartupHandler::init()
                     //get information for a connection file
                     d->connShortcutFile = new KexiDBConnShortcutFile(cdata.databaseName());
                     if (!d->connShortcutFile->loadConnectionData(&cdata, &d->shortcutFileGroupKey)) {
-                        KMessageBox::sorry(0, xi18n("Could not open connection data file\n\"%1\".",
-                                                   QDir::toNativeSeparators(cdata.databaseName())));
+                        KMessageBox::sorry(0, xi18nc("@info",
+                                                     "Could not open connection data file <filename>%1</filename>.",
+                                                     QDir::toNativeSeparators(cdata.databaseName())));
                         delete d->connShortcutFile;
                         d->connShortcutFile = 0;
                         return false;
@@ -677,8 +681,9 @@ tristate KexiStartupHandler::init()
             return cancelled;
         if (!isSet(options().createAndOpenDb)) {
             if (ok) {
-                KMessageBox::information(0, xi18n("Project \"%1\" created successfully.",
-                                                 QDir::toNativeSeparators(projectData()->databaseName())));
+                KMessageBox::information(0, xi18nc("@info",
+                                                   "Project <resource>%1</resource> created successfully.",
+                                                   QDir::toNativeSeparators(projectData()->databaseName())));
             }
             return ok;
         }
@@ -686,7 +691,7 @@ tristate KexiStartupHandler::init()
         KexiGUIMessageHandler gui;
         res = KexiProject::dropProject(*projectData(), &gui, false/*ask*/);
         if (res == true)
-            KMessageBox::information(0, xi18n("Project \"%1\" dropped successfully.",
+            KMessageBox::information(0, xi18nc("@info", "Project <resource>%1</resource>dropped successfully.",
                                              QDir::toNativeSeparators(projectData()->databaseName())));
         return res != false;
     }
@@ -928,12 +933,13 @@ tristate KexiStartupHandler::detectActionForFile(
         }
         KMessageBox::ButtonCode res = KMessageBox::Yes;
         if (!(options & SkipMessages))
-            res = KMessageBox::warningYesNoCancel(parent, xi18n(
-                                                      "The project file \"%1\" is recognized as compatible with \"%2\" database driver, "
-                                                      "while you have asked for \"%3\" database driver to be used.\n"
-                                                      "Do you want to use \"%4\" database driver?",
-                                                      QDir::toNativeSeparators(databaseName),
-                                                      compatibleDatabaseDriverId, suggestedDriverId, compatibleDatabaseDriverId));
+            res = KMessageBox::warningYesNoCancel(parent, xi18nc("@info",
+                  "The project file <filename>%1</filename> is recognized as compatible with "
+                  "<resource>%2</resource> database driver, "
+                  "while you have asked for <resource>%3</resource> database driver to be used.\n"
+                  "Do you want to use <resource>%4</resource> database driver?",
+                  QDir::toNativeSeparators(databaseName),
+                  compatibleDatabaseDriverId, suggestedDriverId, compatibleDatabaseDriverId));
         if (KMessageBox::Yes == res)
             useDetectedDriver = true;
         else if (KMessageBox::Cancel == res)

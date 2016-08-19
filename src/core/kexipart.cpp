@@ -65,7 +65,8 @@ public:
                 singleStatusString.prepend(QString("\n\n") + xi18n("Details:") + " ");
             if (KMessageBox::No == KMessageBox::questionYesNo(0,
                     ((viewMode == Kexi::DesignViewMode)
-                     ? xi18n("Object \"%1\" could not be opened in Design View.", item->name())
+                     ? xi18nc("@info",
+                              "Object <resource>%1</resource> could not be opened in Design View.", item->name())
                      : xi18n("Object could not be opened in Data View.")) + "\n"
                     + xi18n("Do you want to open it in Text View?") + singleStatusString, 0,
                     KStandardGuiItem::open(), KStandardGuiItem::cancel())) {
@@ -267,8 +268,9 @@ KexiWindow* Part::openInstance(QWidget* parent, KexiPart::Item *item, Kexi::View
                 d->status = Kexi::ObjectStatus(KexiMainWindowIface::global()->project()->dbConnection(),
                                                xi18n("Could not load object's definition."), xi18n("Object design may be corrupted."));
             d->status.append(
-                Kexi::ObjectStatus(xi18n("You can delete \"%1\" object and create it again.",
-                                        item->name()), QString()));
+                Kexi::ObjectStatus(xi18nc("@info",
+                                          "You can delete <resource>%1</resource> object and create it again.",
+                                          item->name()), QString()));
 
             window->close();
             delete window;
@@ -351,7 +353,8 @@ bool Part::loadDataBlock(KexiWindow *window, QString *dataString, const QString&
     {
         d->status = Kexi::ObjectStatus(KexiMainWindowIface::global()->project()->dbConnection(),
                                        xi18n("Could not load object's data."),
-                                       xi18n("Data identifier: \"%1\".", dataID));
+                                       xi18nc("@info",
+                                              "Data identifier: <resource>%1</resource>.", dataID));
         d->status.append(*window);
         return false;
     }

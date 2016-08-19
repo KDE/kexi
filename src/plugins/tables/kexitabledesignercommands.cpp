@@ -90,7 +90,8 @@ ChangeFieldPropertyCommand::ChangeFieldPropertyCommand(
         , m_oldListData(oldListData ? new KPropertyListData(*oldListData) : 0)
         , m_listData(newListData ? new KPropertyListData(*newListData) : 0)
 {
-    setText(kundo2_i18n("Change \"%1\" property for table field from \"%2\" to \"%3\"",
+    setText(kundo2_i18n("Change <resource>%1</resource> property for table field from "
+                        "<resource>%2</resource> to <resource>%3</resource>",
                         m_alterTableAction.propertyName(),
                         m_oldValue.toString(),
                         m_alterTableAction.newValue().toString()));
@@ -155,7 +156,7 @@ RemoveFieldCommand::RemoveFieldCommand(Command* parent, KexiTableDesignerView* v
         , m_fieldIndex(fieldIndex)
 {
     if (m_set)
-        setText(kundo2_i18n("Remove table field \"%1\"", m_alterTableAction.fieldName()));
+        setText(kundo2_i18n("Remove table field <resource>%1</resource>", m_alterTableAction.fieldName()));
     else
         setText(kundo2_i18n("Remove empty row at position %1", m_fieldIndex));
 }
@@ -245,7 +246,8 @@ ChangePropertyVisibilityCommand::ChangePropertyVisibilityCommand(Command* parent
         , m_alterTableAction(set.property("name").value().toString(), propertyName, visible, set["uid"].value().toInt())
         , m_oldVisibility(set.property(propertyName).isVisible())
 {
-    setText(kundo2_noi18n("[internal] Change \"%1\" visibility from \"%2\" to \"%3\"",
+    setText(kundo2_noi18n("[internal] Change <resource>%1</resource> visibility from "
+                          "<resource>%2</resource> to <resource>%3</resource>",
                           m_alterTableAction.propertyName(),
                           m_oldVisibility ? "true" : "false",
                           m_alterTableAction.newValue().toBool() ? "true" : "false"));

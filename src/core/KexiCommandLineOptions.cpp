@@ -147,7 +147,7 @@ KexiCommandLineOptions::KexiCommandLineOptions(QCommandLineParser *parser)
         xi18nc("'user' command line option",
                "Database server's user name when connecting to a project. Ignored if the "
                "project is opened using a shortcut file. Default user name is the same "
-               "as the current login (\"%1\").",
+               "as the current login (<resource>%1</resource>).",
                KUser().loginName())),
     host(QStringList() << "h" << "host",
         xi18nc("'host' command line option",

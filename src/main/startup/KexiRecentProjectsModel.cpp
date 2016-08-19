@@ -115,7 +115,7 @@ QVariant KexiRecentProjectsModel::data(const QModelIndex& index, int role) const
                 serverInfo = xi18n("on local server");
             }
             else {
-                serverInfo = xi18n("on \"%1\" server", serverInfo);
+                serverInfo = xi18nc("@info", "on <resource>%1</resource> server", serverInfo);
             }
             return QString(n + serverInfo + opened);
         }
@@ -123,8 +123,8 @@ QVariant KexiRecentProjectsModel::data(const QModelIndex& index, int role) const
     case Qt::ToolTipRole:
         //! @todo add support for imported entries, e.g. MS Access
         if (fileBased) {
-            return xi18nc("File database <file>", "File database %1",
-                         pdata->connectionData()->databaseName());
+            return xi18nc("@info File database <file>", "File database <filename>%1</filename>",
+                          pdata->connectionData()->databaseName());
         }
         else {
             KDbDriverManager manager;

@@ -2679,11 +2679,13 @@ tristate KexiMainWindow::switchToViewMode(KexiWindow& window, Kexi::ViewMode vie
     if (&window != currentWindow())
         return false;
     if (!currentWindow()->supportsViewMode(viewMode)) {
-        showErrorMessage(xi18n("Selected view is not supported for \"%1\" object.",
-                              currentWindow()->partItem()->name()),
-                         xi18n("Selected view (%1) is not supported by this object type (%2).",
-                              Kexi::nameForViewMode(viewMode),
-                              currentWindow()->part()->info()->name()));
+        showErrorMessage(xi18nc("@info",
+                                "Selected view is not supported for <resource>%1</resource> object.",
+                                currentWindow()->partItem()->name()),
+                         xi18nc("@info",
+                                "Selected view (%1) is not supported by this object type (%2).",
+                                Kexi::nameForViewMode(viewMode),
+                                currentWindow()->part()->info()->name()));
         return false;
     }
     updateCustomPropertyPanelTabs(currentWindow()->part(), prevViewMode,
@@ -2950,12 +2952,12 @@ tristate KexiMainWindow::closeWindow(KexiWindow *window, bool layoutTaskBar, boo
         KGuiItem saveChanges(KStandardGuiItem::save());
         saveChanges.setToolTip(xi18n("Save changes"));
         saveChanges.setWhatsThis(
-            xi18n("Saves all recent changes made in \"%1\" object.",
-                 window->partItem()->name()));
+            xi18nc("@info", "Saves all recent changes made in <resource>%1</resource> object.",
+                   window->partItem()->name()));
         KGuiItem discardChanges(KStandardGuiItem::discard());
         discardChanges.setWhatsThis(
-            xi18n("Discards all recent changes made in \"%1\" object.",
-                 window->partItem()->name()));
+            xi18nc("@info", "Discards all recent changes made in <resource>%1</resource> object.",
+                   window->partItem()->name()));
 
         //dialog's data is dirty:
         //--adidional message, e.g. table designer will return
@@ -3224,11 +3226,13 @@ KexiMainWindow::openObject(KexiPart::Item* item, Kexi::ViewMode viewMode, bool *
         d->mainWidget->tabWidget()->setTabToolTip(tabIndex, KexiPart::fullCaptionForItem(item, part));
         QString whatsThisText;
         if (part) {
-            whatsThisText = xi18n("Tab for \"%1\" (%2).",
-                                 item->captionOrName(), part->info()->name());
+            whatsThisText = xi18nc("@info",
+                                   "Tab for <resource>%1</resource> (%2).",
+                                   item->captionOrName(), part->info()->name());
         }
         else {
-            whatsThisText = xi18n("Tab for \"%1\".", item->captionOrName());
+            whatsThisText = xi18nc("@info",
+                                   "Tab for <resource>%1</resource>.", item->captionOrName());
         }
         d->mainWidget->tabWidget()->setTabWhatsThis(tabIndex, whatsThisText);
         d->mainWidget->tabWidget()->setCurrentWidget(windowContainer);
@@ -3497,7 +3501,8 @@ void KexiMainWindow::renameObject(KexiPart::Item *item, const QString& _newName,
     const bool res = d->prj->renameObject(item, newName);
     setMessagesEnabled(true);
     if (!res) {
-        showErrorMessage(xi18n("Renaming object \"%1\" failed.", newName), d->prj);
+        showErrorMessage(xi18nc("@info", "Renaming object <resource>%1</resource> failed.",
+                                newName), d->prj);
         *success = false;
         return;
     }
@@ -3515,7 +3520,9 @@ void KexiMainWindow::setObjectCaption(KexiPart::Item *item, const QString& _newC
     const bool res = d->prj->setObjectCaption(item, newCaption);
     setMessagesEnabled(true);
     if (!res) {
-        showErrorMessage(xi18n("Setting caption for object \"%1\" failed.", newCaption), d->prj);
+        showErrorMessage(xi18nc("@info",
+                                "Setting caption for object <resource>%1</resource> failed.",
+                                newCaption), d->prj);
         *success = false;
         return;
     }

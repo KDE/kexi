@@ -233,8 +233,8 @@ private:
         KPluginFactory *factory = qobject_cast<KPluginFactory*>(pluginMetaData->instantiate());
         if (!factory) {
             q->m_result = KDbResult(ERR_CANNOT_LOAD_OBJECT,
-                                    xi18nc("@info", "Could not load Kexi Form Widgets plugin file \"%1\".",
-                                    pluginMetaData->fileName()));
+                                    xi18nc("@info", "Could not load Kexi Form Widgets plugin file <filename>%1</filename>.",
+                                           pluginMetaData->fileName()));
             q->setErrorMessage(pluginMetaData, q->result().message());
             qWarning() << q->result().message();
             return 0;
@@ -242,8 +242,9 @@ private:
         WidgetFactory *widgetFactory = factory->create<WidgetFactory>(q);
         if (!widgetFactory) {
             q->m_result = KDbResult(ERR_CANNOT_LOAD_OBJECT,
-                                    i18n("Could not open Kexi Form Widgets plugin \"%1\".")
-                                    .arg(pluginMetaData->fileName()));
+                                    xi18nc("@info",
+                                           "Could not open Kexi Form Widgets plugin <filename>%1</filename>.",
+                                           pluginMetaData->fileName()));
             qWarning() << q->m_result.message();
             return 0;
         }

@@ -447,8 +447,9 @@ void KexiConnectionSelectorWidget::slotRemoteRemoveBtnClicked()
     if (!item)
         return;
     if (KMessageBox::Yes != KMessageBox::questionYesNo(this,
-            xi18n(
-                "Do you want to remove database connection \"%1\" from the list of available connections?",
+            xi18nc("@info",
+                "Do you want to remove database connection <resource>%1</resource> from "
+                "the list of available connections?",
                 item->data()->toUserVisibleString()),
             QString(), //caption
             KStandardGuiItem::remove(), KStandardGuiItem::cancel(),

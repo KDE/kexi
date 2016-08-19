@@ -758,8 +758,9 @@ void Form::changeName(const QByteArray &oldname, const QByteArray &newname)
     }
     else { // rename failed
         KMessageBox::sorry(widget()->topLevelWidget(),
-                           xi18n("Renaming widget \"%1\" to \"%2\" failed.",
-                                QString(oldname), QString(newname)));
+                           xi18nc("@info",
+                                  "Renaming widget <resource>%1</resource> to <resource>%2</resource> failed.",
+                                  QString::fromLatin1(oldname), QString::fromLatin1(newname)));
         qWarning() << "widget" << newname << "already exists, reverting rename";
         d->propertySet.changeProperty("objectName", oldname);
     }
@@ -1315,9 +1316,11 @@ bool Form::isNameValid(const QString &name) const
     //also update widget's name in QObject member
     if (!KDb::isIdentifier(name)) {
         KMessageBox::sorry(widget(),
-                           xi18n("Could not rename widget \"%1\" to \"%2\" because "
-                                "\"%3\" is not a valid name (identifier) for a widget.",
-                                w->objectName(), name, name));
+                           xi18nc("@info",
+                                  "Could not rename widget <resource>%1</resource> to "
+                                  "<resource>%2</resource> because "
+                                  "<resource>%3</resource> is not a valid name (identifier) for a widget.",
+                                  w->objectName(), name, name));
         d->slotPropertyChangedEnabled = false;
         d->propertySet["objectName"].resetValue();
         d->slotPropertyChangedEnabled = true;
@@ -1326,9 +1329,10 @@ bool Form::isNameValid(const QString &name) const
 
     if (objectTree()->lookup(name)) {
         KMessageBox::sorry(widget(),
-                           xi18n("Could not rename widget \"%1\" to \"%2\" "
-                                "because a widget with the name \"%3\" already exists.",
-                                w->objectName(), name, name));
+                           xi18nc("@info",
+                                  "Could not rename widget <resource>%1</resource> to <resource>%2</resource> "
+                                  "because a widget with the name <resource>%3</resource> already exists.",
+                                  w->objectName(), name, name));
         d->slotPropertyChangedEnabled = false;
         d->propertySet["objectName"].resetValue();
         d->slotPropertyChangedEnabled = true;

@@ -110,7 +110,7 @@ PartClass* Manager::part(Info *info, QHash<QString, PartClass*> *partDict)
     KPluginFactory *factory = qobject_cast<KPluginFactory*>(info->instantiate());
     if (!factory) {
         m_result = KDbResult(ERR_CANNOT_LOAD_OBJECT,
-                             xi18nc("@info", "Could not load Kexi plugin file \"%1\".",
+                             xi18nc("@info", "Could not load Kexi plugin file <filename>%1</filename>.",
                                     info->fileName()));
         QPluginLoader loader(info->fileName()); // use this to get the message
         (void)loader.load();
@@ -122,7 +122,8 @@ PartClass* Manager::part(Info *info, QHash<QString, PartClass*> *partDict)
     p = factory->create<PartClass>(this);
     if (!p) {
         m_result = KDbResult(ERR_CANNOT_LOAD_OBJECT,
-                             i18n("Could not open Kexi plugin \"%1\".").arg(info->fileName()));
+                             xi18nc("@info",
+                                    "Could not open Kexi plugin <filename>%1</filename>.").arg(info->fileName()));
         qWarning() << m_result.message();
         return 0;
     }

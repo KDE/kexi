@@ -340,9 +340,9 @@ void KEXI_UNFINISHED_INTERNAL(const QString& feature_name, const QString& extra_
                    QString(KEXI_VERSION_STRING), QString(KEXI_APP_NAME));
     else {
         QString feature_name_(feature_name);
-        *line1 = xi18n(
-                  "\"%1\" function is not available for version %2 of %3 application.",
-                  feature_name_.remove('&'), QString(KEXI_VERSION_STRING), QString(KEXI_APP_NAME));
+        *line1 = xi18nc("@info",
+                       "<resource>%1</resource> function is not available for version %2 of %3 application.",
+                       feature_name_.remove('&'), QString(KEXI_VERSION_STRING), QString(KEXI_APP_NAME));
     }
 
     *line2 = extra_text;

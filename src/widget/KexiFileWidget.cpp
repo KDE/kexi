@@ -354,16 +354,18 @@ bool KexiFileWidget::checkSelectedFile()
     QFileInfo fi(d->highlightedUrl.toLocalFile());
     if (mode() & KFile::ExistingOnly) {
         if (!fi.exists()) {
-            KMessageBox::error(this, "<qt>" + xi18n("The file \"%1\" does not exist.",
-                                                   QDir::toNativeSeparators(d->highlightedUrl.toLocalFile())));
+            KMessageBox::error(this,
+                               xi18nc("@info", "The file <filename>%1</filename> does not exist.",
+                                      QDir::toNativeSeparators(d->highlightedUrl.toLocalFile())));
             return false;
         } else if (mode() & KFile::File) {
             if (!fi.isFile()) {
-                KMessageBox::error(this, "<qt>" + xi18n("Enter a filename."));
+                KMessageBox::error(this, xi18nc("@info", "Enter a filename."));
                 return false;
             } else if (!fi.isReadable()) {
-                KMessageBox::error(this, "<qt>" + xi18n("The file \"%1\" is not readable.",
-                                                       QDir::toNativeSeparators(d->highlightedUrl.path())));
+                KMessageBox::error(this,
+                                   xi18nc("@info", "The file <filename>%1</filename> is not readable.",
+                                          QDir::toNativeSeparators(d->highlightedUrl.path())));
                 return false;
             }
         }
@@ -380,8 +382,10 @@ bool KexiFileWidget::askForOverwriting(const QString& filePath, QWidget *parent)
     if (!fi.exists())
         return true;
     const KMessageBox::ButtonCode res = KMessageBox::warningYesNo(parent,
-                    xi18n("The file \"%1\" already exists.\n"
-                         "Do you want to overwrite it?", QDir::toNativeSeparators(filePath)), QString(),
+                    xi18nc("@info", "<para>The file <filename>%1<filename> already exists.</para>"
+                           "<para>Do you want to overwrite it?</para>",
+                           QDir::toNativeSeparators(filePath)),
+                    QString(),
                     KGuiItem(xi18nc("@action:button Overwrite File", "Overwrite")), KStandardGuiItem::no());
     if (res == KMessageBox::Yes)
         return true;

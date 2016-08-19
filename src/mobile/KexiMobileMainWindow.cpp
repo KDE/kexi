@@ -145,8 +145,9 @@ KexiMobileMainWindow::openObject(KexiPart::Item* item, Kexi::ViewMode viewMode, 
     if (!openingAllowed(item, viewMode, errorMessage)) {
         if (errorMessage)
             *errorMessage = xi18nc(
-                                "opening is not allowed in \"data view/design view/text view\" mode",
-                                "opening is not allowed in \"%1\" mode", Kexi::nameForViewMode(viewMode));
+                                "@info opening is not allowed in \"data view/design view/text view\" mode",
+                                "opening is not allowed in <resource>%1</resource> mode",
+                                Kexi::nameForViewMode(viewMode));
         *openingCancelled = true;
         return 0;
     }

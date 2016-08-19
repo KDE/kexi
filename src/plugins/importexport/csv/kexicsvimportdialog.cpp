@@ -2062,8 +2062,9 @@ void KexiCSVImportDialog::import()
         project->addStoredItem(part->info(), m_partItemForSavedTable);
     }
     m_importingProgressBar->hide();
-    m_importProgressLabel->setText(xi18n("Data has been successfully imported to table \"%1\".",
-                                         m_destinationTableSchema->name()));
+    m_importProgressLabel->setText(xi18nc("@info",
+                                          "Data has been successfully imported to table <resource>%1</resource>.",
+                                          m_destinationTableSchema->name()));
     m_importInProgress = false;
     //qDebug()<<"IMPORT DONE";
     KGuiItem::assign(finishButton(), KStandardGuiItem::open());

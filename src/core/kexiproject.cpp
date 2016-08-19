@@ -134,8 +134,9 @@ public:
             }
             if (q->itemForPluginId(item->pluginId(), newName) != 0) {
                 q->m_result = KDbResult(
-                    xi18n("Could not use this name. Object with name \"%1\" already exists.",
-                          newName));
+                    xi18nc("@info",
+                           "Could not use this name. Object <resource>%1</resource> already exists.",
+                           newName));
                 return false;
             }
         }
@@ -145,7 +146,8 @@ public:
         }
 
         KDbMessageTitleSetter et(q,
-                                xi18n("Could not rename object \"%1\".", item->name()));
+                                xi18nc("@info",
+                                       "Could not rename object <resource>%1</resource>.", item->name()));
         if (!q->checkWritable())
             return false;
         KexiPart::Part *part = q->findPartFor(*item);
@@ -296,13 +298,15 @@ KexiProject::openInternal(bool *incompatibleWithKexi)
         *incompatibleWithKexi = false;
     //qDebug() << d->data->databaseName() << d->data->connectionData()->driverId();
     KDbMessageTitleSetter et(this,
-                             xi18n("Could not open project \"%1\".", d->data->databaseName()));
+                             xi18nc("@info",
+                                    "Could not open project <resource>%1</resource>.",
+                                    d->data->databaseName()));
 
     if (!d->data->connectionData()->databaseName().isEmpty()) {
         QFileInfo finfo(d->data->connectionData()->databaseName());
         if (!finfo.exists()) {
-            KMessageBox::sorry(0, xi18nc("@info", "Could not open project file. "
-                                         "The file <filename>%1</filename> does not exist.",
+            KMessageBox::sorry(0, xi18nc("@info", "Could not open project. "
+                                         "The project file <filename>%1</filename> does not exist.",
                                          QDir::toNativeSeparators(finfo.absoluteFilePath())),
                                          xi18nc("@title:window", "Could Not Open File"));
             return cancelled;
@@ -366,7 +370,9 @@ KexiProject::create(bool forceOverwrite)
 {
     KDbMessageGuard mg(this);
     KDbMessageTitleSetter et(this,
-                            xi18n("Could not create project \"%1\".", d->data->databaseName()));
+                             xi18nc("@info",
+                                    "Could not create project <resource>%1</resource>.",
+                                    d->data->databaseName()));
 
     if (!createConnection())
         return false;
@@ -950,9 +956,10 @@ KexiWindow* KexiProject::openObject(QWidget* parent, KexiPart::Item *item,
     KexiWindow *window  = part->openInstance(parent, item, viewMode, staticObjectArgs);
     if (!window) {
         if (part->lastOperationStatus().error())
-            m_result = KDbResult(xi18n("Opening object \"%1\" failed.\n%2%3", item->name(),
-                                 part->lastOperationStatus().message,
-                                 part->lastOperationStatus().description));
+            m_result = KDbResult(xi18nc("@info",
+                                        "Opening object <resource>%1</resource> failed.\n%2%3", item->name())
+                                 .arg(part->lastOperationStatus().message)
+                                 .arg(part->lastOperationStatus().description));
         return 0;
     }
     return window;
@@ -1174,8 +1181,11 @@ tristate KexiProject::dropProject(const KexiProjectData& data,
                                   KDbMessageHandler* handler, bool dontAsk)
 {
     if (!dontAsk && KMessageBox::Yes != KMessageBox::questionYesNo(0,
-            xi18n("Do you want to delete the project \"%1\"?\n%1",
-                 static_cast<const KDbObject*>(&data)->name(), i18n(warningNoUndo)),
+            xi18nc("@info",
+                   "<para>Do you want to delete the project <resource>%1</resource>?</para>"
+                   "<para><warning>%2</warning></para>",
+                   static_cast<const KDbObject*>(&data)->name(),
+                   i18n(warningNoUndo)),
                  QString(), KGuiItem(xi18nc("@action:button", "Delete Project"), koIconName("edit-delete")),
                  KStandardGuiItem::no(), QString(),
                  KMessageBox::Notify | KMessageBox::Dangerous))

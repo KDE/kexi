@@ -648,7 +648,8 @@ void KexiTableDesignerView::slotBeforeCellChanged(
             //Parent command is a Command containing 2 child commands
             Command *changeCaptionAndNameCommand = new Command(
                 kundo2_i18n(
-                    "Change \"%1\" field's name to \"%2\" and caption from \"%3\" to \"%4\"",
+                    "Change <resource>%1</resource> field name to <resource>%2</resource> "
+                    "and caption from <resource>%3</resource> to <resource>4</resource>",
                     oldName, propertySetForRecord->property("name").value().toString(),
                     oldCaption, newValue->toString()), 0, this
             );
@@ -726,7 +727,7 @@ void KexiTableDesignerView::slotBeforeCellChanged(
 
         // *** this action contains subactions ***
         Command *changeDataTypeCommand = new Command(
-            kundo2_i18n("Change data type for field \"%1\" to \"%2\"",
+            kundo2_i18n("Change data type for field <resource>%1</resource> to <resource>%2</resource>",
                  set["name"].value().toString(), KDbField::typeName(fieldType)), 0, this);
 
 //qDebug() << "++++++++++" << slist << nlist;
@@ -1180,9 +1181,9 @@ tristate KexiTableDesignerView::buildSchema(KDbTableSchema &schema, bool beSilen
             d->view->startEditCurrentCell();
 //! @todo for "names hidden" mode we won't get this error because user is unable to change names
             KMessageBox::sorry(this,
-            xi18n(
-               "You have added \"%1\" field name twice.\nField names cannot be repeated. "
-               "Correct name of the field.",
+            xi18nc("@info",
+               "<para>You have added <resource>%1</resource> field name twice.</para>"
+               "<para>Field names cannot be repeated. Correct name of the field.</para>",
                (*b)["name"].value().toString()));
         }
         return cancelled;
@@ -1427,9 +1428,10 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
     if (res == true) {
         res = KexiTablePart::askForClosingObjectsUsingTableSchema(
                   this, conn, tempData()->table,
-                  xi18n("You are about to change the design of table \"%1\" "
-                        "but following objects using this table are opened:",
-                        tempData()->table->name()));
+                  xi18nc("@info",
+                         "You are about to change the design of table <resource>%1</resource> "
+                         "but following objects using this table are opened:",
+                         tempData()->table->name()));
     }
 
     if (res == true) {
@@ -1615,7 +1617,7 @@ void KexiTableDesignerView::slotAboutToShowContextMenu()
         QString captionOrName(set["caption"].value().toString());
         if (captionOrName.isEmpty())
             captionOrName = set["name"].value().toString();
-        title = xi18n("Table field \"%1\"", captionOrName);
+        title = xi18nc("@info", "Table field <resource>%1</resource>", captionOrName);
     } else {
         title = xi18nc("Empty table row", "Empty Row");
     }

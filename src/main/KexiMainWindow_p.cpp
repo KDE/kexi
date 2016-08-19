@@ -1330,8 +1330,10 @@ void KexiMainWindow::Private::clearWindows()
 
 void KexiMainWindow::Private::showStartProcessMsg(const QStringList& args)
 {
-    wnd->showErrorMessage(xi18n("Could not start %1 application.", QString(KEXI_APP_NAME)),
-                          xi18n("Command \"%1\" failed.", args.join(" ")));
+    wnd->showErrorMessage(xi18nc("@info", "Could not start <application>%1</application> application.",
+                                 QString::fromLatin1(KEXI_APP_NAME)),
+                          xi18nc("@info",
+                                 "Command <command>%1</command> failed.", args.join(" ")));
 }
 
 void KexiMainWindow::Private::updatePropEditorVisibility(Kexi::ViewMode viewMode, KexiPart::Info *info)

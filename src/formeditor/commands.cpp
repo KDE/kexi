@@ -154,11 +154,12 @@ PropertyCommand::~PropertyCommand()
 void PropertyCommand::init()
 {
     if (d->oldValues.count() > 1) {
-        setText( kundo2_i18n("Change \"%1\" property for multiple widgets", QString(d->propertyName)) );
+        setText(kundo2_i18n("Change <resource>%1</resource> property for multiple widgets",
+                             QString(d->propertyName)));
     }
     else {
-        setText( kundo2_i18n("Change \"%1\" property for widget \"%2\"",
-                    QString(d->propertyName), QString(d->oldValues.constBegin().key())) );
+        setText(kundo2_i18n("Change <resource>%1</resource> property for widget <resource>%2</resource>",
+                            QString(d->propertyName), QString(d->oldValues.constBegin().key())));
     }
 }
 
@@ -899,7 +900,7 @@ void InsertWidgetCommand::debug() const
 void InsertWidgetCommand::init()
 {
     if (!d->widgetName.isEmpty()) {
-        setText( kundo2_i18n("Insert widget \"%1\"", QString(d->widgetName)) );
+        setText( kundo2_i18n("Insert widget <resource>%1</resource>", QString(d->widgetName)) );
     }
     else {
         setText( kundo2_i18n("Insert widget") );
@@ -943,9 +944,10 @@ void InsertWidgetCommand::execute()
         d->form->abortWidgetInserting();
         WidgetInfo *winfo = d->form->library()->widgetInfoForClassName(d->_class);
         KMessageBox::sorry(d->form ? d->form->widget() : 0,
-                           xi18n("Could not insert widget of type \"%1\". "
-                                "A problem with widget's creation encountered.",
-                                winfo ? winfo->name() : QString()));
+                           xi18nc("@info",
+                                  "Could not insert widget of type <resource>%1</resource>. "
+                                  "A problem with widget's creation encountered.",
+                                  winfo ? winfo->name() : QString()));
         qWarning() << "widget creation failed";
         return;
     }

@@ -425,7 +425,7 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
             qDebug() << "no field provided!";
             d->dataTable->dataAwareObject()->setCursorPosition(i, 0);
             if (errMsg)
-                *errMsg = xi18n("Select column for table \"%1\"",
+                *errMsg = xi18nc("@info", "Select column for table <resource>%1</resource>",
                                (**it)[COLUMN_ID_TABLE].toString());
             return false;
         }
@@ -447,7 +447,8 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                                                  true/*allowRelationalOperator*/);
                 if (criteriaExpr.isValid()) {//for sanity
                     if (errMsg)
-                        *errMsg = xi18n("Invalid criteria \"%1\"", criteriaStr);
+                        *errMsg = xi18nc("@info",
+                                         "Invalid criteria <icode>%1</icode>", criteriaStr);
                     return false;
                 }
                 //build relational expression for column variable
@@ -467,7 +468,8 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                                                    false/*!allowRelationalOperator*/);
                     if (!columnExpr.isValid()) {
                         if (errMsg)
-                            *errMsg = xi18n("Invalid expression \"%1\"", fieldName);
+                            *errMsg = xi18nc("@info",
+                                             "Invalid expression <icode>%1</icode>", fieldName);
                         return false;
                     }
                     temp->query()->addExpression(columnExpr, fieldVisible);
@@ -1500,8 +1502,9 @@ void KexiQueryDesignerGuiEditor::slotBeforeColumnCellChanged(KDbRecordData *data
                 result->success = false;
                 result->allowToDiscardChanges = true;
                 result->column = COLUMN_ID_COLUMN;
-                result->msg = xi18n(
-                    "Entered column alias \"%1\" is not a valid identifier.", QString(alias));
+                result->msg = xi18nc("@info",
+                    "Entered column alias <resource>%1</resource> is not a valid identifier.",
+                    QString::fromLatin1(alias));
                 result->desc = xi18n("Identifiers should start with a letter or '_' character");
                 return;
             }
@@ -1520,7 +1523,7 @@ void KexiQueryDesignerGuiEditor::slotBeforeColumnCellChanged(KDbRecordData *data
             result->success = false;
             result->allowToDiscardChanges = true;
             result->column = COLUMN_ID_COLUMN;
-            result->msg = xi18n("Invalid expression \"%1\"", fieldName);
+            result->msg = xi18nc("@info", "Invalid expression <icode>%1</icode>", fieldName);
             return;
         }
     }
@@ -1697,8 +1700,8 @@ void KexiQueryDesignerGuiEditor::slotBeforeCriteriaCellChanged(KDbRecordData *da
         result->allowToDiscardChanges = true;
         result->column = COLUMN_ID_CRITERIA;
         if (propertySet())
-            result->msg = xi18n("Could not set criteria for \"%1\"",
-                               table == "*" ? table : field);
+            result->msg = xi18nc("@info", "Could not set criteria for <resource>%1</resource>",
+                                 table == "*" ? table : field);
         else
             result->msg = xi18n("Could not set criteria for empty record");
     }
@@ -1724,7 +1727,7 @@ void KexiQueryDesignerGuiEditor::slotBeforeCriteriaCellChanged(KDbRecordData *da
         result->success = false;
         result->allowToDiscardChanges = true;
         result->column = COLUMN_ID_CRITERIA;
-        result->msg = xi18n("Invalid criteria \"%1\"", newValue.toString());
+        result->msg = xi18nc("@info", "Invalid criteria <icode>%1</icode>", newValue.toString());
     }
 }
 

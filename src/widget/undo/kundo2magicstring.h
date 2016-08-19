@@ -192,36 +192,36 @@ inline KUndo2MagicString kundo2_noi18n(const char *text, const A1 &a1, const A2 
 
 inline KUndo2MagicString kundo2_i18n(const char *text)
 {
-    return KUndo2MagicString(i18nc("(qtundo-format)", text));
+    return KUndo2MagicString(xi18nc("@info (qtundo-format)", text));
 }
 
 template <typename A1>
 inline KUndo2MagicString kundo2_i18n(const char *text, const A1 &a1)
 {
-    return KUndo2MagicString(i18nc("(qtundo-format)", text, a1));
+    return KUndo2MagicString(xi18nc("@info (qtundo-format)", text, a1));
 }
 
 template <typename A1, typename A2>
 inline KUndo2MagicString kundo2_i18n(const char *text, const A1 &a1, const A2 &a2)
 {
-    return KUndo2MagicString(i18nc("(qtundo-format)", text, a1, a2));
+    return KUndo2MagicString(xi18nc("@info (qtundo-format)", text, a1, a2));
 }
 
 template <typename A1, typename A2, typename A3>
 inline KUndo2MagicString kundo2_i18n(const char *text, const A1 &a1, const A2 &a2, const A3 &a3)
 {
-    return KUndo2MagicString(i18nc("(qtundo-format)", text, a1, a2, a3));
+    return KUndo2MagicString(xi18nc("@info (qtundo-format)", text, a1, a2, a3));
 }
 
 template <typename A1, typename A2, typename A3, typename A4>
 inline KUndo2MagicString kundo2_i18n(const char *text, const A1 &a1, const A2 &a2, const A3 &a3, const A4 &a4)
 {
-    return KUndo2MagicString(i18nc("(qtundo-format)", text, a1, a2, a3, a4));
+    return KUndo2MagicString(xi18nc("@info (qtundo-format)", text, a1, a2, a3, a4));
 }
 
 inline QString prependContext(const char *ctxt)
 {
-    return QString("(qtundo-format) %1").arg(ctxt);
+    return QString("@info (qtundo-format) %1").arg(ctxt);
 }
 
 /**
@@ -230,31 +230,31 @@ inline QString prependContext(const char *ctxt)
  */
 inline KUndo2MagicString kundo2_i18nc(const char *ctxt, const char *text)
 {
-    return KUndo2MagicString(i18nc(prependContext(ctxt).toLatin1().data(), text));
+    return KUndo2MagicString(xi18nc(prependContext(ctxt).toLatin1().data(), text));
 }
 
 template <typename A1>
 inline KUndo2MagicString kundo2_i18nc(const char *ctxt, const char *text, const A1 &a1)
 {
-    return KUndo2MagicString(i18nc(prependContext(ctxt).toLatin1().data(), text, a1));
+    return KUndo2MagicString(xi18nc(prependContext(ctxt).toLatin1().data(), text, a1));
 }
 
 template <typename A1, typename A2>
 inline KUndo2MagicString kundo2_i18nc(const char *ctxt, const char *text, const A1 &a1, const A2 &a2)
 {
-    return KUndo2MagicString(i18nc(prependContext(ctxt).toLatin1().data(), text, a1, a2));
+    return KUndo2MagicString(xi18nc(prependContext(ctxt).toLatin1().data(), text, a1, a2));
 }
 
 template <typename A1, typename A2, typename A3>
 inline KUndo2MagicString kundo2_i18nc(const char *ctxt, const char *text, const A1 &a1, const A2 &a2, const A3 &a3)
 {
-    return KUndo2MagicString(i18nc(prependContext(ctxt).toLatin1().data(), text, a1, a2, a3));
+    return KUndo2MagicString(xi18nc(prependContext(ctxt).toLatin1().data(), text, a1, a2, a3));
 }
 
 template <typename A1, typename A2, typename A3, typename A4>
 inline KUndo2MagicString kundo2_i18nc(const char *ctxt, const char *text, const A1 &a1, const A2 &a2, const A3 &a3, const A4 &a4)
 {
-    return KUndo2MagicString(i18nc(prependContext(ctxt).toLatin1().data(), text, a1, a2, a3, a4));
+    return KUndo2MagicString(xi18nc(prependContext(ctxt).toLatin1().data(), text, a1, a2, a3, a4));
 }
 
 /**
@@ -265,25 +265,25 @@ inline KUndo2MagicString kundo2_i18nc(const char *ctxt, const char *text, const 
 template <typename A1>
 inline KUndo2MagicString kundo2_i18np(const char *sing, const char *plur, const A1 &a1)
 {
-    return KUndo2MagicString(i18ncp("(qtundo-format)", sing, plur, a1));
+    return KUndo2MagicString(xi18ncp("@info (qtundo-format)", sing, plur, a1));
 }
 
 template <typename A1, typename A2>
 inline KUndo2MagicString kundo2_i18np(const char *sing, const char *plur, const A1 &a1, const A2 &a2)
 {
-    return i18ncp("(qtundo-format)", sing, plur, a1, a2);
+    return xi18ncp("@info (qtundo-format)", sing, plur, a1, a2);
 }
 
 template <typename A1, typename A2, typename A3>
 inline KUndo2MagicString kundo2_i18np(const char *sing, const char *plur, const A1 &a1, const A2 &a2, const A3 &a3)
 {
-    return i18ncp("(qtundo-format)", sing, plur, a1, a2, a3);
+    return xi18ncp("@info (qtundo-format)", sing, plur, a1, a2, a3);
 }
 
 template <typename A1, typename A2, typename A3, typename A4>
 inline KUndo2MagicString kundo2_i18np(const char *sing, const char *plur, const A1 &a1, const A2 &a2, const A3 &a3, const A4 &a4)
 {
-    return i18ncp("(qtundo-format)", sing, plur, a1, a2, a3, a4);
+    return xi18ncp("@info (qtundo-format)", sing, plur, a1, a2, a3, a4);
 }
 
 
@@ -294,25 +294,25 @@ inline KUndo2MagicString kundo2_i18np(const char *sing, const char *plur, const 
 template <typename A1>
 inline KUndo2MagicString kundo2_i18ncp(const char *ctxt, const char *sing, const char *plur, const A1 &a1)
 {
-    return KUndo2MagicString(i18ncp(prependContext(ctxt).toLatin1().data(), sing, plur, a1));
+    return KUndo2MagicString(xi18ncp(prependContext(ctxt).toLatin1().data(), sing, plur, a1));
 }
 
 template <typename A1, typename A2>
 inline KUndo2MagicString kundo2_i18ncp(const char *ctxt, const char *sing, const char *plur, const A1 &a1, const A2 &a2)
 {
-    return i18ncp(prependContext(ctxt).toLatin1().data(), sing, plur, a1, a2);
+    return xi18ncp(prependContext(ctxt).toLatin1().data(), sing, plur, a1, a2);
 }
 
 template <typename A1, typename A2, typename A3>
 inline KUndo2MagicString kundo2_i18ncp(const char *ctxt, const char *sing, const char *plur, const A1 &a1, const A2 &a2, const A3 &a3)
 {
-    return i18ncp(prependContext(ctxt).toLatin1().data(), sing, plur, a1, a2, a3);
+    return xi18ncp(prependContext(ctxt).toLatin1().data(), sing, plur, a1, a2, a3);
 }
 
 template <typename A1, typename A2, typename A3, typename A4>
 inline KUndo2MagicString kundo2_i18ncp(const char *ctxt, const char *sing, const char *plur, const A1 &a1, const A2 &a2, const A3 &a3, const A4 &a4)
 {
-    return i18ncp(prependContext(ctxt).toLatin1().data(), sing, plur, a1, a2, a3, a4);
+    return xi18ncp(prependContext(ctxt).toLatin1().data(), sing, plur, a1, a2, a3, a4);
 }
 
 #endif /* KUNDO2MAGICSTRING_H */
