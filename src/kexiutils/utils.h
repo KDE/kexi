@@ -49,6 +49,7 @@
 class QColor;
 class QMetaProperty;
 class QLayout;
+class KLocalizedString;
 
 //! @short General Utils
 namespace KexiUtils
@@ -599,6 +600,12 @@ Q_DECLARE_FLAGS(CaptionFlags, CaptionFlag)
  */
 KEXIUTILS_EXPORT QString makeStandardCaption(const QString &userCaption,
                                              CaptionFlags flags = AppNameCaption);
+
+/**
+ * Return rich text for @a string. Equivalent of KLocalizedString::toString(Kuit::RichText)
+ * but <html> and </html> is removed so the result can be used as %* argument in other string.
+ */
+KEXIUTILS_EXPORT QString localizedStringToHtmlSubstring(const KLocalizedString& string);
 
 } //namespace KexiUtils
 

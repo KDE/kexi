@@ -37,9 +37,7 @@ public:
     Data();
     ~Data();
 
-    QString sourceDatabaseInfoString() const {
-        return source ? KexiProjectData::infoString(sourceName, *source) : QString();
-    }
+    QString sourceDatabaseInfoString() const;
 
     //! Connection data for the source database
     KDbConnectionData* source;

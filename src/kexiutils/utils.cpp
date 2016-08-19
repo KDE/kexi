@@ -1001,3 +1001,9 @@ QIcon themedIcon(const QString &name)
     }
     return icon;
 }
+
+QString KexiUtils::localizedStringToHtmlSubstring(const KLocalizedString& string)
+{
+    return string.toString(Kuit::RichText)
+            .remove(QLatin1String("<html>")).remove(QLatin1String("</html>"));
+}

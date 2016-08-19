@@ -119,12 +119,11 @@ public:
      "<project name>" (connection: user\@server:port).
      For file-based projects returns project's filename.
      If \a format controls format of the message (useful for displaying in message boxes). */
-    QString infoString(Kuit::VisualFormat format = Kuit::PlainText) const;
+    KLocalizedString infoString() const;
 
-    //! @overload QString infoString(Kuit::VisualFormat) const;
+    //! @overload QString infoString() const;
     //! @todo move to KDb?
-    static QString infoString(const QString &databaseName, const KDbConnectionData &data,
-                              Kuit::VisualFormat format = Kuit::PlainText);
+    static KLocalizedString infoString(const QString &databaseName, const KDbConnectionData &data);
 
     QDateTime lastOpened() const;
 

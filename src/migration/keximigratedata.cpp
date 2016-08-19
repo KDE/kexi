@@ -32,3 +32,9 @@ Data::Data()
 Data::~Data()
 {
 }
+
+QString Data::sourceDatabaseInfoString() const
+{
+    return source ? KexiProjectData::infoString(sourceName, *source).toString(Kuit::PlainText)
+                  : QString();
+}

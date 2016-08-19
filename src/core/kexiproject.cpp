@@ -342,7 +342,8 @@ KexiProject::openInternal(bool *incompatibleWithKexi)
                     xi18nc("@info (don't add tags around %1, it's done already)",
                            "Database project %1 does not "
                            "appear to have been created using Kexi and cannot be opened. "
-                           "It is an SQLite file created using other tools.", d->data->infoString()));
+                           "It is an SQLite file created using other tools.",
+                           KexiUtils::localizedStringToHtmlSubstring(d->data->infoString())));
                 m_result = d->connection->result();
             }
             closeConnectionInternal();
@@ -1128,7 +1129,7 @@ KDbParser* KexiProject::sqlParser()
     return d->sqlParser;
 }
 
-const char warningNoUndo[] = I18N_NOOP("Warning: entire project's data will be removed.");
+const char warningNoUndo[] = I18N_NOOP2("warning", "Entire project's data and design will be removed.");
 
 /*static*/
 KexiProject*
@@ -1142,12 +1143,13 @@ KexiProject::createBlankProject(bool *cancelled, const KexiProjectData& data,
     tristate res = prj->create(false);
     if (~res) {
 //! @todo move to KexiMessageHandler
-        if (KMessageBox::Yes != KMessageBox::warningYesNo(0, "<qt>" + xi18nc(
-                    "@info (don't add tags around %1, it's done already)",
-                    "The project %1 already exists.<nl/>"
-                    "Do you want to replace it with a new, blank one?<nl/>"
-                    "%2",
-                    prj->data()->infoString(), xi18n(warningNoUndo)),
+        if (KMessageBox::Yes != KMessageBox::warningYesNo(0,
+            xi18nc("@info (don't add tags around %1, it's done already)",
+                   "<para>The project %1 already exists.</para>"
+                   "<para>Do you want to replace it with a new, blank one?</para>"
+                   "<para><warning>%2</warning></para>",
+                   KexiUtils::localizedStringToHtmlSubstring(prj->data()->infoString()),
+                   xi18n(warningNoUndo)),
                 QString(), KGuiItem(xi18nc("@action:button", "Replace")), KStandardGuiItem::cancel()))
 //! @todo add toUserVisibleString() for server-based prj
         {

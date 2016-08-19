@@ -239,10 +239,10 @@ void ImportWizard::setupIntro()
     lblIntro->setTextFormat(Qt::RichText);
     QString msg;
     if (d->predefinedConnectionData) { //predefined import: server source
-        // note: don't use "@info", msg is inserted below into xi18nc()
-        msg = xi18n("Database Importing Assistant is about to import <resource>%1</resource> database "
-                    "(connection <resource>%2</resource>) into a Kexi project.",
-                   d->predefinedDatabaseName, d->predefinedConnectionData->toUserVisibleString());
+        msg = xi18nc("@info",
+                     "Database Importing Assistant is about to import <resource>%1</resource> database "
+                     "(connection <resource>%2</resource>) into a Kexi project.",
+                     d->predefinedDatabaseName, d->predefinedConnectionData->toUserVisibleString());
     } else if (!d->predefinedDatabaseName.isEmpty()) { //predefined import: file source
 //! @todo this message is currently ok for files only
         QMimeDatabase db;
@@ -250,21 +250,22 @@ void ImportWizard::setupIntro()
         if (!mime.isValid()) {
             qWarning() << QString("'%1' mimetype not installed!").arg(d->predefinedMimeType);
         }
-        // note: don't use "@info", msg is inserted below into xi18nc()
-        msg = xi18n(
-                    "Database Importing Assistant is about to import <filename>%1</filename> file "
-                    "of type <resource>%2</resource> into a Kexi project.",
-                    QDir::toNativeSeparators(d->predefinedDatabaseName), mime.isValid() ? mime.comment() : "???");
+        msg = xi18nc("@info",
+                     "Database Importing Assistant is about to import <filename>%1</filename> file "
+                     "of type <resource>%2</resource> into a Kexi project.",
+                     QDir::toNativeSeparators(d->predefinedDatabaseName),
+                     mime.isValid() ? mime.comment() : "???");
     } else {
-        // note: don't use "@info", msg is inserted below into xi18nc()
-        msg = xi18n("Database Importing Assistant allows you to import an existing database "
-                   "into a Kexi project.");
+        msg = xi18nc("@info",
+                     "Database Importing Assistant allows you to import an existing database "
+                     "into a Kexi project.");
     }
-    lblIntro->setText(xi18nc("@info",
-                             "<para>%1</para>"
-                             "<para>Click <interface>Next</interface> button to continue or "
-                             "<interface>Cancel</interface> button to exit this assistant.</para>",
-                             msg));
+    // note: we're using .arg() here because the msg argument is already in rich-text format
+    QString finalMessage = xi18nc("@info",
+                                  "<para>%1</para>"
+                                  "<para>Click <interface>Next</interface> button to continue or "
+                                  "<interface>Cancel</interface> button to exit this assistant.</para>").arg(msg);
+    lblIntro->setText(finalMessage);
     vbox->addWidget(lblIntro);
 
     d->introPageItem = new KPageWidgetItem(d->introPageWidget,
@@ -518,15 +519,18 @@ bool ImportWizard::checkUserInput()
     Kexi::ObjectStatus result;
     KexiMigrate* sourceDriver = prepareImport(result);
     if (sourceDriver && sourceDriver->isSourceAndDestinationDataSourceTheSame()) {
-        issues = xi18nc("@info", "%1<para>Source database is the same as destination.</para>", issues);
+        // note: we're using .arg() here because the 'issues' argument is already in rich-text format
+        issues = xi18nc("@info", "%1<para>Source database is the same as destination.</para>")
+                        .arg(issues);
     }
 
     if (!issues.isEmpty()) {
+        // note: we're using .arg() here because the 'issues' argument is already in rich-text format
         d->lblImportingErrTxt->setText(
             xi18nc("@info", "<para>Following issues were found with the data you entered:</para>"
                    "%1"
-                   "<para>Please click <interface>Back</interface> button and correct these issues.</para>",
-                   issues));
+                   "<para>Please click <interface>Back</interface> button and correct these issues.</para>")
+                   .arg(issues));
         return false;
     }
     return true;
@@ -864,9 +868,9 @@ tristate ImportWizard::import()
         // ok, the destination-db already exists...
         if (KMessageBox::Yes != KMessageBox::warningYesNo(this,
                         xi18nc("@info (don't add tags around %1, it's done already)",
-                               "<para>Database <resource>%1</resource> already exists.</para>"
+                               "<para>Database %1 already exists.</para>"
                                "<para>Do you want to replace it with a new one?</para>",
-                               sourceDriver->data()->destination->infoString()),
+                               KexiUtils::localizedStringToHtmlSubstring(sourceDriver->data()->destination->infoString())),
                 0, KGuiItem(xi18nc("@action:button Replace Database", "&Replace")), KStandardGuiItem::no()))
         {
             return cancelled;
@@ -907,13 +911,14 @@ tristate ImportWizard::import()
         qDebug() << msg << "\n" << details;
 
         d->finishPageItem->setHeader(xi18n("Failure"));
+        // note: we're using .arg() here because the msg and details arguments are already in rich-text format
         d->finishLbl->setText(
             xi18nc("@info",
                    "<para>Import failed.</para>"
                    "<para>%1</para>"
                    "<para>%2</para>"
-                   "<para>You can click <interface>Back</interface> button and try again.</para>",
-                msg, details));
+                   "<para>You can click <interface>Back</interface> button and try again.</para>")
+                    .arg(msg).arg(details));
         return false;
     }
     return true;

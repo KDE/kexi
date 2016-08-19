@@ -190,24 +190,23 @@ void KexiProjectData::setDescription(const QString& desc)
 }
 
 // static
-QString KexiProjectData::infoString(const QString &databaseName,
-                                    const KDbConnectionData &data,
-                                    Kuit::VisualFormat format)
+KLocalizedString KexiProjectData::infoString(const QString &databaseName,
+                                    const KDbConnectionData &data)
 {
     if (data.databaseName().isEmpty()) {
         //server-based
         return kxi18nc("@info database connection",
                        "<resource>%1</resource> (connection <resource>%2</resource>)")
-                .subs(databaseName).subs(data.toUserVisibleString()).toString(format);
+                .subs(databaseName).subs(data.toUserVisibleString());
     }
     //file-based
     return kxi18nc("@info database name",
-                   "<resource>%1</resource>").subs(data.databaseName()).toString(format);
+                   "<resource>%1</resource>").subs(data.databaseName());
 }
 
-QString KexiProjectData::infoString(Kuit::VisualFormat format) const
+KLocalizedString KexiProjectData::infoString() const
 {
-    return infoString(databaseName(), d->connData, format);
+    return infoString(databaseName(), d->connData);
 }
 
 void KexiProjectData::setReadOnly(bool set)
