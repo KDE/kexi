@@ -649,7 +649,7 @@ void KexiTableDesignerView::slotBeforeCellChanged(
             Command *changeCaptionAndNameCommand = new Command(
                 kundo2_i18n(
                     "Change <resource>%1</resource> field name to <resource>%2</resource> "
-                    "and caption from <resource>%3</resource> to <resource>4</resource>",
+                    "and caption from <resource>%3</resource> to <resource>%4</resource>",
                     oldName, propertySetForRecord->property("name").value().toString(),
                     oldCaption, newValue->toString()), 0, this
             );
