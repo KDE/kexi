@@ -691,7 +691,7 @@ tristate KexiStartupHandler::init()
         KexiGUIMessageHandler gui;
         res = KexiProject::dropProject(*projectData(), &gui, false/*ask*/);
         if (res == true)
-            KMessageBox::information(0, xi18nc("@info", "Project <resource>%1</resource>dropped successfully.",
+            KMessageBox::information(0, xi18nc("@info", "Project <resource>%1</resource> dropped successfully.",
                                              QDir::toNativeSeparators(projectData()->databaseName())));
         return res != false;
     }
