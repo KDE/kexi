@@ -18,39 +18,13 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifdef Q_OS_WIN
-# define KDEWIN_FCNTL_H // avoid redef.
-# define KDEWIN_SYS_STAT_H // avoid redef.
-# define KDEWIN_MATH_H // avoid redef.
-# define KDEWIN_STDIO_H // avoid redef.
-# include <../include/stdio.h>
-# include <../include/math.h>
-#endif
-
 #include "mysqlmigrate.h"
-#include <migration/keximigratedata.h>
+#include <keximigratedata.h>
 #include <kexi.h>
 
-#include <KDb>
 #include <KDbConnectionProxy>
-#include <KDbCursor>
 #include <KDbDriverManager>
-#include <KDbField>
 #include <KDbSqlResult>
-#include <KDbUtils>
-
-#include <QString>
-#include <QRegExp>
-#include <QVariant>
-#include <QList>
-#include <QDebug>
-
-#ifdef Q_OS_WIN
-# undef _WIN32_WINNT // avoid redef.
-#endif
-#include <mysql_version.h>
-#include <mysql.h>
-#define BOOL bool
 
 using namespace KexiMigration;
 

@@ -18,15 +18,10 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef MYSQLMIGRATE_H
-#define MYSQLMIGRATE_H
+#ifndef KEXIMYSQLMIGRATE_H
+#define KEXIMYSQLMIGRATE_H
 
-#include <migration/keximigrate.h>
-
-#include <mysql_version.h>
-#include <mysql.h>
-
-class KDbConnectionProxy;
+#include <keximigrate.h>
 
 namespace KexiMigration
 {
@@ -70,13 +65,6 @@ protected:
     //Extended API
     //! Starts reading data from the source dataset's table
     KDbSqlResult* drv_readFromTable(const QString & tableName) Q_DECL_OVERRIDE;
-
-private:
-    long m_rows;
-    long m_row;
-    MYSQL_ROW m_dataRow;
-
-    void getRow();
 };
 }
 
