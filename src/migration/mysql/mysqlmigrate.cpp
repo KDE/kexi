@@ -29,22 +29,22 @@
 using namespace KexiMigration;
 
 /* This is the implementation for the MySQL specific import routines. */
-KEXI_PLUGIN_FACTORY(MySQLMigrate, "keximigrate_mysql.json")
+KEXI_PLUGIN_FACTORY(MysqlMigrate, "keximigrate_mysql.json")
 
 /* ************************************************************************** */
 //! Constructor (needed for trading interface)
-MySQLMigrate::MySQLMigrate(QObject *parent, const QVariantList& args) :
+MysqlMigrate::MysqlMigrate(QObject *parent, const QVariantList& args) :
         KexiMigrate(parent, args)
 {
 }
 
 /* ************************************************************************** */
 //! Destructor
-MySQLMigrate::~MySQLMigrate()
+MysqlMigrate::~MysqlMigrate()
 {
 }
 
-KDbConnection* MySQLMigrate::drv_createConnection()
+KDbConnection* MysqlMigrate::drv_createConnection()
 {
     KDbDriverManager manager;
     KDbDriver *driver = manager.driver("org.kde.kdb.mysql");
@@ -59,7 +59,7 @@ KDbConnection* MySQLMigrate::drv_createConnection()
 
 /* ************************************************************************** */
 /*! Get the types and properties for each column. */
-bool MySQLMigrate::drv_readTableSchema(
+bool MysqlMigrate::drv_readTableSchema(
     const QString& originalName, KDbTableSchema *tableSchema)
 {
 //! @todo IDEA: ask for user input for captions
@@ -93,7 +93,7 @@ bool MySQLMigrate::drv_readTableSchema(
     return ok;
 }
 
-bool MySQLMigrate::drv_tableNames(QStringList *tableNames)
+bool MysqlMigrate::drv_tableNames(QStringList *tableNames)
 {
     if (!sourceConnection()->executeSQL(KDbEscapedString("SHOW TABLES"))) {
         return false;
@@ -119,7 +119,7 @@ bool MySQLMigrate::drv_tableNames(QStringList *tableNames)
  by running \a sqlStatement.
  On success the result is stored in \a stringList and true is returned.
  \return cancelled if there are no records available. */
-tristate MySQLMigrate::drv_queryStringListFromSQL(
+tristate MysqlMigrate::drv_queryStringListFromSQL(
     const KDbEscapedString& sqlStatement, int fieldIndex, QStringList *stringList, int numRecords)
 {
     if (!sourceConnection()->executeSQL(sqlStatement)) {
@@ -148,7 +148,7 @@ tristate MySQLMigrate::drv_queryStringListFromSQL(
 }
 
 //! Copy MySQL table to a KDb table
-bool MySQLMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destConn,
+bool MysqlMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destConn,
                                  KDbTableSchema* dstTable,
                                  const RecordFilter *recordFilter)
 {
@@ -200,7 +200,7 @@ bool MySQLMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destCon
     return true;
 }
 
-bool MySQLMigrate::drv_getTableSize(const QString& table, quint64 *size)
+bool MysqlMigrate::drv_getTableSize(const QString& table, quint64 *size)
 {
     Q_ASSERT(size);
     if (!sourceConnection()->executeSQL(KDbEscapedString("SELECT COUNT(*) FROM %1")
@@ -225,7 +225,7 @@ bool MySQLMigrate::drv_getTableSize(const QString& table, quint64 *size)
     return ok;
 }
 
-KDbSqlResult* MySQLMigrate::drv_readFromTable(const QString& tableName)
+KDbSqlResult* MysqlMigrate::drv_readFromTable(const QString& tableName)
 {
     if (!sourceConnection()->executeSQL(KDbEscapedString("SELECT * FROM %1")
         .arg(sourceConnection()->escapeIdentifier(tableName))))

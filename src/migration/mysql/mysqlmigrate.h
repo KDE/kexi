@@ -26,13 +26,13 @@
 namespace KexiMigration
 {
 
-class MySQLMigrate : public KexiMigrate
+class MysqlMigrate : public KexiMigrate
 {
     Q_OBJECT
 
 public:
-    explicit MySQLMigrate(QObject *parent, const QVariantList& args = QVariantList());
-    virtual ~MySQLMigrate();
+    explicit MysqlMigrate(QObject *parent, const QVariantList& args = QVariantList());
+    virtual ~MysqlMigrate();
 
 protected:
     //! Driver specific function to return table names
