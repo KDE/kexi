@@ -1,27 +1,12 @@
-include_directories( ${PostgreSQL_INCLUDE_DIRS} ${PQXX_INCLUDE_DIR})
-
-kde_enable_exceptions()
-
-########### next target ###############
-
-set(keximigrate_pqxx_PART_SRCS
-    pqxxmigrate.cpp
+set(keximigrate_postgresql_PART_SRCS
+    PostgresqlMigrate.cpp
+    keximigrate_postgresql.json
     Messages.sh
 )
 
-add_library(keximigrate_pqxx MODULE ${keximigrate_pqxx_PART_SRCS})
-
-
-
-target_link_libraries(
-    keximigrate_pqxx
-    ${POSTGRESQL_LIBRARIES}
-    ${PQXX_LIBRARIES}
-
-    keximigrate
-    kexiutils
-
-    KDb
+build_and_install_kexi_migrate_driver(postgresql
+    "${keximigrate_postgresql_PART_SRCS}"
+    "${POSTGRESQL_LIBRARIES}"
+    "${PostgreSQL_INCLUDE_DIRS}"
+    ""
 )
-
-install(TARGETS keximigrate_pqxx  DESTINATION ${KEXI_PLUGIN_INSTALL_DIR})

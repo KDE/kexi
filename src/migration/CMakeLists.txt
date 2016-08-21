@@ -37,15 +37,14 @@ if(MYSQL_FOUND)
     add_subdirectory(mysql)
 endif()
 
+find_package(KexiPostgreSQL)
+macro_log_feature(POSTGRESQL_FOUND "libpq" "C application programmer's interface to PostgreSQL"
+                  "http://www.postgresql.org" FALSE "" "Required by Kexi PostgreSQL migration driver")
+if(POSTGRESQL_FOUND)
+    add_subdirectory(postgresql)
+endif()
+
 if(false) # TODO KEXI3
-
-#KEXI3 TODO
-#find_package(KexiPostgreSQL)
-#macro_log_feature(POSTGRESQL_FOUND "libpq" "C application programmer's interface to PostgreSQL" "http://www.postgresql.org" FALSE "" "Required by Kexi PostgreSQL migration driver")
-#if(POSTGRESQL_FOUND)
-#  add_subdirectory(postgresql)
-#endif()
-
 find_package(FreeTDS)
 macro_log_feature(FREETDS_FOUND "FreeTDS" "Open source implementation of the TDS (Tabular Data Stream) protocol" "http://www.freetds.org" FALSE "" "Required by Kexi Sybase migration driver")
 if(FREETDS_FOUND)
