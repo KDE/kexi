@@ -45,10 +45,15 @@ protected:
     //! Driver specific connection creation
     KDbConnection* drv_createConnection() Q_DECL_OVERRIDE;
 
+    /*! Fetches single string at column \a columnNumber for each record from result obtained
+     by running \a sqlStatement. \a numRecords can be specified to limit number of records read.
+     If \a numRecords is -1, all records are loaded.
+     @see KexiMigrate::drv_queryStringListFromSQL() */
     tristate drv_queryStringListFromSQL(
         const KDbEscapedString& sqlStatement, int columnNumber,
         QStringList *stringList, int numRecords = -1) Q_DECL_OVERRIDE;
 
+    //! Copy a table from source DB to target DB (driver specific)
     bool drv_copyTable(const QString& srcTable,
                        KDbConnection *destConn, KDbTableSchema* dstTable,
                        const RecordFilter *recordFilter = nullptr) Q_DECL_OVERRIDE;

@@ -31,15 +31,11 @@ using namespace KexiMigration;
 /* This is the implementation for the MySQL specific import routines. */
 KEXI_PLUGIN_FACTORY(MysqlMigrate, "keximigrate_mysql.json")
 
-/* ************************************************************************** */
-//! Constructor (needed for trading interface)
 MysqlMigrate::MysqlMigrate(QObject *parent, const QVariantList& args) :
         KexiMigrate(parent, args)
 {
 }
 
-/* ************************************************************************** */
-//! Destructor
 MysqlMigrate::~MysqlMigrate()
 {
 }
@@ -57,8 +53,6 @@ KDbConnection* MysqlMigrate::drv_createConnection()
     return c;
 }
 
-/* ************************************************************************** */
-/*! Get the types and properties for each column. */
 bool MysqlMigrate::drv_readTableSchema(
     const QString& originalName, KDbTableSchema *tableSchema)
 {
@@ -115,10 +109,6 @@ bool MysqlMigrate::drv_tableNames(QStringList *tableNames)
     return true;
 }
 
-/*! Fetches single string at field \a fieldIndex for each record from result obtained
- by running \a sqlStatement.
- On success the result is stored in \a stringList and true is returned.
- \return cancelled if there are no records available. */
 tristate MysqlMigrate::drv_queryStringListFromSQL(
     const KDbEscapedString& sqlStatement, int fieldIndex, QStringList *stringList, int numRecords)
 {
@@ -147,7 +137,6 @@ tristate MysqlMigrate::drv_queryStringListFromSQL(
     return true;
 }
 
-//! Copy MySQL table to a KDb table
 bool MysqlMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destConn,
                                  KDbTableSchema* dstTable,
                                  const RecordFilter *recordFilter)
