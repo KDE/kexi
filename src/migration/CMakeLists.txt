@@ -79,6 +79,7 @@ set(keximigrate_LIB_SRCS AlterSchemaTableModel.cpp
    KexiMigratePluginMetaData.cpp
    keximigrate.cpp
    keximigratedata.cpp
+   KexiSqlMigrate.cpp
    migratemanager.cpp
    importwizard.cpp
    importtablewizard.cpp
@@ -106,7 +107,7 @@ install(TARGETS keximigrate  ${INSTALL_TARGETS_DEFAULT_ARGS})
 ########### install files ###############
 
 if(FALSE) # TODO: install when we move to independent place
-    install(FILES KexiMigratePluginMetaData.h keximigrate.h keximigratedata.h migratemanager.h
+    install(FILES KexiMigratePluginMetaData.h keximigrate.h keximigratedata.h KexiSqlMigrate.h migratemanager.h
             DESTINATION ${INCLUDE_INSTALL_DIR}/kexidb COMPONENT Devel
     )
 endif()

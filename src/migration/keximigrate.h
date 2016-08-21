@@ -58,7 +58,7 @@ namespace KexiMigration
 //! \return KexiMigration library version info
 KEXIMIGRATE_EXPORT KDbVersionInfo version();
 
-//! @short A migrate plugin for importing non-native databases into Kexi projects.
+//! @short A base class for a migrate plugin that imports native databases into Kexi projects
 /*! A generic API for importing schema and data from an existing
 database into a new Kexi project. Can be also used for importing native Kexi databases.
 

@@ -21,56 +21,15 @@
 #ifndef KEXIMYSQLMIGRATE_H
 #define KEXIMYSQLMIGRATE_H
 
-#include <keximigrate.h>
+#include <KexiSqlMigrate.h>
 
-namespace KexiMigration
-{
-
-class MysqlMigrate : public KexiMigrate
+class MysqlMigrate : public KexiSqlMigrate
 {
     Q_OBJECT
 
 public:
     explicit MysqlMigrate(QObject *parent, const QVariantList& args = QVariantList());
     virtual ~MysqlMigrate();
-
-protected:
-    //! Driver specific function to return table names
-    bool drv_tableNames(QStringList *tablenames) Q_DECL_OVERRIDE;
-
-    //! Driver specific implementation to read a table schema
-    bool drv_readTableSchema(
-        const QString& originalName, KDbTableSchema *tableSchema) Q_DECL_OVERRIDE;
-
-    //! Driver specific connection creation
-    KDbConnection* drv_createConnection() Q_DECL_OVERRIDE;
-
-    /*! Fetches single string at column \a columnNumber for each record from result obtained
-     by running \a sqlStatement. \a numRecords can be specified to limit number of records read.
-     If \a numRecords is -1, all records are loaded.
-     @see KexiMigrate::drv_queryStringListFromSQL() */
-    tristate drv_queryStringListFromSQL(
-        const KDbEscapedString& sqlStatement, int columnNumber,
-        QStringList *stringList, int numRecords = -1) Q_DECL_OVERRIDE;
-
-    //! Copy a table from source DB to target DB (driver specific)
-    bool drv_copyTable(const QString& srcTable,
-                       KDbConnection *destConn, KDbTableSchema* dstTable,
-                       const RecordFilter *recordFilter = nullptr) Q_DECL_OVERRIDE;
-
-    bool drv_progressSupported() Q_DECL_OVERRIDE {
-        return true;
-    }
-
-    bool drv_getTableSize(const QString& table, quint64* size) Q_DECL_OVERRIDE;
-
-//! @todo move this somewhere to low level class (MIGRATION?) virtual bool drv_getTablesList( QStringList &list );
-//! @todo move this somewhere to low level class (MIGRATION?) virtual bool drv_containsTable( const QString &tableName );
-
-    //Extended API
-    //! Starts reading data from the source dataset's table
-    KDbSqlResult* drv_readFromTable(const QString & tableName) Q_DECL_OVERRIDE;
 };
-}
 
 #endif
