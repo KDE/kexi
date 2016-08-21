@@ -58,11 +58,11 @@ protected:
                        KDbConnection *destConn, KDbTableSchema* dstTable,
                        const RecordFilter *recordFilter = nullptr) Q_DECL_OVERRIDE;
 
-    virtual bool drv_progressSupported() {
+    bool drv_progressSupported() Q_DECL_OVERRIDE {
         return true;
     }
 
-    virtual bool drv_getTableSize(const QString& table, quint64* size);
+    bool drv_getTableSize(const QString& table, quint64* size) Q_DECL_OVERRIDE;
 
 //! @todo move this somewhere to low level class (MIGRATION?) virtual bool drv_getTablesList( QStringList &list );
 //! @todo move this somewhere to low level class (MIGRATION?) virtual bool drv_containsTable( const QString &tableName );
