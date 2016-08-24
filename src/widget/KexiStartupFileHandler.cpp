@@ -406,7 +406,7 @@ bool KexiStartupFileHandler::checkSelectedUrl()
                 return false;
             } else if (!fi.isReadable()) {
                 KMessageBox::error(d->requester->parentWidget(),
-                                   xi18nc("@info", "The file <filename>%1<filename> is not readable.",
+                                   xi18nc("@info", "The file <filename>%1</filename> is not readable.",
                                           QDir::toNativeSeparators(url.toLocalFile())));
                 return false;
             }
