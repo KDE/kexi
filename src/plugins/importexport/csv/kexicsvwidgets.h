@@ -66,7 +66,7 @@ public:
 
     void setCommentText(const QString& text);
 
-    //! sets icon pixmap to \a iconName. Used wher setIconForFilename was false in ctor.
+    //! sets icon pixmap to \a iconName. Used when setIconForFilename was false in ctor.
     void setIcon(const QString& iconName);
 
     QLabel* leftLabel() const;
