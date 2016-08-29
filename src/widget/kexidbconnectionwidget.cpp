@@ -27,8 +27,6 @@
 #include <kexiutils/utils.h>
 
 #include <KDbConnection>
-#include <KDbUtils>
-#include <KDbDriverManager>
 
 #include <KStandardAction>
 

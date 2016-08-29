@@ -20,7 +20,6 @@
 #include "kexiprojectset.h"
 #include "kexi.h"
 
-#include <KDbDriver>
 #include <KDbConnection>
 #include <KDbMessageHandler>
 #include <KDbDriverManager>

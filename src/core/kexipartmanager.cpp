@@ -27,7 +27,6 @@
 #include "KexiJsonTrader.h"
 
 #include <KDbConnection>
-#include <KDbCursor>
 #include <KDbMessageHandler>
 
 #include <KLocalizedString>

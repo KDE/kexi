@@ -36,7 +36,6 @@
 #include "kexidbfactorybase.h"
 #include <widget/dataviewcommon/kexiformdataiteminterface.h>
 
-#include <KDbUtils>
 #include <KDbConnection>
 
 #include <KLocalizedString>

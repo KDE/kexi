@@ -21,7 +21,6 @@
 
 #include <QWidget>
 
-#include <KDbConnection>
 #include <KReportData>
 
 #include "kexidbreportdata.h"

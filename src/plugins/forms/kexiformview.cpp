@@ -38,11 +38,8 @@
 #include "kexiformmanager.h"
 #include "widgets/kexidbautofield.h"
 
-#include <KDbField>
-#include <KDbFieldList>
 #include <KDbConnection>
 #include <KDbCursor>
-#include <KDbUtils>
 #include <KDbPreparedStatement>
 #include <KDbTableViewData>
 

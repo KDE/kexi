@@ -27,7 +27,6 @@
 #include <kexiutils/utils.h>
 
 #include <KDbConnection>
-#include <KDbUtils>
 
 #include <KAboutData>
 

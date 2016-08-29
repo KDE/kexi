@@ -25,7 +25,6 @@
 
 #include <migration/keximigrate.h>
 
-#include <KDbField>
 #include <KDbConnection>
 
 #include <QByteArray>

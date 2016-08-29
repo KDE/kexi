@@ -29,7 +29,6 @@
 #include <kexiutils/utils.h>
 #include <KexiWindow.h>
 
-#include <KDbConnection>
 #include <KDbParser>
 #include <KDbCursor>
 

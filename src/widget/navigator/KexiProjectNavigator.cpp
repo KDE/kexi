@@ -40,8 +40,6 @@
 #include <kexi_global.h>
 #include <config-kexi.h>
 
-#include <KDb>
-#include <KDbUtils>
 #include <KDbObjectNameValidator>
 #include <KDbConnection>
 

@@ -28,7 +28,6 @@
 #include <KexiMainWindowIface.h>
 #include <KexiWindow.h>
 
-#include <KDbDriver>
 #include <KDbConnection>
 #include <KDbParser>
 #include <KDbNativeStatementBuilder>

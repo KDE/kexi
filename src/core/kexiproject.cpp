@@ -41,16 +41,13 @@
 #include <KStandardGuiItem>
 #include <KMessageBox>
 
-#include <KDb>
 #include <KDbConnection>
+#include <KDbConnectionOptions>
 #include <KDbCursor>
-#include <KDbDriver>
 #include <KDbDriverManager>
-#include <KDbUtils>
 #include <KDbParser>
 #include <KDbMessageHandler>
 #include <KDbProperties>
-#include <KDbResult>
 
 #include <assert.h>
 

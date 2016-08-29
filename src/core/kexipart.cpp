@@ -30,7 +30,6 @@
 #include "kexi.h"
 #include <kexiutils/utils.h>
 
-#include <KDb>
 #include <KDbConnection>
 
 #include <KActionCollection>

@@ -31,7 +31,6 @@
 #include <KPropertySet>
 
 #include <KDbConnection>
-#include <KDbUtils>
 
 #include <KActionCollection>
 

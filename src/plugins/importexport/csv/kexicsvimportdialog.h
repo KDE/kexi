@@ -40,7 +40,7 @@
 #include <KAssistantDialog>
 
 #include <KDbTristate>
-#include <KDbConnection>
+#include <KDbPreparedStatement>
 
 #include "kexicsvimportoptionsdlg.h"
 
@@ -57,6 +57,9 @@ class QProgressBar;
 class QSpinBox;
 class KComboBox;
 class KPageWidgetItem;
+
+class KDbConnection;
+class KDbTableSchema;
 
 class KexiCSVCommentWidget;
 class KexiCSVDelimiterWidget;

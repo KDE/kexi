@@ -26,7 +26,6 @@
 #include <kexi_global.h>
 #include <KDbConnection>
 #include <KDbLookupFieldSchema>
-#include <KDbExpression>
 #include <KDbCursor>
 
 #include <QDebug>

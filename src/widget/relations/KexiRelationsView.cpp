@@ -29,7 +29,6 @@
 
 #include <KDbConnection>
 #include <KDbTableOrQuerySchema>
-#include <KDbUtils>
 
 #include <KComboBox>
 #include <KLocalizedString>

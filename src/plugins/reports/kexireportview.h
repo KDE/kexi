@@ -21,8 +21,6 @@
 
 #include <QGraphicsView>
 
-#include <KDbConnection>
-
 #include <config-kreport.h>
 #include <KReportRendererBase>
 

@@ -19,8 +19,8 @@
 
 #include "krscriptfunctions.h"
 
+#include <KDbConnection>
 #include <KDbCursor>
-#include <KDbUtils>
 
 #include <QDebug>
 

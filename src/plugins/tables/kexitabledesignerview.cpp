@@ -33,13 +33,8 @@
 
 #include <KPropertySet>
 
-#include <KDb>
-#include <KDbCursor>
-#include <KDbTableSchema>
 #include <KDbConnection>
-#include <KDbUtils>
-#include <KDbRecordEditBuffer>
-#include <KDbError>
+#include <KDbConnectionOptions>
 #include <KDbLookupFieldSchema>
 
 #include <KToggleAction>

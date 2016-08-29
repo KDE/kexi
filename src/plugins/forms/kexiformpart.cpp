@@ -38,8 +38,6 @@
 #include "kexidatasourcepage.h"
 
 #include <KDbConnection>
-#include <KDbFieldList>
-#include <KDbField>
 
 #include <KProperty>
 

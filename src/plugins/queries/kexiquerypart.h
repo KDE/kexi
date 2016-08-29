@@ -27,11 +27,7 @@
 #include <kexipartitem.h>
 #include <KexiWindowData.h>
 
-#include <KDbQuerySchema>
 #include <KDbConnection>
-
-class KDbQuerySchema;
-class KDbConnection;
 
 //! @short Kexi Query Designer plugin
 class KexiQueryPart : public KexiPart::Part

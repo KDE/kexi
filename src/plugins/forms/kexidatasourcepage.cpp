@@ -32,7 +32,6 @@
 #include <formeditor/commands.h>
 
 #include <KDbConnection>
-#include <KDbTableOrQuerySchema>
 
 #include <KProperty>
 

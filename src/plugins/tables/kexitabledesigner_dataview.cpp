@@ -26,7 +26,6 @@
 #include <kexi_global.h>
 
 #include <KDbConnection>
-#include <KDbCursor>
 
 KexiTableDesigner_DataView::KexiTableDesigner_DataView(QWidget *parent)
         : KexiDataTableView(parent, true/*db-aware*/)

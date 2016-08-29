@@ -31,13 +31,7 @@
 
 #include <KPropertySet>
 
-#include <KDbCursor>
-#include <KDbTableSchema>
 #include <KDbConnection>
-#include <KDbUtils>
-#include <KDbRecordEditBuffer>
-#include <KDbError>
-#include <KDb>
 
 #include <KActionCollection>
 #include <KLocalizedString>

@@ -37,15 +37,8 @@
 #include <KexiWindowData.h>
 #include <kexi_global.h>
 
-#include <KDbField>
-#include <KDbQuerySchema>
 #include <KDbConnection>
 #include <KDbParser>
-#include <KDbUtils>
-#include <KDbRecordEditBuffer>
-#include <KDbTableViewData>
-#include <KDb>
-#include <KDbExpression>
 #include <KDbTableOrQuerySchema>
 #include <KDbNativeStatementBuilder>
 

@@ -23,7 +23,6 @@
 #include <KexiWindow.h>
 #include <widget/KexiNameWidget.h>
 
-#include <KDb>
 #include <KDbConnection>
 
 #include <KLocalizedString>

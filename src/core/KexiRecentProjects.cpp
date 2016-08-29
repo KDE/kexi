@@ -21,7 +21,6 @@
 #include "kexidbshortcutfile.h"
 #include "kexidbconnectionset.h"
 
-#include <KDbDriver>
 #include <KDbDriverManager>
 #include <KDbDriverMetaData>
 #include <KDbConnection>

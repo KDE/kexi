@@ -19,14 +19,13 @@
 #ifndef KRSCRIPTFUNCTIONS_H
 #define KRSCRIPTFUNCTIONS_H
 
-#include <QObject>
-#include <QString>
-
-#include <KDbConnection>
-#include <KDbCursor>
-
 #include <KReportData>
 #include <KReportGroupTracker>
+
+#include <KDbEscapedString>
+
+class KDbConnection;
+class KDbCursor;
 
 /**
  @author

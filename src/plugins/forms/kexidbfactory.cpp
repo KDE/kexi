@@ -52,7 +52,6 @@
 #include "kexidataawarewidgetinfo.h"
 #include <widget/dataviewcommon/kexiformdataiteminterface.h>
 
-#include <KDbUtils>
 #include <KDbConnection>
 
 #include <KActionCollection>

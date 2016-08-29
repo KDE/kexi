@@ -49,14 +49,9 @@
 #include "kexicsvwidgets.h"
 #include <kexi_global.h>
 
-#include <KDb>
 #include <KDbObjectNameValidator>
 #include <KDbConnection>
-#include <KDbTableSchema>
 #include <KDbTableOrQuerySchema>
-#include <KDbTransaction>
-#include <KDbTristate>
-#include <KDbUtils>
 
 #include <KMessageBox>
 #include <KCharsets>

@@ -61,12 +61,11 @@
 #include "startup/KexiStartupDialog.h"
 
 #include <KDbConnection>
-#include <KDbUtils>
+#include <KDbConnectionOptions>
 #include <KDbCursor>
 #include <KDbAdmin>
 #include <KDbDriverManager>
 #include <KDbObjectNameValidator>
-#include <KDbObject>
 
 #include <KPropertyEditorView>
 #include <KPropertySet>
