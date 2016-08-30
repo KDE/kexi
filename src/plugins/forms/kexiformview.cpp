@@ -812,8 +812,9 @@ KexiFormView::storeData(bool dontAsk)
             }
             delete blobsFieldsWithoutID;
             blobsFieldsWithoutID = 0;
-            const quint64 storedBLOBID = conn->lastInsertedAutoIncValue("o_id", "kexi__blobs");
-            if ((quint64) - 1 == storedBLOBID) {
+            const quint64 storedBLOBID = KDb::lastInsertedAutoIncValue(
+                                conn, st.lastInsertRecordId(), "o_id", "kexi__blobs");
+            if (std::numeric_limits<quint64>::max() == storedBLOBID) {
                 //! @todo show message?
                 return false;
             }
