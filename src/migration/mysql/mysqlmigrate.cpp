@@ -27,6 +27,7 @@ KEXI_PLUGIN_FACTORY(MysqlMigrate, "keximigrate_mysql.json")
 MysqlMigrate::MysqlMigrate(QObject *parent, const QVariantList& args)
     : KexiSqlMigrate(QLatin1String("org.kde.kdb.mysql"), parent, args)
 {
+    m_tableNamesSql = KDbEscapedString("SHOW TABLES");
 }
 
 MysqlMigrate::~MysqlMigrate()

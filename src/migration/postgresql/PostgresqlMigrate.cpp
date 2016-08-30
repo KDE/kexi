@@ -27,6 +27,7 @@ KEXI_PLUGIN_FACTORY(PostgresqlMigrate, "keximigrate_postgresql.json")
 PostgresqlMigrate::PostgresqlMigrate(QObject *parent, const QVariantList& args)
     : KexiSqlMigrate(QLatin1String("org.kde.kdb.postgresql"), parent, args)
 {
+    m_tableNamesSql = KDbEscapedString("SELECT table_name FROM information_schema.tables WHERE table_type = 'BASE TABLE' AND table_schema NOT IN ('pg_catalog', 'information_schema')");
 }
 
 PostgresqlMigrate::~PostgresqlMigrate()

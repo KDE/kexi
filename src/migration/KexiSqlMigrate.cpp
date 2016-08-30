@@ -87,10 +87,7 @@ bool KexiSqlMigrate::drv_readTableSchema(
 
 bool KexiSqlMigrate::drv_tableNames(QStringList *tableNames)
 {
-    if (!sourceConnection()->executeSQL(KDbEscapedString("SHOW TABLES"))) {
-        return false;
-    }
-    QScopedPointer<KDbSqlResult> result(sourceConnection()->useSqlResult());
+    QScopedPointer<KDbSqlResult> result(sourceConnection()->executeSQL(m_tableNamesSql));
     if (!result || result->fieldsCount() < 1) {
         return false;
     }
