@@ -59,12 +59,8 @@ bool KexiSqlMigrate::drv_readTableSchema(
     //Perform a query on the table to get some data
     KDbEscapedString sql = KDbEscapedString("SELECT * FROM %1 LIMIT 0")
             .arg(sourceConnection()->escapeIdentifier(tableSchema->name()));
-    if (!sourceConnection()->executeSQL(sql)) {
-        return false;
-    }
-    QScopedPointer<KDbSqlResult> result(sourceConnection()->useSqlResult());
+    QScopedPointer<KDbSqlResult> result(sourceConnection()->executeSQL(sql));
     if (!result) {
-        qWarning() << "null result";
         return false;
     }
 
@@ -107,10 +103,7 @@ bool KexiSqlMigrate::drv_tableNames(QStringList *tableNames)
 tristate KexiSqlMigrate::drv_queryStringListFromSQL(
     const KDbEscapedString& sqlStatement, int fieldIndex, QStringList *stringList, int numRecords)
 {
-    if (!sourceConnection()->executeSQL(sqlStatement)) {
-        return false;
-    }
-    QScopedPointer<KDbSqlResult> result(sourceConnection()->useSqlResult());
+    QScopedPointer<KDbSqlResult> result(sourceConnection()->executeSQL(sqlStatement));
     if (!result) {
         return true;
     }
@@ -136,13 +129,9 @@ bool KexiSqlMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destC
                                  KDbTableSchema* dstTable,
                                  const RecordFilter *recordFilter)
 {
-    if (!sourceConnection()->executeSQL(KDbEscapedString("SELECT * FROM %1")
-                          .arg(sourceConnection()->escapeIdentifier(srcTable))))
-    {
-        //! Can't get the data but we can accept it
-        return true;
-    }
-    QScopedPointer<KDbSqlResult> result(sourceConnection()->useSqlResult());
+    QScopedPointer<KDbSqlResult> result(
+        sourceConnection()->executeSQL(KDbEscapedString("SELECT * FROM %1")
+            .arg(sourceConnection()->escapeIdentifier(srcTable))));
     if (!result) {
         return false;
     }
@@ -187,12 +176,9 @@ bool KexiSqlMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destC
 bool KexiSqlMigrate::drv_getTableSize(const QString& table, quint64 *size)
 {
     Q_ASSERT(size);
-    if (!sourceConnection()->executeSQL(KDbEscapedString("SELECT COUNT(*) FROM %1")
-            .arg(sourceConnection()->escapeIdentifier(table))))
-    {
-        return false;
-    }
-    QScopedPointer<KDbSqlResult> result(sourceConnection()->useSqlResult());
+    QScopedPointer<KDbSqlResult> result(
+        sourceConnection()->executeSQL(KDbEscapedString("SELECT COUNT(*) FROM %1")
+                                       .arg(sourceConnection()->escapeIdentifier(table))));
     if (!result) {
         return false;
     }
@@ -211,16 +197,12 @@ bool KexiSqlMigrate::drv_getTableSize(const QString& table, quint64 *size)
 
 KDbSqlResult* KexiSqlMigrate::drv_readFromTable(const QString& tableName)
 {
-    if (!sourceConnection()->executeSQL(KDbEscapedString("SELECT * FROM %1")
-        .arg(sourceConnection()->escapeIdentifier(tableName))))
-    {
+    QScopedPointer<KDbSqlResult> result(sourceConnection()->executeSQL(KDbEscapedString("SELECT * FROM %1")
+        .arg(sourceConnection()->escapeIdentifier(tableName))));
+    if (!result || result->lastResult().isError()) {
         m_result = sourceConnection()->result();
         qWarning() << m_result;
         return nullptr;
-    }
-    QScopedPointer<KDbSqlResult> result(sourceConnection()->useSqlResult());
-    if (!result || result->lastResult().isError()) {
-        return false;
     }
     return result.take();
 }

@@ -261,21 +261,16 @@ bool KexiMigrate::importTable(const QString& tableName, KDbConnectionProxy *dest
         "FROM kexi__objects WHERE o_name=%1 AND o_type=%2")
             .arg(d->sourceConnection->escapeString(tableName))
             .arg(int(KDb::TableObjectType));
-    if (!d->sourceConnection->executeSQL(sqlStatement)) {
-        m_result = d->sourceConnection->result();
-        return false;
-    }
     QScopedPointer<KDbRecordData> record;
     {
-        QScopedPointer<KDbSqlResult> result(d->sourceConnection->useSqlResult());
+        QScopedPointer<KDbSqlResult> result(d->sourceConnection->executeSQL(sqlStatement));
         if (!result) {
-            qWarning() << "null result";
             m_result = d->sourceConnection->result();
-            return true;
+            return false;
         }
         record.reset(result->fetchRecordData());
         if (!record) {
-            return false;
+            return !result->lastResult().isError();
         }
         if (!destConn->setupObjectData(*record, t.data())) {
             m_result = d->sourceConnection->result();
@@ -286,17 +281,12 @@ bool KexiMigrate::importTable(const QString& tableName, KDbConnectionProxy *dest
         = KDbEscapedString("SELECT t_id, f_type, f_name, f_length, f_precision, f_constraints, "
                            "f_options, f_default, f_order, f_caption, f_help"
                            " FROM kexi__fields WHERE t_id=%1 ORDER BY f_order").arg(t->id());
-    if (!d->sourceConnection->executeSQL(sqlStatement)) {
-        m_result = d->sourceConnection->result();
-        return false;
-    }
     QVector<QList<QVariant>> fieldRecords;
     {
-        QScopedPointer<KDbSqlResult> fieldsResult(d->sourceConnection->useSqlResult());
+        QScopedPointer<KDbSqlResult> fieldsResult(d->sourceConnection->executeSQL(sqlStatement));
         if (!fieldsResult) {
-            qWarning() << "null result";
             m_result = d->sourceConnection->result();
-            return true;
+            return false;
         }
         Q_FOREVER {
             QScopedPointer<KDbRecordData> fieldsRecord(fieldsResult->fetchRecordData());
@@ -425,11 +415,9 @@ bool KexiMigrate::performImportInternal(Kexi::ObjectStatus* result)
             // Skip KDb-compatible schemas that have no physical tables
             QMutableListIterator<QString> kdbTablesIt(kexiDBTables);
             while (kdbTablesIt.hasNext()) {
-                if (d->sourceConnection->executeSQL(KDbEscapedString("SELECT * FROM %1 LIMIT 1")
-                                      .arg(sourceConnection()->escapeIdentifier(kdbTablesIt.next()))))
+                if (true != d->sourceConnection->resultExists(KDbEscapedString("SELECT * FROM %1")
+                        .arg(sourceConnection()->escapeIdentifier(kdbTablesIt.next()))))
                 {
-                    QScopedPointer<KDbSqlResult> result(d->sourceConnection->useSqlResult());
-                } else {
                     qDebug() << "KDb table does not exist:" << kdbTablesIt.value();
                     kdbTablesIt.remove();
                 }
