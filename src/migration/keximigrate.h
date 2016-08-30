@@ -224,6 +224,9 @@ protected:
     virtual bool drv_disconnect();
 
     //! Get table names in source database (driver specific)
+    /*! @return List of table names available for this connection.
+     The names are in lower case. The method should return true only if there was no
+     error on getting database names list from the server. */
     virtual bool drv_tableNames(QStringList *tablenames) = 0;
 
     //! Read schema for a given table (driver specific)
