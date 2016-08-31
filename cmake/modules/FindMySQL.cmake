@@ -21,12 +21,12 @@ if(WIN32)
    find_path(MYSQL_INCLUDE_DIR mysql.h
       PATHS
       $ENV{MYSQL_INCLUDE_DIR}
-      $ENV{MYSQL_DIR}/include/*
-      $ENV{ProgramW6432}/MySQL/*/include/*
-      $ENV{ProgramFiles}/MySQL/*/include/*
-      $ENV{SystemDrive}/MySQL/*/include/*
-      $ENV{ProgramW6432}/*/include/* # MariaDB
-      $ENV{ProgramFiles}/*/include/* # MariaDB
+      $ENV{MYSQL_DIR}/include/mysql
+      $ENV{ProgramW6432}/MySQL/*/include/mysql
+      $ENV{ProgramFiles}/MySQL/*/include/mysql
+      $ENV{SystemDrive}/MySQL/*/include/mysql
+      $ENV{ProgramW6432}/*/include/mysql # MariaDB
+      $ENV{ProgramFiles}/*/include/mysql # MariaDB
    )
 else()
    # use pkg-config to get the directories and then use these values
