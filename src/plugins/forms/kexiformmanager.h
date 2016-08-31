@@ -22,6 +22,8 @@
 
 #include "kexiformpart.h"
 
+#include <KDbField>
+
 class KexiFormView;
 class KActionCollection;
 class KexiFormManagerPrivate;

@@ -26,6 +26,9 @@
 #include <widget/utils/kexicontextmenuutils.h>
 #include <KexiIcon.h>
 
+#include <KDbTableViewColumn>
+#include <KDbQueryColumnInfo>
+
 #include <KIconLoader>
 #include <KLocalizedString>
 

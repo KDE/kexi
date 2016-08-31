@@ -24,6 +24,9 @@
 
 #include <KDb>
 #include <KDbUtils>
+#include <KDbTableViewColumn>
+#include <KDbQueryColumnInfo>
+#include <KDbQuerySchema>
 
 #include <QPalette>
 #include <QPainter>

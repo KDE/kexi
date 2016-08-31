@@ -18,16 +18,6 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include <QPainter>
-#include <QKeyEvent>
-#include <QEvent>
-#include <QMouseEvent>
-#include <QApplication>
-#include <QClipboard>
-#include <QScrollBar>
-#include <QDebug>
-#include <QLineEdit>
-
 #include "kexicomboboxtableedit.h"
 #include <widget/utils/kexicomboboxdropdownbutton.h>
 #include <kexiutils/utils.h>
@@ -35,6 +25,16 @@
 #include "KexiTableScrollArea.h"
 #include "KexiTableScrollAreaWidget.h"
 #include "kexi.h"
+
+#include <KDbQueryColumnInfo>
+#include <KDbQuerySchema>
+
+#include <QApplication>
+#include <QClipboard>
+#include <QDebug>
+#include <QLineEdit>
+#include <QPainter>
+#include <QScrollBar>
 
 // the right margin is too large when the editor is show, reduce it
 const int RIGHT_MARGIN_DELTA = 6;

@@ -29,8 +29,9 @@
 #include <KexiWindow.h>
 
 #include <KDbConnection>
-#include <KDbParser>
 #include <KDbNativeStatementBuilder>
+#include <KDbParser>
+#include <KDbQuerySchema>
 
 #include <KMessageBox>
 

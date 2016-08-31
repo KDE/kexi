@@ -22,11 +22,14 @@
 #include "KexiDataTableScrollArea.h"
 #include "KexiTableScrollArea_p.h"
 #include "kexitableedit.h"
-
 #include <kexi_global.h>
+
 #include <KDbConnection>
-#include <KDbLookupFieldSchema>
 #include <KDbCursor>
+#include <KDbExpression>
+#include <KDbLookupFieldSchema>
+#include <KDbQuerySchema>
+#include <KDbTableViewColumn>
 
 #include <QDebug>
 #include <QEvent>

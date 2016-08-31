@@ -21,6 +21,8 @@
 #include "PostgresqlMigrate.h"
 #include <kexi.h>
 
+#include <KPluginFactory>
+
 /* This is the implementation for the specific import routines. */
 KEXI_PLUGIN_FACTORY(PostgresqlMigrate, "keximigrate_postgresql.json")
 

@@ -23,6 +23,8 @@
 #include <QPainter>
 #include <QDebug>
 
+#include <KDbUtils>
+
 #include <kexiutils/SmallToolButton.h>
 #include <kexiutils/KexiTester.h>
 #include <kexiutils/KexiFadeWidgetEffect.h>

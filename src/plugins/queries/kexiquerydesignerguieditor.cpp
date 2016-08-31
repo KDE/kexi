@@ -38,9 +38,13 @@
 #include <kexi_global.h>
 
 #include <KDbConnection>
-#include <KDbParser>
-#include <KDbTableOrQuerySchema>
+#include <KDbExpression>
 #include <KDbNativeStatementBuilder>
+#include <KDbParser>
+#include <KDbQuerySchema>
+#include <KDbRelationship>
+#include <KDbTableOrQuerySchema>
+#include <KDbTableViewColumn>
 
 #include <KProperty>
 #include <KPropertySet>

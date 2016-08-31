@@ -25,6 +25,7 @@
 #include <core/KexiWindow.h>
 
 #include <KDbRecordEditBuffer>
+#include <KDbTableViewColumn>
 
 #include <KActionCollection>
 

@@ -26,8 +26,11 @@
 #include <core/KexiMainWindowIface.h>
 
 #include <KDb>
+#include <KDbConnection>
 #include <KDbCursor>
 #include <KDbTableViewData>
+#include <KDbTableViewColumn>
+#include <KDbTransaction>
 
 #include <QDebug>
 

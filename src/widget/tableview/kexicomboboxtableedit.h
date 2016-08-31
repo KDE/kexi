@@ -25,6 +25,7 @@
 #include "kexicomboboxbase.h"
 #include <KDbField>
 #include <KDbLookupFieldSchema>
+#include <KDbTableViewColumn>
 
 #include <QKeyEvent>
 #include <QEvent>

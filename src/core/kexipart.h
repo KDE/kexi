@@ -33,6 +33,7 @@ class KActionCollection;
 class KexiWindow;
 class KexiWindowData;
 class KexiView;
+class KDbQuerySchema;
 class QAction;
 class QKeySequence;
 

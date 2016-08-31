@@ -41,6 +41,7 @@
 #include <KDbConnection>
 #include <KDbCursor>
 #include <KDbPreparedStatement>
+#include <KDbQuerySchemaParameter>
 #include <KDbTableViewData>
 
 #include <KPropertySet>

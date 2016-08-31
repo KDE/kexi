@@ -21,6 +21,8 @@
 #include "KexiTableScrollArea.h"
 #include "KexiTableScrollAreaHeaderModel.h"
 
+#include <KDbTableViewColumn>
+
 #include <QApplication>
 #include <QToolTip>
 #include <QProxyStyle>

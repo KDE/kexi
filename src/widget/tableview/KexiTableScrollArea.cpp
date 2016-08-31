@@ -38,6 +38,7 @@
 #include <config-kexi.h>
 
 #include <KDbCursor>
+#include <KDbTableViewColumn>
 #include <KDbValidator>
 
 #include <KColorScheme>

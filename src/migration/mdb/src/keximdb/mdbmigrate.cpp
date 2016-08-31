@@ -31,6 +31,8 @@
 #include <QList>
 #include <QDebug>
 
+#include <KPluginFactory>
+
 using namespace KexiMigration;
 
 /* This is the implementation for the MDB file import routines. */

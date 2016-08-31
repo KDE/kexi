@@ -20,7 +20,11 @@ the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 
 #include "TsvMigrate.h"
 #include <kexi.h>
+
 #include <KDbSqlResult>
+#include <KDbSqlString>
+
+#include <KPluginFactory>
 
 #include <QDebug>
 #include <QDir>

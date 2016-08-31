@@ -19,6 +19,7 @@
 #include "kexidbreportdata.h"
 #include <core/kexipart.h>
 
+#include <KDbConnection>
 #include <KDbQuerySchema>
 #include <KDbNativeStatementBuilder>
 

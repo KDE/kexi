@@ -30,6 +30,9 @@
 #include <kexiutils/utils.h>
 #include <kexi_global.h>
 
+#include <KDbQueryColumnInfo>
+#include <KDbTableViewColumn>
+
 #include <QDebug>
 #include <QMenu>
 #include <QPalette>

@@ -23,6 +23,8 @@
 #include "kexisourceselector.h"
 #include <KexiIcon.h>
 
+#include <KDbConnection>
+
 #include <QShortcut>
 #include <QDebug>
 #include <QScrollArea>

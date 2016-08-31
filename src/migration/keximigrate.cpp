@@ -27,7 +27,9 @@
 #include <KDbDriverManager>
 #include <KDbDriverMetaData>
 #include <KDbProperties>
+#include <KDbRecordData>
 #include <KDbSqlResult>
+#include <KDbVersionInfo>
 
 #include <QInputDialog>
 #include <QMutableListIterator>

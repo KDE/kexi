@@ -31,6 +31,8 @@
 
 #include <KDbParser>
 #include <KDbCursor>
+#include <KDbQuerySchemaParameter>
+#include <KDbTableViewColumn>
 
 //! @internal
 class KexiQueryView::Private

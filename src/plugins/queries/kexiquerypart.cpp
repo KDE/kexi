@@ -29,6 +29,7 @@
 
 #include <KDbCursor>
 #include <KDbParser>
+#include <KDbQuerySchema>
 
 #include <QDebug>
 

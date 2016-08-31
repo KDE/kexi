@@ -28,6 +28,7 @@
 #include "KexiTableScrollAreaWidget.h"
 
 #include <KDbTableSchema>
+#include <KDbTableViewColumn>
 
 #include <QApplication>
 #include <QDesktopWidget>

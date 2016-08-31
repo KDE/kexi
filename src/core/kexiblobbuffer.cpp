@@ -33,6 +33,8 @@
 #include <QImageReader>
 
 #include <KDbConnection>
+#include <KDbQuerySchema>
+#include <KDbRecordData>
 
 Q_GLOBAL_STATIC(KexiBLOBBuffer, _buffer)
 

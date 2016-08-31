@@ -27,6 +27,7 @@
 #include "kexiblobtableedit.h"
 #include "kexibooltableedit.h"
 
+#include <KDbQueryColumnInfo>
 #include <KDbIndexSchema>
 #include <KDbTableSchema>
 #include <KDbTableViewData>

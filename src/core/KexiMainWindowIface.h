@@ -32,6 +32,8 @@
 #include "kexisharedactionhost.h"
 #include "kexi.h"
 
+class KDbQuerySchema;
+
 class KexiWindow;
 class KexiProject;
 class KActionCollection;

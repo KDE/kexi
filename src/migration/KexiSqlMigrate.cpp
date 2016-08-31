@@ -25,6 +25,9 @@
 #include <KDbDriverManager>
 #include <KDbConnectionProxy>
 #include <KDbSqlResult>
+#include <KDbSqlString>
+#include <KDbQueryColumnInfo>
+#include <KDbQuerySchema>
 
 KexiSqlMigrate::KexiSqlMigrate(const QString &kdbDriverId, QObject *parent,
                                const QVariantList& args)

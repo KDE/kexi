@@ -21,6 +21,8 @@
 #include "mysqlmigrate.h"
 #include <kexi.h>
 
+#include <KPluginFactory>
+
 /* This is the implementation for the MySQL specific import routines. */
 KEXI_PLUGIN_FACTORY(MysqlMigrate, "keximigrate_mysql.json")
 

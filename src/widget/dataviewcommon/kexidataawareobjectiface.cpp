@@ -30,7 +30,9 @@
 #include <kexiutils/utils.h>
 #include <widget/utils/kexirecordnavigator.h>
 
+#include <KDbQueryColumnInfo>
 #include <KDbRecordEditBuffer>
+#include <KDbTableViewColumn>
 #include <KDbValidator>
 
 #include <KMessageBox>

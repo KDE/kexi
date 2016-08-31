@@ -27,6 +27,8 @@
 #include <KexiJsonTrader.h>
 #include <config-kexi.h>
 
+#include <KDbVersionInfo>
+
 #include <KLocalizedString>
 
 #include <QDebug>

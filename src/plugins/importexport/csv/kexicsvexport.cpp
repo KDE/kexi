@@ -27,9 +27,13 @@
 #include <kexiutils/utils.h>
 #include <widget/kexicharencodingcombobox.h>
 
+#include <KDb>
+#include <KDbConnection>
 #include <KDbCursor>
-#include <KDbUtils>
+#include <KDbQuerySchema>
 #include <KDbTableOrQuerySchema>
+#include <KDbTableSchema>
+#include <KDbUtils>
 
 #include <KLocalizedString>
 

@@ -36,6 +36,7 @@
 #include <KDbConnection>
 #include <KDbConnectionOptions>
 #include <KDbLookupFieldSchema>
+#include <KDbTableViewColumn>
 
 #include <KToggleAction>
 #include <KMessageBox>

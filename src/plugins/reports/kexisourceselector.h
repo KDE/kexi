@@ -27,6 +27,8 @@
 #ifdef HAVE_KEXI_MIGRATE
 #include "keximigratereportdata.h"
 #endif
+
+class QDomElement;
 class KexiProject;
 
 //! @todo rename to KexiReportDataSourcePage

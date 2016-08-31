@@ -30,9 +30,11 @@
 #include <widget/KexiFileWidget.h>
 #include <KexiIcon.h>
 
+#include <KDbConnection>
 #include <KDbCursor>
-#include <KDbUtils>
+#include <KDbQuerySchema>
 #include <KDbTableOrQuerySchema>
+#include <KDbUtils>
 
 #include <KSharedConfig>
 #include <KLocalizedString>
