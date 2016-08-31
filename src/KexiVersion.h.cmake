@@ -189,7 +189,7 @@ class QString;
  * @ingroup CalligraMacros
  * @brief Indicates the git sha1 commit which was used for compilation of Calligra
  */
-#cmakedefine KEXI_GIT_SHA1_STRING "@KEXI_SHA1_STRING@"
+#cmakedefine KEXI_GIT_SHA1_STRING "@KEXI_GIT_SHA1_STRING@"
 
 /**
  * @def KEXI_GIT_BRANCH_STRING
