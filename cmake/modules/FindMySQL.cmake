@@ -97,6 +97,12 @@ if(_LIBMYSQL_LIBRARY)
    get_filename_component(MYSQL_LIB_DIR ${_LIBMYSQL_LIBRARY} PATH)
    unset(_LIBMYSQL_LIBRARY)
 endif()
+if(_MYSQLCLIENT_LIBRARY)
+    if(NOT MYSQL_LIB_DIR)
+        get_filename_component(MYSQL_LIB_DIR ${_MYSQLCLIENT_LIBRARY} PATH)
+    endif()
+    unset(_MYSQLCLIENT_LIBRARY)
+endif()
 
 find_library(MYSQL_EMBEDDED_LIBRARIES NAMES mysqld
    PATHS
