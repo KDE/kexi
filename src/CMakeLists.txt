@@ -81,7 +81,11 @@ else()
   set(kexi_SRCS
     main.cpp
     Messages.sh
+
+    # non-source:
     ${CMAKE_SOURCE_DIR}/kexi_xgettext.sh
+    Mainpage.dox
+    Messages.sh
   )
   kexi_add_app_icons(kexi_SRCS)
   add_executable(kexi ${kexi_SRCS})
