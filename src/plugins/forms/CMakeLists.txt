@@ -3,7 +3,7 @@ include_directories( ${CMAKE_SOURCE_DIR}/src/core
     ${CMAKE_SOURCE_DIR}/src/formeditor)
 
 if(MARBLE_FOUND)
-  add_subdirectory(widgets/mapbrowser)
+#TODO  add_subdirectory(widgets/mapbrowser)
 endif()
 
 if(Qt5WebKitWidgets_FOUND)
