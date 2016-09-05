@@ -316,6 +316,10 @@ endif()
 # non-app directories are moved here because they can depend on SHOULD_BUILD_{appname} variables set above
 add_subdirectory(cmake)
 
+if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
+    ki18n_install(po)
+endif()
+
 macro_display_feature_log()
 
 calligra_product_deps_report("product_deps")
