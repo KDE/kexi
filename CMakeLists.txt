@@ -1,45 +1,29 @@
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/modules")
-message("CMake module path:" ${CMAKE_MODULE_PATH})
-
-include(SetKexiVersionInfo)
+find_package(ECM 1.8.0 REQUIRED NOMODULE)
+set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 include(SetKexiCMakePolicies NO_POLICY_SCOPE)
+include(SetKexiVersionInfo)
+
 project(Kexi VERSION ${KEXI_VERSION})
 
-# ensure out-of-source build
-string(COMPARE EQUAL "${CMAKE_SOURCE_DIR}" "${CMAKE_BINARY_DIR}" isBuildInSource)
-if(isBuildInSource)
-    message(FATAL_ERROR "Compiling Kexi inside the source directory is not possible. "
-                        "Please refer to the build instruction https://community.kde.org/Kexi/Building")
-endif()
+include(ECMInstallIcons)
+include(ECMAddAppIcon)
+include(ECMSetupVersion)
+include(ECMAddTests)
+include(ECMMarkAsTest)
+include(ECMMarkNonGuiExecutable)
+include(ECMGenerateHeaders)
+include(ECMPoQmTools)
 
-# fetch git revision for the current build
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings)
 
-set(KEXI_GIT_SHA1_STRING "")
-set(KEXI_GIT_BRANCH_STRING "")
+include(KexiMacros)
 
-include(GetGitRevisionDescription)
-get_git_head_revision(GIT_REFSPEC GIT_SHA1)
-get_git_branch(GIT_BRANCH)
-
-if(GIT_SHA1 AND GIT_BRANCH)
-    string(SUBSTRING ${GIT_SHA1} 0 7 GIT_SHA1)
-    set(KEXI_GIT_SHA1_STRING ${GIT_SHA1})
-    set(KEXI_GIT_BRANCH_STRING ${GIT_BRANCH})
-endif()
-
-if(NOT DEFINED RELEASE_BUILD)
-    # estimate mode by CMAKE_BUILD_TYPE content if not set on cmdline
-    string(TOLOWER "${CMAKE_BUILD_TYPE}" CMAKE_BUILD_TYPE_TOLOWER)
-    set(RELEASE_BUILD_TYPES "release" "relwithdebinfo" "minsizerel")
-    list(FIND RELEASE_BUILD_TYPES "${CMAKE_BUILD_TYPE_TOLOWER}" INDEX)
-    if (INDEX EQUAL -1)
-        set(RELEASE_BUILD FALSE)
-    else()
-        set(RELEASE_BUILD TRUE)
-    endif()
-endif()
-message(STATUS "Release build: ${RELEASE_BUILD}")
+ensure_out_of_source_build("Please refer to the build instruction https://community.kde.org/Kexi/Building")
+get_git_revision_and_branch()
+detect_release_build()
 
  #######################
 ########################
@@ -80,33 +64,9 @@ calligra_set_productset(${PRODUCTSET})
 
  ##########################
 ###########################
-## Look for ECM, Qt, KF5 ##
+## Look for Qt, KF5 ##
 ###########################
 ##########################
-
-find_package(ECM 1.7.0 REQUIRED NOMODULE)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
-
-# CMake macros
-include(CheckFunctionExists)
-include(GenerateExportHeader)
-# ECM macros
-include(ECMInstallIcons)
-include(ECMAddAppIcon)
-include(ECMSetupVersion)
-include(ECMAddTests)
-include(ECMMarkAsTest)
-include(ECMMarkNonGuiExecutable)
-include(ECMGenerateHeaders)
-include(ECMPoQmTools)
-# ECM KDE macros
-include(KDEInstallDirs)
-include(KDECMakeSettings)
-include(KDECompilerSettings)
-include(MacroBoolTo01)
-# own macros
-include(MacroLogFeature)
-include(MacroEnsureVersion)
 
 set(REQUIRED_KF5_VERSION 5.16.0)
 find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS
@@ -163,9 +123,9 @@ set(KEXI_PLUGIN_INSTALL_DIR ${LIB_INSTALL_DIR}/kexi)
 
 # TEMPORARY: for initial Qt5/KF5 build porting phase deprecation warnings are only annoying noise
 # remove once code porting phase starts, perhaps first locally in product subdirs
-if (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_GNUC)
-    add_definitions(-Wno-deprecated -Wno-deprecated-declarations)
-endif ()
+#if (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_GNUC)
+#    add_definitions(-Wno-deprecated -Wno-deprecated-declarations)
+#endif ()
 
  ###########################
 ############################
@@ -248,8 +208,7 @@ if(WIN32)
     set(ICONS_INSTALL_DIR ${CMAKE_INSTALL_FULL_ICONDIR})
 else()
     # On other OSes install own icons in app's data dir
-    string(TOLOWER "${PROJECT_NAME}" _PROJECT_NAME_LOWER)
-    set(ICONS_INSTALL_DIR "${DATA_INSTALL_DIR}/${_PROJECT_NAME_LOWER}/icons")
+    set(ICONS_INSTALL_DIR "${DATA_INSTALL_DIR}/${PROJECT_NAME_LOWER}/icons")
 endif()
 
 ##
@@ -267,19 +226,6 @@ macro_log_feature(Qt5WebKitWidgets_FOUND "Qt WebkitWidgets" "QWidgets module for
 
 include(MacroCalligraAddBenchmark)
 include(MacroCalligraAddTest)
-
- ###################################################
-####################################################
-## Detect which products/features can be compiled ##
-####################################################
-###################################################
-
-if (NOT WIN32)
-    set(NOT_WIN TRUE)
-endif()
-if (NOT QT_MAC_USE_COCOA)
-    set(NOT_COCOA TRUE)
-endif()
 
 #############################################
 ####      Temporarily broken products    ####
