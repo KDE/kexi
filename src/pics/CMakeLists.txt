@@ -48,3 +48,9 @@ install(FILES
         ${_RESOURCE_DIR}/${_RCC_FILE}
         DESTINATION "${ICONS_INSTALL_DIR}"
 )
+
+add_update_file_target(update_kexi_breeze
+                       "${CMAKE_CURRENT_SOURCE_DIR}/update_kexi_breeze_list.sh"
+                       kexi_breeze_files.cmake
+                       "${CMAKE_CURRENT_SOURCE_DIR}/update_kexi_breeze_list.sh"
+)
