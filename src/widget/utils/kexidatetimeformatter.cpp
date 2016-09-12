@@ -218,11 +218,15 @@ QVariant KexiDateFormatter::stringToVariant(const QString& str, bool *ok) const
     const QDate date(fromString(str, ok));
     if (date.isValid()) {
         return date;
+    }
     return QVariant();
 }
 
 bool KexiDateFormatter::isEmpty(const QString& str) const
 {
+    if (str.isEmpty()) {
+        return true;
+    }
     QString s(str);
     return s.remove(d->separator).trimmed().isEmpty();
 }
@@ -311,6 +315,7 @@ KexiTimeFormatter::~KexiTimeFormatter()
 
 QTime KexiTimeFormatter::fromString(const QString& str) const
 {
+    QTime time;
     int hour, min, sec;
     bool pm = false;
 
@@ -337,7 +342,8 @@ QTime KexiTimeFormatter::fromString(const QString& str) const
 
     if (pm && hour < 12)
         hour += 12; //PM
-    return QTime(hour, min, sec);
+    time = QTime(hour, min, sec);
+    return time;
 }
 
 QVariant KexiTimeFormatter::stringToVariant(const QString& str, bool *ok)
