@@ -54,6 +54,14 @@ public:
     //! Affects toString() when field type is @c Float or @c Double.
     OverrideDecimalPlaces overridesDecimalPlaces() const;
 
+    //! Enables or disables thousands separators for converting floating point numbers
+    //! to string using toString().
+    void setGroupSeparatorsEnabled(bool set);
+
+    //! @return true if thousands separators is used for converting floating point numbers
+    //! to string using toString().
+    bool isGroupSeparatorsEnabled() const;
+
     /*! \return string converted from \a value.
      A field schema set using setField() is used to perform the formatting.
      \a add is a text that should be added to the value if possible.

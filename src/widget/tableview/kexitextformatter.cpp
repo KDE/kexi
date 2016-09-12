@@ -44,6 +44,7 @@ public:
     KexiDateFormatter *dateFormatter;
     KexiTimeFormatter *timeFormatter;
     KexiTextFormatter::OverrideDecimalPlaces overrideDecimalPlaces;
+    QLocale locale;
 };
 
 KexiTextFormatter::KexiTextFormatter()
@@ -89,6 +90,16 @@ void KexiTextFormatter::setOverrideDecimalPlaces(const OverrideDecimalPlaces& ov
     d->overrideDecimalPlaces = overrideDecimalPlaces;
 }
 
+void KexiTextFormatter::setGroupSeparatorsEnabled(bool set)
+{
+    d->locale.setNumberOptions(set ? QLocale::NumberOptions() : QLocale::OmitGroupSeparator);
+}
+
+bool KexiTextFormatter::isGroupSeparatorsEnabled() const
+{
+    return !(d->locale.numberOptions() & QLocale::OmitGroupSeparator);
+}
+
 KexiTextFormatter::OverrideDecimalPlaces KexiTextFormatter::overridesDecimalPlaces() const
 {
     return d->overrideDecimalPlaces;
@@ -132,13 +143,11 @@ QString KexiTextFormatter::toString(const QVariant& value, const QString& add,
         if (value.toDouble() == 0.0) {
             return add.isEmpty() ? QString::fromLatin1("0") : add; //eat 0
         }
-        QLocale locale;
-        locale.setNumberOptions(QLocale::OmitGroupSeparator);
         return KDb::numberToLocaleString(
-            value.toDouble(),
+            value.toDouble(), // use Double for Float too for better accuracy
             d->overrideDecimalPlaces.enabled ? d->overrideDecimalPlaces.value
                                              : d->field->visibleDecimalPlaces(),
-            &locale) + add;
+            &d->locale) + add;
     }
 
     switch (d->field->type()) {
@@ -216,10 +225,10 @@ QVariant KexiTextFormatter::fromString(const QString& text, bool *ok) const
         }
         // locale parses decimal point and thousands group separators for us
         case KDbField::Float:
-            result = QLocale().toFloat(text, ok);
+            result = d->locale.toFloat(text, ok);
             break;
         case KDbField::Double:
-            result = QLocale().toDouble(text, ok);
+            result = d->locale.toDouble(text, ok);
             break;
         default:
             break;
