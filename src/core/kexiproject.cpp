@@ -545,7 +545,7 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
             }
         }
         //! just insert this schema, proper table exists
-        d->connection->insertInternalTable(t_blobs.take());
+        d->connection->createTable(t_blobs.take());
     } else {
         if (!d->connection->options()->isReadOnly()) {
             if (!d->connection->createTable(t_blobs.data(), true/*replaceExisting*/)) {
@@ -572,7 +572,7 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
 
     if (true == containsKexi__partsTable) {
         //! just insert this schema
-        d->connection->insertInternalTable(t_parts.take());
+        d->connection->createTable(t_parts.take());
     } else {
         if (!d->connection->options()->isReadOnly()) {
             bool partsTableOk = d->connection->createTable(t_parts.data(), true/*replaceExisting*/);
@@ -620,7 +620,7 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
     t_userdata->addField(new KDbField("d_data", KDbField::LongText));
 
     if (true == containsKexi__userdataTable) {
-        d->connection->insertInternalTable(t_userdata.take());
+        d->connection->createTable(t_userdata.take());
     }
     else if (!d->connection->options()->isReadOnly()) {
         if (!d->connection->createTable(t_userdata.data(), true/*replaceExisting*/)) {
