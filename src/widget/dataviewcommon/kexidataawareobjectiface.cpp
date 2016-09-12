@@ -859,7 +859,7 @@ bool KexiDataAwareObjectInterface::acceptEditor()
             if (m_editor->field()->isNotNull() && !autoIncColumnCanBeOmitted) {
                 qDebug() << "NULL NOT ALLOWED!";
                 res = KDbValidator::Error;
-                msg = KDbValidator::msgColumnNotEmpty().arg(m_editor->field()->captionOrName())
+                msg = KDbValidator::messageColumnNotEmpty().arg(m_editor->field()->captionOrName())
                       + "\n\n" + KDbTableViewData::messageYouCanImproveData();
                 desc = xi18n("The column's constraint is declared as NOT NULL (required).");
             } else {
@@ -872,7 +872,7 @@ bool KexiDataAwareObjectInterface::acceptEditor()
                 if (m_editor->field()->isNotEmpty() && !autoIncColumnCanBeOmitted) {
                     qDebug() << "EMPTY NOT ALLOWED!";
                     res = KDbValidator::Error;
-                    msg = KDbValidator::msgColumnNotEmpty().arg(m_editor->field()->captionOrName())
+                    msg = KDbValidator::messageColumnNotEmpty().arg(m_editor->field()->captionOrName())
                           + "\n\n" + KDbTableViewData::messageYouCanImproveData();
                     desc = xi18n("The column's constraint is declared as NOT EMPTY (text should be filled).");
                 } else {
@@ -882,7 +882,7 @@ bool KexiDataAwareObjectInterface::acceptEditor()
                 if (m_editor->field()->isNotNull() && !autoIncColumnCanBeOmitted) {
                     qDebug() << "NEITHER NULL NOR EMPTY VALUE CAN BE SET!";
                     res = KDbValidator::Error;
-                    msg = KDbValidator::msgColumnNotEmpty().arg(m_editor->field()->captionOrName())
+                    msg = KDbValidator::messageColumnNotEmpty().arg(m_editor->field()->captionOrName())
                           + "\n\n" + KDbTableViewData::messageYouCanImproveData();
                     desc = xi18n("The column's constraint is declared as NOT EMPTY and NOT NULL.");
                 } else {

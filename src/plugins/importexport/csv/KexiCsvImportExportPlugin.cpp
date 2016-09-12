@@ -81,7 +81,7 @@ bool KexiCsvImportExportPlugin::executeCommand(const char* commandName,
             KexiMainWindowIface::global()->project()->dbConnection(), options.itemId);
         QTextStream *stream = 0;
         if (args->contains("textStream")) {
-            stream = KDbUtils::stringToPtr<QTextStream>(args->value("textStream"));
+            stream = KDbUtils::stringToPointer<QTextStream>(args->value("textStream"));
         }
         return KexiCSVExport::exportData(&tableOrQuery, options, -1, stream);
     }

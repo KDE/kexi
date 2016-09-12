@@ -199,7 +199,6 @@ KDbAlterTableHandler::ActionBase* RemoveFieldCommand::createAction() const
 InsertFieldCommand::InsertFieldCommand(Command* parent, KexiTableDesignerView* view,
                                        int fieldIndex/*, const KDbField& field*/, const KPropertySet& set)
         : Command(parent, view)
-        , m_alterTableAction(0) //fieldIndex, new KDbField(field) /*deep copy*/)
         , m_set(set)   //? new KPropertySet(*set) : 0 )
 {
     KDbField *f = view->buildField(m_set);
@@ -207,7 +206,7 @@ InsertFieldCommand::InsertFieldCommand(Command* parent, KexiTableDesignerView* v
         m_alterTableAction = new KDbAlterTableHandler::InsertFieldAction(
             fieldIndex, f, set["uid"].value().toInt());
     else //null action
-        m_alterTableAction = new KDbAlterTableHandler::InsertFieldAction(true);
+        m_alterTableAction = new KDbAlterTableHandler::InsertFieldAction;
 
     setText(kundo2_i18n("Insert table field \"%1\"", m_set["caption"].value().toString()));
 }
@@ -279,7 +278,6 @@ void ChangePropertyVisibilityCommand::undoInternal()
 
 InsertEmptyRecordCommand::InsertEmptyRecordCommand(Command* parent, KexiTableDesignerView* view, int row)
         : Command(parent, view)
-        , m_alterTableAction(true) //unused, null action
         , m_row(row)
 {
     setText(kundo2_noi18n("Insert empty row at position %1", m_row));
