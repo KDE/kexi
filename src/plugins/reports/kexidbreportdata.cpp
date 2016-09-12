@@ -37,7 +37,6 @@ public:
     {
         delete copySchema;
         delete originalSchema;
-        delete cursor;
     }
 
 
@@ -132,14 +131,12 @@ bool KexiDBReportData::open()
 
 bool KexiDBReportData::close()
 {
-    if ( d->cursor )
-    {
+    if (d->cursor) {
         const bool ok = d->cursor->close();
-        delete d->cursor;
-        d->cursor = 0;
+        d->connection->deleteCursor(d->cursor);
+        d->cursor = nullptr;
         return ok;
     }
-
     return true;
 }
 
