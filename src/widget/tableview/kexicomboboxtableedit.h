@@ -44,7 +44,7 @@ public:
     virtual ~KexiComboBoxTableEdit();
 
     //! Implemented for KexiComboBoxBase
-    virtual KDbTableViewColumn *column() const {
+    virtual const KDbTableViewColumn *column() const {
         return m_column;
     }
 

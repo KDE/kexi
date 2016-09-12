@@ -113,7 +113,7 @@ public:
 
 const int KexiComboBoxPopup::defaultMaxRecordCount = 8;
 
-KexiComboBoxPopup::KexiComboBoxPopup(QWidget* parent, KDbTableViewColumn &column)
+KexiComboBoxPopup::KexiComboBoxPopup(QWidget* parent, const KDbTableViewColumn &column)
         : QFrame(parent, Qt::Popup)
         , d( new KexiComboBoxPopupPrivate )
 {
@@ -163,7 +163,7 @@ void KexiComboBoxPopup::init()
             this, SLOT(slotTVItemAccepted(KDbRecordData*,int,int)));
 }
 
-void KexiComboBoxPopup::setData(KDbTableViewColumn *column, KDbField *field)
+void KexiComboBoxPopup::setData(const KDbTableViewColumn *column, KDbField *field)
 {
     d->visibleColumnsToShow.clear();
     if (column && !field)

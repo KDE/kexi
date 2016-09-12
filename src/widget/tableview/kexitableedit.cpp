@@ -100,7 +100,7 @@ void KexiTableEdit::setColumnInfo(KDbQueryColumnInfo *)
 {
 }
 
-KDbTableViewColumn *KexiTableEdit::column() const
+const KDbTableViewColumn *KexiTableEdit::column() const
 {
     return m_column;
 }
@@ -152,7 +152,7 @@ void KexiTableEdit::createInternalEditor(KDbQuerySchema& schema)
     Q_UNUSED(schema);
 }
 
-KDbField *KexiTableEdit::displayedField() const
+const KDbField *KexiTableEdit::displayedField() const
 {
     if (m_column->visibleLookupColumnInfo())
         return m_column->visibleLookupColumnInfo()->field; //mainly for lookup field in KexiComboBoxTableEdit:

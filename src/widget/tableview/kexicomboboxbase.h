@@ -41,7 +41,7 @@ public:
     virtual ~KexiComboBoxBase();
 
     //! \return column related to this combo; for KexiComboBoxTableEdit 0 is returned here
-    virtual KDbTableViewColumn *column() const = 0;
+    virtual const KDbTableViewColumn *column() const = 0;
 
     //! \return database field related to this combo
     virtual KDbField *field() const = 0;

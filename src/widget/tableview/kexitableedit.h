@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2002 Peter Simonsson <psn@linux.se>
-   Copyright (C) 2003-2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -59,14 +59,14 @@ public:
 
     //! \return column information for this item
     //! (extended information, comparing to field()).
-    KDbTableViewColumn *column() const;
+    const KDbTableViewColumn *column() const;
 
     /*! \return displayed field. This is equal to field() in typical case but can return a different field
      definition if the column contains a lookup field. This distiction is especially used for
      displaying data dependent on the type and specifics of the field definition
      (e.g. text type versus integer type). Note that to compute the editor's value
      we still use field(). */
-    KDbField *displayedField() const;
+    const KDbField *displayedField() const;
 
     /*! Reimplemented: resizes a view(). */
     virtual void resize(int w, int h);
@@ -189,7 +189,7 @@ protected:
      displayed by a QWidget but rather by table view cell itself, for example KexiBlobTableEdit. */
     void repaintRelatedCell();
 
-    KDbTableViewColumn *m_column;
+    const KDbTableViewColumn * const m_column;
     KexiTextFormatter* m_textFormatter;
     int m_leftMargin;
     int m_rightMargin, m_rightMarginWhenFocused;

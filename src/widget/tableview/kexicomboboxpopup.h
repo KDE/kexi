@@ -39,7 +39,7 @@ public:
      If the column is lookup column, it's definition is used to display
      one or more column within the popup. Otherwise column.field() is used
      to display single-column data. */
-    KexiComboBoxPopup(QWidget* parent, KDbTableViewColumn &column);
+    KexiComboBoxPopup(QWidget* parent, const KDbTableViewColumn &column);
 
     /*! Alternative constructor supporting lookup fields and enum hints. */
     KexiComboBoxPopup(QWidget* parent, KDbField &field);
@@ -77,7 +77,7 @@ protected:
 
     //! The main function for setting data; data can be set either by passing \a column or \a field.
     //! The second case is used for lookup
-    void setData(KDbTableViewColumn *column, KDbField *field);
+    void setData(const KDbTableViewColumn *column, KDbField *field);
 
     //! used by setData()
     void setDataInternal(KDbTableViewData *data, bool owner = true);   //!< helper
