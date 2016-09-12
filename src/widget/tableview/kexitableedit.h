@@ -31,6 +31,7 @@
 
 class KDbField;
 class KDbQueryColumnInfo;
+class KexiTextFormatter;
 
 /*! @short Abstract class for a cell editor.
  Handles cell painting and displaying the editor widget.
@@ -189,6 +190,7 @@ protected:
     void repaintRelatedCell();
 
     KDbTableViewColumn *m_column;
+    KexiTextFormatter* m_textFormatter;
     int m_leftMargin;
     int m_rightMargin, m_rightMarginWhenFocused;
     bool m_usesSelectedTextColor; //!< set in ctor, @see usesSelectedTextColor()

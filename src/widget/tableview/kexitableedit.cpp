@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2002 Peter Simonsson <psn@linux.se>
-   Copyright (C) 2003-2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -21,6 +21,7 @@
 #include "kexitableedit.h"
 #include <widget/dataviewcommon/kexidataawareobjectiface.h>
 #include <widget/tableview/KexiTableScrollArea.h>
+#include <kexitextformatter.h>
 
 #include <KDb>
 #include <KDbUtils>
@@ -43,6 +44,7 @@ KexiTableEdit::KexiTableEdit(KDbTableViewColumn &column, QWidget* parent)
         KexiTableEdit::KexiTableEdit(KDbTableViewColumn &column, QWidget* parent)
         : QWidget(parent)
         , m_column(&column)
+        , m_textFormatter(nullptr)
         , m_usesSelectedTextColor(true)
         , m_view(0)
 #endif
@@ -81,6 +83,7 @@ KexiTableEdit::KexiTableEdit(KDbTableViewColumn &column, QWidget* parent)
 
 KexiTableEdit::~KexiTableEdit()
 {
+    delete m_textFormatter;
 }
 
 KDbField *KexiTableEdit::field() const
@@ -210,33 +213,25 @@ void KexiTableEdit::setupContents(QPainter *p, bool focused, const QVariant& val
                                   QString &txt, int &align, int &/*x*/, int &y_offset, int &w, int &h)
 {
     Q_UNUSED(p);
-    Q_UNUSED(focused);
     Q_UNUSED(h);
-    KDbField *realField = displayedField();
+    const KDbField *realField = displayedField();
 
 #ifdef Q_OS_WIN
     y_offset = -1;
 #else
     y_offset = 0;
 #endif
+    if (!m_textFormatter) { // delayed init
+        m_textFormatter = new KexiTextFormatter;
+        m_textFormatter->setField(realField);
+    }
+    //! @todo ADD OPTION to displaying NULL VALUES as e.g. "(null)"
+    txt = m_textFormatter->toString(val, QString(), nullptr);
 
     const KDbField::Type type = realField->type(); // cache: evaluating type of expressions can be expensive
-    if (KDbField::isFPNumericType(type)) {
-//! @todo ADD OPTION to displaying NULL VALUES as e.g. "(null)"
-        if (!val.isNull()) {
-            txt = KDb::formatNumberForVisibleDecimalPlaces(
-                      val.toDouble(), realField->visibleDecimalPlaces());
-        }
+    if (KDbField::isNumericType(type)) {
         align |= Qt::AlignRight;
-    } else if (KDbField::isIntegerType(type)) {
-        qint64 num = val.toLongLong();
-        align |= Qt::AlignRight;
-        if (!val.isNull())
-            txt = QString::number(num);
     } else {//default:
-        if (!val.isNull()) {
-            txt = val.toString();
-        }
         align |= Qt::AlignLeft;
     }
     w -= rightMargin(focused);
