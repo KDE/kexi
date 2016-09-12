@@ -289,6 +289,11 @@ void KexiDBLineEdit::setColumnInfo(KDbQueryColumnInfo* cinfo)
 {
     KexiFormDataItemInterface::setColumnInfo(cinfo);
     m_textFormatter.setField( cinfo ? cinfo->field : 0 );
+    KexiTextFormatter::OverrideDecimalPlaces overrideDecimalPlaces;
+    overrideDecimalPlaces.enabled = true;
+    overrideDecimalPlaces.value = -1; // all possible digits
+    m_textFormatter.setOverrideDecimalPlaces(overrideDecimalPlaces);
+    m_textFormatter.setGroupSeparatorsEnabled(false); // needed, otherwise text box contains separators (confusing)
 
     if (!cinfo)
         return;

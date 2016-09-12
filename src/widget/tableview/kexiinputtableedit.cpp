@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2002 Lucijan Busch <lucijan@gmx.at>
-   Copyright (C) 2003-2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -71,13 +71,11 @@ void KexiInputTableEdit::init()
 // qDebug() << "displayed type== " << displayedField()->typeName();
 
     m_textFormatter.setField( field() );
-
-    //init settings
-    QLocale locale;
-    m_decsym = locale.decimalPoint();
-    if (m_decsym.isNull()) {
-        m_decsym = '.';//default
-    }
+    KexiTextFormatter::OverrideDecimalPlaces overrideDecimalPlaces;
+    overrideDecimalPlaces.enabled = true;
+    overrideDecimalPlaces.value = -1; // all possible digits
+    m_textFormatter.setOverrideDecimalPlaces(overrideDecimalPlaces);
+    m_textFormatter.setGroupSeparatorsEnabled(false); // needed, otherwise text box contains separators (confusing)
 
     //create layer for internal editor
     QHBoxLayout *lyr =  new QHBoxLayout(this);
@@ -189,39 +187,7 @@ bool KexiInputTableEdit::valueIsEmpty()
 
 QVariant KexiInputTableEdit::value()
 {
-    const KDbField::Type type = field()->type(); // cache: evaluating type of expressions can be expensive
-    if (KDbField::isFPNumericType(type)) {//==KDbField::Double || type==KDbField::Float) {
-        //! js @todo PRESERVE PRECISION!
-        QString txt = m_lineedit->text();
-        if (m_decsym != '.')
-            txt.replace(m_decsym, '.'); //convert back
-        bool ok;
-        const double result = txt.toDouble(&ok);
-        return ok ? QVariant(result) : QVariant();
-    } else if (KDbField::isIntegerType(type)) {
-//! @todo check constraints
-        bool ok;
-        if (KDbField::BigInteger == type) {
-            if (field()->isUnsigned()) {
-                const quint64 result = m_lineedit->text().toULongLong(&ok);
-                return ok ? QVariant(result) : QVariant();
-            } else {
-                const qint64 result = m_lineedit->text().toLongLong(&ok);
-                return ok ? QVariant(result) : QVariant();
-            }
-        }
-        if (KDbField::Integer == type) {
-            if (field()->isUnsigned()) {
-                const uint result = m_lineedit->text().toUInt(&ok);
-                return ok ? QVariant(result) : QVariant();
-            }
-        }
-        //default: signed int
-        const int result = m_lineedit->text().toInt(&ok);
-        return ok ? QVariant(result) : QVariant();
-    }
-    //default: text
-    return m_lineedit->text();
+    return m_textFormatter.fromString(m_lineedit->text());
 }
 
 void
