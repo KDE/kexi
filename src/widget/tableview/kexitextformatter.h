@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2007-2012 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2007-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -44,8 +44,10 @@ public:
 
     /*! \return variant value converted from \a text
      A field schema set using setField() is used to perform the formatting.
-     Used in KexiInputTableEdit::setValueInternal(), by form widgets and for reporting/printing. */
-    QVariant fromString(const QString& text) const;
+     @a *ok is set to @c true on success and to @c false on failure.
+     On failure null QVariant is always returned.
+     This method is used in KexiInputTableEdit::value(), by form widgets and for reporting/printing. */
+    QVariant fromString(const QString& text, bool *ok = nullptr) const;
 
     /*! \return true if value formatted as \a text is empty.
      A field schema set using setField() is used to perform the calculation. */

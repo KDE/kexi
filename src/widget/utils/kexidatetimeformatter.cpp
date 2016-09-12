@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2006-2011 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2006-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -172,38 +172,51 @@ KexiDateFormatter::~KexiDateFormatter()
     delete d;
 }
 
-QDate KexiDateFormatter::fromString(const QString& str) const
+QDate KexiDateFormatter::fromString(const QString& str, bool *ok) const
 {
-    bool ok = true;
-    int year = str.mid(d->yearpos, d->longYear ? 4 : 2).toInt(&ok);
-    if (!ok)
+    bool thisOk = true;
+    if (!ok) {
+        ok = &thisOk;
+    }
+    int year = str.mid(d->yearpos, d->longYear ? 4 : 2).toInt(ok);
+    if (!*ok) {
         return QDate();
+    }
     if (year < 30) {//2000..2029
         year = 2000 + year;
     } else if (year < 100) {//1930..1999
         year = 1900 + year;
     }
 
-    int month = str.mid(d->monthpos, 2).toInt(&ok);
-    if (!ok)
+    const int month = str.mid(d->monthpos, 2).toInt(ok);
+    if (!*ok) {
         return QDate();
+    }
 
-    int day = str.mid(d->daypos, 2).toInt(&ok);
-    if (!ok)
+    const int day = str.mid(d->daypos, 2).toInt(ok);
+    if (!*ok) {
         return QDate();
+    }
 
-    QDate date(year, month, day);
-    if (!date.isValid())
+    const QDate date(year, month, day);
+    if (!date.isValid()) {
+        *ok = false;
         return QDate();
+    }
+    *ok = true;
     return date;
 }
 
-QVariant KexiDateFormatter::stringToVariant(const QString& str) const
+QVariant KexiDateFormatter::stringToVariant(const QString& str, bool *ok) const
 {
-    if (isEmpty(str))
+    if (isEmpty(str)) {
+        if (ok) {
+            *ok = true;
+        }
         return QVariant();
-    const QDate date(fromString(str));
-    if (date.isValid())
+    }
+    const QDate date(fromString(str, ok));
+    if (date.isValid()) {
         return date;
     return QVariant();
 }
@@ -327,13 +340,20 @@ QTime KexiTimeFormatter::fromString(const QString& str) const
     return QTime(hour, min, sec);
 }
 
-QVariant KexiTimeFormatter::stringToVariant(const QString& str)
+QVariant KexiTimeFormatter::stringToVariant(const QString& str, bool *ok)
 {
     if (isEmpty(str))
         return QVariant();
     const QTime time(fromString(str));
-    if (time.isValid())
+    if (time.isValid()) {
+        if (ok) {
+            *ok = true;
+        }
         return time;
+    }
+    if (ok) {
+        *ok = false;
+    }
     return QVariant();
 }
 

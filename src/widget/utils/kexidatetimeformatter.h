@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2006-2011 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2006-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -40,17 +40,17 @@ public:
 
     //! Converts string \a str to date using predefined settings.
     //! \return invalid date if the conversion is impossible
-    QDate fromString(const QString& str) const;
+    QDate fromString(const QString& str, bool *ok = nullptr) const;
 
     /*! Converts string \a str to date using predefined settings
      and returns QVariant containing the date value.
      This method does the same as fromString(const QString&) but if \a string
      contains invalid date representation, e.g. contains only spaces
      and separators, null QVariant() is returned. */
-    QVariant stringToVariant(const QString& str) const;
+    QVariant stringToVariant(const QString& str, bool *ok = nullptr) const;
 
     //! Converts \a date to string using predefined settings.
-    //! \return null string if \a date is invalid
+    //! \return empty string if \a date is invalid
     QString toString(const QDate& date) const;
 
     //! \return Input mask generated using the formatter settings.
@@ -96,11 +96,11 @@ public:
      and returns QVariant containing the time value.
      This method does the same as fromString(const QString&) but if \a string
      contains invalid time representation, e.g. contains only spaces
-     and separators, null QVariant() is returned. */
-    QVariant stringToVariant(const QString& str);
+     and separators, null QVariant() is returned and @a *ok is set to false. */
+    QVariant stringToVariant(const QString& str, bool *ok = nullptr);
 
     //! converts \a time to string using predefined settings
-    //! \return null string if \a time is invalid
+    //! \return empty string if \a time is invalid
     QString toString(const QTime& time) const;
 
     //! \return Input mask generated using the formatter settings.

@@ -150,47 +150,66 @@ QString KexiTextFormatter::toString(const QVariant& value, const QString& add,
     return toStringForTextType(value, add, d->field, lengthExceeded);
 }
 
-QVariant KexiTextFormatter::fromString(const QString& text) const
+QVariant KexiTextFormatter::fromString(const QString& text, bool *ok) const
 {
-    if (!d->field)
-        return QVariant();
-
-    switch (d->field->type()) {
-    case KDbField::Text:
-    case KDbField::LongText:
-        return text;
-    case KDbField::Byte:
-    case KDbField::ShortInteger:
-        return text.toShort();
-//! @todo uint, etc?
-    case KDbField::Integer:
-        return text.toInt();
-    case KDbField::BigInteger:
-        return text.toLongLong();
-    case KDbField::Boolean:
-//! @todo temporary solution for booleans!
-        return text == "1";
-    case KDbField::Date:
-        return d->dateFormatter->stringToVariant(text);
-    case KDbField::Time:
-        return d->timeFormatter->stringToVariant(text);
-    case KDbField::DateTime:
-        return KexiDateTimeFormatter::fromString(
-                   *d->dateFormatter, *d->timeFormatter, text);
-    case KDbField::Float:
-    case KDbField::Double: {
-        // replace custom decimal symbol with '.' as required by to{Float|Double}()
-        QString fixedText(text);
-        QLocale locale;
-        fixedText.replace(locale.decimalPoint(), '.');
-        if (d->field->type() == KDbField::Double)
-            return fixedText.toDouble();
-        return fixedText.toFloat();
+    QVariant result;
+    bool thisOk;
+    if (!ok) {
+        ok = &thisOk;
     }
-    default:
-        break;
+    if (d->field) {
+        switch (d->field->type()) {
+        case KDbField::Text:
+        case KDbField::LongText:
+            *ok = true;
+            result = text;
+            break;
+        case KDbField::Byte:
+        case KDbField::ShortInteger:
+            result = d->field->isUnsigned() ? QVariant(text.toUShort(ok)) : QVariant(text.toShort(ok));
+            break;
+    //! @todo uint, etc?
+        case KDbField::Integer:
+            result = d->field->isUnsigned() ? QVariant(text.toUInt(ok)) : QVariant(text.toInt(ok));
+            break;
+        case KDbField::BigInteger:
+            result = d->field->isUnsigned() ? QVariant(text.toULongLong(ok)) : QVariant(text.toLongLong(ok));
+            break;
+        case KDbField::Boolean:
+    //! @todo temporary solution for booleans!
+            *ok = true;
+            result = text == QString::fromLatin1("1");
+            break;
+        case KDbField::Date:
+            result = d->dateFormatter->stringToVariant(text, ok);
+            break;
+        case KDbField::Time:
+            result = d->timeFormatter->stringToVariant(text, ok);
+            break;
+        case KDbField::DateTime: {
+            const QDateTime dt(KexiDateTimeFormatter::fromString(
+                       *d->dateFormatter, *d->timeFormatter, text));
+            *ok = dt.isValid();
+            result = dt;
+            break;
+        }
+        // locale parses decimal point and thousands group separators for us
+        case KDbField::Float:
+            result = QLocale().toFloat(text, ok);
+            break;
+        case KDbField::Double:
+            result = QLocale().toDouble(text, ok);
+            break;
+        default:
+            break;
+        }
+        if (!*ok) {
+            result = QVariant();
+        }
+    } else {
+        *ok = true;
     }
-    return text;
+    return result;
 //! @todo more data types!
 }
 
