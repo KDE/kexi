@@ -24,11 +24,15 @@
 
 #include <QLocale>
 
+KexiTextFormatter::OverrideDecimalPlaces::OverrideDecimalPlaces() : enabled(false), value(-1)
+{
+}
+
 //! @internal
 class KexiTextFormatter::Private
 {
 public:
-    Private() : field(0), dateFormatter(0), timeFormatter(0) {
+    Private() : field(nullptr), dateFormatter(nullptr), timeFormatter(nullptr) {
     }
 
     ~Private() {
@@ -39,6 +43,7 @@ public:
     const KDbField* field;
     KexiDateFormatter *dateFormatter;
     KexiTimeFormatter *timeFormatter;
+    KexiTextFormatter::OverrideDecimalPlaces overrideDecimalPlaces;
 };
 
 KexiTextFormatter::KexiTextFormatter()
@@ -79,6 +84,16 @@ void KexiTextFormatter::setField(const KDbField* field)
     }
 }
 
+void KexiTextFormatter::setOverrideDecimalPlaces(const OverrideDecimalPlaces& overrideDecimalPlaces)
+{
+    d->overrideDecimalPlaces = overrideDecimalPlaces;
+}
+
+KexiTextFormatter::OverrideDecimalPlaces KexiTextFormatter::overridesDecimalPlaces() const
+{
+    return d->overrideDecimalPlaces;
+}
+
 //! toString() implementation for Text type
 static QString toStringForTextType(const QVariant& value, const QString& add,
                                    const KDbField *field,
@@ -114,17 +129,23 @@ QString KexiTextFormatter::toString(const QVariant& value, const QString& add,
     else if (d->field->isFPNumericType()) {
 //! @todo precision!
 //! @todo support 'g' format
-        if (value.toDouble() == 0.0)
-            return add.isEmpty() ? "0" : add; //eat 0
-        return KDb::formatNumberForVisibleDecimalPlaces(
-            value.toDouble(), d->field->visibleDecimalPlaces()) + add;
+        if (value.toDouble() == 0.0) {
+            return add.isEmpty() ? QString::fromLatin1("0") : add; //eat 0
+        }
+        QLocale locale;
+        locale.setNumberOptions(QLocale::OmitGroupSeparator);
+        return KDb::numberToLocaleString(
+            value.toDouble(),
+            d->overrideDecimalPlaces.enabled ? d->overrideDecimalPlaces.value
+                                             : d->field->visibleDecimalPlaces(),
+            &locale) + add;
     }
 
     switch (d->field->type()) {
     case KDbField::Boolean: {
     //! @todo temporary solution for booleans!
         const bool boolValue = value.isNull() ? QVariant(add).toBool() : value.toBool();
-        return boolValue ? "1" : "0";
+        return QString::fromLatin1(boolValue ? "1" : "0");
     }
     case KDbField::Date:
         return d->dateFormatter->toString(

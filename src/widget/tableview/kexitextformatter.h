@@ -36,6 +36,24 @@ public:
     //! Assigns \a field to the formatter. This affects its behaviour.
     void setField(const KDbField* field);
 
+    //! @see KexiTextFormatter::setOverrideDecimalPlaces()
+    class OverrideDecimalPlaces
+    {
+    public:
+        OverrideDecimalPlaces();
+        bool enabled;
+        int value;
+    };
+
+    //! Overrides number of decimal places returned KDbField::visibleDecimalPlaces().
+    //! Affects toString() when field type is @c Float or @c Double.
+    //! See documentation of KDb::numberToString() for information on possible values.
+    void setOverrideDecimalPlaces(const OverrideDecimalPlaces& overrideDecimalPlaces);
+
+    //! @return override for number of decimal places.
+    //! Affects toString() when field type is @c Float or @c Double.
+    OverrideDecimalPlaces overridesDecimalPlaces() const;
+
     /*! \return string converted from \a value.
      A field schema set using setField() is used to perform the formatting.
      \a add is a text that should be added to the value if possible.
