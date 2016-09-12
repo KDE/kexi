@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2007-2012 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2007-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -36,7 +36,7 @@ public:
         delete timeFormatter;
     }
 
-    KDbField* field;
+    const KDbField* field;
     KexiDateFormatter *dateFormatter;
     KexiTimeFormatter *timeFormatter;
 };
@@ -51,7 +51,7 @@ KexiTextFormatter::~KexiTextFormatter()
     delete d;
 }
 
-void KexiTextFormatter::setField(KDbField* field)
+void KexiTextFormatter::setField(const KDbField* field)
 {
     d->field = field;
     if (!d->field)
@@ -81,7 +81,7 @@ void KexiTextFormatter::setField(KDbField* field)
 
 //! toString() implementation for Text type
 static QString toStringForTextType(const QVariant& value, const QString& add,
-                                   KDbField *field,
+                                   const KDbField *field,
                                    bool *lengthExceeded)
 {
     const QString str(value.toString());
