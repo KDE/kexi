@@ -1,7 +1,7 @@
 #! /bin/sh
 source ../kexi_xgettext.sh
 
-potfile=kexi
+potfile=kexi.pot
 find_exclude $potfile
 
 LIST="`find . \( $EXCLUDE \) -prune -o \( -name \*.ui \) -type f -print | grep -v -e '/\.'`"
@@ -14,5 +14,5 @@ LIST=`find . \( $EXCLUDE \) -prune -o \( -name \*.h -o -name \*.cpp -o -name \*.
     if ! grep -q '^#warning noi18n ' $f ; then echo $f; fi \
 done \
 `
-kexi_xgettext $potfile.pot $LIST
+kexi_xgettext $potfile $LIST
 rm -f rc.cpp

@@ -68,7 +68,7 @@ function kexi_xgettext_internal() {
 
 # Sets EXCLUDE variable to excludes compatible with the find(1) command, e.g. '-path a -o -path b'.
 # To unconditionally exclude dir (with subdirs) just put an empty file .i18n in it.
-# To exclude dir for all translations but one, e.g. foo.pot, put a single "foo" line into the .i18n file.
+# To disable excluding for given file, e.g. foo.pot, add "foo.pot" line to the .i18n file.
 function find_exclude() {
     EXCLUDE=""
     for f in `find . -name .i18n | sed 's/\/\.i18n$//g' | sort`; do

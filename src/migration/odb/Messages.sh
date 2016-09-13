@@ -1,7 +1,7 @@
 #! /bin/sh
 source ../../../kexi_xgettext.sh
 
-potfile=keximigrate_odb
+potfile=keximigrate_odb.pot
 find_exclude $potfile
 
 # Exclude files containing "#warning noi18n"
@@ -9,5 +9,5 @@ LIST=`find . \( $EXCLUDE \) -prune -o \( -name \*.h -o -name \*.cpp -o -name \*.
     if ! grep -q '^#warning noi18n ' $f ; then echo $f; fi \
 done \
 `
-kexi_xgettext $potfile.pot $LIST
+kexi_xgettext $potfile $LIST
 rm -f rc.cpp
