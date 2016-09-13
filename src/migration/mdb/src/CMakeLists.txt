@@ -1,11 +1,13 @@
 if (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_GNUC)
-    add_definitions(-Wno-unused-but-set-variable)
-    add_definitions(-Wno-missing-format-attribute)
-    add_definitions(-Wno-sign-compare)
-    add_definitions(-Wno-unused-parameter)
-    add_definitions(-Wno-pointer-arith)
-    add_definitions(-std=c99)
-    add_definitions(-Wno-cast-qual)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} \
+        -Wno-unused-but-set-variable \
+        -Wno-missing-format-attribute \
+        -Wno-sign-compare \
+        -Wno-unused-parameter \
+        -Wno-pointer-arith \
+        -std=c99 \
+        -Wno-cast-qual"
+    )
 endif (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_GNUC)
 
 set(MDB_SOURCE_DIR ${CMAKE_SOURCE_DIR}/src/migration/mdb)
