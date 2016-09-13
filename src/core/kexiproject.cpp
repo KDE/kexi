@@ -956,7 +956,8 @@ KexiWindow* KexiProject::openObject(QWidget* parent, KexiPart::Item *item,
             m_result = KDbResult(xi18nc("@info",
                                         "Opening object <resource>%1</resource> failed.\n%2%3", item->name())
                                  .arg(part->lastOperationStatus().message)
-                                 .arg(part->lastOperationStatus().description));
+                                 .arg(part->lastOperationStatus().description)
+                                 .replace("(I18N_ARGUMENT_MISSING)", " ")); // a hack until there's other solution
         return 0;
     }
     return window;
