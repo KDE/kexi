@@ -24,10 +24,6 @@
 
 #include <QLocale>
 
-KexiTextFormatter::OverrideDecimalPlaces::OverrideDecimalPlaces() : enabled(false), value(-1)
-{
-}
-
 //! @internal
 class KexiTextFormatter::Private
 {

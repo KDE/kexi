@@ -40,7 +40,7 @@ public:
     class OverrideDecimalPlaces
     {
     public:
-        OverrideDecimalPlaces();
+        OverrideDecimalPlaces() : enabled(false), value(-1) {}
         bool enabled;
         int value;
     };
