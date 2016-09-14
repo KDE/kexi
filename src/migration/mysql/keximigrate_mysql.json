@@ -2,29 +2,56 @@
     "KPlugin": {
         "Authors": [
             {
-                "Email": "kexi@kde.org",
-                "Name": "Kexi Team"
+                "Email": "kexi@kde.org", 
+                "Name": "Kexi Team", 
+                "Name[ca@valencia]": "L'equip del Kexi", 
+                "Name[ca]": "L'equip del Kexi", 
+                "Name[cs]": "Tým Kexi", 
+                "Name[de]": "Kexi-Team", 
+                "Name[es]": "Equipo de Kexi", 
+                "Name[it]": "La squadra di Kexi", 
+                "Name[nl]": "Het team van Kexi", 
+                "Name[pl]": "Zespół Kexi", 
+                "Name[pt]": "Equipa do Kexi", 
+                "Name[sk]": "Tím Kexi", 
+                "Name[sv]": "Kexi-gruppen", 
+                "Name[uk]": "Команда Kexi", 
+                "Name[x-test]": "xxKexi Teamxx"
             }
         ], 
-        "Category": "",
+        "Category": "", 
         "Dependencies": [
             "org.kde.kdb.mysql"
-        ],
-        "Description": "MySQL database import plugin for Kexi",
+        ], 
+        "Description": "MySQL database import plugin for Kexi", 
+        "Description[ca@valencia]": "Connector d'importació de la base de dades MySQL pel Kexi", 
+        "Description[ca]": "Connector d'importació de la base de dades MySQL pel Kexi", 
+        "Description[cs]": "Modul Kexi pro import databáze MySQL", 
+        "Description[de]": "MySQL-Datenbank-Importmodul für Kexi", 
+        "Description[es]": "Complemento de importación de bases de datos MySQL para Kexi", 
+        "Description[it]": "Estensione di importazione banche dati MySQL per Kexi", 
+        "Description[nl]": "MySQL database-importplug-in voor Kexi", 
+        "Description[pl]": "Wtyczka importu bazy danych MySQL dla Kexi", 
+        "Description[pt]": "'Plugin' de importação do MySQL para o Kexi", 
+        "Description[sk]": "MySQL importný plugin pre Kexi", 
+        "Description[sv]": "Importinsticksprogram för Kexi av MySQL-databaser", 
+        "Description[uk]": "Додаток імпортування баз даних з MySQL для Kexi", 
+        "Description[x-test]": "xxMySQL database import plugin for Kexixx", 
         "EnabledByDefault": true, 
         "Icon": "", 
-        "Id": "org.kexi-project.migration.mysql",
-        "License": "LGPL",
-        "MimeTypes": [],
-        "Name": "MySQL",
+        "Id": "org.kexi-project.migration.mysql", 
+        "License": "LGPL", 
+        "MimeTypes": [], 
+        "Name": "MySQL", 
+        "Name[x-test]": "xxMySQLxx", 
         "ServiceTypes": [
             "Kexi/MigrationDriver"
-        ],
-        "Version": "3.0",
+        ], 
+        "Version": "3.0", 
         "Website": "http://kexi-project.org"
-     },
-     "X-Kexi-FileBased": "false",
-     "X-Kexi-SupportedSourceDrivers": [
-         "org.kde.kdb.mysql"
-     ]
+    }, 
+    "X-Kexi-FileBased": "false", 
+    "X-Kexi-SupportedSourceDrivers": [
+        "org.kde.kdb.mysql"
+    ]
 }

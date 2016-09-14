@@ -2,26 +2,53 @@
     "KPlugin": {
         "Authors": [
             {
-                "Email": "kexi@kde.org",
-                "Name": "Kexi Team"
+                "Email": "kexi@kde.org", 
+                "Name": "Kexi Team", 
+                "Name[ca@valencia]": "L'equip del Kexi", 
+                "Name[ca]": "L'equip del Kexi", 
+                "Name[cs]": "Tým Kexi", 
+                "Name[de]": "Kexi-Team", 
+                "Name[es]": "Equipo de Kexi", 
+                "Name[it]": "La squadra di Kexi", 
+                "Name[nl]": "Het team van Kexi", 
+                "Name[pl]": "Zespół Kexi", 
+                "Name[pt]": "Equipa do Kexi", 
+                "Name[sk]": "Tím Kexi", 
+                "Name[sv]": "Kexi-gruppen", 
+                "Name[uk]": "Команда Kexi", 
+                "Name[x-test]": "xxKexi Teamxx"
             }
         ], 
-        "Category": "",
-        "Dependencies": [],
-        "Description": "Tab Separated Values (TSV) file import plugin for Kexi",
+        "Category": "", 
+        "Dependencies": [], 
+        "Description": "Tab Separated Values (TSV) file import plugin for Kexi", 
+        "Description[ca@valencia]": "Connector d'importació de fitxers amb valors separats per tabulacions (TSV) pel Kexi", 
+        "Description[ca]": "Connector d'importació de fitxers amb valors separats per tabulacions (TSV) pel Kexi", 
+        "Description[cs]": "Importní modul Kexi pro hodnoty oddělené tabulátorem (Tab Separated Values - TSV)", 
+        "Description[de]": "„Durch Tabulator getrennte Werte“-(TSV)-Datei-Importmodul für Kexi", 
+        "Description[es]": "Complemento de importación de archivos de valores separados por tabuladores (TSV) para Kexi", 
+        "Description[it]": "Estensione di importazione di file con valori separati da tabulazioni (TSV) per Kexi", 
+        "Description[nl]": "Plug-in voor importeren van bestand met Tab Separated Values (TSV) voor Kexi", 
+        "Description[pl]": "Wtyczka importu wartości oddzielonych tabulatorami (TSV) dla Kexi", 
+        "Description[pt]": "'Plugin' de importação de Valores Separados por Tabulações (TSV) para o Kexi", 
+        "Description[sk]": "Importný plugin pre Kexi pre súbory hodnôt oddelených tabulátorom (TSV)", 
+        "Description[sv]": "Importinsticksprogram för Kexi av filer med värden åtskilda av tabulatortecken (TSV)", 
+        "Description[uk]": "Додаток імпортування даних, відокремлених символами табуляції (TSV), для Kexi", 
+        "Description[x-test]": "xxTab Separated Values (TSV) file import plugin for Kexixx", 
         "EnabledByDefault": true, 
         "Icon": "", 
-        "Id": "org.kexi-project.migration.tsv",
-        "License": "LGPL",
+        "Id": "org.kexi-project.migration.tsv", 
+        "License": "LGPL", 
         "MimeTypes": [
             "text/tab-separated-values"
-        ],
-        "Name": "TSV",
+        ], 
+        "Name": "TSV", 
+        "Name[x-test]": "xxTSVxx", 
         "ServiceTypes": [
             "Kexi/MigrationDriver"
-        ],
-        "Version": "3.0",
+        ], 
+        "Version": "3.0", 
         "Website": "http://kexi-project.org"
-     },
-     "X-Kexi-FileBased": "true"
+    }, 
+    "X-Kexi-FileBased": "true"
 }

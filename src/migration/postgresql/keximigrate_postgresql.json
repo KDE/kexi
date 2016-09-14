@@ -2,29 +2,55 @@
     "KPlugin": {
         "Authors": [
             {
-                "Email": "kexi@kde.org",
-                "Name": "Kexi Team"
+                "Email": "kexi@kde.org", 
+                "Name": "Kexi Team", 
+                "Name[ca@valencia]": "L'equip del Kexi", 
+                "Name[ca]": "L'equip del Kexi", 
+                "Name[cs]": "Tým Kexi", 
+                "Name[de]": "Kexi-Team", 
+                "Name[es]": "Equipo de Kexi", 
+                "Name[it]": "La squadra di Kexi", 
+                "Name[nl]": "Het team van Kexi", 
+                "Name[pl]": "Zespół Kexi", 
+                "Name[pt]": "Equipa do Kexi", 
+                "Name[sk]": "Tím Kexi", 
+                "Name[sv]": "Kexi-gruppen", 
+                "Name[uk]": "Команда Kexi", 
+                "Name[x-test]": "xxKexi Teamxx"
             }
         ], 
-        "Category": "",
+        "Category": "", 
         "Dependencies": [
             "org.kde.kdb.postgresql"
-        ],
-        "Description": "PostgreSQL database import plugin for Kexi",
+        ], 
+        "Description": "PostgreSQL database import plugin for Kexi", 
+        "Description[ca@valencia]": "Connector d'importació de la base de dades PostgreSQL pel Kexi", 
+        "Description[ca]": "Connector d'importació de la base de dades PostgreSQL pel Kexi", 
+        "Description[de]": "PostgreSQL-Datenbank-Importmodul für Kexi", 
+        "Description[es]": "Complemento de importación de bases de datos PostgreSQL para Kexi", 
+        "Description[it]": "Estensione di importazione banche dati PostgreSQL per Kexi", 
+        "Description[nl]": "PostgreSQL database-importplug-in voor Kexi", 
+        "Description[pl]": "Wtyczka importu bazy danych PostgreSQL dla Kexi", 
+        "Description[pt]": "'Plugin' de importação do PostgreSQL para o Kexi", 
+        "Description[sk]": "PostgreSQL importný plugin pre Kexi", 
+        "Description[sv]": "Importinsticksprogram för Kexi av PostgreSQL-databaser", 
+        "Description[uk]": "Додаток імпортування баз даних з PostgreSQL для Kexi", 
+        "Description[x-test]": "xxPostgreSQL database import plugin for Kexixx", 
         "EnabledByDefault": true, 
         "Icon": "", 
-        "Id": "org.kexi-project.migration.postgresql",
-        "License": "LGPL",
-        "MimeTypes": [],
-        "Name": "PostgreSQL",
+        "Id": "org.kexi-project.migration.postgresql", 
+        "License": "LGPL", 
+        "MimeTypes": [], 
+        "Name": "PostgreSQL", 
+        "Name[x-test]": "xxPostgreSQLxx", 
         "ServiceTypes": [
             "Kexi/MigrationDriver"
-        ],
-        "Version": "3.0",
+        ], 
+        "Version": "3.0", 
         "Website": "http://kexi-project.org"
-     },
-     "X-Kexi-FileBased": "false",
-     "X-Kexi-SupportedSourceDrivers": [
-         "org.kde.kdb.postgresql"
-     ]
+    }, 
+    "X-Kexi-FileBased": "false", 
+    "X-Kexi-SupportedSourceDrivers": [
+        "org.kde.kdb.postgresql"
+    ]
 }
