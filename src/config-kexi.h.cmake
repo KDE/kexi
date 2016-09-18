@@ -50,11 +50,7 @@
 //! @brief if defined, Marble widget library is available
 #cmakedefine HAVE_MARBLE
 
-//! @def HAVE_SETMARBLEWIDGET
-//! @brief if defined, Marble widget library has setMarbleWidget()
-#cmakedefine HAVE_SETMARBLEWIDGET
-
-//! @def HAVE_SETMARBLEWIDGET
+//! @def HAVE_QTWEBKITWIDGETS
 //! @brief if defined, QtWebKit widgets library is available
 #cmakedefine HAVE_QTWEBKITWIDGETS
 

@@ -179,20 +179,6 @@ if(NOT MARBLE_FOUND)
     set(MARBLE_INCLUDE_DIR "")
 else()
     set(HAVE_MARBLE TRUE)
-    ##
-    ## Marble changed addMarbleWidget to setMarbleWidget in MarbleControlBox.h
-    ## with commit ea177ca. This is for compatibility with older versions.
-    ##
-    find_file(MARBLECONTROLBOX_H MarbleControlBox.h PATHS ${MARBLE_INCLUDE_DIR} PATH_SUFFIXES marble)
-    if(MARBLECONTROLBOX_H)
-        file(READ ${MARBLECONTROLBOX_H} MARBLECONTROLBOX_H_CONTENT)
-        string(REGEX MATCH "setMarbleWidget" SETMARBLEWIDGET "${MARBLECONTROLBOX_H_CONTENT}")
-        if( SETMARBLEWIDGET )
-            set(HAVE_SETMARBLEWIDGET TRUE)
-        endif()
-    else()
-        message( WARNING "MarbleControlBox.h not found, could not properly set the SETMARBLEWIDGET define." )
-    endif()
 endif()
 macro_log_feature(MARBLE_FOUND "Marble" "KDE World Globe Widget library" "https://marble.kde.org/" FALSE "${MARBLE_MIN_VERSION}" "Required by Kexi form map widget")
 
