@@ -62,15 +62,24 @@ endmacro()
 
 # Fetches git revision and branch from the source dir of the current build if possible.
 # Sets ${PROJECT_NAME_UPPER}_GIT_SHA1_STRING and ${PROJECT_NAME_UPPER}_GIT_BRANCH_STRING variables.
+# If git information is not available but ${CMAKE_SOURCE_DIR}/GIT_VERSION file exists,
+# it is parsed. This file can be created by scripts while preparing tarballs and is
+# supposed to contain two lines: hash and branch.
 macro(get_git_revision_and_branch)
   set(${PROJECT_NAME_UPPER}_GIT_SHA1_STRING "")
   set(${PROJECT_NAME_UPPER}_GIT_BRANCH_STRING "")
-  get_git_head_revision(GIT_REFSPEC _GIT_SHA1)
-  get_git_branch(_GIT_BRANCH)
-  if(_GIT_SHA1 AND _GIT_BRANCH)
-    string(SUBSTRING ${_GIT_SHA1} 0 7 _GIT_SHA1)
-    set(${PROJECT_NAME_UPPER}_GIT_SHA1_STRING ${_GIT_SHA1})
-    set(${PROJECT_NAME_UPPER}_GIT_BRANCH_STRING ${_GIT_BRANCH})
+  get_git_head_revision(GIT_REFSPEC ${PROJECT_NAME_UPPER}_GIT_SHA1_STRING)
+  get_git_branch(${PROJECT_NAME_UPPER}_GIT_BRANCH_STRING)
+  if(NOT ${PROJECT_NAME_UPPER}_GIT_SHA1_STRING OR NOT ${PROJECT_NAME_UPPER}_GIT_BRANCH_STRING)
+    if(EXISTS "${CMAKE_SOURCE_DIR}/GIT_VERSION")
+      file(READ "${CMAKE_SOURCE_DIR}/GIT_VERSION" _ver)
+      string(REGEX REPLACE "\n" ";" _ver "${_ver}")
+      list(GET _ver 0 ${PROJECT_NAME_UPPER}_GIT_SHA1_STRING)
+      list(GET _ver 1 ${PROJECT_NAME_UPPER}_GIT_BRANCH_STRING)
+    endif()
+  endif()
+  if(${PROJECT_NAME_UPPER}_GIT_SHA1_STRING OR ${PROJECT_NAME_UPPER}_GIT_BRANCH_STRING)
+    string(SUBSTRING ${${PROJECT_NAME_UPPER}_GIT_SHA1_STRING} 0 7 ${PROJECT_NAME_UPPER}_GIT_SHA1_STRING)
   else()
     set(${PROJECT_NAME_UPPER}_GIT_SHA1_STRING "")
     set(${PROJECT_NAME_UPPER}_GIT_BRANCH_STRING "")
