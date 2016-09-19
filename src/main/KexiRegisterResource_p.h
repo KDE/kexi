@@ -84,21 +84,7 @@ static bool registerResource(const QString& path, QStandardPaths::StandardLocati
         if (!extraLocation.isEmpty()) {
             triedLocations.append(extraLocation);
         }
-        QString triedLocationsString;
-        for(const QString &triedLocation : triedLocations) {
-            KLocalizedString string;
-            if (triedLocationsString.isEmpty()) {
-                triedLocationsString = QDir::toNativeSeparators(triedLocation);
-            } else {
-#ifdef QT_ONLY
-                triedLocationsString += QString::fromLatin1(", %1").arg(
-                    QDir::toNativeSeparators(triedLocation));
-#else
-                triedLocationsString = xi18n("%1, %2", triedLocationsString,
-                                             QDir::toNativeSeparators(triedLocation));
-#endif
-            }
-        }
+        const QString triedLocationsString = QLocale().createSeparatedList(triedLocations);
 #ifdef QT_ONLY
         *errorMessage = QString("Could not open icon resource file %1.").arg(path);
         *detailsErrorMessage = QString("Tried to find in %1.").arg(triedLocationsString);
