@@ -8,7 +8,7 @@
 set(KEXI_VERSION_STRING "3.0 Alpha")
 set(KEXI_STABLE_VERSION_MAJOR 3) # 3 for 3.x, 4 for 4.x, etc.
 set(KEXI_STABLE_VERSION_MINOR 0) # 0 for 3.0, 1 for 3.1, etc.
-set(KEXI_VERSION_RELEASE 90)     # 89 for Alpha, increase for next test releases, set 0 for first Stable, etc.
+set(KEXI_VERSION_RELEASE 91)     # 89 for Alpha, increase for next test releases, set 0 for first Stable, etc.
 set(KEXI_ALPHA 1) # uncomment only for Alpha
 #set(KEXI_BETA 1) # uncomment only for Beta
 #set(KEXI_RC 1) # uncomment only for RC
