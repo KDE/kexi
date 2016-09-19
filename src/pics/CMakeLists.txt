@@ -49,8 +49,9 @@ install(FILES
         DESTINATION "${ICONS_INSTALL_DIR}"
 )
 
-add_update_file_target(update_kexi_breeze
-                       "${CMAKE_CURRENT_SOURCE_DIR}/update_kexi_breeze_list.sh"
-                       kexi_breeze_files.cmake
-                       "${CMAKE_CURRENT_SOURCE_DIR}/update_kexi_breeze_list.sh"
+add_update_file_target(
+    TARGET update_kexi_breeze
+    COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/update_kexi_breeze_list.sh" kexi_breeze_files.cmake
+    FILE kexi_breeze_files.cmake
+    SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/update_kexi_breeze_list.sh"
 )

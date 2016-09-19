@@ -160,16 +160,27 @@ macro(set_coinstallable_lib_version _target)
     unset(_var)
 endmacro()
 
-# Adds custom target ${_target} that updates file ${_file} in the current working dir
-# using command ${_command} and add sources ${_sources} to the project files.
-# The command is run as a part of the project.
-macro(add_update_file_target _target _command _file _sources)
-    add_custom_target(${_target}
-        COMMAND ${_command}
-        SOURCES ${_sources}
-        DEPENDS ${_sources}
+# Adds custom target that updates given file in the current working dir using specified
+# command and adds its source files to the project files.
+# The target is not executed by default, if dependencies to/from other targets are needed
+# they can be set separately using add_dependencies().
+# Execution of the command shows status "Updating <filename>".
+# Options:
+#   TARGET - name of the new custom target
+#   FILE - <filename> - name of the file that is updated using the command
+#   COMMAND <cmd> [args...] - command to be executed
+#   SOURCES [files...] - source files that are used by the command
+function(add_update_file_target)
+    set(options)
+    set(oneValueArgs TARGET FILE)
+    set(multiValueArgs COMMAND SOURCES)
+    cmake_parse_arguments(ARG "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+    add_custom_target(${ARG_TARGET}
+        COMMAND ${ARG_COMMAND}
+        SOURCES ${ARG_SOURCES}
+        DEPENDS ${ARG_SOURCES}
         WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
-        COMMENT "Updating ${_file}"
+        COMMENT "Updating ${ARG_FILE}"
         VERBATIM
     )
-endmacro()
+endfunction()
