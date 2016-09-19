@@ -10,6 +10,6 @@
     - Development wiki: https://community.kde.org/Kexi
  */
 // DOXYGEN_SET_IGNORE_PREFIX=Kexi Ko K
-EXCLUDE=3rdparty tests tools kexidb/sqlitedump pics plugins/relations
+EXCLUDE=examples tests tools pics plugins/scripting
 
 // DOXYGEN_SET_PROJECT_NAME = Kexi
