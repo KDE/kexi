@@ -25,7 +25,11 @@
 
 static const char FULL_VERSION[]
 #ifdef KEXI_GIT_SHA1_STRING
+#  ifdef KEXI_GIT_BRANCH_STRING
     = KEXI_VERSION_STRING " (git " KEXI_GIT_SHA1_STRING " " KEXI_GIT_BRANCH_STRING ")";
+#  else
+    = KEXI_VERSION_STRING " (git " KEXI_GIT_SHA1_STRING ")";
+#  endif
 #else
     = KEXI_VERSION_STRING;
 #endif
