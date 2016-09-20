@@ -51,6 +51,19 @@ class QString;
 #define KEXI_VERSION_STRING "@KEXI_VERSION_STRING@"
 
 /**
+* @def KEXI_VERSION_MAJOR_MINOR_RELEASE
+* @ingroup KexiMacros
+* @brief Version string containing "major.minor.release"
+* @brief Version of Kexi as string, at compile time
+*
+* This macro contains the Kexi version in string form. As it is a macro,
+* it contains the version at compile time.
+*
+* @note The version string never contains spaces or special characters.
+*/
+#define KEXI_VERSION_MAJOR_MINOR_RELEASE "@KEXI_VERSION_MAJOR@.@KEXI_VERSION_MINOR@.@KEXI_VERSION_RELEASE@"
+
+/**
  * @def KEXI_STABLE_VERSION_MAJOR
  * @ingroup KexiMacros
  * @brief Major version of stable Kexi, at compile time
