@@ -1341,7 +1341,7 @@ tristate KexiMainWindow::startup()
         break;
     case KexiStartupHandler::ShowWelcomeScreen:
         //! @todo show welcome screen as soon as is available
-        QTimer::singleShot(1, this, SLOT(slotProjectWelcome()));
+        QTimer::singleShot(100, this, SLOT(slotProjectWelcome()));
         break;
     default:
         d->updatePropEditorVisibility(Kexi::NoViewMode);
