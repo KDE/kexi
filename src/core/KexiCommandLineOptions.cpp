@@ -1,7 +1,7 @@
 /* This file is part of the KDE project
    Copyright (C) 2002, 2003 Lucijan Busch <lucijan@gmx.at>
    Copyright (C) 2002, 2003 Joseph Wenninger <jowenn@kde.org>
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -28,14 +28,11 @@
 #include <QCoreApplication>
 #include <QCommandLineParser>
 
-KexiCommandLineOptions::KexiCommandLineOptions(QCommandLineParser *parser)
-  : /*help(parser->addHelpOption()),
-    version(parser->addVersionOption()),*/
-
+KexiCommandLineOptions::KexiCommandLineOptions( QCommandLineParser *parser)
     // NOTE: REMEMBER TO ADD NEW OPTIONS IN KexiStartupData::parseOptions()
 
     // Options related to entire projects:
-    createDb("createdb",
+    : createDb("createdb",
         xi18nc("'createdb' command line option",
                "Create a new, blank project using specified database driver and database "
                "name and exit immediately. You will be asked for confirmation if "
@@ -149,7 +146,8 @@ KexiCommandLineOptions::KexiCommandLineOptions(QCommandLineParser *parser)
                "project is opened using a shortcut file. Default user name is the same "
                "as the current login (<resource>%1</resource>).",
                KUser().loginName())),
-    host(QStringList() << "h" << "host",
+//! @todo re-add '-h' as soon as KAboutData::setupCommandLine() stops forcibly call parser->addHelpOption()
+    host(QStringList() /*<< "h"*/ << "host",
         xi18nc("'host' command line option",
                "Network server's (host) name to be used when connecting to a database "
                "project. Ignored if the project is opened using a shortcut file. Default "
@@ -188,5 +186,5 @@ KexiCommandLineOptions::KexiCommandLineOptions(QCommandLineParser *parser)
              "Displays list of plugins available for Kexi with their name, description, "
              "version and filenames."))
 {
-    Q_UNUSED(parser);
+     Q_UNUSED(parser);
 }

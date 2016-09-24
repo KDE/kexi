@@ -1,7 +1,7 @@
 /* This file is part of the KDE project
    Copyright (C) 2002, 2003 Lucijan Busch <lucijan@gmx.at>
    Copyright (C) 2002, 2003 Joseph Wenninger <jowenn@kde.org>
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -28,14 +28,12 @@
 
 class QCommandLineParser;
 
-//! Command line options
+//! Command line options for Kexi
 class KexiCommandLineOptions
 {
 public:
-    KexiCommandLineOptions(QCommandLineParser *parser);
+    explicit KexiCommandLineOptions(QCommandLineParser *parser);
 
-//    QCommandLineOption help;
-//    QCommandLineOption version;
     QCommandLineOption createDb;
     QCommandLineOption createAndOpenDb;
     QCommandLineOption dropDb;

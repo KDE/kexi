@@ -51,7 +51,7 @@ public:
 };
 
 KexiStartupData::Private::Private()
-    : options(0/*&parser*/)
+    : options(&parser)
     , projectData(0), action(KexiStartupData::DoNothing), forcedUserMode(false)
     , forcedDesignMode(false), isProjectNavigatorVisible(false), forcedFullScreen(false)
 {
@@ -173,16 +173,14 @@ KexiCommandLineOptions KexiStartupData::options() const
 
 tristate KexiStartupData::parseOptions()
 {
-    //KAboutData::applicationData().setupCommandLine(&d->parser);
-    //d->parser.addHelpOption();
-    //d->parser.addVersionOption();
     d->parser.setApplicationDescription(KAboutData::applicationData().shortDescription());
+    KAboutData::applicationData().setupCommandLine(&d->parser); // adds -h and -v too
 
 #define ADD_OPTION(o) \
     if (!d->parser.addOption(d->options.o)) { \
         qWarning() << "Could not add option" << d->options.o.names(); \
         return false; \
-    } else { qDebug() << "OK" << d->options.o.names(); }
+    }
     ADD_OPTION(createDb)
     ADD_OPTION(createAndOpenDb)
     ADD_OPTION(dropDb)
@@ -217,10 +215,8 @@ tristate KexiStartupData::parseOptions()
                "Kexi database project filename, Kexi shortcut filename, or name of a Kexi "
                "database project on a server to open."));
 
-    qDebug() << QCoreApplication::instance()->arguments();
-    if (!d->parser.parse(QCoreApplication::instance()->arguments())) {
-        return false;
-    }
+    //qDebug() << QCoreApplication::instance()->arguments();
+    d->parser.process(*qApp);
     KAboutData::applicationData().processCommandLine(&d->parser);
     return true;
 }
