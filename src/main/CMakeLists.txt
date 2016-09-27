@@ -53,6 +53,8 @@ PRIVATE
     kexiextendedwidgets
     kexiguiutils
 
+    KF5::GuiAddons
+
     Qt5::UiTools
 )
 if(HAVE_KCRASH)
