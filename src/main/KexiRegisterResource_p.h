@@ -80,7 +80,7 @@ static bool registerResource(const QString& path, QStandardPaths::StandardLocati
     if (fullPath.isEmpty() || !QFileInfo(fullPath).isReadable()
         || !QResource::registerResource(fullPath, resourceRoot))
     {
-        QStringList triedLocations(QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation));
+        QStringList triedLocations(QStandardPaths::standardLocations(location));
         if (!extraLocation.isEmpty()) {
             triedLocations.append(extraLocation);
         }
