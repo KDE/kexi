@@ -337,12 +337,12 @@ KexiCSVImportDialog::KexiCSVImportDialog(Mode mode, QWidget * parent)
       }
       else if ( mode == File )
       {*/
-    m_dateRegExp = QRegExp("(\\d{1,4})([/\\-\\.])(\\d{1,2})([/\\-\\.])(\\d{1,4})");
-    m_timeRegExp1 = QRegExp("(\\d{1,2}):(\\d{1,2}):(\\d{1,2})");
-    m_timeRegExp2 = QRegExp("(\\d{1,2}):(\\d{1,2})");
-    m_fpNumberRegExp1 = QRegExp("[\\-]{0,1}\\d*[,\\.]\\d+");
+    m_dateRegExp = QRegularExpression("^(\\d{1,4})([/\\-\\.])(\\d{1,2})([/\\-\\.])(\\d{1,4})$");
+    m_timeRegExp1 = QRegularExpression("^(\\d{1,2}):(\\d{1,2}):(\\d{1,2})$");
+    m_timeRegExp2 = QRegularExpression("^(\\d{1,2}):(\\d{1,2})$");
+    m_fpNumberRegExp1 = QRegularExpression("^[\\-]{0,1}\\d*[,\\.]\\d+$");
     // E notation, e.g. 0.1e2, 0.1e+2, 0.1e-2, 0.1E2, 0.1E+2, 0.1E-2
-    m_fpNumberRegExp2 = QRegExp("[\\-]{0,1}\\d*[,\\.]\\d+[Ee][+-]{0,1}\\d+");
+    m_fpNumberRegExp2 = QRegularExpression("^[\\-]{0,1}\\d*[,\\.]\\d+[Ee][+-]{0,1}\\d+$");
     m_loadingProgressDlg = 0;
     if (m_mode == Clipboard) {
         m_infoLbl->setIcon(koIconName("edit-paste"));
@@ -1400,7 +1400,7 @@ void KexiCSVImportDialog::detectTypeAndUniqueness(int row, int col, const QStrin
         if (!found && (row == 1 || type == KDbField::Integer || type == KDbField::Double
                                 || type == KDbField::InvalidType))
         {
-            bool ok = text.isEmpty() || m_fpNumberRegExp1.exactMatch(text) || m_fpNumberRegExp2.exactMatch(text);
+            bool ok = text.isEmpty() || m_fpNumberRegExp1.match(text).hasMatch() || m_fpNumberRegExp2.match(text).hasMatch();
             if (ok && (row == 1 || type == KDbField::InvalidType))
             {
                 d->setDetectedType(col, KDbField::Double);
@@ -1420,7 +1420,7 @@ void KexiCSVImportDialog::detectTypeAndUniqueness(int row, int col, const QStrin
         //-date?
         if (!found && (row == 1 || type == KDbField::Date || type == KDbField::InvalidType)) {
             if ((row == 1 || type == KDbField::InvalidType)
-                    && (text.isEmpty() || m_dateRegExp.exactMatch(text))) {
+                    && (text.isEmpty() || m_dateRegExp.match(text).hasMatch())) {
                 d->setDetectedType(col, KDbField::Date);
                 found = true; //yes
             }
@@ -1428,7 +1428,7 @@ void KexiCSVImportDialog::detectTypeAndUniqueness(int row, int col, const QStrin
         //-time?
         if (!found && (row == 1 || type == KDbField::Time || type == KDbField::InvalidType)) {
             if ((row == 1 || type == KDbField::InvalidType)
-                 && (text.isEmpty() || m_timeRegExp1.exactMatch(text) || m_timeRegExp2.exactMatch(text)))
+                 && (text.isEmpty() || m_timeRegExp1.match(text).hasMatch() || m_timeRegExp2.match(text).hasMatch()))
             {
                 d->setDetectedType(col, KDbField::Time);
                 found = true; //yes
@@ -1447,8 +1447,8 @@ void KexiCSVImportDialog::detectTypeAndUniqueness(int row, int col, const QStrin
                         //try all combinations
                         QString datePart(dateTimeList[0].trimmed());
                         QString timePart(dateTimeList[1].trimmed());
-                        ok = m_dateRegExp.exactMatch(datePart)
-                             && (m_timeRegExp1.exactMatch(timePart) || m_timeRegExp2.exactMatch(timePart));
+                        ok = m_dateRegExp.match(datePart).hasMatch()
+                             && (m_timeRegExp1.match(timePart).hasMatch() || m_timeRegExp2.match(timePart).hasMatch());
                     }
                     detected = ok;
                 }
@@ -1500,17 +1500,18 @@ QDate KexiCSVImportDialog::buildDate(int y, int m, int d) const
 
 bool KexiCSVImportDialog::parseDate(const QString& text, QDate& date)
 {
-    if (!m_dateRegExp.exactMatch(text))
+    QRegularExpressionMatch match = m_dateRegExp.match(text);
+    if (!match.hasMatch())
         return false;
     //dddd - dd - dddd
     //1    2 3  4 5    <- pos
-    const int d1 = m_dateRegExp.cap(1).toInt(), d3 = m_dateRegExp.cap(3).toInt(), d5 = m_dateRegExp.cap(5).toInt();
+    const int d1 = match.captured(1).toInt(), d3 = match.captured(3).toInt(), d5 = match.captured(5).toInt();
     switch (m_options.dateFormat) {
     case KexiCSVImportOptions::DMY: date = buildDate(d5, d3, d1); break;
     case KexiCSVImportOptions::YMD: date = buildDate(d1, d3, d5); break;
     case KexiCSVImportOptions::MDY: date = buildDate(d5, d1, d3); break;
     case KexiCSVImportOptions::AutoDateFormat:
-        if (m_dateRegExp.cap(2) == "/") { //probably separator for american format mm/dd/yyyy
+        if (match.captured(2) == "/") { //probably separator for american format mm/dd/yyyy
             date = buildDate(d5, d1, d3);
         } else {
             if (d5 > 31) //d5 == year
@@ -1529,9 +1530,11 @@ bool KexiCSVImportDialog::parseTime(const QString& text, QTime& time)
     time = QTime::fromString(text, Qt::ISODate); //same as m_timeRegExp1
     if (time.isValid())
         return true;
-    if (m_timeRegExp2.exactMatch(text)) { //hh:mm:ss
-        time = QTime(m_timeRegExp2.cap(1).toInt(),
-                     m_timeRegExp2.cap(3).toInt(), m_timeRegExp2.cap(5).toInt());
+
+    QRegularExpressionMatch match = m_timeRegExp2.match(text);
+    if (match.hasMatch()) { //hh:mm:ss
+        time = QTime(match.captured(1).toInt(),
+                     match.captured(3).toInt(), match.captured(5).toInt());
         return true;
     }
     return false;

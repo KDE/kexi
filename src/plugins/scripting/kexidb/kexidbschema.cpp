@@ -20,7 +20,7 @@
 #include "kexidbschema.h"
 #include "kexidbfieldlist.h"
 
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QDebug>
 
 using namespace Scripting;
@@ -133,9 +133,9 @@ bool KexiDBQuerySchema::setWhereExpression(const QString& whereexpression)
 
     ///@todo use KDbParser for such kind of parser-functionality.
     QString s = whereexpression;
-    QRegExp re("[\"',]{1,1}");
+    QRegularExpression re("[\"',]{1,1}");
     while (true) {
-        s.remove(QRegExp("^[\\s,]+"));
+        s.remove(QRegularExpression("^[\\s,]+"));
         int pos = s.indexOf('=');
         if (pos < 0) break;
         QString key = s.left(pos).trimmed();

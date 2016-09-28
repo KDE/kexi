@@ -23,6 +23,7 @@
 
 #include <QLineEdit>
 #include <QLocale>
+#include <QRegularExpression>
 
 class KexiDateFormatter::Private
 {
@@ -53,10 +54,10 @@ class KexiTimeFormatter::Private
 {
 public:
     Private()
-        : hmsRegExp(new QRegExp(
-            QLatin1String("(\\d*):(\\d*):(\\d*).*( am| pm){,1}"), Qt::CaseInsensitive))
-        , hmRegExp(new QRegExp(
-            QLatin1String("(\\d*):(\\d*).*( am| pm){,1}"), Qt::CaseInsensitive))
+        : hmsRegExp(new QRegularExpression(
+            QLatin1String("(\\d*):(\\d*):(\\d*).*( am| pm){,1}"), QRegularExpression::CaseInsensitiveOption))
+        , hmRegExp(new QRegularExpression(
+            QLatin1String("(\\d*):(\\d*).*( am| pm){,1}"), QRegularExpression::CaseInsensitiveOption))
     {
     }
 
@@ -82,7 +83,7 @@ public:
     //! Used in fromString(const QString&) to convert string back to QTime
     int hourpos, minpos, secpos, ampmpos;
 
-    QRegExp *hmsRegExp, *hmRegExp;
+    QRegularExpression *hmsRegExp, *hmRegExp;
 };
 
 KexiDateFormatter::KexiDateFormatter()
@@ -318,26 +319,28 @@ QTime KexiTimeFormatter::fromString(const QString& str) const
     QTime time;
     int hour, min, sec;
     bool pm = false;
-
+    QRegularExpressionMatch matchHms = d->hmsRegExp->match(str);
+    QRegularExpressionMatch matchHm = d->hmRegExp->match(str);
     bool tryWithoutSeconds = true;
+
     if (d->secpos >= 0) {
-        if (-1 != d->hmsRegExp->indexIn(str)) {
-            hour = d->hmsRegExp->cap(1).toInt();
-            min = d->hmsRegExp->cap(2).toInt();
-            sec = d->hmsRegExp->cap(3).toInt();
+        if (-1 != matchHms.capturedStart()) {
+            hour = matchHms.captured(1).toInt();
+            min = matchHms.captured(2).toInt();
+            sec = matchHms.captured(3).toInt();
             if (d->ampmpos >= 0 && d->hmsRegExp->captureCount() > 3)
-                pm = d->hmsRegExp->cap(4).trimmed().toLower() == "pm";
+                pm = matchHms.captured(4).trimmed().toLower() == "pm";
             tryWithoutSeconds = false;
         }
     }
     if (tryWithoutSeconds) {
-        if (-1 == d->hmRegExp->indexIn(str))
+        if (-1 == matchHm.capturedStart())
             return QTime(99, 0, 0);
-        hour = d->hmRegExp->cap(1).toInt();
-        min = d->hmRegExp->cap(2).toInt();
+        hour = matchHm.captured(1).toInt();
+        min = matchHm.captured(2).toInt();
         sec = 0;
         if (d->ampmpos >= 0 && d->hmRegExp->captureCount() > 2)
-            pm = d->hmsRegExp->cap(4).toLower() == "pm";
+            pm = matchHm.captured(4).toLower() == "pm";
     }
 
     if (pm && hour < 12)

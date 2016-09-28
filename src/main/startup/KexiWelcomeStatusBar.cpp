@@ -55,6 +55,7 @@
 #include <QFontDatabase>
 #include <QAction>
 #include <QLocale>
+#include <QRegularExpression>
 
 #include <stdio.h>
 
@@ -185,7 +186,7 @@ void KexiWelcomeStatusBarGuiUpdater::sendRequestListFilesFinished(KJob* job)
                         << "in line" << i+1 << "- no files will be updated";
                     return;
                 }
-                if (remoteFname.contains(QRegExp("\\s"))) {
+                if (remoteFname.contains(QRegularExpression("\\s"))) {
                     qWarning() << "Filename expected without whitespace but found" << remoteFname
                         << "in line" << i+1 << "- no files will be updated";
                     return;
@@ -315,20 +316,20 @@ protected:
 
         foreach(QLabel* lbl, widget()->findChildren<QLabel*>()) {
             QString t = lbl->text();
-            QRegExp re("<a.*>");
-            re.setMinimal(true);
+            QRegularExpression re("<a.*>", QRegularExpression::InvertedGreedinessOption);
             int pos = 0;
             int oldPos = 0;
             QString newText;
+            QRegularExpressionMatch match = re.match(t);
             //qDebug() << "t:" << t;
-            while ((pos = re.indexIn(t, pos)) != -1) {
+            while ((pos = match.capturedStart(pos)) != -1) {
                 //qDebug() << "pos:" << pos;
                 //qDebug() << "newText += t.mid(oldPos, pos - oldPos)"
                 //    << t.mid(oldPos, pos - oldPos);
                 newText += t.mid(oldPos, pos - oldPos);
                 //qDebug() << "newText1:" << newText;
                 //qDebug() << lbl->objectName() << "~~~~" << t.mid(pos, re.matchedLength());
-                QString a = t.mid(pos, re.matchedLength());
+                QString a = t.mid(pos, match.capturedLength());
                 //qDebug() << "a:" << a;
                 int colPos = a.indexOf("color:");
                 if (colPos == -1) { // add color
@@ -352,7 +353,7 @@ protected:
                 //qDebug() << "a2:" << a;
                 newText += a;
                 //qDebug() << "newText2:" << newText;
-                pos += re.matchedLength();
+                pos += match.capturedLength();
                 oldPos = pos;
                 //qDebug() << "pos2:" << pos;
             }

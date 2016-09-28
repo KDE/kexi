@@ -31,7 +31,7 @@
 #include <KLocalizedString>
 
 #include <QLabel>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QPushButton>
 
 using namespace KFormDesigner;
@@ -312,7 +312,7 @@ ConnectionDialog::updateSlotList(KDbRecordData *data)
         return;
 
     QString signalArg(signal);
-    signalArg.remove(QRegExp(".*[(]|[)]"));
+    signalArg.remove(QRegularExpression(".*[(]|[)]"));
 
     const QList<QMetaMethod> list(
         KexiUtils::methodsForMetaObjectWithParents(tree->widget()->metaObject(),
@@ -320,7 +320,7 @@ ConnectionDialog::updateSlotList(KDbRecordData *data)
     foreach(const QMetaMethod &method, list) {
         // we add the slot only if it is compatible with the signal
         QString slotArg(method.signature());
-        slotArg.remove(QRegExp(".*[(]|[)]"));
+        slotArg.remove(QRegularExpression(".*[(]|[)]"));
         if (!signalArg.startsWith(slotArg, Qt::CaseSensitive) && (!signal.isEmpty())) // args not compatible
             continue;
 
@@ -364,9 +364,9 @@ ConnectionDialog::checkConnection(KDbRecordData *data)
 
     // Then we check if signal/slot args are compatible
     QString signal = (*data)[2].toString();
-    signal.remove(QRegExp(".*[(]|[)]"));   // just keep the args list
+    signal.remove(QRegularExpression(".*[(]|[)]"));   // just keep the args list
     QString slot = (*data)[4].toString();
-    slot.remove(QRegExp(".*[(]|[)]"));
+    slot.remove(QRegularExpression(".*[(]|[)]"));
 
     if (!signal.startsWith(slot, Qt::CaseSensitive)) {
         setStatusError(xi18n("The signal/slot arguments are not compatible."), data);

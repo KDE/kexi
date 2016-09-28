@@ -53,7 +53,7 @@
 #include <KLocalizedString>
 
 #include <QDomDocument>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QSplitter>
 #include <QDragMoveEvent>
 #include <QDropEvent>
@@ -1377,7 +1377,7 @@ KDbExpression KexiQueryDesignerGuiEditor::parseExpressionString(const QString& f
         return KDbExpression();
 
     KDbExpression valueExpr;
-    QRegExp re;
+    QRegularExpressionMatch match;
     if (str.length() >= 2 &&
             (
                 (str.startsWith(QLatin1Char('"')) && str.endsWith(QLatin1Char('"')))
@@ -1386,22 +1386,22 @@ KDbExpression KexiQueryDesignerGuiEditor::parseExpressionString(const QString& f
         valueExpr = KDbConstExpression(KDbToken::CHARACTER_STRING_LITERAL, str.mid(1, str.length() - 2));
     } else if (str.startsWith(QLatin1Char('[')) && str.endsWith(QLatin1Char(']'))) {
         valueExpr = KDbQueryParameterExpression(str.mid(1, str.length() - 2));
-    } else if ((re = QRegExp("(\\d{1,4})-(\\d{1,2})-(\\d{1,2})")).exactMatch(str)) {
+    } else if ((match = QRegularExpression("^(\\d{1,4})-(\\d{1,2})-(\\d{1,2})$").match(str)).hasMatch()) {
         valueExpr = KDbConstExpression(KDbToken::DATE_CONST, QDate::fromString(
-                                              re.cap(1).rightJustified(4, '0') + "-" + re.cap(2).rightJustified(2, '0')
-                                              + "-" + re.cap(3).rightJustified(2, '0'), Qt::ISODate));
-    } else if ((re = QRegExp("(\\d{1,2}):(\\d{1,2})")).exactMatch(str)
-               || (re = QRegExp("(\\d{1,2}):(\\d{1,2}):(\\d{1,2})")).exactMatch(str)) {
-        QString res = re.cap(1).rightJustified(2, '0') + ":" + re.cap(2).rightJustified(2, '0')
-                      + ":" + re.cap(3).rightJustified(2, '0');
+                                              match.captured(1).rightJustified(4, '0') + "-" + match.captured(2).rightJustified(2, '0')
+                                              + "-" + match.captured(3).rightJustified(2, '0'), Qt::ISODate));
+    } else if ((match = QRegularExpression("^(\\d{1,2}):(\\d{1,2})$").match(str)).hasMatch()
+               || (match = QRegularExpression("^(\\d{1,2}):(\\d{1,2}):(\\d{1,2})$").match(str)).hasMatch()) {
+        QString res = match.captured(1).rightJustified(2, '0') + ":" + match.captured(2).rightJustified(2, '0')
+                      + ":" + match.captured(3).rightJustified(2, '0');
 //  qDebug() << res;
         valueExpr = KDbConstExpression(KDbToken::TIME_CONST, QTime::fromString(res, Qt::ISODate));
-    } else if ((re = QRegExp("(\\d{1,4})-(\\d{1,2})-(\\d{1,2})\\s+(\\d{1,2}):(\\d{1,2})")).exactMatch(str)
-               || (re = QRegExp("(\\d{1,4})-(\\d{1,2})-(\\d{1,2})\\s+(\\d{1,2}):(\\d{1,2}):(\\d{1,2})")).exactMatch(str)) {
-        QString res = re.cap(1).rightJustified(4, '0') + "-" + re.cap(2).rightJustified(2, '0')
-                      + "-" + re.cap(3).rightJustified(2, '0')
-                      + "T" + re.cap(4).rightJustified(2, '0') + ":" + re.cap(5).rightJustified(2, '0')
-                      + ":" + re.cap(6).rightJustified(2, '0');
+    } else if ((match = QRegularExpression("^(\\d{1,4})-(\\d{1,2})-(\\d{1,2})\\s+(\\d{1,2}):(\\d{1,2})$").match(str)).hasMatch()
+               || (match = QRegularExpression("^(\\d{1,4})-(\\d{1,2})-(\\d{1,2})\\s+(\\d{1,2}):(\\d{1,2}):(\\d{1,2})$").match(str)).hasMatch()) {
+        QString res = match.captured(1).rightJustified(4, '0') + "-" + match.captured(2).rightJustified(2, '0')
+                      + "-" + match.captured(3).rightJustified(2, '0')
+                      + "T" + match.captured(4).rightJustified(2, '0') + ":" + match.captured(5).rightJustified(2, '0')
+                      + ":" + match.captured(6).rightJustified(2, '0');
 //  qDebug() << res;
         valueExpr = KDbConstExpression(KDbToken::DATETIME_CONST,
                                        QDateTime::fromString(res, Qt::ISODate));

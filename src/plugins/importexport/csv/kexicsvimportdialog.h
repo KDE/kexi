@@ -30,7 +30,7 @@
 #define KEXI_CSVIMPORTDIALOG_H
 
 #include <QList>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QPixmap>
 #include <QTextStream>
 #include <QEvent>
@@ -240,7 +240,7 @@ private:
     QByteArray m_fileArray;
     Mode m_mode;
 
-    QRegExp m_dateRegExp, m_timeRegExp1, m_timeRegExp2, m_fpNumberRegExp1, m_fpNumberRegExp2;
+    QRegularExpression m_dateRegExp, m_timeRegExp1, m_timeRegExp2, m_fpNumberRegExp1, m_fpNumberRegExp2;
     bool m_columnsAdjusted; //!< to call adjustColumn() only once
     bool m_1stRowForFieldNamesDetected; //!< used to force rerun fillTable() after 1st row
     bool m_firstFillTableCall; //!< used to know whether it's 1st fillTable() call

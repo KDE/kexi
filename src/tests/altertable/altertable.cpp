@@ -33,7 +33,7 @@
 #include <QApplication>
 #include <QFile>
 #include <QDir>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QClipboard>
 #include <QDebug>
 
@@ -282,7 +282,7 @@ bool AlterTableTester::getSchemaDump(KexiWindow* window, QString& schemaDebugStr
                   .arg(~result ? "cancelled" : "false"));
         return false;
     }
-    schemaDebugString.remove(QRegExp(",$")); //no need to have "," at the end of lines
+    schemaDebugString.remove(QRegularExpression(",$")); //no need to have "," at the end of lines
     return true;
 }
 
@@ -313,7 +313,7 @@ bool AlterTableTester::checkInternal(KexiWindow* window,
             expectedLine = testFileStream.readLine();
             if (skipColonsAndStripWhiteSpace) {
                 expectedLine = expectedLine.stripWhiteSpace();
-                expectedLine.remove(QRegExp(",$")); //no need to have "," at the end of lines
+                expectedLine.remove(QRegularExpression(",$")); //no need to have "," at the end of lines
             }
         }
         if (testFileStreamAtEnd || endCommand == expectedLine.stripWhiteSpace()) {
@@ -332,7 +332,7 @@ bool AlterTableTester::checkInternal(KexiWindow* window,
         resultLine = resultStream.readLine();
         if (skipColonsAndStripWhiteSpace) {
             resultLine = resultLine.stripWhiteSpace();
-            resultLine.remove(QRegExp(",$")); //no need to have "," at the end of lines
+            resultLine.remove(QRegularExpressions(",$")); //no need to have "," at the end of lines
         }
         if (resultLine != expectedLine) {
             showError(
