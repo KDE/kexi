@@ -673,6 +673,11 @@ KexiTabbedToolBar::KexiTabbedToolBar(QWidget *parent)
     if (help_switch_language_action) {
         d->ac->addAction(help_switch_language_action->objectName(), help_switch_language_action);
     }
+    // extra action such as help_donate may be confusing for the user or conflicting with existing so hide it
+    QAction *extraAction = d->helpMenu->action(static_cast<KHelpMenu::MenuId>(KHelpMenu::menuSwitchLanguage + 1));
+    if (extraAction) {
+        extraAction->setVisible(false);
+    }
 
     QAction *action_show_help_menu = d->ac->action("help_show_menu");
     KexiSmallToolButton *btn = new KexiSmallToolButton(koIcon("help-about"), QString(), helpWidget);

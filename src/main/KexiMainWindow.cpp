@@ -1122,6 +1122,8 @@ void KexiMainWindow::setupActions()
 
     acat->addAction("help_whats_this", Kexi::GlobalActionCategory);
 
+    acat->addAction("help_donate", Kexi::GlobalActionCategory); // disabled for now
+
     acat->addAction("switch_application_language", Kexi::GlobalActionCategory);
 
     acat->addAction("options_configure_keybinding", Kexi::GlobalActionCategory);
