@@ -54,17 +54,15 @@ class KexiTimeFormatter::Private
 {
 public:
     Private()
-        : hmsRegExp(new QRegularExpression(
-            QLatin1String("(\\d*):(\\d*):(\\d*).*( am| pm){,1}"), QRegularExpression::CaseInsensitiveOption))
-        , hmRegExp(new QRegularExpression(
-            QLatin1String("(\\d*):(\\d*).*( am| pm){,1}"), QRegularExpression::CaseInsensitiveOption))
+        : hmsRegExp(
+            QLatin1String("(\\d*):(\\d*):(\\d*).*( am| pm){,1}"), QRegularExpression::CaseInsensitiveOption)
+        , hmRegExp(
+            QLatin1String("(\\d*):(\\d*).*( am| pm){,1}"), QRegularExpression::CaseInsensitiveOption)
     {
     }
 
     ~Private()
     {
-        delete hmsRegExp;
-        delete hmRegExp;
     }
 
     //! Input mask generated using the formatter settings. Can be used in QLineEdit::setInputMask().
@@ -83,7 +81,7 @@ public:
     //! Used in fromString(const QString&) to convert string back to QTime
     int hourpos, minpos, secpos, ampmpos;
 
-    QRegularExpression *hmsRegExp, *hmRegExp;
+    QRegularExpression hmsRegExp, hmRegExp;
 };
 
 KexiDateFormatter::KexiDateFormatter()
@@ -319,8 +317,8 @@ QTime KexiTimeFormatter::fromString(const QString& str) const
     QTime time;
     int hour, min, sec;
     bool pm = false;
-    QRegularExpressionMatch matchHms = d->hmsRegExp->match(str);
-    QRegularExpressionMatch matchHm = d->hmRegExp->match(str);
+    QRegularExpressionMatch matchHms = d->hmsRegExp.match(str);
+    QRegularExpressionMatch matchHm = d->hmRegExp.match(str);
     bool tryWithoutSeconds = true;
 
     if (d->secpos >= 0) {
@@ -328,7 +326,7 @@ QTime KexiTimeFormatter::fromString(const QString& str) const
             hour = matchHms.captured(1).toInt();
             min = matchHms.captured(2).toInt();
             sec = matchHms.captured(3).toInt();
-            if (d->ampmpos >= 0 && d->hmsRegExp->captureCount() > 3)
+            if (d->ampmpos >= 0 && d->hmsRegExp.captureCount() > 3)
                 pm = matchHms.captured(4).trimmed().toLower() == "pm";
             tryWithoutSeconds = false;
         }
@@ -339,7 +337,7 @@ QTime KexiTimeFormatter::fromString(const QString& str) const
         hour = matchHm.captured(1).toInt();
         min = matchHm.captured(2).toInt();
         sec = 0;
-        if (d->ampmpos >= 0 && d->hmRegExp->captureCount() > 2)
+        if (d->ampmpos >= 0 && d->hmRegExp.captureCount() > 2)
             pm = matchHm.captured(4).toLower() == "pm";
     }
 
