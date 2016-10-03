@@ -1122,6 +1122,8 @@ void KexiMainWindow::setupActions()
 
     acat->addAction("help_whats_this", Kexi::GlobalActionCategory);
 
+    acat->addAction("switch_application_language", Kexi::GlobalActionCategory);
+
     acat->addAction("options_configure_keybinding", Kexi::GlobalActionCategory);
 
     acat->addAction("project_close", Kexi::GlobalActionCategory);

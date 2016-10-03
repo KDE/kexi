@@ -669,6 +669,10 @@ KexiTabbedToolBar::KexiTabbedToolBar(QWidget *parent)
     QAction* help_about_kde_action = d->helpMenu->action(KHelpMenu::menuAboutKDE);
     d->ac->addAction(help_about_kde_action->objectName(), help_about_kde_action);
     help_about_kde_action->setWhatsThis(xi18n("Shows information about KDE."));
+    QAction* help_switch_language_action = d->helpMenu->action(KHelpMenu::menuSwitchLanguage);
+    if (help_switch_language_action) {
+        d->ac->addAction(help_switch_language_action->objectName(), help_switch_language_action);
+    }
 
     QAction *action_show_help_menu = d->ac->action("help_show_menu");
     KexiSmallToolButton *btn = new KexiSmallToolButton(koIcon("help-about"), QString(), helpWidget);
