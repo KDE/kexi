@@ -276,7 +276,7 @@ bool KexiDBLineEdit::cursorAtStart()
 
 bool KexiDBLineEdit::cursorAtEnd()
 {
-    return cursorPosition() == (int)text().length();
+    return KexiUtils::cursorAtEnd(this);;
 }
 
 void KexiDBLineEdit::clear()

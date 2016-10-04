@@ -20,6 +20,8 @@
 */
 
 #include "kexidbdatepicker.h"
+#include <kexiutils/utils.h>
+
 #include <QLineEdit>
 #include <QInputMethodEvent>
 
@@ -106,7 +108,7 @@ bool KexiDBDatePicker::cursorAtStart()
 bool KexiDBDatePicker::cursorAtEnd()
 {
     const QLineEdit *lineEdit = findChild<QLineEdit*>();
-    return lineEdit && lineEdit->hasFocus() && lineEdit->cursorPosition() == lineEdit->text().length();
+    return lineEdit && lineEdit->hasFocus() && KexiUtils::cursorAtEnd(lineEdit);
 }
 
 void KexiDBDatePicker::clear()

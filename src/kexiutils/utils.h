@@ -49,6 +49,7 @@
 class QColor;
 class QMetaProperty;
 class QLayout;
+class QLineEdit;
 class KLocalizedString;
 
 //! @short General Utils
@@ -606,6 +607,14 @@ KEXIUTILS_EXPORT QString makeStandardCaption(const QString &userCaption,
  * but <html> and </html> is removed so the result can be used as %* argument in other string.
  */
 KEXIUTILS_EXPORT QString localizedStringToHtmlSubstring(const KLocalizedString& string);
+
+/**
+ * @return @c true if text cursor is at the end of the line edit @a lineEdit.
+ * If the @a lineEdit edit has input mask, cursor is at the end if it's at position
+ * lineEdit->displayText().length() - 1 or further. If the @a lineEdit has no input mask, cursor
+ * is at the end if it's at position lineEdit->text().length() or further.
+ */
+KEXIUTILS_EXPORT bool cursorAtEnd(const QLineEdit *lineEdit);
 
 } //namespace KexiUtils
 

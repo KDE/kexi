@@ -20,6 +20,7 @@
 
 #include "kexiinputtableedit.h"
 #include <kexi_global.h>
+#include <kexiutils/utils.h>
 
 #include <KDbField>
 #include <KDbFieldValidator>
@@ -203,7 +204,7 @@ bool KexiInputTableEdit::cursorAtStart()
 
 bool KexiInputTableEdit::cursorAtEnd()
 {
-    return m_lineedit->cursorPosition() == (int)m_lineedit->text().length();
+    return KexiUtils::cursorAtEnd(m_lineedit);
 }
 
 QSize KexiInputTableEdit::totalSize() const

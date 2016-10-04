@@ -58,6 +58,7 @@
 #include <QFileDialog>
 #include <QDesktopServices>
 #include <QStyleHints>
+#include <QLineEdit>
 
 #include <KRun>
 #include <KToolInvocation>
@@ -1006,4 +1007,16 @@ QString KexiUtils::localizedStringToHtmlSubstring(const KLocalizedString& string
 {
     return string.toString(Kuit::RichText)
             .remove(QLatin1String("<html>")).remove(QLatin1String("</html>"));
+}
+
+bool KexiUtils::cursorAtEnd(const QLineEdit *lineEdit)
+{
+    if (!lineEdit) {
+        return false;
+    }
+    if (lineEdit->inputMask().isEmpty()) {
+        return lineEdit->cursorPosition() >= lineEdit->displayText().length();
+    } else {
+        return lineEdit->cursorPosition() >= (lineEdit->displayText().length() - 1);
+    }
 }
