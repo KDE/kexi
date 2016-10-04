@@ -207,10 +207,12 @@ QVariant KexiTextFormatter::fromString(const QString& text, bool *ok) const
             result = text == QString::fromLatin1("1");
             break;
         case KDbField::Date:
-            result = d->dateFormatter->stringToVariant(text, ok);
+            result = d->dateFormatter->stringToVariant(text);
+            *ok = !result.isNull();
             break;
         case KDbField::Time:
-            result = d->timeFormatter->stringToVariant(text, ok);
+            result = d->timeFormatter->stringToVariant(text);
+            *ok = !result.isNull();
             break;
         case KDbField::DateTime: {
             const QDateTime dt(KexiDateTimeFormatter::fromString(

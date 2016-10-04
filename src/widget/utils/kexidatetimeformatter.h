@@ -30,7 +30,7 @@
 class KEXIGUIUTILS_EXPORT KexiDateFormatter
 {
 public:
-    //! Creates new formatter with KDE setting for "short date"
+    //! Creates new formatter for the current locale settings
     KexiDateFormatter();
 
     //! Creates new formatter with given settings
@@ -40,14 +40,14 @@ public:
 
     //! Converts string \a str to date using predefined settings.
     //! \return invalid date if the conversion is impossible
-    QDate fromString(const QString& str, bool *ok = nullptr) const;
+    QDate fromString(const QString& str) const;
 
     /*! Converts string \a str to date using predefined settings
      and returns QVariant containing the date value.
      This method does the same as fromString(const QString&) but if \a string
      contains invalid date representation, e.g. contains only spaces
      and separators, null QVariant() is returned. */
-    QVariant stringToVariant(const QString& str, bool *ok = nullptr) const;
+    QVariant stringToVariant(const QString& str) const;
 
     //! Converts \a date to string using predefined settings.
     //! \return empty string if \a date is invalid
@@ -56,9 +56,6 @@ public:
     //! \return Input mask generated using the formatter settings.
     //! Can be used in QLineEdit::setInputMask().
     QString inputMask() const;
-
-    //! \return separator for this date format, a single character like "-" or "/"
-    QString separator() const;
 
     //! \return true if \a str contains only spaces
     //! and separators according to the date format.
@@ -80,7 +77,7 @@ private:
 class KEXIGUIUTILS_EXPORT KexiTimeFormatter
 {
 public:
-    //! Creates new formatter with KDE setting for time
+    //! Creates new formatter for the current locale settings
     KexiTimeFormatter();
 
     //! Creates new formatter with given settings
@@ -96,8 +93,8 @@ public:
      and returns QVariant containing the time value.
      This method does the same as fromString(const QString&) but if \a string
      contains invalid time representation, e.g. contains only spaces
-     and separators, null QVariant() is returned and @a *ok is set to false. */
-    QVariant stringToVariant(const QString& str, bool *ok = nullptr);
+     and separators, null QVariant() is returned. */
+    QVariant stringToVariant(const QString& str);
 
     //! converts \a time to string using predefined settings
     //! \return empty string if \a time is invalid

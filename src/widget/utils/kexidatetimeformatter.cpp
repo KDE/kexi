@@ -21,149 +21,269 @@
 
 #include <KLocalizedString>
 
+#include <QDebug>
 #include <QLineEdit>
 #include <QLocale>
-#include <QRegularExpression>
+
+namespace {
+    const QString INPUT_MASK_BLANKS_FORMAT(QLatin1String(";_"));
+
+    //! Like replace(const QString &before, QLatin1String after) but also returns
+    //! @c true if replacement has been made.
+    bool tryReplace(QString *str, const char *from, const char *to) {
+        Q_ASSERT(str);
+        if (str->contains(QLatin1String(from))) {
+            str->replace(QLatin1String(from), QLatin1String(to));
+            return true;
+        }
+        return false;
+    }
+}
 
 class KexiDateFormatter::Private
 {
 public:
-    Private() {}
+    Private()
+        // use "short date" format system settings
+        //! @todo allow to override the format using column property and/or global app settings
+        : inputFormat(QLocale().dateFormat(QLocale::ShortFormat))
+    {
+        outputFormat = inputFormat;
+        emptyFormat = inputFormat;
+        inputMask = inputFormat;
+        computeDaysFormatAndMask();
+        computeMonthsFormatAndMask();
+        computeYearsFormatAndMask();
+        inputMask += INPUT_MASK_BLANKS_FORMAT;
+    }
 
     //! Input mask generated using the formatter settings. Can be used in QLineEdit::setInputMask().
     QString inputMask;
 
-    //! Order of date sections
-    Order order;
+    //! Date format used by fromString() and stringToVariant()
+    QString inputFormat;
 
-    //! 4 or 2 digits
-    bool longYear;
+    //! Date format used by toString()
+    QString outputFormat;
 
-    bool monthWithLeadingZero, dayWithLeadingZero;
+    //! Date format used by isEmpty()
+    QString emptyFormat;
 
-    //! Date format used in toString()
-    QString qtFormat;
-
-    //! Used in fromString(const QString&) to convert string back to QDate
-    int yearpos, monthpos, daypos;
-
-    QString separator;
+private:
+    void computeDaysFormatAndMask() {
+        // day (note, order or lookup is important):
+        // - dddd - named days not supported, fall back to "d":
+        if (tryReplace(&inputMask, "dddd", "90")) {
+            // also replace the input format
+            inputFormat.replace(QLatin1String("dddd"), QLatin1String("d"));
+            emptyFormat.remove(QLatin1String("dddd"));
+            return;
+        }
+        // - ddd - named days not supported, fall back to "d":
+        if (tryReplace(&inputMask, "ddd", "90")) {
+            // also replace the input format
+            inputFormat.replace(QLatin1String("ddd"), QLatin1String("d"));
+            emptyFormat.remove(QLatin1String("ddd"));
+            return;
+        }
+        // - dd - The day as a number with a leading zero (01 to 31)
+        //        second character is optional, e.g. 1_ is OK
+        if (tryReplace(&inputMask, "dd", "90")) {
+            // also replace the input format
+            inputFormat.replace(QLatin1String("dd"), QLatin1String("d"));
+            emptyFormat.remove(QLatin1String("dd"));
+            return;
+        }
+        // - d - The day as a number without a leading zero (1 to 31);
+        //       second character is optional, e.g. 1_ is OK
+        if (tryReplace(&inputMask, "d", "90")) {
+            emptyFormat.remove(QLatin1String("d"));
+            return;
+        }
+        qWarning() << "Not found 'days' part in format" << inputFormat;
+    }
+    void computeMonthsFormatAndMask() {
+        // month (note, order or lookup is important):
+        // - MMMM - named months not supported, fall back to "M"
+        if (tryReplace(&inputMask, "MMMM", "90")) {
+            // also replace the input format
+            inputFormat.replace(QLatin1String("MMMM"), QLatin1String("M"));
+            emptyFormat.remove(QLatin1String("MMMM"));
+            return;
+        }
+        // - MMM - named months not supported, fall back to "M"
+        if (tryReplace(&inputMask, "MMM", "90")) {
+            // also replace the input format
+            inputFormat.replace(QLatin1String("MMM"), QLatin1String("M"));
+            emptyFormat.remove(QLatin1String("MMM"));
+            return;
+        }
+        // - MM - The month as a number with a leading zero (01 to 12)
+        //        second character is optional, e.g. 1_ is OK
+        if (tryReplace(&inputMask, "MM", "90")) {
+            // also replace the input format
+            inputFormat.replace(QLatin1String("MM"), QLatin1String("M"));
+            emptyFormat.remove(QLatin1String("MM"));
+            return;
+        }
+        // - M - The month as a number without a leading zero (1 to 12);
+        //       second character is optional, e.g. 1_ is OK
+        if (tryReplace(&inputMask, "M", "90")) {
+            emptyFormat.remove(QLatin1String("M"));
+            return;
+        }
+        qWarning() << "Not found 'months' part in format" << inputFormat;
+    }
+    void computeYearsFormatAndMask() {
+        // - yyyy - The year as four digit number.
+        if (tryReplace(&inputMask, "yyyy", "9999")) {
+            emptyFormat.remove(QLatin1String("yyyy"));
+            return;
+        }
+        // - yy - The year as four digit number.
+        if (tryReplace(&inputMask, "yy", "99")) {
+            emptyFormat.remove(QLatin1String("yy"));
+            return;
+        }
+        qWarning() << "Not found 'years' part in format" << inputFormat;
+    }
 };
 
 class KexiTimeFormatter::Private
 {
 public:
     Private()
-        : hmsRegExp(
-            QLatin1String("(\\d*):(\\d*):(\\d*).*( am| pm){,1}"), QRegularExpression::CaseInsensitiveOption)
-        , hmRegExp(
-            QLatin1String("(\\d*):(\\d*).*( am| pm){,1}"), QRegularExpression::CaseInsensitiveOption)
+        // use "short date" format system settings
+        //! @todo allow to override the format using column property and/or global app settings
+        : inputFormat(QLocale().timeFormat(QLocale::ShortFormat))
     {
+        outputFormat = inputFormat;
+        emptyFormat = inputFormat;
+        inputMask = inputFormat;
+        computeHoursFormatAndMask();
+        computeMinutesFormatAndMask();
+        computeSecondsFormatAndMask();
+        computeMillisecondsFormatAndMask();
+        computeAmPmFormatAndMask();
+        inputMask += INPUT_MASK_BLANKS_FORMAT;
     }
 
-    ~Private()
-    {
+    ~Private() {
     }
 
     //! Input mask generated using the formatter settings. Can be used in QLineEdit::setInputMask().
     QString inputMask;
 
-    //! 12 or 12h
-    bool is24h;
+    //! Time format used by fromString() and stringToVariant()
+    QString inputFormat;
 
-    bool hoursWithLeadingZero;
-
-    //! Time format used in toString().
-    //! @todo KEXI3 port this to QLocale: Notation from KLocale::setTimeFormat() is used.
-    //! @todo KEXI3 Qt5's QTime/QDate::fromString() differs from KLocale::setTimeFormat()
+    //! Time format used by toString()
     QString outputFormat;
 
-    //! Used in fromString(const QString&) to convert string back to QTime
-    int hourpos, minpos, secpos, ampmpos;
+    //! Date format used by isEmpty()
+    QString emptyFormat;
 
-    QRegularExpression hmsRegExp, hmRegExp;
+private:
+    void computeHoursFormatAndMask() {
+        // - hh - the hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display).
+        //        second character is optional, e.g. 1_ is OK
+        if (tryReplace(&inputMask, "hh", "90")) {
+            // also replace the input format
+            inputFormat.replace(QLatin1String("hh"), QLatin1String("h"));
+            emptyFormat.remove(QLatin1String("hh"));
+            return;
+        }
+        // the same for HH
+        if (tryReplace(&inputMask, "HH", "90")) {
+            // also replace the input format
+            inputFormat.replace(QLatin1String("HH"), QLatin1String("h"));
+            emptyFormat.remove(QLatin1String("HH"));
+            return;
+        }
+        // - h - the hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display).
+        //       second character is optional, e.g. 1_ is OK
+        if (tryReplace(&inputMask, "h", "90")) {
+            emptyFormat.remove(QLatin1String("h"));
+            return;
+        }
+        // the same for H
+        if (tryReplace(&inputMask, "H", "90")) {
+            emptyFormat.remove(QLatin1String("H"));
+            return;
+        }
+        qWarning() << "Not found 'hours' part in format" << inputFormat;
+    }
+    void computeMinutesFormatAndMask() {
+        // - mm - the minute with a leading zero (00 to 59).
+        if (tryReplace(&inputMask, "mm", "90")) {
+            // also replace the input format
+            inputFormat.replace(QLatin1String("mm"), QLatin1String("m"));
+            emptyFormat.remove(QLatin1String("mm"));
+            return;
+        }
+        // - m - the minute without a leading zero (0 to 59).
+        //       second character is optional, e.g. 1_ is OK
+        if (tryReplace(&inputMask, "m", "90")) {
+            emptyFormat.remove(QLatin1String("m"));
+            return;
+        }
+        qWarning() << "Not found 'minutes' part in format" << inputFormat;
+    }
+    void computeSecondsFormatAndMask() {
+        // - ss - the second with a leading zero (00 to 59).
+        //        second character is optional, e.g. 1_ is OK
+        if (tryReplace(&inputMask, "ss", "90")) {
+            // also replace the input format
+            inputFormat.replace(QLatin1String("ss"), QLatin1String("s"));
+            emptyFormat.remove(QLatin1String("ss"));
+            return;
+        }
+        // - s - the second without a leading zero (0 to 59).
+        //       second character is optional, e.g. 1_ is OK
+        if (tryReplace(&inputMask, "s", "90")) {
+            emptyFormat.remove(QLatin1String("s"));
+            return;
+        }
+        //qDebug() << "Not found 'seconds' part in format" << inputFormat;
+    }
+    void computeMillisecondsFormatAndMask() {
+        // - zzz - the milliseconds with leading zeroes (000 to 999).
+        //       last two characters are optional, e.g. 1_ is OK
+        if (tryReplace(&inputMask, "zzz", "900")) {
+            // also replace the input format
+            inputFormat.replace(QLatin1String("zzz"), QLatin1String("z"));
+            emptyFormat.remove(QLatin1String("zzz"));
+            return;
+        }
+        // - m - the milliseconds without leading zeroes (0 to 999).
+        //       last two characters are optional, e.g. 1_ is OK
+        if (tryReplace(&inputMask, "z", "900")) {
+            emptyFormat.remove(QLatin1String("z"));
+            return;
+        }
+        //qDebug() << "Not found 'milliseconds' part in format" << inputFormat;
+    }
+    void computeAmPmFormatAndMask() {
+        // - AP - interpret as an AM/PM time. AP must be either "AM" or "PM".
+        //! @note not a 100% accurate approach, we're assuming that "AP" substring is only
+        //!       used to indicate AM/PM
+        if (tryReplace(&inputMask, "AP", ">AA!")) { // we're also converting to upper case
+            emptyFormat.remove(QLatin1String("AP"));
+            return;
+        }
+        // - ap - interpret as an AM/PM time. ap must be either "am" or "pm".
+        //! @note see above
+        if (tryReplace(&inputMask, "ap", "<AA!")) { // we're also converting to upper case
+            emptyFormat.remove(QLatin1String("ap"));
+            return;
+        }
+        //qDebug() << "Not found 'AM/PM' part in format" << inputFormat;
+    }
 };
 
 KexiDateFormatter::KexiDateFormatter()
   : d(new Private)
 {
-    // use "short date" format system settings
-//! @todo allow to override the format using column property and/or global app settings
-    QLocale locale;
-    QString df(locale.dateFormat(QLocale::ShortFormat));
-    if (df.length() > 2)
-        d->separator = df.mid(2, 1);
-    else
-        d->separator = "-";
-    const int separatorLen = d->separator.length();
-    QString yearMask("9999");
-    QString yearDateFormat("yyyy");
-    QString monthDateFormat("MM");
-    QString dayDateFormat("dd"); //for setting up d->dateFormat
-    bool ok = df.length() >= 8;
-    int yearpos, monthpos, daypos; //result of df.find()
-    if (ok) {//look at % variables
-//! @todo more variables are possible here, see QDate::toString() docs
-        yearpos = df.indexOf("%y", 0, Qt::CaseInsensitive); //&y or %y
-        d->longYear = !(yearpos >= 0 && df.mid(yearpos + 1, 1) == "y");
-        if (!d->longYear) {
-            yearMask = "99";
-            yearDateFormat = "yy";
-        }
-        monthpos = df.indexOf("%m", 0, Qt::CaseSensitive); //%m or %n
-        d->monthWithLeadingZero = true;
-        if (monthpos < 0) {
-            monthpos = df.indexOf("%n", 0, Qt::CaseInsensitive);
-            d->monthWithLeadingZero = false;
-            monthDateFormat = "M";
-        }
-        daypos = df.indexOf("%d", 0, Qt::CaseSensitive);//%d or %e
-        d->dayWithLeadingZero = true;
-        if (daypos < 0) {
-            daypos = df.indexOf("%e", 0, Qt::CaseInsensitive);
-            d->dayWithLeadingZero = false;
-            dayDateFormat = "d";
-        }
-        ok = (yearpos >= 0 && monthpos >= 0 && daypos >= 0);
-    }
-    d->order = YMD; //default
-    if (ok) {
-        if (yearpos < monthpos && monthpos < daypos) {
-            //will be set in "default: YMD"
-        } else if (yearpos < daypos && daypos < monthpos) {
-            d->order = YDM;
-//! @todo use QRegExp (to replace %Y by %1, etc.) instead of hardcoded "%1%299%399"
-//!       because df may contain also other characters
-            d->inputMask = yearMask + d->separator + QLatin1String("99") + d->separator + QLatin1String("99");
-            d->qtFormat = yearDateFormat + d->separator + dayDateFormat + d->separator + monthDateFormat;
-            d->yearpos = 0;
-            d->daypos = yearMask.length() + separatorLen;
-            d->monthpos = d->daypos + 2 + separatorLen;
-        } else if (daypos < monthpos && monthpos < yearpos) {
-            d->order = DMY;
-            d->inputMask = QLatin1String("99") + d->separator + QLatin1String("99") + d->separator + yearMask;
-            d->qtFormat = dayDateFormat + d->separator + monthDateFormat + d->separator + yearDateFormat;
-            d->daypos = 0;
-            d->monthpos = 2 + separatorLen;
-            d->yearpos = d->monthpos + 2 + separatorLen;
-        } else if (monthpos < daypos && daypos < yearpos) {
-            d->order = MDY;
-            d->inputMask = QLatin1String("99") + d->separator + QLatin1String("99") + d->separator + yearMask;
-            d->qtFormat = monthDateFormat + d->separator + dayDateFormat + d->separator + yearDateFormat;
-            d->monthpos = 0;
-            d->daypos = 2 + separatorLen;
-            d->yearpos = d->daypos + 2 + separatorLen;
-        } else
-            ok = false;
-    }
-    if (!ok || d->order == YMD) {//default: YMD
-        d->inputMask = yearMask + d->separator + QLatin1String("99") + d->separator + QLatin1String("99");
-        d->qtFormat = yearDateFormat + d->separator + monthDateFormat + d->separator + dayDateFormat;
-        d->yearpos = 0;
-        d->monthpos = yearMask.length() + separatorLen;
-        d->daypos = d->monthpos + 2 + separatorLen;
-    }
-    d->inputMask += ";_";
 }
 
 KexiDateFormatter::~KexiDateFormatter()
@@ -171,63 +291,21 @@ KexiDateFormatter::~KexiDateFormatter()
     delete d;
 }
 
-QDate KexiDateFormatter::fromString(const QString& str, bool *ok) const
+QDate KexiDateFormatter::fromString(const QString& str) const
 {
-    bool thisOk = true;
-    if (!ok) {
-        ok = &thisOk;
-    }
-    int year = str.mid(d->yearpos, d->longYear ? 4 : 2).toInt(ok);
-    if (!*ok) {
-        return QDate();
-    }
-    if (year < 30) {//2000..2029
-        year = 2000 + year;
-    } else if (year < 100) {//1930..1999
-        year = 1900 + year;
-    }
-
-    const int month = str.mid(d->monthpos, 2).toInt(ok);
-    if (!*ok) {
-        return QDate();
-    }
-
-    const int day = str.mid(d->daypos, 2).toInt(ok);
-    if (!*ok) {
-        return QDate();
-    }
-
-    const QDate date(year, month, day);
-    if (!date.isValid()) {
-        *ok = false;
-        return QDate();
-    }
-    *ok = true;
-    return date;
+    return QDate::fromString(str, d->inputFormat);
 }
 
-QVariant KexiDateFormatter::stringToVariant(const QString& str, bool *ok) const
+QVariant KexiDateFormatter::stringToVariant(const QString& str) const
 {
-    if (isEmpty(str)) {
-        if (ok) {
-            *ok = true;
-        }
-        return QVariant();
-    }
-    const QDate date(fromString(str, ok));
-    if (date.isValid()) {
-        return date;
-    }
-    return QVariant();
+    const QDate date(fromString(str));
+    return date.isValid() ? date : QVariant();
 }
 
 bool KexiDateFormatter::isEmpty(const QString& str) const
 {
-    if (str.isEmpty()) {
-        return true;
-    }
-    QString s(str);
-    return s.remove(d->separator).trimmed().isEmpty();
+    const QString t(str.trimmed());
+    return t.isEmpty() || t == d->emptyFormat;
 }
 
 QString KexiDateFormatter::inputMask() const
@@ -235,14 +313,9 @@ QString KexiDateFormatter::inputMask() const
     return d->inputMask;
 }
 
-QString KexiDateFormatter::separator() const
-{
-    return d->separator;
-}
-
 QString KexiDateFormatter::toString(const QDate& date) const
 {
-    return date.toString(d->qtFormat);
+    return date.toString(d->outputFormat);
 }
 
 //------------------------------------------------
@@ -250,61 +323,6 @@ QString KexiDateFormatter::toString(const QDate& date) const
 KexiTimeFormatter::KexiTimeFormatter()
         : d(new Private)
 {
-    QLocale locale;
-    QString tf(locale.timeFormat(QLocale::ShortFormat));
-    //d->hourpos, d->minpos, d->secpos; are result of tf.indexOf()
-    QString hourVariable, minVariable, secVariable;
-
-    //detect position of HOUR section: find %H or %k or %I or %l
-    d->is24h = true;
-    d->hoursWithLeadingZero = true;
-    d->hourpos = tf.indexOf("%H", 0, Qt::CaseSensitive);
-    if (d->hourpos >= 0) {
-        d->is24h = true;
-        d->hoursWithLeadingZero = true;
-    } else {
-        d->hourpos = tf.indexOf("%k", 0, Qt::CaseSensitive);
-        if (d->hourpos >= 0) {
-            d->is24h = true;
-            d->hoursWithLeadingZero = false;
-        } else {
-            d->hourpos = tf.indexOf("%I", 0, Qt::CaseSensitive);
-            if (d->hourpos >= 0) {
-                d->is24h = false;
-                d->hoursWithLeadingZero = true;
-            } else {
-                d->hourpos = tf.indexOf("%l", 0, Qt::CaseSensitive);
-                if (d->hourpos >= 0) {
-                    d->is24h = false;
-                    d->hoursWithLeadingZero = false;
-                }
-            }
-        }
-    }
-    d->minpos = tf.indexOf("%M", 0, Qt::CaseSensitive);
-    d->secpos = tf.indexOf("%S", 0, Qt::CaseSensitive); //can be -1
-    d->ampmpos = tf.indexOf("%p", 0, Qt::CaseSensitive); //can be -1
-
-    if (d->hourpos < 0 || d->minpos < 0) {
-        //set default: hr and min are needed, sec are optional
-        tf = "%H:%M:%S";
-        d->is24h = true;
-        d->hoursWithLeadingZero = false;
-        d->hourpos = 0;
-        d->minpos = 3;
-        d->secpos = d->minpos + 3;
-        d->ampmpos = -1;
-    }
-    hourVariable = tf.mid(d->hourpos, 2);
-
-    d->inputMask = tf;
-    d->inputMask.replace(hourVariable, "99");
-    d->inputMask.replace("%M", "99");
-    d->inputMask.replace("%S", "00");   //optional
-    d->inputMask.replace("%p", "AA");   //am or pm
-    d->inputMask += ";_";
-
-    d->outputFormat = tf;
 }
 
 KexiTimeFormatter::~KexiTimeFormatter()
@@ -314,86 +332,24 @@ KexiTimeFormatter::~KexiTimeFormatter()
 
 QTime KexiTimeFormatter::fromString(const QString& str) const
 {
-    QTime time;
-    int hour, min, sec;
-    bool pm = false;
-    QRegularExpressionMatch matchHms = d->hmsRegExp.match(str);
-    QRegularExpressionMatch matchHm = d->hmRegExp.match(str);
-    bool tryWithoutSeconds = true;
-
-    if (d->secpos >= 0) {
-        if (-1 != matchHms.capturedStart()) {
-            hour = matchHms.captured(1).toInt();
-            min = matchHms.captured(2).toInt();
-            sec = matchHms.captured(3).toInt();
-            if (d->ampmpos >= 0 && d->hmsRegExp.captureCount() > 3)
-                pm = matchHms.captured(4).trimmed().toLower() == "pm";
-            tryWithoutSeconds = false;
-        }
-    }
-    if (tryWithoutSeconds) {
-        if (-1 == matchHm.capturedStart())
-            return QTime(99, 0, 0);
-        hour = matchHm.captured(1).toInt();
-        min = matchHm.captured(2).toInt();
-        sec = 0;
-        if (d->ampmpos >= 0 && d->hmRegExp.captureCount() > 2)
-            pm = matchHm.captured(4).toLower() == "pm";
-    }
-
-    if (pm && hour < 12)
-        hour += 12; //PM
-    time = QTime(hour, min, sec);
-    return time;
+    return QTime::fromString(str, d->inputFormat);
 }
 
-QVariant KexiTimeFormatter::stringToVariant(const QString& str, bool *ok)
+QVariant KexiTimeFormatter::stringToVariant(const QString& str)
 {
-    if (isEmpty(str))
-        return QVariant();
-    const QTime time(fromString(str));
-    if (time.isValid()) {
-        if (ok) {
-            *ok = true;
-        }
-        return time;
-    }
-    if (ok) {
-        *ok = false;
-    }
-    return QVariant();
+    const QTime result(fromString(str));
+    return result.isValid() ? result : QVariant();
 }
 
 bool KexiTimeFormatter::isEmpty(const QString& str) const
 {
-    QString s(str);
-    return s.remove(':').trimmed().isEmpty();
+    const QString t(str.trimmed());
+    return t.isEmpty() || t == d->emptyFormat;
 }
 
 QString KexiTimeFormatter::toString(const QTime& time) const
 {
-    if (!time.isValid())
-        return QString();
-
-    QString s(d->outputFormat);
-    if (d->is24h) {
-        if (d->hoursWithLeadingZero)
-            s.replace("%H", QString::fromLatin1(time.hour() < 10 ? "0" : "") + QString::number(time.hour()));
-        else
-            s.replace("%k", QString::number(time.hour()));
-    } else {
-        int time12 = (time.hour() > 12) ? (time.hour() - 12) : time.hour();
-        if (d->hoursWithLeadingZero)
-            s.replace("%I", QString::fromLatin1(time12 < 10 ? "0" : "") + QString::number(time12));
-        else
-            s.replace("%l", QString::number(time12));
-    }
-    s.replace("%M", QString::fromLatin1(time.minute() < 10 ? "0" : "") + QString::number(time.minute()));
-    if (d->secpos >= 0)
-        s.replace("%S", QString::fromLatin1(time.second() < 10 ? "0" : "") + QString::number(time.second()));
-    if (d->ampmpos >= 0)
-        s.replace("%p", time.hour() >= 12 ? xi18nc("afternoon", "pm") : xi18nc("before noon", "am"));
-    return s;
+    return time.toString(d->outputFormat);
 }
 
 QString KexiTimeFormatter::inputMask() const
@@ -407,7 +363,7 @@ QString KexiDateTimeFormatter::inputMask(const KexiDateFormatter& dateFormatter,
                                        const KexiTimeFormatter& timeFormatter)
 {
     QString mask(dateFormatter.inputMask());
-    mask.truncate(dateFormatter.inputMask().length() - 2);
+    mask.chop(INPUT_MASK_BLANKS_FORMAT.length());
     return mask + " " + timeFormatter.inputMask();
 }
 
