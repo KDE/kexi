@@ -133,6 +133,8 @@ set(KEXI_PLUGIN_INSTALL_DIR ${LIB_INSTALL_DIR}/kexi)
 ############################
 ###########################
 
+set(KEXI_LIBS_MIN_VERSION 3.0.90)
+
 ##
 ## Test for KDb
 ##
@@ -140,14 +142,14 @@ option(KEXI_DEBUG_GUI "Debugging GUI for Kexi (requires KDB_DEBUG_GUI to be set 
 if(KEXI_DEBUG_GUI)
     set(KDB_REQUIRED_COMPONENTS DEBUG_GUI)
 endif()
-find_package(KDb 3.0.0 REQUIRED COMPONENTS ${KDB_REQUIRED_COMPONENTS})
+find_package(KDb ${KEXI_LIBS_MIN_VERSION} REQUIRED COMPONENTS ${KDB_REQUIRED_COMPONENTS})
 macro_log_feature(KDb_FOUND "KDb" "A database connectivity and creation framework"
                             "http://community.kde.org/KDb" FALSE "" "Required by Kexi for data handling")
 
 ##
 ## Test for KReport
 ##
-find_package(KReport 3.0.0 REQUIRED)
+find_package(KReport ${KEXI_LIBS_MIN_VERSION} REQUIRED)
 if (KReport_FOUND)
     if(NOT KREPORT_SCRIPTING)
         message(FATAL_ERROR "Kexi requires KReport package with scripting support enabled (KREPORT_SCRIPTING)")
@@ -157,7 +159,7 @@ endif()
 ##
 ## Test for KPropertyWidgets
 ##
-find_package(KPropertyWidgets 3.0.0 REQUIRED)
+find_package(KPropertyWidgets ${KEXI_LIBS_MIN_VERSION} REQUIRED)
 macro_log_feature(KPropertyWidgets_FOUND "KPropertyWidgets" "A property editing framework with editor widget"
                                   "http://community.kde.org/KProperty" FALSE "" "Required by Kexi")
 
