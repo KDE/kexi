@@ -18,7 +18,9 @@ across many operating systems and hardware platforms.
 
 # Contact
 
-- Developers: http://kexi-project.org/contact.html
+- All contact options: https://community.kde.org/Kexi/Contact
+
+- Geting started with contributions: https://community.kde.org/Kexi/Getting_Started
 
 - Users mailing list: kexi@kde.org
   (subscribe at https://mail.kde.org/mailman/listinfo/kexi)
@@ -31,9 +33,10 @@ across many operating systems and hardware platforms.
 
 # Links
 
-- Kexi Project Home Page: http://kexi-project.org
-- Kexi within the Calligra suite: http://www.calligra.org/kexi
+- Kexi Project home page: http://kexi-project.org
+- Development wiki: https://community.kde.org/Kexi
+- Kexi within the Calligra Suite: http://www.calligra.org/kexi
 
 
-Have fun,
+Have fun,  
 --- Your Kexi Team
