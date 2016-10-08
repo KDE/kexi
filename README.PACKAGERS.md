@@ -1,6 +1,6 @@
 # Packaging Information for Kexi
 
-We recommend building several binary packages from the Kexi source.
+We recommend preparing several binary packages from the Kexi source.
 
 Splitting Kexi into packages:
 - gives users a better choice to install only those components they intend to use
@@ -9,13 +9,20 @@ Splitting Kexi into packages:
 
 # Table Of Contents
 
-1. Runtime dependencies  
-2. Migration drivers to package separately  
-3. Other plugins to package separately  
-4. Development files  
-5. Quick command-line tests of Kexi installation  
+1. Project description  
+2. Runtime dependencies  
+3. Migration drivers to package separately  
+4. Other plugins to package separately  
+5. Development files  
+6. Quick command-line tests of Kexi installation  
 
-# 1. Runtime dependencies
+# 1. Project description
+
+Kexi is a visual database applications builder. It is licensed under the LGPL 2.0 or later.
+To obtain complete description or metadata of the project please read the `src/data/org.kde.kexi.appdata.xml`
+file. You can also find links to application screenshots suitable for use on web pages.
+
+# 2. Runtime dependencies
 
 In addition to dependencies indicated at build time such as program libraries,
 this is a list of other runtime dependencies. Existence of each dependency is checked
@@ -29,7 +36,7 @@ selection. For this reason Breeze is the current default. Kexi does not use indi
 To obtain the file, contents of the [breeze-icons.git](https://quickgit.kde.org/?p=breeze-icons.git) repository have to
 be built with a `-DBINARY_ICONS_RESOURCE=ON` *CMake* option.
 
-# 2. Migration plugins to package separately
+# 3. Migration plugins to package separately
 
 Kexi provides migration plugins for a number of data sources or formats. We encourage to put each driver
 in a separate package, and that installation of these packages be optional. Each plugin package 
@@ -69,7 +76,7 @@ Dependencies: sheets (Calligra Sheets)
 Plugin .so files are typically installed to $PREFIX/lib{64}/plugins/kexi/
 and shared files installed to $PREFIX/share/kexi/.
 
-# 3. Other plugins to package separately
+# 4. Other plugins to package separately
 
 Kexi provides less a number of plugin types that are optional either because are less
 frequently used or because have larger dependencies. We encourage to put each driver in a
@@ -89,11 +96,11 @@ Contents: kformdesigner_mapbrowser.so
 Translation File: kformdesigner_mapbrowser.mo  
 Dependencies: libmarble5 or marble (provides libmarblewidget-qt5)
 
-# 4. Development files
+# 5. Development files
 
 Kexi ships no public development files at the moment, so -devel packages are not needed.
 
-# 5. Quick command-line tests of Kexi installation
+# 6. Quick command-line tests of Kexi installation
 
 If you don't want to click through Kexi interface but still want to make (almost) sure the
 application is properly packaged, please install it and type the following from the command
