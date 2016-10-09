@@ -94,6 +94,7 @@
 #include <QDebug>
 #include <QHash>
 #include <QStylePainter>
+#include <QStyleFactory>
 #include <QDesktopWidget>
 #include <QResource>
 
@@ -320,6 +321,25 @@ static bool setupIconTheme(KLocalizedString *errorMessage, KLocalizedString *det
     return true;
 }
 
+//! @todo 3.1 replace with KexiStyle
+bool setupApplication()
+{
+#if defined Q_OS_WIN || defined Q_OS_MAC
+    // Only this style matches current Kexi theme and can be supported/tested
+    const char *name = "breeze";
+    QScopedPointer<QStyle> style(QStyleFactory::create(name));
+    if (!style || style->objectName() != name) {
+        qWarning() <<
+             qPrintable(QString("Could not find application style %1. "
+                                "Kexi will not start. Please check if Kexi is properly installed. ")
+                                .arg(name));
+         return false;
+     }
+     qApp->setStyle(style.take());
+#endif
+     return true;
+}
+
 //static
 int KexiMainWindow::create(int &argc, char *argv[], const QString &componentName)
 {
@@ -339,6 +359,10 @@ int KexiMainWindow::create(int &argc, char *argv[], const QString &componentName
         aboutData.setComponentName(componentName);
     }
     KAboutData::setApplicationData(aboutData);
+
+    if (!setupApplication()) {
+        return 1;
+    }
 
 #ifdef HAVE_KCRASH
     KCrash::initialize();
