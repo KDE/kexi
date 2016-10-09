@@ -158,7 +158,7 @@ KexiProjectNavigator::KexiProjectNavigator(QWidget* parent, Features features)
     bool singleClickOpensItems = (d->features & AllowSingleClickForOpeningItems)
             && mainWindowGroup.readEntry("SingleClickOpensItem", true);
     if (singleClickOpensItems) {
-        connect(d->list, SIGNAL(activated(QModelIndex)), this, SLOT(slotExecuteItem(QModelIndex)));
+        connect(d->list, SIGNAL(clicked(QModelIndex)), this, SLOT(slotExecuteItem(QModelIndex)));
     } else {
         connect(d->list, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotExecuteItem(QModelIndex)));
     }
