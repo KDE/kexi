@@ -32,11 +32,19 @@
 #include <KStandardGuiItem>
 #include <KConfigGroup>
 #include <KIO/Job>
-#include <KIO/CopyJob>
 #include <KCodecs>
 #include <KSharedConfig>
 #include <KLocalizedString>
 #include <KMessageBox>
+#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
+#  include <QNetworkAccessManager>
+#  include <QNetworkRequest>
+#  include <QNetworkReply>
+#  include <QSaveFile>
+#else
+#  define USE_KIO_COPY
+#  include <KIO/CopyJob>
+#endif
 
 #include <QDebug>
 #include <QEvent>
@@ -72,6 +80,13 @@ static QString stableVersionStringDot0()
            + QString::number(Kexi::stableVersionMinor()) + ".0";
 }
 
+static QString uiPath(const QString &fname)
+{
+    KexiUserFeedbackAgent *f = KexiMainWindowIface::global()->userFeedbackAgent();
+    return f->serviceUrl() + QString("/ui/%1/").arg(stableVersionStringDot0())
+        + fname;
+}
+
 static QString basePath()
 {
     return QString("kexi/status/") + stableVersionStringDot0();
@@ -91,16 +106,229 @@ static QString findFilename(const QString &guiFileName)
 
 // ---
 
-class KexiWelcomeStatusBarGuiUpdater::Private
+class KexiWelcomeStatusBarGuiUpdater::Private : public QObject
 {
+    Q_OBJECT
 public:
     Private()
      : configGroup(KConfigGroup(KSharedConfig::openConfig()->group("User Feedback")))
     {
     }
+
     KConfigGroup configGroup;
-    QStringList fileNamesToUpdate;
-    QString tempDir;
+
+public Q_SLOTS:
+    void sendRequestListFilesFinished(KJob* job)
+    {
+        if (job->error()) {
+            qWarning() << "Error while receiving .list file - no files will be updated";
+            //! @todo error...
+            return;
+        }
+        KIO::StoredTransferJob* sendJob = qobject_cast<KIO::StoredTransferJob*>(job);
+        QString result = sendJob->data();
+        if (result.length() > UPDATE_FILES_LIST_SIZE_LIMIT) { // anti-DOS protection
+            qWarning() << "Too large .list file (" << result.length()
+                << "); the limit is" << UPDATE_FILES_LIST_SIZE_LIMIT
+                << "- no files will be updated";
+            return;
+        }
+        //qDebug() << result;
+        QStringList data = result.split('\n', QString::SkipEmptyParts);
+        result.clear();
+        m_fileNamesToUpdate.clear();
+        if (data.count() > UPDATE_FILES_COUNT_LIMIT) { // anti-DOS protection
+            qWarning() << "Too many files to update (" << data.count()
+                << "); the limit is" << UPDATE_FILES_COUNT_LIMIT
+                << "- no files will be updated";
+            return;
+        }
+        // OK, try to update (stage 1: check, stage 2: checking)
+        for (int stage = 1; stage <= 2; stage++) {
+            int i = 0;
+            for (QStringList::ConstIterator it(data.constBegin()); it!=data.constEnd(); ++it, i++) {
+                const QByteArray hash((*it).left(32).toLatin1());
+                const QString remoteFname((*it).mid(32 + 2));
+                if (stage == 1) {
+                    if (hash.length() != 32) {
+                        qWarning() << "Invalid hash" << hash << "in line" << i+1 << "- no files will be updated";
+                        return;
+                    }
+                    if ((*it).mid(32, 2) != "  ") {
+                        qWarning() << "Two spaces expected but found" << (*it).mid(32, 2)
+                            << "in line" << i+1 << "- no files will be updated";
+                        return;
+                    }
+                    if (remoteFname.contains(QRegularExpression("\\s"))) {
+                        qWarning() << "Filename expected without whitespace but found" << remoteFname
+                            << "in line" << i+1 << "- no files will be updated";
+                        return;
+                    }
+                }
+                else if (stage == 2) {
+                    checkFile(hash, remoteFname, &m_fileNamesToUpdate);
+                }
+            }
+        }
+        if (m_fileNamesToUpdate.isEmpty()) {
+            qDebug() << "No files to update.";
+            return;
+        }
+        // update files
+        QList<QUrl> sourceFiles;
+        foreach (const QString &fname, m_fileNamesToUpdate) {
+            sourceFiles.append(QUrl(uiPath(fname)));
+        }
+        m_tempDir.reset(new QTemporaryDir(QDir::tempPath() + "/kexi-status"));
+        //qDebug() << m_tempDir->path();
+#ifdef USE_KIO_COPY
+        KIO::CopyJob *copyJob = KIO::copy(sourceFiles,
+                                          QUrl::fromLocalFile(m_tempDir->path()),
+                                          KIO::HideProgressInfo | KIO::Overwrite);
+        connect(copyJob, &KIO::CopyJob::result, this, &Private::filesCopyFinished);
+#else
+        if (!m_downloadManager) {
+            m_downloadManager = new QNetworkAccessManager(this);
+            connect(m_downloadManager.data(), &QNetworkAccessManager::finished,
+                    this, &Private::fileDownloadFinished);
+        }
+        m_sourceFilesToDownload = sourceFiles;
+        downloadNextFile();
+#endif
+        //qDebug() << "copying from" << QUrl(uiPath(fname)) << "to"
+        //         << (dir + fname);
+    }
+
+private Q_SLOTS:
+#ifdef USE_KIO_COPY
+    void filesCopyFinished(KJob* job)
+    {
+        if (job->error()) {
+            //! @todo error...
+            qDebug() << "ERROR:" << job->errorString();
+            m_tempDir.reset();
+            return;
+        }
+        KIO::CopyJob* copyJob = qobject_cast<KIO::CopyJob*>(job);
+        Q_UNUSED(copyJob)
+        //qDebug() << "DONE" << copyJob->destUrl();
+        (void)copyFilesToDestinationDir();
+    }
+#else
+
+#define DOWNLOAD_BUFFER_SIZE 1024 * 50
+
+    void fileDownloadFinished(QNetworkReply* reply)
+    {
+        const bool ok = copyFile(reply);
+        reply->deleteLater();
+        if (!ok) {
+            qWarning() << "Error downloading file" << m_sourceFilesToDownload.first();
+            delete m_downloadManager;
+            m_sourceFilesToDownload.clear();
+            m_tempDir.reset();
+        }
+        m_sourceFilesToDownload.removeFirst();
+        downloadNextFile();
+    }
+
+    bool copyFile(QNetworkReply* reply)
+    {
+        if (reply->error() != QNetworkReply::NoError) {
+            return false;
+        }
+        const QString filename(m_sourceFilesToDownload.first().fileName());
+        QString path(m_tempDir->path() + '/' + filename);
+        QSaveFile f(path);
+        if (!f.open(QIODevice::WriteOnly)) {
+            return false;
+        }
+        QByteArray buf(DOWNLOAD_BUFFER_SIZE, Qt::Uninitialized);
+        while (!reply->atEnd()) {
+            const qint64 size = reply->read(buf.data(), buf.size());
+            if (size < 0) {
+                return false;
+            }
+            if (f.write(buf.data(), size) != size) {
+                return false;
+            }
+        }
+        if (!f.commit()) {
+            return false;
+        }
+        return true;
+    }
+
+private:
+    void downloadNextFile() {
+        if (m_sourceFilesToDownload.isEmpty()) {
+            // success
+            (void)copyFilesToDestinationDir();
+            return;
+        }
+        m_downloadManager->get(QNetworkRequest(m_sourceFilesToDownload.first()));
+    }
+#endif
+
+private:
+    bool copyFilesToDestinationDir()
+    {
+        const QString dir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
+                          + QLatin1Char('/') + basePath() + '/');
+        bool ok = true;
+        if (!QDir(dir).exists()) {
+            if (!QDir().mkpath(dir)) {
+                ok = false;
+                qWarning() << "Could not create" << dir;
+            }
+        }
+        if (ok) {
+            foreach (const QString &fname, m_fileNamesToUpdate) {
+                const QByteArray oldName(QFile::encodeName(m_tempDir->path() + '/' + fname)),
+                                 newName(QFile::encodeName(dir + fname));
+                if (0 != ::rename(oldName.constData(), newName.constData())) {
+                    qWarning() << "cannot move" << (m_tempDir->path() + '/' + fname) << "to" << (dir + fname);
+                }
+            }
+        }
+        QDir(m_tempDir->path()).removeRecursively();
+        m_tempDir.reset();
+        m_fileNamesToUpdate.clear();
+        return ok;
+    }
+
+    void checkFile(const QByteArray &hash, const QString &remoteFname, QStringList *fileNamesToUpdate)
+    {
+        QString localFname = findFilename(remoteFname);
+        if (localFname.isEmpty()) {
+            fileNamesToUpdate->append(remoteFname);
+            qDebug() << "missing filename" << remoteFname << "- download it";
+            return;
+        }
+        QFile file(localFname);
+        if (!file.open(QIODevice::ReadOnly)) {
+            qWarning() << "could not open file" << localFname << "- update it";
+            fileNamesToUpdate->append(remoteFname);
+            return;
+        }
+        QCryptographicHash md5(QCryptographicHash::Md5);
+        if (!md5.addData(&file)) {
+            qWarning() << "could not check MD5 for file" << localFname << "- update it";
+            fileNamesToUpdate->append(remoteFname);
+            return;
+        }
+        if (md5.result().toHex() != hash) {
+            qDebug() << "not matching file" << localFname << "- update it";
+            fileNamesToUpdate->append(remoteFname);
+        }
+    }
+
+    QStringList m_fileNamesToUpdate;
+    QScopedPointer<QTemporaryDir> m_tempDir;
+#ifndef USE_KIO_COPY
+    QList<QUrl> m_sourceFilesToDownload;
+    QPointer<QNetworkAccessManager> m_downloadManager;
+#endif
 };
 
 KexiWelcomeStatusBarGuiUpdater::KexiWelcomeStatusBarGuiUpdater()
@@ -112,13 +340,6 @@ KexiWelcomeStatusBarGuiUpdater::KexiWelcomeStatusBarGuiUpdater()
 KexiWelcomeStatusBarGuiUpdater::~KexiWelcomeStatusBarGuiUpdater()
 {
     delete d;
-}
-
-QString KexiWelcomeStatusBarGuiUpdater::uiPath(const QString &fname) const
-{
-    KexiUserFeedbackAgent *f = KexiMainWindowIface::global()->userFeedbackAgent();
-    return f->serviceUrl() + QString("/ui/%1/").arg(stableVersionStringDot0())
-        + fname;
 }
 
 void KexiWelcomeStatusBarGuiUpdater::update()
@@ -146,141 +367,8 @@ void KexiWelcomeStatusBarGuiUpdater::slotRedirectLoaded()
     KIO::Job* sendJob = KIO::storedHttpPost(postData,
                                             QUrl(uiPath(".list")),
                                             KIO::HideProgressInfo);
-    connect(sendJob, SIGNAL(result(KJob*)), this, SLOT(sendRequestListFilesFinished(KJob*)));
+    connect(sendJob, SIGNAL(result(KJob*)), d, SLOT(sendRequestListFilesFinished(KJob*)));
     sendJob->addMetaData("content-type", "Content-Type: application/x-www-form-urlencoded");
-}
-
-void KexiWelcomeStatusBarGuiUpdater::sendRequestListFilesFinished(KJob* job)
-{
-    if (job->error()) {
-        qWarning() << "Error while receiving .list file - no files will be updated";
-        //! @todo error...
-        return;
-    }
-    KIO::StoredTransferJob* sendJob = qobject_cast<KIO::StoredTransferJob*>(job);
-    QString result = sendJob->data();
-    if (result.length() > UPDATE_FILES_LIST_SIZE_LIMIT) { // anti-DOS protection
-        qWarning() << "Too large .list file (" << result.length()
-            << "); the limit is" << UPDATE_FILES_LIST_SIZE_LIMIT
-            << "- no files will be updated";
-        return;
-    }
-    //qDebug() << result;
-    QStringList data = result.split('\n', QString::SkipEmptyParts);
-    result.clear();
-    d->fileNamesToUpdate.clear();
-    if (data.count() > UPDATE_FILES_COUNT_LIMIT) { // anti-DOS protection
-        qWarning() << "Too many files to update (" << data.count()
-            << "); the limit is" << UPDATE_FILES_COUNT_LIMIT
-            << "- no files will be updated";
-        return;
-    }
-    // OK, try to update (stage 1: check, stage 2: checking)
-    for (int stage = 1; stage <= 2; stage++) {
-        int i = 0;
-        for (QStringList::ConstIterator it(data.constBegin()); it!=data.constEnd(); ++it, i++) {
-            const QByteArray hash((*it).left(32).toLatin1());
-            const QString remoteFname((*it).mid(32 + 2));
-            if (stage == 1) {
-                if (hash.length() != 32) {
-                    qWarning() << "Invalid hash" << hash << "in line" << i+1 << "- no files will be updated";
-                    return;
-                }
-                if ((*it).mid(32, 2) != "  ") {
-                    qWarning() << "Two spaces expected but found" << (*it).mid(32, 2)
-                        << "in line" << i+1 << "- no files will be updated";
-                    return;
-                }
-                if (remoteFname.contains(QRegularExpression("\\s"))) {
-                    qWarning() << "Filename expected without whitespace but found" << remoteFname
-                        << "in line" << i+1 << "- no files will be updated";
-                    return;
-                }
-            }
-            else if (stage == 2) {
-                checkFile(hash, remoteFname, &d->fileNamesToUpdate);
-            }
-        }
-    }
-    if (d->fileNamesToUpdate.isEmpty()) {
-        qDebug() << "No files to update.";
-        return;
-    }
-    // update files
-    QList<QUrl> sourceFiles;
-    foreach (const QString &fname, d->fileNamesToUpdate) {
-        sourceFiles.append(QUrl(uiPath(fname)));
-    }
-    QTemporaryDir tempDir(QDir::tempPath() + "/kexi-status");
-    tempDir.setAutoRemove(false);
-    d->tempDir = tempDir.path();
-    //qDebug() << tempDir.path();
-    KIO::CopyJob *copyJob = KIO::copy(sourceFiles,
-                                      QUrl::fromLocalFile(tempDir.path()),
-                                      KIO::HideProgressInfo | KIO::Overwrite);
-    connect(copyJob, SIGNAL(result(KJob*)), this, SLOT(filesCopyFinished(KJob*)));
-    //qDebug() << "copying from" << QUrl(uiPath(fname)) << "to"
-    //         << (dir + fname);
-}
-
-void KexiWelcomeStatusBarGuiUpdater::checkFile(const QByteArray &hash,
-                                               const QString &remoteFname,
-                                               QStringList *fileNamesToUpdate)
-{
-    QString localFname = findFilename(remoteFname);
-    if (localFname.isEmpty()) {
-        fileNamesToUpdate->append(remoteFname);
-        qDebug() << "missing filename" << remoteFname << "- download it";
-        return;
-    }
-    QFile file(localFname);
-    if (!file.open(QIODevice::ReadOnly)) {
-        qWarning() << "could not open file" << localFname << "- update it";
-        fileNamesToUpdate->append(remoteFname);
-        return;
-    }
-    QCryptographicHash md5(QCryptographicHash::Md5);
-    if (!md5.addData(&file)) {
-        qWarning() << "could not check MD5 for file" << localFname << "- update it";
-        fileNamesToUpdate->append(remoteFname);
-        return;
-    }
-    if (md5.result().toHex() != hash) {
-        qDebug() << "not matching file" << localFname << "- update it";
-        fileNamesToUpdate->append(remoteFname);
-    }
-}
-
-void KexiWelcomeStatusBarGuiUpdater::filesCopyFinished(KJob* job)
-{
-    if (job->error()) {
-        //! @todo error...
-        qDebug() << "ERROR:" << job->errorString();
-        return;
-    }
-    KIO::CopyJob* copyJob = qobject_cast<KIO::CopyJob*>(job);
-    Q_UNUSED(copyJob)
-    //qDebug() << "DONE" << copyJob->destUrl();
-
-    QString dir(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)
-                + QLatin1Char('/') + basePath() + '/');
-    bool ok = true;
-    if (!QDir(dir).exists()) {
-        if (!QDir().mkpath(dir)) {
-            ok = false;
-            qWarning() << "Could not create" << dir;
-        }
-    }
-    if (ok) {
-        foreach (const QString &fname, d->fileNamesToUpdate) {
-            const QByteArray oldName(QFile::encodeName(d->tempDir + '/' + fname)),
-                             newName(QFile::encodeName(dir + fname));
-            if (0 != ::rename(oldName.constData(), newName.constData())) {
-                qWarning() << "cannot move" << (d->tempDir + '/' + fname) << "to" << (dir + fname);
-            }
-        }
-    }
-    QDir(d->tempDir).removeRecursively();
 }
 
 // ---
@@ -1115,3 +1203,5 @@ void KexiWelcomeStatusBar::slotToggleContributionDetailsDataVisibility()
 }
 
 // Contribution Details END
+
+#include "KexiWelcomeStatusBar.moc"
