@@ -458,9 +458,6 @@ KexiMainWindow::KexiMainWindow(QWidget *parent)
         qDebug() << "starting up in the User Mode";
 
     setAsDefaultHost(); //this is default host now.
-    KIconLoader *globalIconLoader = KIconLoader::global();
-    globalIconLoader->addAppDir(QLatin1String("kexi"));
-    globalIconLoader->addAppDir(QLatin1String("calligra"));
 
     //get informed
     connect(&Kexi::partManager(), SIGNAL(partLoaded(KexiPart::Part*)),
