@@ -193,3 +193,7 @@ function(add_update_file_target)
         VERBATIM
     )
 endfunction()
+
+add_custom_target(update_all_rcc
+    COMMENT "Updating all file lists for rcc files"
+)
