@@ -26,6 +26,7 @@
 #include <kexiutils/KexiContextMessage.h>
 #include <kexiutils/KexiFadeWidgetEffect.h>
 #include "KexiUserFeedbackAgent.h"
+#include "KexiRegisterResource_p.h"
 
 #include <KColorScheme>
 #include <KStandardGuiItem>
@@ -78,8 +79,12 @@ static QString basePath()
 
 static QString findFilename(const QString &guiFileName)
 {
-    const QString result = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                                                  basePath() + '/' + guiFileName);
+    QString result = locateFile(basePath() + '/' + guiFileName,
+                                QStandardPaths::GenericDataLocation, QString());
+    if (result.isEmpty()) { // last chance: file from the source tree
+        result = QFileInfo(QFile::decodeName(CMAKE_CURRENT_SOURCE_DIR "/status/") + guiFileName)
+                    .canonicalFilePath();
+    }
     //qDebug() << result;
     return result;
 }
