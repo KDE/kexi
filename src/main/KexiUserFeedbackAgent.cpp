@@ -83,7 +83,6 @@ public:
 
 void KexiUserFeedbackAgent::Private::updateData()
 {
-    qDebug();
     keys.clear();
     data.clear();
     areasForKeys.clear();
@@ -348,7 +347,6 @@ inline QString escapeJson(const QString& s)
 
 void KexiUserFeedbackAgent::sendData()
 {
-    qDebug();
     if (d->areas == NoAreas) {
         return;
     }
@@ -372,7 +370,7 @@ void KexiUserFeedbackAgent::sendData()
                         + escapeJson(d->data.value(key).toString()).toUtf8() + '"');
         }
     }
-    qDebug() << postData;
+    //qDebug() << postData;
 
     KIO::Job* sendJob = KIO::storedHttpPost(postData, QUrl(d->url + "/send"), KIO::HideProgressInfo);
     connect(sendJob, SIGNAL(result(KJob*)), this, SLOT(sendDataFinished(KJob*)));
@@ -388,7 +386,7 @@ void KexiUserFeedbackAgent::sendDataFinished(KJob* job)
     KIO::StoredTransferJob* sendJob = qobject_cast<KIO::StoredTransferJob*>(job);
     QByteArray result = sendJob->data();
     result.chop(1); // remove \n
-    qDebug() << result;
+    //qDebug() << result;
     if (result == "ok") {
         d->sentDataInThisSession = d->areas;
     }
@@ -402,7 +400,7 @@ QVariant KexiUserFeedbackAgent::value(const QString& key) const
 void KexiUserFeedbackAgent::sendRedirectQuestion()
 {
     QByteArray postData = "get_url";
-    qDebug() << postData;
+    //qDebug() << postData;
     KIO::Job* sendJob = KIO::storedHttpPost(postData, QUrl(d->url + "/send"), KIO::HideProgressInfo);
     connect(sendJob, SIGNAL(result(KJob*)), this, SLOT(sendRedirectQuestionFinished(KJob*)));
     sendJob->addMetaData("content-type", "Content-Type: application/x-www-form-urlencoded");
@@ -412,19 +410,19 @@ void KexiUserFeedbackAgent::sendRedirectQuestionFinished(KJob* job)
 {
     if (job->error()) {
         //! @todo error...
-        qDebug() << "Error, no URL Redirect";
+        qWarning() << "Error, no URL Redirect";
     }
     else {
         KIO::StoredTransferJob* sendJob = qobject_cast<KIO::StoredTransferJob*>(job);
         QByteArray result = sendJob->data();
         result.chop(1); // remove \n
-        qDebug() << result;
+        //qDebug() << result;
         if (result.isEmpty()) {
-            qDebug() << "No URL Redirect";
+            //qDebug() << "No URL Redirect";
         }
         else {
             d->url = QString::fromUtf8(result);
-            qDebug() << "URL Redirect to" << d->url;
+            //qDebug() << "URL Redirect to" << d->url;
         }
     }
     d->redirectChecked = true;

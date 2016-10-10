@@ -165,7 +165,7 @@ void KexiWelcomeStatusBarGuiUpdater::sendRequestListFilesFinished(KJob* job)
             << "- no files will be updated";
         return;
     }
-    qDebug() << result;
+    //qDebug() << result;
     QStringList data = result.split('\n', QString::SkipEmptyParts);
     result.clear();
     d->fileNamesToUpdate.clear();
@@ -203,6 +203,7 @@ void KexiWelcomeStatusBarGuiUpdater::sendRequestListFilesFinished(KJob* job)
         }
     }
     if (d->fileNamesToUpdate.isEmpty()) {
+        qDebug() << "No files to update.";
         return;
     }
     // update files
@@ -213,7 +214,7 @@ void KexiWelcomeStatusBarGuiUpdater::sendRequestListFilesFinished(KJob* job)
     QTemporaryDir tempDir(QDir::tempPath() + "/kexi-status");
     tempDir.setAutoRemove(false);
     d->tempDir = tempDir.path();
-    qDebug() << tempDir.path();
+    //qDebug() << tempDir.path();
     KIO::CopyJob *copyJob = KIO::copy(sourceFiles,
                                       QUrl::fromLocalFile(tempDir.path()),
                                       KIO::HideProgressInfo | KIO::Overwrite);
