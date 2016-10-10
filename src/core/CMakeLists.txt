@@ -52,7 +52,6 @@ target_link_libraries(kexicore
         Qt5::Gui
         Qt5::Widgets
 
-        KF5::KIOWidgets
         KF5::CoreAddons
         KF5::XmlGui
 
