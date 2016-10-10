@@ -208,7 +208,8 @@ void KexiWelcomeStatusBarGuiUpdater::sendRequestListFilesFinished(KJob* job)
     QTemporaryDir tempDir(QDir::tempPath() + "/kexi-status");
     tempDir.setAutoRemove(false);
     d->tempDir = tempDir.path();
-    qDebug() << tempDir.path();
+    //qDebug() << "tempDir:" << d->tempDir;
+    //qDebug() << "sourceFiles:" << sourceFiles;
     KIO::CopyJob *copyJob = KIO::copy(sourceFiles,
                                       QUrl::fromLocalFile(tempDir.path()),
                                       KIO::HideProgressInfo | KIO::Overwrite);
