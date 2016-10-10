@@ -467,7 +467,7 @@
    <item>
     <widget class="QLabel" name="donation_url">
      <property name="text">
-      <string>https://www.bountysource.com/teams/kexi</string>
+      <string>https://salt.bountysource.com/checkout/amount?team=kexi</string>
      </property>
     </widget>
    </item>
