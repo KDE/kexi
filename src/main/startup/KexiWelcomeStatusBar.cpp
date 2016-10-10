@@ -197,6 +197,9 @@ void KexiWelcomeStatusBarGuiUpdater::sendRequestListFilesFinished(KJob* job)
             }
         }
     }
+    if (d->fileNamesToUpdate.isEmpty()) {
+        return;
+    }
     // update files
     QList<QUrl> sourceFiles;
     foreach (const QString &fname, d->fileNamesToUpdate) {
