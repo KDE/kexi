@@ -132,7 +132,7 @@ void KexiWelcomeStatusBarGuiUpdater::update()
     d->configGroup.writeEntry("LastStatusBarUpdate", QDateTime::currentDateTime());
 
     KexiUserFeedbackAgent *f = KexiMainWindowIface::global()->userFeedbackAgent();
-    f->waitForRedirect(this, "slotRedirectLoaded");
+    f->waitForRedirect(this, SLOT(slotRedirectLoaded()));
 }
 
 void KexiWelcomeStatusBarGuiUpdater::slotRedirectLoaded()
