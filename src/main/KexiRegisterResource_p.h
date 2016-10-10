@@ -35,6 +35,12 @@ static bool fileReadable(const QString &path)
     return !path.isEmpty() && QFileInfo(path).isReadable();
 }
 
+#ifdef Q_OS_WIN
+#define KPATH_SEPARATOR ';'
+#else
+#define KPATH_SEPARATOR ':'
+#endif
+
 static QString locateFile(const QString& path, QStandardPaths::StandardLocation location,
                           const QString &extraLocation)
 {
@@ -45,7 +51,7 @@ static QString locateFile(const QString& path, QStandardPaths::StandardLocation 
         return fullPath;
     }
 
-    // Try extra location
+    // Try extra locations
     if (!extraLocation.isEmpty()) {
         fullPath = QFileInfo(extraLocation + '/' + path).canonicalFilePath();
         if (fileReadable(fullPath)) {
@@ -59,6 +65,14 @@ static QString locateFile(const QString& path, QStandardPaths::StandardLocation 
         return dataDir;
     }
 #endif
+    // Try in PATH subdirs, useful for running apps from the build dir, without installing
+    for(const QByteArray &pathDir : qgetenv("PATH").split(KPATH_SEPARATOR)) {
+        const QString dataDirFromPath = QFileInfo(QFile::decodeName(pathDir) + QStringLiteral("/data/")
+                                                  + path).canonicalFilePath();
+        if (fileReadable(dataDirFromPath)) {
+            return dataDirFromPath;
+        }
+    }
 
     // A workaround: locations for QStandardPaths::AppDataLocation end with app name.
     // If this is not a kexi app but a test app such as GlobalSearchTest, replace
