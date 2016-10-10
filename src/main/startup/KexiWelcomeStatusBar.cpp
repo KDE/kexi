@@ -132,7 +132,7 @@ void KexiWelcomeStatusBarGuiUpdater::update()
     d->configGroup.writeEntry("LastStatusBarUpdate", QDateTime::currentDateTime());
 
     KexiUserFeedbackAgent *f = KexiMainWindowIface::global()->userFeedbackAgent();
-    f->waitForRedirect(this, "slotRedirectLoaded");
+    f->waitForRedirect(this, SLOT(slotRedirectLoaded()));
 }
 
 void KexiWelcomeStatusBarGuiUpdater::slotRedirectLoaded()
@@ -154,7 +154,7 @@ void KexiWelcomeStatusBarGuiUpdater::sendRequestListFilesFinished(KJob* job)
     }
     KIO::StoredTransferJob* sendJob = qobject_cast<KIO::StoredTransferJob*>(job);
     QString result = sendJob->data();
-    if (result.length() > UPDATE_FILES_LIST_SIZE_LIMIT) { // anit-DOS protection
+    if (result.length() > UPDATE_FILES_LIST_SIZE_LIMIT) { // anti-DOS protection
         qWarning() << "Too large .list file (" << result.length()
             << "); the limit is" << UPDATE_FILES_LIST_SIZE_LIMIT
             << "- no files will be updated";
@@ -196,6 +196,9 @@ void KexiWelcomeStatusBarGuiUpdater::sendRequestListFilesFinished(KJob* job)
                 checkFile(hash, remoteFname, &d->fileNamesToUpdate);
             }
         }
+    }
+    if (d->fileNamesToUpdate.isEmpty()) {
+        return;
     }
     // update files
     QList<QUrl> sourceFiles;
