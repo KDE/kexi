@@ -46,10 +46,19 @@ static QString locateFile(const QString& path, QStandardPaths::StandardLocation 
     }
 
     // Try extra location
-    fullPath = QFileInfo(extraLocation + '/' + path).canonicalFilePath();
-    if (fileReadable(fullPath)) {
-        return fullPath;
+    if (!extraLocation.isEmpty()) {
+        fullPath = QFileInfo(extraLocation + '/' + path).canonicalFilePath();
+        if (fileReadable(fullPath)) {
+            return fullPath;
+        }
     }
+#ifdef Q_OS_WIN
+    // This makes the app portable and working without from the build dir
+    const QString dataDir = QFileInfo(QCoreApplication::applicationDirPath() + QStringLiteral("/data/") + path).canonicalFilePath();
+    if (fileReadable(dataDir)) {
+        return dataDir;
+    }
+#endif
 
     // A workaround: locations for QStandardPaths::AppDataLocation end with app name.
     // If this is not a kexi app but a test app such as GlobalSearchTest, replace
@@ -113,8 +122,6 @@ static bool registerGlobalBreezeIconsResource(KLocalizedString *errorMessage,
     if (extraLocation.endsWith("/icons")) {
         extraLocation.chop(QLatin1String("/icons").size());
     }
-#elif defined(Q_OS_WIN)
-    extraLocation = QCoreApplication::applicationDirPath() + QStringLiteral("/data");
 #endif
     return registerResource("icons/breeze/breeze-icons.rcc", QStandardPaths::GenericDataLocation,
                             QStringLiteral("/icons/breeze"), extraLocation, errorMessage,

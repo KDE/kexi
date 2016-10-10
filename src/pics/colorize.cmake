@@ -2,7 +2,7 @@
 # Colorizes Kexi object icons for alternative backgrounds
 #
 
-include(kexi_breeze_files.cmake)
+include(${SOURCE_DIR}/kexi_breeze_files.cmake)
 
 macro(_colorize _filepath _oldcolor _color _colorized_filepath)
     file(READ ${_filepath} _SVG)
