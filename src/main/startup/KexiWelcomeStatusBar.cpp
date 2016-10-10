@@ -154,7 +154,7 @@ void KexiWelcomeStatusBarGuiUpdater::sendRequestListFilesFinished(KJob* job)
     }
     KIO::StoredTransferJob* sendJob = qobject_cast<KIO::StoredTransferJob*>(job);
     QString result = sendJob->data();
-    if (result.length() > UPDATE_FILES_LIST_SIZE_LIMIT) { // anit-DOS protection
+    if (result.length() > UPDATE_FILES_LIST_SIZE_LIMIT) { // anti-DOS protection
         qWarning() << "Too large .list file (" << result.length()
             << "); the limit is" << UPDATE_FILES_LIST_SIZE_LIMIT
             << "- no files will be updated";
