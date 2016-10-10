@@ -35,6 +35,12 @@ static bool fileReadable(const QString &path)
     return !path.isEmpty() && QFileInfo(path).isReadable();
 }
 
+#ifdef Q_OS_WIN
+#define KPATH_SEPARATOR ';'
+#else
+#define KPATH_SEPARATOR ':'
+#endif
+
 static QString locateFile(const QString& path, QStandardPaths::StandardLocation location,
                           const QString &extraLocation)
 {
@@ -45,10 +51,27 @@ static QString locateFile(const QString& path, QStandardPaths::StandardLocation 
         return fullPath;
     }
 
-    // Try extra location
-    fullPath = QFileInfo(extraLocation + '/' + path).canonicalFilePath();
-    if (fileReadable(fullPath)) {
-        return fullPath;
+    // Try extra locations
+    if (!extraLocation.isEmpty()) {
+        fullPath = QFileInfo(extraLocation + '/' + path).canonicalFilePath();
+        if (fileReadable(fullPath)) {
+            return fullPath;
+        }
+    }
+#ifdef Q_OS_WIN
+    // This makes the app portable and working without from the build dir
+    const QString dataDir = QFileInfo(QCoreApplication::applicationDirPath() + QStringLiteral("/data/") + path).canonicalFilePath();
+    if (fileReadable(dataDir)) {
+        return dataDir;
+    }
+#endif
+    // Try in PATH subdirs, useful for running apps from the build dir, without installing
+    for(const QByteArray &pathDir : qgetenv("PATH").split(KPATH_SEPARATOR)) {
+        const QString dataDirFromPath = QFileInfo(QFile::decodeName(pathDir) + QStringLiteral("/data/")
+                                                  + path).canonicalFilePath();
+        if (fileReadable(dataDirFromPath)) {
+            return dataDirFromPath;
+        }
     }
 
     // A workaround: locations for QStandardPaths::AppDataLocation end with app name.
@@ -113,8 +136,6 @@ static bool registerGlobalBreezeIconsResource(KLocalizedString *errorMessage,
     if (extraLocation.endsWith("/icons")) {
         extraLocation.chop(QLatin1String("/icons").size());
     }
-#elif defined(Q_OS_WIN)
-    extraLocation = QCoreApplication::applicationDirPath() + QStringLiteral("/data");
 #endif
     return registerResource("icons/breeze/breeze-icons.rcc", QStandardPaths::GenericDataLocation,
                             QStringLiteral("/icons/breeze"), extraLocation, errorMessage,
