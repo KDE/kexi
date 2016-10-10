@@ -820,7 +820,7 @@ void KexiWelcomeStatusBar::showDonation()
         return;
     }
     if (KMessageBox::Yes != KMessageBox::questionYesNo(this,
-       xi18nc("@info donate to the project", "<para><title>Kexi may be totally free, but its development is costly.</title><nl/>"
+       xi18nc("@info donate to the project", "<title>Kexi may be totally free, but its development is costly.</title>"
             "<para>Power, hardware, office space, internet access, traveling for meetings - everything costs.</para>"
             "<para>Direct donation is the easiest and fastest way to efficiently support the Kexi Project. "
             "Everyone, regardless of any degree of involvement can do so.</para>"
@@ -829,11 +829,14 @@ void KexiWelcomeStatusBar::showDonation()
             "expect new features, but you can also have an influence on what features are added!</para>"
             "<para>Currently we are accepting donations through <emphasis>BountySource</emphasis> (a funding platform "
             "for open-source software) using secure PayPal, Bitcoin and Google Wallet transfers.</para>"
-            "<para>Contact us at http://community.kde.org/Kexi/Contact for more information.</para>"
+            "<para>Contact us at <link url='https://community.kde.org/Kexi/Contact'>https://community.kde.org/Kexi/Contact</link> "
+            "for more information.</para>"
             "<para>Thanks for your support!</para>"),
        xi18n("Donate to the Project"),
        KGuiItem(xi18nc("@action:button Go to Donation", "Proceed to the Donation Web Page"), QIcon(":/icons/heart.png")),
-       KGuiItem(xi18nc("Do not donate now", "Not Now"))))
+       KGuiItem(xi18nc("Do not donate now", "Not Now")),
+       QString(),
+       KMessageBox::Notify | KMessageBox::AllowLink))
     {
         return;
     }
