@@ -371,6 +371,7 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
                 connect(m_preRenderer, SIGNAL(groupChanged(QMap<QString, QVariant>)),
                         m_functions, SLOT(setGroupData(QMap<QString, QVariant>)));
             }
+            connect(m_preRenderer, SIGNAL(finishedAllASyncItems()), this, SLOT(finishedAllASyncItems()));
             
             if (!m_preRenderer->generateDocument()) {
                 qWarning() << "Could not generate report document";
@@ -464,4 +465,9 @@ int KexiReportView::currentRecord() const
 int KexiReportView::recordCount() const
 {
     return m_reportView->pageCount();
+}
+
+void KexiReportView::finishedAllASyncItems()
+{
+    m_reportView->refreshCurrentPage();
 }
