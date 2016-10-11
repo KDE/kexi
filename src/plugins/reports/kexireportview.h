@@ -84,6 +84,7 @@ private Q_SLOTS:
     void slotExportAsWebPage();
     void slotExportAsTextDocument();
     void openExportedDocument(const QUrl &destination);
+    void finishedAllASyncItems();
 };
 
 #endif
