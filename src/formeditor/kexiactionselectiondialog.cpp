@@ -176,6 +176,7 @@ void KActionsListViewBase::init()
 //! @internal Used to display KActions (in column 2)
 class KActionsListView : public KActionsListViewBase
 {
+    Q_OBJECT
 public:
     explicit KActionsListView(QWidget* parent)
             : KActionsListViewBase(parent) {
@@ -191,6 +192,7 @@ public:
 //! @internal Used to display KActions (in column 2)
 class CurrentFormActionsListView : public KActionsListViewBase
 {
+    Q_OBJECT
 public:
     explicit CurrentFormActionsListView(QWidget* parent)
             : KActionsListViewBase(parent) {
@@ -206,6 +208,7 @@ public:
 //! @internal a list view displaying action categories user can select from (column 1)
 class ActionCategoriesListView : public ActionsListViewBase
 {
+    Q_OBJECT
 public:
     explicit ActionCategoriesListView(QWidget* parent)
             : ActionsListViewBase(parent) {
@@ -257,6 +260,7 @@ public:
 //! @internal Used to display list of actions available to executing (column 3)
 class ActionToExecuteListView : public ActionsListViewBase
 {
+    Q_OBJECT
 public:
     explicit ActionToExecuteListView(QWidget* parent)
             : ActionsListViewBase(parent) {
@@ -362,7 +366,6 @@ public:
     }
 
     QString selectActionToBeExecutedMessage(const QString& actionType) const {
-        QString msg;
         if (actionType == "noaction")
             return QString();
         if (actionType == "kaction" || actionType == "currentForm")
@@ -765,3 +768,5 @@ void KexiActionSelectionDialog::updateOKButtonStatus()
     QPushButton *btn = d->buttonBox->button(QDialogButtonBox::Ok);
     btn->setEnabled((itm && itm->data(ActionSelectorDialogTreeItem::ActionCategoryRole).toString() == "noaction") || !currentAction().isEmpty());
 }
+
+#include "kexiactionselectiondialog.moc"

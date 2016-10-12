@@ -124,7 +124,7 @@ tristate KexiQueryView::afterSwitchFrom(Kexi::ViewMode mode)
         if (true != result)
             return result;
     } else if (mode == Kexi::DesignViewMode || mode == Kexi::TextViewMode) {
-        KexiQueryPart::TempData * temp = static_cast<KexiQueryPart::TempData*>(window()->data());
+        KexiQueryPartTempData * temp = static_cast<KexiQueryPartTempData*>(window()->data());
         const tristate result = executeQuery(temp->query());
         if (true != result)
             return result;

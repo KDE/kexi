@@ -36,6 +36,7 @@
 
 class DataSourceLabel : public QLabel
 {
+    Q_OBJECT
 public:
     explicit DataSourceLabel(QWidget *parent) : QLabel(parent)
     {
@@ -391,3 +392,4 @@ void KexiDBTextEdit::changeEvent(QEvent *e)
     KTextEdit::changeEvent(e);
 }
 
+#include "kexidbtextedit.moc"

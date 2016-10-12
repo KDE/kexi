@@ -18,8 +18,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#include "form.h"
 #include "resizehandle.h"
+#include "form.h"
 #include "container.h"
 #include "widgetfactory.h"
 #include "widgetlibrary.h"
@@ -40,6 +40,7 @@ namespace KFormDesigner {
 */
 class KFORMDESIGNER_EXPORT ResizeHandle : public QWidget
 {
+    Q_OBJECT
 public:
     enum HandlePos {
         TopLeftCorner = 1,
@@ -382,3 +383,4 @@ Form* ResizeHandleSet::form() const
     return d->form;
 }
 
+#include "resizehandle.moc"

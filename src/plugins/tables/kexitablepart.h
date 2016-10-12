@@ -32,6 +32,17 @@
 
 class KexiLookupColumnPage;
 
+class KexiTablePartTempData : public KexiWindowData
+{
+    Q_OBJECT
+public:
+    explicit KexiTablePartTempData(QObject* parent);
+    KDbTableSchema *table;
+    /*! true, if \a table member has changed in previous view. Used on view switching.
+     We're checking this flag to see if we should refresh data for DataViewMode. */
+    bool tableSchemaChangedInPreviousView;
+};
+
 //! @short Kexi Table Designer plugin
 class KexiTablePart : public KexiPart::Part
 {
@@ -44,16 +55,6 @@ public:
     virtual tristate remove(KexiPart::Item *item);
 
     virtual tristate rename(KexiPart::Item *item, const QString& newName);
-
-    class TempData : public KexiWindowData
-    {
-    public:
-        explicit TempData(QObject* parent);
-        KDbTableSchema *table;
-        /*! true, if \a table member has changed in previous view. Used on view switching.
-         We're checking this flag to see if we should refresh data for DataViewMode. */
-        bool tableSchemaChangedInPreviousView;
-    };
 
     static tristate askForClosingObjectsUsingTableSchema(
         QWidget *parent, KDbConnection *conn,

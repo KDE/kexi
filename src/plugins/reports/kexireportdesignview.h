@@ -51,7 +51,7 @@ Q_SIGNALS:
 
 private:
     KReportDesigner *m_reportDesigner;
-    KexiReportPart::TempData* tempData() const;
+    KexiReportPartTempData* tempData() const;
     QScrollArea * m_scrollArea;
 
     //Actions

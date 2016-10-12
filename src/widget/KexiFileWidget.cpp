@@ -330,7 +330,7 @@ bool KexiFileWidget::checkSelectedFile()
             bool hasExtension = false;
             foreach (const QString& filter, filters) {
                 const QString f( filter.trimmed() );
-                hasExtension = !f.mid(2).isEmpty() && ext==f.mid(2);
+                hasExtension = !f.midRef(2).isEmpty() && ext==f.midRef(2);
                 if (hasExtension)
                 break;
             }

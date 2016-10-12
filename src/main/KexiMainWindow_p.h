@@ -146,6 +146,7 @@ private:
 //! @internal window container created to speedup opening new tabs
 class KexiWindowContainer : public QWidget
 {
+    Q_OBJECT
 public:
     explicit KexiWindowContainer(QWidget* parent);
 
@@ -161,6 +162,7 @@ private:
 
 class EmptyMenuContentWidget : public QWidget
 {
+    Q_OBJECT
 public:
     explicit EmptyMenuContentWidget(QWidget* parent = 0);
 
@@ -305,6 +307,7 @@ public:
 //! Style proxy for KexiTabbedToolBar, to get the "Kexi" tab style right.
 class KexiTabbedToolBarStyle : public QProxyStyle
 {
+    Q_OBJECT
 public:
     explicit KexiTabbedToolBarStyle(const QString &baseStyleName);
 
@@ -323,6 +326,7 @@ public:
 //! Style proxy for KexiTabbedToolBar, to fix the hardcoded margins (e.g. for Breeze).
 class KexiDockWidgetStyle : public QProxyStyle
 {
+    Q_OBJECT
 public:
     explicit KexiDockWidgetStyle(const QString &baseStyleName);
 

@@ -41,6 +41,7 @@ QStringList csvMimeTypes();
  Used by CSV import and export dialogs. */
 class KexiCSVInfoLabel : public QWidget
 {
+    Q_OBJECT
 public:
     /*! Sets up a new info label \a labelText label with text like "Preview of data from file:".
      setFileName() can be used to display filename and setCommentAfterFileName() to display
@@ -134,12 +135,11 @@ protected:
     Private * const d;
 };
 
-
-
 //! @short A combo box widget providing a list of possible quote characters
 //! Used by CSV import and export dialogs
 class KexiCSVTextQuoteComboBox : public KComboBox
 {
+    Q_OBJECT
 public:
     explicit KexiCSVTextQuoteComboBox(QWidget * parent = 0);
 

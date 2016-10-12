@@ -45,6 +45,7 @@
 //! @internal Action for toggling view mode
 class KEXICORE_EXPORT KexiToggleViewModeAction : public QAction
 {
+    Q_OBJECT
 public:
     //! Creates action for toggling to view mode @a mode. @a slot should have signature
     //! matching switchedTo(Kexi::ViewMode mode) signal.
@@ -765,3 +766,4 @@ QList<QVariant> KexiView::currentParameters() const
     return QList<QVariant>();
 }
 
+#include "KexiView.moc"

@@ -583,7 +583,6 @@ void KexiMenuWidgetPrivate::updateActionRects() const
                 sz.setWidth(fm.boundingRect(QRect(), Qt::TextSingleLine | Qt::TextShowMnemonic, s).width());
                 sz.setHeight(qMax(fm.height(), qfm.height()));
 
-                QIcon is = action->icon();
                 //(not need because iconless items have to be of the same size as icon ones): if (!is.isNull()) {
                     QSize is_sz = QSize(icone, icone);
                     if (is_sz.height() > sz.height())

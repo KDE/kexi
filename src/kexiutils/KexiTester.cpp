@@ -52,6 +52,7 @@ KexiTester::~KexiTester()
 //! @internal
 class KexiTesterInternal : public KexiTester
 {
+    Q_OBJECT
 public:
     KexiTesterInternal() {}
     Private* dPtr() { return d; }
@@ -93,3 +94,4 @@ KEXIUTILS_EXPORT KexiTester& operator<<(KexiTester& tester, const KexiTestObject
     return tester;
 }
 
+#include "KexiTester.moc"

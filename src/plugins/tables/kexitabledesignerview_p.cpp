@@ -123,7 +123,6 @@ void KexiTableDesignerViewPrivate::setPropertyValueIfNeeded(
     QStringList* const slist, QStringList* const nlist)
 {
     KProperty& property = set[propertyName];
-    QVariant oldValue(property.value());
     setPropertyValueIfNeeded(set, propertyName, newValue, property.value(),
                              commandGroup, forceAddCommand, rememberOldValue, slist, nlist);
 }

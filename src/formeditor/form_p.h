@@ -50,6 +50,7 @@ class ObjectTree;
 //! Used to alter the widget's style at design time
 class DesignModeStyle : public QProxyStyle
 {
+    Q_OBJECT
 public:
     explicit DesignModeStyle(const QString &baseStyleName);
 

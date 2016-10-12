@@ -31,6 +31,7 @@
 //! @internal A style that removes menu indicator from KexiDropDownButton.
 class KexiDropDownButtonStyle : public QProxyStyle
 {
+    Q_OBJECT
 public:
     explicit KexiDropDownButtonStyle(const QString &baseStyleName)
             : QProxyStyle(baseStyleName)
@@ -127,3 +128,4 @@ void KexiDropDownButton::keyPressEvent(QKeyEvent * e)
     QToolButton::keyPressEvent(e);
 }
 
+#include "kexidropdownbutton.moc"

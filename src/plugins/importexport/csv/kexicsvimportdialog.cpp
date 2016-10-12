@@ -93,6 +93,7 @@
 //! @internal An item delegate for KexiCSVImportDialog's table view
 class KexiCSVImportDialogItemDelegate : public QStyledItemDelegate
 {
+    Q_OBJECT
 public:
     KexiCSVImportDialogItemDelegate(QObject *parent = 0);
 
@@ -1650,8 +1651,9 @@ void KexiCSVImportDialog::setText(int row, int col, const QString& text, bool in
             m_table->setRowCount(1);
             QString colName(text.simplified());
             if (!colName.isEmpty()) {
-                if (colName.left(1) >= "0" && colName.left(1) <= "9")
+                if (colName.at(0) >= QLatin1Char('0') && colName.at(0) <= QLatin1Char('9')) {
                     colName.prepend(xi18n("Column") + " ");
+                }
                 m_table->setData(m_table->index(0, col - 1), colName);
             }
             return;
@@ -2186,3 +2188,5 @@ QPushButton* KexiCSVImportDialog::configureButton() const
     // Help button is used as Configure
     return button(QDialogButtonBox::Help);
 }
+
+#include "kexicsvimportdialog.moc"

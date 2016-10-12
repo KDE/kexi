@@ -59,6 +59,7 @@
 
 class KexiServerDBNamePage : public QWidget, public Ui::KexiServerDBNamePage
 {
+    Q_OBJECT
 public:
     explicit KexiServerDBNamePage(QWidget* parent = 0);
 };
@@ -684,3 +685,5 @@ const QWidget* KexiNewProjectAssistant::calloutWidget() const
 {
     return currentPage()->nextButton();
 }
+
+#include "KexiNewProjectAssistant.moc"

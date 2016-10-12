@@ -29,6 +29,57 @@
 
 #include <KDbConnection>
 
+//! @short Temporary data kept in memory while switching between Query Window's views
+class KexiQueryPartTempData : public KexiWindowData,
+                              public KDbConnection::TableSchemaChangeListenerInterface
+{
+    Q_OBJECT
+public:
+    KexiQueryPartTempData(KexiWindow* parent, KDbConnection *conn);
+    virtual ~KexiQueryPartTempData();
+    virtual tristate closeListener();
+    void clearQuery();
+    void unregisterForTablesSchemaChanges();
+    void registerTableSchemaChanges(KDbQuerySchema *q);
+
+    /*! Assigns query \a query for this data.
+     Existing query (available using query()) is deleted but only
+     if it is not owned by parent window (i.e. != KexiWindow::schemaObject()).
+     \a query can be 0.
+     If \a query is equal to existing query, nothing is performed.
+    */
+    void setQuery(KDbQuerySchema *query);
+
+    //! \return query associated with this data
+    KDbQuerySchema *query() const {
+        return m_query;
+    }
+
+    //! Takes query associated with this data (without deleting) and returns it.
+    //! After this call query() == 0
+    KDbQuerySchema *takeQuery();
+
+    //! Connection used for retrieving definition of the query
+    KDbConnection *conn;
+
+    /*! @return view mode if which the query member has changed.
+     It's possibly one of previously visited views. Kexi::NoViewMode is the default,
+     what means that query was not changed.
+     Used on view switching. We're checking this flag to see if we should
+     rebuild internal structure for DesignViewMode of regenerated sql text
+     in TextViewMode after switch from other view. */
+    Kexi::ViewMode queryChangedInView() const;
+
+    /*! Sets the queryChangedInView flag. If @a set is true, then the flag is changed
+     to the current view mode. If @a set is false, the flag is changed to Kexi::NoViewMode.
+     @see queryChangedInView() */
+    void setQueryChangedInView(bool set);
+
+private:
+    KDbQuerySchema *m_query;
+    Kexi::ViewMode m_queryChangedInView;
+};
+
 //! @short Kexi Query Designer plugin
 class KexiQueryPart : public KexiPart::Part
 {
@@ -39,56 +90,6 @@ public:
     virtual ~KexiQueryPart();
 
     virtual tristate remove(KexiPart::Item *item);
-
-    //! @short Temporary data kept in memory while switching between Query Window's views
-    class TempData : public KexiWindowData,
-                public KDbConnection::TableSchemaChangeListenerInterface
-    {
-    public:
-        TempData(KexiWindow* parent, KDbConnection *conn);
-        virtual ~TempData();
-        virtual tristate closeListener();
-        void clearQuery();
-        void unregisterForTablesSchemaChanges();
-        void registerTableSchemaChanges(KDbQuerySchema *q);
-
-        /*! Assigns query \a query for this data.
-         Existing query (available using query()) is deleted but only
-         if it is not owned by parent window (i.e. != KexiWindow::schemaObject()).
-         \a query can be 0.
-         If \a query is equal to existing query, nothing is performed.
-        */
-        void setQuery(KDbQuerySchema *query);
-
-        //! \return query associated with this data
-        KDbQuerySchema *query() const {
-            return m_query;
-        }
-
-        //! Takes query associated with this data (without deleting) and returns it.
-        //! After this call query() == 0
-        KDbQuerySchema *takeQuery();
-
-        //! Connection used for retrieving definition of the query
-        KDbConnection *conn;
-
-        /*! @return view mode if which the query member has changed.
-         It's possibly one of previously visited views. Kexi::NoViewMode is the default,
-         what means that query was not changed.
-         Used on view switching. We're checking this flag to see if we should
-         rebuild internal structure for DesignViewMode of regenerated sql text
-         in TextViewMode after switch from other view. */
-        Kexi::ViewMode queryChangedInView() const;
-
-        /*! Sets the queryChangedInView flag. If @a set is true, then the flag is changed
-         to the current view mode. If @a set is false, the flag is changed to Kexi::NoViewMode.
-         @see queryChangedInView() */
-        void setQueryChangedInView(bool set);
-
-    private:
-        KDbQuerySchema *m_query;
-        Kexi::ViewMode m_queryChangedInView;
-    };
 
     //! Implemented for KexiPart::Part.
     virtual KDbQuerySchema* currentQuery(KexiView* view);

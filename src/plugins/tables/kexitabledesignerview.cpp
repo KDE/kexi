@@ -1535,9 +1535,9 @@ tristate KexiTableDesignerView::executeRealAlterTable()
     return d->recentResultOfStoreData;
 }
 
-KexiTablePart::TempData* KexiTableDesignerView::tempData() const
+KexiTablePartTempData* KexiTableDesignerView::tempData() const
 {
-    return static_cast<KexiTablePart::TempData*>(window()->data());
+    return static_cast<KexiTablePartTempData*>(window()->data());
 }
 
 #ifdef KEXI_DEBUG_GUI

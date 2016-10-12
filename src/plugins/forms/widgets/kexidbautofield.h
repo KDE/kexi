@@ -58,13 +58,14 @@ class KEXIFORMUTILS_EXPORT KexiDBAutoField :
     /*internal, for design time only*/
     Q_PROPERTY(int fieldTypeInternal READ fieldTypeInternal WRITE setFieldTypeInternal STORED false)
     Q_PROPERTY(QString fieldCaptionInternal READ fieldCaptionInternal WRITE setFieldCaptionInternal STORED false)
-    Q_ENUMS(WidgetType LabelPosition)
 
 public:
     enum WidgetType { Auto = 100, Text, Integer, Double, Boolean, Date, Time, DateTime,
                       MultiLineText, ComboBox, Image
                     };
+    Q_ENUM(WidgetType)
     enum LabelPosition { Left = 300, Top, NoLabel };
+    Q_ENUM(LabelPosition)
 
     KexiDBAutoField(const QString &text, WidgetType type, LabelPosition pos,
                     QWidget *parent = 0);

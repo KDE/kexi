@@ -38,6 +38,7 @@
 //! @internal A validator used for read only flag to disable editing
 class KexiDBLineEdit_ReadOnlyValidator : public QValidator
 {
+    Q_OBJECT
 public:
     KexiDBLineEdit_ReadOnlyValidator(QObject * parent)
             : QValidator(parent) {
@@ -55,6 +56,7 @@ public:
 //! A style proxy overriding KexiDBLineEdit style
 class KexiDBLineEditStyle : public QProxyStyle
 {
+    Q_OBJECT
 public:
     explicit KexiDBLineEditStyle(const QString &baseStyleName)
         : QProxyStyle(baseStyleName), indent(0)
@@ -457,4 +459,6 @@ void KexiDBLineEdit::setDataSourcePluginId(const QString &pluginId)
     KexiFormDataItemInterface::setDataSourcePluginId(pluginId);
     updateTextForDataSource();
 }
+
+#include "kexidblineedit.moc"
 

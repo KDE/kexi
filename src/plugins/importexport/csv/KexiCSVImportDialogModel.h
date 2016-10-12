@@ -35,6 +35,7 @@
 //! @see KexiCSVImportDialog
 class KexiCSVImportDialogModel : public QStandardItemModel
 {
+    Q_OBJECT
 public:
     explicit KexiCSVImportDialogModel(QObject *parent);
 

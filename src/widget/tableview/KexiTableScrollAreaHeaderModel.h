@@ -32,6 +32,7 @@ class KexiTableScrollArea;
 */
 class KEXIDATATABLE_EXPORT KexiTableScrollAreaHeaderModel : public QAbstractTableModel
 {
+    Q_OBJECT
 public:
     explicit KexiTableScrollAreaHeaderModel(KexiTableScrollArea* parent = 0);
 

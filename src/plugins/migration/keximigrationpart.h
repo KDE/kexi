@@ -25,6 +25,7 @@
 /*! @short Internal part for data/project migration wizard. */
 class KexiMigrationPart : public KexiInternalPart
 {
+    Q_OBJECT
 public:
     KexiMigrationPart(QObject *parent, const QVariantList &args);
     virtual ~KexiMigrationPart();

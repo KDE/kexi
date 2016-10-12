@@ -39,6 +39,7 @@
 //! @internal
 class MyLineEdit : public QLineEdit
 {
+    Q_OBJECT
 public:
     explicit MyLineEdit(QWidget *parent) : QLineEdit(parent) {}
 protected:
@@ -306,3 +307,4 @@ void KexiInputTableEdit::updateLineEditStyleSheet()
 
 KEXI_CELLEDITOR_FACTORY_ITEM_IMPL(KexiInputEditorFactoryItem, KexiInputTableEdit)
 
+#include "kexiinputtableedit.moc"

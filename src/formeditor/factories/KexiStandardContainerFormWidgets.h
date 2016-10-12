@@ -38,6 +38,7 @@ class Container;
 //! Helper widget (used when using 'Lay out horizontally')
 class HBox : public QFrame, public KFormDesigner::FormWidgetInterface
 {
+    Q_OBJECT
 public:
     explicit HBox(QWidget *parent);
     virtual ~HBox();
@@ -47,6 +48,7 @@ public:
 //! Helper widget (used when using 'Lay out vertically')
 class VBox : public QFrame, public KFormDesigner::FormWidgetInterface
 {
+    Q_OBJECT
 public:
     explicit VBox(QWidget *parent);
     virtual ~VBox();
@@ -56,6 +58,7 @@ public:
 //! Helper widget (used when using 'Lay out in a grid')
 class Grid : public QFrame, public KFormDesigner::FormWidgetInterface
 {
+    Q_OBJECT
 public:
     explicit Grid(QWidget *parent);
     virtual ~Grid();
@@ -65,6 +68,7 @@ public:
 //! Helper widget (used when using 'Lay out with horizontal flow')
 class HFlow : public QFrame, public KFormDesigner::FormWidgetInterface
 {
+    Q_OBJECT
 public:
     explicit HFlow(QWidget *parent);
     virtual ~HFlow();
@@ -74,6 +78,7 @@ public:
 //! Helper widget (used when using 'Lay out with horizontal flow')
 class VFlow : public QFrame, public KFormDesigner::FormWidgetInterface
 {
+    Q_OBJECT
 public:
     explicit VFlow(QWidget *parent);
     virtual ~VFlow();
@@ -85,7 +90,6 @@ public:
 class ContainerWidget : public QWidget
 {
     Q_OBJECT
-
     friend class KFDTabWidget;
 
 public:
@@ -112,7 +116,7 @@ Q_SIGNALS:
 //! Keeps context expressed using container and receiver widget
 class AddTabAction : public QAction
 {
-Q_OBJECT
+    Q_OBJECT
 public:
     AddTabAction(KFormDesigner::Container *container,
                  TabWidgetBase *receiver, QObject *parent);
@@ -127,7 +131,7 @@ private:
 //! Keeps context expressed using container and receiver widget
 class RemoveTabAction : public QAction
 {
-Q_OBJECT
+    Q_OBJECT
 public:
     RemoveTabAction(KFormDesigner::Container *container,
                     TabWidgetBase *receiver, QObject *parent);
@@ -142,7 +146,7 @@ private:
 //! Keeps context expressed using container and receiver widget
 class RenameTabAction : public QAction
 {
-Q_OBJECT
+    Q_OBJECT
 public:
     RenameTabAction(KFormDesigner::Container *container,
                     TabWidgetBase *receiver, QObject *parent);
@@ -157,7 +161,7 @@ private:
 //! Keeps context expressed using container and receiver widget
 class AddStackPageAction : public QAction
 {
-Q_OBJECT
+    Q_OBJECT
 public:
     AddStackPageAction(KFormDesigner::Container *container,
                        QWidget *receiver, QObject *parent);
@@ -172,7 +176,7 @@ private:
 //! Keeps context expressed using container and receiver widget
 class RemoveStackPageAction : public QAction
 {
-Q_OBJECT
+    Q_OBJECT
 public:
     RemoveStackPageAction(KFormDesigner::Container *container,
                           QWidget *receiver, QObject *parent);
@@ -187,7 +191,7 @@ private:
 //! Keeps context expressed using container and receiver widget
 class GoToStackPageAction : public QAction
 {
-Q_OBJECT
+    Q_OBJECT
 public:
     enum Direction {
         Previous,
@@ -209,7 +213,6 @@ private:
 class KFDTabWidget : public KFormDesigner::TabWidget
 {
     Q_OBJECT
-
 public:
     KFDTabWidget(KFormDesigner::Container *container, QWidget *parent);
     virtual ~KFDTabWidget();
@@ -239,7 +242,6 @@ private:
 class GroupBox : public QGroupBox
 {
     Q_OBJECT
-
 public:
     GroupBox(const QString & title, QWidget *parent);
     virtual ~GroupBox();

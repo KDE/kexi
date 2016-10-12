@@ -33,6 +33,7 @@
 */
 class KEXIGUIUTILS_EXPORT KexiDockableWidget : public QWidget
 {
+    Q_OBJECT
 public:
     explicit KexiDockableWidget(QWidget* parent = 0);
     virtual ~KexiDockableWidget();

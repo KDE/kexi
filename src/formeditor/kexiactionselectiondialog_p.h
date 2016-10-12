@@ -26,6 +26,7 @@
 //! @internal
 class ActionsListViewBase : public QTreeWidget
 {
+    Q_OBJECT
 public:
     explicit ActionsListViewBase(QWidget* parent);
     virtual ~ActionsListViewBase();

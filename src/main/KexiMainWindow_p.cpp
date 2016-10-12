@@ -240,9 +240,9 @@ void KexiMainMenu::showEvent(QShowEvent * event)
         hlyr->setSpacing(0);
         hlyr->setMargin(0);
         m_menuWidget = new KexiMenuWidget;
-        QString styleName(m_menuWidget->style()->objectName());
 //! @todo KEXI3 is KexiMenuWidgetStyle needed?
 #if 0
+        QString styleName(m_menuWidget->style()->objectName());
         if (KDE::version() < KDE_MAKE_VERSION(4, 8, 0) // a fix is apparently needed for glitch in KDE < 4.8
             && styleName == "oxygen")
         {

@@ -29,6 +29,7 @@
 //! @todo Vertical KexiFlowLayout ported to Qt4 but not tested.
 class KEXIUTILS_EXPORT KexiFlowLayout : public QLayout
 {
+    Q_OBJECT
 public:
     explicit KexiFlowLayout(QWidget *parent, int margin = 0, int spacing = -1);
     explicit KexiFlowLayout(QLayout* parent, int margin = 0, int spacing = -1);

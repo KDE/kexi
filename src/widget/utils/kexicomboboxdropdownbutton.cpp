@@ -28,6 +28,7 @@
 //! @internal A style that allows to alter some painting in KexiComboBoxDropDownButton.
 class KexiComboBoxDropDownButtonStyle : public QProxyStyle
 {
+    Q_OBJECT
 public:
     explicit KexiComboBoxDropDownButtonStyle(const QString &baseStyleName)
             : QProxyStyle(baseStyleName)
@@ -91,3 +92,5 @@ bool KexiComboBoxDropDownButton::event(QEvent *event)
         styleChanged();
     return QToolButton::event(event);
 }
+
+#include "kexicomboboxdropdownbutton.moc"

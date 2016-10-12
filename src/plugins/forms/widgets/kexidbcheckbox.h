@@ -35,7 +35,6 @@ class KEXIFORMUTILS_EXPORT KexiDBCheckBox : public QCheckBox,
     Q_PROPERTY(QString dataSource READ dataSource WRITE setDataSource)
     Q_PROPERTY(QString dataSourcePartClass READ dataSourcePluginId WRITE setDataSourcePluginId)
     Q_PROPERTY(Tristate tristate READ isTristate WRITE setTristate)
-    Q_ENUMS(Tristate)
 
 public:
     explicit KexiDBCheckBox(const QString &text, QWidget *parent = 0);
@@ -73,6 +72,7 @@ public:
     virtual void setEnabled(bool enabled);
 
     enum Tristate { TristateDefault, TristateOn, TristateOff };
+    Q_ENUM(Tristate)
 
     void setTristate(Tristate tristate);
     Tristate isTristate() const;

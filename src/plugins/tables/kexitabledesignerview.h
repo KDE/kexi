@@ -64,7 +64,7 @@ public:
 
     virtual ~KexiTableDesignerView();
 
-    KexiTablePart::TempData* tempData() const;
+    KexiTablePartTempData* tempData() const;
 
     /*! Clears field information entered for record.
      This is performed by removing values from caption and data type columns.

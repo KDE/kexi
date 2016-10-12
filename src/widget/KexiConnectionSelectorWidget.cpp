@@ -49,6 +49,7 @@
 
 class KexiConnectionSelector : public QWidget, public Ui_KexiConnectionSelector
 {
+    Q_OBJECT
 public:
     explicit KexiConnectionSelector(QWidget *parent)
         : QWidget(parent)
@@ -519,3 +520,5 @@ bool KexiConnectionSelectorWidget::hasSelectedConnection() const
 {
     return d->isConnectionSelected;
 }
+
+#include "KexiConnectionSelectorWidget.moc"

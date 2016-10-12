@@ -40,6 +40,7 @@ public:
 
 class Slider : public QSlider
 {
+    Q_OBJECT
 public:
     explicit Slider(QWidget *parent) :
         QSlider(parent)
@@ -324,3 +325,5 @@ void KexiSlider::updateLayout()
         }
     }
 }
+
+#include "kexislider.moc"

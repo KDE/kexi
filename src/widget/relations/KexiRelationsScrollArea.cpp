@@ -65,6 +65,7 @@ public:
 //! @internal scroll area widget that draws connections
 class KexiRelationsScrollAreaWidget : public QWidget
 {
+    Q_OBJECT
 public:
     explicit KexiRelationsScrollAreaWidget(KexiRelationsScrollArea* parent);
     ~KexiRelationsScrollAreaWidget();
@@ -615,3 +616,4 @@ const QSet<KexiRelationsConnection*>* KexiRelationsScrollArea::relationsConnecti
     return &d->relationsConnections;
 }
 
+#include "KexiRelationsScrollArea.moc"

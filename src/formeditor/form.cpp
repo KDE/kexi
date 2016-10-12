@@ -1651,7 +1651,6 @@ void Form::updatePropertiesForSelection(QWidget *w, WidgetSelectionFlags flags)
         flags |= ReplacePreviousSelection;
     }
 
-    QByteArray prevProperty;
     if (flags & ReplacePreviousSelection) {
         createPropertiesForWidget(w);
         w->installEventFilter(this);

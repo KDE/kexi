@@ -26,6 +26,7 @@
 //! Internal plugin for CSV import/export
 class KexiCsvImportExportPlugin : public KexiInternalPart
 {
+    Q_OBJECT
 public:
     KexiCsvImportExportPlugin(QObject *parent, const QVariantList &args);
     virtual ~KexiCsvImportExportPlugin();

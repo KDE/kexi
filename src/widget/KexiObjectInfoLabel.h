@@ -38,6 +38,7 @@
 */
 class KEXIEXTWIDGETS_EXPORT KexiObjectInfoLabel : public QWidget
 {
+    Q_OBJECT
 public:
     explicit KexiObjectInfoLabel(QWidget* parent);
     virtual ~KexiObjectInfoLabel();

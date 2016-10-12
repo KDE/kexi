@@ -42,6 +42,7 @@
  Helper for KexiComboBoxPopup. */
 class KexiComboBoxPopup_KexiTableView : public KexiDataTableScrollArea
 {
+    Q_OBJECT
 public:
     KexiComboBoxPopup_KexiTableView(QWidget* parent = 0)
             : KexiDataTableScrollArea(parent) {
@@ -462,3 +463,4 @@ void KexiComboBoxPopup::slotDataReloadRequested()
     updateSize();
 }
 
+#include "kexicomboboxpopup.moc"
