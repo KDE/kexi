@@ -1,4 +1,4 @@
-if (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_GNUC)
+if (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_GNUC OR CMAKE_COMPILER_IS_CLANG)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} \
         -Wno-unused-but-set-variable \
         -Wno-missing-format-attribute \
@@ -8,7 +8,7 @@ if (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_GNUC)
         -std=c99 \
         -Wno-cast-qual"
     )
-endif (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_COMPILER_IS_GNUC)
+endif()
 
 set(MDB_SOURCE_DIR ${CMAKE_SOURCE_DIR}/src/migration/mdb)
 set(MDBTOOLS_SOURCE_DIR ${MDB_SOURCE_DIR}/3rdparty/mdbtools)
