@@ -159,6 +159,7 @@
 
 class KexiEmptyItemModel : public QAbstractItemModel
 {
+    Q_OBJECT
 public:
     explicit KexiEmptyItemModel(QObject *parent = 0) : QAbstractItemModel(parent) {}
     QModelIndex index(int, int, const QModelIndex &) const { return QModelIndex(); }
@@ -1911,5 +1912,7 @@ void KexiCompletionModelPrivate::_q_sourceModelDestroyed()
 {
     q->setSourceModel(KexiAbstractItemModelPrivate::staticEmptyModel());
 }
+
+#include "KexiCompleter.moc"
 
 #endif // QT_NO_COMPLETER

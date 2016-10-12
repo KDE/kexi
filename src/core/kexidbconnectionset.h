@@ -31,6 +31,7 @@ class KexiDBConnectionSetPrivate;
 /*! Stores information about multiple connection-data items. */
 class KEXICORE_EXPORT KexiDBConnectionSet : public QObject, public KDbResultable
 {
+    Q_OBJECT
 public:
     KexiDBConnectionSet();
     ~KexiDBConnectionSet();

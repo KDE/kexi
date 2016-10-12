@@ -128,7 +128,7 @@ KDbObject* KexiReportPart::loadSchemaObject(
     }
     qDebug() << doc.toString();
 
-    KexiReportPart::TempData * temp = static_cast<KexiReportPart::TempData*>(window->data());
+    KexiReportPartTempData * temp = static_cast<KexiReportPartTempData*>(window->data());
     const QDomElement root = doc.documentElement();
     temp->reportDefinition = root.firstChildElement("report:content");
     if (temp->reportDefinition.isNull()) {
@@ -145,10 +145,10 @@ KDbObject* KexiReportPart::loadSchemaObject(
 
 KexiWindowData* KexiReportPart::createWindowData(KexiWindow* window)
 {
-    return new KexiReportPart::TempData(window);
+    return new KexiReportPartTempData(window);
 }
 
-KexiReportPart::TempData::TempData(QObject* parent)
+KexiReportPartTempData::KexiReportPartTempData(QObject* parent)
         : KexiWindowData(parent)
         , reportSchemaChangedInPreviousView(true /*to force reloading on startup*/)
 {

@@ -54,7 +54,7 @@ KexiQueryPart::~KexiQueryPart()
 
 KexiWindowData* KexiQueryPart::createWindowData(KexiWindow* window)
 {
-    KexiQueryPart::TempData *data = new KexiQueryPart::TempData(
+    KexiQueryPartTempData *data = new KexiQueryPartTempData(
         window, KexiMainWindowIface::global()->project()->dbConnection());
     data->listenerInfoString = xi18nc("@info Object \"objectname\"", "%1 <resource>%2</resource>",
                                      window->part()->info()->name(),
@@ -119,7 +119,7 @@ KDbObject* KexiQueryPart::loadSchemaObject(
     KexiWindow *window, const KDbObject& object, Kexi::ViewMode viewMode,
     bool *ownedByWindow)
 {
-    KexiQueryPart::TempData * temp = static_cast<KexiQueryPart::TempData*>(window->data());
+    KexiQueryPartTempData * temp = static_cast<KexiQueryPartTempData*>(window->data());
     QString sql;
     if (!loadDataBlock(window, &sql, "sql")) {
         return 0;
@@ -165,7 +165,7 @@ KDbQuerySchema *KexiQueryPart::currentQuery(KexiView* view)
         return 0;
     }
 
-    return static_cast<KexiQueryPart::TempData*>(qvp->window()->data())->query();
+    return static_cast<KexiQueryPartTempData*>(qvp->window()->data())->query();
 }
 
 KLocalizedString KexiQueryPart::i18nMessage(const QString& englishMessage, KexiWindow* window) const
@@ -191,7 +191,7 @@ tristate KexiQueryPart::rename(KexiPart::Item *item, const QString& newName)
 
 //----------------
 
-KexiQueryPart::TempData::TempData(KexiWindow* window, KDbConnection *conn)
+KexiQueryPartTempData::KexiQueryPartTempData(KexiWindow* window, KDbConnection *conn)
         : KexiWindowData(window)
         , KDbConnection::TableSchemaChangeListenerInterface()
         , m_query(0)
@@ -200,12 +200,12 @@ KexiQueryPart::TempData::TempData(KexiWindow* window, KDbConnection *conn)
     this->conn = conn;
 }
 
-KexiQueryPart::TempData::~TempData()
+KexiQueryPartTempData::~KexiQueryPartTempData()
 {
     conn->unregisterForTablesSchemaChanges(this);
 }
 
-void KexiQueryPart::TempData::clearQuery()
+void KexiQueryPartTempData::clearQuery()
 {
     if (!m_query)
         return;
@@ -213,12 +213,12 @@ void KexiQueryPart::TempData::clearQuery()
     m_query->clear();
 }
 
-void KexiQueryPart::TempData::unregisterForTablesSchemaChanges()
+void KexiQueryPartTempData::unregisterForTablesSchemaChanges()
 {
     conn->unregisterForTablesSchemaChanges(this);
 }
 
-void KexiQueryPart::TempData::registerTableSchemaChanges(KDbQuerySchema *q)
+void KexiQueryPartTempData::registerTableSchemaChanges(KDbQuerySchema *q)
 {
     if (!q)
         return;
@@ -227,20 +227,20 @@ void KexiQueryPart::TempData::registerTableSchemaChanges(KDbQuerySchema *q)
     }
 }
 
-tristate KexiQueryPart::TempData::closeListener()
+tristate KexiQueryPartTempData::closeListener()
 {
     KexiWindow* window = static_cast<KexiWindow*>(parent());
     return KexiMainWindowIface::global()->closeWindow(window);
 }
 
-KDbQuerySchema *KexiQueryPart::TempData::takeQuery()
+KDbQuerySchema *KexiQueryPartTempData::takeQuery()
 {
     KDbQuerySchema *query = m_query;
     m_query = 0;
     return query;
 }
 
-void KexiQueryPart::TempData::setQuery(KDbQuerySchema *query)
+void KexiQueryPartTempData::setQuery(KDbQuerySchema *query)
 {
     if (m_query && m_query == query)
         return;
@@ -253,12 +253,12 @@ void KexiQueryPart::TempData::setQuery(KDbQuerySchema *query)
     m_query = query;
 }
 
-Kexi::ViewMode KexiQueryPart::TempData::queryChangedInView() const
+Kexi::ViewMode KexiQueryPartTempData::queryChangedInView() const
 {
     return m_queryChangedInView;
 }
 
-void KexiQueryPart::TempData::setQueryChangedInView(bool set)
+void KexiQueryPartTempData::setQueryChangedInView(bool set)
 {
     m_queryChangedInView = set ? qobject_cast<KexiWindow*>(parent())->currentViewMode()
                                        : Kexi::NoViewMode;

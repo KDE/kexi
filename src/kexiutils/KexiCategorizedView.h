@@ -32,6 +32,7 @@ typedef KCategoryDrawer KexiCategoryDrawerBase;
 //! Modification of category drawer for KCategorizedView: disallows clicking on the drawer
 class KEXIUTILS_EXPORT KexiCategoryDrawer : public KexiCategoryDrawerBase
 {
+    Q_OBJECT
 public:
     explicit KexiCategoryDrawer(KCategorizedView *view);
 };
@@ -39,6 +40,7 @@ public:
 //! Single selection model for the drawer.
 class KEXIUTILS_EXPORT KexiCategorySingleSelectionModel : public QItemSelectionModel
 {
+    Q_OBJECT
 public:
     explicit KexiCategorySingleSelectionModel(QAbstractItemModel* model);
 
@@ -54,7 +56,7 @@ public:
 //! Single selection categorized view.
 class KEXIUTILS_EXPORT KexiCategorizedView : public KCategorizedView
 {
-Q_OBJECT
+    Q_OBJECT
 public:
     explicit KexiCategorizedView(QWidget *parent = 0);
 

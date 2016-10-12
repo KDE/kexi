@@ -26,13 +26,12 @@
 class KexiTableDesigner_DataView : public KexiDataTableView
 {
     Q_OBJECT
-
 public:
     explicit KexiTableDesigner_DataView(QWidget *parent);
 
     virtual ~KexiTableDesigner_DataView();
 
-    KexiTablePart::TempData* tempData() const;
+    KexiTablePartTempData* tempData() const;
 
 protected:
     virtual tristate beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore);

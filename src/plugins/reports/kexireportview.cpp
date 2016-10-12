@@ -408,9 +408,9 @@ KReportData* KexiReportView::createSourceData(QDomElement e)
     return kodata;
 }
 
-KexiReportPart::TempData* KexiReportView::tempData() const
+KexiReportPartTempData* KexiReportView::tempData() const
 {
-    return static_cast<KexiReportPart::TempData*>(window()->data());
+    return static_cast<KexiReportPartTempData*>(window()->data());
 }
 
 void KexiReportView::addNewRecordRequested()

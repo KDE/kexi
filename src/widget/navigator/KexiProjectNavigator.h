@@ -44,6 +44,7 @@ class KexiProject;
 /*! @internal */
 class KexiMenuBase : public QMenu
 {
+    Q_OBJECT
 public:
     KexiMenuBase(QWidget *parent, KActionCollection *collection);
     ~KexiMenuBase();
@@ -57,6 +58,7 @@ protected:
 /*! @internal */
 class KexiItemMenu : public KexiMenuBase
 {
+    Q_OBJECT
 public:
     KexiItemMenu(QWidget *parent, KActionCollection *collection);
     ~KexiItemMenu();
@@ -69,6 +71,7 @@ public:
 /*! @internal */
 class KexiGroupMenu : public KexiMenuBase
 {
+    Q_OBJECT
 public:
     KexiGroupMenu(QWidget *parent, KActionCollection *collection);
     ~KexiGroupMenu();
@@ -83,7 +86,6 @@ public:
 class KEXIEXTWIDGETS_EXPORT KexiProjectNavigator : public QWidget
 {
     Q_OBJECT
-
 public:
     enum Feature {
         NoFeatures   = 0,

@@ -125,6 +125,7 @@ KEXI_DECLARE_CELLEDITOR_FACTORY_ITEM(KexiBlobEditorFactoryItem)
 */
 class KexiKIconTableEdit : public KexiTableEdit
 {
+    Q_OBJECT
 public:
     explicit KexiKIconTableEdit(KDbTableViewColumn &column, QWidget *parent = 0);
 

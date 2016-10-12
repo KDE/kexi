@@ -376,6 +376,7 @@ void KexiWelcomeStatusBarGuiUpdater::slotRedirectLoaded()
 //! @internal
 class ScrollArea : public QScrollArea
 {
+    Q_OBJECT
 public:
     explicit ScrollArea(QWidget *parent = 0) : QScrollArea(parent)
     {
@@ -423,7 +424,7 @@ protected:
                 //qDebug() << "pos:" << pos;
                 //qDebug() << "newText += t.mid(oldPos, pos - oldPos)"
                 //    << t.mid(oldPos, pos - oldPos);
-                newText += t.mid(oldPos, pos - oldPos);
+                newText += t.midRef(oldPos, pos - oldPos);
                 //qDebug() << "newText1:" << newText;
                 //qDebug() << lbl->objectName() << "~~~~" << t.mid(pos, re.matchedLength());
                 QString a = t.mid(pos, match.capturedLength());
@@ -455,7 +456,7 @@ protected:
                 //qDebug() << "pos2:" << pos;
             }
             //qDebug() << "oldPos:" << oldPos;
-            newText += t.mid(oldPos);
+            newText += t.midRef(oldPos);
             //qDebug() << "newText3:" << newText;
             lbl->setText(newText);
         }

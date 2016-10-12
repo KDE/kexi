@@ -366,7 +366,7 @@ bool KexiStartupFileHandler::checkSelectedUrl()
                 QStringList filterPatterns = filter.split('|').first().split(' ');
                 for (const QString &filterPattern : filterPatterns) {
                     const QString f( filterPattern.trimmed() );
-                    if (!f.mid(2).isEmpty() && ext == f.mid(2)) {
+                    if (!f.midRef(2).isEmpty() && ext == f.midRef(2)) {
                         hasExtension = true;
                         break;
                     }

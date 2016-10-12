@@ -62,7 +62,7 @@ class KEXIFORMUTILS_EXPORT KexiDBImageBox : public KexiFrame,
     Q_PROPERTY(int midLineWidth READ midLineWidth WRITE setMidLineWidth)
 
 public:
-    KexiDBImageBox(bool designMode, QWidget *parent = 0);
+    explicit KexiDBImageBox(bool designMode, QWidget *parent = 0);
     virtual ~KexiDBImageBox();
 
     inline QString dataSource() const {

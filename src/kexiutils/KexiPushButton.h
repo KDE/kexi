@@ -32,7 +32,6 @@
 class KEXIUTILS_EXPORT KexiPushButton : public QPushButton
 {
     Q_OBJECT
-    Q_ENUMS(HyperlinkType)
 
     Q_PROPERTY(QString hyperlink READ hyperlink WRITE setHyperlink)
     Q_PROPERTY(HyperlinkType hyperlinkType READ hyperlinkType WRITE setHyperlinkType)
@@ -49,6 +48,7 @@ public:
         StaticHyperlink, /*!< Static hyperlink provided by \a hyperlink property*/
         DynamicHyperlink /*!< Dynamic hyperlink (used in data-aware widgets) */
     };
+    Q_ENUM(HyperlinkType)
 
     //! Default contructor
     explicit KexiPushButton(QWidget *parent = 0);

@@ -95,6 +95,7 @@ private:
 class KEXIEXTWIDGETS_EXPORT KexiDBConnectionWidgetDetails
             : public QWidget, public Ui::KexiDBConnectionWidgetDetails
 {
+    Q_OBJECT
 public:
     explicit KexiDBConnectionWidgetDetails(QWidget* parent = 0);
     ~KexiDBConnectionWidgetDetails();
@@ -103,7 +104,6 @@ public:
 class KEXIEXTWIDGETS_EXPORT KexiDBConnectionTabWidget : public QTabWidget
 {
     Q_OBJECT
-
 public:
     explicit KexiDBConnectionTabWidget(QWidget* parent = 0);
     virtual ~KexiDBConnectionTabWidget();

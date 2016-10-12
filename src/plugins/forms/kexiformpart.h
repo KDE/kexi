@@ -39,6 +39,7 @@ class KexiDataSourcePage;
 
 class KexiFormPartTempData : public KexiWindowData
 {
+    Q_OBJECT
 public:
     explicit KexiFormPartTempData(QObject* parent);
     ~KexiFormPartTempData();

@@ -474,8 +474,6 @@ Container::eventFilter(QObject *s, QEvent *e)
         c1.setAlpha(100);
         QColor c2(Qt::black);
         c2.setAlpha(100);
-        QPen pen1(c1, 1);
-        QPen pen2(c2, 1);
         int cols = widget()->width() / gridX;
         int rows = widget()->height() / gridY;
         const QRect r( pe->rect() );

@@ -192,6 +192,7 @@ private:
 
 class KexiCompleterItemDelegate : public QItemDelegate
 {
+    Q_OBJECT
 public:
     explicit KexiCompleterItemDelegate(QAbstractItemView *view)
         : QItemDelegate(view), view(view) { }

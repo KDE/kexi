@@ -26,6 +26,18 @@
 #include <KReportData>
 #include <QDomElement>
 
+class KexiReportPartTempData : public KexiWindowData
+{
+    Q_OBJECT
+public:
+    explicit KexiReportPartTempData(QObject* parent);
+    QDomElement reportDefinition;
+    QDomElement connectionDefinition;
+
+    /*! true, if \a document member has changed in previous view. Used on view switching.
+    Check this flag to see if we should refresh data for DataViewMode. */
+    bool reportSchemaChangedInPreviousView;
+};
 
 /**
  * @short Application Main Window
@@ -47,18 +59,6 @@ public:
     virtual ~KexiReportPart();
 
     virtual void setupCustomPropertyPanelTabs(QTabWidget *tab);
-
-    class TempData : public KexiWindowData
-    {
-    public:
-        explicit TempData(QObject* parent);
-        QDomElement reportDefinition;
-        QDomElement connectionDefinition;
-
-        /*! true, if \a document member has changed in previous view. Used on view switching.
-        Check this flag to see if we should refresh data for DataViewMode. */
-        bool reportSchemaChangedInPreviousView;
-    };
 
     virtual KLocalizedString i18nMessage(const QString& englishMessage,
                                          KexiWindow* window) const;

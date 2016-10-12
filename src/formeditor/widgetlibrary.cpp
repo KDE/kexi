@@ -475,7 +475,6 @@ QString WidgetLibrary::displayName(const QByteArray &classname)
 
 QString WidgetLibrary::savingName(const QByteArray &classname)
 {
-    QString s;
     WidgetInfo *wi = d->widgets().value(classname);
     if (wi && !wi->savingName().isEmpty())
         return wi->savingName();

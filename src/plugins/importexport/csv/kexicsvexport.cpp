@@ -167,9 +167,9 @@ bool KexiCSVExport::exportData(KDbTableOrQuerySchema *tableOrQuery,
     qDebug() << 0 << "Columns: " << query->fieldsExpanded().count();
     // 0. Cache information
     const int fieldsCount = query->fieldsExpanded().count(); //real fields count without internals
-    const QByteArray delimiter(options.delimiter.left(1).toLatin1());
+    const QChar delimiter(options.delimiter.at(0));
     const bool hasTextQuote = !options.textQuote.isEmpty();
-    const QString textQuote(options.textQuote.left(1));
+    const QString textQuote(options.textQuote.at(0));
     const QByteArray escapedTextQuote((textQuote + textQuote).toLatin1());   //ok?
     //cache for faster checks
     QScopedArrayPointer<bool> isText(new bool[fieldsCount]);

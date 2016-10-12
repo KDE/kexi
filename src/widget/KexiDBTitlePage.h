@@ -27,6 +27,7 @@
 //! @short A helper widget used to displaying a line edit with a label and layout
 class KEXIEXTWIDGETS_EXPORT KexiDBTitlePage : public QWidget, public Ui_KexiDBTitlePage
 {
+    Q_OBJECT
 public:
     //! Constructs title page. \a labelText can be provided to change default
     //! "Project caption:" label.

@@ -38,6 +38,7 @@ class MigrateManagerInternal;
 class KEXIMIGRATE_EXPORT MigrateManager : public QObject,
                                           public KexiMigrateManagerInterface
 {
+    Q_OBJECT
 public:
     MigrateManager();
 

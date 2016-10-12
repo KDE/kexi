@@ -88,7 +88,7 @@ KexiDBComboBox::~KexiDBComboBox()
     delete d;
 }
 
-KDbTableViewColumn* KexiDBComboBox::column() const
+const KDbTableViewColumn* KexiDBComboBox::column() const
 {
     return 0;
 }

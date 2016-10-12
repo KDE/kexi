@@ -83,8 +83,8 @@ tristate KexiTableDesigner_DataView::afterSwitchFrom(Kexi::ViewMode mode)
     return true;
 }
 
-KexiTablePart::TempData* KexiTableDesigner_DataView::tempData() const
+KexiTablePartTempData* KexiTableDesigner_DataView::tempData() const
 {
-    return static_cast<KexiTablePart::TempData*>(window()->data());
+    return static_cast<KexiTablePartTempData*>(window()->data());
 }
 

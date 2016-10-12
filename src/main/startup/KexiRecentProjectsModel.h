@@ -49,6 +49,7 @@ private:
 
 class KexiRecentProjectsProxyModel : public KCategorizedSortFilterProxyModel
 {
+    Q_OBJECT
 public:
     explicit KexiRecentProjectsProxyModel(QObject *parent = 0);
 

@@ -140,15 +140,17 @@ KFORMDESIGNER_EXPORT void widgetsToXML(QDomDocument& doc,
 //! QActionGroup extended by action() method.
 class KFORMDESIGNER_EXPORT ActionGroup : public QActionGroup
 {
-    public:
-        explicit ActionGroup( QObject * parent );
-        ~ActionGroup();
-        //! Reimplemented.
-        void addAction(QAction* action);
-        QAction *action(const QString& name) const;
-    private:
-        class Private;
-        Private * const d;
+    Q_OBJECT
+public:
+    explicit ActionGroup( QObject * parent );
+    ~ActionGroup();
+    //! Reimplemented.
+    void addAction(QAction* action);
+    QAction *action(const QString& name) const;
+private:
+    Q_DISABLE_COPY(ActionGroup)
+    class Private;
+    Private * const d;
 };
 
 //! @return @a value aligned to the nearest multiple of gridSize

@@ -196,9 +196,9 @@ tristate KexiReportDesignView::afterSwitchFrom(Kexi::ViewMode mode)
     return true;
 }
 
-KexiReportPart::TempData* KexiReportDesignView::tempData() const
+KexiReportPartTempData* KexiReportDesignView::tempData() const
 {
-    return static_cast<KexiReportPart::TempData*>(window()->data());
+    return static_cast<KexiReportPartTempData*>(window()->data());
 }
 
 void KexiReportDesignView::slotSourceDataChanged()

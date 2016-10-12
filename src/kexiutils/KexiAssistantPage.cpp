@@ -61,7 +61,6 @@ void KexiAssistantPage::Private::setButtonVisible(KexiLinkWidget** button,
             (*button)->show();
         }
         else {
-            QString text;
             if (back) {
                 *button = new KexiLinkWidget(
                     QLatin1String("KexiAssistantPage:back"),

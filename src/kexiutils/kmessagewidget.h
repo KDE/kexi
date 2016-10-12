@@ -93,7 +93,6 @@ class KMessageWidgetPrivate;
 class KEXIUTILS_EXPORT KMessageWidget : public QFrame
 {
     Q_OBJECT
-    Q_ENUMS(MessageType)
 
     Q_PROPERTY(QString text READ text WRITE setText)
     Q_PROPERTY(bool wordWrap READ wordWrap WRITE setWordWrap)
@@ -106,6 +105,7 @@ public:
         Warning,
         Error
     };
+    Q_ENUM(MessageType)
 
     enum CalloutPointerDirection {
         NoPointer,
@@ -114,6 +114,7 @@ public:
         Left,
         Right
     };
+    Q_ENUM(CalloutPointerDirection)
 
     /**
      * Constructs a KMessageWidget with the specified parent.

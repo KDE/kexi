@@ -318,7 +318,7 @@ void KexiQueryDesignerGuiEditor::updateColumnsData()
         KPropertySet *set = d->sets->at(r);
         if (set) {
             QString tableName = (*set)["table"].value().toString();
-            QString fieldName = (*set)["field"].value().toString();
+            //QString fieldName = (*set)["field"].value().toString();
             const bool allTablesAsterisk = tableName == "*" && d->relations->tables()->isEmpty();
             const bool fieldNotFound = tableName != "*"
                                        && !(*set)["isExpression"].value().toBool()
@@ -375,10 +375,10 @@ KexiRelationsView *KexiQueryDesignerGuiEditor::relationsView() const
     return d->relations;
 }
 
-KexiQueryPart::TempData *
+KexiQueryPartTempData *
 KexiQueryDesignerGuiEditor::tempData() const
 {
-    return static_cast<KexiQueryPart::TempData*>(window()->data());
+    return static_cast<KexiQueryPartTempData*>(window()->data());
 }
 
 static QString msgCannotSwitch_EmptyDesign()
@@ -391,7 +391,7 @@ bool
 KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
 {
     //build query schema
-    KexiQueryPart::TempData * temp = tempData();
+    KexiQueryPartTempData * temp = tempData();
     if (temp->query()) {
         KexiQueryView *queryDataView = dynamic_cast<KexiQueryView*>(window()->viewForMode(Kexi::DataViewMode));
         if (queryDataView) {
@@ -742,7 +742,7 @@ KexiQueryDesignerGuiEditor::storeNewData(const KDbObject& object,
         return 0;
     }
     QString errMsg;
-    KexiQueryPart::TempData * temp = tempData();
+    KexiQueryPartTempData * temp = tempData();
     if (!temp->query() || !(viewMode() == Kexi::DesignViewMode && temp->queryChangedInView() == Kexi::NoViewMode)) {
         //only rebuild schema if it has not been rebuilt previously
         if (!buildSchema(&errMsg)) {
@@ -1053,7 +1053,7 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
             qWarning() << "no columnInfo found in the query for name" << columnNameArgument.name();
             continue;
         }
-        QString tableName, fieldName, columnAlias, criteriaString;
+        QString tableName, fieldName, /*columnAlias,*/ criteriaString;
 //! @todo what about ALIAS?
         tableName = field->table()->name();
         fieldName = field->name();
@@ -1147,7 +1147,7 @@ bool KexiQueryDesignerGuiEditor::loadLayout()
 
 bool KexiQueryDesignerGuiEditor::storeLayout()
 {
-    KexiQueryPart::TempData * temp = tempData();
+    KexiQueryPartTempData * temp = tempData();
 
     // Save SQL without driver-escaped keywords.
     if (window()->schemaObject()) //set this instance as obsolete (only if it's stored)
@@ -1233,7 +1233,7 @@ void
 KexiQueryDesignerGuiEditor::slotDroppedAtRecord(KDbRecordData * /*data*/, int /*record*/,
         QDropEvent *ev, KDbRecordData*& newRecord)
 {
-    QString sourcePartClass;
+    //QString sourcePartClass;
     QString srcTable;
     QStringList srcFields;
 
@@ -1415,10 +1415,10 @@ KDbExpression KexiQueryDesignerGuiEditor::parseExpressionString(const QString& f
             pos = str.indexOf(decimalSym);
         }
         if (pos >= 0) {//real const number
-            const int left = str.left(pos).toInt(&ok);
+            const int left = str.leftRef(pos).toInt(&ok);
             if (!ok)
                 return KDbExpression();
-            const int right = str.mid(pos + 1).toInt(&ok);
+            const int right = str.midRef(pos + 1).toInt(&ok);
             if (!ok)
                 return KDbExpression();
             valueExpr = KDbConstExpression(KDbToken::REAL_CONST, QPoint(left, right)); //decoded to QPoint
@@ -1485,7 +1485,6 @@ void KexiQueryDesignerGuiEditor::slotBeforeColumnCellChanged(KDbRecordData *data
     QString fieldName; //"field" part of "table.field" or expression string
     QString tableName; //empty for expressions
     QByteArray alias;
-    QString columnValueForExpr; //for setting pretty printed "alias: expr" in 1st column
     const bool isExpression = !d->fieldColumnIdentifiers.contains(fieldId.toLower());
     if (isExpression) {
         //this value is entered by hand and doesn't match

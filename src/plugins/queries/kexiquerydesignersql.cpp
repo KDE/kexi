@@ -204,7 +204,7 @@ tristate KexiQueryDesignerSQLView::beforeSwitchTo(Kexi::ViewMode mode, bool *don
     *dontStore = true;
     if (mode == Kexi::DesignViewMode || mode == Kexi::DataViewMode) {
         QString sqlText = d->editor->text().trimmed();
-        KexiQueryPart::TempData * temp = tempData();
+        KexiQueryPartTempData * temp = tempData();
         const bool sqlTextIsEmpty = sqlText.isEmpty();
         if (sqlTextIsEmpty && mode == Kexi::DesignViewMode) {
             //special case: empty SQL text, allow to switch to the design view
@@ -263,7 +263,7 @@ KexiQueryDesignerSQLView::afterSwitchFrom(Kexi::ViewMode mode)
         //SQL text should be invalidated.
         d->justSwitchedFromNoViewMode = true;
     }
-    KexiQueryPart::TempData * temp = tempData();
+    KexiQueryPartTempData * temp = tempData();
     KDbQuerySchema *query = temp->query();
     if (!query) {//try to just get saved schema, instead of temporary one
         query = dynamic_cast<KDbQuerySchema *>(window()->schemaObject());
@@ -370,9 +370,9 @@ void KexiQueryDesignerSQLView::updateActions(bool activated)
     KexiView::updateActions(activated);
 }
 
-KexiQueryPart::TempData* KexiQueryDesignerSQLView::tempData() const
+KexiQueryPartTempData* KexiQueryDesignerSQLView::tempData() const
 {
-    return dynamic_cast<KexiQueryPart::TempData*>(window()->data());
+    return dynamic_cast<KexiQueryPartTempData*>(window()->data());
 }
 
 KDbObject* KexiQueryDesignerSQLView::storeNewData(const KDbObject& object,

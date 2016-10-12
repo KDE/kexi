@@ -629,7 +629,6 @@ void KexiDBImageBox::paintEvent(QPaintEvent *pe)
     p.setClipRect(pe->rect());
     QMargins margins(contentsMargins());
     margins += realLineWidth();
-    const QBrush bgBrush(palette().brush(backgroundRole()));
     if (designMode() && pixmap().isNull()) {
         QRect r(
             QPoint(margins.left(), margins.top()),
@@ -710,8 +709,6 @@ void KexiDBImageBox::updatePixmap()
         return;
 
     if (!KexiDBImageBox_static->pixmap) {
-        const QString fname(QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                                                   QLatin1String("kexi/pics/imagebox.png")));
         QPixmap pm( KIconLoader::global()->loadMimeTypeIcon(
             koIconNameCStr("image-x-generic"), KIconLoader::NoGroup, KIconLoader::SizeLarge, KIconLoader::DisabledState) );
         if (!pm.isNull()) {

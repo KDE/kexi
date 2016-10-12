@@ -86,7 +86,7 @@ protected:
      \return true on proper schema creation. */
     bool buildSchema(QString *errMsg = 0);
 
-    KexiQueryPart::TempData * tempData() const;
+    KexiQueryPartTempData * tempData() const;
 
     /*! Helper: allocates and initializes new table view's row. Doesn't insert it, just returns.
      \a tableName and \a fieldName should be provided.

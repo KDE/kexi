@@ -42,7 +42,7 @@ public:
     KexiQueryDesignerSQLEditor *editor() const;
 
 protected:
-    KexiQueryPart::TempData * tempData() const;
+    KexiQueryPartTempData * tempData() const;
 
     virtual tristate beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore);
     virtual tristate afterSwitchFrom(Kexi::ViewMode mode);

@@ -374,6 +374,7 @@ private:
  on the current widget style. The widget also reacts on style changes. */
 class KEXIUTILS_EXPORT KTextEditorFrame : public QFrame
 {
+    Q_OBJECT
 public:
     explicit KTextEditorFrame(QWidget * parent = 0, Qt::WindowFlags f = 0);
 protected:
@@ -455,6 +456,7 @@ KEXIUTILS_EXPORT void removeRecursiveEventFilter(QObject *object, QObject *filte
     geometry it takes. */
 class KEXIUTILS_EXPORT PaintBlocker : public QObject
 {
+    Q_OBJECT
 public:
     explicit PaintBlocker(QWidget* parent);
     void setEnabled(bool set);
@@ -472,7 +474,6 @@ private:
 class KEXIUTILS_EXPORT OpenHyperlinkOptions : public QObject
 {
     Q_OBJECT
-    Q_ENUMS(HyperlinkTool)
 
 public:
 
@@ -484,6 +485,7 @@ public:
         BrowserHyperlinkTool, /*!< Opens hyperlink in a browser */
         MailerHyperlinkTool /*!< Opens hyperlink in a default mailer */
     };
+    Q_ENUM(HyperlinkTool)
 
     OpenHyperlinkOptions() :
         tool(DefaultHyperlinkTool)

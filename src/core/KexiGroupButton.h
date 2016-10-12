@@ -38,7 +38,6 @@
 class KEXICORE_EXPORT KexiGroupButton : public QToolButton
 {
     Q_OBJECT
-    Q_ENUMS( GroupPosition )
     Q_PROPERTY( GroupPosition groupPosition READ groupPosition WRITE setGroupPosition )
 public:
     /**
@@ -50,6 +49,7 @@ public:
         GroupRight,  //!< The button is at the right of the group, so it would have rounded the right part
         GroupCenter  //!< The button is on the center of the group, so it would have separators on both sides
     };
+    Q_ENUM(GroupPosition)
 
     explicit KexiGroupButton(GroupPosition position, QWidget* parent = 0);
 

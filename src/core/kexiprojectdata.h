@@ -46,6 +46,7 @@ class KexiProjectDataPrivate;
 */
 class KEXICORE_EXPORT KexiProjectData : public QObject, public KDbObject, public KDbResultable
 {
+    Q_OBJECT
 public:
     typedef QList<KexiProjectData*> List;
     typedef QHash<QByteArray, QString> ObjectInfo;

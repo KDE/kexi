@@ -45,6 +45,7 @@ public:
 
 class KexiSearchLineEditCompleterPopupModel : public QAbstractListModel
 {
+    Q_OBJECT
 public:
     explicit KexiSearchLineEditCompleterPopupModel(QObject *parent = 0);
     ~KexiSearchLineEditCompleterPopupModel();
@@ -154,6 +155,7 @@ void KexiSearchLineEditCompleterPopupModel::addSearchableModel(KexiSearchableMod
 
 class KexiSearchLineEditCompleter : public KexiCompleter
 {
+    Q_OBJECT
 public:
     explicit KexiSearchLineEditCompleter(QObject *parent = 0) : KexiCompleter(parent) {
         setCompletionRole(Qt::DisplayRole);
@@ -232,6 +234,7 @@ static QSizeF viewItemTextLayout(QTextLayout &textLayout, int lineWidth)
 
 class KexiSearchLineEditPopupItemDelegate : public QStyledItemDelegate
 {
+    Q_OBJECT
 public:
     KexiSearchLineEditPopupItemDelegate(QObject *parent, KexiCompleter *completer)
      : QStyledItemDelegate(parent), highlightMatchingSubstrings(true), m_completer(completer)
@@ -837,3 +840,5 @@ void KexiSearchLineEdit::setHighlightMatchingSubstrings(bool highlight)
 {
     d->delegate->highlightMatchingSubstrings = highlight;
 }
+
+#include "KexiSearchLineEdit.moc"

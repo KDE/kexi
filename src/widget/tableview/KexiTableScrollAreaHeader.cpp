@@ -39,6 +39,7 @@
 //!           drawing header section primitive. Used in KexiTableScrollAreaHeader.
 class KexiTableScrollAreaHeaderStyle : public QProxyStyle
 {
+    Q_OBJECT
 public:
     KexiTableScrollAreaHeaderStyle(const QString &baseStyleName)
             : QProxyStyle(baseStyleName)
@@ -275,7 +276,7 @@ QSize KexiTableScrollAreaHeader::sectionSizeFromContents(int logicalIndex) const
     opt.text = model()->headerData(logicalIndex, orientation(),
                                     Qt::DisplayRole).toString();
     //qDebug() << opt.text;
-    QVariant variant = model()->headerData(logicalIndex, orientation(), Qt::DecorationRole);
+    //QVariant variant = model()->headerData(logicalIndex, orientation(), Qt::DecorationRole);
     //qDebug() << variant;
 //            opt.icon = qvariant_cast<QIcon>(variant);
 //            if (opt.icon.isNull())
@@ -340,3 +341,4 @@ void KexiTableScrollAreaHeader::setSortingEnabled(bool set)
     setSortIndicatorShown(set);
 }
 
+#include "KexiTableScrollAreaHeader.moc"

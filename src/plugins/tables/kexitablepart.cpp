@@ -81,7 +81,7 @@ void KexiTablePart::initInstanceActions()
 
 KexiWindowData* KexiTablePart::createWindowData(KexiWindow* window)
 {
-    return new KexiTablePart::TempData(window);
+    return new KexiTablePartTempData(window);
 }
 
 KexiView* KexiTablePart::createView(QWidget *parent, KexiWindow* window,
@@ -93,8 +93,8 @@ KexiView* KexiTablePart::createView(QWidget *parent, KexiWindow* window,
         return 0;
 
 
-    KexiTablePart::TempData *temp
-        = static_cast<KexiTablePart::TempData*>(window->data());
+    KexiTablePartTempData *temp
+        = static_cast<KexiTablePartTempData*>(window->data());
     if (!temp->table) {
         temp->table = win->project()->dbConnection()->tableSchema(item->name());
         qDebug() << "schema is " << temp->table;
@@ -251,7 +251,7 @@ KexiLookupColumnPage* KexiTablePart::lookupColumnPage() const
 
 //----------------
 
-KexiTablePart::TempData::TempData(QObject* parent)
+KexiTablePartTempData::KexiTablePartTempData(QObject* parent)
         : KexiWindowData(parent)
         , table(0)
         , tableSchemaChangedInPreviousView(true /*to force reloading on startup*/)

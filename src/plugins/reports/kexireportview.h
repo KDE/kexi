@@ -68,7 +68,7 @@ private:
     KexiRecordNavigator *m_pageSelector;
 #endif
 
-    KexiReportPart::TempData* tempData() const;
+    KexiReportPartTempData* tempData() const;
     KReportData* createSourceData(QDomElement e);
     //! @todo KEXI3 KexiScriptAdaptor *m_kexi;
     KRScriptFunctions *m_functions;
