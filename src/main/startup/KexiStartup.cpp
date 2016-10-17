@@ -955,21 +955,23 @@ tristate KexiStartupHandler::detectActionForFile(
     if (detectedDriverId->isEmpty()) {
         QString possibleProblemsMessage(Kexi::driverManager().possibleProblemsMessage());
         if (!possibleProblemsMessage.isEmpty()) {
-            possibleProblemsMessage = xi18n("Possible problems: %1").arg(possibleProblemsMessage);
+            possibleProblemsMessage = xi18n("Possible problems: %1", possibleProblemsMessage);
         }
         if (!(options & SkipMessages)) {
+            const QString comment(mime.comment().isEmpty() ? QString() : QString::fromLatin1(" (%1)").arg(mime.comment()));
             KMessageBox::detailedSorry(parent,
                xi18nc("@info",
                       "The file <filename>%1</filename> is not recognized as being supported by Kexi.",
                       QDir::toNativeSeparators(databaseName)),
-               xi18nc("@info",
-                      "<para>Could not find plugin supporting for this file type.</para>"
-                      "<para>Detected MIME type is <resource>%1</resource>%2.</para>%3",
-                      mimename)
-                      .arg(mime.comment().isEmpty() ? QString() : QString::fromLatin1(" (%1)").arg(mime.comment()))
-                      .arg(possibleProblemsMessage.isEmpty() ? QString()
-                              : QString("<para>%1</para>").arg(possibleProblemsMessage))
-                );
+                      possibleProblemsMessage.isEmpty()
+                       ? xi18nc("@info",
+                                "<para>Could not find plugin supporting for this file type.</para>"
+                                "<para>Detected MIME type is <resource>%1</resource>%2.</para>",
+                                mimename, comment)
+                       : xi18nc("@info",
+                                "<para>Could not find plugin supporting for this file type.</para>"
+                                "<para>Detected MIME type is <resource>%1</resource>%2.</para><para>%3</para>",
+                                mimename, comment, possibleProblemsMessage));
         }
         return false;
     }
