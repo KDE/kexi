@@ -159,7 +159,7 @@ endif()
 ##
 ## Test for KPropertyWidgets
 ##
-find_package(KPropertyWidgets ${KEXI_LIBS_MIN_VERSION} REQUIRED)
+find_package(KPropertyWidgets ${KEXI_LIBS_MIN_VERSION} REQUIRED COMPONENTS KF)
 macro_log_feature(KPropertyWidgets_FOUND "KPropertyWidgets" "A property editing framework with editor widget"
                                   "http://community.kde.org/KProperty" FALSE "" "Required by Kexi")
 
