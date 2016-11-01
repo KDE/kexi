@@ -644,7 +644,7 @@ protected:
 
     /*! Sets \a cellValue if there is a lookup value for the cell \a data.
      Used in paintCell() and KexiTableCellToolTip::maybeTip()
-     \return true is \a cellValue has been found. */
+     \return true if \a cellValue has been found. */
     bool getVisibleLookupValue(QVariant& cellValue, KexiTableEdit *edit,
                                KDbRecordData *data, KDbTableViewColumn *tvcol) const;
 

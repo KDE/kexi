@@ -100,13 +100,13 @@ inline type findFirstChild(QObject *o, const char* className, const char* objNam
 KEXIUTILS_EXPORT QMetaProperty findPropertyWithSuperclasses(const QObject* object,
         const char* name);
 
-//! \return true is \a object object is of class name \a className
+//! \return true if \a object object is of class name \a className
 inline bool objectIsA(QObject* object, const char* className)
 {
     return 0 == qstrcmp(object->metaObject()->className(), className);
 }
 
-//! \return true is \a object object is of the class names inside \a classNames
+//! \return true if \a object object is of the class names inside \a classNames
 KEXIUTILS_EXPORT bool objectIsA(QObject* object, const QList<QByteArray>& classNames);
 
 //! \return a list of methods for \a metaObject meta object.

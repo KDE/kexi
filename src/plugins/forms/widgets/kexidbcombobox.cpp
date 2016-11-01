@@ -58,7 +58,7 @@ public:
     KDbQueryColumnInfo* visibleColumnInfo;
     //! used for collecting subwidgets and their childrens (if isEditable is false)
     QList<QWidget*> subWidgetsWithDisabledEvents;
-    bool isEditable; //!< true is the combo box is editable
+    bool isEditable; //!< true if the combo box is editable
     bool buttonPressed;
     bool mouseOver;
     bool dataEnteredByHand;

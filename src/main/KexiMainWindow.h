@@ -170,7 +170,7 @@ public Q_SLOTS:
     /*! Opens object pointed by \a item in a view \a viewMode.
      \a staticObjectArgs can be passed for static object
      (only works when part for this item is of type KexiPart::StaticPart).
-     \a openingCancelled is set to true is opening has been cancelled.
+     \a openingCancelled is set to true if opening has been cancelled.
      \a errorMessage, if not 0, points to a string that can be set to error message
      if one encountered.
      @c nullptr can be returned if the KexiWindow object for @a item is not yet fully constructed
@@ -439,7 +439,7 @@ protected Q_SLOTS:
     KexiWindow* openObjectFromNavigator(KexiPart::Item* item, Kexi::ViewMode viewMode);
 
     /*! Creates new object of type defined by \a info part info.
-     \a openingCancelled is set to true is opening has been cancelled.
+     \a openingCancelled is set to true if opening has been cancelled.
      \return true on success. */
     virtual bool newObject(KexiPart::Info *info, bool *openingCancelled);
 

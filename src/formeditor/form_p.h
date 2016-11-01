@@ -143,7 +143,7 @@ public:
     int originalFormatVersion;
 
 #ifdef KFD_SIGSLOTS
-    //! true is slot connection is curently being painted
+    //! true if slot connection is curently being painted
     Connection *connection;
 #endif
 

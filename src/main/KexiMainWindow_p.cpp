@@ -309,7 +309,7 @@ KexiTabbedToolBar::Private::Private(KexiTabbedToolBar *t)
     lowestIndex = 2;
 }
 
-//! @return true is @a style name is specific regarding tab styling
+//! @return true if @a style name is specific regarding tab styling
 static bool isSpecificTabStyle(const QString &styleName)
 {
     return styleName == "oxygen" || styleName == "qtcurve" || styleName == "gtk+";

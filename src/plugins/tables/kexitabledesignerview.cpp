@@ -871,9 +871,9 @@ void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& pr
     qDebug() << pname << " = " << property.value()
         << " (oldvalue = " << property.oldValue() << ")";
 
-    // true is PK should be altered
+    // true if PK should be altered
     bool changePrimaryKey = false;
-    // true is PK should be set to true, otherwise unset
+    // true if PK should be set to true, otherwise unset
     bool setPrimaryKey = false;
 
     if (pname == "primaryKey" && d->slotPropertyChanged_primaryKey_enabled) {

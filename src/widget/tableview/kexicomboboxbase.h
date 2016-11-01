@@ -88,7 +88,7 @@ protected:
     KDbRecordData* selectRecordForEnteredValueInLookupTable(const QVariant& v);
 
     /*! \return value from \a returnFromColumn related to \a str value from column \a lookInColumn.
-     If \a allowNulls is true, NULL is returend if no matched column found, else:
+     If \a allowNulls is true, NULL is returned if no matched column found, else:
      \a str is returned.
      Example: lookInColumn=0, returnFromColumn=1 --returns user-visible string
      for column #1 for id-column #0 */

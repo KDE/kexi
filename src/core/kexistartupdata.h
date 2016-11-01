@@ -67,11 +67,11 @@ public:
     //! \return import action's data needed to perform import (for action()==ImportProject)
     KexiStartupData::Import importActionData() const;
 
-    /*! \return true is the Design Mode is forced for this project.
+    /*! \return true if the Design Mode is forced for this project.
       Used on startup (by --design-mode comman line switch). */
     bool forcedDesignMode() const;
 
-    /*! \return true is the User Mode is forced for this project.
+    /*! \return true if the User Mode is forced for this project.
       Used on startup (by --user-mode comman line switch).
       By default this is false. */
     bool forcedUserMode() const;
