@@ -56,7 +56,7 @@ public:
 
         /*! Updates title for context menu based on data item \a iface caption or name
      Used in createTitle(QMenu *menu) and KexiDBImageBox.
-     \return true is the title has been added. */
+     \return true if the title has been added. */
     static bool updateContextMenuTitleForDataItem(QMenu *menu, KexiDataItemInterface* iface,
     const QString& icon = QString());
 

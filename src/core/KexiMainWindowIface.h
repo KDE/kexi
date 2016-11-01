@@ -112,7 +112,7 @@ public:
 
 // public Q_SLOTS:
     /*! Creates new object of type defined by \a info part info.
-     \a openingCancelled is set to true is opening has been cancelled.
+     \a openingCancelled is set to true if opening has been cancelled.
      \return true on success. */
     virtual bool newObject(KexiPart::Info *info, bool *openingCancelled) = 0;
 

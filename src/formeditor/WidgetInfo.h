@@ -101,7 +101,7 @@ public:
     */
     void addAlternateClassName(const QByteArray& alternateName, bool override = false);
 
-    /*! \return true is a class \a alternateName is defined as alternate name with
+    /*! \return true if a class \a alternateName is defined as alternate name with
      'override' flag set to true, using addAlternateClassName().
      If this flag is set to false (the default) or there's no such alternate class
      name defined. */

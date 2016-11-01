@@ -446,7 +446,7 @@ public:
     //! \return default value for column \a col
     QVariant columnDefaultValue(int col) const;
 
-    /*! \return true is column \a col is editable.
+    /*! \return true if column \a col is editable.
      Default implementation takes information about 'readOnly' flag from data member.
      Within forms, this is reimplemented for checking 'readOnly' flag from a widget
      ('readOnly' flag from data member is still checked though).

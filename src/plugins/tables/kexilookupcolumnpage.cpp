@@ -102,7 +102,7 @@ public:
     int currentFieldUid;
 
     bool insideClearRowSourceSelection;
-    //! True is changeProperty() works. Used to block updating properties when within assignPropertySet().
+    //! True if changeProperty() works. Used to block updating properties when within assignPropertySet().
     bool propertySetEnabled;
 
 private:
