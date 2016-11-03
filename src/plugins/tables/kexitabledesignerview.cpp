@@ -1263,8 +1263,10 @@ tristate KexiTableDesignerView::buildSchema(KDbTableSchema &schema, bool beSilen
         {
             //add lookup column
             KDbLookupFieldSchema *lookupFieldSchema = new KDbLookupFieldSchema();
-            lookupFieldSchema->recordSource().setTypeByName((*s)["rowSourceType"].value().toString());
-            lookupFieldSchema->recordSource().setName((*s)["rowSource"].value().toString());
+            KDbLookupFieldSchema::RecordSource recordSource;
+            recordSource.setTypeByName((*s)["rowSourceType"].value().toString());
+            recordSource.setName((*s)["rowSource"].value().toString());
+            lookupFieldSchema->setRecordSource(recordSource);
             lookupFieldSchema->setBoundColumn((*s)["boundColumn"].value().toInt());
 //! @todo this is backward-compatible code for "single visible column" implementation
 //!       for multiple columns, only the first is displayed, so there is a data loss is GUI is used
