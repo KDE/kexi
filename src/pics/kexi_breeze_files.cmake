@@ -7,7 +7,6 @@ calligra-logo-black-glow.png
 calligra-logo-white-glow.png
 icons/breeze/actions/16/add-field.png
 icons/breeze/actions/16/autofield.png
-icons/breeze/actions/16/combobox.png
 icons/breeze/actions/16/database-relations.png
 icons/breeze/actions/16/data-source-tag.png
 icons/breeze/actions/16/data-view.png
@@ -25,7 +24,6 @@ icons/breeze/actions/16/textedit.png
 icons/breeze/actions/16/unknown-widget.png
 icons/breeze/actions/16/widgets.png
 icons/breeze/actions/22/autofield.png
-icons/breeze/actions/22/combobox.png
 icons/breeze/actions/22/database-relations.png
 icons/breeze/actions/22/data-source-tag.png
 icons/breeze/actions/22/data-view.png
@@ -82,6 +80,7 @@ icons/breeze/actions/32/table.svg
 set(_SVG_FILES
 icons/breeze/actions/16/button.svg
 icons/breeze/actions/16/checkbox.svg
+icons/breeze/actions/16/combobox.svg
 icons/breeze/actions/16/database-key.svg
 icons/breeze/actions/16/edit-table-clear.svg
 icons/breeze/actions/16/edit-table-delete-row.svg
@@ -94,6 +93,7 @@ icons/breeze/actions/16/network-server-database.svg
 icons/breeze/actions/16/validate.svg
 icons/breeze/actions/22/button.svg
 icons/breeze/actions/22/checkbox.svg
+icons/breeze/actions/22/combobox.svg
 icons/breeze/actions/22/database-import.svg
 icons/breeze/actions/22/database-key.svg
 icons/breeze/actions/22/document-empty.svg
@@ -108,6 +108,7 @@ icons/breeze/actions/22/network-server-database.svg
 icons/breeze/actions/22/validate.svg
 icons/breeze/actions/32/button.svg
 icons/breeze/actions/32/checkbox.svg
+icons/breeze/actions/32/combobox.svg
 icons/breeze/actions/32/database-key.svg
 icons/breeze/actions/32/document-empty.svg
 icons/breeze/actions/32/edit-table-clear.svg
