@@ -94,7 +94,7 @@ void KexiFieldListModel::setSchema(KDbTableOrQuerySchema* schema)
             item->setCaption(colinfo->captionOrAliasOrName());
         }
         d->items.append(item);
-        qDebug() << item->data(0);
+        //qDebug() << item->data(0);
     }
 }
 
@@ -116,7 +116,7 @@ QVariant KexiFieldListModel::data(const QModelIndex& index, int role) const
                 return QVariant();
             }
         } else if (role == Qt::UserRole) {
-            qDebug() << item->caption();
+            //qDebug() << item->caption();
             return item->caption();
         }
     }

@@ -2,6 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -12,7 +15,7 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    viewBox="0 0 32 32"
-   sodipodi:docname="button.svg">
+   sodipodi:docname="combobox.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -22,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="16"
-     inkscape:cx="12.22"
-     inkscape:cy="12.227674"
+     inkscape:zoom="32"
+     inkscape:cx="17.379507"
+     inkscape:cy="14.234464"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -41,7 +44,7 @@
      inkscape:snap-global="true"
      inkscape:snap-grids="true"
      inkscape:snap-bbox="true"
-     inkscape:bbox-paths="true"
+     inkscape:bbox-paths="false"
      inkscape:bbox-nodes="true"
      inkscape:snap-bbox-edge-midpoints="true"
      inkscape:snap-bbox-midpoints="true"
@@ -49,7 +52,7 @@
      inkscape:snap-intersection-paths="true"
      inkscape:object-nodes="true"
      inkscape:snap-smooth-nodes="true"
-     inkscape:snap-midpoints="true"
+     inkscape:snap-midpoints="false"
      inkscape:snap-object-midpoints="true"
      inkscape:snap-center="true"
      inkscape:snap-text-baseline="true"
@@ -94,6 +97,18 @@
        position="-5,6"
        id="guide3022" />
   </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
   <g
      inkscape:label="Capa 1"
      inkscape:groupmode="layer"
@@ -101,10 +116,22 @@
      transform="translate(0,-1020.3622)"
      style="display:inline">
     <path
-       style="color:#4d4d4d;fill:currentColor;fill-opacity:1;stroke:none"
-       d="m 8,1029.3622 c -3.190371,0 -3.9999997,2.8796 -3.9999997,4.1058 l 0,6.3339 c 0,2.5389 1.9846586,4.5603 4.5234371,4.5603 l 15.0078136,0 C 26.03878,1044.3622 28,1042.3678 28,1039.954 l 0,-6.123 c 0,-2.3826 -1.929969,-4.4688 -4.4375,-4.4688 z m 0.2385874,1 14.8746946,0 c 1.006162,0 1.886718,0.6889 1.886718,1.7286 l 0,7.2714 c 0,0.8835 -0.722736,2 -1.791398,2 l -16.6734448,0 C 5.6852451,1041.3622 5,1040.3472 5,1039.62 l 0,-5.6223 c 0,-1.6667 0.1565762,-3.6355 3.2385874,-3.6355 z"
-       id="path4142-9"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:1;fill:#4d4d4d;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;enable-background:accumulate"
+       d="m 4.0000102,1040.8623 -1.05e-5,1.5 24.0000013,0 0,-1.5 z"
+       id="rect6750-1"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ssssssssssssssssss" />
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:1;fill:#4d4d4d;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;enable-background:accumulate"
+       d="m 16.271286,1031.2592 4.397389,4.1807 4.180558,-4.1807 1.320889,1.5842 -5.530564,5.5895 -5.680374,-5.7223 z"
+       id="rect6755-3"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccc" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path4146"
+       d="m 4.0000092,1040.3622 -9.5e-6,2.0001 24.0000013,0 -1e-6,-2.0001 z"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:1;fill:#4d4d4d;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;enable-background:accumulate" />
   </g>
 </svg>
