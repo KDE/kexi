@@ -12,7 +12,6 @@ icons/breeze/actions/16/data-source-tag.png
 icons/breeze/actions/16/data-view.png
 icons/breeze/actions/16/design-view.png
 icons/breeze/actions/16/form-action.png
-icons/breeze/actions/16/frame.png
 icons/breeze/actions/16/groupbox.png
 icons/breeze/actions/16/lineedit.png
 icons/breeze/actions/16/multiple-objects.png
@@ -31,7 +30,6 @@ icons/breeze/actions/22/dateedit.png
 icons/breeze/actions/22/datetimeedit.png
 icons/breeze/actions/22/design-view.png
 icons/breeze/actions/22/form-action.png
-icons/breeze/actions/22/frame.png
 icons/breeze/actions/22/groupbox.png
 icons/breeze/actions/22/label.png
 icons/breeze/actions/22/lineedit.png
@@ -86,6 +84,7 @@ icons/breeze/actions/16/edit-table-clear.svg
 icons/breeze/actions/16/edit-table-delete-row.svg
 icons/breeze/actions/16/edit-table-insert-row.svg
 icons/breeze/actions/16/file-database.svg
+icons/breeze/actions/16/frame.svg
 icons/breeze/actions/16/imagebox.svg
 icons/breeze/actions/16/line-horizontal.svg
 icons/breeze/actions/16/line-vertical.svg
@@ -101,6 +100,7 @@ icons/breeze/actions/22/edit-table-clear.svg
 icons/breeze/actions/22/edit-table-delete-row.svg
 icons/breeze/actions/22/edit-table-insert-row.svg
 icons/breeze/actions/22/file-database.svg
+icons/breeze/actions/22/frame.svg
 icons/breeze/actions/22/imagebox.svg
 icons/breeze/actions/22/line-horizontal.svg
 icons/breeze/actions/22/line-vertical.svg
@@ -115,6 +115,7 @@ icons/breeze/actions/32/edit-table-clear.svg
 icons/breeze/actions/32/edit-table-delete-row.svg
 icons/breeze/actions/32/edit-table-insert-row.svg
 icons/breeze/actions/32/file-database.svg
+icons/breeze/actions/32/frame.svg
 icons/breeze/actions/32/imagebox.svg
 icons/breeze/actions/32/line-horizontal.svg
 icons/breeze/actions/32/line-vertical.svg
