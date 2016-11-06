@@ -28,7 +28,7 @@
 #include <QVBoxLayout>
 
 //! @internal
-class KexiPropertyPaneViewBase::Private
+class Q_DECL_HIDDEN KexiPropertyPaneViewBase::Private
 {
 public:
     Private() {

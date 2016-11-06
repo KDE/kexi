@@ -25,7 +25,7 @@
 #include <QLocale>
 
 //! @internal
-class KexiTextFormatter::Private
+class Q_DECL_HIDDEN KexiTextFormatter::Private
 {
 public:
     Private() : field(nullptr), dateFormatter(nullptr), timeFormatter(nullptr) {

@@ -69,7 +69,7 @@ WidgetFactory::InlineEditorCreationArguments::InlineEditorCreationArguments(
 
 ///// Widget Factory //////////////////////////
 
-class WidgetFactory::Private
+class Q_DECL_HIDDEN WidgetFactory::Private
 {
 public:
     Private();

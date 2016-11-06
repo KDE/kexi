@@ -70,7 +70,7 @@ KexiPart::Info* KexiFormEventAction::ActionData::decodeString(
 
 //-------------------------------------
 
-class KexiFormEventAction::Private
+class Q_DECL_HIDDEN KexiFormEventAction::Private
 {
 public:
     Private(const QString& actionName_, const QString& objectName_, const QString actionOption_);
@@ -162,7 +162,7 @@ void KexiFormEventAction::slotTrigger()
 
 //------------------------------------------
 
-class KexiFormEventHandler::Private
+class Q_DECL_HIDDEN KexiFormEventHandler::Private
 {
 public:
     Private();

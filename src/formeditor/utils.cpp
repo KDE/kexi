@@ -256,7 +256,7 @@ void KFormDesigner::widgetsToXML(QDomDocument& doc,
 
 //-----------------------------
 
-class ActionGroup::Private {
+class Q_DECL_HIDDEN ActionGroup::Private {
     public:
         Private() {}
         QHash<QString, QAction*> actions;

@@ -27,7 +27,7 @@
 
 using namespace KFormDesigner;
 
-class WidgetWithSubpropertiesInterface::Private
+class Q_DECL_HIDDEN WidgetWithSubpropertiesInterface::Private
 {
 public:
     Private()

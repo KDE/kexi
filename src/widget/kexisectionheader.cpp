@@ -29,7 +29,7 @@
 #include <QApplication>
 
 //! @internal
-class KexiSectionHeader::Private
+class Q_DECL_HIDDEN KexiSectionHeader::Private
 {
 public:
     Private() {

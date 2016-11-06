@@ -79,7 +79,7 @@
 #endif
 
 /*! @internal */
-class KexiQueryDesignerGuiEditor::Private
+class Q_DECL_HIDDEN KexiQueryDesignerGuiEditor::Private
 {
 public:
     Private(KexiQueryDesignerGuiEditor *p)

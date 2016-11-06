@@ -29,7 +29,7 @@ static bool isTrue(const KexiMigratePluginMetaData *metaData, const char* fieldN
                 .compare(QLatin1String("true"), Qt::CaseInsensitive);
 }
 
-class KexiMigratePluginMetaData::Private
+class Q_DECL_HIDDEN KexiMigratePluginMetaData::Private
 {
 public:
     explicit Private(const KexiMigratePluginMetaData *metaData, const QPluginLoader &pluginLoader)

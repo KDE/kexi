@@ -30,7 +30,7 @@
 #include <KLocalizedString>
 
 //! @internal
-class KexiPropertyEditorView::Private
+class Q_DECL_HIDDEN KexiPropertyEditorView::Private
 {
 public:
     Private() {

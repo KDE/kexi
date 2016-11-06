@@ -36,7 +36,7 @@
 
 #include <stdlib.h>
 
-class KexiRelationsTableContainer::Private
+class Q_DECL_HIDDEN KexiRelationsTableContainer::Private
 {
 public:
     Private() {

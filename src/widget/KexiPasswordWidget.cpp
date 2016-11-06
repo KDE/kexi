@@ -37,7 +37,7 @@
 #include "ui_KexiPasswordWidget.h"
 
 /** @internal */
-class KexiPasswordWidget::Private
+class Q_DECL_HIDDEN KexiPasswordWidget::Private
 {
 public:
     explicit Private(KexiPasswordWidget *q, KexiPasswordWidgetFlags flags);

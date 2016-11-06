@@ -30,7 +30,7 @@
 #include <QGridLayout>
 #include <QLineEdit>
 
-class KexiNameWidget::Private
+class Q_DECL_HIDDEN KexiNameWidget::Private
 {
 public:
 

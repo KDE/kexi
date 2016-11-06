@@ -47,7 +47,7 @@ public:
 
 // ----
 
-class KexiComboBoxDropDownButton::Private
+class Q_DECL_HIDDEN KexiComboBoxDropDownButton::Private
 {
 public:
     Private() : styleChangeEnabled(true) {}

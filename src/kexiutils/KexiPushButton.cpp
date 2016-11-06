@@ -23,7 +23,7 @@
 #include <QDir>
 #include <QUrl>
 
-class KexiPushButton::Private
+class Q_DECL_HIDDEN KexiPushButton::Private
 {
 public:
     explicit Private(KexiPushButton *qq)

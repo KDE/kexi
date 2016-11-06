@@ -34,7 +34,7 @@
 
 //----------------------------------------------
 
-class KexiInternalPart::Private
+class Q_DECL_HIDDEN KexiInternalPart::Private
 {
 public:
     Private();

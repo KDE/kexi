@@ -40,7 +40,7 @@
 const int RIGHT_MARGIN_DELTA = 6;
 
 //! @internal
-class KexiComboBoxTableEdit::Private
+class Q_DECL_HIDDEN KexiComboBoxTableEdit::Private
 {
 public:
     Private()

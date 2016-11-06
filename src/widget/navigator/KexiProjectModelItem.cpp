@@ -28,7 +28,7 @@
 #include <QIcon>
 #include <QtAlgorithms>
 
-class KexiProjectModelItem::Private
+class Q_DECL_HIDDEN KexiProjectModelItem::Private
 {
 public:
     Private(KexiPart::Info *info_, KexiPart::Item *item_, KexiProjectModelItem *p)

@@ -22,7 +22,7 @@
 
 using namespace KexiUtils;
 
-class InternalPropertyMap::Private
+class Q_DECL_HIDDEN InternalPropertyMap::Private
 {
 public:
     Private() {}

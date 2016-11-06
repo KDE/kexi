@@ -524,7 +524,7 @@ void KexiProjectDatabaseNameSelectionPage::overwriteActionTriggered()
 
 // ----
 
-class KexiNewProjectAssistant::Private
+class Q_DECL_HIDDEN KexiNewProjectAssistant::Private
 {
 public:
     explicit Private(KexiNewProjectAssistant *qq)

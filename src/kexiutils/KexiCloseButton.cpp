@@ -29,7 +29,7 @@
 #include <QPainter>
 #include <QPaintEvent>
 
-class KexiCloseButton::Private
+class Q_DECL_HIDDEN KexiCloseButton::Private
 {
 public:
     Private()

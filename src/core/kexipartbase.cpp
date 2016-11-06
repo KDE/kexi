@@ -24,7 +24,7 @@
 namespace KexiPart
 {
 //! @internal
-class PartBase::Private
+class Q_DECL_HIDDEN PartBase::Private
 {
 public:
     Private()

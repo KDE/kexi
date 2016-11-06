@@ -31,7 +31,7 @@ KexiDataItemChangesListener::~KexiDataItemChangesListener()
 }
 
 //-----------------------------------------------
-class KexiDataItemInterface::Private
+class Q_DECL_HIDDEN KexiDataItemInterface::Private
 {
 public:
     Private();

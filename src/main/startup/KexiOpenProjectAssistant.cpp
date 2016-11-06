@@ -198,7 +198,7 @@ bool KexiProjectDatabaseSelectionPage::setConnection(KDbConnectionData* data)
 
 // ----
 
-class KexiOpenProjectAssistant::Private
+class Q_DECL_HIDDEN KexiOpenProjectAssistant::Private
 {
 public:
     explicit Private(KexiOpenProjectAssistant *qq)

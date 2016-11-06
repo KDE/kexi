@@ -28,7 +28,7 @@
 namespace KexiPart
 {
 //! @internal
-class Info::Private
+class Q_DECL_HIDDEN Info::Private
 {
 public:
     Private(Info *info, const QJsonObject &rootObject);

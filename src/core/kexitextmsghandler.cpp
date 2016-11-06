@@ -25,7 +25,7 @@
 
 #include <KLocalizedString>
 
-class KexiTextMessageHandler::Private
+class Q_DECL_HIDDEN KexiTextMessageHandler::Private
 {
 public:
     Private(QString* msgTarget, QString* dTarget);

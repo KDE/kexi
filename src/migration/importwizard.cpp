@@ -65,7 +65,7 @@
 
 using namespace KexiMigration;
 
-class ImportWizard::Private
+class Q_DECL_HIDDEN ImportWizard::Private
 {
 public:
 

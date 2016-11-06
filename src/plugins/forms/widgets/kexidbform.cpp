@@ -42,7 +42,7 @@
 #include <kexi_global.h>
 
 //! @internal
-class KexiDBForm::Private
+class Q_DECL_HIDDEN KexiDBForm::Private
 {
 public:
     Private()

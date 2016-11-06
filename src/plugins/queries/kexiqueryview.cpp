@@ -35,7 +35,7 @@
 #include <KDbTableViewColumn>
 
 //! @internal
-class KexiQueryView::Private
+class Q_DECL_HIDDEN KexiQueryView::Private
 {
 public:
     Private()

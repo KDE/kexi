@@ -19,7 +19,7 @@
 
 #include "KexiFormWidgetsPluginMetaData.h"
 
-class KexiFormWidgetsPluginMetaData::Private
+class Q_DECL_HIDDEN KexiFormWidgetsPluginMetaData::Private
 {
 public:
     Private(KexiFormWidgetsPluginMetaData *metaData)

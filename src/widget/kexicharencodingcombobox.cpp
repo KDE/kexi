@@ -27,7 +27,7 @@
 #include <QLocale>
 #include <QDebug>
 
-class KexiCharacterEncodingComboBox::Private {
+class Q_DECL_HIDDEN KexiCharacterEncodingComboBox::Private {
 public:
     Private();
 

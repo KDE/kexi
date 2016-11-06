@@ -30,7 +30,7 @@
 
 #include <QAction>
 
-class KexiAssistantMessageHandler::Private
+class Q_DECL_HIDDEN KexiAssistantMessageHandler::Private
 {
 public:
     Private()

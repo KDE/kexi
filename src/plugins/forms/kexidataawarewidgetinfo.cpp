@@ -19,7 +19,7 @@
 
 #include "kexidataawarewidgetinfo.h"
 
-class KexiDataAwareWidgetInfo::Private
+class Q_DECL_HIDDEN KexiDataAwareWidgetInfo::Private
 {
 public:
     Private() : inlineEditingEnabledWhenDataSourceSet(true) {}

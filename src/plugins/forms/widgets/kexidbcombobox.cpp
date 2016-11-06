@@ -37,7 +37,7 @@
 #include <QList>
 
 //! @internal
-class KexiDBComboBox::Private
+class Q_DECL_HIDDEN KexiDBComboBox::Private
 {
 public:
     Private()

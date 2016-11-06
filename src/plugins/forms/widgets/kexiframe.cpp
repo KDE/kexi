@@ -25,7 +25,7 @@
 #include <formeditor/utils.h>
 
 //! @internal
-class KexiFrame::Private
+class Q_DECL_HIDDEN KexiFrame::Private
 {
 public:
     Private() {

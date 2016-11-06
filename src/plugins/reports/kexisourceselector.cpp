@@ -35,7 +35,7 @@
 //! @todo KEXI3 enable external data sources for 2.3
 #endif
 
-class KexiSourceSelector::Private
+class Q_DECL_HIDDEN KexiSourceSelector::Private
 {
 public:
     Private()

@@ -27,7 +27,7 @@
 #include <QStack>
 #include <QPointer>
 
-class KexiAssistantWidget::Private
+class Q_DECL_HIDDEN KexiAssistantWidget::Private
 {
 public:
     explicit Private(KexiAssistantWidget *qq)

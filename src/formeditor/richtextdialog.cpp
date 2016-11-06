@@ -38,7 +38,7 @@ using namespace KFormDesigner;
 //////////////// A simple dialog to edit rich text   ////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 
-class RichTextDialog::Private
+class Q_DECL_HIDDEN RichTextDialog::Private
 {
 public:
     Private();

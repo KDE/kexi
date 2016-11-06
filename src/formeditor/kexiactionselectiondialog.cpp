@@ -350,7 +350,7 @@ public:
 //-------------------------------------
 
 //! @internal
-class KexiActionSelectionDialog::Private
+class Q_DECL_HIDDEN KexiActionSelectionDialog::Private
 {
 public:
     Private()

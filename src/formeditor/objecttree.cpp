@@ -36,7 +36,7 @@ using namespace KFormDesigner;
 /////////////////        ObjectTreeItem                                    /////////////
 ////////////////////////////////////////////////////////////////////////////////////////
 
-class ObjectTreeItem::Private
+class Q_DECL_HIDDEN ObjectTreeItem::Private
 {
 public:
     Private(const QString &classn, const QString &name_, QWidget *widget_,
@@ -266,7 +266,7 @@ void ObjectTreeItem::setParent(ObjectTreeItem *parent)
 ///                      ObjectTree                                             /////////
 ////////////////////////////////////////////////////////////////////////////////////////
 
-class ObjectTree::Private
+class Q_DECL_HIDDEN ObjectTree::Private
 {
 public:
     Private()

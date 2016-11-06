@@ -45,7 +45,7 @@ KexiNameDialogValidator::~KexiNameDialogValidator()
 
 // --
 
-class KexiNameDialog::Private
+class Q_DECL_HIDDEN KexiNameDialog::Private
 {
 
 public:

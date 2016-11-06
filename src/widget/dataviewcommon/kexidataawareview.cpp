@@ -32,7 +32,7 @@
 #include <QDebug>
 #include <QMenu>
 
-class KexiDataAwareView::Private
+class Q_DECL_HIDDEN KexiDataAwareView::Private
 {
 public:
     Private()

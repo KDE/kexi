@@ -26,7 +26,7 @@
 #include <QDomDocument>
 #include <QDebug>
 
-class KexiDBReportData::Private
+class Q_DECL_HIDDEN KexiDBReportData::Private
 {
 public:
     explicit Private(KDbConnection *pDb)

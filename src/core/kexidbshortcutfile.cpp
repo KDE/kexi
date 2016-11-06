@@ -42,7 +42,7 @@
 */
 
 //! @internal
-class KexiDBShortcutFile::Private
+class Q_DECL_HIDDEN KexiDBShortcutFile::Private
 {
 public:
     Private()

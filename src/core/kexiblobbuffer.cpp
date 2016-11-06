@@ -40,7 +40,7 @@ Q_GLOBAL_STATIC(KexiBLOBBuffer, _buffer)
 
 //-----------------
 
-class KexiBLOBBuffer::Private
+class Q_DECL_HIDDEN KexiBLOBBuffer::Private
 {
 public:
     Private()

@@ -34,7 +34,7 @@
 
 #include <KDbUtils>
 
-class KexiContextMessage::Private
+class Q_DECL_HIDDEN KexiContextMessage::Private
 {
 public:
     Private() : defaultAction(0), contentsWidget(0) {}
@@ -133,7 +133,7 @@ public:
 
 Q_GLOBAL_STATIC(PaletteForPages, origPagesPalettes);
 
-class KexiContextMessageWidget::Private
+class Q_DECL_HIDDEN KexiContextMessageWidget::Private
 {
 public:
     explicit Private(KexiContextMessageWidget *_q)

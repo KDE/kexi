@@ -35,7 +35,7 @@
 //#define KexiRecentProjects_DEBUG
 
 //! @internal
-class KexiRecentProjects::Private
+class Q_DECL_HIDDEN KexiRecentProjects::Private
 {
 public:
     explicit Private(KexiRecentProjects *qq)

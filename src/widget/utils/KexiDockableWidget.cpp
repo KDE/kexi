@@ -24,7 +24,7 @@
 #include <QWidget>
 #include <QPointer>
 
-class KexiDockableWidget::Private
+class Q_DECL_HIDDEN KexiDockableWidget::Private
 {
 public:
     Private() {}

@@ -65,7 +65,7 @@ public:
 };
 
 //! @internal
-class KexiEditor::Private
+class Q_DECL_HIDDEN KexiEditor::Private
 {
 public:
     Private() {}

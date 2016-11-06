@@ -30,7 +30,7 @@
 #include <QDebug>
 #include <QMimeData>
 
-class KexiFieldListModel::Private
+class Q_DECL_HIDDEN KexiFieldListModel::Private
 {
 public:
     Private();

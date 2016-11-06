@@ -40,7 +40,7 @@ namespace {
     }
 }
 
-class KexiDateFormatter::Private
+class Q_DECL_HIDDEN KexiDateFormatter::Private
 {
 public:
     Private()
@@ -149,7 +149,7 @@ private:
     }
 };
 
-class KexiTimeFormatter::Private
+class Q_DECL_HIDDEN KexiTimeFormatter::Private
 {
 public:
     Private()

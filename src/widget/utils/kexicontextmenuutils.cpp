@@ -33,7 +33,7 @@
 #include <QFileInfo>
 
 //! @internal
-class KexiImageContextMenu::Private
+class Q_DECL_HIDDEN KexiImageContextMenu::Private
 {
 public:
     explicit Private(QWidget *parent)

@@ -40,7 +40,7 @@
 namespace KexiPart
 {
 
-class GUIClient::Private
+class Q_DECL_HIDDEN GUIClient::Private
 {
 public:
     Private() : actionCollection(static_cast<QObject*>(0)) {}

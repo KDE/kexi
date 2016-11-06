@@ -74,7 +74,7 @@ private:
     Private* const d;
 };
 
-class ResizeHandle::Private
+class Q_DECL_HIDDEN ResizeHandle::Private
 {
 public:
     Private(ResizeHandleSet* set_, HandlePos pos_)
@@ -295,7 +295,7 @@ void ResizeHandle::paintEvent(QPaintEvent *)
 
 /////////////// ResizeHandleSet //////////////////
 
-class ResizeHandleSet::Private
+class Q_DECL_HIDDEN ResizeHandleSet::Private
 {
 public:
     Private();

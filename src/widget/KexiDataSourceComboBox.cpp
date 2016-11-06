@@ -36,7 +36,7 @@
 #endif
 
 //! @internal
-class KexiDataSourceComboBox::Private
+class Q_DECL_HIDDEN KexiDataSourceComboBox::Private
 {
 public:
     Private()

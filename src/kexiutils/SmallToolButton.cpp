@@ -29,7 +29,7 @@
 #include <QIcon>
 
 //! @internal
-class KexiSmallToolButton::Private
+class Q_DECL_HIDDEN KexiSmallToolButton::Private
 {
 public:
     Private()
@@ -204,7 +204,7 @@ QAction* KexiSmallToolButton::action() const
 
 //------------------------------------------
 
-class KexiToolBarSeparator::Private
+class Q_DECL_HIDDEN KexiToolBarSeparator::Private
 {
 public:
     Private();

@@ -40,7 +40,7 @@
 #include <QHeaderView>
 #include <QTimer>
 
-class KexiFormScrollView::Private
+class Q_DECL_HIDDEN KexiFormScrollView::Private
 {
 public:
     Private(KexiFormScrollView * view, bool preview_)

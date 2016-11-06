@@ -82,7 +82,7 @@ void EventEater::setContainer(QObject *container)
 
 // Container itself
 
-class Container::Private
+class Q_DECL_HIDDEN Container::Private
 {
 public:
     Private(Container* toplevel_, QWidget *container)
@@ -1293,7 +1293,7 @@ void Container::setObjectTree(ObjectTreeItem *t)
 
 ////////////
 
-class DesignTimeDynamicChildWidgetHandler::Private
+class Q_DECL_HIDDEN DesignTimeDynamicChildWidgetHandler::Private
 {
 public:
     Private() : item(0) {}

@@ -25,7 +25,7 @@
 #include <Kross/Action>
 
 /// \internal d-pointer class
-class KexiScriptEditor::Private
+class Q_DECL_HIDDEN KexiScriptEditor::Private
 {
 public:
     Kross::Action* scriptaction;

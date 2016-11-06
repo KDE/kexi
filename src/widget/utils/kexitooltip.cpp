@@ -25,7 +25,7 @@
 
 //! @todo KEXI3 KexiToolTip ported to Qt4 but not tested
 
-class KexiToolTip::Private
+class Q_DECL_HIDDEN KexiToolTip::Private
 {
 public:
     Private(const QVariant& val)

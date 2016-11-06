@@ -36,7 +36,7 @@
 
 using namespace KexiMigration;
 
-class KexiMigrate::Private
+class Q_DECL_HIDDEN KexiMigrate::Private
 {
 public:
     Private()

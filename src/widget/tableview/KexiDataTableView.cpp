@@ -34,7 +34,7 @@
 
 #include <QDebug>
 
-class KexiDataTableView::Private
+class Q_DECL_HIDDEN KexiDataTableView::Private
 {
 public:
     bool storeUserDataBlock(int objectID, const QString& dataID, const QString &dataString,

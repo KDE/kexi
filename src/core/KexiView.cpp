@@ -76,7 +76,7 @@ public:
 
 //-------------------------
 
-class KexiView::Private
+class Q_DECL_HIDDEN KexiView::Private
 {
 public:
     explicit Private(KexiView *qq)

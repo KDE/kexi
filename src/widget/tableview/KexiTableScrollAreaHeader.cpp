@@ -99,7 +99,7 @@ public:
     }
 };
 
-class KexiTableScrollAreaHeader::Private
+class Q_DECL_HIDDEN KexiTableScrollAreaHeader::Private
 {
 public:
     Private()

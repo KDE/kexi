@@ -25,7 +25,7 @@
 #include <KProperty>
 
 namespace KFormDesigner {
-class WidgetInfo::Private
+class Q_DECL_HIDDEN WidgetInfo::Private
 {
 public:
     Private (WidgetFactory *f)

@@ -77,7 +77,7 @@ class KexiStartupData;
 //---------------------------------
 
 //! @internal
-class KexiStartupHandler::Private
+class Q_DECL_HIDDEN KexiStartupHandler::Private
 {
 public:
     Private()

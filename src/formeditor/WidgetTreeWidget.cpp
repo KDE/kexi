@@ -36,7 +36,7 @@
 
 using namespace KFormDesigner;
 
-class WidgetTreeWidgetItem::Private
+class Q_DECL_HIDDEN WidgetTreeWidgetItem::Private
 {
 public:
     Private(ObjectTreeItem *data_,
@@ -190,7 +190,7 @@ QString WidgetTreeWidgetItem::customSortingKey() const
 
 // WidgetTreeWidget itself -----------------------------------------------------------------------------------------------
 
-class WidgetTreeWidget::Private
+class Q_DECL_HIDDEN WidgetTreeWidget::Private
 {
 public:
     explicit Private(Options o);

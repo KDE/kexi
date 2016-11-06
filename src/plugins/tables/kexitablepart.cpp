@@ -41,7 +41,7 @@
 KEXI_PLUGIN_FACTORY(KexiTablePart, "kexi_tableplugin.json")
 
 //! @internal
-class KexiTablePart::Private
+class Q_DECL_HIDDEN KexiTablePart::Private
 {
 public:
     Private() {

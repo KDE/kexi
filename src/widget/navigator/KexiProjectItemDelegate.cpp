@@ -32,7 +32,7 @@ static int paddingBeforeGroupItem(const QFontMetrics& fm)
     return fm.lineSpacing() / 2;
 }
 
-class KexiProjectItemDelegate::Private
+class Q_DECL_HIDDEN KexiProjectItemDelegate::Private
 {
 public:
     Private() {}

@@ -36,7 +36,7 @@
 #include <QFontMetrics>
 #include <QMenu>
 
-class KexiDBWidgetContextMenuExtender::Private
+class Q_DECL_HIDDEN KexiDBWidgetContextMenuExtender::Private
 {
 public:
     explicit Private(KexiDataItemInterface* iface_)

@@ -28,7 +28,7 @@
 
 #include <QDebug>
 
-class KexiDataAwarePropertySet::Private
+class Q_DECL_HIDDEN KexiDataAwarePropertySet::Private
 {
 public:
     Private(KexiView *aview, KexiDataAwareObjectInterface *adataObject)

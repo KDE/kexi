@@ -55,7 +55,7 @@ KexiMainImportExportPage::~KexiMainImportExportPage()
 
 // ----
 
-class KexiImportExportAssistant::Private
+class Q_DECL_HIDDEN KexiImportExportAssistant::Private
 {
 public:
     explicit Private(KexiImportExportAssistant *qq)

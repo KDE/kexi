@@ -34,7 +34,7 @@
 #include <QGridLayout>
 #include <QPointer>
 
-class KexiAssistantPage::Private {
+class Q_DECL_HIDDEN KexiAssistantPage::Private {
 public:
     explicit Private(KexiAssistantPage* q_) : q(q_), backButton(0), nextButton(0)
     {

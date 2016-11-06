@@ -25,7 +25,7 @@
 #include <QDebug>
 #include <QJsonArray>
 
-class KexiPluginMetaData::Private
+class Q_DECL_HIDDEN KexiPluginMetaData::Private
 {
 public:
     Private(KexiPluginMetaData *info, const QPluginLoader &loader)

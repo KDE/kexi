@@ -101,7 +101,7 @@ void ConnectionDataLVItem::update(const KDbDriverMetaData &driverMetaData)
 /*================================================================*/
 
 //! @internal
-class KexiConnectionSelectorWidget::Private
+class Q_DECL_HIDDEN KexiConnectionSelectorWidget::Private
 {
 public:
     Private()

@@ -29,7 +29,7 @@
 
 #include <QCommandLineParser>
 
-class KexiStartupData::Private
+class Q_DECL_HIDDEN KexiStartupData::Private
 {
 public:
     Private();

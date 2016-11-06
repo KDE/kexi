@@ -25,7 +25,7 @@
 #include <KIconLoader>
 #include <KLocalizedString>
 
-class KexiObjectInfoLabel::Private
+class Q_DECL_HIDDEN KexiObjectInfoLabel::Private
 {
 public:
     Private() {}

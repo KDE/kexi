@@ -45,7 +45,7 @@ typedef QHash<QString, KexiInternalPart*> KexiInternalPartDict;
 
 Q_GLOBAL_STATIC_WITH_ARGS(KexiJsonTrader, KexiPartTrader_instance, ("kexi"))
 
-class Manager::Private
+class Q_DECL_HIDDEN Manager::Private
 {
 public:
     explicit Private(Manager *manager_);

@@ -19,7 +19,7 @@
 
 #include "KexiTemplatesModel.h"
 
-class KexiTemplatesModel::Private
+class Q_DECL_HIDDEN KexiTemplatesModel::Private
 {
 public:
     Private(const KexiTemplateCategoryInfoList& templateCategories_);

@@ -37,7 +37,7 @@
 #include <math.h>
 
 //! @internal
-class KexiRelationsConnection::Private
+class Q_DECL_HIDDEN KexiRelationsConnection::Private
 {
 public:
     Private() {

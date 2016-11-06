@@ -29,7 +29,7 @@
 
 #include <QDebug>
 
-class KexiProjectModel::Private {
+class Q_DECL_HIDDEN KexiProjectModel::Private {
 public:
     Private();
     ~Private();

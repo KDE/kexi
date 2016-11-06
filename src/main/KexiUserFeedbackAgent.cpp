@@ -54,7 +54,7 @@
 */
 static const char KexiUserFeedbackAgent_VERSION[] = "1.3";
 
-class KexiUserFeedbackAgent::Private
+class Q_DECL_HIDDEN KexiUserFeedbackAgent::Private
 {
 public:
     Private()

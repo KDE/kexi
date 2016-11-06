@@ -27,7 +27,7 @@
 #include <QLineEdit>
 #include <QVBoxLayout>
 
-class KexiPasswordPage::Private
+class Q_DECL_HIDDEN KexiPasswordPage::Private
 {
 public:
     Private() {}

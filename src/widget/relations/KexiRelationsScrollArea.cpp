@@ -40,7 +40,7 @@
 #include <QDebug>
 
 //! @internal
-class KexiRelationsScrollArea::Private
+class Q_DECL_HIDDEN KexiRelationsScrollArea::Private
 {
 public:
     Private()
@@ -278,7 +278,8 @@ KexiRelationsScrollArea::addConnection(const SourceConnection& _conn)
     /*! @todo will be moved up to relation/query part as this is only visual class
       KDbTableSchema *mtable = d->conn->tableSchema(conn.srcTable);
       KDbTableSchema *ftable = d->conn->tableSchema(conn.rcvTable);
-      KDbIndexSchema *forign = new KDbIndexSchema(ftable);
+      KDbIndexSchema *forign = new KDbIndexSchema;
+      ftable->addIndex(forign);
 
       forign->addField(mtable->field(conn.srcField));
       new KDbReference(forign, mtable->primaryKey());

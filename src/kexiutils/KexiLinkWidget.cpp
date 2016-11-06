@@ -23,7 +23,7 @@
 
 #include <KColorScheme>
 
-class KexiLinkWidget::Private
+class Q_DECL_HIDDEN KexiLinkWidget::Private
 {
 public:
     explicit Private(KexiLinkWidget* qq) : q(qq) {

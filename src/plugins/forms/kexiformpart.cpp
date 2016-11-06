@@ -52,7 +52,7 @@
 //! @todo #define KEXI_SHOW_SPLITTER_WIDGET
 
 //! @internal
-class KexiFormPart::Private
+class Q_DECL_HIDDEN KexiFormPart::Private
 {
 public:
     Private() {

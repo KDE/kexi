@@ -49,7 +49,7 @@
 #include <QLineEdit>
 
 //! @internal
-class KexiFileWidget::Private
+class Q_DECL_HIDDEN KexiFileWidget::Private
 {
 public:
     Private()

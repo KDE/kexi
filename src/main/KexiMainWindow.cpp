@@ -122,7 +122,7 @@ void KexiDockWidgetStyle::polish(QWidget* widget)
     widget->setContentsMargins(0, 0, 0, 0);
 }
 
-class KexiDockWidget::Private
+class Q_DECL_HIDDEN KexiDockWidget::Private
 {
 public:
     Private() {}

@@ -44,7 +44,7 @@
 #define KexiDBAutoField_SPACING 10 //10 pixel for spacing between a label and an editor widget
 
 //! @internal
-class KexiDBAutoField::Private
+class Q_DECL_HIDDEN KexiDBAutoField::Private
 {
 public:
     Private() {

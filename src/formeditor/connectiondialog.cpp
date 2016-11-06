@@ -36,7 +36,7 @@
 
 using namespace KFormDesigner;
 
-class ConnectionDialog::Private
+class Q_DECL_HIDDEN ConnectionDialog::Private
 {
 public:
     explicit Private(Form *f);

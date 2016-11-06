@@ -32,7 +32,7 @@ KexiTestObject::KexiTestObject(QObject *object, const QString &name)
 {
 }
 
-class KexiTester::Private
+class Q_DECL_HIDDEN KexiTester::Private
 {
 public:
     Private() {}

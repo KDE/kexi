@@ -33,7 +33,7 @@
 #include <QLineEdit>
 
 //! @internal
-class KexiFieldComboBox::Private
+class Q_DECL_HIDDEN KexiFieldComboBox::Private
 {
 public:
     Private()

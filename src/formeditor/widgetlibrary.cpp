@@ -46,7 +46,7 @@ namespace KFormDesigner
 Q_GLOBAL_STATIC_WITH_ARGS(KexiJsonTrader, KexiFormWidgetsPluginTrader_instance, ("kexi/forms/widgets"))
 
 //! @internal
-class WidgetLibrary::Private
+class Q_DECL_HIDDEN WidgetLibrary::Private
 {
 public:
     Private(WidgetLibrary *library, const QStringList& supportedFactoryGroups)

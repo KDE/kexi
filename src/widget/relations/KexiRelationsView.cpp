@@ -42,7 +42,7 @@
 #include <QDebug>
 
 //! @internal
-class KexiRelationsView::Private
+class Q_DECL_HIDDEN KexiRelationsView::Private
 {
 public:
     Private()

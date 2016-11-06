@@ -39,7 +39,7 @@ using namespace KFormDesigner;
 //////////  The Tab Stop Dialog to edit tab order  ///////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 
-class TabStopDialog::Private
+class Q_DECL_HIDDEN TabStopDialog::Private
 {
 public:
     Private();

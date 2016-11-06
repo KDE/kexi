@@ -27,7 +27,7 @@
 
 #include <KLocalizedString>
 
-class KexiFieldListModelItem::Private
+class Q_DECL_HIDDEN KexiFieldListModelItem::Private
 {
 public:
     Private(const QString &fname, const QString &dtype)

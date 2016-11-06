@@ -31,7 +31,7 @@
 #include <QDir>
 #include <QCoreApplication>
 
-class KexiJsonTrader::Private
+class Q_DECL_HIDDEN KexiJsonTrader::Private
 {
 public:
     Private() : pluginPathFound(false)

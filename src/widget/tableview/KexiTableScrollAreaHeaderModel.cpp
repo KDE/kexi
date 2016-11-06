@@ -26,7 +26,7 @@
 
 #include <QDebug>
 
-class KexiTableScrollAreaHeaderModel::Private
+class Q_DECL_HIDDEN KexiTableScrollAreaHeaderModel::Private
 {
 public:
     explicit Private(KexiTableScrollAreaHeaderModel *qq)

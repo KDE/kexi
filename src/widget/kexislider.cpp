@@ -27,7 +27,7 @@
 #include <QStyleOptionSlider>
 
 
-class KexiSlider::Private
+class Q_DECL_HIDDEN KexiSlider::Private
 {
 public:
     Private() {}

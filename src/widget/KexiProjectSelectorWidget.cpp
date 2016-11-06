@@ -38,7 +38,7 @@
 #include <assert.h>
 
 //! @internal
-class KexiProjectSelectorWidget::Private
+class Q_DECL_HIDDEN KexiProjectSelectorWidget::Private
 {
 public:
     explicit Private(KexiProjectSet *prj_set_)
@@ -55,7 +55,7 @@ public:
     KexiProjectSet *prj_set;
 };
 
-class KexiProjectSelectorDialog::Private
+class Q_DECL_HIDDEN KexiProjectSelectorDialog::Private
 {
 public:
   Private() {}

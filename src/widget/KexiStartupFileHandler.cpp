@@ -45,7 +45,7 @@
 #include <QUrl>
 
 //! @internal
-class KexiStartupFileHandler::Private
+class Q_DECL_HIDDEN KexiStartupFileHandler::Private
 {
 public:
     Private()

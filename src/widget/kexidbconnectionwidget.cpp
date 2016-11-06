@@ -42,7 +42,7 @@
 #define NO_LOAD_DB_LIST
 
 // @internal
-class KexiDBConnectionWidget::Private
+class Q_DECL_HIDDEN KexiDBConnectionWidget::Private
 {
 public:
     Private()
@@ -56,7 +56,7 @@ public:
     QAction *savePasswordHelpAction;
 };
 
-class KexiDBConnectionDialog::Private
+class Q_DECL_HIDDEN KexiDBConnectionDialog::Private
 {
 public:
     Private() { }

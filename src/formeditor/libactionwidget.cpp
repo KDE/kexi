@@ -27,7 +27,7 @@
 
 using namespace KFormDesigner;
 
-class LibActionWidget::Private
+class Q_DECL_HIDDEN LibActionWidget::Private
 {
 public:
     explicit Private(WidgetInfo *w);

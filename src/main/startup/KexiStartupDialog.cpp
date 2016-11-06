@@ -44,7 +44,7 @@
 #include <QVBoxLayout>
 
 //! @internal
-class KexiStartupDialog::Private
+class Q_DECL_HIDDEN KexiStartupDialog::Private
 {
 public:
     Private()

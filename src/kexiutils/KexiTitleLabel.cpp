@@ -24,7 +24,7 @@
 #include <QApplication>
 #include <QDesktopWidget>
 
-class KexiTitleLabel::Private {
+class Q_DECL_HIDDEN KexiTitleLabel::Private {
 public:
     Private() : updateFontEnabled(true) {}
     bool updateFontEnabled;

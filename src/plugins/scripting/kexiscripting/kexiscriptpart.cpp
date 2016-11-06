@@ -43,7 +43,7 @@
 KEXI_PLUGIN_FACTORY(KexiScriptPart, "kexi_scriptplugin.json")
 
 /// \internal
-class KexiScriptPart::Private
+class Q_DECL_HIDDEN KexiScriptPart::Private
 {
 public:
     explicit Private(KexiScriptPart* p)

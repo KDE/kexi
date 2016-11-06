@@ -62,7 +62,7 @@ protected:
 
 /*! KexiTableView's internal structures
  @internal */
-class KexiTableScrollArea::Private
+class Q_DECL_HIDDEN KexiTableScrollArea::Private
 {
 public:
     explicit Private(KexiTableScrollArea* t);

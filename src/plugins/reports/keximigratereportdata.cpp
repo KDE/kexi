@@ -19,7 +19,7 @@
 #include "keximigratereportdata.h"
 #include <KDbTableOrQuerySchema>
 
-class KexiMigrateReportData::Private
+class Q_DECL_HIDDEN KexiMigrateReportData::Private
 {
 public:
     Private()

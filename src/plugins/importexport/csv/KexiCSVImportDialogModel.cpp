@@ -32,7 +32,7 @@
 
 #include <QVector>
 
-class KexiCSVImportDialogModel::Private
+class Q_DECL_HIDDEN KexiCSVImportDialogModel::Private
 {
 public:
     Private()

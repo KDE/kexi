@@ -106,7 +106,7 @@ static QString findFilename(const QString &guiFileName)
 
 // ---
 
-class KexiWelcomeStatusBarGuiUpdater::Private : public QObject
+class Q_DECL_HIDDEN KexiWelcomeStatusBarGuiUpdater::Private : public QObject
 {
     Q_OBJECT
 public:
@@ -475,7 +475,7 @@ protected:
 
 // ---
 
-class KexiWelcomeStatusBar::Private
+class Q_DECL_HIDDEN KexiWelcomeStatusBar::Private
 {
 public:
     explicit Private(KexiWelcomeStatusBar* _q)

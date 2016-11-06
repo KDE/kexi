@@ -22,7 +22,7 @@
 
 namespace KexiPart
 {
-class Item::Private
+class Q_DECL_HIDDEN Item::Private
 {
 public:
     Private() {

@@ -47,7 +47,7 @@ public:
 Q_GLOBAL_STATIC(ActionCategories, Kexi_actionCategories)
 
 //! @internal
-class ActionCategories::Private
+class Q_DECL_HIDDEN ActionCategories::Private
 {
 public:
     Private() {

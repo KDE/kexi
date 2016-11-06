@@ -168,7 +168,7 @@ static bool shouldSaveRow(int row, bool firstRowForFieldNames)
 
 // --
 
-class KexiCSVImportDialog::Private
+class Q_DECL_HIDDEN KexiCSVImportDialog::Private
 {
 public:
     Private()

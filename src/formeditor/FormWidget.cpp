@@ -24,7 +24,7 @@
 
 using namespace KFormDesigner;
 
-class FormWidget::Private
+class Q_DECL_HIDDEN FormWidget::Private
 {
 public:
     Private();

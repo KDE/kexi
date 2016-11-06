@@ -33,7 +33,7 @@
 #include <QDebug>
 
 //! @internal
-class KexiDBLabel::Private
+class Q_DECL_HIDDEN KexiDBLabel::Private
 {
 public:
     Private()

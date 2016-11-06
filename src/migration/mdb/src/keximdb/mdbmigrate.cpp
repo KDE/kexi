@@ -413,7 +413,8 @@ bool MDBMigrate::getPrimaryKey(KDbTableSchema* table, MdbTableDef* tableDef)
     QVector<int> key_col_num(idx->num_keys);
 
     // MDBTools counts columns from 1 - subtract 1 where necessary
-    KDbIndexSchema* p_idx = new KDbIndexSchema(table);
+    KDbIndexSchema* p_idx = new KDbIndexSchema;
+    table->addIndex(p_idx);
 
     bool ok = true;
     for (unsigned int i = 0; i < idx->num_keys; i++) {

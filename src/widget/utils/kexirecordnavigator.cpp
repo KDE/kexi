@@ -64,7 +64,7 @@ Q_GLOBAL_STATIC(KexiRecordNavigatorStatic, KexiRecordNavigator_static)
 // ----
 
 //! @internal
-class KexiRecordNavigator::Private
+class Q_DECL_HIDDEN KexiRecordNavigator::Private
 {
 public:
     Private()

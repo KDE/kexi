@@ -23,7 +23,7 @@
 
 #include <QDebug>
 
-class KexiFlowLayout::Private
+class Q_DECL_HIDDEN KexiFlowLayout::Private
 {
 public:
     Private();

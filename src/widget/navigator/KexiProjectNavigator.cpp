@@ -58,7 +58,7 @@
 #include <QContextMenuEvent>
 #include <QPushButton>
 
-class KexiProjectNavigator::Private
+class Q_DECL_HIDDEN KexiProjectNavigator::Private
 {
 public:
 

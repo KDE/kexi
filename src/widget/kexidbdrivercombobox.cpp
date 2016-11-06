@@ -25,7 +25,7 @@
 #include <KDbDriverMetaData>
 #include <KDbMessageHandler>
 
-class KexiDBDriverComboBox::Private
+class Q_DECL_HIDDEN KexiDBDriverComboBox::Private
 {
 public:
     Private() {}

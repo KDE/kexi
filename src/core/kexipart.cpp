@@ -40,7 +40,7 @@
 namespace KexiPart
 {
 //! @internal
-class Part::Private
+class Q_DECL_HIDDEN Part::Private
 {
 public:
     Private()

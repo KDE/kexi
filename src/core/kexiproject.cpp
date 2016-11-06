@@ -64,7 +64,7 @@ static QString realPluginId(const QString &pluginId, const QString &partMime)
     return pluginId;
 }
 
-class KexiProject::Private
+class Q_DECL_HIDDEN KexiProject::Private
 {
 public:
     explicit Private(KexiProject *qq)

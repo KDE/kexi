@@ -58,7 +58,7 @@ private:
     Private * const d;
 };
 
-class KexiSearchLineEditCompleterPopupModel::Private
+class Q_DECL_HIDDEN KexiSearchLineEditCompleterPopupModel::Private
 {
 public:
     Private()
@@ -174,7 +174,7 @@ public:
 
 class KexiSearchLineEditPopupItemDelegate;
 
-class KexiSearchLineEdit::Private
+class Q_DECL_HIDDEN KexiSearchLineEdit::Private
 {
 public:
     explicit Private(KexiSearchLineEdit *_q)

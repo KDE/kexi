@@ -27,7 +27,7 @@
 
 #include "KexiAnimatedLayout.h"
 
-class KexiAnimatedLayout::Private : public QWidget
+class Q_DECL_HIDDEN KexiAnimatedLayout::Private : public QWidget
 {
     Q_OBJECT
 public:

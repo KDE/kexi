@@ -37,7 +37,7 @@
 #define KEXICSV_OTHER_NUMBER_OF_SIGNS 2
 #define KEXICSV_OTHER_commentSymbol_INDEX 1
 
-class KexiCSVInfoLabel::Private
+class Q_DECL_HIDDEN KexiCSVInfoLabel::Private
 {
 public:
     Private() {}
@@ -46,7 +46,7 @@ public:
     QFrame* separator;
 };
 
-class KexiCSVDelimiterWidget::Private
+class Q_DECL_HIDDEN KexiCSVDelimiterWidget::Private
 {
 public:
     Private() : availableDelimiters(KEXICSV_OTHER_DELIMITER_INDEX) {
@@ -61,7 +61,7 @@ public:
     QLineEdit* delimiterEdit;
 };
 
-class KexiCSVCommentWidget::Private
+class Q_DECL_HIDDEN KexiCSVCommentWidget::Private
 {
 public:
     Private() : availablecommentSymbols(KEXICSV_OTHER_NUMBER_OF_SIGNS) {

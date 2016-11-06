@@ -23,7 +23,7 @@
 
 using namespace KFormDesigner;
 
-class FormWidgetInterface::Private
+class Q_DECL_HIDDEN FormWidgetInterface::Private
 {
 public:
     Private() : design(false), editing(false) {}

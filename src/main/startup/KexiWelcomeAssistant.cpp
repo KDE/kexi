@@ -106,7 +106,7 @@ void KexiMainWelcomePage::updateRecentProjects()
 
 // ----
 
-class KexiWelcomeAssistant::Private
+class Q_DECL_HIDDEN KexiWelcomeAssistant::Private
 {
 public:
     explicit Private(KexiWelcomeAssistant *qq)

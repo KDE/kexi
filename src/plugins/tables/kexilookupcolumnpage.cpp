@@ -59,7 +59,7 @@ QString typeToPartClass(const QString& type)
 //----------------------------------------------
 
 //! @internal
-class KexiLookupColumnPage::Private
+class Q_DECL_HIDDEN KexiLookupColumnPage::Private
 {
 public:
     explicit Private(KexiLookupColumnPage *that)

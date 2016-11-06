@@ -33,7 +33,7 @@
 #include "kexisourceselector.h"
 
 //! @internal
-class KexiReportPart::Private
+class Q_DECL_HIDDEN KexiReportPart::Private
 {
 public:
     Private() : toolboxActionGroup(0)

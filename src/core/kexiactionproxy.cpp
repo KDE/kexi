@@ -45,7 +45,8 @@ void KexiSharedActionConnector::plugSharedAction(const QString& action_name, con
 
 //=======================
 
-class KexiActionProxy::Private {
+class Q_DECL_HIDDEN KexiActionProxy::Private
+{
 public:
     Private() {}
 

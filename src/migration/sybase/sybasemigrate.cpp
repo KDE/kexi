@@ -529,7 +529,8 @@ QList<KDbIndexSchema*> KexiMigration::SybaseMigrate::readIndexes(const QString& 
             keyCount = keyCount - 1;
         }
 
-        KDbIndexSchema* indexSchema = new KDbIndexSchema(&tableSchema);
+        KDbIndexSchema* indexSchema = new KDbIndexSchema;
+        tableSchema.addIndex(indexSchema);
 
         for (int i = 1; i <= keyCount; i++) {
             sqlStatement = KDbEscapedString("SELECT index_col(%1,%2, %3)")

@@ -23,7 +23,7 @@
 
 using namespace KFormDesigner;
 
-class Connection::Private
+class Q_DECL_HIDDEN Connection::Private
 {
 public:
     Private(const QString &sender_, const QString &signal_, const QString &receiver_, const QString &slot_);

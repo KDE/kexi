@@ -41,7 +41,7 @@
 #include <kexi_global.h>
 
 //! @internal
-class KexiFindDialog::Private
+class Q_DECL_HIDDEN KexiFindDialog::Private
 {
 public:
     Private() :

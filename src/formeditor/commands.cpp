@@ -105,7 +105,7 @@ KFORMDESIGNER_EXPORT QDebug KFormDesigner::operator<<(QDebug dbg, const Command 
 
 namespace KFormDesigner
 {
-class PropertyCommand::Private
+class Q_DECL_HIDDEN PropertyCommand::Private
 {
 public:
     Private()
@@ -308,7 +308,7 @@ KFORMDESIGNER_EXPORT QDebug KFormDesigner::operator<<(QDebug dbg, const Property
 
 namespace KFormDesigner
 {
-class GeometryPropertyCommand::Private
+class Q_DECL_HIDDEN GeometryPropertyCommand::Private
 {
 public:
     Private()
@@ -409,7 +409,7 @@ KFORMDESIGNER_EXPORT QDebug KFormDesigner::operator<<(QDebug dbg, const Geometry
 
 namespace KFormDesigner
 {
-class AlignWidgetsCommand::Private
+class Q_DECL_HIDDEN AlignWidgetsCommand::Private
 {
 public:
     Private()
@@ -575,7 +575,7 @@ KFORMDESIGNER_EXPORT QDebug KFormDesigner::operator<<(QDebug dbg, const AlignWid
 
 namespace KFormDesigner
 {
-class AdjustSizeCommand::Private
+class Q_DECL_HIDDEN AdjustSizeCommand::Private
 {
 public:
     Private()
@@ -827,7 +827,7 @@ KFORMDESIGNER_EXPORT QDebug KFormDesigner::operator<<(QDebug dbg, const AdjustSi
 
 namespace KFormDesigner
 {
-class InsertWidgetCommand::Private
+class Q_DECL_HIDDEN InsertWidgetCommand::Private
 {
 public:
     Private()
@@ -1062,7 +1062,7 @@ QByteArray InsertWidgetCommand::widgetName() const
 
 namespace KFormDesigner
 {
-class PasteWidgetCommand::Private
+class Q_DECL_HIDDEN PasteWidgetCommand::Private
 {
 public:
     Private()
@@ -1380,7 +1380,7 @@ KFORMDESIGNER_EXPORT QDebug KFormDesigner::operator<<(QDebug dbg, const PasteWid
 
 namespace KFormDesigner
 {
-class DeleteWidgetCommand::Private
+class Q_DECL_HIDDEN DeleteWidgetCommand::Private
 {
 public:
     Private()
@@ -1475,7 +1475,7 @@ KFORMDESIGNER_EXPORT QDebug KFormDesigner::operator<<(QDebug dbg, const DeleteWi
 
 namespace KFormDesigner
 {
-class DuplicateWidgetCommand::Private
+class Q_DECL_HIDDEN DuplicateWidgetCommand::Private
 {
 public:
     Private()
@@ -1547,7 +1547,7 @@ KFORMDESIGNER_EXPORT QDebug KFormDesigner::operator<<(QDebug dbg, const Duplicat
 
 namespace KFormDesigner
 {
-class CutWidgetCommand::Private
+class Q_DECL_HIDDEN CutWidgetCommand::Private
 {
 public:
     Private()
@@ -1614,7 +1614,7 @@ KFORMDESIGNER_EXPORT QDebug KFormDesigner::operator<<(QDebug dbg, const CutWidge
 
 namespace KFormDesigner
 {
-class PropertyCommandGroup::Private
+class Q_DECL_HIDDEN PropertyCommandGroup::Private
 {
 public:
     Private()
@@ -1658,7 +1658,7 @@ KFORMDESIGNER_EXPORT QDebug KFormDesigner::operator<<(QDebug dbg, const Property
 
 namespace KFormDesigner
 {
-class InlineTextEditingCommand::Private
+class Q_DECL_HIDDEN InlineTextEditingCommand::Private
 {
 public:
     Private()
@@ -1780,7 +1780,7 @@ KFORMDESIGNER_EXPORT QDebug KFormDesigner::operator<<(QDebug dbg, const InlineTe
 
 namespace KFormDesigner
 {
-class InsertPageCommand::Private
+class Q_DECL_HIDDEN InsertPageCommand::Private
 {
 public:
     Private()
@@ -1909,7 +1909,7 @@ KFORMDESIGNER_EXPORT QDebug KFormDesigner::operator<<(QDebug dbg, const InsertPa
 
 namespace KFormDesigner
 {
-class RemovePageCommand::Private
+class Q_DECL_HIDDEN RemovePageCommand::Private
 {
 public:
     Private()

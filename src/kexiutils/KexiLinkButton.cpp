@@ -27,7 +27,7 @@
 #include <QStyleOptionButton>
 #include <QEvent>
 
-class KexiLinkButton::Private
+class Q_DECL_HIDDEN KexiLinkButton::Private
 {
 public:
     Private()

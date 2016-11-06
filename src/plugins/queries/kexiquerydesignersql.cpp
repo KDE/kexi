@@ -53,7 +53,7 @@ static bool compareSQL(const QString& sql1, const QString& sql2)
 //===================
 
 //! @internal
-class KexiQueryDesignerSQLView::Private
+class Q_DECL_HIDDEN KexiQueryDesignerSQLView::Private
 {
 public:
     Private() :

@@ -44,7 +44,7 @@
 //----------------------------------------------------------
 
 //! @internal
-class KexiWindow::Private
+class Q_DECL_HIDDEN KexiWindow::Private
 {
 public:
     explicit Private(KexiWindow *window)

@@ -53,7 +53,7 @@ struct PixmapAndPos {
 };
 
 //! @internal
-class KexiBlobTableEdit::Private
+class Q_DECL_HIDDEN KexiBlobTableEdit::Private
 {
 public:
     Private()
@@ -488,7 +488,7 @@ KEXI_CELLEDITOR_FACTORY_ITEM_IMPL(KexiBlobEditorFactoryItem, KexiBlobTableEdit)
 // KexiKIconTableEdit class is temporarily here:
 
 //! @internal
-class KexiKIconTableEdit::Private
+class Q_DECL_HIDDEN KexiKIconTableEdit::Private
 {
 public:
     Private()

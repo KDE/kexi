@@ -235,7 +235,7 @@ private:
 class KexiTabbedToolBarTabBar;
 
 //! @internal
-class KexiTabbedToolBar::Private : public QObject
+class Q_DECL_HIDDEN KexiTabbedToolBar::Private : public QObject
 {
     Q_OBJECT
 public:
@@ -431,7 +431,7 @@ private:
 typedef QMap< int, KexiWindow* > KexiWindowDict;
 
 //! @internal
-class KexiMainWindow::Private
+class Q_DECL_HIDDEN KexiMainWindow::Private
 {
 public:
     explicit Private(KexiMainWindow* w);

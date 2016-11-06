@@ -28,7 +28,7 @@
 #include <QPushButton>
 #include <QDebug>
 
-class KexiFieldListView::Private
+class Q_DECL_HIDDEN KexiFieldListView::Private
 {
 public:
     explicit Private(KexiFieldListOptions options_)
