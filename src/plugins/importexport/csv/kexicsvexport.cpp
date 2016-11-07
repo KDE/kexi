@@ -190,7 +190,7 @@ bool KexiCSVExport::exportData(KDbTableOrQuerySchema *tableOrQuery,
             visibleFieldIndex[i] = i;
         }
 
-        const KDbField::Type t = ci->field->type(); // cache: evaluating type of expressions can be expensive
+        const KDbField::Type t = ci->field()->type(); // cache: evaluating type of expressions can be expensive
         isText[i] = KDbField::isTextType(t);
         isDateTime[i] = t == KDbField::DateTime;
         isTime[i] = t == KDbField::Time;

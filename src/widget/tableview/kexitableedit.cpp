@@ -155,7 +155,7 @@ void KexiTableEdit::createInternalEditor(KDbQuerySchema& schema)
 const KDbField *KexiTableEdit::displayedField() const
 {
     if (m_column->visibleLookupColumnInfo())
-        return m_column->visibleLookupColumnInfo()->field; //mainly for lookup field in KexiComboBoxTableEdit:
+        return m_column->visibleLookupColumnInfo()->field(); //mainly for lookup field in KexiComboBoxTableEdit:
 
     return m_column->field(); //typical case
 }

@@ -132,7 +132,7 @@ void KexiDBWidgetContextMenuExtender::updateActions(QMenu *menu)
     }
     KexiContextMenuUtils::updateTitle(
         menu, d->iface->columnInfo()->captionOrAliasOrName(),
-        KDb::simplifiedFieldTypeName(d->iface->columnInfo()->field->type()), icon);
+        KDb::simplifiedFieldTypeName(d->iface->columnInfo()->field()->type()), icon);
 
     // actions
     const bool readOnly = d->iface->isReadOnly();

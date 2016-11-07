@@ -160,7 +160,7 @@ bool KexiSqlMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destC
         for(int i = 0; i < numFields; ++i) {
             const KDbSqlString s(record->cstringValue(i));
             vals.append(KDb::cstringToVariant(
-                            s.string, fieldsExpanded.at(i)->field->type(), 0, s.length));
+                            s.string, fieldsExpanded.at(i)->field()->type(), 0, s.length));
         }
         updateProgress();
         if (recordFilter && !filterUsed) {

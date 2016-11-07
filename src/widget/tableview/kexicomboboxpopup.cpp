@@ -215,7 +215,7 @@ void KexiComboBoxPopup::setData(const KDbTableViewColumn *column, KDbField *fiel
                 qDebug() << visibleAndBoundColumns;
                 foreach (int index, visibleAndBoundColumns) {
                     KDbQueryColumnInfo *columnInfo = fieldsExpanded.value(index);
-                    if (!columnInfo || !columnInfo->field || !d->privateQuery->addField(columnInfo->field)) {
+                    if (!columnInfo || !columnInfo->field() || !d->privateQuery->addField(columnInfo->field())) {
                         columnsFound = false;
                         break;
                     }
@@ -267,7 +267,7 @@ void KexiComboBoxPopup::setData(const KDbTableViewColumn *column, KDbField *fiel
                     qWarning() << *it << ">= fieldsExpandedSize";
                     continue;
                 }
-                KDbVariableExpression fieldExpr(ci->field->table()->name() + "." + ci->field->name());
+                KDbVariableExpression fieldExpr(ci->field()->table()->name() + "." + ci->field()->name());
                 //! @todo KEXI3 check this we're calling KDbQuerySchema::validate() instead of this: fieldExpr.field = ci->field;
                 //! @todo KEXI3 check this we're calling KDbQuerySchema::validate() instead of this: fieldExpr.tablePositionForField = d->privateQuery->tableBoundToColumn(*it);
                 if (expr.isValid()) {

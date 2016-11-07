@@ -588,10 +588,10 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                             (*set)["table"].value().toString() + "."
                             + (aliasString.isEmpty() ? currentField->name() : aliasString));
         if (currentField && currentColumn) {
-            if (currentColumn->visible)
+            if (currentColumn->isVisible())
                 orderByColumns.appendColumn(currentColumn, sortingString == "ascending");
-            else if (currentColumn->field)
-                orderByColumns.appendField(currentColumn->field, sortingString == "ascending");
+            else if (currentColumn->field())
+                orderByColumns.appendField(currentColumn->field(), sortingString == "ascending");
         }
     }
     temp->query()->setOrderByColumnList(orderByColumns);
@@ -989,7 +989,7 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
         KPropertySet *rowPropertySet = 0;
         if (column) {
             //sorting for visible column
-            if (column->visible) {
+            if (column->isVisible()) {
                 if (columnsOrder.contains(column)) {
                     const int columnPosition = columnsOrder.value(column);
                     data = d->data->at(columnPosition);

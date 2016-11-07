@@ -120,7 +120,7 @@ KexiDBAutoField::setWidgetType(WidgetType type)
     if (differ) {
         if (type == Auto) {// try to guess type from data source type
             if (visibleColumnInfo())
-                d->widgetType = KexiDBAutoField::widgetTypeForFieldType(visibleColumnInfo()->field->type());
+                d->widgetType = KexiDBAutoField::widgetTypeForFieldType(visibleColumnInfo()->field()->type());
             else
                 d->widgetType = Auto;
         } else
@@ -494,7 +494,7 @@ KexiDBAutoField::setColumnInfoInternal(KDbQueryColumnInfo* cinfo, KDbQueryColumn
         WidgetType newWidgetType = Auto;
         KDbField::Type fieldType;
         if (cinfo)
-            fieldType = visibleColumnInfo->field->type();
+            fieldType = visibleColumnInfo->field()->type();
         else if (dataSource().isEmpty())
             fieldType = KDbField::InvalidType;
         else

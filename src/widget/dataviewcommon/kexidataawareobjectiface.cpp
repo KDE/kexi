@@ -851,7 +851,7 @@ bool KexiDataAwareObjectInterface::acceptEditor()
             //! @todo allow displaying user-defined warning
             showEditorContextMessage(
                         m_editor,
-                        xi18nc("Question", "Error: %1?", m_editor->columnInfo()->field->typeName()),
+                        xi18nc("Question", "Error: %1?", m_editor->columnInfo()->field()->typeName()),
                         KMessageWidget::Error,
                         KMessageWidget::Up);
         }
@@ -1948,8 +1948,8 @@ static QString lengthExceededMessage(KexiDataItemInterface *item)
         "Fix the text or it will be truncated upon saving changes.",
         "Limit of %2 characters for <resource>%3</resource> field has been exceeded by %1 characters.\n"
         "Fix the text or it will be truncated upon saving changes.",
-        item->value().toString().length() - item->columnInfo()->field->maxLength(),
-        item->columnInfo()->field->maxLength(),
+        item->value().toString().length() - item->columnInfo()->field()->maxLength(),
+        item->columnInfo()->field()->maxLength(),
         item->columnInfo()->captionOrAliasOrName());
 }
 

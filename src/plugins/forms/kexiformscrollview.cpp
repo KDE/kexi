@@ -496,8 +496,8 @@ KDbTableViewColumn* KexiFormScrollView::column(int col)
 bool KexiFormScrollView::shouldDisplayDefaultValueForItem(KexiFormDataItemInterface* itemIface) const
 {
     return cursorAtNewRecord()
-           && !itemIface->columnInfo()->field->defaultValue().isNull()
-           && !itemIface->columnInfo()->field->isAutoIncrement(); // default value defined
+           && !itemIface->columnInfo()->field()->defaultValue().isNull()
+           && !itemIface->columnInfo()->field()->isAutoIncrement(); // default value defined
 }
 
 bool KexiFormScrollView::cancelEditor()

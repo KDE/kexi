@@ -133,7 +133,7 @@ KexiTableEdit* KexiCellEditorFactory::createEditor(KDbTableViewColumn &column, Q
 {
     KDbField *realField;
     if (column.visibleLookupColumnInfo()) {
-        realField = column.visibleLookupColumnInfo()->field;
+        realField = column.visibleLookupColumnInfo()->field();
     } else {
         realField = column.field();
     }

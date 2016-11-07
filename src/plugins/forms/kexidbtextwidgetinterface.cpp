@@ -37,7 +37,7 @@ KexiDBTextWidgetInterface::~KexiDBTextWidgetInterface()
 
 void KexiDBTextWidgetInterface::setColumnInfo(KDbQueryColumnInfo* cinfo, QWidget *w)
 {
-    if (cinfo->field->isAutoIncrement()) {
+    if (cinfo->field()->isAutoIncrement()) {
         if (!m_autonumberDisplayParameters)
             m_autonumberDisplayParameters = new KexiDisplayUtils::DisplayParameters();
         KexiDisplayUtils::initDisplayForAutonumberSign(*m_autonumberDisplayParameters, w);
@@ -49,11 +49,11 @@ void KexiDBTextWidgetInterface::paint(
 {
     KexiFormDataItemInterface *dataItemIface = dynamic_cast<KexiFormDataItemInterface*>(w);
     KDbQueryColumnInfo *columnInfo = dataItemIface ? dataItemIface->columnInfo() : 0;
-    if (columnInfo && columnInfo->field && dataItemIface->cursorAtNewRecord() && textIsEmpty) {
+    if (columnInfo && columnInfo->field() && dataItemIface->cursorAtNewRecord() && textIsEmpty) {
         int addMargin = 0;
         if (dynamic_cast<QFrame*>(w))
             addMargin += dynamic_cast<QFrame*>(w)->lineWidth() + dynamic_cast<QFrame*>(w)->midLineWidth();
-        if (columnInfo->field->isAutoIncrement() && m_autonumberDisplayParameters) {
+        if (columnInfo->field()->isAutoIncrement() && m_autonumberDisplayParameters) {
             if (w->hasFocus()) {
                 p->setPen(
                     KexiUtils::blendedColors(

@@ -553,7 +553,7 @@ tristate KexiFormView::afterSwitchFrom(Kexi::ViewMode mode)
                 if (iface && iface->columnInfo() && !iface->isReadOnly()
                         /*! @todo add option for skipping autoincremented fields */
                         /* also skip autoincremented fields:*/
-                        && !iface->columnInfo()->field->isAutoIncrement())
+                        && !iface->columnInfo()->field()->isAutoIncrement())
                 {
                     break;
                 }

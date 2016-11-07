@@ -290,7 +290,7 @@ void KexiDBLineEdit::clear()
 void KexiDBLineEdit::setColumnInfo(KDbQueryColumnInfo* cinfo)
 {
     KexiFormDataItemInterface::setColumnInfo(cinfo);
-    m_textFormatter.setField( cinfo ? cinfo->field : 0 );
+    m_textFormatter.setField(cinfo ? cinfo->field() : nullptr);
     KexiTextFormatter::OverrideDecimalPlaces overrideDecimalPlaces;
     overrideDecimalPlaces.enabled = true;
     overrideDecimalPlaces.value = -1; // all possible digits
@@ -302,7 +302,7 @@ void KexiDBLineEdit::setColumnInfo(KDbQueryColumnInfo* cinfo)
 
 //! @todo handle input mask (via QLineEdit::setInputMask()) using a special KDbFieldInputMask class
     delete m_readWriteValidator;
-    KDbFieldValidator* fieldValidator = new KDbFieldValidator(*cinfo->field, this);
+    KDbFieldValidator* fieldValidator = new KDbFieldValidator(*cinfo->field(), this);
     if (m_internalReadOnly) {
         m_readWriteValidator = fieldValidator;
     }

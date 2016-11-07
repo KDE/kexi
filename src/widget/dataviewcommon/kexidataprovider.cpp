@@ -104,10 +104,10 @@ void KexiFormDataProvider::fillDataItems(KDbRecordData *data, bool cursorAtNewRe
                  .arg(indexForVisibleLookupValue).arg(visibleLookupValue.toString())
                  : QString());
         const bool displayDefaultValue = cursorAtNewRecord && (value.isNull() && visibleLookupValue.isNull())
-                                         && !itemIface->columnInfo()->field->defaultValue().isNull()
-                                         && !itemIface->columnInfo()->field->isAutoIncrement(); //no value to set but there is default value defined
+                                         && !itemIface->columnInfo()->field()->defaultValue().isNull()
+                                         && !itemIface->columnInfo()->field()->isAutoIncrement(); //no value to set but there is default value defined
         itemIface->setValue(
-            displayDefaultValue ? itemIface->columnInfo()->field->defaultValue() : value,
+            displayDefaultValue ? itemIface->columnInfo()->field()->defaultValue() : value,
             QVariant(), /*add*/
             /*!remove old*/false,
             indexForVisibleLookupValue == -1 ? 0 : &visibleLookupValue //pass visible value if available
@@ -129,16 +129,16 @@ void KexiFormDataProvider::fillDuplicatedDataItems(
         QHash<KDbField*, int> tmpDuplicatedItems;
         QHash<KDbField*, int>::const_iterator it_dup;
         foreach(KexiFormDataItemInterface *dataItemIface, m_dataItems) {
-            if (!dataItemIface->columnInfo() || !dataItemIface->columnInfo()->field)
+            if (!dataItemIface->columnInfo() || !dataItemIface->columnInfo()->field())
                 continue;
-            qDebug() << " ** " << dataItemIface->columnInfo()->field->name();
-            it_dup = tmpDuplicatedItems.constFind(dataItemIface->columnInfo()->field);
+            qDebug() << " ** " << dataItemIface->columnInfo()->field()->name();
+            it_dup = tmpDuplicatedItems.constFind(dataItemIface->columnInfo()->field());
             int count;
             if (it_dup == tmpDuplicatedItems.constEnd())
                 count = 0;
             else
                 count = it_dup.value();
-            tmpDuplicatedItems.insert(dataItemIface->columnInfo()->field, ++count);
+            tmpDuplicatedItems.insert(dataItemIface->columnInfo()->field(), ++count);
         }
         m_duplicatedItems = new QSet<KDbField*>();
         for (it_dup = tmpDuplicatedItems.constBegin(); it_dup != tmpDuplicatedItems.constEnd(); ++it_dup) {
@@ -149,9 +149,9 @@ void KexiFormDataProvider::fillDuplicatedDataItems(
             }
         }
     }
-    if (item->columnInfo() && m_duplicatedItems->contains(item->columnInfo()->field)) {
+    if (item->columnInfo() && m_duplicatedItems->contains(item->columnInfo()->field())) {
         foreach(KexiFormDataItemInterface *dataItemIface, m_dataItems) {
-            if (dataItemIface != item && item->columnInfo()->field == dataItemIface->columnInfo()->field) {
+            if (dataItemIface != item && item->columnInfo()->field() == dataItemIface->columnInfo()->field()) {
                 qDebug() << "- setting a copy of value for item '"
                     << dynamic_cast<QObject*>(dataItemIface)->objectName() << "' == " << value;
                 dataItemIface->setValue(value);
@@ -184,13 +184,13 @@ void KexiFormDataProvider::invalidateDataSources(const QSet<QString>& invalidSou
         QHash<KDbQueryColumnInfo*, int> columnsOrder(query->columnsOrder());
         for (QHash<KDbQueryColumnInfo*, int>::const_iterator it
                 = columnsOrder.constBegin(); it != columnsOrder.constEnd(); ++it) {
-            qDebug() << "query->columnsOrder()[ " << it.key()->field->name() << " ] = "
+            qDebug() << "query->columnsOrder()[ " << it.key()->field()->name() << " ] = "
                 << it.value();
         }
         foreach(KexiFormDataItemInterface *item, m_dataItems) {
             KDbQueryColumnInfo* ci = query->columnInfo(item->dataSource());
             int index = ci ? columnsOrder[ ci ] : -1;
-            qDebug() << "query->columnsOrder()[ " << (ci ? ci->field->name() : QString()) << " ] = " << index
+            qDebug() << "query->columnsOrder()[ " << (ci ? ci->field()->name() : QString()) << " ] = " << index
                 << " (dataSource: " << item->dataSource() << ", name="
                 << dynamic_cast<QObject*>(item)->objectName() << ")";
             if (index != -1 && !m_fieldNumbersForDataItems[ item ])
@@ -226,7 +226,7 @@ void KexiFormDataProvider::invalidateDataSources(const QSet<QString>& invalidSou
             item->setColumnInfo(ci);
             qDebug() << "- item=" << dynamic_cast<QObject*>(item)->objectName()
                 << " dataSource=" << item->dataSource()
-                << " field=" << ci->field->name();
+                << " field=" << ci->field()->name();
             const int indexForVisibleLookupValue = ci->indexForVisibleLookupValue();
             if (-1 != indexForVisibleLookupValue && indexForVisibleLookupValue < (int)fieldsExpanded.count()) {
                 //there's lookup column defined: set visible column as well

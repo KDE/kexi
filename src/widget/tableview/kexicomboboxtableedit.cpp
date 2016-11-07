@@ -96,7 +96,7 @@ void KexiComboBoxTableEdit::createInternalEditor(KDbQuerySchema& schema)
 {
     if (!m_column->visibleLookupColumnInfo() || d->visibleTableViewColumn/*sanity*/)
         return;
-    const KDbField::Type t = m_column->visibleLookupColumnInfo()->field->type();
+    const KDbField::Type t = m_column->visibleLookupColumnInfo()->field()->type();
 //! @todo subtype?
     KexiCellEditorFactoryItem *item = KexiCellEditorFactory::item(t);
     if (!item || item->className() == "KexiInputTableEdit")

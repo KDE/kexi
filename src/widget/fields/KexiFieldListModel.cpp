@@ -90,7 +90,9 @@ void KexiFieldListModel::setSchema(KDbTableOrQuerySchema* schema)
             d->allColumnsItem = item;
         } else {
             colinfo = columns[i];
-            item = new KexiFieldListModelItem(colinfo->aliasOrName(), colinfo->field->typeName(), (colinfo->field->isPrimaryKey() || colinfo->field->isUniqueKey()));
+            item = new KexiFieldListModelItem(
+                        colinfo->aliasOrName(), colinfo->field()->typeName(),
+                        (colinfo->field()->isPrimaryKey() || colinfo->field()->isUniqueKey()));
             item->setCaption(colinfo->captionOrAliasOrName());
         }
         d->items.append(item);
