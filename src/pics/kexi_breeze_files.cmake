@@ -17,8 +17,6 @@ icons/breeze/actions/16/lineedit.png
 icons/breeze/actions/16/multiple-objects.png
 icons/breeze/actions/16/radiobutton.png
 icons/breeze/actions/16/sql-view.png
-icons/breeze/actions/16/tabwidget.png
-icons/breeze/actions/16/tabwidget-tab.png
 icons/breeze/actions/16/textedit.png
 icons/breeze/actions/16/unknown-widget.png
 icons/breeze/actions/16/widgets.png
@@ -39,8 +37,6 @@ icons/breeze/actions/22/radiobutton.png
 icons/breeze/actions/22/slider.png
 icons/breeze/actions/22/spinbox.png
 icons/breeze/actions/22/sql-view.png
-icons/breeze/actions/22/tabwidget.png
-icons/breeze/actions/22/tabwidget-tab.png
 icons/breeze/actions/22/textedit.png
 icons/breeze/actions/22/timeedit.png
 icons/breeze/actions/22/unknown-widget.png
@@ -89,6 +85,8 @@ icons/breeze/actions/16/imagebox.svg
 icons/breeze/actions/16/line-horizontal.svg
 icons/breeze/actions/16/line-vertical.svg
 icons/breeze/actions/16/network-server-database.svg
+icons/breeze/actions/16/tabwidget-page.svg
+icons/breeze/actions/16/tabwidget.svg
 icons/breeze/actions/16/validate.svg
 icons/breeze/actions/22/button.svg
 icons/breeze/actions/22/checkbox.svg
@@ -105,6 +103,8 @@ icons/breeze/actions/22/imagebox.svg
 icons/breeze/actions/22/line-horizontal.svg
 icons/breeze/actions/22/line-vertical.svg
 icons/breeze/actions/22/network-server-database.svg
+icons/breeze/actions/22/tabwidget-page.svg
+icons/breeze/actions/22/tabwidget.svg
 icons/breeze/actions/22/validate.svg
 icons/breeze/actions/32/button.svg
 icons/breeze/actions/32/checkbox.svg
@@ -120,6 +120,8 @@ icons/breeze/actions/32/imagebox.svg
 icons/breeze/actions/32/line-horizontal.svg
 icons/breeze/actions/32/line-vertical.svg
 icons/breeze/actions/32/network-server-database.svg
+icons/breeze/actions/32/tabwidget-page.svg
+icons/breeze/actions/32/tabwidget.svg
 icons/breeze/actions/32/validate.svg
 icons/breeze/apps/16/kexi.svg
 icons/breeze/apps/32/kexi.svg
