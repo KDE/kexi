@@ -756,7 +756,7 @@ bool WidgetLibrary::propertySetShouldBeReloadedAfterPropertyChange(
 
 ObjectTreeItem* WidgetLibrary::selectableItem(ObjectTreeItem* item)
 {
-    qDebug() << item->widget()->metaObject()->className();
+    //qDebug() << item->widget()->metaObject()->className();
     WidgetInfo *wi = d->widgets().value(item->widget()->metaObject()->className());
     if (!wi)
         return item;

@@ -2267,7 +2267,7 @@ KexiMainWindow::activateWindow(int id)
 bool
 KexiMainWindow::activateWindow(KexiWindow& window)
 {
-    qDebug();
+    //qDebug();
 
     d->focus_before_popup = &window;
     d->mainWidget->tabWidget()->setCurrentWidget(window.parentWidget()/*container*/);
@@ -3156,7 +3156,7 @@ bool KexiMainWindow::acceptsSharedActions(QObject *w)
 
 bool KexiMainWindow::openingAllowed(KexiPart::Item* item, Kexi::ViewMode viewMode, QString* errorMessage)
 {
-    qDebug() << viewMode;
+    //qDebug() << viewMode;
     //! @todo this can be more complex once we deliver ACLs...
     if (!d->userMode)
         return true;
@@ -3166,9 +3166,9 @@ bool KexiMainWindow::openingAllowed(KexiPart::Item* item, Kexi::ViewMode viewMod
             *errorMessage = Kexi::partManager().result().message();
         }
     }
-    qDebug() << part << item->pluginId();
-    if (part)
-        qDebug() << item->pluginId() << part->info()->supportedUserViewModes();
+    //qDebug() << part << item->pluginId();
+    //if (part)
+    //    qDebug() << item->pluginId() << part->info()->supportedUserViewModes();
     return part && (part->info()->supportedUserViewModes() & viewMode);
 }
 

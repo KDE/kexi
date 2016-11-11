@@ -345,7 +345,7 @@ FormIO::loadFormFromDom(Form *form, QWidget *container, QDomDocument &inBuf)
         if (ok)
             ver = v;
     }
-    qDebug() << "original format version: " << ver;
+    //qDebug() << "original format version: " << ver;
     form->setOriginalFormatVersion(ver);
     if (ver < KFormDesigner::version()) {
 //! @todo We can either 1) convert from old format and later save in a new one or 2) keep old format.
@@ -885,7 +885,7 @@ FormIO::saveWidget(ObjectTreeItem *item, QDomElement &parent, QDomDocument &domD
 {
     if (!item)
         return;
-    qDebug() << item->className() << item->widget()->objectName();
+    //qDebug() << item->className() << item->widget()->objectName();
     Form *form = item->container() ? item->container()->form() : item->parent()->container()->form();
     WidgetLibrary *lib = form->library();
 
@@ -1124,10 +1124,10 @@ void FormIO::loadWidget(Container *container, const QDomElement &el, QWidget *pa
 
     // We create and insert the ObjectTreeItem at the good place in the ObjectTree
     item = container->form()->objectTree()->lookup(wname);
-    qDebug() << wname << item << classname << (parent ? parent->objectName() : QString());
+    //qDebug() << wname << item << classname << (parent ? parent->objectName() : QString());
     if (!item)  {
         // not yet created
-        qDebug() << "Creating ObjectTreeItem:";
+        //qDebug() << "Creating ObjectTreeItem:";
         item =  new ObjectTreeItem(container->form()->library()->displayName(classname),
                                    wname, w, container);
         if (parent)  {
@@ -1261,7 +1261,7 @@ void FormIO::readChildNodes(ObjectTreeItem *item, Container *container, const QD
                 item->addSubproperty(name.toLatin1(),
                                      readPropertyValue(container->form(), node.firstChild(), w, name));
                 const QVariant val(readPropertyValue(container->form(), node.firstChild(), w, name));
-                qDebug() << val.toStringList();
+                //qDebug() << val.toStringList();
                 item->addSubproperty(name.toLatin1(), val);
                 //subwidget->setProperty(name.toLatin1(), val);
                 item->addModifiedProperty(name.toLatin1(), val);

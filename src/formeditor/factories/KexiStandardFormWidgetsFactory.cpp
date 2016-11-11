@@ -475,7 +475,7 @@ QWidget* KexiStandardFormWidgetsFactory::createWidget(const QByteArray &c, QWidg
         tab->setTabReorderingEnabled(true);
         connect(tab, SIGNAL(movedTab(int,int)), this, SLOT(reorderTabs(int,int)));
 #endif
-        qDebug() << "Creating ObjectTreeItem:";
+        //qDebug() << "Creating ObjectTreeItem:";
         container->form()->objectTree()->addItem(container->objectTree(),
                 new KFormDesigner::ObjectTreeItem(
                     container->form()->library()->displayName(c), n, tab, container));
@@ -499,7 +499,7 @@ QWidget* KexiStandardFormWidgetsFactory::createWidget(const QByteArray &c, QWidg
         w = stack;
         stack->setLineWidth(2);
         stack->setFrameStyle(QFrame::StyledPanel | QFrame::Raised);
-        qDebug() << "Creating ObjectTreeItem:";
+        //qDebug() << "Creating ObjectTreeItem:";
         container->form()->objectTree()->addItem(container->objectTree(),
                 new KFormDesigner::ObjectTreeItem(
                     container->form()->library()->displayName(c), n, stack, container));

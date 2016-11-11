@@ -406,6 +406,7 @@ KFormDesigner::Form* KexiFormScrollView::form() const
 
 bool KexiFormScrollView::columnEditable(int col)
 {
+#if 0
     //qDebug() << "col=" << col;
     foreach(KexiFormDataItemInterface *dataItemIface, m_dataItems) {
         qDebug() << (dynamic_cast<QWidget*>(dataItemIface)
@@ -420,7 +421,7 @@ bool KexiFormScrollView::columnEditable(int col)
     foreach(QWidget *widget, *dbFormWidget()->orderedDataAwareWidgets()) {
         qDebug() << widget->objectName();
     }
-
+#endif
     KexiFormDataItemInterface *item = dynamic_cast<KexiFormDataItemInterface*>(
                                           dbFormWidget()->orderedDataAwareWidgets()->at(col));
 
@@ -528,7 +529,7 @@ void KexiFormScrollView::updateAfterCancelRecordEditing()
     foreach(KexiFormDataItemInterface *dataItemIface, m_dataItems) {
         QWidget *w = dynamic_cast<QWidget*>(dataItemIface);
         if (w) {
-            qDebug() << w->metaObject()->className() << w->objectName();
+            //qDebug() << w->metaObject()->className() << w->objectName();
             const bool displayDefaultValue = shouldDisplayDefaultValueForItem(dataItemIface);
             dataItemIface->undoChanges();
             if (dataItemIface->hasDisplayedDefaultValue() != displayDefaultValue)
@@ -614,7 +615,7 @@ void KexiFormScrollView::refreshContentsSize()
     }
     updateScrollBars();
 
-    qDebug() << widget()->size() << d->form->widget()->size() << dbFormWidget()->size();
+    //qDebug() << widget()->size() << d->form->widget()->size() << dbFormWidget()->size();
     if (!d->preview) {
         widget()->resize(dbFormWidget()->size() + QSize(300, 300));
     }
