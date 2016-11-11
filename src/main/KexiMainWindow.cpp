@@ -2091,6 +2091,8 @@ void KexiMainWindow::closeEvent(QCloseEvent *ev)
     d->mainWidget->closeEvent(ev);
 }
 
+static const QSize KEXI_MIN_WINDOW_SIZE(1024, 768);
+
 void
 KexiMainWindow::restoreSettings()
 {
@@ -2104,10 +2106,13 @@ KexiMainWindow::restoreSettings()
     else {
         QRect desk = QApplication::desktop()->screenGeometry(
             QApplication::desktop()->screenNumber(this));
-        if (desk.width() <= 1024 || desk.height() < 768)
+        if (desk.width() <= KEXI_MIN_WINDOW_SIZE.width()
+                || desk.height() <= KEXI_MIN_WINDOW_SIZE.height())
+        {
             setWindowState(windowState() | Qt::WindowMaximized);
-        else
-            resize(1024, 768);
+        } else {
+            resize(KEXI_MIN_WINDOW_SIZE);
+        }
     }
     // Saved settings
 }
