@@ -105,7 +105,7 @@ KexiFormEventAction::~KexiFormEventAction()
 
 void KexiFormEventAction::slotTrigger()
 {
-    qDebug() << d->actionName << d->objectName;
+    //qDebug() << d->actionName << d->objectName;
     KexiProject* project = KexiMainWindowIface::global()->project();
     if (!project)
         return;
@@ -214,7 +214,7 @@ void KexiFormEventHandler::setMainWidgetForEventHandling(QWidget* mainWidget)
         KexiPart::Info* partInfo = data.decodeString(actionType, actionArg, &ok);
         if (!ok)
             continue;
-        qDebug() << "actionType:" << actionType << "actionArg:" << actionArg;
+        //qDebug() << "actionType:" << actionType << "actionArg:" << actionArg;
         if (actionType == "kaction" || actionType == "currentForm") {
             QAction *action = KexiMainWindowIface::global()->actionCollection()->action(
                                   actionArg);

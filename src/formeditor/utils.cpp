@@ -205,7 +205,7 @@ QMimeData *KFormDesigner::deepCopyOfMimeData(const QMimeData *data)
 
 void KFormDesigner::copyToClipboard(const QString& xml)
 {
-    qDebug() << xml;
+    //qDebug() << xml;
     QMimeData *data = new QMimeData();
     data->setText(xml);
     data->setData(KFormDesigner::mimeType(), xml.toUtf8());

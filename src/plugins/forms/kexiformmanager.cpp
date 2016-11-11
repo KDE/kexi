@@ -295,13 +295,13 @@ void KexiFormManager::slotWidgetCreatedByFormsLibrary(QWidget* widget)
 
         foreach(const QMetaMethod& method, _signals) {
             if (0 == qstrcmp(method.methodSignature(), handleDragMoveEventSignal)) {
-                qDebug() << method.methodSignature();
+                //qDebug() << method.methodSignature();
                 if (formView) {
                     connect(widget, SIGNAL(handleDragMoveEvent(QDragMoveEvent*)),
                             formView, SLOT(slotHandleDragMoveEvent(QDragMoveEvent*)));
                 }
             } else if (0 == qstrcmp(method.methodSignature(), handleDropEventSignal)) {
-                qDebug() << method.methodSignature();
+                //qDebug() << method.methodSignature();
                 if (formView) {
                     connect(widget, SIGNAL(handleDropEvent(QDropEvent*)),
                             formView, SLOT(slotHandleDropEvent(QDropEvent*)));
