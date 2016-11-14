@@ -56,7 +56,7 @@ public:
     {
         setupUi(this);
         setObjectName("conn_sel");
-        lblIcon->setPixmap(DesktopIcon(Kexi::serverIconName()));
+        lblIcon->setPixmap(koDesktopIconCStr(Kexi::serverIconName()));
         lblIcon->setFixedSize(lblIcon->pixmap()->size());
         btn_add->setToolTip(xi18n("Add a new database connection"));
         btn_edit->setToolTip(xi18n("Edit selected database connection"));

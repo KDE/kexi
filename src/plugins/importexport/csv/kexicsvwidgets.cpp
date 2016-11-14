@@ -18,6 +18,7 @@
 */
 
 #include "kexicsvwidgets.h"
+#include <KexiIcon.h>
 
 #include <QDir>
 #include <QLabel>
@@ -346,7 +347,7 @@ void KexiCSVInfoLabel::setLabelText(const QString& text)
 
 void KexiCSVInfoLabel::setIcon(const QString& iconName)
 {
-    d->iconLbl->setPixmap(DesktopIcon(iconName));
+    d->iconLbl->setPixmap(koDesktopIconCStr(iconName));
 }
 
 

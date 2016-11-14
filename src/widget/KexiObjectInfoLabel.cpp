@@ -21,6 +21,7 @@
 
 #include <QLabel>
 #include <QHBoxLayout>
+#include <QIcon>
 
 #include <KIconLoader>
 #include <KLocalizedString>
@@ -72,7 +73,9 @@ void KexiObjectInfoLabel::setObjectClassIconName(const QString &iconName)
     else {
         d->objectIconLabel->setFixedWidth(IconSize(KIconLoader::Small) + 2 + 2);
     }
-    d->objectIconLabel->setPixmap(SmallIcon(iconName));
+    const QIcon icon(QIcon::fromTheme(iconName));
+    d->objectIconLabel->setPixmap(
+        icon.pixmap(IconSize(KIconLoader::Small)));
 }
 
 QString KexiObjectInfoLabel::objectClassName() const

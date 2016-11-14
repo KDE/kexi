@@ -127,7 +127,7 @@ void WidgetTreeWidgetItem::initTextAndIcon(int forcedTabPageIndex, const QString
                 //qDebug() << "d->customSortingKey" << d->customSortingKey;
                 itemFlags |= Qt::ItemIsSelectable;
                 itemFlags ^= Qt::ItemIsSelectable;
-                iconName = KexiIconName("tabwidget-page");
+                iconName = KexiIconName("tabwidget-tab");
             }
         }
     }
@@ -150,7 +150,7 @@ void WidgetTreeWidgetItem::initTextAndIcon(int forcedTabPageIndex, const QString
     setText(0, itemName);
     setText(1, itemClass);
     if (!iconName.isEmpty()) {
-        QPixmap icon(SmallIcon(iconName));
+        QPixmap icon(koSmallIconCStr(iconName));
         if (!(itemFlags & Qt::ItemIsSelectable)) {
             KIconEffect::semiTransparent(icon);
         }
