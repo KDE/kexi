@@ -36,7 +36,9 @@
 #include "kexiformscrollview.h"
 #include "kexidatasourcepage.h"
 #include "kexiformmanager.h"
-#include "widgets/kexidbautofield.h"
+#ifdef KEXI_AUTOFIELD_FORM_WIDGET_SUPPORT
+#include "kexidbautofield.h"
+#endif
 
 #include <KDbConnection>
 #include <KDbCursor>
@@ -122,7 +124,7 @@ KexiFormView::KexiFormView(QWidget *parent, bool dbAware)
     d->scrollView = new KexiFormScrollView(         // will be added to layout
         this, viewMode() == Kexi::DataViewMode);   // in KexiDataAwareView::init()
 
-    initForm();
+    (void)initForm();
 
     if (viewMode() == Kexi::DesignViewMode) {
         connect(form(), SIGNAL(propertySetSwitched()), this, SLOT(slotPropertySetSwitched()));
@@ -224,7 +226,7 @@ KexiFormView::setForm(KFormDesigner::Form *f)
     d->form = f;
 }
 
-void KexiFormView::initForm()
+bool KexiFormView::initForm()
 {
     d->dbform = new KexiDBForm(d->scrollView->widget(), d->scrollView);
     if (viewMode() == Kexi::DataViewMode) {
@@ -284,12 +286,14 @@ void KexiFormView::initForm()
 #ifndef KEXI_NO_FORM_DATASOURCE_WIZARD
         QDomDocument dom;
         formPart()->generateForm(fields, dom);
-        KFormDesigner::FormIO::loadFormFromDom(form(), d->dbform, dom);
+        KFormDesigner::FormIO::loadFormFromDom(form(), d->dbform, &dom);
         //! @todo handle errors
 #endif
     }
     else {
-        loadForm();
+        if (!loadForm()) {
+            return false;
+        }
     }
 
     if (form()->autoTabStops())
@@ -325,10 +329,12 @@ void KexiFormView::initForm()
     if (!newForm && viewMode() == Kexi::DesignViewMode) {
         form()->clearUndoStack();
     }
+    return true;
 }
 
 void KexiFormView::updateAutoFieldsDataSource()
 {
+#ifdef KEXI_AUTOFIELD_FORM_WIDGET_SUPPORT
 //! @todo call this when form's data source is changed
     //update autofields:
     //-inherit captions
@@ -350,6 +356,7 @@ void KexiFormView::updateAutoFieldsDataSource()
             }
         }
     }
+#endif
 }
 
 void KexiFormView::updateValuesForSubproperties()
@@ -424,30 +431,38 @@ static void setUnsavedBLOBIdsForDataViewMode(
   }
 }
 
-void
-KexiFormView::loadForm()
+bool KexiFormView::loadForm()
 {
 //! @todo also load d->resizeMode
     //qDebug() << "Loading the form with id" << window()->id();
     // If we are previewing the Form, use the tempData instead of the form stored in the db
     if (viewMode() == Kexi::DataViewMode && !tempData()->tempForm.isNull()) {
-        KFormDesigner::FormIO::loadFormFromString(form(), d->dbform, &tempData()->tempForm);
+        if (!KFormDesigner::FormIO::loadFormFromString(form(), d->dbform, tempData()->tempForm)) {
+            return false;
+        }
         setUnsavedBLOBIdsForDataViewMode(d->dbform, tempData()->unsavedLocalBLOBsByName);
         updateAutoFieldsDataSource();
         updateValuesForSubproperties();
-        return;
+        return true;
     }
 
-    // normal load
-    QString data;
-    loadDataBlock(&data);
-    KFormDesigner::FormIO::loadFormFromString(form(), d->dbform, &data);
+    if (!window()->neverSaved()) {
+        // normal load
+        QString data;
+        if (!loadDataBlock(&data)) {
+            return false;
+        }
+        if (!KFormDesigner::FormIO::loadFormFromString(form(), d->dbform, data)) {
+            return false;
+        }
+    }
 
     //"autoTabStops" property is loaded -set it within the form tree as well
     form()->setAutoTabStops(d->dbform->autoTabStops());
 
     updateAutoFieldsDataSource();
     updateValuesForSubproperties();
+    return true;
 }
 
 void
@@ -517,7 +532,9 @@ tristate KexiFormView::afterSwitchFrom(Kexi::ViewMode mode)
     if ((mode == Kexi::DesignViewMode) && viewMode() == Kexi::DataViewMode) {
         // The form may have been modified, so we must recreate the preview
         delete d->dbform; // also deletes form()
-        initForm();
+        if (!initForm()) {
+            return false;
+        }
 
         //reset position
         d->scrollView->horizontalScrollBar()->setValue(0);
