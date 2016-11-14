@@ -240,8 +240,8 @@ FormIO::loadFormFromByteArray(Form *form, QWidget *container, QByteArray &src, b
     int errLine;
     int errCol;
 
-    QDomDocument inBuf;
-    bool parsed = inBuf.setContent(src, false, &errMsg, &errLine, &errCol);
+    QDomDocument domDoc;
+    bool parsed = domDoc.setContent(src, false, &errMsg, &errLine, &errCol);
 
     if (!parsed) {
         qDebug() << errMsg;
@@ -249,7 +249,7 @@ FormIO::loadFormFromByteArray(Form *form, QWidget *container, QByteArray &src, b
         return false;
     }
 
-    if (!loadFormFromDom(form, container, inBuf)) {
+    if (!loadFormFromDom(form, container, domDoc)) {
         return false;
     }
     if (preview) {
@@ -259,18 +259,19 @@ FormIO::loadFormFromByteArray(Form *form, QWidget *container, QByteArray &src, b
 }
 
 bool
-FormIO::loadFormFromString(Form *form, QWidget *container, QString *src, bool preview)
+FormIO::loadFormFromString(Form *form, QWidget *container, const QString &src, bool preview)
 {
     QString errMsg;
     int errLine;
     int errCol;
 
 #ifdef KEXI_DEBUG_GUI
-    form->m_recentlyLoadedUICode = *src;
+    form->m_recentlyLoadedUICode = src;
 #endif
 
-    QDomDocument inBuf;
-    bool parsed = inBuf.setContent(*src, false, &errMsg, &errLine, &errCol);
+    QDomDocument domDoc;
+    //qDebug() << qPrintable(src);
+    bool parsed = domDoc.setContent(src, false, &errMsg, &errLine, &errCol);
 
     if (!parsed) {
         qWarning() << errMsg;
@@ -278,7 +279,7 @@ FormIO::loadFormFromString(Form *form, QWidget *container, QString *src, bool pr
         return false;
     }
 
-    if (!loadFormFromDom(form, container, inBuf)) {
+    if (!loadFormFromDom(form, container, domDoc)) {
         return false;
     }
     if (preview) {
@@ -325,10 +326,9 @@ FormIO::loadFormFromFile(Form *form, QWidget *container, const QString &filename
     return loadFormFromDom(form, container, doc);
 }
 
-bool
-FormIO::loadFormFromDom(Form *form, QWidget *container, QDomDocument &inBuf)
+bool FormIO::loadFormFromDom(Form *form, QWidget *container, const QDomDocument &domDoc)
 {
-    QDomElement ui = inBuf.firstChildElement("UI");
+    QDomElement ui = domDoc.firstChildElement("UI");
 
     //custom properties
     form->headerProperties()->clear();

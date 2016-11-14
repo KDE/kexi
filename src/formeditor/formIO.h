@@ -109,7 +109,7 @@ public:
 
     /*! Loads a form from the \a domDoc QDomDocument. Called by loadForm() and loadFormData().
         \return true if loading succeeded. */
-    static bool loadFormFromDom(Form *form, QWidget *container, QDomDocument &domDoc);
+    static bool loadFormFromDom(Form *form, QWidget *container, const QDomDocument &domDoc);
 
     /*! Loads a form from the \a src QByteArray.
         \sa loadFormFromDom(), loadForm().
@@ -118,7 +118,7 @@ public:
     static bool loadFormFromByteArray(Form *form, QWidget *container, QByteArray &src,
                                       bool preview = false);
 
-    static bool loadFormFromString(Form *form, QWidget *container, QString *src,
+    static bool loadFormFromString(Form *form, QWidget *container, const QString &src,
                                    bool preview = false);
 
     /*! Loads the .ui file \a filename in the Form \a form. If \a filename is null or not given,
