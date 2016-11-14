@@ -4,7 +4,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH} ${ECM
 include(SetKexiCMakePolicies NO_POLICY_SCOPE)
 include(SetKexiVersionInfo)
 
-project(Kexi VERSION ${KEXI_VERSION})
+project(Kexi VERSION ${PROJECT_VERSION})
 
 include(ECMInstallIcons)
 include(ECMAddAppIcon)
@@ -20,10 +20,12 @@ include(KDECMakeSettings)
 include(KDECompilerSettings)
 
 include(KexiMacros)
+include(KexiAddIconsRccFile)
 
 ensure_out_of_source_build("Please refer to the build instruction https://community.kde.org/Kexi/Building")
 get_git_revision_and_branch()
 detect_release_build()
+set_coinstallable_project_base_name()
 
  #######################
 ########################
@@ -119,7 +121,7 @@ if(WIN32)
 endif()
 
 # set custom Kexi plugin installdir
-set(KEXI_PLUGIN_INSTALL_DIR ${LIB_INSTALL_DIR}/kexi)
+set(KEXI_PLUGIN_INSTALL_DIR ${PLUGIN_INSTALL_DIR}/${PROJECT_NAME_LOWER}${PROJECT_STABLE_VERSION_MAJOR})
 
 # TEMPORARY: for initial Qt5/KF5 build porting phase deprecation warnings are only annoying noise
 # remove once code porting phase starts, perhaps first locally in product subdirs
@@ -183,21 +185,6 @@ else()
     set(HAVE_MARBLE TRUE)
 endif()
 macro_log_feature(MARBLE_FOUND "Marble" "KDE World Globe Widget library" "https://marble.kde.org/" FALSE "${MARBLE_MIN_VERSION}" "Required by Kexi form map widget")
-
-if(WIN32)
-    set(LIB_INSTALL_DIR ${LIB_INSTALL_DIR}
-                        RUNTIME DESTINATION ${BIN_INSTALL_DIR}
-                        LIBRARY ${INSTALL_TARGETS_DEFAULT_ARGS}
-                        ARCHIVE ${INSTALL_TARGETS_DEFAULT_ARGS} )
-    set(DATA_INSTALL_DIR "$ENV{APPDATA}")
-    STRING(REGEX REPLACE "\\\\" "/" DATA_INSTALL_DIR ${DATA_INSTALL_DIR})
-    # Install own icons to CMAKE_INSTALL_FULL_ICONDIR (relative to bin/data/) on Windows.
-    # We're consistend because icons from breeze-icons.git are installed there as well.
-    set(ICONS_INSTALL_DIR ${CMAKE_INSTALL_FULL_ICONDIR})
-else()
-    # On other OSes install own icons in app's data dir
-    set(ICONS_INSTALL_DIR "${DATA_INSTALL_DIR}/${PROJECT_NAME_LOWER}/icons")
-endif()
 
 ##
 ## Test for Qt WebKitWidgets

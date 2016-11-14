@@ -27,5 +27,5 @@ target_link_libraries(
     Qt5::Gui
     )
 
-set_target_properties(kexirelationsview PROPERTIES VERSION ${GENERIC_KEXI_LIB_VERSION} SOVERSION ${GENERIC_KEXI_LIB_SOVERSION} )
+set_target_properties(kexirelationsview PROPERTIES VERSION ${GENERIC_PROJECT_LIB_VERSION} SOVERSION ${GENERIC_PROJECT_LIB_SOVERSION} )
 install(TARGETS kexirelationsview  ${INSTALL_TARGETS_DEFAULT_ARGS})

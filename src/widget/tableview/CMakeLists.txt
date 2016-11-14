@@ -41,5 +41,5 @@ target_link_libraries(
     KF5::KIOWidgets
 )
 
-set_target_properties(kexidatatable PROPERTIES VERSION ${GENERIC_KEXI_LIB_VERSION} SOVERSION ${GENERIC_KEXI_LIB_SOVERSION} )
+set_target_properties(kexidatatable PROPERTIES VERSION ${GENERIC_PROJECT_LIB_VERSION} SOVERSION ${GENERIC_PROJECT_LIB_SOVERSION} )
 install(TARGETS kexidatatable  ${INSTALL_TARGETS_DEFAULT_ARGS})

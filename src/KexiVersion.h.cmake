@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (c) 2003-2015 Kexi Team <kexi@kde.org>
+   Copyright (c) 2003-2016 Kexi Team <kexi@kde.org>
 
    Version information based on calligraversion.h,
    Copyright (c) 2003 David Faure <faure@kde.org>
@@ -27,11 +27,20 @@
 
 #include <core/kexicore_export.h>
 
-// -- WARNING: do not edit values below, instead edit KEXI_* constants in /CMakeLists.txt --
+// -- WARNING: do not edit values below, instead edit constants in SetKexiVersionInfo.cmake
 
 class QString;
 
 #define KEXI_APP_NAME "Kexi"
+
+//! @def KEXI_BASE_NAME
+//! @brief Base name for Kexi libraries, based on major stable version.
+//!        Useful to construct co-installabile file names and paths.
+#define KEXI_BASE_NAME "@PROJECT_BASE_NAME@"
+
+//! @def KEXI_BASE_NAME_LOWER
+//! @brief Like KEXI_BASE_NAME but lowercase.
+#define KEXI_BASE_NAME_LOWER "@PROJECT_BASE_NAME_LOWER@"
 
 /**
 * @def KEXI_VERSION_STRING
@@ -48,7 +57,7 @@ class QString;
 * or for a protocol (e.g. http) be careful that it is appropriate.
 * (Fictional) example: "3.0 Alpha"
 */
-#define KEXI_VERSION_STRING "@KEXI_VERSION_STRING@"
+#define KEXI_VERSION_STRING "@PROJECT_VERSION_STRING@"
 
 /**
 * @def KEXI_VERSION_MAJOR_MINOR_RELEASE
@@ -61,7 +70,7 @@ class QString;
 *
 * @note The version string never contains spaces or special characters.
 */
-#define KEXI_VERSION_MAJOR_MINOR_RELEASE "@KEXI_VERSION_MAJOR@.@KEXI_VERSION_MINOR@.@KEXI_VERSION_RELEASE@"
+#define KEXI_VERSION_MAJOR_MINOR_RELEASE "@PROJECT_VERSION_MAJOR@.@PROJECT_VERSION_MINOR@.@PROJECT_VERSION_RELEASE@"
 
 /**
  * @def KEXI_STABLE_VERSION_MAJOR
@@ -69,7 +78,7 @@ class QString;
  * @brief Major version of stable Kexi, at compile time
  * KEXI_VERSION_MAJOR is computed based on this value.
 */
-#define KEXI_STABLE_VERSION_MAJOR @KEXI_STABLE_VERSION_MAJOR@
+#define KEXI_STABLE_VERSION_MAJOR @PROJECT_STABLE_VERSION_MAJOR@
 
 /**
  * @def KEXI_VERSION_MAJOR
@@ -79,7 +88,7 @@ class QString;
  * Generally it's the same as KEXI_STABLE_VERSION_MAJOR but for unstable x.0
  * x is decreased by one, e.g. 3.0 Beta is 2.99.
 */
-#define KEXI_VERSION_MAJOR @KEXI_VERSION_MAJOR@
+#define KEXI_VERSION_MAJOR @PROJECT_VERSION_MAJOR@
 
 /**
  * @def KEXI_STABLE_VERSION_MINOR
@@ -87,7 +96,7 @@ class QString;
  * @brief Minor version of stable Kexi, at compile time
  * KEXI_VERSION_MINOR is computed based on this value.
  */
-#define KEXI_STABLE_VERSION_MINOR @KEXI_STABLE_VERSION_MINOR@
+#define KEXI_STABLE_VERSION_MINOR @PROJECT_STABLE_VERSION_MINOR@
 
 /**
  * @def KEXI_VERSION_MINOR
@@ -98,7 +107,7 @@ class QString;
  * equal to 99 for x.0 unstable releases (e.g. it's 3.0 Beta has minor version 99),
  * and equal to KEXI_STABLE_VERSION_MINOR-1 for unstable releases other than x.0.
  */
-#define KEXI_VERSION_MINOR @KEXI_VERSION_MINOR@
+#define KEXI_VERSION_MINOR @PROJECT_VERSION_MINOR@
 
 /**
  * @def KEXI_VERSION_RELEASE
@@ -106,7 +115,7 @@ class QString;
  * @brief Release version of Kexi, at compile time.
  * 89 for Alpha.
  */
-#define KEXI_VERSION_RELEASE @KEXI_VERSION_RELEASE@
+#define KEXI_VERSION_RELEASE @PROJECT_VERSION_RELEASE@
 
 /**
  * @def KEXI_STABLE_VERSION_RELEASE
@@ -115,7 +124,7 @@ class QString;
  *
  * Equal to KEXI_VERSION_RELEASE for stable releases and 0 for unstable ones.
  */
-#define KEXI_STABLE_VERSION_RELEASE @KEXI_STABLE_VERSION_RELEASE@
+#define KEXI_STABLE_VERSION_RELEASE @PROJECT_STABLE_VERSION_RELEASE@
 
 /**
  * @def KEXI_ALPHA
