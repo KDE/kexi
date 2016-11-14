@@ -84,6 +84,7 @@ else()
     Messages.sh
   )
   kexi_add_app_icons(kexi_SRCS)
+  kexi_add_app_metadata_files(kexi_SRCS)
   kexi_add_executable(kexi ${kexi_SRCS})
   target_link_libraries(kexi
     PRIVATE
