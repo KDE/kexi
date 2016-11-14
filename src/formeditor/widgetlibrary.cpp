@@ -31,6 +31,7 @@
 #include "objecttree.h"
 #include "KexiJsonTrader.h"
 #include "KexiFormWidgetsPluginMetaData.h"
+#include "KexiVersion.h"
 #include <core/kexiguimsghandler.h>
 
 #include <KActionCollection>
@@ -147,7 +148,8 @@ private:
                 continue;
             }
             // check version
-            if (metaData->majorVersion() != KFormDesigner::version()) {
+            const QString expectedVersion = KFormDesigner::version();
+            if (metaData->version() != expectedVersion) {
                 qWarning() << "Kexi Form Widgets plugin" << metaData->id() << "has version"
                            << metaData->majorVersion() << "but required version is" << KFormDesigner::version()
                            << "-- skipping!";

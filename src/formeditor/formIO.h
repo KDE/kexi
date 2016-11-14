@@ -58,12 +58,16 @@ class Form;
 class ObjectTreeItem;
 class Container;
 
-//! KFormDesigner API version number. Increased on every breaking of backward compatibility.
+//! KFormDesigner API major version number. Increased on every breaking of backward compatibility.
 //! Use KFormDesigner::version() to get real version number of the library.
-#define KFORMDESIGNER_VERSION 3
+#define KFORMDESIGNER_VERSION_MAJOR KEXI_STABLE_VERSION_MAJOR
 
-//! \return KFormDesigner API version number for this library. This information is stored
-KFORMDESIGNER_EXPORT int version();
+//! KFormDesigner API minor version number. Increased on every compatible change.
+//! Use KFormDesigner::version() to get real version number of the library.
+#define KFORMDESIGNER_VERSION_MINOR KEXI_STABLE_VERSION_MINOR
+
+//! \return KFormDesigner API version number for this library: "major.minor"
+KFORMDESIGNER_EXPORT QString version();
 
 /** This class act as a namespace for all .ui files related functions, ie saving/loading .ui files.
     You don't need to create a FormIO object, as all methods are static.\n

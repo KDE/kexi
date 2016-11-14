@@ -943,22 +943,22 @@ void Form::autoAssignTabStops()
     }
 }
 
-int Form::formatVersion() const
+QString Form::formatVersion() const
 {
     return d->formatVersion;
 }
 
-void Form::setFormatVersion(int ver)
+void Form::setFormatVersion(const QString &ver)
 {
     d->formatVersion = ver;
 }
 
-int Form::originalFormatVersion() const
+QString Form::originalFormatVersion() const
 {
     return d->originalFormatVersion;
 }
 
-void Form::setOriginalFormatVersion(int ver)
+void Form::setOriginalFormatVersion(const QString &ver)
 {
     d->originalFormatVersion = ver;
 }

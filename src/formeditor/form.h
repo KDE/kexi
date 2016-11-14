@@ -349,13 +349,13 @@ public:
 
     //! \return format version number for this form.
     //! For new forms it is equal to KFormDesigner::version().
-    int formatVersion() const;
-    void setFormatVersion(int ver);
+    QString formatVersion() const;
+    void setFormatVersion(const QString &ver);
 
     //! \return original format version number for this form (as loaded from .ui XML string)
     //! For new forms it is equal to KFormDesigner::version().
-    int originalFormatVersion() const;
-    void setOriginalFormatVersion(int ver);
+    QString originalFormatVersion() const;
+    void setOriginalFormatVersion(const QString &ver);
 
 #ifdef KFD_SIGSLOTS
     /*! Related to signal/slots connections.
