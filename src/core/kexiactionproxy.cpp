@@ -231,7 +231,7 @@ void KexiActionProxy::addActionProxyChild(KexiActionProxy* child)
 
 void KexiActionProxy::takeActionProxyChild(KexiActionProxy* child)
 {
-    qDebug() << child;
+    //qDebug() << child;
     const int index = m_sharedActionChildren.indexOf(child);
     if (index != -1)
         m_sharedActionChildren.removeAt(index);

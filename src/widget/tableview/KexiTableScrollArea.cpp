@@ -2058,7 +2058,7 @@ void KexiTableScrollArea::updateViewportMargins()
         0 // bottom
     );
     setViewportMargins(d->viewportMargins);
-    qDebug() << d->viewportMargins;
+    //qDebug() << d->viewportMargins;
 }
 
 bool KexiTableScrollArea::horizontalHeaderVisible() const
