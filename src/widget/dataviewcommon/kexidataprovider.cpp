@@ -97,12 +97,9 @@ void KexiFormDataProvider::fillDataItems(KDbRecordData *data, bool cursorAtNewRe
         if (indexForVisibleLookupValue != -1 && (int)data->count() > indexForVisibleLookupValue) {
             visibleLookupValue = data->at(indexForVisibleLookupValue);
         }
-        qDebug() << "fill data of '" << itemIface->dataSource() <<  "' at idx=" << it.value()
-            << " data=" << value
-            << (indexForVisibleLookupValue != -1
-                 ? QString(" SPECIAL: indexForVisibleLookupValue=%1 visibleValue=%2")
-                 .arg(indexForVisibleLookupValue).arg(visibleLookupValue.toString())
-                 : QString());
+        qDebug() << "fill data of" << itemIface->dataSource() <<  "at idx" << it.value()
+            << "data=" << KDbUtils::squeezedValue(value)
+            << "indexForVisibleLookupValue=" << indexForVisibleLookupValue << "visibleLookupValue=" << KDbUtils::squeezedValue(visibleLookupValue);
         const bool displayDefaultValue = cursorAtNewRecord && (value.isNull() && visibleLookupValue.isNull())
                                          && !itemIface->columnInfo()->field()->defaultValue().isNull()
                                          && !itemIface->columnInfo()->field()->isAutoIncrement(); //no value to set but there is default value defined
