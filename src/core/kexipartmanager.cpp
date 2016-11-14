@@ -43,7 +43,7 @@ using namespace KexiPart;
 
 typedef QHash<QString, KexiInternalPart*> KexiInternalPartDict;
 
-Q_GLOBAL_STATIC_WITH_ARGS(KexiJsonTrader, KexiPartTrader_instance, ("kexi"))
+Q_GLOBAL_STATIC_WITH_ARGS(KexiJsonTrader, KexiPartTrader_instance, (KEXI_BASE_NAME_LOWER))
 
 class Q_DECL_HIDDEN Manager::Private
 {

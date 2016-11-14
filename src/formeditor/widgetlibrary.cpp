@@ -43,7 +43,7 @@
 namespace KFormDesigner
 {
 
-Q_GLOBAL_STATIC_WITH_ARGS(KexiJsonTrader, KexiFormWidgetsPluginTrader_instance, ("kexi/forms/widgets"))
+Q_GLOBAL_STATIC_WITH_ARGS(KexiJsonTrader, KexiFormWidgetsPluginTrader_instance, (KEXI_BASE_NAME_LOWER "/forms/widgets"))
 
 //! @internal
 class Q_DECL_HIDDEN WidgetLibrary::Private

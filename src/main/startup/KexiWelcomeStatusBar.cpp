@@ -89,12 +89,12 @@ static QString uiPath(const QString &fname)
 
 static QString basePath()
 {
-    return QString("kexi/status/") + stableVersionStringDot0();
+    return QString(KEXI_BASE_NAME_LOWER "/status/") + stableVersionStringDot0();
 }
 
 static QString findFilename(const QString &guiFileName)
 {
-    QString result = locateFile(basePath() + '/' + guiFileName,
+    QString result = locateFile(QString(), basePath() + '/' + guiFileName,
                                 QStandardPaths::GenericDataLocation, QString());
     if (result.isEmpty()) { // last chance: file from the source tree
         result = QFileInfo(QFile::decodeName(CMAKE_CURRENT_SOURCE_DIR "/status/") + guiFileName)
