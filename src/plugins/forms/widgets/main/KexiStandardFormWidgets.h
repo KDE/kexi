@@ -34,31 +34,19 @@
 class QTreeWidgetItem;
 class QTreeWidget;
 class KPropertySet;
-class KexiStandardFormWidgetsFactory;
-
-//! A picture label widget for use within forms
-class KexiPictureLabel : public QLabel, public KFormDesigner::FormWidgetInterface
-{
-    Q_OBJECT
-
-public:
-    explicit KexiPictureLabel(const QPixmap &pix, QWidget *parent = 0);
-    virtual ~KexiPictureLabel();
-
-    virtual bool setProperty(const char *name, const QVariant &value);
-};
+class KexiMainFormWidgetsFactory;
 
 //! A line widget for use within forms
-class Line : public QFrame, public KFormDesigner::FormWidgetInterface
+class KexiLineWidget : public QFrame, public KFormDesigner::FormWidgetInterface
 {
     Q_OBJECT
     Q_PROPERTY(Qt::Orientation orientation READ orientation WRITE setOrientation)
 
 public:
-    explicit Line(Qt::Orientation orient, QWidget *parent = 0);
-    virtual ~Line();
+    explicit KexiLineWidget(Qt::Orientation o, QWidget *parent = nullptr);
+    virtual ~KexiLineWidget();
 
-    void setOrientation(Qt::Orientation orient);
+    void setOrientation(Qt::Orientation o);
     Qt::Orientation orientation() const;
 };
 
@@ -70,13 +58,13 @@ class EditRichTextAction : public QAction
 public:
     EditRichTextAction(KFormDesigner::Container *container,
                        QWidget *receiver, QObject *parent,
-                       KexiStandardFormWidgetsFactory *factory);
+                       KexiMainFormWidgetsFactory *factory);
 protected Q_SLOTS:
     void slotTriggered();
 private:
     KFormDesigner::Container *m_container;
     QWidget *m_receiver;
-    KexiStandardFormWidgetsFactory *m_factory;
+    KexiMainFormWidgetsFactory *m_factory;
 };
 
 #endif

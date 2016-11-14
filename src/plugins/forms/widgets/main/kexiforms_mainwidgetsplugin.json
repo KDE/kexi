@@ -1,0 +1,24 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "kexi@kde.org",
+                "Name": "Kexi Team"
+            }
+        ],
+        "Category": "",
+        "Dependencies": [],
+        "Description": "Kexi plugin providing database form widgets",
+        "EnabledByDefault": true,
+        "Icon": "form",
+        "Id": "org.kexi-project.form.widgets.main",
+        "License": "LGPL",
+        "Name": "Main form widgets",
+        "ServiceTypes": [
+            "Kexi/FormWidget"
+        ],
+        "Version": "3.1",
+        "Website": "http://kexi-project.org"
+    },
+    "X-Kexi-FormWidgetsFactoryGroup": ""
+}

@@ -41,10 +41,6 @@ endif()
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kexi\")
 
-set(KEXI_PLUGIN_INSTALL_DIR ${PLUGIN_INSTALL_DIR}/kexi)
-set(KEXI_FORM_WIDGETS_PLUGIN_INSTALL_DIR ${KEXI_PLUGIN_INSTALL_DIR}/forms/widgets)
-
-
 #no default: add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44010)
 
 configure_file(config-kexi.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kexi.h )

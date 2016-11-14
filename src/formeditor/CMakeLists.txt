@@ -1,9 +1,13 @@
-add_subdirectory( factories )
-
-include_directories(${CMAKE_SOURCE_DIR}/src/widget ${CMAKE_SOURCE_DIR}/src/widget/utils
-${CMAKE_SOURCE_DIR}/src/widget/tableview ${CMAKE_SOURCE_DIR}/src/core)
-
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44010)
+
+include_directories(
+    ${CMAKE_SOURCE_DIR}/src/widget
+    ${CMAKE_SOURCE_DIR}/src/widget/utils
+    ${CMAKE_SOURCE_DIR}/src/widget/tableview
+    ${CMAKE_SOURCE_DIR}/src/widget/properties
+    ${CMAKE_SOURCE_DIR}/src/core
+    ${CMAKE_SOURCE_DIR}/src/kexiutils/style
+)
 
 # enable to add signal/slot connections
 # set(KFD_SIGSLOTS true)

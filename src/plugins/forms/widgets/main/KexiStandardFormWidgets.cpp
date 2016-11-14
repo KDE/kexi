@@ -20,7 +20,7 @@
 */
 
 #include "KexiStandardFormWidgets.h"
-#include "KexiStandardFormWidgetsFactory.h"
+#include "KexiMainFormWidgetsFactory.h"
 #include <KexiIcon.h>
 
 #include <KTextEdit>
@@ -28,53 +28,29 @@
 
 #include <QStackedWidget>
 
-// Some widgets subclass to allow event filtering and some other things
-KexiPictureLabel::KexiPictureLabel(const QPixmap &pix, QWidget *parent)
-        : QLabel(parent)
-{
-    setPixmap(pix);
-    setScaledContents(false);
-}
-
-KexiPictureLabel::~KexiPictureLabel()
-{
-}
-
-bool
-KexiPictureLabel::setProperty(const char *name, const QVariant &value)
-{
-    if (0 == qstrcmp(name, "pixmap")) {
-        const QPixmap pm(value.value<QPixmap>());
-        resize(pm.height(), pm.width());
-    }
-    return QLabel::setProperty(name, value);
-}
-
-Line::Line(Qt::Orientation orient, QWidget *parent)
+KexiLineWidget::KexiLineWidget(Qt::Orientation o, QWidget *parent)
         : QFrame(parent)
 {
     setFrameShadow(Sunken);
-    if (orient == Qt::Horizontal)
+    if (o == Qt::Horizontal)
         setFrameShape(HLine);
     else
         setFrameShape(VLine);
 }
 
-Line::~Line()
+KexiLineWidget::~KexiLineWidget()
 {
 }
 
-void
-Line::setOrientation(Qt::Orientation orient)
+void KexiLineWidget::setOrientation(Qt::Orientation o)
 {
-    if (orient == Qt::Horizontal)
+    if (o == Qt::Horizontal)
         setFrameShape(HLine);
     else
         setFrameShape(VLine);
 }
 
-Qt::Orientation
-Line::orientation() const
+Qt::Orientation KexiLineWidget::orientation() const
 {
     if (frameShape() == HLine)
         return Qt::Horizontal;
@@ -86,7 +62,7 @@ Line::orientation() const
 
 EditRichTextAction::EditRichTextAction(KFormDesigner::Container *container,
                                        QWidget *receiver, QObject *parent,
-                                       KexiStandardFormWidgetsFactory *factory)
+                                       KexiMainFormWidgetsFactory *factory)
     : QAction(koIcon("document-edit"),
               xi18nc("Edit rich text for a widget", "Edit Rich Text"),
               parent)
