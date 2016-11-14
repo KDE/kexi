@@ -51,7 +51,7 @@ if(WIN32)
     STRING(REGEX REPLACE "\\\\" "/" DATA_INSTALL_DIR ${DATA_INSTALL_DIR})
     # Install own icons to CMAKE_INSTALL_FULL_ICONDIR (relative to bin/data/ on Windows) on Windows.
     # We're consistent because icons from breeze-icons.git are installed there as well.
-    set(ICONS_INSTALL_DIR ${CMAKE_INSTALL_FULL_ICONDIR})
+    set(ICONS_INSTALL_DIR "${CMAKE_INSTALL_FULL_ICONDIR}/${KEXI_BASE_PATH}")
 else()
     # On other OSes install own icons in app's data dir
     set(ICONS_INSTALL_DIR
