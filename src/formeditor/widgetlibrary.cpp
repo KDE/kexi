@@ -47,7 +47,7 @@
 namespace KFormDesigner
 {
 
-Q_GLOBAL_STATIC_WITH_ARGS(KexiJsonTrader, KexiFormWidgetsPluginTrader_instance, (KEXI_BASE_NAME_LOWER "/forms/widgets"))
+Q_GLOBAL_STATIC_WITH_ARGS(KexiJsonTrader, KexiFormWidgetsPluginTrader_instance, (KEXI_BASE_PATH "/forms/widgets"))
 
 //! @internal
 class Q_DECL_HIDDEN WidgetLibrary::Private
@@ -174,7 +174,7 @@ private:
                 continue;
             }
             if (!setupPrivateIconsResourceWithMessage(
-                QLatin1String(KEXI_BASE_NAME_LOWER),
+                QLatin1String(KEXI_BASE_PATH),
                 QString::fromLatin1("icons/%1_%2.rcc")
                     .arg(metaData->id()).arg(supportedIconTheme),
                 QtWarningMsg,

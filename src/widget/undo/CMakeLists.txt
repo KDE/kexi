@@ -7,7 +7,7 @@ set(kexiundo_LIB_SRCS
 	kundo2commandextradata.cpp
 )
 
-add_library(kexiundo SHARED ${kexiundo_LIB_SRCS})
+kexi_add_library(kexiundo SHARED ${kexiundo_LIB_SRCS})
 generate_export_header(kexiundo BASE_NAME kexiundo)
 
 target_link_libraries(kexiundo
@@ -23,9 +23,6 @@ target_link_libraries(kexiundo
         KDb # TODO remove when KexiIcon() goes out of core/
 )
 
-set_target_properties(kexiundo PROPERTIES
-    VERSION ${GENERIC_PROJECT_LIB_VERSION} SOVERSION ${GENERIC_PROJECT_LIB_SOVERSION}
-)
 install(TARGETS kexiundo ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 if(FALSE) # no need to install

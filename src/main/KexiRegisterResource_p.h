@@ -119,17 +119,17 @@ static QString locateFile(const QString &privateName,
 
 #ifndef KEXI_SKIP_REGISTERRESOURCE
 
-#ifdef KEXI_BASE_NAME_LOWER
-#define BASE_NAME KEXI_BASE_NAME_LOWER
+#ifdef KEXI_BASE_PATH
+#define BASE_PATH KEXI_BASE_PATH
 #else
-#define BASE_NAME QCoreApplication::applicationName()
+#define BASE_PATH QCoreApplication::applicationName()
 #endif
 
 static bool registerResource(const QString& path, QStandardPaths::StandardLocation location,
                              const QString &resourceRoot, const QString &extraLocation,
                              KLocalizedString *errorMessage, KLocalizedString *detailsErrorMessage)
 {
-    const QString fullPath = locateFile(BASE_NAME,
+    const QString fullPath = locateFile(BASE_PATH,
                                         path, location, extraLocation);
     if (fullPath.isEmpty()
         || !QResource::registerResource(fullPath, resourceRoot))

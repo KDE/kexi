@@ -85,7 +85,7 @@ set(keximigrate_LIB_SRCS AlterSchemaTableModel.cpp
    importoptionsdlg.cpp
    AlterSchemaWidget.cpp)
 
-add_library(keximigrate SHARED ${keximigrate_LIB_SRCS})
+kexi_add_library(keximigrate SHARED ${keximigrate_LIB_SRCS})
 
 target_link_libraries(keximigrate
     PUBLIC
@@ -100,7 +100,6 @@ target_link_libraries(keximigrate
 
 generate_export_header(keximigrate)
 
-set_target_properties(keximigrate PROPERTIES VERSION ${GENERIC_PROJECT_LIB_VERSION} SOVERSION ${GENERIC_PROJECT_LIB_SOVERSION})
 install(TARGETS keximigrate  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############

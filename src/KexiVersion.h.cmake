@@ -33,15 +33,6 @@ class QString;
 
 #define KEXI_APP_NAME "Kexi"
 
-//! @def KEXI_BASE_NAME
-//! @brief Base name for Kexi libraries, based on major stable version.
-//!        Useful to construct co-installabile file names and paths.
-#define KEXI_BASE_NAME "@PROJECT_BASE_NAME@"
-
-//! @def KEXI_BASE_NAME_LOWER
-//! @brief Like KEXI_BASE_NAME but lowercase.
-#define KEXI_BASE_NAME_LOWER "@PROJECT_BASE_NAME_LOWER@"
-
 /**
 * @def KEXI_VERSION_STRING
 * @ingroup KexiMacros
@@ -204,7 +195,7 @@ class QString;
  *
  * This macro is used in "About application" dialog for strings such as "© 2012-..., The Author Team".
 */
-#define KEXI_YEAR "@KEXI_YEAR@"
+#cmakedefine KEXI_YEAR "@KEXI_YEAR@"
 
 /**
  * @def KEXI_GIT_SHA1_STRING
@@ -219,6 +210,25 @@ class QString;
  * @brief Indicates the git branch name which was used for compilation of Calligra
  */
 #cmakedefine KEXI_GIT_BRANCH_STRING "@KEXI_GIT_BRANCH_STRING@"
+
+/**
+ * @def KEXI_DISTRIBUTION_VERSION
+ * @ingroup CalligraMacros
+ * @brief Name of Kexi version useful to construct co-installabile releases
+ * By default is it equal to KEXI_STABLE_VERSION_MAJOR.KEXI_STABLE_VERSION_MINOR.
+ * It can be changed at configure stage by setting the KEXI_CUSTOM_DISTRIBUTION_VERSION
+ * CMake variable.
+ * @see KEXI_BASE_PATH
+ */
+#cmakedefine KEXI_DISTRIBUTION_VERSION "@KEXI_DISTRIBUTION_VERSION@"
+
+/**
+ * @def KEXI_BASE_PATH
+ * @ingroup CalligraMacros
+ * @brief Relative path name useful to construct co-installabile file names and paths
+ * It is equal to "kexi/N" where N is KEXI_DISTRIBUTION_VERSION.
+ */
+#cmakedefine KEXI_BASE_PATH "@KEXI_BASE_PATH@"
 
 /**
  * Namespace for general Kexi functions.

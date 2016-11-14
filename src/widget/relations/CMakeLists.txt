@@ -10,8 +10,7 @@ set(kexirelationsview_LIB_SRCS
    KexiRelationsView.cpp
 )
 
-
-add_library(kexirelationsview SHARED ${kexirelationsview_LIB_SRCS})
+kexi_add_library(kexirelationsview SHARED ${kexirelationsview_LIB_SRCS})
 
 generate_export_header(kexirelationsview)
 
@@ -27,5 +26,4 @@ target_link_libraries(
     Qt5::Gui
     )
 
-set_target_properties(kexirelationsview PROPERTIES VERSION ${GENERIC_PROJECT_LIB_VERSION} SOVERSION ${GENERIC_PROJECT_LIB_SOVERSION} )
 install(TARGETS kexirelationsview  ${INSTALL_TARGETS_DEFAULT_ARGS})

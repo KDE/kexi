@@ -11,7 +11,7 @@ set(kexidataviewcommon_LIB_SRCS
    kexiformdataiteminterface.cpp
 )
 
-add_library(kexidataviewcommon SHARED ${kexidataviewcommon_LIB_SRCS})
+kexi_add_library(kexidataviewcommon SHARED ${kexidataviewcommon_LIB_SRCS})
 
 generate_export_header(kexidataviewcommon)
 
@@ -28,5 +28,4 @@ target_link_libraries(
     KF5::XmlGui #KActionCollection...
 )
 
-set_target_properties(kexidataviewcommon PROPERTIES VERSION ${GENERIC_PROJECT_LIB_VERSION} SOVERSION ${GENERIC_PROJECT_LIB_SOVERSION} )
 install(TARGETS kexidataviewcommon  ${INSTALL_TARGETS_DEFAULT_ARGS})

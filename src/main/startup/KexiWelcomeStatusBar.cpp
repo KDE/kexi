@@ -93,7 +93,7 @@ static QString uiPath(const QString &fname)
 
 static QString basePath()
 {
-    return QString(KEXI_BASE_NAME_LOWER "/status/") + stableVersionStringDot0();
+    return QString(KEXI_BASE_PATH "/status");
 }
 
 static QString findFilename(const QString &guiFileName)

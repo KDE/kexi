@@ -25,7 +25,6 @@ include(KexiAddIconsRccFile)
 ensure_out_of_source_build("Please refer to the build instruction https://community.kde.org/Kexi/Building")
 get_git_revision_and_branch()
 detect_release_build()
-set_coinstallable_project_base_name()
 
  #######################
 ########################
@@ -121,7 +120,7 @@ if(WIN32)
 endif()
 
 # set custom Kexi plugin installdir
-set(KEXI_PLUGIN_INSTALL_DIR ${PLUGIN_INSTALL_DIR}/${PROJECT_NAME_LOWER}${PROJECT_STABLE_VERSION_MAJOR})
+set(KEXI_PLUGIN_INSTALL_DIR ${PLUGIN_INSTALL_DIR}/${KEXI_BASE_PATH})
 
 # TEMPORARY: for initial Qt5/KF5 build porting phase deprecation warnings are only annoying noise
 # remove once code porting phase starts, perhaps first locally in product subdirs

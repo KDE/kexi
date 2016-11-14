@@ -81,7 +81,7 @@ ki18n_wrap_ui(kexiextendedwidgets_LIB_SRCS
     KexiProjectSelector.ui
 )
 
-add_library(kexiextendedwidgets SHARED ${kexiextendedwidgets_LIB_SRCS})
+kexi_add_library(kexiextendedwidgets SHARED ${kexiextendedwidgets_LIB_SRCS})
 
 generate_export_header(kexiextendedwidgets BASE_NAME kexiextwidgets)
 
@@ -102,5 +102,4 @@ target_link_libraries(kexiextendedwidgets
         KF5::TextEditor
 )
 
-set_target_properties(kexiextendedwidgets PROPERTIES VERSION ${GENERIC_PROJECT_LIB_VERSION} SOVERSION ${GENERIC_PROJECT_LIB_SOVERSION} )
 install(TARGETS kexiextendedwidgets  ${INSTALL_TARGETS_DEFAULT_ARGS})
