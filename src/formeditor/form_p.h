@@ -138,9 +138,9 @@ public:
     QHash<QByteArray, QString> headerProperties;
 
     //! Format version, set by FormIO or on creating a new form.
-    int formatVersion;
+    QString formatVersion;
     //! Format version, set by FormIO's loader or on creating a new form.
-    int originalFormatVersion;
+    QString originalFormatVersion;
 
 #ifdef KFD_SIGSLOTS
     //! true if slot connection is curently being painted

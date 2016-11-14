@@ -51,6 +51,7 @@
 #include "utils.h"
 #include "widgetwithsubpropertiesinterface.h"
 #include "formIO.h"
+#include "KexiVersion.h"
 
 //! @todo KEXI3 TODO pixmapcollection
 #ifdef KEXI_PIXMAP_COLLECTIONS_SUPPORT
@@ -93,9 +94,9 @@ using namespace KFormDesigner;
 
 // FormIO itself
 
-KFORMDESIGNER_EXPORT int KFormDesigner::version()
+KFORMDESIGNER_EXPORT QString KFormDesigner::version()
 {
-    return KFORMDESIGNER_VERSION;
+    return QString::fromLatin1("%1.%2").arg(KEXI_STABLE_VERSION_MAJOR).arg(KEXI_STABLE_VERSION_MINOR);
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -176,7 +177,7 @@ FormIO::saveFormToDom(Form *form, QDomDocument &domDoc)
     uiElement.setAttribute("stdsetdef", 1);
 
     //update format version information
-    form->headerProperties()->insert("version", QString::number(form->formatVersion()));
+    form->headerProperties()->insert("version", form->formatVersion());
     //custom properties
     QDomElement headerPropertiesEl = domDoc.createElement("kfd:customHeader");
     QHash<QByteArray, QString>::ConstIterator itEnd = form->headerProperties()->constEnd();
@@ -333,31 +334,35 @@ FormIO::loadFormFromDom(Form *form, QWidget *container, QDomDocument &inBuf)
     form->headerProperties()->clear();
     QDomElement headerPropertiesEl = ui.firstChildElement("kfd:customHeader");
     QDomAttr attr = headerPropertiesEl.firstChild().toAttr();
-    while (!attr.isNull() && attr.isAttr()) {
-        form->headerProperties()->insert(attr.name().toLatin1(), attr.value());
-        attr = attr.nextSibling().toAttr();
+    QDomNamedNodeMap attrs(headerPropertiesEl.attributes());
+    for(int i = 0; i < attrs.count(); ++i) {
+        const QDomAttr attr(attrs.item(i).toAttr());
+        if (!attr.isNull()) {
+            form->headerProperties()->insert(attr.name().toLatin1(), attr.value());
+        }
     }
     //update format version information
-    int ver = 1; //the default
-    if (form->headerProperties()->contains("version")) {
-        bool ok;
-        int v = (*form->headerProperties())["version"].toUInt(&ok);
-        if (ok)
-            ver = v;
-    }
-    //qDebug() << "original format version: " << ver;
+    const QString ver = form->headerProperties()->value("version");
+    //qDebug() << "Original format version:" << ver;
     form->setOriginalFormatVersion(ver);
-    if (ver < KFormDesigner::version()) {
-//! @todo We can either 1) convert from old format and later save in a new one or 2) keep old format.
-//!     To do this we may need to look at the original format version number.
-        qWarning() << "original format is older than current: " << KFormDesigner::version();
-        form->setFormatVersion(KFormDesigner::version());
-    } else
-        form->setFormatVersion(ver);
+    bool verOk;
+    const double verNum = ver.toDouble(&verOk);
+    const double currentVerNum = KFormDesigner::version().toDouble();
+    if (verOk) {
+        if (verNum < currentVerNum) {
+            //! @todo We can either 1) convert from old format and later save in a new one or 2) keep old format.
+            //!     To do this we may need to look at the original format version number.
+            qDebug() << "The original format version is:" << ver
+                     << "current version:" << KFormDesigner::version();
+            //return false;
+        }
+    }
+    form->setFormatVersion(ver);
 
-    if (ver > KFormDesigner::version()) {
+    if (verNum > currentVerNum) {
 //! @todo display information about too new format and that "some information will not be available".
-        qWarning() << "original format is newer than current: " << KFormDesigner::version();
+        qDebug() << "The original format is version" << ver
+                 << "is newer than current version:" << KFormDesigner::version();
     }
 
     // Load the pixmap collection
