@@ -23,6 +23,7 @@
 #define KEXI_MIGRATE_H
 
 #include "keximigratedata.h"
+#include "KexiVersion.h"
 
 #include <KDbConnection>
 #include <KDbSqlRecord>
@@ -45,8 +46,8 @@ class KexiMigratePluginMetaData;
  @note Do not use these constants to get library version information in external code.
        Use KexiMigratePluginMetaData::*version() functions instead.
 */
-#define KEXI_MIGRATION_VERSION_MAJOR 3
-#define KEXI_MIGRATION_VERSION_MINOR 0
+#define KEXI_MIGRATION_VERSION_MAJOR KEXI_STABLE_VERSION_MAJOR
+#define KEXI_MIGRATION_VERSION_MINOR KEXI_STABLE_VERSION_MINOR
 
 /*!
  * \namespace KexiMigration

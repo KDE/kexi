@@ -47,7 +47,7 @@
         "ServiceTypes": [
             "Kexi/MigrationDriver"
         ], 
-        "Version": "3.0", 
+        "Version": "3.1",
         "Website": "http://kexi-project.org"
     }, 
     "X-Kexi-FileBased": "false", 

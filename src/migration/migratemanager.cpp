@@ -92,6 +92,8 @@ bool MigrateManagerInternal::lookupDrivers()
 
     QList<QPluginLoader*> offers
             = KexiMigrateTrader_instance->query(QLatin1String("Kexi/MigrationDriver"));
+    const QString expectedVersion = QString::fromLatin1("%1.%2")
+            .arg(KexiMigration::version().major()).arg(KexiMigration::version().minor());
     for(const QPluginLoader *loader : offers) {
         QScopedPointer<KexiMigratePluginMetaData> metaData(new KexiMigratePluginMetaData(*loader));
         if (m_driversMetaData.contains(metaData->id())) {
@@ -101,18 +103,18 @@ bool MigrateManagerInternal::lookupDrivers()
             continue;
         }
 //! @todo Similar version check could be merged with KDbDriverManager
-        if (KexiMigration::version().major() != metaData->majorVersion()) {
+        if (metaData->version() != expectedVersion) {
             qWarning() << QString("Migration driver '%1' (%2) has version '%3' but "
                                   "KexiMigration library requires version '%4'\n"
                                   " -- skipping this driver!")
                           .arg(metaData->id()).arg(metaData->fileName())
-                          .arg(metaData->majorVersion())
-                          .arg(KexiMigration::version().major());
+                          .arg(metaData->version())
+                          .arg(expectedVersion);
             m_possibleProblems += QString("Migration driver \"%1\" (%2) has version \"%3\" "
                                         "but required version is \"%4\"")
                           .arg(metaData->id()).arg(metaData->fileName())
-                          .arg(metaData->majorVersion())
-                          .arg(KexiMigration::version().major());
+                          .arg(metaData->version())
+                          .arg(expectedVersion);
             continue;
         }
         foreach (const QString& mimeType, metaData->mimeTypes()) {
