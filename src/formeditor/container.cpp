@@ -744,6 +744,7 @@ Container::handleMouseReleaseEvent(QObject *s, QMouseEvent *mev)
     // cancel copying as user released Ctrl before releasing mouse button
     d->stopSelectionRectangleOrInserting();
     d->state = Private::DoingNothing;
+    d->moving.clear();
     return true; // eat
 }
 
