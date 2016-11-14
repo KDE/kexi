@@ -132,8 +132,8 @@ protected:
     KexiFormPartTempData* tempData() const;
     KexiFormPart* formPart() const;
     void setForm(KFormDesigner::Form *f);
-    void initForm();
-    void loadForm();
+    bool initForm();
+    bool loadForm();
 
     //! Used in loadForm()
     void updateAutoFieldsDataSource();
