@@ -95,7 +95,7 @@ QVariant KexiTableScrollAreaHeaderModel::headerData(int section, Qt::Orientation
                 return icon;
             }
             if (col->field() && col->field()->isPrimaryKey()) {
-                return SmallIcon(KexiIconName("database-key"));
+                return KexiSmallIcon("database-key");
             }
             break;
         }

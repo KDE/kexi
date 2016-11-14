@@ -289,7 +289,7 @@ KexiCSVImportDialog::KexiCSVImportDialog(Mode mode, QWidget * parent)
     m_minimumYearFor100YearSlidingWindow = importExportGroup.readEntry(
         "MinimumYearFor100YearSlidingWindow", MINIMUM_YEAR_FOR_100_YEAR_SLIDING_WINDOW);
 
-    m_pkIcon = SmallIcon(KexiIconName("database-key"));
+    m_pkIcon = KexiSmallIcon("database-key");
 
     if (m_mode == File) {
         createFileOpenPage();
