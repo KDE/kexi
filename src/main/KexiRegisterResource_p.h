@@ -92,7 +92,7 @@ static QString locateFile(const QString &privateName,
         }
     }
 #ifdef Q_OS_WIN
-    // This makes the app portable and working without from the build dir
+    // This makes the app portable and working without installation, from the build dir
     const QString dataDir = QFileInfo(QCoreApplication::applicationDirPath() + QStringLiteral("/data/") + path).canonicalFilePath();
     if (fileReadable(dataDir)) {
         return dataDir;
