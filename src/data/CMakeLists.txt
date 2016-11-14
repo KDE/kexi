@@ -11,5 +11,10 @@ macro(kexi_add_app_icons source_var)
     )
 endmacro()
 
-install(PROGRAMS org.kde.kexi.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
-install(FILES org.kde.kexi.appdata.xml DESTINATION ${CMAKE_INSTALL_METAINFODIR})
+configure_file(org.kde.kexi.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kexi-${KEXI_DISTRIBUTION_VERSION}.desktop)
+
+install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kexi-${KEXI_DISTRIBUTION_VERSION}.desktop
+        DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(FILES org.kde.kexi.appdata.xml
+        DESTINATION ${CMAKE_INSTALL_METAINFODIR}
+        RENAME org.kde.kexi-${KEXI_DISTRIBUTION_VERSION}.appdata.xml)
