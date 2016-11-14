@@ -32,16 +32,19 @@ else()
    # use pkg-config to get the directories and then use these values
    # in the FIND_PATH() and FIND_LIBRARY() calls
    find_package(PkgConfig)
-   pkg_check_modules(PC_MYSQL QUIET mysql)
+   pkg_check_modules(PC_MYSQL QUIET mysql mariadb)
+   if(PC_MYSQL_VERSION)
+       set(MySQL_VERSION_STRING ${PC_MYSQL_VERSION})
+   endif()
 
    find_path(MYSQL_INCLUDE_DIR mysql.h
       PATHS
       $ENV{MYSQL_INCLUDE_DIR}
       $ENV{MYSQL_DIR}/include
-      /usr/local/mysql/include
-      /opt/mysql/mysql/include
       ${PC_MYSQL_INCLUDEDIR}
       ${PC_MYSQL_INCLUDE_DIRS}
+      /usr/local/mysql/include
+      /opt/mysql/mysql/include
       PATH_SUFFIXES
       mysql
    )
@@ -123,11 +126,14 @@ endif()
 include(FindPackageHandleStandardArgs)
 
 find_package_handle_standard_args(MySQL
-                                  REQUIRED_VARS MYSQL_LIBRARIES MYSQL_INCLUDE_DIR MYSQL_LIB_DIR)
-find_package_handle_standard_args(MySQL_Embedded
+                                  REQUIRED_VARS MYSQL_LIBRARIES MYSQL_INCLUDE_DIR MYSQL_LIB_DIR
+                                  VERSION_VAR MySQL_VERSION_STRING)
+if(MYSQL_EMBEDDED_LIBRARIES AND MYSQL_EMBEDDED_LIB_DIR AND HAVE_MYSQL_OPT_EMBEDDED_CONNECTION)
+    find_package_handle_standard_args(MySQL_Embedded
                                   REQUIRED_VARS MYSQL_EMBEDDED_LIBRARIES MYSQL_INCLUDE_DIR
                                                 MYSQL_EMBEDDED_LIB_DIR
                                                 HAVE_MYSQL_OPT_EMBEDDED_CONNECTION)
+endif()
 
 mark_as_advanced(MYSQL_INCLUDE_DIR MYSQL_LIBRARIES MYSQL_LIB_DIR
                  MYSQL_EMBEDDED_LIBRARIES MYSQL_EMBEDDED_LIB_DIR HAVE_MYSQL_OPT_EMBEDDED_CONNECTION)
