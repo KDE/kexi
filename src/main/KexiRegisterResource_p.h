@@ -117,6 +117,8 @@ static QString locateFile(const QString &privateName,
     return fullPath;
 }
 
+#ifndef KEXI_SKIP_REGISTERRESOURCE
+
 #ifdef KEXI_BASE_NAME_LOWER
 #define BASE_NAME KEXI_BASE_NAME_LOWER
 #else
@@ -155,6 +157,9 @@ static bool registerResource(const QString& path, QStandardPaths::StandardLocati
     *detailsErrorMessage = KLocalizedString();
     return true;
 }
+#endif // !KEXI_SKIP_REGISTERRESOURCE
+
+#ifndef KEXI_SKIP_SETUPBREEZEICONTHEME
 
 static bool registerGlobalBreezeIconsResource(KLocalizedString *errorMessage,
                                               KLocalizedString *detailsErrorMessage)
@@ -179,7 +184,9 @@ static void setupBreezeIconTheme()
     QIcon::setThemeName(QStringLiteral("breeze"));
 #endif
 }
+#endif // !KEXI_SETUPBREEZEICONTHEME
 
+#ifndef KEXI_SKIP_REGISTERICONSRESOURCE
 /*! @brief Registers icons resource file
  * @param privateName Name to be used instead of application name for resource lookup
  * @param path Relative path to the resource file
@@ -223,8 +230,9 @@ static bool registerIconsResource(const QString &privateName, const QString& pat
     *detailedErrorMessage = QString();
     return true;
 }
+#endif // !KEXI_SKIP_SETUPBREEZEICONTHEME
 
-#ifndef QT_ONLY
+#if !defined QT_ONLY  && !defined KEXI_SKIP_SETUPPRIVATEICONSRESOURCE
 /*! @brief Sets up a private icon resource file
  * @return @c false on failure and sets error message. Does not warn or exit on failure.
  * @param privateName Name to be used instead of application name for resource lookup
@@ -338,4 +346,4 @@ static bool setupPrivateIconsResourceWithMessage(const QString &privateName, con
     return true;
 }
 
-#endif // !QT_ONLY
+#endif // !QT_ONLY && !KEXI_SKIP_SETUPPRIVATEICONSRESOURCE

@@ -33,6 +33,8 @@
 #include "KexiFormWidgetsPluginMetaData.h"
 #include "KexiVersion.h"
 #include <core/kexiguimsghandler.h>
+#define KEXI_SKIP_SETUPBREEZEICONTHEME
+#define KEXI_SKIP_REGISTERRESOURCE
 #include <main/KexiRegisterResource_p.h>
 
 #include <KActionCollection>
