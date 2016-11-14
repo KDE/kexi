@@ -26,6 +26,10 @@
 #include <kexiutils/KexiContextMessage.h>
 #include <kexiutils/KexiFadeWidgetEffect.h>
 #include "KexiUserFeedbackAgent.h"
+#define KEXI_SKIP_SETUPPRIVATEICONSRESOURCE
+#define KEXI_SKIP_SETUPBREEZEICONTHEME
+#define KEXI_SKIP_REGISTERICONSRESOURCE
+#define KEXI_SKIP_REGISTERRESOURCE
 #include "KexiRegisterResource_p.h"
 
 #include <KColorScheme>

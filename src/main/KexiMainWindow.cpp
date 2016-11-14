@@ -33,6 +33,8 @@
 #include "kexifinddialog.h"
 #include "kexisearchandreplaceiface.h"
 #include "KexiBugReportDialog.h"
+#define KEXI_SKIP_REGISTERICONSRESOURCE
+#define KEXI_SKIP_SETUPPRIVATEICONSRESOURCE
 #include "KexiRegisterResource_p.h"
 #include <kexiutils/utils.h>
 #include <kexiutils/KexiCloseButton.h>
