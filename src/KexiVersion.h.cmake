@@ -299,14 +299,4 @@ KEXICORE_EXPORT unsigned int stableVersionRelease();
 KEXICORE_EXPORT QString stableVersionString();
 }
 
-/*
- * This is the version a part has to be only increase it if the
- * interface isn't binary compatible anymore.
- *
- * Note: update X-Kexi-PartVersion values in kexi*handler.desktop
- * files every time you are increasing this value.
- */
-
-#define KEXI_PART_VERSION 3
-
 #endif

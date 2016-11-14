@@ -59,6 +59,10 @@ enum ObjectType {
     UserObjectType = 100 //!< external types
 };
 
+//! @return Kexi Part API version: "major.minor"
+//! @since 3.1
+KEXICORE_EXPORT QString version();
+
 //! @short The main class for kexi frontend parts (plugins) like tables, queries, forms and reports
 /*!
   Plugins create windows (KexiWindow) for a given type of object.

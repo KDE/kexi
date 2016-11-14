@@ -39,6 +39,12 @@
 
 namespace KexiPart
 {
+
+KEXICORE_EXPORT QString version()
+{
+    return QString::fromLatin1("%1.%2").arg(KEXI_STABLE_VERSION_MAJOR).arg(KEXI_STABLE_VERSION_MINOR);
+}
+
 //! @internal
 class Q_DECL_HIDDEN Part::Private
 {
