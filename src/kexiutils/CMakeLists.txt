@@ -39,7 +39,7 @@ else ()
   endif ()
 endif ()
 
-add_library(kexiutils SHARED ${kexiutils_LIB_SRCS})
+kexi_add_library(kexiutils SHARED ${kexiutils_LIB_SRCS})
 
 set(kexiutils_INCLUDE_DIRS
     ${CMAKE_CURRENT_SOURCE_DIR}
@@ -62,10 +62,6 @@ target_link_libraries(kexiutils
 #target_link_libraries(kexiutils LINK_INTERFACE_LIBRARIES KF5::KIOWidgets)
 
 generate_export_header(kexiutils)
-
-set_target_properties(kexiutils PROPERTIES
-    VERSION ${GENERIC_PROJECT_LIB_VERSION} SOVERSION ${GENERIC_PROJECT_LIB_SOVERSION}
-)
 
 install(TARGETS kexiutils  ${INSTALL_TARGETS_DEFAULT_ARGS})
 

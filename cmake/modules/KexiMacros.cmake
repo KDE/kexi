@@ -55,7 +55,7 @@ if(WIN32)
 else()
     # On other OSes install own icons in app's data dir
     set(ICONS_INSTALL_DIR
-        "${DATA_INSTALL_DIR}/${PROJECT_NAME_LOWER}${PROJECT_STABLE_VERSION_MAJOR}/icons")
+        "${DATA_INSTALL_DIR}/${KEXI_BASE_PATH}/icons")
 endif()
 
 # Adds a feature info using add_feature_info() with _NAME and _DESCRIPTION.
@@ -149,13 +149,13 @@ macro(add_unfinished_features_option)
                 "Include unfinished features (useful for testing but may confuse end-user)" OFF)
 endmacro()
 
-# Adds commands that generate ${_filename}${PROJECT_STABLE_VERSION_MAJOR}.pc file
+# Adds commands that generate ${_filename}${KEXI_DISTRIBUTION_VERSION}.pc file
 # out of ${_filename}.pc.cmake file and installs the .pc file to ${LIB_INSTALL_DIR}/pkgconfig.
 # These commands are not executed for WIN32.
 # ${CMAKE_SOURCE_DIR}/${_filename}.pc.cmake should exist.
 macro(add_pc_file _filename)
   if (NOT WIN32)
-    set(_name ${_filename}${PROJECT_STABLE_VERSION_MAJOR})
+    set(_name ${_filename}${KEXI_DISTRIBUTION_VERSION})
     configure_file(${CMAKE_SOURCE_DIR}/${_filename}.pc.cmake ${CMAKE_BINARY_DIR}/${_name}.pc @ONLY)
     install(FILES ${CMAKE_BINARY_DIR}/${_name}.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
   endif()
@@ -164,14 +164,16 @@ endmacro()
 # Sets detailed version information for library co-installability.
 # - adds PROJECT_VERSION_MAJOR to the lib name
 # - sets VERSION and SOVERSION to PROJECT_VERSION_MAJOR.PROJECT_VERSION_MINOR
+# - sets OUTPUT_NAME to ${_target}${KEXI_DISTRIBUTION_VERSION}
 # - sets ${_target_upper}_BASE_NAME variable to the final lib name
 # - sets ${_target_upper}_BASE_NAME_LOWER variable to the final lib name, lowercase
 # - sets ${_target_upper}_INCLUDE_INSTALL_DIR to include dir for library headers
 # - (where _target_upper is uppercase ${_target}
 macro(set_coinstallable_lib_version _target)
-    set(_name ${_target}${PROJECT_STABLE_VERSION_MAJOR})
+    set(_name ${_target}${KEXI_DISTRIBUTION_VERSION})
+    #message(FATAL_ERROR ${PROJECT_VERSION_MAJOR})
     set_target_properties(${_target}
-        PROPERTIES VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+        PROPERTIES VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_RELEASE}
                    SOVERSION ${PROJECT_VERSION_MAJOR}
                    EXPORT_NAME ${_target}
                    OUTPUT_NAME ${_name}
@@ -185,12 +187,30 @@ macro(set_coinstallable_lib_version _target)
     unset(_var)
 endmacro()
 
-# Sets detailed base name for project's co-installability.
-# - PROJECT_BASE_NAME == "${PROJECT_NAME}${PROJECT_STABLE_VERSION_MAJOR}"
-# - PROJECT_BASE_NAME_LOWER == "${PROJECT_NAME_LOWER}${PROJECT_STABLE_VERSION_MAJOR}"
-macro(set_coinstallable_project_base_name)
-    set(PROJECT_BASE_NAME ${PROJECT_NAME}${PROJECT_STABLE_VERSION_MAJOR})
-    string(TOLOWER ${PROJECT_BASE_NAME} PROJECT_BASE_NAME_LOWER)
+# Combines add_library() with set_coinstallable_lib_version()
+macro(kexi_add_library)
+    set(args ${ARGV})
+    list(GET args 0 _target)
+    add_library(${args})
+    set_coinstallable_lib_version(${_target})
+    unset(_target)
+endmacro()
+
+# Sets detailed version information for executable co-installability.
+# - sets OUTPUT_NAME to ${_target}-${KEXI_DISTRIBUTION_VERSION}
+macro(set_coinstallable_executable_version _target)
+    set_target_properties(${_target}
+        PROPERTIES OUTPUT_NAME ${_target}-${KEXI_DISTRIBUTION_VERSION}
+    )
+endmacro()
+
+# Combines add_executable() with set_coinstallable_executable_version()
+macro(kexi_add_executable)
+    set(args ${ARGV})
+    list(GET args 0 _target)
+    add_executable(${args})
+    set_coinstallable_executable_version(${_target})
+    unset(_target)
 endmacro()
 
 # Adds custom target that updates given file in the current working dir using specified

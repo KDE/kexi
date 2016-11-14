@@ -18,7 +18,7 @@ else ()
     )
 endif ()
 
-add_library(kexiguiutils SHARED ${kexiguiutils_LIB_SRCS})
+kexi_add_library(kexiguiutils SHARED ${kexiguiutils_LIB_SRCS})
 
 generate_export_header(kexiguiutils)
 
@@ -30,5 +30,4 @@ target_link_libraries(kexiguiutils
     KF5::XmlGui #KActionCollection...
 )
 
-set_target_properties(kexiguiutils PROPERTIES VERSION ${GENERIC_PROJECT_LIB_VERSION} SOVERSION ${GENERIC_PROJECT_LIB_SOVERSION} )
 install(TARGETS kexiguiutils  ${INSTALL_TARGETS_DEFAULT_ARGS})

@@ -45,7 +45,7 @@
 using namespace KexiMigration;
 
 Q_GLOBAL_STATIC(MigrateManagerInternal, s_self)
-Q_GLOBAL_STATIC_WITH_ARGS(KexiJsonTrader, KexiMigrateTrader_instance, (KEXI_BASE_NAME_LOWER "/migrate"))
+Q_GLOBAL_STATIC_WITH_ARGS(KexiJsonTrader, KexiMigrateTrader_instance, (KEXI_BASE_PATH "/migrate"))
 
 
 MigrateManagerInternal::MigrateManagerInternal()

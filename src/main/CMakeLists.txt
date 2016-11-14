@@ -41,7 +41,7 @@ ki18n_wrap_ui(keximain_LIB_SRCS
     startup/KexiMainImportExportPage.ui
 )
 
-add_library(keximain SHARED ${keximain_LIB_SRCS})
+kexi_add_library(keximain SHARED ${keximain_LIB_SRCS})
 
 generate_export_header(keximain)
 
@@ -65,7 +65,6 @@ if(HAVE_KCRASH)
 endif()
 
 target_compile_definitions(keximain PRIVATE CMAKE_CURRENT_SOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
-set_target_properties(keximain PROPERTIES VERSION ${GENERIC_PROJECT_LIB_VERSION} SOVERSION ${GENERIC_PROJECT_LIB_SOVERSION} )
 install(TARGETS keximain  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 add_subdirectory(status)

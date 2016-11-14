@@ -42,7 +42,7 @@ set(kexicore_LIB_SRCS
    KexiGroupButton.cpp #TODO belongs to widget/?
 )
 
-add_library(kexicore SHARED ${kexicore_LIB_SRCS})
+kexi_add_library(kexicore SHARED ${kexicore_LIB_SRCS})
 
 generate_export_header(kexicore)
 
@@ -66,8 +66,5 @@ if(WIN32)
     target_link_libraries(kexicore PUBLIC ${KDEWIN_LIBRARIES})
 endif()
 
-set_target_properties(kexicore PROPERTIES
-    VERSION ${GENERIC_PROJECT_LIB_VERSION} SOVERSION ${GENERIC_PROJECT_LIB_SOVERSION}
-)
 install(TARGETS kexicore  ${INSTALL_TARGETS_DEFAULT_ARGS})
 #install(FILES kexihandler.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR})

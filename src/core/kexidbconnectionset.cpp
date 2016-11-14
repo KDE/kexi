@@ -178,7 +178,7 @@ void KexiDBConnectionSet::load()
 {
     clear();
     const QStringList dirs(QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
-                                                     // not KEXI_BASE_NAME_LOWER because this version-independent path in user dir
+                                                     // not KEXI_BASE_PATH because this version-independent path in user dir
                                                      "kexi/connections",
                                                      QStandardPaths::LocateDirectory));
     QSet<QString> foundDirs;

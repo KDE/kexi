@@ -53,11 +53,10 @@ if(KFD_SIGSLOTS)
   list(APPEND kformdesigner_LIBS kexiextendedwidgets kexidatatable)
 endif()
 
-add_library(kformdesigner SHARED ${kformdesigner_LIB_SRCS})
+kexi_add_library(kformdesigner SHARED ${kformdesigner_LIB_SRCS})
 
 generate_export_header(kformdesigner)
 
 target_link_libraries(kformdesigner ${kformdesigner_LIBS})
 
-set_target_properties(kformdesigner PROPERTIES VERSION ${GENERIC_PROJECT_LIB_VERSION} SOVERSION ${GENERIC_PROJECT_LIB_SOVERSION} )
 install(TARGETS kformdesigner  ${INSTALL_TARGETS_DEFAULT_ARGS})

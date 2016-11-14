@@ -16,7 +16,7 @@ set(KexiMobile_SRCS main.cpp
 
 qt4_automoc(${KexiMobile_SRCS})
 
-add_executable(keximobile ${KexiMobile_SRCS})
+kexi_add_executable(keximobile ${KexiMobile_SRCS})
 
 target_link_libraries(keximobile Qt5::Core Qt5::Gui
     kexiextendedwidgets

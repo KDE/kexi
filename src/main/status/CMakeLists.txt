@@ -1,5 +1,5 @@
 set(status_qrc "${CMAKE_CURRENT_SOURCE_DIR}/status.qrc")
-set(status_prefix "${PROJECT_BASE_NAME_LOWER}/status/${PROJECT_STABLE_VERSION_MAJOR}.${PROJECT_STABLE_VERSION_MINOR}.0")
+set(status_prefix "${KEXI_BASE_PATH}/status")
 set(status_rcc_dir "${CMAKE_BINARY_DIR}/bin/data/${status_prefix}")
 set(status_rcc "${status_rcc_dir}/status.rcc")
 

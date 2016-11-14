@@ -54,7 +54,7 @@ set(kexiformutils_LIB_SRCS
     #obsolete    widgets/kexidbdoublespinbox.cpp
     #obsolete    widgets/kexidbintspinbox.cpp
 
-add_library(kexiformutils SHARED ${kexiformutils_LIB_SRCS})
+kexi_add_library(kexiformutils SHARED ${kexiformutils_LIB_SRCS})
 
 generate_export_header(kexiformutils)
 
@@ -82,8 +82,6 @@ target_include_directories(kexiformutils
     PUBLIC "$<BUILD_INTERFACE:${kexiformutils_INCLUDE_DIRS}>"
 )
 
-set_target_properties(kexiformutils PROPERTIES VERSION ${GENERIC_PROJECT_LIB_VERSION}
-                      SOVERSION ${GENERIC_PROJECT_LIB_SOVERSION})
 install(TARGETS kexiformutils  ${INSTALL_TARGETS_DEFAULT_ARGS})
 
 add_subdirectory(widgets)
