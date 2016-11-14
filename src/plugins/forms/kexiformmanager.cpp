@@ -18,8 +18,10 @@
 */
 
 #include "kexiformmanager.h"
-#include "widgets/kexidbform.h"
-#include "widgets/kexidbautofield.h"
+#include "kexidbform.h"
+#ifdef KEXI_AUTOFIELD_FORM_WIDGET_SUPPORT
+#include "kexidbautofield.h"
+#endif
 #include "kexiformscrollview.h"
 #include "kexiformview.h"
 #include "kexidatasourcepage.h"
@@ -232,7 +234,7 @@ void KexiFormManager::createActions(KActionCollection* collection)
             << "library_widget_KexiFrame"
             << "library_widget_QGroupBox"
             << "library_widget_KFDTabWidget"
-            << "library_widget_Line"
+            << "library_widget_KexiLineWidget"
             << QString() //sep
 #ifdef HAVE_QTWEBKITWIDGETS
             << "library_widget_WebBrowserWidget"

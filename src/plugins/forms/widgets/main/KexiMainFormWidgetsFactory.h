@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2004 Cedric Pasteur <cedric.pasteur@free.fr>
-   Copyright (C) 2004-2006 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -18,8 +18,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXIDBFACTORY_H
-#define KEXIDBFACTORY_H
+#ifndef KEXIMAINFORMWIDGETSFACTORY_H
+#define KEXIMAINFORMWIDGETSFACTORY_H
 
 #include "kexidbfactorybase.h"
 
@@ -27,13 +27,13 @@ class QAction;
 
 //! Kexi Factory for data-aware widgets
 //! @todo merge with KexiStandardFormWidgetsFactory
-class KexiDBFactory : public KexiDBFactoryBase
+class KexiMainFormWidgetsFactory : public KexiDBFactoryBase
 {
     Q_OBJECT
 
 public:
-    KexiDBFactory(QObject *parent, const QVariantList &);
-    virtual ~KexiDBFactory();
+    KexiMainFormWidgetsFactory(QObject *parent, const QVariantList &);
+    virtual ~KexiMainFormWidgetsFactory();
 
     virtual QWidget *createWidget(const QByteArray &classname, QWidget *parent, const char *name,
                                   KFormDesigner::Container *container,
@@ -46,10 +46,32 @@ public:
     virtual bool previewWidget(const QByteArray &, QWidget *, KFormDesigner::Container *);
     virtual bool clearWidgetContent(const QByteArray &classname, QWidget *w);
 
+    //! Moved into public for EditRichTextAction
+    bool editRichText(QWidget *w, QString &text) const
+    {
+        return KexiDBFactoryBase::editRichText(w, text);
+    }
+
+    //! Moved into public for EditRichTextAction
+    void changeProperty(KFormDesigner::Form *form, QWidget *widget, const char *name,
+        const QVariant &value)
+    {
+        KexiDBFactoryBase::changeProperty(form, widget, name, value);
+    }
+
+    bool readSpecialProperty(const QByteArray &classname, QDomElement &node,
+                             QWidget *w, KFormDesigner::ObjectTreeItem *item)  override;
+    bool saveSpecialProperty(const QByteArray &classname, const QString &name,
+                             const QVariant &value, QWidget *w,
+                             QDomElement &parentNode, QDomDocument &parent) override;
+    void setPropertyOptions(KPropertySet& set, const KFormDesigner::WidgetInfo& info, QWidget *w) override;
+
 protected Q_SLOTS:
     void slotImageBoxIdChanged(long id); /*KexiBLOBBuffer::Id_t*/
+    void reorderTabs(int oldpos, int newpos);
 
 protected:
+    KFormDesigner::ObjectTreeItem* selectableItem(KFormDesigner::ObjectTreeItem* item);
     virtual bool changeInlineText(KFormDesigner::Form *form, QWidget *widget,
         const QString &text, QString &oldText);
     virtual void resizeEditor(QWidget *editor, QWidget *widget, const QByteArray &classname);

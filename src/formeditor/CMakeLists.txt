@@ -1,5 +1,3 @@
-add_subdirectory( factories )
-
 include_directories(${CMAKE_SOURCE_DIR}/src/widget ${CMAKE_SOURCE_DIR}/src/widget/utils
 ${CMAKE_SOURCE_DIR}/src/widget/tableview ${CMAKE_SOURCE_DIR}/src/core)
 

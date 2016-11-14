@@ -39,7 +39,7 @@ WebBrowserFactory::WebBrowserFactory(QObject* parent, const QVariantList& args)
 {
     Q_UNUSED(args);
     KexiDataAwareWidgetInfo* webBrowser = new KexiDataAwareWidgetInfo(this);
-    webBrowser->setIconName(koIconName("web_browser"));
+    webBrowser->setIconName(KexiIconName("kexiform-web-browser"));
     webBrowser->setClassName("WebBrowserWidget");
     webBrowser->setName(xi18n("Web Browser"));
     webBrowser->setNamePrefix(

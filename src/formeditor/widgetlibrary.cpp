@@ -33,6 +33,7 @@
 #include "KexiFormWidgetsPluginMetaData.h"
 #include "KexiVersion.h"
 #include <core/kexiguimsghandler.h>
+#include <main/KexiRegisterResource_p.h>
 
 #include <KActionCollection>
 #include <KLocalizedString>
@@ -138,7 +139,7 @@ private:
         q->clearResult();
 
         QStringList serviceTypes;
-        serviceTypes << "Kexi/FormWidgets";
+        serviceTypes << "Kexi/FormWidget";
         QList<QPluginLoader*> offers = KexiFormWidgetsPluginTrader_instance->query(serviceTypes);
         foreach(const QPluginLoader *loader, offers) {
             QScopedPointer<KexiFormWidgetsPluginMetaData> metaData(new KexiFormWidgetsPluginMetaData(*loader));
@@ -168,6 +169,15 @@ private:
                          << "for Form Widgets plugin"
                          << metaData->id() << metaData->fileName()
                          << "is not supported -- skipping!";
+                continue;
+            }
+            if (!setupPrivateIconsResourceWithMessage(
+                QLatin1String(KEXI_BASE_NAME_LOWER),
+                QString::fromLatin1("icons/%1_%2.rcc")
+                    .arg(metaData->id()).arg(supportedIconTheme),
+                QtWarningMsg,
+                QString::fromLatin1(":/icons/%1").arg(metaData->id())))
+            {
                 continue;
             }
 
