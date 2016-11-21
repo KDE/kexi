@@ -227,6 +227,7 @@ QUrl KexiReportView::getExportUrl(const QString &mimetype, const QString &captio
 {
     QString defaultSavePath;
     QString recentDirClass;
+    //TODO use utils
     defaultSavePath = KFileWidget::getStartUrl(QUrl(lastExportPath), recentDirClass).toLocalFile()
         + '/' + window()->partItem()->captionOrName() + '.' + extension;
 
