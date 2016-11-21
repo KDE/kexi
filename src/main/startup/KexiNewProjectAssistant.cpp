@@ -336,7 +336,7 @@ KexiProjectConnectionSelectionPage::KexiProjectConnectionSelectionPage(QWidget* 
             "kfiledialog:///OpenExistingOrCreateNewProject",
             KFileWidget::Saving);
         lyr->addWidget(connSelector);
-        connSelector->showAdvancedConn();
+        connSelector->showAdvancedConnection();
         connect(connSelector, SIGNAL(connectionItemExecuted(ConnectionDataLVItem*)),
                 this, SLOT(next()));
         connSelector->layout()->setContentsMargins(0, 0, 0, 0);

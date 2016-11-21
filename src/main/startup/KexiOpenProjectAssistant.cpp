@@ -61,7 +61,7 @@ KexiMainOpenProjectPage::KexiMainOpenProjectPage(QWidget* parent)
         "kfiledialog:///OpenExistingOrCreateNewProject",
         KFileWidget::Opening);
     fileSelector->hide(); // delayed opening
-    fileSelector->showSimpleConn();
+    fileSelector->showSimpleConnection();
     fileSelector->layout()->setContentsMargins(0, 0, 0, 0);
     fileSelector->hideHelpers();
     fileSelector->hideDescription();
@@ -117,7 +117,7 @@ void KexiMainOpenProjectPage::tabChanged(int index)
                     KFileWidget::Opening);
                 connSelectorLayout->addWidget(connSelector);
 
-                connSelector->showAdvancedConn();
+                connSelector->showAdvancedConnection();
                 connSelector->layout()->setContentsMargins(0, 0, 0, 0);
                 connSelector->hideHelpers();
                 connSelector->hideDescription();

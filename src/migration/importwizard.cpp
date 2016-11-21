@@ -161,7 +161,7 @@ ImportWizard::ImportWizard(QWidget *parent, QMap<QString, QString>* args)
 
     if (d->predefinedConnectionData) {
         // setup wizard for predefined server source
-        d->srcConn->showAdvancedConn();
+        d->srcConn->showAdvancedConnection();
         setAppropriate(d->srcConnPageItem, false);
         setAppropriate(d->srcDBPageItem, false);
     } else if (!d->predefinedDatabaseName.isEmpty()) {
@@ -169,7 +169,7 @@ ImportWizard::ImportWizard(QWidget *parent, QMap<QString, QString>* args)
         // (used when external project type was opened in Kexi, e.g. mdb file)
         setAppropriate(d->srcConnPageItem, false);
         setAppropriate(d->srcDBPageItem, false);
-        d->srcConn->showSimpleConn();
+        d->srcConn->showSimpleConnection();
         d->srcConn->setSelectedFileName(d->predefinedDatabaseName);
 
         #if 0
@@ -287,7 +287,7 @@ void ImportWizard::setupSrcConn()
                                                  KFileWidget::Opening, d->srcConnPageWidget);
 
     d->srcConn->hideConnectonIcon();
-    d->srcConn->showSimpleConn();
+    d->srcConn->showSimpleConnection();
 
     QSet<QString> excludedFilters;
 //! @todo remove when support for kexi files as source prj is added in migration
@@ -397,7 +397,7 @@ void ImportWizard::setupDst()
     connect(d->dstConn, SIGNAL(connectionItemExecuted(ConnectionDataLVItem*)),
             this, SLOT(next()));
 
-    d->dstConn->showSimpleConn();
+    d->dstConn->showSimpleConnection();
     //anyway, db files will be _saved_
     d->dstConn->fileWidget->setMode(KexiFileWidget::SavingFileBasedDB);
     d->dstPageItem = new KPageWidgetItem(d->dstPageWidget, xi18n("Select Location for Destination Database Project"));
@@ -616,7 +616,7 @@ void ImportWizard::arriveDstPage()
         return;
     }
     else {
-        d->dstConn->showAdvancedConn();
+        d->dstConn->showAdvancedConnection();
     }
     d->dstPageWidget->show();
 }

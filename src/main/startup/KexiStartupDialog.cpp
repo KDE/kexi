@@ -372,10 +372,10 @@ void KexiStartupDialog::setupPageOpenExisting()
     lyr->addWidget(d->openExistingConnWidget);
     KConfigGroup group = KSharedConfig::openConfig()->group("Startup");
     if (group.readEntry("OpenExistingType", "File") == "File")
-        d->openExistingConnWidget->showSimpleConn();
+        d->openExistingConnWidget->showSimpleConnection();
     else {
-        d->openExistingConnWidget->showSimpleConn();
-        d->openExistingConnWidget->showAdvancedConn();
+        d->openExistingConnWidget->showSimpleConnection();
+        d->openExistingConnWidget->showAdvancedConnection();
     }
     d->openExistingFileWidget = d->openExistingConnWidget->fileWidget;
     connect(d->openExistingFileWidget, SIGNAL(accepted()), this, SLOT(accept()));
@@ -408,13 +408,13 @@ void KexiStartupDialog::slotOk()
 void KexiStartupDialog::showSimpleConnForOpenExisting()
 {
 // qDebug() << "simple";
-    d->openExistingConnWidget->showSimpleConn();
+    d->openExistingConnWidget->showSimpleConnection();
 }
 
 void KexiStartupDialog::showAdvancedConnForOpenExisting()
 {
 // qDebug() << "adv";
-    d->openExistingConnWidget->showAdvancedConn();
+    d->openExistingConnWidget->showAdvancedConnection();
 }
 
 QString KexiStartupDialog::selectedFileName() const

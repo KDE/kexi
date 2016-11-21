@@ -179,7 +179,7 @@ void ImportTableWizard::setupSrcConn()
                                            KFileWidget::Opening, m_srcConnPageWidget);
 
     m_srcConnSel->hideConnectonIcon();
-    m_srcConnSel->showSimpleConn();
+    m_srcConnSel->showSimpleConnection();
 
     QSet<QString> excludedFilters;
     //! @todo remove when support for kexi files as source prj is added in migration

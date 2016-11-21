@@ -121,8 +121,8 @@ Q_SIGNALS:
     void connectionSelected(bool hasSelected);
 
 public Q_SLOTS:
-    void showSimpleConn();
-    void showAdvancedConn();
+    void showSimpleConnection();
+    void showAdvancedConnection();
     virtual void setFocus();
 
     /*! Hides helpers on the server based connection page

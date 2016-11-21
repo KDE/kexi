@@ -194,7 +194,7 @@ KexiConnectionSelectorWidget::~KexiConnectionSelectorWidget()
     delete d;
 }
 
-void KexiConnectionSelectorWidget::showAdvancedConn()
+void KexiConnectionSelectorWidget::showAdvancedConnection()
 {
     d->prjTypeSelector->option_server->setChecked(true);
     slotPrjTypeSelected(d->prjTypeSelector->option_server);
@@ -203,7 +203,7 @@ void KexiConnectionSelectorWidget::showAdvancedConn()
 void KexiConnectionSelectorWidget::slotPrjTypeSelected(QAbstractButton *btn)
 {
     if (btn == d->prjTypeSelector->option_file) { //file-based prj type
-        showSimpleConn();
+        showSimpleConnection();
     } else if (btn == d->prjTypeSelector->option_server) { //server-based prj type
         if (KDbDriverManager().hasDatabaseServerDrivers()) {
             if (!d->conn_sel_shown) {
@@ -253,7 +253,7 @@ ConnectionDataLVItem* KexiConnectionSelectorWidget::addConnectionData(KDbConnect
                 new ConnectionDataLVItem(data, *driverMetaData, d->remote->list) : 0;
 }
 
-void KexiConnectionSelectorWidget::showSimpleConn()
+void KexiConnectionSelectorWidget::showSimpleConnection()
 {
     d->prjTypeSelector->option_file->setChecked(true);
     if (!d->file_sel_shown) {
