@@ -998,7 +998,7 @@ void ImportWizard::next()
     } else if (currentPage() == d->dstTitlePageItem) {
         if (fileBasedDstSelected()) {
             if (QFileInfo::exists(d->dstNewDBNameUrl->url().toLocalFile())) {
-                if (!KexiFileWidget::askForOverwriting(d->dstNewDBNameUrl->url().toLocalFile(), this)) {
+                if (!KexiUtils::askForFileOverwriting(d->dstNewDBNameUrl->url().toLocalFile(), this)) {
                     return;
                 }
             }

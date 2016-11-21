@@ -1506,7 +1506,7 @@ tristate KexiMainWindow::createProjectFromTemplate(const KexiProjectData& projec
         if (fname.isEmpty()) {
             return cancelled;
         }
-        if (KexiFileWidget::askForOverwriting(fname, this)) {
+        if (KexiUtils::askForFileOverwriting(fname, this)) {
             break;
         }
     }
