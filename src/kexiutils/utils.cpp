@@ -910,12 +910,20 @@ GraphicEffects KexiUtils::graphicEffectsLevel()
 
 bool KexiUtils::activateItemsOnSingleClick(QWidget *widget)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
+    const KConfigGroup mainWindowGroup = KSharedConfig::openConfig()->group("MainWindow");
+#ifdef Q_OS_WIN
+    return mainWindowGroup.readEntry("SingleClickOpensItem", true);
+#else
+    if (mainWindowGroup.hasKey("SingleClickOpensItem")) {
+        return mainWindowGroup.readEntry("SingleClickOpensItem", true);
+    }
+# if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
     Q_UNUSED(widget)
     return QApplication::styleHints()->singleClickActivation();
-#else
+# else
     QStyle *style = widget ? widget->style() : QApplication::style();
     return style->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick, 0, widget);
+# endif
 #endif
 }
 

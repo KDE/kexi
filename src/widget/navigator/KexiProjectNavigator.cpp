@@ -46,9 +46,7 @@
 #include <KConfig>
 #include <KActionCollection>
 #include <KActionMenu>
-#include <KSharedConfig>
 #include <KLocalizedString>
-#include <KConfigGroup>
 
 #include <QLabel>
 #include <QMenu>
@@ -67,7 +65,6 @@ public:
       , q(qq)
       , emptyStateLabel(0)
       , prevSelectedPartInfo(0)
-      , singleClick(false)
       , readOnly(false)
     {
     }
@@ -107,7 +104,6 @@ public:
 
     KexiPart::Info *prevSelectedPartInfo;
 
-    bool singleClick;
     bool readOnly;
     KexiProjectModel *model;
     QString itemsPluginId;
@@ -148,16 +144,13 @@ KexiProjectNavigator::KexiProjectNavigator(QWidget* parent, Features features)
     d->lyr->addWidget(d->list);
 
     //! @todo KEXI3 port from KGlobalSettings::Private::_k_slotNotifyChange:
-    //!             connect(KGlobalSettings::self(), SIGNAL(settingsChanged(int)), SLOT(slotSettingsChanged(int)));
-    slotSettingsChanged(0);
+    //             connect(KGlobalSettings::self(), SIGNAL(settingsChanged(int)), SLOT(slotSettingsChanged(int)));
+    // slotSettingsChanged(0);
 
     connect(d->list->selectionModel(), &QItemSelectionModel::currentChanged,
             this, &KexiProjectNavigator::slotSelectionChanged);
 
-    KConfigGroup mainWindowGroup = KSharedConfig::openConfig()->group("MainWindow");
-    bool singleClickOpensItems = (d->features & AllowSingleClickForOpeningItems)
-            && mainWindowGroup.readEntry("SingleClickOpensItem", true);
-    if (singleClickOpensItems) {
+    if ((d->features & AllowSingleClickForOpeningItems) && KexiUtils::activateItemsOnSingleClick(d->list)) {
         connect(d->list, SIGNAL(clicked(QModelIndex)), this, SLOT(slotExecuteItem(QModelIndex)));
     } else {
         connect(d->list, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(slotExecuteItem(QModelIndex)));
@@ -332,13 +325,6 @@ void KexiProjectNavigator::slotExecuteItem(const QModelIndex& vitem)
         qWarning() << "No internal pointer";
         return;
     }
-//! @todo is this needed?
-//    if (!it->partItem() && !d->singleClick /*annoying when in single click mode*/) {
-//        vitem.
-//        d->list->setOpen(vitem, !vitem->isOpen());
-//        return;
-//    }
-
     if (it->partInfo()->isExecuteSupported())
         emit executeItem(it->partItem());
     else
@@ -527,11 +513,6 @@ void KexiProjectNavigator::updateItemName(KexiPart::Item& item, bool dirty)
         return;
 
     d->model->updateItemName(item, dirty);
-}
-
-void KexiProjectNavigator::slotSettingsChanged(int)
-{
-    d->singleClick = KexiUtils::activateItemsOnSingleClick(this);
 }
 
 void KexiProjectNavigator::selectItem(KexiPart::Item& item)
