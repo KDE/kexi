@@ -243,6 +243,12 @@ KEXIUTILS_EXPORT QUrl getOpenImageUrl(QWidget *parent = 0, const QString &captio
 KEXIUTILS_EXPORT QUrl getSaveImageUrl(QWidget *parent = 0, const QString &caption = QString(),
                                       const QUrl &directory = QUrl());
 
+/*! Displays a "The file %1 already exists. Do you want to overwrite it?" Yes/No message box.
+ @a parent is used as a parent of the message box.
+ @return @c true if @a filePath file does not exist or user has agreed to overwrite it;
+         returns @c false if user does not agree to overwrite it. */
+KEXIUTILS_EXPORT bool askForFileOverwriting(const QString& filePath, QWidget *parent = nullptr);
+
 /*! A global setting for minimal readable font.
  This can be used in dockers, rulers and other places where space is at a premium.
  @see QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont).

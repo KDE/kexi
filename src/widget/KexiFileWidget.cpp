@@ -369,27 +369,10 @@ bool KexiFileWidget::checkSelectedFile()
                 return false;
             }
         }
-    } else if (d->confirmOverwrites && !askForOverwriting(d->highlightedUrl.path(), this)) {
+    } else if (d->confirmOverwrites && !KexiUtils::askForFileOverwriting(d->highlightedUrl.path(), this)) {
         return false;
     }
     return true;
-}
-
-//static
-bool KexiFileWidget::askForOverwriting(const QString& filePath, QWidget *parent)
-{
-    QFileInfo fi(filePath);
-    if (!fi.exists())
-        return true;
-    const KMessageBox::ButtonCode res = KMessageBox::warningYesNo(parent,
-                    xi18nc("@info", "<para>The file <filename>%1<filename> already exists.</para>"
-                           "<para>Do you want to overwrite it?</para>",
-                           QDir::toNativeSeparators(filePath)),
-                    QString(),
-                    KStandardGuiItem::overwrite(), KStandardGuiItem::no());
-    if (res == KMessageBox::Yes)
-        return true;
-    return false;
 }
 
 void KexiFileWidget::accept()

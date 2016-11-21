@@ -326,6 +326,21 @@ QUrl KexiUtils::getSaveImageUrl(QWidget *parent, const QString &caption, const Q
     return dialog->selectedUrls().value(0);
 }
 
+bool KexiUtils::askForFileOverwriting(const QString& filePath, QWidget *parent)
+{
+    QFileInfo fi(filePath);
+    if (!fi.exists()) {
+        return true;
+    }
+    const KMessageBox::ButtonCode res = KMessageBox::warningYesNo(parent,
+                    xi18nc("@info", "<para>The file <filename>%1<filename> already exists.</para>"
+                           "<para>Do you want to overwrite it?</para>",
+                           QDir::toNativeSeparators(filePath)),
+                    QString(),
+                    KStandardGuiItem::overwrite(), KStandardGuiItem::no());
+    return res == KMessageBox::Yes;
+}
+
 QColor KexiUtils::blendedColors(const QColor& c1, const QColor& c2, int factor1, int factor2)
 {
     return QColor(
