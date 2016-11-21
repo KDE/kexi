@@ -40,6 +40,7 @@ set(kexicore_LIB_SRCS
    KexiRecordNavigatorIface.cpp
    KexiSearchableModel.cpp
    KexiGroupButton.cpp #TODO belongs to widget/?
+   KexiFileFilters.cpp
 )
 
 kexi_add_library(kexicore SHARED ${kexicore_LIB_SRCS})

@@ -6,7 +6,20 @@ option(KEXI_SHOW_UNFINISHED "Show unfinished features in Kexi. Thus is useful fo
 option(KEXI_SHOW_UNIMPLEMENTED "Forces to show menu entries and dialogs just to give impression about development plans for Kexi. Only recommended for test/development versions." OFF)
 
 # Extra GUI features
-option(KEXI_AUTORISE_TABBED_TOOLBAR "Experimental: Autorise the main tabbed toolbar in Kexi" OFF)
+if(NOT KEXI_MOBILE)
+    option(KEXI_AUTORISE_TABBED_TOOLBAR "Experimental: Autorise the main tabbed toolbar in Kexi" OFF)
+    if(WIN32 OR APPLE)
+        set(_KEXI_USE_KFILEWIDGET_DEFAULT OFF)
+    else()
+        set(_KEXI_USE_KFILEWIDGET_DEFAULT ON)
+    endif()
+    option(KEXI_USE_KFILEWIDGET "Use KFileWidget-based inline file browser in Kexi. If OFF, a simple \
+replacement file widget with native file dialogs is used. ON by default on UNIX, OFF by default on Windows \
+and macOS. \
+Note: Non-plasma Linux desktops still default to the simple replacement at runtime."
+           ${_KEXI_USE_KFILEWIDGET_DEFAULT}
+    )
+endif(NOT KEXI_MOBILE)
 
 # Experimental:
 option(KEXI_SCRIPTS_SUPPORT "Experimental: Enable scripting in Kexi" ON)

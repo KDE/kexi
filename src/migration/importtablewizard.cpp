@@ -176,19 +176,18 @@ void ImportTableWizard::setupSrcConn()
     KexiUtils::setStandardMarginsAndSpacing(vbox);
 
     m_srcConnSel = new KexiConnectionSelectorWidget(&Kexi::connset(),
-                                           "kfiledialog:///ProjectMigrationSourceDir",
-                                           KFileWidget::Opening, m_srcConnPageWidget);
+                            QUrl("kfiledialog:///ProjectMigrationSourceDir"),
+                            KexiConnectionSelectorWidget::Opening, m_srcConnPageWidget);
 
     m_srcConnSel->hideConnectonIcon();
     m_srcConnSel->showSimpleConnection();
 
-    QSet<QString> excludedFilters;
     //! @todo remove when support for kexi files as source prj is added in migration
-    excludedFilters
-        << KDb::defaultFileBasedDriverMimeType()
-        << "application/x-kexiproject-shortcut"
-        << "application/x-kexi-connectiondata";
-    m_srcConnSel->fileWidget->setExcludedFilters(excludedFilters);
+    const QStringList excludedMimeTypes({
+        KDb::defaultFileBasedDriverMimeType(),
+        "application/x-kexiproject-shortcut",
+        "application/x-kexi-connectiondata"});
+    m_srcConnSel->setExcludedMimeTypes(excludedMimeTypes);
 
     vbox->addWidget(m_srcConnSel);
 

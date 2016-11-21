@@ -283,20 +283,20 @@ void ImportWizard::setupSrcConn()
     KexiUtils::setStandardMarginsAndSpacing(vbox);
 
     d->srcConn = new KexiConnectionSelectorWidget(&Kexi::connset(),
-                                                 "kfiledialog:///ProjectMigrationSourceDir",
-                                                 KFileWidget::Opening, d->srcConnPageWidget);
+                         QUrl("kfiledialog:///ProjectMigrationSourceDir"),
+                         KexiConnectionSelectorWidget::Opening, d->srcConnPageWidget);
 
     d->srcConn->hideConnectonIcon();
     d->srcConn->showSimpleConnection();
     connect(d->srcConn, &KexiConnectionSelectorWidget::connectionSelected,
             this, &ImportWizard::sourceConnectionSelected);
 
-    QSet<QString> excludedFilters;
+    const QStringList excludedMimeTypes({
 //! @todo remove when support for kexi files as source prj is added in migration
-    excludedFilters += KDb::defaultFileBasedDriverMimeType();
-    excludedFilters += "application/x-kexiproject-shortcut";
-    excludedFilters += "application/x-kexi-connectiondata";
-    d->srcConn->fileWidget->setExcludedFilters(excludedFilters);
+        KDb::defaultFileBasedDriverMimeType(),
+        "application/x-kexiproject-shortcut",
+        "application/x-kexi-connectiondata"});
+    d->srcConn->setExcludedMimeTypes(excludedMimeTypes);
     vbox->addWidget(d->srcConn);
 
     d->srcConnPageItem = new KPageWidgetItem(d->srcConnPageWidget, xi18n("Select Location for Source Database"));
@@ -355,7 +355,7 @@ void ImportWizard::setupDstTitle()
     d->dstNewDBNameUrl = d->dstTitlePageWidget->file_requester;
     d->dstNewDBFileHandler = new KexiStartupFileHandler(
         QUrl("kfiledialog:///ProjectMigrationDestinationDir"),
-        KexiStartupFileHandler::SavingFileBasedDB,
+        KexiFileFilters::SavingFileBasedDB,
         d->dstTitlePageWidget->file_requester);
     d->dstNewDBNameLabel = new QLabel(xi18n("Destination project's name:"), d->dstTitlePageWidget);
     d->dstTitlePageWidget->formLayout->setWidget(2, QFormLayout::LabelRole, d->dstNewDBNameLabel);
@@ -391,8 +391,8 @@ void ImportWizard::setupDst()
     KexiUtils::setStandardMarginsAndSpacing(vbox);
 
     d->dstConn = new KexiConnectionSelectorWidget(&Kexi::connset(),
-                                                 "kfiledialog:///ProjectMigrationDestinationDir",
-                                                 KFileWidget::Saving, d->dstPageWidget);
+                         QUrl("kfiledialog:///ProjectMigrationDestinationDir"),
+                         KexiConnectionSelectorWidget::Saving, d->dstPageWidget);
     d->dstConn->hideHelpers();
 
     vbox->addWidget(d->dstConn);
@@ -401,7 +401,7 @@ void ImportWizard::setupDst()
 
     d->dstConn->showSimpleConnection();
     //anyway, db files will be _saved_
-    d->dstConn->fileWidget->setMode(KexiFileWidget::SavingFileBasedDB);
+    d->dstConn->setFileMode(KexiFileFilters::SavingFileBasedDB);
     d->dstPageItem = new KPageWidgetItem(d->dstPageWidget, xi18n("Select Location for Destination Database Project"));
     addPage(d->dstPageItem);
 }
@@ -547,10 +547,8 @@ void ImportWizard::arriveSrcConnPage()
     in addition to just "open" */
     if (d->setupFileBasedSrcNeeded) {
         d->setupFileBasedSrcNeeded = false;
-        QSet<QString> additionalMimeTypes;
-        d->srcConn->fileWidget->setMode(KexiFileWidget::Opening);
-        d->srcConn->fileWidget->setAdditionalFilters(additionalMimeTypes);
-
+        d->srcConn->setFileMode(KexiFileFilters::Opening);
+        d->srcConn->setAdditionalMimeTypes(QStringList());
     }
 
     /*! @todo Support different file extensions based on MigrationDriver */

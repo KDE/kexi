@@ -24,7 +24,6 @@
 #include "ui_KexiProjectStorageTypeSelectionPage.h"
 #include <widget/KexiProjectSelectorWidget.h>
 #include <widget/KexiConnectionSelectorWidget.h>
-#include <widget/KexiFileWidget.h>
 #include <kexiutils/KexiLinkWidget.h>
 #include <kexiprojectset.h>
 #include <kexiprojectdata.h>
@@ -58,16 +57,15 @@ KexiMainOpenProjectPage::KexiMainOpenProjectPage(QWidget* parent)
                       xi18nc("@title:tab", "Projects Stored in File"));
     fileSelector = new KexiConnectionSelectorWidget(
         &Kexi::connset(),
-        "kfiledialog:///OpenExistingOrCreateNewProject",
-        KFileWidget::Opening);
+        QUrl("kfiledialog:///OpenExistingOrCreateNewProject"),
+        KexiConnectionSelectorWidget::Opening);
     fileSelector->hide(); // delayed opening
     fileSelector->showSimpleConnection();
     fileSelector->layout()->setContentsMargins(0, 0, 0, 0);
     fileSelector->hideHelpers();
     fileSelector->hideDescription();
     //connect(fileSelector->fileWidget, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(fileSelector->fileWidget, SIGNAL(selectionChanged()),
-            this, SLOT(next()));
+    connect(fileSelector, SIGNAL(fileSelectionChanged()), this, SLOT(next()));
 
     m_connSelectorWidget = new QWidget;
     tabWidget->addTab(m_connSelectorWidget, Kexi::serverIcon(),
@@ -113,8 +111,8 @@ void KexiMainOpenProjectPage::tabChanged(int index)
                 connSelectorLayout->addSpacing(KexiUtils::marginHint());
                 connSelector = new KexiConnectionSelectorWidget(
                     &Kexi::connset(),
-                    "kfiledialog:///OpenExistingOrCreateNewProject",
-                    KFileWidget::Opening);
+                    QUrl("kfiledialog:///OpenExistingOrCreateNewProject"),
+                    KexiConnectionSelectorWidget::Opening);
                 connSelectorLayout->addWidget(connSelector);
 
                 connSelector->showAdvancedConnection();
@@ -256,10 +254,10 @@ void KexiOpenProjectAssistant::nextPageRequested(KexiAssistantPage* page)
     if (page == d->m_projectOpenPage) {
         if (d->m_projectOpenPage->tabWidget->currentIndex() == 0) {
             // file-based
-            if (!d->m_projectOpenPage->fileSelector->fileWidget->checkSelectedFile())
+            if (!d->m_projectOpenPage->fileSelector->checkSelectedFile())
                 return;
             emit openProject(
-                d->m_projectOpenPage->fileSelector->fileWidget->highlightedFile());
+                d->m_projectOpenPage->fileSelector->highlightedFile());
         }
         else { // server-based
             KDbConnectionData *cdata

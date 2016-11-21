@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2012 Oleg Kukharchuk <oleg.kuh@gmail.org>
-   Copyright (C) 2005-2013 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -25,18 +25,24 @@
 #include <KSharedConfig>
 #include <KAssistantDialog>
 
+#include <config-kexi.h>
 #include "kexicsvexport.h"
 
 class QCheckBox;
 class QGroupBox;
 class QPushButton;
-class KexiFileWidget;
 class KexiCSVDelimiterWidget;
 class KexiCSVTextQuoteComboBox;
 class KexiCSVInfoLabel;
 class KexiCharacterEncodingComboBox;
 class KPageWidgetItem;
 class KDbTableOrQuerySchema;
+
+#ifdef KEXI_USE_KFILEWIDGET
+class KexiFileWidget;
+#else
+class KexiFileRequester;
+#endif
 
 /*! @short Kexi CSV export wizard
  Supports exporting to a file and to a clipboard. */
@@ -88,8 +94,9 @@ protected:
     //! Helper like \ref writeEntry(const char *, bool), but for deleting config entry.
     void deleteEntry(const char *key);
 
+    QUrl selectedFile() const;
+
     KexiCSVExport::Options m_options;
-    KexiFileWidget* m_fileSaveWidget = nullptr;
     QWidget* m_exportOptionsWidget = nullptr;
     KPageWidgetItem *m_fileSavePage = nullptr;
     KPageWidgetItem *m_exportOptionsPage = nullptr;
@@ -103,6 +110,12 @@ protected:
     KexiCharacterEncodingComboBox *m_characterEncodingCombo = nullptr;
     QCheckBox *m_addColumnNamesCheckBox = nullptr;
     QCheckBox *m_alwaysUseCheckBox = nullptr;
+#ifdef KEXI_USE_KFILEWIDGET
+    KexiFileWidget* m_fileSaveWidget = nullptr;
+#else
+    QWidget* m_fileSaveWidget = nullptr;
+    KexiFileRequester *m_fileSaveRequester;
+#endif
     KDbTableOrQuerySchema* m_tableOrQuery;
     KConfigGroup m_importExportGroup;
     bool m_canceled = false;

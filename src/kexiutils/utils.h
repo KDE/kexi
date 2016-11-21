@@ -226,20 +226,6 @@ private:
     bool m_reactivateCursor;
 };
 
-/*! \return filter string in QFileDialog format for a mime type pointed by \a mime
- If \a kdeFormat is true, QFileDialog-compatible filter string is generated,
- eg. "Image files (*.png *.xpm *.jpg)", otherwise KFileDialog -compatible
- filter string is generated, eg. "*.png *.xpm *.jpg|Image files (*.png *.xpm *.jpg)".
- "\\n" is appended if \a kdeFormat is true, otherwise ";;" is appended. */
-KEXIUTILS_EXPORT QString fileDialogFilterString(const QMimeType &mime, bool kdeFormat = true);
-
-/*! @overload QString fileDialogFilterString(const QMimeType &mime, bool kdeFormat = true) */
-KEXIUTILS_EXPORT QString fileDialogFilterString(const QString& mimeName, bool kdeFormat = true);
-
-/*! Like QString fileDialogFilterString(const QMimeType &mime, bool kdeFormat = true)
- but returns a list of filter strings. */
-KEXIUTILS_EXPORT QString fileDialogFilterStrings(const QStringList& mimeStrings, bool kdeFormat);
-
 /*! Creates a modal file dialog which returns the selected url of image filr to open
     or an empty string if none was chosen.
  Like KFileDialog::getImageOpenUrl(). */

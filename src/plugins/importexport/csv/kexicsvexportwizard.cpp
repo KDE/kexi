@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2012 Oleg Kukharchuk <oleg.kuh@gmail.org>
-   Copyright (C) 2005-2013 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -27,8 +27,12 @@
 #include <core/kexiguimsghandler.h>
 #include <kexiutils/utils.h>
 #include <widget/kexicharencodingcombobox.h>
-#include <widget/KexiFileWidget.h>
 #include <KexiIcon.h>
+#ifdef KEXI_USE_KFILEWIDGET
+#include <widget/KexiFileWidget.h>
+#else
+#include <KexiFileRequester.h>
+#endif
 
 #include <KDbConnection>
 #include <KDbCursor>
@@ -115,15 +119,26 @@ KexiCSVExportWizard::KexiCSVExportWizard(const KexiCSVExport::Options& options,
 
     // 1. File Save Page
     if (m_options.mode == KexiCSVExport::File) {
+        const QUrl url("kfiledialog:///CSVImportExport"); //startDir
+#ifdef KEXI_USE_KFILEWIDGET
         m_fileSaveWidget = new KexiFileWidget(
-            QUrl("kfiledialog:///CSVImportExport"), //startDir
-            KexiFileWidget::Custom | KexiFileWidget::SavingFileBasedDB,
+            url,
+            KexiFileFilters::CustomSavingFileBasedDB,
             this);
-        m_fileSaveWidget->setObjectName("m_fileSavePage");
-        m_fileSaveWidget->setAdditionalFilters(csvMimeTypes().toSet());
+        m_fileSaveWidget->setAdditionalMimeTypes(csvMimeTypes());
         m_fileSaveWidget->setDefaultExtension("csv");
         m_fileSaveWidget->setLocationText(
             KDbUtils::stringToFileName(captionOrName));
+#else
+        m_fileSaveWidget = new QWidget(this);
+        QVBoxLayout *lyr = new QVBoxLayout(m_fileSaveWidget);
+        m_fileSaveRequester = new KexiFileRequester(url, m_fileSaveWidget);
+        lyr->addWidget(m_fileSaveRequester);
+        m_fileSaveRequester->setFileMode(KexiFileFilters::CustomSavingFileBasedDB);
+        m_fileSaveRequester->setAdditionalMimeTypes(csvMimeTypes());
+        //TODO m_fileSaveRequester->setDefaultExtension("csv");
+        lyr->addStretch(1);
+#endif
         m_fileSavePage = new KPageWidgetItem(m_fileSaveWidget, xi18n("Enter Name of File You Want to Save Data To"));
         addPage(m_fileSavePage);
         connect(this, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
@@ -285,19 +300,34 @@ void KexiCSVExportWizard::slotCurrentPageChanged(KPageWidgetItem *page, KPageWid
         m_fileSaveWidget->setFocus();
     } else if (page == m_exportOptionsPage) {
         if (m_options.mode == KexiCSVExport::File)
-            m_infoLblTo->setFileName(m_fileSaveWidget->highlightedFile());
+            m_infoLblTo->setFileName(selectedFile().toLocalFile());
     }
+}
+
+QUrl KexiCSVExportWizard::selectedFile() const
+{
+#ifdef KEXI_USE_KFILEWIDGET
+    return QUrl::fromLocalFile(m_fileSaveWidget->highlightedFile());
+#else
+    return m_fileSaveRequester->url();
+#endif
 }
 
 void KexiCSVExportWizard::next()
 {
     if (currentPage() == m_fileSavePage) {
+#ifdef KEXI_USE_KFILEWIDGET
         if (!m_fileSaveWidget->checkSelectedFile()) {
             return;
         }
-        qDebug() << "selectedFile:" << m_fileSaveWidget->selectedFile();
-        qDebug() << "selectedUrl:" << m_fileSaveWidget->selectedUrl();
-        qDebug() << "highlightedFile:" << m_fileSaveWidget->highlightedFile();
+#else
+        if (!m_fileSaveRequester->url().isValid() || !m_fileSaveRequester->url().isLocalFile()) {
+            return;
+        }
+#endif
+        //qDebug() << "selectedFile:" << selectedFile();
+        //qDebug() << "selectedUrl:" << m_fileSaveWidget->selectedUrl();
+        //qDebug() << "highlightedFile:" << m_fileSaveWidget->highlightedFile();
         KAssistantDialog::next();
         return;
     }
@@ -308,8 +338,8 @@ void KexiCSVExportWizard::done(int result)
 {
     if (QDialog::Accepted == result) {
         if (m_fileSavePage) {
-            qDebug() << m_fileSaveWidget->highlightedFile();
-            m_options.fileName = m_fileSaveWidget->highlightedFile();
+            //qDebug() << selectedFile();
+            m_options.fileName = selectedFile().toLocalFile();
         }
         m_options.delimiter = m_delimiterWidget->delimiter();
         m_options.textQuote = m_textQuote->textQuote();

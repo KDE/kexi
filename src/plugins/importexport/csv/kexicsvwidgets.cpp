@@ -328,7 +328,7 @@ void KexiCSVInfoLabel::setFileName(const QString& fileName)
     d->fnameLbl->setText(QDir::toNativeSeparators(fileName));
     if (!fileName.isEmpty()) {
         d->iconLbl->setPixmap(
-            KIO::pixmapForUrl(QUrl(fileName), 0, KIconLoader::Desktop));
+            KIO::pixmapForUrl(QUrl::fromLocalFile(fileName), 0, KIconLoader::Desktop));
     }
 }
 
@@ -379,11 +379,10 @@ void KexiCSVInfoLabel::setCommentText(const QString& text)
 
 QStringList csvMimeTypes()
 {
-    QStringList mimetypes;
-    mimetypes << "text/csv"
+    return QStringList()
+              << "text/csv"
               << "text/tab-separated-value"
               << "text/plain"; // use application/octet-stream if you want
                                // all files, but then the others are not necessary
-    return mimetypes;
 }
 

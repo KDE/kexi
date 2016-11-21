@@ -47,7 +47,6 @@
 #include <KDbIdentifierValidator>
 
 #include <KIconLoader>
-#include <KRecentDirs>
 #include <KStandardGuiItem>
 
 #include <QDebug>
@@ -205,7 +204,7 @@ KexiProjectTitleSelectionPage::KexiProjectTitleSelectionPage(QWidget* parent)
             this, SLOT(titleTextChanged(QString)));
     fileHandler = new KexiStartupFileHandler(
         QUrl("kfiledialog:///OpenExistingOrCreateNewProject"),
-        KexiStartupFileHandler::SavingFileBasedDB,
+        KexiFileFilters::SavingFileBasedDB,
         contents->file_requester);
     fileHandler->setDefaultExtension("kexi");
     connect(fileHandler, SIGNAL(askForOverwriting(KexiContextMessage)),
@@ -333,8 +332,8 @@ KexiProjectConnectionSelectionPage::KexiProjectConnectionSelectionPage(QWidget* 
         QVBoxLayout *lyr = new QVBoxLayout;
         connSelector = new KexiConnectionSelectorWidget(
             &Kexi::connset(),
-            "kfiledialog:///OpenExistingOrCreateNewProject",
-            KFileWidget::Saving);
+            QUrl("kfiledialog:///OpenExistingOrCreateNewProject"),
+            KexiConnectionSelectorWidget::Saving);
         lyr->addWidget(connSelector);
         connSelector->showAdvancedConnection();
         connect(connSelector, SIGNAL(connectionItemExecuted(ConnectionDataLVItem*)),
@@ -425,7 +424,6 @@ bool KexiProjectDatabaseNameSelectionPage::setConnection(KDbConnectionData* data
         m_projectSetToShow = new KexiProjectSet(m_assistant->messageHandler());
         KDbMessageGuard mg(m_projectSetToShow);
         if (!m_projectSetToShow->setConnectionData(data)) {
-            delete m_projectSetToShow;
             m_projectSetToShow = 0;
             return false;
         }

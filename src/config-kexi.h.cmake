@@ -102,6 +102,13 @@
 //! @brief If defined, tabs in the main tabbed toolbar autorise in Kexi
 #cmakedefine KEXI_AUTORISE_TABBED_TOOLBAR
 
+//! @def KEXI_USE_KFILEWIDGET
+//! @brief If defined, KFileWidget-based inline file browser is used in Kexi. Otherwise a simple
+//! replacement file widget with native file dialogs is used. ON by default on UNIX, OFF by default
+//! on Windows and macOS.
+//! @note Non-plasma Linux desktops still default to the simple replacement at runtime.
+#cmakedefine KEXI_USE_KFILEWIDGET
+
 //! @def KEXI_FORM_CURSOR_PROPERTY_SUPPORT
 //! @brief If defined, "cursor" property is displayed in the form designer
 #cmakedefine KEXI_FORM_CURSOR_PROPERTY_SUPPORT

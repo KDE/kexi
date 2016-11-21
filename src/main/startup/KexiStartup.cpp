@@ -23,7 +23,6 @@
 #include "kexiprojectdata.h"
 #include "kexiprojectset.h"
 #include "kexiguimsghandler.h"
-#include "KexiStartupDialog.h"
 #include <core/kexipartmanager.h>
 #include <core/kexipartinfo.h>
 #include <core/KexiCommandLineOptions.h>
@@ -90,8 +89,6 @@ public:
         passwordDialog = 0;
         delete connDialog;
         connDialog = 0;
-        delete startupDialog;
-        startupDialog = 0;
     }
 
     bool findAutoopenObjects()
@@ -172,7 +169,6 @@ public:
     KexiDBConnShortcutFile *connShortcutFile = nullptr;
     KexiDBConnectionDialog *connDialog = nullptr;
     QString shortcutFileGroupKey;
-    KexiStartupDialog *startupDialog = nullptr;
 private:
     KexiStartupHandler* const q;
 };

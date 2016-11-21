@@ -284,53 +284,6 @@ QStringList KexiUtils::enumKeysForProperty(const QMetaProperty& metaProperty, in
     return result;
 }
 
-QString KexiUtils::fileDialogFilterString(const QMimeType &mime, bool kdeFormat)
-{
-    if (!mime.isValid()) {
-        return QString();
-    }
-
-    QString str;
-    if (kdeFormat) {
-        if (mime.globPatterns().isEmpty()) {
-            str = "*";
-        } else {
-            str = mime.globPatterns().join(" ");
-        }
-        str += "|";
-    }
-    str += mime.comment();
-    if (!mime.globPatterns().isEmpty() || !kdeFormat) {
-        str += " (";
-        if (mime.globPatterns().isEmpty())
-            str += "*";
-        else
-            str += mime.globPatterns().join("; ");
-        str += ")";
-    }
-    if (kdeFormat)
-        str += "\n";
-    else
-        str += ";;";
-    return str;
-}
-
-QString KexiUtils::fileDialogFilterString(const QString& mimeName, bool kdeFormat)
-{
-    QMimeDatabase db;
-    QMimeType mime = db.mimeTypeForName(mimeName);
-    return fileDialogFilterString(mime, kdeFormat);
-}
-
-QString KexiUtils::fileDialogFilterStrings(const QStringList& mimeStrings, bool kdeFormat)
-{
-    QString ret;
-    QStringList::ConstIterator endIt = mimeStrings.constEnd();
-    for (QStringList::ConstIterator it = mimeStrings.constBegin(); it != endIt; ++it)
-        ret += fileDialogFilterString(*it, kdeFormat);
-    return ret;
-}
-
 //! @internal
 static QFileDialog* getImageDialog(QWidget *parent, const QString &caption, const QUrl &directory,
                                    const QList<QByteArray> &supportedMimeTypes)

@@ -32,6 +32,8 @@ target_link_libraries(kexi_reportplugin
         kexiextendedwidgets
 
         KReport
+
+        KF5::KIOFileWidgets # KFileWidget::getStartUrl()
 )
 
 if(SHOULD_BUILD_KEXI_DESKTOP_APP)

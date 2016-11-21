@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2012 Dimitrios T. Tanis <dimitrios.tanis@kdemail.net>
 
    This program is free software; you can redistribute it and/or
@@ -21,18 +21,15 @@
 #ifndef KEXICONNECTIONSELECTORWIDGET_H
 #define KEXICONNECTIONSELECTORWIDGET_H
 
-#include "kexiextwidgets_export.h"
 #include <core/kexidbconnectionset.h>
+#include <KexiFileFilters.h>
 #include <kexiutils/KexiContextMessage.h>
 #include <widget/KexiServerDriverNotFoundMessage.h>
-
-#include <KFileWidget>
 
 #include <QPointer>
 #include <QTreeWidgetItem>
 
 class QAbstractButton;
-class KexiFileWidget;
 class KDbDriverMetaData;
 
 //! An item for a single database connection
@@ -68,6 +65,12 @@ public:
         ServerBased = 2 //!< the widget displays server-based connection
     };
 
+    //! Defines operation mode
+    enum OperationMode {
+        Opening = 1,
+        Saving = 2
+    };
+
     /*! Constructs a new widget which contains \a conn_set as connection set.
      \a conn_set can be altered, because Add/Edit/Remove buttons are available
      to users. \a startDirOrVariable can be provided to specify a start dir for file browser
@@ -75,8 +78,8 @@ public:
      as described in KRecentDirs documentation). */
     //! @todo KEXI3 add equivalent of kfiledialog:/// for startDirOrVariable
     KexiConnectionSelectorWidget(KexiDBConnectionSet *conn_set,
-                                 const QString& startDirOrVariable,
-                                 KFileWidget::OperationMode fileAccessType,
+                                 const QUrl& startDirOrVariable,
+                                 OperationMode mode,
                                  QWidget* parent = 0);
 
     virtual ~KexiConnectionSelectorWidget();
@@ -93,32 +96,32 @@ public:
     KDbConnectionData* selectedConnectionData() const;
 
     /*! \return the name of database file, if file-based connection was selected.
-     Returns null string if no selection has been made or server-based connection
+     Returns empty string if no selection has been made or server-based connection
      has been selected.
      @see selectedConnectionType()
     */
     QString selectedFileName();
 
-    /*! Sets selected filename to \a fileName.
-     Only works when selectedConnectionType()==FileBased. */
-    void setSelectedFileName(const QString& fileName);
-
     QTreeWidget* connectionsList() const;
-
-    KexiFileWidget *fileWidget;
-
-    /*! If true, user will be asked to accept overwriting existing project.
-     This is true by default. */
-    void setConfirmOverwrites(bool set);
 
     bool confirmOverwrites() const;
 
     bool hasSelectedConnection() const;
 
+    /*! @return true if the current file URL meets requies constraints
+    (i.e. exists or doesn't exist);
+    shows appropriate message box if needed. */
+    bool checkSelectedFile();
+
+    //! @return selected file.
+    //! @note Call checkSelectedFile() first
+    QString highlightedFile() const;
+
 Q_SIGNALS:
     void connectionItemExecuted(ConnectionDataLVItem *item);
     void connectionItemHighlighted(ConnectionDataLVItem *item);
     void connectionSelected(bool hasSelected);
+    void fileSelectionChanged();
 
 public Q_SLOTS:
     void showSimpleConnection();
@@ -133,6 +136,21 @@ public Q_SLOTS:
     void hideHelpers();
     void hideConnectonIcon();
     void hideDescription();
+
+    /*! Sets selected filename to \a fileName.
+     Only works when selectedConnectionType()==FileBased. */
+    void setSelectedFileName(const QString& fileName);
+
+    /*! If true, user will be asked to accept overwriting existing project.
+     This is true by default. */
+    void setConfirmOverwrites(bool set);
+
+    void setFileMode(KexiFileFilters::Mode mode);
+
+    void setAdditionalMimeTypes(const QStringList &mimeTypes);
+
+    //! Sets excluded mime types
+    void setExcludedMimeTypes(const QStringList& mimeTypes);
 
 protected Q_SLOTS:
     void slotConnectionItemExecuted(QTreeWidgetItem *item);

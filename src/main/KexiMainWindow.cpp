@@ -60,7 +60,6 @@
 #include "startup/KexiOpenProjectAssistant.h"
 #include "startup/KexiWelcomeAssistant.h"
 #include "startup/KexiImportExportAssistant.h"
-#include "startup/KexiStartupDialog.h"
 
 #include <KDbConnection>
 #include <KDbConnectionOptions>
@@ -3692,6 +3691,9 @@ void KexiMainWindow::slotToolsCompactDatabase()
     const bool projectWasOpened = d->prj;
 
     if (!d->prj) {
+        //! @todo Support compacting of non-opened projects
+        return;
+#if 0
         KexiStartupDialog dlg(
             KexiStartupDialog::OpenExisting, 0, Kexi::connset(), this);
 
@@ -3725,6 +3727,7 @@ void KexiMainWindow::slotToolsCompactDatabase()
             return;
         }
         data = new KexiProjectData(cdata);
+#endif
     } else {
         //sanity
         if (!(d->prj && d->prj->dbConnection()

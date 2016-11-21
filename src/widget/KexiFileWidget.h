@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2007 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -20,11 +20,13 @@
 #ifndef KEXIFILEWIDGET_H
 #define KEXIFILEWIDGET_H
 
-#include "kexiextwidgets_export.h"
+#include <config-kexi.h>
+#include "KexiStartupFileHandler.h"
+
+#ifdef KEXI_USE_KFILEWIDGET
 
 #include <KFileWidget>
-
-#include <QSet>
+#include <KexiFileFilters.h>
 
 //! @short Widget for opening/saving files supported by Kexi
 /*! For simplicity, initially the widget has hidden the preview pane. */
@@ -33,39 +35,29 @@ class KEXIEXTWIDGETS_EXPORT KexiFileWidget : public KFileWidget
     Q_OBJECT
 
 public:
-    /*! Dialog mode:
-    - Opening opens existing database (or shortcut)
-    - SavingFileBasedDB saves file-based database file
-    - SavingServerBasedDB saves server-based (shortcut) file
-    - CustomOpening can be used for opening other files, like CSV
-    */
-    enum ModeFlag {
-        Opening = 1,
-        SavingFileBasedDB = 2,
-        SavingServerBasedDB = 4,
-        Custom = 256
-    };
-    Q_DECLARE_FLAGS(Mode, ModeFlag)
-
     //! @todo KEXI3 add equivalent of kfiledialog:/// for startDirOrVariable
     KexiFileWidget(
-        const QUrl &startDirOrVariable, Mode mode, QWidget *parent);
+        const QUrl &startDirOrVariable, KexiFileFilters::Mode mode, QWidget *parent);
 
     virtual ~KexiFileWidget();
 
     using KFileWidget::setMode;
 
-    void setMode(Mode mode);
+    KexiFileFilters::Mode mode() const;
 
-    QSet<QString> additionalFilters() const;
+    void setMode(KexiFileFilters::Mode mode);
 
-    //! Sets additional filters list, e.g. "text/x-csv"
-    void setAdditionalFilters(const QSet<QString>& mimeTypes);
+    //! @return additional mime types
+    QStringList additionalMimeTypes() const;
 
-    QSet<QString> excludedFilters() const;
+    //! Sets additional mime types, e.g. "text/x-csv"
+    void setAdditionalMimeTypes(const QStringList &mimeTypes);
 
-    //! Excludes filters list
-    void setExcludedFilters(const QSet<QString>& mimeTypes);
+    //! @return excluded mime types
+    QStringList excludedMimeTypes() const;
+
+    //! Set excluded mime types
+    void setExcludedMimeTypes(const QStringList &mimeTypes);
 
     //! @return selected file.
     //! @note Call checkSelectedFile() first
@@ -113,6 +105,5 @@ private:
     Private * const d;
 };
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(KexiFileWidget::Mode)
-
-#endif
+#endif // KEXI_USE_KFILEWIDGET
+#endif // KEXIFILEWIDGET_H

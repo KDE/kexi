@@ -21,8 +21,8 @@
 #define KEXISTARTUPFILEHANDLER_H
 
 #include "kexiextwidgets_export.h"
+#include <KexiFileFilters.h>
 
-#include <QSet>
 #include <QObject>
 
 class QUrl;
@@ -39,27 +39,13 @@ class KEXIEXTWIDGETS_EXPORT KexiStartupFileHandler : public QObject
     Q_OBJECT
 
 public:
-    /*! Dialog mode:
-    - Opening opens existing database (or shortcut)
-    - SavingFileBasedDB saves file-based database file
-    - SavingServerBasedDB saves server-based (shortcut) file
-    - CustomOpening can be used for opening other files, like CSV
-    */
-    enum ModeFlag {
-        Opening = 1,
-        SavingFileBasedDB = 2,
-        SavingServerBasedDB = 4,
-        Custom = 256
-    };
-    Q_DECLARE_FLAGS(Mode, ModeFlag)
-
 /* removed in KEXI3
     KexiStartupFileHandler(
         const QUrl &startDirOrVariable, Mode mode, KFileDialog *dialog);*/
 
     //! @todo KEXI3 add equivalent of kfiledialog:/// for startDirOrVariable
     KexiStartupFileHandler(
-        const QUrl &startDirOrVariable, Mode mode, KUrlRequester *requester);
+        const QUrl &startDirOrVariable, KexiFileFilters::Mode mode, KUrlRequester *requester);
 
     virtual ~KexiStartupFileHandler();
 
@@ -72,20 +58,20 @@ public:
     bool askForOverwriting(const QString& filePath);
 
     //! @return mode for the handler.
-    Mode mode() const;
+    KexiFileFilters::Mode mode() const;
 
     //! Sets mode for the handler.
-    void setMode(Mode mode);
+    void setMode(KexiFileFilters::Mode mode);
 
-    QSet<QString> additionalFilters() const;
+    QStringList additionalMimeTypes() const;
 
-    //! Sets additional filters list, e.g. "text/x-csv"
-    void setAdditionalFilters(const QSet<QString>& mimeTypes);
+    //! Sets additional mime types, e.g. "text/x-csv"
+    void setAdditionalMimeTypes(const QStringList &mimeTypes);
 
-    QSet<QString> excludedFilters() const;
+    QStringList excludedMimeTypes() const;
 
-    //! Excludes filters list
-    void setExcludedFilters(const QSet<QString>& mimeTypes);
+    //! Excludes mime types
+    void setExcludedMimeTypes(const QStringList &mimeTypes);
 
 //removed in KEXI3    void setLocationText(const QString& fn);
 
@@ -118,13 +104,11 @@ protected Q_SLOTS:
     void messageWidgetActionNoTriggered();
 
 private:
-    void init(const QUrl &startDirOrVariable, Mode mode);
+    void init(const QUrl &startDirOrVariable, KexiFileFilters::Mode mode);
     void updateFilters();
 
     class Private;
     Private * const d;
 };
-
-Q_DECLARE_OPERATORS_FOR_FLAGS(KexiStartupFileHandler::Mode)
 
 #endif

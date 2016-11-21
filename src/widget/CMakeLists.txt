@@ -45,6 +45,7 @@ set(kexiextendedwidgets_LIB_SRCS
     KexiServerDriverNotFoundMessage.cpp
     KexiNameWidget.cpp
     KexiNameDialog.cpp
+    KexiFileRequester.cpp
     KexiStartupFileHandler.cpp
     KexiListView.cpp
   )
@@ -58,11 +59,13 @@ if(SHOULD_BUILD_KEXI_DESKTOP_APP)
 #      in kexiactionselectiondialog and remove them
     kexiprjtypeselector.cpp
     KexiConnectionSelectorWidget.cpp
-    KexiFileWidget.cpp
     KexiFileDialog.cpp
     KexiPasswordWidget.cpp
     KexiDBPasswordDialog.cpp
   )
+  if(KEXI_USE_KFILEWIDGET)
+    list(APPEND kexiextendedwidgets_LIB_SRCS KexiFileWidget.cpp)
+  endif()
   ki18n_wrap_ui(kexiextendedwidgets_LIB_SRCS
     KexiConnectionSelector.ui
     kexidbconnectionwidget.ui
@@ -88,13 +91,18 @@ target_link_libraries(kexiextendedwidgets
 
         KF5::TextWidgets # KTextEdit
         KF5::Codecs # KCharsets
+        KF5::KIOFileWidgets # KFileWidget::getStartUrl()
     PUBLIC
         kexicore
 
         KPropertyWidgets
 
-        KF5::KIOFileWidgets # KFileWidget
         KF5::TextEditor
 )
+
+if(KEXI_USE_KFILEWIDGET)
+    target_link_libraries(kexiextendedwidgets
+        PUBLIC KF5::KIOFileWidgets) # KFileWidget
+endif()
 
 install(TARGETS kexiextendedwidgets  ${INSTALL_TARGETS_DEFAULT_ARGS})

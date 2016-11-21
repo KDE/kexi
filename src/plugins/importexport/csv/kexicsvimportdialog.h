@@ -41,6 +41,7 @@
 #include <KDbTristate>
 #include <KDbPreparedStatement>
 
+#include <config-kexi.h>
 #include "kexicsvimportoptionsdlg.h"
 
 class QHBoxLayout;
@@ -67,7 +68,11 @@ class KexiCSVInfoLabel;
 class KexiProject;
 class KexiCSVImportDialogModel;
 class KexiCSVImportDialogItemDelegate;
+#ifdef KEXI_USE_KFILEWIDGET
 class KexiFileWidget;
+#else
+class KexiFileRequester;
+#endif
 class KexiCommandLinkButton;
 class KexiNameWidget;
 class KexiProjectNavigator;
@@ -139,7 +144,12 @@ private:
     QCheckBox* m_ignoreDuplicates;
     QCheckBox* m_1stRowForFieldNames;
     QCheckBox* m_primaryKeyField;
+#ifdef KEXI_USE_KFILEWIDGET
     KexiFileWidget *m_openFileWidget;
+#else
+    QWidget *m_openFileWidget;
+    KexiFileRequester *m_openFileRequester;
+#endif
     QWidget *m_optionsWidget;
     QWidget *m_saveMethodWidget;
     KPageWidgetItem *m_openFilePage;

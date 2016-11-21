@@ -20,6 +20,7 @@
 #include "KexiStartupFileHandler.h"
 #include <kexi_global.h>
 #include <core/kexi.h>
+#include <KexiFileFilters.h>
 #include <kexiutils/utils.h>
 #include <kexiutils/KexiContextMessage.h>
 
@@ -76,7 +77,7 @@ public:
 // removed in KEXI3    QPointer<KFileDialog> dialog;
     QPointer<KUrlRequester> requester;
     QString lastFileName;
-    KexiStartupFileHandler::Mode mode;
+    KexiFileFilters::Mode mode;
     QSet<QString> additionalMimeTypes, excludedMimeTypes;
     QString defaultExtension;
     bool confirmOverwrites;
@@ -101,7 +102,7 @@ KexiStartupFileHandler::KexiStartupFileHandler(
 }*/
 
 KexiStartupFileHandler::KexiStartupFileHandler(
-    const QUrl &startDirOrVariable, Mode mode, KUrlRequester *requester)
+    const QUrl &startDirOrVariable, KexiFileFilters::Mode mode, KUrlRequester *requester)
     :  QObject(requester->parent())
     , d(new Private)
 {
@@ -110,7 +111,7 @@ KexiStartupFileHandler::KexiStartupFileHandler(
     init(startDirOrVariable, mode);
 }
 
-void KexiStartupFileHandler::init(const QUrl &startDirOrVariable, Mode mode)
+void KexiStartupFileHandler::init(const QUrl &startDirOrVariable, KexiFileFilters::Mode mode)
 {
 //removed in KEXI3    connect(d->dialog, SIGNAL(accepted()), this, SLOT(slotAccepted()));
     QUrl url;
@@ -154,41 +155,41 @@ void KexiStartupFileHandler::saveRecentDir()
     }
 }
 
-KexiStartupFileHandler::Mode KexiStartupFileHandler::mode() const
+KexiFileFilters::Mode KexiStartupFileHandler::mode() const
 {
     return d->mode;
 }
 
-void KexiStartupFileHandler::setMode(Mode mode)
+void KexiStartupFileHandler::setMode(KexiFileFilters::Mode mode)
 {
     //delayed
     d->mode = mode;
     updateFilters();
 }
 
-QSet<QString> KexiStartupFileHandler::additionalFilters() const
+QStringList KexiStartupFileHandler::additionalMimeTypes() const
 {
-    return d->additionalMimeTypes;
+    return d->additionalMimeTypes.toList();
 }
 
-void KexiStartupFileHandler::setAdditionalFilters(const QSet<QString> &mimeTypes)
+void KexiStartupFileHandler::setAdditionalMimeTypes(const QStringList &mimeTypes)
 {
     //delayed
-    d->additionalMimeTypes = mimeTypes;
+    d->additionalMimeTypes = mimeTypes.toSet();
     updateFilters();
 }
 
-QSet<QString> KexiStartupFileHandler::excludedFilters() const
+QStringList KexiStartupFileHandler::excludedMimeTypes() const
 {
-    return d->excludedMimeTypes;
+    return d->excludedMimeTypes.toList();
 }
 
-void KexiStartupFileHandler::setExcludedFilters(const QSet<QString> &mimeTypes)
+void KexiStartupFileHandler::setExcludedMimeTypes(const QStringList &mimeTypes)
 {
     //delayed
     d->excludedMimeTypes.clear();
     //convert to lowercase
-    foreach(const QString& mimeType, mimeTypes) {
+    for(const QString& mimeType : mimeTypes) {
         d->excludedMimeTypes.insert(mimeType.toLower());
     }
     updateFilters();
@@ -204,66 +205,86 @@ void KexiStartupFileHandler::updateFilters()
     QMimeType mime;
     QStringList allfilters;
 
-    const bool normalOpeningMode = d->mode & Opening && !(d->mode & Custom);
-    const bool normalSavingMode = d->mode & SavingFileBasedDB && !(d->mode & Custom);
-
-    if (normalOpeningMode || normalSavingMode) {
+    const QString separator(KexiFileFilters::separator(KexiFileFilters::KDEFormat));
+    if (d->mode == KexiFileFilters::Opening || d->mode == KexiFileFilters::SavingFileBasedDB) {
         mime = db.mimeTypeForName(KDb::defaultFileBasedDriverMimeType());
         if (mime.isValid() && !d->excludedMimeTypes.contains(mime.name().toLower())) {
-            filter += KexiUtils::fileDialogFilterString(mime);
+            if (!filter.isEmpty()) {
+                filter += separator;
+            }
+            filter += KexiFileFilters::toString(mime, KexiFileFilters::KDEFormat);
             allfilters += mime.globPatterns();
         }
     }
-    if (normalOpeningMode || d->mode & SavingServerBasedDB) {
+    if (d->mode == KexiFileFilters::Opening || d->mode == KexiFileFilters::SavingServerBasedDB) {
         mime = db.mimeTypeForName("application/x-kexiproject-shortcut");
         if (mime.isValid() && !d->excludedMimeTypes.contains(mime.name().toLower())) {
-            filter += KexiUtils::fileDialogFilterString(mime);
+            if (!filter.isEmpty()) {
+                filter += separator;
+            }
+            filter += KexiFileFilters::toString(mime, KexiFileFilters::KDEFormat);
             allfilters += mime.globPatterns();
         }
     }
-    if (normalOpeningMode || d->mode & SavingServerBasedDB) {
+    if (d->mode == KexiFileFilters::Opening || d->mode == KexiFileFilters::SavingServerBasedDB) {
         mime = db.mimeTypeForName("application/x-kexi-connectiondata");
         if (mime.isValid() && !d->excludedMimeTypes.contains(mime.name().toLower())) {
-            filter += KexiUtils::fileDialogFilterString(mime);
+            if (!filter.isEmpty()) {
+                filter += separator;
+            }
+            filter += KexiFileFilters::toString(mime, KexiFileFilters::KDEFormat);
             allfilters += mime.globPatterns();
         }
     }
 
 //! @todo hardcoded for MSA:
-    if (normalOpeningMode) {
+    if (d->mode == KexiFileFilters::Opening || d->mode == KexiFileFilters::CustomOpening) {
         mime = db.mimeTypeForName("application/vnd.ms-access");
         if (mime.isValid() && !d->excludedMimeTypes.contains(mime.name().toLower())) {
-            filter += KexiUtils::fileDialogFilterString(mime);
+            if (!filter.isEmpty()) {
+                filter += separator;
+            }
+            filter += KexiFileFilters::toString(mime, KexiFileFilters::KDEFormat);
             allfilters += mime.globPatterns();
         }
     }
 
     foreach(const QString& mimeName, d->additionalMimeTypes) {
-        if (mimeName == "all/allfiles")
+        if (mimeName == "all/allfiles") {
             continue;
-        if (d->excludedMimeTypes.contains(mimeName.toLower()))
+        }
+        if (d->excludedMimeTypes.contains(mimeName.toLower())) {
             continue;
-        filter += KexiUtils::fileDialogFilterString(mimeName);
+        }
+        if (!filter.isEmpty()) {
+            filter += separator;
+        }
+        filter += KexiFileFilters::toString(mimeName, KexiFileFilters::KDEFormat);
         mime = db.mimeTypeForName(mimeName);
         allfilters += mime.globPatterns();
     }
 
-    if (!d->excludedMimeTypes.contains("all/allfiles"))
-        filter += KexiUtils::fileDialogFilterString("all/allfiles");
+    if (!d->excludedMimeTypes.contains("all/allfiles")) {
+        if (!filter.isEmpty()) {
+            filter += separator;
+        }
+        filter += KexiFileFilters::toString("all/allfiles", KexiFileFilters::KDEFormat);
+    }
     //remove duplicates made because upper- and lower-case extenstions are used:
     QStringList allfiltersUnique = allfilters.toSet().toList();
     qSort(allfiltersUnique);
 
     if (allfiltersUnique.count() > 1) {//prepend "all supoported files" entry
-        filter.prepend(allfilters.join(" ") + "|"
-                       + xi18n("All Supported Files (%1)", allfiltersUnique.join(", ")) + "\n");
+        if (!filter.isEmpty()) {
+            filter += separator;
+        }
+        filter.prepend(KexiFileFilters::toString(allfiltersUnique,
+            xi18n("All Supported Files"), KexiFileFilters::KDEFormat));
     }
 
-    if (filter.right(1) == "\n")
-        filter.truncate(filter.length() - 1);
     d->requester->setFilter(filter);
 
-    if (d->mode & Opening) {
+    if (d->mode == KexiFileFilters::Opening || d->mode == KexiFileFilters::CustomOpening) {
         d->requester->setMode(KFile::ExistingOnly | KFile::LocalOnly | KFile::File);
 //removed in KEXI3        d->dialog->setOperationMode(KFileDialog::Opening);
     } else {
@@ -356,7 +377,7 @@ bool KexiStartupFileHandler::checkSelectedUrl()
     }
 
     if (!d->requester->filter().isEmpty()) {
-        if (d->mode & SavingFileBasedDB) {
+        if (d->mode == KexiFileFilters::SavingFileBasedDB) {
             const QStringList filters( d->requester->filter().split('\n') );
             QString path = url.toLocalFile();
             qDebug()<< "filters:" << filters << "path:" << path;
