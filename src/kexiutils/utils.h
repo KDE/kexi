@@ -565,7 +565,13 @@ inline QColor shadeBlack() { return QColor(0x232629); }
 
 /*! @return @c true if whether the app runs in a single click mode (the default).
     @c false if returned if the app runs in double click mode.
-    For Qt < 5.5 this information is taken from @a widget widget's style. If there is no widget
+    The flag is checked in two stages.
+
+    Stage 1. Application config file's "SingleClickOpensItem" value in "MainWindow" group is checked.
+    If it exists, the value is returned.
+    On Windows if it does not exist, @c true is returned, on other systems Stage 2 checking is performed.
+
+    Stage 2. For Qt < 5.5 this information is taken from @a widget widget's style. If there is no widget
     specified, QApplication::style() is used.
     For Qt >= 5.5 the result is equal to QApplication::styleHints()->singleClickActivation()
     and @a widget is ignored.
