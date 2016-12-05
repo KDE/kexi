@@ -386,7 +386,7 @@ bool KexiFileWidget::askForOverwriting(const QString& filePath, QWidget *parent)
                            "<para>Do you want to overwrite it?</para>",
                            QDir::toNativeSeparators(filePath)),
                     QString(),
-                    KGuiItem(xi18nc("@action:button Overwrite File", "Overwrite")), KStandardGuiItem::no());
+                    KStandardGuiItem::overwrite(), KStandardGuiItem::no());
     if (res == KMessageBox::Yes)
         return true;
     return false;
