@@ -3441,7 +3441,7 @@ tristate KexiMainWindow::removeObject(KexiPart::Item *item, bool dontAsk)
                       part->info()->name(), item->name()),
                 xi18nc("@title:window Delete Object %1.",
                       "Delete <resource>%1</resource>?", item->name()),
-                KGuiItem(xi18nc("@action:button Delete object", "Delete"), koIconName("edit-delete")),
+                KStandardGuiItem::del(),
                 KStandardGuiItem::no(), QString(), KMessageBox::Notify | KMessageBox::Dangerous))
         {
             return cancelled;
@@ -3520,7 +3520,7 @@ void KexiMainWindow::renameObject(KexiPart::Item *item, const QString& _newName,
                             "<para>Do you want to close it?</para>",
                             item->name());
         int r = KMessageBox::questionYesNo(this, msg, QString(),
-                                           KGuiItem(xi18nc("@action:button", "Close Window"), koIconName("window-close")),
+                                           KStandardGuiItem::closeWindow(),
                                            KStandardGuiItem::cancel());
         if (r != KMessageBox::Yes) {
             *success = false;
