@@ -1,5 +1,5 @@
 #! /bin/sh
-source ../kexi_xgettext.sh
+source ../kundo2_aware_xgettext.sh
 
 potfile=kexi.pot
 find_exclude $potfile
@@ -14,5 +14,5 @@ LIST=`find . \( $EXCLUDE \) -prune -o \( -name \*.h -o -name \*.cpp -o -name \*.
     if ! grep -q '^#warning noi18n ' $f ; then echo $f; fi \
 done \
 `
-kexi_xgettext $potfile $LIST
+kundo2_aware_xgettext $potfile $LIST
 rm -f rc.cpp
