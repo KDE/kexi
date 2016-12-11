@@ -79,7 +79,7 @@ else()
     Messages.sh
 
     # non-source:
-    ${CMAKE_SOURCE_DIR}/kexi_xgettext.sh
+    ${CMAKE_SOURCE_DIR}/kundo2_aware_xgettext.sh
     Mainpage.dox
     Messages.sh
   )
