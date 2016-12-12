@@ -18,6 +18,7 @@ Name[nl]=Kexi
 Name[pl]=Kexi
 Name[pt]=Kexi
 Name[pt_BR]=Kexi
+Name[ru]=Kexi
 Name[se]=Kexi
 Name[sk]=Kexi
 Name[sv]=Kexi
