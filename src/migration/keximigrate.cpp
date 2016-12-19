@@ -406,10 +406,6 @@ bool KexiMigrate::performImportInternal(Kexi::ObjectStatus* result)
     // Step 3 - Read KDb-compatible table schemas
     tables.sort();
     d->tableSchemas.clear();
-    if (!destDriver) {
-        result->setStatus(drvManager.resultable());
-        return false;
-    }
     const bool kexi__objects_exists = tables.contains("kexi__objects");
     QStringList kexiDBTables;
     if (kexi__objects_exists) {
