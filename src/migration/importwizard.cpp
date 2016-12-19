@@ -755,6 +755,7 @@ KexiMigrate* ImportWizard::prepareImport(Kexi::ObjectStatus& result)
 
     // Set up destination connection data
     KDbConnectionData *cdata = 0;
+    QScopedPointer<KDbConnectionData> cdataDeleter;
     QString dbname;
     if (!result.error()) {
         if (d->dstConn->selectedConnectionData()) {
@@ -767,6 +768,7 @@ KexiMigrate* ImportWizard::prepareImport(Kexi::ObjectStatus& result)
             //file-based project
             qDebug() << "File Destination...";
             cdata = new KDbConnectionData();
+            cdataDeleter.reset(cdata); // ownership won't be transferred
             cdata->setCaption(d->dstNewDBTitleLineEdit->text());
             cdata->setDriverId(KDb::defaultFileBasedDriverId());
             dbname = d->dstTitlePageWidget->file_requester->url().toLocalFile();
