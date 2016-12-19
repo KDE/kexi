@@ -32,6 +32,7 @@
 #include <KexiWindow.h>
 
 #include <KDbConnection>
+#include <KDbTableSchemaChangeListener>
 
 #include <KMessageBox>
 
@@ -172,14 +173,15 @@ tristate KexiTablePart::askForClosingObjectsUsingTableSchema(
 {
     Q_ASSERT(conn);
     Q_ASSERT(table);
-    QSet<KDbConnection::TableSchemaChangeListenerInterface*>* listeners
-        = conn->tableSchemaChangeListeners(table);
-    if (!listeners || listeners->isEmpty())
+    const QList<KDbTableSchemaChangeListener*> listeners
+            = KDbTableSchemaChangeListener::listeners(conn, table);
+    if (listeners.isEmpty()) {
         return true;
+    }
 
     QString openedObjectsStr = "<list>";
-    foreach(KDbConnection::TableSchemaChangeListenerInterface* iface, *listeners) {
-        openedObjectsStr += QString("<item>%1</item>").arg(iface->listenerInfoString);
+    for(const KDbTableSchemaChangeListener* listener : listeners) {
+        openedObjectsStr += QString("<item>%1</item>").arg(listener->name());
     }
     openedObjectsStr += "</list>";
     int r = KMessageBox::questionYesNo(parent,
@@ -191,7 +193,7 @@ tristate KexiTablePart::askForClosingObjectsUsingTableSchema(
     tristate res;
     if (r == KMessageBox::Yes) {
         //try to close every window
-        res = conn->closeAllTableSchemaChangeListeners(table);
+        res = KDbTableSchemaChangeListener::closeListeners(conn, table);
         if (res != true) //do not expose closing errors twice; just cancel
             res = cancelled;
     } else

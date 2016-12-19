@@ -56,9 +56,8 @@ KexiWindowData* KexiQueryPart::createWindowData(KexiWindow* window)
 {
     KexiQueryPartTempData *data = new KexiQueryPartTempData(
         window, KexiMainWindowIface::global()->project()->dbConnection());
-    data->listenerInfoString = xi18nc("@info Object \"objectname\"", "%1 <resource>%2</resource>",
-                                     window->part()->info()->name(),
-                                     window->partItem()->name());
+    data->setName(xi18nc("@info Object \"objectname\"", "%1 <resource>%2</resource>",
+                         window->part()->info()->name(), window->partItem()->name()));
     return data;
 }
 
@@ -193,7 +192,7 @@ tristate KexiQueryPart::rename(KexiPart::Item *item, const QString& newName)
 
 KexiQueryPartTempData::KexiQueryPartTempData(KexiWindow* window, KDbConnection *conn)
         : KexiWindowData(window)
-        , KDbConnection::TableSchemaChangeListenerInterface()
+        , KDbTableSchemaChangeListener()
         , m_query(0)
         , m_queryChangedInView(Kexi::NoViewMode)
 {
@@ -202,7 +201,7 @@ KexiQueryPartTempData::KexiQueryPartTempData(KexiWindow* window, KDbConnection *
 
 KexiQueryPartTempData::~KexiQueryPartTempData()
 {
-    conn->unregisterForTablesSchemaChanges(this);
+    KDbTableSchemaChangeListener::unregisterForChanges(conn, this);
 }
 
 void KexiQueryPartTempData::clearQuery()
@@ -215,15 +214,15 @@ void KexiQueryPartTempData::clearQuery()
 
 void KexiQueryPartTempData::unregisterForTablesSchemaChanges()
 {
-    conn->unregisterForTablesSchemaChanges(this);
+    KDbTableSchemaChangeListener::unregisterForChanges(conn, this);
 }
 
 void KexiQueryPartTempData::registerTableSchemaChanges(KDbQuerySchema *q)
 {
     if (!q)
         return;
-    foreach(KDbTableSchema* table, *q->tables()) {
-        conn->registerForTableSchemaChanges(this, table);
+    foreach(const KDbTableSchema* table, *q->tables()) {
+        KDbTableSchemaChangeListener::registerForChanges(conn, this, table);
     }
 }
 

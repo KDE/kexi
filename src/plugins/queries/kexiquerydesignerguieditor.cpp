@@ -347,8 +347,8 @@ void KexiQueryDesignerGuiEditor::updateColumnsData()
     foreach(const QString& tableName, sortedTableNames) {
         //table
         /*! @todo what about query? */
-        KDbTableSchema *table = d->relations->tables()->value(tableName)->schema()->table();
-        d->conn->registerForTableSchemaChanges(tempData(), table); //this table will be used
+        const KDbTableSchema *table = d->relations->tables()->value(tableName)->schema()->table();
+        KDbTableSchemaChangeListener::registerForChanges(d->conn, tempData(), table); //this table will be used
         data = d->tablesColumnData->createItem();
         (*data)[COLUMN_ID_COLUMN] = table->name();
         (*data)[COLUMN_ID_TABLE] = (*data)[COLUMN_ID_COLUMN];
