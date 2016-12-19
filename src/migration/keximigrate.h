@@ -87,6 +87,8 @@ public:
 
 //! @todo Remove this! KexiMigrate should be usable for multiple concurrent migrations!
     //! Data Setup.  Requires two connection objects, a name and a bool
+    //! Ownership of @a migrateData is transferred to the KexiMigrate object.
+    //! Any previous data is removed if it is different than @a migrateData.
     void setData(KexiMigration::Data* migrateData);
 
     /*! Checks whether the destination database exists.

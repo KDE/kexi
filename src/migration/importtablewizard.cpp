@@ -518,9 +518,7 @@ void ImportTableWizard::arriveImportingPage()
         if (sourceDriver) {
             showOptions = !result.error()
             && sourceDriver->propertyValue("source_database_has_nonunicode_encoding").toBool();
-            KexiMigration::Data *data = sourceDriver->data();
-            sourceDriver->setData(0);
-            delete data;
+            sourceDriver->setData(nullptr);
         }
     }
     if (showOptions)

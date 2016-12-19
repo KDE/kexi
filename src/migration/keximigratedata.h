@@ -45,11 +45,24 @@ public:
     //! Name of the source database
     QString sourceName;
 
-    //! Destination project data
-    KexiProjectData* destination;
+    //! @return destination project data
+    KexiProjectData* destinationProjectData();
+
+    //! @overload KexiProjectData* destinationProjectData()
+    const KexiProjectData* destinationProjectData() const;
+
+    //! Sets destination project data to @a destinationProjectData.
+    //! The object wil be owned by KexiMigration::Data.
+    //! Previous project data other than @a destinationProjectData will be deleted.
+    void setDestinationProjectData(KexiProjectData* destinationProjectData);
 
     //! Flag to determine structure copy, or structure + data
     bool keepData;
+
+private:
+    class Private;
+    Private * const d;
+    Q_DISABLE_COPY(Data)
 };
 }//namespace KexiMigration
 #endif
