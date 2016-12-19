@@ -121,7 +121,12 @@ static QList<QPluginLoader *> findPlugins(const QString &path, const QStringList
                                           const QString &mimetype)
 {
     QList<QPluginLoader*> list;
-    QDirIterator dirIter(path, QDirIterator::Subdirectories | QDirIterator::FollowSymlinks);
+    QDirIterator dirIter(path,
+                         /* QDirIterator::Subdirectories -- Since 3.0.1: Don't look into subdirs
+                                                            because there may be 3.x dirs from
+                                                            future Kexi versions. We will look
+                                                            into subdirs since 3.1 again. */
+                         QDirIterator::FollowSymlinks);
     while (dirIter.hasNext()) {
         dirIter.next();
         if (dirIter.fileInfo().isFile()) {
