@@ -571,6 +571,7 @@ bool ImportTableWizard::fileBasedSrcSelected() const
 
 KexiMigrate* ImportTableWizard::prepareImport(Kexi::ObjectStatus *result)
 {
+    Q_ASSERT(result);
     // Find a source (migration) driver name
     QString sourceDriverId = driverIdForSelectedSource();
     if (sourceDriverId.isEmpty()) {
