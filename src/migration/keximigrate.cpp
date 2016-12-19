@@ -162,7 +162,9 @@ bool KexiMigrate::checkIfDestinationDatabaseOverwritingNeedsAccepting(Kexi::Obje
     KDbDriver *destDriver = drvManager.driver(
                                 d->migrateData->destinationProjectData()->connectionData()->driverId());
     if (!destDriver) {
-        result->setStatus(drvManager.resultable(), d->couldNotCreateDatabaseErrorMessage());
+        if (result) {
+            result->setStatus(drvManager.resultable(), d->couldNotCreateDatabaseErrorMessage());
+        }
         return false;
     }
 
