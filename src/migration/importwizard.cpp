@@ -644,9 +644,7 @@ void ImportWizard::arriveImportingPage()
         if (sourceDriver) {
             showOptions = !result.error()
                           && sourceDriver->propertyValue("source_database_has_nonunicode_encoding").toBool();
-            KexiMigration::Data *data = sourceDriver->data();
-            sourceDriver->setData(0);
-            delete data;
+            sourceDriver->setData(nullptr);
         }
     }
     if (showOptions)
@@ -821,7 +819,7 @@ KexiMigrate* ImportWizard::prepareImport(Kexi::ObjectStatus& result)
         }
 
         KexiMigration::Data* md = new KexiMigration::Data();
-        md->destination = new KexiProjectData(*cdata, dbname);
+        md->setDestinationProjectData(new KexiProjectData(*cdata, dbname));
         if (fileBasedSrcSelected()) {
             KDbConnectionData* conn_data = new KDbConnectionData();
             conn_data->setDatabaseName(selectedSourceFileName());
@@ -866,7 +864,7 @@ tristate ImportWizard::import()
             return false;
         }
 
-        qDebug() << sourceDriver->data()->destination->databaseName();
+        qDebug() << sourceDriver->data()->destinationProjectData()->databaseName();
         qDebug() << "Performing import...";
     }
 
@@ -876,7 +874,8 @@ tristate ImportWizard::import()
                         xi18nc("@info (don't add tags around %1, it's done already)",
                                "<para>Database %1 already exists.</para>"
                                "<para>Do you want to replace it with a new one?</para>",
-                               KexiUtils::localizedStringToHtmlSubstring(sourceDriver->data()->destination->infoString())),
+                               KexiUtils::localizedStringToHtmlSubstring(
+                                   sourceDriver->data()->destinationProjectData()->infoString())),
                 0, KGuiItem(xi18nc("@action:button Replace Database", "&Replace")), KStandardGuiItem::no()))
         {
             return cancelled;
@@ -891,8 +890,8 @@ tristate ImportWizard::import()
         if (d->args) {
             d->args->insert("destinationDatabaseName",
                             fileBasedDstSelected()
-                            ? sourceDriver->data()->destination->connectionData()->databaseName()
-                            : sourceDriver->data()->destination->databaseName());
+                            ? sourceDriver->data()->destinationProjectData()->connectionData()->databaseName()
+                            : sourceDriver->data()->destinationProjectData()->databaseName());
             QString destinationConnectionShortcut;
             if (d->dstConn->selectedConnectionData()) {
                 destinationConnectionShortcut
