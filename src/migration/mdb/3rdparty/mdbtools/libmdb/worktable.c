@@ -31,6 +31,9 @@ void
 mdb_fill_temp_col(MdbColumn *tcol, char *col_name, int col_size, int col_type, int is_fixed)
 {
 	memset(tcol,0,sizeof(MdbColumn));
+	if (strlen(col_name) > MDB_MAX_OBJ_NAME) {
+		return;
+	}
 	strcpy(tcol->name, col_name);
 	tcol->col_type = col_type;
 	if ((col_type == MDB_TEXT) || (col_type == MDB_MEMO)) {
@@ -56,6 +59,9 @@ mdb_create_temp_table(MdbHandle *mdb, char *name)
 	MdbCatalogEntry *entry;
 	MdbTableDef *table;
 
+	if (strlen(name) > MDB_MAX_OBJ_NAME) {
+		return 0;
+	}
 	/* dummy up a catalog entry */
 	entry = (MdbCatalogEntry *) g_malloc0(sizeof(MdbCatalogEntry));
 	entry->mdb = mdb;
