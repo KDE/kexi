@@ -59,6 +59,7 @@ public:
             , m_couldNotFindAnyFormWidgetPluginsErrorDisplayed(false)
             , m_supportedFactoryGroups(supportedFactoryGroups.toSet())
             , m_lookupDone(false)
+            , m_lookupResult(false)
             , m_loadFactoriesDone(false)
     {
         q->setMessageHandler(&messageHandler);

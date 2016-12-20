@@ -47,7 +47,7 @@ KexiDisplayUtils::DisplayParameters::DisplayParameters()
 {
 }
 
-KexiDisplayUtils::DisplayParameters::DisplayParameters(QWidget *w)
+KexiDisplayUtils::DisplayParameters::DisplayParameters(const QWidget *w)
 {
 //! @todo check!
     textColor = w->palette().foreground().color();
@@ -61,26 +61,27 @@ static QString autonumberText()
     return xi18nc("Autonumber, make it as short as possible", "(auto)");
 }
 
-void KexiDisplayUtils::initDisplayForAutonumberSign(DisplayParameters& par, QWidget *widget)
+void KexiDisplayUtils::initDisplayForAutonumberSign(DisplayParameters* par, const QWidget *widget)
 {
+    Q_ASSERT(par);
     initDisplayUtilsImages();
 
-    par.textColor = SPECIAL_TEXT_COLOR;
-    par.selectedTextColor = SPECIAL_TEXT_COLOR; //hmm, unused anyway
-    par.font = widget->font();
-    par.font.setItalic(true);
-    QFontMetrics fm(par.font);
-    par.textWidth = fm.width(autonumberText());
-    par.textHeight = fm.height();
+    par->textColor = SPECIAL_TEXT_COLOR;
+    par->selectedTextColor = SPECIAL_TEXT_COLOR; //hmm, unused anyway
+    par->font = widget->font();
+    par->font.setItalic(true);
+    QFontMetrics fm(par->font);
+    par->textWidth = fm.width(autonumberText());
+    par->textHeight = fm.height();
 }
 
-void KexiDisplayUtils::initDisplayForDefaultValue(DisplayParameters& par, QWidget *widget)
+void KexiDisplayUtils::initDisplayForDefaultValue(DisplayParameters* par, const QWidget *widget)
 {
-    par.textColor = SPECIAL_TEXT_COLOR;
+    par->textColor = SPECIAL_TEXT_COLOR;
 //! @todo check!
-    par.selectedTextColor = widget->palette().highlightedText().color();
-    par.font = widget->font();
-    par.font.setItalic(true);
+    par->selectedTextColor = widget->palette().highlightedText().color();
+    par->font = widget->font();
+    par->font.setItalic(true);
 }
 
 void KexiDisplayUtils::paintAutonumberSign(const DisplayParameters& par, QPainter* painter,
