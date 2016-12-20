@@ -122,7 +122,6 @@ protected:
 private:
     QWebView* m_view;
     QVBoxLayout* v_layout;
-    QWebHistory* m_history;
     QProgressBar* m_pbar;
     bool  m_urlChanged_enabled;
     QPushButton* m_back;
