@@ -40,7 +40,7 @@ void KexiDBTextWidgetInterface::setColumnInfo(KDbQueryColumnInfo* cinfo, QWidget
     if (cinfo->field->isAutoIncrement()) {
         if (!m_autonumberDisplayParameters)
             m_autonumberDisplayParameters = new KexiDisplayUtils::DisplayParameters();
-        KexiDisplayUtils::initDisplayForAutonumberSign(*m_autonumberDisplayParameters, w);
+        KexiDisplayUtils::initDisplayForAutonumberSign(m_autonumberDisplayParameters, w);
     }
 }
 

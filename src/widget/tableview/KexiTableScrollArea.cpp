@@ -319,8 +319,8 @@ void KexiTableScrollArea::setFont(const QFont &font)
     if (d->recordHeight < MINIMUM_ROW_HEIGHT) {
         d->recordHeight = MINIMUM_ROW_HEIGHT;
     }
-    KexiDisplayUtils::initDisplayForAutonumberSign(d->autonumberSignDisplayParameters, this);
-    KexiDisplayUtils::initDisplayForDefaultValue(d->defaultValueDisplayParameters, this);
+    KexiDisplayUtils::initDisplayForAutonumberSign(&d->autonumberSignDisplayParameters, this);
+    KexiDisplayUtils::initDisplayForDefaultValue(&d->defaultValueDisplayParameters, this);
     update();
 }
 

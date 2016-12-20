@@ -56,7 +56,7 @@ void KexiFormDataItemInterface::setDisplayDefaultValue(QWidget* widget, bool dis
     if (!m_displayParametersForDefaultValue) {
         m_displayParametersForEnteredValue = new KexiDisplayUtils::DisplayParameters(widget);
         m_displayParametersForDefaultValue = new KexiDisplayUtils::DisplayParameters();
-        KexiDisplayUtils::initDisplayForDefaultValue(*m_displayParametersForDefaultValue, widget);
+        KexiDisplayUtils::initDisplayForDefaultValue(m_displayParametersForDefaultValue, widget);
     }
 }
 

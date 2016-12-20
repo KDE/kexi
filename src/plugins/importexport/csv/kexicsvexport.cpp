@@ -47,12 +47,13 @@
 using namespace KexiCSVExport;
 
 Options::Options()
-        : mode(File), itemId(0), addColumnNames(true)
+        : mode(File), itemId(0), addColumnNames(true), useTempQuery(false)
 {
 }
 
 bool Options::assign(QMap<QString, QString> *args)
 {
+    bool result = true;
     mode = (args->value("destinationType") == "file")
            ? KexiCSVExport::File : KexiCSVExport::Clipboard;
 
@@ -68,14 +69,15 @@ bool Options::assign(QMap<QString, QString> *args)
 
     bool ok;
     itemId = args->value("itemId").toInt(&ok);
-    if (!ok || itemId == 0) //neverSaved items are supported
-        return false;
+    if (!ok || itemId == 0) {
+        result = false; //neverSaved items are supported
+    }
     if (args->contains("forceDelimiter"))
         forceDelimiter = args->value("forceDelimiter");
     if (args->contains("addColumnNames"))
         addColumnNames = (args->value("addColumnNames") == "1");
     useTempQuery = (args->value("useTempQuery") == "1");
-    return true;
+    return result;
 }
 
 //------------------------------------

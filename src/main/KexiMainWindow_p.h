@@ -225,9 +225,9 @@ private:
     KexiTabbedToolBar* m_toolBar;
     bool m_initialized;
     EmptyMenuContentWidget *m_content;
-    QStackedLayout *m_contentLayout;
+    QStackedLayout *m_contentLayout = nullptr;
     QPointer<QWidget> m_contentWidget;
-    QVBoxLayout* m_mainContentLayout;
+    QVBoxLayout* m_mainContentLayout = nullptr;
     QPointer<KexiMenuWidgetAction> m_persistentlySelectedAction;
     bool m_selectFirstItem;
 };
