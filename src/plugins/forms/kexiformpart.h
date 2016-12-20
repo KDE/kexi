@@ -89,7 +89,6 @@ protected:
 private:
     class Private;
     Private* d;
-    const KexiWindow* window;
 };
 
 #endif
