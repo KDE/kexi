@@ -78,7 +78,10 @@ mdb_write_pg(MdbHandle *mdb, unsigned long pg)
 	struct stat status;
 	off_t offset = pg * mdb->fmt->pg_size;
 
-	fstat(mdb->f->fd, &status);
+	if (fstat(mdb->f->fd, &status) != 0) {
+		perror("fstat");
+		return 0;
+	}
 	/* is page beyond current size + 1 ? */
 	if ((size_t)status.st_size < (offset + mdb->fmt->pg_size)) {
 		fprintf(stderr,"offset %jd is beyond EOF\n",(intmax_t)offset);
