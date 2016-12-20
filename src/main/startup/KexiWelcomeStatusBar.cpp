@@ -809,7 +809,7 @@ public:
     QMap<KexiUserFeedbackAgent::Area, int> scores;
     QString countryMask;
     QString languageMask;
-    bool detailsDataVisible;
+    bool detailsDataVisible = false;
     int totalFeedbackScore;
     int donationScore;
     bool donated;

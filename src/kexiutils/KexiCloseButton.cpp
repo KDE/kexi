@@ -35,7 +35,7 @@ public:
     Private()
     {
     }
-    bool dummy;
+    bool dummy = true;
 };
 
 KexiCloseButton::KexiCloseButton(QWidget* parent)

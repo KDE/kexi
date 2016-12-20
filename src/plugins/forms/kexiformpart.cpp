@@ -64,7 +64,6 @@ public:
     QPointer<KexiDataSourcePage> dataSourcePage;
     QPointer<KFormDesigner::WidgetTreeWidget> widgetTree;
     QPointer<QWidget> widgetTreeWidget;
-    KexiDataSourceComboBox *dataSourceCombo;
 };
 
 KexiFormPart::KexiFormPart(QObject *parent, const QVariantList &l)

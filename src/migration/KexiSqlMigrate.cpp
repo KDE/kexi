@@ -148,11 +148,8 @@ bool KexiSqlMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destC
             }
             return false;
         }
-        bool filterUsed = false;
         if (recordFilter) {
-            if ((*recordFilter)(*record)) {
-                filterUsed = true;
-            } else {
+            if (!(*recordFilter)(*record)) {
                 continue;
             }
         }
@@ -163,7 +160,7 @@ bool KexiSqlMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destC
                             s.string, fieldsExpanded.at(i)->field()->type(), 0, s.length));
         }
         updateProgress();
-        if (recordFilter && !filterUsed) {
+        if (recordFilter) {
             if (!(*recordFilter)(vals)) {
                 continue;
             }

@@ -89,7 +89,7 @@ protected:
     void deleteEntry(const char *key);
 
     KexiCSVExport::Options m_options;
-    KexiFileWidget* m_fileSaveWidget;
+    KexiFileWidget* m_fileSaveWidget = nullptr;
     QWidget* m_exportOptionsWidget;
     KPageWidgetItem *m_fileSavePage;
     KPageWidgetItem *m_exportOptionsPage;

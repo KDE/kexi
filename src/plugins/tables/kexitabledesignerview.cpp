@@ -1545,9 +1545,9 @@ KexiTablePartTempData* KexiTableDesignerView::tempData() const
 #ifdef KEXI_DEBUG_GUI
 void KexiTableDesignerView::debugCommand(const KUndo2Command* command, int nestingLevel)
 {
-    if (dynamic_cast<const Command*>(command)) {
-        KDb::alterTableActionDebugGUI(
-            dynamic_cast<const Command*>(command)->debugString(), nestingLevel);
+    const Command* kexiCommand = dynamic_cast<const Command*>(command);
+    if (kexiCommand) {
+        KDb::alterTableActionDebugGUI(kexiCommand->debugString(), nestingLevel);
     }
     else {
         KDb::alterTableActionDebugGUI(command->text().toString(), nestingLevel);

@@ -39,22 +39,24 @@ public:
         DisplayParameters();
 
         //! Copies properties from \a w.
-        explicit DisplayParameters(QWidget *w);
+        explicit DisplayParameters(const QWidget *w);
 
-        QColor textColor, selectedTextColor;
+        QColor textColor;
+        QColor selectedTextColor;
         QFont font;
-        int textWidth, textHeight; //!< used for "(autonumber)" text only
+        int textWidth = 0;
+        int textHeight = 0; //!< used for "(autonumber)" text only
     };
 
     //! Initializes display parameters for autonumber sign
-    static void initDisplayForAutonumberSign(DisplayParameters& par, QWidget *widget);
+    static void initDisplayForAutonumberSign(DisplayParameters* par, const QWidget *widget);
 
     //! Paints autonumber sign using \a par parameters
     static void paintAutonumberSign(const DisplayParameters& par, QPainter* painter,
                                     int x, int y, int width, int height, Qt::Alignment alignment, bool overrideColor = false);
 
     //! Initializes display parameters for default value
-    static void initDisplayForDefaultValue(DisplayParameters& par, QWidget *widget);
+    static void initDisplayForDefaultValue(DisplayParameters* par, const QWidget *widget);
 };
 
 #endif

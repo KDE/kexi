@@ -23,14 +23,40 @@
 
 using namespace KexiMigration;
 
+class Q_DECL_HIDDEN Data::Private
+{
+public:
+    Private() {}
+    KexiProjectData *destinationProjectData = nullptr;
+};
+
 Data::Data()
-        : source(0)
-        , destination(0)
+    : source(nullptr)
+    , d(new Private)
 {
 }
 
 Data::~Data()
 {
+    delete d;
+}
+
+KexiProjectData* Data::destinationProjectData()
+{
+    return d->destinationProjectData;
+}
+
+const KexiProjectData* Data::destinationProjectData() const
+{
+    return d->destinationProjectData;
+}
+
+void Data::setDestinationProjectData(KexiProjectData* destinationProjectData)
+{
+    if (d->destinationProjectData && d->destinationProjectData != destinationProjectData) {
+        delete d->destinationProjectData;
+    }
+    d->destinationProjectData = destinationProjectData;
 }
 
 QString Data::sourceDatabaseInfoString() const

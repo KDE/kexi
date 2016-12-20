@@ -409,7 +409,10 @@ static ssize_t _mdb_read_pg(MdbHandle *mdb, void *pg_buf, unsigned long pg)
 	struct stat status;
 	off_t offset = pg * mdb->fmt->pg_size;
 
-        fstat(mdb->f->fd, &status);
+	if (fstat(mdb->f->fd, &status) != 0) {
+		perror("fstat");
+		return 0;
+	}
         if (status.st_size < offset) {
                 fprintf(stderr,"offset %jd is beyond EOF\n",(intmax_t)offset);
                 return 0;
@@ -418,7 +421,10 @@ static ssize_t _mdb_read_pg(MdbHandle *mdb, void *pg_buf, unsigned long pg)
 	if (mdb->stats && mdb->stats->collect)
 		mdb->stats->pg_reads++;
 #endif
-	lseek(mdb->f->fd, offset, SEEK_SET);
+	if (lseek(mdb->f->fd, offset, SEEK_SET) == -1) {
+		perror("lseek");
+		return 0;
+	}
 	len = read(mdb->f->fd,pg_buf,mdb->fmt->pg_size);
 	if (len==-1) {
 		perror("read");
