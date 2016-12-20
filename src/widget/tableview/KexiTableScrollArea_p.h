@@ -84,7 +84,6 @@ public:
     int recordHeight;
     QTimer *pUpdateTimer;
     bool editOnDoubleClick;
-    bool needAutoScroll;
     bool disableDrawContents;
 
     /*! true if the navigation panel is enabled (visible) for the view.
