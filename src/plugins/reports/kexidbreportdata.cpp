@@ -72,10 +72,10 @@ void KexiDBReportData::setSorting(const QList<SortedField>& sorting)
             return;
         KDbOrderByColumnList order;
         for (int i = 0; i < sorting.count(); i++) {
-            if (!order.appendField(d->copySchema, sorting[i].field,
-                                   sorting[i].order == Qt::AscendingOrder))
+            if (!order.appendField(d->copySchema, sorting[i].field(),
+                                   sorting[i].order() == Qt::AscendingOrder))
             {
-                qWarning() << "Cannot set sort field" << i << sorting[i].field;
+                qWarning() << "Cannot set sort field" << i << sorting[i].field();
                 return;
             }
         }
