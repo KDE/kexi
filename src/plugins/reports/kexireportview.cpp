@@ -172,8 +172,8 @@ void KexiReportView::slotPrintReport()
     if (dialog.exec() == QDialog::Accepted) {
         KReportRendererContext cxt;
         QPainter painter;
-        cxt.printer = &printer;
-        cxt.painter = &painter;
+        cxt.setPrinter(&printer);
+        cxt.setPainter(&painter);
 
         renderer->render(cxt, m_preRenderer->document());
     }
@@ -185,30 +185,30 @@ void KexiReportView::slotExportAsPdf()
     if (renderer) {
         KReportRendererContext cxt;
 
-        cxt.destinationUrl = getExportUrl(QLatin1String("application/pdf"),
+        cxt.setUrl(getExportUrl(QLatin1String("application/pdf"),
                                           xi18n("Export Report as PDF"),
                                           "kfiledialog:///LastVisitedPDFExportPath/",
-                                          "pdf");
-        if (!cxt.destinationUrl.isValid()) {
+                                          "pdf"));
+        if (!cxt.url().isValid()) {
             return;
         }
 
         QPrinter printer;
         QPainter painter;
 
-        printer.setOutputFileName(cxt.destinationUrl.path());
+        printer.setOutputFileName(cxt.url().path());
         printer.setOutputFormat(QPrinter::PdfFormat);
         printer.setColorMode(QPrinter::Color);
 
         painter.begin(&printer);
-        cxt.printer = &printer;
-        cxt.painter = &painter;
+        cxt.setPrinter(&printer);
+        cxt.setPainter(&painter);
         if (!renderer->render(cxt, m_preRenderer->document())) {
             KMessageBox::error(this,
-                               xi18n("Exporting the report as PDF to %1 failed.", cxt.destinationUrl.toDisplayString()),
+                               xi18n("Exporting the report as PDF to %1 failed.", cxt.url().toDisplayString()),
                                xi18n("Export Failed"));
         } else {
-            openExportedDocument(cxt.destinationUrl);
+            openExportedDocument(cxt.url());
         }
    }
 }
@@ -248,20 +248,20 @@ void KexiReportView::slotExportAsSpreadsheet()
     QScopedPointer<KReportRendererBase> renderer(m_factory.createInstance("ods"));
     if (renderer) {
         KReportRendererContext cxt;
-        cxt.destinationUrl = getExportUrl(QLatin1String("application/vnd.oasis.opendocument.spreadsheet"),
+        cxt.setUrl(getExportUrl(QLatin1String("application/vnd.oasis.opendocument.spreadsheet"),
                                           xi18n("Export Report as Spreadsheet"),
                                           "kfiledialog:///LastVisitedODSExportPath/",
-                                          "ods");
-        if (!cxt.destinationUrl.isValid()) {
+                                          "ods"));
+        if (!cxt.url().isValid()) {
             return;
         }
 
         if (!renderer->render(cxt, m_preRenderer->document())) {
             KMessageBox::error(this,
-                               xi18n("Failed to export the report as spreadsheet to %1.", cxt.destinationUrl.toDisplayString()),
+                               xi18n("Failed to export the report as spreadsheet to %1.", cxt.url().toDisplayString()),
                                xi18n("Export Failed"));
         } else {
-            openExportedDocument(cxt.destinationUrl);
+            openExportedDocument(cxt.url());
         }
     }
 }
@@ -273,20 +273,20 @@ void KexiReportView::slotExportAsTextDocument()
     //!       The same for other createInstance() calls.
     if (renderer) {
         KReportRendererContext cxt;
-        cxt.destinationUrl = getExportUrl(QLatin1String("application/vnd.oasis.opendocument.text"),
+        cxt.setUrl(getExportUrl(QLatin1String("application/vnd.oasis.opendocument.text"),
                                           xi18n("Export Report as Text Document"),
                                           "kfiledialog:///LastVisitedODTExportPath/",
-                                          "odt");
-        if (!cxt.destinationUrl.isValid()) {
+                                          "odt"));
+        if (!cxt.url().isValid()) {
             return;
         }
 
         if (!renderer->render(cxt, m_preRenderer->document())) {
             KMessageBox::error(this,
-                               xi18n("Exporting the report as text document to %1 failed.", cxt.destinationUrl.toDisplayString()),
+                               xi18n("Exporting the report as text document to %1 failed.", cxt.url().toDisplayString()),
                                xi18n("Export Failed"));
         } else {
-            openExportedDocument(cxt.destinationUrl);
+            openExportedDocument(cxt.url());
         }
     }
 }
@@ -295,11 +295,11 @@ void KexiReportView::slotExportAsWebPage()
 {
     const QString dialogTitle = xi18n("Export Report as Web Page");
     KReportRendererContext cxt;
-    cxt.destinationUrl = getExportUrl(QLatin1String("text/html"),
+    cxt.setUrl(getExportUrl(QLatin1String("text/html"),
                                       dialogTitle,
                                       "kfiledialog:///LastVisitedHTMLExportPath/",
-                                      "html");
-    if (!cxt.destinationUrl.isValid()) {
+                                      "html"));
+    if (!cxt.url().isValid()) {
         return;
     }
 
@@ -322,10 +322,10 @@ void KexiReportView::slotExportAsWebPage()
 
     if (!renderer->render(cxt, m_preRenderer->document())) {
         KMessageBox::error(this,
-                           xi18n("Exporting the report as web page to %1 failed.", cxt.destinationUrl.toDisplayString()),
+                           xi18n("Exporting the report as web page to %1 failed.", cxt.url().toDisplayString()),
                            xi18n("Export Failed"));
     } else {
-        openExportedDocument(cxt.destinationUrl);
+        openExportedDocument(cxt.url());
     }
 }
 
