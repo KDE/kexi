@@ -212,15 +212,17 @@ void ObjectStatus::setStatus(const KDbResultable* resultable, const QString& mes
 void ObjectStatus::setStatus(KDbResultInfo* resultInfo, const QString& message, const QString& description)
 {
     if (resultInfo) {
-        if (message.isEmpty())
-            this->message = resultInfo->msg;
-        else
-            this->message = message + " " + resultInfo->msg;
+        if (message.isEmpty()) {
+            this->message = resultInfo->message;
+        } else {
+            this->message = message + " " + resultInfo->message;
+        }
 
-        if (description.isEmpty())
-            this->description = resultInfo->desc;
-        else
-            this->description = description + " " + resultInfo->desc;
+        if (description.isEmpty()) {
+            this->description = resultInfo->description;
+        } else {
+            this->description = description + " " + resultInfo->description;
+        }
     } else {
         setStatus(message, description);
     }

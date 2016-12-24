@@ -979,7 +979,7 @@ bool KexiDataAwareObjectInterface::acceptEditor()
                 //move to faulty column (if m_editor is not cleared)
                 setCursorPosition(m_curRecord, m_data->result().column);
             }
-            if (!m_data->result().msg.isEmpty()) {
+            if (!m_data->result().message.isEmpty()) {
                 const int button = showErrorMessageForResult(m_data->result());
                 if (KMessageBox::No == button) {
                     //discard changes
@@ -1625,8 +1625,8 @@ int KexiDataAwareObjectInterface::showErrorMessageForResult(const KDbResultInfo&
 {
     QWidget *thisWidget = dynamic_cast<QWidget*>(this);
     if (resultInfo.allowToDiscardChanges) {
-        return KMessageBox::questionYesNo(thisWidget, resultInfo.msg
-                                          + (resultInfo.desc.isEmpty() ? QString() : ("\n" + resultInfo.desc)),
+        return KMessageBox::questionYesNo(thisWidget, resultInfo.message
+                                          + (resultInfo.description.isEmpty() ? QString() : ("\n" + resultInfo.description)),
                                           QString(),
                                           KGuiItem(xi18nc("@action:button Correct Changes", "Correct"),
                                                    QString(),
@@ -1634,10 +1634,11 @@ int KexiDataAwareObjectInterface::showErrorMessageForResult(const KDbResultInfo&
                                           KGuiItem(xi18nc("@action:button", "Discard Changes")));
     }
 
-    if (resultInfo.desc.isEmpty())
-        KMessageBox::sorry(thisWidget, resultInfo.msg);
-    else
-        KMessageBox::detailedSorry(thisWidget, resultInfo.msg, resultInfo.desc);
+    if (resultInfo.description.isEmpty()) {
+        KMessageBox::sorry(thisWidget, resultInfo.message);
+    } else {
+        KMessageBox::detailedSorry(thisWidget, resultInfo.message, resultInfo.description);
+    }
 
     return KMessageBox::Ok;
 }

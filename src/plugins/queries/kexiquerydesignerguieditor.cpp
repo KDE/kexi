@@ -1498,10 +1498,10 @@ void KexiQueryDesignerGuiEditor::slotBeforeColumnCellChanged(KDbRecordData *data
                 result->success = false;
                 result->allowToDiscardChanges = true;
                 result->column = COLUMN_ID_COLUMN;
-                result->msg = xi18nc("@info",
+                result->message = xi18nc("@info",
                     "Entered column alias <resource>%1</resource> is not a valid identifier.",
                     QString::fromLatin1(alias));
-                result->desc = xi18n("Identifiers should start with a letter or '_' character");
+                result->description = xi18n("Identifiers should start with a letter or '_' character");
                 return;
             }
         }
@@ -1519,7 +1519,7 @@ void KexiQueryDesignerGuiEditor::slotBeforeColumnCellChanged(KDbRecordData *data
             result->success = false;
             result->allowToDiscardChanges = true;
             result->column = COLUMN_ID_COLUMN;
-            result->msg = xi18nc("@info", "Invalid expression <icode>%1</icode>", fieldName);
+            result->message = xi18nc("@info", "Invalid expression <icode>%1</icode>", fieldName);
             return;
         }
     }
@@ -1671,7 +1671,7 @@ void KexiQueryDesignerGuiEditor::slotBeforeSortingCellChanged(KDbRecordData *dat
         result->success = false;
         result->allowToDiscardChanges = true;
         result->column = COLUMN_ID_SORTING;
-        result->msg = xi18n("Could not set sorting for multiple columns (%1)",
+        result->message = xi18n("Could not set sorting for multiple columns (%1)",
                            table == "*" ? table : (table + ".*"));
     }
 }
@@ -1696,10 +1696,10 @@ void KexiQueryDesignerGuiEditor::slotBeforeCriteriaCellChanged(KDbRecordData *da
         result->allowToDiscardChanges = true;
         result->column = COLUMN_ID_CRITERIA;
         if (propertySet())
-            result->msg = xi18nc("@info", "Could not set criteria for <resource>%1</resource>",
+            result->message = xi18nc("@info", "Could not set criteria for <resource>%1</resource>",
                                  table == "*" ? table : field);
         else
-            result->msg = xi18n("Could not set criteria for empty record");
+            result->message = xi18n("Could not set criteria for empty record");
     }
     else if (str.isEmpty()
              || (e = parseExpressionString(str, &token, true/*allowRelationalOperator*/)).isValid())
@@ -1723,7 +1723,7 @@ void KexiQueryDesignerGuiEditor::slotBeforeCriteriaCellChanged(KDbRecordData *da
         result->success = false;
         result->allowToDiscardChanges = true;
         result->column = COLUMN_ID_CRITERIA;
-        result->msg = xi18nc("@info", "Invalid criteria <icode>%1</icode>", newValue.toString());
+        result->message = xi18nc("@info", "Invalid criteria <icode>%1</icode>", newValue.toString());
     }
 }
 
