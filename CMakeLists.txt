@@ -230,6 +230,7 @@ calligra_drop_unbuildable_products()
 add_subdirectory(src)
 
 if(SHOULD_BUILD_DOC)
+    find_package(KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS DocTools)
     add_subdirectory(doc)
 endif()
 
