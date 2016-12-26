@@ -105,7 +105,7 @@ public:
     KDbQuerySchema* privateQuery;
     int maxRecordCount;
     //! Columns that should be kept visible; the others should be hidden.
-    //! Used when query is used as the record source type (KDbLookupFieldSchema::RecordSource::Query).
+    //! Used when query is used as the record source type (KDbLookupFieldSchemaRecordSource::Query).
     //! We're doing this in this case because it's hard to alter the query to remove columns.
     QList<int> visibleColumnsToShow;
 };
@@ -192,7 +192,7 @@ void KexiComboBoxPopup::setData(const KDbTableViewColumn *column, KDbField *fiel
 //! @todo support more RowSourceType's, not only table and query
         KDbCursor *cursor = 0;
         switch (lookupFieldSchema->recordSource().type()) {
-        case KDbLookupFieldSchema::RecordSource::Table: {
+        case KDbLookupFieldSchemaRecordSource::Table: {
             KDbTableSchema *lookupTable
             = field->table()->connection()->tableSchema(lookupFieldSchema->recordSource().name());
             if (!lookupTable)
@@ -235,7 +235,7 @@ void KexiComboBoxPopup::setData(const KDbTableViewColumn *column, KDbField *fiel
             }
             break;
         }
-        case KDbLookupFieldSchema::RecordSource::Query: {
+        case KDbLookupFieldSchemaRecordSource::Query: {
             KDbQuerySchema *lookupQuery
             = field->table()->connection()->querySchema(lookupFieldSchema->recordSource().name());
             if (!lookupQuery)
