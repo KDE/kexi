@@ -350,14 +350,14 @@ void KexiTableScrollArea::slotUpdate()
     updateWidgetContentsSize();
 }
 
-Qt::SortOrder KexiTableScrollArea::currentLocalSortOrder() const
+KDbOrderByColumn::SortOrder KexiTableScrollArea::currentLocalSortOrder() const
 {
-    return d->horizontalHeader->sortIndicatorOrder();
+    return KDbOrderByColumn::fromQt(d->horizontalHeader->sortIndicatorOrder());
 }
 
-void KexiTableScrollArea::setLocalSortOrder(int column, Qt::SortOrder order)
+void KexiTableScrollArea::setLocalSortOrder(int column, KDbOrderByColumn::SortOrder order)
 {
-    d->horizontalHeader->setSortIndicator(column, order);
+    d->horizontalHeader->setSortIndicator(column, KDbOrderByColumn::toQt(order));
 }
 
 int KexiTableScrollArea::currentLocalSortColumn() const

@@ -253,14 +253,14 @@ protected:
     virtual void clearColumnsInternal(bool repaint);
 
     //! Implementation for KexiDataAwareObjectInterface
-    virtual Qt::SortOrder currentLocalSortOrder() const;
+    virtual KDbOrderByColumn::SortOrder currentLocalSortOrder() const;
 
     //! Implementation for KexiDataAwareObjectInterface
     virtual int currentLocalSortColumn() const;
 
     //! Implementation for KexiDataAwareObjectInterface. Visually does nothing
     //! but remembers index of the currently sorted column and order.
-    virtual void setLocalSortOrder(int column, Qt::SortOrder order);
+    virtual void setLocalSortOrder(int column, KDbOrderByColumn::SortOrder order);
 
     //! Implementation for KexiDataAwareObjectInterface.
     //! Just calls KexiDataAwareObjectInterface's implementation.

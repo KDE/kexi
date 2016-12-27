@@ -20,6 +20,7 @@
 #include <core/kexipart.h>
 
 #include <KDbConnection>
+#include <KDbOrderByColumn>
 #include <KDbQuerySchema>
 #include <KDbNativeStatementBuilder>
 
@@ -73,7 +74,7 @@ void KexiDBReportData::setSorting(const QList<SortedField>& sorting)
         KDbOrderByColumnList order;
         for (int i = 0; i < sorting.count(); i++) {
             if (!order.appendField(d->copySchema, sorting[i].field(),
-                                   sorting[i].order() == Qt::AscendingOrder))
+                                   KDbOrderByColumn::fromQt(sorting[i].order())))
             {
                 qWarning() << "Cannot set sort field" << i << sorting[i].field();
                 return;

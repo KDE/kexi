@@ -52,7 +52,7 @@ public:
         , scrollViewNavPanelVisible(false)
         , mainAreaWidget(0)
         , currentLocalSortColumn(-1) /* no column */
-        , localSortOrder(Qt::AscendingOrder)
+        , localSortOrder(KDbOrderByColumn::SortOrder::Ascending)
         , previousRecord(0)
     {
     }
@@ -81,7 +81,7 @@ public:
 
     KFormDesigner::Form *form;
     int currentLocalSortColumn;
-    Qt::SortOrder localSortOrder;
+    KDbOrderByColumn::SortOrder localSortOrder;
     //! Used in selectCellInternal() to avoid fetching the same record twice
     KDbRecordData *previousRecord;
 };
@@ -223,7 +223,7 @@ void KexiFormScrollView::clearColumnsInternal(bool repaint)
     //! @todo
 }
 
-Qt::SortOrder KexiFormScrollView::currentLocalSortOrder() const
+KDbOrderByColumn::SortOrder KexiFormScrollView::currentLocalSortOrder() const
 {
     return d->localSortOrder;
 }
@@ -233,7 +233,7 @@ int KexiFormScrollView::currentLocalSortColumn() const
     return d->currentLocalSortColumn;
 }
 
-void KexiFormScrollView::setLocalSortOrder(int column, Qt::SortOrder order)
+void KexiFormScrollView::setLocalSortOrder(int column, KDbOrderByColumn::SortOrder order)
 {
     d->currentLocalSortColumn = column;
     d->localSortOrder = order;
