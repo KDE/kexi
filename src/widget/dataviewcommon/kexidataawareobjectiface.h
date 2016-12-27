@@ -143,7 +143,8 @@ public:
     /*! Sets sorting order on column @a column to @a order.
      This method do not work if sorting is disabled using setSortingEnabled(false).
      @a column may be -1, what means "no sorting". */
-    virtual void setSorting(int column, Qt::SortOrder order = Qt::AscendingOrder);
+    virtual void setSorting(int column,
+                            KDbOrderByColumn::SortOrder order = KDbOrderByColumn::SortOrder::Ascending);
 
     /*! Enables or disables sorting for this object
       This method is different that setSorting() because it prevents both user
@@ -162,7 +163,7 @@ public:
      has been performed within GUI of this object, because the data could be changed
      in the meantime outside of this GUI object.
      dataSortColumn() should be checked first to see if sorting is enabled (and if there's data). */
-    Qt::SortOrder dataSortOrder() const;
+    KDbOrderByColumn::SortOrder dataSortOrder() const;
 
     /*! Sorts all records by column selected with setSorting().
      If there is currently record edited, it is accepted.
@@ -631,7 +632,7 @@ protected:
      Even this does not mean that any sorting has been performed within GUI of this object,
      because the data could be changed in the meantime outside of this GUI object.
      @see dataSortOrder() currentLocalSortColumn() */
-    virtual Qt::SortOrder currentLocalSortOrder() const = 0;
+    virtual KDbOrderByColumn::SortOrder currentLocalSortOrder() const = 0;
 
     /*! @internal for implementation
      \return sorted column number for this widget or -1 if no column
@@ -646,7 +647,7 @@ protected:
      Shows sorting indicator order in the GUI for column @a column.
      This should not perform any sorting in data assigned to this object.
      @a column may be -1, what means "no sorting". */
-    virtual void setLocalSortOrder(int column, Qt::SortOrder order) = 0;
+    virtual void setLocalSortOrder(int column, KDbOrderByColumn::SortOrder order) = 0;
 
     /*! @internal Sets order for \a column: -1: descending, 1: ascending,
      0: invert order */

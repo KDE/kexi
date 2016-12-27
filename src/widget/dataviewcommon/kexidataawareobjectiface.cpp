@@ -239,7 +239,7 @@ void KexiDataAwareObjectInterface::setSortingEnabled(bool set)
     /*emit*/ reloadActions();
 }
 
-void KexiDataAwareObjectInterface::setSorting(int column, Qt::SortOrder order)
+void KexiDataAwareObjectInterface::setSorting(int column, KDbOrderByColumn::SortOrder order)
 {
     if (!m_data || !m_isSortingEnabled)
         return;
@@ -254,9 +254,9 @@ int KexiDataAwareObjectInterface::dataSortColumn() const
     return -1;
 }
 
-Qt::SortOrder KexiDataAwareObjectInterface::dataSortOrder() const
+KDbOrderByColumn::SortOrder KexiDataAwareObjectInterface::dataSortOrder() const
 {
-    return m_data ? m_data->sortOrder() : Qt::AscendingOrder;
+    return m_data ? m_data->sortOrder() : KDbOrderByColumn::SortOrder::Ascending;
 }
 
 bool KexiDataAwareObjectInterface::sort()
@@ -317,18 +317,19 @@ void KexiDataAwareObjectInterface::sortColumnInternal(int col, int order)
     //-select sorting
     bool asc;
     if (order == 0) {// invert
-        if (col == dataSortColumn() && dataSortOrder() == Qt::AscendingOrder)
+        if (col == dataSortColumn() && dataSortOrder() == KDbOrderByColumn::SortOrder::Ascending) {
             asc = false; // invert
-        else
+        } else {
             asc = true;
+        }
     }
     else {
         asc = (order == 1);
     }
 
-    const Qt::SortOrder prevSortOrder = currentLocalSortOrder();
+    const KDbOrderByColumn::SortOrder prevSortOrder = currentLocalSortOrder();
     const int prevSortColumn = currentLocalSortColumn();
-    setSorting(col, asc ? Qt::AscendingOrder : Qt::DescendingOrder);
+    setSorting(col, asc ? KDbOrderByColumn::SortOrder::Ascending : KDbOrderByColumn::SortOrder::Descending);
     //-perform sorting
     if (!sort()) {
         setLocalSortOrder(prevSortColumn, prevSortOrder); //this will also remove indicator

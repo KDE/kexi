@@ -518,13 +518,13 @@ protected:
     virtual void clearVariables();
 
     /*! Implementation for KexiDataAwareObjectInterface */
-    virtual Qt::SortOrder currentLocalSortOrder() const;
+    virtual KDbOrderByColumn::SortOrder currentLocalSortOrder() const;
 
     /*! Implementation for KexiDataAwareObjectInterface */
     virtual int currentLocalSortColumn() const;
 
     /*! Implementation for KexiDataAwareObjectInterface */
-    virtual void setLocalSortOrder(int column, Qt::SortOrder order);
+    virtual void setLocalSortOrder(int column, KDbOrderByColumn::SortOrder order);
 
     /*! Implementation for KexiDataAwareObjectInterface */
     virtual void updateGUIAfterSorting(int previousRow);

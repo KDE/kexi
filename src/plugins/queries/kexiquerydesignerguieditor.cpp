@@ -40,6 +40,7 @@
 #include <KDbConnection>
 #include <KDbExpression>
 #include <KDbNativeStatementBuilder>
+#include <KDbOrderByColumn>
 #include <KDbParser>
 #include <KDbQuerySchema>
 #include <KDbRelationship>
@@ -559,9 +560,12 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
         fieldNumber++;
         KDbField *currentField = 0;
         KDbQueryColumnInfo *currentColumn = 0;
-        QString sortingString((*set)["sorting"].value().toString());
-        if (sortingString != "ascending" && sortingString != "descending")
+        const QString sortingString((*set)["sorting"].value().toString());
+        if (sortingString != "ascending" && sortingString != "descending") {
             continue;
+        }
+        const KDbOrderByColumn::SortOrder sortOrder = sortingString == QLatin1String("ascending")
+                ? KDbOrderByColumn::SortOrder::Ascending : KDbOrderByColumn::SortOrder::Descending;
         if (!(*set)["visible"].value().toBool()) {
             // this row defines invisible field but contains sorting information,
             // what means KDbField should be used as a reference for this sorting
@@ -575,7 +579,7 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                     << "available for sorting";
                 continue;
             }
-            orderByColumns.appendField(currentField, sortingString == "ascending");
+            orderByColumns.appendField(currentField, sortOrder);
             continue;
         }
         currentField = temp->query()->field(fieldNumber);
@@ -589,9 +593,9 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                             + (aliasString.isEmpty() ? currentField->name() : aliasString));
         if (currentField && currentColumn) {
             if (currentColumn->isVisible())
-                orderByColumns.appendColumn(currentColumn, sortingString == "ascending");
+                orderByColumns.appendColumn(currentColumn, sortOrder);
             else if (currentColumn->field())
-                orderByColumns.appendField(currentColumn->field(), sortingString == "ascending");
+                orderByColumns.appendField(currentColumn->field(), sortOrder);
         }
     }
     temp->query()->setOrderByColumnList(orderByColumns);
@@ -981,8 +985,9 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
     const KDbOrderByColumnList* orderByColumns = query->orderByColumnList();
     QHash<KDbQueryColumnInfo*, int> columnsOrder(
         query->columnsOrder(KDbQuerySchema::UnexpandedListWithoutAsterisks));
-    for (KDbOrderByColumn::ListConstIterator orderByColumnIt(orderByColumns->constBegin());
-            orderByColumnIt != orderByColumns->constEnd(); ++orderByColumnIt) {
+    for (auto orderByColumnIt(orderByColumns->constBegin());
+            orderByColumnIt != orderByColumns->constEnd(); ++orderByColumnIt)
+    {
         KDbOrderByColumn* orderByColumn = *orderByColumnIt;
         KDbQueryColumnInfo *column = orderByColumn->column();
         KDbRecordData *data = 0;
@@ -1014,7 +1019,7 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
         if (data && rowPropertySet) {
             // this will automatically update "sorting" property
             d->data->updateRecordEditBuffer(data, COLUMN_ID_SORTING,
-                                         orderByColumn->ascending() ? 1 : 2);
+                                         orderByColumn->sortOrder() == KDbOrderByColumn::SortOrder::Ascending ? 1 : 2);
             // in slotBeforeCellChanged()
             d->data->saveRecordChanges(data, true);
             (*rowPropertySet)["sorting"].clearModifiedFlag(); // this property should look "fresh"
