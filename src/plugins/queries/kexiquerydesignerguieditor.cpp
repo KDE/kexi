@@ -470,30 +470,53 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                                              "Invalid expression <icode>%1</icode>", fieldName);
                         return false;
                     }
-                    temp->query()->addExpression(columnExpr, fieldVisible);
-                    if (fieldVisible)
+                    if (fieldVisible) {
+                        if (!temp->query()->addExpression(columnExpr)) {
+                            if (errMsg)
+                                *errMsg = xi18nc("@info",
+                                                 "Invalid expression <icode>%1</icode>", fieldName);
+                            return false;
+                        }
                         fieldsFound = true;
+                    } else {
+                        if (!temp->query()->addInvisibleExpression(columnExpr)) {
+                            if (errMsg)
+                                *errMsg = xi18nc("@info",
+                                                 "Invalid expression <icode>%1</icode>", fieldName);
+                            return false;
+                        }
+                    }
                     if (!alias.isEmpty())
                         temp->query()->setColumnAlias(temp->query()->fieldCount() - 1, alias);
                 }
                 //! @todo
             } else if (tableName == "*") {
                 //all tables asterisk
-                if (!temp->query()->addAsterisk(new KDbQueryAsterisk(temp->query(), 0), fieldVisible)) {
-                    return false;
-                }
-                if (fieldVisible)
+                if (fieldVisible) {
+                    if (!temp->query()->addAsterisk(new KDbQueryAsterisk(temp->query(), 0))) {
+                        return false;
+                    }
                     fieldsFound = true;
+                } else {
+                    if (!temp->query()->addInvisibleAsterisk(new KDbQueryAsterisk(temp->query(), 0))) {
+                        return false;
+                    }
+                }
                 continue;
             } else {
                 KDbTableSchema *t = d->conn->tableSchema(tableName);
                 if (fieldName == "*") {
                     //single-table asterisk: <tablename> + ".*" + number
-                    if (!temp->query()->addAsterisk(new KDbQueryAsterisk(temp->query(), t), fieldVisible)) {
-                        return false;
-                    }
-                    if (fieldVisible)
+                    if (fieldVisible) {
+                        if (!temp->query()->addAsterisk(new KDbQueryAsterisk(temp->query(), t))) {
+                            return false;
+                        }
                         fieldsFound = true;
+                    } else {
+                        if (!temp->query()->addInvisibleAsterisk(new KDbQueryAsterisk(temp->query(), t))) {
+                            return false;
+                        }
+                    }
                 } else {
                     if (!t) {
                         qWarning() << "query designer: NO TABLE '"
@@ -511,11 +534,16 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                         continue;
                     }
                     const int tablePosition = temp->query()->tablePosition(t->name());
-                    if (!temp->query()->addField(currentField, tablePosition, fieldVisible)) {
-                        return false;
-                    }
-                    if (fieldVisible)
+                    if (fieldVisible) {
+                        if (!temp->query()->addField(currentField, tablePosition)) {
+                            return false;
+                        }
                         fieldsFound = true;
+                    } else {
+                        if (!temp->query()->addInvisibleField(currentField, tablePosition)) {
+                            return false;
+                        }
+                    }
                     if (!alias.isEmpty())
                         temp->query()->setColumnAlias(temp->query()->fieldCount() - 1, alias);
                 }
