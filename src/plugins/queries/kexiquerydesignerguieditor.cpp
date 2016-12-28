@@ -42,6 +42,7 @@
 #include <KDbNativeStatementBuilder>
 #include <KDbOrderByColumn>
 #include <KDbParser>
+#include <KDbQueryAsterisk>
 #include <KDbQuerySchema>
 #include <KDbRelationship>
 #include <KDbTableOrQuerySchema>
