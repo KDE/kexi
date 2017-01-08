@@ -333,7 +333,7 @@ bool KexiUtils::askForFileOverwriting(const QString& filePath, QWidget *parent)
         return true;
     }
     const KMessageBox::ButtonCode res = KMessageBox::warningYesNo(parent,
-                    xi18nc("@info", "<para>The file <filename>%1<filename> already exists.</para>"
+                    xi18nc("@info", "<para>The file <filename>%1</filename> already exists.</para>"
                            "<para>Do you want to overwrite it?</para>",
                            QDir::toNativeSeparators(filePath)),
                     QString(),
