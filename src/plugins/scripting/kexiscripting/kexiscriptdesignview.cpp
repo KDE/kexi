@@ -374,7 +374,7 @@ void KexiScriptDesignView::execute()
     QTime time;
     time.start();
     d->statusbrowser->append(xi18nc("@info",
-                                    "Execution of the script <resource>%1<resource> started.",
+                                    "Execution of the script <resource>%1</resource> started.",
                                     d->scriptaction->name()));
 
     d->scriptaction->trigger();

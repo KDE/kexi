@@ -1382,7 +1382,7 @@ static QString internalReason(const KDbResult &result)
     if (msg.isEmpty()) {
         return QString();
     }
-    return xi18n("<br>(reason: <i>%1</i>)", msg);
+    return xi18n("<br/>(reason: <i>%1</i>)", msg);
 }
 
 tristate KexiMainWindow::openProject(const KexiProjectData& projectData)
