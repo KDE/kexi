@@ -1589,7 +1589,8 @@ void Form::createPropertiesForWidget(QWidget *w)
                                        paletteForegroundColorDesc);
     d->propertySet.addProperty(newProp);
 
-    d->propertySet["objectName"].setAutoSync(false); // name should be updated only when pressing Enter
+    // name should be updated only when pressing Enter
+    d->propertySet["objectName"].setValueSyncPolicy(KProperty::ValueSyncPolicy::FocusOut);
 
     if (winfo) {
         library()->setPropertyOptions(d->propertySet, *winfo, w);
