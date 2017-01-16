@@ -3600,7 +3600,7 @@ void KexiMainWindow::propertySetSwitched(KexiWindow *window, bool force,
         if (!newSet || (force || static_cast<KPropertySet*>(d->propertySet) != newSet)) {
             d->propertySet = newSet;
             if (preservePrevSelection || force) {
-                KPropertyEditorView::SetOptions options = KPropertyEditorView::ExpandChildItems;
+                KPropertyEditorView::SetOptions options;
                 if (preservePrevSelection) {
                     options |= KPropertyEditorView::PreservePreviousSelection;
                 }
