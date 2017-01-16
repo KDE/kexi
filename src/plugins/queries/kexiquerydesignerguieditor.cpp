@@ -494,12 +494,12 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
             } else if (tableName == "*") {
                 //all tables asterisk
                 if (fieldVisible) {
-                    if (!temp->query()->addAsterisk(new KDbQueryAsterisk(temp->query(), 0))) {
+                    if (!temp->query()->addAsterisk(new KDbQueryAsterisk(temp->query()))) {
                         return false;
                     }
                     fieldsFound = true;
                 } else {
-                    if (!temp->query()->addInvisibleAsterisk(new KDbQueryAsterisk(temp->query(), 0))) {
+                    if (!temp->query()->addInvisibleAsterisk(new KDbQueryAsterisk(temp->query()))) {
                         return false;
                     }
                 }
@@ -509,12 +509,12 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                 if (fieldName == "*") {
                     //single-table asterisk: <tablename> + ".*" + number
                     if (fieldVisible) {
-                        if (!temp->query()->addAsterisk(new KDbQueryAsterisk(temp->query(), t))) {
+                        if (!t || !temp->query()->addAsterisk(new KDbQueryAsterisk(temp->query(), *t))) {
                             return false;
                         }
                         fieldsFound = true;
                     } else {
-                        if (!temp->query()->addInvisibleAsterisk(new KDbQueryAsterisk(temp->query(), t))) {
+                        if (!t || !temp->query()->addInvisibleAsterisk(new KDbQueryAsterisk(temp->query(), *t))) {
                             return false;
                         }
                     }
