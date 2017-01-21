@@ -218,12 +218,12 @@ void KexiTableDesignerView::initData()
     int tableFieldCount = 0;
     d->primaryKeyExists = false;
 
-    if (tempData()->table) {
-        tableFieldCount = tempData()->table->fieldCount();
+    if (tempData()->table()) {
+        tableFieldCount = tempData()->table()->fieldCount();
 
         //recreate table data records
         for (int i = 0; i < tableFieldCount; i++) {
-            KDbField *field = tempData()->table->field(i);
+            KDbField *field = tempData()->table()->field(i);
             KDbRecordData *data = d->data->createItem();
             if (field->isPrimaryKey()) {
                 (*data)[COLUMN_ID_ICON] = KexiIconName("database-key");
@@ -255,9 +255,9 @@ void KexiTableDesignerView::initData()
     d->view->setData(d->data);
 
     //now recreate property sets
-    if (tempData()->table) {
+    if (tempData()->table()) {
         for (int i = 0; i < tableFieldCount; i++) {
-            KDbField *field = tempData()->table->field(i);
+            KDbField *field = tempData()->table()->field(i);
             createPropertySet(i, *field);
         }
     }
@@ -1326,25 +1326,25 @@ KDbObject* KexiTableDesignerView::storeNewData(const KDbObject& object,
                                                         bool *cancel)
 {
     Q_ASSERT(cancel);
-    if (tempData()->table || window()->schemaObject()) //must not be
+    if (tempData()->table() || window()->schemaObject()) //must not be
         return 0;
 
     //create table schema definition
-    tempData()->table = new KDbTableSchema(object.name());
-    tempData()->table->setName(object.name());
-    tempData()->table->setCaption(object.caption());
-    tempData()->table->setDescription(object.description());
+    tempData()->setTable(new KDbTableSchema(object.name()));
+    tempData()->table()->setName(object.name());
+    tempData()->table()->setCaption(object.caption());
+    tempData()->table()->setDescription(object.description());
 
-    tristate res = buildSchema(*tempData()->table);
+    tristate res = buildSchema(*tempData()->table());
     *cancel = ~res;
 
     //FINALLY: create table:
     if (res == true) {
         //! @todo
         KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
-        res = conn->createTable(tempData()->table, options & KexiView::OverwriteExistingData);
+        res = conn->createTable(tempData()->table(), options & KexiView::OverwriteExistingData);
         if (res == true) {
-            res = KexiMainWindowIface::global()->project()->removeUserDataBlock(tempData()->table->id());
+            res = KexiMainWindowIface::global()->project()->removeUserDataBlock(tempData()->table()->id());
         }
         else {
             window()->setStatus(conn, "");
@@ -1356,10 +1356,11 @@ KDbObject* KexiTableDesignerView::storeNewData(const KDbObject& object,
         tempData()->tableSchemaChangedInPreviousView = true;
         d->history->clear();
     } else {
-        delete tempData()->table;
-        tempData()->table = 0;
+        KDbTableSchema *tableToDelete = tempData()->table();
+        tempData()->setTable(nullptr);
+        delete tableToDelete;
     }
-    return tempData()->table;
+    return tempData()->table();
 }
 
 KDbObject* KexiTableDesignerView::copyData(const KDbObject& object,
@@ -1370,16 +1371,16 @@ KDbObject* KexiTableDesignerView::copyData(const KDbObject& object,
     Q_UNUSED(options);
     Q_UNUSED(cancel);
 
-    if (!tempData()->table) {
+    if (!tempData()->table()) {
         qWarning() << "Cannot copy data without source table (tempData()->table)";
         return 0;
     }
     KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
-    KDbTableSchema *copiedTable = conn->copyTable(*tempData()->table, object);
+    KDbTableSchema *copiedTable = conn->copyTable(*tempData()->table(), object);
     if (!copiedTable) {
         return 0;
     }
-    if (!KexiMainWindowIface::global()->project()->copyUserDataBlock(tempData()->table->id(),
+    if (!KexiMainWindowIface::global()->project()->copyUserDataBlock(tempData()->table()->id(),
                                                                      copiedTable->id()))
     {
         conn->dropTable(copiedTable);
@@ -1391,7 +1392,7 @@ KDbObject* KexiTableDesignerView::copyData(const KDbObject& object,
 
 tristate KexiTableDesignerView::storeData(bool dontAsk)
 {
-    if (!tempData()->table || !window()->schemaObject()) {
+    if (!tempData()->table() || !window()->schemaObject()) {
         d->recentResultOfStoreData = false;
         return false;
     }
@@ -1413,7 +1414,7 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
             //only compute requirements
             KDbAlterTableHandler::ExecutionArguments args;
             args.onlyComputeRequirements = true;
-            (void)alterTableHandler->execute(tempData()->table->name(), &args);
+            (void)alterTableHandler->execute(tempData()->table()->name(), &args);
             res = args.result;
             if (   res == true
                 && 0 == (args.requirements & (0xffff ^ KDbAlterTableHandler::SchemaAlteringRequired)))
@@ -1425,11 +1426,11 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
 
     if (res == true) {
         res = KexiTablePart::askForClosingObjectsUsingTableSchema(
-                  this, conn, tempData()->table,
+                  window(), conn, tempData()->table(),
                   xi18nc("@info",
                          "You are about to change the design of table <resource>%1</resource> "
                          "but following objects using this table are opened:",
-                         tempData()->table->name()));
+                         tempData()->table()->name()));
     }
 
     if (res == true) {
@@ -1455,16 +1456,16 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
             newTable = new KDbTableSchema();
             // copy the object data
             static_cast<KDbObject&>(*newTable)
-                = static_cast<KDbObject&>(*tempData()->table);
+                = static_cast<KDbObject&>(*tempData()->table());
             res = buildSchema(*newTable);
             qDebug() << "BUILD SCHEMA:" << *newTable;
 
-            res = conn->alterTable(tempData()->table, newTable);
+            res = conn->alterTable(tempData()->table(), newTable);
             if (res != true)
                 window()->setStatus(conn, "");
         } else {
             KDbAlterTableHandler::ExecutionArguments args;
-            newTable = alterTableHandler->execute(tempData()->table->name(), &args);
+            newTable = alterTableHandler->execute(tempData()->table()->name(), &args);
             res = args.result;
             qDebug() << "ALTER TABLE EXECUTE: "
             << res.toString();
@@ -1476,7 +1477,7 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
     }
     if (res == true) {
         //change current schema
-        tempData()->table = newTable;
+        tempData()->setTable(newTable);
         tempData()->tableSchemaChangedInPreviousView = true;
         d->history->clear();
     } else {
@@ -1495,7 +1496,7 @@ tristate KexiTableDesignerView::simulateAlterTableExecution(QString *debugTarget
         //to avoid executing for multiple alter table views
         return false;
     }
-    if (!tempData()->table || !window()->schemaObject())
+    if (!tempData()->table() || !window()->schemaObject())
         return false;
     KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     KDbAlterTableHandler::ActionList actions;
@@ -1509,7 +1510,7 @@ tristate KexiTableDesignerView::simulateAlterTableExecution(QString *debugTarget
     } else {
         args.simulate = true;
     }
-    (void)alterTableHandler.execute(tempData()->table->name(), &args);
+    (void)alterTableHandler.execute(tempData()->table()->name(), &args);
     return args.result;
 # else
     Q_UNUSED(debugTarget);
@@ -1628,7 +1629,7 @@ QString KexiTableDesignerView::debugStringForCurrentTableSchema(tristate& result
     KDbTableSchema tempTable;
     //copy object data
     static_cast<KDbObject&>(tempTable)
-        = static_cast<KDbObject&>(*tempData()->table);
+        = static_cast<KDbObject&>(*tempData()->table());
     result = buildSchema(tempTable, true /*beSilent*/);
     if (true != result) {
         return QString();
@@ -1879,7 +1880,7 @@ bool KexiTableDesignerView::isPhysicalAlteringNeeded()
     //only compute requirements
     KDbAlterTableHandler::ExecutionArguments args;
     args.onlyComputeRequirements = true;
-    (void)alterTableHandler->execute(tempData()->table->name(), &args);
+    (void)alterTableHandler->execute(tempData()->table()->name(), &args);
     res = args.result;
     delete alterTableHandler;
     if (   res == true

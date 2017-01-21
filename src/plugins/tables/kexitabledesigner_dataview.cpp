@@ -72,11 +72,11 @@ tristate KexiTableDesigner_DataView::afterSwitchFrom(Kexi::ViewMode mode)
 
     if (tempData()->tableSchemaChangedInPreviousView) {
         KexiUtils::WaitCursor wait;
-        KDbCursor *c
-        = KexiMainWindowIface::global()->project()->dbConnection()->prepareQuery(
-              tempData()->table);
-        if (!c)
+        KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
+        KDbCursor *c = conn->prepareQuery(tempData()->table());
+        if (!c) {
             return false;
+        }
         setData(c);
         tempData()->tableSchemaChangedInPreviousView = false;
     }
