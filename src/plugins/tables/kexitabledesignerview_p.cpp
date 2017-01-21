@@ -219,7 +219,7 @@ KLocalizedString KexiTableDesignerViewPrivate::messageForSavingChanges(bool *emp
 {
     Q_ASSERT(emptyTable);
     KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
-    *emptyTable = true == conn->isEmpty(designerView->tempData()->table);
+    *emptyTable = true == conn->isEmpty(designerView->tempData()->table());
     return kxi18nc("@info", "<para>Do you want to save the design now?</para>%1")
            .subs((*emptyTable || skipWarning)
                   ? KLocalizedString()
