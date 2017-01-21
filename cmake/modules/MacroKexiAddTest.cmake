@@ -7,17 +7,17 @@
 # Adds a single test with proper prefix.
 # Prefixes help to select subsets of tests to run, e.g. only Words tests or Flake tests.
 #
-# Usage: calligra_add_test(<prefix> <test_basename> <libraries_to_link>)
+# Usage: kexi_add_test(<prefix> <test_basename> <libraries_to_link>)
 #
 # Result: adds a test named "<prefix>-<test_basename>", with executable "<test_basename>"
 #         and links it with libraries listed in <libraries_to_link>.
 #
-# Example: calligra_add_test(kexi GlobalSearchTest keximain kexicore kexiextendedwidgets)
+# Example: kexi_add_test(kexi GlobalSearchTest keximain kexicore kexiextendedwidgets)
 # -- adds a "kexi-GlobalSearchTest" test with executable GlobalSearchTest and links it with
 #    libraries keximain, kexicore, kexiextendedwidgets.
 #
 
-macro(KEXI_ADD_TEST __test_prefix __test_basename)
+macro(kexi_add_test __test_prefix __test_basename)
     set(_args "")
     list(APPEND _libs ${ARGV})
     list(REMOVE_AT _libs 0 1)
@@ -33,4 +33,4 @@ macro(KEXI_ADD_TEST __test_prefix __test_basename)
 #if (BUILD_TEST_COVERAGE)
 #    target_link_libraries(${_test_name} gcov)
 #endif ()
-endmacro(KEXI_ADD_TEST)
+endmacro()

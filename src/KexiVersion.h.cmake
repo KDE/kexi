@@ -199,21 +199,21 @@ class QString;
 
 /**
  * @def KEXI_GIT_SHA1_STRING
- * @ingroup CalligraMacros
- * @brief Indicates the git sha1 commit which was used for compilation of Calligra
+ * @ingroup KexiMacros
+ * @brief Indicates the git sha1 commit which was used for compilation of Kexi
  */
 #cmakedefine KEXI_GIT_SHA1_STRING "@KEXI_GIT_SHA1_STRING@"
 
 /**
  * @def KEXI_GIT_BRANCH_STRING
- * @ingroup CalligraMacros
- * @brief Indicates the git branch name which was used for compilation of Calligra
+ * @ingroup KexiMacros
+ * @brief Indicates the git branch name which was used for compilation of Kexi
  */
 #cmakedefine KEXI_GIT_BRANCH_STRING "@KEXI_GIT_BRANCH_STRING@"
 
 /**
  * @def KEXI_DISTRIBUTION_VERSION
- * @ingroup CalligraMacros
+ * @ingroup KexiMacros
  * @brief Name of Kexi version useful to construct co-installabile releases
  * By default is it equal to KEXI_STABLE_VERSION_MAJOR.KEXI_STABLE_VERSION_MINOR.
  * It can be changed at configure stage by setting the KEXI_CUSTOM_DISTRIBUTION_VERSION
@@ -224,7 +224,7 @@ class QString;
 
 /**
  * @def KEXI_BASE_PATH
- * @ingroup CalligraMacros
+ * @ingroup KexiMacros
  * @brief Relative path name useful to construct co-installabile file names and paths
  * It is equal to "kexi/N" where N is KEXI_DISTRIBUTION_VERSION.
  */

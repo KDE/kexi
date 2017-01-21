@@ -198,8 +198,8 @@ macro_log_feature(Qt5WebKitWidgets_FOUND "Qt WebkitWidgets" "QWidgets module for
 ###################
 ##################
 
-include(MacroCalligraAddBenchmark)
-include(MacroCalligraAddTest)
+include(MacroKexiAddBenchmark)
+include(MacroKexiAddTest)
 
 #############################################
 ####      Temporarily broken products    ####

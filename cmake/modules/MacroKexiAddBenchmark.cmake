@@ -8,7 +8,7 @@
 
 add_custom_target(benchmark)
 
-macro (CALLIGRA_ADD_BENCHMARK _test_NAME)
+macro(kexi_add_benchmark _test_NAME)
 
     set(_srcList ${ARGN})
     set(_targetName ${_test_NAME})
@@ -79,5 +79,4 @@ macro (CALLIGRA_ADD_BENCHMARK _test_NAME)
            add_dependencies(buildtests ${_test_NAME})
         endif ()
     endif ()
-
-endmacro (CALLIGRA_ADD_BENCHMARK)
+endmacro()

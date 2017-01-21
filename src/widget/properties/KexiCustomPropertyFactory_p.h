@@ -52,7 +52,7 @@ protected:
  is unable to enter invalid characters. Any chages to a null value or empty string,
  have no effect.
 
- @todo move this to the KPropertyWidgets library (when KexiUtils moves to Calligra Libs)
+ @todo move this to the KPropertyWidgets library (when KexiUtils moves to KProperty)
  */
 class KexiIdentifierPropertyEditor : public KPropertyStringEditor
 {
