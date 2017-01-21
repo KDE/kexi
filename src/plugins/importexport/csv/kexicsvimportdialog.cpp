@@ -2,8 +2,7 @@
    Copyright (C) 2005-2016 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2012 Oleg Kukharchuk <oleg.kuh@gmail.com>
 
-   This work is based on kspread/dialogs/kspread_dlg_csv.cc
-   and could be merged back with Calligra Libraries.
+   This work is based on kspread/dialogs/kspread_dlg_csv.cc.
 
    Copyright (C) 2002-2003 Norbert Andres <nandres@web.de>
    Copyright (C) 2002-2003 Ariya Hidayat <ariya@kde.org>

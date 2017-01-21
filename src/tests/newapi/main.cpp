@@ -93,7 +93,7 @@ int main(int argc, char** argv)
                          kxi18n("(c) 2003-2010, Kexi Team\n"
                                "(c) 2003-2006, OpenOffice Software.\n"),
                          KLocalizedString(),
-                         "http://www.calligra.org/kexi",
+                         "http://www.kexi-project.org",
                          "submit@bugs.kde.org");
     KCmdLineArgs::init(argc, argv, &aboutData);
 

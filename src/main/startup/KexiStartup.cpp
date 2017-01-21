@@ -924,7 +924,6 @@ tristate KexiStartupHandler::detectActionForFile(
         //! @todo if there are more drivers to pick, ask which to use
         compatibleDatabaseDriverId = driverIdsForMimeType.first();
     }
-//! @todo What about trying to reuse CALLIGRA FILTER CHAINS here?
     bool useDetectedDriver = suggestedDriverId.isEmpty() || suggestedDriverId.compare(*detectedDriverId, Qt::CaseInsensitive) == 0;
     if (!useDetectedDriver) {
         if (compatibleDatabaseDriverId.isEmpty()) {
