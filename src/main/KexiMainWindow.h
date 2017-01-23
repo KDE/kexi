@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -29,6 +29,7 @@
 #include <core/KexiMainWindowIface.h>
 #include <core/kexiguimsghandler.h>
 
+#include <QCommandLineOption>
 #include <QTabWidget>
 
 class QPaintEvent;
@@ -64,15 +65,17 @@ public:
         return KexiMainWindowSuper::focusWidget();
     }
 
-    /*! Used by the main Kexi's routine. Creates a new Kexi main window and a new
-     QApplication object.
+    /*! Used by the main Kexi's routine. Creates a new Kexi main window.
+     For Kexi applications @a arguments are equal to CoreApplication::arguments() but test
+     applications alter the list.
      If @a componentName is provided, it is assigned to application's KAboutData::componentName.
-     It's not used by Kexi itself but this is useful for test application that are based
+     It's not used by Kexi itself but is useful for test application that are based
      on KexiMainWindow.
-     @return result 1 on error and 0 on success (the result can be used as a result of main())
-     @note Yes, the data referred to by argc and argv must stay valid for the entire lifetime
-          of the QApplication object so int& is used. */
-    static int create(int &argc, char *argv[], const QString &componentName = QString());
+     @a extraOptions can be supplied to extend the list of supported options.
+     @note Extra options must not override Kexi's built-in options.
+     @return 0 on success (the result can be used as a result of main()) and other value on error */
+    static int create(const QStringList &arguments, const QString &componentName = QString(),
+                      const QList<QCommandLineOption> &extraOptions = QList<QCommandLineOption>());
 
     //! Project data of currently opened project or NULL if no project here yet.
     virtual KexiProject *project();
@@ -351,7 +354,7 @@ protected:
 
     /*! Shows dialog for creating new project, and creates one.
      The dialog is not shown if option for automatic creation
-     is checked or Kexi::startupHandler().projectData() was provided from command line.
+     is checked or KexiStartupHandler::global()->projectData() was provided from command line.
      \a cancelled is set to true if creation has been cancelled (e.g. user answered
      no when asked for database overwriting, etc.
      \return true if database was created, false on error or when cancel was pressed */

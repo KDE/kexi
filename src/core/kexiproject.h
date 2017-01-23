@@ -253,7 +253,7 @@ public:
 
     /*! Shows dialog for creating new blank project,
      ans creates one. Dialog is not shown if option for automatic creation
-     is checked or Kexi::startupHandler().projectData() was provided from command line.
+     is checked or KexiStartupHandler::global()->projectData() was provided from command line.
      \a cancelled is set to true if creation has been cancelled (e.g. user answered
      no when asked for database overwriting, etc.
      \return true if database was created, false on error or when cancel was pressed */

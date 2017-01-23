@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2004-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -28,6 +28,9 @@
 #include <KAboutData>
 
 #include <QCommandLineParser>
+
+// Don't use Q_GLOBAL_STATIC as destroys the object *after* QApplication is gone but we have to cleanup before -> use qAddPostRoutine
+static KexiStartupData* s_startupData = nullptr;
 
 class Q_DECL_HIDDEN KexiStartupData::Private
 {
@@ -64,11 +67,19 @@ KexiStartupData::Private::~Private()
 
 KexiStartupData::KexiStartupData() : d(new Private)
 {
+    s_startupData = this;
 }
 
 KexiStartupData::~KexiStartupData()
 {
+    s_startupData = nullptr;
     delete d;
+}
+
+//static
+KexiStartupData* KexiStartupData::global()
+{
+    return s_startupData;
 }
 
 KexiProjectData *KexiStartupData::projectData()
@@ -171,16 +182,18 @@ KexiCommandLineOptions KexiStartupData::options() const
     return d->options;
 }
 
-tristate KexiStartupData::parseOptions()
+tristate KexiStartupData::parseOptions(const QStringList &arguments,
+                                       const QList<QCommandLineOption> &extraOptions)
 {
     d->parser.setApplicationDescription(KAboutData::applicationData().shortDescription());
     KAboutData::applicationData().setupCommandLine(&d->parser); // adds -h and -v too
 
-#define ADD_OPTION(o) \
-    if (!d->parser.addOption(d->options.o)) { \
-        qWarning() << "Could not add option" << d->options.o.names(); \
+#define ADD_OPTION_BASE(o) \
+    if (!d->parser.addOption(o)) { \
+        qWarning() << "Could not add option" << o.names(); \
         return false; \
     }
+#define ADD_OPTION(o) ADD_OPTION_BASE(d->options.o)
     ADD_OPTION(createDb)
     ADD_OPTION(createAndOpenDb)
     ADD_OPTION(dropDb)
@@ -208,6 +221,10 @@ tristate KexiStartupData::parseOptions()
     ADD_OPTION(skipConnDialog)
     ADD_OPTION(fullScreen)
     ADD_OPTION(listPlugins)
+    for(const QCommandLineOption& option : extraOptions) {
+        ADD_OPTION_BASE(option)
+    }
+#undef ADD_OPTION_BASE
 #undef ADD_OPTION
 
     d->parser.addPositionalArgument("file",
@@ -215,8 +232,7 @@ tristate KexiStartupData::parseOptions()
                "Kexi database project filename, Kexi shortcut filename, or name of a Kexi "
                "database project on a server to open."));
 
-    //qDebug() << QCoreApplication::instance()->arguments();
-    d->parser.process(*qApp);
+    d->parser.process(arguments);
     KAboutData::applicationData().processCommandLine(&d->parser);
     return true;
 }

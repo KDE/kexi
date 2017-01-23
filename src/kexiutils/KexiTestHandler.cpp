@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2012 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2012-2017 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -17,24 +17,41 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef GLOBALSEARCHTEST_H
-#define GLOBALSEARCHTEST_H
+#include "KexiTestHandler.h"
+#include <QCoreApplication>
 
-#include <QObject>
-
-class GlobalSearchTest : public QObject
+class KexiTestHandler::Private
 {
-    Q_OBJECT
 public:
-    GlobalSearchTest(int &argc, char **argv, bool goToEventLoop);
-private Q_SLOTS:
-    void initTestCase();
-    void testGlobalSearch();
-    void cleanupTestCase();
-private:
-    const int &m_argc;
-    char **m_argv;
-    bool m_goToEventLoop;
+    Private() {}
+    QList<QCommandLineOption> extraOptions;
 };
 
-#endif
+KexiTestHandler::KexiTestHandler()
+ : d(new Private)
+{
+}
+
+KexiTestHandler::~KexiTestHandler()
+{
+    delete d;
+}
+
+QList<QCommandLineOption> KexiTestHandler::extraOptions() const
+{
+    return d->extraOptions;
+}
+
+void KexiTestHandler::addExtraOption(const QCommandLineOption &option)
+{
+    d->extraOptions.append(option);
+}
+
+void KexiTestHandler::removeOwnOptions(QStringList *args)
+{
+    for(const QCommandLineOption &extraOption : d->extraOptions) {
+        for(const QString &name : extraOption.names()) {
+            args->removeOne("--" + name);
+        }
+    }
+}

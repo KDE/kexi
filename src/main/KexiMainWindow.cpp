@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -343,15 +343,10 @@ bool setupApplication()
 }
 
 //static
-int KexiMainWindow::create(int &argc, char *argv[], const QString &componentName)
+int KexiMainWindow::create(const QStringList &arguments, const QString &componentName,
+                           const QList<QCommandLineOption> &extraOptions)
 {
-    QApplication *app = qApp;
-    QScopedPointer<QApplication> guard;
-    if (!app) {
-        //! @todo use non-GUI app when needed
-        guard.reset(app = new QApplication(argc, argv));
-    }
-    app->setQuitOnLastWindowClosed(false);
+    qApp->setQuitOnLastWindowClosed(false);
 
     KLocalizedString::setApplicationDomain("kexi");
     //! @todo KEXI3 app->setAttribute(Qt::AA_UseHighDpiPixmaps, true);
@@ -383,14 +378,14 @@ int KexiMainWindow::create(int &argc, char *argv[], const QString &componentName
     }
     QApplication::setWindowIcon(koIcon("kexi"));
 
-    tristate res = Kexi::startupHandler().init();
+    const tristate res = KexiStartupHandler::global()->init(arguments, extraOptions);
     if (!res || ~res) {
         return (~res) ? 0 : 1;
     }
     //qDebug() << "startupActions OK";
 
     /* Exit requested, e.g. after database removing. */
-    if (Kexi::startupHandler().action() == KexiStartupData::Exit) {
+    if (KexiStartupHandler::global()->action() == KexiStartupData::Exit) {
         return 0;
     }
 
@@ -418,7 +413,6 @@ int KexiMainWindow::create(int &argc, char *argv[], const QString &componentName
     /*foreach (QWidget *widget, QApplication::topLevelWidgets()) {
         qDebug() << widget;
     }*/
-    guard.take();
     return 0;
 }
 
@@ -479,7 +473,7 @@ KexiMainWindow::KexiMainWindow(QWidget *parent)
 
     invalidateActions();
     d->timer.singleShot(0, this, SLOT(slotLastActions()));
-    if (Kexi::startupHandler().forcedFullScreen()) {
+    if (KexiStartupHandler::global()->forcedFullScreen()) {
         toggleFullScreen(true);
     }
 
@@ -1348,22 +1342,22 @@ void KexiMainWindow::invalidateProjectWideActions()
 tristate KexiMainWindow::startup()
 {
     tristate result = true;
-    switch (Kexi::startupHandler().action()) {
+    switch (KexiStartupHandler::global()->action()) {
     case KexiStartupHandler::CreateBlankProject:
         d->updatePropEditorVisibility(Kexi::NoViewMode);
         break;
 #ifdef KEXI_PROJECT_TEMPLATES
     case KexiStartupHandler::CreateFromTemplate:
-        result = createProjectFromTemplate(*Kexi::startupHandler().projectData());
+        result = createProjectFromTemplate(*KexiStartupHandler::global()->projectData());
         break;
 #endif
     case KexiStartupHandler::OpenProject:
-        result = openProject(*Kexi::startupHandler().projectData());
+        result = openProject(*KexiStartupHandler::global()->projectData());
         break;
     case KexiStartupHandler::ImportProject:
         result = showProjectMigrationWizard(
-                   Kexi::startupHandler().importActionData().mimeType,
-                   Kexi::startupHandler().importActionData().fileName
+                   KexiStartupHandler::global()->importActionData().mimeType,
+                   KexiStartupHandler::global()->importActionData().fileName
                );
         break;
     case KexiStartupHandler::ShowWelcomeScreen:
@@ -2421,14 +2415,14 @@ tristate KexiMainWindow::openProject(const QString& aFileName,
     }
 
     KexiProjectData* projectData = 0;
-    KexiStartupHandler &h = Kexi::startupHandler();
-    bool readOnly = h.isSet(h.options().readOnly);
+    const KexiStartupHandler *h = KexiStartupHandler::global();
+    bool readOnly = h->isSet(h->options().readOnly);
     bool deleteAfterOpen = false;
     if (cdata) {
         //server-based project
         if (dbName.isEmpty()) {//no database name given, ask user
             bool cancel;
-            projectData = Kexi::startupHandler().selectProject(cdata, &cancel, this);
+            projectData = KexiStartupHandler::global()->selectProject(cdata, &cancel, this);
             if (cancel)
                 return cancelled;
         } else {

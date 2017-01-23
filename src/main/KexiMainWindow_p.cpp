@@ -1239,12 +1239,12 @@ KexiMainWindow::Private::Private(KexiMainWindow* w)
     propEditorDockWidget = 0;
     navDockWidget = 0;
     propEditorTabWidget = 0;
-    KexiProjectData *pdata = Kexi::startupHandler().projectData();
-    userMode = Kexi::startupHandler().forcedUserMode() /* <-- simply forced the user mode */
+    KexiProjectData *pdata = KexiStartupHandler::global()->projectData();
+    userMode = KexiStartupHandler::global()->forcedUserMode() /* <-- simply forced the user mode */
                /* project has 'user mode' set as default and not 'design mode' override is found: */
-               || (pdata && pdata->userMode() && !Kexi::startupHandler().forcedDesignMode());
-    isProjectNavigatorVisible = Kexi::startupHandler().isProjectNavigatorVisible();
-    isMainMenuVisible = Kexi::startupHandler().isMainMenuVisible();
+               || (pdata && pdata->userMode() && !KexiStartupHandler::global()->forcedDesignMode());
+    isProjectNavigatorVisible = KexiStartupHandler::global()->isProjectNavigatorVisible();
+    isMainMenuVisible = KexiStartupHandler::global()->isMainMenuVisible();
     navigator = 0;
     prj = 0;
     config = KSharedConfig::openConfig();

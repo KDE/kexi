@@ -4,7 +4,7 @@
 
    Copyright (C) 2003 Lucijan Busch <lucijan@gmx.at>
    Copyright (C) 2003 Joseph Wenninger <jowenn@kde.org>
-   Copyright (C) 2003-2005 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -27,11 +27,11 @@
 
 int main(int argc, char *argv[])
 {
-    int result = KexiMainWindow::create(argc, argv);
-    if (!qApp)
+    //! @todo use non-GUI app when needed
+    QApplication app(argc, argv);
+    const int result = KexiMainWindow::create(QCoreApplication::arguments());
+    if (result != 0) {
         return result;
-
-    result = qApp->exec();
-    delete qApp;
-    return result;
+    }
+    return app.exec();
 }
