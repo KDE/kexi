@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2012-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2012-2017 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -17,21 +17,17 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#include "GlobalSearchTest.h"
-
-#include <core/kexi.h>
 #include <core/kexipartitem.h>
 #include <core/kexiaboutdata.h>
 #include <main/KexiMainWindow.h>
 #include <kexiutils/KexiTester.h>
 #include <widget/navigator/KexiProjectNavigator.h>
+#include <KexiTestHandler.h>
+#include <kexistartupdata.h>
 
 #include <KActionCollection>
 
 #include <QApplication>
-#include <QtTest>
-#include <QtTest/qtestkeyboard.h>
-#include <QtTest/qtestmouse.h>
 #include <QFile>
 #include <QTreeView>
 #include <QLineEdit>
@@ -41,80 +37,32 @@ const int GUI_DELAY = 10;
 
 #define FILES_DATA_DIR CURRENT_SOURCE_DIR "data"
 
-void GlobalSearchTest::initTestCase()
+class GlobalSearchTest : public KexiTestHandler
 {
-}
-
-//! Copies 0-th arg and adds second empty
-class NewArgs
-{
+    Q_OBJECT
 public:
-    NewArgs(char *argv[]) {
-        count = 2;
-        vals = new char*[count];
-        vals[0] = qstrdup(argv[0]);
-        vals[count - 1] = 0;
-    }
-    ~NewArgs() {
-        for (int i = 0; i < count; i++) {
-            delete [] vals[i];
-        }
-        delete [] vals;
-    }
+    GlobalSearchTest();
 
-    int count;
-    char **vals;
-};
-
-//! A helper that creates Kexi main window, and manages its lifetime.
-//! It is needed because lifetime of QApplication, main window and command line arguments
-//! should be synchronized. This class is designed for using on a stack of test blocks.
-class KexiMainWindowCreator
-{
-public:
-    //! A helper that creates Kexi main window, passing @a filename to it.
-    //! @a testObject (required) is used only to obtain test object name for debugging.
-    KexiMainWindowCreator(char *argv[], const QString& filename, QObject *testObject)
-        : args(argv)
-    {
-        Q_ASSERT(testObject);
-        args.vals[args.count - 1] = qstrdup(QFile::encodeName(filename).constData());
-        result = KexiMainWindow::create(args.count, args.vals,
-                                        testObject->metaObject()->className());
-    }
-
-    //! Executes action @a name. @return true if action was found.
-    bool executeAction(const QString &name) {
-        KActionCollection *actionCollection = KexiMainWindowIface::global()->actionCollection();
-        QAction *a = actionCollection->action(name);
-        if (a) {
-            a->trigger();
-        }
-        return a;
-    }
-
-    ~KexiMainWindowCreator() {
-        delete KexiMainWindowIface::global();
-        delete qApp;
-    }
-    int result;
-
+private Q_SLOTS:
+    void testGlobalSearch();
 private:
-    NewArgs args;
+    QCommandLineOption m_loopOption;
 };
 
-GlobalSearchTest::GlobalSearchTest(int &argc, char **argv, bool goToEventLoop)
- : m_argc(argc), m_argv(argv), m_goToEventLoop(goToEventLoop)
+GlobalSearchTest::GlobalSearchTest()
+ : m_loopOption("loop", "Do not exit after successful test (stay in event loop)")
 {
+    addExtraOption(m_loopOption);
 }
 
 void GlobalSearchTest::testGlobalSearch()
 {
     QString filename(QFile::decodeName(FILES_DATA_DIR "/GlobalSearchTest.kexi"));
-    qDebug() << filename;
-    KexiMainWindowCreator windowCreator(m_argv, filename, this);
-    QVERIFY(qApp);
-    QCOMPARE(windowCreator.result, 0);
+    QStringList args(QApplication::arguments());
+    args.append(filename);
+    const int result = KexiMainWindow::create(args, metaObject()->className(), extraOptions());
+    const KexiStartupData *h = KexiStartupData::global();
+    QCOMPARE(result, 0);
 
     QLineEdit *lineEdit = kexiTester().widget<QLineEdit*>("globalSearch.lineEdit");
     QVERIFY(lineEdit);
@@ -138,7 +86,7 @@ void GlobalSearchTest::testGlobalSearch()
     QTest::keyClick(lineEdit, Qt::Key_Escape,  Qt::NoModifier, GUI_DELAY);
     QVERIFY(lineEdit->text().isEmpty());
 
-    QTest::keyClicks(lineEdit, "cars");
+    QTest::keyClicks(lineEdit, "cars", Qt::NoModifier, GUI_DELAY);
     QVERIFY(treeView->isVisible());
     treeView->setFocus();
     // no highlight initially
@@ -170,47 +118,12 @@ void GlobalSearchTest::testGlobalSearch()
     QCOMPARE(selectedPartItem->name(), QLatin1String("cars"));
     QCOMPARE(selectedPartItem->pluginId(), QLatin1String("org.kexi-project.form"));
 
-    if (m_goToEventLoop) {
+    if (h->isSet(m_loopOption)) {
         const int result = qApp->exec();
         QCOMPARE(result, 0);
     }
 }
 
-void GlobalSearchTest::cleanupTestCase()
-{
-}
+QTEST_MAIN(GlobalSearchTest)
 
-int main(int argc, char *argv[])
-{
-    // Pull off custom options
-    bool goToEventLoop = false;
-    int realCount = 0;
-    char **realVals = new char*[argc];
-    for (int i = 0; i < argc; ++i) {
-        realVals[i] = 0;
-    }
-    for (int i = 0; i < argc; ++i) {
-        if (0 == qstrcmp(argv[i], "-loop")) {
-            goToEventLoop = true;
-            continue;
-        }
-        else {
-            if (0 == qstrcmp(argv[i], "-help") || 0 == qstrcmp(argv[i], "--help")) {
-                printf(" Options coming from the Kexi test suite:\n -loop : Go to event loop after successful test\n\n");
-            }
-            realVals[realCount] = qstrdup(argv[i]);
-            ++realCount;
-        }
-    }
-
-    // Actual test
-    GlobalSearchTest tc(realCount, realVals, goToEventLoop);
-    int result = QTest::qExec(&tc, realCount, realVals);
-
-    // Clean up
-    for (int i = 0; i < argc; i++) {
-        delete [] realVals[i];
-    }
-    delete [] realVals;
-    return result;
-}
+#include "GlobalSearchTest.moc"

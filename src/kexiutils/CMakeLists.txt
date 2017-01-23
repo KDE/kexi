@@ -39,6 +39,12 @@ else ()
   endif ()
 endif ()
 
+if(BUILD_TESTING)
+    list(APPEND kexiutils_LIB_SRCS
+      KexiTestHandler.cpp
+    )
+endif()
+
 kexi_add_library(kexiutils SHARED ${kexiutils_LIB_SRCS})
 
 set(kexiutils_INCLUDE_DIRS
@@ -60,6 +66,13 @@ target_link_libraries(kexiutils
         KDb
 )
 #target_link_libraries(kexiutils LINK_INTERFACE_LIBRARIES KF5::KIOWidgets)
+
+if(BUILD_TESTING)
+    target_link_libraries(kexiutils
+        PRIVATE
+            Qt5::Test
+    )
+endif()
 
 generate_export_header(kexiutils)
 

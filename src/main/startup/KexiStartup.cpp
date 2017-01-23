@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -51,26 +51,13 @@
 
 #include <unistd.h>
 
-namespace Kexi
+static void destroyStartupHandler()
 {
-
-// Don't use Q_GLOBAL_STATIC as destroys the object *after* QApplication is gone but we have to cleanup before -> use qAddPostRoutine
-static KexiStartupHandler* _startupHandler = 0;
-
-static void _destroyStartupHandler()
-{
-    delete _startupHandler;
-    _startupHandler = 0;
-}
-
-KexiStartupHandler& startupHandler()
-{
-    if (!_startupHandler) {
-        _startupHandler = new KexiStartupHandler;
-        qAddPostRoutine(_destroyStartupHandler);
+    if (!KexiStartupData::global()) {
+        return;
     }
-    return *_startupHandler;
-}
+    KexiStartupHandler* startupHandler = static_cast<KexiStartupHandler*>(KexiStartupHandler::global());
+    delete startupHandler; // resets KexiStartup::global()
 }
 
 class KexiStartupData;
@@ -143,8 +130,17 @@ KexiStartupHandler::KexiStartupHandler()
 
 KexiStartupHandler::~KexiStartupHandler()
 {
-    qAddPostRoutine(Kexi::_destroyStartupHandler); // post routine is installed!
+    qRemovePostRoutine(destroyStartupHandler); // post routine is installed!
     delete d;
+}
+
+KexiStartupHandler* KexiStartupHandler::global()
+{
+    if (!KexiStartupData::global()) {
+        (void)new KexiStartupHandler; // sets KexiStartup::global()
+        qAddPostRoutine(destroyStartupHandler);
+    }
+    return static_cast<KexiStartupHandler*>(KexiStartupData::global());
 }
 
 void KexiStartupHandler::slotAboutToAppQuit()
@@ -275,11 +271,6 @@ static void prettyPrintListOfPlugins()
     }
 }
 
-// Handle higher-prioroty options.
-// When such options are present, handle them and immediately exit without showing
-// the GUI even if other options or arguments are present.
-// These options are currently:
-// - options that display configuration or state of Kexi installation
 tristate KexiStartupHandler::handleHighPriorityOptions()
 {
     if (isSet(options().listPlugins)) {
@@ -291,11 +282,12 @@ tristate KexiStartupHandler::handleHighPriorityOptions()
     return cancelled;
 }
 
-tristate KexiStartupHandler::init()
+tristate KexiStartupHandler::init(const QStringList &arguments,
+                                  const QList<QCommandLineOption> &extraOptions)
 {
     setAction(DoNothing);
 
-    tristate res = parseOptions();
+    tristate res = parseOptions(arguments, extraOptions);
     if (res != true) {
         setAction(Exit);
         return res;

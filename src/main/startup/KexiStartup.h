@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -36,10 +36,10 @@ class KexiStartupHandler : public QObject, public KexiStartupData, public Kexi::
     Q_OBJECT
 
 public:
-    KexiStartupHandler();
     virtual ~KexiStartupHandler();
 
-    virtual tristate init();
+    //! \return singleton Startup Handler singleton.
+    static KexiStartupHandler* global();
 
     /*! Options for detectActionForFile() */
     enum DetectActionForFileOptions {
@@ -88,10 +88,16 @@ protected Q_SLOTS:
     void slotAboutToAppQuit();
 
 protected:
+    virtual tristate init(const QStringList &arguments,
+                          const QList<QCommandLineOption> &extraOptions = QList<QCommandLineOption>());
+
 //! @todo KEXI3 port getAutoopenObjects()
 //    bool getAutoopenObjects(KCmdLineArgs *args, const QByteArray &action_name);
 
-    //! Handle higher-prioroty options.
+private:
+    KexiStartupHandler();
+
+    //! Handle higher-priority options.
     /*! When such options are present, handle them and immediately exit without showing
      the GUI even if other options or arguments are present.
      These options are currently:
@@ -103,12 +109,7 @@ protected:
 
     class Private;
     Private * const d;
+    friend class KexiMainWindow;
 };
-
-namespace Kexi
-{
-//! \return singleton Startup Handler singleton.
-    KexiStartupHandler& startupHandler();
-}
 
 #endif

@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2004-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -21,11 +21,11 @@
 #define KEXI_STARTUPDATA_H
 
 #include <QString>
+#include <QCommandLineOption>
 #include "kexicore_export.h"
 
 #include <KDbTristate>
 
-class QCommandLineOption;
 class KexiProjectData;
 class KexiCommandLineOptions;
 
@@ -59,6 +59,10 @@ public:
     KexiStartupData();
     virtual ~KexiStartupData();
 
+    //! @return singleton Startup Handler singleton.
+    //! @see KexiStartupHandler::global()
+    static KexiStartupData* global();
+
     Action action() const;
 
     //! \return project data of a project that should be opened (for action()==OpenProject)
@@ -89,9 +93,10 @@ public:
     //! @return command line options
     KexiCommandLineOptions options() const;
 
-    //! Parses the options
+    //! Parses the options and arguments
     //! @return true on success
-    tristate parseOptions();
+    tristate parseOptions(const QStringList &arguments,
+                          const QList<QCommandLineOption> &extraOptions = QList<QCommandLineOption>());
 
     //! @return true if the option @a option was passed to the application
     bool isSet(const QCommandLineOption & option) const;
