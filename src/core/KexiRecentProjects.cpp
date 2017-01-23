@@ -20,6 +20,7 @@
 #include "KexiRecentProjects.h"
 #include "kexidbshortcutfile.h"
 #include "kexidbconnectionset.h"
+#include <kexi.h>
 
 #include <KDbDriverManager>
 #include <KDbDriverMetaData>
@@ -64,6 +65,10 @@ void KexiRecentProjects::Private::load()
 {
     if (loaded)
         return;
+    if (!Kexi::isKexiInstance()) {
+        // Do not show the list of documents if this is not really Kexi but a test app based on Kexi
+        return;
+    }
     loaded = true;
 #ifdef KexiRecentProjects_DEBUG
     qDebug() << "wait..";
@@ -251,6 +256,10 @@ KexiRecentProjects::~KexiRecentProjects()
 
 void KexiRecentProjects::addProjectData(const KexiProjectData &data)
 {
+    if (!Kexi::isKexiInstance()) {
+        // Do not update the list of documents if this is not really Kexi but a test app based on Kexi
+        return;
+    }
     d->add(new KexiProjectData(data), QString() /*save new shortcut*/);
 }
 

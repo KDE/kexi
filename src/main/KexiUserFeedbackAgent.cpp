@@ -24,7 +24,6 @@
 
 #include <KIO/Job>
 #include <KConfigGroup>
-#include <KAboutData>
 #include <kwidgetsaddons_version.h> // no kdeversion.h anymore but this is nice enough here
 #include <KSharedConfig>
 #include <KLocalizedString>
@@ -350,7 +349,7 @@ void KexiUserFeedbackAgent::sendData()
     if (d->areas == NoAreas) {
         return;
     }
-    if (KAboutData::applicationData().displayName() != KEXI_APP_NAME) {
+    if (!Kexi::isKexiInstance()) {
         // Do not send feedback if this is not really Kexi but a test app based on Kexi
         return;
     }

@@ -29,6 +29,7 @@
 #include <KDbDriverMetaData>
 #include <KDbUtils>
 
+#include <KAboutData>
 #include <KMessageBox>
 #include <KIconTheme>
 
@@ -410,4 +411,9 @@ QString Kexi::basePathForProject(const KDbConnectionData& connectionData)
         return fileinfo.path();
     }
     return QString();
+}
+
+bool Kexi::isKexiInstance()
+{
+    return KAboutData::applicationData().componentName() == QLatin1String("kexi");
 }
