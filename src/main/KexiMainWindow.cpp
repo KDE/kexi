@@ -3596,10 +3596,10 @@ void KexiMainWindow::propertySetSwitched(KexiWindow *window, bool force,
             if (preservePrevSelection || force) {
                 KPropertyEditorView::SetOptions options;
                 if (preservePrevSelection) {
-                    options |= KPropertyEditorView::PreservePreviousSelection;
+                    options |= KPropertyEditorView::SetOption::PreservePreviousSelection;
                 }
                 if (sortedProperties) {
-                    options |= KPropertyEditorView::AlphabeticalOrder;
+                    options |= KPropertyEditorView::SetOption::AlphabeticalOrder;
                 }
 
                 if (propertyToSelect.isEmpty()) {
