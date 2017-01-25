@@ -16,8 +16,8 @@ include(ECMGenerateHeaders)
 include(ECMPoQmTools)
 
 include(KDEInstallDirs)
-include(KDECMakeSettings)
-include(KDECompilerSettings)
+include(KDECMakeSettings NO_POLICY_SCOPE)
+include(KDECompilerSettings NO_POLICY_SCOPE)
 
 include(KexiMacros)
 include(KexiAddIconsRccFile)
