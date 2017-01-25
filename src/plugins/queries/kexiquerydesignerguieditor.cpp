@@ -998,9 +998,11 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
         //OK, row inserted: create a new set for it
         KPropertySet &set = *createPropertySet(row_num, tableName, fieldName, true/*new one*/);
         if (!columnAlias.isEmpty())
-            set["alias"].setValue(columnAlias, false);
+            set["alias"].setValue(columnAlias,
+                                  KProperty::DefaultValueOptions ^ KProperty::ValueOption::RememberOld);
         if (!criteriaString.isEmpty())
-            set["criteria"].setValue(criteriaString, false);
+            set["criteria"].setValue(criteriaString,
+                                     KProperty::DefaultValueOptions ^ KProperty::ValueOption::RememberOld);
         if (field->isExpression()) {
             if (!d->changeSingleCellValue(newRecord, COLUMN_ID_COLUMN,
                                           QVariant(columnAlias + ": " + field->expression().toString(0).toString()), &result))
@@ -1053,7 +1055,8 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
             d->data->saveRecordChanges(data, true);
             (*rowPropertySet)["sorting"].clearModifiedFlag(); // this property should look "fresh"
             if (!(*data)[COLUMN_ID_VISIBLE].toBool()) //update
-                (*rowPropertySet)["visible"].setValue(QVariant(false), false/*rememberOldValue*/);
+                (*rowPropertySet)["visible"].setValue(QVariant(false),
+                                                      KProperty::DefaultValueOptions ^ KProperty::ValueOption::RememberOld);
         }
     }
 
@@ -1107,8 +1110,10 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
 //! @todo  if (!columnAlias.isEmpty())
 //! @todo   set["alias"].setValue(columnAlias, false);
 ////  if (!criteriaString.isEmpty())
-        set["criteria"].setValue(criteriaString, false);
-        set["visible"].setValue(QVariant(false), false);
+        set["criteria"].setValue(criteriaString,
+                                 KProperty::DefaultValueOptions ^ KProperty::ValueOption::RememberOld);
+        set["visible"].setValue(QVariant(false),
+                                KProperty::DefaultValueOptions ^ KProperty::ValueOption::RememberOld);
     }
 
     //current property set has most probably changed
