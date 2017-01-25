@@ -1571,10 +1571,10 @@ void KexiQueryDesignerGuiEditor::slotBeforeColumnCellChanged(KDbRecordData *data
             }
         }
     }
-    bool saveOldValue = true;
+    KProperty::ValueOptions valueOptions = KProperty::DefaultValueOptions;
     KPropertySet *set = d->sets->findPropertySetForItem(*data);
     if (!set) {
-        saveOldValue = false; // no old val.
+        valueOptions ^= KProperty::ValueOption::RememberOld; // no old val.
         const int row = d->data->indexOf(data);
         if (row < 0) {
             result->success = false;
@@ -1595,7 +1595,7 @@ void KexiQueryDesignerGuiEditor::slotBeforeColumnCellChanged(KDbRecordData *data
         d->data->updateRecordEditBuffer(data, COLUMN_ID_SORTING, QVariant());
     }
     //update properties
-    (*set)["field"].setValue(fieldName, saveOldValue);
+    (*set)["field"].setValue(fieldName, valueOptions);
     if (isExpression) {
         //-no alias but it's needed:
         if (alias.isEmpty()) //-try oto get old alias
@@ -1603,14 +1603,14 @@ void KexiQueryDesignerGuiEditor::slotBeforeColumnCellChanged(KDbRecordData *data
         if (alias.isEmpty()) //-generate smallest unique alias
             alias = generateUniqueAlias();
     }
-    (*set)["isExpression"].setValue(QVariant(isExpression), saveOldValue);
+    (*set)["isExpression"].setValue(QVariant(isExpression), valueOptions);
     if (!alias.isEmpty()) {
-        (*set)["alias"].setValue(alias, saveOldValue);
+        (*set)["alias"].setValue(alias, valueOptions);
         //pretty printed "alias: expr"
         newValue = QString(QString(alias) + ": " + fieldName);
     }
-    (*set)["caption"].setValue(QString(), saveOldValue);
-    (*set)["table"].setValue(tableName, saveOldValue);
+    (*set)["caption"].setValue(QString(), valueOptions);
+    (*set)["table"].setValue(tableName, valueOptions);
     updatePropertiesVisibility(*set);
 }
 
@@ -1649,9 +1649,9 @@ void KexiQueryDesignerGuiEditor::slotBeforeVisibleCellChanged(KDbRecordData *dat
     QVariant& newValue, KDbResultInfo* result)
 {
     Q_UNUSED(result)
-    bool saveOldValue = true;
+    KProperty::ValueOptions valueOptions = KProperty::DefaultValueOptions;
     if (!propertySet()) {
-        saveOldValue = false;
+        valueOptions ^= KProperty::ValueOption::RememberOld; // no old val.
         createPropertySet(d->dataTable->dataAwareObject()->currentRecord(),
                           (*data)[COLUMN_ID_TABLE].toString(),
                           (*data)[COLUMN_ID_COLUMN].toString(), true);
@@ -1661,7 +1661,7 @@ void KexiQueryDesignerGuiEditor::slotBeforeVisibleCellChanged(KDbRecordData *dat
         propertySetSwitched();
     }
     KPropertySet &set = *propertySet();
-    set["visible"].setValue(newValue, saveOldValue);
+    set["visible"].setValue(newValue, valueOptions);
 }
 
 void KexiQueryDesignerGuiEditor::slotBeforeTotalsCellChanged(KDbRecordData *data,
@@ -1681,10 +1681,10 @@ void KexiQueryDesignerGuiEditor::slotBeforeTotalsCellChanged(KDbRecordData *data
 void KexiQueryDesignerGuiEditor::slotBeforeSortingCellChanged(KDbRecordData *data,
     QVariant& newValue, KDbResultInfo* result)
 {
-    bool saveOldValue = true;
+    KProperty::ValueOptions valueOptions = KProperty::DefaultValueOptions;
     KPropertySet *set = d->sets->findPropertySetForItem(*data);
     if (!set) {
-        saveOldValue = false;
+        valueOptions ^= KProperty::ValueOption::RememberOld; // no old val.
         set = createPropertySet(d->dataTable->dataAwareObject()->currentRecord(),
                                 (*data)[COLUMN_ID_TABLE].toString(),
                                 (*data)[COLUMN_ID_COLUMN].toString(), true);
@@ -1699,7 +1699,7 @@ void KexiQueryDesignerGuiEditor::slotBeforeSortingCellChanged(KDbRecordData *dat
         KProperty &property = set->property("sorting");
         QString key(property.listData()->keysAsStringList()[ newValue.toInt()]);
         qDebug() << "new key=" << key;
-        property.setValue(key, saveOldValue);
+        property.setValue(key, valueOptions);
     }
     else { //show msg: sorting is not available
         result->success = false;
