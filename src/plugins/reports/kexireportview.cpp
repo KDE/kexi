@@ -19,7 +19,7 @@
 
 #include "kexireportview.h"
 #include <KReportView>
-#include "kexidbreportdata.h"
+#include "KexiDBReportDataSource.h"
 #ifndef KEXI_MOBILE
 #include <widget/utils/kexirecordnavigator.h>
  //! @todo KEXI3
@@ -395,7 +395,7 @@ KReportDataSource* KexiReportView::createSourceData(QDomElement e)
     KReportDataSource *kodata = 0;
 
     if (e.attribute("type") == "internal" && !e.attribute("source").isEmpty()) {
-        kodata = new KexiDBReportData(e.attribute("source"), KexiMainWindowIface::global()->project()->dbConnection());
+        kodata = new KexiDBReportDataSource(e.attribute("source"), KexiMainWindowIface::global()->project()->dbConnection());
     }
 #ifndef KEXI_MOBILE
 //! @todo KEXI3

@@ -147,7 +147,7 @@ KReportDataSource* KexiSourceSelector::createSourceData() const
 //!@TODO Fix when enable external data
 #ifndef NO_EXTERNAL_SOURCES
     if (d->sourceType->itemData(d->sourceType->currentIndex()).toString() == "internal" && d->internalSource->isSelectionValid()) {
-        return new KexiDBReportData(d->internalSource->selectedName(), d->internalSource->selectedPluginId(), d->conn);
+        return new KexiDBReportDataSource(d->internalSource->selectedName(), d->internalSource->selectedPluginId(), d->conn);
     }
 
 #ifndef KEXI_MOBILE

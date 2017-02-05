@@ -1,6 +1,6 @@
 /*
 * Kexi Report Plugin
-* Copyright (C) 2007-2009 by Adam Pigg (adam@piggz.co.uk)
+* Copyright (C) 2007-2017 by Adam Pigg <adam@piggz.co.uk>
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -23,18 +23,13 @@
 #include <QStringList>
 
 #include <KDbCursor>
-#include <KDbUtils>
-
-#include <config-kreport.h>
 #include <KReportDataSource>
 
-/**
-
-*/
-class KexiDBReportData : public KReportDataSource
+//! @brief Implementation of database report data source
+class KexiDBReportDataSource : public KReportDataSource
 {
 public:
-    KexiDBReportData(const QString &objectName, KDbConnection *conn);
+    KexiDBReportDataSource(const QString &objectName, KDbConnection *conn);
 
     /*!
      * @a pluginId specifies type of @a objectName, a table or query.
@@ -43,8 +38,8 @@ public:
      * -"org.kexi-project.query"
      * -empty QString() - attempt to resolve @a objectName
      */
-    KexiDBReportData(const QString &objectName, const QString& pluginId, KDbConnection *conn);
-    virtual ~KexiDBReportData();
+    KexiDBReportDataSource(const QString &objectName, const QString& pluginId, KDbConnection *conn);
+    virtual ~KexiDBReportDataSource();
 
     virtual QStringList fieldNames() const;
     virtual void setSorting(const QList<SortedField>& sorting);

@@ -23,7 +23,7 @@
 
 #include <KReportDataSource>
 
-#include "kexidbreportdata.h"
+#include "KexiDBReportDataSource.h"
 #ifdef HAVE_KEXI_MIGRATE
 #include "keximigratereportdata.h"
 #endif
