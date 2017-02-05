@@ -26,12 +26,12 @@
 #include <KDbUtils>
 
 #include <config-kreport.h>
-#include <KReportData>
+#include <KReportDataSource>
 
 /**
 
 */
-class KexiDBReportData : public KReportData
+class KexiDBReportData : public KReportDataSource
 {
 public:
     KexiDBReportData(const QString &objectName, KDbConnection *conn);
@@ -48,11 +48,11 @@ public:
 
     virtual QStringList fieldNames() const;
     virtual void setSorting(const QList<SortedField>& sorting);
-    virtual void addExpression(const QString &field, const QVariant &value, char relation = '=');
+    virtual void addCondition(const QString &field, const QVariant &value, const QString& relation = QLatin1String("="));
 
     virtual QString sourceName() const;
     virtual int fieldNumber(const QString &field) const;
-    virtual QVariant value(unsigned int) const;
+    virtual QVariant value(int) const;
     virtual QVariant value(const QString &field) const;
 
     virtual bool open();
@@ -68,8 +68,8 @@ public:
     //Utility Functions
     virtual QStringList scriptList() const;
     virtual QString scriptCode(const QString& script) const;
-    virtual QStringList dataSources() const;
-    virtual KReportData* create(const QString& source) const Q_REQUIRED_RESULT;
+    virtual QStringList dataSourceNames() const;
+    virtual KReportDataSource* create(const QString& source) const Q_REQUIRED_RESULT;
 
 private:
     class Private;

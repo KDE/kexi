@@ -21,7 +21,7 @@
 
 #include <QWidget>
 
-#include <KReportData>
+#include <KReportDataSource>
 
 #include "kexidbreportdata.h"
 #ifdef HAVE_KEXI_MIGRATE
@@ -40,7 +40,7 @@ public:
     explicit KexiSourceSelector(KexiProject* project, QWidget* parent = 0);
     ~KexiSourceSelector();
 
-    KReportData* createSourceData() const Q_REQUIRED_RESULT;
+    KReportDataSource* createSourceData() const Q_REQUIRED_RESULT;
     void setConnectionData(const QDomElement &c);
     QDomElement connectionData();
 

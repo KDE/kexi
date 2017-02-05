@@ -86,12 +86,16 @@ void KexiDBReportData::setSorting(const QList<SortedField>& sorting)
     }
 }
 
-void KexiDBReportData::addExpression(const QString& field, const QVariant& value, char relation)
+void KexiDBReportData::addCondition(const QString &field, const QVariant &value, const QString& relation)
 {
     if (d->copySchema) {
         KDbField *fld = d->copySchema->findTableField(field);
         if (fld) {
-            d->copySchema->addToWhereExpression(fld, value, KDbToken(relation));
+            if (relation.length() == 1) {
+                d->copySchema->addToWhereExpression(fld, value, KDbToken(relation.toLatin1()[0]));
+            } else {
+                qWarning() << "Invalid relation passed in:" << relation;
+            }
         }
     } else {
         qDebug() << "Unable to add expresstion to null schema";
@@ -223,7 +227,7 @@ QStringList KexiDBReportData::fieldNames() const
     return names;
 }
 
-QVariant KexiDBReportData::value ( unsigned int i ) const
+QVariant KexiDBReportData::value (int i) const
 {
     if ( d->cursor )
         return d->cursor->value ( i );
@@ -385,7 +389,7 @@ QString KexiDBReportData::scriptCode(const QString& scriptname) const
     return scripts;
 }
 
-QStringList KexiDBReportData::dataSources() const
+QStringList KexiDBReportData::dataSourceNames() const
 {
     //Get the list of queries in the database
     QStringList qs;
@@ -410,7 +414,7 @@ QStringList KexiDBReportData::dataSources() const
     return qs;
 }
 
-KReportData* KexiDBReportData::create(const QString& source) const
+KReportDataSource* KexiDBReportData::create(const QString& source) const
 {
     return new KexiDBReportData(source, d->connection);
 }
