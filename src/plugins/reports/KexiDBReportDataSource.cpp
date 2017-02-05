@@ -1,6 +1,6 @@
 /*
 * Kexi Report Plugin
-* Copyright (C) 2007-2009 by Adam Pigg (adam@piggz.co.uk)
+* Copyright (C) 2007-2017 by Adam Pigg <adam@piggz.co.uk>
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -16,7 +16,7 @@
 * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "kexidbreportdata.h"
+#include "KexiDBReportDataSource.h"
 #include <core/kexipart.h>
 
 #include <KDbConnection>
@@ -27,7 +27,7 @@
 #include <QDomDocument>
 #include <QDebug>
 
-class Q_DECL_HIDDEN KexiDBReportData::Private
+class Q_DECL_HIDDEN KexiDBReportDataSource::Private
 {
 public:
     explicit Private(KDbConnection *pDb)
@@ -49,7 +49,7 @@ public:
     KDbQuerySchema *copySchema;
 };
 
-KexiDBReportData::KexiDBReportData (const QString &objectName,
+KexiDBReportDataSource::KexiDBReportDataSource (const QString &objectName,
                                     KDbConnection * pDb)
         : d(new Private(pDb))
 {
@@ -57,7 +57,7 @@ KexiDBReportData::KexiDBReportData (const QString &objectName,
     getSchema();
 }
 
-KexiDBReportData::KexiDBReportData(const QString& objectName,
+KexiDBReportDataSource::KexiDBReportDataSource(const QString& objectName,
                                    const QString& pluginId,
                                    KDbConnection* pDb)
         : d(new Private(pDb))
@@ -66,7 +66,7 @@ KexiDBReportData::KexiDBReportData(const QString& objectName,
     getSchema(pluginId);
 }
 
-void KexiDBReportData::setSorting(const QList<SortedField>& sorting)
+void KexiDBReportDataSource::setSorting(const QList<SortedField>& sorting)
 {
     if (d->copySchema) {
         if (sorting.isEmpty())
@@ -86,7 +86,7 @@ void KexiDBReportData::setSorting(const QList<SortedField>& sorting)
     }
 }
 
-void KexiDBReportData::addCondition(const QString &field, const QVariant &value, const QString& relation)
+void KexiDBReportDataSource::addCondition(const QString &field, const QVariant &value, const QString& relation)
 {
     if (d->copySchema) {
         KDbField *fld = d->copySchema->findTableField(field);
@@ -102,13 +102,13 @@ void KexiDBReportData::addCondition(const QString &field, const QVariant &value,
     }
 }
 
-KexiDBReportData::~KexiDBReportData()
+KexiDBReportDataSource::~KexiDBReportDataSource()
 {
     close();
     delete d;
 }
 
-bool KexiDBReportData::open()
+bool KexiDBReportDataSource::open()
 {
     if ( d->connection && d->cursor == 0 )
     {
@@ -134,7 +134,7 @@ bool KexiDBReportData::open()
     return false;
 }
 
-bool KexiDBReportData::close()
+bool KexiDBReportDataSource::close()
 {
     if (d->cursor) {
         const bool ok = d->cursor->close();
@@ -145,7 +145,7 @@ bool KexiDBReportData::close()
     return true;
 }
 
-bool KexiDBReportData::getSchema(const QString& pluginId)
+bool KexiDBReportDataSource::getSchema(const QString& pluginId)
 {
     if (d->connection)
     {
@@ -191,12 +191,12 @@ bool KexiDBReportData::getSchema(const QString& pluginId)
     return false;
 }
 
-QString KexiDBReportData::sourceName() const
+QString KexiDBReportDataSource::sourceName() const
 {
     return d->objectName;
 }
 
-int KexiDBReportData::fieldNumber ( const QString &fld ) const
+int KexiDBReportDataSource::fieldNumber ( const QString &fld ) const
 {
 
     if (!d->cursor || !d->cursor->query()) {
@@ -212,7 +212,7 @@ int KexiDBReportData::fieldNumber ( const QString &fld ) const
     return -1;
 }
 
-QStringList KexiDBReportData::fieldNames() const
+QStringList KexiDBReportDataSource::fieldNames() const
 {
     if (!d->originalSchema) {
         return QStringList();
@@ -227,7 +227,7 @@ QStringList KexiDBReportData::fieldNames() const
     return names;
 }
 
-QVariant KexiDBReportData::value (int i) const
+QVariant KexiDBReportDataSource::value (int i) const
 {
     if ( d->cursor )
         return d->cursor->value ( i );
@@ -235,7 +235,7 @@ QVariant KexiDBReportData::value (int i) const
     return QVariant();
 }
 
-QVariant KexiDBReportData::value ( const QString &fld ) const
+QVariant KexiDBReportDataSource::value ( const QString &fld ) const
 {
     int i = fieldNumber ( fld );
 
@@ -245,7 +245,7 @@ QVariant KexiDBReportData::value ( const QString &fld ) const
     return QVariant();
 }
 
-bool KexiDBReportData::moveNext()
+bool KexiDBReportDataSource::moveNext()
 {
     if ( d->cursor )
         return d->cursor->moveNext();
@@ -253,21 +253,21 @@ bool KexiDBReportData::moveNext()
     return false;
 }
 
-bool KexiDBReportData::movePrevious()
+bool KexiDBReportDataSource::movePrevious()
 {
     if ( d->cursor ) return d->cursor->movePrev();
 
     return false;
 }
 
-bool KexiDBReportData::moveFirst()
+bool KexiDBReportDataSource::moveFirst()
 {
     if ( d->cursor ) return d->cursor->moveFirst();
 
     return false;
 }
 
-bool KexiDBReportData::moveLast()
+bool KexiDBReportDataSource::moveLast()
 {
     if ( d->cursor )
         return d->cursor->moveLast();
@@ -275,7 +275,7 @@ bool KexiDBReportData::moveLast()
     return false;
 }
 
-qint64 KexiDBReportData::at() const
+qint64 KexiDBReportDataSource::at() const
 {
     if ( d->cursor )
         return d->cursor->at();
@@ -283,7 +283,7 @@ qint64 KexiDBReportData::at() const
     return 0;
 }
 
-qint64 KexiDBReportData::recordCount() const
+qint64 KexiDBReportDataSource::recordCount() const
 {
     if ( d->copySchema )
     {
@@ -299,7 +299,7 @@ static bool isInterpreterSupported(const QString &interpreterName)
            || 0 == interpreterName.compare(QLatin1String("qtscript"), Qt::CaseInsensitive);
 }
 
-QStringList KexiDBReportData::scriptList() const
+QStringList KexiDBReportDataSource::scriptList() const
 {
     QStringList scripts;
 
@@ -342,7 +342,7 @@ QStringList KexiDBReportData::scriptList() const
     return scripts;
 }
 
-QString KexiDBReportData::scriptCode(const QString& scriptname) const
+QString KexiDBReportDataSource::scriptCode(const QString& scriptname) const
 {
     QString scripts;
 
@@ -389,7 +389,7 @@ QString KexiDBReportData::scriptCode(const QString& scriptname) const
     return scripts;
 }
 
-QStringList KexiDBReportData::dataSourceNames() const
+QStringList KexiDBReportDataSource::dataSourceNames() const
 {
     //Get the list of queries in the database
     QStringList qs;
@@ -414,7 +414,7 @@ QStringList KexiDBReportData::dataSourceNames() const
     return qs;
 }
 
-KReportDataSource* KexiDBReportData::create(const QString& source) const
+KReportDataSource* KexiDBReportDataSource::create(const QString& source) const
 {
-    return new KexiDBReportData(source, d->connection);
+    return new KexiDBReportDataSource(source, d->connection);
 }

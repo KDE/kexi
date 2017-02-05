@@ -9,7 +9,7 @@ set(kexi_reportplugin_SRCS
     kexireportpart.cpp
     kexireportview.cpp
     kexireportdesignview.cpp
-    kexidbreportdata.cpp
+    KexiDBReportDataSource.cpp
     kexisourceselector.cpp
     krscriptfunctions.cpp
 )
