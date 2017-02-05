@@ -23,7 +23,7 @@
 #include <core/kexipart.h>
 #include <core/KexiWindowData.h>
 
-#include <KReportData>
+#include <KReportDataSource>
 #include <QDomElement>
 
 class KexiReportPartTempData : public KexiWindowData

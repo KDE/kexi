@@ -26,7 +26,7 @@
 #include <KPropertySet>
 
 #include <KReportDesigner>
-#include <KReportData>
+#include <KReportDataSource>
 
 class QScrollArea;
 class KexiSourceSelector;

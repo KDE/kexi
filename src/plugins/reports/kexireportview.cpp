@@ -350,7 +350,7 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
         //qDebug() << tempData()->reportDefinition.tagName();
         m_preRenderer = new KReportPreRenderer(tempData()->reportDefinition);
         if (m_preRenderer->isValid()) {
-            KReportData *reportData = 0;
+            KReportDataSource *reportData = 0;
             if (!tempData()->connectionDefinition.isNull())  {
                 reportData = createSourceData(tempData()->connectionDefinition);
             }
@@ -390,9 +390,9 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
     return true;
 }
 
-KReportData* KexiReportView::createSourceData(QDomElement e)
+KReportDataSource* KexiReportView::createSourceData(QDomElement e)
 {
-    KReportData *kodata = 0;
+    KReportDataSource *kodata = 0;
 
     if (e.attribute("type") == "internal" && !e.attribute("source").isEmpty()) {
         kodata = new KexiDBReportData(e.attribute("source"), KexiMainWindowIface::global()->project()->dbConnection());

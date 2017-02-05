@@ -19,7 +19,7 @@
 #ifndef KRSCRIPTFUNCTIONS_H
 #define KRSCRIPTFUNCTIONS_H
 
-#include <KReportData>
+#include <KReportDataSource>
 #include <KReportGroupTracker>
 
 #include <KDbEscapedString>
@@ -34,13 +34,13 @@ class KRScriptFunctions : public KReportGroupTracker
 {
     Q_OBJECT
 public:
-    KRScriptFunctions(const KReportData *, KDbConnection*);
+    KRScriptFunctions(const KReportDataSource *, KDbConnection*);
 
     ~KRScriptFunctions();
 
 private:
     KDbConnection *m_connection;
-    const KReportData *m_cursor;
+    const KReportDataSource *m_cursor;
     QString m_source;
     qreal math(const QString &, const QString &);
 

@@ -142,7 +142,7 @@ QDomElement KexiSourceSelector::connectionData()
     return conndata;
 }
 
-KReportData* KexiSourceSelector::createSourceData() const
+KReportDataSource* KexiSourceSelector::createSourceData() const
 {
 //!@TODO Fix when enable external data
 #ifndef NO_EXTERNAL_SOURCES
