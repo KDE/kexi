@@ -48,7 +48,12 @@ public:
 
     virtual QStringList fieldNames() const;
     virtual void setSorting(const QList<SortedField>& sorting);
-    virtual void addCondition(const QString &field, const QVariant &value, const QString& relation = QLatin1String("="));
+
+    //! Adds a condition <field> <relation> <value> to the data source.
+    //! @note Only single-character relation operators such as "=" or ">" are supported now.
+    //! @todo Use KDb parser to support all relation operators such as ">=".
+    virtual void addCondition(const QString &field, const QVariant &value,
+                              const QString &relation = QLatin1String("="));
 
     virtual QString sourceName() const;
     virtual int fieldNumber(const QString &field) const;
