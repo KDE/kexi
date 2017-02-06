@@ -143,7 +143,7 @@ class KEXIEXTWIDGETS_EXPORT KexiDBConnectionDialog : public QDialog
 
 public:
     /*! Creates a new connection dialog for project data \a data.
-     Not only connection data is visible but also database name and and title.
+     Not only connection data is visible but also database name and title.
      \a shortcutFileName is only used to check if the shortcut file is writable
      (if no, "save changes" button will be disabled).
      The shortcut file is in .KEXIS format.
@@ -155,7 +155,7 @@ public:
                            const KGuiItem& acceptButtonGuiItem = KGuiItem());
 
     /*! Creates a new connection dialog for connection data \a data.
-     Only connection data is visible: database name and and title fields are hidden.
+     Only connection data is visible: database name and title fields are hidden.
      \a shortcutFileName is only used to check if the shortcut file is writable
      (if no, "save changes" button will be disabled).
      The shortcut file is in .KEXIC format.
