@@ -76,7 +76,7 @@ public:
      Note: we use internal "uid" property of a field (set["uid"]) to avoid problems with looking
      for field by name when more than one field exists with the same name
      (it's invalid but allowed in design time).
-     \a oldlistData and and \a newListData can be specified so Property::setListData() will be called
+     \a oldlistData and \a newListData can be specified so Property::setListData() will be called
      on execute() and unexecute().
     */
     ChangeFieldPropertyCommand(Command* parent, KexiTableDesignerView* view,

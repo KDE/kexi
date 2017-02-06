@@ -17,7 +17,7 @@ The way i see it we need to do a few things:
    for postgres, mysql firebird etc...
 
 
-For 1) we need to to:
+For 1) we need to:
 
 i) Connect to backend    -|
                           |
