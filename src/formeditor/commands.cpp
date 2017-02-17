@@ -912,9 +912,13 @@ void InsertWidgetCommand::execute()
     if (!d->form->objectTree())
         return;
     ObjectTreeItem* titem = d->form->objectTree()->lookup(d->containerName);
-    if (!titem)
+    if (!titem) {
         return; //better this than a crash
+    }
     Container *container = titem->container();
+    if (!container) {
+        return;
+    }
     WidgetFactory::CreateWidgetOptions options = WidgetFactory::DesignViewMode | WidgetFactory::AnyOrientation;
     if (d->form->library()->internalProperty(d->_class, "orientationSelectionPopup").toBool()) {
         if (d->insertRect.isValid()) {
@@ -1855,9 +1859,11 @@ void InsertPageCommand::execute(const QString& pageWidgetName, const QString& pa
         item->addModifiedProperty("title", realPageName);
     } else if (classname == "QStackedWidget" || /* compat */ classname == "QWidgetStack") {
         QStackedWidget *stack = qobject_cast<QStackedWidget*>(parent);
-        stack->addWidget(page);
-        stack->setCurrentWidget(page);
-        item->addModifiedProperty("stackIndex", stack->indexOf(page));
+        if (stack) {
+            stack->addWidget(page);
+            stack->setCurrentWidget(page);
+            item->addModifiedProperty("stackIndex", stack->indexOf(page));
+        }
     }
 }
 
@@ -1871,12 +1877,26 @@ void InsertPageCommand::undo(const QString& name)
     if (!name.isEmpty()) {
         d->name = name;
     }
-    QWidget *page = d->form->objectTree()->lookup(d->name)->widget();
-    QWidget *parent = d->form->objectTree()->lookup(d->parentname)->widget();
+    ObjectTreeItem *item = d->form->objectTree()->lookup(d->name);
+    if (!item) {
+        return;
+    }
+    QWidget *page = item->widget();
+    if (!page) {
+        return;
+    }
+    ObjectTreeItem *parentItem = d->form->objectTree()->lookup(d->parentname);
+    if (!parentItem) {
+        return;
+    }
+    QWidget *parent = parentItem->widget();
+    if (!parent) {
+        return;
+    }
 
     QWidgetList list;
     list.append(page);
-    Command *com = new DeleteWidgetCommand(*d->form, list);
+    DeleteWidgetCommand command(*d->form, list);
 
     QByteArray classname = parent->metaObject()->className();
     if (classname == "KFDTabWidget") {
@@ -1897,8 +1917,7 @@ void InsertPageCommand::undo(const QString& name)
         stack->removeWidget(page);
     }
 
-    com->execute();
-    delete com;
+    command.execute();
 }
 
 KFORMDESIGNER_EXPORT QDebug KFormDesigner::operator<<(QDebug dbg, const InsertPageCommand &c)

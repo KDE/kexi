@@ -839,7 +839,7 @@ KexiMigrate* ImportWizard::prepareImport(Kexi::ObjectStatus& result)
                 md->sourceName = d->srcProjectSelector->selectedProjectData()->databaseName();
             //! @todo Aah, this is so C-like. Move to performImport().
         }
-        md->keepData = keepData;
+        md->setShouldCopyData(keepData);
         sourceDriver->setData(md);
         return sourceDriver;
     }

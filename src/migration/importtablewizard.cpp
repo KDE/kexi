@@ -631,7 +631,7 @@ KexiMigrate* ImportTableWizard::prepareImport(Kexi::ObjectStatus *result)
 
         }
 
-        md->keepData = keepData;
+        md->setShouldCopyData(keepData);
         sourceDriver->setData(md);
 
         return sourceDriver;

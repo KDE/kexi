@@ -114,28 +114,29 @@ bool MDBMigrate::drv_connect()
 
 bool MDBMigrate::drv_disconnect()
 {
-    mdb_close(m_mdb);
-    m_mdb = nullptr;
+    if (m_mdb) {
+        mdb_close(m_mdb);
+        m_mdb = nullptr;
+    }
     return true;
 }
 
 MdbTableDef* MDBMigrate::getTableDef(const QString& tableName)
 {
-    MdbTableDef *tableDef = 0;
+    MdbTableDef *tableDef = nullptr;
+    if (m_mdb) {
+        // Look through each entry in the catalog...
+        for (unsigned int i = 0; i < m_mdb->num_catalog; i++) {
+            MdbCatalogEntry* dbObject =
+                (MdbCatalogEntry*)(g_ptr_array_index(m_mdb->catalog, i));
 
-    //qDebug() << tableName;
-
-    // Look through each entry in the catalog...
-    for (unsigned int i = 0; i < m_mdb->num_catalog; i++) {
-        MdbCatalogEntry* dbObject =
-            (MdbCatalogEntry*)(g_ptr_array_index(m_mdb->catalog, i));
-
-        // ... for a table with the given name
-        if (dbObject->object_type == MDB_TABLE) {
-            QString dbObjectName = QString::fromUtf8(dbObject->object_name);
-            if (dbObjectName.toLower() == tableName.toLower()) {
-                tableDef = mdb_read_table(dbObject);
-                break;
+            // ... for a table with the given name
+            if (dbObject->object_type == MDB_TABLE) {
+                QString dbObjectName = QString::fromUtf8(dbObject->object_name);
+                if (dbObjectName.toLower() == tableName.toLower()) {
+                    tableDef = mdb_read_table(dbObject);
+                    break;
+                }
             }
         }
     }
@@ -190,7 +191,7 @@ bool MDBMigrate::drv_readTableSchema(const QString& originalName,
 bool MDBMigrate::drv_tableNames(QStringList *tableNames)
 {
     // Try to read the catalog of database objects
-    if (!mdb_read_catalog(m_mdb, MDB_ANY)) {
+    if (!m_mdb || !mdb_read_catalog(m_mdb, MDB_ANY)) {
         qWarning() << "couldn't read catalog";
         return false;
     }

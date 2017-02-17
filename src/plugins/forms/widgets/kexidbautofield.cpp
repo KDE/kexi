@@ -177,10 +177,14 @@ KexiDBAutoField::createEditor()
         newSubwidget->setObjectName(
             QString::fromLatin1("KexiDBAutoField_") + newSubwidget->metaObject()->className());
         KexiDataItemInterface *iface = dynamic_cast<KexiDataItemInterface*>(newSubwidget);
-        iface->setParentDataItemInterface(this);
+        if (iface) {
+            iface->setParentDataItemInterface(this);
+        }
         KexiFormDataItemInterface *formIface = dynamic_cast<KexiFormDataItemInterface*>(newSubwidget);
-        formIface->setColumnInfo(columnInfo()); //needed at least by KexiDBImageBox
-        formIface->setVisibleColumnInfo(visibleColumnInfo()); //needed at least by KexiDBComboBox
+        if (formIface) {
+            formIface->setColumnInfo(columnInfo()); //needed at least by KexiDBImageBox
+            formIface->setVisibleColumnInfo(visibleColumnInfo()); //needed at least by KexiDBComboBox
+        }
         newSubwidget->setProperty("dataSource", dataSource()); //needed at least by KexiDBImageBox
         KFormDesigner::DesignTimeDynamicChildWidgetHandler::childWidgetAdded(this);
         newSubwidget->show();

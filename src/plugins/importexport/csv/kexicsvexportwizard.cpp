@@ -53,10 +53,7 @@ KexiCSVExportWizard::KexiCSVExportWizard(const KexiCSVExport::Options& options,
         QWidget * parent)
         : KAssistantDialog(parent)
         , m_options(options)
-        , m_fileSavePage(0)
-        , m_defaultsBtn(0)
         , m_importExportGroup(KSharedConfig::openConfig()->group("ImportExport"))
-        , m_canceled(false)
 {
     KexiMainWindowIface::global()->setReasonableDialogSize(this);
     buttonBox()->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);

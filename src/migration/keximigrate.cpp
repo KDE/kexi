@@ -89,13 +89,13 @@ public:
     KDbConnectionProxy* sourceConnection;
 
     //! Size of migration job
-    quint64 progressTotal;
+    quint64 progressTotal = 0;
 
     //! Amount of migration job complete
-    quint64 progressDone;
+    quint64 progressDone = 0;
 
     //! Don't recalculate progress done until this value is reached.
-    quint64 progressNextReport;
+    quint64 progressNextReport = 0;
 
 };
 
@@ -539,7 +539,7 @@ bool KexiMigrate::performImportInternal(Kexi::ObjectStatus* result)
 
     if (ok) {
         //add KDb-compatible tables to the list, so data will be copied, if needed
-        if (d->migrateData->keepData) {
+        if (d->migrateData->shouldCopyData()) {
             foreach(KDbTableSchema* table,
                     d->kexiDBCompatibleTableSchemasToRemoveFromMemoryAfterImport) {
                 d->tableSchemas.append(table);
@@ -564,7 +564,7 @@ bool KexiMigrate::performImportInternal(Kexi::ObjectStatus* result)
         ok = !trans.isNull();
     }
     if (ok) {
-        if (d->migrateData->keepData) {
+        if (d->migrateData->shouldCopyData()) {
 //! @todo check detailed "copy forms/blobs/tables" flags here when we add them
 //! @todo don't copy kexi__objectdata and kexi__userdata for tables that do not exist
             // Copy data for "kexi__objectdata" as well, if available in the source db

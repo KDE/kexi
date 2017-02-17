@@ -88,7 +88,7 @@ protected:
     virtual bool drv_getTableSize(const QString& table, quint64 *size);
 
 private:
-    MdbHandle *m_mdb;
+    MdbHandle *m_mdb = nullptr;
 };
 }
 
