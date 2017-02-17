@@ -318,7 +318,7 @@ GPtrArray *mdb_read_columns(MdbTableDef *table)
 			pcol = g_ptr_array_index(table->columns, i);
 			for (j=0; j<allprops->len; ++j) {
 				MdbProperties *props = g_array_index(allprops, MdbProperties*, j);
-				if (props->name && pcol->name && !strcmp(props->name, pcol->name)) {
+				if (props->name && !strcmp(props->name, pcol->name)) {
 					pcol->props = props;
 					break;
 				}
