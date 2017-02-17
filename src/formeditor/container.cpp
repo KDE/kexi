@@ -1067,21 +1067,23 @@ Container::createGridLayout(bool testOnly)
         // " and will go to the col " << endcol;
 
         ObjectTreeItem *item = d->form->objectTree()->lookup(w->objectName());
-        if (!endrow && !endcol) {
-            if (!testOnly)
-                layout->addWidget(w, wrow, wcol);
-            item->setGridPos(wrow, wcol, 0, 0);
+        if (item) {
+            if (!endrow && !endcol) {
+                if (!testOnly)
+                    layout->addWidget(w, wrow, wcol);
+                item->setGridPos(wrow, wcol, 0, 0);
+            }
+            else {
+                if (!endcol)
+                    endcol = wcol;
+                if (!endrow)
+                    endrow = wrow;
+                if (!testOnly)
+                    layout->addWidget(w, wrow, wcol, endrow - wrow + 1, endcol - wcol + 1);
+                item->setGridPos(wrow, wcol, endrow - wrow + 1, endcol - wcol + 1);
+            }
         }
-        else {
-            if (!endcol)
-                endcol = wcol;
-            if (!endrow)
-                endrow = wrow;
-            if (!testOnly)
-                layout->addWidget(w, wrow, wcol, endrow - wrow + 1, endcol - wcol + 1);
-            item->setGridPos(wrow, wcol, endrow - wrow + 1, endcol - wcol + 1);
-        }
-    }
+    } //for
 }
 
 QString

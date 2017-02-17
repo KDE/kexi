@@ -27,7 +27,11 @@ class Q_DECL_HIDDEN Data::Private
 {
 public:
     Private() {}
+
     KexiProjectData *destinationProjectData = nullptr;
+
+    //! @c true if not only structure should be migrated but also data
+    bool shouldCopyData = true;
 };
 
 Data::Data()
@@ -63,4 +67,14 @@ QString Data::sourceDatabaseInfoString() const
 {
     return source ? KexiProjectData::infoString(sourceName, *source).toString(Kuit::PlainText)
                   : QString();
+}
+
+bool Data::shouldCopyData() const
+{
+    return d->shouldCopyData;
+}
+
+void Data::setShouldCopyData(bool set)
+{
+    d->shouldCopyData = set;
 }

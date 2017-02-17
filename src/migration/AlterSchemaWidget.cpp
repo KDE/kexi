@@ -40,6 +40,7 @@ using namespace KexiMigration;
 AlterSchemaWidget::AlterSchemaWidget(QWidget *parent) : QWidget(parent)
 {
     m_schema = 0;
+    m_selectedColumn = -1;
 
     m_layout = new QGridLayout();
     m_table = new QTableView(this);

@@ -56,8 +56,11 @@ public:
     //! Previous project data other than @a destinationProjectData will be deleted.
     void setDestinationProjectData(KexiProjectData* destinationProjectData);
 
-    //! Flag to determine structure copy, or structure + data
-    bool keepData;
+    //! @return @c true if not only structure should be migrated but also data
+    bool shouldCopyData() const;
+
+    //! Sets flag that determines if not only structure should be migrated but also data
+    void setShouldCopyData(bool set);
 
 private:
     class Private;

@@ -90,20 +90,22 @@ protected:
 
     KexiCSVExport::Options m_options;
     KexiFileWidget* m_fileSaveWidget = nullptr;
-    QWidget* m_exportOptionsWidget;
-    KPageWidgetItem *m_fileSavePage;
-    KPageWidgetItem *m_exportOptionsPage;
-    QPushButton *m_showOptionsButton;
-    QPushButton *m_defaultsBtn;
-    QGroupBox* m_exportOptionsSection;
-    KexiCSVInfoLabel *m_infoLblFrom, *m_infoLblTo;
-    KexiCSVDelimiterWidget* m_delimiterWidget;
-    KexiCSVTextQuoteComboBox* m_textQuote;
-    KexiCharacterEncodingComboBox *m_characterEncodingCombo;
-    QCheckBox* m_addColumnNamesCheckBox, *m_alwaysUseCheckBox;
+    QWidget* m_exportOptionsWidget = nullptr;
+    KPageWidgetItem *m_fileSavePage = nullptr;
+    KPageWidgetItem *m_exportOptionsPage = nullptr;
+    QPushButton *m_showOptionsButton = nullptr;
+    QPushButton *m_defaultsBtn = nullptr;
+    QGroupBox* m_exportOptionsSection = nullptr;
+    KexiCSVInfoLabel *m_infoLblFrom = nullptr;
+    KexiCSVInfoLabel *m_infoLblTo = nullptr;
+    KexiCSVDelimiterWidget* m_delimiterWidget = nullptr;
+    KexiCSVTextQuoteComboBox* m_textQuote = nullptr;
+    KexiCharacterEncodingComboBox *m_characterEncodingCombo = nullptr;
+    QCheckBox *m_addColumnNamesCheckBox = nullptr;
+    QCheckBox *m_alwaysUseCheckBox = nullptr;
     KDbTableOrQuerySchema* m_tableOrQuery;
     KConfigGroup m_importExportGroup;
-    bool m_canceled;
+    bool m_canceled = false;
 };
 
 #endif
