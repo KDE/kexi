@@ -87,7 +87,10 @@ mdb_write_pg(MdbHandle *mdb, unsigned long pg)
 		fprintf(stderr,"offset %jd is beyond EOF\n",(intmax_t)offset);
 		return 0;
 	}
-	lseek(mdb->f->fd, offset, SEEK_SET);
+	if (lseek(mdb->f->fd, offset, SEEK_SET) == -1) {
+		perror("lseek");
+		return 0;
+	}
 	len = write(mdb->f->fd,mdb->pg_buf,mdb->fmt->pg_size);
 	if (len==-1) {
 		perror("write");
