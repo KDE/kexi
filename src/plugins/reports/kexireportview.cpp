@@ -175,7 +175,11 @@ void KexiReportView::slotPrintReport()
         cxt.setPrinter(&printer);
         cxt.setPainter(&painter);
 
-        renderer->render(cxt, m_preRenderer->document());
+        if (!renderer->render(cxt, m_preRenderer->document())) {
+            KMessageBox::error(this,
+                               xi18n("Printing the report failed."),
+                               xi18n("Print Failed"));
+        }
     }
 }
 
