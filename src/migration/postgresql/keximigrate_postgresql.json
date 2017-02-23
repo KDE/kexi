@@ -27,6 +27,7 @@
         "Description": "PostgreSQL database import plugin for Kexi", 
         "Description[ca@valencia]": "Connector d'importació de la base de dades PostgreSQL pel Kexi", 
         "Description[ca]": "Connector d'importació de la base de dades PostgreSQL pel Kexi", 
+        "Description[cs]": "Modul Kexi pro import databáze PostgreSQL", 
         "Description[de]": "PostgreSQL-Datenbank-Importmodul für Kexi", 
         "Description[es]": "Complemento de importación de bases de datos PostgreSQL para Kexi", 
         "Description[fr]": "Module d'importation de base de donnée PostgreSQL pour Kexi", 
