@@ -24,7 +24,7 @@ set(kexicore_LIB_SRCS
    kexiprojectdata.cpp
    KexiRecentProjects.cpp
    kexiinternalpart.cpp
-   #TODO KEXI3 kexidragobjects.cpp
+   kexidragobjects.cpp
    kexistartupdata.cpp
    KexiCommandLineOptions.cpp
    kexiguimsghandler.cpp

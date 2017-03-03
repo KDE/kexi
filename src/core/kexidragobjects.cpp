@@ -26,6 +26,7 @@
 #include <QDomDocument>
 #include <QMimeData>
 #include <QDebug>
+#include <QWidget>
 
 bool KexiFieldDrag::canDecode(QDropEvent *e)
 {
@@ -79,10 +80,7 @@ bool KexiDataProviderDrag::canDecode(QDragMoveEvent *e)
 
 bool KexiDataProviderDrag::decode(QDropEvent* e, QString* sourceMimeType, QString *sourceName)
 {
-    Q_ASSERT(sourceMimeType);
-    Q_ASSERT(sourceName);
-
-    QByteArray payload = e->encodedData("kexidataprovider");
+    QByteArray payload = e->mimeData()->data("kexidataprovider");
     if (payload.isEmpty()) {
         return false;
     }
