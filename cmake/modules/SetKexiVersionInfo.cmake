@@ -12,7 +12,7 @@ set(PROJECT_VERSION_RELEASE 90)     # 90 for Alpha, increase for next test relea
 set(KEXI_ALPHA 1) # uncomment only for Alpha
 #set(KEXI_BETA 1) # uncomment only for Beta
 #set(KEXI_RC 1) # uncomment only for RC
-set(KEXI_YEAR 2016) # update every year
+set(KEXI_YEAR 2017) # update every year
 
 # -- do not edit below this line --
 
