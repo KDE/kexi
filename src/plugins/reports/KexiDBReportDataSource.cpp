@@ -119,7 +119,7 @@ bool KexiDBReportDataSource::open()
         else if ( d->copySchema)
         {
             qDebug() << "Opening cursor.." << *d->copySchema;
-            d->cursor = d->connection->executeQuery ( d->copySchema, 1 );
+            d->cursor = d->connection->executeQuery(d->copySchema, KDbCursor::Option::Buffered);
         }
 
 
