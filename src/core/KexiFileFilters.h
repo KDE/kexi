@@ -70,6 +70,10 @@ public:
     //! Set excluded mime types
     void setExcludedMimeTypes(const QStringList &mimeTypes);
 
+    //! @return glob patterns for all mime types for given mode
+    //! Includes additional mime types and excludes miem types specified by excludedMimeTypes().
+    QStringList allGlobPatterns() const;
+
     enum Format {
         QtFormat, //!< QFileDialog-compatible format, e.g. "Image files (*.png *.xpm *.jpg)", ";;" separators
         KDEFormat, //!< KDE-compatible format, e.g. "*.png *.xpm *.jpg|Image files (*.png *.xpm *.jpg)", "\\n" separators
@@ -81,6 +85,9 @@ public:
     //! @return filters based on supplied parameters in given format
     QString toString(Format format) const;
 
+    //! @return list of filters based on supplied parameters in given format
+    QStringList toList(Format format) const;
+
     //! @return filter string in given format
     static QString toString(const QMimeType &mime, Format format);
 
@@ -90,8 +97,11 @@ public:
     //! @overload QString toString(const QMimeType &mime, Format format);
     static QString toString(const QStringList &patterns, const QString &comment, Format format);
 
-    //! @overload QString KexiFileFilters::toString(Format format) const;
+    //! Static version of QString KexiFileFilters::toString(Format format) const
     static QString toString(const QStringList& mimeNames, Format format);
+
+    //! Static version of QStringList toList(Format format) const
+    static QStringList toList(const QStringList& mimeNames, Format format);
 
 private:
     class Private;

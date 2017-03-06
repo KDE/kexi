@@ -161,45 +161,48 @@ void KexiFileFilters::setExcludedMimeTypes(const QStringList &mimeTypes)
     d->filtersUpdated = false;
 }
 
+QStringList KexiFileFilters::allGlobPatterns() const
+{
+    QStringList result;
+    for(const QMimeType &mimeType : d->mimeTypes) {
+        result += mimeType.globPatterns();
+    }
+    //remove duplicates made because upper- and lower-case extensions are used:
+    result = result.toSet().toList();
+    std::sort(result.begin(), result.end());
+    return result;
+}
+
 //static
 QString KexiFileFilters::separator(KexiFileFilters::Format format)
 {
     return format == KexiFileFilters::QtFormat ? QStringLiteral(";;") : QStringLiteral("\n");
 }
 
-QString KexiFileFilters::toString(Format format) const
+QStringList KexiFileFilters::toList(Format format) const
 {
-    QString result;
+    QStringList result;
     d->update();
-    const QString separator(KexiFileFilters::separator(format));
     QStringList allPatterns;
     for(const QMimeType &mimeType : d->mimeTypes) {
-        if (!result.isEmpty()) {
-            result += separator;
-        }
         result += KexiFileFilters::toString(mimeType, format);
-        allPatterns += mimeType.globPatterns();
     }
 
     if (!d->defaultFilter.isEmpty() && !d->excludedMimeTypes.contains("all/allfiles")) {
-        if (!result.isEmpty()) {
-            result += separator;
-        }
         result += d->defaultFilter;
     }
 
-    //remove duplicates made because upper- and lower-case extenstions are used:
-    QStringList allPatternsUnique = allPatterns.toSet().toList();
-    qSort(allPatternsUnique);
-
-    if (allPatternsUnique.count() > 1) {//prepend "all supoported files" entry
-        if (!result.isEmpty()) {
-            result.prepend(separator);
-        }
-        result.prepend(KexiFileFilters::toString(allPatternsUnique,
+    const QStringList allGlobPatterns(this->allGlobPatterns());
+    if (allGlobPatterns.count() > 1) {//prepend "all supoported files" entry
+        result.prepend(KexiFileFilters::toString(allGlobPatterns,
             xi18n("All Supported Files"), format));
     }
     return result;
+}
+
+QString KexiFileFilters::toString(Format format) const
+{
+    return toList(format).join(KexiFileFilters::separator(format));
 }
 
 //static
@@ -216,7 +219,7 @@ QString KexiFileFilters::toString(const QStringList &patterns, const QString &co
             str += QStringLiteral("*");
         } else {
 #ifdef Q_OS_WIN
-            str += patterns.join(";");
+            str += patterns.join(format == QtFormat ? " " : ";");
 #else
             str += QLocale().createSeparatedList(patterns);
 #endif
@@ -253,15 +256,17 @@ QString KexiFileFilters::toString(const QString& mimeName, Format format)
 }
 
 //static
-QString KexiFileFilters::toString(const QStringList& mimeNames, Format format)
+QStringList KexiFileFilters::toList(const QStringList& mimeNames, Format format)
 {
-    QString result;
-    const QString separator(KexiFileFilters::separator(format));
+    QStringList result;
     for(const QString &mimeName : mimeNames) {
-        if (!result.isEmpty()) {
-            result += separator;
-        }
         result += KexiFileFilters::toString(mimeName, format);
     }
     return result;
+}
+
+//static
+QString KexiFileFilters::toString(const QStringList& mimeNames, Format format)
+{
+    return KexiFileFilters::toList(mimeNames, format).join(KexiFileFilters::separator(format));
 }
