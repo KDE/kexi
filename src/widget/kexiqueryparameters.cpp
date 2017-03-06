@@ -42,7 +42,7 @@ QList<QVariant> KexiQueryParameters::getParameters(QWidget *parent,
     QList<QVariant> values;
     const QString caption(xi18nc("@title:window Enter Query Parameter Value", "Enter Parameter Value"));
     foreach(const KDbQuerySchemaParameter &parameter, params) {
-        switch (parameter.type) {
+        switch (parameter.type()) {
         case KDbField::Byte:
         case KDbField::ShortInteger:
         case KDbField::Integer:
@@ -50,8 +50,8 @@ QList<QVariant> KexiQueryParameters::getParameters(QWidget *parent,
 //! @todo problem for ranges in case of BigInteger - will disappear when we remove use of QInputDialog
             qlonglong minValue, maxValue;
 //! @todo add support for unsigned parameter here
-            KDb::getLimitsForFieldType(parameter.type, &minValue, &maxValue);
-            const int result = QInputDialog::getInt(parent, caption, parameter.message,
+            KDb::getLimitsForFieldType(parameter.type(), &minValue, &maxValue);
+            const int result = QInputDialog::getInt(parent, caption, parameter.message(),
                                                     0, minValue, maxValue, 1/*step*/, ok);
             if (!*ok)
                 return QList<QVariant>(); //cancelled
@@ -61,7 +61,7 @@ QList<QVariant> KexiQueryParameters::getParameters(QWidget *parent,
         case KDbField::Boolean: {
             QStringList list;
             list << xi18nc("Boolean True - Yes", "Yes") << xi18nc("Boolean False - No", "No");
-            const QString result = QInputDialog::getItem(parent, caption, parameter.message,
+            const QString result = QInputDialog::getItem(parent, caption, parameter.message(),
                                                          list, 0/*current*/, false /* !editable*/,
                                                          ok);
             if (!*ok || result.isEmpty())
@@ -72,7 +72,7 @@ QList<QVariant> KexiQueryParameters::getParameters(QWidget *parent,
         case KDbField::Date: {
             //! @todo KEXI3 re-add the KexiDateFormatter's inputMask for QInputDialog
             KexiDateFormatter df;
-            const QString result = QInputDialog::getText(parent, caption, parameter.message,
+            const QString result = QInputDialog::getText(parent, caption, parameter.message(),
                                                          QLineEdit::Normal, QString(), ok);
             //! @todo KEXI3 add time validator
             // 0/*validator*/, df.inputMask());
@@ -85,7 +85,7 @@ QList<QVariant> KexiQueryParameters::getParameters(QWidget *parent,
             //! @todo KEXI3 re-add the KexiDateTimeFormatter's inputMask for QInputDialog
             KexiDateFormatter df;
             KexiTimeFormatter tf;
-            const QString result = QInputDialog::getText(parent, caption, parameter.message,
+            const QString result = QInputDialog::getText(parent, caption, parameter.message(),
                                                          QLineEdit::Normal, QString(), ok);
             //! @todo KEXI3 add date time validator
             // 0/*validator*/, KexiDateTimeFormatter::inputMask(df, tf));
@@ -97,7 +97,7 @@ QList<QVariant> KexiQueryParameters::getParameters(QWidget *parent,
         case KDbField::Time: {
             //! @todo KEXI3 re-add the KexiTimeFormatter's inputMask for QInputDialog
             KexiTimeFormatter tf;
-            const QString result = QInputDialog::getText(parent, caption, parameter.message,
+            const QString result = QInputDialog::getText(parent, caption, parameter.message(),
                                                          QLineEdit::Normal, QString(), ok);
 //! @todo add validator
             // 0/*validator*/, tf.inputMask());
@@ -112,7 +112,7 @@ QList<QVariant> KexiQueryParameters::getParameters(QWidget *parent,
             //! @todo KEXI3 re-add double validator
             // QDoubleValidator validator(0);
             const QString textResult
-                = QInputDialog::getText(parent, caption, parameter.message, QLineEdit::Normal,
+                = QInputDialog::getText(parent, caption, parameter.message(), QLineEdit::Normal,
                                         QString(), ok);
             if (!*ok || textResult.isEmpty())
                 return QList<QVariant>(); //cancelled
@@ -126,7 +126,7 @@ QList<QVariant> KexiQueryParameters::getParameters(QWidget *parent,
         }
         case KDbField::Text:
         case KDbField::LongText: {
-            const QString result = QInputDialog::getText(parent, caption, parameter.message,
+            const QString result = QInputDialog::getText(parent, caption, parameter.message(),
                                                          QLineEdit::Normal, QString(), ok);
             if (!*ok)
                 return QList<QVariant>(); //cancelled
@@ -139,8 +139,8 @@ QList<QVariant> KexiQueryParameters::getParameters(QWidget *parent,
             break;
         }
         default:
-            qWarning() << "unsupported type " << KDbField::typeName(parameter.type)
-                << "for parameter \"" << parameter.message << "\" - aborting query execution!";
+            qWarning() << "unsupported type " << KDbField::typeName(parameter.type())
+                << "for parameter \"" << parameter.message() << "\" - aborting query execution!";
             return QList<QVariant>();
         }
     }
