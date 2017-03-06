@@ -201,3 +201,11 @@ endfunction()
 add_custom_target(update_all_rcc
     COMMENT "Updating all file lists for rcc files"
 )
+
+# Checks if ${_package} has at most version ${_maximum_version}.
+macro(check_maximum_package_version _package _maximum_version)
+    if(NOT ${_package}_FOUND OR NOT ${${_package}_VERSION} VERSION_LESS ${_maximum_version})
+        message(FATAL_ERROR "Maximum version of ${_package} is ${_maximum_version}, "
+                            "found ${${_package}_VERSION}")
+    endif()
+endmacro()

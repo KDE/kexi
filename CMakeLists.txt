@@ -133,7 +133,8 @@ set(KEXI_PLUGIN_INSTALL_DIR ${LIB_INSTALL_DIR}/kexi)
 ############################
 ###########################
 
-set(KEXI_LIBS_MIN_VERSION 3.0.0)
+set(REQUIRED_KEXI_LIBS_VERSION 3.0)
+set(MAXIMUM_KEXI_LIBS_VERSION 3.0.80) # .80 means < 3.1 Alpha
 
 ##
 ## Test for KDb
@@ -142,19 +143,21 @@ option(KEXI_DEBUG_GUI "Debugging GUI for Kexi (requires KDB_DEBUG_GUI to be set 
 if(KEXI_DEBUG_GUI)
     set(KDB_REQUIRED_COMPONENTS DEBUG_GUI)
 endif()
-find_package(KDb ${KEXI_LIBS_MIN_VERSION} REQUIRED COMPONENTS ${KDB_REQUIRED_COMPONENTS})
+find_package(KDb ${REQUIRED_KEXI_LIBS_VERSION} REQUIRED COMPONENTS ${KDB_REQUIRED_COMPONENTS})
 macro_log_feature(KDb_FOUND "KDb" "A database connectivity and creation framework"
                             "http://community.kde.org/KDb" FALSE "" "Required by Kexi for data handling")
+check_maximum_package_version(KDb ${MAXIMUM_KEXI_LIBS_VERSION})
 
 ##
 ## Test for KReport
 ##
-find_package(KReport ${KEXI_LIBS_MIN_VERSION} REQUIRED)
+find_package(KReport ${REQUIRED_KEXI_LIBS_VERSION} REQUIRED)
 if (KReport_FOUND)
     if(NOT KREPORT_SCRIPTING)
         message(FATAL_ERROR "Kexi requires KReport package with scripting support enabled (KREPORT_SCRIPTING)")
     endif()
 endif()
+check_maximum_package_version(KReport ${MAXIMUM_KEXI_LIBS_VERSION})
 
 ##
 ## Test for KPropertyWidgets
@@ -162,6 +165,7 @@ endif()
 find_package(KPropertyWidgets ${KEXI_LIBS_MIN_VERSION} REQUIRED)
 macro_log_feature(KPropertyWidgets_FOUND "KPropertyWidgets" "A property editing framework with editor widget"
                                   "http://community.kde.org/KProperty" FALSE "" "Required by Kexi")
+check_maximum_package_version(KPropertyWidgets ${MAXIMUM_KEXI_LIBS_VERSION})
 
 include(CheckIfQtGuiCanBeExecuted)
 include(CheckGlobalBreezeIcons)
