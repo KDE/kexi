@@ -288,6 +288,8 @@ void ImportWizard::setupSrcConn()
 
     d->srcConn->hideConnectonIcon();
     d->srcConn->showSimpleConnection();
+    connect(d->srcConn, &KexiConnectionSelectorWidget::connectionSelected,
+            this, &ImportWizard::sourceConnectionSelected);
 
     QSet<QString> excludedFilters;
 //! @todo remove when support for kexi files as source prj is added in migration
@@ -1130,3 +1132,9 @@ void ImportWizard::slotOptionsButtonClicked()
     delete dlg;
 }
 
+void ImportWizard::sourceConnectionSelected(bool selected)
+{
+    if (selected && fileBasedSrcSelected()) {
+        next();
+    }
+}
