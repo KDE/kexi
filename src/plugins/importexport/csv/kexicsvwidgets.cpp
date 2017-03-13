@@ -287,8 +287,7 @@ KexiCSVInfoLabel::KexiCSVInfoLabel(const QString& labelText, QWidget* parent, bo
     if (showFnameLine) {
         d->fnameLbl = new QLabel(this);
         d->fnameLbl->setOpenExternalLinks(true);
-        d->fnameLbl->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
-        d->fnameLbl->setFocusPolicy(Qt::NoFocus);
+        d->fnameLbl->setTextInteractionFlags(Qt::TextSelectableByMouse);
         d->fnameLbl->setTextFormat(Qt::PlainText);
         QSizePolicy fnameLblSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
         fnameLblSizePolicy.setHorizontalStretch(1);
