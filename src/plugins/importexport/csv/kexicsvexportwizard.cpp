@@ -309,7 +309,7 @@ QUrl KexiCSVExportWizard::selectedFile() const
 #ifdef KEXI_USE_KFILEWIDGET
     return QUrl::fromLocalFile(m_fileSaveWidget->highlightedFile());
 #else
-    return m_fileSaveRequester->url();
+    return QUrl::fromLocalFile(m_fileSaveRequester->selectedFileName());
 #endif
 }
 
@@ -321,7 +321,7 @@ void KexiCSVExportWizard::next()
             return;
         }
 #else
-        if (!m_fileSaveRequester->url().isValid() || !m_fileSaveRequester->url().isLocalFile()) {
+        if (m_fileSaveRequester->selectedFileName().isEmpty()) {
             return;
         }
 #endif
