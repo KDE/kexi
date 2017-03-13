@@ -608,8 +608,8 @@ void KexiCSVImportDialog::createFileOpenPage()
         m_openFileWidget);
     m_openFileRequester->setAdditionalMimeTypes(csvMimeTypes());
     //TODO m_openFileRequester->setDefaultExtension("csv");
-    lyr->addWidget(m_openFileRequester);
-    lyr->addStretch(1);
+    connect(m_openFileRequester, &KexiFileRequester::fileSelected, this, &KexiCSVImportDialog::next);
+    lyr->addWidget(m_openFileRequester, 1);
 #endif
     m_openFilePage = new KPageWidgetItem(m_openFileWidget, xi18n("Select Import Filename"));
     addPage(m_openFilePage);
