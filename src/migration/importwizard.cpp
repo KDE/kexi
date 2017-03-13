@@ -961,7 +961,7 @@ void ImportWizard::next()
         if (!import || d->migrateManager.result().isError()) {
             QString dbname;
             if (fileBasedSrcSelected())
-                dbname = selectedSourceFileName();
+                dbname = QDir::toNativeSeparators(selectedSourceFileName());
             else
                 dbname = conndata ? conndata->toUserVisibleString() : QString();
             KMessageBox::error(this,
