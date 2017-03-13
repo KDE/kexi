@@ -297,23 +297,20 @@ void KexiConnectionSelectorWidget::showSimpleConnection()
     if (!d->fileWidget) {
         d->fileWidget = new QWidget(d->stack);
         QVBoxLayout *lyr = new QVBoxLayout(d->fileWidget);
-        QUrl url;
-        if (d->startDirOrVariable.scheme() == "kfiledialog") {
-            //! @todo KEXI3 test it
-            QString recentDirClass;
-            url = KFileWidget::getStartUrl(d->startDirOrVariable, recentDirClass);
-        } else {
-            url = d->startDirOrVariable;
-        }
-        d->fileRequester = new KexiFileRequester(url);
+        d->fileRequester = new KexiFileRequester(d->startDirOrVariable);
         d->fileRequester->setFileMode(d->operationMode == Opening ?
                                       KexiFileFilters::Opening : KexiFileFilters::SavingFileBasedDB);
+        d->fileRequester->setFrame(false);
+        d->fileRequester->setContentsMargins(QMargins());
         //d->fileRequester->setUrl(QUrl());
         // TODO setConfirmOverwrites
         // TODO connect
-        lyr->addWidget(d->fileRequester);
-        lyr->addStretch(1);
+        lyr->addWidget(d->fileRequester, 1);
         d->stack->addWidget(d->fileWidget);
+        connect(d->fileRequester, &KexiFileRequester::fileSelected,
+                this, &KexiConnectionSelectorWidget::slotConnectionSelected);
+        connect(d->fileRequester, &KexiFileRequester::fileSelected,
+                this, &KexiConnectionSelectorWidget::fileSelectionChanged);
     }
 #endif
     d->stack->setCurrentWidget(d->fileWidget);
@@ -355,7 +352,7 @@ QString KexiConnectionSelectorWidget::selectedFileName()
 
     return d->fileWidget->highlightedFile(); //ok? fileWidget->selectedFile();
 #else
-    return d->fileRequester->url().toLocalFile();
+    return d->fileRequester->selectedFileName();
 #endif
 }
 
@@ -367,7 +364,7 @@ void KexiConnectionSelectorWidget::setSelectedFileName(const QString& fileName)
 #ifdef KEXI_USE_KFILEWIDGET
     return d->fileWidget->setSelection(fileName);
 #else
-    d->fileRequester->setUrl(QUrl::fromLocalFile(fileName));
+    d->fileRequester->setSelectedFileName(fileName);
 #endif
 }
 
@@ -585,7 +582,7 @@ void KexiConnectionSelectorWidget::slotConnectionSelected()
         QLineEdit *lineEdit = d->fileWidget->locationEdit()->lineEdit();
         d->isConnectionSelected = !lineEdit->text().isEmpty();
 #else
-        // TODO
+        d->isConnectionSelected = !d->fileRequester->selectedFileName().isEmpty();
 #endif
         break;
     }
@@ -631,7 +628,7 @@ bool KexiConnectionSelectorWidget::checkSelectedFile()
         return d->fileWidget->checkSelectedFile();
 #else
         // TODO
-        return d->fileRequester->url().isValid();
+        return !d->fileRequester->selectedFileName().isEmpty();
 #endif
     }
     return false;
@@ -643,7 +640,7 @@ QString KexiConnectionSelectorWidget::highlightedFile() const
 #ifdef KEXI_USE_KFILEWIDGET
         return d->fileWidget->highlightedFile();
 #else
-        return d->fileRequester->url().toLocalFile();
+        return d->fileRequester->selectedFileName();
 #endif
     }
     return QString();

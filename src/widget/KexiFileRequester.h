@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2016-2017 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -24,18 +24,19 @@
 #include <KexiFileFilters.h>
 #include <QWidget>
 
-class QUrl;
-
 //! @brief A widget showing a line edit and a button, which invokes a file dialog
 class KEXIEXTWIDGETS_EXPORT KexiFileRequester : public QWidget
 {
     Q_OBJECT
 public:
-    explicit KexiFileRequester(const QUrl &url, QWidget *parent = nullptr);
+    explicit KexiFileRequester(const QUrl &fileOrVariable, QWidget *parent = nullptr);
+
+    explicit KexiFileRequester(const QString &selectedFile, QWidget *parent = nullptr);
+
     ~KexiFileRequester();
 
-    //! @return the current url
-    QUrl url() const;
+    //! @return absolute path of the selected file
+    QString selectedFileName() const;
 
     //! Sets file mode
     void setFileMode(KexiFileFilters::Mode mode);
@@ -49,9 +50,12 @@ public:
     //! @return the default filter, used when an empty filter is set
     QString defaultFilter() const;
 
+Q_SIGNALS:
+    void fileSelected(const QString &filePath);
+
 public Q_SLOTS:
     //! Sets the url
-    void setUrl(const QUrl &url);
+    void setSelectedFileName(const QString &fileName);
 
     //! Set excluded mime types
     void setExcludedMimeTypes(const QStringList &mimeTypes);
@@ -62,7 +66,12 @@ public Q_SLOTS:
     //! Sets a default-filter, that is used when an empty filter is set
     void setDefaultFilter(const QString &filter);
 
-protected:
+    //! @see QFrame::setFrame(bool)
+    void setFrame(bool frame);
+
+private:
+    void init();
+
     Q_DISABLE_COPY(KexiFileRequester)
     class Private;
     Private * const d;
