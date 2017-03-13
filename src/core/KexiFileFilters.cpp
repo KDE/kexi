@@ -33,13 +33,27 @@ class Q_DECL_HIDDEN KexiFileFilters::Private
 public:
     Private() {}
 
+    QList<QMimeType> mimeTypes() {
+        update();
+        return m_mimeTypes;
+    }
+
+    QMimeDatabase db;
+    KexiFileFilters::Mode mode = KexiFileFilters::Opening;
+    QStringList comments;
+    QSet<QString> additionalMimeTypes;
+    QSet<QString> excludedMimeTypes;
+    QString defaultFilter;
+    bool filtersUpdated = false;
+
+private:
     void update()
     {
         if (filtersUpdated) {
             return;
         }
         filtersUpdated = true;
-        mimeTypes.clear();
+        m_mimeTypes.clear();
 
         if (mode == KexiFileFilters::Opening || mode == KexiFileFilters::SavingFileBasedDB) {
             addMimeType(KDb::defaultFileBasedDriverMimeType());
@@ -66,21 +80,11 @@ public:
         }
     }
 
-    QMimeDatabase db;
-    KexiFileFilters::Mode mode = KexiFileFilters::Opening;
-    QList<QMimeType> mimeTypes;
-    QStringList comments;
-    QSet<QString> additionalMimeTypes;
-    QSet<QString> excludedMimeTypes;
-    QString defaultFilter;
-    bool filtersUpdated = false;
-
-private:
     bool addMimeType(const QString &mimeName)
     {
         const QMimeType mime = db.mimeTypeForName(mimeName);
         if (mime.isValid() && !excludedMimeTypes.contains(mime.name().toLower())) {
-            mimeTypes += mime;
+            m_mimeTypes += mime;
             return true;
         }
         return false;
@@ -100,6 +104,8 @@ private:
         }
         return false;
     }*/
+
+    QList<QMimeType> m_mimeTypes;
 };
 
 KexiFileFilters::KexiFileFilters()
@@ -164,7 +170,7 @@ void KexiFileFilters::setExcludedMimeTypes(const QStringList &mimeTypes)
 QStringList KexiFileFilters::allGlobPatterns() const
 {
     QStringList result;
-    for(const QMimeType &mimeType : d->mimeTypes) {
+    for(const QMimeType &mimeType : d->mimeTypes()) {
         result += mimeType.globPatterns();
     }
     //remove duplicates made because upper- and lower-case extensions are used:
@@ -182,9 +188,8 @@ QString KexiFileFilters::separator(KexiFileFilters::Format format)
 QStringList KexiFileFilters::toList(Format format) const
 {
     QStringList result;
-    d->update();
     QStringList allPatterns;
-    for(const QMimeType &mimeType : d->mimeTypes) {
+    for(const QMimeType &mimeType : d->mimeTypes()) {
         result += KexiFileFilters::toString(mimeType, format);
     }
 
