@@ -87,27 +87,38 @@ static QRgb qt_colorref2qrgb(COLORREF col)
 
 using namespace KexiUtils;
 
-DelayedCursorHandler::DelayedCursorHandler()
-        : startedOrActive(false)
+DelayedCursorHandler::DelayedCursorHandler(QWidget *widget)
+        : startedOrActive(false), m_widget(widget), m_handleWidget(widget)
 {
-    timer.setSingleShot(true);
-    connect(&timer, SIGNAL(timeout()), this, SLOT(show()));
+    m_timer.setSingleShot(true);
+    connect(&m_timer, SIGNAL(timeout()), this, SLOT(show()));
 }
 void DelayedCursorHandler::start(bool noDelay)
 {
     startedOrActive = true;
-    timer.start(noDelay ? 0 : 1000);
+    m_timer.start(noDelay ? 0 : 1000);
 }
 void DelayedCursorHandler::stop()
 {
     startedOrActive = false;
-    timer.stop();
-    QApplication::restoreOverrideCursor();
+    m_timer.stop();
+    if (m_handleWidget && m_widget) {
+        m_widget->unsetCursor();
+    } else {
+        QApplication::restoreOverrideCursor();
+    }
 }
+
 void DelayedCursorHandler::show()
 {
-    QApplication::restoreOverrideCursor();
-    QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
+    const QCursor waitCursor(Qt::WaitCursor);
+    if (m_handleWidget && m_widget) {
+        m_widget->unsetCursor();
+        m_widget->setCursor(waitCursor);
+    } else {
+        QApplication::restoreOverrideCursor();
+        QApplication::setOverrideCursor(waitCursor);
+    }
 }
 
 Q_GLOBAL_STATIC(DelayedCursorHandler, _delayedCursorHandler)
@@ -127,13 +138,26 @@ void KexiUtils::removeWaitCursor()
 }
 
 WaitCursor::WaitCursor(bool noDelay)
+    : m_handler(nullptr)
 {
     setWaitCursor(noDelay);
 }
 
+WaitCursor::WaitCursor(QWidget *widget, bool noDelay)
+{
+    DelayedCursorHandler *handler = new DelayedCursorHandler(widget);
+    handler->start(noDelay);
+    m_handler = handler;
+}
+
 WaitCursor::~WaitCursor()
 {
-    removeWaitCursor();
+    if (m_handler) {
+        qobject_cast<DelayedCursorHandler*>(m_handler)->stop();
+        delete m_handler;
+    } else {
+        removeWaitCursor();
+    }
 }
 
 WaitCursorRemover::WaitCursorRemover()

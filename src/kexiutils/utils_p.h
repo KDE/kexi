@@ -20,6 +20,7 @@
 #ifndef KEXIUTILS_P_H
 #define KEXIUTILS_P_H
 
+#include <QPointer>
 #include <QTimer>
 #include <QTreeWidget>
 
@@ -28,14 +29,16 @@ class DelayedCursorHandler : public QObject
 {
     Q_OBJECT
 public:
-    DelayedCursorHandler();
+    DelayedCursorHandler(QWidget *widget = nullptr);
     void start(bool noDelay);
     void stop();
     bool startedOrActive; //!< true if ounting started or the cursor is active
 protected Q_SLOTS:
     void show();
 protected:
-    QTimer timer;
+    QPointer<QWidget> m_widget;
+    QTimer m_timer;
+    bool m_handleWidget; //!< Needed because m_widget can disappear
 };
 
 /*! @internal KDb Debug Tree */

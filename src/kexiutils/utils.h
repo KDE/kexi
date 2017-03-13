@@ -197,8 +197,16 @@ KEXIUTILS_EXPORT void removeWaitCursor();
 class KEXIUTILS_EXPORT WaitCursor
 {
 public:
-    WaitCursor(bool noDelay = false);
+    //! Wait cursor handler for application
+    explicit WaitCursor(bool noDelay = false);
+
+    //! @overload
+    //! Wait cursor handler for widget @a widget
+    explicit WaitCursor(QWidget *widget, bool noDelay = false);
+
     ~WaitCursor();
+private:
+    QObject *m_handler;
 };
 
 /*! Helper class. Allocate it in your code block as follows:
