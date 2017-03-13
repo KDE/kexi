@@ -38,7 +38,6 @@
 #include <core/kexiguimsghandler.h>
 #include <core/KexiWindow.h>
 #include <widget/kexicharencodingcombobox.h>
-#include <kexiutils/KexiCommandLinkButton.h>
 #include <widget/KexiNameWidget.h>
 #include <widget/navigator/KexiProjectNavigator.h>
 #include <widget/navigator/KexiProjectTreeView.h>
@@ -92,6 +91,7 @@
 #include <QProgressBar>
 #include <QDialog>
 #include <QDebug>
+#include <QRadioButton>
 
 #define _IMPORT_ICON koIconNeededWithSubs("change to file_import or so", "file_import","table")
 
@@ -266,7 +266,6 @@ KexiCSVImportDialog::KexiCSVImportDialog(Mode mode, QWidget * parent)
         m_stringI18nNo(xi18n("no")),
         m_stringFalse("false"),
         m_stringI18nFalse(xi18n("false")),
-        m_newTable(false),
         m_partItemForSavedTable(0),
         m_importInProgress(false),
         m_importCanceled(false),
@@ -421,6 +420,14 @@ void KexiCSVImportDialog::next()
                 xi18n("Data set contains no rows. Do you want to import empty table?")))
             return;
         }
+    } else if (curPage == m_saveMethodPage) {
+        if (m_newTableOption->isChecked()) {
+            m_tableNameWidget->setCurrentIndex(0);
+            m_newTableWidget->setFocus();
+        } else {
+            m_tableNameWidget->setCurrentIndex(1);
+            m_tablesList->setFocus();
+        }
     } else if (curPage == m_tableNamePage) {
         KexiGUIMessageHandler msg;
         KexiProject *project = KexiMainWindowIface::global()->project();
@@ -434,7 +441,7 @@ void KexiCSVImportDialog::next()
             msg.showErrorMessage(KDbMessageHandler::Error, xi18n("No database connection available."));
             return;
         }
-        if (m_newTable) {
+        if (m_newTableOption->isChecked()) {
             m_partItemForSavedTable->setCaption(m_newTableWidget->captionText());
             m_partItemForSavedTable->setName(m_newTableWidget->nameText());
 
@@ -499,7 +506,7 @@ void KexiCSVImportDialog::slotCurrentPageChanged(KPageWidgetItem *page, KPageWid
     backButton()->setEnabled(page == m_openFilePage ? false : true);
 
     if (page == m_saveMethodPage && prev == m_tableNamePage && m_partItemForSavedTable) {
-        if (m_newTable) {
+        if (m_newTableOption->isChecked()) {
             KexiMainWindowIface::global()->project()->deleteUnstoredItem(m_partItemForSavedTable);
         }
         m_partItemForSavedTable = 0;
@@ -535,9 +542,9 @@ void KexiCSVImportDialog::slotCurrentPageChanged(KPageWidgetItem *page, KPageWid
             m_loadingProgressDlg->hide();
         m_tableView->setFocus();
     } else if (page == m_saveMethodPage) {
-        m_newTableButton->setFocus();
+        m_newTableOption->setFocus();
     } else if (page == m_tableNamePage) {
-        if (m_newTable && !m_partItemForSavedTable) {
+        if (m_newTableOption->isChecked() && !m_partItemForSavedTable) {
             KexiGUIMessageHandler msg;
             KexiProject *project = KexiMainWindowIface::global()->project();
             //get suggested name based on the file name
@@ -567,7 +574,7 @@ void KexiCSVImportDialog::slotCurrentPageChanged(KPageWidgetItem *page, KPageWid
             m_newTableWidget->setNameText(m_partItemForSavedTable->name());
             m_newTableWidget->captionLineEdit()->setFocus();
             m_newTableWidget->captionLineEdit()->selectAll();
-        } else if (!m_newTable) {
+        } else if (!m_newTableOption->isChecked()) {
             KexiPart::Item *i = m_tablesList->selectedPartItem();
             if (!i) {
                 nextButton()->setEnabled(false);
@@ -723,14 +730,13 @@ void KexiCSVImportDialog::createImportMethodPage()
     m_saveMethodWidget = new QWidget(this);
     QGridLayout *l = new QGridLayout(m_saveMethodWidget);
 
-    m_newTableButton = new KexiCommandLinkButton(xi18nc("@action:button", "New table"),
-            xi18nc("CSV import: data will be appended to a new table", "Data will be appended to a new table"), m_saveMethodWidget);
-    m_newTableButton->setArrowVisible(true);
-    m_existentTableButton = new KexiCommandLinkButton(xi18nc("@action:button", "Existing table"),
-            xi18nc("CSV import: data will be appended to existing table", "Data will be appended to existing table"), m_saveMethodWidget);
-    m_existentTableButton->setArrowVisible(true);
-    l->addWidget(m_newTableButton, 0, 0, 1, 1);
-    l->addWidget(m_existentTableButton, 1, 0, 1, 1);
+    m_newTableOption = new QRadioButton(
+        xi18nc("@option:check CSV import: data will be appended to a new table", "&New table"));
+    m_newTableOption->setChecked(true);
+    m_existingTableOption = new QRadioButton(
+        xi18nc("@option:check CSV import: data will be appended to existing table", "&Existing table"));
+    l->addWidget(m_newTableOption, 0, 0, 1, 1);
+    l->addWidget(m_existingTableOption, 1, 0, 1, 1);
 
     QSpacerItem *hSpacer = new QSpacerItem(200, 20, QSizePolicy::Preferred, QSizePolicy::Minimum);
     QSpacerItem *vSpacer = new QSpacerItem(20, 200, QSizePolicy::Minimum, QSizePolicy::Expanding);
@@ -738,11 +744,8 @@ void KexiCSVImportDialog::createImportMethodPage()
     l->addItem(hSpacer, 1, 1, 1, 1);
     l->addItem(vSpacer, 2, 0, 1, 1);
 
-    m_saveMethodPage = new KPageWidgetItem(m_saveMethodWidget, xi18n("Choose Method of Saving Imported Data"));
+    m_saveMethodPage = new KPageWidgetItem(m_saveMethodWidget, xi18n("Choose Destination for Imported Data"));
     addPage(m_saveMethodPage);
-
-    connect(m_newTableButton, SIGNAL(clicked()), this, SLOT(slotCommandLinkClicked()));
-    connect(m_existentTableButton, SIGNAL(clicked()), this, SLOT(slotCommandLinkClicked()));
 }
 
 void KexiCSVImportDialog::createTableNamePage()
@@ -837,15 +840,6 @@ void KexiCSVImportDialog::createImportPage()
     m_importProgressLabel->hide();
     m_importPage = new KPageWidgetItem(m_importWidget, xi18n("Ready to Import"));
     addPage(m_importPage);
-}
-
-void KexiCSVImportDialog::slotCommandLinkClicked()
-{
-    if (m_tableNameWidget) {
-        m_newTable = (sender() == m_newTableButton ? true : false);
-        m_tableNameWidget->setCurrentIndex(sender() == m_newTableButton ? 0 : 1);
-        next();
-    }
 }
 
 void KexiCSVImportDialog::initLater()
@@ -1863,7 +1857,7 @@ void KexiCSVImportDialog::import()
         return;
     }
 
-    if (m_newTable) {
+    if (m_newTableOption->isChecked()) {
         m_destinationTableSchema = new KDbTableSchema(m_partItemForSavedTable->name());
         m_destinationTableSchema->setCaption(m_partItemForSavedTable->caption());
         m_destinationTableSchema->setDescription(m_partItemForSavedTable->description());
@@ -2015,7 +2009,7 @@ void KexiCSVImportDialog::import()
     KDbTransactionGuard tg(transaction);
 
     //-create physical table
-    if (m_newTable && !m_conn->createTable(m_destinationTableSchema,
+    if (m_newTableOption->isChecked() && !m_conn->createTable(m_destinationTableSchema,
         KDbConnection::CreateTableOptions(KDbConnection::CreateTableOption::Default)
             & ~KDbConnection::CreateTableOptions(KDbConnection::CreateTableOption::DropDestination)))
     {
@@ -2079,7 +2073,7 @@ void KexiCSVImportDialog::import()
     }
 
     //-now we can store the item
-    if (m_newTable) {
+    if (m_newTableOption->isChecked()) {
         m_partItemForSavedTable->setIdentifier(m_destinationTableSchema->id());
         project->addStoredItem(part->info(), m_partItemForSavedTable);
     }

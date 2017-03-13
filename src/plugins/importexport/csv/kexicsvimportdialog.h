@@ -54,6 +54,7 @@ class QFile;
 class QStackedWidget;
 class QProgressDialog;
 class QProgressBar;
+class QRadioButton;
 class QSpinBox;
 class KComboBox;
 class KPageWidgetItem;
@@ -73,7 +74,6 @@ class KexiFileWidget;
 #else
 class KexiFileRequester;
 #endif
-class KexiCommandLinkButton;
 class KexiNameWidget;
 class KexiProjectNavigator;
 class KexiFieldListModel;
@@ -156,8 +156,8 @@ private:
     KPageWidgetItem *m_optionsPage;
     KPageWidgetItem *m_saveMethodPage;
     KPageWidgetItem *m_chooseTablePage;
-    KexiCommandLinkButton *m_newTableButton;
-    KexiCommandLinkButton *m_existentTableButton;
+    QRadioButton *m_newTableOption;
+    QRadioButton *m_existingTableOption;
 
     QStackedWidget *m_tableNameWidget;
     KPageWidgetItem *m_tableNamePage;
@@ -293,7 +293,6 @@ private:
     void createTableNamePage();
     void createImportPage();
 
-    bool m_newTable;
     KDbPreparedStatementParameters m_valuesToInsert;
     KexiPart::Item* m_partItemForSavedTable;
     bool m_importInProgress;
@@ -319,7 +318,6 @@ private Q_SLOTS:
     void optionsButtonClicked();
     void slotPrimaryKeyFieldToggled(bool on);
     void slotCurrentPageChanged(KPageWidgetItem *page, KPageWidgetItem *prev);
-    void slotCommandLinkClicked();
     void slotShowSchema(KexiPart::Item *item);
     void import();
 };
