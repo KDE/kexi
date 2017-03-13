@@ -633,7 +633,7 @@ void KexiCSVImportDialog::createOptionsPage()
 
     // Delimiter: comma, semicolon, tab, space, other
     m_delimiterWidget = new KexiCSVDelimiterWidget(true /*lineEditOnBottom*/, page);
-    glyr->addWidget(m_delimiterWidget, 1, 0, 2, 1);
+    glyr->addWidget(m_delimiterWidget, 1, 0, 1, 1);
 
     QLabel *delimiterLabel = new QLabel(xi18n("Delimiter:"), page);
     delimiterLabel->setBuddy(m_delimiterWidget);
