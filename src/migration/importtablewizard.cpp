@@ -312,6 +312,7 @@ void ImportTableWizard::setupFinishPage()
     vbox->addWidget(m_finishLbl);
     m_finishCheckBox = new QCheckBox(xi18n("Open imported table"),
                                      m_finishPageWidget);
+    m_finishCheckBox->setChecked(true);
     vbox->addSpacing(KexiUtils::spacingHint());
     vbox->addWidget(m_finishCheckBox);
     vbox->addStretch(1);
@@ -526,6 +527,7 @@ void ImportTableWizard::arriveImportingPage()
         m_importOptionsButton->hide();
 
     m_importingPageWidget->show();
+    setAppropriate(m_progressPageItem, true);
 }
 
 void ImportTableWizard::arriveProgressPage()
@@ -551,16 +553,20 @@ void ImportTableWizard::arriveProgressPage()
 void ImportTableWizard::arriveFinishPage()
 {
     if (m_importComplete) {
+        m_finishPageItem->setHeader(xi18n("Success"));
         m_finishLbl->setText(xi18nc("@info",
                                     "Table <resource>%1</resource> has been imported.",
                                     m_alterSchemaWidget->nameWidget()->nameText()));
     } else {
-        m_finishCheckBox->setEnabled(false);
+        m_finishPageItem->setHeader(xi18n("Failure"));
         m_finishLbl->setText(xi18n("An error occured."));
     }
     m_migrateDriver->disconnectSource();
-
-    button(QDialogButtonBox::Cancel)->setEnabled(false);
+    button(QDialogButtonBox::Cancel)->setEnabled(!m_importComplete);
+    m_finishCheckBox->setVisible(m_importComplete);
+    finishButton()->setEnabled(m_importComplete);
+    nextButton()->setEnabled(m_importComplete);
+    setAppropriate(m_progressPageItem, false);
 }
 
 bool ImportTableWizard::fileBasedSrcSelected() const
@@ -741,6 +747,9 @@ bool ImportTableWizard::doImport()
 void ImportTableWizard::slotConnPageItemSelected(bool isSelected)
 {
     setValid(m_srcConnPageItem, isSelected);
+    if (isSelected && fileBasedSrcSelected()) {
+        next();
+    }
 }
 
 void ImportTableWizard::slotTableListWidgetSelectionChanged()
