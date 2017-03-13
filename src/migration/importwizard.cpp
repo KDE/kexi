@@ -30,7 +30,6 @@
 #include <kexitextmsghandler.h>
 #include <widget/kexicharencodingcombobox.h>
 #include <widget/kexiprjtypeselector.h>
-#include <widget/KexiFileWidget.h>
 #include <widget/KexiConnectionSelectorWidget.h>
 #include <widget/KexiProjectSelectorWidget.h>
 #include <widget/KexiDBTitlePage.h>

@@ -51,7 +51,6 @@
 #include <widget/utils/KexiDockableWidget.h>
 #include <widget/navigator/KexiProjectNavigator.h>
 #include <widget/navigator/KexiProjectModel.h>
-#include <widget/KexiFileWidget.h>
 #include <widget/KexiNameDialog.h>
 #include <widget/KexiNameWidget.h>
 #include <widget/KexiDBPasswordDialog.h>

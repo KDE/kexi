@@ -34,7 +34,6 @@
 #include <kexiutils/utils.h>
 #include <kexiutils/KexiAssistantPage.h>
 #include <kexiutils/KexiLinkWidget.h>
-#include <widget/KexiFileWidget.h>
 #include <widget/KexiConnectionSelectorWidget.h>
 #include <widget/KexiDBTitlePage.h>
 #include <widget/KexiProjectSelectorWidget.h>

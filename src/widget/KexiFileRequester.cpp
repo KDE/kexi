@@ -19,7 +19,6 @@
 
 #include "KexiFileRequester.h"
 #include <KexiFileFilters.h>
-#include <config-kexi.h>
 
 #include <KFileWidget>
 #include <KUrlRequester>
