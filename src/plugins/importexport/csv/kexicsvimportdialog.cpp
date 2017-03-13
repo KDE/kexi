@@ -814,7 +814,7 @@ void KexiCSVImportDialog::createImportPage()
     l->addStretch(1);
     m_importingProgressBar->hide();
     m_importProgressLabel->hide();
-    m_importPage = new KPageWidgetItem(m_importWidget, xi18n("Importing..."));
+    m_importPage = new KPageWidgetItem(m_importWidget, xi18n("Ready to Import"));
     addPage(m_importPage);
 }
 
