@@ -397,8 +397,8 @@ void KexiCSVImportDialog::next()
         if (m_openFileWidget->checkSelectedFile()) {
             m_fname = m_openFileWidget->highlightedFile();
 #else
-        if (m_openFileRequester->url().isValid()) {
-            m_fname = m_openFileRequester->url().toLocalFile();
+        if (!m_openFileRequester->selectedFileName().isEmpty()) {
+            m_fname = m_openFileRequester->selectedFileName();
 #endif
         } else {
             return;
