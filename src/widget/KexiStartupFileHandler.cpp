@@ -33,6 +33,7 @@
 #include <KUrlComboBox>
 #include <KActionCollection>
 //removed in KEXI3 #include <KFileDialog>
+#define KIOWIDGETS_NO_DEPRECATED
 #include <KUrlRequester>
 #include <KLocalizedString>
 #include <KRecentDirs>
