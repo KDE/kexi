@@ -213,7 +213,7 @@ void KexiBugReportDialog::collectData()
 #elif defined(Q_OS_SOLARIS)
     m_op_sys = "Solaris";
     m_rep_platform = "Solaris Packages";
-#elif defined(Q_OS_MAC)
+#elif defined(Q_OS_MACOS)
     m_op_sys = "OS X";
     m_rep_platform = "Mac OS X Disk Images";
 #elif defined(Q_OS_WIN)

@@ -324,7 +324,7 @@ static bool setupIconTheme(KLocalizedString *errorMessage, KLocalizedString *det
 //! @todo 3.1 replace with KexiStyle
 bool setupApplication()
 {
-#if defined Q_OS_WIN || defined Q_OS_MAC
+#if defined Q_OS_WIN || defined Q_OS_MACOS
     // Only this style matches current Kexi theme and can be supported/tested
     const char *name = "breeze";
     QScopedPointer<QStyle> style(QStyleFactory::create(name));

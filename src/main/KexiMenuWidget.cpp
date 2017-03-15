@@ -2600,7 +2600,7 @@ void KexiMenuWidget::keyPressEvent(QKeyEvent *e)
         else if (key == Qt::Key_Right)
             key = Qt::Key_Left;
     }
-#ifndef Q_OS_MAC
+#ifndef Q_OS_MACOS
     if (key == Qt::Key_Tab) //means down
         key = Qt::Key_Down;
     if (key == Qt::Key_Backtab) //means up
