@@ -40,7 +40,7 @@
 #include <KSharedConfig>
 #include <KLocalizedString>
 #include <KMessageBox>
-#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
 #  include <QNetworkAccessManager>
 #  include <QNetworkRequest>
 #  include <QNetworkReply>
