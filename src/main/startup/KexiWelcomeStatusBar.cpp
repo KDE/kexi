@@ -40,7 +40,7 @@
 #include <KSharedConfig>
 #include <KLocalizedString>
 #include <KMessageBox>
-#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
 #  include <QNetworkAccessManager>
 #  include <QNetworkRequest>
 #  include <QNetworkReply>
@@ -71,6 +71,9 @@
 #include <QRegularExpression>
 
 #include <stdio.h>
+
+class QNetworkReply;
+class KJob;
 
 static const int GUI_UPDATE_INTERVAL = 60; // update interval for GUI, in minutes
 static const int DONATION_INTERVAL = 10; // donation interval, in days
@@ -204,9 +207,9 @@ public Q_SLOTS:
     }
 
 private Q_SLOTS:
-#ifdef USE_KIO_COPY
     void filesCopyFinished(KJob* job)
     {
+#ifdef USE_KIO_COPY
         if (job->error()) {
             //! @todo error...
             qDebug() << "ERROR:" << job->errorString();
@@ -217,13 +220,17 @@ private Q_SLOTS:
         Q_UNUSED(copyJob)
         //qDebug() << "DONE" << copyJob->destUrl();
         (void)copyFilesToDestinationDir();
-    }
 #else
+        Q_UNUSED(job)
+#endif
+    }
 
-#define DOWNLOAD_BUFFER_SIZE 1024 * 50
 
     void fileDownloadFinished(QNetworkReply* reply)
     {
+#ifdef USE_KIO_COPY
+        Q_UNUSED(reply)
+#else
         const bool ok = copyFile(reply);
         reply->deleteLater();
         if (!ok) {
@@ -234,10 +241,15 @@ private Q_SLOTS:
         }
         m_sourceFilesToDownload.removeFirst();
         downloadNextFile();
+#endif
     }
 
     bool copyFile(QNetworkReply* reply)
     {
+#ifdef USE_KIO_COPY
+        Q_UNUSED(reply)
+#else
+#define DOWNLOAD_BUFFER_SIZE 1024 * 50
         if (reply->error() != QNetworkReply::NoError) {
             return false;
         }
@@ -260,10 +272,12 @@ private Q_SLOTS:
         if (!f.commit()) {
             return false;
         }
+#endif
         return true;
     }
 
 private:
+#ifndef USE_KIO_COPY
     void downloadNextFile() {
         if (m_sourceFilesToDownload.isEmpty()) {
             // success
