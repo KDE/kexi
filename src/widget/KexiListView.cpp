@@ -113,7 +113,7 @@ void KexiListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
         return;
     }
 
-    QStyleOptionViewItemV4 opt(option);
+    QStyleOptionViewItem opt(option);
     opt.showDecorationSelected = true;
     QStyle *style = opt.widget ? opt.widget->style() : QApplication::style();
 
@@ -168,7 +168,7 @@ QSize KexiListViewDelegate::sizeHint(const QStyleOptionViewItem &option,
         return QSize(0, 0);
     }
 
-    QStyleOptionViewItemV4 opt(option);
+    QStyleOptionViewItem opt(option);
     opt.showDecorationSelected = true;
     QStyle *style = opt.widget ? opt.widget->style() : QApplication::style();
 

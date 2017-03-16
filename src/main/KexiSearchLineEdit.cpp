@@ -245,7 +245,7 @@ public:
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
     {
         QSize size(QStyledItemDelegate::sizeHint(option, index));
-        QStyleOptionViewItemV4 v4 = option;
+        QStyleOptionViewItem v4 = option;
         QStyledItemDelegate::initStyleOption(&v4, index);
         const QSize s = v4.widget->style()->sizeFromContents(QStyle::CT_ItemViewItem, &v4, size, v4.widget);
         size.setWidth(s.width());
@@ -256,7 +256,7 @@ public:
                        const QModelIndex &index) const
     {
         QStyledItemDelegate::paint(painter, option, index);
-        QStyleOptionViewItemV4 v4 = option;
+        QStyleOptionViewItem v4 = option;
         QStyledItemDelegate::initStyleOption(&v4, index);
         // like in QCommonStyle::paint():
         if (!v4.text.isEmpty()) {
@@ -283,13 +283,13 @@ public:
 
 protected:
     // bits from qcommonstyle.cpp
-    void viewItemDrawText(QPainter *p, const QStyleOptionViewItemV4 *option, const QRect &rect) const
+    void viewItemDrawText(QPainter *p, const QStyleOptionViewItem *option, const QRect &rect) const
     {
         const QWidget *widget = option->widget;
         const int textMargin = widget->style()->pixelMetric(QStyle::PM_FocusFrameHMargin, 0, widget) + 1;
 
         QRect textRect = rect.adjusted(textMargin, 0, -textMargin, 0); // remove width padding
-        const bool wrapText = option->features & QStyleOptionViewItemV2::WrapText;
+        const bool wrapText = option->features & QStyleOptionViewItem::WrapText;
         QTextOption textOption;
         textOption.setWrapMode(wrapText ? QTextOption::WordWrap : QTextOption::ManualWrap);
         textOption.setTextDirection(option->direction);
@@ -335,7 +335,7 @@ protected:
     virtual void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const
     {
         QStyledItemDelegate::initStyleOption(option, index);
-        QStyleOptionViewItemV4 *v4 = qstyleoption_cast<QStyleOptionViewItemV4*>(option);
+        QStyleOptionViewItem *v4 = qstyleoption_cast<QStyleOptionViewItem*>(option);
         if (v4) {
             v4->text.clear();
         }
