@@ -330,8 +330,8 @@ void KexiTabbedToolBarStyle::drawControl(ControlElement element, const QStyleOpt
     const QString styleName(baseStyle()->objectName());
     qreal origOpacity = -1.0;
     if (element == CE_TabBarTab) {
-        const QStyleOptionTabV3* opt
-            = qstyleoption_cast<const QStyleOptionTabV3*>(option);
+        const QStyleOptionTab* opt
+            = qstyleoption_cast<const QStyleOptionTab*>(option);
         const QTabBar* tabBar = qobject_cast<const QTabBar*>(widget);
         KexiTabbedToolBar* tbar = tabBar
             ? qobject_cast<KexiTabbedToolBar*>(tabBar->parentWidget()) : 0;
@@ -348,7 +348,7 @@ void KexiTabbedToolBarStyle::drawControl(ControlElement element, const QStyleOpt
                 }
             }
 
-            QStyleOptionTabV3 newOpt(*opt);
+            QStyleOptionTab newOpt(*opt);
             const bool specificStyle = isSpecificTabStyle(styleName);
             newOpt.text = (specificStyle ? " " : "")
                     + tabBar->tabText(index)

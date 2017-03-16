@@ -41,7 +41,7 @@
 #include <QPixmap>
 #include <QStyle>
 #include <QStyleOptionFocusRect>
-#include <QStyleOptionFrameV3>
+#include <QStyleOptionFrame>
 #include <QClipboard>
 #include <QFile>
 #include <QBuffer>
@@ -595,7 +595,7 @@ int KexiDBImageBox::realLineWidth() const
         return 2;
     case QFrame::StyledPanel: {
         // shadow, line, midline unused
-        QStyleOptionFrameV3 option;
+        QStyleOptionFrame option;
         option.initFrom(this);
         return style()->pixelMetric(QStyle::PM_DefaultFrameWidth, &option, this);
     }
