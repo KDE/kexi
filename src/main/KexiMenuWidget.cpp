@@ -2240,7 +2240,7 @@ void KexiMenuWidget::paintEvent(QPaintEvent *e)
     }
 
     {
-        QStyleOptionFrameV3 opt;
+        QStyleOptionFrame opt;
         opt.initFrom(this);
         opt.frameShape = QFrame::VLine;
         opt.state |= QStyle::State_Raised;

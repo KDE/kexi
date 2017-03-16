@@ -29,7 +29,7 @@
 #include <QEvent>
 #include <QHBoxLayout>
 #include <QPainter>
-#include <QStyleOptionFrameV2>
+#include <QStyleOptionFrame>
 #include <QLineEdit>
 
 #include <KGuiItem>
@@ -543,9 +543,9 @@ void KexiRecordNavigator::paintEvent(QPaintEvent* pe)
     QWidget::paintEvent(pe);
     QPainter p(this);
     // add frame on top
-    QStyleOptionFrameV2 option;
+    QStyleOptionFrame option;
     option.initFrom(this);
-    option.features = QStyleOptionFrameV2::Flat;
+    option.features = QStyleOptionFrame::Flat;
     option.rect = QRect(option.rect.left() - 5, option.rect.top(),
                         option.rect.width() + 10, option.rect.height() + 5); // to avoid rounding
     style()->drawPrimitive(QStyle::PE_Frame, &option, &p, this);

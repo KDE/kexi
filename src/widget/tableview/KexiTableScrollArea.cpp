@@ -82,7 +82,7 @@ KexiTableScrollArea::Appearance::Appearance(QWidget *widget)
     if (qApp) {
         baseColor = KColorScheme(QPalette::Active, KColorScheme::View).background().color()/*QPalette::Base*/;
         textColor = KColorScheme(QPalette::Active, KColorScheme::View).foreground().color()/*QPalette::Base*/;
-        QStyleOptionViewItemV4 option;
+        QStyleOptionViewItem option;
         option.initFrom(widget);
         const int gridHint = widget->style()->styleHint(QStyle::SH_Table_GridLineColor, &option, widget);
         gridColor = static_cast<QRgb>(gridHint);
