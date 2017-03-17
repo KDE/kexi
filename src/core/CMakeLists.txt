@@ -66,10 +66,7 @@ if(WIN32)
     target_link_libraries(kexicore PUBLIC ${KDEWIN_LIBRARIES})
 endif()
 
-include_directories(${CMAKE_SOURCE_DIR}/src/kexiutils/style)
+target_include_directories(kexicore PUBLIC ${CMAKE_SOURCE_DIR}/src/kexiutils/style)
 
-set_target_properties(kexicore PROPERTIES
-    VERSION ${GENERIC_KEXI_LIB_VERSION} SOVERSION ${GENERIC_KEXI_LIB_SOVERSION}
-)
 install(TARGETS kexicore  ${INSTALL_TARGETS_DEFAULT_ARGS})
 #install(FILES kexihandler.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR})
