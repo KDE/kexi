@@ -276,7 +276,7 @@ public:
 
 private:
     //! Needed for clone()
-    IconEngine(const IconEngine &other) : m_parameters(other.m_parameters) {}
+    IconEngine(const IconEngine &other) : QIconEngine(other), m_parameters(other.m_parameters) {}
 
     const KexiStyledIconParameters m_parameters;
 };

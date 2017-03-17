@@ -359,6 +359,15 @@ void KexiFormView::updateAutoFieldsDataSource()
 #endif
 }
 
+void KexiFormView::propertySetSwitched()
+{
+    KexiDataAwareView::propertySetSwitched();
+    updateDataSourcePage();
+    if (viewMode() == Kexi::DesignViewMode) {
+        formPart()->dataSourcePage()->assignPropertySet(form()->propertySet(), KexiDataSourcePage::ForceAssign);
+    }
+}
+
 void KexiFormView::updateValuesForSubproperties()
 {
 //! @todo call this when form's data source is changed
