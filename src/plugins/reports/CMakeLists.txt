@@ -1,6 +1,8 @@
 include_directories(
     ${CMAKE_SOURCE_DIR}/src/core
+    ${CMAKE_SOURCE_DIR}/src/kexiutils/style
     ${CMAKE_SOURCE_DIR}/src/widget
+    ${CMAKE_SOURCE_DIR}/src/widget/properties
 )
 
 # the main plugin

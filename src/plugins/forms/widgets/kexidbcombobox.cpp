@@ -464,7 +464,7 @@ void KexiDBComboBox::setPaletteBackgroundColor(const QColor & color)
 
 bool KexiDBComboBox::valueChanged()
 {
-    //qDebug() << KexiDataItemInterface::originalValue().toString() << " ? " << value().toString();
+    //qDebug() << KexiDataItemInterface::originalValue().toString() << "?" << value().toString();
     return KexiDataItemInterface::originalValue() != value();
 }
 

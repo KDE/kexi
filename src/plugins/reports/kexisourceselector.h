@@ -32,7 +32,7 @@ class QDomElement;
 class KexiProject;
 
 //! @todo rename to KexiReportDataSourcePage
-//! @todo use KexiPropertyPaneViewBase
+//! @todo use KexiPropertyPaneWidget
 class KexiSourceSelector : public QWidget
 {
     Q_OBJECT

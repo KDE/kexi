@@ -27,6 +27,9 @@ set(kexiutils_LIB_SRCS
   KexiPluginMetaData.cpp
 
   completer/KexiCompleter.cpp
+
+  style/KexiStyle.cpp
+  style/KexiPropertyPaneLineEditStyle.cpp
 )
 
 if (KEXI_MOBILE)
@@ -61,9 +64,14 @@ target_link_libraries(kexiutils
         KF5::IconThemes
         KF5::WidgetsAddons
         KF5::ConfigWidgets # KStandardAction KColorScheme
+        KF5::GuiAddons # KColorUtils
         KF5::I18n
         KF5::ItemViews # KCategorizedView KCategoryDrawer
         KDb
+        KPropertyWidgets
+
+    PRIVATE
+        Qt5::Svg
 )
 #target_link_libraries(kexiutils LINK_INTERFACE_LIBRARIES KF5::KIOWidgets)
 

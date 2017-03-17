@@ -69,8 +69,8 @@ KexiInputTableEdit::~KexiInputTableEdit()
 void KexiInputTableEdit::init()
 {
 // qDebug() << "m_origValue.typeName()==" << m_origValue.typeName();
-// qDebug() << "type== " << field()->typeName();
-// qDebug() << "displayed type== " << displayedField()->typeName();
+// qDebug() << "type==" << field()->typeName();
+// qDebug() << "displayed type==" << displayedField()->typeName();
 
     m_textFormatter.setField( field() );
     KexiTextFormatter::OverrideDecimalPlaces overrideDecimalPlaces;
@@ -253,7 +253,7 @@ bool KexiInputTableEdit::showToolTipIfNeeded(const QVariant& value, const QRect&
     QRect internalRect(rect);
     internalRect.setLeft(rect.x() + leftMargin());
     internalRect.setWidth(internalRect.width() - rightMargin(focused) - 2*3);
-    qDebug() << rect << internalRect << fm.width(text);
+    //qDebug() << rect << internalRect << fm.width(text);
     return fm.width(text) > internalRect.width();
 }
 

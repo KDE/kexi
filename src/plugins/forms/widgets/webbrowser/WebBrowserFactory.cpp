@@ -80,7 +80,7 @@ QWidget* WebBrowserFactory::createWidget(const QByteArray& classname,
 
     if (w){
         w->setObjectName(name);
-        qDebug() << w << w->objectName() << "created";
+        //qDebug() << w << w->objectName() << "created";
         return w;
     }
     qWarning() << "w == 0";

@@ -367,8 +367,8 @@ void KexiWelcomeStatusBarGuiUpdater::update()
         int minutes = lastStatusBarUpdate.secsTo(QDateTime::currentDateTime()) / 60;
 
         if (minutes < GUI_UPDATE_INTERVAL) {
-            qDebug() << "gui updated" << minutes << "min. ago, next auto-update in"
-                << (GUI_UPDATE_INTERVAL - minutes) << "min.";
+            //qDebug() << "gui updated" << minutes << "min. ago, next auto-update in"
+            //    << (GUI_UPDATE_INTERVAL - minutes) << "min.";
             return;
         }
     }
@@ -715,8 +715,8 @@ public:
             int days = lastDonation.secsTo(QDateTime::currentDateTime()) / 60 / 60 / 24;
             if (days >= DONATION_INTERVAL) {
                 donated = false;
-                qDebug() << "last donation declared" << days << "days ago, next in"
-                    << (DONATION_INTERVAL - days) << "days.";
+                //qDebug() << "last donation declared" << days << "days ago, next in"
+                //         << (DONATION_INTERVAL - days) << "days.";
             }
             else if (days >= 0) {
                 donated = true;

@@ -30,6 +30,7 @@
 #include <core/KexiWindow.h>
 #include <core/KexiMainWindowIface.h>
 #include <KexiIcon.h>
+#include <KexiStyle.h>
 
 //! @todo KEXI3 #include "../scripting/kexiscripting/kexiscriptadaptor.h"
 
@@ -59,7 +60,8 @@ KexiReportView::KexiReportView(QWidget *parent)
     setObjectName("KexiReportDesigner_DataView");
 
     m_reportView = new KReportView(this);
-    layout()->addWidget(m_reportView);
+    setViewWidget(m_reportView);
+    KexiStyle::setupFrame(m_reportView->scrollArea());
 
 #ifndef KEXI_MOBILE
     m_pageSelector = new KexiRecordNavigator(*m_reportView->scrollArea(), m_reportView);
@@ -348,10 +350,11 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
     if (tempData()->reportSchemaChangedInPreviousView) {
         tempData()->reportSchemaChangedInPreviousView = false;
 
-        qDebug() << "Schema changed";
+        //qDebug() << "Schema changed";
         delete m_preRenderer;
 
         //qDebug() << tempData()->reportDefinition.tagName();
+
         m_preRenderer = new KReportPreRenderer(tempData()->reportDefinition);
         if (m_preRenderer->isValid()) {
             KReportDataSource *reportData = 0;
@@ -381,7 +384,7 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
                 qWarning() << "Could not generate report document";
                 return false;
             }
-            
+
             m_reportView->setDocument(m_preRenderer->document());
 #ifndef KEXI_MOBILE
             m_pageSelector->setRecordCount(m_reportView->pageCount());

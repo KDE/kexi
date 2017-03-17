@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2006-2008 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2006-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -19,7 +19,7 @@
 #ifndef KEXILOOKUPCOLUMNPAGE_H
 #define KEXILOOKUPCOLUMNPAGE_H
 
-#include <widget/properties/KexiPropertyPaneViewBase.h>
+#include <QWidget>
 
 #include <KDbField>
 #include <KDbUtils>
@@ -35,7 +35,7 @@ class KexiProject;
 
  @todo not all features of KDbLookupFieldSchema class are displayed on this page yet
  */
-class KexiLookupColumnPage : public KexiPropertyPaneViewBase
+class KexiLookupColumnPage : public QWidget
 {
     Q_OBJECT
 
@@ -70,6 +70,8 @@ protected:
 
     //! Used instead of m_propertySet->changeProperty() to honor m_propertySetEnabled
     void changeProperty(const QByteArray &property, const QVariant &value);
+
+    QWidget* addWidgetSpacer();
 
 private:
     class Private;

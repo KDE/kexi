@@ -141,6 +141,9 @@ protected:
     //! Used in loadForm()
     void updateValuesForSubproperties();
 
+    //! Reimplemented to pass the information
+    void propertySetSwitched() Q_DECL_OVERRIDE;
+
     virtual void resizeEvent(QResizeEvent *);
 
     //! Reimplemented for context key event of top-level form widget.

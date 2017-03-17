@@ -135,12 +135,12 @@ static void addAlterTableActionDebug(const QString& text, int nestingLevel)
     // compute availableNestingLevels
     QTreeWidgetItem * lastItem = kexiAlterTableActionDebugPage->invisibleRootItem()->child(
         kexiAlterTableActionDebugPage->invisibleRootItem()->childCount()-1);
-    //qDebug() << "lastItem: " << (lastItem ? lastItem->text(0) : QString());
+    //qDebug() << "lastItem:" << (lastItem ? lastItem->text(0) : QString());
     while (lastItem) {
         lastItem = lastItem->parent();
         availableNestingLevels++;
     }
-    //qDebug() << "availableNestingLevels: " << availableNestingLevels;
+    //qDebug() << "availableNestingLevels:" << availableNestingLevels;
     //go up (availableNestingLevels-levelsToGoUp) levels
     lastItem = kexiAlterTableActionDebugPage->invisibleRootItem()->child(
         kexiAlterTableActionDebugPage->invisibleRootItem()->childCount()-1);
@@ -149,7 +149,7 @@ static void addAlterTableActionDebug(const QString& text, int nestingLevel)
         lastItem = lastItem->parent();
         levelsToGoUp--;
     }
-    //qDebug() << "lastItem2: " << (lastItem ? lastItem->text(0) : QString());
+    //qDebug() << "lastItem2:" << (lastItem ? lastItem->text(0) : QString());
     if (lastItem) {
         if (lastItem->childCount() > 0) {
                li = new QTreeWidgetItem(lastItem, lastItem->child(lastItem->childCount()-1));   //child, after
@@ -163,7 +163,7 @@ static void addAlterTableActionDebug(const QString& text, int nestingLevel)
         while (lastItem && lastItem->parent()) {
             lastItem = lastItem->parent();
         }
-        //qDebug() << "lastItem2: " << (lastItem ? lastItem->text(0) : QString());
+        //qDebug() << "lastItem2:" << (lastItem ? lastItem->text(0) : QString());
         if (lastItem && lastItem->parent())
              li = new QTreeWidgetItem(lastItem->parent(), lastItem);   //after
         else if (!lastItem)

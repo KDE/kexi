@@ -155,7 +155,7 @@ void KexiDataItemInterface::emitLengthExceededIfNeeded(bool lengthExceeded)
 
 bool KexiDataItemInterface::valueChanged()
 {
-    //qDebug() << d->origValue.toString() << " ? " << value().toString();
+    //qDebug() << d->origValue.toString() << "?" << value().toString();
     return d->origValue != value();
 }
 

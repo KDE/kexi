@@ -232,7 +232,7 @@ void KexiComboBoxTableEdit::slotButtonClicked()
     }
     qDebug();
     if (!popup() || !popup()->isVisible()) {
-        qDebug() << "SHOW POPUP";
+        //qDebug() << "SHOW POPUP";
         showPopup();
     }
 }

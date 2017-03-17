@@ -238,6 +238,9 @@ WidgetFactory::isPropertyVisibleInternal(const QByteArray &, QWidget *w,
 {
     Q_UNUSED(w);
 
+    if (property == "objectName") { // name is available in the KexiObjectInfoWidget
+        return false;
+    }
 #ifndef KEXI_FORM_CURSOR_PROPERTY_SUPPORT
 //! @todo temporary unless cursor works properly in the Designer
     if (property == "cursor")

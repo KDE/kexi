@@ -77,16 +77,16 @@ int main(int argc, char* argv[])
     if (e == QDialog::Accepted) {
         int r = startup.result();
         if (r == KexiStartupDialog::TemplateResult) {
-            qDebug() << "Template key == " << startup.selectedTemplateKey();
+            qDebug() << "Template key ==" << startup.selectedTemplateKey();
             if (startup.selectedTemplateKey() == "blank") {
 #if 0
                 KexiConnSelectorDialog sel(connset, 0, "sel");
                 e = sel.exec();
                 qDebug() << (e == QDialog::Accepted ? "Accepted" : "Rejected");
                 if (e == QDialog::Accepted) {
-                    qDebug() << "Selected conn. type: " << (sel.selectedConnectionType() == KexiConnSelectorWidget::FileBased ? "File based" : "Server based");
+                    qDebug() << "Selected conn. type:" << (sel.selectedConnectionType() == KexiConnSelectorWidget::FileBased ? "File based" : "Server based");
                     if (sel.selectedConnectionType() == KexiConnSelectorWidget::ServerBased) {
-                        qDebug() << "SERVER: " << sel.selectedConnectionData()->toUserVisibleString();
+                        qDebug() << "SERVER:" << sel.selectedConnectionData()->toUserVisibleString();
                     }
                 }
 #endif
@@ -95,9 +95,9 @@ int main(int argc, char* argv[])
             qDebug() << "Existing project --------";
             QString selFile = startup.selectedExistingFile();
             if (!selFile.isEmpty())
-                qDebug() << "Project File: " << selFile;
+                qDebug() << "Project File:" << selFile;
             else if (startup.selectedExistingConnection()) {
-                qDebug() << "Existing connection: " << startup.selectedExistingConnection()->toUserVisibleString();
+                qDebug() << "Existing connection:" << startup.selectedExistingConnection()->toUserVisibleString();
                 //ok, now we are trying to show daabases for this conenction to this user
                 //! @todo
             }
@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
             const KexiProjectData *data = startup.selectedProjectData();
             if (data) {
                 qDebug() << "Selected project: database=" << data->databaseName()
-                << " connection=" << data->connectionData()->toUserVisibleString();
+                         << "connection=" << data->connectionData()->toUserVisibleString();
             }
         }
     }

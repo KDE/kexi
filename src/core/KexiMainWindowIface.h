@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -46,6 +46,43 @@ class Item;
 class Info;
 }
 class KToolBar;
+
+namespace Kexi {
+
+//! Describes a global mode for the application
+/*! The following describes availability of modes.
+ - Welcome mode: always ON
+ - Help mode: always ON
+ -# State: No project
+    - Project mode: OFF
+    - Edit mode:    OFF
+    - Design mode:  OFF
+ -# State: Project opened, no object opened
+    - Project mode: ON
+    - Edit mode:    ON
+    - Design mode:  OFF
+ -# State: Project opened, at least one object opened
+    - Project mode: ON
+    - Edit mode:    ON
+    - Design mode:  ON (if the current object can be designed)
+*/
+/*! @todo What about custom modes? */
+enum GlobalViewMode {
+    WelcomeGlobalMode,
+    ProjectGlobalMode,
+    EditGlobalMode,
+    DesignGlobalMode,
+    HelpGlobalMode,
+    LastGlobalMode = HelpGlobalMode,
+    NoGlobalMode //!< special
+};
+
+//! @return global view mode for window view mode @a viewMode.
+//! EditGlobalMode is mapped from data view, DesignGlobalMode and for design and text view.
+//! NoGlobalMode is returned for other values.
+KEXICORE_EXPORT GlobalViewMode viewModeToGlobal(Kexi::ViewMode viewMode);
+
+}
 
 /**
  * @short Kexi's main window interface
@@ -94,6 +131,9 @@ public:
     /*! Switches \a window to view \a mode.
      Activates the window if it is not the current window. */
     virtual tristate switchToViewMode(KexiWindow& window, Kexi::ViewMode viewMode) = 0;
+
+    //! @return current global mode
+    virtual Kexi::GlobalViewMode currentMode() const = 0;
 
     /*! \return true if this window is in the User Mode. */
     virtual bool userMode() const = 0;
@@ -145,6 +185,10 @@ public:
                                      bool preservePrevSelection = true,
                                      bool sortedProperties = false,
                                      const QByteArray& propertyToSelect = QByteArray()) = 0;
+
+    virtual void beginPropertyPaneUpdate() = 0;
+
+    virtual void endPropertyPaneUpdate() = 0;
 
     //! Options used in saveObject()
     enum SaveObjectOption
@@ -264,12 +308,8 @@ public:
 
     /*! Updates info label of the property editor by reusing properties provided
      by the current property set.
-     Read documentation of KexiPropertyEditorView class for information about accepted properties.
-     If the current property is 0 and @a textToDisplayForNullSet string is not empty, this string is displayed
-     (without icon or any other additional part).
-     If the current property is 0 and @a textToDisplayForNullSet string is empty, the info label widget becomes
-     hidden. */
-    virtual void updatePropertyEditorInfoLabel(const QString& textToDisplayForNullSet = QString()) = 0;
+     Read documentation of KexiPropertyPaneWidget class for information about accepted properties. */
+    virtual void updatePropertyEditorInfoLabel() = 0;
 
     /*! Add searchable model to the main window. This extends search to a new area.
      One example is Project Navigator. */
@@ -282,6 +322,10 @@ public:
 
     //! Sets reasonable dialog size based on main window size, that is 80% of its size.
     virtual void setReasonableDialogSize(QDialog *dialog) = 0;
+
+protected:
+    //! Sets current global mode
+    virtual void setCurrentMode(Kexi::GlobalViewMode mode) = 0;
 
 protected: // Q_SLOTS:
     virtual void slotObjectRenamed(const KexiPart::Item &item, const QString& oldName) = 0;

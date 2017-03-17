@@ -71,6 +71,7 @@ KEXICORE_EXPORT QString version();
   so supported internal properties affecting its behaviour are:
   - newObjectsAreDirty: True if newly created, unsaved objects are dirty. False by default.
   - textViewModeCaption: custum i18n'd action text replacing standard "Text View" text.
+  - textViewModeToolTip: custum i18n'd action tool tip replacing standard "Switch to text view" text.
     Used in for query's "SQL View".
   In general: a whole set of i18n'd action names, initialised on KexiPart::Part subclass ctor.
   The names are useful because the same action can have other name for each part,
@@ -277,6 +278,11 @@ private:
  If \a part is provided, the captions will be in a form of "name : inctancetype", e.g. "Employees : Table",
  otherwise it will be in a form of "name", e.g. "Employees". */
 KEXICORE_EXPORT QString fullCaptionForItem(KexiPart::Item *item, KexiPart::Part *part);
+
+/*! \return i18n'd actionText and iconName for "Open in text view" action specific for @a pluginId.
+ Currently it the only special is for "org.kexi-project.query".
+ The default is "Design in Text View" and no icon. */
+KEXICORE_EXPORT void getTextViewAction(const QString& pluginId, QString *actionText, QString *iconName);
 
 } // namespace KexiPart
 

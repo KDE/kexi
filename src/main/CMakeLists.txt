@@ -2,8 +2,12 @@
 
 include_directories(${CMAKE_SOURCE_DIR}/src/core
 ${CMAKE_SOURCE_DIR}/src/kexiutils
+${CMAKE_SOURCE_DIR}/src/kexiutils/style
 ${CMAKE_SOURCE_DIR}/src/main ${CMAKE_SOURCE_DIR}/src/main/startup
-${CMAKE_SOURCE_DIR}/src/widget ${CMAKE_BINARY_DIR}/src/widget)
+${CMAKE_SOURCE_DIR}/src/widget ${CMAKE_BINARY_DIR}/src/widget
+${CMAKE_SOURCE_DIR}/src/widget/navigator
+${CMAKE_SOURCE_DIR}/src/widget/properties
+)
 
 set(QT_USE_QTUITOOLS true)
 
@@ -15,6 +19,9 @@ set(keximain_LIB_SRCS
     KexiSearchLineEdit.cpp
     KexiUserFeedbackAgent.cpp
     KexiBugReportDialog.cpp
+    KexiGlobalViewModeSelector.cpp
+    KexiObjectViewWidget.cpp
+    KexiObjectViewTabWidget.cpp
 
     startup/KexiNewProjectAssistant.cpp
     startup/KexiOpenProjectAssistant.cpp

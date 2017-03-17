@@ -24,6 +24,7 @@
 #include <core/KexiMainWindowIface.h>
 #include <core/kexiproject.h>
 #include <core/kexipartinfo.h>
+#include <KexiPropertyPaneWidget.h>
 #include <widget/tableview/KexiDataTableView.h>
 #include <widget/tableview/KexiDataTableScrollArea.h>
 #include "kexitabledesignerview.h"
@@ -36,7 +37,6 @@
 #include <KMessageBox>
 
 #include <QDebug>
-#include <QTabWidget>
 
 KEXI_PLUGIN_FACTORY(KexiTablePart, "kexi_tableplugin.json")
 
@@ -98,7 +98,7 @@ KexiView* KexiTablePart::createView(QWidget *parent, KexiWindow* window,
         = static_cast<KexiTablePartTempData*>(window->data());
     if (!temp->table()) {
         temp->setTable(win->project()->dbConnection()->tableSchema(item->name()));
-        qDebug() << "schema is " << temp->table();
+        //qDebug() << "schema is " << temp->table();
     }
 
     if (viewMode == Kexi::DesignViewMode) {
@@ -226,10 +226,10 @@ KLocalizedString KexiTablePart::i18nMessage(
     return Part::i18nMessage(englishMessage, window);
 }
 
-void KexiTablePart::setupCustomPropertyPanelTabs(QTabWidget *tab)
+void KexiTablePart::setupPropertyPane(KexiPropertyPaneWidget *pane)
 {
     if (!d->lookupColumnPage) {
-        d->lookupColumnPage = new KexiLookupColumnPage(0);
+        d->lookupColumnPage = new KexiLookupColumnPage;
         connect(d->lookupColumnPage,
                 SIGNAL(jumpToObjectRequested(QString,QString)),
                 KexiMainWindowIface::global()->thisWidget(),
@@ -249,8 +249,7 @@ void KexiTablePart::setupCustomPropertyPanelTabs(QTabWidget *tab)
     d->lookupColumnPage->setProject(prj);
 
 //! @todo add lookup field icon
-    tab->addTab(d->lookupColumnPage, KexiIcon("combobox"), QString());
-    tab->setTabToolTip(tab->indexOf(d->lookupColumnPage), xi18n("Lookup column"));
+    pane->addSection(d->lookupColumnPage, xi18n("Lookup column"));
 }
 
 KexiLookupColumnPage* KexiTablePart::lookupColumnPage() const

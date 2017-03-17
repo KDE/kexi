@@ -36,7 +36,7 @@ KexiReportDesignView::KexiReportDesignView(QWidget *parent, KexiSourceSelector *
         : KexiView(parent)
 {
     m_scrollArea = new QScrollArea(this);
-    layout()->addWidget(m_scrollArea);
+    setViewWidget(m_scrollArea);
     m_sourceSelector = s;
 
     m_reportDesigner = 0;
@@ -79,8 +79,28 @@ KPropertySet *KexiReportDesignView::propertySet()
     return m_reportDesigner->itemPropertySet();
 }
 
+//! Finds or creates property
+static KProperty* findOrCreateProperty(KPropertySet *set, const char *name, const QVariant &value)
+{
+    KProperty *prop;
+    if (set->contains(name)) {
+        prop = &set->property(name);
+        prop->setValue(value);
+    } else {
+        prop = new KProperty(name, value);
+        prop->setVisible(false);
+        set->addProperty(prop);
+    }
+    return prop;
+}
+
 void KexiReportDesignView::slotDesignerPropertySetChanged()
 {
+    KPropertySet *set = propertySet();
+    if (set) {
+        KProperty *prop = findOrCreateProperty(set, "this:visibleObjectNameProperty", "name");
+        Q_UNUSED(prop)
+    }
     propertySetReloaded(true);
     propertySetSwitched();
 }
@@ -94,7 +114,7 @@ KDbObject* KexiReportDesignView::storeNewData(const KDbObject& object,
         delete s;
         return 0;
     }
-    qDebug() << "new id:" << s->id();
+    //qDebug() << "new id:" << s->id();
 
     if (!storeData()) {
         //failure: remove object's object data to avoid garbage
@@ -115,34 +135,35 @@ tristate KexiReportDesignView::storeData(bool dontAsk)
     QDomElement root = doc.createElement("kexireport");
     QDomElement conndata = m_sourceSelector->connectionData();
 
-    if (conndata.isNull())
-        qDebug() << "Null conn data!";
+    if (conndata.isNull()) {
+        //qDebug() << "Null conn data!";
+    }
 
     root.appendChild(m_reportDesigner->document());
     root.appendChild(conndata);
     doc.appendChild(root);
 
     QString src  = doc.toString();
-    qDebug() << src;
+    //qDebug() << src;
 
     if (storeDataBlock(src, "layout")) {
-        qDebug() << "Saved OK";
+        //qDebug() << "Saved OK";
         setDirty(false);
         return true;
     }
 
-    qDebug() << "NOT Saved OK";
+    //qDebug() << "NOT Saved OK";
     return false;
 }
 
 tristate KexiReportDesignView::beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore)
 {
-    qDebug() << mode;
+    //qDebug() << mode;
     *dontStore = true;
     if (m_reportDesigner && mode == Kexi::DataViewMode) {
-        qDebug() << "Saving temp data";
+        //qDebug() << "Saving temp data";
         tempData()->reportDefinition = m_reportDesigner->document();
-        qDebug() << m_reportDesigner->document().toDocument().toString();
+        //qDebug() << m_reportDesigner->document().toDocument().toString();
         tempData()->reportSchemaChangedInPreviousView = true;
     }
     return true;

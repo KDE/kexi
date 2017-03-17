@@ -29,6 +29,7 @@
 #include "KexiMainWindowIface.h"
 #include "kexi.h"
 #include <kexiutils/utils.h>
+#include <KexiIcon.h>
 
 #include <KDbConnection>
 
@@ -180,7 +181,7 @@ QAction * Part::createSharedAction(Kexi::ViewMode mode, const QString &text,
 {
     GUIClient *instanceGuiClient = d->instanceGuiClients.value((int)mode);
     if (!instanceGuiClient) {
-        qWarning() << "no gui client for mode " << mode << "!";
+        qWarning() << "no gui client for mode" << mode << "!";
         return 0;
     }
     return KexiMainWindowIface::global()->createSharedAction(text, pix_name, cut, name,
@@ -313,7 +314,7 @@ KexiWindow* Part::openInstance(QWidget* parent, KexiPart::Item *item, Kexi::View
         d->status = window->status();
         window->close();
         delete window;
-        qWarning() << "!window, switching to view mode failed, " <<
+        qWarning() << "!window, switching to view mode failed," <<
             Kexi::nameForViewMode(viewMode);
         return 0;
     }
@@ -438,4 +439,24 @@ KEXICORE_EXPORT QString KexiPart::fullCaptionForItem(KexiPart::Item *item, KexiP
     if (part)
         return item->name() + " : " + part->info()->name();
     return item->name();
+}
+
+KEXICORE_EXPORT void KexiPart::getTextViewAction(const QString& pluginId, QString *actionText,
+                                                 QString *iconName)
+{
+    if (pluginId == QLatin1String("org.kexi-project.query")) {
+        if (actionText) {
+            *actionText = xi18n("Design in SQL View");
+        }
+        if (iconName) {
+            *iconName = KexiIconName("mode-selector-sql");
+        }
+    } else {
+        if (actionText) {
+            *actionText = xi18n("Design in Text View");
+        }
+        if (iconName) {
+            iconName->clear();
+        }
+    }
 }

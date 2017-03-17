@@ -157,7 +157,7 @@ KexiRelationsScrollArea::addTableContainer(KDbTableSchema *t, const QRect &rect)
     if (!t)
         return 0;
 
-    qDebug() << t->name();
+    //qDebug() << t->name();
 
     KexiRelationsTableContainer* c = tableContainer(t);
     if (c) {
@@ -272,7 +272,7 @@ KexiRelationsScrollArea::addConnection(const SourceConnection& _conn)
 
     KexiRelationsConnection *connView = new KexiRelationsConnection(master, details, conn, this);
     d->relationsConnections.insert(connView);
-    qDebug() << "connView->connectionRect() " << connView->connectionRect();
+    //qDebug() << "connView->connectionRect()" << connView->connectionRect();
     d->areaWidget->update();
 
     /*! @todo will be moved up to relation/query part as this is only visual class
@@ -345,7 +345,7 @@ KexiRelationsScrollArea::slotAutoScrollTimeout()
         if (delay < 0)
             delay = 0;
         delay = delay * delay / 100;
-        qDebug() << delay;
+        //qDebug() << delay;
         int add = 16;
         if (horizontalScrollBar()->maximum() > (d->movedTableContainer->geometry().right() + add)) {
             horizontalScrollBar()->setValue(horizontalScrollBar()->value() + add);
@@ -399,7 +399,7 @@ KexiRelationsScrollArea::handleMousePressEvent(QMouseEvent *ev)
         emit connectionViewGotFocus();
 
         if (ev->button() == Qt::RightButton) {//show popup
-            qDebug() << "context";
+            //qDebug() << "context";
             emit connectionContextMenuRequest(ev->globalPos());
         }
         return;
@@ -466,7 +466,7 @@ KexiRelationsScrollArea::keyPressEvent(QKeyEvent *ev)
 
 void KexiRelationsScrollArea::slotTableViewEndDrag()
 {
-    qDebug() << "END DRAG!";
+    //qDebug() << "END DRAG!";
     d->autoScrollTimer.stop();
 }
 
@@ -570,7 +570,7 @@ void KexiRelationsScrollArea::slotTableViewGotFocus()
 {
     if (d->focusedTableContainer == sender())
         return;
-    qDebug() << "GOT FOCUS!";
+    //qDebug() << "GOT FOCUS!";
     clearSelection();
     d->focusedTableContainer = (KexiRelationsTableContainer*)sender();
     emit tableViewGotFocus();

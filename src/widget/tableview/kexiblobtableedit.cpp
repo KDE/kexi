@@ -136,17 +136,17 @@ void KexiBlobTableEdit::setValueInternal(const QVariant& add, bool removeOld)
 //! @todo
 #if 0 //todo?
     QByteArray val = m_origValue.toByteArray();
-    qDebug() << "Size of BLOB: " << val.size();
+    qDebug() << "Size of BLOB:" << val.size();
     m_tempFile = new QTemporaryFile();
     m_tempFile->open();
-    qDebug() << "Creating temporary file: " << m_tempFile->fileName();
+    qDebug() << "Creating temporary file:" << m_tempFile->fileName();
     QDataStream stream(m_tempFile);
     stream->writeRawBytes(val.data(), val.size());
     delete m_tempFile;
     m_tempFile = 0;
 
     KMimeMagicResult* mmr = KMimeMagic::self()->findFileType(m_tempFile->fileName());
-    qDebug() << "Mimetype = " << mmr->mimeType();
+    qDebug() << "Mimetype=" << mmr->mimeType();
 
     setViewWidget(new QWidget(this));
 #endif
@@ -182,7 +182,7 @@ KexiBlobTableEdit::value()
     stream.readRawBytes(data, f.size());
     value.duplicate(data, f.size());
     free(data);
-    qDebug() << "Size of BLOB: " << value.size();
+    qDebug() << "Size of BLOB:" << value.size();
     return QVariant(value);
 #endif
 }
@@ -583,8 +583,7 @@ void KexiKIconTableEdit::setupContents(QPainter *p, bool /*focused*/, const QVar
             pm = *cached;
         if (pm.isNull()) {
             //cache pixmap
-            pm = KIconLoader::global()->loadIcon(key, KIconLoader::Small,
-                                                 0, KIconLoader::DefaultState , QStringList() , 0L, true/*canReturnNull*/);
+            pm = QIcon::fromTheme(key).pixmap(IconSize(KIconLoader::Small));
             if (!pm.isNull())
                 d->pixmapCache.insert(key, new QPixmap(pm));
         }

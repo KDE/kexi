@@ -384,7 +384,7 @@ bool KexiMigrate::performImportInternal(Kexi::ObjectStatus* result)
     }
 
     // Step 2 - get table names
-    qDebug() << "GETTING TABLENAMES...";
+    //qDebug() << "GETTING TABLENAMES...";
     QStringList tables;
     if (!tableNames(&tables)) {
         qWarning() << "Couldn't get list of tables";
@@ -397,7 +397,7 @@ bool KexiMigrate::performImportInternal(Kexi::ObjectStatus* result)
 
     // Check if there are any tables
     if (tables.isEmpty()) {
-        qDebug() << "There were no tables to import";
+        qWarning() << "There were no tables to import";
         if (result)
             result->setStatus(
                 xi18n("No tables have been found in database %1.",
@@ -435,8 +435,8 @@ bool KexiMigrate::performImportInternal(Kexi::ObjectStatus* result)
                     tablesIt.remove();
                 }
             }
-        //qDebug() << "KDb-compatible tables: " << kexiDBTables;
-        //qDebug() << "non-KDb tables: " << tables;
+            //qDebug() << "KDb-compatible tables:" << kexiDBTables;
+            //qDebug() << "non-KDb tables:" << tables;
         }
     }
 
@@ -521,7 +521,7 @@ bool KexiMigrate::performImportInternal(Kexi::ObjectStatus* result)
         foreach(KDbTableSchema* ts, d->tableSchemas) {
             ok = destConn->createTable(ts);
             if (!ok) {
-                qWarning() << "Failed to create a table " << ts->name();
+                qWarning() << "Failed to create a table" << ts->name();
                 qWarning() << destConn->result();
                 if (result) {
                     result->setStatus(destConn->parentConnection()->result(), nullptr,
@@ -587,12 +587,12 @@ bool KexiMigrate::performImportInternal(Kexi::ObjectStatus* result)
                     && ts->name() != "kexi__userdata" //copy this too
                )
             {
-                qDebug() << "Won't copy data to system table" << ts->name();
+                //qDebug() << "Won't copy data to system table" << ts->name();
 //! @todo copy kexi__db contents!
                 continue;
             }
             QString tsName = nativeNames.value(ts->name());
-            qDebug() << "Copying data for table: " << tsName;
+            //qDebug() << "Copying data for table: " << tsName;
             if (tsName.isEmpty()) {
                 tsName = ts->name();
             }
@@ -662,7 +662,7 @@ bool KexiMigrate::progressInitialise()
     foreach(const QString& tableName, tables) {
         quint64 size;
         if (drv_getTableSize(tableName, &size)) {
-            qDebug() << "table:" << tableName << "size: " << (ulong)size;
+            //qDebug() << "table:" << tableName << "size:" << (ulong)size;
             sum += size;
             emit progressPercent(tableNumber * 5 /* 5% */ / tables.count());
             tableNumber++;
@@ -671,7 +671,7 @@ bool KexiMigrate::progressInitialise()
         }
     }
 
-    qDebug() << "job size:" << sum;
+    //qDebug() << "job size:" << sum;
     d->progressTotal = sum;
     d->progressTotal += tables.count() * NUM_OF_ROWS_PER_CREATE_TABLE;
     d->progressTotal = d->progressTotal * 105 / 100; //add 5 percent for above task 1)
@@ -687,9 +687,9 @@ void KexiMigrate::updateProgress(qulonglong step)
     if (d->progressTotal > 0 && d->progressDone >= d->progressNextReport) {
         int percent = (d->progressDone + 1) * 100 / d->progressTotal;
         d->progressNextReport = ((percent + 1) * d->progressTotal) / 100;
-        qDebug() << (ulong)d->progressDone << "/"
-            << (ulong)d->progressTotal << " (" << percent << "%) next report at"
-            << (ulong)d->progressNextReport;
+        /*qDebug() << (ulong)d->progressDone << "/"
+            << (ulong)d->progressTotal << "(" << percent << "%) next report at"
+            << (ulong)d->progressNextReport;*/
         emit progressPercent(percent);
     }
 }
@@ -823,7 +823,7 @@ bool KexiMigrate::readTableSchema(const QString& originalName, KDbTableSchema *t
 bool KexiMigrate::tableNames(QStringList *tn)
 {
     //! @todo Cache list of table names
-    qDebug() << "Reading list of tables...";
+    //qDebug() << "Reading list of tables...";
     tn->clear();
     return drv_tableNames(tn);
 }

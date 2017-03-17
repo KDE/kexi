@@ -11,8 +11,11 @@ endif()
 
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44023)
 
-include_directories(${CMAKE_SOURCE_DIR}/src/widget/tableview ${CMAKE_SOURCE_DIR}/src/core)
-
+include_directories(
+    ${CMAKE_SOURCE_DIR}/src/widget/tableview
+    ${CMAKE_SOURCE_DIR}/src/core
+    ${CMAKE_SOURCE_DIR}/src/kexiutils/style
+)
 
 ########### next target ###############
 
@@ -28,10 +31,11 @@ set(kexiextendedwidgets_LIB_SRCS
     navigator/KexiProjectNavigator.cpp
     navigator/KexiProjectTreeView.cpp
 
+    properties/KexiPropertyPaneWidget.cpp
     properties/KexiCustomPropertyFactory.cpp
     properties/KexiCustomPropertyFactory_p.cpp
-    properties/KexiPropertyEditorView.cpp
-    properties/KexiPropertyPaneViewBase.cpp
+    properties/KexiObjectInfoWidget.cpp
+    properties/KexiPropertyPaneLineEdit.cpp
 
     kexiquerydesignersqleditor.cpp
     kexiqueryparameters.cpp
@@ -39,7 +43,6 @@ set(kexiextendedwidgets_LIB_SRCS
     kexidbdrivercombobox.cpp
     kexieditor.cpp
     KexiDataSourceComboBox.cpp
-    KexiObjectInfoLabel.cpp
     kexicharencodingcombobox.cpp
     KexiDBTitlePage.cpp
     KexiProjectSelectorWidget.cpp
@@ -49,6 +52,7 @@ set(kexiextendedwidgets_LIB_SRCS
     KexiNameDialog.cpp
     KexiStartupFileHandler.cpp
     KexiListView.cpp
+    KexiWidgetWidthAnimator.cpp
   )
 
 if (KEXI_MOBILE)
@@ -100,6 +104,7 @@ target_link_libraries(kexiextendedwidgets
     PUBLIC
         KF5::KIOFileWidgets # KFileWidget
         KF5::TextEditor
+        KF5::ConfigWidgets
 )
 
 install(TARGETS kexiextendedwidgets  ${INSTALL_TARGETS_DEFAULT_ARGS})

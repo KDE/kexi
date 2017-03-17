@@ -94,7 +94,7 @@ bool SpreadsheetMigrate::drv_tableNames(QStringList& tablenames)
 {
     QList<Calligra::Sheets::Sheet*> sheets = m_KSDoc->map()->sheetList();
 
-    qDebug() << sheets.size() << "sheets" << m_KSDoc->map()->sheetList().size();
+    //qDebug() << sheets.size() << "sheets" << m_KSDoc->map()->sheetList().size();
 
     foreach(Calligra::Sheets::Sheet *sheet, sheets) {
         tablenames << sheet->sheetName();
@@ -158,7 +158,7 @@ bool SpreadsheetMigrate::drv_readTableSchema(const QString& originalName, KexiDB
           ok = false;
           break;
       }
-      qDebug() << fieldName;
+      //qDebug() << fieldName;
       col++;
   }
   

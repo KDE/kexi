@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -27,8 +27,8 @@
 #include <KLocalizedString>
 #include <KPluginFactory>
 
-class QTabWidget;
 class KexiWindow;
+class KexiPropertyPaneWidget;
 
 namespace KexiPart
 {
@@ -76,13 +76,13 @@ public:
                                          KexiWindow *window) const;
 
     /*! @internal
-     This method can be reimplemented to setup additional tabs
-     in the property editor panel. Default implementation does nothing.
+     This method can be reimplemented to setup additional property pane items.
+     Default implementation does nothing.
      This method is called whenever current window (KexiWindow) is switched and
-     type (mime type) of its contents differs from previous one.
+     type (mime type) of its contents differs from the previous one.
      For example, if a user switched from Table Designer to Form Designer,
-     additional tab containing Form Designer's object tree should be shown. */
-    virtual void setupCustomPropertyPanelTabs(QTabWidget *tab);
+     additional item containing Form Designer's object tree should be added. */
+    virtual void setupPropertyPane(KexiPropertyPaneWidget *pane);
 
 protected:
     /*!

@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2004 Cedric Pasteur <cedric.pasteur@free.fr>
-   Copyright (C) 2004-2009 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -19,7 +19,7 @@
 */
 
 #include "KexiPropertyEditorView.h"
-#include "KexiObjectInfoLabel.h"
+#include "KexiObjectInfoWidget.h"
 #include <KexiMainWindowIface.h>
 #include <KPropertySet>
 #include <KPropertyEditorView>
@@ -35,24 +35,29 @@ class Q_DECL_HIDDEN KexiPropertyEditorView::Private
 public:
     Private() {
     }
+    QVBoxLayout *mainLayout;
+    KexiObjectInfoWidget *infoLabel;
     KPropertyEditorView *editor;
 };
 
 KexiPropertyEditorView::KexiPropertyEditorView(QWidget* parent)
-        : KexiPropertyPaneViewBase(parent)
+        : QWidget(parent)
         , d(new Private())
 {
     setObjectName("KexiPropertyEditorView");
-    setWindowTitle(xi18nc("@title:window", "Properties"));
-    //! @todo set a nice icon
-//    setWindowIcon(KexiMainWindowIface::global()->thisWidget()->windowIcon());
+
+    d->mainLayout = new QVBoxLayout(this);
+    d->mainLayout->setContentsMargins(0, 0, 0, 0);
+    d->mainLayout->setSpacing(0);
+
+    d->infoLabel = new KexiObjectInfoWidget;
+    d->mainLayout->addWidget(d->infoLabel);
 
     d->editor = new KPropertyEditorView(this);
     d->editor->setGridLineColor(QColor());
     d->editor->setFrameShape(QFrame::NoFrame);
-    layout()->addWidget(d->editor);
+    d->mainLayout->addWidget(d->editor);
     setFocusProxy(d->editor);
-    infoLabel()->setBuddy(d->editor);
     setFocusPolicy(Qt::WheelFocus);
 
     connect(d->editor, SIGNAL(propertySetChanged(KPropertySet*)),
@@ -83,8 +88,40 @@ KPropertyEditorView *KexiPropertyEditorView::editor() const
 
 void KexiPropertyEditorView::slotPropertySetChanged(KPropertySet* set)
 {
-    //update information about selected object
-    updateInfoLabelForPropertySet(set);
+    QString className, iconName, objectName;
+    if (set) {
+        className = set->propertyValue("this:classString").toString();
+        iconName = set->propertyValue("this:iconName").toString();
+        const bool useCaptionAsObjectName
+            = set->propertyValue("this:useCaptionAsObjectName", false).toBool();
+        objectName = set->propertyValue(
+            useCaptionAsObjectName ? "caption" : "objectName").toString();
+        if (objectName.isEmpty() && useCaptionAsObjectName) {
+            // get name if there is no caption
+            objectName = set->propertyValue("objectName").toString();
+        }
+    }
+    if (!set || objectName.isEmpty()) {
+//! @todo don't hardcode
+        QString textToDisplayForNullSet(xi18n("No field selected"));
+        objectName = textToDisplayForNullSet;
+        className.clear();
+        iconName.clear();
+    }
+
+    if (className.isEmpty() && objectName.isEmpty())
+        d->infoLabel->hide();
+    else
+        d->infoLabel->show();
+
+    if (d->infoLabel->objectClassName() == className
+            && d->infoLabel->objectClassIconName() == iconName
+            && d->infoLabel->objectName() == objectName)
+        return;
+
+    d->infoLabel->setObjectClassIconName(iconName);
+    d->infoLabel->setObjectClassName(className);
+    d->infoLabel->setObjectName(objectName);
+
     d->editor->setEnabled(set);
 }
-

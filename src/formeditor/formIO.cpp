@@ -275,7 +275,7 @@ FormIO::loadFormFromString(Form *form, QWidget *container, const QString &src, b
 
     if (!parsed) {
         qWarning() << errMsg;
-        qWarning() << "line:" << errLine << "col: " << errCol;
+        qWarning() << "line:" << errLine << "col:" << errCol;
         return false;
     }
 
@@ -311,7 +311,7 @@ FormIO::loadFormFromFile(Form *form, QWidget *container, const QString &filename
     QFile file(_filename);
     if (!file.open(QIODevice::ReadOnly)) {
 //! @todo show err msg to the user
-        qWarning() << "Cannot open the file " << _filename;
+        qWarning() << "Cannot open the file" << _filename;
         return false;
     }
     QDomDocument doc;
@@ -342,8 +342,8 @@ bool FormIO::loadFormFromDom(Form *form, QWidget *container, const QDomDocument 
         }
     }
     //update format version information
-    QString ver = form->headerProperties()->value("version");
-    qDebug() << "Original format version: " << ver;
+    const QString ver = form->headerProperties()->value("version");
+    //qDebug() << "Original format version:" << ver;
     form->setOriginalFormatVersion(ver);
     bool verOk;
     const double verNum = ver.toDouble(&verOk);
@@ -418,7 +418,7 @@ FormIO::savePropertyValue(ObjectTreeItem *item, QDomElement &parentNode, QDomDoc
                           const char *name, const QVariant &value)
 {
     // Widget specific properties and attributes
-// qDebug() << "Saving the property: " << name;
+// qDebug() << "Saving the property:" << name;
     Form *form = item->container() ? item->container()->form() : item->parent()->container()->form();
     WidgetWithSubpropertiesInterface* subpropIface = dynamic_cast<WidgetWithSubpropertiesInterface*>(item->widget());
     QWidget *subwidget = item->widget();
@@ -431,7 +431,7 @@ FormIO::savePropertyValue(ObjectTreeItem *item, QDomElement &parentNode, QDomDoc
         addSubwidgetFlag = true;
     }
     if (!propertyIsName && propertyId == -1) {
-        qDebug() << "The object doesn't have this property. Let's try the WidgetLibrary.";
+        //qDebug() << "The object doesn't have this property. Let's try the WidgetLibrary.";
         if (form->library())
             form->library()->saveSpecialProperty(item->widget()->metaObject()->className(), name, value,
                                                  item->widget(), parentNode, parent);
@@ -1226,8 +1226,8 @@ FormIO::createToplevelWidget(Form *form, QWidget *container, QDomElement &el)
     {
         ObjectTreeItem *item = form->objectTree()->lookup(it.key());
         if (!item || !item->widget()) {
-            qDebug() << "Cannot assign buddy for widget "
-                << it.value()->objectName() << " to " << it.key();
+            qDebug() << "Cannot assign buddy for widget"
+                     << it.value()->objectName() << "to" << it.key();
             continue;
         }
         it.value()->setBuddy(item->widget());

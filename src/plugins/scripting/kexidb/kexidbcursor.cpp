@@ -114,13 +114,13 @@ bool KexiDBCursor::setValue(int index, QVariant value)
 {
     KDbQuerySchema* query = m_cursor->query();
     if (! query) {
-        qWarning() << "Invalid query, index=" << index << " value=" << value;
+        qWarning() << "Invalid query, index=" << index << "value=" << value;
         return false;
     }
 
     KDbQueryColumnInfo* column = query->fieldsExpanded().at(index);
     if (! column) {
-        qWarning() << "Invalid column, index=" << index << " value=" << value;
+        qWarning() << "Invalid column, index=" << index << "value=" << value;
         return false;
     }
 

@@ -28,6 +28,25 @@
 
 #include "kexiextwidgets_export.h"
 
+//! Default delegate for KexiListView
+class KEXIEXTWIDGETS_EXPORT KexiListViewDelegate : public QAbstractItemDelegate
+{
+    Q_OBJECT
+
+public:
+    explicit KexiListViewDelegate(QObject *parent = 0);
+
+    void paint(QPainter *painter, const QStyleOptionViewItem &option,
+               const QModelIndex &index) const Q_DECL_OVERRIDE;
+    QSize sizeHint(const QStyleOptionViewItem &option,
+                   const QModelIndex &index) const Q_DECL_OVERRIDE;
+
+private:
+    void drawFocus(QPainter *, const QStyleOptionViewItem &, const QRect &) const;
+    void paint(QPainter *painter, const QStyle &style, QStyleOptionViewItem *option,
+               const QModelIndex &index) const;
+};
+
 class KEXIEXTWIDGETS_EXPORT KexiListView : public QListView
 {
     Q_OBJECT
@@ -38,6 +57,18 @@ public:
     virtual ~KexiListView();
 
     void setModel(QAbstractItemModel *model) Q_DECL_OVERRIDE;
+
+protected:
+    //! Used in KexiListView(UseDelegate, QWidget*)
+    enum UseDelegate
+    {
+        UseDefaultDelegate,
+        DontUseDelegate
+    };
+
+    //! Alternative constructor, the same as the default but if @a useDelegate is DontUseDelegate,
+    //! delegate is not set. This allows to replace delegate.
+    KexiListView(UseDelegate useDelegate = UseDefaultDelegate, QWidget *parent = 0);
 
 private Q_SLOTS:
     void updateWidth();

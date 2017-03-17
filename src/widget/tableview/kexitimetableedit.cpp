@@ -37,7 +37,7 @@ KexiTimeTableEdit::KexiTimeTableEdit(KDbTableViewColumn &column, QWidget *parent
 
 //! @todo add QValidator so time like "99:88:77" cannot be even entered
 
-    qDebug() << m_formatter.inputMask();
+    //qDebug() << m_formatter.inputMask();
     m_lineedit->setInputMask(m_formatter.inputMask());
 }
 
@@ -116,7 +116,7 @@ bool KexiTimeTableEdit::valueIsValid()
 
 bool KexiTimeTableEdit::valueChanged()
 {
-    qDebug() << KexiDataItemInterface::originalValue().toString() << " ? " << m_lineedit->text();
+    //qDebug() << KexiDataItemInterface::originalValue().toString() << "?" << m_lineedit->text();
     return KexiDataItemInterface::originalValue() != m_lineedit->text();
 }
 

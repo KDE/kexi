@@ -195,7 +195,7 @@ KexiFormView::KexiFormView(QWidget *parent, bool dbAware)
 KexiFormView::~KexiFormView()
 {
     deleteQuery();
-    propertySetSwitched();
+    KexiDataAwareView::propertySetSwitched();
     delete d;
 }
 
@@ -386,7 +386,7 @@ void KexiFormView::updateValuesForSubproperties()
                 subpropIt != subprops->constEnd(); ++subpropIt)
             {
                 //qDebug() << "delayed setting of the subproperty: widget="
-                //    << item->widget()->objectName() << " prop=" << subpropIt.key() << " val="
+                //    << item->widget()->objectName() << "prop=" << subpropIt.key() << "val="
                 //    << subpropIt.value();
 
                 QMetaProperty meta = KexiUtils::findPropertyWithSuperclasses(
@@ -691,7 +691,7 @@ void KexiFormView::initDataSource()
                 //remove this widget from the set of data widgets in the provider
                 /*! @todo fieldName is ok, but what about expressions? */
                 invalidSources.insert(fieldName);
-                //qDebug() << "invalidSources+=" << index << " (" << (*it) << ")";
+                //qDebug() << "invalidSources+=" << index << "(" << (*it) << ")";
                 continue;
             }
             if (tableSchema) {
@@ -706,7 +706,7 @@ void KexiFormView::initDataSource()
             deleteQuery();
         }
         else {
-            qDebug() << d->query->parameters();
+            //qDebug() << d->query->parameters();
             // like in KexiQueryView::executeQuery()
             QList<QVariant> params;
             {
@@ -812,7 +812,7 @@ KexiFormView::storeData(bool dontAsk)
                 qWarning() << "it.key()==0 !";
                 continue;
             }
-            //qDebug() << "name=" << it.key()->objectName() << " dataID=" << it.value();
+            //qDebug() << "name=" << it.key()->objectName() << "dataID=" << it.value();
             KexiBLOBBuffer::Handle h(blobBuf->objectForId(it.value(), /*!stored*/false));
             if (!h)
                 continue; //no BLOB assigned
@@ -1059,9 +1059,8 @@ void
 KexiFormView::updateDataSourcePage()
 {
     if (viewMode() == Kexi::DesignViewMode) {
-        KPropertySet *set = form()->propertySet();
-        const QString dataSourcePartClass = set->propertyValue("dataSourcePartClass").toString();
-        const QString dataSource = set->propertyValue("dataSource").toString();
+        const QString dataSourcePartClass = d->dbform->dataSourcePluginId();
+        const QString dataSource = d->dbform->dataSource();
         formPart()->dataSourcePage()->setFormDataSource(dataSourcePartClass, dataSource);
     }
 }
@@ -1257,7 +1256,6 @@ void KexiFormView::slotWidgetNameChanged(const QByteArray& oldname, const QByteA
     Q_UNUSED(newname);
     //qDebug() << oldname << newname << form()->propertySet().propertyValue("objectName").toString();
     KexiMainWindowIface::global()->updatePropertyEditorInfoLabel();
-    formPart()->dataSourcePage()->updateInfoLabelForPropertySet(form()->propertySet());
 }
 
 void KexiFormView::slotWidgetSelectionChanged(QWidget *w, KFormDesigner::Form::WidgetSelectionFlags flags)

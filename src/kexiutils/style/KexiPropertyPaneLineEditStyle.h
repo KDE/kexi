@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2012-2017 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2016 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -17,41 +17,18 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#include "KexiTestHandler.h"
-#include <QCoreApplication>
+#ifndef KEXIPROPERTYPANELINEEDITSTYLE_H
+#define KEXIPROPERTYPANELINEEDITSTYLE_H
 
-class KexiTestHandler::Private
-{
-public:
-    Private() {}
-    QList<QCommandLineOption> extraOptions;
-};
+#include <KColorScheme>
+#include <KColorUtils>
 
-KexiTestHandler::KexiTestHandler()
- : d(new Private)
-{
-}
+#include <QDebug>
+#include <QEvent>
+#include <QProxyStyle>
+#include <QStyleOption>
 
-KexiTestHandler::~KexiTestHandler()
-{
-    delete d;
-}
+//! @internal sets style for KexiPropertyPaneLineEdit
+void alterPropertyPaneLineEditProxyStyle(QWidget *w);
 
-QList<QCommandLineOption> KexiTestHandler::extraOptions() const
-{
-    return d->extraOptions;
-}
-
-void KexiTestHandler::addExtraOption(const QCommandLineOption &option)
-{
-    d->extraOptions.append(option);
-}
-
-void KexiTestHandler::removeOwnOptions(QStringList *args)
-{
-    for(const QCommandLineOption &extraOption : d->extraOptions) {
-        for(const QString &name : extraOption.names()) {
-            args->removeOne("--" + name);
-        }
-    }
-}
+#endif

@@ -34,6 +34,7 @@
 #include <kexiutils/utils.h>
 #include <KexiIcon.h>
 #include <core/kexi.h>
+#include <KexiMainWindowIface.h>
 
 #include <kundo2stack.h>
 
@@ -55,6 +56,7 @@
 #include <QDebug>
 #include <QFontDialog>
 #include <QMimeData>
+#include <QTimer>
 
 using namespace KFormDesigner;
 
@@ -273,8 +275,8 @@ Container* Form::toplevelContainer() const
 
 void Form::createToplevel(QWidget *container, FormWidget *formWidget, const QByteArray &)
 {
-    //qDebug() << "container= " << (container ? container->objectName() : "<NULL>")
-    //         << " formWidget=" << formWidget;
+    //qDebug() << "container=" << (container ? container->objectName() : "<NULL>")
+    //         << "formWidget=" << formWidget;
 
     setFormWidget(formWidget);
     d->toplevel = new Container(0, container, this);
@@ -396,8 +398,15 @@ void Form::setMode(Mode mode)
 
 void Form::selectWidget(QWidget *w, WidgetSelectionFlags flags)
 {
-    if (!d->selectWidgetEnabled)
+    if (!d->selectWidgetEnabled) {
         return;
+    }
+    if (selectedWidget() && !checkNameValidity(d->propertySet.propertyValue("objectName").toString(), CheckValidityOnly)) {
+        // current selection has invalid objectName: don't allow to switch so user is able to fix it!
+        //qDebug() << "disallow!";
+        return;
+    }
+
     d->selectWidgetEnabled = false;
     selectWidgetInternal(w, flags);
     d->selectWidgetEnabled = true;
@@ -865,7 +874,7 @@ static void collectContainers(ObjectTreeItem* item, QSet<Container*>& containers
         return;
     if (!containers.contains(item->container())) {
         //qDebug() << item->container()->objectTree()->className()
-        //         << " " << item->container()->objectTree()->name();
+        //         << item->container()->objectTree()->name();
         containers.insert(item->container());
     }
     foreach (ObjectTreeItem *child, *item->children()) {
@@ -885,7 +894,7 @@ void Form::autoAssignTabStops()
 
     foreach (ObjectTreeItem *item, d->tabstops) {
         if (item->widget()) {
-            //qDebug() << "Widget to sort: " << item->widget();
+            //qDebug() << "Widget to sort:" << item->widget();
             list.append(item->widget());
         }
     }
@@ -933,7 +942,7 @@ void Form::autoAssignTabStops()
         foreach (QWidget *w, hlist) {
             ObjectTreeItem *tree = d->topTree->lookup(w->objectName());
             if (tree) {
-                //qDebug() << "adding " << tree->name();
+                //qDebug() << "adding" << tree->name();
                 d->tabstops.append(tree);
             }
         }
@@ -1220,8 +1229,11 @@ void Form::slotPropertyChanged(KPropertySet& set, KProperty& p)
             qWarning() << "changing objectName property only allowed for single selection";
             return;
         }
-        if (!isNameValid(value.toString()))
+        if (!checkNameValidity(value.toString(), CheckValidityOnly)) {
+            // Tricky: revert later so if there's selectWidget() before, we can cancel selectWidget()
+            QTimer::singleShot(500, this, &Form::checkNameValidityForSelection);
             return;
+        }
     }
     else if (property == "paletteBackgroundPixmap") {
         // a widget with a background pixmap should have its own origin
@@ -1307,39 +1319,51 @@ void Form::slotPropertyReset(KPropertySet& set, KProperty& property)
     }
 }
 
-bool Form::isNameValid(const QString &name) const
+bool Form::checkNameValidity(const QString &name, CheckValidityMode mode) const
 {
     if (d->selected.isEmpty())
         return false;
 //! @todo add to the undo buffer
     QWidget *w = d->selected.first();
-    //also update widget's name in QObject member
-    if (!KDb::isIdentifier(name)) {
-        KMessageBox::sorry(widget(),
-                           xi18nc("@info",
-                                  "Could not rename widget <resource>%1</resource> to "
-                                  "<resource>%2</resource> because "
-                                  "<resource>%3</resource> is not a valid name (identifier) for a widget.",
-                                  w->objectName(), name, name));
-        d->slotPropertyChangedEnabled = false;
-        d->propertySet["objectName"].resetValue();
-        d->slotPropertyChangedEnabled = true;
+
+    if (name.isEmpty()) {
+        if (mode == CheckValidityShowMessages) {
+            KMessageBox::sorry(widget(), xi18n("Widget name could not be empty."));
+        }
         return false;
     }
-
-    if (objectTree()->lookup(name)) {
-        KMessageBox::sorry(widget(),
-                           xi18nc("@info",
-                                  "Could not rename widget <resource>%1</resource> to <resource>%2</resource> "
-                                  "because a widget with the name <resource>%3</resource> already exists.",
-                                  w->objectName(), name, name));
-        d->slotPropertyChangedEnabled = false;
-        d->propertySet["objectName"].resetValue();
-        d->slotPropertyChangedEnabled = true;
+    if (!KDb::isIdentifier(name)) {
+        if (mode == CheckValidityShowMessages) {
+            KMessageBox::sorry(widget(),
+                               xi18nc("@info",
+                                      "Could not rename widget <resource>%1</resource> to "
+                                      "<resource>%2</resource> because "
+                                      "<resource>%3</resource> is not a valid name (identifier) for a widget.",
+                                    w->objectName(), name, name));
+        }
+        return false;
+    }
+    if (name != w->objectName() && objectTree()->lookup(name)) {
+        if (mode == CheckValidityShowMessages) {
+            KMessageBox::sorry(widget(),
+                               xi18nc("@info",
+                                      "Could not rename widget <resource>%1</resource> to <resource>%2</resource> "
+                                      "because a widget with the name <resource>%3</resource> already exists.",
+                                      w->objectName(), name, name));
+        }
         return false;
     }
 
     return true;
+}
+
+void Form::checkNameValidityForSelection()
+{
+    if (!checkNameValidity(d->propertySet.propertyValue("objectName").toString(), CheckValidityShowMessages)) {
+        KexiUtils::BoolBlocker blocker(&d->slotPropertyChangedEnabled, false);
+        d->propertySet["objectName"].resetValue();
+        KexiMainWindowIface::global()->updatePropertyEditorInfoLabel();
+    }
 }
 
 void Form::undo()
@@ -1485,13 +1509,13 @@ void Form::createPropertiesForWidget(QWidget *w)
         const QSet<QByteArray> subproperties(subpropIface->subproperties());
         foreach(const QByteArray& propName, subproperties) {
             propNames.insert(propName);
-            //qDebug() << "Added subproperty: " << propName;
+            //qDebug() << "Added subproperty:" << propName;
         }
     }
 
     // iterate over the property list, and create Property objects
     foreach(const QByteArray& propName, propNames) {
-        //qDebug() << ">> " << propName;
+        //qDebug() << ">>" << propName;
         const QMetaProperty subMeta = // special case - subproperty
             subpropIface ? subpropIface->findMetaSubproperty(propName) : QMetaProperty();
         const QMetaProperty meta = subMeta.isValid() ? subMeta
@@ -1506,7 +1530,7 @@ void Form::createPropertiesForWidget(QWidget *w)
                              : w;
         WidgetInfo *subwinfo = subwidget ? library()->widgetInfoForClassName(
                                    subwidget->metaObject()->className()) : 0;
-//  qDebug() << "$$$ " << subwidget->className();
+//  qDebug() << "$$$" << subwidget->className();
 
         if (   subwinfo
             && meta.isDesignable(subwidget)
@@ -1646,6 +1670,7 @@ void Form::updatePropertiesForSelection(QWidget *w, WidgetSelectionFlags flags)
 //! @todo clearSet()?
         return;
     }
+    KexiMainWindowIface::global()->beginPropertyPaneUpdate();
 
     // if our list is empty,don't use add parameter value
     if (d->selected.isEmpty() == 0) {
@@ -1664,7 +1689,8 @@ void Form::updatePropertiesForSelection(QWidget *w, WidgetSelectionFlags flags)
     if (flags & LastSelection) {
         emit propertySetSwitched();
     }
- }
+    KexiMainWindowIface::global()->endPropertyPaneUpdate();
+}
 
 KPropertySet* Form::propertySet()
 {

@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2006-2008 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2006-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -20,7 +20,6 @@
 #include "kexilookupcolumnpage.h"
 #include <KexiIcon.h>
 
-#include <widget/properties/KexiPropertyPaneViewBase.h>
 #include <widget/KexiDataSourceComboBox.h>
 #include <widget/fields/KexiFieldListView.h>
 #include <widget/fields/KexiFieldComboBox.h>
@@ -89,11 +88,8 @@ public:
         propertySet->changeProperty(propertyName, value);
     }
 
-    void updateInfoLabelForPropertySet(const QString& textToDisplayForNullSet) {
-        q->updateInfoLabelForPropertySet( propertySet, textToDisplayForNullSet);
-    }
-
     KexiLookupColumnPage *q;
+    QVBoxLayout *mainLyr;
     KexiDataSourceComboBox *rowSourceCombo;
     KexiFieldComboBox *boundColumnCombo, *visibleColumnCombo;
     QLabel *rowSourceLabel, *boundColumnLabel, *visibleColumnLabel;
@@ -114,7 +110,7 @@ private:
 //----------------------------------------------
 
 KexiLookupColumnPage::KexiLookupColumnPage(QWidget *parent)
-        : KexiPropertyPaneViewBase(parent)
+        : QWidget(parent)
         , d(new Private(this))
 {
     setObjectName("KexiLookupColumnPage");
@@ -124,8 +120,10 @@ KexiLookupColumnPage::KexiLookupColumnPage(QWidget *parent)
 
     //-Record Source
 
+    d->mainLyr = new QVBoxLayout(this);
+    d->mainLyr->setContentsMargins(0, 0, 0, 0);
     QHBoxLayout *hlyr = new QHBoxLayout();
-    mainLayout()->addLayout(hlyr);
+    d->mainLyr->addLayout(hlyr);
     d->rowSourceLabel = new QLabel(xi18n("Record source:"));
     d->rowSourceLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
     d->rowSourceLabel->setMinimumHeight(IconSize(KIconLoader::Small) + 4);
@@ -142,7 +140,7 @@ KexiLookupColumnPage::KexiLookupColumnPage(QWidget *parent)
     d->rowSourceCombo = new KexiDataSourceComboBox;
     d->rowSourceCombo->setObjectName("rowSourceCombo");
     d->rowSourceLabel->setBuddy(d->rowSourceCombo);
-    mainLayout()->addWidget(d->rowSourceCombo);
+    d->mainLyr->addWidget(d->rowSourceCombo);
 
     addWidgetSpacer();
 
@@ -151,12 +149,12 @@ KexiLookupColumnPage::KexiLookupColumnPage(QWidget *parent)
     d->boundColumnLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
     d->boundColumnLabel->setMinimumHeight(IconSize(KIconLoader::Small) + 4);
     d->boundColumnLabel->setAlignment(Qt::AlignLeft | Qt::AlignBottom);
-    mainLayout()->addWidget(d->boundColumnLabel);
+    d->mainLyr->addWidget(d->boundColumnLabel);
 
     d->boundColumnCombo = new KexiFieldComboBox();
     d->boundColumnCombo->setObjectName("boundColumnCombo");
     d->boundColumnLabel->setBuddy(d->boundColumnCombo);
-    mainLayout()->addWidget(d->boundColumnCombo);
+    d->mainLyr->addWidget(d->boundColumnCombo);
 
     addWidgetSpacer();
 
@@ -165,14 +163,14 @@ KexiLookupColumnPage::KexiLookupColumnPage(QWidget *parent)
     d->visibleColumnLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
     d->visibleColumnLabel->setMinimumHeight(IconSize(KIconLoader::Small) + 4);
     d->visibleColumnLabel->setAlignment(Qt::AlignLeft | Qt::AlignBottom);
-    mainLayout()->addWidget(d->visibleColumnLabel);
+    d->mainLyr->addWidget(d->visibleColumnLabel);
 
     d->visibleColumnCombo = new KexiFieldComboBox;
     d->visibleColumnCombo->setObjectName("visibleColumnCombo");
     d->visibleColumnLabel->setBuddy(d->visibleColumnCombo);
-    mainLayout()->addWidget(d->visibleColumnCombo);
+    d->mainLyr->addWidget(d->visibleColumnCombo);
 
-    mainLayout()->addStretch(1);
+    d->mainLyr->addStretch(1);
 
     connect(d->rowSourceCombo, SIGNAL(editTextChanged(QString)),
             this, SLOT(slotRowSourceTextChanged(QString)));
@@ -209,7 +207,6 @@ void KexiLookupColumnPage::assignPropertySet(KPropertySet* propertySet)
 
     d->propertySetEnabled = false;
     d->setPropertySet(propertySet);
-    d->updateInfoLabelForPropertySet(xi18n("No field selected"));
 
     const bool hasRowSource = d->hasPropertySet() && !d->propertyValue("rowSourceType").isNull()
                               && !d->propertyValue("rowSource").isNull();
@@ -374,3 +371,13 @@ void KexiLookupColumnPage::updateBoundColumnWidgetsAvailability()
     d->visibleColumnLabel->setEnabled(hasRowSource);
 }
 
+QWidget* KexiLookupColumnPage::addWidgetSpacer()
+{
+    //! @todo
+    QWidget *sp = new QWidget(this);
+    const int spacing = fontMetrics().height() * 2 / 3;
+    sp->setFixedHeight(spacing);
+    sp->setContentsMargins(0, 0, 0, 0);
+    d->mainLyr->addWidget(sp);
+    return sp;
+}

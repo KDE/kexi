@@ -760,20 +760,20 @@ KexiMigrate* ImportWizard::prepareImport(Kexi::ObjectStatus& result)
     if (!result.error()) {
         if (d->dstConn->selectedConnectionData()) {
             //server-based project
-            qDebug() << "Server destination...";
+            //qDebug() << "Server destination...";
             cdata = d->dstConn->selectedConnectionData();
             dbname = d->dstNewDBNameLineEdit->text();
         }
         else {
             //file-based project
-            qDebug() << "File Destination...";
+            //qDebug() << "File Destination...";
             cdata = new KDbConnectionData();
             cdataDeleter.reset(cdata); // ownership won't be transferred
             cdata->setCaption(d->dstNewDBTitleLineEdit->text());
             cdata->setDriverId(KDb::defaultFileBasedDriverId());
             dbname = d->dstTitlePageWidget->file_requester->url().toLocalFile();
             cdata->setDatabaseName(dbname);
-            qDebug() << "Current file name:" << dbname;
+            //qDebug() << "Current file name:" << dbname;
         }
     }
 
@@ -789,7 +789,7 @@ KexiMigrate* ImportWizard::prepareImport(Kexi::ObjectStatus& result)
     if (!result.error()) {
         sourceDriver = d->migrateManager.driver(d->driverIdForSelectedSource);
         if (!sourceDriver || d->migrateManager.result().isError()) {
-            qDebug() << "Import migrate driver error...";
+            qWarning() << "Import migrate driver error...";
             result.setStatus(d->migrateManager.resultable());
         }
     }
@@ -810,13 +810,13 @@ KexiMigrate* ImportWizard::prepareImport(Kexi::ObjectStatus& result)
 
         bool keepData;
         if (d->importTypeStructureAndDataCheckBox->isChecked()) {
-            qDebug() << "Structure and data selected";
+            //qDebug() << "Structure and data selected";
             keepData = true;
         } else if (d->importTypeStructureOnlyCheckBox->isChecked()) {
-            qDebug() << "structure only selected";
+            //qDebug() << "structure only selected";
             keepData = false;
         } else {
-            qDebug() << "Neither radio button is selected (not possible?) presume keep data";
+            //qDebug() << "Neither radio button is selected (not possible?) presume keep data";
             keepData = true;
         }
 
@@ -861,13 +861,13 @@ tristate ImportWizard::import()
                                           );
         }
         if (!sourceDriver->checkIfDestinationDatabaseOverwritingNeedsAccepting(&result, &acceptingNeeded)) {
-            qDebug() << "Abort import cause checkIfDestinationDatabaseOverwritingNeedsAccepting "
-            "returned false.";
+            //qDebug() << "Abort import cause checkIfDestinationDatabaseOverwritingNeedsAccepting "
+            //            "returned false.";
             return false;
         }
 
-        qDebug() << sourceDriver->data()->destinationProjectData()->databaseName();
-        qDebug() << "Performing import...";
+        //qDebug() << sourceDriver->data()->destinationProjectData()->databaseName();
+        //qDebug() << "Performing import...";
     }
 
     if (sourceDriver && !result.error() && acceptingNeeded) {
@@ -915,7 +915,7 @@ tristate ImportWizard::import()
         KexiTextMessageHandler handler(&msg, &details);
         handler.showErrorMessage(&result);
 
-        qDebug() << msg << "\n" << details;
+        //qDebug() << msg << "\n" << details;
 
         d->finishPageItem->setHeader(xi18n("Failure"));
         // note: we're using .arg() here because the msg and details arguments are already in rich-text format

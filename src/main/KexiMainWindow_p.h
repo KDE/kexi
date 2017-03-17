@@ -32,6 +32,8 @@
 #include <QTimer>
 #include <QDockWidget>
 #include <QShortcut>
+#include <QStackedWidget>
+#include <QMenu>
 
 #include <KToolBar>
 #include <KHelpMenu>
@@ -39,7 +41,6 @@
 #include <KActionCollection>
 #include <KMultiTabBar>
 #include <KActionMenu>
-#include <KMainWindow>
 #include <KSharedConfig>
 
 #include "KexiMainWindow.h"
@@ -48,13 +49,14 @@
 #include "KexiMenuWidget.h"
 #include "kexifinddialog.h"
 #include "KexiStartup.h"
+#include "KexiGlobalViewModeSelector.h"
 #include <kexiutils/utils.h>
 #include <widget/utils/KexiDockableWidget.h>
-#include <widget/properties/KexiPropertyEditorView.h>
 #include <widget/KexiNameDialog.h>
 #include <core/kexi.h>
 #include <core/KexiWindow.h>
 #include <core/kexipartinfo.h>
+#include <KexiFadeWidgetEffect.h>
 
 #define KEXI_NO_PROCESS_EVENTS
 
@@ -68,6 +70,7 @@
 
 class QPainter;
 class KexiProjectNavigator;
+class KPropertyEditorView;
 
 //! @short Main application's tabbed toolbar
 class KexiTabbedToolBar : public QTabWidget
@@ -91,8 +94,6 @@ public:
     bool mainMenuVisible() const;
 
     QRect tabRect(int index) const;
-
-    KHelpMenu *helpMenu() const;
 
     void addSearchableModel(KexiSearchableModel *model);
 
@@ -141,23 +142,6 @@ private:
 
     class Private;
     Private * const d;
-};
-
-//! @internal window container created to speedup opening new tabs
-class KexiWindowContainer : public QWidget
-{
-    Q_OBJECT
-public:
-    explicit KexiWindowContainer(QWidget* parent);
-
-    virtual ~KexiWindowContainer();
-
-    void setWindow(KexiWindow* w);
-
-    QPointer<KexiWindow> window;
-
-private:
-    QVBoxLayout *lyr;
 };
 
 class EmptyMenuContentWidget : public QWidget
@@ -276,7 +260,6 @@ public:
     QPropertyAnimation tabBarAnimation;
     QGraphicsOpacityEffect tabBarOpacityEffect;
     int rolledUpIndex;
-    KHelpMenu *helpMenu;
     KexiSearchLineEdit *searchLineEdit;
     void setCurrentTab(const QString& name);
     void hideTab(const QString& name);
@@ -334,70 +317,6 @@ public:
 
     using QProxyStyle::polish;
     void polish(QWidget* widget) Q_DECL_OVERRIDE;
-};
-
-class KexiMainWidget;
-
-//! @internal tab widget acting as central widget for KexiMainWindow
-class KexiMainWindowTabWidget : public QTabWidget
-{
-    Q_OBJECT
-public:
-    KexiMainWindowTabWidget(QWidget *parent, KexiMainWidget *mainWidget);
-    virtual ~KexiMainWindowTabWidget();
-public Q_SLOTS:
-    void closeTab();
-    tristate closeAllTabs();
-
-protected:
-    //! Shows context menu for tab at @a index at point @a point.
-    //! If @a index is -1, context menu for empty area is requested.
-    void showContextMenuForTab(int index, const QPoint& point);
-
-    //! Reimplemented to hide frame when no tabs are displayed
-    virtual void paintEvent(QPaintEvent * event);
-
-    virtual void mousePressEvent(QMouseEvent *event);
-
-    KexiMainWidget *m_mainWidget;
-    QAction *m_closeAction;
-    QAction *m_closeAllTabsAction;
-
-private:
-    int m_tabIndex;
-
-    void setTabIndexFromContextMenu(int clickedIndex);
-};
-
-//! @short A widget being main part of KexiMainWindow
-class KexiMainWidget : public KMainWindow
-{
-    Q_OBJECT
-public:
-    KexiMainWidget();
-
-    virtual ~KexiMainWidget();
-
-    void setParent(KexiMainWindow* mainWindow);
-
-    KexiMainWindowTabWidget* tabWidget() const;
-
-protected:
-    virtual bool queryClose();
-protected Q_SLOTS:
-    void slotCurrentTabIndexChanged(int index);
-Q_SIGNALS:
-    void currentTabIndexChanged(int index);
-
-private:
-    void setupCentralWidget();
-
-    KexiMainWindowTabWidget* m_tabWidget;
-    KexiMainWindow *m_mainWindow;
-    QPointer<KexiWindow> m_previouslyActiveWindow;
-
-    friend class KexiMainWindow;
-    friend class KexiMainWindowTabWidget;
 };
 
 //------------------------------------------
@@ -480,10 +399,10 @@ public:
     /*! @a info can be provided to hadle cases when current window is not yet defined (in openObject()). */
     void updatePropEditorVisibility(Kexi::ViewMode viewMode, KexiPart::Info *info = 0);
 
-    void setTabBarVisible(KMultiTabBar::KMultiTabBarPosition position, int id,
-                          KexiDockWidget *dockWidget, bool visible);
+    //void setTabBarVisible(KMultiTabBar::KMultiTabBarPosition position, int id,
+    //                      KexiDockWidget *dockWidget, bool visible);
 
-    void setPropertyEditorTabBarVisible(bool visible);
+    //void setPropertyEditorTabBarVisible(bool visible);
 
     QObject *openedCustomObjectsForItem(KexiPart::Item* item, const char* name);
 
@@ -504,27 +423,40 @@ public:
     tristate showProjectMigrationWizard(
         const QString& mimeType, const QString& databaseName, const KDbConnectionData *cdata);
 
+    KPropertyEditorView *propertyEditor() const;
+
+    //! Show mode for panes
+    enum ShowMode {
+        ShowImmediately,
+        ShowAnimated
+    };
+
+    //! Sets visibility of the project navigator without or without animating it.
+    //! Related action is checked/unchecked accordingly.
+    void setProjectNavigatorVisible(bool set, ShowMode mode = ShowImmediately);
+
+    inline void addAction(QMenu *menu, const char* actionName) {
+        menu->addAction(actionCollection->action(QLatin1String(actionName)));
+    }
+
     KexiMainWindow *wnd;
-    KexiMainWidget *mainWidget;
+    QStackedWidget *globalViewStack;
+    KexiObjectViewWidget *objectViewWidget;
+    QPointer<KexiFadeWidgetEffect> propertyPaneAnimation;
     KActionCollection *actionCollection;
+    KexiGlobalViewModeSelector *modeSelector;
     KHelpMenu *helpMenu;
     KexiProject *prj;
     KSharedConfig::Ptr config;
 #ifdef KEXI_SHOW_CONTEXT_HELP
     KexiContextHelp *ctxHelp;
 #endif
-    KexiProjectNavigator *navigator;
     KexiTabbedToolBar *tabbedToolBar;
     QMap<int, QString> tabsToActivateOnShow;
-    KexiDockWidget *navDockWidget;
-    QTabWidget *propEditorTabWidget;
-    KexiDockWidget *propEditorDockWidget;
-    QPointer<KexiDockableWidget> propEditorDockableWidget;
     //! poits to kexi part which has been previously used to setup proppanel's tabs using
     //! KexiPart::setupCustomPropertyPanelTabs(), in updateCustomPropertyPanelTabs().
     QPointer<KexiPart::Part> partForPreviouslySetupPropertyPanelTabs;
     QMap<KexiPart::Part*, int> recentlySelectedPropertyPanelPages;
-    QPointer<KexiPropertyEditorView> propEditor;
     QPointer<KPropertySet> propertySet;
 
     KexiNameDialog *nameDialog;
@@ -541,14 +473,9 @@ public:
     *action_project_properties,
     *action_project_relations, *action_project_import_data_table,
     *action_project_export_data_table;
-#ifdef KEXI_QUICK_PRINTING_SUPPORT
     QAction *action_project_print, *action_project_print_preview,
         *action_project_print_setup;
-#endif
     QAction *action_project_welcome;
-    QAction *action_show_other;
-    int action_welcome_projects_title_id,
-    action_welcome_connections_title_id;
     QAction *action_settings;
 
     //! edit menu
@@ -563,14 +490,6 @@ public:
     *action_edit_paste_special_data_table,
     *action_edit_copy_special_data_table;
 
-    //! view menu
-    QAction *action_show_nav, *action_show_propeditor;
-    QAction *action_activate_nav;
-    QAction *action_activate_mainarea;
-    QAction *action_activate_propeditor;
-#ifdef KEXI_SHOW_CONTEXT_HELP
-    KToggleAction *action_show_helper;
-#endif
     //! data menu
     QAction *action_data_save_row;
     QAction *action_data_cancel_row_changes;
@@ -581,14 +500,18 @@ public:
 
     //! tools menu
     QAction *action_tools_import_project, *action_tools_compact_database, *action_tools_data_import;
-    KActionMenu *action_tools_scripts;
+    QAction *action_tools_locate;
 
     //! window menu
-    QAction *action_window_next, *action_window_previous, *action_window_fullscreen;
+    KToggleAction *action_show_nav;
+    KToggleAction *action_show_propeditor;
+    QAction *action_activate_nav;
+    QAction *action_activate_mainarea;
+    QAction *action_activate_propeditor;
+    QAction *action_close_tab, *action_close_all_tabs;
+    QAction *action_next_tab, *action_previous_tab;
+    QAction *action_window_fullscreen;
 
-    //! global
-    QAction *action_show_help_menu;
-    QAction *action_view_global_search;
     //! for dock windows
 
     QPointer<QWidget> focus_before_popup;
@@ -652,7 +575,6 @@ public:
     bool wasAutoOpen;
     bool windowExistedBeforeCloseProject;
 
-    QMap<KMultiTabBar::KMultiTabBarPosition, KMultiTabBar*> multiTabBars;
     bool propertyEditorCollapsed;
 
     bool enable_slotPropertyEditorVisibilityChanged;

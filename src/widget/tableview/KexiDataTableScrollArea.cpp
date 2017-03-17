@@ -66,7 +66,7 @@ bool KexiDataTableScrollArea::setData(KDbCursor *cursor)
 
     if (!m_cursor->query()) {
         qWarning() << "Cursor should have query schema defined!\n--aborting setData().\n";
-        qDebug() << *m_cursor;
+        //qDebug() << *m_cursor;
         clearColumns();
         return false;
     }

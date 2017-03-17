@@ -25,6 +25,7 @@
 #include "KexiListView_p.h"
 
 #include <QApplication>
+#include <QDebug>
 #include <QPainter>
 #include <QTextLayout>
 
@@ -32,12 +33,19 @@ const int KEXILISTVIEW_VERTICAL_MARGIN = 10;
 const int KEXILISTVIEW_HORIZONTAL_MARGIN = 12;
 
 KexiListView::KexiListView(QWidget *parent)
-    : QListView(parent)
+    : KexiListView(UseDefaultDelegate, parent)
+{
+}
+
+KexiListView::KexiListView(UseDelegate useDelegate, QWidget *parent)
+ : QListView(parent)
 {
     setViewMode(QListView::ListMode);
     setMovement(QListView::Static);
     setVerticalScrollMode(QListView::ScrollPerPixel);
-    setItemDelegate(new KexiListViewDelegate(this));
+    if (useDelegate == UseDefaultDelegate) {
+        setItemDelegate(new KexiListViewDelegate(this));
+    }
 }
 
 KexiListView::~KexiListView()
@@ -115,50 +123,62 @@ void KexiListViewDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
 
     QStyleOptionViewItem opt(option);
     opt.showDecorationSelected = true;
-    QStyle *style = opt.widget ? opt.widget->style() : QApplication::style();
+    const QStyle *style = opt.widget ? opt.widget->style() : QApplication::style();
+    paint(painter, *style, &opt, index);
+}
 
-    int iconSize = style->pixelMetric(QStyle::PM_IconViewIconSize);
+void KexiListViewDelegate::paint(QPainter *painter, const QStyle &style,
+                                 QStyleOptionViewItem *option,
+                                 const QModelIndex &index) const
+{
+    int iconSize = style.pixelMetric(QStyle::PM_IconViewIconSize);
     const QString text = index.model()->data(index, Qt::DisplayRole).toString();
     const QIcon icon = index.model()->data(index, Qt::DecorationRole).value<QIcon>();
-    const QPixmap pixmap = icon.pixmap(iconSize, iconSize,
-        (option.state & QStyle::State_Selected) ? QIcon::Selected : QIcon::Normal);
-
+    QIcon::Mode iconMode;
+    if (option->state & QStyle::State_Enabled && option->state & QStyle::State_Selected) {
+        iconMode = QIcon::Selected;
+    } else {
+        iconMode = (option->state & QStyle::State_Enabled) ? QIcon::Normal : QIcon::Disabled;
+    }
+    const QPixmap pixmap = icon.pixmap(iconSize, iconSize, iconMode);
     QFontMetrics fm = painter->fontMetrics();
     int wp = pixmap.width() / pixmap.devicePixelRatio();
     int hp = pixmap.height() / pixmap.devicePixelRatio();
 
-    QTextLayout iconTextLayout(text, option.font);
+    QTextLayout iconTextLayout(text, option->font);
     QTextOption textOption(Qt::AlignHCenter);
     iconTextLayout.setTextOption(textOption);
     int maxWidth = qMax(3 * wp, 8 * fm.height());
     layoutText(&iconTextLayout, maxWidth);
 
     QPen pen = painter->pen();
-    QPalette::ColorGroup cg = option.state & QStyle::State_Enabled
-                              ? QPalette::Normal : QPalette::Disabled;
-    if (cg == QPalette::Normal && !(option.state & QStyle::State_Active)) {
-        cg = QPalette::Inactive;
-    }
-
-    style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, opt.widget);
-    if (option.state & QStyle::State_Selected) {
-        painter->setPen(option.palette.color(cg, QPalette::HighlightedText));
+    QPalette::ColorGroup cg;
+    if (option->state & QStyle::State_Enabled) {
+        cg = (option->state & QStyle::State_Active) ? QPalette::Normal : QPalette::Inactive;
     } else {
-        painter->setPen(option.palette.color(cg, QPalette::Text));
+        cg = QPalette::Disabled;
+        option->state &= ~QStyle::State_MouseOver;
+    }
+    //qDebug() << hex << int(option->state) << text << int(iconMode) << cg;
+
+    style.drawPrimitive(QStyle::PE_PanelItemViewItem, option, painter, option->widget);
+    if (option->state & QStyle::State_Selected) {
+        painter->setPen(option->palette.color(cg, QPalette::HighlightedText));
+    } else {
+        painter->setPen(option->palette.color(cg, QPalette::Text));
     }
 
-    painter->drawPixmap(option.rect.x() + (option.rect.width() / 2)
-                        - (wp / 2), option.rect.y() + KEXILISTVIEW_VERTICAL_MARGIN,
+    painter->drawPixmap(option->rect.x() + (option->rect.width() / 2)
+                        - (wp / 2), option->rect.y() + KEXILISTVIEW_VERTICAL_MARGIN,
                         pixmap);
     if (!text.isEmpty()) {
         iconTextLayout.draw(painter,
-            QPoint(option.rect.x() + (option.rect.width() / 2)
-                   - (maxWidth / 2), option.rect.y() + hp + KEXILISTVIEW_VERTICAL_MARGIN + 2));
+            QPoint(option->rect.x() + (option->rect.width() / 2)
+                   - (maxWidth / 2), option->rect.y() + hp + KEXILISTVIEW_VERTICAL_MARGIN + 2));
     }
 
     painter->setPen(pen);
-
-    drawFocus(painter, option, option.rect);
+    drawFocus(painter, *option, option->rect);
 }
 
 QSize KexiListViewDelegate::sizeHint(const QStyleOptionViewItem &option,
@@ -238,7 +258,7 @@ void KexiListViewSelectionModel::select(const QModelIndex &index,
                                         QItemSelectionModel::SelectionFlags command)
 {
     // Don't allow the current selection to be cleared
-    if (!index.isValid() && (command & QItemSelectionModel::Clear)) {
+    if (!index.isValid() && (command & Clear || command & Deselect)) {
         return;
     }
     QItemSelectionModel::select(index, command);

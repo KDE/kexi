@@ -54,7 +54,7 @@ Q_DECLARE_FLAGS(ViewModes, ViewMode)
 KEXICORE_EXPORT QString nameForViewMode(ViewMode mode, bool withAmpersand = false);
 
 /*! @return icon name of view mode @a mode. */
-KEXICORE_EXPORT QString iconNameForViewMode(ViewMode mode);
+KEXICORE_EXPORT QString iconNameForViewMode(const QString& pluginId, ViewMode mode);
 
 //! A set of known connections
 KEXICORE_EXPORT KexiDBConnectionSet& connset();

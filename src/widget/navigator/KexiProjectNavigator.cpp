@@ -185,12 +185,12 @@ KexiProjectNavigator::KexiProjectNavigator(QWidget* parent, Features features)
         //! @todo plugSharedAction("edit_paste",SLOT(slotPaste()));
 #endif
 
-        d->designAction = addAction("design_object", koIcon("document-properties"), xi18n("&Design"),
+        d->designAction = addAction("design_object", KexiIcon("mode-selector-design"), xi18n("&Design"),
                                    xi18n("Design object"),
                                    xi18n("Starts designing of the object selected in the list."),
                                    SLOT(slotDesignObject()));
 
-        d->editTextAction = addAction("editText_object", QIcon(), xi18n("Design in &Text View"),
+        d->editTextAction = addAction("editText_object", QIcon(), "Design in Text View", // <- no icon, no i18n, will be updated before use
                                      xi18n("Design object in text view"),
                                      xi18n("Starts designing of the object in the list in text view."),
                                      SLOT(slotEditTextObject()));
@@ -577,7 +577,7 @@ bool KexiProjectNavigator::actionEnabled(const QString& actionName) const
 {
     if (actionName == "project_export_data_table" && (d->features & ContextMenus))
         return d->exportActionMenu->isVisible();
-    qWarning() << "no such action: " << actionName;
+    qWarning() << "no such action:" << actionName;
     return false;
 }
 
@@ -637,7 +637,7 @@ void KexiProjectNavigator::slotUpdateEmptyStateLabel()
         // handle the empty state with care... http://www.pinterest.com/romanyakimovich/ui-empty-states/
         if (!d->emptyStateLabel) {
             QString imgPath = KIconLoader::global()->iconPath(KexiIconName("document-empty"), - KIconLoader::SizeLarge);
-            qDebug() << imgPath;
+            //qDebug() << imgPath;
             d->emptyStateLabel = new QLabel(
                 xi18nc("@info Message for empty state in project navigator",
                       "<nl/>"
@@ -713,10 +713,16 @@ void KexiItemMenu::update(const KexiPart::Info& partInfo, const KexiPart::Item& 
             && (partInfo.supportedViewModes() & Kexi::DesignViewMode)) {
         addAction("design_object");
     }
-    if (m_actionCollection->action("editText_object")
-            && m_actionCollection->action("editText_object")->isEnabled()
-            && (partInfo.supportedViewModes() & Kexi::TextViewMode)) {
-        addAction("editText_object");
+    QAction *a = m_actionCollection->action("editText_object");
+    if (a && a->isEnabled()
+          && (partInfo.supportedViewModes() & Kexi::TextViewMode))
+    {
+        QString actionText;
+        QString iconName;
+        KexiPart::getTextViewAction(partInfo.id(), &actionText, &iconName);
+        a->setText(actionText);
+        a->setIcon(QIcon::fromTheme(iconName));
+        QMenu::addAction(a);
     }
     addSeparator();
 

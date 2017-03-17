@@ -124,8 +124,8 @@ bool KexiCSVExport::exportData(KDbTableOrQuerySchema *tableOrQuery,
         int bufSize = qMin((recordCount < 0 ? 10 : recordCount) * fields.count() * 20, 128000);
         buffer.reserve(bufSize);
         if (buffer.capacity() < bufSize) {
-            qWarning() << "Cannot allocate memory for " << bufSize
-            << " characters";
+            qWarning() << "Cannot allocate memory for" << bufSize
+                       << "characters";
             return false;
         }
     } else {
@@ -138,12 +138,12 @@ bool KexiCSVExport::exportData(KDbTableOrQuerySchema *tableOrQuery,
             }
             kSaveFile.reset(new QSaveFile(options.fileName));
 
-            qDebug() << "QSaveFile Filename:" << kSaveFile->fileName();
+            //qDebug() << "QSaveFile Filename:" << kSaveFile->fileName();
 
             if (kSaveFile->open(QIODevice::WriteOnly)) {
                 kSaveFileTextStream.reset(new QTextStream(kSaveFile.data()));
                 stream = kSaveFileTextStream.data();
-                qDebug() << "have a stream";
+                //qDebug() << "have a stream";
             }
             if (QFileDevice::NoError != kSaveFile->error() || !stream) {//sanity
                 qWarning() << "Status != 0 or stream == 0";
@@ -166,7 +166,7 @@ bool KexiCSVExport::exportData(KDbTableOrQuerySchema *tableOrQuery,
 #define APPEND_EOLN \
     if (copyToClipboard) { APPEND('\n'); } else { APPEND("\r\n"); }
 
-    qDebug() << 0 << "Columns: " << query->fieldsExpanded().count();
+    //qDebug() << 0 << "Columns:" << query->fieldsExpanded().count();
     // 0. Cache information
     const int fieldsCount = query->fieldsExpanded().count(); //real fields count without internals
     const QChar delimiter(options.delimiter.at(0));
@@ -272,7 +272,7 @@ bool KexiCSVExport::exportData(KDbTableOrQuerySchema *tableOrQuery,
     if (copyToClipboard)
         QApplication::clipboard()->setText(buffer, QClipboard::Clipboard);
 
-    qDebug() << "Done";
+    //qDebug() << "Done";
 
     if (kSaveFile) {
         stream->flush();

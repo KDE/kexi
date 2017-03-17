@@ -96,7 +96,7 @@ ChangeFieldPropertyCommand::ChangeFieldPropertyCommand(
                         m_oldValue.toString(),
                         m_alterTableAction.newValue().toString()));
 
-    qDebug() << debugString();
+    //qDebug() << debugString();
 }
 
 ChangeFieldPropertyCommand::~ChangeFieldPropertyCommand()
@@ -250,8 +250,7 @@ ChangePropertyVisibilityCommand::ChangePropertyVisibilityCommand(Command* parent
                           m_alterTableAction.propertyName(),
                           m_oldVisibility ? "true" : "false",
                           m_alterTableAction.newValue().toBool() ? "true" : "false"));
-
-    qDebug() << debugString();
+    //qDebug() << debugString();
 }
 
 ChangePropertyVisibilityCommand::~ChangePropertyVisibilityCommand()

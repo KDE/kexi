@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2011-2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2011-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -21,6 +21,7 @@
 #include "KexiProjectModel.h"
 #include "KexiProjectModelItem.h"
 #include <kexiutils/utils.h>
+#include <KexiStyle.h>
 
 #include <KDb>
 #include <KDbIdentifierValidator>
@@ -58,7 +59,18 @@ void KexiProjectItemDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         newOption.state |= QStyle::State_MouseOver;
     }
     KexiProjectModelItem *item = static_cast<KexiProjectModelItem*>(index.internalPointer());
-    if (!item->partItem()) { // this is a group item
+    const bool isGroupItem = !item->partItem();
+    if (!isGroupItem) {
+        QStyledItemDelegate::paint(painter, newOption, QModelIndex());
+        if (!(newOption.state & QStyle::State_Selected)) {
+            newOption.state
+                &= (0xffffffff ^ QStyle::State_MouseOver); // don't paint mouse highlight
+                                                           // twice because it's translucent
+        }
+    }
+    newOption.rect.setLeft(newOption.rect.left()
+                           + newOption.decorationSize.width() / (isGroupItem ? 2 : 1));
+    if (isGroupItem) {
         if (item->childCount() == 0) {
             return;
         }
@@ -69,6 +81,7 @@ void KexiProjectItemDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         newOption.displayAlignment = Qt::AlignLeft | Qt::AlignBottom;
         newOption.state &= (0xffffffff ^ QStyle::State_MouseOver);
         newOption.rect.setBottom(newOption.rect.bottom() - 3);
+        newOption.font = KexiStyle::titleFont(newOption.font);
     }
     QStyledItemDelegate::paint(painter, newOption, index);
 }

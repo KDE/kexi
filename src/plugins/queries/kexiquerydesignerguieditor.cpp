@@ -20,6 +20,7 @@
 
 #include "kexiquerydesignerguieditor.h"
 #include <kexiutils/utils.h>
+#include <KexiStyle.h>
 #include <kexiproject.h>
 #include <KexiMainWindowIface.h>
 #include <kexiinternalpart.h>
@@ -193,6 +194,7 @@ KexiQueryDesignerGuiEditor::KexiQueryDesignerGuiEditor(
     d->dataTable->dataAwareObject()->setSpreadSheetMode(true);
 
     d->data = new KDbTableViewData(); //just empty data
+    setTextToDisplayForNullSet(xi18nc("No query column selected in the Query Designer", "No column selected"));
     d->sets = new KexiDataAwarePropertySet(this, d->dataTable->dataAwareObject());
     connect(d->sets, SIGNAL(propertyChanged(KPropertySet&,KProperty&)),
             this, SLOT(slotPropertyChanged(KPropertySet&,KProperty&)));
@@ -203,6 +205,7 @@ KexiQueryDesignerGuiEditor::KexiQueryDesignerGuiEditor(
     QList<int> c;
     c << COLUMN_ID_COLUMN << COLUMN_ID_TABLE << COLUMN_ID_CRITERIA;
     if (d->dataTable->tableView()/*sanity*/) {
+        KexiStyle::setupFrame(d->dataTable->tableView());
         d->dataTable->tableView()->adjustColumnWidthToContents(COLUMN_ID_VISIBLE);
         d->dataTable->tableView()->setColumnWidth(COLUMN_ID_SORTING, d->sortColumnPreferredWidth);
         d->dataTable->tableView()->setStretchLastColumn(true);
@@ -421,7 +424,7 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
         if (!(**it)[COLUMN_ID_TABLE].isNull()
                 && (**it)[COLUMN_ID_COLUMN].isNull()) {
             //show message about missing field name, and set focus to that cell
-            qDebug() << "no field provided!";
+            //qDebug() << "no field provided!";
             d->dataTable->dataAwareObject()->setCursorPosition(i, 0);
             if (errMsg)
                 *errMsg = xi18nc("@info", "Select column for table <resource>%1</resource>",
@@ -531,7 +534,7 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                     }
                     if (!fieldVisible && criteriaStr.isEmpty() && set->contains("isExpression")
                             && (*set)["sorting"].value().toString() != "nosorting") {
-                        qDebug() << "invisible field with sorting: do not add it to the fields list";
+                        //qDebug() << "invisible field with sorting: do not add it to the fields list";
                         continue;
                     }
                     const int tablePosition = temp->query()->tablePosition(t->name());
@@ -559,7 +562,7 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
         return false;
     }
     if (whereExpr.isValid()) {
-        qDebug() << "setting CRITERIA:" << whereExpr;
+        //qDebug() << "setting CRITERIA:" << whereExpr;
     }
 
     //set always, because if whereExpr==NULL,
@@ -629,7 +632,7 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
     }
     temp->query()->setOrderByColumnList(orderByColumns);
 
-    qDebug() << *temp->query();
+    //qDebug() << *temp->query();
     temp->registerTableSchemaChanges(temp->query());
     //! @todo ?
     return true;
@@ -639,12 +642,12 @@ tristate
 KexiQueryDesignerGuiEditor::beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore)
 {
     Q_ASSERT(dontStore);
-    qDebug() << mode;
+    //qDebug() << mode;
 
     if (!d->dataTable->dataAwareObject()->acceptRecordEditing())
         return cancelled;
 
-    qDebug() << "queryChangedInView:" << tempData()->queryChangedInView();
+    //qDebug() << "queryChangedInView:" << tempData()->queryChangedInView();
 
     if (mode == Kexi::DesignViewMode) {
         return true;
@@ -904,7 +907,7 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
         if (!eItem.isValid())
             continue;
 
-        qDebug() << eItem;
+        //qDebug() << eItem;
         KDbBinaryExpression binary(eItem.toBinary());
         if (binary.isValid() && eItem.expressionClass() == KDb::RelationalExpression) {
             KDbField *leftField = 0, *rightField = 0;
@@ -947,10 +950,10 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
     QSet<QString> usedCriterias; // <-- used criterias will be saved here
     //     so in step 4. we will be able to add
     //     remaining invisible columns with criterias
-    qDebug() << *query;
+    /*qDebug() << *query;
     foreach(KDbField* field, *query->fields()) {
         qDebug() << *field;
-    }
+    }*/
     foreach(KDbField* field, *query->fields()) {
         //append a new row
         QString tableName, fieldName, columnAlias, criteriaString;
@@ -1030,8 +1033,8 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
                     const int columnPosition = columnsOrder.value(column);
                     data = d->data->at(columnPosition);
                     rowPropertySet = d->sets->at(columnPosition);
-                    qDebug() << "\tSetting \"" << *orderByColumn << "\" sorting for record #"
-                        << columnPosition;
+                    //qDebug() << "\tSetting \"" << *orderByColumn << "\" sorting for record #"
+                    //         << columnPosition;
                 }
             }
         } else if (orderByColumn->field()) {
@@ -1042,8 +1045,8 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
             d->dataTable->dataAwareObject()->insertItem(data, row_num);
             rowPropertySet = createPropertySet(row_num, tableName, field->name(), true /*newOne*/);
             propertySetSwitched();
-            qDebug() << "\tSetting \"" << *orderByColumn << "\" sorting for invisible field"
-                << field->name() << ", table " << tableName << " -row #" << row_num;
+            //qDebug() << "\tSetting \"" << *orderByColumn << "\" sorting for invisible field"
+            //         << field->name() << ", table" << tableName << "-row #" << row_num;
             row_num++;
         }
         //alter sorting for either existing or new row
@@ -1701,7 +1704,7 @@ void KexiQueryDesignerGuiEditor::slotBeforeSortingCellChanged(KDbRecordData *dat
     if (newValue.toInt() == 0 || sortingAllowed(field, table)) {
         KProperty &property = set->property("sorting");
         QString key(property.listData()->keysAsStringList()[ newValue.toInt()]);
-        qDebug() << "new key=" << key;
+        //qDebug() << "new key=" << key;
         property.setValue(key, valueOptions);
     }
     else { //show msg: sorting is not available

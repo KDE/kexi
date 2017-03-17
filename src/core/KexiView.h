@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2004-2012 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -137,6 +137,10 @@ public:
 
     /*! For KexiQueryView */
     virtual QList<QVariant> currentParameters() const;
+
+    //! @return i18n'd message text to be displayed in the property pane if the current
+    //! property set is @c nullptr.
+    QString textToDisplayForNullSet() const;
 
 public Q_SLOTS:
     virtual void setFocus();
@@ -338,13 +342,17 @@ protected:
     //! Sets properties in the Property Editor to be sorted if @a set is true.
     void setSortedProperties(bool set);
 
+    /*! Sets i18n'd message text to be displayed in the property pane if the current property set
+     is @c nullptr. By default it is empty, what means "No object selected" is displayed. */
+    void setTextToDisplayForNullSet(const QString& text);
+
 private Q_SLOTS:
     void slotSwitchToViewModeInternal(Kexi::ViewMode mode);
-    void slotSwitchToDataViewModeInternal(bool);
     void slotSwitchToDesignViewModeInternal(bool);
     void slotSwitchToTextViewModeInternal(bool);
 
 private:
+    void createTopBar();
     void createViewModeToggleButtons();
 
     class Private;

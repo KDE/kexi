@@ -68,7 +68,7 @@ struct KexiFormStatics
         int size = IconSize(KIconLoader::Small);
         if (size < KIconLoader::SizeSmallMedium && fm.height() >= KIconLoader::SizeSmallMedium)
             size = KIconLoader::SizeSmallMedium;
-        m_dataSourceTagIcon = QIcon::fromTheme(KexiIconName("data-source-tag")).pixmap(size);
+        m_dataSourceTagIcon = KexiIcon("data-source-tag").pixmap(size);
         KIconEffect::semiTransparent(m_dataSourceTagIcon);
         m_dataSourceRTLTagIcon = QPixmap::fromImage(m_dataSourceTagIcon.toImage().mirrored(true /*h*/, false /*v*/));
     }

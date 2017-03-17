@@ -171,8 +171,8 @@ QSize KexiRelationsTableFieldList::sizeHint() const
 {
     //QFontMetrics fm(fontMetrics());
 
-// qDebug() << schema()->name() << " cw=" << columnWidth(0) + fm.width("i")
-//  << ", " << fm.width(schema()->name()+"  ");
+// qDebug() << schema()->name() << "cw=" << columnWidth(0) + fm.width("i")
+//  << "," << fm.width(schema()->name()+"  ");
 //! @todo
     return KexiFieldListView::sizeHint();
 }

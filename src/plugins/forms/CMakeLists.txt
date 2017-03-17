@@ -1,6 +1,11 @@
-include_directories( ${CMAKE_SOURCE_DIR}/src/core
-    ${CMAKE_SOURCE_DIR}/src/widget/utils ${CMAKE_SOURCE_DIR}/src/widget
-    ${CMAKE_SOURCE_DIR}/src/formeditor)
+include_directories(
+    ${CMAKE_SOURCE_DIR}/src/core
+    ${CMAKE_SOURCE_DIR}/src/kexiutils/style
+    ${CMAKE_SOURCE_DIR}/src/widget/utils
+    ${CMAKE_SOURCE_DIR}/src/widget
+    ${CMAKE_SOURCE_DIR}/src/widget/properties
+    ${CMAKE_SOURCE_DIR}/src/formeditor
+)
 
 # the form plugin
 set(kexi_formplugin_SRCS kexiforms.cpp)

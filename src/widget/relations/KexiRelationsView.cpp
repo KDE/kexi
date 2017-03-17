@@ -22,6 +22,7 @@
 #include "KexiRelationsView.h"
 #include <KexiIcon.h>
 #include <kexiutils/utils.h>
+#include <KexiStyle.h>
 #include <kexiproject.h>
 #include <KexiMainWindowIface.h>
 #include "KexiRelationsScrollArea.h"
@@ -95,6 +96,7 @@ KexiRelationsView::KexiRelationsView(QWidget *parent)
 
     d->scrollArea = new KexiRelationsScrollArea(mainWidget);
     d->scrollArea->setObjectName("scroll_area");
+    KexiStyle::setupFrame(d->scrollArea);
     setViewWidget(mainWidget, false/* no focus proxy */);
     setFocusProxy(d->scrollArea);
     g->addWidget(d->scrollArea, 1, 0);
@@ -131,7 +133,7 @@ KexiRelationsView::KexiRelationsView(QWidget *parent)
     connect(d->openSelectedTableAction, SIGNAL(triggered()),
             this, SLOT(openSelectedTable()));
 
-    d->designSelectedTableAction = new QAction(koIcon("document-properties"), xi18n("&Design Table"), this);
+    d->designSelectedTableAction = new QAction(KexiIcon("mode-selector-design"), xi18n("&Design Table"), this);
     connect(d->designSelectedTableAction, SIGNAL(triggered()),
             this, SLOT(designSelectedTable()));
     d->designSelectedTableAction->setObjectName("relationsview_designTable");
@@ -208,7 +210,7 @@ KexiRelationsView::addTable(KDbTableSchema *t, const QRect &rect)
         return;
     if (!d->scrollArea->tableContainer(t)) {
         KexiRelationsTableContainer *c = d->scrollArea->addTableContainer(t, rect);
-        qDebug() << "adding table" << t->name();
+        //qDebug() << "adding table" << t->name();
         if (!c)
             return;
         connect(c, SIGNAL(fieldsDoubleClicked(KDbTableOrQuerySchema&,QStringList)),
@@ -224,7 +226,7 @@ KexiRelationsView::addTable(KDbTableSchema *t, const QRect &rect)
     }
     if (i < count) {
         int oi = d->tableCombo->currentIndex();
-        qDebug() << "removing a table from the combo box";
+        //qDebug() << "removing a table from the combo box";
         d->tableCombo->removeItem(i);
         if (d->tableCombo->count() > 0) {
             if (oi >= d->tableCombo->count()) {

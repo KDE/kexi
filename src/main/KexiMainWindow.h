@@ -25,31 +25,29 @@
 
 #include "keximain_export.h"
 
-#include <KMainWindow>
 #include <core/KexiMainWindowIface.h>
 #include <core/kexiguimsghandler.h>
 
 #include <QCommandLineOption>
+#include <QMainWindow>
 #include <QTabWidget>
 
 class QPaintEvent;
 class KDbObject;
 class KDbConnectionData;
 class KexiProjectData;
-class KexiMainWidget;
+class KexiObjectViewWidget;
 namespace KexiPart
 {
 class Info;
 class Part;
 }
 
-#define KexiMainWindowSuper QWidget //KMainWindow
-
 /**
  * @short Kexi's main window implementation
  */
 class KEXIMAIN_EXPORT KexiMainWindow
-            : public QWidget /*KMainWindow*/, public KexiMainWindowIface, public KexiGUIMessageHandler
+            : public QMainWindow, public KexiMainWindowIface, public KexiGUIMessageHandler
 {
     Q_OBJECT
 
@@ -62,7 +60,7 @@ public:
 
 //! @todo virtual QWidget* focusWidget() const;
     virtual QWidget* focusWidget() const {
-        return KexiMainWindowSuper::focusWidget();
+        return QMainWindow::focusWidget();
     }
 
     /*! Used by the main Kexi's routine. Creates a new Kexi main window.
@@ -96,6 +94,9 @@ public:
 
     /*! \return true if the application window is in the User Mode. */
     virtual bool userMode() const;
+
+    //! @return current global mode
+    Kexi::GlobalViewMode currentMode() const Q_DECL_OVERRIDE;
 
     /*! \return true if opening of item \a item in \a viewMode mode is allowed.
      userMode() is taken into account as well
@@ -157,17 +158,20 @@ public Q_SLOTS:
     /*! Closes window inside tab @a tabIndex. */
     tristate closeWindowForTab(int tabIndex);
 
+    /*! Closes all windows. */
+    tristate closeAllWindows();
+
     /*! Internal implementation. If \a doNotSaveChanges is true,
      messages asking for saving the will be skipped and the changes will be dropped.
      This should not be usually used, maybe except for test suites
      (see kexi/tests/altertable/ directory). */
     tristate closeWindow(KexiWindow *window, bool layoutTaskBar, bool doNotSaveChanges = false);
 
-    /*! Activates next window. */
-    void activateNextWindow();
+    /*! Activates next tab. */
+    void activateNextTab();
 
-    /*! Activates previous window. */
-    void activatePreviousWindow();
+    /*! Activates previous tab. */
+    void activatePreviousTab();
 
 //! @todo move part of this to KexiProject, because currently KexiProject::openObject() allows multiple opens!
     /*! Opens object pointed by \a item in a view \a viewMode.
@@ -316,12 +320,18 @@ Q_SIGNALS:
     void projectOpened();
 
 protected:
+    /*! Setups main menu with sub-menus */
+    void setupMainMenu();
+
     /*! Setups main widget */
     void setupMainWidget();
 
-    /*! Creates the Project Navigator (if it's not yet created),
-     lookups items for current project and fills the nav. with not-opened items */
-    void setupProjectNavigator();
+    /*! Creates a view widget for object view, used in edit and design global view mode
+     if it's not yet created. This includes project navigator and property editor. */
+    void setupObjectView();
+
+    //! Setups object view and assigns project to the project navigator.
+    void updateObjectView();
 
     void setupContextHelp();
 
@@ -381,6 +391,8 @@ protected:
 
     virtual void closeEvent(QCloseEvent *ev);
 
+    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
+
     //! Called by KexiMainWidget::queryClose()
     bool queryClose();
 
@@ -404,17 +416,21 @@ protected:
 
     /*! Updates info label of the property editor by reusing properties provided
      by the current property set.
-     Read documentation of KexiPropertyEditorView class for information about accepted properties.
-     If the current property is 0 and @a textToDisplayForNullSet string is not empty, this string is displayed
-     (without icon or any other additional part).
-     If the current property is 0 and @a textToDisplayForNullSet string is empty, the info label widget becomes
-     hidden.
+     Read documentation of KexiPropertyPaneWidget class for information about accepted properties.
+
      Implemented for KexiMainWindow.
-     @see KexiPropertyPaneViewBase::updateInfoLabelForPropertySet() */
-    virtual void updatePropertyEditorInfoLabel(const QString& textToDisplayForNullSet);
+     @see KexiPropertyPaneWidget::updateInfoLabelForPropertySet() */
+    void updatePropertyEditorInfoLabel() Q_DECL_OVERRIDE;
 
     //! Activates design tab when switching to design view, according to \a pluginId.
     void activateDesignTab(const QString &pluginId);
+
+    //! Sets current global mode
+    void setCurrentMode(Kexi::GlobalViewMode mode) Q_DECL_OVERRIDE;
+
+    void beginPropertyPaneUpdate() Q_DECL_OVERRIDE;
+
+    void endPropertyPaneUpdate() Q_DECL_OVERRIDE;
 
 protected Q_SLOTS:
     tristate createNewProject(const KexiProjectData &projectData);
@@ -515,9 +531,9 @@ protected Q_SLOTS:
     void slotEditReplaceAll();
     void slotActivateNavigator();
     void slotActivateMainArea();
-    void slotActivatePropertyEditor();
-    void slotShowNavigator();
-    void slotShowPropertyEditor();
+    void slotActivatePropertyPane();
+    void slotToggleProjectNavigator();
+    void slotTogglePropertyEditor();
     void slotViewDataMode();
     void slotViewDesignMode();
     void slotViewTextMode(); //!< sometimes called "SQL View"
@@ -603,11 +619,14 @@ protected Q_SLOTS:
      \return true on success and cancelled when the action was cancelled. */
     //! @todo reenable when ported  tristate printActionForItem(KexiPart::Item* item, PrintActionType action);
 
-    void slotSetProjectNavigatorVisible(bool set);
-    void slotSetPropertyEditorVisible(bool set);
+    //void slotSetProjectNavigatorVisible(bool set);
+    //void slotSetPropertyEditorVisible(bool set);
+    //void slotProjectNavigatorVisibilityChanged(bool visible);
+    //void slotPropertyEditorVisibilityChanged(bool visible);
+    //void slotMultiTabBarTabClicked(int id);
+    void slotCurrentModeChanged(Kexi::GlobalViewMode previousMode);
+
     void slotProjectNavigatorVisibilityChanged(bool visible);
-    void slotPropertyEditorVisibilityChanged(bool visible);
-    void slotMultiTabBarTabClicked(int id);
 
 private:
     //! Adds action @a name with text @a text and optional shortcut @a shortcut.
@@ -627,7 +646,7 @@ private:
     Private * const d;
 
     friend class KexiWindow;
-    friend class KexiMainWidget;
+    friend class KexiObjectViewWidget;
 };
 
 #endif

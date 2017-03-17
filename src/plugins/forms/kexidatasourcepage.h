@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2005-2009 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -21,13 +21,13 @@
 
 #include "kexiformutils_export.h"
 #include <config-kexi.h>
-#include <widget/properties/KexiPropertyPaneViewBase.h>
-
 #include <KDbField>
 #include <KDbUtils>
 #include <KDbTableOrQuerySchema>
 
 #include <KPropertySet>
+
+#include <QWidget>
 
 class KexiDataSourceComboBox;
 class KexiFieldComboBox;
@@ -35,15 +35,26 @@ class KexiFieldListView;
 class KexiProject;
 class QToolButton;
 class QLabel;
+class QVBoxLayout;
+class QGridLayout;
+class QSpacerItem;
 
 //! A page within form designer's property tabbed pane, providing data source editor
-class KEXIFORMUTILS_EXPORT KexiDataSourcePage : public KexiPropertyPaneViewBase
+class KEXIFORMUTILS_EXPORT KexiDataSourcePage : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit KexiDataSourcePage(QWidget *parent);
+    explicit KexiDataSourcePage(QWidget *parent = 0);
     virtual ~KexiDataSourcePage();
+
+    //QSize sizeHint() const Q_DECL_OVERRIDE { return QSize(); }
+
+    enum AssignFlag {
+        NoFlags = 0,
+        ForceAssign = 1
+    };
+    Q_DECLARE_FLAGS(AssignFlags, AssignFlag)
 
 public Q_SLOTS:
     void setProject(KexiProject *prj);
@@ -55,7 +66,7 @@ public Q_SLOTS:
     void setFormDataSource(const QString& pluginId, const QString& name);
 
     //! Receives a pointer to a new property \a set (from KexiFormView::managerPropertyChanged())
-    void assignPropertySet(KPropertySet* propertySet);
+    void assignPropertySet(KPropertySet* propertySet, AssignFlags flags = NoFlags);
 
 Q_SIGNALS:
     //! Signal emitted when helper button 'go to selected data source' is clicked.
@@ -88,15 +99,18 @@ protected Q_SLOTS:
 protected:
     void updateSourceFieldWidgetsAvailability();
 
+    QVBoxLayout *m_mainLyr;
+    QGridLayout *m_formLyr;
     KexiFieldComboBox *m_widgetDataSourceCombo;
-    QWidget *m_widgetDataSourceComboSpacer;
+    QWidget *m_widgetDataSourceContainer;
     KexiDataSourceComboBox* m_formDataSourceCombo;
     QWidget *m_formDataSourceComboSpacer;
-    QLabel *m_dataSourceLabel, *m_noDataSourceAvailableLabel, *m_widgetDSLabel;
+    QLabel *m_noDataSourceAvailableLabel;
     QToolButton *m_gotoButton;
     QString m_noDataSourceAvailableSingleText;
     QString m_noDataSourceAvailableMultiText;
     bool m_insideClearFormDataSourceSelection;
+    bool m_slotWidgetDataSourceTextChangedEnabled;
 #ifdef KEXI_AUTOFIELD_FORM_WIDGET_SUPPORT
     KexiFieldListView* m_availableFieldsLabel;
     KexiFieldListView* m_fieldListView;

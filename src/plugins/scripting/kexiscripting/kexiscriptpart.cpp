@@ -141,7 +141,7 @@ bool KexiScriptPart::execute(KexiPart::Item* item, QObject* sender)
 
 void KexiScriptPart::initPartActions()
 {
-    qDebug() << ".............";
+    //qDebug() << ".............";
 #if 0
     if (m_mainWin) {
         // At this stage the KexiPart::Part::m_mainWin should be defined, so
@@ -200,7 +200,7 @@ KexiView* KexiScriptPart::createView(QWidget *parent,
     Q_ASSERT(item);
     Q_UNUSED(window);
     Q_UNUSED(staticObjectArgs);
-    qDebug() << "............. createView";
+    //qDebug() << "............. createView";
     QString partname = item->name();
     if (! partname.isNull()) {
         Kross::Action *action = d->action(partname);

@@ -50,15 +50,15 @@ int main(int argc, char **argv)
 
     KDbConnection *conn = driver->createConnection(conn_data);
     if (!conn || driver->result().isError()) {
-        qDebug() << "error: " << driver->result();
+        qDebug() << "error:" << driver->result();
         return 1;
     }
     if (!conn->connect()) {
-        qDebug() << "error: " << conn->errorMsg();
+        qDebug() << "error:" << conn->errorMsg();
         return 1;
     }
     if (!conn->useDatabase(db_name)) {
-        qDebug() << "error: " << conn->errorMsg();
+        qDebug() << "error:" << conn->errorMsg();
         return 1;
     }
 
@@ -77,13 +77,13 @@ int main(int argc, char **argv)
             break;
         case KDbParser::OP_CreateTable: {
             if (parser->table()) {
-                qDebug() << "Schema of table: " << parser->table()->name();
+                qDebug() << "Schema of table:" << parser->table()->name();
                 qDebug() << *parser->table();
             }
             break;
         }
         case KDbParser::OP_Select: {
-            qDebug() << "Select statement: ";
+            qDebug() << "Select statement:";
             KDbQuerySchema *q = parser->query();
             if (q) {
                 qDebug() << *q;

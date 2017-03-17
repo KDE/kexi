@@ -285,7 +285,7 @@ private:
                 }
                 WidgetInfo* inheritedClass = parentFactory->widgetInfoForClassName(w->inheritedClassName());
                 if (!inheritedClass) {
-                    qWarning() << "class" << w->inheritedClassName() << " - no such class to inherit in factory"
+                    qWarning() << "class" << w->inheritedClassName() << "- no such class to inherit in factory"
                         << w->parentFactoryName();
                     continue;
                 }

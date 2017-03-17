@@ -20,7 +20,6 @@
 
 #include "kexireportpart.h"
 
-#include <QTabWidget>
 #include <QDebug>
 
 #include <KLocalizedString>
@@ -30,6 +29,7 @@
 #include "kexireportview.h"
 #include "kexireportdesignview.h"
 #include <core/KexiMainWindowIface.h>
+#include <KexiPropertyPaneWidget.h>
 #include "kexisourceselector.h"
 
 //! @internal
@@ -126,7 +126,7 @@ KDbObject* KexiReportPart::loadSchemaObject(
     if (!doc.setContent(layout)) {
         return 0;
     }
-    qDebug() << doc.toString();
+    //qDebug() << doc.toString();
 
     KexiReportPartTempData * temp = static_cast<KexiReportPartTempData*>(window->data());
     const QDomElement root = doc.documentElement();
@@ -154,13 +154,12 @@ KexiReportPartTempData::KexiReportPartTempData(QObject* parent)
 {
 }
 
-void KexiReportPart::setupCustomPropertyPanelTabs(QTabWidget *tab)
+void KexiReportPart::setupPropertyPane(KexiPropertyPaneWidget *pane)
 {
     if (!d->sourceSelector) {
-        d->sourceSelector = new KexiSourceSelector(KexiMainWindowIface::global()->project(), tab);
+        d->sourceSelector = new KexiSourceSelector(KexiMainWindowIface::global()->project());
     }
-    tab->addTab(d->sourceSelector, koIcon("server-database"), QString());
-    tab->setTabToolTip(tab->indexOf(d->sourceSelector), xi18n("Data Source"));
+    pane->addSection(d->sourceSelector, xi18n("Data source"));
 }
 
 void KexiReportPart::slotToolboxActionTriggered(bool checked)

@@ -55,7 +55,7 @@ void KexiMobileWidget::databaseOpened(KexiProject *project)
     m_project = project;
     if (project && (project->open() == true)) {
         m_navWidget->setProject(project);
-        qDebug() << "Project opened";
+        //qDebug() << "Project opened";
     } else {
         qWarning() << "Project not opened";
         if (project) {

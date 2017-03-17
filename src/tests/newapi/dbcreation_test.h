@@ -43,10 +43,10 @@ int dbCreationTest()
       qDebug()<<"executeQuery() = "<<!!cursor;
       if (cursor) {
         qDebug()<<"Cursor::moveLast() ---------------------";
-        qDebug()<<"-- Cursor::moveLast() == " << cursor->moveLast();
+        qDebug()<<"-- Cursor::moveLast() ==" << cursor->moveLast();
         cursor->moveLast();
         qDebug()<<"Cursor::moveFirst() ---------------------";
-        qDebug()<<"-- Cursor::moveFirst() == " << cursor->moveFirst();
+        qDebug()<<"-- Cursor::moveFirst() ==" << cursor->moveFirst();
     */
     /*  qDebug()<<"Cursor::moveNext() == "<<cursor->moveNext();
         qDebug()<<"Cursor::moveNext() == "<<cursor->moveNext();

@@ -105,6 +105,7 @@ KexiTableDesignerView::KexiTableDesignerView(QWidget *parent)
         , d(new KexiTableDesignerViewPrivate(this))
 {
     setObjectName("KexiTableDesignerView");
+    setTextToDisplayForNullSet(xi18nc("No table field selected in the Table Designer", "No field selected"));
     //needed for custom "identifier" property editor widget
     KexiCustomPropertyFactory::init();
 
@@ -293,8 +294,8 @@ KexiTableDesignerView::getSubTypeListData(KDbField::TypeGroup fieldTypeGroup,
     stringsList = KDb::fieldTypeStringsForGroup(fieldTypeGroup);
     namesList = KDb::fieldTypeNamesForGroup(fieldTypeGroup);
 // }
-    qDebug() << "subType strings: " <<
-        stringsList.join("|") << "\nnames: " << namesList.join("|");
+    //qDebug() << "subType strings:" <<
+    //    stringsList.join("|") << "\nnames:" << namesList.join("|");
 }
 
 KPropertySet *
@@ -316,8 +317,7 @@ KexiTableDesignerView::createPropertySet(int record, const KDbField& field, bool
             KexiIconName("lineedit") //"table_field"
                                                     ));
     prop->setVisible(false);
-    set->addProperty(prop = new KProperty("this:useCaptionAsObjectName",
-            QVariant(true), QString())); //we want "caption" to be displayed in the header, not name
+    set->addProperty(prop = new KProperty("this:visibleObjectNameProperty", "caption", QString())); //we want "caption" to be displayed in the header, not name
     prop->setVisible(false);
 
     //name
@@ -624,8 +624,8 @@ void KexiTableDesignerView::slotBeforeCellChanged(
 {
     if (!d->slotBeforeCellChanged_enabled)
         return;
-    // qDebug() << d->view->selectedRecord() << " " << item
-    //<< " " << d->sets->at( d->view->currentRecord() ) << " " << propertySet();
+    // qDebug() << d->view->selectedRecord() << item
+    //<< d->sets->at( d->view->currentRecord() ) << propertySet();
     if (colnum == COLUMN_ID_CAPTION) {//'caption'
         //if 'type' is not filled yet
         if (data->at(COLUMN_ID_TYPE).isNull()) {
@@ -719,7 +719,7 @@ void KexiTableDesignerView::slotBeforeCellChanged(
         subTypeValue = KDbField::typeString(fieldType);
         //}
         KProperty *subTypeProperty = &set["subType"];
-        qDebug() << subTypeProperty->value();
+        //qDebug() << subTypeProperty->value();
 
         // *** this action contains subactions ***
         Command *changeDataTypeCommand = new Command(
@@ -776,7 +776,7 @@ void KexiTableDesignerView::slotBeforeCellChanged(
             return;
         //update field desc.
         QVariant oldValue((*propertySetForRecord)["description"].value());
-        qDebug() << oldValue;
+        //qDebug() << oldValue;
         propertySetForRecord->changeProperty("description", *newValue);
     }
 }
@@ -845,7 +845,7 @@ void KexiTableDesignerView::slotRecordUpdated(KDbRecordData *data)
             default:;
         }
 
-        qDebug() << field;
+        //qDebug() << field;
 
         //create a new property set:
         KPropertySet *newSet = createPropertySet(record, field, true);
@@ -868,8 +868,8 @@ void KexiTableDesignerView::updateActions()
 void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& property)
 {
     const QByteArray pname(property.name());
-    qDebug() << pname << " = " << property.value()
-        << " (oldvalue = " << property.oldValue() << ")";
+    //qDebug() << pname << "=" << property.value()
+    //    << "(oldvalue =" << property.oldValue() << ")";
 
     // true if PK should be altered
     bool changePrimaryKey = false;
@@ -954,7 +954,7 @@ void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& pr
         if (set["primaryKey"].value().toBool() == true
                 && property.value().toString() != KDbField::typeString(KDbField::BigInteger))
         {
-            qDebug() << "INVALID " << property.value().toString();
+            qDebug() << "INVALID" << property.value().toString();
 //   if (KMessageBox::Yes == KMessageBox::questionYesNo(this, msg,
 //    xi18n("This field has primary key assigned. Setting autonumber field"),
 //    KGuiItem(xi18nc("@action:button", "Create &Primary Key"), KexiIconName("database-key")), KStandardGuiItem::cancel() ))
@@ -981,7 +981,7 @@ void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& pr
         d->setPropertyValueIfNeeded(set, "subType", property.value(), property.oldValue(),
                                     changeFieldTypeCommand);
 
-        qDebug() << set["type"].value();
+        //qDebug() << set["type"].value();
         const KDbField::Type newType = KDbField::typeForString(property.value().toString());
         set["type"].setValue(newType);
 
@@ -1188,7 +1188,7 @@ tristate KexiTableDesignerView::buildSchema(KDbTableSchema &schema, bool beSilen
     //check for pkey; automatically add a pkey if user wanted
     if (!d->primaryKeyExists) {
         if (beSilent) {
-            qDebug() << "no primay key defined...";
+            //qDebug() << "no primay key defined...";
         } else {
             const int questionRes = KMessageBox::questionYesNoCancel(this,
                 xi18nc("@info",
@@ -1313,7 +1313,7 @@ tristate KexiTableDesignerView::buildAlterTableActions(
     actions.clear();
     qDebug()
         << d->history->count()
-        << " top-level command(s) to process...";
+        << "top-level command(s) to process...";
 
     for (int i = 0; i < d->history->count(); ++i) {
       copyAlterTableActions(d->history->command(i), actions);
@@ -1458,7 +1458,7 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
             static_cast<KDbObject&>(*newTable)
                 = static_cast<KDbObject&>(*tempData()->table());
             res = buildSchema(*newTable);
-            qDebug() << "BUILD SCHEMA:" << *newTable;
+            //qDebug() << "BUILD SCHEMA:" << *newTable;
 
             res = conn->alterTable(tempData()->table(), newTable);
             if (res != true)
@@ -1467,10 +1467,10 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
             KDbAlterTableHandler::ExecutionArguments args;
             newTable = alterTableHandler->execute(tempData()->table()->name(), &args);
             res = args.result;
-            qDebug() << "ALTER TABLE EXECUTE: "
-            << res.toString();
+            //qDebug() << "ALTER TABLE EXECUTE:"
+            //         << res.toString();
             if (true != res) {
-                qDebug() << alterTableHandler->result();
+                //qDebug() << alterTableHandler->result();
                 window()->setStatus(alterTableHandler, "");
             }
         }
@@ -1825,7 +1825,7 @@ void KexiTableDesignerView::changeFieldProperty(int fieldUID,
     //find a property by UID
     const int record = d->sets->findRecordForPropertyValue("uid", fieldUID);
     if (record < 0) {
-        qWarning() << "field with uid=" << fieldUID << " not found!";
+        qWarning() << "field with uid=" << fieldUID << "not found!";
         return;
     }
     changeFieldPropertyForRecord(record, propertyName, newValue, listData, addCommand);

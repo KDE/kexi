@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -19,42 +19,24 @@
 */
 
 #include "KexiMainWindow_p.h"
+#include "KexiObjectViewWidget.h"
+
+#include <KToggleAction>
 
 #include <QPainter>
 #include <QDebug>
+#include <QSplitter>
 
 #include <KDbUtils>
 
+#include <KexiPropertyPaneWidget.h>
 #include <kexiutils/SmallToolButton.h>
 #include <kexiutils/KexiTester.h>
 #include <kexiutils/KexiFadeWidgetEffect.h>
 #include <KexiIcon.h>
+#include <KexiStyle.h>
+#include <KexiProjectNavigator.h>
 #include <core/kexipartmanager.h>
-
-KexiWindowContainer::KexiWindowContainer(QWidget* parent)
-    : QWidget(parent)
-    , window(0)
-    , lyr(new QVBoxLayout(this))
-{
-    lyr->setContentsMargins(0, 0, 0, 0);
-}
-KexiWindowContainer::~KexiWindowContainer()
-{
-    //! @todo warning if saveSettings() failed?
-    if (window) {
-        window->saveSettings();
-        delete (KexiWindow*)window;
-    }
-}
-
-void KexiWindowContainer::setWindow(KexiWindow* w)
-{
-    window = w;
-    if (w)
-        lyr->addWidget(w);
-}
-
-// ---
 
 EmptyMenuContentWidget::EmptyMenuContentWidget(QWidget* parent)
  : QWidget(parent)
@@ -631,7 +613,6 @@ KexiTabbedToolBar::KexiTabbedToolBar(QWidget *parent)
     connect(tabBar(), SIGNAL(tabBarDoubleClicked(int)), this, SLOT(slotTabDoubleClicked(int)));
 
     d->ac = KexiMainWindowIface::global()->actionCollection();
-    QWidget *mainWin = KexiMainWindowIface::global()->thisWidget();
     const bool userMode = KexiMainWindowIface::global()->userMode();
     KToolBar *tbar;
 
@@ -644,60 +625,8 @@ KexiTabbedToolBar::KexiTabbedToolBar(QWidget *parent)
     helpWidget->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     QHBoxLayout *helpLyr = new QHBoxLayout(helpWidget);
     helpLyr->setContentsMargins(0, 0, 0, 0);
-
-    // * HELP MENU
-    // add help menu actions... (KexiTabbedToolBar depends on them)
-    d->helpMenu = new KHelpMenu(this, KAboutData::applicationData(),
-                                true/*showWhatsThis*/);
-    QAction* help_report_bug_action = d->helpMenu->action(KHelpMenu::menuReportBug);
-    d->ac->addAction(help_report_bug_action->objectName(), help_report_bug_action);
-    QObject::disconnect(help_report_bug_action, 0, 0, 0);
-    QObject::connect(help_report_bug_action, SIGNAL(triggered()), mainWin, SLOT(slotReportBug()));
-    help_report_bug_action->setText(xi18nc("Report a bug or wish for Kexi application", "Report a &Bug or Wish..."));
-    help_report_bug_action->setIcon(koIcon("tools-report-bug")); // good icon for toolbar
-    help_report_bug_action->setWhatsThis(xi18n("Files a bug or wish for Kexi application."));
-    QAction* help_whats_this_action =  d->helpMenu->action(KHelpMenu::menuWhatsThis);
-    d->ac->addAction(help_whats_this_action->objectName(), help_whats_this_action);
-    help_whats_this_action->setWhatsThis(xi18n("Activates a \"What's This?\" tool."));
-    QAction* help_contents_action = d->helpMenu->action(KHelpMenu::menuHelpContents);
-    d->ac->addAction(help_contents_action->objectName(), help_contents_action);
-    help_contents_action->setText(xi18n("Help"));
-    help_contents_action->setWhatsThis(xi18n("Shows Kexi Handbook."));
-    QAction* help_about_app_action = d->helpMenu->action(KHelpMenu::menuAboutApp);
-    d->ac->addAction(help_about_app_action->objectName(), help_about_app_action);
-    help_about_app_action->setWhatsThis(xi18n("Shows information about Kexi application."));
-    QAction* help_about_kde_action = d->helpMenu->action(KHelpMenu::menuAboutKDE);
-    d->ac->addAction(help_about_kde_action->objectName(), help_about_kde_action);
-    help_about_kde_action->setWhatsThis(xi18n("Shows information about KDE."));
-    QAction* help_switch_language_action = d->helpMenu->action(KHelpMenu::menuSwitchLanguage);
-    if (help_switch_language_action) {
-        d->ac->addAction(help_switch_language_action->objectName(), help_switch_language_action);
-    }
-    // extra action such as help_donate may be confusing for the user or conflicting with existing so hide it
-    QAction *extraAction = d->helpMenu->action(static_cast<KHelpMenu::MenuId>(KHelpMenu::menuSwitchLanguage + 1));
-    if (extraAction) {
-        extraAction->setVisible(false);
-    }
-
-    QAction *action_show_help_menu = d->ac->action("help_show_menu");
-    KexiSmallToolButton *btn = new KexiSmallToolButton(koIcon("help-about"), QString(), helpWidget);
-    btn->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    btn->setPopupMode(QToolButton::InstantPopup);
-    btn->setToolTip(action_show_help_menu->toolTip());
-    btn->setWhatsThis(action_show_help_menu->whatsThis());
-    btn->setFocusPolicy(Qt::NoFocus);
-    QStyleOptionToolButton opt;
-    opt.initFrom(btn);
-    int w = btn->sizeHint().width();
-    int wAdd = btn->style()->pixelMetric(QStyle::PM_MenuButtonIndicator, &opt, btn);
-    if (w <= (2 * (wAdd + 1))) {
-        w += wAdd + 2;
-    }
-    btn->setMinimumWidth(w);
-    connect(action_show_help_menu, SIGNAL(triggered()), btn, SLOT(showMenu()));
-    helpLyr->addWidget(btn);
-    btn->setMenu(d->helpMenu->menu());
     setCornerWidget(helpWidget, Qt::TopRightCorner);
+
     d->searchLineEdit = new KexiSearchLineEdit;
     kexiTester() << KexiTestObject(d->searchLineEdit, "globalSearch.lineEdit");
     d->searchLineEdit->installEventFilter(this);
@@ -715,28 +644,12 @@ KexiTabbedToolBar::KexiTabbedToolBar(QWidget *parent)
         d->createWidgetToolBar = d->createToolBar("create", xi18n("Create"));
     }
 
-    tbar = d->createToolBar("data", xi18n("Data"));
-    addAction(tbar, "edit_cut");
-    addAction(tbar, "edit_copy");
-    addAction(tbar, "edit_paste");
-    if (!userMode)
-        addAction(tbar, "edit_paste_special_data_table");
-//! @todo move undo/redo to quickbar:
-
-    tbar = d->createToolBar("external", xi18n("External Data"));
-    if (!userMode) {
-        addAction(tbar, "project_import_data_table");
-        addAction(tbar, "tools_import_tables");
-    }
-
-    tbar = d->createToolBar("tools", xi18n("Tools"));
-    addAction(tbar, "tools_compact_database");
-
 //! @todo move to form plugin
     tbar = d->createToolBar("form", xi18n("Form Design"));
 
 //! @todo move to report plugin
     tbar = d->createToolBar("report", xi18n("Report Design"));
+    Q_UNUSED(tbar)
 
     connect(this, SIGNAL(currentChanged(int)), this, SLOT(slotCurrentChanged(int)));
     setCurrentWidget(widget(KEXITABBEDTOOLBAR_SPACER_TAB_INDEX + 1)); // the default
@@ -825,11 +738,6 @@ bool KexiTabbedToolBar::mainMenuVisible() const
 QRect KexiTabbedToolBar::tabRect(int index) const
 {
     return tabBar()->tabRect(index);
-}
-
-KHelpMenu* KexiTabbedToolBar::helpMenu() const
-{
-    return d->helpMenu;
 }
 
 void KexiTabbedToolBar::slotSettingsChanged(int category)
@@ -1175,77 +1083,19 @@ void KexiTabbedToolBar::toggleRollDown()
     slotTabDoubleClicked(-1);//use -1 just to rolldown/up the tabbar
 }
 
-// ---
-
-KexiMainWidget::KexiMainWidget()
-        : KMainWindow(0, Qt::Widget)
-        , m_mainWindow(0)
-{
-    setupCentralWidget();
-}
-
-KexiMainWidget::~KexiMainWidget()
-{
-}
-
-void KexiMainWidget::setParent(KexiMainWindow* mainWindow)
-{
-    KMainWindow::setParent(mainWindow);
-    m_mainWindow = mainWindow;
-}
-
-KexiMainWindowTabWidget* KexiMainWidget::tabWidget() const
-{
-    return m_tabWidget;
-}
-
-void KexiMainWidget::setupCentralWidget()
-{
-    QWidget *centralWidget = new QWidget(this);
-    QVBoxLayout *centralWidgetLyr = new QVBoxLayout(centralWidget);
-    m_tabWidget = new KexiMainWindowTabWidget(centralWidget, this);
-    connect(m_tabWidget, SIGNAL(currentChanged(int)), this, SLOT(slotCurrentTabIndexChanged(int)));
-    centralWidgetLyr->setContentsMargins(0, 0, 0, 0);
-    centralWidgetLyr->setSpacing(0);
-    centralWidgetLyr->addWidget(m_tabWidget);
-    setCentralWidget(centralWidget);
-    layout()->setContentsMargins(0, 0, 0, 0);
-    layout()->setSpacing(0);
-}
-
-bool KexiMainWidget::queryClose()
-{
-    return m_mainWindow ? m_mainWindow->queryClose() : true;
-}
-
-void KexiMainWidget::slotCurrentTabIndexChanged(int index)
-{
-    KexiWindowContainer* cont = dynamic_cast<KexiWindowContainer*>(m_tabWidget->widget(index));
-    if (! cont || (KexiWindow*)m_previouslyActiveWindow == cont->window)
-        return;
-    if (m_mainWindow)
-        m_mainWindow->activeWindowChanged(cont->window, (KexiWindow*)m_previouslyActiveWindow);
-    m_previouslyActiveWindow = cont->window;
-    emit currentTabIndexChanged(index);
-}
-
 //------------------------------------------
 
 KexiMainWindow::Private::Private(KexiMainWindow* w)
     : wnd(w)
 {
+    objectViewWidget = 0;
     actionCollection = new KActionCollection(w);
-    propEditor = 0;
-    propEditorDockWidget = 0;
-    navDockWidget = 0;
-    propEditorTabWidget = 0;
     KexiProjectData *pdata = KexiStartupHandler::global()->projectData();
     userMode = KexiStartupHandler::global()->forcedUserMode() /* <-- simply forced the user mode */
                /* project has 'user mode' set as default and not 'design mode' override is found: */
                || (pdata && pdata->userMode() && !KexiStartupHandler::global()->forcedDesignMode());
     isProjectNavigatorVisible = KexiStartupHandler::global()->isProjectNavigatorVisible();
     isMainMenuVisible = KexiStartupHandler::global()->isMainMenuVisible();
-    navigator = 0;
     prj = 0;
     config = KSharedConfig::openConfig();
     nameDialog = 0;
@@ -1255,8 +1105,6 @@ KexiMainWindow::Private::Private(KexiMainWindow* w)
     action_show_propeditor = 0;
     action_activate_nav = 0;
     action_activate_propeditor = 0;
-    action_welcome_projects_title_id = -1;
-    action_welcome_connections_title_id = -1;
     forceWindowClosing = false;
     insideCloseWindow = false;
 #ifndef KEXI_NO_PENDING_DIALOGS
@@ -1349,27 +1197,32 @@ void KexiMainWindow::Private::showStartProcessMsg(const QStringList& args)
 
 void KexiMainWindow::Private::updatePropEditorVisibility(Kexi::ViewMode viewMode, KexiPart::Info *info)
 {
-    if (!propEditorDockWidget)
+    if (!objectViewWidget || !objectViewWidget->propertyPane()) {
         return;
+    }
     KexiWindow *currentWindow = wnd->currentWindow();
     if (!info && currentWindow) {
         info = currentWindow->part()->info();
     }
     const bool visible = (viewMode == Kexi::DesignViewMode)
         && ((currentWindow && currentWindow->propertySet()) || (info && info->isPropertyEditorAlwaysVisibleInDesignMode()));
-    //qDebug() << "visible == " << visible;
+    //qDebug() << "visible ==" << visible;
     enable_slotPropertyEditorVisibilityChanged = false;
+    bool set;
     if (visible && propertyEditorCollapsed) { // used when we're switching back to a window with propeditor available but collapsed
-        propEditorDockWidget->setVisible(!visible);
-        setPropertyEditorTabBarVisible(true);
+        set = !visible;
     }
     else {
-        propEditorDockWidget->setVisible(visible);
-        setPropertyEditorTabBarVisible(false);
+        set = visible;
     }
+    objectViewWidget->propertyPane()->setVisible(set);
+    action_show_propeditor->setChecked(set);
+    action_show_propeditor->setEnabled(set);
+    objectViewWidget->updateSidebarWidths();
     enable_slotPropertyEditorVisibilityChanged = true;
 }
 
+/*
 void KexiMainWindow::Private::setTabBarVisible(KMultiTabBar::KMultiTabBarPosition position, int id,
                                                KexiDockWidget *dockWidget, bool visible)
 {
@@ -1392,8 +1245,8 @@ void KexiMainWindow::Private::setTabBarVisible(KMultiTabBar::KMultiTabBarPositio
 void KexiMainWindow::Private::setPropertyEditorTabBarVisible(bool visible)
 {
     setTabBarVisible(KMultiTabBar::Right, PROPERTY_EDITOR_TABBAR_ID,
-                     propEditorDockWidget, visible);
-}
+                     objectViewWidget->propertyEditorTabWidget(), visible);
+}*/
 
 QObject *KexiMainWindow::Private::openedCustomObjectsForItem(KexiPart::Item* item, const char* name)
 {
@@ -1517,6 +1370,28 @@ tristate KexiMainWindow::Private::showProjectMigrationWizard(
     return true;
 }
 
+KPropertyEditorView* KexiMainWindow::Private::propertyEditor() const
+{
+    return (objectViewWidget && objectViewWidget->propertyPane() && objectViewWidget->propertyPane()->editor())
+            ? objectViewWidget->propertyPane()->editor() : 0;
+}
+
+void KexiMainWindow::Private::setProjectNavigatorVisible(bool set, ShowMode mode)
+{
+    if (objectViewWidget && objectViewWidget->projectNavigator()) {
+        if (mode == ShowAnimated) {
+            objectViewWidget->setProjectNavigatorVisible(set);
+            if (set) { // on showing, arrow should be updated immediately
+                wnd->slotProjectNavigatorVisibilityChanged(set);
+            }
+        } else {
+            objectViewWidget->projectNavigator()->setVisible(set);
+            action_show_nav->setChecked(set);
+            wnd->slotProjectNavigatorVisibilityChanged(set);
+        }
+    }
+}
+
 #ifndef KEXI_NO_PENDING_DIALOGS
 void KexiMainWindow::Private::executeActionWhenPendingJobsAreFinished()
 {
@@ -1562,7 +1437,7 @@ void KexiMainWindow::Private::addItemToPendingWindows(const KexiPart::Item* item
 bool KexiMainWindow::Private::pendingWindowsExist()
 {
     if (pendingWindows.begin() != pendingWindows.end())
-        qDebug() <<  pendingWindows.constBegin().key() << " " << (int)pendingWindows.constBegin().value();
+        qDebug() <<  pendingWindows.constBegin().key() << (int)pendingWindows.constBegin().value();
 //! @todo (threads)  QMutexLocker dialogsLocker( &dialogsMutex );
     return !pendingWindows.isEmpty();
 }
