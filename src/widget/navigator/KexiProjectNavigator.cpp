@@ -500,10 +500,6 @@ void KexiProjectNavigator::slotRename()
 
 void KexiProjectNavigator::setFocus()
 {
-    if (!d->list->currentIndex().isValid()) { // select first
-        QModelIndex first = d->model->firstPartItem();
-        d->list->setCurrentIndex(first);
-    }
     d->list->setFocus();
 }
 
