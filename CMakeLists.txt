@@ -6,19 +6,20 @@ include(SetKexiVersionInfo)
 
 project(Kexi VERSION ${KEXI_VERSION})
 
-include(ECMInstallIcons)
+# ECM
 include(ECMAddAppIcon)
-include(ECMSetupVersion)
 include(ECMAddTests)
+include(ECMGenerateHeaders)
+include(ECMInstallIcons)
 include(ECMMarkAsTest)
 include(ECMMarkNonGuiExecutable)
-include(ECMGenerateHeaders)
 include(ECMPoQmTools)
-
+include(ECMSetupVersion)
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings)
 
+# Own
 include(KexiMacros)
 
 ensure_out_of_source_build("Please refer to the build instruction https://community.kde.org/Kexi/Building")
