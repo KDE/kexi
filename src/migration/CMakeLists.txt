@@ -89,13 +89,7 @@ kexi_add_library(keximigrate SHARED ${keximigrate_LIB_SRCS})
 
 target_link_libraries(keximigrate
     PUBLIC
-        kexicore
         kexiextendedwidgets
-        kexiutils
-
-        KDb
-
-        Qt5::Gui
 )
 
 generate_export_header(keximigrate)

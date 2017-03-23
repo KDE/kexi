@@ -15,7 +15,6 @@ kcoreaddons_desktop_to_json(kexiforms_mapwidgetplugin kexiforms_mapwidgetplugin.
 
 target_link_libraries(kexiforms_mapwidgetplugin
     kformdesigner
-    kexicore
     kexiguiutils
     kexidatatable
     kexiextendedwidgets
@@ -23,8 +22,6 @@ target_link_libraries(kexiforms_mapwidgetplugin
     kexidataviewcommon
     ${MARBLE_LIBRARIES}
 
-    Qt5::Core
-    Qt5::Gui
     Qt5::Xml
 )
 

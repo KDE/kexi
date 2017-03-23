@@ -11,7 +11,9 @@ set(xbasemigrationtest_SRCS main.cpp )
 
 add_executable(xbasemigrationtest NOGUI ${xbasemigrationtest_SRCS})
 
-target_link_libraries(xbasemigrationtest kexicore KDb keximigrate)
+target_link_libraries(xbasemigrationtest
+    keximigrate
+)
 
 ########### next target ###############
 

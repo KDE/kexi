@@ -58,7 +58,7 @@ target_link_libraries(kexicore
         kexiutils
 
         KDb
-        KPropertyWidgets
+        KPropertyCore
 )
 
 if(WIN32)

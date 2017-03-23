@@ -88,16 +88,15 @@ generate_export_header(kexiextendedwidgets BASE_NAME kexiextwidgets)
 target_link_libraries(kexiextendedwidgets
     PRIVATE
         kexidataviewcommon
-        kexiutils
         kexiguiutils
-        kexicore
-
-        KDb
-        KPropertyWidgets
 
         KF5::TextWidgets # KTextEdit
         KF5::Codecs # KCharsets
     PUBLIC
+        kexicore
+
+        KPropertyWidgets
+
         KF5::KIOFileWidgets # KFileWidget
         KF5::TextEditor
 )

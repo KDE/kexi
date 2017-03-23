@@ -28,15 +28,9 @@ kexi_add_library(kexidatatable SHARED ${kexidatatable_LIB_SRCS})
 
 generate_export_header(kexidatatable)
 
-target_link_libraries(
-    kexidatatable
+target_link_libraries(kexidatatable
     kexidataviewcommon
-    kexicore
-    kexiutils
     kexiguiutils
-
-    KDb
-    KPropertyWidgets
 
     KF5::KIOWidgets
 )

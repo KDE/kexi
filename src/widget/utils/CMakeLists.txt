@@ -24,10 +24,8 @@ generate_export_header(kexiguiutils)
 
 target_link_libraries(kexiguiutils
     kexicore
-    kexiutils
 
     KF5::KIOWidgets
-    KF5::XmlGui #KActionCollection...
 )
 
 install(TARGETS kexiguiutils  ${INSTALL_TARGETS_DEFAULT_ARGS})

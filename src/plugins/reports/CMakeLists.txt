@@ -30,13 +30,10 @@ kcoreaddons_desktop_to_json(kexi_reportplugin kexi_reportplugin.desktop)
 
 target_link_libraries(kexi_reportplugin
     PRIVATE
-        kexicore
         kexiguiutils
         kexiextendedwidgets
 
-        KDb
         KReport
-        KPropertyWidgets
 )
 
 if (KEXI_MOBILE)

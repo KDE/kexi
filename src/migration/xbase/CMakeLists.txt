@@ -10,8 +10,7 @@ set(keximigrate_xbase_PART_SRCS
 add_library(keximigrate_xbase MODULE ${keximigrate_xbase_PART_SRCS})
 
 
-target_link_libraries(
-    keximigrate_xbase
+target_link_libraries(keximigrate_xbase
     keximigrate
     kexiutils
 

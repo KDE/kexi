@@ -22,8 +22,6 @@ target_link_libraries(keximobile Qt5::Core Qt5::Gui
     kexiextendedwidgets
     kexicore
     kdeui
-
-    KDb
 )
 
 install(TARGETS keximobile ${INSTALL_TARGETS_DEFAULT_ARGS})

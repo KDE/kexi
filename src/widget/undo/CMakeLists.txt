@@ -14,13 +14,11 @@ target_link_libraries(kexiundo
     PUBLIC
         KF5::I18n
         KF5::XmlGui
-        Qt5::Core
         Qt5::Widgets
     PRIVATE
         KF5::ConfigWidgets
         KF5::IconThemes #KIconLoader
         kexicore # TODO remove when KexiIcon() goes out of core/
-        KDb # TODO remove when KexiIcon() goes out of core/
 )
 
 install(TARGETS kexiundo ${INSTALL_TARGETS_DEFAULT_ARGS})

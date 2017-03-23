@@ -22,12 +22,7 @@ target_link_libraries(kexi_scriptplugin
         kexiextendedwidgets
         kokross
         kexicore
-        kexiutils
-
-        KDb
-        KPropertyWidgets
 
         KF5::KIOWidgets
-        Qt5::Gui
 )
 install(TARGETS kexi_scriptplugin DESTINATION ${KEXI_PLUGIN_INSTALL_DIR})
