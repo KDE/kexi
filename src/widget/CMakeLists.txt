@@ -3,10 +3,8 @@ add_subdirectory( relations )
 add_subdirectory( undo )
 add_subdirectory( utils )
 
-if(KEXI_MOBILE)
-
-else()
-  add_subdirectory( tableview )
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
+    add_subdirectory( tableview )
 endif()
 
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44023)
@@ -51,9 +49,7 @@ set(kexiextendedwidgets_LIB_SRCS
     KexiListView.cpp
   )
 
-if (KEXI_MOBILE)
-
-else ()
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
   list(APPEND kexiextendedwidgets_LIB_SRCS
     #navigator/KexiProjectListView.cpp
     #navigator/KexiProjectListViewItem.cpp

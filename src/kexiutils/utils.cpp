@@ -60,8 +60,10 @@
 #include <QStyleHints>
 #include <QLineEdit>
 
+#ifndef KEXI_MOBILE
 #include <KRun>
 #include <KToolInvocation>
+#endif
 #include <KIconEffect>
 #include <KColorScheme>
 #include <KLocalizedString>
@@ -719,6 +721,7 @@ bool PaintBlocker::eventFilter(QObject* watched, QEvent* event)
 
 tristate KexiUtils::openHyperLink(const QUrl &url, QWidget *parent, const OpenHyperlinkOptions &options)
 {
+#ifndef KEXI_MOBILE
     if (url.isLocalFile()) {
         QFileInfo fileInfo(url.toLocalFile());
         if (!fileInfo.exists()) {
@@ -771,6 +774,7 @@ tristate KexiUtils::openHyperLink(const QUrl &url, QWidget *parent, const OpenHy
             return QDesktopServices::openUrl(url);
         default:;
     }
+#endif
     return false;
 }
 

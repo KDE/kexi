@@ -1,7 +1,5 @@
 set(CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS true)
 
-option(KEXI_MOBILE "Compile a mobile version of Kexi" OFF)
-
 check_function_exists("uname" HAVE_UNAME)
 
 option(KEXI_SHOW_UNFINISHED "Show unfinished features in Kexi. Thus is useful for testing but may confuse end-user." OFF)
@@ -43,6 +41,8 @@ add_definitions(-DTRANSLATION_DOMAIN=\"kexi\")
 
 #no default: add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44010)
 
+macro_bool_to_01(SHOULD_BUILD_KEXI_DESKTOP_APP KEXI_DESKTOP)
+macro_bool_to_01(SHOULD_BUILD_KEXI_MOBILE_APP KEXI_MOBILE)
 configure_file(config-kexi.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-kexi.h )
 configure_file(KexiVersion.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/KexiVersion.h)
 
@@ -54,43 +54,45 @@ include_directories(
 
 add_subdirectory( kexiutils )
 add_subdirectory( core )
-add_subdirectory( widget )
+
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
+    add_subdirectory( widget )
+    add_subdirectory( main )
+    add_subdirectory( formeditor )
+    add_subdirectory( migration )
+endif()
+
 add_subdirectory( data )
 add_subdirectory( plugins )
+
 if (BUILD_TESTING)
 #TODO KEXI3 add_subdirectory( tests )
 endif()
 
-if(KEXI_MOBILE)
-
-else()
-  add_subdirectory( main )
-  add_subdirectory( formeditor )
-  add_subdirectory( migration )
-endif()
-
 ########### next target ###############
 
-if(KEXI_MOBILE)
-  add_subdirectory( mobile )
-else()
-  set(kexi_SRCS
-    main.cpp
-    Messages.sh
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
+    set(kexi_SRCS
+        main.cpp
+        Messages.sh
 
-    # non-source:
-    ${CMAKE_SOURCE_DIR}/kundo2_aware_xgettext.sh
-    Mainpage.dox
-    Messages.sh
-  )
-  kexi_add_app_icons(kexi_SRCS)
-  kexi_add_app_metadata_files(kexi_SRCS)
-  kexi_add_executable(kexi ${kexi_SRCS})
-  target_link_libraries(kexi
-    PRIVATE
-      keximain
-  )
-  install(TARGETS kexi ${INSTALL_TARGETS_DEFAULT_ARGS})
+        # non-source:
+        ${CMAKE_SOURCE_DIR}/kundo2_aware_xgettext.sh
+        Mainpage.dox
+        Messages.sh
+    )
+    kexi_add_app_icons(kexi_SRCS)
+    kexi_add_app_metadata_files(kexi_SRCS)
+    kexi_add_executable(kexi ${kexi_SRCS})
+    target_link_libraries(kexi
+        PRIVATE
+            keximain
+    )
+    install(TARGETS kexi ${INSTALL_TARGETS_DEFAULT_ARGS})
+
+    add_subdirectory( pics )
 endif()
 
-add_subdirectory( pics )
+if(SHOULD_BUILD_KEXI_MOBILE_APP)
+#  add_subdirectory( mobile )
+endif()

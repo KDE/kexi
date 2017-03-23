@@ -28,8 +28,12 @@
 
 #include <config-kdb.h>
 
+//! @def KEXI_DESKTOP
+//! @brief If defined, a desktop version of Kexi is compiled
+#cmakedefine KEXI_DESKTOP
+
 //! @def KEXI_MOBILE
-//! @brief If defined, a mobile version of Kexi if compiled
+//! @brief If defined, a mobile version of Kexi is compiled
 #cmakedefine KEXI_MOBILE
 
 /* define if you have libreadline available */

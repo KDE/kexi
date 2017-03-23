@@ -1,7 +1,5 @@
 if(BUILD_TESTING)
-    If (KEXI_MOBILE)
-
-    else()
+    if(SHOULD_BUILD_KEXI_DESKTOP_APP)
         add_subdirectory( newapi )
         add_subdirectory( migration )
     endif()

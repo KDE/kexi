@@ -14,9 +14,7 @@ set(kexi_reportplugin_SRCS
     krscriptfunctions.cpp
 )
 
-if (KEXI_MOBILE)
-
-else ()
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
 #TODO KEXI3
 #  list(APPEND kexi_reportplugin_SRCS
 #        keximigratereportdata.cpp
@@ -36,14 +34,12 @@ target_link_libraries(kexi_reportplugin
         KReport
 )
 
-if (KEXI_MOBILE)
-
-else ()
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
     target_link_libraries(kexi_reportplugin
       PRIVATE
         keximain
 #TODO KEXI3       keximigrate
     )
-endif ()
+endif()
 
 install(TARGETS kexi_reportplugin DESTINATION ${KEXI_PLUGIN_INSTALL_DIR})

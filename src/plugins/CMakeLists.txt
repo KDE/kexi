@@ -1,8 +1,6 @@
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44021)
 
-if (KEXI_MOBILE)
-
-else ()
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
   add_subdirectory( tables )
   add_subdirectory( queries )
   add_subdirectory( forms )

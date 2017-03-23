@@ -62,11 +62,13 @@
 # features
 calligra_define_feature(FEATURE_SCRIPTING "Scripting feature" UNPORTED) # TODO
 
-# apps
-calligra_define_product(APP_KEXI "Kexi app (for Desktop)" REQUIRES)
+# products
+calligra_define_product(KEXI_CORE_APP "Kexi core app" REQUIRES)
+calligra_define_product(KEXI_DESKTOP_APP "Kexi for desktop" REQUIRES KEXI_CORE_APP)
+calligra_define_product(KEXI_MOBILE_APP "Kexi for mobile" REQUIRES KEXI_CORE_APP)
 
 # more plugins
-calligra_define_product(PLUGIN_KEXI_SPREADSHEETMIGRATION "Import from ODS plugin for Kexi" UNPORTED  REQUIRES APP_KEXI)
+calligra_define_product(PLUGIN_KEXI_SPREADSHEETMIGRATION "Import from ODS plugin for Kexi" UNPORTED  REQUIRES KEXI_CORE_APP)
 
 #############################################
 ####      Product set definitions        ####
@@ -75,13 +77,7 @@ calligra_define_product(PLUGIN_KEXI_SPREADSHEETMIGRATION "Import from ODS plugin
 # For defining new productsets see end of this file,
 # "How to add another productset?"
 
-calligra_define_productset(KEXI "Full Kexi (for Desktop)"
-    REQUIRES
-        APP_KEXI
-    OPTIONAL
-        FEATURE_SCRIPTING
-        PLUGIN_KEXI_SPREADSHEETMIGRATION
-)
+# (products sets are defined in cmake/productsets/*.cmake files)
 
 # How to add another product?
 # ===========================

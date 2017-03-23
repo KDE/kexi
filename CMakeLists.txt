@@ -46,14 +46,15 @@ detect_release_build()
 # get the special macros
 include(CalligraProductSetMacros)
 
-# get the definitions of products, features and product sets
-include(KexiProducts.cmake)
+set(PRODUCTSET_DEFAULT "DESKTOP")
 
-set(PRODUCTSET_DEFAULT "ALL")
-
-if(NOT PRODUCTSET)
+if(NOT PRODUCTSET OR PRODUCTSET STREQUAL "ALL")
+    # Force the default set also when it is "ALL" because we can't build both desktop and mobile
     set(PRODUCTSET ${PRODUCTSET_DEFAULT} CACHE STRING "Set of products/features to build" FORCE)
 endif()
+
+# get the definitions of products, features and product sets
+include(KexiProducts.cmake)
 
 if (RELEASE_BUILD)
     set(KEXI_SHOULD_BUILD_STAGING FALSE)
@@ -71,23 +72,30 @@ calligra_set_productset(${PRODUCTSET})
 ##########################
 
 set(REQUIRED_KF5_VERSION 5.16.0)
-find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS
-        Archive 
-        Codecs 
-        Completion
-        Config 
-        ConfigWidgets 
-        CoreAddons
-        GuiAddons 
-        I18n 
-        IconThemes 
-        ItemViews
-        KIO 
-        TextEditor 
-        TextWidgets 
-        WidgetsAddons 
-        XmlGui 
+set(REQUIRED_KF5_COMPONENTS
+    Archive
+    Codecs
+    Config
+    ConfigWidgets
+    CoreAddons
+    GuiAddons
+    I18n
+    IconThemes
+    ItemViews
+    WidgetsAddons
+    TextWidgets
+    XmlGui
 )
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
+    list(APPEND REQUIRED_KF5_COMPONENTS
+        Completion
+        KIO
+        TextEditor
+        TextWidgets
+    )
+endif()
+find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS ${REQUIRED_KF5_COMPONENTS})
+
 find_package(KF5 ${REQUIRED_KF5_VERSION} QUIET OPTIONAL_COMPONENTS Crash)
 macro_bool_to_01(KF5Crash_FOUND HAVE_KCRASH)
 macro_log_feature(${KF5Crash_FOUND} "KCrash" "KDE's Crash Handler"
@@ -161,13 +169,20 @@ endif()
 ##
 ## Test for KPropertyWidgets
 ##
-find_package(KPropertyWidgets ${KEXI_LIBS_MIN_VERSION} REQUIRED COMPONENTS KF)
-macro_log_feature(KPropertyWidgets_FOUND "KPropertyWidgets" "A property editing framework with editor widget"
-                                  "http://community.kde.org/KProperty" FALSE "" "Required by Kexi")
-
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
+    find_package(KPropertyWidgets ${KEXI_LIBS_MIN_VERSION} REQUIRED COMPONENTS KF)
+    macro_log_feature(KPropertyWidgets_FOUND "KPropertyWidgets" "A property editing framework with editor widget"
+                                  "http://community.kde.org/KProperty" FALSE "" "Required by Kexi Desktop")
+else() # only KPropertyCore
+    find_package(KPropertyCore ${KEXI_LIBS_MIN_VERSION} REQUIRED COMPONENTS KF)
+    macro_log_feature(KPropertyCore_FOUND "KPropertyCore" "A property editing framework with editor widget"
+                                  "http://community.kde.org/KProperty" FALSE "" "Required by Kexi Mobile")
+endif()
 include(CheckIfQtGuiCanBeExecuted)
-include(CheckGlobalBreezeIcons)
 
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
+include(CheckGlobalBreezeIcons)
+endif()
  ###########################
 ############################
 ## Optional dependencies  ##
