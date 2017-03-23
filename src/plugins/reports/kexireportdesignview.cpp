@@ -76,7 +76,7 @@ KexiReportDesignView::~KexiReportDesignView()
 
 KPropertySet *KexiReportDesignView::propertySet()
 {
-    return m_reportDesigner->itemPropertySet();
+    return m_reportDesigner->selectedItemPropertySet();
 }
 
 void KexiReportDesignView::slotDesignerPropertySetChanged()
