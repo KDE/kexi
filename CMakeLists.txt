@@ -6,19 +6,20 @@ include(SetKexiVersionInfo)
 
 project(Kexi VERSION ${PROJECT_VERSION})
 
-include(ECMInstallIcons)
+# ECM
 include(ECMAddAppIcon)
-include(ECMSetupVersion)
 include(ECMAddTests)
+include(ECMGenerateHeaders)
+include(ECMInstallIcons)
 include(ECMMarkAsTest)
 include(ECMMarkNonGuiExecutable)
-include(ECMGenerateHeaders)
 include(ECMPoQmTools)
-
+include(ECMSetupVersion)
 include(KDEInstallDirs)
 include(KDECMakeSettings NO_POLICY_SCOPE)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
+# Own
 include(KexiMacros)
 include(KexiAddIconsRccFile)
 
