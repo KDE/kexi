@@ -30,8 +30,6 @@ KexiDBCheckBox::KexiDBCheckBox(const QString &text, QWidget *parent)
         , m_tristate(TristateDefault)
 {
     setFocusPolicy(Qt::StrongFocus);
-    setMinimumHeight(sizeHint().height());
-    setMinimumWidth(minimumHeight());
     updateTristate();
     connect(this, SIGNAL(stateChanged(int)), this, SLOT(slotStateChanged(int)));
 }
