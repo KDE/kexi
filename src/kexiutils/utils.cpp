@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
 
    Contains code from kglobalsettings.cpp:
    Copyright (C) 2000, 2006 David Faure <faure@kde.org>
@@ -892,6 +892,59 @@ GraphicEffects KexiUtils::graphicEffectsLevel()
 {
     return g_graphicEffectsLevel->value;
 }
+
+#if defined Q_OS_UNIX && !defined Q_OS_MACOS
+//! For detectedDesktopSession()
+class DetectedDesktopSession
+{
+public:
+    DetectedDesktopSession() : name(detect()) {}
+    const QByteArray name;
+
+private:
+    static QByteArray detect() {
+        // https://www.freedesktop.org/software/systemd/man/pam_systemd.html#%24XDG_SESSION_DESKTOP
+        // KDE, GNOME, UNITY, LXDE, MATE, XFCE...
+        const QString xdgSessionDesktop = qgetenv("XDG_SESSION_DESKTOP").trimmed();
+        if (!xdgSessionDesktop.isEmpty()) {
+            return xdgSessionDesktop.toLatin1().toUpper();
+        }
+        // Similar to detectDesktopEnvironment() from qgenericunixservices.cpp
+        const QString xdgCurrentDesktop = qgetenv("XDG_CURRENT_DESKTOP").trimmed();
+        if (!xdgCurrentDesktop.isEmpty()) {
+            return xdgCurrentDesktop.toLatin1().toUpper();
+        }
+        // fallbacks
+        if (!qEnvironmentVariableIsEmpty("KDE_FULL_SESSION")) {
+            return QByteArrayLiteral("KDE");
+        }
+        if (!qEnvironmentVariableIsEmpty("GNOME_DESKTOP_SESSION_ID")) {
+            return QByteArrayLiteral("GNOME");
+        }
+        const QString desktopSession = qgetenv("DESKTOP_SESSION").trimmed();
+        if (desktopSession.compare("gnome", Qt::CaseInsensitive) == 0) {
+            return QByteArrayLiteral("GNOME");
+        } else if (desktopSession.compare("xfce", Qt::CaseInsensitive) == 0) {
+            return QByteArrayLiteral("XFCE");
+        }
+        return QByteArray();
+    }
+};
+
+Q_GLOBAL_STATIC(DetectedDesktopSession, s_detectedDesktopSession)
+
+QByteArray KexiUtils::detectedDesktopSession()
+{
+    return s_detectedDesktopSession->name;
+}
+
+#else
+
+QByteArray KexiUtils::detectedDesktopSession()
+{
+    return QByteArray();
+}
+#endif
 
 bool KexiUtils::activateItemsOnSingleClick(QWidget *widget)
 {

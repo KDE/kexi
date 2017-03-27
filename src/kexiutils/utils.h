@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
 
    Contains code from kglobalsettings.h:
    Copyright (C) 2000, 2006 David Faure <faure@kde.org>
@@ -566,6 +566,19 @@ inline QColor shadeBlack() { return QColor(0x232629); }
     @note This is a replacement for bool KGlobalSettings::singleClick().
 */
 KEXIUTILS_EXPORT bool activateItemsOnSingleClick(QWidget *widget = 0);
+
+/**
+ * Detects name of desktop session based on environment variables.
+ *
+ * Possible value are like GNOME, XFCE, KDE. They are always uppercase.
+ * Following environment variables are used: XDG_SESSION_DESKTOP. XDG_CURRENT_DESKTOP,
+ * DESKTOP_SESSION, KDE_FULL_SESSION, GNOME_DESKTOP_SESSION_ID.
+ * @return empty string if no session was detected or the running OS is unsupported
+ * (Windows,
+ * macOS, non-desktop OS).
+ * @note use QApplication::styleHints() if possible.
+ */
+KEXIUTILS_EXPORT QByteArray detectedDesktopSession();
 
 /**
  * @enum CaptionFlag

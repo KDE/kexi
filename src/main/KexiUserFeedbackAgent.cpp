@@ -21,6 +21,7 @@
 
 #include <KexiVersion.h>
 #include <KexiMainWindowIface.h>
+#include <kexiutils/utils.h>
 
 #include <KIO/Job>
 #include <KConfigGroup>
@@ -105,51 +106,51 @@ void KexiUserFeedbackAgent::Private::updateData()
 #ifdef Q_OS_LINUX
     {
         ADD("os", "linux", SystemInfoArea);
-        const QByteArray desktop = qgetenv("XDG_CURRENT_DESKTOP").trimmed().toLower();
-        const QByteArray gdm = qgetenv("GDMSESSION").trimmed().toLower();
+        const QByteArray desktop = KexiUtils::detectedDesktopSession();
+        const QByteArray gdm = qgetenv("GDMSESSION").trimmed().toUpper();
         const bool kdeSession = qgetenv("KDE_FULL_SESSION").trimmed().toLower() == "true";
         // detect running desktop
         // http://standards.freedesktop.org/menu-spec/latest/apb.html
         QString runningDesktop;
         QString runningDesktopVersion;
         //! @todo set runningDesktopVersion for other desktops
-        if (desktop.contains("kde") || kdeSession || gdm.contains("kde")) {
+        if (desktop.contains("KDE") || kdeSession || gdm.contains("KDE")) {
             runningDesktop = "KDE Plasma";
             //! @todo run kde{4|5}-config --kde-version to know full version and save in runningDesktopVersion
             runningDesktopVersion = qgetenv("KDE_SESSION_VERSION").trimmed();
         }
-        else if (desktop.contains("unity")) {
+        else if (desktop.contains("UNITY")) {
             runningDesktop = "Unity";
         }
-        else if (desktop.contains("razor")) {
+        else if (desktop.contains("RAZOR")) {
             runningDesktop = "Razor-qt";
         }
-        else if (desktop.contains("rox")) {
+        else if (desktop.contains("ROX")) {
             runningDesktop = "ROX";
         }
-        else if (desktop.contains("tde")) {
+        else if (desktop.contains("TDE")) {
             runningDesktop = "Trinity";
         }
-        else if (desktop.contains("mate")) {
+        else if (desktop.contains("MATE")) {
             runningDesktop = "MATE";
         }
-        else if (desktop.contains("lxde") || gdm.contains("lubuntu")) {
+        else if (desktop.contains("LXDE") || gdm.contains("LUBUNTU")) {
             runningDesktop = "LXDE";
         }
-        else if (desktop.contains("xfce") || gdm.contains("xfce")) {
+        else if (desktop.contains("XFCE") || gdm.contains("XFCE")) {
             runningDesktop = "Xfce";
         }
-        else if (desktop.contains("ede")) {
+        else if (desktop.contains("EDE")) {
             runningDesktop = "EDE";
         }
-        else if (desktop.contains("cinnamon")) {
+        else if (desktop.contains("CINNAMON")) {
             runningDesktop = "Cinnamon";
         }
-        else if (desktop.contains("gnome") || gdm.contains("gnome")) {
+        else if (desktop.contains("GNOME") || gdm.contains("GNOME")) {
             if (gdm.contains("cinnamon")) {
                 runningDesktop = "Cinnamon";
             }
-            else if (gdm.contains("classic")) {
+            else if (gdm.contains("CLASSIC")) {
                 runningDesktop = "GNOME Classic";
             }
             else {
@@ -158,10 +159,10 @@ void KexiUserFeedbackAgent::Private::updateData()
         }
         else {
             if (!desktop.isEmpty()) {
-                runningDesktop = "Other: " + desktop;
+                runningDesktop = "Other: " + desktop.toLower();
             }
             else if (!gdm.isEmpty()) {
-                runningDesktop = "Other: " + gdm;
+                runningDesktop = "Other: " + gdm.toLower();
             }
         }
         if (!runningDesktop.isEmpty()) {

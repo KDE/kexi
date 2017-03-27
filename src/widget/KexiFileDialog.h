@@ -1,5 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2013 - 2014 Yue Liu <yue.liu@mail.com>
+   Copyright (C) 2017 Jarosław Staniek <staniek@kde.org>
 
    Based on Calligra libs' KoFileDialog
 
