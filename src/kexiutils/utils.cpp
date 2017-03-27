@@ -59,6 +59,7 @@
 #include <QDesktopServices>
 #include <QStyleHints>
 #include <QLineEdit>
+#include <QProcess>
 
 #include <KRun>
 #include <KToolInvocation>
@@ -938,6 +939,40 @@ QByteArray KexiUtils::detectedDesktopSession()
     return s_detectedDesktopSession->name;
 }
 
+//! @return value of XFCE property @a property for channel @a channel
+//! Sets the value pointed by @a ok to status.
+//! @todo Should be part of desktop integration or KF
+static QByteArray xfceSettingValue(const QByteArray &channel, const QByteArray &property,
+                                   bool *ok = nullptr)
+{
+    if (ok) {
+        *ok = false;
+    }
+    QByteArray result;
+    const QString command = QString::fromLatin1("xfconf-query -c \"%1\" -p \"%2\"")
+                                .arg(channel.constData())
+                                .arg(property.constData());
+    QProcess process;
+    process.start(command, QIODevice::ReadOnly | QIODevice::Text);
+    if (!process.waitForStarted()) {
+        qWarning() << "Count not execute command" << command << "error:" << process.error();
+        return QByteArray();
+    }
+    if (!process.waitForFinished() || process.exitStatus() != QProcess::NormalExit) {
+        qWarning() << "Count not finish command" << command << "error:" << process.error()
+                   << "exit status:" << process.exitStatus();
+        return QByteArray();
+    }
+    if (ok) {
+        *ok = true;
+    }
+    if (process.exitCode() == 0) {
+        result = process.readAll();
+        result.chop(1);
+    }
+    return result;  // !=0 e.g. for "no such property or channel"
+}
+
 #else
 
 QByteArray KexiUtils::detectedDesktopSession()
@@ -948,12 +983,29 @@ QByteArray KexiUtils::detectedDesktopSession()
 
 bool KexiUtils::activateItemsOnSingleClick(QWidget *widget)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
+    const KConfigGroup mainWindowGroup = KSharedConfig::openConfig()->group("MainWindow");
+#ifdef Q_OS_WIN
+    return mainWindowGroup.readEntry("SingleClickOpensItem", true);
+#else
+    if (mainWindowGroup.hasKey("SingleClickOpensItem")) {
+        return mainWindowGroup.readEntry("SingleClickOpensItem", true);
+    }
+    const QByteArray desktopSession = detectedDesktopSession();
+    if (desktopSession == "XFCE") {
+        /* To test:
+           Set to true: fconf-query -c xfce4-desktop -p /desktop-icons/single-click -n -t bool -s true
+           Get value: xfconf-query -c xfce4-desktop -p /desktop-icons/single-click
+           Reset: xfconf-query -c xfce4-desktop -p /desktop-icons/single-click -r
+        */
+        return xfceSettingValue("xfce4-desktop", "/desktop-icons/single-click") == "true";
+    }
+# if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
     Q_UNUSED(widget)
     return QApplication::styleHints()->singleClickActivation();
-#else
+# else
     QStyle *style = widget ? widget->style() : QApplication::style();
     return style->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick, 0, widget);
+# endif
 #endif
 }
 
