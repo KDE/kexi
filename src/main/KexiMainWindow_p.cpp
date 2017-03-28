@@ -312,7 +312,8 @@ KexiTabbedToolBar::Private::Private(KexiTabbedToolBar *t)
 //! @return true if @a style name is specific regarding tab styling
 static bool isSpecificTabStyle(const QString &styleName)
 {
-    return styleName == "oxygen" || styleName == "qtcurve" || styleName == "gtk+";
+    return styleName == "oxygen" || styleName == "qtcurve" || styleName == "gtk+"
+           || styleName == "gtk2";
 }
 
 KexiTabbedToolBarStyle::KexiTabbedToolBarStyle(const QString &baseStyleName)
@@ -489,7 +490,7 @@ QSize KexiTabbedToolBarTabBar::tabSizeHint(int index) const
     ot.initFrom(this);
     QFont f(font());
     f.setBold(true);
-    ot.text = (isSpecificTabStyle(style()->objectName()) ? "  " : "") + tabText(index);
+    ot.text = (isSpecificTabStyle(customStyle->baseStyle()->objectName()) ? "  " : "") + tabText(index);
     ot.fontMetrics = QFontMetrics(f);
     int w = customStyle->pixelMetric(QStyle::PM_TabBarTabHSpace, &ot, this);
     if (w <= 0) { // needed e.g. for oxygen
