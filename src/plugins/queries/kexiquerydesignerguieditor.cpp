@@ -442,7 +442,7 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                 KDbToken token;
                 KDbExpression criteriaExpr = parseExpressionString(criteriaStr, &token,
                                                  true/*allowRelationalOperator*/);
-                if (criteriaExpr.isValid()) {//for sanity
+                if (!criteriaExpr.isValid()) {//for sanity
                     if (errMsg)
                         *errMsg = xi18nc("@info",
                                          "Invalid criteria <icode>%1</icode>", criteriaStr);
@@ -452,10 +452,11 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                 KDbVariableExpression varExpr(fieldAndTableName);
                 criteriaExpr = KDbBinaryExpression(varExpr, token, criteriaExpr);
                 //critera ok: add it to WHERE section
-                if (whereExpr.isValid())
-                    whereExpr = KDbBinaryExpression(whereExpr, KDbToken::AND, criteriaExpr);
-                else //first expr.
+                if (whereExpr.isNull()) {
                     whereExpr = criteriaExpr;
+                } else { //first expr.
+                    whereExpr = KDbBinaryExpression(whereExpr, KDbToken::AND, criteriaExpr);
+                }
             }
             if (tableName.isEmpty()) {
                 if ((*set)["isExpression"].value().toBool() == true) {
