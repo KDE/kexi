@@ -528,13 +528,17 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
             *errMsg = msgCannotSwitch_EmptyDesign();
         return false;
     }
-    if (whereExpr.isValid()) {
-        qDebug() << "setting CRITERIA:" << whereExpr;
-    }
 
     //set always, because if whereExpr==NULL,
     //this will clear prev. expr
-    temp->query()->setWhereExpression(whereExpr);
+    QString errorMessage;
+    QString errorDescription;
+    if (!temp->query()->setWhereExpression(whereExpr, &errorMessage, &errorDescription)) {
+        qWarning() << "Invalid expression cannot be set as WHERE:" << whereExpr;
+        qWarning() << "message=" << errorMessage << "description=" << errorDescription;
+        return false;
+    }
+    qDebug() << "WHERE set to" << whereExpr;
 
     //add relations (looking for connections)
     foreach(KexiRelationsConnection* conn, *d->relations->relationsConnections()) {
