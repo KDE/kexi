@@ -82,6 +82,9 @@ QVariant KexiTableScrollAreaHeaderModel::headerData(int section, Qt::Orientation
     switch (orientation) {
     case Qt::Horizontal: {
         KDbTableViewData *data = qobject_cast<KexiTableScrollArea*>(QObject::parent())->data();
+        if (!data) {
+            return QVariant();
+        }
         KDbTableViewColumn *col = data->visibleColumn(section);
         if (!col) {
             return QVariant();

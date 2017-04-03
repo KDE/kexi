@@ -136,7 +136,7 @@ bool KexiDataTableView::saveSettings()
     if (dynamic_cast<KexiDataTableScrollArea*>(mainWidget())) { // db-aware
         KexiTableScrollArea* tv = tableView();
         const int id = window()->id();
-        if (id > 0 && tv->data()->columnCount() > 0) {
+        if (id > 0 && tv->data() && tv->data()->columnCount() > 0) {
             QStringList widths;
             bool equal = true; // will be only saved if widths are not equal
             for (int i = 0; i < tv->data()->columnCount(); ++i) {

@@ -169,7 +169,15 @@ bool KexiDBQuerySchema::setWhereExpression(const QString& whereexpression)
             return false;
         }
 
-        static_cast< KDbQuerySchema* >(m_schema)->addToWhereExpression(field, v);
+        QString errorMessage;
+        QString errorDescription;
+        if (!static_cast<KDbQuerySchema *>(m_schema)->addToWhereExpression(
+            field, v, &errorMessage, &errorDescription))
+        {
+            qWarning() << "addToWhereExpression() failed, message=" << errorMessage
+                       << "description=" << errorDescription;
+            return false;
+        }
     }
     return true;
 }
