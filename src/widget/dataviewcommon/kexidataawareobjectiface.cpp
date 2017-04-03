@@ -122,7 +122,7 @@ void KexiDataAwareObjectInterface::setData(KDbTableViewData *data, bool owner)
     clearColumnsInternal(false);
 
     // set column widths
-    if (horizontalHeader()) {
+    if (m_data && horizontalHeader()) {
         int i = 0;
         horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive); // set before using resizeSection()
         foreach(KDbTableViewColumn *col, *m_data->columns()) {
@@ -142,7 +142,9 @@ void KexiDataAwareObjectInterface::setData(KDbTableViewData *data, bool owner)
         //TODO
         verticalHeader()->update();
         verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-        verticalHeader()->headerDataChanged(Qt::Vertical, 0, data->count() - 1);
+        if (m_data) {
+            verticalHeader()->headerDataChanged(Qt::Vertical, 0, m_data->count() - 1);
+        }
     }
 //!Change the following:
     if (m_data && m_data->count() == 0 && m_navPanel)
@@ -381,8 +383,6 @@ bool KexiDataAwareObjectInterface::isReadOnly() const
         return true;
     if (m_readOnly == 1 || m_readOnly == 0)
         return (bool)m_readOnly;
-    if (!hasData())
-        return true;
     return m_data->isReadOnly();
 }
 
@@ -670,8 +670,11 @@ void KexiDataAwareObjectInterface::selectCellInternal(int previousRecord, int pr
 
 bool KexiDataAwareObjectInterface::acceptRecordEditing()
 {
-    if (m_recordEditing == -1 || /*sanity*/!m_data->recordEditBuffer() || m_inside_acceptRecordEdit)
+    if (!m_data || m_recordEditing == -1 || /*sanity*/ !m_data->recordEditBuffer()
+        || m_inside_acceptRecordEdit)
+    {
         return true;
+    }
     if (m_inside_acceptEditor) {
         m_internal_acceptsRecordEditingAfterCellAccepting = true;
         return true;
@@ -1208,8 +1211,9 @@ tristate KexiDataAwareObjectInterface::deleteAllRecords(bool ask, bool repaint)
 void KexiDataAwareObjectInterface::clearColumns(bool repaint)
 {
     cancelRecordEditing();
-    m_data->clearInternal();
-
+    if (m_data) {
+        m_data->clearInternal();
+    }
     clearColumnsInternal(repaint);
     updateIndicesForVisibleValues();
 
