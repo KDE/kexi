@@ -158,7 +158,6 @@ KexiQueryDesignerSQLView::KexiQueryDesignerSQLView(QWidget *parent)
 
     setViewActions(viewActions);
 
-    slotUpdateMode();
     slotCheckQuery();
     updateGeometry();
 }
@@ -236,6 +235,10 @@ tristate KexiQueryDesignerSQLView::beforeSwitchTo(Kexi::ViewMode mode, bool *don
                     temp->setQueryChangedInView(false);
                     //this view is no longer _just_ switched from "NoViewMode"
                     d->justSwitchedFromNoViewMode = false;
+                    d->slotTextChangedEnabled = false;
+                    d->editor->setText(d->origStatement.toString());
+                    d->slotTextChangedEnabled = true;
+                    slotCheckQuery();
                     return true;
                 }
                 //this view is no longer _just_ switched from "NoViewMode"
@@ -295,6 +298,9 @@ KexiQueryDesignerSQLView::afterSwitchFrom(Kexi::ViewMode mode)
             return false;
         }
         d->origStatement = KDbEscapedString(sql);
+        d->slotTextChangedEnabled = false;
+        d->editor->setText(d->origStatement.toString());
+        d->slotTextChangedEnabled = true;
     }
 
     if (temp->queryChangedInView() == Kexi::DesignViewMode /* true in this scenario:
@@ -348,11 +354,6 @@ bool KexiQueryDesignerSQLView::slotCheckQuery()
     return true;
 }
 
-void KexiQueryDesignerSQLView::slotUpdateMode()
-{
-    slotCheckQuery();
-}
-
 void KexiQueryDesignerSQLView::slotTextChanged()
 {
     if (!d->slotTextChangedEnabled)
@@ -364,7 +365,9 @@ void KexiQueryDesignerSQLView::slotTextChanged()
 void KexiQueryDesignerSQLView::updateActions(bool activated)
 {
     if (activated) {
-        slotUpdateMode();
+        if (isDirty()) {
+            slotCheckQuery();
+        }
     }
     setAvailable("querypart_check_query", true);
     KexiView::updateActions(activated);
