@@ -992,7 +992,7 @@ Q_DECLARE_OPERATORS_FOR_FLAGS(KexiDataAwareObjectInterface::CursorPositionFlags)
 inline bool KexiDataAwareObjectInterface::hasData() const
 {
     if (!m_data)
-        qDebug() << "KexiDataAwareObjectInterface: No data assigned!";
+        qDebug() << "No data assigned!";
     return m_data != 0;
 }
 
