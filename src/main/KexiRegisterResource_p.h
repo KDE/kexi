@@ -161,7 +161,7 @@ static bool registerResource(const QString& path, QStandardPaths::StandardLocati
 
 #ifndef KEXI_SKIP_SETUPBREEZEICONTHEME
 
-static bool registerGlobalBreezeIconsResource(KLocalizedString *errorMessage,
+inline bool registerGlobalBreezeIconsResource(KLocalizedString *errorMessage,
                                               KLocalizedString *detailsErrorMessage)
 {
     QString extraLocation;
@@ -177,7 +177,7 @@ static bool registerGlobalBreezeIconsResource(KLocalizedString *errorMessage,
 }
 
 //! Tell Qt about the theme
-static void setupBreezeIconTheme()
+inline void setupBreezeIconTheme()
 {
 #ifdef QT_GUI_LIB
     QIcon::setThemeSearchPaths(QStringList() << QStringLiteral(":/icons"));
