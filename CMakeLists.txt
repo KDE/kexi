@@ -22,6 +22,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 # Own
 include(KexiMacros)
 include(KexiAddIconsRccFile)
+include(KexiGenerateDependencyGraph)
 
 ensure_out_of_source_build("Please refer to the build instruction https://community.kde.org/Kexi/Building")
 get_git_revision_and_branch()
