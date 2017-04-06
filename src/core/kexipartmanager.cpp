@@ -270,7 +270,9 @@ Info* Manager::infoForPluginId(const QString &pluginId)
     Info *i = realId.isEmpty() ? 0 : d->partsByPluginId.value(realId);
     if (i)
         return i;
-    m_result = KDbResult(xi18nc("@info", "No plugin for ID <resource>%1</resource>", realId));
+    m_result = KDbResult(kxi18nc("@info", "No plugin for ID <resource>%1</resource>")
+                             .subs(realId)
+                             .toString(Kuit::VisualFormat::PlainText));
     return 0;
 }
 

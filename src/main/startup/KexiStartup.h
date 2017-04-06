@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -88,9 +88,6 @@ protected Q_SLOTS:
     void slotAboutToAppQuit();
 
 protected:
-//! @todo KEXI3 port getAutoopenObjects()
-//    bool getAutoopenObjects(KCmdLineArgs *args, const QByteArray &action_name);
-
     //! Handle higher-prioroty options.
     /*! When such options are present, handle them and immediately exit without showing
      the GUI even if other options or arguments are present.

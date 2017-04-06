@@ -96,9 +96,11 @@ public:
     //! @return true if the option @a option was passed to the application
     bool isSet(const QCommandLineOption & option) const;
 
-    //! @return the option value found for the given option @a option, or an empty string
-    //! if not found.
-    QString	value(const QCommandLineOption & option) const;
+    //! @return value for option @a option
+    QString value(const QCommandLineOption &option) const;
+
+    //! @return list of values for option @a option
+    QStringList values(const QCommandLineOption &option) const;
 
     //! @return a list of positional arguments.
     //! These are all of the arguments that were not recognized as part of an option.

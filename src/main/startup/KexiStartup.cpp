@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -76,13 +76,23 @@ KexiStartupHandler& startupHandler()
 class KexiStartupData;
 //---------------------------------
 
+static bool stripQuotes(const QString &item, QString *name)
+{
+    if (item.left(1) == "\"" && item.right(1) == "\"") {
+        *name = item.mid(1, item.length() - 2);
+        return true;
+    }
+    *name = item;
+    return false;
+}
+
 //! @internal
 class KexiStartupHandler::Private
 {
 public:
-    Private()
-            : passwordDialog(0)//, showConnectionDetailsExecuted(false)
-            , connShortcutFile(0), connDialog(0), startupDialog(0) {
+    Private(KexiStartupHandler *handler)
+        : q(handler)
+    {
     }
 
     ~Private() {
@@ -97,12 +107,87 @@ public:
         startupDialog = 0;
     }
 
-    KexiDBPasswordDialog* passwordDialog;
+    bool findAutoopenObjects()
+    {
+        bool atLeastOneFound = false;
+        KexiProjectData::AutoOpenObjects *objects
+            = q->projectData() ? &q->projectData()->autoopenObjects : nullptr;
+        for (const QCommandLineOption &option : q->options().autoopeningObjectsOptions()) {
+            if (findAutoopenObjects(option, objects)) {
+                atLeastOneFound = true;
+            }
+        }
+        return atLeastOneFound;
+    }
+
+    bool findAutoopenObjects(const QCommandLineOption &option,
+                             KexiProjectData::AutoOpenObjects *objects)
+    {
+        bool atLeastOneFound = false;
+        for (const QString &value : q->values(option)) {
+            QString typeName;
+            QString objectName;
+            int idx;
+            bool nameRequired = true;
+            if (option.names() == q->options().newObject.names()) {
+                objectName.clear();
+                stripQuotes(value, &typeName);
+                nameRequired = false;
+            } else {//open, design, text...
+                QString defaultType;
+                if (option.names() == q->options().execute.names()) {
+#ifdef KEXI_MACROS_SUPPORT
+                    defaultType = "macro";
+#else
+                    defaultType = "script";
+#endif
+                } else {
+                    defaultType = "table";
+                }
+
+                //option with " " (set default type)
+                if (stripQuotes(value, &objectName)) {
+                    typeName = defaultType;
+                } else if ((idx = value.indexOf(':')) != -1) {
+                    //option with type name specified:
+                    typeName = value.left(idx).toLower();
+                    objectName = value.mid(idx + 1);
+                    (void)stripQuotes(objectName, &objectName); // remove optional quotes
+                } else {
+                    //just obj. name: set default type name
+                    objectName = value;
+                    typeName = defaultType;
+                }
+            }
+            if (typeName.isEmpty()) {
+                continue;
+            }
+            if (nameRequired && objectName.isEmpty()) {
+                continue;
+            }
+            atLeastOneFound = true;
+            if (objects) {
+                KexiProjectData::ObjectInfo* info = new KexiProjectData::ObjectInfo;
+                info->insert("name", objectName);
+                info->insert("type", typeName);
+                info->insert("action", option.names().first());
+                //ok, now add info for this object
+                objects->append(info);
+            } else {
+                return true; //no need to find more because we do not have project anyway
+            }
+        } //for
+        return atLeastOneFound;
+    }
+
+    KexiDBPasswordDialog* passwordDialog = nullptr;
     QString shortcutFileName;
-    KexiDBConnShortcutFile *connShortcutFile;
-    KexiDBConnectionDialog *connDialog;
+    KexiDBConnShortcutFile *connShortcutFile = nullptr;
+    KexiDBConnectionDialog *connDialog = nullptr;
     QString shortcutFileGroupKey;
-    KexiStartupDialog *startupDialog;
+    KexiStartupDialog *startupDialog = nullptr;
+private:
+    KexiStartupHandler* const q;
 };
 
 //---------------------------------
@@ -136,7 +221,7 @@ void updateProgressBar(QProgressDialog *pd, char *buffer, int buflen)
 KexiStartupHandler::KexiStartupHandler()
         : QObject(0)
         , KexiStartupData()
-        , d(new Private())
+        , d(new Private(this))
 {
     connect(qApp, SIGNAL(aboutToQuit()), this, SLOT(slotAboutToAppQuit()));
 }
@@ -151,75 +236,6 @@ void KexiStartupHandler::slotAboutToAppQuit()
 {
     d->destroyGui();
 }
-
-//! @todo KEXI3 port getAutoopenObjects()
-#if 0
-static bool stripQuotes(const QString &item, QString &name)
-{
-    if (item.left(1) == "\"" && item.right(1) == "\"") {
-        name = item.mid(1, item.length() - 2);
-        return true;
-    }
-    name = item;
-    return false;
-}
-
-bool KexiStartupHandler::getAutoopenObjects(KCmdLineArgs *args, const QByteArray &action_name)
-{
-    QStringList list = args->getOptionList(action_name);
-    bool atLeastOneFound = false;
-    foreach(const QString &option, list) {
-        QString type_name, obj_name, item = option;
-        int idx;
-        bool name_required = true;
-        if (action_name == "new") {
-            obj_name.clear();
-            stripQuotes(item, type_name);
-            name_required = false;
-        } else {//open, design, text...
-            QString defaultType;
-            if (action_name == "execute")
-                defaultType = "macro";
-            else
-                defaultType = "table";
-
-            //option with " " (set default type)
-            if (stripQuotes(item, obj_name)) {
-                type_name = defaultType;
-            } else if ((idx = item.indexOf(':')) != -1) {
-                //option with type name specified:
-                type_name = item.left(idx).toLower();
-                obj_name = item.mid(idx + 1);
-                //optional: remove ""
-                if (obj_name.startsWith(QLatin1Char('\"')) && obj_name.endsWith(QLatin1Char('\"'))) {
-                    obj_name.chop(1);
-                    obj_name.remove(0, 1);
-                }
-            } else {
-                //just obj. name: set default type name
-                obj_name = item;
-                type_name = defaultType;
-            }
-        }
-        if (type_name.isEmpty())
-            continue;
-        if (name_required && obj_name.isEmpty())
-            continue;
-
-        atLeastOneFound = true;
-        if (projectData()) {
-            KexiProjectData::ObjectInfo* info = new KexiProjectData::ObjectInfo();
-            info->insert("name", obj_name);
-            info->insert("type", type_name);
-            info->insert("action", action_name);
-            //ok, now add info for this object
-            projectData()->autoopenObjects.append(info);
-        } else
-            return true; //no need to find more because we do not have projectData() anyway
-    } //for
-    return atLeastOneFound;
-}
-#endif
 
 void prettyPrintPluginMetaData(int maxWidth, const QStringList &labels, QTextStream *out,
                                const KPluginMetaData& metaData)
@@ -651,25 +667,16 @@ tristate KexiStartupHandler::init()
         }
     }
 
-//! @todo KEXI3 port getAutoopenObjects()
-#if 0
     //---autoopen objects:
-    const bool atLeastOneAOOFound = getAutoopenObjects(args, "open")
-                                    || getAutoopenObjects(args, "design")
-                                    || getAutoopenObjects(args, "edittext")
-                                    || getAutoopenObjects(args, "execute")
-                                    || getAutoopenObjects(args, "new")
-                                    || getAutoopenObjects(args, "print")
-                                    || getAutoopenObjects(args, "print-preview");
+    const bool atLeastOneAOOFound = d->findAutoopenObjects();
 
     if (atLeastOneAOOFound && !openExisting) {
         KMessageBox::information(0,
                                  xi18n("You have specified a few database objects to be opened automatically, "
-                                      "using startup options.\n"
-                                      "These options will be ignored because they are not available while creating "
-                                      "or dropping projects."));
+                                       "using startup options.\n"
+                                       "These options will be ignored because they are not available while creating "
+                                       "or dropping projects."));
     }
-#endif
 
     if (createDB) {
         bool creationCancelled;
