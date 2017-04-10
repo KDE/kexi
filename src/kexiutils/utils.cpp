@@ -62,6 +62,7 @@
 #include <QProcess>
 
 #ifndef KEXI_MOBILE
+#include <kio_version.h>
 #include <KRun>
 #include <KToolInvocation>
 #endif
