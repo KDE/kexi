@@ -424,36 +424,34 @@ void KexiReportView::addNewRecordRequested()
 
 void KexiReportView::moveToFirstRecordRequested()
 {
-
     m_reportView->moveToFirstPage();
-    #ifndef KEXI_MOBILE
+#ifndef KEXI_MOBILE
     m_pageSelector->setCurrentRecordNumber(m_reportView->currentPage());
-    #endif
-
+#endif
 }
 
 void KexiReportView::moveToLastRecordRequested()
 {
     m_reportView->moveToLastPage();
-    #ifndef KEXI_MOBILE
+#ifndef KEXI_MOBILE
     m_pageSelector->setCurrentRecordNumber(m_reportView->currentPage());
-    #endif
+#endif
 }
 
 void KexiReportView::moveToNextRecordRequested()
 {
     m_reportView->moveToNextPage();
-    #ifndef KEXI_MOBILE
+#ifndef KEXI_MOBILE
     m_pageSelector->setCurrentRecordNumber(m_reportView->currentPage());
-    #endif
+#endif
 }
 
 void KexiReportView::moveToPreviousRecordRequested()
 {
     m_reportView->moveToPreviousPage();
-    #ifndef KEXI_MOBILE
+#ifndef KEXI_MOBILE
     m_pageSelector->setCurrentRecordNumber(m_reportView->currentPage());
-    #endif
+#endif
 }
 
 void KexiReportView::moveToRecordRequested(int r)
