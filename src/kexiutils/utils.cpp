@@ -615,6 +615,7 @@ void KexiUtils::replaceColors(QPixmap* original, const QColor& color)
 void KexiUtils::replaceColors(QImage* original, const QColor& color)
 {
     Q_ASSERT(original);
+    *original = original->convertToFormat(QImage::Format_ARGB32_Premultiplied);
     QPainter p(original);
     p.setCompositionMode(QPainter::CompositionMode_SourceIn);
     p.fillRect(original->rect(), color);
