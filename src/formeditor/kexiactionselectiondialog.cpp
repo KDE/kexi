@@ -55,13 +55,13 @@ public:
     ActionPluginIdRole
   };
 
-  ActionSelectorDialogTreeItem(QString label, QTreeWidget *parent)
+  ActionSelectorDialogTreeItem(const QString &label, QTreeWidget *parent)
   : QTreeWidgetItem(parent) {
       setText(0, label);
 
   }
 
-  ActionSelectorDialogTreeItem(QString label, QTreeWidgetItem *parent)
+  ActionSelectorDialogTreeItem(const QString &label, QTreeWidgetItem *parent)
           : QTreeWidgetItem(parent) {
               setText(0, label);
 
@@ -74,7 +74,7 @@ public:
   };
 
   using QTreeWidgetItem::setData;
-  void setData(ActionRole role, QVariant value) {
+  void setData(ActionRole role, const QVariant &value) {
       QTreeWidgetItem::setData(0, role, value);
   }
 
