@@ -71,8 +71,9 @@
 #include <QPrinter>
 #endif
 
-//#define KEXITABLEVIEW_DEBUG
-//#define KEXITABLEVIEW_DEBUG_PAINT
+#define KEXITABLEVIEW_DEBUG
+#define KEXITABLEVIEW_DEBUG_PAINT
+#define KEXITABLEVIEW_COMBO_DEBUG
 
 const int MINIMUM_ROW_HEIGHT = 17;
 
@@ -131,7 +132,7 @@ void KexiTableViewCellToolTip::maybeTip( const QPoint & p )
     KDbRecordData *data = insertRowSelected ? m_tableView->m_insertItem : m_tableView->itemAt( row );
     if (editor && record && (col < (int)record->count())) {
       int w = m_tableView->columnWidth( col );
-      int h = m_tableView->rowHeight();
+      int h = m_tableView->recordHeight();
       int x = 0;
       int y_offset = 0;
       int align = SingleLine | AlignVCenter;
@@ -514,7 +515,7 @@ void KexiTableScrollArea::drawContents(QPainter *p)
     if (rowfirst == -1 && (cy / d->recordHeight) == recordCount()) {
         // make the insert row paint too when requested
 #ifdef KEXITABLEVIEW_DEBUG
-        qDebug() << "rowfirst == -1 && (cy / d->rowHeight) == rowCount()";
+        qDebug() << "rowfirst == -1 && (cy / d->recordHeight) == recordCount()";
 #endif
         rowfirst = m_data->count();
         rowlast = rowfirst;
@@ -1537,11 +1538,11 @@ void KexiTableScrollArea::updateCurrentCell()
 
 void KexiTableScrollArea::updateRecord(int record)
 {
-//    qDebug()<<record << horizontalScrollBar()->value() << recordPos(row) << viewport()->width() << rowHeight();
+//    qDebug()<<record << horizontalScrollBar()->value() << recordPos(row) << viewport()->width() << recordHeight();
     if (record < 0 || record >= (recordCount() + 2/* sometimes we want to refresh the row after last*/))
         return;
     //qDebug() << horizontalScrollBar()->value() << " " << verticalScrollBar()->value();
-    //qDebug() << QRect( columnPos( leftcol ), recordPos(row), viewport()->width(), rowHeight() );
+    //qDebug() << QRect( columnPos( leftcol ), recordPos(row), viewport()->width(), recordHeight() );
     d->scrollAreaWidget->update(horizontalScrollBar()->value(), recordPos(record),
                                 viewport()->width(), recordHeight());
 }
@@ -1673,19 +1674,17 @@ QRect KexiTableScrollArea::cellGeometry(int record, int column) const
                  columnWidth(column), recordHeight());
 }
 
-//#define KEXITABLEVIEW_COMBO_DEBUG
-
 QSize KexiTableScrollArea::tableSize() const
 {
 #ifdef KEXITABLEVIEW_COMBO_DEBUG
     if (objectName() == "KexiComboBoxPopup_tv") {
-        qDebug() << "rowCount" << rowCount() << "\nisInsertingEnabled" << isInsertingEnabled()
+        qDebug() << "rowCount" << recordCount() << "\nisInsertingEnabled" << isInsertingEnabled()
                  << "columnCount" << columnCount();
     }
 #endif
     if ((recordCount() + (isInsertingEnabled() ? 1 : 0)) > 0 && columnCount() > 0) {
         /*  qDebug() << columnPos( columnCount() - 1 ) + columnWidth( columnCount() - 1 )
-              << ", " << recordPos( rowCount()-1+(isInsertingEnabled()?1:0)) + d->rowHeight */
+              << ", " << recordPos( rowCount()-1+(isInsertingEnabled()?1:0)) + d->recordHeight */
 //  qDebug() << m_navPanel->isVisible() <<" "<<m_navPanel->height()<<" "
 //           << horizontalScrollBar()->sizeHint().height()<<" "<<recordPos( rowCount()-1+(isInsertingEnabled()?1:0));
         QSize s(
@@ -1698,8 +1697,9 @@ QSize KexiTableScrollArea::tableSize() const
             qDebug() << "size" << s
                      << "\ncolumnPos(columnCount()-1)" << columnPos(columnCount() - 1)
                      << "\ncolumnWidth(columnCount()-1)" << columnWidth(columnCount() - 1)
-                     << "\nrecordPos(rowCount()-1+(isInsertingEnabled()?1:0))" << recordPos(rowCount()-1+(isInsertingEnabled()?1:0))
-                     << "\nd->rowHeight" << d->rowHeight
+                     << "\nrecordPos(recordCount()-1+(isInsertingEnabled()?1:0))"
+                     << recordPos(recordCount()-1+(isInsertingEnabled()?1:0))
+                     << "\nd->recordHeight" << d->recordHeight
                      << "\nd->internal_bottomMargin" << d->internal_bottomMargin;
         }
 #endif
@@ -1851,7 +1851,7 @@ void KexiTableScrollArea::verticalScrollBarValueChanged(int v)
 void
 KexiTableScrollArea::print(QPrinter & /*printer*/ , QPrintDialog & /*printDialog*/)
 {
-    int leftMargin = printer.margins().width() + 2 + d->rowHeight;
+    int leftMargin = printer.margins().width() + 2 + d->recordHeight;
     int topMargin = printer.margins().height() + 2;
 // int bottomMargin = topMargin + ( printer.realPageSize()->height() * printer.resolution() + 36 ) / 72;
     int bottomMargin = 0;
@@ -1862,9 +1862,9 @@ KexiTableScrollArea::print(QPrinter & /*printer*/ , QPrintDialog & /*printDialog
     KDbRecordData *i;
     int width = leftMargin;
     for (int col = 0; col < columnCount(); col++) {
-        p.fillRect(width, topMargin - d->rowHeight, columnWidth(col), d->rowHeight, QBrush(Qt::gray));
-        p.drawRect(width, topMargin - d->rowHeight, columnWidth(col), d->rowHeight);
-        p.drawText(width, topMargin - d->rowHeight, columnWidth(col), d->rowHeight, Qt::AlignLeft | Qt::AlignVCenter,
+        p.fillRect(width, topMargin - d->recordHeight, columnWidth(col), d->recordHeight, QBrush(Qt::gray));
+        p.drawRect(width, topMargin - d->recordHeight, columnWidth(col), d->recordHeight);
+        p.drawText(width, topMargin - d->recordHeight, columnWidth(col), d->recordHeight, Qt::AlignLeft | Qt::AlignVCenter,
                    d->horizontalHeader->label(col));
         width = width + columnWidth(col);
     }
@@ -1880,14 +1880,14 @@ KexiTableScrollArea::print(QPrinter & /*printer*/ , QPrintDialog & /*printDialog
                 qDebug() << "col=" << col << "x=" << xOffset;
                 p.saveWorldMatrix();
                 p.translate(xOffset, yOffset);
-                paintCell(&p, i, row, col, QRect(0, 0, columnWidth(col) + 1, d->rowHeight), true);
+                paintCell(&p, i, row, col, QRect(0, 0, columnWidth(col) + 1, d->recordHeight), true);
                 p.restoreWorldMatrix();
                 xOffset = xOffset + columnWidth(col);
                 right = xOffset;
             }
 
             row++;
-            yOffset = topMargin  + row * d->rowHeight;
+            yOffset = topMargin  + row * d->recordHeight;
         }
 
         if (yOffset > 900) {
