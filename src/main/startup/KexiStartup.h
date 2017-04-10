@@ -91,13 +91,10 @@ protected:
     virtual tristate init(const QStringList &arguments,
                           const QList<QCommandLineOption> &extraOptions = QList<QCommandLineOption>());
 
-//! @todo KEXI3 port getAutoopenObjects()
-//    bool getAutoopenObjects(KCmdLineArgs *args, const QByteArray &action_name);
-
 private:
     KexiStartupHandler();
 
-    //! Handle higher-priority options.
+    //! Handle higher-prioroty options.
     /*! When such options are present, handle them and immediately exit without showing
      the GUI even if other options or arguments are present.
      These options are currently:

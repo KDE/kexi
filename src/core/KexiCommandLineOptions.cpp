@@ -110,7 +110,7 @@ KexiCommandLineOptions::KexiCommandLineOptions( QCommandLineParser *parser)
         xi18nc("'edittext' command line option",
                "Like --open, but the object will be opened in Text Mode, if one is available."),
         "[object_type:]object_name"),
-    execute(QStringList() << "exec" << "execute",
+    execute(QStringList() << "execute" << "exec",
         xi18nc("'execute' command line option",
                "Start execution of object of type 'object_type' and name 'object_name' on "
                "application start. 'object_type' is optional, if omitted - %1 type is "
@@ -121,7 +121,8 @@ KexiCommandLineOptions::KexiCommandLineOptions( QCommandLineParser *parser)
         "[object_type:]object_name"),
     newObject("new",
         xi18nc("'new' command line option",
-               "Start design of a new object of type 'object_type'.")),
+               "Start design of a new object of type 'object_type'."),
+               "object_type"),
     print("print",
         xi18nc("'print' command line option",
                "Open the Print dialog window for an object of type 'object_type' and "
@@ -187,4 +188,9 @@ KexiCommandLineOptions::KexiCommandLineOptions( QCommandLineParser *parser)
              "version and filenames."))
 {
      Q_UNUSED(parser);
+}
+
+QList<QCommandLineOption> KexiCommandLineOptions::autoopeningObjectsOptions() const
+{
+    return {open, design, editText, execute, newObject, print, printPreview};
 }
