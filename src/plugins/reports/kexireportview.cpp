@@ -456,7 +456,10 @@ void KexiReportView::moveToPreviousRecordRequested()
 
 void KexiReportView::moveToRecordRequested(int r)
 {
-    Q_UNUSED(r);
+    m_reportView->moveToPage(r);
+#ifndef KEXI_MOBILE
+    m_pageSelector->setCurrentRecordNumber(r + 1);
+#endif
 }
 
 int KexiReportView::currentRecord() const
