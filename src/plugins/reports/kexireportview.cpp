@@ -1,7 +1,7 @@
 /*
  * Kexi Report Plugin
  * Copyright (C) 2007-2008 by Adam Pigg (adam@piggz.co.uk)
-   Copyright (C) 2014 Jarosław Staniek <staniek@kde.org>
+ * Copyright (C) 2014-2017 Jarosław Staniek <staniek@kde.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -456,9 +456,12 @@ void KexiReportView::moveToPreviousRecordRequested()
 
 void KexiReportView::moveToRecordRequested(int r)
 {
-    m_reportView->moveToPage(r);
-#ifndef KEXI_MOBILE
+#ifdef KEXI_MOBILE
+    m_reportView->moveToPage(r + 1);
+#else
+    // set in the navigator widget first, this will fix up the value it it's too small or large
     m_pageSelector->setCurrentRecordNumber(r + 1);
+    m_reportView->moveToPage(m_pageSelector->currentRecordNumber());
 #endif
 }
 
