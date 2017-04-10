@@ -20,6 +20,7 @@
 */
 
 #include "KexiCommandLineOptions.h"
+#include "config-kexi.h"
 
 #include <KAboutData>
 #include <KLocalizedString>
@@ -192,5 +193,9 @@ KexiCommandLineOptions::KexiCommandLineOptions( QCommandLineParser *parser)
 
 QList<QCommandLineOption> KexiCommandLineOptions::autoopeningObjectsOptions() const
 {
-    return {open, design, editText, execute, newObject, print, printPreview};
+    return {open, design, editText, execute, newObject
+#ifdef KEXI_QUICK_PRINTING_SUPPORT
+            , print, printPreview
+#endif
+    };
 }
