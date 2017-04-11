@@ -782,8 +782,8 @@ bool KexiProject::retrieveItems()
         bool ok;
         const int typeId = cursor->value(3).toInt(&ok);
         if (!ok || typeId <= 0) {
-            qWarning() << "object of unknown type id" << cursor->value(3) << "id=" << cursor->value(0)
-                       << "name=" <<  cursor->value(1);
+            qInfo() << "object of unknown type id" << cursor->value(3) << "id=" << cursor->value(0)
+                    << "name=" <<  cursor->value(1);
             continue;
         }
         if (recentTypeId == typeId) {
