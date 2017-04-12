@@ -259,7 +259,7 @@ public Q_SLOTS:
      and false on failure.*/
     tristate openProject(const KexiProjectData& data, const QString& shortcutPath, bool *opened);
 
-    /*! Creates a new project usign template pointed by \a projectData.
+    /*! Creates a new project using template pointed by \a projectData.
      Application state (e.g. actions) is updated.
      New project data is copied into a project structures.
      \return true on success */
