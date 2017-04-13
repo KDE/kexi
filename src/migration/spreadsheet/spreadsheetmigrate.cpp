@@ -76,7 +76,6 @@ bool SpreadsheetMigrate::drv_connect()
   if (!m_KSDoc) {
       m_KSDoc = new Calligra::Sheets::Doc(new MockPart);
   }
-  qDebug();
   return m_KSDoc->openUrl(m_FileName);
 }
 

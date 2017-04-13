@@ -54,13 +54,11 @@ using namespace Scripting;
 KexiDBModule::KexiDBModule(QObject* parent)
         : QObject(parent)
 {
-    qDebug();
     setObjectName("KexiDB");
 }
 
 KexiDBModule::~KexiDBModule()
 {
-    qDebug();
 }
 
 int KexiDBModule::version()

@@ -2260,7 +2260,6 @@ void KexiMainWindow::activeWindowChanged(KexiWindow *window, KexiWindow *prevWin
 bool
 KexiMainWindow::activateWindow(int id)
 {
-    qDebug();
 #ifndef KEXI_NO_PENDING_DIALOGS
     Private::PendingJobType pendingType;
     return activateWindow(*d->openedWindowFor(id, pendingType));

@@ -142,7 +142,6 @@ KexiBLOBBuffer::Item::Item(const QByteArray& data, KexiBLOBBuffer::Id_t ident, b
 
 KexiBLOBBuffer::Item::~Item()
 {
-    qDebug();
     delete m_pixmap;
     m_pixmap = 0;
     delete m_data;

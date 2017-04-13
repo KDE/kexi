@@ -346,7 +346,6 @@ void ImportTableWizard::slot_currentPageChanged(KPageWidgetItem* curPage,KPageWi
 
 void ImportTableWizard::arriveSrcConnPage()
 {
-    qDebug();
 }
 
 void ImportTableWizard::arriveSrcDBPage()

@@ -56,8 +56,6 @@ void KexiMobileNavigator::setProject(KexiProject* p)
 
 void KexiMobileNavigator::slotOpenItem(KexiPart::Item* item)
 {
-    qDebug();
-
     emit(openItem(item));
 }
 

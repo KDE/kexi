@@ -230,7 +230,6 @@ void KexiComboBoxTableEdit::slotButtonClicked()
         m_mouseBtnPressedWhenPopupVisible = false;
         return;
     }
-    qDebug();
     if (!popup() || !popup()->isVisible()) {
         qDebug() << "SHOW POPUP";
         showPopup();

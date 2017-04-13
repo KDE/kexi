@@ -168,7 +168,6 @@ void KexiRelationsTableContainer::slotFieldsDoubleClicked(const QModelIndex &idx
     if (!KexiUtils::objectIsA(sender(), "KexiRelationsTableFieldList"))
         return;
     const KexiRelationsTableFieldList* t = static_cast<const KexiRelationsTableFieldList*>(sender());
-    qDebug();
     emit fieldsDoubleClicked(*t->schema(), t->selectedFieldNames());
 }
 

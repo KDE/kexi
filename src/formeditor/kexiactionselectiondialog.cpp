@@ -620,8 +620,7 @@ void KexiActionSelectionDialog::slotActionToExecuteItemExecuted(QTreeWidgetItem*
 
 void KexiActionSelectionDialog::slotActionToExecuteItemSelected(QTreeWidgetItem*)
 {
-  //qDebug();
-  updateOKButtonStatus();
+    updateOKButtonStatus();
 }
 
 void KexiActionSelectionDialog::slotActionCategorySelected(QTreeWidgetItem* item)

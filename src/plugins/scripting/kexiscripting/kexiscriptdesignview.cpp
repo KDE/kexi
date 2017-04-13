@@ -340,8 +340,6 @@ KPropertySet* KexiScriptDesignView::propertySet()
 
 void KexiScriptDesignView::slotPropertyChanged(KPropertySet& /*set*/, KProperty& property)
 {
-    qDebug();
-
     if (property.isNull())
         return;
 
@@ -475,8 +473,6 @@ KDbObject* KexiScriptDesignView::storeNewData(const KDbObject& object,
 
 tristate KexiScriptDesignView::storeData(bool /*dontAsk*/)
 {
-    qDebug(); //<< window()->partItem()->name() << " [" << window()->id() << "]";
-
     QDomDocument domdoc("script");
     QDomElement scriptelem = domdoc.createElement("script");
     domdoc.appendChild(scriptelem);
