@@ -361,15 +361,23 @@ void KexiComboBoxPopup::updateSize(int minWidth)
                            (te ? te->totalSize().width() : (parentWidget() ? parentWidget()->width() : 0/*sanity*/)));
     //qDebug() << "size=" << size();
     const QRect screen = QApplication::desktop()->availableGeometry(this);
-    resize(qMin(screen.width(), qMax(minWidth, width)), d->tv->recordHeight() * records + 2);
+    resize(qMin(screen.width(), qMax(minWidth, width)), d->tv->recordHeight() * records + 3);
 
-    //qDebug() << "size after=" << size();
+    //qDebug() << "size after=" << size() << d->tv->verticalScrollBar()->isVisible() << d->tv->horizontalScrollBar()->isVisible();
     if (d->visibleColumnsToShow.isEmpty()) {
         // record source type is not Query
         d->tv->setColumnResizeEnabled(0, true);
         d->tv->setColumnResizeEnabled(d->tv->columnCount() - 1, false);
         d->tv->setColumnWidth(1, 0); //!< @todo A temp. hack to hide the bound column
-        d->tv->setColumnWidth(0, d->tv->width() - 1);
+        if (d->tv->verticalScrollBar()->isVisible()) {
+            d->tv->setColumnWidth(0, d->tv->width() - 1 - d->tv->verticalScrollBar()->width());
+        } else {
+            d->tv->setColumnWidth(0, d->tv->width() - 1);
+        }
+        d->tv->triggerUpdate();
+        if (d->tv->recordNumberAt(0) == 0 && records == d->tv->recordCount()) {
+            d->tv->setColumnWidth(0, d->tv->width() - 1);
+        }
     }
     else {
         // record source type is Query
