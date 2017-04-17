@@ -148,7 +148,6 @@ KexiInputTableEdit::setRestrictedCompletion()
 {
 //! @todo
 #if 0
-    qDebug();
     if (m_cview->text().isEmpty())
         return;
 

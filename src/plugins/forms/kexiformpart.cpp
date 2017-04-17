@@ -157,8 +157,6 @@ KexiView* KexiFormPart::createView(QWidget *parent, KexiWindow* window,
     Q_ASSERT(item);
     Q_UNUSED(window);
     Q_UNUSED(viewMode);
-
-    qDebug();
     KexiMainWindowIface *win = KexiMainWindowIface::global();
     if (!win || !win->project() || !win->project()->dbConnection())
         return 0;

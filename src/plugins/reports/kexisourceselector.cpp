@@ -121,7 +121,6 @@ void KexiSourceSelector::setConnectionData(const QDomElement &c)
 
 QDomElement KexiSourceSelector::connectionData()
 {
-    qDebug();
     QDomDocument dd;
     QDomElement conndata = dd.createElement("connection");
 

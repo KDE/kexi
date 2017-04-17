@@ -277,8 +277,18 @@ void KexiTableScrollArea::initDataContents()
 void KexiTableScrollArea::updateWidgetContentsSize()
 {
     updateScrollAreaWidgetSize();
-    d->horizontalHeader->setFixedSize(d->horizontalHeader->sizeHint());
-    d->verticalHeader->setFixedSize(d->verticalHeader->sizeHint());
+    if (d->horizontalHeader->sizeHint().width() > 0) {
+        d->horizontalHeader->setFixedWidth(d->horizontalHeader->sizeHint().width());
+    }
+    if (d->horizontalHeader->sizeHint().height() > 0) {
+        d->horizontalHeader->setFixedHeight(d->horizontalHeader->sizeHint().height());
+    }
+    if (d->verticalHeader->sizeHint().width() > 0) {
+        d->verticalHeader->setFixedWidth(d->verticalHeader->sizeHint().width());
+    }
+    if (d->verticalHeader->sizeHint().height() > 0) {
+        d->verticalHeader->setFixedHeight(d->verticalHeader->sizeHint().height());
+    }
     //qDebug() << d->horizontalHeader->sizeHint() << d->verticalHeader->sizeHint();
     //qDebug() << d->horizontalHeader->geometry() << d->verticalHeader->geometry();
 }

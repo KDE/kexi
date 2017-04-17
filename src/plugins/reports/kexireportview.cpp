@@ -157,7 +157,6 @@ KexiReportView::KexiReportView(QWidget *parent)
 
 KexiReportView::~KexiReportView()
 {
-    qDebug();
     delete m_preRenderer;
 }
 
@@ -348,7 +347,6 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
     if (tempData()->reportSchemaChangedInPreviousView) {
         tempData()->reportSchemaChangedInPreviousView = false;
 
-        qDebug() << "Schema changed";
         delete m_preRenderer;
 
         //qDebug() << tempData()->reportDefinition.tagName();

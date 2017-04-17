@@ -186,7 +186,6 @@ void KexiScriptPart::initPartActions()
 
 void KexiScriptPart::initInstanceActions()
 {
-    qDebug();
     createSharedAction(Kexi::DesignViewMode, xi18n("Configure Editor..."),
                        koIconName("configure"), QKeySequence(), "script_config_editor");
 }

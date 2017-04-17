@@ -227,8 +227,6 @@ void
 KexiRelationsScrollArea::addConnection(const SourceConnection& _conn)
 {
     SourceConnection conn = _conn;
-    qDebug();
-
     KexiRelationsTableContainer *master = d->tables[conn.masterTable];
     KexiRelationsTableContainer *details = d->tables[conn.detailsTable];
     if (!master || !details)
@@ -457,8 +455,6 @@ KexiRelationsScrollArea::contextMenuEvent(QContextMenuEvent* event)
 void
 KexiRelationsScrollArea::keyPressEvent(QKeyEvent *ev)
 {
-    qDebug();
-
     if (ev->key() == Qt::Key_Delete) {
         removeSelectedObject();
     }

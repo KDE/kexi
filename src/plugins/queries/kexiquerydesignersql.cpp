@@ -259,7 +259,6 @@ tristate KexiQueryDesignerSQLView::beforeSwitchTo(Kexi::ViewMode mode, bool *don
 tristate
 KexiQueryDesignerSQLView::afterSwitchFrom(Kexi::ViewMode mode)
 {
-    qDebug();
     if (mode == Kexi::NoViewMode) {
         //User opened text view _directly_.
         //This flag is set to indicate for beforeSwitchTo() that even if text has not been changed,
@@ -336,7 +335,6 @@ bool KexiQueryDesignerSQLView::slotCheckQuery()
         return true;
     }
 
-    qDebug();
     KDbParser *parser = KexiMainWindowIface::global()->project()->sqlParser();
     const bool ok = parser->parse(KDbEscapedString(sqlText));
     delete d->parsedQuery;

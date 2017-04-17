@@ -257,7 +257,7 @@ void KexiLookupColumnPage::slotBoundColumnSelected()
         dataType = field->type();
     */
     if (!d->boundColumnCombo->fieldOrExpression().isEmpty()) {
-        qDebug();
+        //qDebug();
     }
 
     // update property set
