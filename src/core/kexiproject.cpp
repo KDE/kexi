@@ -161,7 +161,7 @@ public:
                 q->m_result.setMessageTitle(part->lastOperationStatus().message);
                 return false;
             }
-            if (!connection->executeSQL(KDbEscapedString("UPDATE kexi__objects SET o_name=%1  WHERE o_id=%2")
+            if (!connection->executeVoidSQL(KDbEscapedString("UPDATE kexi__objects SET o_name=%1 WHERE o_id=%2")
                     .arg(connection->escapeString(newName))
                     .arg(connection->driver()->valueToSQL(KDbField::Integer, item->identifier()))))
             {
@@ -170,7 +170,7 @@ public:
             }
         }
         if (_newCaption) {
-            if (!connection->executeSQL(KDbEscapedString("UPDATE kexi__objects SET o_caption=%1 WHERE o_id=%2")
+            if (!connection->executeVoidSQL(KDbEscapedString("UPDATE kexi__objects SET o_caption=%1 WHERE o_id=%2")
                     .arg(connection->escapeString(newCaption))
                     .arg(connection->driver()->valueToSQL(KDbField::Integer, item->identifier()))))
             {
