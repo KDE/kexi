@@ -1379,7 +1379,7 @@ bool KexiProject::storeUserDataBlock(int objectID, const QString& dataID, const 
         return false;
     }
     if (result == true) {
-        if (!d->connection->executeSQL(
+        if (!d->connection->executeVoidSQL(
             KDbEscapedString("UPDATE kexi__userdata SET d_data="
                 + d->connection->driver()->valueToSQL(KDbField::LongText, dataString)
                 + " WHERE o_id=" + QString::number(objectID) + " AND " + sql_sub)))
@@ -1389,7 +1389,7 @@ bool KexiProject::storeUserDataBlock(int objectID, const QString& dataID, const 
         }
         return true;
     }
-    if (!d->connection->executeSQL(
+    if (!d->connection->executeVoidSQL(
                KDbEscapedString("INSERT INTO kexi__userdata (d_user, o_id, d_sub_id, d_data) VALUES (")
                + d->connection->driver()->valueToSQL(KDbField::Text, d->userName())
                + ", " + QString::number(objectID)
@@ -1425,7 +1425,7 @@ bool KexiProject::copyUserDataBlock(int sourceObjectID, int destObjectID, const 
     if (!dataID.isEmpty()) {
         sql += " AND " + KDb::sqlWhere(d->connection->driver(), KDbField::Text, "d_sub_id", dataID);
     }
-    if (!d->connection->executeSQL(sql)) {
+    if (!d->connection->executeVoidSQL(sql)) {
         m_result = d->connection->result();
         return false;
     }
