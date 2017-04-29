@@ -3523,6 +3523,11 @@ void KexiMainWindow::renameObject(KexiPart::Item *item, const QString& _newName,
             *success = false;
             return;
         }
+        const tristate closeResult = closeWindow(window);
+        if (closeResult != true) {
+            *success = false;
+            return;
+        }
     }
     setMessagesEnabled(false); //to avoid double messages
     const bool res = d->prj->renameObject(item, newName);
