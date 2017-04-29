@@ -531,11 +531,11 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
             }
             KDbInternalTableSchema *ts = kexi__blobsCopy.take(); // createTable() took ownerhip of kexi__blobsCopy
             // 2.1 copy data (insert 0's into o_folder_id column)
-            if (!d->connection->executeSQL(
+            if (!d->connection->executeVoidSQL(
                         KDbEscapedString("INSERT INTO kexi__blobs (o_data, o_name, o_caption, o_mime, o_folder_id) "
                                          "SELECT o_data, o_name, o_caption, o_mime, 0 FROM kexi__blobs"))
                     // 2.2 remove the original kexi__blobs
-                    || !d->connection->executeSQL(KDbEscapedString("DROP TABLE kexi__blobs")) //lowlevel
+                    || !d->connection->executeVoidSQL(KDbEscapedString("DROP TABLE kexi__blobs")) //lowlevel
                     // 2.3 rename the copy back into kexi__blobs
                     || !d->connection->alterTableName(ts, "kexi__blobs", false /* no replace */)
                ) {
