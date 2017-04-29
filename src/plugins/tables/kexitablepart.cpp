@@ -173,6 +173,9 @@ tristate KexiTablePart::askForClosingObjectsUsingTableSchema(
 {
     Q_ASSERT(conn);
     Q_ASSERT(table);
+    if (!window) {
+        return true;
+    }
     QList<KDbTableSchemaChangeListener*> listeners
             = KDbTableSchemaChangeListener::listeners(conn, table);
     KexiTablePartTempData *temp = static_cast<KexiTablePartTempData*>(window->data());

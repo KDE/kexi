@@ -89,6 +89,8 @@ public:
     //! Asks the user for approval if there is at least one object that listens for changes
     //! of the schema. If there is no approval, returns @c cancelled.
     //! On failure returns @c false.
+    //! If @a window is @c nullptr, @c true is returned immediately because there is no window to
+    //! care about.
     //! Special case: listener that is equal to window->data() will be silently closed
     //! without asking for confirmation. It is not counted when looking for objects that
     //! are "blocking" changes of @a table.
