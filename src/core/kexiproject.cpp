@@ -897,7 +897,6 @@ KexiProject::itemForPluginId(const QString &pluginId, const QString &name)
         if (item->name() == name)
             return item;
     }
-    qWarning() << "no name=" << name;
     return 0;
 }
 
