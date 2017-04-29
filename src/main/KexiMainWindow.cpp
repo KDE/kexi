@@ -3512,8 +3512,9 @@ void KexiMainWindow::renameObject(KexiPart::Item *item, const QString& _newName,
                             "<para>Before renaming object <resource>%1</resource> it should be closed.</para>"
                             "<para>Do you want to close it?</para>",
                             item->name());
-        int r = KMessageBox::questionYesNo(this, msg, QString(),
-                                           KStandardGuiItem::closeWindow(),
+        KGuiItem closeAndRenameItem(KStandardGuiItem::closeWindow());
+        closeAndRenameItem.setText(xi18n("Close Window and Rename"));
+        const int r = KMessageBox::questionYesNo(this, msg, QString(), closeAndRenameItem,
                                            KStandardGuiItem::cancel());
         if (r != KMessageBox::Yes) {
             *success = false;
