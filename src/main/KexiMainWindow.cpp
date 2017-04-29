@@ -3519,6 +3519,11 @@ void KexiMainWindow::renameObject(KexiPart::Item *item, const QString& _newName,
             *success = false;
             return;
         }
+        const tristate closeResult = closeWindow(window);
+        if (closeResult != true) {
+            *success = false;
+            return;
+        }
     }
     setMessagesEnabled(false); //to avoid double messages
     const bool res = d->prj->renameObject(item, newName);
@@ -3529,6 +3534,7 @@ void KexiMainWindow::renameObject(KexiPart::Item *item, const QString& _newName,
         *success = false;
         return;
     }
+    *success = true;
 }
 
 void KexiMainWindow::setObjectCaption(KexiPart::Item *item, const QString& _newCaption, bool *success)
@@ -3549,6 +3555,7 @@ void KexiMainWindow::setObjectCaption(KexiPart::Item *item, const QString& _newC
         *success = false;
         return;
     }
+    *success = true;
 }
 
 void KexiMainWindow::slotObjectRenamed(const KexiPart::Item &item, const QString& oldName)
