@@ -270,7 +270,7 @@ bool KexiMigrate::importTable(const QString& tableName, KDbConnectionProxy *dest
             .arg(int(KDb::TableObjectType));
     QScopedPointer<KDbRecordData> record;
     {
-        QScopedPointer<KDbSqlResult> result(d->sourceConnection->executeSQL(sqlStatement));
+        QSharedPointer<KDbSqlResult> result = d->sourceConnection->prepareSql(sqlStatement);
         if (!result) {
             m_result = d->sourceConnection->result();
             return false;
@@ -290,7 +290,7 @@ bool KexiMigrate::importTable(const QString& tableName, KDbConnectionProxy *dest
                            " FROM kexi__fields WHERE t_id=%1 ORDER BY f_order").arg(t->id());
     QVector<QList<QVariant>> fieldRecords;
     {
-        QScopedPointer<KDbSqlResult> fieldsResult(d->sourceConnection->executeSQL(sqlStatement));
+        QSharedPointer<KDbSqlResult> fieldsResult = d->sourceConnection->prepareSql(sqlStatement);
         if (!fieldsResult) {
             m_result = d->sourceConnection->result();
             return false;
@@ -828,7 +828,7 @@ bool KexiMigrate::tableNames(QStringList *tn)
     return drv_tableNames(tn);
 }
 
-KDbSqlResult* KexiMigrate::readFromTable(const QString & tableName)
+QSharedPointer<KDbSqlResult> KexiMigrate::readFromTable(const QString & tableName)
 {
   return drv_readFromTable(tableName);
 }

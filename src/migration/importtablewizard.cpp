@@ -451,7 +451,7 @@ void ImportTableWizard::arriveAlterTablePage()
 
 bool ImportTableWizard::readFromTable()
 {
-    QScopedPointer<KDbSqlResult> tableResult(m_migrateDriver->readFromTable(m_importTableName));
+    QSharedPointer<KDbSqlResult> tableResult = m_migrateDriver->readFromTable(m_importTableName);
     KDbTableSchema *newSchema = m_alterSchemaWidget->newSchema();
     if (!tableResult || tableResult->lastResult().isError()
             || tableResult->fieldsCount() != newSchema->fieldCount())
@@ -464,7 +464,7 @@ bool ImportTableWizard::readFromTable()
     }
     QScopedPointer<QList<KDbRecordData*>> data(new QList<KDbRecordData*>);
     for (int i = 0; i < RECORDS_FOR_PREVIEW; ++i) {
-        QScopedPointer<KDbRecordData> record(tableResult->fetchRecordData());
+        QSharedPointer<KDbRecordData> record(tableResult->fetchRecordData());
         if (!record) {
             if (tableResult->lastResult().isError()) {
                 return false;

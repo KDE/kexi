@@ -155,7 +155,7 @@ public:
     bool readTableSchema(const QString& originalName, KDbTableSchema *tableSchema);
 
     //! Starts reading data from the source dataset's table
-    KDbSqlResult* readFromTable(const QString& tableName);
+    QSharedPointer<KDbSqlResult> readFromTable(const QString& tableName);
 
     //!Move to the next row
     bool moveNext();
@@ -280,7 +280,7 @@ protected:
     public:
         RecordFilter() {}
         virtual ~RecordFilter() {}
-        virtual bool operator() (const KDbSqlRecord &record) const = 0;
+        virtual bool operator() (const QSharedPointer<KDbSqlRecord> &record) const = 0;
         virtual bool operator() (const QList<QVariant> &record) const = 0;
     };
 
@@ -326,9 +326,9 @@ protected:
 
     //Extended API
     //! Position the source dataset at the start of a table
-    virtual KDbSqlResult* drv_readFromTable(const QString & tableName) {
+    virtual QSharedPointer<KDbSqlResult> drv_readFromTable(const QString & tableName) {
       Q_UNUSED(tableName);
-      return nullptr;
+      return QSharedPointer<KDbSqlResult>();
     }
 
     //! Move to the next row

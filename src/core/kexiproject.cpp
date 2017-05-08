@@ -161,7 +161,7 @@ public:
                 q->m_result.setMessageTitle(part->lastOperationStatus().message);
                 return false;
             }
-            if (!connection->executeVoidSQL(KDbEscapedString("UPDATE kexi__objects SET o_name=%1 WHERE o_id=%2")
+            if (!connection->executeSql(KDbEscapedString("UPDATE kexi__objects SET o_name=%1 WHERE o_id=%2")
                     .arg(connection->escapeString(newName))
                     .arg(connection->driver()->valueToSQL(KDbField::Integer, item->identifier()))))
             {
@@ -170,7 +170,7 @@ public:
             }
         }
         if (_newCaption) {
-            if (!connection->executeVoidSQL(KDbEscapedString("UPDATE kexi__objects SET o_caption=%1 WHERE o_id=%2")
+            if (!connection->executeSql(KDbEscapedString("UPDATE kexi__objects SET o_caption=%1 WHERE o_id=%2")
                     .arg(connection->escapeString(newCaption))
                     .arg(connection->driver()->valueToSQL(KDbField::Integer, item->identifier()))))
             {
@@ -531,11 +531,11 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
             }
             KDbInternalTableSchema *ts = kexi__blobsCopy.take(); // createTable() took ownerhip of kexi__blobsCopy
             // 2.1 copy data (insert 0's into o_folder_id column)
-            if (!d->connection->executeVoidSQL(
+            if (!d->connection->executeSql(
                         KDbEscapedString("INSERT INTO kexi__blobs (o_data, o_name, o_caption, o_mime, o_folder_id) "
                                          "SELECT o_data, o_name, o_caption, o_mime, 0 FROM kexi__blobs"))
                     // 2.2 remove the original kexi__blobs
-                    || !d->connection->executeVoidSQL(KDbEscapedString("DROP TABLE kexi__blobs")) //lowlevel
+                    || !d->connection->executeSql(KDbEscapedString("DROP TABLE kexi__blobs")) //lowlevel
                     // 2.3 rename the copy back into kexi__blobs
                     || !d->connection->alterTableName(ts, "kexi__blobs", false /* no replace */)
                ) {
@@ -1378,7 +1378,7 @@ bool KexiProject::storeUserDataBlock(int objectID, const QString& dataID, const 
         return false;
     }
     if (result == true) {
-        if (!d->connection->executeVoidSQL(
+        if (!d->connection->executeSql(
             KDbEscapedString("UPDATE kexi__userdata SET d_data="
                 + d->connection->driver()->valueToSQL(KDbField::LongText, dataString)
                 + " WHERE o_id=" + QString::number(objectID) + " AND " + sql_sub)))
@@ -1388,7 +1388,7 @@ bool KexiProject::storeUserDataBlock(int objectID, const QString& dataID, const 
         }
         return true;
     }
-    if (!d->connection->executeVoidSQL(
+    if (!d->connection->executeSql(
                KDbEscapedString("INSERT INTO kexi__userdata (d_user, o_id, d_sub_id, d_data) VALUES (")
                + d->connection->driver()->valueToSQL(KDbField::Text, d->userName())
                + ", " + QString::number(objectID)
@@ -1424,7 +1424,7 @@ bool KexiProject::copyUserDataBlock(int sourceObjectID, int destObjectID, const 
     if (!dataID.isEmpty()) {
         sql += " AND " + KDb::sqlWhere(d->connection->driver(), KDbField::Text, "d_sub_id", dataID);
     }
-    if (!d->connection->executeVoidSQL(sql)) {
+    if (!d->connection->executeSql(sql)) {
         m_result = d->connection->result();
         return false;
     }

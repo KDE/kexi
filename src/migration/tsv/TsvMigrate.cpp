@@ -208,12 +208,13 @@ public:
         return nullptr;
     }
 
-    inline KDbSqlRecord* fetchRecord() Q_DECL_OVERRIDE {
+    inline QSharedPointer<KDbSqlRecord> fetchRecord() Q_DECL_OVERRIDE {
+        QSharedPointer<KDbSqlRecord> sqlRecord;
         QVector<QByteArray> record = readLine(m_info, &m_eof);
-        if (m_eof) {
-            return nullptr;
+        if (!m_eof) {
+            sqlRecord.reset(new TsvRecord(record, *m_info));
         }
-        return new TsvRecord(record, *m_info);
+        return sqlRecord;
     }
 
     inline KDbResult lastResult() Q_DECL_OVERRIDE {
@@ -229,14 +230,15 @@ private:
     bool m_eof;
 };
 
-KDbSqlResult* TsvMigrate::drv_readFromTable(const QString &tableName)
+QSharedPointer<KDbSqlResult> TsvMigrate::drv_readFromTable(const QString &tableName)
 {
     Q_UNUSED(tableName)
+    QSharedPointer<KDbSqlResult> sqlResult;
     QScopedPointer<FileInfo> info(new FileInfo);
-    if (!openFile(info.data())) {
-        return nullptr;
+    if (openFile(info.data())) {
+        sqlResult.reset(new TsvResult(info.take()));
     }
-    return new TsvResult(info.take());
+    return sqlResult;
 }
 
 bool TsvMigrate::openFile(FileInfo *info)

@@ -62,7 +62,7 @@ public:
     virtual bool drv_readTableSchema(const QString& originalName, KDbTableSchema *tableSchema);
 
     //! Starts reading data from the source dataset's table
-    KDbSqlResult* drv_readFromTable(const QString & tableName) Q_DECL_OVERRIDE;
+    QSharedPointer<KDbSqlResult> drv_readFromTable(const QString & tableName) Q_DECL_OVERRIDE;
 
   private:
     bool openFile(FileInfo *info);

@@ -62,7 +62,7 @@ bool KexiSqlMigrate::drv_readTableSchema(
     //Perform a query on the table to get some data
     KDbEscapedString sql = KDbEscapedString("SELECT * FROM %1 LIMIT 0")
             .arg(sourceConnection()->escapeIdentifier(tableSchema->name()));
-    QScopedPointer<KDbSqlResult> result(sourceConnection()->executeSQL(sql));
+    QSharedPointer<KDbSqlResult> result = sourceConnection()->prepareSql(sql);
     if (!result) {
         return false;
     }
@@ -86,12 +86,12 @@ bool KexiSqlMigrate::drv_readTableSchema(
 
 bool KexiSqlMigrate::drv_tableNames(QStringList *tableNames)
 {
-    QScopedPointer<KDbSqlResult> result(sourceConnection()->executeSQL(m_tableNamesSql));
+    QSharedPointer<KDbSqlResult> result = sourceConnection()->prepareSql(m_tableNamesSql);
     if (!result || result->fieldsCount() < 1) {
         return false;
     }
     Q_FOREVER {
-        QScopedPointer<KDbSqlRecord> record(result->fetchRecord());
+        QSharedPointer<KDbSqlRecord> record = result->fetchRecord();
         if (!record) {
             if (result->lastResult().isError()) {
                 return false;
@@ -106,7 +106,7 @@ bool KexiSqlMigrate::drv_tableNames(QStringList *tableNames)
 tristate KexiSqlMigrate::drv_queryStringListFromSQL(
     const KDbEscapedString& sqlStatement, int fieldIndex, QStringList *stringList, int numRecords)
 {
-    QScopedPointer<KDbSqlResult> result(sourceConnection()->executeSQL(sqlStatement));
+    QSharedPointer<KDbSqlResult> result= sourceConnection()->prepareSql(sqlStatement);
     if (!result) {
         return true;
     }
@@ -116,7 +116,7 @@ tristate KexiSqlMigrate::drv_queryStringListFromSQL(
         return false;
     }
     for (int i = 0; numRecords == -1 || i < numRecords; i++) {
-        QScopedPointer<KDbSqlRecord> record(result->fetchRecord());
+        QSharedPointer<KDbSqlRecord> record = result->fetchRecord();
         if (!record) {
             if (numRecords != -1 || result->lastResult().isError()) {
                 return false;
@@ -132,16 +132,15 @@ bool KexiSqlMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destC
                                  KDbTableSchema* dstTable,
                                  const RecordFilter *recordFilter)
 {
-    QScopedPointer<KDbSqlResult> result(
-        sourceConnection()->executeSQL(KDbEscapedString("SELECT * FROM %1")
-            .arg(sourceConnection()->escapeIdentifier(srcTable))));
+    QSharedPointer<KDbSqlResult> result = sourceConnection()->prepareSql(
+        KDbEscapedString("SELECT * FROM %1").arg(sourceConnection()->escapeIdentifier(srcTable)));
     if (!result) {
         return false;
     }
     const KDbQueryColumnInfo::Vector fieldsExpanded(dstTable->query()->fieldsExpanded());
     const int numFields = qMin(fieldsExpanded.count(), result->fieldsCount());
     Q_FOREVER {
-        QScopedPointer<KDbSqlRecord> record(result->fetchRecord());
+        QSharedPointer<KDbSqlRecord> record = result->fetchRecord();
         if (!record) {
             if (!result->lastResult().isError()) {
                 break;
@@ -149,7 +148,7 @@ bool KexiSqlMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destC
             return false;
         }
         if (recordFilter) {
-            if (!(*recordFilter)(*record)) {
+            if (!(*recordFilter)(record)) {
                 continue;
             }
         }
@@ -176,13 +175,13 @@ bool KexiSqlMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destC
 bool KexiSqlMigrate::drv_getTableSize(const QString& table, quint64 *size)
 {
     Q_ASSERT(size);
-    QScopedPointer<KDbSqlResult> result(
-        sourceConnection()->executeSQL(KDbEscapedString("SELECT COUNT(*) FROM %1")
-                                       .arg(sourceConnection()->escapeIdentifier(table))));
+    QSharedPointer<KDbSqlResult> result
+        = sourceConnection()->prepareSql(KDbEscapedString("SELECT COUNT(*) FROM %1")
+                                             .arg(sourceConnection()->escapeIdentifier(table)));
     if (!result) {
         return false;
     }
-    QScopedPointer<KDbSqlRecord> record(result->fetchRecord());
+    QSharedPointer<KDbSqlRecord> record = result->fetchRecord();
     if (!result || result->fieldsCount() == 0) {
         return false;
     }
@@ -195,14 +194,14 @@ bool KexiSqlMigrate::drv_getTableSize(const QString& table, quint64 *size)
     return ok;
 }
 
-KDbSqlResult* KexiSqlMigrate::drv_readFromTable(const QString& tableName)
+QSharedPointer<KDbSqlResult> KexiSqlMigrate::drv_readFromTable(const QString& tableName)
 {
-    QScopedPointer<KDbSqlResult> result(sourceConnection()->executeSQL(KDbEscapedString("SELECT * FROM %1")
-        .arg(sourceConnection()->escapeIdentifier(tableName))));
+    QSharedPointer<KDbSqlResult> result = sourceConnection()->prepareSql(
+        KDbEscapedString("SELECT * FROM %1").arg(sourceConnection()->escapeIdentifier(tableName)));
     if (!result || result->lastResult().isError()) {
         m_result = sourceConnection()->result();
         qWarning() << m_result;
-        return nullptr;
+        result.clear();
     }
-    return result.take();
+    return result;
 }
