@@ -163,7 +163,7 @@ public:
             }
             if (!connection->executeSql(KDbEscapedString("UPDATE kexi__objects SET o_name=%1 WHERE o_id=%2")
                     .arg(connection->escapeString(newName))
-                    .arg(connection->driver()->valueToSQL(KDbField::Integer, item->identifier()))))
+                    .arg(connection->driver()->valueToSql(KDbField::Integer, item->identifier()))))
             {
                 q->m_result = connection->result();
                 return false;
@@ -172,7 +172,7 @@ public:
         if (_newCaption) {
             if (!connection->executeSql(KDbEscapedString("UPDATE kexi__objects SET o_caption=%1 WHERE o_id=%2")
                     .arg(connection->escapeString(newCaption))
-                    .arg(connection->driver()->valueToSQL(KDbField::Integer, item->identifier()))))
+                    .arg(connection->driver()->valueToSql(KDbField::Integer, item->identifier()))))
             {
                 q->m_result = connection->result();
                 return false;
@@ -1349,7 +1349,7 @@ tristate KexiProject::loadUserDataBlock(int objectID, const QString& dataID, QSt
     }
     if (!d->connection->querySingleString(
                KDbEscapedString("SELECT d_data FROM kexi__userdata WHERE o_id=%1 AND ")
-                .arg(d->connection->driver()->valueToSQL(KDbField::Integer, objectID))
+                .arg(d->connection->driver()->valueToSql(KDbField::Integer, objectID))
                 + KDb::sqlWhere(d->connection->driver(), KDbField::Text, "d_user", d->userName())
                 + " AND " + KDb::sqlWhere(d->connection->driver(), KDbField::Text, "d_sub_id", dataID),
                dataString))
@@ -1380,7 +1380,7 @@ bool KexiProject::storeUserDataBlock(int objectID, const QString& dataID, const 
     if (result == true) {
         if (!d->connection->executeSql(
             KDbEscapedString("UPDATE kexi__userdata SET d_data="
-                + d->connection->driver()->valueToSQL(KDbField::LongText, dataString)
+                + d->connection->driver()->valueToSql(KDbField::LongText, dataString)
                 + " WHERE o_id=" + QString::number(objectID) + " AND " + sql_sub)))
         {
             m_result = d->connection->result();
@@ -1390,10 +1390,10 @@ bool KexiProject::storeUserDataBlock(int objectID, const QString& dataID, const 
     }
     if (!d->connection->executeSql(
                KDbEscapedString("INSERT INTO kexi__userdata (d_user, o_id, d_sub_id, d_data) VALUES (")
-               + d->connection->driver()->valueToSQL(KDbField::Text, d->userName())
+               + d->connection->driver()->valueToSql(KDbField::Text, d->userName())
                + ", " + QString::number(objectID)
-               + ", " + d->connection->driver()->valueToSQL(KDbField::Text, dataID)
-               + ", " + d->connection->driver()->valueToSQL(KDbField::LongText, dataString)
+               + ", " + d->connection->driver()->valueToSql(KDbField::Text, dataID)
+               + ", " + d->connection->driver()->valueToSql(KDbField::LongText, dataString)
                + ")"))
     {
         m_result = d->connection->result();
@@ -1419,8 +1419,8 @@ bool KexiProject::copyUserDataBlock(int sourceObjectID, int destObjectID, const 
         = KDbEscapedString("INSERT INTO kexi__userdata SELECT t.d_user, %2, t.d_sub_id, t.d_data "
                            "FROM kexi__userdata AS t WHERE d_user=%1 AND o_id=%3")
                          .arg(d->connection->escapeString(d->userName()))
-                         .arg(d->connection->driver()->valueToSQL(KDbField::Integer, destObjectID))
-                         .arg(d->connection->driver()->valueToSQL(KDbField::Integer, sourceObjectID));
+                         .arg(d->connection->driver()->valueToSql(KDbField::Integer, destObjectID))
+                         .arg(d->connection->driver()->valueToSql(KDbField::Integer, sourceObjectID));
     if (!dataID.isEmpty()) {
         sql += " AND " + KDb::sqlWhere(d->connection->driver(), KDbField::Text, "d_sub_id", dataID);
     }

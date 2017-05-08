@@ -65,9 +65,9 @@ bool KexiDBDriver::isSystemFieldName(const QString& name)
 {
     return m_driver->isSystemFieldName(name);
 }
-QString KexiDBDriver::valueToSQL(const QString& fieldtype, const QVariant& value)
+QString KexiDBDriver::valueToSql(const QString& fieldtype, const QVariant& value)
 {
-    return m_driver->valueToSQL(fieldtype, value);
+    return m_driver->valueToSql(fieldtype, value);
 }
 
 QObject* KexiDBDriver::createConnection(QObject* data)

@@ -25,21 +25,21 @@
 
 #include <KexiView.h>
 
-class KexiQueryDesignerSQLEditor;
+class KexiQueryDesignerSqlEditor;
 
-//! The KexiQueryDesignerSQLView class for editing Queries in text mode.
+//! The KexiQueryDesignerSqlView class for editing Queries in text mode.
 /*! It is a view containing SQL text editor
  and SQL status widget split vertically. */
-class KexiQueryDesignerSQLView : public KexiView
+class KexiQueryDesignerSqlView : public KexiView
 {
     Q_OBJECT
 
 public:
-    explicit KexiQueryDesignerSQLView(QWidget *parent);
-    virtual ~KexiQueryDesignerSQLView();
+    explicit KexiQueryDesignerSqlView(QWidget *parent);
+    virtual ~KexiQueryDesignerSqlView();
 
     QString sqlText() const;
-    KexiQueryDesignerSQLEditor *editor() const;
+    KexiQueryDesignerSqlEditor *editor() const;
 
 protected:
     KexiQueryPartTempData * tempData() const;

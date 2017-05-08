@@ -264,7 +264,7 @@ int main(int argc, char** argv)
         app->exec();
 
     if (r)
-        qDebug() << "RECENT SQL STATEMENT: " << conn->recentSQLString();
+        qDebug() << "RECENT SQL STATEMENT: " << conn->recentSqlString();
 
     if (project) {
         if (!project->closeConnection())

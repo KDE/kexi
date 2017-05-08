@@ -241,7 +241,7 @@ protected:
      \a result is set to 0 and true is returned.
      - Note 1: implement only if the database can already contain kexidb__* tables
        (so e.g. keximdb driver doea not need this).
-     - Note 2: default implementation uses drv_querySingleStringFromSQL()
+     - Note 2: default implementation uses drv_querySingleStringFromSql()
        with "SELECT MAX(columName) FROM tableName" statement, assuming SQL-compliant
        backend.
     */
@@ -256,7 +256,7 @@ protected:
      - Note: implement only if the database can already contain kexidb__* tables
       (so e.g. keximdb driver does not need this). */
 //! @todo SQL-dependent!
-    virtual tristate drv_queryStringListFromSQL(
+    virtual tristate drv_queryStringListFromSql(
         const KDbEscapedString& sqlStatement, int columnNumber, QStringList *stringList,
         int numRecords = -1)
     {
@@ -269,9 +269,9 @@ protected:
      by running \a sqlStatement.
      On success the result is stored in \a string and true is returned.
      \return cancelled if there are no records available.
-     This implementation uses drv_queryStringListFromSQL() with numRecords == 1. */
+     This implementation uses drv_queryStringListFromSql() with numRecords == 1. */
 //! @todo SQL-dependent!
-    virtual tristate drv_querySingleStringFromSQL(const KDbEscapedString& sqlStatement,
+    virtual tristate drv_querySingleStringFromSql(const KDbEscapedString& sqlStatement,
             int columnNumber, QString *string);
 
     //! A functor for filtering records

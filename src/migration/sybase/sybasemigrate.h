@@ -47,11 +47,11 @@ protected:
 
     virtual bool drv_disconnect();
 
-    virtual tristate drv_queryStringListFromSQL(
+    virtual tristate drv_queryStringListFromSql(
         const KDbEscapedString& sqlStatement, int columnNumber,
         QStringList *stringList, int numRecords = -1);
 
-    virtual tristate drv_fetchRecordFromSQL(const KDbEscapedString& sqlStatement,
+    virtual tristate drv_fetchRecordFromSql(const KDbEscapedString& sqlStatement,
                                             KDbRecordData *data, bool *firstRecord);
 
     virtual bool drv_copyTable(const QString& srcTable,

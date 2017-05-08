@@ -21,13 +21,13 @@
 
 #include "kexiquerydesignersqleditor.h"
 
-KexiQueryDesignerSQLEditor::KexiQueryDesignerSQLEditor(QWidget *parent)
+KexiQueryDesignerSqlEditor::KexiQueryDesignerSqlEditor(QWidget *parent)
         : KexiEditor(parent)
 {
     setHighlightMode("sql");
 }
 
-KexiQueryDesignerSQLEditor::~KexiQueryDesignerSQLEditor()
+KexiQueryDesignerSqlEditor::~KexiQueryDesignerSqlEditor()
 {
 }
 

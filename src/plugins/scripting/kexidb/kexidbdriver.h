@@ -87,7 +87,7 @@ public Q_SLOTS:
     a SQL-statement and those escaped string got returned by the method.
     The first argument defines the fieldtype to what we should escape the
     second argument to. */
-    QString valueToSQL(const QString& fieldtype, const QVariant& value);
+    QString valueToSql(const QString& fieldtype, const QVariant& value);
 
     /** Create and return new \a KexiDBConnection object that uses the as
     argument passed \a KexiDBConnectionData object or NULL if the connection

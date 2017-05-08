@@ -87,7 +87,7 @@ KexiView* KexiQueryPart::createView(QWidget *parent, KexiWindow* window, KexiPar
                 view, SLOT(slotItemRenamed(KexiPart::Item,QString)));
     }
     else if (viewMode == Kexi::TextViewMode) {
-        view = new KexiQueryDesignerSQLView(parent);
+        view = new KexiQueryDesignerSqlView(parent);
         view->setObjectName("sqldesigner");
     }
     return view;

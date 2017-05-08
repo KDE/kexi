@@ -141,7 +141,7 @@ KDbObject* KexiQueryView::storeNewData(const KDbObject& object,
     if (guiView) {
         return guiView->storeNewData(object, options, cancel);
     }
-    KexiQueryDesignerSQLView *sqlView = dynamic_cast<KexiQueryDesignerSQLView*>(view);
+    KexiQueryDesignerSqlView *sqlView = dynamic_cast<KexiQueryDesignerSqlView*>(view);
     if (sqlView) {
         return sqlView->storeNewData(object, options, cancel);
     }
@@ -155,7 +155,7 @@ tristate KexiQueryView::storeData(bool dontAsk)
     if (guiView) {
         return guiView->storeData(dontAsk);
     }
-    KexiQueryDesignerSQLView *sqlView = dynamic_cast<KexiQueryDesignerSQLView*>(view);
+    KexiQueryDesignerSqlView *sqlView = dynamic_cast<KexiQueryDesignerSqlView*>(view);
     if (sqlView) {
         return sqlView->storeData(dontAsk);
     }

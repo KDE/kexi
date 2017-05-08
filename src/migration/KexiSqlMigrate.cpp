@@ -103,7 +103,7 @@ bool KexiSqlMigrate::drv_tableNames(QStringList *tableNames)
     return true;
 }
 
-tristate KexiSqlMigrate::drv_queryStringListFromSQL(
+tristate KexiSqlMigrate::drv_queryStringListFromSql(
     const KDbEscapedString& sqlStatement, int fieldIndex, QStringList *stringList, int numRecords)
 {
     QSharedPointer<KDbSqlResult> result= sourceConnection()->prepareSql(sqlStatement);
