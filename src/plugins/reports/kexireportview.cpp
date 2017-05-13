@@ -94,12 +94,14 @@ KexiReportView::KexiReportView(QWidget *parent)
     exportMenu->setDelayed(false);
 #endif
 
+#ifdef KEXI_SHOW_UNFINISHED
 #ifdef KEXI_MOBILE
     viewActions << (a = new QAction(xi18n("Export:"), this));
     a->setEnabled(false); //!TODO this is a bit of a dirty way to add what looks like a label to the toolbar!
     // " ", not "", is said to be needed in maemo, the icon didn't display properly without it
     viewActions << (a = new QAction(koIcon("application-vnd.oasis.opendocument.text"), QLatin1String(" "), this));
 #else
+
     exportMenu->addAction(a = new QAction(koIcon("application-vnd.oasis.opendocument.text"),
                                           xi18nc("open dialog to export as text document", "Text Document..."), this));
 #endif
@@ -108,6 +110,7 @@ KexiReportView::KexiReportView(QWidget *parent)
     a->setWhatsThis(xi18n("Exports the report as a text document (in OpenDocument Text format)."));
     a->setEnabled(true);
     connect(a, SIGNAL(triggered()), this, SLOT(slotExportAsTextDocument()));
+#endif
 
 #ifdef KEXI_MOBILE
     viewActions << (a = new QAction(koIcon("application-pdf"), QLatin1String(" "), this));
@@ -121,6 +124,7 @@ KexiReportView::KexiReportView(QWidget *parent)
     a->setEnabled(true);
     connect(a, SIGNAL(triggered()), this, SLOT(slotExportAsPdf()));
 
+#ifdef KEXI_SHOW_UNFINISHED
 #ifdef KEXI_MOBILE
     viewActions << (a = new QAction(koIcon("application-vnd.oasis.opendocument.spreadsheet"), QLatin1String(" "), this));
 #else
@@ -132,6 +136,8 @@ KexiReportView::KexiReportView(QWidget *parent)
     a->setWhatsThis(xi18n("Exports the report as a spreadsheet (in OpenDocument Spreadsheet format)."));
     a->setEnabled(true);
     connect(a, SIGNAL(triggered()), this, SLOT(slotExportAsSpreadsheet()));
+
+#endif
 
 #ifdef KEXI_MOBILE
     viewActions << (a = new QAction(koIcon("text-html"), QLatin1String(" "), this));
@@ -242,6 +248,8 @@ void KexiReportView::openExportedDocument(const QUrl &destination)
     }
 }
 
+#ifdef KEXI_SHOW_UNFINISHED
+
 void KexiReportView::slotExportAsSpreadsheet()
 {
     QScopedPointer<KReportRendererBase> renderer(m_factory.createInstance("ods"));
@@ -289,6 +297,7 @@ void KexiReportView::slotExportAsTextDocument()
         }
     }
 }
+#endif
 
 void KexiReportView::slotExportAsWebPage()
 {
@@ -364,18 +373,18 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
             //If using a kexidb source, add a functions scripting object
             if (tempData()->connectionDefinition.attribute("type") == "internal") {
                 m_functions = new KRScriptFunctions(reportData, KexiMainWindowIface::global()->project()->dbConnection());
-            
+
                 m_preRenderer->registerScriptObject(m_functions, "field");
                 connect(m_preRenderer, SIGNAL(groupChanged(QMap<QString, QVariant>)),
                         m_functions, SLOT(setGroupData(QMap<QString, QVariant>)));
             }
             connect(m_preRenderer, SIGNAL(finishedAllASyncItems()), this, SLOT(finishedAllASyncItems()));
-            
+
             if (!m_preRenderer->generateDocument()) {
                 qWarning() << "Could not generate report document";
                 return false;
             }
-            
+
             m_reportView->setDocument(m_preRenderer->document());
 #ifndef KEXI_MOBILE
             m_pageSelector->setRecordCount(m_reportView->pageCount());

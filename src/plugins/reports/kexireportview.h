@@ -80,9 +80,11 @@ private:
 private Q_SLOTS:
     void slotPrintReport();
     void slotExportAsPdf();
-    void slotExportAsSpreadsheet();
     void slotExportAsWebPage();
+#ifdef KEXI_SHOW_UNFINISHED
+    void slotExportAsSpreadsheet();
     void slotExportAsTextDocument();
+#endif
     void openExportedDocument(const QUrl &destination);
     void finishedAllASyncItems();
 };
