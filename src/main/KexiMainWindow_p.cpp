@@ -376,7 +376,11 @@ void KexiTabbedToolBarStyle::drawControl(ControlElement element, const QStyleOpt
                     }
                 }
                 else {
-                    bg = Qt::transparent;
+                    if (styleName == "fusion") {
+                        bg = newOpt.palette.brush(QPalette::Active, QPalette::Button);
+                    } else {
+                        bg = Qt::transparent;
+                    }
                 }
                 QFont origFont(painter->font());
                 QFont f(origFont);
