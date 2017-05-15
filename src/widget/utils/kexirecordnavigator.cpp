@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2004 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -18,27 +18,29 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#include <QLabel>
-#include <QIntValidator>
-#include <QAbstractScrollArea>
-#include <QScrollBar>
-#include <QPixmap>
-#include <QFocusEvent>
-#include <QKeyEvent>
-#include <QWheelEvent>
-#include <QEvent>
-#include <QHBoxLayout>
-#include <QPainter>
-#include <QStyleOptionFrame>
-#include <QLineEdit>
+#include "kexirecordnavigator.h"
+
+#include <core/KexiRecordNavigatorHandler.h>
+#include <kexiutils/SmallToolButton.h>
+#include <kexiutils/utils.h>
 
 #include <KGuiItem>
 #include <KLocalizedString>
 
-#include "kexirecordnavigator.h"
-#include <kexiutils/SmallToolButton.h>
-#include <kexiutils/utils.h>
-#include <core/KexiRecordNavigatorHandler.h>
+#include <QAbstractScrollArea>
+#include <QApplication>
+#include <QEvent>
+#include <QFocusEvent>
+#include <QHBoxLayout>
+#include <QIntValidator>
+#include <QKeyEvent>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPainter>
+#include <QPixmap>
+#include <QScrollBar>
+#include <QStyleOptionFrame>
+#include <QWheelEvent>
 
 //! @internal
 /*! @warning not reentrant! */
@@ -62,13 +64,45 @@ struct KexiRecordNavigatorStatic {
 Q_GLOBAL_STATIC(KexiRecordNavigatorStatic, KexiRecordNavigator_static)
 
 // ----
+namespace {
+//! A line edit that does paint the top border
+class KexiRecordNavigatorRecordNumberEditor : public QLineEdit
+{
+    Q_OBJECT
+
+public:
+    KexiRecordNavigatorRecordNumberEditor(QWidget *parent)
+        : QLineEdit(parent)
+    {
+        // Set transparent base, actual base will be custom-painted in paintEvent()
+        QPalette navRecordNumberPalette(palette());
+        navRecordNumberPalette.setBrush(QPalette::Base, QBrush(Qt::transparent));
+        setPalette(navRecordNumberPalette);
+    }
+
+    //! Custom-paint the background: skip the top border
+    void paintEvent(QPaintEvent *event) override
+    {
+        QPainter p(this);
+        QStyleOptionFrame panelOption;
+        initStyleOption(&panelOption);
+        panelOption.palette.setBrush(QPalette::Base, qApp->palette().brush(QPalette::Base));
+        panelOption.rect.setY(panelOption.rect.y() + 2 /*(skip the top border)*/);
+        style()->drawPrimitive(QStyle::PE_PanelLineEdit, &panelOption, &p, this);
+        QLineEdit::paintEvent(event);
+    }
+};
+}
+
+// ----
 
 //! @internal
 class Q_DECL_HIDDEN KexiRecordNavigator::Private
 {
 public:
-    Private()
-            : handler(0)
+    Private(KexiRecordNavigator *navigator)
+            : q(navigator)
+            , handler(0)
             , view(0)
             , editingIndicatorLabel(0)
             , editingIndicatorEnabled(false)
@@ -76,6 +110,22 @@ public:
             , isInsertingEnabled(true)
     {
     }
+
+    //! Update height of buttons and line edits: they are not in the layout
+    void updateSizeOfButtonsAndLineEdits()
+    {
+        // update height of buttons and line edits: they are not in the layout
+        const int h = q->height();
+        for (QWidget *w : widgetsToResize) {
+            w->setFixedHeight(h + 2);
+            w->parentWidget()->setFixedHeight(h);
+            w->move(0, (w->parentWidget()->height() - w->height()) / 2);
+        }
+        navRecordNumberParent->setFixedWidth(navRecordNumber->width());
+        navRecordCountParent->setFixedWidth(navRecordCount->width());
+    }
+
+    KexiRecordNavigator * const q;
     KexiRecordNavigatorHandler *handler;
     QHBoxLayout *lyr;
     QLabel *textLabel;
@@ -84,13 +134,16 @@ public:
     QToolButton *navBtnNext;
     QToolButton *navBtnLast;
     QToolButton *navBtnNew;
+    QWidget *navRecordNumberParent;
     QLineEdit *navRecordNumber;
     QIntValidator *navRecordNumberValidator;
+    QWidget *navRecordCountParent;
     QLineEdit *navRecordCount; //!< readonly counter
     int nav1DigitWidth;
     QAbstractScrollArea *view;
 
     QLabel *editingIndicatorLabel;
+    QList<QWidget*> widgetsToResize;
     bool editingIndicatorEnabled;
     bool editingIndicatorVisible;
     bool isInsertingEnabled;
@@ -98,11 +151,9 @@ public:
 
 //--------------------------------------------------
 
-#include <QPushButton>
-
 KexiRecordNavigator::KexiRecordNavigator(QAbstractScrollArea &parentView, QWidget *parent)
         : QWidget(parent)
-        , d(new Private)
+        , d(new Private(this))
 {
     d->view = &parentView;
     setFocusPolicy(Qt::NoFocus);
@@ -128,12 +179,21 @@ KexiRecordNavigator::KexiRecordNavigator(QAbstractScrollArea &parentView, QWidge
 
     d->lyr->addSpacing(2);
 
-    d->navRecordNumber = new QLineEdit(this);
-    d->lyr->addWidget(d->navRecordNumber, 0, Qt::AlignVCenter);
+    d->navRecordNumberParent = new QWidget;
+    d->navRecordNumberParent->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
+    d->lyr->addWidget(d->navRecordNumberParent, 0, Qt::AlignVCenter);
+
+    const QString style(this->style()->objectName());
+    if (style == "breeze" || style == "oxygen") {
+        d->navRecordNumber = new QLineEdit(d->navRecordNumberParent);
+    } else {
+        d->navRecordNumber = new KexiRecordNavigatorRecordNumberEditor(d->navRecordNumberParent);
+    }
+    d->widgetsToResize.append(d->navRecordNumber);
     d->navRecordNumber->setContentsMargins(QMargins());
     d->navRecordNumber->setFrame(false);
-    d->navRecordNumber->setFixedHeight(fm.height() + 2);
-    d->navRecordNumber->setAlignment(Qt::AlignRight | (/*winStyle ? Qt::AlignBottom :*/ Qt::AlignVCenter));
+    d->navRecordNumber->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
+    d->navRecordNumber->setAlignment(Qt::AlignRight | Qt::AlignCenter);
     d->navRecordNumber->setFocusPolicy(Qt::ClickFocus);
     d->navRecordNumberValidator = new QIntValidator(1, INT_MAX, this);
     d->navRecordNumber->setValidator(d->navRecordNumberValidator);
@@ -141,19 +201,26 @@ KexiRecordNavigator::KexiRecordNavigator(QAbstractScrollArea &parentView, QWidge
     d->navRecordNumber->setToolTip(xi18n("Current record number"));
 
     QLabel *lbl_of = new QLabel(xi18nc("\"of\" in record number information: N of M", "of"), this);
+    if (style == "oxygen") {
+        lbl_of->setContentsMargins(0, 1, 0, 0);
+    }
     lbl_of->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     lbl_of->setFixedWidth(fm.width(lbl_of->text()) + d->nav1DigitWidth);
     lbl_of->setAlignment(Qt::AlignCenter);
     d->lyr->addWidget(lbl_of, 0, Qt::AlignVCenter);
 
-    d->navRecordCount = new QLineEdit(this);
-    d->lyr->addWidget(d->navRecordCount, 0, Qt::AlignVCenter);
+    d->navRecordCountParent = new QWidget;
+    d->navRecordCountParent->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
+    d->lyr->addWidget(d->navRecordCountParent, 0, Qt::AlignVCenter);
+
+    d->navRecordCount = new QLineEdit(d->navRecordCountParent);
+    d->widgetsToResize.append(d->navRecordCount);
+    d->navRecordCount->setContentsMargins(QMargins());
     d->navRecordCount->setFrame(false);
     d->navRecordCount->setReadOnly(true);
     QPalette navRecordCountPalette(d->navRecordCount->palette());
     navRecordCountPalette.setBrush( QPalette::Base, QBrush(Qt::transparent) );
     d->navRecordCount->setPalette(navRecordCountPalette);
-    d->navRecordCount->setFixedHeight(d->navRecordNumber->maximumHeight());
     d->navRecordCount->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
     d->navRecordCount->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     d->navRecordCount->setFocusPolicy(Qt::NoFocus);
@@ -191,6 +258,7 @@ QToolButton* KexiRecordNavigator::createAction(const KGuiItem& item)
     QWidget *par = new QWidget(this);
     d->lyr->addWidget(par, 0, Qt::AlignVCenter);
     QToolButton *toolButton = new KexiSmallToolButton(item.icon(), par);
+    d->widgetsToResize.append(toolButton);
     toolButton->setMinimumWidth(toolButton->sizeHint().width() + 2*3);
     par->setMinimumWidth(toolButton->minimumWidth());
     toolButton->setFocusPolicy(Qt::NoFocus);
@@ -310,13 +378,7 @@ void KexiRecordNavigator::wheelEvent(QWheelEvent* wheelEvent)
 void KexiRecordNavigator::resizeEvent(QResizeEvent *e)
 {
     QWidget::resizeEvent(e);
-    // update height of buttons: they are not in the layout
-    foreach (KexiSmallToolButton *btn, findChildren<KexiSmallToolButton*>()) {
-        const int h = height();
-        btn->setFixedHeight(h + 2);
-        btn->parentWidget()->setFixedHeight(h);
-        btn->move(0, (btn->parentWidget()->height() - btn->height()) / 2);
-    }
+    d->updateSizeOfButtonsAndLineEdits();
 }
 
 void KexiRecordNavigator::setCurrentRecordNumber(int r)
@@ -332,6 +394,7 @@ void KexiRecordNavigator::setCurrentRecordNumber(int r)
 
     d->navRecordNumber->setText(n);
     updateButtons(recCnt);
+    d->updateSizeOfButtonsAndLineEdits();
 }
 
 void KexiRecordNavigator::updateButtons(int recCnt)
@@ -367,6 +430,7 @@ void KexiRecordNavigator::setRecordCount(int count)
 
     d->navRecordCount->setText(n);
     updateButtons(recordCount());
+    d->updateSizeOfButtonsAndLineEdits();
 }
 
 int KexiRecordNavigator::currentRecordNumber() const
@@ -624,3 +688,4 @@ QPixmap KexiRecordNavigator::pointerPixmap(const QPalette &palette)
                 KexiRecordNavigator_static->pointer, palette);
 }
 
+#include "kexirecordnavigator.moc"
