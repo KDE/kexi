@@ -29,8 +29,8 @@ class KEXIEXTWIDGETS_EXPORT KexiCustomPropertyFactory : public KPropertyWidgetsF
 {
 public:
     enum PropertyType {
-        PixmapId = KProperty::UserDefined + 0,  //!< Shared Kexi pixmap
-        Identifier = KProperty::UserDefined + 1 //!< string allowing nonempty identifiers
+        PixmapId = KProperty::Pixmap,  //!< Override
+        Identifier = KProperty::UserDefined + 0 //!< string allowing nonempty identifiers
     };
 
     //! Called once to register all property and editor types provided by this factory.

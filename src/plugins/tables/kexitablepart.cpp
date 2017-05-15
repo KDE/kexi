@@ -24,6 +24,7 @@
 #include <core/KexiMainWindowIface.h>
 #include <core/kexiproject.h>
 #include <core/kexipartinfo.h>
+#include <widget/properties/KexiCustomPropertyFactory.h>
 #include <widget/tableview/KexiDataTableView.h>
 #include <widget/tableview/KexiDataTableScrollArea.h>
 #include "kexitabledesignerview.h"
@@ -63,6 +64,9 @@ KexiTablePart::KexiTablePart(QObject *parent, const QVariantList& l)
         l)
   , d(new Private)
 {
+    // needed for custom "identifier" property editor widget
+    KexiCustomPropertyFactory::init();
+
 //! @todo js: also add Kexi::TextViewMode when we'll have SQL ALTER TABLE EDITOR!!!
 }
 

@@ -95,6 +95,7 @@ KexiFormManager::KexiFormManager()
         : QObject()
         , d(new KexiFormManagerPrivate(this))
 {
+    // needed for custom "pixmap" property editor widget
     KexiCustomPropertyFactory::init();
 }
 
