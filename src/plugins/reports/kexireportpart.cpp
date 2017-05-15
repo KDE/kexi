@@ -31,6 +31,7 @@
 #include "kexireportdesignview.h"
 #include <core/KexiMainWindowIface.h>
 #include "kexisourceselector.h"
+#include <widget/properties/KexiCustomPropertyFactory.h>
 
 //! @internal
 class Q_DECL_HIDDEN KexiReportPart::Private
@@ -59,6 +60,8 @@ KexiReportPart::KexiReportPart(QObject *parent, const QVariantList &l)
   , d(new Private)
 {
     setInternalPropertyValue("newObjectsAreDirty", true);
+    // needed for custom "pixmap" property editor widget
+    KexiCustomPropertyFactory::init();
 }
 
 KexiReportPart::~KexiReportPart()

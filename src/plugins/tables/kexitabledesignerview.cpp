@@ -105,8 +105,6 @@ KexiTableDesignerView::KexiTableDesignerView(QWidget *parent)
         , d(new KexiTableDesignerViewPrivate(this))
 {
     setObjectName("KexiTableDesignerView");
-    //needed for custom "identifier" property editor widget
-    KexiCustomPropertyFactory::init();
 
     KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     d->view = dynamic_cast<KexiTableScrollArea*>(mainWidget());

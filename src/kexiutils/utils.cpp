@@ -316,8 +316,11 @@ QUrl KexiUtils::getOpenImageUrl(QWidget *parent, const QString &caption, const Q
                        QImageReader::supportedMimeTypes()));
     dialog->setFileMode(QFileDialog::ExistingFile);
     dialog->setAcceptMode(QFileDialog::AcceptOpen);
-    dialog->exec();
-    return dialog->selectedUrls().value(0);
+    if (QDialog::Accepted == dialog->exec()) {
+        return dialog->selectedUrls().value(0);
+    } else {
+        return QUrl();
+    }
 }
 
 QUrl KexiUtils::getSaveImageUrl(QWidget *parent, const QString &caption, const QUrl &directory)
@@ -326,8 +329,11 @@ QUrl KexiUtils::getSaveImageUrl(QWidget *parent, const QString &caption, const Q
         getImageDialog(parent, caption.isEmpty() ? i18n("Save") : caption, directory,
                        QImageWriter::supportedMimeTypes()));
     dialog->setAcceptMode(QFileDialog::AcceptSave);
-    dialog->exec();
-    return dialog->selectedUrls().value(0);
+    if (QDialog::Accepted == dialog->exec()) {
+        return dialog->selectedUrls().value(0);
+    } else {
+        return QUrl();
+    }
 }
 
 bool KexiUtils::askForFileOverwriting(const QString& filePath, QWidget *parent)
