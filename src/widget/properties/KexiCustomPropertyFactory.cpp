@@ -86,7 +86,7 @@ public:
 };
 #endif
 
-class KexiIdentifierPropertyEditorDelegate : public KPropertyEditorCreatorInterface
+class KexiIdentifierPropertyEditorDelegate : public KPropertyStringDelegate
 {
 public:
     KexiIdentifierPropertyEditorDelegate() {}
