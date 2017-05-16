@@ -36,9 +36,6 @@
 class QPainter;
 
 //! @short An extended, data-aware, read-only text label.
-/*!
- @author Christian Nitschkowski, Jarosław Staniek
-*/
 class KEXIFORMUTILS_EXPORT KexiDBLabel : public QLabel,
                                          protected KexiDBTextWidgetInterface,
                                          public KexiFormDataItemInterface,

@@ -27,7 +27,6 @@
 
 /*!
  * \short A PushButton widget with hyperlinks support
- * \author Oleg Kukharchuk <oleg.kuh@gmail.com>
  */
 class KEXIUTILS_EXPORT KexiPushButton : public QPushButton
 {

@@ -33,8 +33,7 @@ class Form;
 class ResizeHandleSet;
 
 /**
-* a set of resize handles (for resizing widgets)
-* @author Joseph Wenninger
+* A set of resize handles (for resizing widgets)
 */
 class KFORMDESIGNER_EXPORT ResizeHandleSet: public QObject
 {

@@ -1690,14 +1690,11 @@ QAction *KexiMenuWidget::activeAction() const
 }
 
 /*!
-    \since 4.2
-
     Returns true if there are no visible actions inserted into the menu, false
     otherwise.
 
     \sa QWidget::actions()
 */
-
 bool KexiMenuWidget::isEmpty() const
 {
     bool ret = true;
@@ -3115,9 +3112,6 @@ void KexiMenuWidget::setNoReplayFor(QWidget *noReplayFor)
 }
 
 /*!
-  \property KexiMenuWidget::separatorsCollapsible
-  \since 4.2
-
   \brief whether consecutive separators should be collapsed
 
   This property specifies whether consecutive separators in the menu
