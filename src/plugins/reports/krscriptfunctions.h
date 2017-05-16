@@ -28,7 +28,6 @@ class KDbConnection;
 class KDbCursor;
 
 /**
- @author
 */
 class KRScriptFunctions : public KReportGroupTracker
 {

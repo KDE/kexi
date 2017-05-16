@@ -86,9 +86,6 @@ class KMessageWidgetPrivate;
  * @li A browser can propose remembering a recently entered password
  * @li A music collection can propose ripping a CD which just got inserted
  * @li A chat application may notify the user a "special friend" just connected
- *
- * @author Aurélien Gâteau <agateau@kde.org>
- * @since 4.7
  */
 class KEXIUTILS_EXPORT KMessageWidget : public QFrame
 {

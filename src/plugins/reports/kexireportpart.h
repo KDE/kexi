@@ -41,8 +41,6 @@ public:
 
 /**
  * @short Application Main Window
- * @author Adam Pigg <adam@piggz.co.uk>
- * @version 0.1
  */
 class KexiReportPart : public KexiPart::Part
 {

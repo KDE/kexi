@@ -39,7 +39,6 @@ class KexiRecordNavigator;
 #endif
 
 /**
- @author Adam Pigg <adam@piggz.co.uk>
 */
 class KexiReportView : public KexiView, public KexiRecordNavigatorHandler
 {

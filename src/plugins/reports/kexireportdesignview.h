@@ -32,7 +32,6 @@ class QScrollArea;
 class KexiSourceSelector;
 
 /**
- @author
 */
 class KexiReportDesignView : public KexiView
 {

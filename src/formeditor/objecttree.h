@@ -48,7 +48,6 @@ typedef QHash<QString, ObjectTreeItem*> ObjectTreeHash;
 /*!
  @short An item representing a widget
  Holds the properties of a widget (classname, name, parent, children ..).
- @author Lucijan Busch <lucijan@kde.org>
  */
 class KFORMDESIGNER_EXPORT ObjectTreeItem
 {

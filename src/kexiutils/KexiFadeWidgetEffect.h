@@ -41,9 +41,6 @@ class KexiFadeWidgetEffectPrivate;
  *
  * \note The widget that changes needs to have a parent widget. KexiFadeWidgetEffect does not work
  * for toplevel widgets (windows).
- *
- * \author Matthias Kretz <kretz@kde.org>
- * \since 4.1
  */
 class KEXIUTILS_EXPORT KexiFadeWidgetEffect : public QWidget
 {

@@ -76,7 +76,6 @@
 /*!
     \class KUndo2Command
     \brief The KUndo2Command class is the base class of all commands stored on a KUndo2QStack.
-    \since 4.2
 
     For an overview of Qt's Undo Framework, see the
     \l{Overview of Qt's Undo Framework}{overview document}.
@@ -307,8 +306,6 @@ void KUndo2Command::setText(const KUndo2MagicString &undoText)
 }
 
 /*!
-    \since 4.4
-
     Returns the number of child commands in this command.
 
     \sa child()
@@ -320,8 +317,6 @@ int KUndo2Command::childCount() const
 }
 
 /*!
-    \since 4.4
-
     Returns the child command at \a index.
 
     \sa childCount(), KUndo2QStack::command()
@@ -426,7 +421,6 @@ void KUndo2Command::setExtraData(KUndo2CommandExtraData *data)
 /*!
     \class KUndo2QStack
     \brief The KUndo2QStack class is a stack of KUndo2Command objects.
-    \since 4.2
 
     For an overview of Qt's Undo Framework, see the
     \l{Overview of Qt's Undo Framework}{overview document}.
@@ -1200,8 +1194,6 @@ void KUndo2QStack::endMacro()
 }
 
 /*!
-  \since 4.4
-
   Returns a const pointer to the command at \a index.
 
   This function returns a const pointer, because modifying a command,
@@ -1234,7 +1226,6 @@ QString KUndo2QStack::text(int idx) const
 /*!
     \property KUndo2QStack::undoLimit
     \brief the maximum number of commands on this stack.
-    \since 4.3
 
     When the number of commands on a stack exceedes the stack's undoLimit, commands are
     deleted from the bottom of the stack. Macro commands (commands with child commands)
