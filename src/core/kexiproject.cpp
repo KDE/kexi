@@ -151,7 +151,7 @@ public:
         if (!part)
             return false;
         KDbTransactionGuard tg(connection);
-        if (!tg.transaction().active()) {
+        if (!tg.transaction().isActive()) {
             q->m_result = connection->result();
             return false;
         }
@@ -424,7 +424,7 @@ KexiProject::create(bool forceOverwrite)
         return false;
     }
 
-    if (trans.active() && !d->connection->commitTransaction(trans))
+    if (trans.isActive() && !d->connection->commitTransaction(trans))
         return false;
     //</add some metadata>
 
@@ -631,7 +631,7 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
     }
 
     if (insideTransaction) {
-        if (tg.transaction().active() && !tg.commit()) {
+        if (tg.transaction().isActive() && !tg.commit()) {
             m_result = d->connection->result();
             return false;
         }
@@ -996,7 +996,7 @@ bool KexiProject::removeObject(KexiPart::Item *item)
     }
     if (!item->neverSaved()) {
         KDbTransactionGuard tg(d->connection);
-        if (!tg.transaction().active()) {
+        if (!tg.transaction().isActive()) {
             m_result = d->connection->result();
             return false;
         }
