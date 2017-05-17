@@ -759,7 +759,7 @@ tristate KexiUtils::openHyperLink(const QUrl &url, QWidget *parent, const OpenHy
     switch(options.tool) {
         case OpenHyperlinkOptions::DefaultHyperlinkTool:
 #if KIO_VERSION >= QT_VERSION_CHECK(5, 31, 0)
-            return KRun::runUrl(url, type, parent, KRun::RunExecutables);
+            return KRun::runUrl(url, type, parent, KRun::RunFlags(KRun::RunExecutables));
 #else
             return KRun::runUrl(url, type, parent);
 #endif
