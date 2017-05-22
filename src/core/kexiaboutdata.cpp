@@ -92,6 +92,8 @@ KexiAboutData::KexiAboutData()
         xi18n("Till Busch"), xi18n("Bugfixes, original Table Widget"), "till@bux.at");
 
     addCredit(
+        xi18n("Scarlett Gately Clark"), xi18n("AppImage packages for Linux"), "scarlett.gately.clark@gmail.com");
+    addCredit(
         xi18n("Ian Balchin"), xi18n("Numerous bug reports and tests, handbook improvements"), "inksi@fables.co.za");
     addCredit(
         xi18n("Robert Leleu"), xi18n("Numerous bug reports and tests"), "robert.jean.leleu@wanadoo.fr");
