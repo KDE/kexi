@@ -1073,8 +1073,7 @@ KexiMainFormWidgetsFactory::isPropertyVisibleInternal(const QByteArray& classnam
 #endif
     else if (classname == "KexiDBImageBox" || classname == "KexiPictureLabel") {
         ok = property != "font" && property != "wordbreak" && property != "pixmapId"
-             && property != "text" && property != "indent" && property != "textFormat"
-             && property == "alignment";
+             && property != "text" && property != "indent" && property != "textFormat";
     }
     else if (classname == "KexiDBCheckBox" || classname == "QCheckBox") {
         //hide text property if the widget is a child of an autofield beause there's already "caption" for this purpose
