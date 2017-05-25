@@ -727,7 +727,6 @@ KexiDBFactory::isPropertyVisibleInternal(const QByteArray& classname, QWidget *w
              && property != "value";
      } else if (classname == "KexiDBLineEdit")
         ok = property != "urlDropsEnabled"
-             && property != "vAlign"
              && property != "echoMode"
              && property != "clickMessage" // Replaced by placeholderText in 2.9,
                                            // kept for backward compatibility Kexi projects created with Qt < 4.7.

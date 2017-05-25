@@ -973,9 +973,6 @@ bool KexiStandardFormWidgetsFactory::isPropertyVisibleInternal(const QByteArray 
     } else if (classname == "QLabel") {
         if (property == "pixmap")
             return false;
-    } else if (classname == "QLineEdit") {
-        if (property == "vAlign")
-            return false;
     } else if (classname == "KTextEdit")
         ok = KFormDesigner::WidgetFactory::advancedPropertiesVisible() ||
              (   property != "undoDepth"
