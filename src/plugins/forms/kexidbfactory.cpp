@@ -201,6 +201,8 @@ KexiDBFactory::KexiDBFactory(QObject *parent, const QVariantList &)
     // wi->setCustomTypeForProperty("pixmapData", KexiCustomPropertyFactory::PixmapData);
         wi->setCustomTypeForProperty("pixmapId", KexiCustomPropertyFactory::PixmapId);
         wi->setInternalProperty("dontStartEditingOnInserting", true);
+        wi->setSupportedAlignmentFlags(Qt::AlignLeft | Qt::AlignRight | Qt::AlignHCenter
+                                       | Qt::AlignTop | Qt::AlignBottom | Qt::AlignVCenter);
         addClass(wi);
     }
 

@@ -238,13 +238,23 @@ QList<QMetaProperty> KexiUtils::propertiesForMetaObjectWithInherited(
     return result;
 }
 
-QStringList KexiUtils::enumKeysForProperty(const QMetaProperty& metaProperty)
+QStringList KexiUtils::enumKeysForProperty(const QMetaProperty& metaProperty, int filter)
 {
     QStringList result;
-    QMetaEnum enumerator(metaProperty.enumerator());
+    const QMetaEnum enumerator(metaProperty.enumerator());
     const int count = enumerator.keyCount();
-    for (int i = 0; i < count; i++)
-        result.append(QString::fromLatin1(enumerator.key(i)));
+    int total = 0;
+    for (int i = 0; i < count; i++) {
+        if (filter == INT_MIN) {
+            result.append(QString::fromLatin1(enumerator.key(i)));
+        } else {
+            const int v = enumerator.value(i);
+            if ((v & filter) && !(total & v)) { // !(total & v) is a protection adding against masks
+                result.append(QString::fromLatin1(enumerator.key(i)));
+                total |= v;
+            }
+        }
+    }
     return result;
 }
 
