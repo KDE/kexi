@@ -781,7 +781,7 @@ KexiDBFactory::isPropertyVisibleInternal(const QByteArray& classname, QWidget *w
         ok = property != "text"; /* "text" is not needed as "caption" is used instead */
     }
     else if (classname == "KexiDBImageBox") {
-        ok = property != "font" && property != "wordbreak" && property != "pixmapId";
+        ok = property != "font" && property != "pixmapId";
     }
     else if (classname == "KexiDBCheckBox") {
         //hide text property if the widget is a child of an autofield beause there's already "caption" for this purpose
