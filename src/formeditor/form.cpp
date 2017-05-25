@@ -1240,7 +1240,7 @@ void Form::slotPropertyChanged(KPropertySet& set, KProperty& p)
             d->setColorProperty(p, &QWidget::backgroundRole, QVariant());
         }
     }
-    else if (property == "hAlign" || property == "vAlign" || property == "wordbreak") {
+    else if (property == "hAlign" || property == "vAlign") {
         saveAlignProperty(property);
         return;
     }
@@ -2196,20 +2196,6 @@ void Form::createAlignProperty(const QMetaProperty& meta, QWidget *widget, QWidg
         }
         updatePropertyValue(tree, "vAlign");
     }
-
-    if (possibleValues.contains("WordBreak")) {
-        // Create the wordbreak property
-        KProperty *p = new KProperty("wordbreak",
-                QVariant((bool)(alignment & Qt::TextWordWrap)),
-                xi18n("Word Break"), xi18n("Word Break"));
-        d->propertySet.addProperty(p);
-        updatePropertyValue(tree, "wordbreak");
-        if (!library()->isPropertyVisible(
-                subwidget->metaObject()->className(), subwidget, p->name(), false/*multiple*/, isTopLevel))
-        {
-            p->setVisible(false);
-        }
-    }
 }
 
 void Form::saveAlignProperty(const QString &property)
@@ -2219,8 +2205,6 @@ void Form::saveAlignProperty(const QString &property)
         list.append(d->propertySet["hAlign"].value().toString());
     if (d->propertySet.contains("vAlign"))
         list.append(d->propertySet["vAlign"].value().toString());
-    if (d->propertySet.contains("wordbreak") && d->propertySet["wordbreak"].value().toBool())
-        list.append("WordBreak");
 
     WidgetWithSubpropertiesInterface* subpropIface
         = dynamic_cast<WidgetWithSubpropertiesInterface*>(d->selected.first());

@@ -94,7 +94,9 @@ void KexiDBReportDataSource::addCondition(const QString &field, const QVariant &
             if (relation.length() == 1) {
                 QString errorMessage;
                 QString errorDescription;
-                if (!d->copySchema->addToWhereExpression(fld, value, KDbToken(relation.toLatin1()[0]))) {
+                if (!d->copySchema->addToWhereExpression(fld, value, KDbToken(relation.toLatin1()[0]),
+                                                         &errorMessage, &errorDescription))
+                {
                     qWarning() << "Invalid expression cannot be added to WHERE:" << fld
                                << relation << value;
                     qWarning() << "addToWhereExpression() failed, message=" << errorMessage

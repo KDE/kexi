@@ -967,7 +967,7 @@ FormIO::saveWidget(ObjectTreeItem *item, QDomElement &parent, QDomDocument &domD
     }
 
     QStringList alignProperties;
-    alignProperties << "hAlign" << "vAlign" << "wordbreak" << "alignment";
+    alignProperties << "hAlign" << "vAlign" << "alignment";
     foreach (const QString& name, alignProperties) {
         if (names.contains(name)) {
             names.removeOne(name);

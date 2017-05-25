@@ -1011,7 +1011,6 @@ KexiMainFormWidgetsFactory::isPropertyVisibleInternal(const QByteArray& classnam
              && property != "value";
      } else if (classname == "KexiDBLineEdit" || classname == "QLineEdit")
         ok = property != "urlDropsEnabled"
-             && property != "vAlign"
              && property != "echoMode"
              && property != "clickMessage" // Replaced by placeholderText in 2.9,
                                            // kept for backward compatibility Kexi projects created with Qt < 4.7.
@@ -1072,7 +1071,7 @@ KexiMainFormWidgetsFactory::isPropertyVisibleInternal(const QByteArray& classnam
     }
 #endif
     else if (classname == "KexiDBImageBox" || classname == "KexiPictureLabel") {
-        ok = property != "font" && property != "wordbreak" && property != "pixmapId"
+        ok = property != "font" && property != "pixmapId"
              && property != "text" && property != "indent" && property != "textFormat";
     }
     else if (classname == "KexiDBCheckBox" || classname == "QCheckBox") {

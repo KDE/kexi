@@ -316,8 +316,8 @@ KexiBLOBBuffer::Handle KexiBLOBBuffer::objectForId(Id_t id, bool stored)
         schema.addField(blobsTable->field("o_folder_id"));
         QString errorMessage;
         QString errorDescription;
-        if (schema.addToWhereExpression(blobsTable->field("o_id"), QVariant((qint64)id),
-                                        '=', &errorMessage, &errorDescription))
+        if (!schema.addToWhereExpression(blobsTable->field("o_id"), QVariant((qint64)id),
+                                         '=', &errorMessage, &errorDescription))
         {
             qWarning() << "message=" << errorMessage
                        << "description=" << errorDescription;
