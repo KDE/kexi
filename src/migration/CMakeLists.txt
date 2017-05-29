@@ -70,7 +70,9 @@ if(GLIB2_FOUND AND ICONV_FOUND)
     add_subdirectory(mdb)
 endif()
 
-add_subdirectory(tests)
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
 
 ########### next target ###############
 
