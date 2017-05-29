@@ -96,3 +96,7 @@ endif()
 if(SHOULD_BUILD_KEXI_MOBILE_APP)
 #  add_subdirectory( mobile )
 endif()
+
+if(BUILD_EXAMPLES)
+    add_subdirectory(examples)
+endif()

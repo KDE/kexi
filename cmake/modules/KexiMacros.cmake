@@ -193,3 +193,37 @@ endfunction()
 add_custom_target(update_all_rcc
     COMMENT "Updating all file lists for rcc files"
 )
+
+if(UNIX)
+    # TODO: implement for WIN32
+    set(_chmod_name chmod)
+    find_program(kexi_chmod_program ${_chmod_name} DOC "chmod program")
+    if(kexi_chmod_program)
+        message(STATUS "Found program for changing file permissions: ${kexi_chmod_program}")
+    else()
+        message(WARNING "Could not find \"${_chmod_name}\" program for changing file permissions")
+    endif()
+endif()
+
+# Sets file or directory read-only for all (non-root) users.
+# The _path should exist.
+# TODO: implement for WIN32
+macro(kexi_set_file_read_only _path)
+    if(NOT kexi_chmod_program)
+        return()
+    endif()
+    if(NOT EXISTS ${_path})
+        message(FATAL_ERROR "File or directory \"${_path}\" does not exist")
+        return()
+    endif()
+    set(_command "${kexi_chmod_program}" a-w "${_path}")
+    execute_process(
+        COMMAND ${_command}
+        RESULT_VARIABLE _result
+        OUTPUT_VARIABLE _output
+        ERROR_VARIABLE _output
+    )
+    if(NOT _result EQUAL 0)
+        message(FATAL_ERROR "Command failed (${_result}): ${_command}\n\nOutput:\n${_output}")
+    endif()
+endmacro()

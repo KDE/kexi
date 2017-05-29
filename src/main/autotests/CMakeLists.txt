@@ -9,3 +9,5 @@ ecm_add_tests(
 )
 set_property(TARGET GlobalSearchTest PROPERTY COMPILE_FLAGS
     ${_COMPILE_FLAGS}\ -DCURRENT_SOURCE_DIR="\\"${CMAKE_CURRENT_SOURCE_DIR}/\\""\ -DFILES_OUTPUT_DIR="\\"${CMAKE_CURRENT_BINARY_DIR}/\\"")
+
+kexi_set_file_read_only("${CMAKE_CURRENT_SOURCE_DIR}/data/GlobalSearchTest.kexi")
