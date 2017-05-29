@@ -8,7 +8,6 @@
 #unused: include(KDbCreateSharedDataClasses) # from KDb
 include(CheckFunctionExists)
 include(GenerateExportHeader)
-include(MacroLogFeature)
 include(GetGitRevisionDescription)
 include(MacroBoolTo01)
 

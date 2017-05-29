@@ -87,11 +87,10 @@ find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS
         WidgetsAddons 
         XmlGui 
 )
-find_package(KF5 ${REQUIRED_KF5_VERSION} QUIET OPTIONAL_COMPONENTS Crash)
+find_package(KF5 ${REQUIRED_KF5_VERSION} COMPONENTS Crash)
 macro_bool_to_01(KF5Crash_FOUND HAVE_KCRASH)
-macro_log_feature(${KF5Crash_FOUND} "KCrash" "KDE's Crash Handler"
-                  "https://api.kde.org/frameworks/kcrash/html" FALSE ""
-                  "Optionally used to provide crash reporting on Linux")
+set_package_properties(KF5Crash PROPERTIES TYPE OPTIONAL
+                       PURPOSE "Used to provide crash reporting on Linux")
 
 set(REQUIRED_QT_VERSION 5.4.0)
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Xml Network PrintSupport Test)
@@ -144,15 +143,17 @@ option(KEXI_DEBUG_GUI "Debugging GUI for Kexi (requires KDB_DEBUG_GUI to be set 
 if(KEXI_DEBUG_GUI)
     set(KDB_REQUIRED_COMPONENTS DEBUG_GUI)
 endif()
-find_package(KDb ${REQUIRED_KEXI_LIBS_VERSION} REQUIRED COMPONENTS ${KDB_REQUIRED_COMPONENTS})
-macro_log_feature(KDb_FOUND "KDb" "A database connectivity and creation framework"
-                            "http://community.kde.org/KDb" FALSE "" "Required by Kexi for data handling")
+find_package(KDb ${REQUIRED_KEXI_LIBS_VERSION} COMPONENTS ${KDB_REQUIRED_COMPONENTS})
+set_package_properties(KDb PROPERTIES TYPE REQUIRED
+                       PURPOSE "Required by Kexi for data handling")
 check_maximum_package_version(KDb ${MAXIMUM_KEXI_LIBS_VERSION})
 
 ##
 ## Test for KReport
 ##
-find_package(KReport ${REQUIRED_KEXI_LIBS_VERSION} REQUIRED)
+find_package(KReport ${REQUIRED_KEXI_LIBS_VERSION})
+set_package_properties(KReport PROPERTIES TYPE REQUIRED
+                       PURPOSE "Required by Kexi for report handling")
 if (KReport_FOUND)
     if(NOT KREPORT_SCRIPTING)
         message(FATAL_ERROR "Kexi requires KReport package with scripting support enabled (KREPORT_SCRIPTING)")
@@ -164,8 +165,8 @@ check_maximum_package_version(KReport ${MAXIMUM_KEXI_LIBS_VERSION})
 ## Test for KPropertyWidgets
 ##
 find_package(KPropertyWidgets ${KEXI_LIBS_MIN_VERSION} REQUIRED)
-macro_log_feature(KPropertyWidgets_FOUND "KPropertyWidgets" "A property editing framework with editor widget"
-                                  "http://community.kde.org/KProperty" FALSE "" "Required by Kexi")
+set_package_properties(KPropertyWidgets PROPERTIES TYPE REQUIRED
+                       PURPOSE "Required by Kexi for handling properties")
 check_maximum_package_version(KPropertyWidgets ${MAXIMUM_KEXI_LIBS_VERSION})
 
 include(CheckIfQtGuiCanBeExecuted)
@@ -181,13 +182,19 @@ include(CheckGlobalBreezeIcons)
 ## Test for marble
 ##
 set(MARBLE_MIN_VERSION "0.19.2")
-find_package(KexiMarble)
+find_package(KexiMarble ${MARBLE_MIN_VERSION})
+set_package_properties(KexiMarble PROPERTIES
+    DESCRIPTION "KDE World Globe Widget library"
+    URL "https://marble.kde.org"
+    TYPE RECOMMENDED
+    PURPOSE "Required by Kexi form map widget"
+)
 if(NOT MARBLE_FOUND)
     set(MARBLE_INCLUDE_DIR "")
 else()
     set(HAVE_MARBLE TRUE)
 endif()
-macro_log_feature(MARBLE_FOUND "Marble" "KDE World Globe Widget library" "https://marble.kde.org/" FALSE "${MARBLE_MIN_VERSION}" "Required by Kexi form map widget")
+set_package_properties(GLIB2 PROPERTIES TYPE RECOMMENDED PURPOSE "${_REQUIRED_BY_MDB}")
 
 if(WIN32)
     set(LIB_INSTALL_DIR ${LIB_INSTALL_DIR}
@@ -209,7 +216,16 @@ endif()
 ##
 #TODO switch to Qt WebEngine
 macro_bool_to_01(Qt5WebKitWidgets_FOUND HAVE_QTWEBKITWIDGETS)
-macro_log_feature(Qt5WebKitWidgets_FOUND "Qt WebkitWidgets" "QWidgets module for Webkit, the HTML engine." "http://qt.io" FALSE "" "Required by Kexi web form widget")
+set_package_properties(Qt5WebKit PROPERTIES
+                       DESCRIPTION "Webkit for Qt, the HTML engine."
+                       URL "http://qt.io"
+                       TYPE RECOMMENDED PURPOSE "Required by Kexi web form widget"
+)
+set_package_properties(Qt5WebKitWidgets PROPERTIES
+                       DESCRIPTION "QWidgets module for Webkit, the HTML engine."
+                       URL "http://qt.io"
+                       TYPE RECOMMENDED PURPOSE "Required by Kexi web form widget"
+)
 
  ##################
 ###################
@@ -259,7 +275,7 @@ if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
     ki18n_install(po)
 endif()
 
-macro_display_feature_log()
-
 calligra_product_deps_report("product_deps")
 calligra_log_should_build()
+
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
