@@ -6,6 +6,11 @@ include(SetKexiVersionInfo)
 
 project(Kexi VERSION ${KEXI_VERSION})
 
+include(KexiAddTests)
+include(KexiAddExamples)
+kexi_add_tests(OFF)
+kexi_add_examples(OFF)
+
 # ECM
 include(ECMAddAppIcon)
 include(ECMAddTests)
