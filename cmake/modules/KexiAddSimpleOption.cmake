@@ -10,7 +10,7 @@ if(__kexi_add_simple_option)
 endif()
 set(__kexi_add_simple_option YES)
 
-include(MacroLogFeature)
+include(FeatureSummary)
 
 # Adds a feature info using add_feature_info() with _NAME and _DESCRIPTION.
 # If _NAME is equal to _DEFAULT, shows this fact.

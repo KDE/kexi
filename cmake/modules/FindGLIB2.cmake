@@ -10,6 +10,10 @@
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
+include(FeatureSummary)
+set_package_properties(GLIB2
+    PROPERTIES DESCRIPTION "Common C routines used by GTK+ and other libs"
+    URL "http://www.gtk.org")
 
 if(GLIB2_INCLUDE_DIR AND GLIB2_LIBRARIES)
     # Already in cache, be silent
