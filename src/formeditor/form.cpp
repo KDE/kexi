@@ -1,7 +1,7 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@gmx.at>
    Copyright (C) 2004 Cedric Pasteur <cedric.pasteur@free.fr>
-   Copyright (C) 2004-2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -788,9 +788,7 @@ bool Form::addCommand(Command *command, AddCommandOption option)
     if (option == DontExecuteCommand) {
         command->blockRedoOnce();
     }
-    d->undoStack.push(command);
-    //qDebug() << "ADDED:" << *command;
-    return true;
+    return d->undoStack.push(command);
 }
 
 void Form::emitUndoEnabled()
@@ -2137,34 +2135,37 @@ void Form::createAlignProperty(const QMetaProperty& meta, QWidget *widget, QWidg
     if (!objectTree())
         return;
 
-    const int alignment = subwidget->property("alignment").toInt();
-    const QList<QByteArray> keys(meta.enumerator().valueToKeys(alignment).split('|'));
-    //qDebug() << "keys:" << keys;
-
-    const QStringList possibleValues(KexiUtils::enumKeysForProperty(meta));
-    //qDebug() << "possibleValues:" << possibleValues;
+    const Qt::Alignment alignment = Qt::Alignment(subwidget->property("alignment").toInt());
+    WidgetInfo *winfo = library()->widgetInfoForClassName(subwidget->metaObject()->className());
+    const Qt::Alignment supportedAlignmentFlags = winfo
+        ? winfo->supportedAlignmentFlags()
+        : Qt::Alignment(Qt::AlignHorizontal_Mask | Qt::AlignVertical_Mask);
     ObjectTreeItem *tree = objectTree()->lookup(widget->objectName());
     const bool isTopLevel = isTopLevelWidget(widget);
 
-    if (possibleValues.contains("AlignHCenter"))  {
+    const Qt::Alignment supportedHorizontalAlignmentFlags
+        = supportedAlignmentFlags & Qt::AlignHorizontal_Mask;
+    if (supportedHorizontalAlignmentFlags) {
         // Create the horizontal alignment property
-        QString value;
-        if (keys.contains("AlignHCenter") || keys.contains("AlignCenter"))
-            value = "AlignHCenter";
-        else if (keys.contains("AlignRight"))
-            value = "AlignRight";
-        else if (keys.contains("AlignLeft"))
-            value = "AlignLeft";
-        else if (keys.contains("AlignJustify"))
-            value = "AlignJustify";
-        else
-            value = "AlignAuto";
-
-        QStringList list;
-        list << "AlignAuto" << "AlignLeft" << "AlignRight"
-            << "AlignHCenter" << "AlignJustify";
+        QStringList list(KexiUtils::enumKeysForProperty(meta, supportedHorizontalAlignmentFlags));
+        if (list.removeOne(QStringLiteral("AlignHCenter"))) { // fix order
+            list.prepend(QStringLiteral("AlignHCenter"));
+        }
+        if (list.removeOne(QStringLiteral("AlignLeft"))) {
+            list.prepend(QStringLiteral("AlignLeft"));
+        }
+        const Qt::Alignment selectedHorizontalAlignmentFlags
+            = alignment & supportedHorizontalAlignmentFlags;
+        const QStringList selectedKeys(
+            KexiUtils::enumKeysForProperty(meta, selectedHorizontalAlignmentFlags));
+        QString selectedKey;
+        if (selectedKeys.isEmpty()) { // for sanity
+            selectedKey = list.first();
+        } else {
+            selectedKey = selectedKeys.first();
+        }
         KProperty *p = new KProperty(
-            "hAlign", d->createValueList(0, list), value,
+            "hAlign", d->createValueList(0, list), selectedKey,
             xi18nc("Translators: please keep this string short (less than 20 chars)", "Hor. Alignment"),
             xi18n("Horizontal Alignment"));
         d->propertySet.addProperty(p);
@@ -2174,20 +2175,28 @@ void Form::createAlignProperty(const QMetaProperty& meta, QWidget *widget, QWidg
         updatePropertyValue(tree, "hAlign");
     }
 
-    if (possibleValues.contains("AlignTop")) {
-        // Create the ver alignment property
-        QString value;
-        if (keys.contains("AlignTop"))
-            value = "AlignTop";
-        else if (keys.contains("AlignBottom"))
-            value = "AlignBottom";
-        else
-            value = "AlignVCenter";
-
-        QStringList list;
-        list << "AlignTop" << "AlignVCenter" << "AlignBottom";
+    const Qt::Alignment supportedVerticalAlignmentFlags
+        = supportedAlignmentFlags & Qt::AlignVertical_Mask;
+    if (supportedVerticalAlignmentFlags) {
+        QStringList list(KexiUtils::enumKeysForProperty(meta, supportedVerticalAlignmentFlags));
+        if (list.removeOne("AlignVCenter")) { // fix order
+            list.prepend("AlignVCenter");
+        }
+        if (list.removeOne("AlignTop")) {
+            list.prepend("AlignTop");
+        }
+        const Qt::Alignment selectedVerticalAlignmentFlags
+            = alignment & supportedVerticalAlignmentFlags;
+        const QStringList selectedKeys(
+            KexiUtils::enumKeysForProperty(meta, selectedVerticalAlignmentFlags));
+        QString selectedKey;
+        if (selectedKeys.isEmpty()) { // for sanity
+            selectedKey = list.first();
+        } else {
+            selectedKey = selectedKeys.first();
+        }
         KProperty *p = new KProperty(
-            "vAlign", d->createValueList(0, list), value,
+            "vAlign", d->createValueList(0, list), selectedKey,
             xi18nc("Translators: please keep this string short (less than 20 chars)", "Ver. Alignment"),
             xi18n("Vertical Alignment"));
         d->propertySet.addProperty(p);
@@ -2213,6 +2222,7 @@ void Form::saveAlignProperty(const QString &property)
     int count = subwidget->metaObject()->indexOfProperty("alignment");
     const QMetaProperty meta( subwidget->metaObject()->property(count) );
     const int valueForKeys = meta.enumerator().keysToValue(list.join("|").toLatin1());
+    const int oldValue = subwidget->property("alignment").toInt();
     subwidget->setProperty("alignment", valueForKeys);
 
     ObjectTreeItem *tree = objectTree()->lookup(d->selected.first()->objectName());
@@ -2225,15 +2235,10 @@ void Form::saveAlignProperty(const QString &property)
         return;
     }
 
-    if (d->lastCommand && d->lastCommand->propertyName() == "alignment") {
-        d->lastCommand->setValue(valueForKeys);
-    }
-    else {
-        d->lastCommand = new PropertyCommand(*this, d->selected.first()->objectName().toLatin1(),
-                                 subwidget->property("alignment"), valueForKeys, "alignment");
-        if (!addCommand(d->lastCommand, DontExecuteCommand)) {
-            d->lastCommand = 0;
-        }
+    d->lastCommand = new PropertyCommand(*this, d->selected.first()->objectName().toLatin1(),
+                                         oldValue, valueForKeys, "alignment");
+    if (!addCommand(d->lastCommand, DontExecuteCommand)) {
+        d->lastCommand = 0;
     }
 }
 

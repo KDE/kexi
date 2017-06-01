@@ -1,7 +1,7 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@gmx.at>
    Copyright (C) 2004 Cedric Pasteur <cedric.pasteur@free.fr>
-   Copyright (C) 2004-2009 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -59,7 +59,7 @@ public:
     QByteArray parentFactoryName;
     QByteArray inheritedClassName; //!< Used for inheriting widgets between factories
     WidgetInfo* inheritedClass;
-
+    Qt::Alignment supportedAlignmentFlags = Qt::Alignment(Qt::AlignHorizontal_Mask | Qt::AlignVertical_Mask) ^ Qt::AlignAbsolute;
 };
 }
 
@@ -270,4 +270,14 @@ void WidgetInfo::setInternalProperty(const QByteArray& property, const QVariant&
 {
     InternalPropertyHandlerInterface *iface = static_cast<InternalPropertyHandlerInterface*>(d->factory);
     iface->setInternalProperty(d->className, property, value);
+}
+
+Qt::Alignment WidgetInfo::supportedAlignmentFlags() const
+{
+    return d->supportedAlignmentFlags;
+}
+
+void WidgetInfo::setSupportedAlignmentFlags(Qt::Alignment flags)
+{
+    d->supportedAlignmentFlags = flags;
 }

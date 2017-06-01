@@ -182,6 +182,8 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->setCustomTypeForProperty("pixmapId", KexiCustomPropertyFactory::PixmapId);
         wi->setInternalProperty("dontStartEditingOnInserting", true);
         wi->setAutoSaveProperties(QList<QByteArray>() << "pixmap");
+        wi->setSupportedAlignmentFlags(Qt::AlignLeft | Qt::AlignRight | Qt::AlignHCenter
+                                       | Qt::AlignTop | Qt::AlignBottom | Qt::AlignVCenter);
         addClass(wi);
     }
 

@@ -1,7 +1,7 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@gmx.at>
    Copyright (C) 2004 Cedric Pasteur <cedric.pasteur@free.fr>
-   Copyright (C) 2004-2009 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -161,6 +161,23 @@ public:
      Internal properties are not stored within objects, but can be provided
      to describe class' details. */
     void setInternalProperty(const QByteArray& property, const QVariant& value);
+
+    /**
+     * @brief Returns @c alignment flags supports by the widget
+     *
+     * By default returns all possible flags minus Qt::AlignAbsolute.
+     * @see setSupportedAlignmentFlags
+     */
+    Qt::Alignment supportedAlignmentFlags() const;
+
+    /**
+     * @brief Sets alignment flags supported by the widget
+     *
+     * Used for example by an image box that does not support justified, absolute and baseline
+     * alignment.
+     * @see supportedAlignmentFlags
+     */
+    void setSupportedAlignmentFlags(Qt::Alignment flags);
 
 protected:
     void setInheritedClass(WidgetInfo *inheritedClass);

@@ -135,7 +135,10 @@ KEXIUTILS_EXPORT QList<QMetaProperty> propertiesForMetaObjectWithInherited(
     const QMetaObject *metaObject);
 
 //! \return a list of enum keys for meta property \a metaProperty.
-KEXIUTILS_EXPORT QStringList enumKeysForProperty(const QMetaProperty& metaProperty);
+//! If @a filter is not INT_MIN, the method only returns enum keys that overlap with filter
+//! and are not combination of other keys.
+KEXIUTILS_EXPORT QStringList enumKeysForProperty(const QMetaProperty &metaProperty,
+                                                 int filter = INT_MIN);
 
 //! Convert a list @a list of @a SourceType type to another list of @a DestinationType
 //! type using @a convertMethod function
