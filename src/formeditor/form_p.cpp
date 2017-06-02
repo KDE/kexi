@@ -288,7 +288,7 @@ void FormPrivate::initPropertiesDescription()
     propValCaption["AutoText"] = xi18nc("Auto (HINT: for AutoText)", "Auto");
 
     propValCaption["AlignAuto"] = xi18nc("Auto (HINT: for Align)", "Auto");
-    propValCaption["AlignBaseline"] = "Baseline";
+    propValCaption["AlignBaseline"] = xi18nc("Baseline (HINT: for Align)", "Baseline");
     propValCaption["AlignLeft"] = xi18nc("Left (HINT: for Align)", "Left");
     propValCaption["AlignLeading"] = xi18nc("Left (HINT: for Align)", "Left");
     propValCaption["AlignRight"] = xi18nc("Right (HINT: for Align)", "Right");
