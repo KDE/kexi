@@ -579,15 +579,38 @@ KEXIUTILS_EXPORT bool activateItemsOnSingleClick(QWidget *widget = 0);
 /**
  * Detects name of desktop session based on environment variables.
  *
- * Possible value are like GNOME, XFCE, KDE. They are always uppercase.
- * Following environment variables are used: XDG_SESSION_DESKTOP. XDG_CURRENT_DESKTOP,
- * DESKTOP_SESSION, KDE_FULL_SESSION, GNOME_DESKTOP_SESSION_ID.
- * @return empty string if no session was detected or the running OS is unsupported
- * (Windows,
+ * Possible value are like GNOME, XFCE, KDE. They are always uppercase. Following environment
+ * variables are used: XDG_SESSION_DESKTOP. XDG_CURRENT_DESKTOP, DESKTOP_SESSION, KDE_FULL_SESSION,
+ * GNOME_DESKTOP_SESSION_ID.
+ *
+ * @return empty string if no session was detected or the running OS is unsupported (Windows,
  * macOS, non-desktop OS).
+ *
  * @note use QApplication::styleHints() if possible.
  */
 KEXIUTILS_EXPORT QByteArray detectedDesktopSession();
+
+/**
+ * @return true is this is a KDE / Plasma desktop session
+ *
+ * Detection is based on detectedDesktopSession().
+ */
+KEXIUTILS_EXPORT bool isKDEDesktopSession();
+
+/**
+ * @brief Returns @c true if native operating system's dialogs should be used
+ *
+ * Returns @c false if Qt's standard dialogs should be used instead of the operating system native
+ * dialogs. Can be used with QColorDialog, QFileDialog and QFontDialog.
+ *
+ * Depends on the curent desktop in use:
+ * - on Unix (other than macOS) returns @c true if isKDEDesktopSession() is @c true or desktop
+ *   session can't be detected, @c false for other desktops
+ * - @c true for all other operating systems, i.e. for MS Windows, macOS, etc.
+ *
+ * @todo Share this code with KReport and Kexi
+ */
+KEXIUTILS_EXPORT bool shouldUseNativeDialogs();
 
 /**
  * @enum CaptionFlag

@@ -917,8 +917,11 @@ GraphicEffects KexiUtils::graphicEffectsLevel()
 class DetectedDesktopSession
 {
 public:
-    DetectedDesktopSession() : name(detect()) {}
+    DetectedDesktopSession() : name(detect()), isKDE(name == QStringLiteral("KDE"))
+    {
+    }
     const QByteArray name;
+    const bool isKDE;
 
 private:
     static QByteArray detect() {
@@ -956,6 +959,21 @@ QByteArray KexiUtils::detectedDesktopSession()
 {
     return s_detectedDesktopSession->name;
 }
+
+bool KexiUtils::isKDEDesktopSession()
+{
+    return s_detectedDesktopSession->isKDE;
+}
+
+bool KexiUtils::shouldUseNativeDialogs()
+{
+#if defined Q_OS_UNIX && !defined Q_OS_MACOS
+    return isKDEDesktopSession() || detectedDesktopSession().isEmpty();
+#else
+    return true;
+#endif
+}
+
 
 //! @return value of XFCE property @a property for channel @a channel
 //! Sets the value pointed by @a ok to status.
