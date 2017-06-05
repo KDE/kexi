@@ -700,7 +700,9 @@ bool ImportTableWizard::doImport()
     }
 
     //Create the table
-    if (!m_connection->createTable(newSchema, true)) {
+    if (!m_connection->createTable(newSchema,
+            KDbConnection::CreateTableOption::Default | KDbConnection::CreateTableOption::DropDestination))
+    {
         msg.showErrorMessage(KDbMessageHandler::Error,
                              xi18nc("@info", "Unable to create table <resource>%1</resource>.",
                                     newSchema->name()));

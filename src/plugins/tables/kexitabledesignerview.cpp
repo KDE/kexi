@@ -1340,7 +1340,11 @@ KDbObject* KexiTableDesignerView::storeNewData(const KDbObject& object,
     if (res == true) {
         //! @todo
         KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
-        res = conn->createTable(tempData()->table(), options & KexiView::OverwriteExistingData);
+        KDbConnection::CreateTableOptions createOptions(KDbConnection::CreateTableOption::Default);
+        if (options & KexiView::OverwriteExistingData) {
+            createOptions |= KDbConnection::CreateTableOption::DropDestination;
+        }
+        res = conn->createTable(tempData()->table(), createOptions);
         if (res == true) {
             res = KexiMainWindowIface::global()->project()->removeUserDataBlock(tempData()->table()->id());
         }

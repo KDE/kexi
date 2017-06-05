@@ -1995,7 +1995,10 @@ void KexiCSVImportDialog::import()
     KDbTransactionGuard tg(transaction);
 
     //-create physical table
-    if (m_newTable && !m_conn->createTable(m_destinationTableSchema, false /*allowOverwrite*/)) {
+    if (m_newTable && !m_conn->createTable(m_destinationTableSchema,
+        KDbConnection::CreateTableOptions(KDbConnection::CreateTableOption::Default)
+            & ~KDbConnection::CreateTableOptions(KDbConnection::CreateTableOption::DropDestination)))
+    {
         msg.showErrorMessage(m_conn->result());
         raiseErrorInAccept(project, m_partItemForSavedTable);
         return;

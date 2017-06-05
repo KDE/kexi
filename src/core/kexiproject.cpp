@@ -463,7 +463,9 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
     bool contains_o_folder_id = false;
     if (true == containsKexi__blobsTable) {
         const tristate res = d->connection->querySingleNumber(
-                KDbEscapedString("SELECT COUNT(o_folder_id) FROM kexi__blobs"), &dummy, 0, false/*addLimitTo1*/);
+                KDbEscapedString("SELECT COUNT(o_folder_id) FROM kexi__blobs"), &dummy, 0,
+                KDbConnection::QueryRecordOptions(KDbConnection::QueryRecordOption::Default)
+                    & ~KDbConnection::QueryRecordOptions(KDbConnection::QueryRecordOption::AddLimitTo1));
         if (res == false) {
             m_result = d->connection->result();
         }
@@ -525,20 +527,27 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
                 new KDbInternalTableSchema(*t_blobs)); //won't be not needed - will be physically renamed to kexi_blobs
 
             kexi__blobsCopy->setName("kexi__blobs__copy");
-            if (!d->connection->createTable(kexi__blobsCopy.data(), true /*replaceExisting*/)) {
+            if (!d->connection->createTable(kexi__blobsCopy.data(),
+                    KDbConnection::CreateTableOption::Default | KDbConnection::CreateTableOption::DropDestination))
+            {
+
                 m_result = d->connection->result();
                 return false;
             }
             KDbInternalTableSchema *ts = kexi__blobsCopy.take(); // createTable() took ownerhip of kexi__blobsCopy
             // 2.1 copy data (insert 0's into o_folder_id column)
-            if (!d->connection->executeSql(
-                        KDbEscapedString("INSERT INTO kexi__blobs (o_data, o_name, o_caption, o_mime, o_folder_id) "
-                                         "SELECT o_data, o_name, o_caption, o_mime, 0 FROM kexi__blobs"))
-                    // 2.2 remove the original kexi__blobs
-                    || !d->connection->executeSql(KDbEscapedString("DROP TABLE kexi__blobs")) //lowlevel
-                    // 2.3 rename the copy back into kexi__blobs
-                    || !d->connection->alterTableName(ts, "kexi__blobs", false /* no replace */)
-               ) {
+            if (!d->connection->executeSql(KDbEscapedString(
+                    "INSERT INTO kexi__blobs (o_data, o_name, o_caption, o_mime, o_folder_id) "
+                    "SELECT o_data, o_name, o_caption, o_mime, 0 FROM kexi__blobs"))
+                // 2.2 remove the original kexi__blobs
+                || !d->connection->executeSql(
+                       KDbEscapedString("DROP TABLE kexi__blobs")) // lowlevel
+                // 2.3 rename the copy back into kexi__blobs
+                || !d->connection->alterTableName(
+                       ts, "kexi__blobs",
+                       KDbConnection::AlterTableNameOptions(KDbConnection::AlterTableNameOption::Default)
+                           & ~KDbConnection::AlterTableNameOptions(KDbConnection::AlterTableNameOption::DropDestination)))
+            {
                 //(no need to drop the copy, ROLLBACK will drop it)
                 m_result = d->connection->result();
                 return false;
@@ -548,7 +557,9 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
         d->connection->createTable(t_blobs.take());
     } else {
         if (!d->connection->options()->isReadOnly()) {
-            if (!d->connection->createTable(t_blobs.data(), true/*replaceExisting*/)) {
+            if (!d->connection->createTable(t_blobs.data(),
+                KDbConnection::CreateTableOption::Default | KDbConnection::CreateTableOption::DropDestination))
+            {
                 m_result = d->connection->result();
                 return false;
             }
@@ -575,7 +586,8 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
         d->connection->createTable(t_parts.take());
     } else {
         if (!d->connection->options()->isReadOnly()) {
-            bool partsTableOk = d->connection->createTable(t_parts.data(), true/*replaceExisting*/);
+            bool partsTableOk = d->connection->createTable(t_parts.data(),
+                KDbConnection::CreateTableOption::Default | KDbConnection::CreateTableOption::DropDestination);
             if (!partsTableOk) {
                 m_result = d->connection->result();
                 return false;
@@ -623,7 +635,9 @@ bool KexiProject::createInternalStructures(bool insideTransaction)
         d->connection->createTable(t_userdata.take());
     }
     else if (!d->connection->options()->isReadOnly()) {
-        if (!d->connection->createTable(t_userdata.data(), true/*replaceExisting*/)) {
+        if (!d->connection->createTable(t_userdata.data(),
+            KDbConnection::CreateTableOption::Default | KDbConnection::CreateTableOption::DropDestination))
+        {
             m_result = d->connection->result();
             return false;
         }
