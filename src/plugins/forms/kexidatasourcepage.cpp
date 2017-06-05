@@ -295,11 +295,11 @@ void KexiDataSourcePage::slotFormDataSourceChanged()
     QString name(m_formDataSourceCombo->selectedName());
     const bool isIdAcceptable = pluginId == QLatin1String("org.kexi-project.table")
         || pluginId == QLatin1String("org.kexi-project.query");
-    if (isIdAcceptable && m_formDataSourceCombo->isSelectionValid())
-    {
+    if (isIdAcceptable && m_formDataSourceCombo->isSelectionValid()) {
         KDbTableOrQuerySchema *tableOrQuery = new KDbTableOrQuerySchema(
             m_formDataSourceCombo->project()->dbConnection(), name.toLatin1(),
-            pluginId == "org.kexi-project.table");
+            pluginId == "org.kexi-project.table" ? KDbTableOrQuerySchema::Type::Table
+                                                 : KDbTableOrQuerySchema::Type::Query);
         if (tableOrQuery->table() || tableOrQuery->query()) {
 #ifdef KEXI_AUTOFIELD_FORM_WIDGET_SUPPORT
             m_fieldListView->setSchema(tableOrQuery);

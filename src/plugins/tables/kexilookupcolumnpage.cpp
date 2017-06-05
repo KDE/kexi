@@ -301,7 +301,9 @@ void KexiLookupColumnPage::slotRowSourceChanged()
     QString name = d->rowSourceCombo->selectedName();
     if ((pluginId == "org.kexi-project.table" || pluginId == "org.kexi-project.query") && d->rowSourceCombo->isSelectionValid()) {
         KDbTableOrQuerySchema *tableOrQuery = new KDbTableOrQuerySchema(
-            d->rowSourceCombo->project()->dbConnection(), name.toLatin1(), pluginId == "org.kexi-project.table");
+            d->rowSourceCombo->project()->dbConnection(), name.toLatin1(),
+            pluginId == "org.kexi-project.table" ? KDbTableOrQuerySchema::Type::Table
+                                                 : KDbTableOrQuerySchema::Type::Query);
         if (tableOrQuery->table() || tableOrQuery->query()) {
 //! @todo disabled   d->fieldListView->setSchema( tableOrQuery );
             /*tmp*/

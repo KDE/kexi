@@ -344,7 +344,8 @@ void KexiFormView::updateAutoFieldsDataSource()
     QString dataSourcePartClassString(d->dbform->dataSourcePluginId());
     KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     KDbTableOrQuerySchema tableOrQuery(
-        conn, dataSourceString.toLatin1(), dataSourcePartClassString == "org.kexi-project.table");
+        conn, dataSourceString.toLatin1(), dataSourcePartClassString == "org.kexi-project.table"
+        ? KDbTableOrQuerySchema::Type::Table :: KDbTableOrQuerySchema::Type::Query);
     if (!tableOrQuery.table() && !tableOrQuery.query())
         return;
     foreach (KFormDesigner::ObjectTreeItem *item, *form()->objectTree()->hash()) {
@@ -369,8 +370,10 @@ void KexiFormView::updateValuesForSubproperties()
     QString dataSourceString(d->dbform->dataSource());
     QString dataSourcePartClassString(d->dbform->dataSourcePluginId());
     KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
-    KDbTableOrQuerySchema tableOrQuery(
-        conn, dataSourceString.toLatin1(), dataSourcePartClassString == "org.kexi-project.table");
+    KDbTableOrQuerySchema tableOrQuery(conn, dataSourceString.toLatin1(),
+                                       dataSourcePartClassString == "org.kexi-project.table"
+                                           ? KDbTableOrQuerySchema::Type::Table
+                                           : KDbTableOrQuerySchema::Type::Query);
     if (!tableOrQuery.table() && !tableOrQuery.query())
         return;
 
@@ -1111,7 +1114,9 @@ KexiFormView::insertAutoFields(const QString& sourcePartClass, const QString& so
 
     KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     KDbTableOrQuerySchema tableOrQuery(conn, sourceName.toLatin1(),
-                                            sourcePartClass == "org.kexi-project.table");
+                                       sourcePartClass == "org.kexi-project.table"
+                                       ? KDbTableOrQuerySchema::Type::Table
+                                       : KDbTableOrQuerySchema::Type::Query);
     if (!tableOrQuery.table() && !tableOrQuery.query()) {
         qWarning() << "no such table/query" << sourceName;
         return;
