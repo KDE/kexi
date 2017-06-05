@@ -509,7 +509,7 @@ void ImportTableWizard::arriveImportingPage()
     m_lblImportingTxt->setText(txt);
 
     //temp. hack for MS Access driver only
-    //! @todo for other databases we will need KexiMigration::Conenction
+    //! @todo for other databases we will need KexiMigration::Connection
     //! and KexiMigration::Driver classes
     bool showOptions = false;
     if (fileBasedSrcSelected()) {

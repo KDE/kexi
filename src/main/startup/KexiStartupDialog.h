@@ -71,7 +71,7 @@ public:
     /*! Creates a dialog.
     @param dialogType see DialogType description
     @param dialogOptions see dialogOptions description
-    @param connSet conenction set used to present available conenctions
+    @param connSet connection set used to present available connections
       in "Open Existing" tab. Pass an empty object is this tab is not used.
     @param parent parent widget, if any.
     @param name name of this object.
