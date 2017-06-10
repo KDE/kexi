@@ -1198,7 +1198,7 @@ bool KexiQueryDesignerGuiEditor::storeLayout()
         d->conn->setQuerySchemaObsolete(window()->schemaObject()->name());
 
     KDbSelectStatementOptions options;
-    options.addVisibleLookupColumns = false;
+    options.setAddVisibleLookupColumns(false);
     KDbNativeStatementBuilder builder;
     KDbEscapedString sql;
     if (!builder.generateSelectStatement(&sql, temp->query(), options)) {

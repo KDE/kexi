@@ -162,7 +162,7 @@ option(KEXI_DEBUG_GUI "Debugging GUI for Kexi (requires KDB_DEBUG_GUI to be set 
 if(KEXI_DEBUG_GUI)
     set(KDB_REQUIRED_COMPONENTS DEBUG_GUI)
 endif()
-find_package(KDb 3.0.91 REQUIRED COMPONENTS ${KDB_REQUIRED_COMPONENTS})
+find_package(KDb 3.0.92 REQUIRED COMPONENTS ${KDB_REQUIRED_COMPONENTS})
 set_package_properties(KDb PROPERTIES TYPE REQUIRED
                        PURPOSE "Required by Kexi for data handling")
 
