@@ -48,6 +48,7 @@
 #include <KDbParser>
 #include <KDbMessageHandler>
 #include <KDbProperties>
+#include <KDbTransactionGuard>
 
 #include <assert.h>
 

@@ -31,6 +31,7 @@
 #include <KDbTableViewData>
 #include <KDbTableViewColumn>
 #include <KDbTransaction>
+#include <KDbTransactionGuard>
 
 #include <QDebug>
 

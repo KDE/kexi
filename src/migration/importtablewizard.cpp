@@ -45,6 +45,7 @@
 #include <KDbDriverManager>
 #include <KDbDriverManager>
 #include <KDbSqlResult>
+#include <KDbTransactionGuard>
 #include <KDbUtils>
 
 #include <KMessageBox>

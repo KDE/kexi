@@ -51,6 +51,7 @@
 #include <KDbObjectNameValidator>
 #include <KDbConnection>
 #include <KDbTableOrQuerySchema>
+#include <KDbTransactionGuard>
 
 #include <KMessageBox>
 #include <KCharsets>

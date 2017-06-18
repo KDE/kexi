@@ -32,6 +32,7 @@
 #include <kexiutils/FlowLayout.h>
 
 #include <KDbConnection>
+#include <KDbTransactionGuard>
 
 #include <KStandardGuiItem>
 #include <KMessageBox>
