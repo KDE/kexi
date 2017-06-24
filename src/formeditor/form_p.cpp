@@ -255,7 +255,7 @@ void FormPrivate::initPropertiesDescription()
     propCaption["windowTitle"] = xi18n("Window title");
     propCaption["text"] = xi18n("Text");
     propCaption["paletteBackgroundPixmap"] = xi18n("Background Pixmap");
-    propCaption["enabled"] = xi18nc("Propery: enabled widget", "Enabled");
+    propCaption["enabled"] = xi18nc("Property: enabled widget", "Enabled");
     propCaption["geometry"] = xi18n("Geometry");
     propCaption["sizePolicy"] = xi18n("Size Policy");
     propCaption["minimumSize"] = xi18n("Minimum Size");

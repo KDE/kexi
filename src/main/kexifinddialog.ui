@@ -107,7 +107,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string comment="Replace all occurences with">Re&amp;place with:</string>
+      <string comment="Replace all occurrences with">Re&amp;place with:</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -274,7 +274,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string comment="Replace All Occurences">Replace All</string>
+        <string comment="Replace All Occurrences">Replace All</string>
        </property>
       </widget>
      </item>

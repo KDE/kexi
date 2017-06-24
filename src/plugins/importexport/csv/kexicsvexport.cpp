@@ -277,7 +277,7 @@ bool KexiCSVExport::exportData(KDbTableOrQuerySchema *tableOrQuery,
     if (kSaveFile) {
         stream->flush();
         if (!kSaveFile->commit()) {
-            qWarning() << "Error commiting the file" << kSaveFile->fileName();
+            qWarning() << "Error committing the file" << kSaveFile->fileName();
         }
     }
     return true;

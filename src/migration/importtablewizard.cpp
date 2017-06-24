@@ -560,7 +560,7 @@ void ImportTableWizard::arriveFinishPage()
                                     m_alterSchemaWidget->nameWidget()->nameText()));
     } else {
         m_finishPageItem->setHeader(xi18n("Failure"));
-        m_finishLbl->setText(xi18n("An error occured."));
+        m_finishLbl->setText(xi18n("An error occurred."));
     }
     m_migrateDriver->disconnectSource();
     button(QDialogButtonBox::Cancel)->setEnabled(!m_importComplete);

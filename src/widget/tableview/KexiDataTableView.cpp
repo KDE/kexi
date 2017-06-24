@@ -94,7 +94,7 @@ bool KexiDataTableView::loadTableViewSettings(KDbTableViewData* data)
             bool ok;
             const QList<int> columnWidths = KDb::deserializeIntList(columnWidthsString, &ok);
             if (!ok) {
-                qWarning() << "Invalud format of 'columnWidths' value:" << columnWidthsString;
+                qWarning() << "Invalid format of 'columnWidths' value:" << columnWidthsString;
                 return false;
             }
             QList<KDbTableViewColumn*>* columns = data->columns();

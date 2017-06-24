@@ -1781,7 +1781,7 @@ TODO: Query Designer: switching from design to SQL view still can crash
 2010-01-23
 Main Window
 *Added tabbar for the property editor pane
-*Make property editor pane's tabbar show properly when switching between windows being in design/view modes, make is also behave properly when propery pane is collapsed
+*Make property editor pane's tabbar show properly when switching between windows being in design/view modes, make is also behave properly when property pane is collapsed
 
 2010-01-19
 Forms
@@ -3351,7 +3351,7 @@ KexiDB
 
 ~~~~~~~~~~~~~~~~ 1.1.1 bugfix release (with KOffice 1.6.1)  ~~~~~~~~~~~~~~~~
 Query Designer
-- propery initialize newly appended rows
+- properly initialize newly appended rows
 2.0: merged
 
 2006-11-16
