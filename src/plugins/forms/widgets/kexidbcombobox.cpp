@@ -88,12 +88,12 @@ KexiDBComboBox::~KexiDBComboBox()
     delete d;
 }
 
-const KDbTableViewColumn* KexiDBComboBox::column() const
+KDbTableViewColumn* KexiDBComboBox::column()
 {
-    return 0;
+    return nullptr;
 }
 
-KDbField* KexiDBComboBox::field() const
+KDbField* KexiDBComboBox::field()
 {
     return KexiDBAutoField::field();
 }
@@ -481,7 +481,7 @@ void KexiDBComboBox::setVisibleColumnInfo(KDbQueryColumnInfo* cinfo)
     setColumnInfoInternal(columnInfo(), d->visibleColumnInfo);
 }
 
-KDbQueryColumnInfo* KexiDBComboBox::visibleColumnInfo() const
+KDbQueryColumnInfo* KexiDBComboBox::visibleColumnInfo()
 {
     return d->visibleColumnInfo;
 }

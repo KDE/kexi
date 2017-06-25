@@ -31,7 +31,7 @@ class KexiBlobTableEdit : public KexiTableEdit
 {
     Q_OBJECT
 public:
-    explicit KexiBlobTableEdit(KDbTableViewColumn &column, QWidget *parent = 0);
+    explicit KexiBlobTableEdit(KDbTableViewColumn *column, QWidget *parent = 0);
     virtual ~KexiBlobTableEdit();
 
     bool valueIsNull();
@@ -127,7 +127,7 @@ class KexiKIconTableEdit : public KexiTableEdit
 {
     Q_OBJECT
 public:
-    explicit KexiKIconTableEdit(KDbTableViewColumn &column, QWidget *parent = 0);
+    explicit KexiKIconTableEdit(KDbTableViewColumn *column, QWidget *parent = 0);
 
     virtual ~KexiKIconTableEdit();
 

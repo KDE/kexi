@@ -42,10 +42,10 @@ public:
     virtual ~KexiDBComboBox();
 
     //! Implemented for KexiComboBoxBase: form has no 'related data' model (only the full database model)
-    virtual const KDbTableViewColumn *column() const;
+    KDbTableViewColumn *column() override;
 
     //! Implemented for KexiComboBoxBase
-    virtual KDbField *field() const;
+    KDbField *field() override;
 
     //! Implemented for KexiComboBoxBase
     virtual QVariant origValue() const;
@@ -75,7 +75,7 @@ public:
 
     /*! \return visible database column information for this item.
      Reimplemented. */
-    virtual KDbQueryColumnInfo* visibleColumnInfo() const;
+    virtual KDbQueryColumnInfo* visibleColumnInfo();
 
     virtual QColor paletteBackgroundColor() const;
 

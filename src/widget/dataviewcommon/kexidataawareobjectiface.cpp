@@ -1390,7 +1390,7 @@ KDbTableViewColumn* KexiDataAwareObjectInterface::column(int column)
 bool KexiDataAwareObjectInterface::hasDefaultValueAt(const KDbTableViewColumn& tvcol)
 {
     if (m_recordEditing >= 0 && m_data->recordEditBuffer() && m_data->recordEditBuffer()->isDBAware()) {
-        return m_data->recordEditBuffer()->hasDefaultValueAt(tvcol.columnInfo());
+        return m_data->recordEditBuffer()->hasDefaultValueAt(*tvcol.columnInfo());
     }
     return false;
 }

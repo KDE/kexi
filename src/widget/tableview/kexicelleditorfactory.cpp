@@ -121,7 +121,8 @@ static bool hasEnumType(const KDbTableViewColumn &column)
     /*db-aware case*/
     if (!column.field() || !column.field()->table())
         return false;
-    KDbLookupFieldSchema *lookupFieldSchema = column.field()->table()->lookupFieldSchema(*column.field());
+    const KDbLookupFieldSchema *lookupFieldSchema
+        = column.field()->table()->lookupFieldSchema(*column.field());
     if (!lookupFieldSchema)
         return false;
     if (lookupFieldSchema->recordSource().name().isEmpty())
@@ -129,18 +130,18 @@ static bool hasEnumType(const KDbTableViewColumn &column)
     return true;
 }
 
-KexiTableEdit* KexiCellEditorFactory::createEditor(KDbTableViewColumn &column, QWidget* parent)
+KexiTableEdit* KexiCellEditorFactory::createEditor(KDbTableViewColumn *column, QWidget* parent)
 {
     KDbField *realField;
-    if (column.visibleLookupColumnInfo()) {
-        realField = column.visibleLookupColumnInfo()->field();
+    if (column->visibleLookupColumnInfo()) {
+        realField = column->visibleLookupColumnInfo()->field();
     } else {
-        realField = column.field();
+        realField = column->field();
     }
 
     KexiCellEditorFactoryItem *item = 0;
 
-    if (hasEnumType(column)) {
+    if (hasEnumType(*column)) {
         //--we need to create combo box because of relationship:
         item = KexiCellEditorFactory::item(KDbField::Enum);
     } else {

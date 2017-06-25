@@ -73,7 +73,7 @@ public:
 
 //======================================================
 
-KexiBlobTableEdit::KexiBlobTableEdit(KDbTableViewColumn &column, QWidget *parent)
+KexiBlobTableEdit::KexiBlobTableEdit(KDbTableViewColumn *column, QWidget *parent)
         : KexiTableEdit(column, parent)
         , d(new Private())
 {
@@ -84,8 +84,8 @@ KexiBlobTableEdit::KexiBlobTableEdit(KDbTableViewColumn &column, QWidget *parent
 
     d->menu = new KexiImageContextMenu(this);
     d->menu->installEventFilter(this);
-    if (column.columnInfo())
-        KexiImageContextMenu::updateTitle(d->menu, column.columnInfo()->captionOrAliasOrName(),
+    if (column->columnInfo())
+        KexiImageContextMenu::updateTitle(d->menu, column->columnInfo()->captionOrAliasOrName(),
 //! @todo pixmaplabel icon is hardcoded...
                                           KexiIconName("imagebox"));
     d->button->setMenu(d->menu);
@@ -500,7 +500,7 @@ public:
     QCache<QString, QPixmap> pixmapCache;
 };
 
-KexiKIconTableEdit::KexiKIconTableEdit(KDbTableViewColumn &column, QWidget *parent)
+KexiKIconTableEdit::KexiKIconTableEdit(KDbTableViewColumn *column, QWidget *parent)
         : KexiTableEdit(column, parent)
         , d(new Private())
 {

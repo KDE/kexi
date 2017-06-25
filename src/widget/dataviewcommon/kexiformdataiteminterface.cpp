@@ -45,7 +45,7 @@ void KexiFormDataItemInterface::undoChanges()
 // m_disable_signalValueChanged = false;
 }
 
-KDbField* KexiFormDataItemInterface::field() const
+KDbField* KexiFormDataItemInterface::field()
 {
     return m_columnInfo ? m_columnInfo->field() : nullptr;
 }

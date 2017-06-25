@@ -56,7 +56,7 @@ protected:
 
 //======================================================
 
-KexiInputTableEdit::KexiInputTableEdit(KDbTableViewColumn &column, QWidget *parent)
+KexiInputTableEdit::KexiInputTableEdit(KDbTableViewColumn *column, QWidget *parent)
         : KexiTableEdit(column, parent)
 {
     init();

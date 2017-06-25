@@ -95,10 +95,10 @@ public:
     virtual void setReadOnly(bool readOnly) = 0;
 
     //! \return database column information for this item
-    virtual KDbField* field() const;
+    KDbField* field() override;
 
     //! \return database column information for this item
-    virtual KDbQueryColumnInfo* columnInfo() const {
+    KDbQueryColumnInfo* columnInfo() {
         return m_columnInfo;
     }
 
@@ -118,7 +118,7 @@ public:
 
     /*! \return visible database column information for this item.
      Except for combo box, this is exactly the same as columnInfo(). */
-    virtual KDbQueryColumnInfo* visibleColumnInfo() const {
+    virtual KDbQueryColumnInfo* visibleColumnInfo() {
         return columnInfo();
     }
 

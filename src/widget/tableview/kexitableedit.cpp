@@ -35,20 +35,21 @@
 #include <QEvent>
 
 #ifdef KEXI_MOBILE
-KexiTableEdit::KexiTableEdit(KDbTableViewColumn &column, QWidget* parent)
+KexiTableEdit::KexiTableEdit(KDbTableViewColumn *column, QWidget* parent)
         : QWidget(parent)
-        , m_column(&column)
+        , m_column(column)
         , m_usesSelectedTextColor(true)
         , m_view(0)
 #else
-        KexiTableEdit::KexiTableEdit(KDbTableViewColumn &column, QWidget* parent)
+        KexiTableEdit::KexiTableEdit(KDbTableViewColumn *column, QWidget* parent)
         : QWidget(parent)
-        , m_column(&column)
+        , m_column(column)
         , m_textFormatter(nullptr)
         , m_usesSelectedTextColor(true)
         , m_view(0)
 #endif
 {
+    Q_ASSERT(column);
     QPalette pal(palette());
     pal.setBrush(backgroundRole(), pal.brush(QPalette::Base));
     setPalette(pal);
@@ -86,12 +87,12 @@ KexiTableEdit::~KexiTableEdit()
     delete m_textFormatter;
 }
 
-KDbField *KexiTableEdit::field() const
+KDbField *KexiTableEdit::field()
 {
     return m_column->field();
 }
 
-KDbQueryColumnInfo *KexiTableEdit::columnInfo() const
+KDbQueryColumnInfo *KexiTableEdit::columnInfo()
 {
     return m_column->columnInfo();
 }
@@ -152,7 +153,7 @@ void KexiTableEdit::createInternalEditor(KDbQuerySchema& schema)
     Q_UNUSED(schema);
 }
 
-const KDbField *KexiTableEdit::displayedField() const
+const KDbField *KexiTableEdit::displayedField()
 {
     if (m_column->visibleLookupColumnInfo())
         return m_column->visibleLookupColumnInfo()->field(); //mainly for lookup field in KexiComboBoxTableEdit:

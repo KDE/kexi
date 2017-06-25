@@ -65,7 +65,7 @@ public:
 
 //======================================================
 
-KexiComboBoxTableEdit::KexiComboBoxTableEdit(KDbTableViewColumn &column, QWidget *parent)
+KexiComboBoxTableEdit::KexiComboBoxTableEdit(KDbTableViewColumn *column, QWidget *parent)
         : KexiComboBoxBase()
         , KexiInputTableEdit(column, parent)
         , d(new Private())
@@ -112,7 +112,7 @@ void KexiComboBoxTableEdit::createInternalEditor(KDbQuerySchema& schema)
     }
     d->visibleTableViewColumn = new KDbTableViewColumn(schema, ci, visibleLookupColumnInfo);
 //! todo set d->internalEditor visible and use it to enable data entering by hand
-    d->internalEditor = KexiCellEditorFactory::createEditor(*d->visibleTableViewColumn, 0);
+    d->internalEditor = KexiCellEditorFactory::createEditor(d->visibleTableViewColumn, nullptr);
     m_lineedit->hide();
 }
 
@@ -205,7 +205,7 @@ void KexiComboBoxTableEdit::setupContents(QPainter *p, bool focused, const QVari
         KexiInputTableEdit::setupContents(p, focused, val, txt, align, x, y_offset, w, h);
     }
     if (!val.isNull()) {
-        KDbTableViewData *relData = column()->relatedData();
+        const KDbTableViewData *relData = column()->relatedData();
         if (relData) {
             int recordToHighlight;
             txt = valueForString(val.toString(), &recordToHighlight, 0, 1);
@@ -288,7 +288,7 @@ void KexiComboBoxTableEdit::slotLineEditTextChanged(const QString& s)
 
 int KexiComboBoxTableEdit::widthForValue(const QVariant &val, const QFontMetrics &fm)
 {
-    KDbTableViewData *relData = column() ? column()->relatedData() : 0;
+    const KDbTableViewData *relData = column() ? column()->relatedData() : nullptr;
     if (lookupFieldSchema() || relData) {
         // in 'lookupFieldSchema' or  or 'related table data' model
         // we're assuming val is already the text, not the index

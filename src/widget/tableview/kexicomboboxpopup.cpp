@@ -114,22 +114,22 @@ public:
 
 const int KexiComboBoxPopup::defaultMaxRecordCount = 8;
 
-KexiComboBoxPopup::KexiComboBoxPopup(QWidget* parent, const KDbTableViewColumn &column)
+KexiComboBoxPopup::KexiComboBoxPopup(QWidget* parent, KDbTableViewColumn *column)
         : QFrame(parent, Qt::Popup)
         , d( new KexiComboBoxPopupPrivate )
 {
     init();
     //setup tv data
-    setData(&column, 0);
+    setData(column, 0);
 }
 
-KexiComboBoxPopup::KexiComboBoxPopup(QWidget* parent, KDbField &field)
+KexiComboBoxPopup::KexiComboBoxPopup(QWidget* parent, KDbField *field)
         : QFrame(parent, Qt::Popup)
         , d( new KexiComboBoxPopupPrivate )
 {
     init();
     //setup tv data
-    setData(0, &field);
+    setData(0, field);
 }
 
 KexiComboBoxPopup::~KexiComboBoxPopup()
@@ -164,11 +164,13 @@ void KexiComboBoxPopup::init()
             this, SLOT(slotTVItemAccepted(KDbRecordData*,int,int)));
 }
 
-void KexiComboBoxPopup::setData(const KDbTableViewColumn *column, KDbField *field)
+void KexiComboBoxPopup::setData(KDbTableViewColumn *column, KDbField *aField)
 {
     d->visibleColumnsToShow.clear();
-    if (column && !field)
+    const KDbField *field = aField;
+    if (column && !field) {
         field = column->field();
+    }
     if (!field) {
         qWarning() << "!field";
         return;
@@ -181,7 +183,7 @@ void KexiComboBoxPopup::setData(const KDbTableViewColumn *column, KDbField *fiel
         return;
     }
     // case 2: lookup field
-    KDbLookupFieldSchema *lookupFieldSchema = 0;
+    const KDbLookupFieldSchema *lookupFieldSchema = nullptr;
     if (field->table())
         lookupFieldSchema = field->table()->lookupFieldSchema(*field);
     delete d->privateQuery;

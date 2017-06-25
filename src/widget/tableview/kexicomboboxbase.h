@@ -41,10 +41,13 @@ public:
     virtual ~KexiComboBoxBase();
 
     //! \return column related to this combo; for KexiComboBoxTableEdit 0 is returned here
-    virtual const KDbTableViewColumn *column() const = 0;
+    virtual KDbTableViewColumn *column() = 0;
+
+    //! @overload
+    const KDbTableViewColumn *column() const;
 
     //! \return database field related to this combo
-    virtual KDbField *field() const = 0;
+    virtual KDbField *field() = 0;
 
     //! \return the original value
     virtual QVariant origValue() const = 0;
@@ -100,7 +103,10 @@ protected:
     void setValueOrTextInInternalEditor(const QVariant& value);
 
     //! \return lookup field schema for this combo box, if present and if is valid (i.e. has defined record source)
-    KDbLookupFieldSchema* lookupFieldSchema() const;
+    KDbLookupFieldSchema* lookupFieldSchema();
+
+    //! @override
+    const KDbLookupFieldSchema* lookupFieldSchema() const;
 
     int recordToHighlightForLookupTable() const;
 

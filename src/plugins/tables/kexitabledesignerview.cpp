@@ -418,8 +418,8 @@ KexiTableDesignerView::createPropertySet(int record, const KDbField& field, bool
 
     //- properties related to lookup columns (used and set by the "lookup column"
     //  tab in the property pane)
-    KDbLookupFieldSchema *lookupFieldSchema
-        = field.table() ? field.table()->lookupFieldSchema(field) : 0;
+    const KDbLookupFieldSchema *lookupFieldSchema
+        = field.table() ? field.table()->lookupFieldSchema(field) : nullptr;
     set->addProperty(prop = new KProperty("rowSource",
         lookupFieldSchema ? lookupFieldSchema->recordSource().name() : QString(), xi18n("Record Source")));
     prop->setVisible(false);

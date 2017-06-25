@@ -1281,7 +1281,7 @@ KexiDataItemInterface *KexiTableScrollArea::editor(int col, bool ignoreMissingEd
         return editor;
 
     //not found: create
-    editor = KexiCellEditorFactory::createEditor(*tvcol, d->scrollAreaWidget);
+    editor = KexiCellEditorFactory::createEditor(tvcol, d->scrollAreaWidget);
     if (!editor) {//create error!
         if (!ignoreMissingEditor) {
             //! @todo show error???
