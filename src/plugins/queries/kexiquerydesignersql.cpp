@@ -400,11 +400,14 @@ KDbObject* KexiQueryDesignerSqlView::storeNewData(const KDbObject& object,
         else { //empty query
             query = new KDbObject(); //just empty
         }
-    }
-    else { //the query is not ok
-        if (KMessageBox::Yes != KMessageBox::questionYesNo(this, xi18n("Do you want to save invalid query?"),
-                                         0, KStandardGuiItem::yes(), KStandardGuiItem::no(),
-                                         "askBeforeSavingInvalidQueries"/*config entry*/))
+    } else { // the query is not ok
+        if (KMessageBox::Yes
+            != KMessageBox::questionYesNo(
+                   this, xi18n("<para>This query is invalid.</para>"
+                               "<para>Do you want to save it?</para>"),
+                   0, KStandardGuiItem::save(),
+                   KGuiItem(xi18n("Don't Save"), KStandardGuiItem::no().iconName()),
+                   "askBeforeSavingInvalidQueries" /*config entry*/))
         {
             *cancel = true;
             return 0;
