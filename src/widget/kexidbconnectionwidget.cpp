@@ -366,7 +366,7 @@ void KexiDBConnectionTabWidget::slotTestConnection()
         }
     }
     KexiGUIMessageHandler msgHandler;
-    KDb::connectionTestDialog(this, connectionData, &msgHandler);
+    KDb::showConnectionTestDialog(this, connectionData, &msgHandler);
 }
 
 void KexiDBConnectionTabWidget::slotSocketComboboxToggled(bool on)
