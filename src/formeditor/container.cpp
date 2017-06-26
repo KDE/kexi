@@ -673,6 +673,7 @@ Container::eventFilter(QObject *s, QEvent *e)
             d->form->createContextMenu(widgetTarget, this, pos, Form::FormContextMenuTarget);
             return true;
         }
+        break;
     }
     case QEvent::Enter:
     case QEvent::Leave:
@@ -681,9 +682,9 @@ Container::eventFilter(QObject *s, QEvent *e)
         return true; // eat them
 
     default:
-        return false; // let the widget do the rest ...
+        break;
     }
-    return false;
+    return false; // let the widget do the rest ...
 }
 
 bool

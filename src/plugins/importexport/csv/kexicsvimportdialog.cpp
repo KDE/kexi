@@ -1266,9 +1266,8 @@ tristate KexiCSVImportDialog::loadRows(QString &field, int &row, int &column, in
             if (x == m_textquote) {
                 field.clear();
                 state = S_QUOTED_FIELD;
-                break;
             }
-
+            break;
         case S_NORMAL_FIELD :
             if (x == delimiter || x == '\n' || x == '\r' || (x == commentSymbol && m_parseComments)) {
                 setText(row - m_startline, column, field, inGUI);
@@ -1291,7 +1290,7 @@ tristate KexiCSVImportDialog::loadRows(QString &field, int &row, int &column, in
             } else {
                 field += x;
             }
-        }
+        } // switch
         if (x != delimiter)
             lastCharDelimiter = false;
 
