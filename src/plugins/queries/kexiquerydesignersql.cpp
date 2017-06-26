@@ -225,10 +225,15 @@ tristate KexiQueryDesignerSqlView::beforeSwitchTo(Kexi::ViewMode mode, bool *don
             } else {
                 //yes: parse SQL text
                 if (sqlTextIsEmpty || !slotCheckQuery()) {
-                    if (KMessageBox::No == KMessageBox::warningYesNo(this,
-                            "<p>" + xi18n("The query you entered is incorrect.")
-                            + "</p><p>" + xi18n("Do you want to cancel any changes made to this SQL text?") + "</p>"
-                            + "</p><p>" + xi18n("Answering \"No\" allows you to make corrections.") + "</p>")) {
+                    if (KMessageBox::Cancel == KMessageBox::warningContinueCancel(
+                               this, xi18n("<para>The query you entered is incorrect.</para>"
+                                           "<para>Do you want discard changes made to this SQL "
+                                           "text and switch to the other view?</para>"),
+                               QString(), KGuiItem(xi18n("Discard Changes and Switch"),
+                                                   KStandardGuiItem::yes().iconName()),
+                               KGuiItem(xi18n("Don't Switch"),
+                                        KStandardGuiItem::cancel().iconName())))
+                    {
                         return cancelled;
                     }
                     //do not change original query - it's invalid
