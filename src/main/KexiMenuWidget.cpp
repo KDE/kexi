@@ -2794,9 +2794,10 @@ void KexiMenuWidget::keyPressEvent(QKeyEvent *e)
         break;
 
     case Qt::Key_Space:
-        if (!style()->styleHint(QStyle::SH_Menu_SpaceActivatesItem, 0, this))
-            break;
-        // for motif, fall through
+        if (style()->styleHint(QStyle::SH_Menu_SpaceActivatesItem, 0, this)) {
+            key_consumed = true; // for motif
+        }
+        break;
 #ifdef QT_KEYPAD_NAVIGATION
     case Qt::Key_Select:
 #endif
@@ -2817,8 +2818,8 @@ void KexiMenuWidget::keyPressEvent(QKeyEvent *e)
             d->activateAction(d->currentAction, QAction::Trigger);
         }
         key_consumed = true;
-        break; }
-
+        break;
+    }
 #ifndef QT_NO_WHATSTHIS
     case Qt::Key_F1:
         if (!d->currentAction || d->currentAction->whatsThis().isNull())
@@ -2828,7 +2829,7 @@ void KexiMenuWidget::keyPressEvent(QKeyEvent *e)
         return;
 #endif
     default:
-        key_consumed = false;
+        break;
     }
 
     if (!key_consumed) {                                // send to menu bar
