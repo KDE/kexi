@@ -179,6 +179,18 @@ QStringList KexiFileFilters::allGlobPatterns() const
     return result;
 }
 
+bool KexiFileFilters::isExistingFileRequired() const
+{
+    switch (mode()) {
+    case Opening:
+        return true;
+    case CustomOpening:
+        return true;
+    default:
+        return false;
+    }
+}
+
 //static
 QString KexiFileFilters::separator(KexiFileFilters::Format format)
 {

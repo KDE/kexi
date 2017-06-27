@@ -74,6 +74,10 @@ public:
     //! Includes additional mime types and excludes miem types specified by excludedMimeTypes().
     QStringList allGlobPatterns() const;
 
+    //! @return @c true if existing file is required
+    //! This is true for Opening and CustomOpening modes.
+    bool isExistingFileRequired() const;
+
     enum Format {
         QtFormat, //!< QFileDialog-compatible format, e.g. "Image files (*.png *.xpm *.jpg)", ";;" separators
         KDEFormat, //!< KDE-compatible format, e.g. "*.png *.xpm *.jpg|Image files (*.png *.xpm *.jpg)", "\\n" separators
