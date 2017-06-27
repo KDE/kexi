@@ -276,7 +276,7 @@ void KexiFileDialog::createFileDialog()
     connect(d->fileDialog.data(), SIGNAL(filterSelected(QString)), this, SLOT(filterSelected(QString)));
 }
 
-QString KexiFileDialog::filename()
+QString KexiFileDialog::fileName()
 {
     QString url;
     if (!d->useStaticForNative) {
@@ -356,7 +356,7 @@ QString KexiFileDialog::filename()
     return url;
 }
 
-QStringList KexiFileDialog::filenames()
+QStringList KexiFileDialog::fileNames()
 {
     QStringList urls;
 

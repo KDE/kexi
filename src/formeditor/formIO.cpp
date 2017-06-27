@@ -115,14 +115,14 @@ bool
 FormIO::saveFormToFile(Form *form, const QString &filename)
 {
     QString _filename;
-    if (!form->filename().isEmpty() && filename.isEmpty()) {
-        _filename = form->filename();
+    if (!form->fileName().isEmpty() && filename.isEmpty()) {
+        _filename = form->fileName();
     }
 
     if (filename.isEmpty()) {
         KexiFileDialog dlg(0, KexiFileDialog::SaveFile, "SaveForm");
         dlg.setNameFilter("*.ui|" + xi18n("Qt Designer UI Files"));
-        _filename = dlg.filename();
+        _filename = dlg.fileName();
         if (_filename.isEmpty()) {
             return false;
         }
@@ -130,7 +130,7 @@ FormIO::saveFormToFile(Form *form, const QString &filename)
     else {
         _filename = filename;
     }
-    form->setFilename(_filename);
+    form->setFileName(_filename);
 
     QDomDocument domDoc;
     if (!saveFormToDom(form, domDoc))
@@ -299,7 +299,7 @@ FormIO::loadFormFromFile(Form *form, QWidget *container, const QString &filename
     if (filename.isEmpty()) {
         KexiFileDialog dlg(0, KexiFileDialog::OpenFile, "LoadForm");
         dlg.setNameFilter("*.ui|" + xi18n("Qt Designer UI Files"));
-        _filename = dlg.filename();
+        _filename = dlg.fileName();
         if (_filename.isEmpty()) {
             return false;
         }

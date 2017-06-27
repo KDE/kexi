@@ -99,7 +99,7 @@ static QString basePath()
     return QString(KEXI_BASE_PATH "/status");
 }
 
-static QString findFilename(const QString &guiFileName)
+static QString findFileName(const QString &guiFileName)
 {
     QString result = locateFile(QString(), basePath() + '/' + guiFileName,
                                 QStandardPaths::GenericDataLocation, QString());
@@ -317,7 +317,7 @@ private:
 
     void checkFile(const QByteArray &hash, const QString &remoteFname, QStringList *fileNamesToUpdate)
     {
-        QString localFname = findFilename(remoteFname);
+        QString localFname = findFileName(remoteFname);
         if (localFname.isEmpty()) {
             fileNamesToUpdate->append(remoteFname);
             qDebug() << "missing filename" << remoteFname << "- download it";
@@ -500,7 +500,7 @@ public:
      : statusWidget(0), helpAction(0), shareAction(0), cancelAction(0),
        q(_q)
     {
-        rccFname = findFilename("status.rcc");
+        rccFname = findFileName("status.rcc");
         if (!rccFname.isEmpty())  {
             QResource::registerResource(rccFname);
         }
@@ -601,7 +601,7 @@ public:
 
     QWidget* loadGui(const QString &guiFileName, QWidget *parentWidget = 0)
     {
-        QString fname = findFilename(guiFileName);
+        QString fname = findFileName(guiFileName);
         if (fname.isEmpty()) {
             qWarning() << "filename" << fname << "not found";
             return 0;

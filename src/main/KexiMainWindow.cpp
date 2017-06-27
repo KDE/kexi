@@ -3699,12 +3699,12 @@ void KexiMainWindow::slotToolsCompactDatabase()
         if (dlg.exec() != QDialog::Accepted)
             return;
 
-        if (dlg.selectedFileName().isEmpty()) {
+        if (dlg.selectedFile().isEmpty()) {
 //! @todo add support for server based if needed?
             return;
         }
         KDbConnectionData cdata;
-        cdata.setDatabaseName(dlg.selectedFileName());
+        cdata.setDatabaseName(dlg.selectedFile());
 
         //detect driver name for the selected file
         KexiStartupData::Import detectedImportAction;

@@ -193,12 +193,12 @@ int Form::defaultSpacing() const
     return 6;
 }
 
-QString Form::filename() const
+QString Form::fileName() const
 {
     return d->filename;
 }
 
-void Form::setFilename(const QString &file)
+void Form::setFileName(const QString &file)
 {
     d->filename = file;
 }

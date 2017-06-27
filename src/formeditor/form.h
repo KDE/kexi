@@ -231,11 +231,11 @@ public:
     /*! \return The filename of the UI file this Form was saved to,
     or empty string if the Form hasn't be saved yet. */
 //! @todo move this field out of this class
-    QString filename() const;
+    QString fileName() const;
 
     //! Sets the filename of this Form to \a filename.
 //! @todo move this field out of this class
-    void setFilename(const QString &file);
+    void setFileName(const QString &file);
 
     /*! Clears form's undo/redo stack. */
     void clearUndoStack();

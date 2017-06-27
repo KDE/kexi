@@ -112,8 +112,8 @@ public:
 
     QStringList nameFilters() const;
 
-    QStringList filenames();
-    QString filename();
+    QStringList fileNames();
+    QString fileName();
 
     /**
      * @brief selectedNameFilter returns the name filter the user selected, either

@@ -727,7 +727,7 @@ tristate KexiStartupHandler::init(const QStringList &arguments,
         }
 #ifdef KEXI_PROJECT_TEMPLATES
         else if (r == KexiStartupDialog::CreateFromTemplateResult) {
-            const QString selFile(d->startupDialog->selectedFileName());
+            const QString selFile(d->startupDialog->selectedFile());
             cdata.setDatabaseName(selFile);
             QString detectedDriverId;
             KexiStartupData::Import importData = KexiStartupData::importActionData();
@@ -746,7 +746,7 @@ tristate KexiStartupHandler::init(const QStringList &arguments,
         }
 #endif
         else if (r == KexiStartupDialog::OpenExistingResult) {
-            const QString selectedFile(d->startupDialog->selectedFileName());
+            const QString selectedFile(d->startupDialog->selectedFile());
             if (!selectedFile.isEmpty()) {
                 //file-based project
                 cdata.setDatabaseName(selectedFile);
