@@ -63,8 +63,8 @@ KexiMainOpenProjectPage::KexiMainOpenProjectPage(QWidget* parent)
     fileSelector->showSimpleConnection();
     fileSelector->hideHelpers();
     fileSelector->hideDescription();
-    //connect(fileSelector->fileWidget, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(fileSelector, SIGNAL(fileSelectionChanged()), this, SLOT(next()));
+    fileSelector->setFileWidgetFrameVisible(false);
+    connect(fileSelector, &KexiConnectionSelectorWidget::fileSelected, this, [=]() { next(); });
 
     m_connSelectorWidget = new QWidget;
     tabWidget->addTab(m_connSelectorWidget, Kexi::serverIcon(),
@@ -255,8 +255,7 @@ void KexiOpenProjectAssistant::nextPageRequested(KexiAssistantPage* page)
             // file-based
             if (!d->m_projectOpenPage->fileSelector->checkSelectedFile())
                 return;
-            emit openProject(
-                d->m_projectOpenPage->fileSelector->highlightedFile());
+            emit openProject(d->m_projectOpenPage->fileSelector->selectedFile());
         }
         else { // server-based
             KDbConnectionData *cdata

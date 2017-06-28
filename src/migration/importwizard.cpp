@@ -169,7 +169,7 @@ ImportWizard::ImportWizard(QWidget *parent, QMap<QString, QString>* args)
         setAppropriate(d->srcConnPageItem, false);
         setAppropriate(d->srcDBPageItem, false);
         d->srcConn->showSimpleConnection();
-        d->srcConn->setSelectedFileName(d->predefinedDatabaseName);
+        d->srcConn->setSelectedFile(d->predefinedDatabaseName);
 
         #if 0
         //disable all prev pages except "welcome" page
@@ -216,7 +216,7 @@ void ImportWizard::parseArguments()
 QString ImportWizard::selectedSourceFileName() const
 {
     if (d->predefinedDatabaseName.isEmpty())
-        return d->srcConn->selectedFileName();
+        return d->srcConn->selectedFile();
 
     return d->predefinedDatabaseName;
 }

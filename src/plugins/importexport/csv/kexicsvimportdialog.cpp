@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2005-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2017 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2012 Oleg Kukharchuk <oleg.kuh@gmail.com>
 
    This work is based on kspread/dialogs/kspread_dlg_csv.cc.
@@ -43,13 +43,9 @@
 #include <widget/navigator/KexiProjectTreeView.h>
 #include <widget/fields/KexiFieldListView.h>
 #include <widget/fields/KexiFieldListModel.h>
-#include <KexiFileRequester.h>
+#include <widget/KexiFileWidgetInterface.h>
 #include "kexicsvwidgets.h"
 #include <kexi_global.h>
-
-#ifdef KEXI_USE_KFILEWIDGET
-#include <widget/KexiFileWidget.h>
-#endif
 
 #include <KDbObjectNameValidator>
 #include <KDbConnection>
@@ -393,18 +389,9 @@ void KexiCSVImportDialog::next()
     KPageWidgetItem *curPage = currentPage();
 
     if (curPage == m_openFilePage) {
-#ifdef KEXI_USE_KFILEWIDGET
-        if (m_openFileWidget->checkSelectedFile()) {
-            m_fname = m_openFileWidget->highlightedFile();
-#else
-        if (!m_openFileRequester->selectedFileName().isEmpty()) {
-            m_fname = m_openFileRequester->selectedFileName();
-#endif
+        if (m_fileIface->checkSelectedFile()) {
+            m_fname = m_fileIface->selectedFile();
         } else {
-            return;
-        }
-        if (m_fname.isEmpty()) {
-            KMessageBox::sorry(this, xi18nc("@info", "Select source filename."));
             return;
         }
         if (!openData()) {
@@ -592,26 +579,12 @@ void KexiCSVImportDialog::slotCurrentPageChanged(KPageWidgetItem *page, KPageWid
 
 void KexiCSVImportDialog::createFileOpenPage()
 {
-#ifdef KEXI_USE_KFILEWIDGET
-    m_openFileWidget = new KexiFileWidget(
-        QUrl("kfiledialog:///CSVImportExport"), //startDir
-        KexiFileFilters::CustomOpening,
-        this);
-    m_openFileWidget->setAdditionalMimeTypes(csvMimeTypes());
-    m_openFileWidget->setDefaultExtension("csv");
-    connect(m_openFileWidget, SIGNAL(fileSelected(QUrl)), this, SLOT(next()));
-#else
-    m_openFileWidget = new QWidget(this);
-    QVBoxLayout *lyr = new QVBoxLayout(m_openFileWidget);
-    m_openFileRequester = new KexiFileRequester(
-        QUrl("kfiledialog:///CSVImportExport"), //startDir
-        m_openFileWidget);
-    m_openFileRequester->setAdditionalMimeTypes(csvMimeTypes());
-    //TODO m_openFileRequester->setDefaultExtension("csv");
-    connect(m_openFileRequester, &KexiFileRequester::fileSelected, this, &KexiCSVImportDialog::next);
-    lyr->addWidget(m_openFileRequester, 1);
-#endif
-    m_openFilePage = new KPageWidgetItem(m_openFileWidget, xi18n("Select Import Filename"));
+    m_fileIface = KexiFileWidgetInterface::createWidget(QUrl("kfiledialog:///CSVImportExport"),
+                                                        KexiFileFilters::CustomOpening, this);
+    m_fileIface->setAdditionalMimeTypes(csvMimeTypes());
+    m_fileIface->setDefaultExtension("csv");
+    m_fileIface->connectFileSelectedSignal(this, SLOT(next()));
+    m_openFilePage = new KPageWidgetItem(m_fileIface->widget(), xi18n("Select Import Filename"));
     addPage(m_openFilePage);
 }
 

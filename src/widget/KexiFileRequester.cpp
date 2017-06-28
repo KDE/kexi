@@ -207,7 +207,6 @@ public Q_SLOTS:
 
 public:
     KexiFileRequester* const q;
-    QString recentDirClass;
     QPushButton *upButton;
     QLabel *folderIcon;
     QLabel *urlLabel;
@@ -217,33 +216,29 @@ public:
     KexiFileFilters filters;
 };
 
-KexiFileRequester::KexiFileRequester(const QUrl &fileOrVariable, QWidget *parent)
-    : QWidget(parent), d(new Private(this))
+KexiFileRequester::KexiFileRequester(const QUrl &fileOrVariable, KexiFileFilters::Mode mode,
+                                     QWidget *parent)
+    : QWidget(parent), KexiFileWidgetInterface(fileOrVariable), d(new Private(this))
 {
     init();
-    QUrl url;
-    if (fileOrVariable.scheme() == "kfiledialog") {
-        url = KFileWidget::getStartUrl(fileOrVariable, d->recentDirClass);
-    } else {
-        url = fileOrVariable;
-    }
-    const QString fileName = Private::urlToPath(url);
+    const QString fileName = Private::urlToPath(startUrl());
     d->updateFileName(fileName);
+    setMode(mode);
 }
 
-KexiFileRequester::KexiFileRequester(const QString &selectedFileName, QWidget *parent)
-    : QWidget(parent), d(new Private(this))
+KexiFileRequester::KexiFileRequester(const QString &selectedFileName, KexiFileFilters::Mode mode,
+                                     QWidget *parent)
+    : QWidget(parent), KexiFileWidgetInterface(QUrl(selectedFileName)), d(new Private(this))
 {
     init();
     d->updateFileName(selectedFileName);
+    setMode(mode);
 }
 
 KexiFileRequester::~KexiFileRequester()
 {
     const QString startDir(d->urlLabel->text());
-    if (QDir(startDir).exists()) {
-        KRecentDirs::add(d->recentDirClass, startDir);
-    }
+    addRecentDir(startDir);
     delete d;
 }
 
@@ -252,7 +247,7 @@ void KexiFileRequester::init()
     // [^] [Dir ][..]
     // [ files      ]
     QVBoxLayout *lyr = new QVBoxLayout(this);
-    setContentsMargins(lyr->contentsMargins());
+    setContentsMargins(QMargins());
     lyr->setContentsMargins(QMargins());
     QHBoxLayout *urlLyr = new QHBoxLayout;
     urlLyr->setContentsMargins(QMargins());
@@ -300,7 +295,7 @@ void KexiFileRequester::init()
     d->list->header()->setSectionResizeMode(LastModifiedColumnId, QHeaderView::ResizeToContents);
 }
 
-QString KexiFileRequester::selectedFileName() const
+QString KexiFileRequester::selectedFile() const
 {
     const QModelIndexList list(d->list->selectionModel()->selectedIndexes());
     if (list.isEmpty()) {
@@ -313,57 +308,39 @@ QString KexiFileRequester::selectedFileName() const
     return d->model->filePath(index);
 }
 
-void KexiFileRequester::setSelectedFileName(const QString &selectedFileName)
+QString KexiFileRequester::highlightedFile() const
 {
-    d->updateFileName(selectedFileName);
+    return selectedFile();
 }
 
-void KexiFileRequester::setFileMode(KexiFileFilters::Mode mode)
+QString KexiFileRequester::currentDir() const
 {
-    KFile::Modes fileModes = KFile::File | KFile::LocalOnly;
-    if (mode == KexiFileFilters::Opening || mode == KexiFileFilters::CustomOpening) {
-        fileModes |= KFile::ExistingOnly;
-    }
-    d->filters.setMode(mode);
+    return d->model->rootPath();
+}
+
+void KexiFileRequester::setSelectedFile(const QString &name)
+{
+    d->updateFileName(name);
+}
+
+void KexiFileRequester::updateFilters()
+{
     d->updateFilter();
 }
 
-QStringList KexiFileRequester::additionalMimeTypes() const
+void KexiFileRequester::setWidgetFrame(bool set)
 {
-    return d->filters.additionalMimeTypes();
+    d->list->setFrameShape(set ? QFrame::StyledPanel : QFrame::NoFrame);
+    d->list->setLineWidth(set ? 1 : 0);
 }
 
-QStringList KexiFileRequester::excludedMimeTypes() const
+void KexiFileRequester::applyEnteredFileName()
 {
-    return d->filters.excludedMimeTypes();
 }
 
-QString KexiFileRequester::defaultFilter() const
+QStringList KexiFileRequester::currentFilters() const
 {
-    return d->filters.defaultFilter();
-}
-
-void KexiFileRequester::setExcludedMimeTypes(const QStringList &mimeTypes)
-{
-    d->filters.setExcludedMimeTypes(mimeTypes);
-    d->updateFilter();
-}
-
-void KexiFileRequester::setAdditionalMimeTypes(const QStringList &mimeTypes)
-{
-    d->filters.setAdditionalMimeTypes(mimeTypes);
-    d->updateFilter();
-}
-
-void KexiFileRequester::setDefaultFilter(const QString &filter)
-{
-    d->filters.setDefaultFilter(filter);
-    d->updateFilter();
-}
-
-void KexiFileRequester::setFrame(bool frame)
-{
-    d->list->setFrameShape(frame ? QFrame::StyledPanel : QFrame::NoFrame);
+    return QStringList();
 }
 
 #include "KexiFileRequester.moc"

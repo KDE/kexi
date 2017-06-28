@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2012 Dimitrios T. Tanis <dimitrios.tanis@kdemail.net>
 
    This program is free software; you can redistribute it and/or
@@ -23,10 +23,8 @@
 
 #include <core/kexidbconnectionset.h>
 #include <KexiFileFilters.h>
-#include <kexiutils/KexiContextMessage.h>
-#include <widget/KexiServerDriverNotFoundMessage.h>
+#include "kexiextwidgets_export.h"
 
-#include <QPointer>
 #include <QTreeWidgetItem>
 
 class QAbstractButton;
@@ -98,9 +96,10 @@ public:
     /*! \return the name of database file, if file-based connection was selected.
      Returns empty string if no selection has been made or server-based connection
      has been selected.
+    //! @note Call checkSelectedFile() first
      @see selectedConnectionType()
     */
-    QString selectedFileName();
+    QString selectedFile() const;
 
     QTreeWidget* connectionsList() const;
 
@@ -108,20 +107,18 @@ public:
 
     bool hasSelectedConnection() const;
 
-    /*! @return true if the current file URL meets requies constraints
-    (i.e. exists or doesn't exist);
-    shows appropriate message box if needed. */
+    /*! @return true if the current file URL meets requied constraints (i.e. the file exists)
+     Shows appropriate message box if needed. */
     bool checkSelectedFile();
 
-    //! @return selected file.
-    //! @note Call checkSelectedFile() first
+    //! @return highlighted file
     QString highlightedFile() const;
 
 Q_SIGNALS:
     void connectionItemExecuted(ConnectionDataLVItem *item);
     void connectionItemHighlighted(ConnectionDataLVItem *item);
     void connectionSelected(bool hasSelected);
-    void fileSelectionChanged();
+    void fileSelected(const QString &name);
 
 public Q_SLOTS:
     void showSimpleConnection();
@@ -137,9 +134,9 @@ public Q_SLOTS:
     void hideConnectonIcon();
     void hideDescription();
 
-    /*! Sets selected filename to \a fileName.
+    /*! Sets selected filename to @a name.
      Only works when selectedConnectionType()==FileBased. */
-    void setSelectedFileName(const QString& fileName);
+    void setSelectedFile(const QString &name);
 
     /*! If true, user will be asked to accept overwriting existing project.
      This is true by default. */
@@ -152,6 +149,8 @@ public Q_SLOTS:
     //! Sets excluded mime types
     void setExcludedMimeTypes(const QStringList& mimeTypes);
 
+    void setFileWidgetFrameVisible(bool set);
+
 protected Q_SLOTS:
     void slotConnectionItemExecuted(QTreeWidgetItem *item);
     void slotConnectionItemExecuted();
@@ -160,6 +159,7 @@ protected Q_SLOTS:
     void slotRemoteRemoveBtnClicked();
     void slotConnectionSelectionChanged();
     void slotPrjTypeSelected(QAbstractButton *btn);
+    void slotFileConnectionSelected(const QString &name);
     void slotConnectionSelected();
 
 protected:
@@ -168,7 +168,6 @@ protected:
 private:
     ConnectionDataLVItem* addConnectionData(KDbConnectionData* data);
     ConnectionDataLVItem* selectedConnectionDataItem() const;
-    QPointer<KexiServerDriverNotFoundMessage> m_errorMessagePopup;
 
     class Private;
     Private * const d;

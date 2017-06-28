@@ -42,8 +42,10 @@ public:
     KexiFileFilters();
     ~KexiFileFilters();
 
+    //! @return mode for the filer
     Mode mode() const;
 
+    //! Sets mode for the filter
     void setMode(Mode mode);
 
     /*! Sets a default-filter, that is used when an empty filter is set.

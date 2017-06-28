@@ -20,54 +20,73 @@
 #ifndef KEXIFILEREQUESTER_H
 #define KEXIFILEREQUESTER_H
 
-#include "kexiextwidgets_export.h"
-#include <KexiFileFilters.h>
+#include "KexiFileWidgetInterface.h"
 #include <QWidget>
 
 //! @brief A widget showing a line edit and a button, which invokes a file dialog
-class KEXIEXTWIDGETS_EXPORT KexiFileRequester : public QWidget
+class KEXIEXTWIDGETS_EXPORT KexiFileRequester : public QWidget, public KexiFileWidgetInterface
 {
     Q_OBJECT
 public:
-    explicit KexiFileRequester(const QUrl &fileOrVariable, QWidget *parent = nullptr);
+    explicit KexiFileRequester(const QUrl &fileOrVariable, KexiFileFilters::Mode mode,
+                               QWidget *parent = nullptr);
 
-    explicit KexiFileRequester(const QString &selectedFile, QWidget *parent = nullptr);
+    explicit KexiFileRequester(const QString &selectedFile, KexiFileFilters::Mode mode,
+                               QWidget *parent = nullptr);
 
-    ~KexiFileRequester();
+    ~KexiFileRequester() override;
 
-    //! @return absolute path of the selected file
-    QString selectedFileName() const;
+    /**
+     * Returns the full path of the selected file in the local filesystem.
+     * (Local files only)
+     */
+    QString selectedFile() const override;
+
+    /**
+     * Returns the full path of the highlighted file in the local filesystem.
+     * (Local files only)
+     */
+    QString highlightedFile() const override;
+
+    /**
+     * @return the currently shown directory.
+     */
+    QString currentDir() const override;
 
     //! Sets file mode
-    void setFileMode(KexiFileFilters::Mode mode);
+    //void setFileMode(KexiFileFilters::Mode mode);
 
     //! @return additional mime types
-    QStringList additionalMimeTypes() const;
+    //QStringList additionalMimeTypes() const;
 
     //! @return excluded mime types
-    QStringList excludedMimeTypes() const;
+    //QStringList excludedMimeTypes() const;
 
     //! @return the default filter, used when an empty filter is set
-    QString defaultFilter() const;
+    //QString defaultFilter() const;
 
 Q_SIGNALS:
-    void fileSelected(const QString &filePath);
+    void fileHighlighted(const QString &name);
+    void fileSelected(const QString &name);
 
 public Q_SLOTS:
     //! Sets the url
-    void setSelectedFileName(const QString &fileName);
+    void setSelectedFile(const QString &name) override;
 
-    //! Set excluded mime types
-    void setExcludedMimeTypes(const QStringList &mimeTypes);
+    /**
+     * Sets whether the line edit draws itself with a frame.
+     */
+    void setWidgetFrame(bool set) override;
 
-    //! Sets additional mime types, e.g. "text/x-csv"
-    void setAdditionalMimeTypes(const QStringList &mimeTypes);
+protected:
+    /**
+     * Updates filters in the widget based on current filter selection.
+     */
+    void updateFilters() override;
 
-    //! Sets a default-filter, that is used when an empty filter is set
-    void setDefaultFilter(const QString &filter);
+    void applyEnteredFileName() override;
 
-    //! @see QFrame::setFrame(bool)
-    void setFrame(bool frame);
+    QStringList currentFilters() const override;
 
 private:
     void init();

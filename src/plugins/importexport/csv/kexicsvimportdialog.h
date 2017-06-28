@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2005-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2017 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2012 Oleg Kukharchuk <oleg.kuh@gmail.com>
 
    This work is based on kspread/dialogs/kspread_dlg_csv.cc.
@@ -41,7 +41,6 @@
 #include <KDbTristate>
 #include <KDbPreparedStatement>
 
-#include <config-kexi.h>
 #include "kexicsvimportoptionsdlg.h"
 
 class QHBoxLayout;
@@ -69,11 +68,7 @@ class KexiCSVInfoLabel;
 class KexiProject;
 class KexiCSVImportDialogModel;
 class KexiCSVImportDialogItemDelegate;
-#ifdef KEXI_USE_KFILEWIDGET
-class KexiFileWidget;
-#else
-class KexiFileRequester;
-#endif
+class KexiFileWidgetInterface;
 class KexiNameWidget;
 class KexiProjectNavigator;
 class KexiFieldListModel;
@@ -144,12 +139,7 @@ private:
     QCheckBox* m_ignoreDuplicates;
     QCheckBox* m_1stRowForFieldNames;
     QCheckBox* m_primaryKeyField;
-#ifdef KEXI_USE_KFILEWIDGET
-    KexiFileWidget *m_openFileWidget;
-#else
-    QWidget *m_openFileWidget;
-    KexiFileRequester *m_openFileRequester;
-#endif
+    KexiFileWidgetInterface *m_fileIface;
     QWidget *m_optionsWidget;
     QWidget *m_saveMethodWidget;
     KPageWidgetItem *m_openFilePage;

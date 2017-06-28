@@ -45,6 +45,7 @@ set(kexiextendedwidgets_LIB_SRCS
     KexiServerDriverNotFoundMessage.cpp
     KexiNameWidget.cpp
     KexiNameDialog.cpp
+    KexiFileWidgetInterface.cpp
     KexiFileRequester.cpp
     KexiStartupFileHandler.cpp
     KexiListView.cpp

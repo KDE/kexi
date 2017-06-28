@@ -633,7 +633,7 @@ KexiMigrate* ImportTableWizard::prepareImport(Kexi::ObjectStatus *result)
 
         if (fileBasedSrcSelected()) {
             KDbConnectionData* conn_data = new KDbConnectionData();
-            conn_data->setDatabaseName(m_srcConnSel->selectedFileName());
+            conn_data->setDatabaseName(m_srcConnSel->selectedFile());
             md->source = conn_data;
             md->sourceName.clear();
         } else {
@@ -656,13 +656,14 @@ QString ImportTableWizard::driverIdForSelectedSource()
 {
     if (fileBasedSrcSelected()) {
         QMimeDatabase db;
-        QMimeType mime = db.mimeTypeForFile(m_srcConnSel->selectedFileName());
+        QMimeType mime = db.mimeTypeForFile(m_srcConnSel->selectedFile());
         if (!mime.isValid()
             || mime.name() == "application/octet-stream"
-            || mime.name() == "text/plain")
+            || mime.name() == "text/plain"
+            || mime.name() == "application/zip")
         {
             //try by URL:
-            mime = db.mimeTypeForFile(m_srcConnSel->selectedFileName());
+            mime = db.mimeTypeForFile(m_srcConnSel->selectedFile());
         }
         if (!mime.isValid()) {
             return QString();
