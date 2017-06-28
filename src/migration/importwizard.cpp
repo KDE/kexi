@@ -1120,13 +1120,10 @@ void ImportWizard::helpClicked()
 
 void ImportWizard::slotOptionsButtonClicked()
 {
-    QPointer<OptionsDialog> dlg = new OptionsDialog(selectedSourceFileName(), d->sourceDBEncoding, this);
-    if (QDialog::Accepted == dlg->exec()) {
-        if (d->sourceDBEncoding != dlg->encodingComboBox()->selectedEncoding()) {
-            d->sourceDBEncoding = dlg->encodingComboBox()->selectedEncoding();
-        }
+    OptionsDialog dlg(selectedSourceFileName(), d->sourceDBEncoding, this);
+    if (QDialog::Accepted == dlg.exec()) {
+        d->sourceDBEncoding = dlg.encodingComboBox()->selectedEncoding();
     }
-    delete dlg;
 }
 
 void ImportWizard::sourceConnectionSelected(bool selected)
