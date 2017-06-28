@@ -61,7 +61,6 @@ KexiMainOpenProjectPage::KexiMainOpenProjectPage(QWidget* parent)
         KexiConnectionSelectorWidget::Opening);
     fileSelector->hide(); // delayed opening
     fileSelector->showSimpleConnection();
-    fileSelector->layout()->setContentsMargins(0, 0, 0, 0);
     fileSelector->hideHelpers();
     fileSelector->hideDescription();
     //connect(fileSelector->fileWidget, SIGNAL(accepted()), this, SLOT(accept()));
