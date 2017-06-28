@@ -18,6 +18,7 @@
 */
 
 #include "importtablewizard.h"
+#include "importoptionsdlg.h"
 #include "migratemanager.h"
 #include "keximigrate.h"
 #include "keximigratedata.h"
@@ -73,6 +74,7 @@ ImportTableWizard::ImportTableWizard ( KDbConnection* curDB, QWidget* parent, QM
     m_prjSet = 0;
     m_importComplete = false;
     m_importWasCanceled = false;
+    m_sourceDbEncoding = QString::fromLatin1(KexiUtils::encoding()); //default
 
     KexiMainWindowIface::global()->setReasonableDialogSize(this);
 
@@ -390,6 +392,12 @@ void ImportTableWizard::arriveTableSelectPage(KPageWidgetItem *prevPage)
 
         bool ok = m_migrateDriver;
         if (ok) {
+            if (!m_sourceDbEncoding.isEmpty()) {
+                m_migrateDriver->setPropertyValue(
+                    "source_database_nonunicode_encoding",
+                    QVariant(m_sourceDbEncoding.toUpper().remove(' ')) // "CP1250", not "cp 1250"
+                    );
+            }
             ok = m_migrateDriver->connectSource(&result);
         }
         if (ok) {
@@ -766,4 +774,12 @@ void ImportTableWizard::slotNameChanged()
 void ImportTableWizard::slotCancelClicked()
 {
     m_importWasCanceled = true;
+}
+
+void ImportTableWizard::slotOptionsButtonClicked()
+{
+    OptionsDialog dlg(m_srcConnSel->selectedFile(), m_sourceDbEncoding, this);
+    if (QDialog::Accepted == dlg.exec()) {
+        m_sourceDbEncoding = dlg.encodingComboBox()->selectedEncoding();
+    }
 }
