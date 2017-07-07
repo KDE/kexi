@@ -1323,7 +1323,7 @@ tristate KexiCSVImportDialog::loadRows(QString &field, int &row, int &column, in
         if (nextRow) {
             nextRow = false;
             //additional speedup: stop processing now if too many bytes were loaded for preview
-            qDebug() << offset;
+            //qDebug() << offset;
             if (inGUI && offset >= m_maximumBytesForPreview && row >= 2) {
                 m_stoppedAt_MAX_BYTES_TO_PREVIEW = true;
                 return true;
