@@ -50,7 +50,10 @@ public:
                                                  KexiFileFilters::Mode mode,
                                                  QWidget *parent = nullptr) Q_REQUIRED_RESULT;
 
-    QWidget *widget() { return dynamic_cast<QWidget*>(this); }
+    /**
+     * @brief returns this object casted to QWidget pointer
+     */
+    inline QWidget *widget() { return dynamic_cast<QWidget*>(this); }
 
     //! @return mode for filters used in this widget
     KexiFileFilters::Mode mode() const;
@@ -111,6 +114,10 @@ public:
      */
     void setDefaultExtension(const QString& ext);
 
+    /**
+     * @return @c true if user should be asked to accept overwriting existing file.
+     * @see setConfirmOverwrites
+     */
     bool confirmOverwrites() const;
 
     /*! If true, user will be asked to accept overwriting existing file.
@@ -131,8 +138,14 @@ public:
     /**
      * @brief Connects "file hightlighted" signal to specific receiver
      *
-     * Connects "fileHighlighted(QString)" signal of widget's returned by widget() to
-     * @a receiver and @a slot.
+     * Connects widget's "fileHighlighted(QString)" signal to @a receiver and @a slot. The signal
+     * is emit when a file item is selected or highlighted.
+     *
+     * @note Highlighting happens mostly when user single clicks a file item and
+     * double-click-to-select mode is enabled (see KexiUtils::activateItemsOnSingleClick()). Rather
+     * depend on file delecting than file highlighting.
+     *
+     * @see connectFileSelectedSignal
      */
     void connectFileHighlightedSignal(QObject *receiver, const char *slot);
 
@@ -148,10 +161,15 @@ protected:
     KexiFileWidgetInterface(const QUrl &startDirOrVariable);
 
     /**
-     * Updates filters in the widget based on current filter selection.
+     * @brief Updates filters in the widget based on current filter selection.
      */
     virtual void updateFilters() = 0;
 
+    /**
+     * @brief Applies filename entered in the location edit
+     *
+     * Matching file item is selected on the files list if possible.
+     */
     virtual void applyEnteredFileName() = 0;
 
     virtual QStringList currentFilters() const = 0;

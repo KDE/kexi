@@ -22,10 +22,14 @@
 #include <kexiutils/utils.h>
 #include <KexiIcon.h>
 
+#include <KFileFilterCombo>
 #include <KFileWidget>
 #include <KLineEdit>
 #include <KLocalizedString>
 #include <KRecentDirs>
+#include <KUrlComboBox>
+#include <KUrlCompletion>
+#include <KMessageBox>
 
 #include <QDateTime>
 #include <QDebug>
@@ -36,10 +40,13 @@
 #include <QLabel>
 #include <QMimeDatabase>
 #include <QPushButton>
+#include <QRegExp>
 #include <QSettings>
 #include <QStandardPaths>
 #include <QTreeView>
 #include <QVBoxLayout>
+
+#include <functional>
 
 namespace {
     enum KexiFileSystemModelColumnIds {
@@ -53,15 +60,19 @@ class KexiFileSystemModel : public QFileSystemModel
 {
     Q_OBJECT
 public:
-    explicit KexiFileSystemModel(QWidget *parent = nullptr)
+    explicit KexiFileSystemModel(QObject *parent = nullptr)
         : QFileSystemModel(parent)
     {
     }
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override {
+
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override
+    {
         Q_UNUSED(parent)
-        return 2;
+        return LastModifiedColumnId + 1;
     }
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override {
+
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override
+    {
         const int col = index.column();
         if (col == NameColumnId) {
             switch (role) {
@@ -69,8 +80,7 @@ public:
                 if (isDir(index)) {
                     return koIcon("folder");
                 } else {
-                    QMimeDatabase db;
-                    return QIcon::fromTheme(db.mimeTypeForFile(filePath(index)).iconName());
+                    return QIcon::fromTheme(m_mimeDb.mimeTypeForFile(filePath(index)).iconName());
                 }
             }
             default: break;
@@ -88,10 +98,71 @@ public:
         }
         return QVariant();
     }
+
     Qt::ItemFlags flags(const QModelIndex& index) const override {
         Q_UNUSED(index)
         return Qt::ItemIsSelectable | Qt::ItemIsEnabled;
     }
+
+private:
+    QMimeDatabase m_mimeDb;
+};
+
+//! @internal
+class KexiUrlCompletion : public KUrlCompletion
+{
+public:
+    explicit KexiUrlCompletion(QList<QRegExp *> *filterRegExps, QList<QMimeType> *filterMimeTypes)
+        : KUrlCompletion(KUrlCompletion::FileCompletion)
+        , m_filterRegExps(filterRegExps)
+        , m_filterMimeTypes(filterMimeTypes)
+    {
+    }
+
+    using KUrlCompletion::postProcessMatches;
+
+    //! Reimplemented to match the filter
+    void postProcessMatches(QStringList *matches) const override
+    {
+        for (QStringList::Iterator matchIt = matches->begin();
+             matchIt != matches->end();)
+        {
+            if (fileMatchesFilter(*matchIt)) {
+                ++matchIt;
+            } else {
+                matchIt = matches->erase(matchIt);
+            }
+        }
+    }
+
+private:
+    /**
+     * @return @c true if @a fileName matches the current regular expression as well as the mime types
+     *
+     * The mime type matching allows to overcome issues with patterns such as *.doc being used
+     * for text/plain mime types but really belonging to application/msword mime type.
+     */
+    bool fileMatchesFilter(const QString &fileName) const
+    {
+        bool found = false;
+        for (QRegExp *regexp : *m_filterRegExps) {
+            if (regexp->exactMatch(fileName)) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            return false;
+        }
+        const QMimeType mimeType(m_mimeDb.mimeTypeForFile(fileName));
+        qDebug() << mimeType;
+        int i = m_filterMimeTypes->indexOf(mimeType);
+        return i >= 0;
+    }
+
+    const QList<QRegExp*> * const m_filterRegExps;
+    const QList<QMimeType> * const m_filterMimeTypes;
+    QMimeDatabase m_mimeDb;
 };
 
 //! @internal
@@ -102,9 +173,10 @@ public:
     Private(KexiFileRequester *r) : q(r)
     {
     }
-    void updateFilter()
+
+    ~Private()
     {
-        model->setNameFilters(filters.allGlobPatterns());
+        qDeleteAll(filterRegExps);
     }
 
     static QString urlToPath(const QUrl &url)
@@ -158,18 +230,32 @@ public Q_SLOTS:
             folderIcon->setPixmap(koSmallIcon("folder"));
             upButton->setEnabled(filePath != "/");
         }
-        model->setRootPath(dirPath);
-        list->setRootIndex(model->index(filePath));
-        list->resizeColumnToContents(LastModifiedColumnId);
+        if (model->rootPath() != dirPath) {
+            model->setRootPath(dirPath);
+            list->setRootIndex(model->index(filePath));
+            list->resizeColumnToContents(LastModifiedColumnId);
+            urlCompletion->setDir(QUrl::fromLocalFile(dirPath));
+        }
+        const QModelIndex fileIndex = model->index(filePath);
+        list->scrollTo(fileIndex);
+        list->selectionModel()->select(fileIndex, QItemSelectionModel::ClearAndSelect);
     }
 
-    void itemActivated(const QModelIndex & index)
+    void itemClicked(const QModelIndex &index)
     {
-        const QString filePath(model->filePath(index));
-        if (model->isDir(index)) {
-            updateFileName(filePath);
-        } else {
-            emit q->fileSelected(filePath);
+        handleItem(index, std::bind(&KexiFileRequester::fileHighlighted, q, std::placeholders::_1),
+                   true);
+        if (activateItemsOnSingleClick) {
+            handleItem(index, std::bind(&KexiFileRequester::fileSelected, q, std::placeholders::_1),
+                       false);
+        }
+    }
+
+    void itemActivated(const QModelIndex &index)
+    {
+        if (!activateItemsOnSingleClick) {
+            handleItem(index, std::bind(&KexiFileRequester::fileSelected, q, std::placeholders::_1),
+                       true);
         }
     }
 
@@ -205,6 +291,88 @@ public Q_SLOTS:
         }
     }
 
+    void locationEditTextChanged(const QString &text)
+    {
+        locationEdit->lineEdit()->setModified(true);
+        if (text.isEmpty()) {
+            list->clearSelection();
+        }
+        QFileInfo info(model->rootPath() + '/' + text);
+        if (info.isFile() && model->rootDirectory().exists(text)) {
+            updateFileName(model->rootDirectory().absoluteFilePath(text)); // select file
+        } else {
+            updateFileName(model->rootPath()); // only dir, unselect file
+        }
+    }
+
+    void locationEditReturnPressed()
+    {
+        QString text(locationEdit->lineEdit()->text());
+        if (text.isEmpty()) {
+            return;
+        }
+        if (text == '~') {
+            text = QDir::homePath();
+        } else if (text.startsWith(QStringLiteral("~/"))) {
+            text = QDir::home().absoluteFilePath(text.mid(2));
+        }
+        if (QDir::isAbsolutePath(text)) {
+            QFileInfo info(text);
+            if (!info.isReadable()) {
+                return;
+            }
+            if (info.isDir()) { // jump to absolute dir and clear the editor
+                updateFileName(info.canonicalFilePath());
+                locationEdit->lineEdit()->clear();
+            } else { // jump to absolute dir and select the file in it
+                updateFileName(info.dir().canonicalPath());
+                locationEdit->lineEdit()->setText(info.fileName());
+                locationEditReturnPressed();
+            }
+        } else { // relative path
+            QFileInfo info(model->rootPath() + '/' + text);
+            if (info.isReadable() && info.isDir()) { // jump to relative dir and clear the editor
+                updateFileName(info.canonicalFilePath());
+                locationEdit->lineEdit()->clear();
+            } else { // emit the file selection
+                //not needed - preselected: updateFileName(text);
+                emit q->fileSelected(q->selectedFile());
+            }
+        }
+    }
+
+    void slotFilterComboChanged()
+    {
+        const QStringList patterns = filterCombo->currentFilter().split(' ');
+        //qDebug() << patterns;
+        model->setNameFilters(patterns);
+        qDeleteAll(filterRegExps);
+        filterRegExps.clear();
+        for (const QString &pattern : patterns) {
+            filterRegExps.append(new QRegExp(pattern, Qt::CaseInsensitive, QRegExp::Wildcard));
+        }
+    }
+
+private:
+    void handleItem(const QModelIndex &index, std::function<void(const QString&)> sig, bool silent)
+    {
+        const QString filePath(model->filePath(index));
+        if (model->isDir(index)) {
+            QFileInfo info(filePath);
+            if (info.isReadable()) {
+                updateFileName(filePath);
+            } else {
+                if (silent) {
+                    KMessageBox::error(q,
+                                       xi18n("Could not enter directory <filename>%1</filename>.",
+                                             QDir::toNativeSeparators(info.absoluteFilePath())));
+                }
+            }
+        } else {
+            emit sig(filePath);
+        }
+    }
+
 public:
     KexiFileRequester* const q;
     QPushButton *upButton;
@@ -213,7 +381,12 @@ public:
     QPushButton *selectUrlButton;
     KexiFileSystemModel *model;
     QTreeView *list;
-    KexiFileFilters filters;
+    bool activateItemsOnSingleClick;
+    KUrlComboBox *locationEdit;
+    KexiUrlCompletion *urlCompletion;
+    KFileFilterCombo *filterCombo;
+    QList<QRegExp*> filterRegExps; //!< Regular expression for the completer in the URL box
+    QList<QMimeType> filterMimeTypes;
 };
 
 KexiFileRequester::KexiFileRequester(const QUrl &fileOrVariable, KexiFileFilters::Mode mode,
@@ -244,8 +417,10 @@ KexiFileRequester::~KexiFileRequester()
 
 void KexiFileRequester::init()
 {
-    // [^] [Dir ][..]
-    // [ files      ]
+    // [^] [Dir    ][..]
+    // [ files list    ]
+    // [ location      ]
+    // [ filter combo  ]
     QVBoxLayout *lyr = new QVBoxLayout(this);
     setContentsMargins(QMargins());
     lyr->setContentsMargins(QMargins());
@@ -279,9 +454,9 @@ void KexiFileRequester::init()
     urlLyr->addWidget(d->selectUrlButton);
 
     d->list = new QTreeView;
-    connect(d->list,
-            KexiUtils::activateItemsOnSingleClick(d->list) ? &QTreeView::clicked : &QTreeView::activated,
-            d, &KexiFileRequester::Private::itemActivated);
+    d->activateItemsOnSingleClick = KexiUtils::activateItemsOnSingleClick(d->list);
+    connect(d->list, &QTreeView::clicked, d, &KexiFileRequester::Private::itemClicked);
+    connect(d->list, &QTreeView::activated, d, &KexiFileRequester::Private::itemActivated);
     d->list->setRootIsDecorated(false);
     d->list->setItemsExpandable(false);
     d->list->header()->hide();
@@ -293,6 +468,32 @@ void KexiFileRequester::init()
     d->list->header()->setStretchLastSection(false);
     d->list->header()->setSectionResizeMode(NameColumnId, QHeaderView::Stretch);
     d->list->header()->setSectionResizeMode(LastModifiedColumnId, QHeaderView::ResizeToContents);
+
+    QGridLayout *bottomLyr = new QGridLayout;
+    lyr->addLayout(bottomLyr);
+
+    QLabel *locationLabel = new QLabel(xi18n("Name:"));
+    bottomLyr->addWidget(locationLabel, 0, 0, Qt::AlignVCenter | Qt::AlignRight);
+    d->locationEdit = new KUrlComboBox(KUrlComboBox::Files, true);
+    d->locationEdit->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLength);
+    connect(d->locationEdit, &KUrlComboBox::editTextChanged, d,
+            &KexiFileRequester::Private::locationEditTextChanged);
+    connect(d->locationEdit, QOverload<>::of(&KUrlComboBox::returnPressed),
+            d, &Private::locationEditReturnPressed);
+    d->urlCompletion = new KexiUrlCompletion(&d->filterRegExps, &d->filterMimeTypes);
+    d->locationEdit->setCompletionObject(d->urlCompletion);
+    d->locationEdit->setAutoDeleteCompletionObject(true);
+    d->locationEdit->lineEdit()->setClearButtonEnabled(true);
+    locationLabel->setBuddy(d->locationEdit);
+    bottomLyr->addWidget(d->locationEdit, 0, 1, Qt::AlignVCenter);
+
+    QLabel *filterLabel = new QLabel(xi18n("Filter:"));
+    bottomLyr->addWidget(filterLabel, 1, 0, Qt::AlignVCenter | Qt::AlignRight);
+    d->filterCombo = new KFileFilterCombo;
+    connect(d->filterCombo, &KFileFilterCombo::filterChanged,
+            d, &Private::slotFilterComboChanged);
+    filterLabel->setBuddy(d->filterCombo);
+    bottomLyr->addWidget(d->filterCombo, 1, 1, Qt::AlignVCenter);
 }
 
 QString KexiFileRequester::selectedFile() const
@@ -301,11 +502,10 @@ QString KexiFileRequester::selectedFile() const
     if (list.isEmpty()) {
         return QString();
     }
-    const QModelIndex index(list.first());
-    if (d->model->isDir(index)) {
+    if (d->model->isDir(list.first())) {
         return QString();
     }
-    return d->model->filePath(index);
+    return d->model->filePath(list.first());
 }
 
 QString KexiFileRequester::highlightedFile() const
@@ -325,7 +525,18 @@ void KexiFileRequester::setSelectedFile(const QString &name)
 
 void KexiFileRequester::updateFilters()
 {
-    d->updateFilter();
+    // Update filters for the file model, filename completion and the filter combo
+    const QStringList patterns = filters()->allGlobPatterns();
+    if (patterns != d->model->nameFilters()) {
+        d->model->setNameFilters(patterns);
+        qDeleteAll(d->filterRegExps);
+        d->filterRegExps.clear();
+        for (const QString &pattern : patterns) {
+            d->filterRegExps.append(new QRegExp(pattern, Qt::CaseInsensitive, QRegExp::Wildcard));
+        }
+        d->filterMimeTypes = filters()->mimeTypes();
+        d->filterCombo->setFilter(filters()->toString(KexiFileFilters::KDEFormat));
+    }
 }
 
 void KexiFileRequester::setWidgetFrame(bool set)
@@ -341,6 +552,13 @@ void KexiFileRequester::applyEnteredFileName()
 QStringList KexiFileRequester::currentFilters() const
 {
     return QStringList();
+}
+
+void KexiFileRequester::showEvent(QShowEvent *event)
+{
+    setFiltersUpdated(false);
+    updateFilters();
+    QWidget::showEvent(event);
 }
 
 #include "KexiFileRequester.moc"

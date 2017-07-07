@@ -22,6 +22,8 @@
 
 #include "kexicore_export.h"
 
+#include <QList>
+
 class QMimeType;
 class QString;
 class QStringList;
@@ -49,7 +51,7 @@ public:
     void setMode(Mode mode);
 
     /*! Sets a default-filter, that is used when an empty filter is set.
-     * By default, this is set to i18n("*|All Files")
+     * By default, this is set to "All Supported Files"
      * @see defaultFilter
      */
     void setDefaultFilter(const QString &filter);
@@ -75,6 +77,12 @@ public:
     //! @return glob patterns for all mime types for given mode
     //! Includes additional mime types and excludes miem types specified by excludedMimeTypes().
     QStringList allGlobPatterns() const;
+
+    //! @return mime types for this filter
+    QList<QMimeType> mimeTypes() const;
+
+    //! @return mime types names for this filter
+    QStringList mimeTypeNames() const;
 
     //! @return @c true if existing file is required
     //! This is true for Opening and CustomOpening modes.

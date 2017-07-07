@@ -167,15 +167,40 @@ void KexiFileFilters::setExcludedMimeTypes(const QStringList &mimeTypes)
     d->filtersUpdated = false;
 }
 
+static QStringList globPatterns(const QMimeType &mimeType)
+{
+    QStringList result = mimeType.globPatterns();
+    //! @todo Improve if possible.
+    //!       This is a hack to remove misleading filter, QFileSystemModel can't check by content.
+    if (mimeType.name() == QStringLiteral("text/plain")) {
+        result.removeOne(QStringLiteral("*.doc"));
+    }
+    return result;
+}
+
 QStringList KexiFileFilters::allGlobPatterns() const
 {
     QStringList result;
     for(const QMimeType &mimeType : d->mimeTypes()) {
-        result += mimeType.globPatterns();
+        result += globPatterns(mimeType);
     }
     //remove duplicates made because upper- and lower-case extensions are used:
     result = result.toSet().toList();
     std::sort(result.begin(), result.end());
+    return result;
+}
+
+QList<QMimeType> KexiFileFilters::mimeTypes() const
+{
+    return d->mimeTypes();
+}
+
+QStringList KexiFileFilters::mimeTypeNames() const
+{
+    QStringList result;
+    for (const QMimeType &mimeType : d->mimeTypes()) {
+        result += mimeType.name();
+    }
     return result;
 }
 
@@ -258,7 +283,7 @@ QString KexiFileFilters::toString(const QMimeType &mime, Format format)
     }
 
     QString str;
-    QStringList patterns(mime.globPatterns());
+    QStringList patterns(globPatterns(mime));
     if (patterns.isEmpty()) {
         patterns += QStringLiteral("*");
     }

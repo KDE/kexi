@@ -99,18 +99,18 @@ void KexiFileWidgetInterface::done()
 {
     qDebug() << d->recentDirClass;
     if (!d->recentDirClass.isEmpty()) {
-        QString hf = highlightedFile();
+        QString f = selectedFile();
         QString dir;
-        if (hf.isEmpty()) {
+        if (f.isEmpty()) {
             dir = currentDir();
         }
         else {
-            QFileInfo fi(hf);
+            QFileInfo fi(f);
             QString dirStr = fi.isDir() ? fi.absoluteFilePath() : fi.dir().absolutePath();
             dir = dirStr;
         }
         qDebug() << dir;
-        qDebug() << highlightedFile();
+        qDebug() << selectedFile();
         addRecentDir(dir);
     }
 }

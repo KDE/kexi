@@ -88,6 +88,8 @@ protected:
 
     QStringList currentFilters() const override;
 
+    void showEvent(QShowEvent *event) override;
+
 private:
     void init();
 

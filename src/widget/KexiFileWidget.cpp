@@ -53,7 +53,7 @@ public:
     Private()
     {
     }
-    QUrl highlightedUrl;
+    QUrl selectedUrl;
 };
 
 //------------------
@@ -71,7 +71,6 @@ KexiFileWidget::KexiFileWidget(const QUrl &startDirOrVariable, KexiFileFilters::
     }
     setFocusProxy(locationEdit());
     connect(this, &KFileWidget::fileHighlighted, this, &KexiFileWidget::slotFileHighlighted);
-    connect(this, &KFileWidget::fileSelected, this, &KexiFileWidget::slotFileSelected);
     setMode(mode);
 }
 
@@ -103,8 +102,8 @@ KexiFileWidget::~KexiFileWidget()
 void KexiFileWidget::slotFileHighlighted(const QUrl& url)
 {
     qDebug() << url;
-    d->highlightedUrl = url;
-    emit fileHighlighted(highlightedFile());
+    d->selectedUrl = url;
+    emit fileSelected(selectedFile());
 }
 
 void KexiFileWidget::slotFileSelected(const QUrl& url)
@@ -197,17 +196,17 @@ QString KexiFileWidget::selectedFile() const
 
 QString KexiFileWidget::selectedFile() const
 {
-    return KFileWidget::selectedFile();
+    return d->selectedUrl.toLocalFile();
 }
 
 QString KexiFileWidget::highlightedFile() const
 {
-    return d->highlightedUrl.toLocalFile();
+    return d->selectedUrl.toLocalFile();
 }
 
 void KexiFileWidget::setSelectedFile(const QString &name)
 {
-    KFileWidget::setSelection(name);
+    d->selectedUrl = QUrl::fromLocalFile(name);
 }
 
 QString KexiFileWidget::currentDir() const
@@ -230,7 +229,7 @@ void KexiFileWidget::applyEnteredFileName()
     if (QDir::isAbsolutePath(enteredFileName)) {
         setSelectedFile(enteredFileName);
     } else {
-        setSelectedFile(currentDir() + '/' + enteredFileName);
+        setSelectedFile(currentDir() + enteredFileName);
     }
 }
 
