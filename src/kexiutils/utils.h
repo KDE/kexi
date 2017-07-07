@@ -421,7 +421,7 @@ KEXIUTILS_EXPORT void setMargins(QLayout *layout, int value);
         lyr->addWidget(what); }
 
 //! A tool for setting temporary value for boolean variable.
-/*! After desctruction of the instance, the variable is set back
+/*! After destruction of the instance, the variable is set back
  to the original value. This class is useful in recursion guards.
  To use it, declare class atrribute of type bool and block it, e.g.:
  @code
