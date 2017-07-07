@@ -343,7 +343,6 @@ void KexiConnectionSelectorWidget::slotConnectionSelectionChanged()
     }
     d->descGroupBoxPaintBlocker->setEnabled(desc.isEmpty());
     d->remote->descriptionLabel->setText(desc);
-    slotConnectionSelected();
     emit connectionItemHighlighted(item);
 }
 

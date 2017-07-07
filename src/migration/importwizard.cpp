@@ -1128,7 +1128,7 @@ void ImportWizard::slotOptionsButtonClicked()
 
 void ImportWizard::sourceConnectionSelected(bool selected)
 {
-    if (selected && fileBasedSrcSelected()) {
+    if (selected) {
         next();
     }
 }
