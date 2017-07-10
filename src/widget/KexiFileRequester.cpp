@@ -311,7 +311,7 @@ public Q_SLOTS:
         if (text.isEmpty()) {
             return;
         }
-        if (text == QLatin1Char('~')) {
+        if (text == QStringLiteral("~")) {
             text = QDir::homePath();
         } else if (text.startsWith(QStringLiteral("~/"))) {
             text = QDir::home().absoluteFilePath(text.mid(2));
