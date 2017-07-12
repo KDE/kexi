@@ -20,6 +20,7 @@ Name[sk]=Sybase
 Name[sv]=Sybase
 Name[uk]=Sybase
 Name[x-test]=xxSybasexx
+Name[zh_CN]=Sybase
 Comment=Sybase Import Plugin for Kexi
 Comment[ca]=Connector d'importació de Sybase per al Kexi
 Comment[ca@valencia]=Connector d'importació de Sybase per al Kexi
