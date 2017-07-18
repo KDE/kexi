@@ -95,13 +95,13 @@ public:
      If \a listData \a nlist if not NULL but empty, Property::setListData(0) is called. */
     virtual void changeFieldPropertyForRecord(int record,
                                            const QByteArray& propertyName, const QVariant& newValue,
-                                           KPropertyListData* const listData, bool addCommand);
+                                           const KPropertyListData* listData, bool addCommand);
 
     /*! Changes property \a propertyName to \a newValue.
      Works exactly like changeFieldPropertyForRecord(); except the field is pointed by \a fieldUID.
      Used by ChangeFieldPropertyCommand to change field's property. */
     void changeFieldProperty(int fieldUID, const QByteArray& propertyName,
-                             const QVariant& newValue, KPropertyListData* const listData = 0,
+                             const QVariant& newValue, const KPropertyListData* listData = nullptr,
                              bool addCommand = false);
 
     /*! Changes visibility of property \a propertyName to \a visible for a field pointed by \a fieldUID.
@@ -219,10 +219,6 @@ protected:
      If \a commandGroup is not 0, it is used as parent group for storing actions' history. */
     void switchPrimaryKey(KPropertySet &propertySet, bool set, bool aWasPKey = false,
                           KexiTableDesignerCommands::Command* commandGroup = 0);
-
-    //! Gets subtype strings and names for type \a fieldType.
-    void getSubTypeListData(KDbField::TypeGroup fieldTypeGroup,
-                            QStringList& stringsList, QStringList& namesList);
 
     /*! Adds history command \a command to the undo/redo buffer.
      If \a execute is true, the command is executed afterwards. */

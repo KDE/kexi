@@ -31,6 +31,7 @@
 #include <KexiWindow.h>
 #include <kexi_global.h>
 
+#include <KPropertyListData>
 #include <KPropertySet>
 
 #include <KDbConnection>
@@ -276,9 +277,7 @@ void KexiTableDesignerView::initData()
 }
 
 //! Gets subtype strings and names for type \a fieldType
-void
-KexiTableDesignerView::getSubTypeListData(KDbField::TypeGroup fieldTypeGroup,
-        QStringList& stringsList, QStringList& namesList)
+static KPropertyListData *getSubTypeListData(KDbField::TypeGroup fieldTypeGroup)
 {
     /* disabled - "mime" is moved from subType to "objectType" custom property
       if (fieldTypeGroup==KDbField::BLOBGroup) {
@@ -288,11 +287,12 @@ KexiTableDesignerView::getSubTypeListData(KDbField::TypeGroup fieldTypeGroup,
         namesList << xi18n("Image object type", "Image");
       }
       else {*/
-    stringsList = KDb::fieldTypeStringsForGroup(fieldTypeGroup);
-    namesList = KDb::fieldTypeNamesForGroup(fieldTypeGroup);
-// }
-    qDebug() << "subType strings: " <<
-        stringsList.join("|") << "\nnames: " << namesList.join("|");
+    KPropertyListData *listData = new KPropertyListData(
+        KDb::fieldTypeStringsForGroup(fieldTypeGroup), KDb::fieldTypeNamesForGroup(fieldTypeGroup));
+    // }
+    qDebug() << "subType strings: " << listData->keysAsStringList().join("|")
+             << "\nnames: " << listData->namesAsStringList().join("|");
+    return listData;
 }
 
 KPropertySet *
@@ -329,8 +329,7 @@ KexiTableDesignerView::createPropertySet(int record, const KDbField& field, bool
 #endif
 
     //subtype
-    QStringList typeStringList, typeNameList;
-    getSubTypeListData(field.typeGroup(), typeStringList, typeNameList);
+    KPropertyListData *listData = getSubTypeListData(field.typeGroup());
     /* disabled - "mime" is moved from subType to "objectType" custom property
       QString subTypeValue;
       if (field.typeGroup()==KDbField::BLOBGroup) {
@@ -339,21 +338,20 @@ KexiTableDesignerView::createPropertySet(int record, const KDbField& field, bool
         subTypeValue = slist.first();
       }
       else {*/
-    QString subTypeValue = field.typeString();
+    QVariant subTypeValue = field.typeString();
     //}
-    set->addProperty(prop = new KProperty("subType",
-            typeStringList, typeNameList, subTypeValue, xi18n("Subtype")));
+    set->addProperty(prop = new KProperty("subType", listData, subTypeValue, xi18n("Subtype")));
 
     // objectType
-    QStringList objectTypeStringList, objectTypeNameList;
 //! @todo this should be retrieved from KDbField when BLOB supports many different mimetypes
-    objectTypeStringList << "image";
-    objectTypeNameList << xi18nc("Image object type", "Image");
-    QString objectTypeValue(field.customProperty("objectType").toString());
-    if (objectTypeValue.isEmpty())
+
+    listData
+        = new KPropertyListData({ "image" }, QVariantList{ xi18nc("Image object type", "Image") });
+    QVariant objectTypeValue(field.customProperty("objectType"));
+    if (objectTypeValue.toString().isEmpty())
         objectTypeValue = DEFAULT_OBJECT_TYPE_VALUE;
     set->addProperty(prop = new KProperty("objectType",
-            objectTypeStringList, objectTypeNameList, objectTypeValue,
+            listData, objectTypeValue,
             xi18n("Subtype")/*! @todo other i18n string?*/));
 
     set->addProperty(prop = new KProperty("caption", QVariant(field.caption()),
@@ -703,15 +701,14 @@ void KexiTableDesignerView::slotBeforeCellChanged(
         if (fieldType == KDbField::InvalidType)
             fieldType = KDbField::Text;
 
-        //-get subtypes for this type: keys (slist) and names (nlist)
-        QStringList slist, nlist;
-        getSubTypeListData(fieldTypeGroup, slist, nlist);
+        //-get subtypes for this type:
+        KPropertyListData *listData = getSubTypeListData(fieldTypeGroup);
 
-        QString subTypeValue;
+        QVariant subTypeValue;
         /* disabled - "mime" is moved from subType to "objectType" custom property
             if (fieldType==KDbField::BLOB) {
               // special case: BLOB type uses "mime-based" subtypes
-              subTypeValue = slist.first();
+              subTypeValue = listData->keys().first();
             }
             else {*/
         subTypeValue = KDbField::typeString(fieldType);
@@ -729,11 +726,10 @@ void KexiTableDesignerView::slotBeforeCellChanged(
         //update subtype list and value
         const bool forcePropertySetReload = KDbField::typeGroup(
             KDbField::typeForString(subTypeProperty->value().toString())) != fieldTypeGroup;   //<-- ?????
-        const bool useListData = slist.count() > 1;
+        const bool useListData = listData->keys().count() > 1;
 
         if (!useListData) {
-            slist.clear(); //empty list will be passed
-            nlist.clear();
+            *listData = KPropertyListData(); //empty list will be passed
         }
         d->setPropertyValueIfNeeded(set, "type", (int)fieldType, changeDataTypeCommand,
                                     false /*!forceAddCommand*/, true /*rememberOldValue*/);
@@ -759,7 +755,7 @@ void KexiTableDesignerView::slotBeforeCellChanged(
         }
         d->setPropertyValueIfNeeded(set, "subType", subTypeValue,
                                     changeDataTypeCommand, false, false /*!rememberOldValue*/,
-                                    &slist, &nlist);
+                                    listData);
 
         if (d->updatePropertiesVisibility(fieldType, set, changeDataTypeCommand)
                 || forcePropertySetReload) {
@@ -1753,7 +1749,7 @@ void KexiTableDesignerView::deleteRecord(int record, bool addCommand)
 
 void KexiTableDesignerView::changeFieldPropertyForRecord(int record,
         const QByteArray& propertyName, const QVariant& newValue,
-        KPropertyListData* const listData, bool addCommand)
+        const KPropertyListData* listData, bool addCommand)
 {
 #ifdef KEXI_DEBUG_GUI
     KDb::alterTableActionDebugGUI(QString("** changeFieldProperty: \"")
@@ -1768,10 +1764,11 @@ void KexiTableDesignerView::changeFieldPropertyForRecord(int record,
         return;
     KProperty &property = set->property(propertyName);
     if (listData) {
-        if (listData->keys.isEmpty())
-            property.setListData(0);
-        else
+        if (listData->keys().isEmpty()) {
+            property.setListData(nullptr);
+        } else {
             property.setListData(new KPropertyListData(*listData));
+        }
     }
     if (propertyName != "type") //delayed type update (we need to have subtype set properly)
         property.setValue(newValue);
@@ -1822,7 +1819,7 @@ void KexiTableDesignerView::changeFieldPropertyForRecord(int record,
 
 void KexiTableDesignerView::changeFieldProperty(int fieldUID,
         const QByteArray& propertyName, const QVariant& newValue,
-        KPropertyListData* const listData, bool addCommand)
+        const KPropertyListData* listData, bool addCommand)
 {
     //find a property by UID
     const int record = d->sets->findRecordForPropertyValue("uid", fieldUID);

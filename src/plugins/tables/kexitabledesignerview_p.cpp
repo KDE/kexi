@@ -29,6 +29,7 @@
 #include <KexiWindow.h>
 #include "kexitabledesignercommands.h"
 
+#include <KPropertyListData>
 #include <KPropertySet>
 
 #include <KDbConnection>
@@ -83,18 +84,19 @@ void KexiTableDesignerViewPrivate::setPropertyValueIfNeeded(
     const KPropertySet& set, const QByteArray& propertyName,
     const QVariant& newValue, const QVariant& oldValue, Command* commandGroup,
     bool forceAddCommand, bool rememberOldValue,
-    QStringList* const slist, QStringList* const nlist)
+    KPropertyListData *listData)
 {
     KProperty& property = set[propertyName];
 
     //remember because we'll change list data soon
     const QScopedPointer<KPropertyListData>oldListData(property.listData() ?
             new KPropertyListData(*property.listData()) : 0);
-    if (slist && nlist) {
-        if (slist->isEmpty() || nlist->isEmpty()) {
-            property.setListData(0);
+    if (listData) {
+        if (listData->keys().isEmpty() || listData->names().isEmpty()) {
+            property.setListData(nullptr);
+            delete listData;
         } else {
-            property.setListData(*slist, *nlist);
+            property.setListData(listData);
         }
     }
     if (oldValue.type() == newValue.type()
@@ -124,11 +126,11 @@ void KexiTableDesignerViewPrivate::setPropertyValueIfNeeded(
     const KPropertySet& set, const QByteArray& propertyName,
     const QVariant& newValue, Command* commandGroup,
     bool forceAddCommand, bool rememberOldValue,
-    QStringList* const slist, QStringList* const nlist)
+    KPropertyListData* listData)
 {
     KProperty& property = set[propertyName];
     setPropertyValueIfNeeded(set, propertyName, newValue, property.value(),
-                             commandGroup, forceAddCommand, rememberOldValue, slist, nlist);
+                             commandGroup, forceAddCommand, rememberOldValue, listData);
 }
 
 void KexiTableDesignerViewPrivate::setVisibilityIfNeeded(const KPropertySet& set, KProperty* prop,
@@ -157,7 +159,7 @@ bool KexiTableDesignerViewPrivate::updatePropertiesVisibility(KDbField::Type fie
 
     //if there is no more than 1 subType name or it's a PK: hide the property
     visible =
-        (prop->listData() && prop->listData()->keys.count() > 1 /*disabled || isObjectTypeGroup*/)
+        (prop->listData() && prop->listData()->keys().count() > 1 /*disabled || isObjectTypeGroup*/)
         && set["primaryKey"].value().toBool() == false;
     setVisibilityIfNeeded(set, prop, visible, &changed, commandGroup);
 

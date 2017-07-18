@@ -48,6 +48,7 @@
 #include <KDbTableOrQuerySchema>
 #include <KDbTableViewColumn>
 
+#include <KPropertyListData>
 #include <KProperty>
 #include <KPropertySet>
 
@@ -1870,11 +1871,11 @@ KexiQueryDesignerGuiEditor::createPropertySet(int row,
       prop->setVisible(false);*/
 
     //sorting
-    QStringList slist, nlist;
-    slist << "nosorting" << "ascending" << "descending";
-    nlist << xi18n("None") << xi18n("Ascending") << xi18n("Descending");
+    KPropertyListData *listData = new KPropertyListData(
+        {"nosorting", "ascending", "descending"},
+        QVariantList{xi18n("None"), xi18n("Ascending"), xi18n("Descending")});
     set->addProperty(prop = new KProperty("sorting",
-            slist, nlist, slist[0], xi18n("Sorting")));
+            listData, listData->keys().first(), xi18n("Sorting")));
     prop->setVisible(false);
 
     set->addProperty(prop = new KProperty("criteria", QVariant(QString())));

@@ -22,6 +22,8 @@
 #include "form_p.h"
 #include "formIO.h"
 
+#include <KPropertyListData>
+
 #include <KLocalizedString>
 
 #include <QStyleOption>
