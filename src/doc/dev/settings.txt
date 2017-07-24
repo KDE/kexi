@@ -7,8 +7,6 @@ All other settings are unofficial and are subject to change.
 Started: 2004-08-20, js
 -----------------------------------------------------------
 
-TODO: use kconf_update to migrate old keys starting with lowercase to new keys (http://techbase.kde.org/Development/Tutorials/Updating_KConfig_Files)
-
 Group: MainWindow
 # percentage width of the Project Navigator pane
 -LeftDockPosition [integer: 0..100]
@@ -20,18 +18,17 @@ Group: MainWindow
 # Otherwise double click should be used to open item.
 # Meaningful when "single click to open files" option is set
 # in the Control Center.
-- SingleClickOpensItem [boolean] (default: false)
-
-# Percentage property editor's width
--RightDockPosition [integer: 0..100]
+- SingleClickOpensItem [boolean] (default: true on Windows, system settings elsewhere)
 
 Group: PropertyEditor
--FontSize [integer]
+# Font size in pixels. Obsolete since Kexi 3. See FontPointSize instead.
+-FontSize [integer] (default: system settings)
+# Font size in points.
+-FontPointSize [double] (default: system settings)
 
 Group: Notification Messages
 -AskBeforeDeleteRow [boolean] (default: true)
-
--askBeforeOpeningFileReadOnly [boolean] (default: true)
+TODO: -askBeforeOpeningFileReadOnly [boolean] (default: true)
 
 # If true, warning messages related to plugins, e.g.
 # "Errors encountered during loading plugins"
@@ -39,9 +36,8 @@ Group: Notification Messages
 -ShowWarningsRelatedToPluginsLoading [boolean] (default: true)
 
 Group: General
-#especially useful for SQL-related messages
-#default=true for advanced Kexi mode
-NOT YET IMPELMENTED: -alwaysShowDetailsInMsgBoxes [boolean]
+# especially useful for SQL-related messages
+TODO: -alwaysShowDetailsInMsgBoxes [boolean] (default: true for advanced Kexi mode)
 
 # True if internal debugger window should be displayed with Kexi.
 # The window shows database operations and enables extra actions like 'Show Form UI Code'
@@ -49,36 +45,39 @@ NOT YET IMPELMENTED: -alwaysShowDetailsInMsgBoxes [boolean]
 # Only available when KEXI_DEBUG_GUI build option is enabled.
 -ShowInternalDebugger [boolean] (default: false)
 
-Group: Recent Dirs
--lastVisitedImagePath [stringlist] # used for open/save dialogs for image files
-                                   # see KexiImageBox::slotInsertFromFile() and slotSaveAs();
+Group: File Dialogs
+# If the KEXI_USE_KFILEWIDGET build option is on and UseKFileWidget is true,
+# KF5's KFileWidget-based widget is used in places where embedded file widget is needed.
+# If the KEXI_USE_KFILEWIDGET build option is on and UseKFileWidget is false,
+# simple file requester widget is used in places where embedded file widget is needed.
+# To delete the override, delete the UseKFileWidget option in the aplication's config file.
+-UseKFileWidget [boolean] (default: not present)
 
-Group: Startup
--OpenExistingType [File|Server]
--ShowStartupDialog [boolean]
-#default file db driver name, used on file db creation:
-TODO: -DefaultFileDBDriverName [string default="sqlite3", can be also "sqlite2"]
+Group: Recent Dirs
+# A list of recently displayed directories in file dialogs related to images (e.g. images within forms).
+# See KexiImageBox::slotInsertFromFile() and slotSaveAs();
+TODO: -LastVisitedImagePath [URL list] (default: empty)
 
 Group: TableView
 TODO: -add default values for KexiTableView::Appearance
 
 Group: TableDesigner
--autogeneratePrimaryKeysOnTableDesignSaving [boolean]
+TODO: -autogeneratePrimaryKeysOnTableDesignSaving [boolean]
 TODO: -defaultFieldType [the list of types], default=Text
 TODO: -autoPrimaryKeyForFieldNames [stringlist]
 TODO: -defaultIntegerFieldSubtype [the list of types (byte, short, etc.)] default=long
 
 # Settings related to handling of database tables
 Group: Tables
-# TODO: value of DefaultTextFieldMaxLength should be also used on other places where we create tables with Text fields, e.g. on table importing
+# value of DefaultTextFieldMaxLength should be also used on other places where we create tables with Text fields, e.g. on table importing
 # Default maximum length for fields of type Text
--DefaultMaxLengthForTextFields [int] (0: unlimited or up to engine's limit, default=0)
+TODO: -DefaultMaxLengthForTextFields [int] (0: unlimited or up to engine's limit, default=0)
 
 Group: QueryDesigner
 TODO: -autoJoinOnTableInserting [boolean]
 
 Group: KeyboardNavigation
--cursorPlacementAfterLastOrFirstFormField [stringlist: nextOrPrevRecord|firstOrLastField(default)]
+TODO: -cursorPlacementAfterLastOrFirstFormField [stringlist: nextOrPrevRecord|firstOrLastField(default)]
 
 Group: Forms
 TODO:-overrideStyleName [string] (empty if do not override)
@@ -92,11 +91,11 @@ TODO:-makeFirstCharacterUpperCaseInAutoLabels [boolean] (true by default; when t
                                       Usable when no field's title is provided)
 TODO:-labelPositionInAutoLabels [enum: Left, Top] (Left by default)
 
-TODO:-gridSize [int] (10 by default)
+TODO:-gridSize [int] (default: 10)
 
 Group: NewFormDefaults
-TODO:-styleName [string]
-TODO:-autoTabStop [boolean]
+TODO: -styleName [string]
+TODO: -autoTabStop [boolean]
 
 Group: ImportExport
 # Default character encoding for MS Access MDB/MDE files (older than 2000).
@@ -104,31 +103,31 @@ Group: ImportExport
 # Useful if you are performing many imports of MS Access databases.
 # Valid values can be "cp 1250", "cp 1251", etc. Case insensitive.
 # If not provided, system default will be is assumed.
--DefaultEncodingForMSAccessFiles [string]
+-DefaultEncodingForMSAccessFiles [string] (default: system specific)
 
 # Default character encoding for importing CSV (Comma-Separated Value) files.
 # If not provided, system default will be is assumed.
--DefaultEncodingForImportingCSVFiles [string]
+-DefaultEncodingForImportingCSVFiles [string] (default: system locale)
 
 # True if options should be visible in the "CSV Export dialog".
--ShowOptionsInCSVExportDialog [boolean] (false by default)
+-ShowOptionsInCSVExportDialog [boolean] (default: false)
 
 # If provided, appropriate options for CSV Export Dialog will be loaded
 -StoreOptionsForCSVExportDialog [boolean] (default: false)
 
 # Default delimiter used for exporting CSV (Comma-Separated Value) files.
--DefaultDelimiterForExportingCSVFiles [string] (default is ",")
+-DefaultDelimiterForExportingCSVFiles [string] (default: ",")
 
 # Default text quote character used for exporting CSV (Comma-Separated Value) files.
--DefaultTextQuoteForExportingCSVFiles [string] (default is ")
+-DefaultTextQuoteForExportingCSVFiles [string] (default: ")
 
 # Import missing text values in CSV files as empty text ('' not NULL).
-ImportNULLsAsEmptyText [boolean] (default: true)
+-ImportNULLsAsEmptyText [boolean] (default: true)
 
 # Default character encoding for exporting CSV (Comma-Separated Value) files.
 # If not provided, system default will be is assumed.
 # Only used when StoreOptionsForCSVExportDialog option is true.
--DefaultEncodingForExportingCSVFiles [string]
+-DefaultEncodingForExportingCSVFiles [string] (default: UTF-8)
 
 # Default setting used to specify whether column names should be added as the first row
 # for exporting CSV (Comma-Separated Value) files.
@@ -146,25 +145,20 @@ ImportNULLsAsEmptyText [boolean] (default: true)
 Group: Recent Dirs
 # A list of recently displayed directories in file dialogs related to CSV
   import/export.
--CSVImportExport [URL list]
+-CSVImportExport [URL list] (default: empty)
 
 # A list of recently displayed directories in "Source database" file dialog
   of Project Migration
--ProjectMigrationSourceDir [URL list]
+-ProjectMigrationSourceDir [URL list] (default: empty)
 
 # A list of recently displayed directories in "Destination database" file
   dialog of Project Migration
--ProjectMigrationDestinationDir [URL list]
+-ProjectMigrationDestinationDir [URL list] (default: empty)
 
 # A list of recently displayed directories in "Open existing project"
   and "Create new project" file dialog of Startup Dialog
--OpenExistingOrCreateNewProject [URL list]
-
-# A list of recently displayed directories in file dialogs related to images
-  (e.g. images within forms).
--LastVisitedImagePath [URL list]
+-OpenExistingOrCreateNewProject [URL list] (default: empty)
 
 # A list of recent displayed directories in a file dialogs used for dowloading
   example databases (Get Hot New Stuff)
--DownloadExampleDatabases [URL list]
-
+TODO: -DownloadExampleDatabases [URL list] (default: empty)
