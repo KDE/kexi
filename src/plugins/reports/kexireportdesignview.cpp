@@ -163,6 +163,7 @@ tristate KexiReportDesignView::afterSwitchFrom(Kexi::ViewMode mode)
 
         m_reportDesigner = new KReportDesigner(this, tempData()->reportDefinition);
         m_sourceSelector->setConnectionData(tempData()->connectionDefinition);
+        m_reportDesigner->setScriptSource(qobject_cast<KexiReportPart*>(part()));
     }
     connect(m_reportDesigner, SIGNAL(itemInserted(QString)), this, SIGNAL(itemInserted(QString)));
 

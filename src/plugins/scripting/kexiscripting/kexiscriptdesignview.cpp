@@ -22,14 +22,17 @@
 
 #include "kexiscriptdesignview.h"
 #include "kexiscripteditor.h"
+#include "kexiscriptadaptor.h"
+#include "../kexidb/kexidbmodule.h"
+#include "KexiScriptingDebug.h"
+#include "kexiscriptpart.h"
+
 #include <KexiIcon.h>
 #include <KexiMainWindowIface.h>
-
-#include <Kross/Manager>
-#include <Kross/Action>
-#include <Kross/Interpreter>
+#include <kexipart.h>
 
 #include <KDbConnection>
+#include <KPropertyListData>
 
 #include <KActionMenu>
 #include <KMessageBox>
@@ -38,8 +41,23 @@
 #include <QTimer>
 #include <QDomDocument>
 #include <QTextBrowser>
-#include <QDebug>
 #include <QFileDialog>
+#include <QMenu>
+#include <QJSEngine>
+#include <QJSValue>
+#include <QJSValueIterator>
+
+static QString _stdout;
+
+void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
+{
+    if (QString(context.category) == "js") {
+        _stdout += msg + "\n";
+    } else {
+        fprintf(stderr, "%s\n", msg.toLocal8Bit().constData());
+        fflush(stderr);
+    }
+}
 
 /// @internal
 class KexiScriptDesignViewPrivate
@@ -47,13 +65,7 @@ class KexiScriptDesignViewPrivate
 public:
 
     QSplitter* splitter;
-
-    /**
-     * The \a Kross::Action instance which provides
-     * us access to the scripting framework Kross.
-     */
-    Kross::Action* scriptaction;
-
+        
     /// The \a KexiScriptEditor to edit the scripting code.
     KexiScriptEditor* editor;
 
@@ -74,15 +86,17 @@ public:
                  object such as a report or form
      */
     QString scriptType;
+    
+    QString factoryConstructors;
 };
 
 KexiScriptDesignView::KexiScriptDesignView(
-    QWidget *parent, Kross::Action* scriptaction)
+    QWidget *parent)
         : KexiView(parent)
         , d(new KexiScriptDesignViewPrivate())
 {
     setObjectName("KexiScriptDesignView");
-    d->scriptaction = scriptaction;
+
     d->updatesProperties = false;
 
     d->splitter = new QSplitter(this);
@@ -173,14 +187,12 @@ KexiScriptDesignView::KexiScriptDesignView(
 
     setMainMenuActions(mainMenuActions);
 
-    loadData();
-
     d->properties = new KPropertySet(this);
     connect(d->properties, SIGNAL(propertyChanged(KPropertySet&,KProperty&)),
             this, SLOT(slotPropertyChanged(KPropertySet&,KProperty&)));
 
-    // To schedule the initialize fixes a crasher in Kate.
-    QTimer::singleShot(50, this, SLOT(initialize()));
+    initialize("");
+    loadData();
 }
 
 KexiScriptDesignView::~KexiScriptDesignView()
@@ -189,37 +201,27 @@ KexiScriptDesignView::~KexiScriptDesignView()
     delete d;
 }
 
-Kross::Action* KexiScriptDesignView::scriptAction() const
+#if 0
+QString KexiScriptDesignView::scriptAction() const
 {
     return d->scriptaction;
 }
+#endif
 
-void KexiScriptDesignView::initialize()
+void KexiScriptDesignView::initialize(const QString &program)
 {
     setDirty(false);
     updateProperties();
-    d->editor->initialize(d->scriptaction);
+    d->editor->initialize(program);
     connect(d->editor, SIGNAL(textChanged()), this, SLOT(setDirty()));
     d->splitter->setSizes( QList<int>() << height() * 2 / 3 << height() * 1 / 3 );
 }
 
 void KexiScriptDesignView::slotImport()
 {
-    QStringList filters;
-    foreach(const QString &interpreter, Kross::Manager::self().interpreters()) {
-        filters << Kross::Manager::self().interpreterInfo(interpreter)->mimeTypes();
-    }
-    //! @todo KEXI3 add equivalent of kfiledialog:///
-    //! @todo KEXI3 multiple filters
-    // for now support jsut one filter
-    QString filterString;
-    if (filters.count() == 1) {
-        const QMimeDatabase db;
-        const QString filterString = db.mimeTypeForName(filters.first()).filterString();
-    }
     //QUrl("kfiledialog:///kexiscriptingdesigner"),
     const QUrl result = QFileDialog::getOpenFileUrl(this, xi18nc("@title:window", "Import Script"),
-                                                    QUrl(), filterString);
+                                                    QUrl(), "Javascript (*.js)");
     if (!result.isValid()) {
         return;
     }
@@ -227,7 +229,7 @@ void KexiScriptDesignView::slotImport()
     QFile f(result.toLocalFile());
     if (!f.open(QIODevice::ReadOnly | QIODevice::Text)) {
         KMessageBox::sorry(this,
-            xi18nc("@info", "Could not read <filename>%1</filename>.", file));
+            xi18nc("@info", "Could not read <filename>%1</filename>.", result.toLocalFile()));
         return;
     }
     d->editor->setText(f.readAll());
@@ -236,19 +238,14 @@ void KexiScriptDesignView::slotImport()
 
 void KexiScriptDesignView::slotExport()
 {
-    QStringList filters;
-    foreach(const QString &interpreter, Kross::Manager::self().interpreters()) {
-        filters << Kross::Manager::self().interpreterInfo(interpreter)->mimeTypes();
-    }
-    const QString file = KFileDialog::getSaveFileName(
-        QUrl("kfiledialog:///kexiscriptingdesigner"),
-        filters.join(" "), this, xi18nc("@title:window", "Export Script"));
-    if (file.isEmpty())
+    const QUrl result = QFileDialog::getSaveFileUrl(this, xi18nc("@title:window", "Export Script"),
+                                        QUrl("kfiledialog:///kexiscriptingdesigner"), "Javascript (*.js)" );
+    if (!result.isValid())
         return;
-    QFile f(file);
+    QFile f(result.toLocalFile());
     if (! f.open(QIODevice::WriteOnly | QIODevice::Text)) {
         KMessageBox::sorry(this,
-            xi18nc("@info", "Could not write <filename>%1</filename>.", file));
+            xi18nc("@info", "Could not write <filename>%1</filename>.", result.toLocalFile()));
         return;
     }
     f.write(d->editor->text().toUtf8());
@@ -260,29 +257,6 @@ void KexiScriptDesignView::updateProperties()
     if (d->updatesProperties)
         return;
     d->updatesProperties = true;
-
-    Kross::Manager* manager = &Kross::Manager::self();
-
-    QString interpretername = d->scriptaction->interpreter();
-    Kross::InterpreterInfo* info = interpretername.isEmpty() ? 0 : manager->interpreterInfo(interpretername);
-
-    if (!info) {
-        // if interpreter isn't defined or invalid, try to fallback.
-        foreach (const QString& interpretername,
-            QStringList() << "python" << "ruby" << "qtscript" << "javascript" << "java")
-        {
-            info = manager->interpreterInfo(interpretername);
-            if (info) {
-                d->scriptaction->setInterpreter(interpretername);
-                break;
-            }
-        }
-    }
-
-    if (!info) {
-        d->updatesProperties = false;
-        return;
-    }
 
     d->properties->clear();
 
@@ -299,35 +273,6 @@ void KexiScriptDesignView::updateProperties()
     );
     d->properties->addProperty(t);
 
-    QStringList interpreters = manager->interpreters();
-
-    qDebug() << interpreters;
-
-    KPropertyListData* proplist = new KPropertyListData(interpreters, interpreters);
-    KProperty* prop = new KProperty(
-        "language", // name
-        proplist, // ListData
-        d->scriptaction->interpreter(), // value
-        xi18n("Interpreter"), // caption
-        xi18n("The used scripting interpreter."), // description
-        KProperty::List // type
-    );
-    d->properties->addProperty(prop);
-
-    Kross::InterpreterInfo::Option::Map options = info->options();
-    Kross::InterpreterInfo::Option::Map::ConstIterator it, end(options.constEnd());
-    for (it = options.constBegin(); it != end; ++it) {
-        Kross::InterpreterInfo::Option* option = it.value();
-        KProperty* prop = new KProperty(
-            it.key().toLatin1(), // name
-            d->scriptaction->option(it.key(), option->value), // value
-            it.key(), // caption
-            option->comment, // description
-            KProperty::Auto // type
-        );
-        d->properties->addProperty(prop);
-    }
-
     //propertySetSwitched();
     propertySetReloaded(true);
     d->updatesProperties = false;
@@ -343,24 +288,12 @@ void KexiScriptDesignView::slotPropertyChanged(KPropertySet& /*set*/, KProperty&
     if (property.isNull())
         return;
 
-    if (property.name() == "language") {
-        QString language = property.value().toString();
-        qDebug() << "language:" << language;
-        d->scriptaction->setInterpreter(language);
-        // We assume Kross and the HighlightingInterface are using same
-        // names for the support languages...
-        d->editor->setHighlightMode(language);
-        updateProperties();
-    }
-    else if (property.name() == "type") {
+    if (property.name() == "type") {
         d->scriptType = property.value().toString();
     }
     else {
-        bool ok = d->scriptaction->setOption(property.name(), property.value());
-        if (! ok) {
-            qWarning() << "unknown property:" << property.name();
-            return;
-        }
+        KexiScriptingWarning() << "unknown property:" << property.name();
+        return;
     }
 
     setDirty(true);
@@ -373,31 +306,37 @@ void KexiScriptDesignView::execute()
     time.start();
     d->statusbrowser->append(xi18nc("@info",
                                     "Execution of the script <resource>%1</resource> started.",
-                                    d->scriptaction->name()));
+                                    part()->instanceName()));
 
-    d->scriptaction->trigger();
-    if (d->scriptaction->hadError()) {
-        QString errormessage = d->scriptaction->errorMessage();
-        d->statusbrowser->append(QString("<b>%2</b><br>").arg(errormessage.toHtmlEscaped()));
+    KexiScriptPart *pt = qobject_cast<KexiScriptPart*>(part());
+    
+    _stdout = QString();
+    qInstallMessageHandler(myMessageOutput);
+    if (pt) {
+        QJSValue result = pt->execute(d->editor->text().toUtf8());
+    
+        d->statusbrowser->append(_stdout);
+        if (result.isError()) {
+            QString errormessage = result.toString();
+            d->statusbrowser->append(QString("<b>%2</b><br>").arg(errormessage.toHtmlEscaped()));
 
-        QString tracedetails = d->scriptaction->errorTrace();
-        d->statusbrowser->append(tracedetails.toHtmlEscaped());
-
-        long lineno = d->scriptaction->errorLineNo();
-        if (lineno >= 0)
-            d->editor->setLineNo(lineno);
+            long lineno = result.property("lineNumber").toInt();
+            if (lineno >= 0)
+                d->editor->setLineNo(lineno);
+        }
+        else {
+            // xgettext: no-c-format
+            d->statusbrowser->append(xi18n("Successfully executed. Time elapsed: %1ms", time.elapsed()));
+        }
     }
-    else {
-        // xgettext: no-c-format
-        d->statusbrowser->append(xi18n("Successfully executed. Time elapsed: %1ms", time.elapsed()));
-    }
+    qInstallMessageHandler(0);
 }
 
 bool KexiScriptDesignView::loadData()
 {
     QString data;
     if (!loadDataBlock(&data)) {
-        qDebug() << "no DataBlock";
+        KexiScriptingDebug() << "no DataBlock";
         return false;
     }
 
@@ -409,13 +348,13 @@ bool KexiScriptDesignView::loadData()
     bool parsed = domdoc.setContent(data, false, &errMsg, &errLine, &errCol);
 
     if (! parsed) {
-        qDebug() << "XML parsing error line: " << errLine << " col: " << errCol << " message: " << errMsg;
+        KexiScriptingWarning() << "XML parsing error line: " << errLine << " col: " << errCol << " message: " << errMsg;
         return false;
     }
 
     QDomElement scriptelem = domdoc.namedItem("script").toElement();
     if (scriptelem.isNull()) {
-        qDebug() << "script domelement is null";
+        KexiScriptingWarning() << "script domelement is null";
         return false;
     }
 
@@ -424,25 +363,7 @@ bool KexiScriptDesignView::loadData()
         d->scriptType = "executable";
     }
 
-    QString interpretername = scriptelem.attribute("language");
-    Kross::Manager* manager = &Kross::Manager::self();
-    Kross::InterpreterInfo* info = interpretername.isEmpty() ? 0 : manager->interpreterInfo(interpretername);
-    if (info) {
-        d->scriptaction->setInterpreter(interpretername);
-
-        Kross::InterpreterInfo::Option::Map options = info->options();
-        Kross::InterpreterInfo::Option::Map::ConstIterator it, end = options.constEnd();
-        for (it = options.constBegin(); it != end; ++it) {
-            QString value = scriptelem.attribute(it.key());
-            if (! value.isNull()) {
-                QVariant v(value);
-                if (v.convert(it.value()->value.type()))    // preserve the QVariant's type
-                    d->scriptaction->setOption(it.key(), v);
-            }
-        }
-    }
-
-    d->scriptaction->setCode(scriptelem.text().toUtf8());
+    initialize(scriptelem.text().toUtf8());
 
     return true;
 }
@@ -457,7 +378,7 @@ KDbObject* KexiScriptDesignView::storeNewData(const KDbObject& object,
         delete s;
         return 0;
     }
-    qDebug() << "new id:" << s->id();
+    KexiScriptingDebug() << "new id:" << s->id();
 
     if (! storeData()) {
         qWarning() << "Failed to store the data.";
@@ -473,29 +394,17 @@ KDbObject* KexiScriptDesignView::storeNewData(const KDbObject& object,
 
 tristate KexiScriptDesignView::storeData(bool /*dontAsk*/)
 {
+    KexiScriptingDebug() << "Saving script" << d->editor->text().toUtf8();
     QDomDocument domdoc("script");
     QDomElement scriptelem = domdoc.createElement("script");
     domdoc.appendChild(scriptelem);
 
-    QString language = d->scriptaction->interpreter();
-    scriptelem.setAttribute("language", language);
+    scriptelem.setAttribute("language", "javascript");
     //! @todo move different types to their own part??
     scriptelem.setAttribute("scripttype", d->scriptType);
 
-    Kross::InterpreterInfo* info = Kross::Manager::self().interpreterInfo(language);
-    if (info) {
-        Kross::InterpreterInfo::Option::Map defoptions = info->options();
-        QMap<QString, QVariant> options = d->scriptaction->options();
-        QMap<QString, QVariant>::ConstIterator it, end(options.constEnd());
-        for (it = options.constBegin(); it != end; ++it)
-            if (defoptions.contains(it.key()))  // only remember options which the InterpreterInfo knows about...
-                scriptelem.setAttribute(it.key(), it.value().toString());
-    }
-
-    QDomText scriptcode = domdoc.createTextNode(d->scriptaction->code());
+    QDomText scriptcode = domdoc.createTextNode(d->editor->text().toUtf8());
     scriptelem.appendChild(scriptcode);
 
     return storeDataBlock(domdoc.toString());
 }
-
-

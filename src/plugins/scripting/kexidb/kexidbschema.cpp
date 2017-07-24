@@ -23,6 +23,8 @@
 #include <QRegularExpression>
 #include <QDebug>
 
+#include <KDbExpression>
+
 using namespace Scripting;
 
 /***************************************************************************
@@ -42,7 +44,7 @@ KexiDBSchema::~KexiDBSchema()
 {
 }
 
-const QString KexiDBSchema::name() const
+QString KexiDBSchema::name() const
 {
     return m_schema->name();
 }
@@ -50,7 +52,7 @@ void KexiDBSchema::setName(const QString& name)
 {
     m_schema->setName(name);
 }
-const QString KexiDBSchema::caption() const
+QString KexiDBSchema::caption() const
 {
     return m_schema->caption();
 }
@@ -58,7 +60,7 @@ void KexiDBSchema::setCaption(const QString& caption)
 {
     m_schema->setCaption(caption);
 }
-const QString KexiDBSchema::description() const
+QString KexiDBSchema::description() const
 {
     return m_schema->description();
 }
@@ -116,21 +118,18 @@ KDbQuerySchema* KexiDBQuerySchema::queryschema()
     return static_cast< KDbQuerySchema* >(m_schema);
 }
 
-const QString KexiDBQuerySchema::statement() const
+QString KexiDBQuerySchema::statement() const
 {
-    return static_cast< KDbQuerySchema* >(m_schema)->statement();
+    return static_cast< KDbQuerySchema* >(m_schema)->statement().toString();
 }
 
 void KexiDBQuerySchema::setStatement(const QString& statement)
 {
-    static_cast< KDbQuerySchema* >(m_schema)->setStatement(statement);
+    static_cast< KDbQuerySchema* >(m_schema)->setStatement(KDbEscapedString(statement));
 }
 
 bool KexiDBQuerySchema::setWhereExpression(const QString& whereexpression)
 {
-    KDbExpression* oldexpr = static_cast< KDbQuerySchema* >(m_schema)->whereExpression();
-    Q_UNUSED(oldexpr);
-
     ///@todo use KDbParser for such kind of parser-functionality.
     QString s = whereexpression;
     QRegularExpression re("[\"',]{1,1}");
@@ -142,13 +141,15 @@ bool KexiDBQuerySchema::setWhereExpression(const QString& whereexpression)
         s = s.mid(pos + 1).trimmed();
 
         QString value;
+        QRegularExpressionMatch match = re.match(s);
         int sp = s.indexOf(re);
-        if (sp >= 0) {
-            if (re.cap(0) == ",") {
+        
+        if (match.hasMatch()) {
+            if (match.captured(1) == ",") {
                 value = s.left(sp).trimmed();
                 s = s.mid(sp + 1).trimmed();
             } else {
-                int ep = s.indexOf(re.cap(0), sp + 1);
+                int ep = s.indexOf(match.captured(1), sp + 1);
                 value = s.mid(sp + 1, ep - 1);
                 s = s.mid(ep + 1);
             }
@@ -171,8 +172,7 @@ bool KexiDBQuerySchema::setWhereExpression(const QString& whereexpression)
 
         QString errorMessage;
         QString errorDescription;
-        if (!static_cast<KDbQuerySchema *>(m_schema)->addToWhereExpression(
-            field, v, &errorMessage, &errorDescription))
+        if (!static_cast<KDbQuerySchema *>(m_schema)->addToWhereExpression(field, v, KDbToken('='), &errorMessage, &errorDescription))
         {
             qWarning() << "addToWhereExpression() failed, message=" << errorMessage
                        << "description=" << errorDescription;

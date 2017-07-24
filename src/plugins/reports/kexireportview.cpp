@@ -367,6 +367,7 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
                 reportData = createSourceData(tempData()->connectionDefinition);
             }
             m_preRenderer->setSourceData(reportData);
+            m_preRenderer->setScriptSource(qobject_cast<KexiReportPart*>(part()));
 
             m_preRenderer->setName(window()->partItem()->name());
 

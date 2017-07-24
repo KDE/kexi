@@ -56,10 +56,10 @@ QObject* KexiDBFieldList::fieldByName(const QString& name)
 bool KexiDBFieldList::hasField(QObject* field)
 {
     KexiDBField* f = dynamic_cast<KexiDBField*>(field);
-    return f ? m_fieldlist->hasField(f->field()) : false;
+    return f ? m_fieldlist->hasField(*f->field()) : false;
 }
 
-const QStringList KexiDBFieldList::names() const
+QStringList KexiDBFieldList::names() const
 {
     return m_fieldlist->names();
 }

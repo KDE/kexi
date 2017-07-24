@@ -24,6 +24,7 @@
 #include <core/KexiWindowData.h>
 
 #include <KReportDataSource>
+#include <KReportScriptSource>
 #include <QDomElement>
 
 class KexiReportPartTempData : public KexiWindowData
@@ -42,7 +43,7 @@ public:
 /**
  * @short Application Main Window
  */
-class KexiReportPart : public KexiPart::Part
+class KexiReportPart : public KexiPart::Part, public KReportScriptSource
 {
     Q_OBJECT
 public:
@@ -60,6 +61,9 @@ public:
 
     virtual KLocalizedString i18nMessage(const QString& englishMessage,
                                          KexiWindow* window) const;
+
+    QStringList scriptList() const override;
+    QString scriptCode(const QString& script) const override;
 
 protected:
     virtual KexiView* createView(QWidget *parent, KexiWindow* win,

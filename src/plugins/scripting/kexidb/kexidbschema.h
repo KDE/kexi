@@ -61,25 +61,25 @@ public:
     KexiDBSchema(QObject* parent, const QString& name, KDbObject* schema, KDbFieldList* fieldlist, bool owner);
     virtual ~KexiDBSchema();
 
-public Q_SLOTS:
+public:
 
     /** Returns the name of the schema. */
-    const QString name() const;
+    Q_INVOKABLE QString name() const;
     /** Set the name of the schema. */
-    void setName(const QString& name);
+    Q_INVOKABLE void setName(const QString& name);
 
     /** Returns the caption of the schema. */
-    const QString caption() const;
+    Q_INVOKABLE QString caption() const;
     /** Set the caption of the schema. */
-    void setCaption(const QString& caption);
+    Q_INVOKABLE void setCaption(const QString& caption);
 
     /** Returns a description of the schema. */
-    const QString description() const;
+    Q_INVOKABLE QString description() const;
     /** Set a description of the schema. */
-    void setDescription(const QString& description);
+    Q_INVOKABLE void setDescription(const QString& description);
 
     /** Returns the \a KexiDBFieldList object this schema has. */
-    QObject* fieldlist();
+    Q_INVOKABLE QObject* fieldlist();
 
 protected:
     KDbObject* m_schema;
@@ -117,7 +117,7 @@ public:
 
 private:
     /** Returns the SQL-statement of this query schema. */
-    const QString statement() const;
+    QString statement() const;
     /** Set the SQL-statement of this query schema. */
     void setStatement(const QString& statement);
     /** Set the where-expression. */

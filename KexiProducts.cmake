@@ -59,9 +59,6 @@
 # TODO: some products have multiple optional requirements, but need at least one.
 # See APP_CONVERTER, FILEMANAGER_*
 
-# features
-calligra_define_feature(FEATURE_SCRIPTING "Scripting feature" UNPORTED) # TODO
-
 # products
 calligra_define_product(KEXI_CORE_APP "Kexi core app" REQUIRES)
 calligra_define_product(KEXI_DESKTOP_APP "Kexi for desktop" REQUIRES KEXI_CORE_APP)

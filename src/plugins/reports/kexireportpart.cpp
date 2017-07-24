@@ -23,6 +23,8 @@
 #include <QTabWidget>
 #include <QDebug>
 
+#include <KDbConnection>
+
 #include <KLocalizedString>
 
 #include <KexiIcon.h>
@@ -47,6 +49,12 @@ public:
     QActionGroup toolboxActionGroup;
     QMap<QString, QAction*> toolboxActionsByName;
 };
+
+static bool isInterpreterSupported(const QString &interpreterName)
+{
+    return 0 == interpreterName.compare(QLatin1String("javascript"), Qt::CaseInsensitive)
+           || 0 == interpreterName.compare(QLatin1String("qtscript"), Qt::CaseInsensitive);
+}
 
 KexiReportPart::KexiReportPart(QObject *parent, const QVariantList &l)
   : KexiPart::Part(parent,
@@ -201,3 +209,93 @@ void KexiReportPart::slotItemInserted(const QString& entity)
     }
 }
 
+QStringList KexiReportPart::scriptList() const
+{
+    QStringList scripts;
+
+    KexiMainWindowIface *win = KexiMainWindowIface::global();
+
+    if (win->project() && win->project()->dbConnection()) {
+        QList<int> scriptids = win->project()->dbConnection()->objectIds(KexiPart::ScriptObjectType);
+        QStringList scriptnames = win->project()->dbConnection()->objectNames(KexiPart::ScriptObjectType);
+
+        qDebug() << scriptids << scriptnames;
+
+        int i = 0;
+        foreach(int id, scriptids) {
+            qDebug() << "ID:" << id;
+            tristate res;
+            QString script;
+            res = win->project()->dbConnection()->loadDataBlock(id, &script, QString());
+            if (res == true) {
+                QDomDocument domdoc;
+                bool parsed = domdoc.setContent(script, false);
+
+                QDomElement scriptelem = domdoc.namedItem("script").toElement();
+                if (parsed && !scriptelem.isNull()) {
+                    if (scriptelem.attribute("scripttype") == "object"
+                        && isInterpreterSupported(scriptelem.attribute("language")))
+                    {
+                        scripts << scriptnames[i];
+                    }
+                } else {
+                    qWarning() << "Unable to parse script";
+                }
+            } else {
+                qWarning() << "Unable to loadDataBlock";
+            }
+            ++i;
+        }
+
+        qDebug() << scripts;
+    }
+    return scripts;
+}
+
+QString KexiReportPart::scriptCode(const QString& scriptname) const
+{
+    QString scripts;
+
+    KexiMainWindowIface *win = KexiMainWindowIface::global();
+
+    if (win->project() && win->project()->dbConnection()) {
+        QList<int> scriptids = win->project()->dbConnection()->objectIds(KexiPart::ScriptObjectType);
+        QStringList scriptnames = win->project()->dbConnection()->objectNames(KexiPart::ScriptObjectType);
+
+        int i = 0;
+        foreach(int id, scriptids) {
+            qDebug() << "ID:" << id;
+            tristate res;
+            QString script;
+            res = win->project()->dbConnection()->loadDataBlock(id, &script, QString());
+            if (res == true) {
+                QDomDocument domdoc;
+                bool parsed = domdoc.setContent(script, false);
+
+                if (! parsed) {
+                    qWarning() << "XML parsing error";
+                    return QString();
+                }
+
+                QDomElement scriptelem = domdoc.namedItem("script").toElement();
+                if (scriptelem.isNull()) {
+                    qWarning() << "script domelement is null";
+                    return QString();
+                }
+
+                QString interpretername = scriptelem.attribute("language");
+                qDebug() << scriptelem.attribute("scripttype");
+                qDebug() << scriptname << scriptnames[i];
+
+                if ((isInterpreterSupported(interpretername) && scriptelem.attribute("scripttype") == "module") || scriptname == scriptnames[i])
+                {
+                    scripts += '\n' + scriptelem.text().toUtf8();
+                }
+                ++i;
+            } else {
+                qWarning() << "Unable to loadDataBlock";
+            }
+        }
+    }
+    return scripts;
+}

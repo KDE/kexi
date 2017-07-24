@@ -76,7 +76,7 @@ public Q_SLOTS:
     /** Returns true if the passed \a KexiDBField \p field object is in the field list. */
     bool hasField(QObject* field);
     /** Return a list of field names. */
-    const QStringList names() const;
+    QStringList names() const;
 
     /** Adds the \a KexiDBField object passed as an argument to the field list. */
     bool addField(QObject* field);

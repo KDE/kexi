@@ -4,6 +4,5 @@ calligra_define_productset(DESKTOP "Desktop products"
     REQUIRES
         KEXI_DESKTOP_APP
     OPTIONAL
-        FEATURE_SCRIPTING
         PLUGIN_KEXI_SPREADSHEETMIGRATION
 )

@@ -24,6 +24,7 @@
 
 #include <KDbCursor>
 #include <KDbRecordEditBuffer>
+#include <KDbRecordData>
 
 namespace Scripting
 {
@@ -134,7 +135,7 @@ private:
         KDbRecordEditBuffer* buffer;
         Record(KDbCursor* cursor)
                 : buffer(new KDbRecordEditBuffer(true)) {
-            cursor->storeCurrentRow(rowdata);
+            cursor->storeCurrentRecord(&rowdata);
         }
         ~Record() {
             delete buffer;

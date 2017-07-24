@@ -24,17 +24,27 @@
 #include "kexidbfieldlist.h"
 #include "kexidbschema.h"
 #include "kexidbparser.h"
+#include "KexiScriptingDebug.h"
 
 #include <KDbTransaction>
+#include <KDbConnectionOptions>
 
 #include <QDebug>
 
 using namespace Scripting;
 
-KexiDBConnection::KexiDBConnection(KDbConnection* connection, KexiDBDriver* driver, KexiDBConnectionData* connectiondata)
+KexiDBConnection::KexiDBConnection(KDbConnection* connection, KexiDBConnectionData* connectiondata, KexiDBDriver* driver)
         : QObject()
         , m_connection(connection)
-        , m_connectiondata(connectiondata ? connectiondata : new KexiDBConnectionData(this, connection->data(), false))
+        , m_driver(driver ? driver : new KexiDBDriver(this, connection->driver()))
+{
+    m_connectiondata = connectiondata;
+    setObjectName("KexiDBConnection");
+}
+
+KexiDBConnection::KexiDBConnection(KDbConnection* connection, KexiDBDriver* driver)
+        : QObject()
+        , m_connection(connection)
         , m_driver(driver ? driver : new KexiDBDriver(this, connection->driver()))
 {
     setObjectName("KexiDBConnection");
@@ -46,11 +56,11 @@ KexiDBConnection::~KexiDBConnection()
 
 bool KexiDBConnection::hadError() const
 {
-    return m_connection->error();
+    return m_connection->result().isError();
 }
-const QString KexiDBConnection::lastError() const
+QString KexiDBConnection::lastError() const
 {
-    return m_connection->errorMsg();
+    return m_connection->result().message();
 }
 
 QObject* KexiDBConnection::data()
@@ -77,14 +87,14 @@ bool KexiDBConnection::disconnect()
 
 bool KexiDBConnection::isReadOnly() const
 {
-    return m_connection->isReadOnly();
+    return m_connection->options()->isReadOnly();
 }
 
 bool KexiDBConnection::databaseExists(const QString& dbname)
 {
     return m_connection->databaseExists(dbname);
 }
-const QString KexiDBConnection::currentDatabase() const
+QString KexiDBConnection::currentDatabase() const
 {
     return m_connection->currentDatabase();
 }
@@ -119,7 +129,7 @@ const QStringList KexiDBConnection::queryNames() const
     bool ok = true;
     QStringList queries = m_connection->objectNames(KDb::QueryObjectType, &ok);
     if (! ok) {
-        qDebug() << QString("Failed to determinate querynames.");
+        KexiScriptingWarning() << "Failed to determinate querynames.";
         return QStringList();
     }
     return queries;
@@ -130,15 +140,15 @@ QObject* KexiDBConnection::executeQueryString(const QString& sqlquery)
     // The KDbConnection::executeQuery() method does not check if we pass a valid SELECT-statement
     // or e.g. a DROP TABLE operation. So, let's check for such dangerous operations right now.
     KDbParser parser(m_connection);
-    if (! parser.parse(sqlquery)) {
-        qDebug() << QString("Failed to parse query: %1 %2").arg(parser.error().type()).arg(parser.error().error());
+    if (! parser.parse(KDbEscapedString(sqlquery))) {
+        KexiScriptingWarning() << "Failed to parse query: "<< parser.error().type() << parser.error().message();
         return 0;
     }
-    if (parser.query() == 0 || parser.operation() != KDbParser::OP_Select) {
-        qDebug() << QString("Invalid query operation \"%1\"").arg(parser.operationString());
+    if (parser.query() == 0 || parser.statementType() != KDbParser::Select) {
+        KexiScriptingWarning() << "Invalid query operation " << parser.statementTypeString();
         return 0;
     }
-    KDbCursor* cursor = m_connection->executeQuery(sqlquery);
+    KDbCursor* cursor = m_connection->executeQuery(KDbEscapedString(sqlquery));
     return cursor ? new KexiDBCursor(this, cursor, true) : 0;
 }
 
@@ -152,10 +162,10 @@ bool KexiDBConnection::insertRecord(QObject* obj, const QVariantList& values)
 {
     KexiDBFieldList* fieldlist = dynamic_cast< KexiDBFieldList* >(obj);
     if (fieldlist)
-        return m_connection->insertRecord(*fieldlist->fieldlist(), values);
+        return m_connection->insertRecord(fieldlist->fieldlist(), values);
     KexiDBTableSchema* tableschema = dynamic_cast< KexiDBTableSchema* >(obj);
     if (tableschema)
-        return m_connection->insertRecord(*tableschema->tableschema(), values);
+        return m_connection->insertRecord(tableschema->tableschema(), values);
     return false;
 }
 
@@ -170,7 +180,7 @@ bool KexiDBConnection::dropDatabase(const QString& dbname)
 
 bool KexiDBConnection::createTable(KexiDBTableSchema* tableschema)
 {
-    return m_connection->createTable(tableschema->tableschema(), false);
+    return m_connection->createTable(tableschema->tableschema());
 }
 bool KexiDBConnection::dropTable(const QString& tablename)
 {
@@ -178,11 +188,11 @@ bool KexiDBConnection::dropTable(const QString& tablename)
 }
 bool KexiDBConnection::alterTable(KexiDBTableSchema* fromschema, KexiDBTableSchema* toschema)
 {
-    return true == m_connection->alterTable(*fromschema->tableschema(), *toschema->tableschema());
+    return true == m_connection->alterTable(fromschema->tableschema(), toschema->tableschema());
 }
 bool KexiDBConnection::alterTableName(KexiDBTableSchema* tableschema, const QString& newtablename)
 {
-    return m_connection->alterTableName(*tableschema->tableschema(), newtablename);
+    return m_connection->alterTableName(tableschema->tableschema(), newtablename);
 }
 
 QObject* KexiDBConnection::tableSchema(const QString& tablename)
@@ -193,9 +203,7 @@ QObject* KexiDBConnection::tableSchema(const QString& tablename)
 
 bool KexiDBConnection::isEmptyTable(KexiDBTableSchema* tableschema) const
 {
-    bool success;
-    bool notempty = m_connection->isEmpty(*tableschema->tableschema(), success);
-    return (!(success && notempty));
+    return m_connection->isEmpty(tableschema->tableschema()) == true;
 }
 
 QObject* KexiDBConnection::querySchema(const QString& queryname)

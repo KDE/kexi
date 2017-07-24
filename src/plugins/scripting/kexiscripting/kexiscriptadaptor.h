@@ -23,8 +23,8 @@
 #include <QObject>
 #include <QMetaObject>
 #include <QAction>
-
-#include <Kross/Manager>
+#include <QJSEngine>
+#include <QJSValue>
 
 #include <KDbConnection>
 
@@ -35,6 +35,9 @@
 #include <KexiWindow.h>
 #include <KexiView.h>
 
+#include "../kexidb/kexidbmodule.h"
+#include "KexiScriptingDebug.h"
+
 /**
 * Adaptor class that provides Kexi specific functionality to
 * the scripting world.
@@ -43,23 +46,22 @@ class KexiScriptAdaptor : public QObject
 {
     Q_OBJECT
 public:
-    explicit KexiScriptAdaptor() : m_kexidbmodule(0) {
-        setObjectName("Kexi");
+    Q_INVOKABLE KexiScriptAdaptor() {
+        KexiScriptingDebug() << "Created Script Adaptor";
     }
     virtual ~KexiScriptAdaptor() {}
-public Q_SLOTS:
 
     /**
     * Returns the current KexiWindow widget.
     */
-    QWidget* windowWidget() const {
+    Q_INVOKABLE QWidget* windowWidget() const {
         return currentWindow();
     }
 
     /**
     * Returns the current KexiView widget.
     */
-    QWidget* viewWidget() const {
+    Q_INVOKABLE QWidget* viewWidget() const {
         return currentView();
     }
 
@@ -75,7 +77,7 @@ public Q_SLOTS:
     *     print "name=%s text=%s" % (a.objectName,a.text)
     * \endcode
     */
-    QVariantList actions() {
+    Q_INVOKABLE QVariantList actions() {
         QVariantList list;
         foreach(QAction* action, mainWindow()->allActions()) {
             QVariant v;
@@ -89,7 +91,7 @@ public Q_SLOTS:
     * Returns the QAction instance the Kexi main window provides that
     * has the objectName \p name or NULL if there is no such action.
     */
-    QObject* action(const QString& name) {
+    Q_INVOKABLE QObject* action(const QString& name) {
         foreach(QAction* action, mainWindow()->allActions()) {
             if (action->objectName() == name)
                 return action;
@@ -101,7 +103,7 @@ public Q_SLOTS:
     * Returns true if we are connected with a project else false
     * is returned.
     */
-    bool isConnected() {
+    Q_INVOKABLE bool isConnected() {
         return project() ? project()->isConnected() : false;
     }
 
@@ -110,13 +112,11 @@ public Q_SLOTS:
     * project or return NULL if there was no project opened (no
     * connection established).
     */
-    QObject* getConnection() {
-        if (! m_kexidbmodule)
-            m_kexidbmodule = Kross::Manager::self().module("kexidb");
+    Q_INVOKABLE QObject* getConnection() {
         KDbConnection *connection = project() ? project()->dbConnection() : 0;
-        if (m_kexidbmodule && connection) {
+        if (connection) {
             QObject* result = 0;
-            if (QMetaObject::invokeMethod(m_kexidbmodule, "connectionWrapper", Q_RETURN_ARG(QObject*, result), Q_ARG(QObject*, connection)))
+            if (QMetaObject::invokeMethod(&m_kexidbmodule, "connectionWrapper", Q_RETURN_ARG(QObject*, result), Q_ARG(KDbConnection*, connection)))
                 return result;
         }
         return 0;
@@ -133,11 +133,11 @@ public Q_SLOTS:
     * print Kexi.items("table")
     * \endcode
     */
-    QStringList items(const QString& pluginId) {
+    Q_INVOKABLE QStringList items(const QString& plugin) {
         QStringList list;
         if (project()) {
             KexiPart::ItemList l;
-            project()->getSortedItemsForPluginId(&l, pluginId(pluginId).toUtf8());
+            project()->getSortedItemsForPluginId(&l, pluginId(plugin).toUtf8());
             l.sort();
             foreach(KexiPart::Item* i, l) {
                 list << i->name();
@@ -149,32 +149,32 @@ public Q_SLOTS:
     /**
     * Returns the caption for the item defined with \p pluginId and \p name .
     */
-    QString itemCaption(const QString& pluginId, const QString& name) const {
-        KexiPart::Item *item = partItem(pluginId(pluginId), name);
+    Q_INVOKABLE QString itemCaptioq_gadgetn(const QString& plugin, const QString& name) const {
+        KexiPart::Item *item = partItem(pluginId(plugin), name);
         return item ? item->caption() : QString();
     }
 
     /**
     * Set the caption for the item defined with \p pluginId and \p name .
     */
-    void setItemCaption(const QString& pluginId, const QString& name, const QString& caption) {
-        if (KexiPart::Item *item = partItem(pluginId(pluginId), name))
+    Q_INVOKABLE void setItemCaption(const QString& plugin, const QString& name, const QString& caption) {
+        if (KexiPart::Item *item = partItem(pluginId(plugin), name))
             item->setCaption(caption);
     }
 
     /**
     * Returns the description for the item defined with \p className and \p name .
     */
-    QString itemDescription(const QString& pluginId, const QString& name) const {
-        KexiPart::Item *item = partItem(pluginId(pluginId), name);
+    Q_INVOKABLE QString itemDescription(const QString& plugin, const QString& name) const {
+        KexiPart::Item *item = partItem(pluginId(plugin), name);
         return item ? item->description() : QString();
     }
 
     /**
     * Set the description for the item defined with \p className and \p name .
     */
-    void setItemDescription(const QString& pluginId, const QString& name, const QString& description) {
-        if (KexiPart::Item *item = partItem(pluginId(pluginId), name))
+    Q_INVOKABLE void setItemDescription(const QString& plugin, const QString& name, const QString& description) {
+        if (KexiPart::Item *item = partItem(pluginId(plugin), name))
             item->setDescription(description);
     }
 
@@ -192,11 +192,11 @@ public Q_SLOTS:
     * Kexi.windowWidget().setDirty(True)
     * \endcode
     */
-    bool openItem(const QString& pluginId, const QString& name, const QString& viewmode = QString(),
+    Q_INVOKABLE bool openItem(const QString& plugin, const QString& name, const QString& viewmode = QString(),
                   QVariantMap args = QVariantMap())
     {
         bool openingCancelled;
-        KexiPart::Item *item = partItem(pluginId(pluginId), name);
+        KexiPart::Item *item = partItem(pluginId(plugin), name);
         KexiWindow* window = item
             ? mainWindow()->openObject(
                 item,
@@ -220,17 +220,17 @@ public Q_SLOTS:
     * Kexi.closeItem("table","table1")
     * \endcode
     */
-    bool closeItem(const QString& pluginId, const QString& name) {
-        if (KexiPart::Item *item = partItem(pluginId(pluginId), name))
+    Q_INVOKABLE bool closeItem(const QString& plugin, const QString& name) {
+        if (KexiPart::Item *item = partItem(pluginId(plugin), name))
             return mainWindow()->closeObject(item) == true;
         return false;
     }
 
     /**
-    * Print the item defined with \p pluginId and \p name .
+    * Print the item defined with \p plugin and \p name .
     */
-    bool printItem(const QString& pluginId, const QString& name, bool preview = false) {
-        if (KexiPart::Item *item = partItem(pluginId(pluginId), name))
+    Q_INVOKABLE bool printItem(const QString& plugin, const QString& name, bool preview = false) {
+        if (KexiPart::Item *item = partItem(pluginId(plugin), name))
             return (preview ? mainWindow()->printPreviewForItem(item) : mainWindow()->printItem(item)) == true;
         return false;
     }
@@ -238,8 +238,8 @@ public Q_SLOTS:
     /**
     * Executes custom action for the item defined with \p pluginId and \p name .
     */
-    bool executeItem(const QString& pluginId, const QString& name, const QString& actionName) {
-        if (KexiPart::Item *item = partItem(pluginId(pluginId), name))
+    Q_INVOKABLE bool executeItem(const QString& plugin, const QString& name, const QString& actionName) {
+        if (KexiPart::Item *item = partItem(pluginId(plugin), name))
             return mainWindow()->executeCustomActionForObject(item, actionName) == true;
         return false;
     }
@@ -249,14 +249,14 @@ public Q_SLOTS:
     * Returns the name of the current viewmode. This could be for example "data",
     * "design", "text" or just an empty string if there is no view at the moment.
     */
-    QString viewMode() const {
+    Q_INVOKABLE QString viewMode() const {
         return currentView() ? viewModeToString(currentView()->viewMode()) : QString();
     }
 
     /**
     * Returns a list of names of all available viewmodes the view supports.
     */
-    QStringList viewModes() const {
+    Q_INVOKABLE QStringList viewModes() const {
         QStringList list;
         if (currentWindow()) {
             Kexi::ViewModes modes = currentWindow()->supportedViewModes();
@@ -274,12 +274,12 @@ public Q_SLOTS:
     * Returns true if there is a current view and those current view is dirty aka
     * has the dirty-flag set that indicates that something changed.
     */
-    bool viewIsDirty() const {
+    Q_INVOKABLE bool viewIsDirty() const {
         return currentView() ? currentView()->isDirty() : false;
     }
 
 private:
-    QObject* m_kexidbmodule;
+    Scripting::KexiDBModule m_kexidbmodule;
 
     KexiMainWindowIface* mainWindow() const {
         return KexiMainWindowIface::global();
@@ -293,8 +293,8 @@ private:
     KexiView* currentView() const {
         return currentWindow() ? currentWindow()->selectedView() : 0;
     }
-    KexiPart::Item* partItem(const QString& pluginId, const QString& name) const {
-        return project() ? project()->itemForPluginId(pluginId(pluginId), name) : 0;
+    KexiPart::Item* partItem(const QString& plugin, const QString& name) const {
+        return project() ? project()->itemForPluginId(pluginId(plugin), name) : 0;
     }
     QString pluginId(const QString& pluginId) const {
         return pluginId.contains('.') ? pluginId : (QString::fromLatin1("org.kexi-project.")+pluginId);
@@ -321,6 +321,7 @@ private:
             return Kexi::TextViewMode;
         return defaultViewMode;
     }
+
 };
 
 #endif

@@ -58,30 +58,30 @@ public:
     KexiDBParser(KexiDBConnection* connection, KDbParser* parser, bool owner);
     virtual ~KexiDBParser();
 
-public Q_SLOTS:
+public:
 
     /** Clears previous results and runs the parser on the SQL statement passed as an argument. */
-    bool parse(const QString& sql);
+    Q_INVOKABLE bool parse(const QString& sql);
     /** Clears parsing results. */
-    void clear();
+    Q_INVOKABLE void clear();
     /** Returns the resulting operation. */
-    const QString operation();
+    Q_INVOKABLE QString operation() const;
 
     /** Returns the \a KexiDBTableSchema object on a CREATE TABLE operation. */
-    QObject* table();
+    Q_INVOKABLE QObject* table();
     /** Returns the \a KexiDBQuerySchema object on a SELECT operation. */
-    QObject* query();
+    Q_INVOKABLE QObject* query();
     /** Returns the \a KexiDBConnection object pointing to the used database connection. */
-    QObject* connection();
+    Q_INVOKABLE QObject* connection();
     /** Returns the SQL query statement. */
-    const QString statement();
+    Q_INVOKABLE QString statement() const;
 
     /** Returns the type string of the last error. */
-    const QString errorType();
+    Q_INVOKABLE QString errorType() const;
     /** Returns the message of the last error. */
-    const QString errorMsg();
+    Q_INVOKABLE QString errorMsg() const;
     /** Returns the position where the last error occurred. */
-    int errorAt();
+    Q_INVOKABLE int errorAt() const;
 
 private:
     QPointer<KexiDBConnection> m_connection;

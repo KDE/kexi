@@ -24,6 +24,7 @@
 #include <QObject>
 
 #include <KDbDriverManager>
+#include <KDbConnection>
 
 namespace Scripting
 {
@@ -43,49 +44,48 @@ class KexiDBModule : public QObject
 {
     Q_OBJECT
 public:
-    explicit KexiDBModule(QObject* parent = 0);
+    Q_INVOKABLE explicit KexiDBModule(QObject* parent = 0);
     virtual ~KexiDBModule();
 
-public Q_SLOTS:
-
     /** Returns the version number the KexiDB module defines. */
-    int version();
+    Q_INVOKABLE int version();
 
     /** Returns a list with available drivernames. */
-    const QStringList driverNames();
+    Q_INVOKABLE QStringList driverNames();
 
     /** Return the to the defined \p drivername matching \a KexiDBDriver object. */
-    QObject* driver(const QString& drivername);
+    Q_INVOKABLE QObject* driver(const QString& drivername);
 
     /** Return the to the defined mimetype-string matching drivername. */
-    const QString lookupByMime(const QString& mimetype);
+    Q_INVOKABLE QString lookupByMime(const QString& mimetype);
 
     /** Return the matching mimetype for the defined file. */
-    const QString mimeForFile(const QString& filename);
+    Q_INVOKABLE QString mimeForFile(const QString& filename);
 
     /** Return a new \a KexiDBConnectionData object. */
-    QObject* createConnectionData();
+    Q_INVOKABLE QObject* createConnectionData();
 
     /** Create and return a \a KexiDBConnectionData object. Fill the content of the
     KexiDBConnectionData object with the defined file as. The file could be e.g.
     a *.kexi file or a *.kexis file. */
-    QObject* createConnectionDataByFile(const QString& filename);
+    Q_INVOKABLE QObject* createConnectionDataByFile(const QString& filename);
 
     /** Return a new \a KexiDBField object. */
-    QObject* field();
+    Q_INVOKABLE QObject* field();
 
     /** Return a new \a KexiDBTableSchema object. */
-    QObject* tableSchema(const QString& tablename);
+    Q_INVOKABLE QObject* tableSchema(const QString& tablename);
 
     /** Return a new \a KexiDBQuerySchema object. */
-    QObject* querySchema();
+    Q_INVOKABLE QObject* querySchema();
 
 private Q_SLOTS:
     //! Wraps a KDbConnection into a KexiDBConnection
-    QObject* connectionWrapper(QObject* connection);
+    QObject* connectionWrapper(KDbConnection* connection);
 
 private:
     KDbDriverManager m_drivermanager;
+
 };
 
 }

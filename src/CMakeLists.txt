@@ -22,7 +22,7 @@ Note: Non-plasma Linux desktops still default to the simple replacement at runti
 endif(NOT KEXI_MOBILE)
 
 # Experimental:
-option(KEXI_SCRIPTS_SUPPORT "Experimental: Enable scripting in Kexi" ON)
+option(KEXI_SCRIPTS_SUPPORT "Experimental: Enable scripting in Kexi" OFF)
 
 # Broken:
 option(KEXI_FORM_CURSOR_PROPERTY_SUPPORT "Broken: Enable \"cursor\" property in the form designer" OFF)

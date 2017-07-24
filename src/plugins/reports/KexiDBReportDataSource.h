@@ -66,8 +66,6 @@ public:
     virtual qint64 recordCount() const;
 
     //Utility Functions
-    virtual QStringList scriptList() const;
-    virtual QString scriptCode(const QString& script) const;
     virtual QStringList dataSourceNames() const;
     virtual KReportDataSource* create(const QString& source) const Q_REQUIRED_RESULT;
 

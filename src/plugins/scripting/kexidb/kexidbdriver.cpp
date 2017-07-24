@@ -22,6 +22,7 @@
 #include "kexidbconnectiondata.h"
 
 #include <KDbConnection>
+#include <KDbDriverMetaData>
 
 using namespace Scripting;
 
@@ -38,20 +39,20 @@ KexiDBDriver::~KexiDBDriver()
 
 bool KexiDBDriver::isValid()
 {
-    return m_driver->isValid();
+    return !m_driver->result().isError();
 }
 
 QString KexiDBDriver::escapeString(const QString& s)
 {
-    return m_driver->escapeString(s);
+    return m_driver->escapeString(KDbEscapedString(s).toString()).toString();
 }
 bool KexiDBDriver::isFileDriver()
 {
-    return m_driver->isFileDriver();
+    return m_driver->metaData()->isFileBased();
 }
-QString KexiDBDriver::fileDBDriverMimeType()
+QStringList KexiDBDriver::fileDBDriverMimeTypes()
 {
-    return m_driver->fileDBDriverMimeType();
+    return m_driver->metaData()->mimeTypes();
 }
 bool KexiDBDriver::isSystemObjectName(const QString& name)
 {
@@ -67,7 +68,7 @@ bool KexiDBDriver::isSystemFieldName(const QString& name)
 }
 QString KexiDBDriver::valueToSql(const QString& fieldtype, const QVariant& value)
 {
-    return m_driver->valueToSql(fieldtype, value);
+    return m_driver->valueToSql(KDbField::typeForString(fieldtype), value).toString();
 }
 
 QObject* KexiDBDriver::createConnection(QObject* data)

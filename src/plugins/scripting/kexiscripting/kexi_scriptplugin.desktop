@@ -1,7 +1,4 @@
 [Desktop Entry]
-Type=Service
-X-KDE-ServiceTypes=Kexi/Handler
-
 GenericName=Scripts
 GenericName[ca]=Scripts
 GenericName[ca@valencia]=Scripts
@@ -18,6 +15,7 @@ GenericName[ja]=スクリプト
 GenericName[nb]=Skripter
 GenericName[nl]=Scripts
 GenericName[pl]=Skrypty
+
 GenericName[pt]=Programas
 GenericName[pt_BR]=Scripts
 GenericName[se]=Skriptat
@@ -49,15 +47,28 @@ Name[sv]=Skript
 Name[uk]=Скрипт
 Name[x-test]=xxScriptxx
 Name[zh_CN]=脚本
-X-KDE-Library=kexihandler_script
-X-KDE-ParentApp=kexi
-X-Kexi-PartVersion=2
+
+Type=Service
+Icon=script
+Encoding=UTF-8
+
+X-KDE-Library=kexi_scriptplugin
+X-KDE-ServiceTypes=Kexi/Editor
+X-KDE-PluginInfo-Author=Kexi Team
+X-KDE-PluginInfo-Email=kexi@kde.org
+X-KDE-PluginInfo-Name=org.kexi-project.script
+X-KDE-PluginInfo-Version=3.1
+X-KDE-PluginInfo-Website=http://kexi-project.org
+X-KDE-PluginInfo-Category=
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=LGPL
+X-KDE-PluginInfo-EnabledByDefault=true
+
+X-Kexi-GroupName=Scripts
 X-Kexi-TypeName=script
-X-Kexi-Class=org.kexi-project.script
-X-Kexi-ItemIcon=script
-X-Kexi-SupportsDataView=false
-X-Kexi-SupportsDesignView=true
-X-Kexi-SupportsDataViewInUserMode=false
-X-Kexi-SupportsExecution=true
+X-Kexi-ServiceTypesInUserMode=Kexi/Editor
+X-Kexi-VisibleInProjectNavigator=true
 X-Kexi-SupportsDataExport=false
 X-Kexi-SupportsPrinting=false
+X-Kexi-SupportsExecution=true
+

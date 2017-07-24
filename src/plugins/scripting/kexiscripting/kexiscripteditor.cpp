@@ -22,14 +22,12 @@
 
 #include "kexiscripteditor.h"
 
-#include <Kross/Action>
-
 /// \internal d-pointer class
 class Q_DECL_HIDDEN KexiScriptEditor::Private
 {
 public:
-    Kross::Action* scriptaction;
-    Private() : scriptaction(0) {}
+    QString scriptaction;
+    Private() {}
 };
 
 KexiScriptEditor::KexiScriptEditor(QWidget *parent)
@@ -45,18 +43,16 @@ KexiScriptEditor::~KexiScriptEditor()
 
 bool KexiScriptEditor::isInitialized() const
 {
-    return d->scriptaction != 0;
+    return !d->scriptaction.isEmpty();
 }
 
-void KexiScriptEditor::initialize(Kross::Action* scriptaction)
+void KexiScriptEditor::initialize(const QString &scriptaction)
 {
     d->scriptaction = scriptaction;
-    Q_ASSERT(d->scriptaction);
 
     disconnect(this, SIGNAL(textChanged()), this, SLOT(slotTextChanged()));
 
-    QString code = d->scriptaction->code();
-    if (code.isEmpty()) {
+    if (d->scriptaction.isEmpty()) {
         // If there is no code we just add some information.
 ///@todo remove after release
 #if 0
@@ -71,10 +67,10 @@ void KexiScriptEditor::initialize(Kross::Action* scriptaction)
                                              "http://www.kexi-project.org/scripting/"), true).join("\n# ") + "\n";
 #endif
     }
-    KexiEditor::setText(code);
+    KexiEditor::setText(d->scriptaction);
     // We assume Kross and the HighlightingInterface are using same
     // names for the support languages...
-    setHighlightMode(d->scriptaction->interpreter());
+    setHighlightMode("javascript");
 
     clearUndoRedo();
     KexiEditor::setDirty(false);
@@ -84,9 +80,7 @@ void KexiScriptEditor::initialize(Kross::Action* scriptaction)
 void KexiScriptEditor::slotTextChanged()
 {
     KexiEditor::setDirty(true);
-    if (d->scriptaction) {
-        d->scriptaction->setCode(KexiEditor::text().toUtf8());
-    }
+    d->scriptaction = KexiEditor::text();
 }
 
 void KexiScriptEditor::setLineNo(long lineno)

@@ -40,7 +40,6 @@ KexiDBCursor::~KexiDBCursor()
     clearBuffers();
     if (m_owner) {
         m_cursor->close();
-        delete m_cursor;
     }
 }
 
@@ -127,7 +126,7 @@ bool KexiDBCursor::setValue(int index, QVariant value)
     const qint64 position = m_cursor->at();
     if (! m_modifiedrecords.contains(position))
         m_modifiedrecords.insert(position, new Record(m_cursor));
-    m_modifiedrecords[position]->buffer->insert(*column, value);
+    m_modifiedrecords[position]->buffer->insert(column, value);
     return true;
 }
 
@@ -146,7 +145,7 @@ bool KexiDBCursor::save()
     QMap<qint64, Record*>::ConstIterator
     it(m_modifiedrecords.constBegin()), end(m_modifiedrecords.constEnd());
     for (; it != end; ++it) {
-        bool b = m_cursor->updateRow(it.value()->rowdata, * it.value()->buffer, m_cursor->isBuffered());
+        bool b = m_cursor->updateRecord(&it.value()->rowdata, it.value()->buffer, m_cursor->isBuffered());
         if (ok) {
             ok = b;
             //break;

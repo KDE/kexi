@@ -25,6 +25,7 @@
 
 #include <kexi.h>
 #include <kexipart.h>
+#include <QJSValue>
 
 /**
  * Kexi Scripting Plugin.
@@ -55,6 +56,8 @@ public:
      */
     virtual bool execute(KexiPart::Item* item, QObject* sender = 0);
 
+    QJSValue execute(const QString &program);
+    
     /**
      * \return the i18n message for the passed \p englishMessage string.
      */
@@ -96,6 +99,10 @@ private:
     class Private;
     /// \internal d-pointer instance.
     Private* const d;
+    
+    void registerMetaObjects();
+
+    QString loadData(KexiPart::Item* item);
 };
 
 #endif
