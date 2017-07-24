@@ -40,11 +40,21 @@ public:
      * @param parent File widget's parent widget
      *
      * Depending on settings one of two file widget implementations is used:
-     * - if KEXI_USE_KFILEWIDGET build option is on and KDE Plasma desktop is detected as the current
-     *    desktop, KF5's KFileWidget-based widget is created
-     * - if KEXI_USE_KFILEWIDGET build option is off or if non-KDE Plasma desktop is detected
-     *   as the current desktop, a simple KexiFileRequester widget is used.
+     * - if the KEXI_USE_KFILEWIDGET build option is on and KDE Plasma desktop is detected as the
+     *   current desktop, KF5's KFileWidget-based widget is created,
+     * - if the KEXI_USE_KFILEWIDGET build option is off or if non-KDE Plasma desktop is detected
+     *   as the current desktop, a simple KexiFileRequester widget is created.
+     *
+     * In addition, if the KEXI_USE_KFILEWIDGET build option is on, defaults can be overriden by
+     * "UseKFileWidget" boolean option in the "File Dialogs" group of the application's config file:
+     * - if "UseKFileWidget" is @c true, KF5's KFileWidget-based widget is created,
+     * - if "UseKFileWidget" is @c false a simple KexiFileRequester widget is created.
+     *
+     * To delete the override, delete the "UseKFileWidget" option in the aplication's config file.
+     *
      * @return the new file widget.
+     *
+     * @todo Share this code with KReport and Kexi
      */
     static KexiFileWidgetInterface *createWidget(const QUrl &startDirOrVariable,
                                                  KexiFileFilters::Mode mode,

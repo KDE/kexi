@@ -18,34 +18,20 @@
 */
 
 #include "KexiFileWidgetInterface.h"
-#include <kexi_global.h>
-#include <core/kexi.h>
-#include <core/KexiMainWindowIface.h>
-#include <core/KexiMigrateManagerInterface.h>
 #include <kexiutils/utils.h>
-#include "KexiFileWidget.h"
 #include "KexiFileRequester.h"
 
-#include <KActionCollection>
-#include <KFile>
-#include <KFileFilterCombo>
 #include <KFileWidget>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KRecentDirs>
-#include <KUrlComboBox>
 
-#include <QAction>
-#include <QApplication>
-#include <QDebug>
-#include <QEvent>
-#include <QFileDialog>
-#include <QKeyEvent>
-#include <QLineEdit>
-#include <QLocale>
-#include <QMimeDatabase>
-#include <QMimeType>
-#include <QPushButton>
+#ifdef KEXI_USE_KFILEWIDGET
+#include "KexiFileWidget.h"
+
+#include <KConfigGroup>
+#include <KSharedConfig>
+#endif
 
 //! @internal
 class Q_DECL_HIDDEN KexiFileWidgetInterface::Private
@@ -121,8 +107,14 @@ KexiFileWidgetInterface *KexiFileWidgetInterface::createWidget(const QUrl &start
                                                                QWidget *parent)
 {
 #ifdef KEXI_USE_KFILEWIDGET
-    //! @todo allow to set option to use KexiFileWidget outside of the KDE session
-    if (KexiUtils::isKDEDesktopSession()) {
+    bool useKFileWidget;
+    KConfigGroup group =  KSharedConfig::openConfig()->group("File Dialogs");
+    if (group.hasKey("UseKFileWidget")) { // allow to override
+        useKFileWidget = group.readEntry("UseKFileWidget", false);
+    } else {
+        useKFileWidget = KexiUtils::isKDEDesktopSession();
+    }
+    if (useKFileWidget) {
         return new KexiFileWidget(startDirOrVariable, mode, parent);
     }
 #endif
