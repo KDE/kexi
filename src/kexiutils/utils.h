@@ -583,8 +583,8 @@ KEXIUTILS_EXPORT bool activateItemsOnSingleClick(QWidget *widget = 0);
  * variables are used: XDG_SESSION_DESKTOP. XDG_CURRENT_DESKTOP, DESKTOP_SESSION, KDE_FULL_SESSION,
  * GNOME_DESKTOP_SESSION_ID.
  *
- * @return empty string if no session was detected or the running OS is unsupported (Windows,
- * macOS, non-desktop OS).
+ * @return empty string if no desktop session was detected or sessions are not supported for the
+ * running OS (Windows, macOS, non-desktop OS).
  *
  * @note use QApplication::styleHints() if possible.
  */
@@ -604,7 +604,7 @@ KEXIUTILS_EXPORT bool isKDEDesktopSession();
  * dialogs. Can be used with QColorDialog, QFileDialog and QFontDialog.
  *
  * Depends on the curent desktop in use:
- * - on Unix (other than macOS) returns @c true if isKDEDesktopSession() is @c true or desktop
+ * - on Unix (other than macOS) returns @c true if isKDEDesktopSession() is @c true or if desktop
  *   session can't be detected, @c false for other desktops
  * - @c true for all other operating systems, i.e. for MS Windows, macOS, etc.
  *
