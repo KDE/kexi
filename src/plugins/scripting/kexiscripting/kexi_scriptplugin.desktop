@@ -15,7 +15,6 @@ GenericName[ja]=スクリプト
 GenericName[nb]=Skripter
 GenericName[nl]=Scripts
 GenericName[pl]=Skrypty
-
 GenericName[pt]=Programas
 GenericName[pt_BR]=Scripts
 GenericName[se]=Skriptat
@@ -24,6 +23,7 @@ GenericName[sv]=Skript
 GenericName[uk]=Скрипти
 GenericName[x-test]=xxScriptsxx
 GenericName[zh_CN]=脚本
+
 Name=Script
 Name[ca]=Script
 Name[ca@valencia]=Script
