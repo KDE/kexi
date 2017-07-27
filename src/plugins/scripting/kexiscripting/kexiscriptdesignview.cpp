@@ -51,6 +51,7 @@ static QString _stdout;
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
+    Q_UNUSED(type)
     if (QString(context.category) == "js") {
         _stdout += msg + "\n";
     } else {
