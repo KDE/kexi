@@ -966,12 +966,13 @@ KexiWindow* KexiProject::openObject(QWidget* parent, KexiPart::Item *item,
         return 0;
     KexiWindow *window  = part->openInstance(parent, item, viewMode, staticObjectArgs);
     if (!window) {
-        if (part->lastOperationStatus().error())
+        if (part->lastOperationStatus().error()) {
             m_result = KDbResult(xi18nc("@info",
-                                        "Opening object <resource>%1</resource> failed.\n%2%3", item->name())
+                                        "Opening object <resource>%1</resource> failed.\n%2 %3", item->name())
                                  .arg(part->lastOperationStatus().message)
                                  .arg(part->lastOperationStatus().description)
                                  .replace("(I18N_ARGUMENT_MISSING)", " ")); // a hack until there's other solution
+        }
         return 0;
     }
     return window;
