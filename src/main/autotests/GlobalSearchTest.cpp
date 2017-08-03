@@ -58,6 +58,7 @@ void GlobalSearchTest::testGlobalSearch()
 {
     const QString filename(QFile::decodeName(FILES_DATA_DIR) + "/GlobalSearchTest.kexi");
     QStringList args(QApplication::arguments());
+    args.append("--readonly");
     args.append(filename);
     const int result = KexiMainWindow::create(args, metaObject()->className(), extraOptions());
     const KexiStartupData *h = KexiStartupData::global();
