@@ -34,8 +34,7 @@
 #include <QDebug>
 
 const int GUI_DELAY = 10;
-
-#define FILES_DATA_DIR CURRENT_SOURCE_DIR "data"
+const char *FILES_DATA_DIR = CURRENT_SOURCE_DIR "/data";
 
 class GlobalSearchTest : public KexiTestHandler
 {
@@ -57,7 +56,7 @@ GlobalSearchTest::GlobalSearchTest()
 
 void GlobalSearchTest::testGlobalSearch()
 {
-    QString filename(QFile::decodeName(FILES_DATA_DIR "/GlobalSearchTest.kexi"));
+    const QString filename(QFile::decodeName(FILES_DATA_DIR) + "/GlobalSearchTest.kexi");
     QStringList args(QApplication::arguments());
     args.append(filename);
     const int result = KexiMainWindow::create(args, metaObject()->className(), extraOptions());
