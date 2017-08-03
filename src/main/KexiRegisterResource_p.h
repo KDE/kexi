@@ -58,13 +58,11 @@ static QString locateFile(const QString& path, QStandardPaths::StandardLocation 
             return fullPath;
         }
     }
-#ifdef Q_OS_WIN
     // This makes the app portable and working without installation, from the build dir
     const QString dataDir = QFileInfo(QCoreApplication::applicationDirPath() + QStringLiteral("/data/") + path).canonicalFilePath();
     if (fileReadable(dataDir)) {
         return dataDir;
     }
-#endif
     // Try in PATH subdirs, useful for running apps from the build dir, without installing
     for(const QByteArray &pathDir : qgetenv("PATH").split(KPATH_SEPARATOR)) {
         const QString dataDirFromPath = QFileInfo(QFile::decodeName(pathDir) + QStringLiteral("/data/")
