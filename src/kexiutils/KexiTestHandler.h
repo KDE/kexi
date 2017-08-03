@@ -49,7 +49,7 @@ private:
 };
 
 // Override but still use the same macro so Qt Creator lists the test(s)
-// Note: don't link agains QtTest lib, otherwise Creator will mark KexiUtils as tests
+// Note: don't link against QtTest lib, otherwise Creator will mark KexiUtils as tests
 #undef QTEST_MAIN
 #define QTEST_MAIN(TestObject) \
     QT_BEGIN_NAMESPACE \
