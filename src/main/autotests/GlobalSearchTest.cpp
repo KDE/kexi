@@ -38,8 +38,7 @@
 #include <QDebug>
 
 const int GUI_DELAY = 10;
-
-#define FILES_DATA_DIR CURRENT_SOURCE_DIR "data"
+const char *FILES_DATA_DIR = CURRENT_SOURCE_DIR "/data";
 
 void GlobalSearchTest::initTestCase()
 {
@@ -110,7 +109,7 @@ GlobalSearchTest::GlobalSearchTest(int &argc, char **argv, bool goToEventLoop)
 
 void GlobalSearchTest::testGlobalSearch()
 {
-    QString filename(QFile::decodeName(FILES_DATA_DIR "/GlobalSearchTest.kexi"));
+    const QString filename(QFile::decodeName(FILES_DATA_DIR) + "/GlobalSearchTest.kexi");
     qDebug() << filename;
     KexiMainWindowCreator windowCreator(m_argv, filename, this);
     QVERIFY(qApp);
