@@ -4184,13 +4184,13 @@ void KexiMainWindow::slotEditReplaceAll()
 
 void KexiMainWindow::highlightObject(const QString& pluginId, const QString& name)
 {
-    slotShowNavigator();
     if (!d->prj)
         return;
     KexiPart::Item *item = d->prj->itemForPluginId(pluginId, name);
     if (!item)
         return;
     if (d->navigator) {
+        slotSetProjectNavigatorVisible(true);
         d->navigator->selectItem(*item);
     }
 }
