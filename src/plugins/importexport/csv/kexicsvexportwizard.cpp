@@ -67,12 +67,12 @@ KexiCSVExportWizard::KexiCSVExportWizard(const KexiCSVExport::Options& options,
     QString infoLblFromText;
     QString captionOrName;
     KexiGUIMessageHandler msgh(this);
+    KDbConnection* conn = KexiMainWindowIface::global()->project()->dbConnection();
     if (m_options.useTempQuery) {
         m_tableOrQuery = new KDbTableOrQuerySchema(KexiMainWindowIface::global()->unsavedQuery(options.itemId));
-        captionOrName = KexiMainWindowIface::global()->project()->dbConnection()->querySchema(m_options.itemId)->captionOrName();
+        captionOrName = conn->querySchema(m_options.itemId)->captionOrName();
     } else {
-        m_tableOrQuery = new KDbTableOrQuerySchema(
-            KexiMainWindowIface::global()->project()->dbConnection(), m_options.itemId);
+        m_tableOrQuery = new KDbTableOrQuerySchema(conn, m_options.itemId);
         captionOrName = m_tableOrQuery->captionOrName();
     }
     if (m_tableOrQuery->table()) {
@@ -92,16 +92,15 @@ KexiCSVExportWizard::KexiCSVExportWizard(const KexiCSVExport::Options& options,
             infoLblFromText = xi18n("Exporting data from query:");
         }
     } else {
-        msgh.showErrorMessage(KexiMainWindowIface::global()->project()->dbConnection()->result(),
-                              KDbMessageHandler::Error,
+        msgh.showErrorMessage(conn->result(), KDbMessageHandler::Error,
                               xi18n("Could not open data for exporting."));
         m_canceled = true;
         return;
     }
 
     QString text = "\n" + captionOrName;
-    int m_recordCount = KDb::recordCount(m_tableOrQuery);
-    int columns = KDb::fieldCount(m_tableOrQuery);
+    int m_recordCount = conn->recordCount(m_tableOrQuery);
+    int columns = m_tableOrQuery->fieldCount(conn);
     text += "\n";
     if (m_recordCount > 0)
         text += xi18n("(rows: %1, columns: %2)", m_recordCount, columns);
@@ -307,6 +306,7 @@ void KexiCSVExportWizard::next()
 
 void KexiCSVExportWizard::done(int result)
 {
+    KDbConnection* conn = KexiMainWindowIface::global()->project()->dbConnection();
     if (QDialog::Accepted == result) {
         if (m_fileSavePage) {
             //qDebug() << selectedFile();
@@ -315,7 +315,7 @@ void KexiCSVExportWizard::done(int result)
         m_options.delimiter = m_delimiterWidget->delimiter();
         m_options.textQuote = m_textQuote->textQuote();
         m_options.addColumnNames = m_addColumnNamesCheckBox->isChecked();
-        if (!KexiCSVExport::exportData(m_tableOrQuery, m_options))
+        if (!KexiCSVExport::exportData(conn, m_tableOrQuery, m_options))
             return;
 
         //store options

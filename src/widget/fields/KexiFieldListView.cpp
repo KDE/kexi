@@ -67,7 +67,7 @@ KexiFieldListView::~KexiFieldListView()
     delete d;
 }
 
-void KexiFieldListView::setSchema(KDbTableOrQuerySchema* schema)
+void KexiFieldListView::setSchema(KDbConnection *conn, KDbTableOrQuerySchema* schema)
 {
     if (schema && d->schema == schema)
         return;
@@ -84,7 +84,7 @@ void KexiFieldListView::setSchema(KDbTableOrQuerySchema* schema)
 
     d->model = new KexiFieldListModel(this, d->options);
 
-    d->model->setSchema(schema);
+    d->model->setSchema(conn, schema);
     setModel(d->model);
 }
 

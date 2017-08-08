@@ -74,7 +74,7 @@ public:
     virtual bool cursorAtEnd();
     virtual void clear();
 
-    virtual void setColumnInfo(KDbQueryColumnInfo* cinfo);
+    void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) override;
 
     /*! If \a displayDefaultValue is true, the value set by KexiDataItemInterface::setValue()
      is displayed in a special way. Used by KexiFormDataProvider::fillDataItems().

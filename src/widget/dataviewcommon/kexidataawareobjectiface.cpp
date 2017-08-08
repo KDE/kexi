@@ -1250,7 +1250,7 @@ int KexiDataAwareObjectInterface::columnType(int col)
 bool KexiDataAwareObjectInterface::columnEditable(int col)
 {
     KDbTableViewColumn* c = m_data ? column(col) : 0;
-    return c ? (! c->isReadOnly()) : false;
+    return c ? (!isReadOnly() && !c->isReadOnly()) : false;
 }
 
 QHeaderView* KexiDataAwareObjectInterface::horizontalHeader() const

@@ -67,7 +67,7 @@ public:
 
     //! Reimplemented after KexiDBAutoField: jsut sets \a cinfo without initializing a subwidget.
     //! Initialization is performed by \ref setVisibleColumnInfo().
-    virtual void setColumnInfo(KDbQueryColumnInfo* cinfo);
+    void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) override;
 
     /*! Used internally to set visible database column information.
      Reimplemented: performs initialization of the subwidget. */
@@ -165,6 +165,9 @@ protected:
      so the key press won't be consumed to perform "cancel editing".
      Also used for grabbing page down/up keys. */
     virtual bool keyPressed(QKeyEvent *ke);
+
+    //! Implemented for KexiComboBoxBase
+    KDbConnection *connection() override;
 
     class Private;
     Private * const d;

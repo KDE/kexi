@@ -82,10 +82,9 @@ bool Options::assign(QMap<QString, QString> *args)
 
 //------------------------------------
 
-bool KexiCSVExport::exportData(KDbTableOrQuerySchema *tableOrQuery,
+bool KexiCSVExport::exportData(KDbConnection* conn, KDbTableOrQuerySchema *tableOrQuery,
                                const Options& options, int recordCount, QTextStream *predefinedTextStream)
 {
-    KDbConnection* conn = tableOrQuery->connection();
     if (!conn)
         return false;
 
@@ -99,7 +98,7 @@ bool KexiCSVExport::exportData(KDbTableOrQuerySchema *tableOrQuery,
     }
 
     if (recordCount == -1)
-        recordCount = KDb::recordCount(tableOrQuery, queryParams);
+        recordCount = conn->recordCount(tableOrQuery, queryParams);
     if (recordCount == -1)
         return false;
 
@@ -111,7 +110,8 @@ bool KexiCSVExport::exportData(KDbTableOrQuerySchema *tableOrQuery,
 //! @todo OPTIMIZATION: use fieldsExpanded(true /*UNIQUE*/)
 //! @todo OPTIMIZATION? (avoid multiple data retrieving) look for already fetched data within KexiProject..
 
-    KDbQueryColumnInfo::Vector fields(query->fieldsExpanded(KDbQuerySchema::WithInternalFields));
+    const KDbQueryColumnInfo::Vector fields(
+        query->fieldsExpanded(conn, KDbQuerySchema::FieldsExpandedMode::WithInternalFields));
     QString buffer;
 
     QScopedPointer<QSaveFile> kSaveFile;
@@ -166,9 +166,8 @@ bool KexiCSVExport::exportData(KDbTableOrQuerySchema *tableOrQuery,
 #define APPEND_EOLN \
     if (copyToClipboard) { APPEND('\n'); } else { APPEND("\r\n"); }
 
-    qDebug() << 0 << "Columns: " << query->fieldsExpanded().count();
     // 0. Cache information
-    const int fieldsCount = query->fieldsExpanded().count(); //real fields count without internals
+    const int fieldsCount = query->fieldsExpanded(conn).count(); //real fields count without internals
     const QChar delimiter(options.delimiter.at(0));
     const bool hasTextQuote = !options.textQuote.isEmpty();
     const QString textQuote(options.textQuote.at(0));
@@ -185,7 +184,7 @@ bool KexiCSVExport::exportData(KDbTableOrQuerySchema *tableOrQuery,
         KDbQueryColumnInfo* ci;
         const int indexForVisibleLookupValue = fields[i]->indexForVisibleLookupValue();
         if (-1 != indexForVisibleLookupValue) {
-            ci = query->expandedOrInternalField(indexForVisibleLookupValue);
+            ci = query->expandedOrInternalField(conn, indexForVisibleLookupValue);
             visibleFieldIndex[i] = indexForVisibleLookupValue;
         } else {
             ci = fields[i];

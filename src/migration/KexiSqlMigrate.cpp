@@ -137,7 +137,7 @@ bool KexiSqlMigrate::drv_copyTable(const QString& srcTable, KDbConnection *destC
     if (!result) {
         return false;
     }
-    const KDbQueryColumnInfo::Vector fieldsExpanded(dstTable->query()->fieldsExpanded());
+    const KDbQueryColumnInfo::Vector fieldsExpanded(dstTable->query()->fieldsExpanded(destConn));
     const int numFields = qMin(fieldsExpanded.count(), result->fieldsCount());
     Q_FOREVER {
         QSharedPointer<KDbSqlRecord> record = result->fetchRecord();

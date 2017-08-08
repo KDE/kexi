@@ -51,6 +51,7 @@ public:
     ~Private() {
     }
 
+    KDbConnection *connection = nullptr;
     KexiComboBoxPopup *popup;
     KComboBox *paintedCombo; //!< fake combo used only to pass it as 'this' for QStyle (because styles use <static_cast>)
     QSize sizeHint; //!< A cache for KexiDBComboBox::sizeHint(),
@@ -468,10 +469,10 @@ bool KexiDBComboBox::valueChanged()
     return KexiDataItemInterface::originalValue() != value();
 }
 
-void
-KexiDBComboBox::setColumnInfo(KDbQueryColumnInfo* cinfo)
+void KexiDBComboBox::setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo)
 {
-    KexiFormDataItemInterface::setColumnInfo(cinfo);
+    d->connection = conn;
+    KexiFormDataItemInterface::setColumnInfo(conn, cinfo);
 }
 
 void KexiDBComboBox::setVisibleColumnInfo(KDbQueryColumnInfo* cinfo)
@@ -607,3 +608,7 @@ void KexiDBComboBox::undoChanges()
     KexiComboBoxBase::undoChanges();
 }
 
+KDbConnection *KexiDBComboBox::connection()
+{
+    return d->connection;
+}

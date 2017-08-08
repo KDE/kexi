@@ -73,7 +73,7 @@ void KexiDBReportDataSource::setSorting(const QList<SortedField>& sorting)
             return;
         KDbOrderByColumnList order;
         for (int i = 0; i < sorting.count(); i++) {
-            if (!order.appendField(d->copySchema, sorting[i].field(),
+            if (!order.appendField(d->connection, d->copySchema, sorting[i].field(),
                                    KDbOrderByColumn::fromQt(sorting[i].order())))
             {
                 qWarning() << "Cannot set sort field" << i << sorting[i].field();
@@ -127,7 +127,8 @@ bool KexiDBReportDataSource::open()
         }
         else if ( d->copySchema)
         {
-            qDebug() << "Opening cursor.." << *d->copySchema;
+            qDebug() << "Opening cursor.."
+                     << KDbConnectionAndQuerySchema(d->connection, *d->copySchema);
             d->cursor = d->connection->executeQuery(d->copySchema, KDbCursor::Option::Buffered);
         }
 
@@ -173,8 +174,10 @@ bool KexiDBReportDataSource::getSchema(const QString& pluginId)
                  && d->connection->querySchema(d->objectName))
         {
             qDebug() << d->objectName <<  "is a query..";
-            qDebug() << *d->connection->querySchema(d->objectName);
-            d->originalSchema = new KDbQuerySchema(*(d->connection->querySchema(d->objectName)));
+            qDebug() << KDbConnectionAndQuerySchema(d->connection,
+                                                    *d->connection->querySchema(d->objectName));
+            d->originalSchema
+                = new KDbQuerySchema(*(d->connection->querySchema(d->objectName)), d->connection);
         }
 
         if (d->originalSchema) {
@@ -185,10 +188,10 @@ bool KexiDBReportDataSource::getSchema(const QString& pluginId)
             } else {
                 qDebug() << "Original: ERROR";
             }
-            qDebug() << *d->originalSchema;
+            qDebug() << KDbConnectionAndQuerySchema(d->connection, *d->originalSchema);
 
-            d->copySchema = new KDbQuerySchema(*d->originalSchema);
-            qDebug() << *d->copySchema;
+            d->copySchema = new KDbQuerySchema(*d->originalSchema, d->connection);
+            qDebug() << KDbConnectionAndQuerySchema(d->connection, *d->copySchema);
             if (builder.generateSelectStatement(&sql, d->copySchema)) {
                 qDebug() << "Copy:" << sql;
             } else {
@@ -207,13 +210,12 @@ QString KexiDBReportDataSource::sourceName() const
 
 int KexiDBReportDataSource::fieldNumber ( const QString &fld ) const
 {
-
     if (!d->cursor || !d->cursor->query()) {
         return -1;
     }
-    const KDbQueryColumnInfo::Vector fieldsExpanded(
-        d->cursor->query()->fieldsExpanded(KDbQuerySchema::Unique));
-    for (int i = 0; i < fieldsExpanded.size() ; ++i) {
+    const KDbQueryColumnInfo::Vector fieldsExpanded(d->cursor->query()->fieldsExpanded(
+        d->connection, KDbQuerySchema::FieldsExpandedMode::Unique));
+    for (int i = 0; i < fieldsExpanded.size(); ++i) {
         if (0 == QString::compare(fld, fieldsExpanded[i]->aliasOrName(), Qt::CaseInsensitive)) {
             return i;
         }
@@ -227,10 +229,10 @@ QStringList KexiDBReportDataSource::fieldNames() const
         return QStringList();
     }
     QStringList names;
-    const KDbQueryColumnInfo::Vector fieldsExpanded(
-        d->originalSchema->fieldsExpanded(KDbQuerySchema::Unique));
+    const KDbQueryColumnInfo::Vector fieldsExpanded(d->originalSchema->fieldsExpanded(
+        d->connection, KDbQuerySchema::FieldsExpandedMode::Unique));
     for (int i = 0; i < fieldsExpanded.size(); i++) {
-//! @todo in some Kexi mode captionOrAliasOrName() would be used here (more user-friendly)
+        //! @todo in some Kexi mode captionOrAliasOrName() would be used here (more user-friendly)
         names.append(fieldsExpanded[i]->aliasOrName());
     }
     return names;
@@ -294,9 +296,8 @@ qint64 KexiDBReportDataSource::at() const
 
 qint64 KexiDBReportDataSource::recordCount() const
 {
-    if ( d->copySchema )
-    {
-        return KDb::recordCount ( d->copySchema );
+    if (d->copySchema) {
+        return d->connection->recordCount(d->copySchema);
     }
 
     return 1;

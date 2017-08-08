@@ -83,7 +83,7 @@ public:
     virtual void setDataSourcePluginId(const QString &pluginId) {
         KexiFormDataItemInterface::setDataSourcePluginId(pluginId);
     }
-    virtual void setColumnInfo(KDbQueryColumnInfo* cinfo);
+    void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) override;
 
     virtual void setInvalidState(const QString& text);
     virtual bool isReadOnly() const;
@@ -208,7 +208,7 @@ protected:
     void setLabelPositionInternal(LabelPosition position, bool noLabel);
 
     //! Used by KexiDBAutoField::setColumnInfo() and KexiDBComboBox::setColumnInfo()
-    void setColumnInfoInternal(KDbQueryColumnInfo* cinfo, KDbQueryColumnInfo* visibleColumnInfo);
+    void setColumnInfoInternal(KDbQueryColumnInfo *cinfo, KDbQueryColumnInfo *visibleColumnInfo);
 
 private:
     class Private;

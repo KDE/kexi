@@ -50,6 +50,7 @@ public:
         autoScrollTimer.setSingleShot(true);
     }
 
+    KDbConnection *connection = nullptr;
     QWidget *areaWidget;
     TablesHash tables;
     bool readOnly;
@@ -154,7 +155,7 @@ KexiRelationsScrollArea::tableContainer(KDbTableSchema *t) const
 KexiRelationsTableContainer*
 KexiRelationsScrollArea::addTableContainer(KDbTableSchema *t, const QRect &rect)
 {
-    if (!t)
+    if (!t || !d->connection)
         return 0;
 
     qDebug() << t->name();
@@ -165,10 +166,9 @@ KexiRelationsScrollArea::addTableContainer(KDbTableSchema *t, const QRect &rect)
         return c;
     }
 
-    c = new KexiRelationsTableContainer(d->areaWidget, this,
+    c = new KexiRelationsTableContainer(this, d->connection,
                                         /*! @todo what about query? */
-                                        new KDbTableOrQuerySchema(t)
-                                       );
+                                        new KDbTableOrQuerySchema(t), d->areaWidget);
     connect(c, SIGNAL(endDrag()), this, SLOT(slotTableViewEndDrag()));
     connect(c, SIGNAL(gotFocus()), this, SLOT(slotTableViewGotFocus()));
     connect(c, SIGNAL(contextMenuRequest(QPoint)),
@@ -496,6 +496,11 @@ KexiRelationsScrollArea::removeSelectedObject()
         d->focusedTableContainer = 0;
         hideTable(tmp);
     }
+}
+
+void KexiRelationsScrollArea::setConnection(KDbConnection *conn)
+{
+    d->connection = conn;
 }
 
 void

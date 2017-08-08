@@ -77,13 +77,13 @@ bool KexiCsvImportExportPlugin::executeCommand(const char* commandName,
         KexiCSVExport::Options options;
         if (!options.assign(args))
             return false;
-        KDbTableOrQuerySchema tableOrQuery(
-            KexiMainWindowIface::global()->project()->dbConnection(), options.itemId);
+        KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
+        KDbTableOrQuerySchema tableOrQuery(conn, options.itemId);
         QTextStream *stream = 0;
         if (args->contains("textStream")) {
             stream = KDbUtils::stringToPointer<QTextStream>(args->value("textStream"));
         }
-        return KexiCSVExport::exportData(&tableOrQuery, options, -1, stream);
+        return KexiCSVExport::exportData(conn, &tableOrQuery, options, -1, stream);
     }
     return false;
 }

@@ -117,7 +117,7 @@ bool KexiDBCursor::setValue(int index, QVariant value)
         return false;
     }
 
-    KDbQueryColumnInfo* column = query->fieldsExpanded().at(index);
+    KDbQueryColumnInfo* column = query->fieldsExpanded(m_cursor->connection()).at(index);
     if (! column) {
         qWarning() << "Invalid column, index=" << index << " value=" << value;
         return false;

@@ -97,7 +97,7 @@ public:
     /*! \return total size of this editor, including popup button. */
     virtual QSize totalSize() const;
 
-    virtual void createInternalEditor(KDbQuerySchema& schema);
+    virtual void createInternalEditor(KDbConnection *conn, const KDbQuerySchema& schema);
 
     /*! Reimplemented after KexiInputTableEdit. */
     virtual void handleAction(const QString& actionName);
@@ -132,6 +132,9 @@ protected Q_SLOTS:
     void slotPopupHidden();
 
 protected:
+    //! Implemented for KexiComboBoxBase
+    KDbConnection *connection() override;
+
     //! internal
     void updateFocus(const QRect& r);
 

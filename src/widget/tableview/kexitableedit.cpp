@@ -97,7 +97,7 @@ KDbQueryColumnInfo *KexiTableEdit::columnInfo()
     return m_column->columnInfo();
 }
 
-void KexiTableEdit::setColumnInfo(KDbQueryColumnInfo *)
+void KexiTableEdit::setColumnInfo(KDbConnection *, KDbQueryColumnInfo *)
 {
 }
 
@@ -148,9 +148,10 @@ QSize KexiTableEdit::totalSize() const
     return QWidget::size();
 }
 
-void KexiTableEdit::createInternalEditor(KDbQuerySchema& schema)
+void KexiTableEdit::createInternalEditor(KDbConnection *conn, const KDbQuerySchema& schema)
 {
-    Q_UNUSED(schema);
+    Q_UNUSED(conn)
+    Q_UNUSED(schema)
 }
 
 const KDbField *KexiTableEdit::displayedField()

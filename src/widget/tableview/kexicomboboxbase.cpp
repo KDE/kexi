@@ -412,7 +412,7 @@ void KexiComboBoxBase::createPopup(bool show)
     }
 
     if (!popup()) {
-        setPopup(column() ? new KexiComboBoxPopup(thisWidget, column())
+        setPopup(column() ? new KexiComboBoxPopup(thisWidget, connection(), column())
                  : new KexiComboBoxPopup(thisWidget, field()));
         QObject::connect(popup(), SIGNAL(recordAccepted(KDbRecordData*,int)),
                          thisWidget, SLOT(slotRecordAccepted(KDbRecordData*,int)));

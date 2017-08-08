@@ -87,7 +87,6 @@ class Q_DECL_HIDDEN KexiQueryDesignerGuiEditor::Private
 public:
     Private(KexiQueryDesignerGuiEditor *p)
      : q(p)
-     , conn(0)
     {
         droppedNewRecord = 0;
         slotTableAdded_enabled = true;
@@ -109,9 +108,6 @@ public:
     KexiQueryDesignerGuiEditor *q;
     KDbTableViewData *data;
     KexiDataTableView *dataTable;
-    //! @todo KEXI3 use equivalent of QPointer<KDbConnection>
-    KDbConnection *conn;
-
     KexiRelationsView *relations;
     KexiSectionHeader *head;
     QSplitter *spl;
@@ -172,8 +168,6 @@ KexiQueryDesignerGuiEditor::KexiQueryDesignerGuiEditor(
         : KexiView(parent)
         , d(new Private(this))
 {
-    d->conn = KexiMainWindowIface::global()->project()->dbConnection();
-
     d->spl = new QSplitter(Qt::Vertical, this);
     d->spl->setChildrenCollapsible(false);
     d->relations = new KexiRelationsView(d->spl);
@@ -307,6 +301,7 @@ void KexiQueryDesignerGuiEditor::initTableRows()
 
 void KexiQueryDesignerGuiEditor::updateColumnsData()
 {
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     d->dataTable->dataAwareObject()->acceptRecordEditing();
 
     QStringList sortedTableNames;
@@ -351,7 +346,7 @@ void KexiQueryDesignerGuiEditor::updateColumnsData()
         //table
         /*! @todo what about query? */
         const KDbTableSchema *table = d->relations->tables()->value(tableName)->schema()->table();
-        KDbTableSchemaChangeListener::registerForChanges(d->conn, tempData(), table); //this table will be used
+        KDbTableSchemaChangeListener::registerForChanges(conn, tempData(), table); //this table will be used
         data = d->tablesColumnData->createItem();
         (*data)[COLUMN_ID_COLUMN] = table->name();
         (*data)[COLUMN_ID_TABLE] = (*data)[COLUMN_ID_COLUMN];
@@ -394,6 +389,7 @@ bool
 KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
 {
     //build query schema
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     KexiQueryPartTempData * temp = tempData();
     if (temp->query()) {
         KexiQueryView *queryDataView = dynamic_cast<KexiQueryView*>(window()->viewForMode(Kexi::DataViewMode));
@@ -507,7 +503,7 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                 }
                 continue;
             } else {
-                KDbTableSchema *t = d->conn->tableSchema(tableName);
+                KDbTableSchema *t = conn->tableSchema(tableName);
                 if (fieldName == "*") {
                     //single-table asterisk: <tablename> + ".*" + number
                     if (fieldVisible) {
@@ -624,8 +620,8 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
 //! @todo ok, but not for expressions
         QString aliasString((*set)["alias"].value().toString());
         currentColumn = temp->query()->columnInfo(
-                            (*set)["table"].value().toString() + "."
-                            + (aliasString.isEmpty() ? currentField->name() : aliasString));
+            conn, (*set)["table"].value().toString() + "."
+                + (aliasString.isEmpty() ? currentField->name() : aliasString));
         if (currentField && currentColumn) {
             if (currentColumn->isVisible())
                 orderByColumns.appendColumn(currentColumn, sortOrder);
@@ -635,7 +631,7 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
     }
     temp->query()->setOrderByColumnList(orderByColumns);
 
-    qDebug() << *temp->query();
+    qDebug() << KDbConnectionAndQuerySchema(conn, *temp->query());
     temp->registerTableSchemaChanges(temp->query());
     //! @todo ?
     return true;
@@ -694,8 +690,9 @@ KexiQueryDesignerGuiEditor::beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore)
 tristate
 KexiQueryDesignerGuiEditor::afterSwitchFrom(Kexi::ViewMode mode)
 {
-    if (!d->relations->setConnection(d->conn)) {
-        window()->setStatus(d->conn);
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
+    if (!d->relations->setConnection(conn)) {
+        window()->setStatus(conn);
         return false;
     }
     if (mode == Kexi::NoViewMode || (mode == Kexi::DataViewMode && !tempData()->query())) {
@@ -703,7 +700,7 @@ KexiQueryDesignerGuiEditor::afterSwitchFrom(Kexi::ViewMode mode)
         if (!window()->neverSaved()) {
             if (!loadLayout()) {
                 //err msg
-                window()->setStatus(d->conn,
+                window()->setStatus(conn,
                                     xi18n("Query definition loading failed."),
                                     xi18n("Query design may be corrupted so it could not be opened even in text view.\n"
                                          "You can delete the query and create it again."));
@@ -776,6 +773,7 @@ KexiQueryDesignerGuiEditor::storeNewData(const KDbObject& object,
 {
     Q_ASSERT(cancel);
     Q_UNUSED(options);
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     if (!d->dataTable->dataAwareObject()->acceptRecordEditing()) {
         *cancel = true;
         return 0;
@@ -792,7 +790,7 @@ KexiQueryDesignerGuiEditor::storeNewData(const KDbObject& object,
     }
     (KDbObject&)*temp->query() = object; //copy main attributes
 
-    bool ok = d->conn->storeNewObjectData(temp->query());
+    bool ok = conn->storeNewObjectData(temp->query());
     if (ok) {
         ok = KexiMainWindowIface::global()->project()->removeUserDataBlock(temp->query()->id()); // for sanity
     }
@@ -871,6 +869,7 @@ void KexiQueryDesignerGuiEditor::showFieldsAndRelationsForQuery(KDbQuerySchema *
 void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
     KDbQuerySchema *query, bool showFields, bool showRelations, KDbResultInfo& result)
 {
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     result.clear();
     const bool was_dirty = isDirty();
 
@@ -953,7 +952,7 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
     QSet<QString> usedCriterias; // <-- used criterias will be saved here
     //     so in step 4. we will be able to add
     //     remaining invisible columns with criterias
-    qDebug() << *query;
+    qDebug() << KDbConnectionAndQuerySchema(conn, *query);
     foreach(KDbField* field, *query->fields()) {
         qDebug() << *field;
     }
@@ -1020,8 +1019,8 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
     //4. show ORDER BY information
     d->data->clearRecordEditBuffer();
     const KDbOrderByColumnList* orderByColumns = query->orderByColumnList();
-    QHash<KDbQueryColumnInfo*, int> columnsOrder(
-        query->columnsOrder(KDbQuerySchema::UnexpandedListWithoutAsterisks));
+    const QHash<KDbQueryColumnInfo*, int> columnsOrder(
+        query->columnsOrder(conn, KDbQuerySchema::ColumnsOrderMode::UnexpandedListWithoutAsterisks));
     for (auto orderByColumnIt(orderByColumns->constBegin());
             orderByColumnIt != orderByColumns->constEnd(); ++orderByColumnIt)
     {
@@ -1134,6 +1133,7 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
 
 bool KexiQueryDesignerGuiEditor::loadLayout()
 {
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     QString xml;
     //! @todo errmsg
     if (!loadDataBlock(&xml, "query_layout") || xml.isEmpty()) {
@@ -1166,7 +1166,7 @@ bool KexiQueryDesignerGuiEditor::loadLayout()
     //add tables and relations to the relation view
     for (el = doc_el.firstChild().toElement(); !el.isNull(); el = el.nextSibling().toElement()) {
         if (el.tagName() == "table") {
-            KDbTableSchema *t = d->conn->tableSchema(el.attribute("name"));
+            KDbTableSchema *t = conn->tableSchema(el.attribute("name"));
             int x = el.attribute("x", "-1").toInt();
             int y = el.attribute("y", "-1").toInt();
             int width = el.attribute("width", "-1").toInt();
@@ -1192,11 +1192,12 @@ bool KexiQueryDesignerGuiEditor::loadLayout()
 
 bool KexiQueryDesignerGuiEditor::storeLayout()
 {
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     KexiQueryPartTempData * temp = tempData();
 
     // Save SQL without driver-escaped keywords.
     if (window()->schemaObject()) //set this instance as obsolete (only if it's stored)
-        d->conn->setQuerySchemaObsolete(window()->schemaObject()->name());
+        conn->setQuerySchemaObsolete(window()->schemaObject()->name());
 
     KDbSelectStatementOptions options;
     options.setAddVisibleLookupColumns(false);

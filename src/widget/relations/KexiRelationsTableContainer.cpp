@@ -48,12 +48,11 @@ public:
 
 //----------------------
 
-KexiRelationsTableContainer::KexiRelationsTableContainer(
-    QWidget* parent,
-    KexiRelationsScrollArea *scrollArea,
-    KDbTableOrQuerySchema *schema)
-        : QFrame(parent)
-        , d(new Private)
+KexiRelationsTableContainer::KexiRelationsTableContainer(KexiRelationsScrollArea *scrollArea,
+                                                         KDbConnection *conn,
+                                                         KDbTableOrQuerySchema *schema,
+                                                         QWidget *parent)
+    : QFrame(parent), d(new Private)
 {
     d->scrollArea = scrollArea;
     setObjectName("KexiRelationsTableContainer");
@@ -74,7 +73,7 @@ KexiRelationsTableContainer::KexiRelationsTableContainer(
     connect(d->tableHeader, SIGNAL(moved()), this, SLOT(moved()));
     connect(d->tableHeader, SIGNAL(endDrag()), this, SIGNAL(endDrag()));
 
-    d->fieldList = new KexiRelationsTableFieldList(schema, d->scrollArea, this);
+    d->fieldList = new KexiRelationsTableFieldList(conn, schema, d->scrollArea, this);
     d->fieldList->setObjectName("KexiRelationsTableFieldList");
     d->fieldList->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum));
     d->fieldList->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

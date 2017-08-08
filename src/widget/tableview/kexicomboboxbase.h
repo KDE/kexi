@@ -64,10 +64,7 @@ public:
     virtual bool valueIsNull();
     virtual bool valueIsEmpty();
 
-public:
     virtual void hide();
-
-    void createPopup(bool show);
 
     void showPopup();
 
@@ -84,6 +81,11 @@ public:
     virtual QWidget *internalEditor() const = 0;
 
 protected:
+    //! @return connection for this combo
+    virtual KDbConnection *connection() = 0;
+
+    void createPopup(bool show);
+
     virtual void setValueInternal(const QVariant& add, bool removeOld);
 
     //! Used to select record item for a user-entered value \a v.

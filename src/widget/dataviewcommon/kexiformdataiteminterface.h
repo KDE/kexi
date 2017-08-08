@@ -25,6 +25,7 @@
 #include <core/kexidataiteminterface.h>
 #include <QWidget>
 
+class KDbConnection;
 class KDbField;
 
 //! An interface for declaring form widgets to be data-aware.
@@ -106,7 +107,8 @@ public:
      Reimplement if you need to do additional actions,
      e.g. set data validator based on field type. Don't forget about
      calling superclass implementation. */
-    virtual void setColumnInfo(KDbQueryColumnInfo* cinfo) {
+    virtual void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) {
+        Q_UNUSED(conn)
         m_columnInfo = cinfo;
     }
 

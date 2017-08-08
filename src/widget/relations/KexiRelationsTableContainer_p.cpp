@@ -147,13 +147,13 @@ void KexiRelationViewTableContainerHeader::mouseReleaseEvent(QMouseEvent *ev)
 
 //=====================================================================================
 
-KexiRelationsTableFieldList::KexiRelationsTableFieldList(
-    KDbTableOrQuerySchema* tableOrQuerySchema,
-    KexiRelationsScrollArea *scrollArea, QWidget *parent)
-        : KexiFieldListView(parent, ShowAsterisk)
-        , m_scrollArea(scrollArea)
+KexiRelationsTableFieldList::KexiRelationsTableFieldList(KDbConnection *conn,
+                                                         KDbTableOrQuerySchema *tableOrQuerySchema,
+                                                         KexiRelationsScrollArea *scrollArea,
+                                                         QWidget *parent)
+    : KexiFieldListView(parent, ShowAsterisk), m_scrollArea(scrollArea)
 {
-    setSchema(tableOrQuerySchema);
+    setSchema(conn, tableOrQuerySchema);
     setAcceptDrops(true);
 
     connect(horizontalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(slotContentsMoving()));

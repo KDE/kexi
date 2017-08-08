@@ -55,7 +55,7 @@ public:
 
     //! Implemented for KexiDataItemInterface.
     //! Does nothing because instead KDbTableViewColumn is used to get field's schema.
-    virtual void setColumnInfo(KDbQueryColumnInfo *);
+    void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo *cinfo) override;
 
     //! \return column information for this item
     //! (extended information, comparing to field()).
@@ -169,7 +169,7 @@ public:
     /*! Created internal editor for this editor is needed. This method is only implemented
      in KexiComboBoxTableEdit since it's visible value differs from internal value,
      so a different KexiTableEdit object is used to displaying the data. */
-    virtual void createInternalEditor(KDbQuerySchema& schema);
+    virtual void createInternalEditor(KDbConnection *conn, const KDbQuerySchema& schema);
 
 Q_SIGNALS:
     void editRequested();

@@ -287,9 +287,9 @@ void KexiDBLineEdit::clear()
         QLineEdit::clear();
 }
 
-void KexiDBLineEdit::setColumnInfo(KDbQueryColumnInfo* cinfo)
+void KexiDBLineEdit::setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo)
 {
-    KexiFormDataItemInterface::setColumnInfo(cinfo);
+    KexiFormDataItemInterface::setColumnInfo(conn, cinfo);
     m_textFormatter.setField(cinfo ? cinfo->field() : nullptr);
     KexiTextFormatter::OverrideDecimalPlaces overrideDecimalPlaces;
     overrideDecimalPlaces.enabled = true;

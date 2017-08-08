@@ -105,7 +105,7 @@ void KexiFieldComboBox::setTableOrQuery(const QString& name, bool table)
     delete d->model;
     d->model = new KexiFieldListModel(this, ShowEmptyItem);
 
-    d->model->setSchema(&tableOrQuery);
+    d->model->setSchema(d->prj->dbConnection(), &tableOrQuery);
     setModel(d->model);
 
     //update selection

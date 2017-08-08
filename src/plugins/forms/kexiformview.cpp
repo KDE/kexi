@@ -709,17 +709,18 @@ void KexiFormView::initDataSource()
             deleteQuery();
         }
         else {
-            qDebug() << d->query->parameters();
+            qDebug() << d->query->parameters(conn);
             // like in KexiQueryView::executeQuery()
             QList<QVariant> params;
             {
                 KexiUtils::WaitCursorRemover remover;
-                params = KexiQueryParameters::getParameters(this, *conn->driver(), d->query, &ok);
+                params = KexiQueryParameters::getParameters(this, conn, d->query, &ok);
             }
             if (ok) //input cancelled
                 d->cursor = conn->executeQuery(d->query, params);
         }
-        d->scrollView->invalidateDataSources(invalidSources, d->query);
+        d->scrollView->invalidateDataSources(
+            invalidSources, d->cursor ? d->cursor->connection() : nullptr, d->query);
         ok = d->cursor != 0;
     }
 

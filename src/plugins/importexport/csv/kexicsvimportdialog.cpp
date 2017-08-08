@@ -465,18 +465,16 @@ void KexiCSVImportDialog::slotShowSchema(KexiPart::Item *item)
     }
 
     nextButton()->setEnabled(true);
-    KDbTableOrQuerySchema *tableOrQuery = new KDbTableOrQuerySchema(
-            KexiMainWindowIface::global()->project()->dbConnection(),
-            item->identifier()
-            );
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
+    KDbTableOrQuerySchema *tableOrQuery = new KDbTableOrQuerySchema(conn, item->identifier());
     m_tableCaptionLabel->setText(tableOrQuery->captionOrName());
     m_tableNameLabel->setText(tableOrQuery->name());
-    m_recordCountLabel->setText(QString::number(KDb::recordCount(tableOrQuery)));
-    m_colCountLabel->setText(QString::number(tableOrQuery->fieldCount()));
+    m_recordCountLabel->setText(QString::number(conn->recordCount(tableOrQuery)));
+    m_colCountLabel->setText(QString::number(tableOrQuery->fieldCount(conn)));
 
     delete m_fieldsListModel;
     m_fieldsListModel = new KexiFieldListModel(m_fieldsListView, ShowDataTypes);
-    m_fieldsListModel->setSchema(tableOrQuery);
+    m_fieldsListModel->setSchema(conn, tableOrQuery);
     m_fieldsListView->setModel(m_fieldsListModel);
     m_fieldsListView->header()->resizeSections(QHeaderView::ResizeToContents);
 }

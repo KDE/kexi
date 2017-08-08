@@ -62,7 +62,7 @@ KexiFieldListModel::~KexiFieldListModel()
     delete d;
 }
 
-void KexiFieldListModel::setSchema(KDbTableOrQuerySchema* schema)
+void KexiFieldListModel::setSchema(KDbConnection *conn, KDbTableOrQuerySchema* schema)
 {
     if (schema && d->schema == schema)
         return;
@@ -75,7 +75,7 @@ void KexiFieldListModel::setSchema(KDbTableOrQuerySchema* schema)
     qDeleteAll(d->items);
     d->items.clear();
     KexiFieldListModelItem *item = 0;
-    KDbQueryColumnInfo::Vector columns = d->schema->columns(true /*unique*/);
+    KDbQueryColumnInfo::Vector columns = d->schema->columns(conn, KDbTableOrQuerySchema::ColumnsMode::Unique);
     const int count = columns.count();
     for (int i = -2; i < count; i++) {
         KDbQueryColumnInfo *colinfo = 0;

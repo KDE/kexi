@@ -40,7 +40,7 @@ public:
 
     /*! Sets table or query schema \a schema.
      The schema object will be owned by the KexiFieldListView object. */
-    void setSchema(KDbTableOrQuerySchema* schema);
+    void setSchema(KDbConnection *conn, KDbTableOrQuerySchema* schema);
 
     /*! \return table or query schema schema set for this widget. */
     KDbTableOrQuerySchema* schema() const;

@@ -688,7 +688,7 @@ void KexiTableScrollArea::paintCell(QPainter* p, KDbRecordData *data, int record
         }
     }
 
-    const bool columnReadOnly = tvcol->isReadOnly();
+    const bool columnReadOnly = isReadOnly() || tvcol->isReadOnly();
     const bool dontPaintNonpersistentSelectionBecauseDifferentRowHasBeenHighlighted
         =    d->appearance.recordHighlightingEnabled && !d->appearance.persistentSelections
           && m_curRecord >= 0 && record != m_curRecord;
@@ -1291,7 +1291,7 @@ KexiDataItemInterface *KexiTableScrollArea::editor(int col, bool ignoreMissingEd
     }
     editor->hide();
     if (m_data->cursor() && m_data->cursor()->query())
-        editor->createInternalEditor(*m_data->cursor()->query());
+        editor->createInternalEditor(m_data->cursor()->connection(), *m_data->cursor()->query());
 
     connect(editor, SIGNAL(editRequested()), this, SLOT(slotEditRequested()));
     connect(editor, SIGNAL(cancelRequested()), this, SLOT(cancelEditor()));

@@ -127,6 +127,8 @@ public Q_SLOTS:
     //! removes selected table or connection
     void removeSelectedObject();
 
+    void setConnection(KDbConnection *conn);
+
 protected Q_SLOTS:
     void containerMoved(KexiRelationsTableContainer *c);
     void slotListUpdate(QObject *s);

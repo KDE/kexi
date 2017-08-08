@@ -174,9 +174,9 @@ const QPixmap* KexiDBLabel::pixmap() const
     return QLabel::pixmap();
 }
 
-void KexiDBLabel::setColumnInfo(KDbQueryColumnInfo* cinfo)
+void KexiDBLabel::setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo)
 {
-    KexiFormDataItemInterface::setColumnInfo(cinfo);
+    KexiFormDataItemInterface::setColumnInfo(conn, cinfo);
     KexiDBTextWidgetInterface::setColumnInfo(cinfo, this);
 }
 

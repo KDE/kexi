@@ -63,6 +63,7 @@ public:
     QBrush textBrush; //!< needed because for unbound mode editor==0
     bool autoCaption;
     bool focusPolicyChanged;
+    KDbConnection *conn = nullptr;
 };
 
 //-------------------------------------
@@ -182,7 +183,7 @@ KexiDBAutoField::createEditor()
         }
         KexiFormDataItemInterface *formIface = dynamic_cast<KexiFormDataItemInterface*>(newSubwidget);
         if (formIface) {
-            formIface->setColumnInfo(columnInfo()); //needed at least by KexiDBImageBox
+            formIface->setColumnInfo(d->conn, columnInfo()); //needed at least by KexiDBImageBox
             formIface->setVisibleColumnInfo(visibleColumnInfo()); //needed at least by KexiDBComboBox
         }
         newSubwidget->setProperty("dataSource", dataSource()); //needed at least by KexiDBImageBox
@@ -484,14 +485,15 @@ KexiDBAutoField::setFieldCaptionInternal(const QString& text)
 }
 
 void
-KexiDBAutoField::setColumnInfo(KDbQueryColumnInfo* cinfo)
+KexiDBAutoField::setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo)
 {
-    KexiFormDataItemInterface::setColumnInfo(cinfo);
+    KexiFormDataItemInterface::setColumnInfo(conn, cinfo);
+    d->conn = conn;
     setColumnInfoInternal(cinfo, cinfo);
 }
 
-void
-KexiDBAutoField::setColumnInfoInternal(KDbQueryColumnInfo* cinfo, KDbQueryColumnInfo* visibleColumnInfo)
+void KexiDBAutoField::setColumnInfoInternal(KDbQueryColumnInfo *cinfo,
+                                            KDbQueryColumnInfo *visibleColumnInfo)
 {
     // change widget type depending on field type
     if (d->widgetType_property == Auto) {
@@ -517,7 +519,7 @@ KexiDBAutoField::setColumnInfoInternal(KDbQueryColumnInfo* cinfo, KDbQueryColumn
 
     KexiFormDataItemInterface *iface = dynamic_cast<KexiFormDataItemInterface*>((QWidget*)subwidget());
     if (iface)
-        iface->setColumnInfo(visibleColumnInfo);
+        iface->setColumnInfo(d->conn, visibleColumnInfo);
 }
 
 //static
@@ -624,7 +626,7 @@ KexiDBAutoField::setDataSource(const QString &ds)
 {
     KexiFormDataItemInterface::setDataSource(ds);
     if (ds.isEmpty()) {
-        setColumnInfo(0);
+        setColumnInfo(d->conn, nullptr);
     }
 }
 
@@ -811,4 +813,3 @@ bool KexiDBAutoField::keyPressed(QKeyEvent *ke)
         return true;
     return false;
 }
-

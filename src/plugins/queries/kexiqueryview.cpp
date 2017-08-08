@@ -78,13 +78,12 @@ tristate KexiQueryView::executeQuery(KDbQuerySchema *query)
         return false;
     KexiUtils::WaitCursor wait;
     KDbCursor *oldCursor = d->cursor;
-    qDebug() << query->parameters();
-    bool ok;
     KDbConnection * conn = KexiMainWindowIface::global()->project()->dbConnection();
+    qDebug() << query->parameters(conn);
+    bool ok;
     {
         KexiUtils::WaitCursorRemover remover;
-        d->currentParams = KexiQueryParameters::getParameters(this,
-                 *conn->driver(), query, &ok);
+        d->currentParams = KexiQueryParameters::getParameters(this, conn, query, &ok);
     }
     if (!ok) {//input cancelled
         return cancelled;

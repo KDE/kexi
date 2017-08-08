@@ -143,14 +143,16 @@ KDbObject* KexiQueryPart::loadSchemaObject(
         //! @todo
         return 0;
     }
-    qDebug() << *query;
+    qDebug() << KDbConnectionAndQuerySchema(
+        KexiMainWindowIface::global()->project()->dbConnection(), *query);
     (KDbObject&)*query = object; //copy main attributes
 
     temp->registerTableSchemaChanges(query);
     if (ownedByWindow)
         *ownedByWindow = false;
 
-    qDebug() << *query;
+    qDebug() << KDbConnectionAndQuerySchema(
+        KexiMainWindowIface::global()->project()->dbConnection(), *query);
     return query;
 }
 

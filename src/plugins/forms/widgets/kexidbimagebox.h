@@ -203,7 +203,7 @@ protected:
     QByteArray data() const;
 
     virtual void contextMenuEvent(QContextMenuEvent * e);
-    virtual void setColumnInfo(KDbQueryColumnInfo* cinfo);
+    void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) override;
     virtual void paintEvent(QPaintEvent*);
     virtual void resizeEvent(QResizeEvent* e);
     virtual bool eventFilter(QObject * watched, QEvent * e);

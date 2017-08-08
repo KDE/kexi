@@ -110,7 +110,7 @@ protected Q_SLOTS:
 
 protected:
     void init();
-    virtual void setColumnInfo(KDbQueryColumnInfo* cinfo);
+    void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) override;
     virtual void paintEvent(QPaintEvent*);
     virtual void resizeEvent(QResizeEvent* e);
 

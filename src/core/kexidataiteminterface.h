@@ -26,6 +26,7 @@
 #include "kexicore_export.h"
 
 class KexiDataItemInterface;
+class KDbConnection;
 class KDbField;
 class KDbQueryColumnInfo;
 
@@ -81,7 +82,7 @@ public:
     virtual KDbQueryColumnInfo* columnInfo() = 0;
 
     //! Used internally to set column information.
-    virtual void setColumnInfo(KDbQueryColumnInfo* cinfo) = 0;
+    virtual void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) = 0;
 
     //! Sets listener. No need to reimplement this.
     virtual void installListener(KexiDataItemChangesListener* listener);
