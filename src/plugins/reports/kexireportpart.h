@@ -31,7 +31,7 @@ class KexiReportPartTempData : public KexiWindowData
 {
     Q_OBJECT
 public:
-    explicit KexiReportPartTempData(QObject* parent);
+    explicit KexiReportPartTempData(KexiWindow* parent);
     QDomElement reportDefinition;
     QDomElement connectionDefinition;
 

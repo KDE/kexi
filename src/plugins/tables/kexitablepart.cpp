@@ -24,6 +24,7 @@
 #include <core/KexiMainWindowIface.h>
 #include <core/kexiproject.h>
 #include <core/kexipartinfo.h>
+#include <kexiutils/utils.h>
 #include <widget/properties/KexiCustomPropertyFactory.h>
 #include <widget/tableview/KexiDataTableView.h>
 #include <widget/tableview/KexiDataTableScrollArea.h>
@@ -278,13 +279,15 @@ public:
     KDbConnection *conn;
 };
 
-KexiTablePartTempData::KexiTablePartTempData(QObject* parent, KDbConnection *conn)
+KexiTablePartTempData::KexiTablePartTempData(KexiWindow* parent, KDbConnection *conn)
         : KexiWindowData(parent)
         , KDbTableSchemaChangeListener()
         , tableSchemaChangedInPreviousView(true /*to force reloading on startup*/)
         , d(new Private)
 {
     d->conn = conn;
+    setName(KexiUtils::localizedStringToHtmlSubstring(
+        kxi18nc("@info", "Table <resource>%1</resource>").subs(parent->partItem()->name())));
 }
 
 KexiTablePartTempData::~KexiTablePartTempData()

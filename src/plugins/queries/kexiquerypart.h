@@ -27,7 +27,6 @@
 #include <kexipartitem.h>
 #include <KexiWindowData.h>
 
-#include <KDbConnection>
 #include <KDbTableSchemaChangeListener>
 
 //! @short Temporary data kept in memory while switching between Query Window's views

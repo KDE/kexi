@@ -158,7 +158,7 @@ KexiWindowData* KexiReportPart::createWindowData(KexiWindow* window)
     return new KexiReportPartTempData(window);
 }
 
-KexiReportPartTempData::KexiReportPartTempData(QObject* parent)
+KexiReportPartTempData::KexiReportPartTempData(KexiWindow* parent)
         : KexiWindowData(parent)
         , reportSchemaChangedInPreviousView(true /*to force reloading on startup*/)
 {

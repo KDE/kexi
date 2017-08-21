@@ -29,8 +29,9 @@
 #include <kexiutils/utils.h>
 #include <KexiWindow.h>
 
-#include <KDbParser>
+#include <KDbConnection>
 #include <KDbCursor>
+#include <KDbParser>
 #include <KDbQuerySchemaParameter>
 #include <KDbTableViewColumn>
 

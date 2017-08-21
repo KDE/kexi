@@ -41,7 +41,7 @@ class KexiFormPartTempData : public KexiWindowData
 {
     Q_OBJECT
 public:
-    explicit KexiFormPartTempData(QObject* parent);
+    explicit KexiFormPartTempData(KexiWindow* parent);
     ~KexiFormPartTempData();
     QPointer<KFormDesigner::Form> form;
     QPointer<KFormDesigner::Form> previewForm;

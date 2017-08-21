@@ -26,7 +26,9 @@
 #include <KexiWindow.h>
 #include <kexiproject.h>
 #include <kexipartinfo.h>
+#include <kexiutils/utils.h>
 
+#include <KDbConnection>
 #include <KDbCursor>
 #include <KDbParser>
 #include <KDbQuerySchema>
@@ -54,11 +56,8 @@ KexiQueryPart::~KexiQueryPart()
 
 KexiWindowData* KexiQueryPart::createWindowData(KexiWindow* window)
 {
-    KexiQueryPartTempData *data = new KexiQueryPartTempData(
-        window, KexiMainWindowIface::global()->project()->dbConnection());
-    data->setName(xi18nc("@info Object \"objectname\"", "%1 <resource>%2</resource>",
-                         window->part()->info()->name(), window->partItem()->name()));
-    return data;
+    return new KexiQueryPartTempData(window,
+                                     KexiMainWindowIface::global()->project()->dbConnection());
 }
 
 KexiView* KexiQueryPart::createView(QWidget *parent, KexiWindow* window, KexiPart::Item *item,
@@ -199,6 +198,8 @@ KexiQueryPartTempData::KexiQueryPartTempData(KexiWindow* window, KDbConnection *
         , m_queryChangedInView(Kexi::NoViewMode)
 {
     this->conn = conn;
+    setName(KexiUtils::localizedStringToHtmlSubstring(
+        kxi18nc("@info", "Query <resource>%1</resource>").subs(window->partItem()->name())));
 }
 
 KexiQueryPartTempData::~KexiQueryPartTempData()

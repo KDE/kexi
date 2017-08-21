@@ -28,7 +28,6 @@
 #include <KexiWindowData.h>
 #include <kexipartitem.h>
 
-#include <KDbFieldList>
 #include <KDbTableSchemaChangeListener>
 
 class KexiLookupColumnPage;
@@ -38,7 +37,7 @@ class KexiTablePartTempData : public KexiWindowData, public KDbTableSchemaChange
 {
     Q_OBJECT
 public:
-    explicit KexiTablePartTempData(QObject* parent, KDbConnection *conn);
+    KexiTablePartTempData(KexiWindow* parent, KDbConnection *conn);
 
     ~KexiTablePartTempData();
 

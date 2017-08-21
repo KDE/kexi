@@ -145,8 +145,7 @@ void KexiFormPart::initInstanceActions()
                                        QKeySequence(), "formpart_adjust_width_big"));
 }
 
-KexiWindowData*
-KexiFormPart::createWindowData(KexiWindow* window)
+KexiWindowData* KexiFormPart::createWindowData(KexiWindow* window)
 {
     return new KexiFormPartTempData(window);
 }
@@ -379,7 +378,7 @@ void KexiFormPart::setupCustomPropertyPanelTabs(QTabWidget *tab)
 
 //----------------
 
-KexiFormPartTempData::KexiFormPartTempData(QObject* parent)
+KexiFormPartTempData::KexiFormPartTempData(KexiWindow* parent)
         : KexiWindowData(parent)
 {
 }
