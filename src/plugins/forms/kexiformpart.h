@@ -76,11 +76,11 @@ public:
                                          KexiWindow* window) const;
 
 protected:
-    virtual KexiWindowData* createWindowData(KexiWindow* window);
+    KexiWindowData* createWindowData(KexiWindow* window) override Q_REQUIRED_RESULT;
 
-    virtual KexiView* createView(QWidget *parent, KexiWindow* window,
-                                 KexiPart::Item *item, Kexi::ViewMode viewMode = Kexi::DataViewMode,
-                                 QMap<QString, QVariant>* staticObjectArgs = 0);
+    KexiView *createView(QWidget *parent, KexiWindow *window, KexiPart::Item *item,
+                         Kexi::ViewMode viewMode = Kexi::DataViewMode,
+                         QMap<QString, QVariant> *staticObjectArgs = nullptr) override Q_REQUIRED_RESULT;
 
     virtual void initPartActions();
     virtual void initInstanceActions();

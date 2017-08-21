@@ -59,20 +59,22 @@ public:
      Created widget will have assigned \a parent widget and \a objName name. */
     static QWidget* createWidgetInstance(const QString &className, const char* widgetClass,
                                          KDbMessageHandler *msgHdr,
-                                         QWidget *parent, const char *objName = 0, QMap<QString, QString>* args = 0);
+                                         QWidget *parent, const char *objName = nullptr,
+                                         QMap<QString, QString>* args = nullptr) Q_REQUIRED_RESULT;
 
     /*! For convenience. */
     static QWidget* createWidgetInstance(const QString &className,
                                          KDbMessageHandler *msgHdr,
-                                         QWidget *parent, const char *objName = 0, QMap<QString, QString>* args = 0);
+                                         QWidget *parent, const char *objName = nullptr,
+                                         QMap<QString, QString>* args = nullptr) Q_REQUIRED_RESULT;
 
     /*! Creates a new object instance using part pointed by \a className.
      \a widgetClass is a pseudo class used in case when the part offers more
      than one object type. */
     static QObject* createObjectInstance(const QString &className,
                                          const char* objectClass, KDbMessageHandler *msgHdr,
-                                         QObject *parent, const char *objName = 0,
-                                         QMap<QString, QString>* args = 0);
+                                         QObject *parent, const char *objName = nullptr,
+                                         QMap<QString, QString>* args = nullptr) Q_REQUIRED_RESULT;
 
     /*! Creates a new KexiWindow instance. If such instance already exists,
      and is unique (see uniqueWindow()) it is just returned.
@@ -82,7 +84,7 @@ public:
      The window is assigned to the main window,
      and \a objName name is set. */
     static KexiWindow* createKexiWindowInstance(const QString &className,
-            KDbMessageHandler *msgHdr, const char *objName = 0);
+            KDbMessageHandler *msgHdr, const char *objName = nullptr) Q_REQUIRED_RESULT;
 
     /*! Creates a new modal dialog instance (QDialog or a subclass).
      If such instance already exists, and is unique (see uniqueWindow())
@@ -99,12 +101,12 @@ public:
      and \a objName name is set. */
     static QDialog* createModalDialogInstance(const QString &className,
             const char* dialogClass, KDbMessageHandler *msgHdr,
-            const char *objName = 0, QMap<QString, QString>* args = 0);
+            const char *objName = nullptr, QMap<QString, QString>* args = nullptr) Q_REQUIRED_RESULT;
 
     /*! Adeded For convenience. */
     static QDialog* createModalDialogInstance(const QString &className,
-            KDbMessageHandler *msgHdr, const char *objName = 0,
-            QMap<QString, QString>* args = 0);
+            KDbMessageHandler *msgHdr, const char *objName = nullptr,
+            QMap<QString, QString>* args = nullptr) Q_REQUIRED_RESULT;
 
     /*! Executes a command \a commandName (usually nonvisual) using part pointed by \a className.
      The result can be put into the \a args. \return true on successful calling. */
@@ -132,17 +134,17 @@ protected:
 
     /*! Reimplement this if your internal part has to return objects. */
     virtual QObject *createObject(const char* objectClass,
-                                  QObject * parent, const char * objName = 0,
-                                  QMap<QString, QString>* args = 0);
+                                  QObject * parent, const char * objName = nullptr,
+                                  QMap<QString, QString>* args = nullptr) Q_REQUIRED_RESULT;
 
     /*! Reimplement this if your internal part has to return widgets
      or QDialog objects. */
     virtual QWidget *createWidget(const char* widgetClass,
-                                  QWidget * parent, const char * objName = 0,
-                                  QMap<QString, QString>* args = 0);
+                                  QWidget * parent, const char * objName = nullptr,
+                                  QMap<QString, QString>* args = nullptr) Q_REQUIRED_RESULT;
 
     /*! Reimplement this if your internal part has to return a view object. */
-    virtual KexiView *createView(QWidget * parent, const char *objName = 0);
+    virtual KexiView *createView(QWidget * parent, const char *objName = nullptr) Q_REQUIRED_RESULT;
 
     /*! Reimplement this if your internal part has to execute a command \a commandName
      (usually nonvisual). Arguments are put into \a args and the result can be put into the \a args.

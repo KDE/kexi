@@ -141,14 +141,13 @@ public:
      This method is called on openInstance() once per dialog.
      Reimplement this to return KexiWindowData subclass instance.
      Default implemention just returns empty KexiWindowData object. */
-    virtual KexiWindowData* createWindowData(KexiWindow *window);
+    virtual KexiWindowData* createWindowData(KexiWindow *window) Q_REQUIRED_RESULT;
 
     /*! Creates a new view for mode \a viewMode, \a item and \a parent. The view will be
      used inside \a dialog. */
-    virtual KexiView* createView(QWidget *parent, KexiWindow *window,
-                                 KexiPart::Item *item,
+    virtual KexiView *createView(QWidget *parent, KexiWindow *window, KexiPart::Item *item,
                                  Kexi::ViewMode viewMode = Kexi::DataViewMode,
-                                 QMap<QString, QVariant>* staticObjectArgs = 0) = 0;
+                                 QMap<QString, QVariant> *staticObjectArgs = nullptr) Q_REQUIRED_RESULT = 0;
 
     //virtual void initTabs();
 

@@ -35,9 +35,9 @@ public:
     KexiMainFormWidgetsFactory(QObject *parent, const QVariantList &);
     virtual ~KexiMainFormWidgetsFactory();
 
-    virtual QWidget *createWidget(const QByteArray &classname, QWidget *parent, const char *name,
-                                  KFormDesigner::Container *container,
-                                  CreateWidgetOptions options = DefaultOptions);
+    QWidget *createWidget(const QByteArray &classname, QWidget *parent, const char *name,
+                          KFormDesigner::Container *container,
+                          CreateWidgetOptions options = DefaultOptions) override Q_REQUIRED_RESULT;
 
     virtual void createCustomActions(KActionCollection* col);
     virtual bool createMenuActions(const QByteArray &classname, QWidget *w, QMenu *menu,

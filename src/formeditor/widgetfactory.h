@@ -184,7 +184,7 @@ public:
      */
     virtual QWidget* createWidget(const QByteArray &classname, QWidget *parent, const char *name,
                                   KFormDesigner::Container *container,
-                                  CreateWidgetOptions options = DefaultOptions) = 0;
+                                  CreateWidgetOptions options = DefaultOptions) Q_REQUIRED_RESULT = 0;
 
     /*! Creates custom actions. Reimplement this if you need to add some
      actions coming from the factory. */

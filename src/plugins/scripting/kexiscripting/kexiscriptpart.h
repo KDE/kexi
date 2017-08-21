@@ -77,11 +77,11 @@ protected:
      *
      * @todo Port It!!!
      */
-    virtual KexiView* createView(QWidget *parent,
+    KexiView* createView(QWidget *parent,
                                  KexiWindow *window,
                                  KexiPart::Item *item,
                                  Kexi::ViewMode viewMode = Kexi::DataViewMode,
-                                 QMap<QString, QVariant>* staticObjectArgs = 0);
+                                 QMap<QString, QVariant>* staticObjectArgs = nullptr) override Q_REQUIRED_RESULT;
 
     /**
      * Initialize the part's actions.

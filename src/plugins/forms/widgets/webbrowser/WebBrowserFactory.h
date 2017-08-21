@@ -30,11 +30,11 @@ class WebBrowserFactory: public KexiDBFactoryBase
 public:
     WebBrowserFactory(QObject* parent, const QVariantList &args);
     virtual ~WebBrowserFactory();
-    virtual QWidget* createWidget(const QByteArray &classname, QWidget *parent, const char *name,
-                                  KFormDesigner::Container *container,
-                                  CreateWidgetOptions options = DefaultOptions);
-    virtual bool createMenuActions(const QByteArray &classname, QWidget *w,
-                                   QMenu *menu, KFormDesigner::Container *container);
+    QWidget *createWidget(const QByteArray &classname, QWidget *parent, const char *name,
+                          KFormDesigner::Container *container,
+                          CreateWidgetOptions options = DefaultOptions) override Q_REQUIRED_RESULT;
+    virtual bool createMenuActions(const QByteArray &classname, QWidget *w, QMenu *menu,
+                                   KFormDesigner::Container *container);
     virtual bool startInlineEditing(InlineEditorCreationArguments& args);
     virtual bool previewWidget(const QByteArray &classname, QWidget *widget,
                                KFormDesigner::Container *container);
