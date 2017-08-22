@@ -12,7 +12,7 @@
 
 if(NOT DEFINED KEXI_QTGUI_RUNTIME_AVAILABLE)
     set(KEXI_QTGUI_RUNTIME_AVAILABLE TRUE CACHE BOOL "TRUE if Qt GUI can be used at runtime for configuration and test apps")
-    if(${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "BSD")
+    if(${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "BSD" OR ${CMAKE_SYSTEM_NAME} MATCHES "GNU")
         execute_process(COMMAND xset q # check presence of X11; TODO support Wayland, etc.
             RESULT_VARIABLE XSET_RESULT
         )
