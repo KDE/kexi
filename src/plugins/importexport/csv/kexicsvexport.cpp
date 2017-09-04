@@ -250,9 +250,10 @@ bool KexiCSVExport::exportData(KDbConnection* conn, KDbTableOrQuerySchema *table
             } else if (isBLOB[real_i]) { //BLOB is escaped in a special way
                 if (hasTextQuote)
 //! @todo add options to suppport other types from KDbBLOBEscapingType enum...
-                    APPEND(textQuote + KDb::escapeBLOB(cursor->value(real_i).toByteArray(), KDb::BLOBEscapeHex) + textQuote);
+                    APPEND(textQuote + KDb::escapeBLOB(cursor->value(real_i).toByteArray(),
+                                                       KDb::BLOBEscapingType::Hex) + textQuote);
                 else
-                    APPEND(KDb::escapeBLOB(cursor->value(real_i).toByteArray(), KDb::BLOBEscapeHex));
+                    APPEND(KDb::escapeBLOB(cursor->value(real_i).toByteArray(), KDb::BLOBEscapingType::Hex));
             } else {//other types
                 APPEND(cursor->value(real_i).toString());
             }
