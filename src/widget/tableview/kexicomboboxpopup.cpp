@@ -194,7 +194,7 @@ void KexiComboBoxPopup::setData(KDbConnection *conn, KDbTableViewColumn *column,
 //! @todo support more RowSourceType's, not only table and query
         KDbCursor *cursor = 0;
         switch (lookupFieldSchema->recordSource().type()) {
-        case KDbLookupFieldSchemaRecordSource::Table: {
+        case KDbLookupFieldSchemaRecordSource::Type::Table: {
             KDbTableSchema *lookupTable = conn->tableSchema(lookupFieldSchema->recordSource().name());
             if (!lookupTable)
 //! @todo errmsg
@@ -237,7 +237,7 @@ void KexiComboBoxPopup::setData(KDbConnection *conn, KDbTableViewColumn *column,
             }
             break;
         }
-        case KDbLookupFieldSchemaRecordSource::Query: {
+        case KDbLookupFieldSchemaRecordSource::Type::Query: {
             KDbQuerySchema *lookupQuery
                 = conn->querySchema(lookupFieldSchema->recordSource().name());
             if (!lookupQuery)

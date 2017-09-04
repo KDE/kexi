@@ -254,7 +254,7 @@ int KexiComboBoxBase::boundColumnIndex() const
         return -1;
     }
     switch (lookupFieldSchema()->recordSource().type()) {
-    case KDbLookupFieldSchemaRecordSource::Table:
+    case KDbLookupFieldSchemaRecordSource::Type::Table:
         // When the record source is Table we have hardcoded columns: <visible>, <bound>
         return lookupFieldSchema()->visibleColumns().count();
     default:;
@@ -270,7 +270,7 @@ int KexiComboBoxBase::visibleColumnIndex() const
         return -1;
     }
     switch (lookupFieldSchema()->recordSource().type()) {
-    case KDbLookupFieldSchemaRecordSource::Table:
+    case KDbLookupFieldSchemaRecordSource::Type::Table:
         // When the record source is Table we have hardcoded columns: <visible>, <bound>
         return lookupFieldSchema()->visibleColumn(0);
     default:;

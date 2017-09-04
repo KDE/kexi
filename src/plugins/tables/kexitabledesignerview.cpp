@@ -231,7 +231,7 @@ void KexiTableDesignerView::initData()
                 KDbLookupFieldSchema *lookupFieldSchema
                     = field->table() ? field->table()->lookupFieldSchema(*field) : 0;
                 if (lookupFieldSchema
-                    && lookupFieldSchema->recordSource().type() != KDbLookupFieldSchemaRecordSource::NoType
+                    && lookupFieldSchema->recordSource().type() != KDbLookupFieldSchemaRecordSource::Type::None
                     && !lookupFieldSchema->recordSource().name().isEmpty())
                 {
                     (*data)[COLUMN_ID_ICON] = KexiIconName("combobox");
