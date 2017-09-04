@@ -109,7 +109,8 @@ QVariant KexiRecentProjectsModel::data(const QModelIndex& index, int role) const
             if (!n.isEmpty()) {
                 n += '\n';
             }
-            QString serverInfo = pdata->connectionData()->toUserVisibleString(KDbConnectionData::NoUserVisibleStringOption);
+            QString serverInfo = pdata->connectionData()->toUserVisibleString(
+                KDbConnectionData::UserVisibleStringOption::None);
             // friendly message:
             if (serverInfo == "localhost") {
                 serverInfo = xi18n("on local server");

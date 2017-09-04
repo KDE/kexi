@@ -121,7 +121,7 @@ void KexiPasswordPage::setConnectionData(const KDbConnectionData &data)
 {
     setPassword(data.savePassword() ? data.password() : QString());
     setUserName(data.userName());
-    setServer(data.toUserVisibleString(KDbConnectionData::NoUserVisibleStringOption));
+    setServer(data.toUserVisibleString(KDbConnectionData::UserVisibleStringOption::None));
 }
 
 void KexiPasswordPage::updateConnectionData(KDbConnectionData *data)

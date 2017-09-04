@@ -72,7 +72,7 @@ KexiDBPasswordDialog::KexiDBPasswordDialog(QWidget *parent, KDbConnectionData& c
           "<p>"+xi18n("Please enter the password.")
           : "<p>"+xi18n("Please enter the password for user.").arg("<b>"+cdata.userName+"</b>");*/
 
-    QString srv = cdata.toUserVisibleString(KDbConnectionData::NoUserVisibleStringOption);
+    QString srv = cdata.toUserVisibleString(KDbConnectionData::UserVisibleStringOption::None);
 //    if (srv.isEmpty() || srv.toLower() == "localhost")
 //        srv = xi18n("local database server");
 
