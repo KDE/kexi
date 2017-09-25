@@ -190,10 +190,6 @@ function(add_update_file_target)
     )
 endfunction()
 
-add_custom_target(update_all_rcc
-    COMMENT "Updating all file lists for rcc files"
-)
-
 if(UNIX)
     # TODO: implement for WIN32
     set(_chmod_name chmod)

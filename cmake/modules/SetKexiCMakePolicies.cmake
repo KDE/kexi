@@ -3,9 +3,7 @@
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
-cmake_policy(SET CMP0002 OLD)
 cmake_policy(SET CMP0017 NEW)
-cmake_policy(SET CMP0022 OLD)
 cmake_policy(SET CMP0048 NEW) # for PROJECT_VERSION
 cmake_policy(SET CMP0053 NEW) # TODO remove, temporary fix for a bug in Qt 5.8's Qt5ModuleLocation.cmake
                               # "Simplify variable reference and escape sequence evaluation"
