@@ -202,9 +202,9 @@ KexiReportPartTempData* KexiReportDesignView::tempData() const
     return static_cast<KexiReportPartTempData*>(window()->data());
 }
 
-void KexiReportDesignView::slotSourceDataChanged()
+void KexiReportDesignView::slotDataSourceChanged()
 {
-    m_reportDesigner->setDataSource(m_sourceSelector->createSourceData());
+    m_reportDesigner->setDataSource(m_sourceSelector->createDataSource());
     tempData()->connectionDefinition = m_sourceSelector->connectionData();
     setDirty(true);
 }

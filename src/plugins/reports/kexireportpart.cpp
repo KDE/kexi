@@ -103,7 +103,9 @@ KexiView* KexiReportPart::createView(QWidget *parent, KexiWindow* window,
 
     } else if (viewMode == Kexi::DesignViewMode) {
         view = new KexiReportDesignView(parent, d->sourceSelector);
-        connect(d->sourceSelector, &KexiSourceSelector::sourceDataChanged, qobject_cast<KexiReportDesignView*>(view), &KexiReportDesignView::slotSourceDataChanged);
+        connect(d->sourceSelector, &KexiSourceSelector::dataSourceChanged,
+                qobject_cast<KexiReportDesignView *>(view),
+                &KexiReportDesignView::slotDataSourceChanged);
         connect(view, SIGNAL(itemInserted(QString)), this, SLOT(slotItemInserted(QString)));
     }
     return view;

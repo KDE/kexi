@@ -40,12 +40,12 @@ public:
     explicit KexiSourceSelector(KexiProject* project, QWidget* parent = 0);
     ~KexiSourceSelector();
 
-    KReportDataSource* createSourceData() const Q_REQUIRED_RESULT;
+    KReportDataSource* createDataSource() const Q_REQUIRED_RESULT;
     void setConnectionData(const QDomElement &c);
     QDomElement connectionData();
 
 Q_SIGNALS:
-    void sourceDataChanged();
+    void dataSourceChanged();
 
 private:
     class Private;

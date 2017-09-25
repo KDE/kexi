@@ -68,7 +68,7 @@ KexiSourceSelector::KexiSourceSelector(KexiProject* project, QWidget* parent)
     d->externalSource = new QLineEdit(this);
     d->setData = new QPushButton(xi18n("Set Data"));
 
-    connect(d->setData, &QPushButton::clicked, this, &KexiSourceSelector::sourceDataChanged);
+    connect(d->setData, &QPushButton::clicked, this, &KexiSourceSelector::dataSourceChanged);
 
     d->sourceType->addItem(xi18n("Internal"), QVariant("internal"));
     d->sourceType->addItem(xi18n("External"), QVariant("external"));
@@ -116,7 +116,7 @@ void KexiSourceSelector::setConnectionData(const QDomElement &c)
         d->externalSource->setText(c.attribute("source"));
     }
 
-    emit sourceDataChanged();
+    emit dataSourceChanged();
 }
 
 QDomElement KexiSourceSelector::connectionData()
@@ -141,7 +141,7 @@ QDomElement KexiSourceSelector::connectionData()
     return conndata;
 }
 
-KReportDataSource* KexiSourceSelector::createSourceData() const
+KReportDataSource* KexiSourceSelector::createDataSource() const
 {
 //!@TODO Fix when enable external data
 #ifndef NO_EXTERNAL_SOURCES
