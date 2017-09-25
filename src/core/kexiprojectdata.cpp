@@ -325,7 +325,7 @@ bool KexiProjectData::load(const QString& fileName, QString* _groupKey)
         QString password = cg.readEntry("encryptedPassword");
         if (!KDbUtils::simpleDecrypt(&password)) {
             qWarning() << "Encrypted password in connection file" << fileName << "cannot be decrypted so won't be used. "
-                          "Remove \"encryptedPassword\" line or correct it to fix this issue.";
+                          "Delete \"encryptedPassword\" line or correct it to fix this issue.";
             password.clear();
         }
         d->connData.setPassword(password);

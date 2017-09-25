@@ -124,7 +124,7 @@ int main(int argc, char** argv)
                           "3. All other tests require <placeholder>db_name</placeholder><nl/>"
                           " and <placeholder>driver_name</placeholder> arguments.\n"
                           "4. 'tables' test automatically runs 'dbcreation'<nl/>"
-                          " test. (<placeholder>new_db_name</placeholder> is removed if already exists).<nl/>"
+                          " test. (<placeholder>new_db_name</placeholder> is deleted if already exists).<nl/>"
                           "5. <placeholder>db_name</placeholder> must be a valid kexi database<nl/>"
                           " e.g. created with 'tables' test."));
     options.add("+driver_name", kxi18n("Driver name"));

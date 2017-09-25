@@ -1959,7 +1959,7 @@ RemovePageCommand::RemovePageCommand(Container *container, QWidget *parent)
     }
     d->parentname = parent->objectName();
     d->insertCommand = new InsertPageCommand(container, parent);
-    setText( kundo2_i18n("Remove Page") );
+    setText( kundo2_i18n("Delete Page") );
 }
 
 RemovePageCommand::~RemovePageCommand()

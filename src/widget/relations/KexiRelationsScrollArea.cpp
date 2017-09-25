@@ -119,7 +119,7 @@ KexiRelationsScrollArea::KexiRelationsScrollArea(QWidget *parent)
 #if 0
     d->removeSelectedTableQueryAction = new QAction(xi18n("&Hide Selected Table/Query"), "edit-delete", "",
             this, SLOT(removeSelectedTableQuery()), parent->actionCollection(), "relationsview_removeSelectedTableQuery");
-    d->removeSelectedConnectionAction = new QAction(xi18n("&Remove Selected Relationship"), "dialog-cancel", "",
+    d->removeSelectedConnectionAction = new QAction(xi18n("&Delete Selected Relationship"), "dialog-cancel", "",
             this, SLOT(removeSelectedConnection()), parent->actionCollection(), "relationsview_removeSelectedConnection");
     d->openSelectedTableQueryAction = new QAction(xi18n("&Open Selected Table/Query"), "", "",
             this, SLOT(openSelectedTableQuery()), 0/*parent->actionCollection()*/, "relationsview_openSelectedTableQuery");

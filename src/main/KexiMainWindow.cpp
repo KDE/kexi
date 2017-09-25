@@ -3424,7 +3424,7 @@ tristate KexiMainWindow::removeObject(KexiPart::Item *item, bool dontAsk)
 
     if (!dontAsk) {
         if (KMessageBox::No == KMessageBox::questionYesNo(this,
-                xi18nc("@info Remove <objecttype> <objectname>?",
+                xi18nc("@info Delete <objecttype> <objectname>?",
                       "<para>Do you want to permanently delete the following object?<nl/>"
                       "<nl/>%1 <resource>%2</resource></para>"
                       "<para><note>If you click <interface>Delete</interface>, "
@@ -3484,7 +3484,7 @@ tristate KexiMainWindow::removeObject(KexiPart::Item *item, bool dontAsk)
 
     if (!d->prj->removeObject(item)) {
         //! @todo better msg
-        showSorryMessage(xi18n("Could not remove object."));
+        showSorryMessage(xi18n("Could not delete object."));
         return false;
     }
     return true;

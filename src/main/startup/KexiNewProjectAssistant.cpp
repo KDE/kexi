@@ -321,7 +321,7 @@ KexiProjectConnectionSelectionPage::KexiProjectConnectionSelectionPage(QWidget* 
                   xi18nc("@info",
                         "<para>Select database server's connection you wish to use to "
                         "create a new Kexi project.</para>"
-                        "<para>Here you may also add, edit or remove connections "
+                        "<para>Here you may also add, edit or delete connections "
                         "from the list.</para>"),
                   parent)
 {

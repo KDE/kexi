@@ -173,8 +173,8 @@ KexiTableDesignerView::KexiTableDesignerView(QWidget *parent)
     viewActions << (d->action_toggle_pkey = new KToggleAction(KexiIcon("database-key"), xi18n("Primary Key"), this));
     a = d->action_toggle_pkey;
     a->setObjectName("tablepart_toggle_pkey");
-    a->setToolTip(xi18n("Sets or removes primary key"));
-    a->setWhatsThis(xi18n("Sets or removes primary key for currently selected field."));
+    a->setToolTip(xi18n("Sets or deletes primary key"));
+    a->setWhatsThis(xi18n("Sets or deletes primary key for currently selected field."));
     connect(a, SIGNAL(triggered()), this, SLOT(slotTogglePrimaryKey()));
     setViewActions(viewActions);
 
@@ -576,7 +576,7 @@ tristate KexiTableDesignerView::beforeSwitchTo(Kexi::ViewMode mode, bool *dontSt
             KGuiItem discardItem(KStandardGuiItem::discard());
             discardItem.setToolTip(QString());
             if (isPhysicalAlteringNeeded) {
-                saveItem.setText(xi18nc("@action:button", "Save Design and Remove Table Data"));
+                saveItem.setText(xi18nc("@action:button", "Save Design and Delete Table Data"));
                 discardItem.setText(xi18nc("@action:button", "Discard Design"));
             }
             const KMessageBox::ButtonCode r = KMessageBox::warningYesNoCancel(this,
@@ -893,7 +893,7 @@ void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& pr
             QString msg =
               xi18n("<para>Setting autonumber requires primary key to be set for current field.</para>");
             if (d->primaryKeyExists)
-                msg += xi18n("<para>Previous primary key will be removed.</para>");
+                msg += xi18n("<para>Previous primary key will be deleted.</para>");
             msg += xi18n("<para>Do you want to create primary key for current field? "
                         "Click <interface>Cancel</interface> to cancel setting autonumber.</para>");
 
@@ -911,7 +911,7 @@ void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& pr
                 d->setPropertyValueIfNeeded(set, "autoIncrement", QVariant(true), setAutonumberCommand);
             } else {
                 setAutonumberCommand = new Command(
-                    kundo2_i18n("Remove autonumber from field <resource>%1</resource>", set["name"].value().toString()),
+                    kundo2_i18n("Delete autonumber from field <resource>%1</resource>", set["name"].value().toString()),
                     0, this);
                 d->setPropertyValueIfNeeded(set, "autoIncrement", QVariant(false), setAutonumberCommand,
                                             true /*forceAddCommand*/, false/*rememberOldValue*/);

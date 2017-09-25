@@ -157,9 +157,9 @@ RemoveFieldCommand::RemoveFieldCommand(Command* parent, KexiTableDesignerView* v
         , m_fieldIndex(fieldIndex)
 {
     if (m_set)
-        setText(kundo2_i18n("Remove table field <resource>%1</resource>", m_alterTableAction.fieldName()));
+        setText(kundo2_i18n("Delete table field <resource>%1</resource>", m_alterTableAction.fieldName()));
     else
-        setText(kundo2_i18n("Remove empty row at position %1", m_fieldIndex));
+        setText(kundo2_i18n("Delete empty row at position %1", m_fieldIndex));
 }
 
 RemoveFieldCommand::~RemoveFieldCommand()

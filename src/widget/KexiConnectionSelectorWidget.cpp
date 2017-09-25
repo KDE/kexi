@@ -61,7 +61,7 @@ public:
         lblIcon->setFixedSize(lblIcon->pixmap()->size());
         btn_add->setToolTip(xi18n("Add a new database connection"));
         btn_edit->setToolTip(xi18n("Edit selected database connection"));
-        btn_remove->setToolTip(xi18n("Remove selected database connections"));
+        btn_remove->setToolTip(xi18n("Delete selected database connections"));
     }
     ~KexiConnectionSelector()
     {
@@ -443,11 +443,11 @@ void KexiConnectionSelectorWidget::slotRemoteRemoveBtnClicked()
         return;
     if (KMessageBox::Yes != KMessageBox::questionYesNo(this,
             xi18nc("@info",
-                "Do you want to remove database connection <resource>%1</resource> from "
+                "Do you want to delete database connection <resource>%1</resource> from "
                 "the list of available connections?",
                 item->data()->toUserVisibleString()),
             QString(), //caption
-            KStandardGuiItem::remove(), KStandardGuiItem::cancel(),
+            KStandardGuiItem::del(), KStandardGuiItem::cancel(),
             QString(), //dont'ask name
             KMessageBox::Notify | KMessageBox::Dangerous)) {
         return;

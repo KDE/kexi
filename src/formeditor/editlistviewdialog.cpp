@@ -68,7 +68,7 @@ EditListViewDialog::EditListViewDialog(QWidget *parent)
 
     QToolButton *delRow = new QToolButton(m_contentsPageItem->widget());
     delRow->setIconSet(koIcon("list-remove"));
-    delRow->setTextLabel(xi18n("&Remove Item"), true);
+    delRow->setTextLabel(xi18n("&Delete Item"), true);
     vlayout->addWidget(delRow);
     m_buttons.insert(BRemRow, delRow);
     connect(delRow, SIGNAL(clicked()), this, SLOT(removeRow()));
@@ -137,7 +137,7 @@ EditListViewDialog::EditListViewDialog(QWidget *parent)
 
     QToolButton *remove = new QToolButton(m_columnsPageItem->widget());
     remove->setIconSet(koIcon("list-remove"));
-    remove->setTextLabel(xi18n("&Remove Item"), true);
+    remove->setTextLabel(xi18n("&Delete Item"), true);
     vbox->addWidget(remove);
     m_buttons.insert(BColRem, remove);
     connect(remove, SIGNAL(clicked()), this, SLOT(removeItem()));

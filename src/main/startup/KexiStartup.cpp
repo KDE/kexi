@@ -486,7 +486,7 @@ tristate KexiStartupHandler::init(const QStringList &arguments,
             if (isSet(options().dropDb) && !projectFileExists) {
                 KMessageBox::sorry(0,
                                    xi18nc("@info",
-                                          "Could not remove project. The file "
+                                          "Could not delete project. The file "
                                           "<filename>%1</filename> does not exist.",
                                           QDir::toNativeSeparators(cdata.databaseName())));
                 return 0;

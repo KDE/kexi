@@ -105,7 +105,7 @@ void KexiMainOpenProjectPage::tabChanged(int index)
                 QLabel* connSelectorLabel = new QLabel(
                     xi18nc("@info",
                           "<para>Select database server's connection with project you wish to open.</para>"
-                          "<para>Here you may also add, edit or remove connections from the list.</para>"));
+                          "<para>Here you may also add, edit or delete connections from the list.</para>"));
                 connSelectorLayout->addWidget(connSelectorLabel);
                 connSelectorLayout->addSpacing(KexiUtils::marginHint());
                 connSelector = new KexiConnectionSelectorWidget(

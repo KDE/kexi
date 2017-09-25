@@ -229,7 +229,7 @@ KLocalizedString KexiTablePart::i18nMessage(
 
     if (window->currentViewMode() == Kexi::DesignViewMode && !window->neverSaved()
             && englishMessage == ":additional message before saving design")
-        return kxi18nc(I18NC_NOOP("@info", "<warning>Any data in this table will be removed upon design's saving!</warning>"));
+        return kxi18nc(I18NC_NOOP("@info", "<warning>Any data in this table will be deleted upon design's saving!</warning>"));
 
     return Part::i18nMessage(englishMessage, window);
 }

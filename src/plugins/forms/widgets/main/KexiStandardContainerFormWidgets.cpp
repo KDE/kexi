@@ -263,7 +263,7 @@ void AddTabAction::slotTriggered()
 
 RemoveTabAction::RemoveTabAction(KFormDesigner::Container *container,
                                  TabWidgetBase *receiver, QObject *parent)
-    : QAction(koIcon("tab-close-other"), xi18nc("Remove tab widget's page", "Remove Page"),
+    : QAction(koIcon("tab-close-other"), xi18nc("Delete tab widget's page", "Delete Page"),
               parent)
     , m_container(container)
     , m_receiver(receiver)
@@ -335,7 +335,7 @@ void AddStackPageAction::slotTriggered()
 
 RemoveStackPageAction::RemoveStackPageAction(KFormDesigner::Container *container,
                                              QWidget *receiver, QObject *parent)
-    : QAction(koIcon("tab-close-other"), xi18nc("Remove page from a stacked widget", "Remove Page"),
+    : QAction(koIcon("tab-close-other"), xi18nc("Delete page from a stacked widget", "Delete Page"),
               parent)
     , m_container(container)
     , m_receiver(receiver)

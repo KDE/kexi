@@ -1021,7 +1021,7 @@ bool KexiProject::removeObject(KexiPart::Item *item)
             return false;
         }
         if (!removeUserDataBlock(item->identifier())) {
-            m_result = KDbResult(ERR_DELETE_SERVER_ERROR, xi18n("Could not remove object's user data."));
+            m_result = KDbResult(ERR_DELETE_SERVER_ERROR, xi18n("Could not delete object's user data."));
             return false;
         }
         if (!tg.commit()) {
@@ -1149,7 +1149,7 @@ KDbParser* KexiProject::sqlParser()
     return d->sqlParser;
 }
 
-const char warningNoUndo[] = I18N_NOOP2("warning", "Entire project's data and design will be removed.");
+const char warningNoUndo[] = I18N_NOOP2("warning", "Entire project's data and design will be deleted.");
 
 /*static*/
 KexiProject*
