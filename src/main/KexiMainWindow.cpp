@@ -209,7 +209,7 @@ KexiMainWindowTabWidget::KexiMainWindowTabWidget(QWidget *parent, KexiMainWidget
 #endif
     setMovable(true);
     setDocumentMode(true);
-    tabBar()->setExpanding(true);
+    tabBar()->setExpanding(false);
 }
 
 KexiMainWindowTabWidget::~KexiMainWindowTabWidget()
