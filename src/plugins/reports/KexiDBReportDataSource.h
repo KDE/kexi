@@ -29,8 +29,6 @@
 class KexiDBReportDataSource : public KReportDataSource
 {
 public:
-    KexiDBReportDataSource(const QString &objectName, KDbConnection *conn);
-
     /*!
      * @a pluginId specifies type of @a objectName, a table or query.
      * Types accepted:
@@ -73,7 +71,7 @@ private:
     class Private;
     Private * const d;
 
-    bool getSchema(const QString& pluginId = QString());
+    bool getSchema(const QString& pluginId);
 };
 
 #endif

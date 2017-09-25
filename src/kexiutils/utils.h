@@ -47,6 +47,7 @@
 #include <KDbTristate>
 
 class QColor;
+class QDomNode;
 class QMetaProperty;
 class QLayout;
 class QLineEdit;
@@ -664,5 +665,10 @@ KEXIUTILS_EXPORT QString localizedStringToHtmlSubstring(const KLocalizedString& 
 KEXIUTILS_EXPORT bool cursorAtEnd(const QLineEdit *lineEdit);
 
 } //namespace KexiUtils
+
+/**
+ * Writes the DOM tree to the stream and returns a reference to the stream.
+ */
+KEXIUTILS_EXPORT QDebug operator<<(QDebug dbg, const QDomNode &node);
 
 #endif //KEXIUTILS_UTILS_H

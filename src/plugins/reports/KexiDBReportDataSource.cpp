@@ -49,14 +49,6 @@ public:
     KDbQuerySchema *copySchema;
 };
 
-KexiDBReportDataSource::KexiDBReportDataSource (const QString &objectName,
-                                    KDbConnection * pDb)
-        : d(new Private(pDb))
-{
-    d->objectName = objectName;
-    getSchema();
-}
-
 KexiDBReportDataSource::KexiDBReportDataSource(const QString& objectName,
                                    const QString& pluginId,
                                    KDbConnection* pDb)
@@ -330,5 +322,5 @@ QStringList KexiDBReportDataSource::dataSourceNames() const
 
 KReportDataSource* KexiDBReportDataSource::create(const QString& source) const
 {
-    return new KexiDBReportDataSource(source, d->connection);
+    return new KexiDBReportDataSource(source, QString(), d->connection);
 }

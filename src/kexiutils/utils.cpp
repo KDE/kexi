@@ -34,6 +34,7 @@
 #include "kexiutils_global.h"
 #include <KexiIcon.h>
 
+#include <QDomNode>
 #include <QPainter>
 #include <QImage>
 #include <QImageReader>
@@ -1160,4 +1161,13 @@ bool KexiUtils::cursorAtEnd(const QLineEdit *lineEdit)
     } else {
         return lineEdit->cursorPosition() >= (lineEdit->displayText().length() - 1);
     }
+}
+
+QDebug operator<<(QDebug dbg, const QDomNode &node)
+{
+  QString s;
+  QTextStream str(&s, QIODevice::WriteOnly);
+  node.save(str, 2);
+  dbg << qPrintable(s);
+  return dbg;
 }

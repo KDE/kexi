@@ -408,7 +408,9 @@ KReportDataSource* KexiReportView::createDataSource(const QDomElement &e)
     KReportDataSource *kodata = 0;
 
     if (e.attribute("type") == "internal" && !e.attribute("source").isEmpty()) {
-        kodata = new KexiDBReportDataSource(e.attribute("source"), KexiMainWindowIface::global()->project()->dbConnection());
+        kodata
+            = new KexiDBReportDataSource(e.attribute("source"), e.attribute("class"),
+                                         KexiMainWindowIface::global()->project()->dbConnection());
     }
 #ifndef KEXI_MOBILE
 //! @todo KEXI3

@@ -19,6 +19,7 @@
 #include "kexisourceselector.h"
 #include "KexiDataSourceComboBox.h"
 #include <kexiproject.h>
+#include <kexiutils/utils.h>
 
 #include <KLocalizedString>
 
@@ -106,9 +107,14 @@ KexiSourceSelector::~KexiSourceSelector()
 
 void KexiSourceSelector::setConnectionData(const QDomElement &c)
 {
+    qDebug() << c;
     if (c.attribute("type") == "internal") {
         d->sourceType->setCurrentIndex(d->sourceType->findData("internal"));
-        d->internalSource->setCurrentIndex(d->internalSource->findText(c.attribute("source")));
+        QString sourceClass(c.attribute("class"));
+        if (sourceClass != "org.kexi-project.table" && sourceClass != "org.kexi-project.query") {
+            sourceClass.clear(); // KexiDataSourceComboBox will try to find table, then query
+        }
+        d->internalSource->setDataSource(sourceClass, c.attribute("source"));
     }
 
     if (c.attribute("type") == "external") {
@@ -130,7 +136,8 @@ QDomElement KexiSourceSelector::connectionData()
     conndata.setAttribute("type", d->sourceType->itemData(d->sourceType->currentIndex()).toString());
 
     if (d->sourceType->itemData(d->sourceType->currentIndex()).toString() == "internal") {
-        conndata.setAttribute("source", d->internalSource->currentText());
+        conndata.setAttribute("source", d->internalSource->selectedName());
+        conndata.setAttribute("class", d->internalSource->selectedPluginId());
     } else {
         conndata.setAttribute("source", d->externalSource->text());
     }
