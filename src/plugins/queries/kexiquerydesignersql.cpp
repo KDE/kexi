@@ -406,7 +406,7 @@ KDbObject* KexiQueryDesignerSqlView::storeNewData(const KDbObject& object,
                    this, xi18n("<para>This query is invalid.</para>"
                                "<para>Do you want to save it?</para>"),
                    0, KStandardGuiItem::save(),
-                   KGuiItem(xi18n("Don't Save"), KStandardGuiItem::no().iconName()),
+                    KStandardGuiItem::dontSave(),
                    "askBeforeSavingInvalidQueries" /*config entry*/))
         {
             *cancel = true;
