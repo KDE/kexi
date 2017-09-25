@@ -453,7 +453,8 @@ tristate KexiWindow::switchToViewMode(
                      "<para>Do you want to save these changes before switching to other view?</para>",
                      partItem()->captionOrName()),
                     xi18n("Confirm Saving Changes"),
-                    saveItem, dontSaveItem, cancelItem
+                    saveItem, dontSaveItem, cancelItem, QString(),
+                    KMessageBox::Notify | KMessageBox::Dangerous
             );
             if (res == KMessageBox::Yes) {
                 if (true != view->saveDataChanges())

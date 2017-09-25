@@ -754,7 +754,7 @@ tristate KexiUtils::openHyperLink(const QUrl &url, QWidget *parent, const OpenHy
                     , QString()
                     , KGuiItem(xi18nc("@action:button Run script file", "Run"), koIconName("system-run"))
                     , KStandardGuiItem::no()
-                    , "AllowRunExecutable", KMessageBox::Dangerous);
+                    , "AllowRunExecutable", KMessageBox::Notify | KMessageBox::Dangerous);
 
         if (ret != KMessageBox::Yes) {
             return cancelled;

@@ -433,7 +433,8 @@ ConnectionDialog::removeItem()
               QString(),
               KGuiItem(xi18nc("@action:button", "&Delete Connection")),
               KStandardGuiItem::no(),
-              "AskBeforeDeleteConnection"/*config entry*/))
+              "AskBeforeDeleteConnection"/*config entry*/,
+              KMessageBox::Notify | KMessageBox::Dangerous))
     {
         return;
     }

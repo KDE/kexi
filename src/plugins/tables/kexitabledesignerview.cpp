@@ -1441,8 +1441,13 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
                 bool emptyTable;
                 const QString msg = d->messageForSavingChanges(&emptyTable).toString();
                 if (!emptyTable) {
-                    if (KMessageBox::No == KMessageBox::questionYesNo(this, msg))
+                    if (KMessageBox::No == KMessageBox::questionYesNo(
+                                               this, msg, QString(), KStandardGuiItem::save(),
+                                               KStandardGuiItem::dontSave(), QString(),
+                                               KMessageBox::Notify | KMessageBox::Dangerous))
+                    {
                         res = cancelled;
+                    }
                 }
             }
             d->dontAskOnStoreData = false; //one-time use
