@@ -25,7 +25,6 @@
 #include <KLocalizedString>
 
 #include <QDebug>
-#include <QPushButton>
 #include <QLabel>
 #include <QDomElement>
 #include <QVBoxLayout>
@@ -44,7 +43,6 @@ public:
     KDbConnection *conn;
     QVBoxLayout *layout;
     KexiDataSourceComboBox *dataSource;
-    QPushButton *setData;
 };
 
 KexiSourceSelector::KexiSourceSelector(KexiProject* project, QWidget* parent)
@@ -56,15 +54,13 @@ KexiSourceSelector::KexiSourceSelector(KexiProject* project, QWidget* parent)
     d->layout = new QVBoxLayout(this);
     d->dataSource = new KexiDataSourceComboBox(this);
     d->dataSource->setProject(project);
-    d->setData = new QPushButton(xi18n("Set Data"));
+    connect(d->dataSource, &KexiDataSourceComboBox::dataSourceChanged, this,
+            &KexiSourceSelector::dataSourceChanged);
 
-    connect(d->setData, &QPushButton::clicked, this, &KexiSourceSelector::dataSourceChanged);
-
-    d->layout->addWidget(new QLabel(xi18n("Report's data source:"), this));
+    QLabel *label = new QLabel(xi18n("Report's data source:"));
+    label->setBuddy(d->dataSource);
+    d->layout->addWidget(label);
     d->layout->addWidget(d->dataSource);
-
-    d->layout->addSpacing(20);
-    d->layout->addWidget(d->setData);
     d->layout->addStretch();
     setLayout(d->layout);
 }
