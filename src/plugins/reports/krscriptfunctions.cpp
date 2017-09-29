@@ -34,7 +34,7 @@ KRScriptFunctions::KRScriptFunctions(const KReportDataSource* datasource, KDbCon
         if (m_connection->containsTable(datasource->sourceName()) == true) {
             m_source = datasource->sourceName();
         } else if (m_connection->querySchema(datasource->sourceName())) {
-            KDbNativeStatementBuilder builder(conn);
+            KDbNativeStatementBuilder builder(conn, KDb::DriverEscaping);
             KDbEscapedString source;
             if (builder.generateSelectStatement(&source, m_connection->querySchema(datasource->sourceName()))) {
                 m_source = source.toByteArray();
