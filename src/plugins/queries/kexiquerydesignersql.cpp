@@ -270,6 +270,7 @@ KexiQueryDesignerSqlView::afterSwitchFrom(Kexi::ViewMode mode)
         //SQL text should be invalidated.
         d->justSwitchedFromNoViewMode = true;
     }
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     KexiQueryPartTempData * temp = tempData();
     KDbQuerySchema *query = temp->query();
     if (!query) {//try to just get saved schema, instead of temporary one
@@ -287,7 +288,7 @@ KexiQueryDesignerSqlView::afterSwitchFrom(Kexi::ViewMode mode)
         if (temp->queryChangedInView() != Kexi::NoViewMode) {
             KDbSelectStatementOptions options;
             options.setAddVisibleLookupColumns(false);
-            KDbNativeStatementBuilder builder;
+            KDbNativeStatementBuilder builder(conn, KDb::KDbEscaping);
             if (!builder.generateSelectStatement(&d->origStatement, query, options)) {
                 //! @todo msg
                 return false;

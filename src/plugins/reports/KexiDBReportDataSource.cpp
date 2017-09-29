@@ -173,7 +173,7 @@ bool KexiDBReportDataSource::getSchema(const QString& pluginId)
         }
 
         if (d->originalSchema) {
-            const KDbNativeStatementBuilder builder(d->connection);
+            const KDbNativeStatementBuilder builder(d->connection, KDb::DriverEscaping);
             KDbEscapedString sql;
             if (builder.generateSelectStatement(&sql, d->originalSchema)) {
                 qDebug() << "Original:" << sql;

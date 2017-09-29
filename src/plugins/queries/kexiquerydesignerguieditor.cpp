@@ -1201,7 +1201,7 @@ bool KexiQueryDesignerGuiEditor::storeLayout()
 
     KDbSelectStatementOptions options;
     options.setAddVisibleLookupColumns(false);
-    KDbNativeStatementBuilder builder;
+    KDbNativeStatementBuilder builder(conn, KDb::KDbEscaping);
     KDbEscapedString sql;
     if (!builder.generateSelectStatement(&sql, temp->query(), options)) {
         return false;
