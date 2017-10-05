@@ -174,6 +174,9 @@ QString KexiFieldComboBox::fieldOrExpression() const
 
 int KexiFieldComboBox::indexOfField() const
 {
+    if (d->tableOrQueryName.isEmpty()) {
+        return -1;
+    }
     KDbTableOrQuerySchema tableOrQuery(d->prj->dbConnection(), d->tableOrQueryName.toLatin1(),
                                        d->table ? KDbTableOrQuerySchema::Type::Table
                                                 : KDbTableOrQuerySchema::Type::Query);
