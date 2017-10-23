@@ -93,7 +93,7 @@ KexiFileWidget::~KexiFileWidget()
         qDebug() << dir;
         qDebug() << highlightedFile();
         if (!dir.isEmpty())
-            KRecentDirs::add(d->recentDirClass, dir.url());
+            KRecentDirs::add(d->recentDirClass, dir.path());
     }
 #endif
     delete d;
