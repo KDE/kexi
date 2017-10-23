@@ -61,6 +61,8 @@ target_link_libraries(kexiutils
         KF5::I18n
         KF5::ItemViews # KCategorizedView KCategoryDrawer
         KDb
+    PRIVATE
+        KF5::KIOFileWidgets # KFileWidget::getStartUrl(), KRecentDirs
 )
 if(SHOULD_BUILD_KEXI_DESKTOP_APP)
     target_link_libraries(kexiutils

@@ -241,6 +241,40 @@ KEXIUTILS_EXPORT QUrl getOpenImageUrl(QWidget *parent = 0, const QString &captio
 KEXIUTILS_EXPORT QUrl getSaveImageUrl(QWidget *parent = 0, const QString &caption = QString(),
                                       const QUrl &directory = QUrl());
 
+/**
+ * This method implements the logic to determine the user's default directory
+ * to be listed. E.g. the documents directory, home directory or a recently
+ * used directory.
+ *
+ * Use instead of KFileWidget::getStartUrl(const QUrl &startDir, QString &recentDirClass).
+ *
+ * @param startDir A URL specifying the initial directory, or using the
+ *                 @c kfiledialog:/// syntax to specify a last used
+ *                 directory.  If this URL specifies a file name, it is
+ *                 ignored.  Refer to the KFileWidget::KFileWidget()
+ *                 documentation for the @c kfiledialog:/// URL syntax.
+ * @param recentDirClass If the @c kfiledialog:/// syntax is used, this
+ *        will return the string to be passed to KRecentDirs::dir() and
+ *        KRecentDirs::add().
+ * @return The URL that should be listed by default (e.g. by KFileDialog or
+ *         KDirSelectDialog).
+ *
+ * @see KFileWidget::KFileWidget()
+ * @since 3.1.0
+ * @todo Make it independent of KIOFileWidgets
+ */
+KEXIUTILS_EXPORT QUrl getStartUrl(const QUrl &startDirOrVariable, QString *recentDirClass);
+
+/**
+ * Associates @p directory with @p fileClass
+ *
+ * Use instead of KRecentDirs::add()
+ *
+ * @since 3.1.0
+ * @todo Make it independent of KIOFileWidgets
+ */
+KEXIUTILS_EXPORT void addRecentDir(const QString &fileClass, const QString &directory);
+
 /*! Displays a "The file %1 already exists. Do you want to overwrite it?" Yes/No message box.
  @a parent is used as a parent of the message box.
  @return @c true if @a filePath file does not exist or user has agreed to overwrite it;

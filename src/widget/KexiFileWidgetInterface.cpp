@@ -21,10 +21,8 @@
 #include <kexiutils/utils.h>
 #include "KexiFileRequester.h"
 
-#include <KFileWidget>
 #include <KLocalizedString>
 #include <KMessageBox>
-#include <KRecentDirs>
 
 #ifdef KEXI_USE_KFILEWIDGET
 #include "KexiFileWidget.h"
@@ -56,8 +54,7 @@ KexiFileWidgetInterface::KexiFileWidgetInterface(const QUrl &startDirOrVariable)
     : d(new Private)
 {
     if (startDirOrVariable.scheme() == "kfiledialog") {
-//! @todo Make it independent of KIOFileWidgets
-        d->startUrl = KFileWidget::getStartUrl(startDirOrVariable, d->recentDirClass);
+        d->startUrl = KexiUtils::getStartUrl(startDirOrVariable, &d->recentDirClass);
     } else {
         d->startUrl = startDirOrVariable;
     }
@@ -76,8 +73,7 @@ QUrl KexiFileWidgetInterface::startUrl() const
 void KexiFileWidgetInterface::addRecentDir(const QString &name)
 {
     if (!d->recentDirClass.isEmpty() && QDir(name).exists()) {
-        //! @todo Make it independent of KIOFileWidgets
-        KRecentDirs::add(d->recentDirClass, name);
+        KexiUtils::addRecentDir(d->recentDirClass, name);
     }
 }
 

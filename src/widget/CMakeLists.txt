@@ -92,7 +92,6 @@ target_link_libraries(kexiextendedwidgets
 
         KF5::TextWidgets # KTextEdit
         KF5::Codecs # KCharsets
-        KF5::KIOFileWidgets # KFileWidget::getStartUrl()
     PUBLIC
         kexicore
 

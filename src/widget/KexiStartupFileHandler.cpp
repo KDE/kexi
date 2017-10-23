@@ -36,7 +36,6 @@
 #define KIOWIDGETS_NO_DEPRECATED
 #include <KUrlRequester>
 #include <KLocalizedString>
-#include <KRecentDirs>
 
 #include <QDebug>
 #include <QEvent>
@@ -151,7 +150,7 @@ void KexiStartupFileHandler::saveRecentDir()
             dirUrl = dirUrl.adjusted(QUrl::RemoveFilename);
             dirUrl.setPath(dirUrl.path() + QString());
             qDebug() << "Added" << dirUrl.url() << "to recent dirs class" << d->recentDirClass;
-            KRecentDirs::add(d->recentDirClass, dirUrl.url());
+            KexiUtils::addRecentDir(d->recentDirClass, dirUrl.url());
         }
     }
 }

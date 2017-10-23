@@ -67,11 +67,13 @@
 #include <KRun>
 #include <KToolInvocation>
 #endif
-#include <KIconEffect>
-#include <KColorScheme>
-#include <KLocalizedString>
-#include <KConfigGroup>
 #include <KAboutData>
+#include <KColorScheme>
+#include <KConfigGroup>
+#include <KFileWidget>
+#include <KIconEffect>
+#include <KLocalizedString>
+#include <KRecentDirs>
 
 #if HAVE_LANGINFO_H
 #include <langinfo.h>
@@ -322,6 +324,28 @@ QUrl KexiUtils::getSaveImageUrl(QWidget *parent, const QString &caption, const Q
     } else {
         return QUrl();
     }
+}
+
+QUrl KexiUtils::getStartUrl(const QUrl &startDirOrVariable, QString *recentDirClass)
+{
+    QUrl result;
+    if (recentDirClass) {
+        result = KFileWidget::getStartUrl(startDirOrVariable, *recentDirClass);
+        // Fix bug introduced by Kexi 3.0.x in KexiFileWidget: remove file protocol from path
+        // (the KRecentDirs::add(.., dir.url()) call was invalid because of prepended protocol)
+        const QString protocol("file:/");
+        if (result.path().startsWith(protocol) && !result.path().startsWith(protocol + '/')) {
+            result.setPath(result.path().mid(protocol.length() - 1));
+        }
+    } else {
+        qWarning() << "Missing recentDirClass";
+    }
+    return result;
+}
+
+void KexiUtils::addRecentDir(const QString &fileClass, const QString &directory)
+{
+    KRecentDirs::add(fileClass, directory);
 }
 
 bool KexiUtils::askForFileOverwriting(const QString& filePath, QWidget *parent)

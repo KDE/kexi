@@ -23,10 +23,8 @@
 #include <KexiIcon.h>
 
 #include <KFileFilterCombo>
-#include <KFileWidget>
 #include <KLineEdit>
 #include <KLocalizedString>
-#include <KRecentDirs>
 #include <KUrlComboBox>
 #include <KUrlCompletion>
 #include <KMessageBox>
