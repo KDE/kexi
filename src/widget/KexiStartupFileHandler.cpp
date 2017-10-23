@@ -148,8 +148,8 @@ void KexiStartupFileHandler::saveRecentDir()
         if (dirUrl.isValid() && dirUrl.isLocalFile()) {
             dirUrl = dirUrl.adjusted(QUrl::RemoveFilename);
             dirUrl.setPath(dirUrl.path() + QString());
-            qDebug() << "Added" << dirUrl.url() << "to recent dirs class" << d->recentDirClass;
-            KRecentDirs::add(d->recentDirClass, dirUrl.url());
+            qDebug() << "Added" << dirUrl.path() << "to recent dirs class" << d->recentDirClass;
+            KRecentDirs::add(d->recentDirClass, dirUrl.path());
         }
     }
 }
