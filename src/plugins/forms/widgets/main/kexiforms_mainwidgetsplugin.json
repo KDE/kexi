@@ -18,6 +18,7 @@
                 "Name[pt_BR]": "Equipe do Kexi",
                 "Name[sk]": "Tím Kexi",
                 "Name[sv]": "Kexi-gruppen",
+                "Name[tr]": "Kexi Ekibi",
                 "Name[uk]": "Команда Kexi",
                 "Name[x-test]": "xxKexi Teamxx"
             }
@@ -38,6 +39,7 @@
         "Description[pt_BR]": "Plugin Kexi que fornece widgets de formulário de banco de dados",
         "Description[sk]": "Kexi plugin poskytujúci widgety databázových formulárov",
         "Description[sv]": "Kexi-insticksprogram som tillhandahåller komponenter för databasformulär",
+        "Description[tr]": "Kexi eklentisi, veri tabanı programcığı sağlar",
         "Description[uk]": "Додаток до Kexi, що забезпечує роботу віджетів форм бази даних",
         "Description[x-test]": "xxKexi plugin providing database form widgetsxx",
         "EnabledByDefault": true,
@@ -57,6 +59,7 @@
         "Name[pt_BR]": "Widgets do formulário principal",
         "Name[sk]": "Widgety hlavného formulára",
         "Name[sv]": "Huvudformulärets komponenter",
+        "Name[tr]": "Ana form programcıkları",
         "Name[uk]": "Віджети головної форми",
         "Name[x-test]": "xxMain form widgetsxx",
         "ServiceTypes": [

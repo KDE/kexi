@@ -18,6 +18,7 @@
                 "Name[pt_BR]": "Equipe do Kexi",
                 "Name[sk]": "Tím Kexi",
                 "Name[sv]": "Kexi-gruppen",
+                "Name[tr]": "Kexi Ekibi",
                 "Name[uk]": "Команда Kexi",
                 "Name[x-test]": "xxKexi Teamxx"
             }
@@ -41,6 +42,7 @@
         "Description[pt_BR]": "Plugin de Importação de banco de dados MySQL para o Kexi",
         "Description[sk]": "MySQL importný plugin pre Kexi",
         "Description[sv]": "Importinsticksprogram för Kexi av MySQL-databaser",
+        "Description[tr]": "Kexi için MySQL veritabanı içe aktarma eklentisi",
         "Description[uk]": "Додаток імпортування баз даних з MySQL для Kexi",
         "Description[x-test]": "xxMySQL database import plugin for Kexixx",
         "EnabledByDefault": true,
