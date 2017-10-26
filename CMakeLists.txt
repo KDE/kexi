@@ -162,7 +162,7 @@ set(KEXI_PLUGIN_INSTALL_DIR ${PLUGIN_INSTALL_DIR}/${KEXI_BASE_PATH})
 ############################
 ###########################
 
-set(KEXI_LIBS_MIN_VERSION 3.0.90)
+set(KEXI_LIBS_MIN_VERSION 3.0.91)
 
 ##
 ## Test for KDb
@@ -178,7 +178,7 @@ set_package_properties(KDb PROPERTIES TYPE REQUIRED
 ##
 ## Test for KReport
 ##
-find_package(KReport ${REQUIRED_KEXI_LIBS_VERSION})
+find_package(KReport 3.0.90)
 set_package_properties(KReport PROPERTIES TYPE REQUIRED
                        PURPOSE "Required by Kexi for report handling")
 if (KReport_FOUND)

@@ -108,10 +108,8 @@ void KexiTableDesignerViewPrivate::setPropertyValueIfNeeded(
     const bool prev_addHistoryCommand_in_slotPropertyChanged_enabled
         = addHistoryCommand_in_slotPropertyChanged_enabled; //remember
     addHistoryCommand_in_slotPropertyChanged_enabled = false;
-    KProperty::ValueOptions valueOptions = KProperty::DefaultValueOptions;
-    if (!rememberOldValue) {
-        valueOptions ^= KProperty::ValueOption::RememberOld; // no old val.
-    }
+    KProperty::ValueOptions valueOptions
+        = rememberOldValue ? KProperty::ValueOption::None : KProperty::ValueOption::IgnoreOld;
     if (property.value() != newValue)
         property.setValue(newValue, valueOptions);
     if (commandGroup) {

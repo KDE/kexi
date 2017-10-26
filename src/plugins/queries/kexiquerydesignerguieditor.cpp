@@ -1003,11 +1003,9 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
         //OK, row inserted: create a new set for it
         KPropertySet &set = *createPropertySet(row_num, tableName, fieldName, true/*new one*/);
         if (!columnAlias.isEmpty())
-            set["alias"].setValue(columnAlias,
-                                  KProperty::DefaultValueOptions ^ KProperty::ValueOption::RememberOld);
+            set["alias"].setValue(columnAlias, KProperty::ValueOption::IgnoreOld);
         if (!criteriaString.isEmpty())
-            set["criteria"].setValue(criteriaString,
-                                     KProperty::DefaultValueOptions ^ KProperty::ValueOption::RememberOld);
+            set["criteria"].setValue(criteriaString, KProperty::ValueOption::IgnoreOld);
         if (field->isExpression()) {
             if (!d->changeSingleCellValue(newRecord, COLUMN_ID_COLUMN,
                                           QVariant(columnAlias + ": " + field->expression().toString(0).toString()), &result))
@@ -1060,8 +1058,7 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
             d->data->saveRecordChanges(data, true);
             (*rowPropertySet)["sorting"].clearModifiedFlag(); // this property should look "fresh"
             if (!(*data)[COLUMN_ID_VISIBLE].toBool()) //update
-                (*rowPropertySet)["visible"].setValue(QVariant(false),
-                                                      KProperty::DefaultValueOptions ^ KProperty::ValueOption::RememberOld);
+                (*rowPropertySet)["visible"].setValue(QVariant(false),  KProperty::ValueOption::IgnoreOld);
         }
     }
 
@@ -1115,10 +1112,8 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
 //! @todo  if (!columnAlias.isEmpty())
 //! @todo   set["alias"].setValue(columnAlias, false);
 ////  if (!criteriaString.isEmpty())
-        set["criteria"].setValue(criteriaString,
-                                 KProperty::DefaultValueOptions ^ KProperty::ValueOption::RememberOld);
-        set["visible"].setValue(QVariant(false),
-                                KProperty::DefaultValueOptions ^ KProperty::ValueOption::RememberOld);
+        set["criteria"].setValue(criteriaString, KProperty::ValueOption::IgnoreOld);
+        set["visible"].setValue(QVariant(false), KProperty::ValueOption::IgnoreOld);
     }
 
     //current property set has most probably changed
@@ -1581,10 +1576,10 @@ void KexiQueryDesignerGuiEditor::slotBeforeColumnCellChanged(KDbRecordData *data
             }
         }
     }
-    KProperty::ValueOptions valueOptions = KProperty::DefaultValueOptions;
+    KProperty::ValueOptions valueOptions;
     KPropertySet *set = d->sets->findPropertySetForItem(*data);
     if (!set) {
-        valueOptions ^= KProperty::ValueOption::RememberOld; // no old val.
+        valueOptions |= KProperty::ValueOption::IgnoreOld;
         const int row = d->data->indexOf(data);
         if (row < 0) {
             result->success = false;
@@ -1659,9 +1654,9 @@ void KexiQueryDesignerGuiEditor::slotBeforeVisibleCellChanged(KDbRecordData *dat
     QVariant& newValue, KDbResultInfo* result)
 {
     Q_UNUSED(result)
-    KProperty::ValueOptions valueOptions = KProperty::DefaultValueOptions;
+    KProperty::ValueOptions valueOptions;
     if (!propertySet()) {
-        valueOptions ^= KProperty::ValueOption::RememberOld; // no old val.
+        valueOptions |= KProperty::ValueOption::IgnoreOld;
         createPropertySet(d->dataTable->dataAwareObject()->currentRecord(),
                           (*data)[COLUMN_ID_TABLE].toString(),
                           (*data)[COLUMN_ID_COLUMN].toString(), true);
@@ -1691,10 +1686,10 @@ void KexiQueryDesignerGuiEditor::slotBeforeTotalsCellChanged(KDbRecordData *data
 void KexiQueryDesignerGuiEditor::slotBeforeSortingCellChanged(KDbRecordData *data,
     QVariant& newValue, KDbResultInfo* result)
 {
-    KProperty::ValueOptions valueOptions = KProperty::DefaultValueOptions;
+    KProperty::ValueOptions valueOptions;
     KPropertySet *set = d->sets->findPropertySetForItem(*data);
     if (!set) {
-        valueOptions ^= KProperty::ValueOption::RememberOld; // no old val.
+        valueOptions |= KProperty::ValueOption::IgnoreOld;
         set = createPropertySet(d->dataTable->dataAwareObject()->currentRecord(),
                                 (*data)[COLUMN_ID_TABLE].toString(),
                                 (*data)[COLUMN_ID_COLUMN].toString(), true);
