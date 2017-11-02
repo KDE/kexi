@@ -385,7 +385,7 @@ bool FormIO::loadFormFromDom(Form *form, QWidget *container, const QDomDocument 
             QString name = n.toElement().text();
             ObjectTreeItem *item = form->objectTree()->lookup(name);
             if (!item) {
-                qWarning() << "ERROR : no ObjectTreeItem ";
+                qWarning() << "Tabstops loading: no item" << name;
                 continue;
             }
             const int index = form->tabStops()->indexOf(item);
@@ -397,7 +397,7 @@ bool FormIO::loadFormFromDom(Form *form, QWidget *container, const QDomDocument 
             }
             if (index == -1) {
                 itemsNotFound++;
-                qDebug() << "FormIO: item '" << name << "' not in list";
+                qDebug() << "Tabstops loading: item" << name << "not on the list";
             }
         }
     }
