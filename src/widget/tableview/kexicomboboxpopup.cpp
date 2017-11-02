@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2017 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -114,22 +114,21 @@ public:
 
 const int KexiComboBoxPopup::defaultMaxRecordCount = 8;
 
-KexiComboBoxPopup::KexiComboBoxPopup(QWidget* parent, KDbConnection *conn, KDbTableViewColumn *column)
-        : QFrame(parent, Qt::Popup)
-        , d( new KexiComboBoxPopupPrivate )
+KexiComboBoxPopup::KexiComboBoxPopup(KDbConnection *conn, KDbTableViewColumn *column,
+                                     QWidget *parent)
+    : QFrame(parent, Qt::Popup), d(new KexiComboBoxPopupPrivate)
 {
     init();
     //setup tv data
     setData(conn, column, 0);
 }
 
-KexiComboBoxPopup::KexiComboBoxPopup(QWidget* parent, KDbField *field)
-        : QFrame(parent, Qt::Popup)
-        , d( new KexiComboBoxPopupPrivate )
+KexiComboBoxPopup::KexiComboBoxPopup(KDbConnection *conn, KDbField *field, QWidget *parent)
+    : QFrame(parent, Qt::Popup), d(new KexiComboBoxPopupPrivate)
 {
     init();
     //setup tv data
-    setData(nullptr, nullptr, field);
+    setData(conn, nullptr, field);
 }
 
 KexiComboBoxPopup::~KexiComboBoxPopup()
@@ -168,11 +167,11 @@ void KexiComboBoxPopup::setData(KDbConnection *conn, KDbTableViewColumn *column,
 {
     d->visibleColumnsToShow.clear();
     const KDbField *field = aField;
-    if (column && !field) {
+    if (!field && column) {
         field = column->field();
     }
     if (!field) {
-        qWarning() << "!field";
+        qWarning() << "No field or column specified";
         return;
     }
 
@@ -182,6 +181,7 @@ void KexiComboBoxPopup::setData(KDbConnection *conn, KDbTableViewColumn *column,
         setDataInternal(column->relatedData(), false /*!owner*/);
         return;
     }
+
     // case 2: lookup field
     const KDbLookupFieldSchema *lookupFieldSchema = nullptr;
     if (field->table())
@@ -190,6 +190,10 @@ void KexiComboBoxPopup::setData(KDbConnection *conn, KDbTableViewColumn *column,
     d->privateQuery = 0;
     const QList<int> visibleColumns(lookupFieldSchema ? lookupFieldSchema->visibleColumns() : QList<int>());
     if (!visibleColumns.isEmpty() && lookupFieldSchema && lookupFieldSchema->boundColumn() >= 0) {
+        if (!conn) {
+            qWarning() << "No connection specified";
+            return;
+        }
         const bool multipleLookupColumnJoined = visibleColumns.count() > 1;
 //! @todo support more RowSourceType's, not only table and query
         KDbCursor *cursor = 0;

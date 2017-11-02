@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2017 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -39,11 +39,13 @@ public:
     /*! Constructor for creating a popup using definition from \a column.
      If the column is lookup column, its definition is used to display
      one or more column within the popup. Otherwise column.field() is used
-     to display single-column data. */
-    KexiComboBoxPopup(QWidget* parent, KDbConnection *conn, KDbTableViewColumn *column);
+     to display single-column data.
+     @note @a conn is required only for db-aware data. */
+    KexiComboBoxPopup(KDbConnection *conn, KDbTableViewColumn *column, QWidget *parent = nullptr);
 
-    /*! Alternative constructor supporting lookup fields and enum hints. */
-    KexiComboBoxPopup(QWidget* parent, KDbField *field);
+    /*! Alternative constructor supporting lookup fields and enum hints.
+     @note @a conn is required only for db-aware data. */
+    KexiComboBoxPopup(KDbConnection *conn, KDbField *field, QWidget *parent = nullptr);
 
     virtual ~KexiComboBoxPopup();
 
@@ -77,7 +79,8 @@ protected:
     virtual bool eventFilter(QObject *o, QEvent *e);
 
     //! The main function for setting data; data can be set either by passing \a column or \a field.
-    //! The second case is used for lookup
+    //! The second case is used for lookup.
+    //! @note @a conn is required only for db-aware data. */
     void setData(KDbConnection *conn, KDbTableViewColumn *column, KDbField *field);
 
     //! used by setData()
@@ -89,4 +92,3 @@ protected:
 };
 
 #endif
-
