@@ -1,7 +1,7 @@
 /*
  * Kexi Report Plugin
  * Copyright (C) 2007-2008 by Adam Pigg <adam@piggz.co.uk>
- * Copyright (C) 2011-2015 Jarosław Staniek <staniek@kde.org>
+ * Copyright (C) 2011-2017 Jarosław Staniek <staniek@kde.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -25,19 +25,35 @@
 
 #include <KReportDataSource>
 #include <KReportScriptSource>
+
+#include <KDbTableSchemaChangeListener>
+
 #include <QDomElement>
 
-class KexiReportPartTempData : public KexiWindowData
+class KexiReportPartTempData : public KexiWindowData, public KDbTableSchemaChangeListener
 {
     Q_OBJECT
 public:
-    explicit KexiReportPartTempData(KexiWindow* parent);
+    KexiReportPartTempData(KexiWindow* parent, KDbConnection *conn);
+    ~KexiReportPartTempData();
     QDomElement reportDefinition;
     QDomElement connectionDefinition;
 
     /*! true, if \a document member has changed in previous view. Used on view switching.
     Check this flag to see if we should refresh data for DataViewMode. */
     bool reportSchemaChangedInPreviousView;
+
+    KDbConnection *connection();
+
+protected:
+    //! This temp-data acts as a listener for tracking changes in table schema
+    //! used by the report. This method closes the report on request.
+    tristate closeListener() override;
+
+private:
+    Q_DISABLE_COPY(KexiReportPartTempData)
+    class Private;
+    Private * const d;
 };
 
 /**

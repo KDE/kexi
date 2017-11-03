@@ -22,10 +22,6 @@
 #include "KexiDBReportDataSource.h"
 #ifndef KEXI_MOBILE
 #include <widget/utils/kexirecordnavigator.h>
- //! @todo KEXI3
-#if 0
-#include "keximigratereportdata.h"
-#endif
 #endif
 #include <core/KexiWindow.h>
 #include <core/KexiMainWindowIface.h>
@@ -405,22 +401,10 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
 
 KReportDataSource* KexiReportView::createDataSource(const QDomElement &e)
 {
-    KReportDataSource *kodata = 0;
-
     if (e.attribute("type") == "internal" && !e.attribute("source").isEmpty()) {
-        kodata
-            = new KexiDBReportDataSource(e.attribute("source"), e.attribute("class"),
-                                         KexiMainWindowIface::global()->project()->dbConnection());
+        return new KexiDBReportDataSource(e.attribute("source"), e.attribute("class"), tempData());
     }
-#ifndef KEXI_MOBILE
-//! @todo KEXI3
-#if 0
-    if (e.attribute("type") ==  "external") {
-        kodata = new KexiMigrateReportData(e.attribute("source"));
-    }
-#endif
-#endif
-    return kodata;
+    return nullptr;
 }
 
 KexiReportPartTempData* KexiReportView::tempData() const

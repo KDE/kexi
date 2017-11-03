@@ -1,7 +1,7 @@
 /*
  * Kexi Report Plugin
  * Copyright (C) 2007-2008 by Adam Pigg <adam@piggz.co.uk>
- * Copyright (C) 2011-2015 Jarosław Staniek <staniek@kde.org>
+ * Copyright (C) 2011-2017 Jarosław Staniek <staniek@kde.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -34,6 +34,7 @@
 #include <core/KexiMainWindowIface.h>
 #include "kexisourceselector.h"
 #include <widget/properties/KexiCustomPropertyFactory.h>
+#include <kexiutils/utils.h>
 
 //! @internal
 class Q_DECL_HIDDEN KexiReportPart::Private
@@ -157,13 +158,47 @@ KDbObject* KexiReportPart::loadSchemaObject(
 
 KexiWindowData* KexiReportPart::createWindowData(KexiWindow* window)
 {
-    return new KexiReportPartTempData(window);
+    KexiMainWindowIface *win = KexiMainWindowIface::global();
+    return new KexiReportPartTempData(window, win->project()->dbConnection());
 }
 
-KexiReportPartTempData::KexiReportPartTempData(KexiWindow* parent)
+//----------------
+
+class Q_DECL_HIDDEN KexiReportPartTempData::Private
+{
+public:
+    Private()
+    {
+    }
+    KDbConnection *conn;
+};
+
+KexiReportPartTempData::KexiReportPartTempData(KexiWindow* parent, KDbConnection *conn)
         : KexiWindowData(parent)
         , reportSchemaChangedInPreviousView(true /*to force reloading on startup*/)
+        , d(new Private)
 {
+    d->conn = conn;
+    setName(KexiUtils::localizedStringToHtmlSubstring(
+        kxi18nc("@info", "Report <resource>%1</resource>").subs(parent->partItem()->name())));
+}
+
+KexiReportPartTempData::~KexiReportPartTempData()
+{
+    KDbTableSchemaChangeListener::unregisterForChanges(d->conn, this);
+    delete d;
+}
+
+KDbConnection* KexiReportPartTempData::connection()
+{
+    return d->conn;
+}
+
+tristate KexiReportPartTempData::closeListener()
+{
+    KexiWindow* window = static_cast<KexiWindow*>(parent());
+    qDebug() << window->partItem()->name();
+    return KexiMainWindowIface::global()->closeWindow(window);
 }
 
 void KexiReportPart::setupCustomPropertyPanelTabs(QTabWidget *tab)

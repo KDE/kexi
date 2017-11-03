@@ -58,6 +58,11 @@ public:
      We're checking this flag to see if we should refresh data for DataViewMode. */
     bool tableSchemaChangedInPreviousView;
 
+    //! @c true indicates that closeListener() should close the table designer window.
+    //! This is disabled in one case: upon saving of the design of this table.
+    //! @see KexiTableDesignerView::storeData()
+    bool closeWindowOnCloseListener = true;
+
 protected:
     //! Closes listener - this temp-data acts as a listener for tracking changes in table schema
     //! that is displayed in the window's data view.
@@ -66,6 +71,8 @@ protected:
     tristate closeListener() override;
 
 private:
+    void closeDataInDataView();
+
     Q_DISABLE_COPY(KexiTablePartTempData)
     class Private;
     Private * const d;
@@ -84,21 +91,33 @@ public:
 
     virtual tristate rename(KexiPart::Item *item, const QString& newName);
 
-    //! Close objects that listenen to changes of the table schema @a table.
-    //! Asks the user for approval if there is at least one object that listens for changes
-    //! of the schema. If there is no approval, returns @c cancelled.
-    //! On failure returns @c false.
-    //! If @a window is @c nullptr, @c true is returned immediately because there is no window to
-    //! care about.
-    //! Special case: listener that is equal to window->data() will be silently closed
-    //! without asking for confirmation. It is not counted when looking for objects that
-    //! are "blocking" changes of @a table.
-    //! This exception is needed because the listener handles the data view's lifetime
-    //! and the data view should be reset silently without bothering the user.
-    //! See KexiTablePartTempData::closeListener()
-    static tristate askForClosingObjectsUsingTableSchema(
-        KexiWindow *window, KDbConnection *conn,
-        KDbTableSchema *table, const QString& msg);
+    /**
+     * Closes objects that listenen to changes of the table schema @a table, i.e. use it.
+     *
+     * These objects can be currently:
+     * - lookup fields of other tables
+     * - queries using the table directly or via lookup fields
+     * - forms and reports that use the table directly as data source or via query.
+     *
+     * Scripts referencing the table programatically are not analyzed, so they can fail on next
+     * execution.
+     *
+     * This method asks the user for approval if there is at least one object that listens for
+     * changes of the schema (altering, renaming or removal). If there is no approval, returns
+     * @c cancelled. On failure @c false is returned. If @a window is @c nullptr, @c true is
+     * returned immediately because there is no window to care about.
+     *
+     * Special case: listener for the table @a table will be silently closed without asking for
+     * confirmation. It is ignored when looking for objects that are "blocking" changes
+     * of @a table. This exception is needed because the listener handles the data view's lifetime
+     * and the data view should be reset silently without bothering the user.
+     *
+     * @see KexiTablePartTempData::closeListener()
+     * @see KexiQueryPart::askForClosingObjectsUsingQuerySchema()
+     */
+    static tristate askForClosingObjectsUsingTableSchema(KexiWindow *window, KDbConnection *conn,
+                                                         KDbTableSchema *table,
+                                                         const KLocalizedString &msg);
 
     virtual KLocalizedString i18nMessage(const QString& englishMessage,
                                          KexiWindow* window) const;

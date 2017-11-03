@@ -20,7 +20,6 @@
 #include "kexisourceselector.h"
 #include "KexiDataSourceComboBox.h"
 #include <kexiproject.h>
-#include <kexiutils/utils.h>
 
 #include <KLocalizedString>
 
@@ -70,36 +69,22 @@ KexiSourceSelector::~KexiSourceSelector()
     delete d;
 }
 
-void KexiSourceSelector::setConnectionData(const QDomElement &c)
+QString KexiSourceSelector::selectedPluginId() const
 {
-    qDebug() << c;
-    if (c.attribute("type") == "internal") {
-        QString sourceClass(c.attribute("class"));
-        if (sourceClass != "org.kexi-project.table" && sourceClass != "org.kexi-project.query") {
-            sourceClass.clear(); // KexiDataSourceComboBox will try to find table, then query
-        }
-        d->dataSource->setDataSource(sourceClass, c.attribute("source"));
-        emit dataSourceChanged();
-    }
+    return d->dataSource->selectedPluginId();
 }
 
-QDomElement KexiSourceSelector::connectionData()
+QString KexiSourceSelector::selectedName() const
 {
-    QDomDocument dd;
-    QDomElement conndata = dd.createElement("connection");
-    conndata.setAttribute("type", "internal"); // for backward compatibility, currently always
-                                               // internal, we used to have "external" in old Kexi
-    conndata.setAttribute("source", d->dataSource->selectedName());
-    conndata.setAttribute("class", d->dataSource->selectedPluginId());
-    return conndata;
+    return d->dataSource->selectedName();
 }
 
-KReportDataSource* KexiSourceSelector::createDataSource() const
+bool KexiSourceSelector::isSelectionValid() const
 {
-    if (d->dataSource->isSelectionValid()) {
-        return new KexiDBReportDataSource(d->dataSource->selectedName(),
-                                          d->dataSource->selectedPluginId(), d->conn);
-    }
-    return nullptr;
+    return d->dataSource->isSelectionValid();
 }
 
+void KexiSourceSelector::setDataSource(const QString& pluginId, const QString& name)
+{
+    d->dataSource->setDataSource(pluginId, name);
+}

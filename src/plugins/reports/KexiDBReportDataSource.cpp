@@ -1,6 +1,7 @@
 /*
 * Kexi Report Plugin
 * Copyright (C) 2007-2017 by Adam Pigg <adam@piggz.co.uk>
+* Copyright (C) 2017 Jarosław Staniek <staniek@kde.org>
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -17,7 +18,7 @@
 */
 
 #include "KexiDBReportDataSource.h"
-#include <core/kexipart.h>
+#include "kexireportpart.h"
 
 #include <KDbConnection>
 #include <KDbOrderByColumn>
@@ -30,8 +31,8 @@
 class Q_DECL_HIDDEN KexiDBReportDataSource::Private
 {
 public:
-    explicit Private(KDbConnection *pDb)
-      : cursor(0), connection(pDb), originalSchema(0), copySchema(0)
+    explicit Private(KexiReportPartTempData *data)
+      : cursor(0), tempData(data), originalSchema(0), copySchema(0)
     {
     }
     ~Private()
@@ -44,15 +45,14 @@ public:
     QString objectName;
 
     KDbCursor *cursor;
-    KDbConnection *connection;
+    KexiReportPartTempData *tempData;
     KDbQuerySchema *originalSchema;
     KDbQuerySchema *copySchema;
 };
 
-KexiDBReportDataSource::KexiDBReportDataSource(const QString& objectName,
-                                   const QString& pluginId,
-                                   KDbConnection* pDb)
-        : d(new Private(pDb))
+KexiDBReportDataSource::KexiDBReportDataSource(const QString &objectName, const QString &pluginId,
+                                               KexiReportPartTempData *data)
+    : d(new Private(data))
 {
     d->objectName = objectName;
     getSchema(pluginId);
@@ -65,7 +65,7 @@ void KexiDBReportDataSource::setSorting(const QList<SortedField>& sorting)
             return;
         KDbOrderByColumnList order;
         for (int i = 0; i < sorting.count(); i++) {
-            if (!order.appendField(d->connection, d->copySchema, sorting[i].field(),
+            if (!order.appendField(d->tempData->connection(), d->copySchema, sorting[i].field(),
                                    KDbOrderByColumn::fromQt(sorting[i].order())))
             {
                 qWarning() << "Cannot set sort field" << i << sorting[i].field();
@@ -111,7 +111,7 @@ KexiDBReportDataSource::~KexiDBReportDataSource()
 
 bool KexiDBReportDataSource::open()
 {
-    if ( d->connection && d->cursor == 0 )
+    if ( d->tempData->connection() && d->cursor == 0 )
     {
         if ( d->objectName.isEmpty() )
         {
@@ -120,8 +120,8 @@ bool KexiDBReportDataSource::open()
         else if ( d->copySchema)
         {
             qDebug() << "Opening cursor.."
-                     << KDbConnectionAndQuerySchema(d->connection, *d->copySchema);
-            d->cursor = d->connection->executeQuery(d->copySchema, KDbCursor::Option::Buffered);
+                     << KDbConnectionAndQuerySchema(d->tempData->connection(), *d->copySchema);
+            d->cursor = d->tempData->connection()->executeQuery(d->copySchema, KDbCursor::Option::Buffered);
         }
 
 
@@ -140,7 +140,7 @@ bool KexiDBReportDataSource::close()
 {
     if (d->cursor) {
         const bool ok = d->cursor->close();
-        d->connection->deleteCursor(d->cursor);
+        d->tempData->connection()->deleteCursor(d->cursor);
         d->cursor = nullptr;
         return ok;
     }
@@ -149,45 +149,52 @@ bool KexiDBReportDataSource::close()
 
 bool KexiDBReportDataSource::getSchema(const QString& pluginId)
 {
-    if (d->connection)
-    {
+    if (d->tempData->connection()) {
+        KDbTableSchemaChangeListener::unregisterForChanges(d->tempData->connection(), d->tempData);
         delete d->originalSchema;
         d->originalSchema = 0;
         delete d->copySchema;
         d->copySchema = 0;
 
+        KDbTableSchema *table = nullptr;
+        KDbQuerySchema *query = nullptr;
         if ((pluginId.isEmpty() || pluginId == "org.kexi-project.table")
-                && d->connection->tableSchema(d->objectName))
+                && (table = d->tempData->connection()->tableSchema(d->objectName)))
         {
             qDebug() << d->objectName <<  "is a table..";
-            d->originalSchema = new KDbQuerySchema(d->connection->tableSchema(d->objectName));
+            d->originalSchema = new KDbQuerySchema(table);
         }
         else if ((pluginId.isEmpty() || pluginId == "org.kexi-project.query")
-                 && d->connection->querySchema(d->objectName))
+                 && (query = d->tempData->connection()->querySchema(d->objectName)))
         {
             qDebug() << d->objectName <<  "is a query..";
-            qDebug() << KDbConnectionAndQuerySchema(d->connection,
-                                                    *d->connection->querySchema(d->objectName));
-            d->originalSchema
-                = new KDbQuerySchema(*(d->connection->querySchema(d->objectName)), d->connection);
+            qDebug() << KDbConnectionAndQuerySchema(d->tempData->connection(), *query);
+            d->originalSchema = new KDbQuerySchema(*query, d->tempData->connection());
         }
 
         if (d->originalSchema) {
-            const KDbNativeStatementBuilder builder(d->connection, KDb::DriverEscaping);
+            const KDbNativeStatementBuilder builder(d->tempData->connection(), KDb::DriverEscaping);
             KDbEscapedString sql;
             if (builder.generateSelectStatement(&sql, d->originalSchema)) {
                 qDebug() << "Original:" << sql;
             } else {
                 qDebug() << "Original: ERROR";
+                return false;
             }
-            qDebug() << KDbConnectionAndQuerySchema(d->connection, *d->originalSchema);
+            qDebug() << KDbConnectionAndQuerySchema(d->tempData->connection(), *d->originalSchema);
 
-            d->copySchema = new KDbQuerySchema(*d->originalSchema, d->connection);
-            qDebug() << KDbConnectionAndQuerySchema(d->connection, *d->copySchema);
+            d->copySchema = new KDbQuerySchema(*d->originalSchema, d->tempData->connection());
+            qDebug() << KDbConnectionAndQuerySchema(d->tempData->connection(), *d->copySchema);
             if (builder.generateSelectStatement(&sql, d->copySchema)) {
                 qDebug() << "Copy:" << sql;
             } else {
                 qDebug() << "Copy: ERROR";
+                return false;
+            }
+            if (table) {
+                KDbTableSchemaChangeListener::registerForChanges(d->tempData->connection(), d->tempData, table);
+            } else if (query) {
+                KDbTableSchemaChangeListener::registerForChanges(d->tempData->connection(), d->tempData, query);
             }
         }
         return true;
@@ -206,7 +213,7 @@ int KexiDBReportDataSource::fieldNumber ( const QString &fld ) const
         return -1;
     }
     const KDbQueryColumnInfo::Vector fieldsExpanded(d->cursor->query()->fieldsExpanded(
-        d->connection, KDbQuerySchema::FieldsExpandedMode::Unique));
+        d->tempData->connection(), KDbQuerySchema::FieldsExpandedMode::Unique));
     for (int i = 0; i < fieldsExpanded.size(); ++i) {
         if (0 == QString::compare(fld, fieldsExpanded[i]->aliasOrName(), Qt::CaseInsensitive)) {
             return i;
@@ -222,7 +229,7 @@ QStringList KexiDBReportDataSource::fieldNames() const
     }
     QStringList names;
     const KDbQueryColumnInfo::Vector fieldsExpanded(d->originalSchema->fieldsExpanded(
-        d->connection, KDbQuerySchema::FieldsExpandedMode::Unique));
+        d->tempData->connection(), KDbQuerySchema::FieldsExpandedMode::Unique));
     for (int i = 0; i < fieldsExpanded.size(); i++) {
         //! @todo in some Kexi mode captionOrAliasOrName() would be used here (more user-friendly)
         names.append(fieldsExpanded[i]->aliasOrName());
@@ -289,7 +296,7 @@ qint64 KexiDBReportDataSource::at() const
 qint64 KexiDBReportDataSource::recordCount() const
 {
     if (d->copySchema) {
-        return d->connection->recordCount(d->copySchema);
+        return d->tempData->connection()->recordCount(d->copySchema);
     }
 
     return 1;
@@ -299,19 +306,19 @@ QStringList KexiDBReportDataSource::dataSourceNames() const
 {
     //Get the list of queries in the database
     QStringList qs;
-    if (d->connection && d->connection->isConnected()) {
-        QList<int> tids = d->connection->tableIds();
+    if (d->tempData->connection() && d->tempData->connection()->isConnected()) {
+        QList<int> tids = d->tempData->connection()->tableIds();
         qs << "";
         for (int i = 0; i < tids.size(); ++i) {
-            KDbTableSchema* tsc = d->connection->tableSchema(tids[i]);
+            KDbTableSchema* tsc = d->tempData->connection()->tableSchema(tids[i]);
             if (tsc)
                 qs << tsc->name();
         }
 
-        QList<int> qids = d->connection->queryIds();
+        QList<int> qids = d->tempData->connection()->queryIds();
         qs << "";
         for (int i = 0; i < qids.size(); ++i) {
-            KDbQuerySchema* qsc = d->connection->querySchema(qids[i]);
+            KDbQuerySchema* qsc = d->tempData->connection()->querySchema(qids[i]);
             if (qsc)
                 qs << qsc->name();
         }
@@ -322,5 +329,5 @@ QStringList KexiDBReportDataSource::dataSourceNames() const
 
 KReportDataSource* KexiDBReportDataSource::create(const QString& source) const
 {
-    return new KexiDBReportDataSource(source, QString(), d->connection);
+    return new KexiDBReportDataSource(source, QString(), d->tempData);
 }

@@ -42,8 +42,22 @@ public:
     ~KexiSourceSelector();
 
     KReportDataSource* createDataSource() const Q_REQUIRED_RESULT;
-    void setConnectionData(const QDomElement &c);
+
     QDomElement connectionData();
+
+    //! @return name plugin ID of selected item (a table or a query). Can return an empty string.
+    QString selectedPluginId() const;
+
+    //! @return name of selected table or query.
+    QString selectedName() const;
+
+    //! \return true if the current selection is valid
+    bool isSelectionValid() const;
+
+public Q_SLOTS:
+    /*! Sets item for data source described by \a pluginId and \a name.
+     If \a pluginId is empty, either "org.kexi-project.table" and "org.kexi-project.query" are tried. */
+    void setDataSource(const QString& pluginId, const QString& name);
 
 Q_SIGNALS:
     void dataSourceChanged();

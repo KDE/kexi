@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2017 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -100,6 +100,38 @@ public:
     /*! Renames stored data pointed by \a item to \a newName.
      Reimplemented to mark the query obsolete by using KDbConnection::setQuerySchemaObsolete(). */
     virtual tristate rename(KexiPart::Item *item, const QString& newName);
+
+    /**
+     * Closes objects that listenen to changes of the query schema @a query, i.e. use it.
+     *
+     * These objects can be currently:
+     * - lookup fields of tables
+     * - queries using the query directly (as subqueries) or via lookup fields
+     * - forms and reports that use the query directly as data source or via query.
+     *
+     * Scripts referencing the query programatically are not analyzed, so they can fail on next
+     * execution.
+     *
+     * This method asks the user for approval if there is at least one object that listens for
+     * changes of the schema (altering or removal). If there is no approval, returns
+     * @c cancelled. On failure @c false is returned. If @a window is @c nullptr, @c true is
+     * returned immediately because there is no window to care about.
+     *
+     * @note Unlike renaming tables, renaming queries just marks the previous query object one as
+     * "obsolete" using KDbConnection::setQuerySchemaObsolete() and keeps the existing actual object
+     * in memory so there is no risk of accessing deleted object by other objects.
+     *
+     * Special case: listener for the query @a query will be silently closed without asking for
+     * confirmation. It is ignored when looking for objects that are "blocking" changes
+     * of @a query. This exception is needed because the listener handles the data view's lifetime
+     * and the data view should be reset silently without bothering the user.
+     *
+     * @see KexiQueryPartTempData::closeListener()
+     * @see KexiTablePart::askForClosingObjectsUsingTableSchema()
+     */
+    static tristate askForClosingObjectsUsingQuerySchema(KexiWindow *window, KDbConnection *conn,
+                                                         KDbQuerySchema *query,
+                                                         const KLocalizedString &msg);
 
 protected:
     KexiWindowData* createWindowData(KexiWindow* window) override Q_REQUIRED_RESULT;

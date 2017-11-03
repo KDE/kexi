@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2005-2009 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -44,6 +44,12 @@ class KEXIFORMUTILS_EXPORT KexiDataSourcePage : public KexiPropertyPaneViewBase
 public:
     explicit KexiDataSourcePage(QWidget *parent);
     virtual ~KexiDataSourcePage();
+
+    //! @return name plugin ID of selected item (usually a table or a query). Can return an empty string.
+    QString selectedPluginId() const;
+
+    //! @return name of selected table or query.
+    QString selectedName() const;
 
 public Q_SLOTS:
     void setProject(KexiProject *prj);

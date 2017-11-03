@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2004 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2017 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -32,6 +32,9 @@
 #include <KDbCursor>
 #include <KDbParser>
 #include <KDbQuerySchema>
+
+#include <KStandardGuiItem>
+#include <KMessageBox>
 
 #include <QDebug>
 
@@ -99,8 +102,17 @@ tristate KexiQueryPart::remove(KexiPart::Item *item)
         return false;
     KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     KDbQuerySchema *sch = conn->querySchema(item->identifier());
-    if (sch)
+    if (sch) {
+        const tristate res = KexiQueryPart::askForClosingObjectsUsingQuerySchema(
+            KexiMainWindowIface::global()->openedWindowFor(item->identifier()), conn, sch,
+            kxi18n("<para>You are about to delete query <resource>%1</resource> but it is used by "
+                   "following opened windows:</para>")
+                .subs(sch->name()));
+        if (res != true) {
+            return res;
+        }
         return conn->dropQuery(sch);
+    }
     //last chance: just remove item
     return conn->removeObject(item->identifier());
 }
@@ -184,8 +196,67 @@ tristate KexiQueryPart::rename(KexiPart::Item *item, const QString& newName)
     Q_UNUSED(newName);
     if (!KexiMainWindowIface::global()->project()->dbConnection())
         return false;
+    // Note: unlike in KexiTablePart::rename here we just mark the query obsolete here so no need
+    // to call KexiQueryPart::askForClosingObjectsUsingQuerySchema().
     KexiMainWindowIface::global()->project()->dbConnection()
         ->setQuerySchemaObsolete(item->name());
+    return true;
+}
+
+// static
+tristate KexiQueryPart::askForClosingObjectsUsingQuerySchema(KexiWindow *window,
+                                                             KDbConnection *conn,
+                                                             KDbQuerySchema *query,
+                                                             const KLocalizedString &msg)
+{
+    Q_ASSERT(conn);
+    Q_ASSERT(query);
+    if (!window) {
+        return true;
+    }
+    QList<KDbTableSchemaChangeListener*> listeners
+            = KDbTableSchemaChangeListener::listeners(conn, query);
+    KexiQueryPartTempData *temp = static_cast<KexiQueryPartTempData*>(window->data());
+    // Special case: listener that is equal to window->data() will be silently closed
+    // without asking for confirmation. It is not counted when looking for objects that
+    // are "blocking" changes of the query.
+    const bool tempListenerExists = listeners.removeAll(temp) > 0;
+    // Immediate success if there's no temp-data's listener to close nor other listeners to close
+    if (!tempListenerExists && listeners.isEmpty()) {
+        return true;
+    }
+
+    if (!listeners.isEmpty()) {
+        QString openedObjectsStr = "<p><ul>";
+        for(const KDbTableSchemaChangeListener* listener : listeners) {
+            openedObjectsStr += QString("<li>%1</li>").arg(listener->name());
+        }
+        openedObjectsStr += "</ul></p>";
+        QString message = "<html>"
+            + i18nc("@info/plain Sentence1 Sentence2 Sentence3", "%1%2%3",
+                    KexiUtils::localizedStringToHtmlSubstring(msg), openedObjectsStr,
+                    KexiUtils::localizedStringToHtmlSubstring(
+                        kxi18nc("@info", "<para>Do you want to close these windows and save the "
+                                         "design or cancel saving?</para>")))
+            + "</html>";
+        KGuiItem closeAndSaveItem(KStandardGuiItem::save());
+        closeAndSaveItem.setText(
+            xi18nc("@action:button Close all windows and save", "Close Windows and Save"));
+        closeAndSaveItem.setToolTip(xi18nc("@info:tooltip Close all windows and save design",
+                                           "Close all windows and save design"));
+        const int r = KMessageBox::questionYesNo(window, message, QString(), closeAndSaveItem,
+                                                 KStandardGuiItem::cancel(), QString(),
+                                                 KMessageBox::Notify | KMessageBox::Dangerous);
+        if (r != KMessageBox::Yes) {
+            return cancelled;
+        }
+    }
+    // try to close every window depending on the query (if present) and also the temp-data's
+    // listener (if present)
+    const tristate res = KDbTableSchemaChangeListener::closeListeners(conn, query, { temp });
+    if (res != true) { //do not expose closing errors twice; just cancel
+        return cancelled;
+    }
     return true;
 }
 
@@ -224,14 +295,13 @@ void KexiQueryPartTempData::registerTableSchemaChanges(KDbQuerySchema *q)
 {
     if (!q)
         return;
-    foreach(const KDbTableSchema* table, *q->tables()) {
-        KDbTableSchemaChangeListener::registerForChanges(conn, this, table);
-    }
+    KDbTableSchemaChangeListener::registerForChanges(conn, this, q);
 }
 
 tristate KexiQueryPartTempData::closeListener()
 {
     KexiWindow* window = static_cast<KexiWindow*>(parent());
+    qDebug() << window->partItem()->name();
     return KexiMainWindowIface::global()->closeWindow(window);
 }
 

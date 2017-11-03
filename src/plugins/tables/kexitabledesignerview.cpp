@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2004-2012 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2017 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -1424,11 +1424,11 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
 
     if (res == true) {
         res = KexiTablePart::askForClosingObjectsUsingTableSchema(
-                  window(), conn, tempData()->table(),
-                  xi18nc("@info",
-                         "You are about to change the design of table <resource>%1</resource> "
-                         "but following objects using this table are opened:",
-                         tempData()->table()->name()));
+            window(), conn, tempData()->table(),
+            kxi18nc("@info",
+                    "<para>You are about to change the design of table <resource>%1</resource> "
+                    "but following objects using this table are open:</para>")
+                .subs(tempData()->table()->name()));
     }
 
     if (res == true) {
@@ -1462,8 +1462,13 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
                 = static_cast<KDbObject&>(*tempData()->table());
             res = buildSchema(*newTable);
             qDebug() << "BUILD SCHEMA:" << *newTable;
-
-            res = conn->alterTable(tempData()->table(), newTable);
+            {
+                KDbTableSchema *oldTable = tempData()->table();
+                tempData()->setTable(nullptr); // needed, otherwise setTable() will access dangling
+                                               // pointer after conn->alterTable()
+                KexiUtils::BoolBlocker guard(&tempData()->closeWindowOnCloseListener, false);
+                res = conn->alterTable(oldTable, newTable);
+            }
             if (res != true)
                 window()->setStatus(conn, "");
         } else {

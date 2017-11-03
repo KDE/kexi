@@ -1,7 +1,7 @@
 /* This file is part of the KDE project
    Copyright (C) 2004 Lucijan Busch <lucijan@kde.org>
    Copyright (C) 2004 Cedric Pasteur <cedric.pasteur@free.fr>
-   Copyright (C) 2005 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -147,7 +147,8 @@ void KexiFormPart::initInstanceActions()
 
 KexiWindowData* KexiFormPart::createWindowData(KexiWindow* window)
 {
-    return new KexiFormPartTempData(window);
+    KexiMainWindowIface *win = KexiMainWindowIface::global();
+    return new KexiFormPartTempData(window, win->project()->dbConnection());
 }
 
 KexiView* KexiFormPart::createView(QWidget *parent, KexiWindow* window,
@@ -378,12 +379,90 @@ void KexiFormPart::setupCustomPropertyPanelTabs(QTabWidget *tab)
 
 //----------------
 
-KexiFormPartTempData::KexiFormPartTempData(KexiWindow* parent)
-        : KexiWindowData(parent)
+class Q_DECL_HIDDEN KexiFormPartTempData::Private
 {
+public:
+    Private(KexiFormPartTempData *temp)
+        : q(temp)
+    {
+    }
+
+    void unregisterForChanges()
+    {
+        if (dataSource.isEmpty()) {
+            return;
+        }
+        if (pluginId == "org.kexi-project.table") {
+            KDbTableSchema *table = conn->tableSchema(dataSource);
+            if (!table) {
+                return;
+            }
+            KDbTableSchemaChangeListener::unregisterForChanges(conn, table);
+        } else if (pluginId == "org.kexi-project.query") {
+            KDbQuerySchema *query = conn->querySchema(dataSource);
+            if (!query) {
+                return;
+            }
+            KDbTableSchemaChangeListener::unregisterForChanges(conn, query);
+        } else {
+            return;
+        }
+    }
+
+    void registerForChanges(const QString &newPluginId, const QString &newDataSource)
+    {
+        if (newPluginId == "org.kexi-project.table") {
+            KDbTableSchema *table = conn->tableSchema(newDataSource);
+            if (!table) {
+                return;
+            }
+            KDbTableSchemaChangeListener::registerForChanges(conn, q, table);
+        } else if (pluginId == "org.kexi-project.query") {
+            KDbQuerySchema *query = conn->querySchema(newDataSource);
+            if (!query) {
+                return;
+            }
+            KDbTableSchemaChangeListener::registerForChanges(conn, q, query);
+        } else {
+            return;
+        }
+        pluginId = newPluginId;
+        dataSource = newDataSource;
+    }
+
+    KDbConnection *conn;
+    QString pluginId;
+    QString dataSource;
+
+private:
+    KexiFormPartTempData * const q;
+};
+
+KexiFormPartTempData::KexiFormPartTempData(KexiWindow* parent, KDbConnection *conn)
+        : KexiWindowData(parent), d(new Private(this))
+{
+    d->conn = conn;
+    setName(KexiUtils::localizedStringToHtmlSubstring(
+        kxi18nc("@info", "Form <resource>%1</resource>").subs(parent->partItem()->name())));
 }
 
 KexiFormPartTempData::~KexiFormPartTempData()
 {
+    KDbTableSchemaChangeListener::unregisterForChanges(d->conn, this);
+    delete d;
 }
 
+void KexiFormPartTempData::setDataSource(const QString &pluginId, const QString &dataSource)
+{
+    if (d->pluginId != pluginId || d->dataSource != dataSource) {
+        d->unregisterForChanges();
+        d->registerForChanges(pluginId, dataSource);
+    }
+}
+
+tristate KexiFormPartTempData::closeListener()
+{
+    KexiWindow* window = static_cast<KexiWindow*>(parent());
+    qDebug() << window->partItem()->name();
+    return KexiMainWindowIface::global()->closeWindow(window);
+}

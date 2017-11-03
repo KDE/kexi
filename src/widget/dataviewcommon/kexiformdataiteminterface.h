@@ -160,7 +160,7 @@ public:
 
 protected:
     QString m_dataSource;
-    QString m_dataSourcePartClass;
+    QString m_dataSourcePartClass = QStringLiteral("org.kexi-project.table"); //!< default for cases when the part class is missing
     KDbQueryColumnInfo* m_columnInfo;
     KexiDisplayUtils::DisplayParameters *m_displayParametersForEnteredValue; //!< used in setDisplayDefaultValue()
     KexiDisplayUtils::DisplayParameters *m_displayParametersForDefaultValue; //!< used in setDisplayDefaultValue()

@@ -1,6 +1,7 @@
 /*
 * Kexi Report Plugin
 * Copyright (C) 2007-2017 by Adam Pigg <adam@piggz.co.uk>
+* Copyright (C) 2017 Jarosław Staniek <staniek@kde.org>
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -22,8 +23,9 @@
 #include <QString>
 #include <QStringList>
 
-#include <KDbCursor>
 #include <KReportDataSource>
+
+class KexiReportPartTempData;
 
 //! @brief Implementation of database report data source
 class KexiDBReportDataSource : public KReportDataSource
@@ -36,7 +38,8 @@ public:
      * -"org.kexi-project.query"
      * -empty QString() - attempt to resolve @a objectName
      */
-    KexiDBReportDataSource(const QString &objectName, const QString& pluginId, KDbConnection *conn);
+    KexiDBReportDataSource(const QString &objectName, const QString &pluginId,
+                           KexiReportPartTempData *data);
     virtual ~KexiDBReportDataSource();
 
     virtual QStringList fieldNames() const;

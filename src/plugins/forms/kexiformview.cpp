@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2004 Cedric Pasteur <cedric.pasteur@free.fr>
-   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -458,6 +458,7 @@ bool KexiFormView::loadForm()
         if (!KFormDesigner::FormIO::loadFormFromString(form(), d->dbform, data)) {
             return false;
         }
+        tempData()->setDataSource(d->dbform->dataSourcePluginId(), d->dbform->dataSource());
     }
 
     //"autoTabStops" property is loaded -set it within the form tree as well
@@ -1064,9 +1065,16 @@ KexiFormView::updateDataSourcePage()
 {
     if (viewMode() == Kexi::DesignViewMode) {
         KPropertySet *set = form()->propertySet();
-        const QString dataSourcePartClass = set->propertyValue("dataSourcePartClass").toString();
+        QString dataSourcePartClass = set->propertyValue("dataSourcePartClass").toString();
         const QString dataSource = set->propertyValue("dataSource").toString();
         formPart()->dataSourcePage()->setFormDataSource(dataSourcePartClass, dataSource);
+        if (dataSourcePartClass.isEmpty()
+            && !formPart()->dataSourcePage()->selectedPluginId().isEmpty())
+        {
+            set->property("dataSourcePartClass")
+                .setValue(formPart()->dataSourcePage()->selectedPluginId(),
+                          KProperty::ValueOption::IgnoreOld);
+        }
     }
 }
 
