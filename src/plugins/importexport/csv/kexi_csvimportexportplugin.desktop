@@ -18,6 +18,7 @@ Name[sk]=CSV import/export
 Name[sv]=CSV-import/export
 Name[uk]=Імпортування і експортування CSV
 Name[x-test]=xxCSV import/exportxx
+Name[zh_CN]=CSV 导入/导出
 Comment=Kexi Plugin for CSV data import/export
 Comment[ca]=Connector del Kexi d'importació/exportació de CSV
 Comment[ca@valencia]=Connector del Kexi d'importació/exportació de CSV
