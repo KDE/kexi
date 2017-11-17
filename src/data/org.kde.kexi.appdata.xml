@@ -25,6 +25,7 @@
   <name xml:lang="pl">Kexi</name>
   <name xml:lang="pt">Kexi</name>
   <name xml:lang="pt-BR">Kexi</name>
+  <name xml:lang="ru">Kexi</name>
   <name xml:lang="sk">Kexi</name>
   <name xml:lang="sv">Kexi</name>
   <name xml:lang="uk">Kexi</name>
@@ -44,6 +45,7 @@
   <summary xml:lang="pl">Tworzenie wizualnych aplikacji baz danych</summary>
   <summary xml:lang="pt">Construtor visual de aplicações de bases de dados</summary>
   <summary xml:lang="pt-BR">Construtor visual de aplicativos de banco de dados</summary>
+  <summary xml:lang="ru">Среда для создания приложений, работающих с базами данных</summary>
   <summary xml:lang="sk">Vizuálny tvorca databázových aplikácií</summary>
   <summary xml:lang="sv">Visuellt byggverktyg för databasprogram</summary>
   <summary xml:lang="uk">Програма для побудови візуальних обробників баз даних</summary>
@@ -91,6 +93,7 @@
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Funcionalidades:</p>
+    <p xml:lang="ru">Возможности:</p>
     <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="uk">Можливості:</p>
