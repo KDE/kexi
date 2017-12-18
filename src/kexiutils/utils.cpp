@@ -1010,28 +1010,30 @@ static QByteArray xfceSettingValue(const QByteArray &channel, const QByteArray &
         *ok = false;
     }
     QByteArray result;
-    const QString command = QString::fromLatin1("xfconf-query -c \"%1\" -p \"%2\"")
-                                .arg(channel.constData())
-                                .arg(property.constData());
+    const QString program = QString::fromLatin1("xfconf-query");
+    const QString programPath = QStandardPaths::findExecutable(program);
+    const QStringList arguments{ program, "-c", channel, "-p", property };
     QProcess process;
-    process.start(command, QIODevice::ReadOnly | QIODevice::Text);
+    process.start(programPath, arguments);//, QIODevice::ReadOnly | QIODevice::Text);
+    qDebug() << "a" << int(process.exitCode());
     if (!process.waitForStarted()) {
-        qWarning() << "Count not execute command" << command << "error:" << process.error();
+        qWarning() << "Count not execute command" << programPath << arguments
+                   << "error:" << process.error();
         return QByteArray();
     }
-    if (!process.waitForFinished() || process.exitStatus() != QProcess::NormalExit) {
-        qWarning() << "Count not finish command" << command << "error:" << process.error()
+    const int exitCode = process.exitCode(); // !=0 e.g. for "no such property or channel"
+    if (exitCode != 0 || !process.waitForFinished() || process.exitStatus() != QProcess::NormalExit) {
+        qWarning() << "Count not finish command" << programPath << arguments
+                   << "error:" << process.error() << "exit code:" << exitCode
                    << "exit status:" << process.exitStatus();
         return QByteArray();
     }
     if (ok) {
         *ok = true;
     }
-    if (process.exitCode() == 0) {
-        result = process.readAll();
-        result.chop(1);
-    }
-    return result;  // !=0 e.g. for "no such property or channel"
+    result = process.readAll();
+    result.chop(1);
+    return result;
 }
 
 #else
