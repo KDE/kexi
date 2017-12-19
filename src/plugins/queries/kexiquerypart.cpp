@@ -317,10 +317,15 @@ void KexiQueryPartTempData::setQuery(KDbQuerySchema *query)
 {
     if (m_query && m_query == query)
         return;
+    KexiWindow* window = static_cast<KexiWindow*>(parent());
     if (m_query
             /* query not owned by window */
             && (static_cast<KexiWindow*>(parent())->schemaObject() != static_cast<KDbObject*>(m_query)))
     {
+        KexiQueryView* dataView = qobject_cast<KexiQueryView*>(window->viewForMode(Kexi::DataViewMode));
+        if (dataView && dataView->query() == m_query) {
+            dataView->setQuery(nullptr); // unassign before deleting
+        }
         delete m_query;
     }
     m_query = query;
