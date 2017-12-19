@@ -255,7 +255,9 @@ tristate KexiQueryDesignerSqlView::beforeSwitchTo(Kexi::ViewMode mode, bool *don
                 //replace old query schema with new one
                 temp->setQuery(d->parsedQuery);   //this will also delete temp->query()
                 d->parsedQuery = 0;
-                temp->setQueryChangedInView(true);
+                if (!compareSql(d->origStatement.toString(), d->editor->text())) {
+                    temp->setQueryChangedInView(true);
+                }
             }
         }
         d->origStatement = KDbEscapedString(d->editor->text());
