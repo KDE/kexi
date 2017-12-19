@@ -65,6 +65,9 @@ public:
             , justSwitchedFromNoViewMode(false)
             , slotTextChangedEnabled(true) {
     }
+    ~Private() {
+        delete parsedQuery;
+    }
     KexiQueryDesignerSqlEditor *editor;
     QLabel *pixmapStatus, *lblStatus;
     QHBoxLayout *statusHLyr;
@@ -75,6 +78,7 @@ public:
     QSplitter *splitter;
     //! For internal use, this pointer is usually copied to TempData structure,
     //! when switching out of this view (then it's cleared).
+    //! If it's still present at destruction of Private then it's deleted.
     KDbQuerySchema *parsedQuery;
     //! For internal use, statement passed in switching to this view
     KDbEscapedString origStatement;
