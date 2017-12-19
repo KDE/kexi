@@ -217,13 +217,13 @@ protected:
     virtual void initPartActions();
     virtual void initInstanceActions();
 
-    /*! Can be reimplemented if object data is extended behind the default set of properties.
-     This is the case for table and query schema objects,
-     where object of KDbObject subclass is returned.
-     In this case value pointed by @a ownedByWindow is set to false.
-     Default implemenatation owned (value pointed by @a ownedByWindow is set to true). */
-    virtual KDbObject* loadSchemaObject(KexiWindow *window,
-            const KDbObject& object, Kexi::ViewMode viewMode, bool *ownedByWindow);
+    /*! Can be reimplemented if object data is extended beyond the default set of properties. This
+     is the case for table and query schema objects, where object of KDbObject subclass is returned.
+     In this case value pointed by @a ownedByWindow is set to false. Default implemenatation returns
+     owned KDbObject object (value pointed by @a ownedByWindow is set to true).
+     @a ownedByWindow is required. */
+    virtual KDbObject *loadSchemaObject(KexiWindow *window, const KDbObject &object,
+                                        Kexi::ViewMode viewMode, bool *ownedByWindow) Q_REQUIRED_RESULT;
 
     bool loadDataBlock(KexiWindow *window, QString *dataString, const QString& dataID = QString());
 
