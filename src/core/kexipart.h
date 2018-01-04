@@ -147,7 +147,7 @@ public:
      used inside \a dialog. */
     virtual KexiView *createView(QWidget *parent, KexiWindow *window, KexiPart::Item *item,
                                  Kexi::ViewMode viewMode = Kexi::DataViewMode,
-                                 QMap<QString, QVariant> *staticObjectArgs = nullptr) Q_REQUIRED_RESULT = 0;
+                                 QMap<QString, QVariant> *staticObjectArgs = nullptr) /*Q_REQUIRED_RESULT*/ = 0;
 
     //virtual void initTabs();
 
