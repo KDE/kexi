@@ -156,7 +156,7 @@ tristate KexiTablePart::rename(KexiPart::Item *item, const QString& newName)
     const tristate res = KexiTablePart::askForClosingObjectsUsingTableSchema(
         KexiMainWindowIface::global()->openedWindowFor(item->identifier()), conn, schema,
         kxi18n("<para>You are about to rename table <resource>%1</resource> but it is used by "
-               "following opened windows:")
+               "following opened windows:</para>")
             .subs(schema->name()));
     if (res != true) {
         return res;
