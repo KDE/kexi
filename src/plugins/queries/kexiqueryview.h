@@ -45,11 +45,29 @@ protected:
 
     virtual tristate storeData(bool dontAsk = false);
 
-    /*! Executes query \a query, filling the table view with query results.
-     \return true on success, false on failure and cancelled when user has
-     cancelled execution (for example when she pressed the Cancel button
-     of the "Enter Query Parameter" input dialog. */
-    tristate executeQuery(KDbQuerySchema *query);
+    /**
+     * Assigns query @a query to this view
+     *
+     * - executes it
+     * - fills the table view with results
+     *
+     * @return @c true on success, @c false on failure and @c cancelled when user has cancelled
+     * execution, for example when she pressed the Cancel button in the "Enter Query Parameter"
+     * input dialog.
+     *
+     * In successful execution of the query of if @a query is @c nullptr previous query (if any)
+     * is unassigned and data is removed.
+     */
+    tristate setQuery(KDbQuerySchema *query);
+
+    /**
+     * @brief Query that was assigned to this view
+     *
+     * @note It is not owned.
+     */
+    KDbQuerySchema *query();
+
+    friend class KexiQueryPartTempData;
 
     class Private;
     Private * const d;

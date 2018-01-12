@@ -169,8 +169,8 @@ KDbObject* KexiTablePart::loadSchemaObject(KexiWindow *window, const KDbObject& 
 {
     Q_UNUSED(window);
     Q_UNUSED(viewMode);
-    if (ownedByWindow)
-        *ownedByWindow = false;
+    Q_ASSERT(ownedByWindow);
+    *ownedByWindow = false;
     return KexiMainWindowIface::global()->project()->dbConnection()->tableSchema(object.name());
 }
 

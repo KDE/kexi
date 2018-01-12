@@ -538,12 +538,17 @@ tristate KexiWindow::switchToViewMode(
     if (prevViewMode == Kexi::NoViewMode)
         d->newlySelectedView->setDirty(false);
 
-    wasDirty = newView->isDirty(); // remember and restore the flag if the view was clean
+    if ((prevViewMode == Kexi::DesignViewMode && d->currentViewMode == Kexi::TextViewMode)
+            || (prevViewMode == Kexi::TextViewMode && d->currentViewMode == Kexi::DesignViewMode)) {
+        wasDirty = view->isDirty(); // synchronize the dirty flag between Design and Text views
+    } else {
+        wasDirty = newView->isDirty(); // remember and restore the flag if the view was clean
+    }
+
     res = newView->afterSwitchFrom(
               designModePreloadedForTextModeHack ? Kexi::NoViewMode : prevViewMode);
-    if (!wasDirty) {
-        newView->setDirty(false);
-    }
+    newView->setDirty(wasDirty);
+
     *proposeOpeningInTextViewModeBecauseOfProblems
         = data()->proposeOpeningInTextViewModeBecauseOfProblems;
     if (!res) {

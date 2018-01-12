@@ -129,6 +129,8 @@ KDbObject* KexiQueryPart::loadSchemaObject(
     KexiWindow *window, const KDbObject& object, Kexi::ViewMode viewMode,
     bool *ownedByWindow)
 {
+    Q_ASSERT(ownedByWindow);
+    *ownedByWindow = false;
     KexiQueryPartTempData * temp = static_cast<KexiQueryPartTempData*>(window->data());
     QString sql;
     if (!loadDataBlock(window, &sql, "sql")) {
@@ -159,8 +161,7 @@ KDbObject* KexiQueryPart::loadSchemaObject(
     (KDbObject&)*query = object; //copy main attributes
 
     temp->registerTableSchemaChanges(query);
-    if (ownedByWindow)
-        *ownedByWindow = false;
+    *ownedByWindow = true; // owned because it is created by the parser
 
     qDebug() << KDbConnectionAndQuerySchema(
         KexiMainWindowIface::global()->project()->dbConnection(), *query);
@@ -316,10 +317,15 @@ void KexiQueryPartTempData::setQuery(KDbQuerySchema *query)
 {
     if (m_query && m_query == query)
         return;
+    KexiWindow* window = static_cast<KexiWindow*>(parent());
     if (m_query
             /* query not owned by window */
             && (static_cast<KexiWindow*>(parent())->schemaObject() != static_cast<KDbObject*>(m_query)))
     {
+        KexiQueryView* dataView = qobject_cast<KexiQueryView*>(window->viewForMode(Kexi::DataViewMode));
+        if (dataView && dataView->query() == m_query) {
+            dataView->setQuery(nullptr); // unassign before deleting
+        }
         delete m_query;
     }
     m_query = query;

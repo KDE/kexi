@@ -129,6 +129,7 @@ KDbObject* KexiReportPart::loadSchemaObject(
     KexiWindow *window, const KDbObject& object, Kexi::ViewMode viewMode,
     bool *ownedByWindow)
 {
+    Q_ASSERT(ownedByWindow);
     QString layout;
     if (   !loadDataBlock(window, &layout, "layout") == true
         && !loadDataBlock(window, &layout, "pgzreport_layout") == true /* compat */)
