@@ -22,7 +22,16 @@ Note: Non-plasma Linux desktops still default to the simple replacement at runti
 endif(NOT KEXI_MOBILE)
 
 # Experimental:
-option(KEXI_SCRIPTS_SUPPORT "Experimental: Enable scripting in Kexi" OFF)
+simple_option(KEXI_SCRIPTS_SUPPORT "Experimental: Enable scripting in Kexi" OFF)
+if(KEXI_SCRIPTS_SUPPORT)
+    set(REQUIRED_QTQML_VERSION 5.8.0) # >= 5.8 because of QJSEngine::newQMetaObject()
+    find_package(Qt5Qml ${REQUIRED_QTQML_VERSION} REQUIRED)
+    set_package_properties(Qt5Qml PROPERTIES
+                        DESCRIPTION "A framework for developing applications and libraries with the QML and JavaScript language."
+                        URL "http://qt.io"
+                        TYPE REQUIRED PURPOSE "Required by Kexi scripting (JavaScript)"
+    )
+endif()
 
 # Broken:
 option(KEXI_FORM_CURSOR_PROPERTY_SUPPORT "Broken: Enable \"cursor\" property in the form designer" OFF)

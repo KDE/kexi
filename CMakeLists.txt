@@ -111,15 +111,6 @@ set(REQUIRED_QT_VERSION 5.4.0)
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Xml Network PrintSupport Test)
 find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS UiTools WebKit WebKitWidgets)
 
-if(KEXI_SCRIPTS_SUPPORT)
-    find_package(Qt5 5.8.0 COMPONENTS Qml)
-    set_package_properties(Qt5Qml PROPERTIES
-                        DESCRIPTION "A framework for developing applications and libraries with the QML and JavaScript language."
-                        URL "http://qt.io"
-                        TYPE REQUIRED PURPOSE "Required by Kexi scripting (JavaScript)"
-    )
-endif()
-
 # use sane compile flags
 add_definitions(
   -DQT_NO_CAST_TO_ASCII
