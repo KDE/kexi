@@ -4,7 +4,7 @@ include_directories(${CMAKE_SOURCE_DIR}/src/core
 
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44000)
 
-option(KEXI_MIGRATEMANAGER_DEBUG "Enable debugging for the migrate driver manager" OFF)
+simple_option(KEXI_MIGRATEMANAGER_DEBUG "Enable debugging for the migrate driver manager" OFF)
 
 set(KEXI_MIGRATE_PLUGIN_INSTALL_DIR ${KEXI_PLUGIN_INSTALL_DIR}/migrate)
 

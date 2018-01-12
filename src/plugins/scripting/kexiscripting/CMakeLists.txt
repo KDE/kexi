@@ -1,7 +1,7 @@
 remove_definitions( -DKDE_DEFAULT_DEBUG_AREA=44021 )
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44025)
 
-option(KEXI_SCRIPTING_DEBUG "Enable debugging for the scripting plugin" OFF)
+simple_option(KEXI_SCRIPTING_DEBUG "Enable debugging for the scripting plugin" OFF)
 
 if (KEXI_SCRIPTING_DEBUG)
     add_definitions(-DKEXI_SCRIPTING_DEBUG)

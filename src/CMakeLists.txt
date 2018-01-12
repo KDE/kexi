@@ -2,18 +2,18 @@ set(CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS true)
 
 check_function_exists("uname" HAVE_UNAME)
 
-option(KEXI_SHOW_UNFINISHED "Show unfinished features in Kexi. Thus is useful for testing but may confuse end-user." OFF)
-option(KEXI_SHOW_UNIMPLEMENTED "Forces to show menu entries and dialogs just to give impression about development plans for Kexi. Only recommended for test/development versions." OFF)
+simple_option(KEXI_SHOW_UNFINISHED "Show unfinished features in Kexi. Thus is useful for testing but may confuse end-user." OFF)
+simple_option(KEXI_SHOW_UNIMPLEMENTED "Forces to show menu entries and dialogs just to give impression about development plans for Kexi. Only recommended for test/development versions." OFF)
 
 # Extra GUI features
 if(NOT KEXI_MOBILE)
-    option(KEXI_AUTORISE_TABBED_TOOLBAR "Experimental: Autorise the main tabbed toolbar in Kexi" OFF)
+    simple_option(KEXI_AUTORISE_TABBED_TOOLBAR "Experimental: Autorise the main tabbed toolbar in Kexi" OFF)
     if(WIN32 OR APPLE)
         set(_KEXI_USE_KFILEWIDGET_DEFAULT OFF)
     else()
         set(_KEXI_USE_KFILEWIDGET_DEFAULT ON)
     endif()
-    option(KEXI_USE_KFILEWIDGET "Use KFileWidget-based inline file browser in Kexi. If OFF, a simple \
+    simple_option(KEXI_USE_KFILEWIDGET "Use KFileWidget-based inline file browser in Kexi. If OFF, a simple \
 replacement file widget with native file dialogs is used. ON by default on UNIX, OFF by default on Windows \
 and macOS. \
 Note: Non-plasma Linux desktops still default to the simple replacement at runtime."
@@ -34,24 +34,24 @@ if(KEXI_SCRIPTS_SUPPORT)
 endif()
 
 # Broken:
-option(KEXI_FORM_CURSOR_PROPERTY_SUPPORT "Broken: Enable \"cursor\" property in the form designer" OFF)
-option(KEXI_SHOW_CONTEXT_HELP "Broken: Enable context help in Kexi main window" OFF)
-option(KEXI_QUICK_PRINTING_SUPPORT "Broken: Enable print/print preview/print setup for tables/queries in the project navigator" OFF)
-option(KEXI_AUTOFIELD_FORM_WIDGET_SUPPORT "Broken: Enable \"auto field\" form widget in the form designer" OFF)
+simple_option(KEXI_FORM_CURSOR_PROPERTY_SUPPORT "Broken: Enable \"cursor\" property in the form designer" OFF)
+simple_option(KEXI_SHOW_CONTEXT_HELP "Broken: Enable context help in Kexi main window" OFF)
+simple_option(KEXI_QUICK_PRINTING_SUPPORT "Broken: Enable print/print preview/print setup for tables/queries in the project navigator" OFF)
+simple_option(KEXI_AUTOFIELD_FORM_WIDGET_SUPPORT "Broken: Enable \"auto field\" form widget in the form designer" OFF)
 # OFF because we need to replace it with QTreeWidget which uses very different API compared to Q3ListView. Re-add QTreeWidget?
-option(KEXI_LIST_FORM_WIDGET_SUPPORT "Broken: Enable \"list\" form widget in the form designer" OFF)
-option(KEXI_PIXMAP_COLLECTIONS_SUPPORT "Broken: Enable support for pixmap collections" OFF)
+simple_option(KEXI_LIST_FORM_WIDGET_SUPPORT "Broken: Enable \"list\" form widget in the form designer" OFF)
+simple_option(KEXI_PIXMAP_COLLECTIONS_SUPPORT "Broken: Enable support for pixmap collections" OFF)
 
 # Not available:
-option(KEXI_MACROS_SUPPORT "Experimental: Enable macros in Kexi" OFF)
+simple_option(KEXI_MACROS_SUPPORT "Experimental: Enable macros in Kexi" OFF)
 if(KEXI_MACROS_SUPPORT) # temp.
     message(FATAL_ERROR "Macros are not yet available.")
 endif()
-option(KEXI_TABLE_PRINT_SUPPORT "Experimental: Enable printing of tabular view in Kexi" OFF) # broken since Kexi 2
+simple_option(KEXI_TABLE_PRINT_SUPPORT "Experimental: Enable printing of tabular view in Kexi" OFF) # broken since Kexi 2
 if(KEXI_TABLE_PRINT_SUPPORT) # temp.
     message(FATAL_ERROR "Table printing is not yet available.")
 endif()
-option(KEXI_PROJECT_TEMPLATES "Experimental: Enable support for project templates in Kexi" OFF) # broken since Kexi 2
+simple_option(KEXI_PROJECT_TEMPLATES "Experimental: Enable support for project templates in Kexi" OFF) # broken since Kexi 2
 if(KEXI_PROJECT_TEMPLATES) # temp.
     message(FATAL_ERROR "Project templates are not yet available.")
 endif()

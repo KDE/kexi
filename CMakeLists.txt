@@ -153,7 +153,7 @@ set(KEXI_LIBS_MIN_VERSION 3.0.91)
 ##
 ## Test for KDb
 ##
-option(KEXI_DEBUG_GUI "Debugging GUI for Kexi (requires KDB_DEBUG_GUI to be set too)" OFF)
+simple_option(KEXI_DEBUG_GUI "Debugging GUI for Kexi (requires KDB_DEBUG_GUI to be set too)" OFF)
 if(KEXI_DEBUG_GUI)
     set(KDB_REQUIRED_COMPONENTS DEBUG_GUI)
 endif()
