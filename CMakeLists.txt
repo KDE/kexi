@@ -11,11 +11,6 @@ include(KexiAddExamples)
 kexi_add_tests(OFF)
 kexi_add_examples(OFF)
 
-include(KexiAddTests)
-include(KexiAddExamples)
-kexi_add_tests(OFF)
-kexi_add_examples(OFF)
-
 # ECM
 include(ECMAddAppIcon)
 include(ECMAddTests)
