@@ -5,12 +5,12 @@
 
 # Define common versions of Kexi components used to generate KexiVersion.h
 # update these version for every release:
-set(PROJECT_VERSION_STRING "3.1 Alpha") # Custom name such as "3.1 Alpha"
+set(PROJECT_VERSION_STRING "3.1 Beta") # Custom name such as "3.1 Alpha"
 set(PROJECT_STABLE_VERSION_MAJOR 3) # 3 for 3.x, 4 for 4.x, etc.
 set(PROJECT_STABLE_VERSION_MINOR 1) # 0 for 3.0, 1 for 3.1, etc.
-set(PROJECT_VERSION_RELEASE 91)     # 90 for Alpha, increase for next test releases, set 0 for first Stable, etc.
-set(KEXI_ALPHA 1) # uncomment only for Alpha
-#set(KEXI_BETA 1) # uncomment only for Beta
+set(PROJECT_VERSION_RELEASE 94)     # 90 for Alpha, increase for next test releases, set 0 for first Stable, etc.
+#set(KEXI_ALPHA 1) # uncomment only for Alpha
+set(KEXI_BETA 1) # uncomment only for Beta
 #set(KEXI_RC 1) # uncomment only for RC
 set(KEXI_YEAR 2018) # update every year
 

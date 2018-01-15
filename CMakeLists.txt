@@ -148,7 +148,7 @@ set(KEXI_PLUGIN_INSTALL_DIR ${PLUGIN_INSTALL_DIR}/${KEXI_BASE_PATH})
 ############################
 ###########################
 
-set(KEXI_LIBS_MIN_VERSION 3.0.91)
+set(KEXI_LIBS_MIN_VERSION 3.0.94)
 
 ##
 ## Test for KDb
@@ -157,14 +157,14 @@ simple_option(KEXI_DEBUG_GUI "Debugging GUI for Kexi (requires KDB_DEBUG_GUI to 
 if(KEXI_DEBUG_GUI)
     set(KDB_REQUIRED_COMPONENTS DEBUG_GUI)
 endif()
-find_package(KDb 3.0.93 REQUIRED COMPONENTS ${KDB_REQUIRED_COMPONENTS})
+find_package(KDb ${KEXI_LIBS_MIN_VERSION} REQUIRED COMPONENTS ${KDB_REQUIRED_COMPONENTS})
 set_package_properties(KDb PROPERTIES TYPE REQUIRED
                        PURPOSE "Required by Kexi for data handling")
 
 ##
 ## Test for KReport
 ##
-find_package(KReport 3.0.90)
+find_package(KReport ${KEXI_LIBS_MIN_VERSION})
 set_package_properties(KReport PROPERTIES TYPE REQUIRED
                        PURPOSE "Required by Kexi for report handling")
 if (KReport_FOUND)
