@@ -621,8 +621,7 @@ protected:
      and its visible representation. Repaints widget if \a repaint is true. */
     virtual void clearColumns(bool repaint = true);
 
-    /*! Called by clearColumns() to clear internals of the object.
-     For example, KexiTableView removes contents of it's horizontal header. */
+    /*! Called by clearColumns() to clear internals of the object. */
     virtual void clearColumnsInternal(bool repaint) = 0;
 
     /*! @internal for implementation
