@@ -50,6 +50,7 @@ public:
             , internalEditor(0) {
     }
     ~Private() {
+        delete button;
         delete internalEditor;
         delete visibleTableViewColumn;
     }

@@ -266,9 +266,7 @@ public:
     virtual bool eventFilter(QObject *o, QEvent *e);
 
 public Q_SLOTS:
-    virtual void setData(KDbTableViewData *data, bool owner = true) {
-        KexiDataAwareObjectInterface::setData(data, owner);
-    }
+    void setData(KDbTableViewData *data, bool owner = true);
 
     virtual void clearColumnsInternal(bool repaint);
 

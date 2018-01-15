@@ -349,6 +349,16 @@ void KexiTableScrollArea::updateAllVisibleRecordsBelow(int record)
                                 viewport()->height() - (recordPos(record) - verticalScrollBar()->value()));
 }
 
+void KexiTableScrollArea::setData(KDbTableViewData *data, bool owner)
+{
+    if (m_owner && m_data && m_data != data) {
+        // editors refer to KDbTableViewColumn objects that will be removed soon
+        qDeleteAll(d->editors);
+        d->editors.clear();
+    }
+    KexiDataAwareObjectInterface::setData(data, owner);
+}
+
 void KexiTableScrollArea::clearColumnsInternal(bool /*repaint*/)
 {
 }
