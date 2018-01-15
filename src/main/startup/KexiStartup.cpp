@@ -151,10 +151,10 @@ public:
             }
             atLeastOneFound = true;
             if (objects) {
-                KexiProjectData::ObjectInfo* info = new KexiProjectData::ObjectInfo;
-                info->insert("name", objectName);
-                info->insert("type", typeName);
-                info->insert("action", option.names().first());
+                KexiProjectData::ObjectInfo info;
+                info.insert("name", objectName);
+                info.insert("type", typeName);
+                info.insert("action", option.names().first());
                 //ok, now add info for this object
                 objects->append(info);
             } else {

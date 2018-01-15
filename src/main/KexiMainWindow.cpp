@@ -1540,81 +1540,88 @@ void KexiMainWindow::slotAutoOpenObjectsLater()
     bool openingCancelled;
     //ok, now open "autoopen: objects
     if (d->prj) {
-        foreach(KexiProjectData::ObjectInfo* info, d->prj->data()->autoopenObjects) {
-            KexiPart::Info *i = Kexi::partManager().infoForPluginId(info->value("type"));
+        for (const KexiProjectData::ObjectInfo &info : d->prj->data()->autoopenObjects) {
+            KexiPart::Info *i = Kexi::partManager().infoForPluginId(info.value("type"));
             if (!i) {
                 not_found_msg += "<li>";
-                if (!info->value("name").isEmpty())
-                    not_found_msg += (QString("\"") + info->value("name") + "\" - ");
-                if (info->value("action") == "new")
-                    not_found_msg += xi18n("cannot create object - unknown object type \"%1\"", info->value("type"));
-                else
-                    not_found_msg += xi18n("unknown object type \"%1\"", info->value("type"));
+                if (!info.value("name").isEmpty()) {
+                    not_found_msg += (QString("\"") + info.value("name") + "\" - ");
+                }
+                if (info.value("action") == "new") {
+                    not_found_msg += xi18n("cannot create object - unknown object type \"%1\"",
+                                           info.value("type"));
+                } else {
+                    not_found_msg += xi18n("unknown object type \"%1\"", info.value("type"));
+                }
                 not_found_msg += internalReason(Kexi::partManager().result()) + "<br></li>";
                 continue;
             }
             // * NEW
-            if (info->value("action") == "new") {
+            if (info.value("action") == "new") {
                 if (!newObject(i, &openingCancelled) && !openingCancelled) {
                     not_found_msg += "<li>";
-                    not_found_msg += (xi18n("cannot create object of type \"%1\"", info->value("type")) +
-                                      internalReason(d->prj->result()) + "<br></li>");
-                } else
+                    not_found_msg
+                        += (xi18n("cannot create object of type \"%1\"", info.value("type"))
+                            + internalReason(d->prj->result()) + "<br></li>");
+                } else {
                     d->wasAutoOpen = true;
+                }
                 continue;
             }
 
-            KexiPart::Item *item = d->prj->item(i, info->value("name"));
-
+            KexiPart::Item *item = d->prj->item(i, info.value("name"));
             if (!item) {
                 QString taskName;
-                if (info->value("action") == "execute")
+                if (info.value("action") == "execute") {
                     taskName = xi18nc("\"executing object\" action", "executing");
 #ifdef KEXI_QUICK_PRINTING_SUPPORT
-                else if (info->value("action") == "print-preview")
+                } else if (info->value("action") == "print-preview") {
                     taskName = futureI18n("making print preview for");
-                else if (info->value("action") == "print")
+                } else if (info->value("action") == "print") {
                     taskName = futureI18n("printing");
 #endif
-                else
+                } else {
                     taskName = xi18n("opening");
+                }
 
-                not_found_msg += (QString("<li>") + taskName + " \"" + info->value("name") + "\" - ");
-                if ("table" == info->value("type").toLower())
+                not_found_msg += (QString("<li>") + taskName + " \"" + info.value("name") + "\" - ");
+                if ("table" == info.value("type").toLower()) {
                     not_found_msg += xi18n("table not found");
-                else if ("query" == info->value("type").toLower())
+                } else if ("query" == info.value("type").toLower()) {
                     not_found_msg += xi18n("query not found");
-                else if ("macro" == info->value("type").toLower())
+                } else if ("macro" == info.value("type").toLower()) {
                     not_found_msg += xi18n("macro not found");
-                else if ("script" == info->value("type").toLower())
+                } else if ("script" == info.value("type").toLower()) {
                     not_found_msg += xi18n("script not found");
-                else
+                } else {
                     not_found_msg += xi18n("object not found");
+                }
                 not_found_msg += (internalReason(d->prj->result()) + "<br></li>");
                 continue;
             }
             // * EXECUTE, PRINT, PRINT PREVIEW
-            if (info->value("action") == "execute") {
+            if (info.value("action") == "execute") {
                 tristate res = executeItem(item);
                 if (false == res) {
-                    not_found_msg += (QString("<li>\"") + info->value("name") + "\" - " + xi18n("cannot execute object") +
-                                      internalReason(d->prj->result()) + "<br></li>");
+                    not_found_msg += (QString("<li>\"") + info.value("name") + "\" - "
+                                      + xi18n("cannot execute object")
+                                      + internalReason(d->prj->result()) + "<br></li>");
                 }
                 continue;
             }
 #ifdef KEXI_QUICK_PRINTING_SUPPORT
-            else if (info->value("action") == "print") {
+            else if (info.value("action") == "print") {
                 tristate res = printItem(item);
                 if (false == res) {
-                    not_found_msg += (QString("<li>\"") + info->value("name") + "\" - " + futureI18n("cannot print object") +
+                    not_found_msg += (QString("<li>\"") + info.value("name") + "\" - " + futureI18n("cannot print object") +
                                       internalReason(d->prj->result()) + "<br></li>");
                 }
                 continue;
             }
-            else if (info->value("action") == "print-preview") {
+            else if (info.value("action") == "print-preview") {
                 tristate res = printPreviewForItem(item);
                 if (false == res) {
-                    not_found_msg += (QString("<li>\"") + info->value("name") + "\" - " + futureI18n("cannot make print preview of object") +
+                    not_found_msg += (QString("<li>\"") + info.value("name") + "\" - " + futureI18n("cannot make print preview of object") +
                                       internalReason(d->prj->result()) + "<br></li>");
                 }
                 continue;
@@ -1622,23 +1629,26 @@ void KexiMainWindow::slotAutoOpenObjectsLater()
 #endif
 
             Kexi::ViewMode viewMode;
-            if (info->value("action") == "open")
+            if (info.value("action") == "open") {
                 viewMode = Kexi::DataViewMode;
-            else if (info->value("action") == "design")
+            } else if (info.value("action") == "design") {
                 viewMode = Kexi::DesignViewMode;
-            else if (info->value("action") == "edittext")
+            } else if (info.value("action") == "edittext") {
                 viewMode = Kexi::TextViewMode;
-            else
+            } else {
                 continue; //sanity
+            }
 
             QString openObjectMessage;
             if (!openObject(item, viewMode, &openingCancelled, 0, &openObjectMessage)
-                    && (!openingCancelled || !openObjectMessage.isEmpty())) {
-                not_found_msg += (QString("<li>\"") + info->value("name") + "\" - ");
-                if (openObjectMessage.isEmpty())
+                    && (!openingCancelled || !openObjectMessage.isEmpty()))
+            {
+                not_found_msg += (QString("<li>\"") + info.value("name") + "\" - ");
+                if (openObjectMessage.isEmpty()) {
                     not_found_msg += xi18n("cannot open object");
-                else
+                } else {
                     not_found_msg += openObjectMessage;
+                }
                 not_found_msg += internalReason(d->prj->result()) + "<br></li>";
                 continue;
             } else {
@@ -1648,11 +1658,11 @@ void KexiMainWindow::slotAutoOpenObjectsLater()
     }
     setMessagesEnabled(true);
 
-    if (!not_found_msg.isEmpty())
+    if (!not_found_msg.isEmpty()) {
         showErrorMessage(xi18n("You have requested selected objects to be automatically opened "
                               "or processed on startup. Several objects cannot be opened or processed."),
                          QString("<ul>%1</ul>").arg(not_found_msg));
-
+    }
     d->updatePropEditorVisibility(currentWindow() ? currentWindow()->currentViewMode() : Kexi::NoViewMode);
 #if defined(KDOCKWIDGET_P)
     if (d->propEditor) {

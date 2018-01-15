@@ -50,21 +50,7 @@ class KEXICORE_EXPORT KexiProjectData : public QObject, public KDbObject, public
 public:
     typedef QList<KexiProjectData*> List;
     typedef QHash<QByteArray, QString> ObjectInfo;
-
-    //! A list of autoopen objects allowing deep copies
-    class KEXICORE_EXPORT AutoOpenObjects : public QList<ObjectInfo*>
-    {
-    public:
-        AutoOpenObjects();
-
-        ~AutoOpenObjects();
-
-        //! Construct autoopen objects list as a deep copy of \a other
-        AutoOpenObjects(const AutoOpenObjects& other);
-
-        //! Assigns a deep copy of \a other
-        AutoOpenObjects& operator=(const AutoOpenObjects& other);
-    };
+    typedef QList<ObjectInfo> AutoOpenObjects;
 
     KexiProjectData();
 

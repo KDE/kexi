@@ -47,7 +47,6 @@ KexiTemplateInfo::KexiTemplateInfo()
 
 KexiTemplateInfo::~KexiTemplateInfo()
 {
-    qDeleteAll(autoopenObjects);
 }
 
 void KexiTemplateCategoryInfo::addTemplate(const KexiTemplateInfo& t)
@@ -129,16 +128,16 @@ KexiTemplateInfo KexiTemplateLoader::loadInfo(const QString& directory)
         info.icon = Kexi::defaultFileBasedDriverIcon();
     QStringList autoopenObjectsString = cg.readEntry("AutoOpenObjects", QStringList());
     foreach(const QString &autoopenObjectString, autoopenObjectsString) {
-        KexiProjectData::ObjectInfo* autoopenObject = new KexiProjectData::ObjectInfo();
+        KexiProjectData::ObjectInfo autoopenObject;
         QStringList autoopenObjectNameSplitted(autoopenObjectString.split(':'));
         if (autoopenObjectNameSplitted.count() > 1) {
-            autoopenObject->insert("type", autoopenObjectNameSplitted[0]);
-            autoopenObject->insert("name", autoopenObjectNameSplitted[1]);
+            autoopenObject.insert("type", autoopenObjectNameSplitted[0]);
+            autoopenObject.insert("name", autoopenObjectNameSplitted[1]);
         } else {
-            autoopenObject->insert("type", "table");
-            autoopenObject->insert("name", autoopenObjectNameSplitted[0]);
+            autoopenObject.insert("type", "table");
+            autoopenObject.insert("name", autoopenObjectNameSplitted[0]);
         }
-        autoopenObject->insert("action", "open");
+        autoopenObject.insert("action", "open");
         info.autoopenObjects.append(autoopenObject);
     }
     return info;
