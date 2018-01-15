@@ -177,11 +177,8 @@ void KexiDataAwareObjectInterface::setData(KDbTableViewData *data, bool owner)
         cancelRecordEditing();
         clearVariables();
     } else {
-        if (!m_insertRecord) {//first setData() call - add 'insert' item
-            m_insertRecord = m_data->createItem();
-        } else {//just reinit
-            m_insertRecord->resize(m_data->columnCount());
-        }
+        delete m_insertRecord;
+        m_insertRecord = m_data->createItem();
     }
 
     //update gui mode
