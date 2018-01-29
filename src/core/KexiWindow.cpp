@@ -540,7 +540,9 @@ tristate KexiWindow::switchToViewMode(
 
     if ((prevViewMode == Kexi::DesignViewMode && d->currentViewMode == Kexi::TextViewMode)
             || (prevViewMode == Kexi::TextViewMode && d->currentViewMode == Kexi::DesignViewMode)) {
-        wasDirty = view->isDirty(); // synchronize the dirty flag between Design and Text views
+        if (view) {
+            wasDirty = view->isDirty(); // synchronize the dirty flag between Design and Text views
+        }
     } else {
         wasDirty = newView->isDirty(); // remember and restore the flag if the view was clean
     }
