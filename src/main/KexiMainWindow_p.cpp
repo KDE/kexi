@@ -22,6 +22,7 @@
 
 #include <QPainter>
 #include <QDebug>
+#include <QDesktopServices>
 
 #include <KDbUtils>
 
@@ -237,8 +238,14 @@ void KexiMainMenu::showEvent(QShowEvent * event)
         m_initialized = true;
         KActionCollection *ac = KexiMainWindowIface::global()->actionCollection();
         QHBoxLayout *hlyr = new QHBoxLayout(this);
+        QVBoxLayout *vlyr = new QVBoxLayout(this);
+
         hlyr->setSpacing(0);
         hlyr->setMargin(0);
+
+        vlyr->setSpacing(0);
+        vlyr->setMargin(0);
+
         m_menuWidget = new KexiMenuWidget;
 //! @todo KEXI3 is KexiMenuWidgetStyle needed?
 #if 0
@@ -269,7 +276,36 @@ void KexiMainMenu::showEvent(QShowEvent * event)
 #endif
         m_menuWidget->addSeparator();
         m_menuWidget->addAction(ac->action("quit"));
-        hlyr->addWidget(m_menuWidget);
+        vlyr->addWidget(m_menuWidget, 1);
+
+        //social media section
+        QHBoxLayout *socialLayout = new QHBoxLayout(this);
+        socialLayout->setMargin(2);
+        QLabel *followUs = new QLabel(xi18n("Follow us on "), this);
+
+        socialLayout->addWidget(followUs);
+        socialLayout->addStretch();
+
+        QPushButton *fbButton  = new QPushButton(this);
+        fbButton->setIcon(KexiIcon("im-facebook"));
+        fbButton->setFlat(true);
+        connect(fbButton, &QPushButton::clicked, [](){
+         QDesktopServices::openUrl(QUrl("https://www.facebook.com/kexi.project"));
+        });
+
+        QPushButton *twButton  = new QPushButton(this);
+        twButton->setIcon(KexiIcon("im-twitter"));
+        twButton->setFlat(true);
+        connect(twButton, &QPushButton::clicked, [](){
+         QDesktopServices::openUrl(QUrl("https://twitter.com/kexi_project"));
+        });
+
+        socialLayout->addWidget(fbButton);
+        socialLayout->addWidget(twButton);
+
+        vlyr->addLayout(socialLayout);
+
+        hlyr->addLayout(vlyr);
         m_content = new EmptyMenuContentWidget;
         m_content->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
         m_content->installEventFilter(this);
