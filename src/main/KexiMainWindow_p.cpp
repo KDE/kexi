@@ -238,7 +238,7 @@ void KexiMainMenu::showEvent(QShowEvent * event)
         m_initialized = true;
         KActionCollection *ac = KexiMainWindowIface::global()->actionCollection();
         QHBoxLayout *hlyr = new QHBoxLayout(this);
-        QVBoxLayout *vlyr = new QVBoxLayout(this);
+        QVBoxLayout *vlyr = new QVBoxLayout;
 
         hlyr->setSpacing(0);
         hlyr->setMargin(0);
@@ -279,7 +279,7 @@ void KexiMainMenu::showEvent(QShowEvent * event)
         vlyr->addWidget(m_menuWidget, 1);
 
         //social media section
-        QHBoxLayout *socialLayout = new QHBoxLayout(this);
+        QHBoxLayout *socialLayout = new QHBoxLayout;
         socialLayout->setMargin(2);
         QLabel *followUs = new QLabel(xi18n("Follow us on "), this);
 
