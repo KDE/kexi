@@ -483,6 +483,7 @@ void KexiMenuWidgetPrivate::init()
     fbButton->setAutoRaise(true);
     fbButton->setCursor(Qt::PointingHandCursor);
     fbButton->setFocusPolicy(Qt::NoFocus);
+    fbButton->setToolTip(xi18n("Visit KEXI Facebook page at %1", QLatin1String(facebookUrl)));
     QObject::connect(fbButton, &QPushButton::clicked,
                      []() { QDesktopServices::openUrl(QUrl(facebookUrl)); });
 
@@ -491,6 +492,7 @@ void KexiMenuWidgetPrivate::init()
     twButton->setAutoRaise(true);
     twButton->setCursor(Qt::PointingHandCursor);
     twButton->setFocusPolicy(Qt::NoFocus);
+    twButton->setToolTip(xi18n("Visit KEXI Twitter page at %1", QLatin1String(twitterUrl)));
     QObject::connect(twButton, &QPushButton::clicked,
                      []() { QDesktopServices::openUrl(QUrl(twitterUrl)); });
 
