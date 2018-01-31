@@ -181,7 +181,7 @@ bool Manager::lookup()
         // check version
         const QString expectedVersion = KexiPart::version();
         if (info->version() != expectedVersion) {
-            qWarning() << "Kexi plugin" << info->id() << "has version"
+            qWarning() << "Kexi plugin" << info->id() << info->fileName() << "has version"
                        << info->version() << "but version required by Kexi is"
                        << expectedVersion
                        << "-- skipping this plugin!";
