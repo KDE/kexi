@@ -473,10 +473,6 @@ void KexiMenuWidgetPrivate::init()
     socialLayout->setMargin(3);
     socialLayout->setSpacing(6);
     socialLayout->addStretch(1);
-    QLabel *followUs = new QLabel(xi18n("Join us on:"));
-    followUs->setFont(smallTextFont);
-    followUs->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
-    socialLayout->addWidget(followUs, 1);
 
     QToolButton *fbButton  = new QToolButton;
     fbButton->setIcon(KexiIcon("im-facebook"));
