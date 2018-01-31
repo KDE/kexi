@@ -34,29 +34,33 @@
 #include <KIconLoader>
 #include <kexiutils/utils.h>
 #include <KexiVersion.h>
+#include <KexiIcon.h>
 #include <KLocalizedString>
 
-#include <QDebug>
+#include <QApplication>
+#include <QBoxLayout>
 #include <QCache>
-#include <QStyle>
+#include <QDebug>
+#include <QDesktopServices>
+#include <QDesktopWidget>
 #include <QEvent>
-#include <QTimer>
+#include <QFontDatabase>
+#include <QLabel>
 #include <QMenu>
 #include <QPainter>
-#include <QApplication>
-#include <QDesktopWidget>
+#include <QPushButton>
+#include <QScopedPointer>
+#include <QStyle>
+#include <QTimer>
+#include <QToolButton>
+#include <QUrl>
+#include <QWidgetAction>
 #ifndef QT_NO_ACCESSIBILITY
 # include <qaccessible.h>
 #endif
 #ifndef QT_NO_WHATSTHIS
 # include <QWhatsThis>
 #endif
-#include <QWidgetAction>
-#include <QPushButton>
-#include <QScopedPointer>
-#include <QDesktopServices>
-#include <QUrl>
-#include <QFontDatabase>
 
 #include <KColorScheme>
 
@@ -65,6 +69,8 @@
 const int calligraLogoPixmapInternalWidth = 100;
 const int calligraLogoPixmapInternalHeight = 71;
 const char calligraUrl[] = "https://www.calligra.org";
+const char facebookUrl[] = "https://www.facebook.com/kexi.project";
+const char twitterUrl[] = "https://twitter.com/kexi_project";
 
 //! @todo KEXI3 port OxygenHelper
 #if 0
@@ -453,6 +459,45 @@ void KexiMenuWidgetPrivate::init()
     q->addAction(cancelAction);
 #endif
     q->setFocusPolicy(Qt::StrongFocus);
+
+    smallTextFont = QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont);
+
+    QVBoxLayout *vlyr = new QVBoxLayout(q);
+    vlyr->setSpacing(0);
+    vlyr->setMargin(0);
+    vlyr->addStretch(1);
+
+    // social media section
+    socialWidget = new QWidget;
+    QHBoxLayout *socialLayout = new QHBoxLayout(socialWidget);
+    socialLayout->setMargin(3);
+    socialLayout->setSpacing(6);
+    socialLayout->addStretch(1);
+    QLabel *followUs = new QLabel(xi18n("Join us on:"));
+    followUs->setFont(smallTextFont);
+    followUs->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
+    socialLayout->addWidget(followUs, 1);
+
+    QToolButton *fbButton  = new QToolButton;
+    fbButton->setIcon(KexiIcon("im-facebook"));
+    fbButton->setAutoRaise(true);
+    fbButton->setCursor(Qt::PointingHandCursor);
+    fbButton->setFocusPolicy(Qt::NoFocus);
+    QObject::connect(fbButton, &QPushButton::clicked,
+                     []() { QDesktopServices::openUrl(QUrl(facebookUrl)); });
+
+    QToolButton *twButton  = new QToolButton;
+    twButton->setIcon(KexiIcon("im-twitter"));
+    twButton->setAutoRaise(true);
+    twButton->setCursor(Qt::PointingHandCursor);
+    twButton->setFocusPolicy(Qt::NoFocus);
+    QObject::connect(twButton, &QPushButton::clicked,
+                     []() { QDesktopServices::openUrl(QUrl(twitterUrl)); });
+
+    socialLayout->addWidget(fbButton);
+    socialLayout->addWidget(twButton);
+    socialLayout->addStretch(1);
+    vlyr->addWidget(socialWidget, 0 , Qt::AlignCenter);
 }
 
 int KexiMenuWidgetPrivate::scrollerHeight() const
@@ -2140,8 +2185,9 @@ int KexiMenuWidgetPrivate::logoBottomMargin() const
     +----------------+ +
 */
     int bottomMargin = glowHeight - cutOffGlow;
+    bool showSocial = true;
     if ((q->height() - bottomMargin - calligraLogoPixmapInternalHeight - cutOffGlow)
-            <= (bottomOfLastItem() + spacingAfterLastItem))
+            <= (bottomOfLastItem() + spacingAfterLastItem + socialWidget->height()))
     {
         /* Special case when the last menu item would cover the logo: keep the logo below
             +----------------+
@@ -2150,8 +2196,10 @@ int KexiMenuWidgetPrivate::logoBottomMargin() const
             +----------------+ |--- bottomMargin (can be 0 or negative)
                                |    */
         bottomMargin = q->height() - bottomOfLastItem() - spacingAfterLastItem
-                       - cutOffGlow - calligraLogoPixmapInternalHeight;
+                       - cutOffGlow - calligraLogoPixmapInternalHeight - socialWidget->height();
+        showSocial = bottomMargin > QFontMetrics(smallTextFont).height();
     }
+    socialWidget->setVisible(showSocial);
     return bottomMargin;
 }
 
@@ -2168,7 +2216,7 @@ void KexiMenuWidgetPrivate::updateLogo()
         clickableLogoArea->setCursor(Qt::PointingHandCursor);
         clickableLogoArea->setToolTip(xi18n("Visit Calligra home page at %1", QLatin1String(calligraUrl)));
     }
-    clickableLogoArea->setGeometry(logoRect);
+    clickableLogoArea->setGeometry(logoRect.translated(0, -socialWidget->height()));
 }
 
 /*!
@@ -2376,25 +2424,26 @@ void KexiMenuWidget::paintEvent(QPaintEvent *e)
     menuOpt.menuRect = rect();
     style()->drawControl(QStyle::CE_MenuEmptyArea, &menuOpt, &p, this);
 
+    p.translate(0, -d->socialWidget->height());
+
     // version
-    p.setFont(QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont));
+    p.setFont(d->smallTextFont);
     QColor textColor;
     textColor = palette().color(QPalette::Base);
     p.setPen(QPen(textColor));
     const int logoBottomMargin = d->logoBottomMargin();
-    p.drawText(0, height() - logoBottomMargin + 1, width(), logoBottomMargin - 1,
-               Qt::AlignHCenter | Qt::AlignTop,
-               QLatin1String(Kexi::versionString()));
+    QRect textRect(0, height() - logoBottomMargin + 1, width(),
+                   logoBottomMargin - 1 + d->socialWidget->height());
+    p.drawText(textRect, Qt::AlignHCenter | Qt::AlignTop, QLatin1String(Kexi::versionString()));
     textColor = palette().color(QPalette::WindowText);
     textColor.setAlpha(180);
     p.setPen(QPen(textColor));
-    p.drawText(0, height() - logoBottomMargin, width(), logoBottomMargin,
-               Qt::AlignHCenter | Qt::AlignTop,
-               QLatin1String(Kexi::versionString()));
+    textRect.translate(0, -1);
+    p.drawText(textRect, Qt::AlignHCenter | Qt::AlignTop, QLatin1String(Kexi::versionString()));
 
     // logo
     p.drawPixmap((width() - d->calligraLogoPixmap.width()) / 2,
-                    height() - logoBottomMargin - d->calligraLogoPixmap.height()
+                    textRect.top() - d->calligraLogoPixmap.height()
                     + calligraLogoPixmapInternalHeight - 20,
                     d->calligraLogoPixmap);
 }
