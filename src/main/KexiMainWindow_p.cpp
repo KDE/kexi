@@ -237,8 +237,10 @@ void KexiMainMenu::showEvent(QShowEvent * event)
         m_initialized = true;
         KActionCollection *ac = KexiMainWindowIface::global()->actionCollection();
         QHBoxLayout *hlyr = new QHBoxLayout(this);
+
         hlyr->setSpacing(0);
         hlyr->setMargin(0);
+
         m_menuWidget = new KexiMenuWidget;
 //! @todo KEXI3 is KexiMenuWidgetStyle needed?
 #if 0
@@ -270,6 +272,7 @@ void KexiMainMenu::showEvent(QShowEvent * event)
         m_menuWidget->addSeparator();
         m_menuWidget->addAction(ac->action("quit"));
         hlyr->addWidget(m_menuWidget);
+
         m_content = new EmptyMenuContentWidget;
         m_content->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
         m_content->installEventFilter(this);
