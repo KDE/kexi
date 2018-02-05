@@ -220,6 +220,13 @@ bool Manager::lookup()
     }
     qDeleteAll(offers);
     offers.clear();
+    if (d->partsByPluginId.isEmpty()) {
+        m_result = KDbResult(
+            xi18nc("@info", "<para>Could not find any Kexi plugins, e.g. for tables or forms. "
+                            "Kexi would not be functional so it will exit.</para>"
+                            "<para><note>Please check if Kexi is properly installed.</note></para>"));
+        return false;
+    }
 
     // fill the final list using computed order
     for (int i = 0; i < orderedInfos.size(); i++) {
