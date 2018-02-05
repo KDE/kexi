@@ -91,7 +91,14 @@ ImportTableWizard::ImportTableWizard ( KDbConnection* curDB, QWidget* parent, QM
 
     connect(this, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)), this, SLOT(slot_currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)));
     //! @todo Change this to message prompt when we move to non-dialog wizard.
-    connect(m_srcConnSel, SIGNAL(connectionSelected(bool)), this, SLOT(slotConnPageItemSelected(bool)));
+    connect(m_srcConnSel, SIGNAL(connectionSelected(bool)), this,
+            SLOT(slotConnPageItemSelected(bool)));
+    connect(m_srcConnSel, &KexiConnectionSelectorWidget::connectionItemHighlighted,
+            [this]() { setValid(m_srcConnPageItem, true); });
+    connect(m_srcConnSel, &KexiConnectionSelectorWidget::connectionItemExecuted, [this]() {
+        setValid(m_srcConnPageItem, true);
+        next();
+    });
 }
 
 
@@ -353,7 +360,9 @@ void ImportTableWizard::arriveSrcDBPage()
 {
     if (fileBasedSrcSelected()) {
         //! @todo Back button doesn't work after selecting a file to import
-    } else if (!m_srcDBName) {
+    } else {
+        delete m_prjSet;
+        m_prjSet = 0;
         m_srcDBPageWidget->hide();
         qDebug() << "Looks like we need a project selector widget!";
 
@@ -367,11 +376,14 @@ void ImportTableWizard::arriveSrcDBPage()
                 m_prjSet = 0;
                 return;
             }
-            QVBoxLayout *vbox = new QVBoxLayout(m_srcDBPageWidget);
-            KexiUtils::setStandardMarginsAndSpacing(vbox);
-            m_srcDBName = new KexiProjectSelectorWidget(m_srcDBPageWidget, m_prjSet);
-            vbox->addWidget(m_srcDBName);
-            m_srcDBName->label()->setText(xi18n("Select source database you wish to import:"));
+            if (!m_srcDBName) {
+                QVBoxLayout *vbox = new QVBoxLayout(m_srcDBPageWidget);
+                KexiUtils::setStandardMarginsAndSpacing(vbox);
+                m_srcDBName = new KexiProjectSelectorWidget(m_srcDBPageWidget);
+                vbox->addWidget(m_srcDBName);
+                m_srcDBName->label()->setText(xi18n("Select source database you wish to import:"));
+            }
+            m_srcDBName->setProjectSet(m_prjSet);
         }
         m_srcDBPageWidget->show();
     }
