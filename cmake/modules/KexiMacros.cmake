@@ -1,6 +1,6 @@
 # Additional CMake macros
 #
-# Copyright (C) 2015-2017 Jarosław Staniek <staniek@kde.org>
+# Copyright (C) 2015-2018 Jarosław Staniek <staniek@kde.org>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
@@ -114,8 +114,9 @@ macro(add_pc_file _filename)
 endmacro()
 
 # Sets detailed version information for library co-installability.
-# - adds PROJECT_VERSION_MAJOR to the lib name
-# - sets VERSION and SOVERSION to PROJECT_VERSION_MAJOR.PROJECT_VERSION_MINOR
+# - adds PROJECT_STABLE_VERSION_MAJOR to the lib name
+# - sets VERSION to PROJECT_STABLE_VERSION_MAJOR.PROJECT_STABLE_VERSION_MINOR.PROJECT_STABLE_VERSION_RELEASE
+# - sets SOVERSION to KEXI_DISTRIBUTION_VERSION
 # - sets OUTPUT_NAME to ${_target}${KEXI_DISTRIBUTION_VERSION}
 # - sets ${_target_upper}_BASE_NAME variable to the final lib name
 # - sets ${_target_upper}_BASE_NAME_LOWER variable to the final lib name, lowercase
@@ -123,10 +124,11 @@ endmacro()
 # - (where _target_upper is uppercase ${_target}
 macro(set_coinstallable_lib_version _target)
     set(_name ${_target}${KEXI_DISTRIBUTION_VERSION})
-    #message(FATAL_ERROR ${PROJECT_VERSION_MAJOR})
+    set(_version "${PROJECT_STABLE_VERSION_MAJOR}.${PROJECT_STABLE_VERSION_MINOR}.${PROJECT_STABLE_VERSION_RELEASE}")
+    set(_soversion ${KEXI_DISTRIBUTION_VERSION})
     set_target_properties(${_target}
-        PROPERTIES VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_RELEASE}
-                   SOVERSION ${PROJECT_VERSION_MAJOR}
+        PROPERTIES VERSION ${_version}
+                   SOVERSION ${_soversion}
                    EXPORT_NAME ${_target}
                    OUTPUT_NAME ${_name}
     )
@@ -135,6 +137,8 @@ macro(set_coinstallable_lib_version _target)
     set(${_var} ${_name})
     string(TOLOWER ${_name} ${_var}_LOWER)
     set(${_target_upper}_INCLUDE_INSTALL_DIR ${INCLUDE_INSTALL_DIR}/${_name})
+    unset(_soversion)
+    unset(_version)
     unset(_target_upper)
     unset(_var)
 endmacro()
