@@ -103,6 +103,9 @@ target_link_libraries(kexiextendedwidgets
 if(KEXI_USE_KFILEWIDGET)
     target_link_libraries(kexiextendedwidgets
         PUBLIC KF5::KIOFileWidgets) # KFileWidget
+else()
+    target_link_libraries(kexiextendedwidgets
+        PRIVATE KF5::KIOFileWidgets) # KFileWidget::getStartUrl, KFileFilterCombo
 endif()
 
 install(TARGETS kexiextendedwidgets  ${INSTALL_TARGETS_DEFAULT_ARGS})

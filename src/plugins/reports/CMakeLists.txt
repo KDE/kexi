@@ -42,4 +42,9 @@ if(SHOULD_BUILD_KEXI_DESKTOP_APP)
     )
 endif()
 
+if(NOT KEXI_USE_KFILEWIDGET)
+    target_link_libraries(kexi_reportplugin
+        PRIVATE KF5::KIOFileWidgets) # KFileWidget::getStartUrl
+endif()
+
 install(TARGETS kexi_reportplugin DESTINATION ${KEXI_PLUGIN_INSTALL_DIR})
