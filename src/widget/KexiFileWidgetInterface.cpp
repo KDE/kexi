@@ -31,6 +31,8 @@
 #include <KSharedConfig>
 #endif
 
+#include <QDir>
+
 //! @internal
 class Q_DECL_HIDDEN KexiFileWidgetInterface::Private
 {

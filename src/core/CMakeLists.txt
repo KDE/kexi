@@ -63,8 +63,10 @@ target_link_libraries(kexicore
 )
 
 if(WIN32)
-    target_include_directories(kexicore PUBLIC "${KDEWIN_INCLUDES}")
-    target_link_libraries(kexicore PUBLIC ${KDEWIN_LIBRARIES})
+    target_link_libraries(kexicore
+        PUBLIC
+            kdewin
+    )
 endif()
 
 install(TARGETS kexicore  ${INSTALL_TARGETS_DEFAULT_ARGS})
