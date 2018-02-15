@@ -62,6 +62,10 @@
 //! @brief if defined, tests are enabled
 #cmakedefine COMPILING_TESTS
 
+//! @def COMPILING_EXAMPLES
+//! @brief if defined, examples are enabled and installed
+#cmakedefine COMPILING_EXAMPLES
+
 //! @def KEXI_DEBUG_GUI
 //! @brief If defined, a debugging GUI for Kexi is enabled
 #cmakedefine KEXI_DEBUG_GUI

@@ -13,6 +13,7 @@ endif()
 set(__kexi_add_tests YES)
 
 include(KexiAddSimpleOption)
+include(MacroBoolTo01)
 
 # Adds BUILD_TESTING option to enable all kinds of tests. If enabled, build in autotests/
 # and tests/ subdirectory is enabled. If optional argument ARG1 is ON, building tests will
@@ -34,4 +35,10 @@ macro(kexi_add_tests)
     set(BUILD_COVERAGE OFF)
     simple_option(BUILD_COVERAGE "Build test coverage (disabled because BUILD_TESTING is OFF)" OFF)
   endif()
+
+  # only with COMPILING_TESTS definition will all the FOO_TEST_EXPORT macros do something
+  # TODO: check if this can be moved to only those places which make use of it,
+  # to reduce global compiler definitions that would trigger a recompile of
+  # everything on a change (like adding/removing tests to/from the build)
+  macro_bool_to_01(BUILD_TESTING COMPILING_TESTS)
 endmacro()

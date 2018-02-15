@@ -206,17 +206,22 @@ if(UNIX)
 endif()
 
 # Sets file or directory read-only for all (non-root) users.
-# The _path should exist.
+# The _path should exist. If it is not absolute, ${CMAKE_CURRENT_SOURCE_DIR} path is prepended.
 # TODO: implement for WIN32
 macro(kexi_set_file_read_only _path)
     if(NOT kexi_chmod_program)
         return()
     endif()
-    if(NOT EXISTS ${_path})
-        message(FATAL_ERROR "File or directory \"${_path}\" does not exist")
+    if(IS_ABSOLUTE ${_path})
+        set(_fullpath ${_path})
+    else()
+        set(_fullpath ${CMAKE_CURRENT_SOURCE_DIR}/${_path})
+    endif()
+    if(NOT EXISTS ${_fullpath})
+        message(FATAL_ERROR "File or directory \"${_fullpath}\" does not exist")
         return()
     endif()
-    set(_command "${kexi_chmod_program}" a-w "${_path}")
+    set(_command "${kexi_chmod_program}" a-w "${_fullpath}")
     execute_process(
         COMMAND ${_command}
         RESULT_VARIABLE _result
@@ -226,4 +231,12 @@ macro(kexi_set_file_read_only _path)
     if(NOT _result EQUAL 0)
         message(FATAL_ERROR "Command failed (${_result}): ${_command}\n\nOutput:\n${_output}")
     endif()
+endmacro()
+
+# Adds example KEXI project (.kexi file)
+# - sets it read-only
+# - installs to SHARE/examples/VERSION/
+macro(kexi_add_example_project _path)
+    kexi_set_file_read_only(${_path})
+    install(FILES ${_path} DESTINATION ${KEXI_EXAMPLES_INSTALL_DIR})
 endmacro()
