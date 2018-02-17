@@ -181,21 +181,25 @@ public:
 
     //! Enables or disables all viewports of QAbstractScrollArea-derived widgets inside of the page.
     //! This is needed because disabled QAbstractScrollArea widget does not disable its viewport.
+    //! Skips contentsWidget itself and its children.
     void setViewportsEnabled(bool set)
     {
         if (page) {
+            QSet<QAbstractScrollArea*> contentsWidgetChildren;
+            if (contentsWidget) {
+                contentsWidgetChildren = contentsWidget->findChildren<QAbstractScrollArea*>().toSet();
+                if (qobject_cast<QAbstractScrollArea*>(contentsWidget)) {
+                    contentsWidgetChildren.insert(qobject_cast<QAbstractScrollArea*>(contentsWidget));
+                }
+            }
             for(QAbstractScrollArea *area : page->findChildren<QAbstractScrollArea*>()) {
+                if (contentsWidgetChildren.contains(area)) {
+                    continue;
+                }
                 area->setEnabled(set);
                 area->repaint();
             }
             page->repaint();
-        }
-        if (contentsWidget) {
-            for(QAbstractScrollArea *area : contentsWidget->findChildren<QAbstractScrollArea*>()) {
-                area->setEnabled(set);
-                area->repaint();
-            }
-            contentsWidget->repaint();
         }
     }
 

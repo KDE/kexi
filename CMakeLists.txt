@@ -7,9 +7,7 @@ include(SetKexiVersionInfo)
 project(Kexi VERSION ${PROJECT_VERSION})
 
 include(KexiAddTests)
-include(KexiAddExamples)
 kexi_add_tests(OFF)
-kexi_add_examples(OFF)
 
 # ECM
 include(ECMAddAppIcon)
@@ -122,12 +120,6 @@ add_definitions(
   -DQT_USE_QSTRINGBUILDER
 )
 
-# only with COMPILING_TESTS definition will all the FOO_TEST_EXPORT macros do something
-# TODO: check if this can be moved to only those places which make use of it,
-# to reduce global compiler definitions that would trigger a recompile of
-# everything on a change (like adding/removing tests to/from the build)
-macro_bool_to_01(BUILD_TESTING COMPILING_TESTS)
-
 # overcome some platform incompatibilities
 if(WIN32)
     find_package(KDEWin REQUIRED)
@@ -135,6 +127,13 @@ endif()
 
 # set custom Kexi plugin installdir
 set(KEXI_PLUGIN_INSTALL_DIR ${PLUGIN_INSTALL_DIR}/${KEXI_BASE_PATH})
+
+simple_option(BUILD_EXAMPLES "Build and install examples" ON)
+
+macro_bool_to_01(BUILD_EXAMPLES COMPILING_EXAMPLES)
+
+# set custom Kexi examples installdir
+set(KEXI_EXAMPLES_INSTALL_DIR ${SHARE_INSTALL_PREFIX}/examples/${KEXI_BASE_PATH})
 
 # TEMPORARY: for initial Qt5/KF5 build porting phase deprecation warnings are only annoying noise
 # remove once code porting phase starts, perhaps first locally in product subdirs
