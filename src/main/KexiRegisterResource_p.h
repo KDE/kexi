@@ -216,8 +216,7 @@ static bool registerIconsResource(const QString &privateName, const QString& pat
         //! @todo 3.1 Re-add translation
         *errorMessage = /*QObject::tr*/ QString::fromLatin1(
             "Could not open icon resource file \"%1\". "
-            "Application will not start. "
-            "Please check if it is properly installed.")
+            "Please check if application is properly installed.")
             .arg(QFileInfo(path).fileName());
         //! @todo 3.1 Re-add translation
         *detailedErrorMessage = QString::fromLatin1("Tried to find in %1.").arg(triedLocationsString);
