@@ -133,7 +133,7 @@ simple_option(BUILD_EXAMPLES "Build and install examples" ON)
 macro_bool_to_01(BUILD_EXAMPLES COMPILING_EXAMPLES)
 
 # set custom Kexi examples installdir
-set(KEXI_EXAMPLES_INSTALL_DIR ${SHARE_INSTALL_PREFIX}/examples/${KEXI_BASE_PATH})
+set(KEXI_EXAMPLES_INSTALL_DIR ${SHARE_INSTALL_PREFIX}/${KEXI_BASE_PATH}/examples)
 
 # TEMPORARY: for initial Qt5/KF5 build porting phase deprecation warnings are only annoying noise
 # remove once code porting phase starts, perhaps first locally in product subdirs
