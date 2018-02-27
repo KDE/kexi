@@ -194,21 +194,21 @@ function(add_update_file_target)
     )
 endfunction()
 
-if(UNIX)
-    # TODO: implement for WIN32
+if(WIN32)
+    set(_chmod_name attrib)
+else()
     set(_chmod_name chmod)
-    find_program(kexi_chmod_program ${_chmod_name} DOC "chmod program")
-    if(kexi_chmod_program)
-        message(STATUS "Found program for changing file permissions: ${kexi_chmod_program}")
-    else()
-        message(WARNING "Could not find \"${_chmod_name}\" program for changing file permissions")
-    endif()
+endif()
+find_program(kexi_chmod_program ${_chmod_name} DOC "chmod program")
+if(kexi_chmod_program)
+    message(STATUS "Found program for changing file permissions: ${kexi_chmod_program}")
+else()
+    message(WARNING "Could not find \"${_chmod_name}\" program for changing file permissions")
 endif()
 
 # Sets file or directory read-only for all (non-root) users.
 # The _path should exist. If it is not absolute, ${CMAKE_CURRENT_SOURCE_DIR} path is prepended.
-# TODO: implement for WIN32
-macro(kexi_set_file_read_only _path)
+function(kexi_set_file_read_only _path)
     if(NOT kexi_chmod_program)
         return()
     endif()
@@ -221,7 +221,11 @@ macro(kexi_set_file_read_only _path)
         message(FATAL_ERROR "File or directory \"${_fullpath}\" does not exist")
         return()
     endif()
-    set(_command "${kexi_chmod_program}" a-w "${_fullpath}")
+    if(WIN32)
+        set(_command "${kexi_chmod_program}" +R "${_fullpath}")
+    else()
+        set(_command "${kexi_chmod_program}" a-w "${_fullpath}")
+    endif()
     execute_process(
         COMMAND ${_command}
         RESULT_VARIABLE _result
@@ -231,12 +235,13 @@ macro(kexi_set_file_read_only _path)
     if(NOT _result EQUAL 0)
         message(FATAL_ERROR "Command failed (${_result}): ${_command}\n\nOutput:\n${_output}")
     endif()
-endmacro()
+endfunction()
 
 # Adds example KEXI project (.kexi file)
-# - sets it read-only
-# - installs to SHARE/examples/VERSION/
+# - sets it read-only in the source directory
+# - installs to ${KEXI_EXAMPLES_INSTALL_DIR} as read-only for everyone
 macro(kexi_add_example_project _path)
     kexi_set_file_read_only(${_path})
-    install(FILES ${_path} DESTINATION ${KEXI_EXAMPLES_INSTALL_DIR})
+    install(FILES ${_path} DESTINATION ${KEXI_EXAMPLES_INSTALL_DIR}
+            PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
 endmacro()
