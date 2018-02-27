@@ -225,7 +225,10 @@ void KexiUserFeedbackAgent::Private::updateData()
     releaseStr = new char[6]; // "xx.xx\0"
 
     versionInfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-    GetVersionEx(&versionInfo); //!< @todo KEXI3 WIN32 port this deprecated function
+#pragma warning(push)
+#pragma warning(disable: 4996) // easy way, VerifyVersionInfo() is not a 100% equivalent or easy to use
+    GetVersionEx(&versionInfo);
+#pragma warning(pop)
     GetSystemInfo(&sysInfo);
 
     _snprintf(releaseStr, 6, "%2d.%2d", versionInfo.dwMajorVersion, versionInfo.dwMinorVersion);
