@@ -331,7 +331,7 @@ bool setupApplication()
     if (!style || style->objectName() != name) {
         qWarning() <<
              qPrintable(QString("Could not find application style %1. "
-                                "Kexi will not start. Please check if Kexi is properly installed. ")
+                                "Kexi will not start. Please check if KEXI is properly installed. ")
                                 .arg(name));
          return false;
      }
@@ -637,7 +637,8 @@ void KexiMainWindow::setupActions()
     ac->addAction("quit",
                   action = new KexiMenuWidgetAction(KStandardAction::Quit, this));
     connect(action, SIGNAL(triggered()), this, SLOT(slotProjectQuit()));
-    action->setWhatsThis(xi18n("Quits Kexi application."));
+    action->setWhatsThis(xi18nc("@info:whatsthis", "Quits <application>%1</application> application.",
+                               QApplication::applicationDisplayName()));
     setupMainMenuActionShortcut(action);
 
 #ifdef KEXI_SHOW_UNIMPLEMENTED
@@ -653,9 +654,9 @@ void KexiMainWindow::setupActions()
 #endif
     d->action_tools_import_project = addAction("tools_import_project", KexiIcon("database-import"),
                                                xi18n("&Import Database..."));
-    d->action_tools_import_project->setToolTip(xi18n("Import entire database as a Kexi project"));
+    d->action_tools_import_project->setToolTip(xi18n("Import entire database as a KEXI project"));
     d->action_tools_import_project->setWhatsThis(
-        xi18n("Imports entire database as a Kexi project."));
+        xi18n("Imports entire database as a KEXI project."));
     connect(d->action_tools_import_project, SIGNAL(triggered()),
             this, SLOT(slotToolsImportProject()));
 
@@ -1037,8 +1038,8 @@ void KexiMainWindow::setupActions()
                     KStandardAction::Preferences, this));
     action->setObjectName("settings");
     action->setText(futureI18n("Settings..."));
-    action->setToolTip(futureI18n("Show Kexi settings"));
-    action->setWhatsThis(futureI18n("Shows Kexi settings."));
+    action->setToolTip(futureI18n("Show KEXI settings"));
+    action->setWhatsThis(futureI18n("Shows KEXI settings."));
     connect(action, SIGNAL(triggered()), this, SLOT(slotSettings()));
     setupMainMenuActionShortcut(action);
 #else
@@ -1400,9 +1401,10 @@ tristate KexiMainWindow::openProject(const KexiProjectData& projectData)
         if (incompatibleWithKexi) {
             if (KMessageBox::Yes == KMessageBox::questionYesNo(this,
                     xi18nc("@info (don't add tags around %1, it's done already)",
-                           "Database project %1 does not appear to have been created using Kexi.<nl/>"
-                           "Do you want to import it as a new Kexi project?",
-                           projectData.infoString()),
+                           "Database project %1 does not appear to have been created using "
+                           "<application>%2</application>.<nl/>"
+                           "Do you want to import it as a new KEXI project?",
+                           projectData.infoString(), QApplication::applicationDisplayName()),
                     QString(), KGuiItem(xi18nc("@action:button Import Database", "&Import..."), KexiIconName("database-import")),
                     KStandardGuiItem::cancel()))
             {
@@ -2029,7 +2031,7 @@ void KexiMainWindow::setupPropertyEditor()
         if (pointSizeF > 0.0) {
             f.setPointSizeF(pointSizeF);
         } else {
-            const int pixelSize = propertyEditorGroup.readEntry("FontSize", -1); // compatibility with Kexi 2.x
+            const int pixelSize = propertyEditorGroup.readEntry("FontSize", -1); // compatibility with KEXI 2.x
             if (pixelSize > 0) {
                 f.setPixelSize(pixelSize);
             }

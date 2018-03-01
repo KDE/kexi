@@ -35,7 +35,7 @@
 
 class QLabel;
 
-//! Universal "Auto Field" widget for Kexi forms
+//! Universal "Auto Field" widget for KEXI forms
 /*! It acts as a container for most data-aware widgets. */
 class KEXIFORMUTILS_EXPORT KexiDBAutoField :
             public QWidget,

@@ -933,12 +933,12 @@ void KexiWelcomeStatusBar::showDonation()
         return;
     }
     if (KMessageBox::Yes != KMessageBox::questionYesNo(this,
-       xi18nc("@info donate to the project", "<title>Kexi may be totally free, but its development is costly.</title>"
+       xi18nc("@info donate to the project", "<title>KEXI may be totally free, but its development is costly.</title>"
             "<para>Power, hardware, office space, internet access, traveling for meetings - everything costs.</para>"
-            "<para>Direct donation is the easiest and fastest way to efficiently support the Kexi Project. "
+            "<para>Direct donation is the easiest and fastest way to efficiently support the KEXI Project. "
             "Everyone, regardless of any degree of involvement can do so.</para>"
-            "<para>What do you receive for your donation? Kexi will become more feature-full and stable as "
-            "contributors will be able to devote more time to Kexi. Not only you can "
+            "<para>What do you receive for your donation? KEXI will become more feature-full and stable as "
+            "contributors will be able to devote more time to KEXI. Not only you can "
             "expect new features, but you can also have an influence on what features are added!</para>"
             "<para>Currently we are accepting donations through <emphasis>BountySource</emphasis> (a funding platform "
             "for open-source software) using secure PayPal, Bitcoin and Google Wallet transfers.</para>"

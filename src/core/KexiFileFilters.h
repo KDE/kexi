@@ -28,7 +28,7 @@ class QMimeType;
 class QString;
 class QStringList;
 
-//! A tool for handling file filters for Kexi
+//! A tool for handling file filters for KEXI
 class KEXICORE_EXPORT KexiFileFilters
 {
 public:

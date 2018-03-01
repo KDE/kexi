@@ -167,7 +167,7 @@ void ImportTableWizard::setupIntroPage()
     lblIntro->setText(
         xi18nc("@info",
              "<para>Table Importing Assistant allows you to import a table from an existing "
-             "database into the current Kexi project.</para>"
+             "database into the current KEXI project.</para>"
              "<para>Click <interface>Next</interface> button to continue or "
              "<interface>Cancel</interface> button to exit this assistant.</para>"));
     vbox->addWidget(lblIntro);

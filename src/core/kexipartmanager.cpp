@@ -109,8 +109,9 @@ PartClass* Manager::part(Info *info, QHash<QString, PartClass*> *partDict)
     KPluginFactory *factory = qobject_cast<KPluginFactory*>(info->instantiate());
     if (!factory) {
         m_result = KDbResult(ERR_CANNOT_LOAD_OBJECT,
-                             xi18nc("@info", "Could not load Kexi plugin file <filename>%1</filename>.",
-                                    info->fileName()));
+                             xi18nc("@info", "Could not load plugin file <filename>%1</filename> "
+                                             "for <application>%2</application>.",
+                                    info->fileName(), QApplication::applicationDisplayName()));
         QPluginLoader loader(info->fileName()); // use this to get the message
         (void)loader.load();
         m_result.setServerMessage(loader.errorString());
@@ -120,9 +121,12 @@ PartClass* Manager::part(Info *info, QHash<QString, PartClass*> *partDict)
     }
     p = factory->create<PartClass>(this);
     if (!p) {
-        m_result = KDbResult(ERR_CANNOT_LOAD_OBJECT,
-                             xi18nc("@info",
-                                    "Could not open Kexi plugin <filename>%1</filename>.").arg(info->fileName()));
+        m_result = KDbResult(
+            ERR_CANNOT_LOAD_OBJECT,
+            xi18nc(
+                "@info",
+                "Could not open plugin <filename>%1</filename> for <application>%2</application>.",
+                info->fileName(), QApplication::applicationDisplayName()));
         qWarning() << m_result.message();
         return 0;
     }
@@ -221,10 +225,13 @@ bool Manager::lookup()
     qDeleteAll(offers);
     offers.clear();
     if (d->partsByPluginId.isEmpty()) {
-        m_result = KDbResult(
-            xi18nc("@info", "<para>Could not find any Kexi plugins, e.g. for tables or forms. "
-                            "Kexi would not be functional so it will exit.</para>"
-                            "<para><note>Please check if Kexi is properly installed.</note></para>"));
+        m_result = KDbResult(xi18nc(
+            "@info", "<para>Could not find any plugins for <application>%1</application>, e.g. for "
+                     "tables or forms. "
+                     "<application>%1</application> would not be functional so it will exit.</para>"
+                     "<para><note>Please check if <application>%2</application> is properly "
+                     "installed.</note></para>",
+            QApplication::applicationDisplayName()));
         return false;
     }
 

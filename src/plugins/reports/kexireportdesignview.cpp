@@ -226,7 +226,7 @@ QDomElement KexiReportDesignView::connectionData() const
     QDomDocument dd;
     QDomElement conndata = dd.createElement("connection");
     conndata.setAttribute("type", "internal"); // for backward compatibility, currently always
-                                               // internal, we used to have "external" in old Kexi
+                                               // internal, we used to have "external" in old KEXI
     conndata.setAttribute("source", m_sourceSelector->selectedName());
     conndata.setAttribute("class", m_sourceSelector->selectedPluginId());
     return conndata;

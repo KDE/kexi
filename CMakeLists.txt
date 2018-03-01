@@ -4,7 +4,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH} ${ECM
 include(SetKexiCMakePolicies NO_POLICY_SCOPE)
 include(SetKexiVersionInfo)
 
-project(Kexi VERSION ${PROJECT_VERSION})
+project(KEXI VERSION ${PROJECT_VERSION})
 
 include(KexiAddTests)
 kexi_add_tests(OFF)
@@ -125,14 +125,14 @@ if(WIN32)
     find_package(KDEWin REQUIRED)
 endif()
 
-# set custom Kexi plugin installdir
+# set custom KEXI plugin installdir
 set(KEXI_PLUGIN_INSTALL_DIR ${PLUGIN_INSTALL_DIR}/${KEXI_BASE_PATH})
 
 simple_option(BUILD_EXAMPLES "Build and install examples" ON)
 
 macro_bool_to_01(BUILD_EXAMPLES COMPILING_EXAMPLES)
 
-# set custom Kexi examples installdir
+# set custom KEXI examples installdir
 set(KEXI_EXAMPLES_INSTALL_DIR ${SHARE_INSTALL_PREFIX}/${KEXI_BASE_PATH}/examples)
 
 # TEMPORARY: for initial Qt5/KF5 build porting phase deprecation warnings are only annoying noise
@@ -152,23 +152,23 @@ set(KEXI_LIBS_MIN_VERSION 3.0.95)
 ##
 ## Test for KDb
 ##
-simple_option(KEXI_DEBUG_GUI "Debugging GUI for Kexi (requires KDB_DEBUG_GUI to be set too)" OFF)
+simple_option(KEXI_DEBUG_GUI "Debugging GUI for KEXI (requires KDB_DEBUG_GUI to be set too)" OFF)
 if(KEXI_DEBUG_GUI)
     set(KDB_REQUIRED_COMPONENTS DEBUG_GUI)
 endif()
 find_package(KDb ${KEXI_LIBS_MIN_VERSION} REQUIRED COMPONENTS ${KDB_REQUIRED_COMPONENTS})
 set_package_properties(KDb PROPERTIES TYPE REQUIRED
-                       PURPOSE "Required by Kexi for data handling")
+                       PURPOSE "Required by KEXI for data handling")
 
 ##
 ## Test for KReport
 ##
 find_package(KReport ${KEXI_LIBS_MIN_VERSION})
 set_package_properties(KReport PROPERTIES TYPE REQUIRED
-                       PURPOSE "Required by Kexi for report handling")
+                       PURPOSE "Required by KEXI for report handling")
 if (KReport_FOUND)
     if(NOT KREPORT_SCRIPTING)
-        message(FATAL_ERROR "Kexi requires KReport package with scripting support enabled (KREPORT_SCRIPTING)")
+        message(FATAL_ERROR "KEXI requires KReport package with scripting support enabled (KREPORT_SCRIPTING)")
     endif()
 endif()
 
@@ -178,11 +178,11 @@ endif()
 if(SHOULD_BUILD_KEXI_DESKTOP_APP)
     find_package(KPropertyWidgets ${KEXI_LIBS_MIN_VERSION} REQUIRED COMPONENTS KF)
     set_package_properties(KPropertyWidgets PROPERTIES TYPE REQUIRED
-                           PURPOSE "Required by Kexi for handling properties")
+                           PURPOSE "Required by KEXI for handling properties")
 else() # only KPropertyCore
     find_package(KPropertyCore ${KEXI_LIBS_MIN_VERSION} REQUIRED COMPONENTS KF)
     set_package_properties(KPropertyCore PROPERTIES TYPE REQUIRED
-                           PURPOSE "Required by Kexi for handling properties")
+                           PURPOSE "Required by KEXI for handling properties")
 endif()
 include(CheckIfQtGuiCanBeExecuted)
 
@@ -204,7 +204,7 @@ set_package_properties(KexiMarble PROPERTIES
     DESCRIPTION "KDE World Globe Widget library"
     URL "https://marble.kde.org"
     TYPE RECOMMENDED
-    PURPOSE "Required by Kexi form map widget"
+    PURPOSE "Required by KEXI form map widget"
 )
 if(NOT MARBLE_FOUND)
     set(MARBLE_INCLUDE_DIR "")
@@ -221,12 +221,12 @@ macro_bool_to_01(Qt5WebKitWidgets_FOUND HAVE_QTWEBKITWIDGETS)
 set_package_properties(Qt5WebKit PROPERTIES
                        DESCRIPTION "Webkit for Qt, the HTML engine."
                        URL "http://qt.io"
-                       TYPE RECOMMENDED PURPOSE "Required by Kexi web form widget"
+                       TYPE RECOMMENDED PURPOSE "Required by KEXI web form widget"
 )
 set_package_properties(Qt5WebKitWidgets PROPERTIES
                        DESCRIPTION "QWidgets module for Webkit, the HTML engine."
                        URL "http://qt.io"
-                       TYPE RECOMMENDED PURPOSE "Required by Kexi web form widget"
+                       TYPE RECOMMENDED PURPOSE "Required by KEXI web form widget"
 )
 
  ##################

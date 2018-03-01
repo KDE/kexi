@@ -240,7 +240,7 @@ void ImportWizard::setupIntro()
     if (d->predefinedConnectionData) { //predefined import: server source
         msg = xi18nc("@info",
                      "Database Importing Assistant is about to import <resource>%1</resource> database "
-                     "(connection <resource>%2</resource>) into a Kexi project.",
+                     "(connection <resource>%2</resource>) into a KEXI project.",
                      d->predefinedDatabaseName, d->predefinedConnectionData->toUserVisibleString());
     } else if (!d->predefinedDatabaseName.isEmpty()) { //predefined import: file source
 //! @todo this message is currently ok for files only
@@ -252,13 +252,13 @@ void ImportWizard::setupIntro()
         d->driverIdForSelectedSource = driverIdForMimeType(mime);
         msg = xi18nc("@info",
                      "Database Importing Assistant is about to import <filename>%1</filename> file "
-                     "of type <resource>%2</resource> into a Kexi project.",
+                     "of type <resource>%2</resource> into a KEXI project.",
                      QDir::toNativeSeparators(d->predefinedDatabaseName),
                      mime.isValid() ? mime.comment() : "???");
     } else {
         msg = xi18nc("@info",
                      "Database Importing Assistant allows you to import an existing database "
-                     "into a Kexi project.");
+                     "into a KEXI project.");
     }
     // note: we're using .arg() here because the msg argument is already in rich-text format
     QString finalMessage = xi18nc("@info",
@@ -1029,7 +1029,7 @@ void ImportWizard::next()
             if (true == res) {
                 d->finishLbl->setText(
                     xi18nc("@info",
-                           "Database has been imported into Kexi project <resource>%1</resource>.",
+                           "Database has been imported into KEXI project <resource>%1</resource>.",
                            d->dstNewDBNameLineEdit->text()));
                 button(QDialogButtonBox::Cancel)->setEnabled(false);
                 backButton()->setEnabled(false);

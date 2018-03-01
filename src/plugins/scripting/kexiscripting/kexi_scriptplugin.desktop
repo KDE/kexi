@@ -54,7 +54,7 @@ Encoding=UTF-8
 
 X-KDE-Library=kexi_scriptplugin
 X-KDE-ServiceTypes=Kexi/Editor
-X-KDE-PluginInfo-Author=Kexi Team
+X-KDE-PluginInfo-Author=KEXI Team
 X-KDE-PluginInfo-Email=kexi@kde.org
 X-KDE-PluginInfo-Name=org.kexi-project.script
 X-KDE-PluginInfo-Version=3.2

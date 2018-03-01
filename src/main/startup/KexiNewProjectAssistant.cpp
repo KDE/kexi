@@ -70,11 +70,14 @@ KexiServerDBNamePage::KexiServerDBNamePage(QWidget* parent)
 
 // ----
 
-KexiTemplateSelectionPage::KexiTemplateSelectionPage(QWidget* parent)
- : KexiAssistantPage(xi18nc("@title:window", "New Project"),
-        xi18nc("@info", "Kexi will create a new database project. Select blank database."),
-        //! @todo Change to this when templates work: "Kexi will create a new database project. Select blank database or template.",
-        parent)
+KexiTemplateSelectionPage::KexiTemplateSelectionPage(QWidget *parent)
+    : KexiAssistantPage(xi18nc("@title:window", "New Project"),
+                        xi18nc("@info", "<application>%1</application> will create a new database "
+                                        "project. Select blank database.",
+                               QApplication::applicationDisplayName()),
+                        //! @todo Change to this when templates work: "Kexi will create a new
+                        //! database project. Select blank database or template.",
+                        parent)
 {
     m_templatesList = new KexiCategorizedView;
     setFocusWidget(m_templatesList);
@@ -320,7 +323,7 @@ KexiProjectConnectionSelectionPage::KexiProjectConnectionSelectionPage(QWidget* 
  : KexiAssistantPage(xi18nc("@title:window", "Database Connection"),
                   xi18nc("@info",
                         "<para>Select database server's connection you wish to use to "
-                        "create a new Kexi project.</para>"
+                        "create a new KEXI project.</para>"
                         "<para>Here you may also add, edit or delete connections "
                         "from the list.</para>"),
                   parent)

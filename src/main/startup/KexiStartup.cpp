@@ -258,10 +258,10 @@ static void prettyPrintListOfPlugins()
 
     // 1. Kexi plugins
     if (Kexi::partManager().infoList()->isEmpty()) {
-        out << i18n("No Kexi plugins found.") << endl;
+        out << i18n("No KEXI plugins found.") << endl;
     }
     else {
-        out << i18n("Kexi plugins (%1):", Kexi::partManager().infoList()->count()) << endl;
+        out << i18n("KEXI plugins (%1):", Kexi::partManager().infoList()->count()) << endl;
         foreach(const KexiPart::Info *info, *Kexi::partManager().infoList()) {
             prettyPrintPluginMetaData(maxWidth, labels, &out, *info);
         }
@@ -413,7 +413,8 @@ tristate KexiStartupHandler::init(const QStringList &arguments,
     const bool openExisting = !createDB && !isSet(options().dropDb);
     bool readOnly = isSet(options().readOnly);
     const QString couldnotMsg = QString::fromLatin1("\n")
-                                + xi18n("Could not start Kexi application this way.");
+        + xi18nc("@info", "Could not start <application>%1</application> application this way.",
+                QApplication::applicationDisplayName());
 
     if (createDB && isSet(options().dropDb)) {
         KMessageBox::sorry(0,
@@ -893,7 +894,7 @@ tristate KexiStartupHandler::detectActionForFile(
             if ((options & SkipMessages) || KMessageBox::Yes != KMessageBox::questionYesNo(
                 parent, xi18nc("@info",
                                "<para><filename>%1</filename> is an external file of type <resource>%2</resource>.</para>"
-                               "<para>Do you want to import the file as a Kexi project?</para>",
+                               "<para>Do you want to import the file as a KEXI project?</para>",
                                QDir::toNativeSeparators(databaseName), mime.comment()),
                                xi18n("Open External File"),
                                KGuiItem(xi18nc("@action:button Import File", "Import..."),
@@ -955,8 +956,9 @@ tristate KexiStartupHandler::detectActionForFile(
             const QString comment(mime.comment().isEmpty() ? QString() : QString::fromLatin1(" (%1)").arg(mime.comment()));
             KMessageBox::detailedSorry(parent,
                xi18nc("@info",
-                      "The file <filename>%1</filename> is not recognized as being supported by Kexi.",
-                      QDir::toNativeSeparators(databaseName)),
+                      "The file <filename>%1</filename> is not recognized as being supported by "
+                      "<application>%1</application>.",
+                      QDir::toNativeSeparators(databaseName), QApplication::applicationDisplayName()),
                       possibleProblemsMessage.isEmpty()
                        ? xi18nc("@info",
                                 "<para>Could not find plugin supporting for this file type.</para>"

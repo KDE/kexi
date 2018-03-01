@@ -62,7 +62,7 @@ void KexiScriptEditor::initialize(const QString &scriptaction)
 
                                              "This is Technology Preview (BETA) version of scripting\n"
                                              "support in Kexi. The scripting API may change in details\n"
-                                             "in the next Kexi version.\n"
+                                             "in the next KEXI version.\n"
                                              "For more information and documentation see\n%1",
                                              "http://www.kexi-project.org/scripting/"), true).join("\n# ") + "\n";
 #endif

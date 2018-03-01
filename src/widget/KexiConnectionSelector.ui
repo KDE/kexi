@@ -46,7 +46,7 @@
      </property>
      <property name="text">
       <string>&lt;title&gt;Select Existing Database Server's Connection From the List Below&lt;/title&gt;
-&lt;para&gt;You will see existing Kexi projects available for the selected connection. Here you may also add, edit or delete connections from the list.&lt;/para&gt;
+&lt;para&gt;You will see existing KEXI projects available for the selected connection. Here you may also add, edit or delete connections from the list.&lt;/para&gt;
 </string>
      </property>
      <property name="alignment">

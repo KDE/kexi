@@ -1,7 +1,7 @@
 ### DEFINITION OF PRODUCTS, FEATURES AND PRODUCTSETS
 ####################################################
 
-# When building Kexi a lot of different things are created and installed. To
+# When building KEXI a lot of different things are created and installed. To
 # describe them and their internal dependencies the concepts of "product",
 # "feature" and "product set" are used.
 
@@ -60,12 +60,13 @@
 # See APP_CONVERTER, FILEMANAGER_*
 
 # products
-calligra_define_product(KEXI_CORE_APP "Kexi core app" REQUIRES)
-calligra_define_product(KEXI_DESKTOP_APP "Kexi for desktop" REQUIRES KEXI_CORE_APP)
-calligra_define_product(KEXI_MOBILE_APP "Kexi for mobile" REQUIRES KEXI_CORE_APP)
+calligra_define_product(KEXI_CORE_APP "KEXI core app" REQUIRES)
+calligra_define_product(KEXI_DESKTOP_APP "KEXI for desktop" REQUIRES KEXI_CORE_APP)
+calligra_define_product(KEXI_MOBILE_APP "KEXI for mobile" REQUIRES KEXI_CORE_APP)
 
 # more plugins
-calligra_define_product(PLUGIN_KEXI_SPREADSHEETMIGRATION "Import from ODS plugin for Kexi" UNPORTED  REQUIRES KEXI_CORE_APP)
+calligra_define_product(PLUGIN_KEXI_SPREADSHEETMIGRATION "Import from ODS plugin for KEXI"
+                        UNPORTED REQUIRES KEXI_CORE_APP)
 
 #############################################
 ####      Product set definitions        ####

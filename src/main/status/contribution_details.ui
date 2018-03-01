@@ -37,7 +37,7 @@
    <item>
     <widget class="QGroupBox" name="group_share">
      <property name="title">
-      <string>Share usage info for Kexi</string>
+      <string>Share usage info for KEXI</string>
      </property>
      <property name="flat">
       <bool>true</bool>
@@ -58,7 +58,7 @@
          <enum>Qt::StrongFocus</enum>
         </property>
         <property name="text">
-         <string>&lt;a href=&quot;show_info&quot;&gt;Show what info is shared with the Kexi Project community to improve the application &amp;raquo;&lt;/a&gt;</string>
+         <string>&lt;a href=&quot;show_info&quot;&gt;Show what info is shared with the KEXI Project community to improve the application &amp;raquo;&lt;/a&gt;</string>
         </property>
         <property name="wordWrap">
          <bool>true</bool>
@@ -128,7 +128,7 @@
          <item row="2" column="0">
           <widget class="QLabel" name="label">
            <property name="text">
-            <string>Kexi version:</string>
+            <string>KEXI version:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -295,7 +295,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Enabling this will include your usage of Kexi in the global statistics.</string>
+            <string>Enabling this will include your usage of KEXI in the global statistics.</string>
            </property>
            <property name="wordWrap">
             <bool>true</bool>
@@ -340,7 +340,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Enabling this helps the Kexi Project to identify typical operating systems and hardware that should be supported. Recommended.</string>
+            <string>Enabling this helps the KEXI Project to identify typical operating systems and hardware that should be supported. Recommended.</string>
            </property>
            <property name="wordWrap">
             <bool>true</bool>
@@ -575,7 +575,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Enabling this helps Kexi Project to better know real display parameters used with Kexi, so it can become better optimized. Recommended.</string>
+            <string>Enabling this helps KEXI Project to better know real display parameters used with KEXI, so it can become better optimized. Recommended.</string>
            </property>
            <property name="wordWrap">
             <bool>true</bool>
@@ -693,7 +693,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Enabling this helps Kexi Project to know how wide support for regional settings should be. Recommended.</string>
+            <string>Enabling this helps KEXI Project to know how wide support for regional settings should be. Recommended.</string>
            </property>
            <property name="wordWrap">
             <bool>true</bool>
@@ -946,7 +946,7 @@
       <string notr="true">QGroupBox { border:none; }</string>
      </property>
      <property name="title">
-      <string>Donations to the Kexi project</string>
+      <string>Donations to the KEXI project</string>
      </property>
      <property name="flat">
       <bool>true</bool>
@@ -1058,7 +1058,7 @@
          <enum>Qt::StrongFocus</enum>
         </property>
         <property name="text">
-         <string>This section only informs about known visits to the Donation web page from this computer. Kexi app has no access to real donation information.</string>
+         <string>This section only informs about known visits to the Donation web page from this computer. KEXI app has no access to real donation information.</string>
         </property>
         <property name="wordWrap">
          <bool>true</bool>

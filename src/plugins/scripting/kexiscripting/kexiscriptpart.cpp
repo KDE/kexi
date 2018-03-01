@@ -104,7 +104,7 @@ bool KexiScriptPart::execute(KexiPart::Item* item, QObject* sender)
     if (result.isError()) {
             QString errormessage = result.toString();
             long lineno = result.property("lineNumber").toInt();
-            QMessageBox mb(xi18n("Kexi Script"), xi18n("Error executing script at line %1:\n%2").arg(lineno).arg(errormessage),  QMessageBox::Critical, QMessageBox::Ok, QMessageBox::NoButton, QMessageBox::NoButton);
+            QMessageBox mb(xi18n("KEXI Script"), xi18n("Error executing script at line %1:\n%2").arg(lineno).arg(errormessage),  QMessageBox::Critical, QMessageBox::Ok, QMessageBox::NoButton, QMessageBox::NoButton);
             mb.exec();
             return false;
     }

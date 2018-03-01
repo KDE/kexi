@@ -143,9 +143,9 @@ static bool registerResource(const QString& path, QStandardPaths::StandardLocati
 #else
         *errorMessage = kxi18nc("@info",
             "<para>Could not open icon resource file <filename>%1</filename>.</para>"
-            "<para><application>Kexi</application> will not start. "
-            "Please check if <application>Kexi</application> is properly installed.</para>")
-            .subs(QFileInfo(path).fileName());
+            "<para><application>%2</application> will not start. "
+            "Please check if it is properly installed.</para>")
+            .subs(QFileInfo(path).fileName()).subs(QApplication::applicationDisplayName());
         *detailsErrorMessage = kxi18nc("@info Tried to find files in <dir list>",
                                        "Tried to find in %1.").subs(triedLocationsString);
 #endif

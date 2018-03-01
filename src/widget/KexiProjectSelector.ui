@@ -29,7 +29,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>&lt;b&gt;There are Kexi projects you have recently opened.&lt;/b&gt; Select one you wish to open:
+      <string>&lt;b&gt;There are KEXI projects you have recently opened.&lt;/b&gt; Select one you wish to open:
 </string>
      </property>
      <property name="alignment">

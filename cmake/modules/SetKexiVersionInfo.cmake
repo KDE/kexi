@@ -3,7 +3,7 @@
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
-# Define common versions of Kexi components used to generate KexiVersion.h
+# Define common versions of KEXI components used to generate KexiVersion.h
 # update these version for every release:
 set(PROJECT_VERSION_STRING "3.2 Alpha") # Custom name such as "3.1 Alpha"
 set(PROJECT_STABLE_VERSION_MAJOR 3) # 3 for 3.x, 4 for 4.x, etc.
@@ -17,7 +17,7 @@ set(KEXI_YEAR 2018) # update every year
 # -- do not edit below this line --
 
 set(KEXI_CUSTOM_DISTRIBUTION_VERSION "" CACHE STRING
-    "Custom name of Kexi version useful to construct co-installabile releases. Any nonempty directory name is accepted. If specified it will be used in KEXI_DISTRIBUTION_VERSION. If not specified, KEXI_DISTRIBUTION_VERSION will be set to PROJECT_STABLE_VERSION_MAJOR.PROJECT_STABLE_VERSION_MINOR.")
+    "Custom name of KEXI version useful to construct co-installabile releases. Any nonempty directory name is accepted. If specified it will be used in KEXI_DISTRIBUTION_VERSION. If not specified, KEXI_DISTRIBUTION_VERSION will be set to PROJECT_STABLE_VERSION_MAJOR.PROJECT_STABLE_VERSION_MINOR.")
 
 if(KEXI_CUSTOM_DISTRIBUTION_VERSION STREQUAL "")
     set(KEXI_DISTRIBUTION_VERSION "${PROJECT_STABLE_VERSION_MAJOR}.${PROJECT_STABLE_VERSION_MINOR}")
@@ -61,11 +61,11 @@ endif()
 
 set(PROJECT_VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_RELEASE})
 
-message(STATUS "Kexi version \"${PROJECT_VERSION_STRING}\" (${PROJECT_VERSION}), distribution version \"${KEXI_DISTRIBUTION_VERSION}\"")
+message(STATUS "KEXI version \"${PROJECT_VERSION_STRING}\" (${PROJECT_VERSION}), distribution version \"${KEXI_DISTRIBUTION_VERSION}\"")
 
-# Define the generic version of the Kexi libraries here
-# This makes it easy to advance it when the next Kexi release comes.
-# 14 was the last GENERIC_PROJECT_LIB_VERSION_MAJOR of the previous Kexi series
+# Define the generic version of the KEXI libraries here
+# This makes it easy to advance it when the next KEXI release comes.
+# 14 was the last GENERIC_PROJECT_LIB_VERSION_MAJOR of the previous KEXI series
 # (2.x) so we're starting with 15 in 3.x series.
 if(PROJECT_STABLE_VERSION_MAJOR EQUAL 3)
     math(EXPR GENERIC_PROJECT_LIB_VERSION_MAJOR "${PROJECT_STABLE_VERSION_MINOR} + 15")

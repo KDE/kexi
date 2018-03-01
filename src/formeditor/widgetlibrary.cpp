@@ -92,8 +92,8 @@ public:
         // by providing this in propeditor
         m_advancedProperties.insert("minimumSize");
         m_advancedProperties.insert("maximumSize");
-        m_advancedProperties.insert("clickMessage"); // for backward compatibility Kexi projects created with Qt < 4.7
-        m_advancedProperties.insert("showClearButton"); // for backward compatibility Kexi projects created with Qt 4
+        m_advancedProperties.insert("clickMessage"); // for backward compatibility KEXI projects created with Qt < 4.7
+        m_advancedProperties.insert("showClearButton"); // for backward compatibility KEXI projects created with Qt 4
 #ifndef KEXI_SHOW_UNFINISHED
 /*! @todo reenable */
         m_advancedProperties.insert("accel");
@@ -247,19 +247,22 @@ private:
     WidgetFactory *loadFactory(KexiFormWidgetsPluginMetaData *pluginMetaData) {
         KPluginFactory *factory = qobject_cast<KPluginFactory*>(pluginMetaData->instantiate());
         if (!factory) {
-            q->m_result = KDbResult(ERR_CANNOT_LOAD_OBJECT,
-                                    xi18nc("@info", "Could not load Kexi Form Widgets plugin file <filename>%1</filename>.",
-                                           pluginMetaData->fileName()));
+            q->m_result = KDbResult(
+                ERR_CANNOT_LOAD_OBJECT,
+                xi18nc("@info", "Could not load Form Widgets plugin file <filename>%1</filename> "
+                                "for <application>%2</application>.",
+                       pluginMetaData->fileName(), QApplication::applicationDisplayName()));
             q->setErrorMessage(pluginMetaData, q->result().message());
             qWarning() << q->result().message();
             return 0;
         }
         WidgetFactory *widgetFactory = factory->create<WidgetFactory>(q);
         if (!widgetFactory) {
-            q->m_result = KDbResult(ERR_CANNOT_LOAD_OBJECT,
-                                    xi18nc("@info",
-                                           "Could not open Kexi Form Widgets plugin <filename>%1</filename>.",
-                                           pluginMetaData->fileName()));
+            q->m_result = KDbResult(
+                ERR_CANNOT_LOAD_OBJECT,
+                xi18nc("@info", "Could not open Form Widgets plugin <filename>%1</filename> for "
+                                "<application>%2</application>.",
+                       pluginMetaData->fileName(), QApplication::applicationDisplayName()));
             qWarning() << q->m_result.message();
             return 0;
         }

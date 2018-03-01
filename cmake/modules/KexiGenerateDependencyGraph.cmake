@@ -20,7 +20,7 @@ set(_graph_dir ${CMAKE_BINARY_DIR}/dependencies)
 set(_dot_file ${_graph_dir}/graph.dot)
 set(_image_file "dependency-graph-${CMAKE_PROJECT_NAME}.png")
 
-simple_option(${PROJECT_NAME_UPPER}_DEPENDENCY_GRAPH_INCLUDE_KEXI_FRAMEWORKS "Include Kexi frameworks in the dependency graph" ON)
+simple_option(${PROJECT_NAME_UPPER}_DEPENDENCY_GRAPH_INCLUDE_KEXI_FRAMEWORKS "Include KEXI frameworks in the dependency graph" ON)
 simple_option(${PROJECT_NAME_UPPER}_DEPENDENCY_GRAPH_INCLUDE_ALL_LIBS "Include all libs in the dependency graph" OFF)
 
 configure_file(${CMAKE_CURRENT_LIST_DIR}/CMakeGraphVizOptions.cmake.in

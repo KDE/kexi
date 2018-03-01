@@ -90,7 +90,7 @@ int main(int argc, char** argv)
 
     KAboutData aboutData(prgname, 0, kxi18n("KexiDBTest"),
                          KEXI_VERSION_STRING, KLocalizedString(), KAboutData::License_GPL,
-                         kxi18n("(c) 2003-2010, Kexi Team\n"
+                         kxi18n("(c) 2003-2010, KEXI Team\n"
                                "(c) 2003-2006, OpenOffice Software.\n"),
                          KLocalizedString(),
                          "http://www.kexi-project.org",

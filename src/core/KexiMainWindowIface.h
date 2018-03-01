@@ -190,7 +190,7 @@ public:
      * In implementations 0 should be returned if there is no such Kexi object
      * in the current project or if the object's window is not opened or if
      * the window contains no edited query at the moment.
-     * If the query is "unsaved" the window displaying the corresponding Kexi object is marked as "dirty".
+     * If the query is "unsaved" the window displaying the corresponding KEXI object is marked as "dirty".
      * Currently supported type of Kexi objects are only queries being in data view.
      * See KexiQueryPart::unsavedQuery(int) for this implementation.
      * The query schema returned by this method can be used for example by data

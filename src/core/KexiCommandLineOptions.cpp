@@ -85,7 +85,7 @@ KexiCommandLineOptions::KexiCommandLineOptions( QCommandLineParser *parser)
                "Start project in Design Mode, regardless of the project settings.")),
     showNavigator("show-navigator",
         xi18nc("'show-navigator' command line option",
-               "Show the Project Navigator side pane even if Kexi runs in User Mode.")),
+               "Show the Project Navigator side pane even if KEXI runs in User Mode.")),
     hideMenu("hide-menu",
         xi18nc("'hide-menu' command line option",
                "Hide the main menu (the tabbed toolbar) completely. A number of commands "
@@ -97,7 +97,7 @@ KexiCommandLineOptions::KexiCommandLineOptions( QCommandLineParser *parser)
                "Open object of type 'object_type' and name 'object_name' from specified "
                "project on application start. 'object_type' is optional, if omitted - %1 "
                "type is assumed. Other object types can be %2, %3, %4, %5. "
-               "There may by more or less types available depending on Kexi plugins "
+               "There may by more or less types available depending on KEXI plugins "
                "installed.\n"
                "Use \"\" characters to specify names containing spaces.\n"
                "Examples: --open MyTable, --open %2:\"My very big query\"",
@@ -116,7 +116,7 @@ KexiCommandLineOptions::KexiCommandLineOptions( QCommandLineParser *parser)
                "Start execution of object of type 'object_type' and name 'object_name' on "
                "application start. 'object_type' is optional, if omitted - %1 type is "
                "assumed. Object type can be also %2. There may by more or less types "
-               "available depending on Kexi plugins installed.\n"
+               "available depending on KEXI plugins installed.\n"
                "Use \"\" characters to specify names containing spaces.",
                "macro", "script"),
         "[object_type:]object_name"),
@@ -177,15 +177,15 @@ KexiCommandLineOptions::KexiCommandLineOptions( QCommandLineParser *parser)
                "when opening .kexic or .kexis shortcut files.")),
     fullScreen(QStringList() << "f" << "fullscreen",
         xi18nc("'fullscreen' command line option",
-               "Start Kexi in full screen mode to occupy the whole screen area by hiding "
+               "Start KEXI in full screen mode to occupy the whole screen area by hiding "
                "window decorations such as title bars.")),
 
-    // Options that display configuration or state of Kexi installation.
-    // When used, Kexi immediately exits without showing the GUI even if other options
+    // Options that display configuration or state of KEXI installation.
+    // When used, KEXI immediately exits without showing the GUI even if other options
     // or arguments are present.
     listPlugins("list-plugins",
       xi18nc("'list-plugins' command line option",
-             "Displays list of plugins available for Kexi with their name, description, "
+             "Displays list of plugins available for KEXI with their name, description, "
              "version and filenames."))
 {
      Q_UNUSED(parser);

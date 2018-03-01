@@ -28,7 +28,7 @@
 
 class QCommandLineParser;
 
-//! Command line options for Kexi
+//! Command line options for KEXI
 class KEXICORE_EXPORT KexiCommandLineOptions
 {
 public:
