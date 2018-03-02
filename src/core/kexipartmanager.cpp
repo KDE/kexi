@@ -229,7 +229,7 @@ bool Manager::lookup()
             "@info", "<para>Could not find any plugins for <application>%1</application>, e.g. for "
                      "tables or forms. "
                      "<application>%1</application> would not be functional so it will exit.</para>"
-                     "<para><note>Please check if <application>%2</application> is properly "
+                     "<para><note>Please check if <application>%1</application> is properly "
                      "installed.</note></para>",
             QApplication::applicationDisplayName()));
         return false;

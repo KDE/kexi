@@ -957,7 +957,7 @@ tristate KexiStartupHandler::detectActionForFile(
             KMessageBox::detailedSorry(parent,
                xi18nc("@info",
                       "The file <filename>%1</filename> is not recognized as being supported by "
-                      "<application>%1</application>.",
+                      "<application>%2</application>.",
                       QDir::toNativeSeparators(databaseName), QApplication::applicationDisplayName()),
                       possibleProblemsMessage.isEmpty()
                        ? xi18nc("@info",
