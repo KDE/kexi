@@ -22,10 +22,29 @@
 
 #include "kexicore_export.h"
 #include <kexi_global.h>
+#include <QObject>
 
 class QModelIndex;
 class QVariant;
 class QString;
+class KexiSearchableModel;
+
+//! Notifier used by KexiSearchableModel to inform about deleting of the model
+class KEXICORE_EXPORT KexiSearchableModelDeleteNotifier : public QObject
+{
+    Q_OBJECT
+public:
+    ~KexiSearchableModelDeleteNotifier();
+
+Q_SIGNALS:
+    //! Emitted by KexiSearchableModel to inform about deleting of the model
+    void aboutToDelete(KexiSearchableModel *model);
+
+private:
+    KexiSearchableModelDeleteNotifier();
+
+    friend class KexiSearchableModel;
+};
 
 class KEXICORE_EXPORT KexiSearchableModel
 {
@@ -38,6 +57,14 @@ public:
     virtual QString pathFromIndex(const QModelIndex &sourceIndex) const = 0;
     virtual bool highlightSearchableObject(const QModelIndex &index) = 0;
     virtual bool activateSearchableObject(const QModelIndex &index) = 0;
+
+    //! Returns notifier object that can be used to connect to its notification signal.
+    //! This indirection is needed because the KexiSearchableModel class is not a QObject.
+    const KexiSearchableModelDeleteNotifier* deleteNotifier() const;
+
+private:
+    class Private;
+    const QScopedPointer<Private> d;
 };
 
 #endif

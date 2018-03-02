@@ -96,6 +96,8 @@ public:
 
     void addSearchableModel(KexiSearchableModel *model);
 
+    void removeSearchableModel(KexiSearchableModel *model);
+
     KToolBar *createToolBar(const char *name, const QString& caption);
 
     void setCurrentTab(const QString& name);

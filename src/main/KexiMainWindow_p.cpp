@@ -1140,6 +1140,11 @@ void KexiTabbedToolBar::addSearchableModel(KexiSearchableModel *model)
     d->searchLineEdit->addSearchableModel(model);
 }
 
+void KexiTabbedToolBar::removeSearchableModel(KexiSearchableModel *model)
+{
+    d->searchLineEdit->removeSearchableModel(model);
+}
+
 KToolBar* KexiTabbedToolBar::createToolBar(const char* name, const QString& caption)
 {
     return d->createToolBar(name, caption);

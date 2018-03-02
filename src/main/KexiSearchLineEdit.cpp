@@ -52,7 +52,14 @@ public:
     virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
     virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     virtual QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const;
+
+public Q_SLOTS:
+    //! Adds a new model or updates information (model items) about existing one
     void addSearchableModel(KexiSearchableModel *model);
+
+    //! Removes existing model
+    void removeSearchableModel(KexiSearchableModel *model);
+
 private:
     class Private;
     Private * const d;
@@ -68,10 +75,19 @@ public:
     ~Private() {
         qDeleteAll(searchableObjects);
     }
-    void updateCachedCount() {
-        if (searchableModels.isEmpty()) {
+    void removeSearchableModel(KexiSearchableModel *model) {
+        if (searchableModels.removeAll(model) == 0) {
             return;
         }
+        QMutableMapIterator<int, SearchableObject *> it(searchableObjects);
+        while (it.hasNext()) {
+            it.next();
+            if (it.value()->model == model) {
+                it.remove();
+            }
+        }
+    }
+    void updateCachedCount() {
         cachedCount = 0;
         foreach (KexiSearchableModel* searchableModel, searchableModels) {
             cachedCount += searchableModel->searchableObjectCount();
@@ -146,9 +162,27 @@ QModelIndex KexiSearchLineEditCompleterPopupModel::index(int row, int column,
 
 void KexiSearchLineEditCompleterPopupModel::addSearchableModel(KexiSearchableModel *model)
 {
-    d->searchableModels.removeAll(model);
+    if (!model) {
+        return;
+    }
+    beginResetModel();
+    d->removeSearchableModel(model);
     d->searchableModels.append(model);
+    connect(model->deleteNotifier(), &KexiSearchableModelDeleteNotifier::aboutToDelete, this,
+            &KexiSearchLineEditCompleterPopupModel::removeSearchableModel, Qt::UniqueConnection);
     d->updateCachedCount();
+    endResetModel();
+}
+
+void KexiSearchLineEditCompleterPopupModel::removeSearchableModel(KexiSearchableModel *model)
+{
+    if (!model || !d->searchableModels.contains(model)) {
+        return;
+    }
+    beginResetModel();
+    d->removeSearchableModel(model);
+    d->updateCachedCount();
+    endResetModel();
 }
 
 // ----
@@ -442,6 +476,11 @@ void KexiSearchLineEdit::slotClearShortcutActivated()
 void KexiSearchLineEdit::addSearchableModel(KexiSearchableModel *model)
 {
     d->model->addSearchableModel(model);
+}
+
+void KexiSearchLineEdit::removeSearchableModel(KexiSearchableModel *model)
+{
+    d->model->removeSearchableModel(model);
 }
 
 QPair<QModelIndex, KexiSearchableModel*> KexiSearchLineEdit::mapCompletionIndexToSource(const QModelIndex &index) const
