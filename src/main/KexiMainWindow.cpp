@@ -4246,6 +4246,13 @@ void KexiMainWindow::addSearchableModel(KexiSearchableModel *model)
     }
 }
 
+void KexiMainWindow::removeSearchableModel(KexiSearchableModel *model)
+{
+    if (d->tabbedToolBar) {
+        d->tabbedToolBar->removeSearchableModel(model);
+    }
+}
+
 void KexiMainWindow::setReasonableDialogSize(QDialog *dialog)
 {
     dialog->setMinimumSize(600, 400);

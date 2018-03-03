@@ -289,7 +289,11 @@ public Q_SLOTS:
 
     /*! Add searchable model to the main window. This extends search to a new area.
      One example is Project Navigator. @see KexiMainWindowIface */
-    virtual void addSearchableModel(KexiSearchableModel *model);
+    void addSearchableModel(KexiSearchableModel *model) override;
+
+    /*! Removes searchable model from the main window. @a model is not deleted.
+     @see KexiMainWindowIface */
+    void removeSearchableModel(KexiSearchableModel *model) override;
 
     //! Shows design tab when switching between objects or views. Depends on current window and view mode.
     void showDesignTabIfNeeded(int previousItemId);

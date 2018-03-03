@@ -275,6 +275,9 @@ public:
      One example is Project Navigator. */
     virtual void addSearchableModel(KexiSearchableModel *model) = 0;
 
+    /*! Removes searchable model from the main window. @a model is not deleted. */
+    virtual void removeSearchableModel(KexiSearchableModel *model) = 0;
+
     virtual KexiUserFeedbackAgent* userFeedbackAgent() const = 0;
 
     //! Interface to the migrate manager

@@ -255,7 +255,7 @@ void KexiProjectNavigator::setProject(KexiProject* prj, const QString& itemsPart
                                       QString* partManagerErrorMessages, bool addAsSearchableModel)
 {
     d->itemsPluginId = itemsPartClass;
-
+    KexiMainWindowIface::global()->removeSearchableModel(d->model); // before model changes
     d->model->setProject(prj, itemsPartClass, partManagerErrorMessages);
 
     if (addAsSearchableModel) {

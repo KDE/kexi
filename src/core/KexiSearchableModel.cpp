@@ -19,10 +19,32 @@
 
 #include "KexiSearchableModel.h"
 
-KexiSearchableModel::KexiSearchableModel()
+KexiSearchableModelDeleteNotifier::KexiSearchableModelDeleteNotifier()
+{
+}
+
+KexiSearchableModelDeleteNotifier::~KexiSearchableModelDeleteNotifier()
+{
+}
+
+class Q_DECL_HIDDEN KexiSearchableModel::Private
+{
+public:
+    Private() {}
+
+    KexiSearchableModelDeleteNotifier deleteNotifier;
+};
+
+KexiSearchableModel::KexiSearchableModel() : d(new Private)
 {
 }
 
 KexiSearchableModel::~KexiSearchableModel()
 {
+    emit d->deleteNotifier.aboutToDelete(this);
+}
+
+const KexiSearchableModelDeleteNotifier* KexiSearchableModel::deleteNotifier() const
+{
+    return &d->deleteNotifier;
 }
