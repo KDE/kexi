@@ -20,6 +20,11 @@ Group: MainWindow
 # in the Control Center.
 - SingleClickOpensItem [boolean] (default: true on Windows, system settings elsewhere)
 
+# Controls display of the global search box.
+# This option allows to disable the box if it crashes for reason unrelated to KEXI
+# (as in bug #390794).
+- GlobalSearchBoxEnabled [boolean] (default: true)
+
 Group: PropertyEditor
 # Font size in pixels. Obsolete since Kexi 3. See FontPointSize instead.
 -FontSize [integer] (default: system settings)
