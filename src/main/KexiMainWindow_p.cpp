@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -22,6 +22,8 @@
 
 #include <QPainter>
 #include <QDebug>
+
+#include <KConfigGroup>
 
 #include <KDbUtils>
 
@@ -565,8 +567,28 @@ void KexiTabbedToolBar::Private::updateMainMenuGeometry()
                           mainWindow->height() - pos.y() + overlap /*+ q->y()*/);
 }
 
+void KexiTabbedToolBar::Private::initSearchLineEdit()
+{
+    //! @todo use KexiConfig
+    KConfigGroup mainWindowGroup(KSharedConfig::openConfig()->group("MainWindow"));
+    const bool enabled = mainWindowGroup.readEntry("GlobalSearchBoxEnabled", true);
+    if (enabled && !searchLineEdit) {
+        searchLineEdit = new KexiSearchLineEdit;
+        kexiTester() << KexiTestObject(searchLineEdit, "globalSearch.lineEdit");
+        searchLineEdit->installEventFilter(q);
+        helpLayer->addWidget(searchLineEdit);
+    } else if (!enabled && searchLineEdit) {
+        helpLayer->removeWidget(searchLineEdit);
+        delete searchLineEdit;
+        searchLineEdit = nullptr;
+    }
+}
+
 void KexiTabbedToolBar::activateSearchLineEdit()
 {
+    if (!d->searchLineEdit) {
+        return;
+    }
     d->searchLineEdit->selectAll();
     d->searchLineEdit->setFocus();
 }
@@ -650,8 +672,8 @@ KexiTabbedToolBar::KexiTabbedToolBar(QWidget *parent)
     // help area
     QWidget *helpWidget = new QWidget(this);
     helpWidget->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    QHBoxLayout *helpLyr = new QHBoxLayout(helpWidget);
-    helpLyr->setContentsMargins(0, 0, 0, 0);
+    d->helpLayer = new QHBoxLayout(helpWidget);
+    d->helpLayer->setContentsMargins(0, 0, 0, 0);
 
     // * HELP MENU
     // add help menu actions... (KexiTabbedToolBar depends on them)
@@ -703,13 +725,10 @@ KexiTabbedToolBar::KexiTabbedToolBar(QWidget *parent)
     }
     btn->setMinimumWidth(w);
     connect(action_show_help_menu, SIGNAL(triggered()), btn, SLOT(showMenu()));
-    helpLyr->addWidget(btn);
+    d->helpLayer->addWidget(btn);
     btn->setMenu(d->helpMenu->menu());
     setCornerWidget(helpWidget, Qt::TopRightCorner);
-    d->searchLineEdit = new KexiSearchLineEdit;
-    kexiTester() << KexiTestObject(d->searchLineEdit, "globalSearch.lineEdit");
-    d->searchLineEdit->installEventFilter(this);
-    helpLyr->addWidget(d->searchLineEdit);
+    d->initSearchLineEdit();
 
     // needed e.g. for Windows style to remove the toolbar's frame
     QWidget *dummyWidgetForMainMenu = new QWidget(this);
@@ -887,7 +906,7 @@ bool KexiTabbedToolBar::eventFilter(QObject* watched, QEvent* event)
     case QEvent::MouseButtonPress: {
         QWidget *mainWin = KexiMainWindowIface::global()->thisWidget();
         // qDebug() << "MouseButtonPress: watched:" << watched << "window()->focusWidget():" << window()->focusWidget();
-        if (watched == d->searchLineEdit) {
+        if (d->searchLineEdit && watched == d->searchLineEdit) {
             activateSearchLineEdit(); // custom setFocus() for search box, so it's possible to focus
                                       // back on Escape key press
             return false;
@@ -1137,11 +1156,17 @@ void KexiTabbedToolBar::selectMainMenuItem(const char *actionName)
 
 void KexiTabbedToolBar::addSearchableModel(KexiSearchableModel *model)
 {
+    if (!d->searchLineEdit) {
+        return;
+    }
     d->searchLineEdit->addSearchableModel(model);
 }
 
 void KexiTabbedToolBar::removeSearchableModel(KexiSearchableModel *model)
 {
+    if (!d->searchLineEdit) {
+        return;
+    }
     d->searchLineEdit->removeSearchableModel(model);
 }
 
