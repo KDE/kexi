@@ -63,17 +63,17 @@
 #include <QProcess>
 
 #ifndef KEXI_MOBILE
-#include <kio_version.h>
+#include <KFileWidget>
+#include <KRecentDirs>
 #include <KRun>
 #include <KToolInvocation>
+#include <kio_version.h>
 #endif
 #include <KAboutData>
 #include <KColorScheme>
 #include <KConfigGroup>
-#include <KFileWidget>
 #include <KIconEffect>
 #include <KLocalizedString>
-#include <KRecentDirs>
 
 #if HAVE_LANGINFO_H
 #include <langinfo.h>
@@ -326,6 +326,7 @@ QUrl KexiUtils::getSaveImageUrl(QWidget *parent, const QString &caption, const Q
     }
 }
 
+#ifndef KEXI_MOBILE
 QUrl KexiUtils::getStartUrl(const QUrl &startDirOrVariable, QString *recentDirClass)
 {
     QUrl result;
@@ -347,6 +348,7 @@ void KexiUtils::addRecentDir(const QString &fileClass, const QString &directory)
 {
     KRecentDirs::add(fileClass, directory);
 }
+#endif
 
 bool KexiUtils::askForFileOverwriting(const QString& filePath, QWidget *parent)
 {
@@ -742,7 +744,12 @@ bool PaintBlocker::eventFilter(QObject* watched, QEvent* event)
 
 tristate KexiUtils::openHyperLink(const QUrl &url, QWidget *parent, const OpenHyperlinkOptions &options)
 {
-#ifndef KEXI_MOBILE
+#ifdef KEXI_MOBILE
+    //! @todo
+    Q_UNUSED(url)
+    Q_UNUSED(parent)
+    Q_UNUSED(options)
+#else
     if (url.isLocalFile()) {
         QFileInfo fileInfo(url.toLocalFile());
         if (!fileInfo.exists()) {

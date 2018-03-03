@@ -241,6 +241,7 @@ KEXIUTILS_EXPORT QUrl getOpenImageUrl(QWidget *parent = 0, const QString &captio
 KEXIUTILS_EXPORT QUrl getSaveImageUrl(QWidget *parent = 0, const QString &caption = QString(),
                                       const QUrl &directory = QUrl());
 
+#ifndef KEXI_MOBILE
 /**
  * This method implements the logic to determine the user's default directory
  * to be listed. E.g. the documents directory, home directory or a recently
@@ -274,6 +275,7 @@ KEXIUTILS_EXPORT QUrl getStartUrl(const QUrl &startDirOrVariable, QString *recen
  * @todo Make it independent of KIOFileWidgets
  */
 KEXIUTILS_EXPORT void addRecentDir(const QString &fileClass, const QString &directory);
+#endif // !KEXI_MOBILE
 
 /*! Displays a "The file %1 already exists. Do you want to overwrite it?" Yes/No message box.
  @a parent is used as a parent of the message box.
