@@ -3,12 +3,24 @@
         "Authors": [
             {
                 "Email": "kexi@kde.org",
-                "Name": "KEXI Team"
+                "Name": "KEXI Team",
+                "Name[ca]": "L'equip del KEXI",
+                "Name[nl]": "Het team van KEXI",
+                "Name[pt]": "Equipa do Kexi",
+                "Name[sv]": "Kexi-gruppen",
+                "Name[uk]": "Команда KEXI",
+                "Name[x-test]": "xxKEXI Teamxx"
             }
         ],
         "Category": "",
         "Dependencies": [],
         "Description": "KEXI plugin providing database form widgets",
+        "Description[ca]": "Connector del KEXI que proporciona estris de formularis de bases de dades",
+        "Description[nl]": "KEXI-plug-in levert formulierwidgets voor database",
+        "Description[pt]": "'Plugin' do Kexi que oferece elementos gráficos de formulários das bases de dados",
+        "Description[sv]": "KEXI-insticksprogram som tillhandahåller komponenter för databasformulär",
+        "Description[uk]": "Додаток до KEXI, що забезпечує роботу віджетів форм бази даних",
+        "Description[x-test]": "xxKEXI plugin providing database form widgetsxx",
         "EnabledByDefault": true,
         "Icon": "form",
         "Id": "org.kexi-project.form.widgets.main",

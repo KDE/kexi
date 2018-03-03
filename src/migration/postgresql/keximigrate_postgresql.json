@@ -3,7 +3,13 @@
         "Authors": [
             {
                 "Email": "kexi@kde.org",
-                "Name": "KEXI Team"
+                "Name": "KEXI Team",
+                "Name[ca]": "L'equip del KEXI",
+                "Name[nl]": "Het team van KEXI",
+                "Name[pt]": "Equipa do Kexi",
+                "Name[sv]": "Kexi-gruppen",
+                "Name[uk]": "Команда KEXI",
+                "Name[x-test]": "xxKEXI Teamxx"
             }
         ],
         "Category": "",
@@ -11,6 +17,12 @@
             "org.kde.kdb.postgresql"
         ],
         "Description": "PostgreSQL database import plugin for KEXI",
+        "Description[ca]": "Connector d'importació de la base de dades PostgreSQL pel KEXI",
+        "Description[nl]": "PostgreSQL database-importplug-in voor KEXI",
+        "Description[pt]": "'Plugin' de importação do PostgreSQL para o Kexi",
+        "Description[sv]": "Importinsticksprogram av PostgreSQL-databaser för KEXI",
+        "Description[uk]": "Додаток імпортування баз даних з PostgreSQL для KEXI",
+        "Description[x-test]": "xxPostgreSQL database import plugin for KEXIxx",
         "EnabledByDefault": true,
         "Icon": "",
         "Id": "org.kexi-project.migration.postgresql",
