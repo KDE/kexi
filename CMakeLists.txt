@@ -147,7 +147,7 @@ set(KEXI_EXAMPLES_INSTALL_DIR ${SHARE_INSTALL_PREFIX}/${KEXI_BASE_PATH}/examples
 ############################
 ###########################
 
-set(KEXI_LIBS_MIN_VERSION 3.0.95)
+set(KEXI_FRAMEWORKS_MIN_VERSION 3.1.0)
 
 ##
 ## Test for KDb
@@ -156,14 +156,14 @@ simple_option(KEXI_DEBUG_GUI "Debugging GUI for Kexi (requires KDB_DEBUG_GUI to 
 if(KEXI_DEBUG_GUI)
     set(KDB_REQUIRED_COMPONENTS DEBUG_GUI)
 endif()
-find_package(KDb ${KEXI_LIBS_MIN_VERSION} REQUIRED COMPONENTS ${KDB_REQUIRED_COMPONENTS})
+find_package(KDb ${KEXI_FRAMEWORKS_MIN_VERSION} REQUIRED COMPONENTS ${KDB_REQUIRED_COMPONENTS})
 set_package_properties(KDb PROPERTIES TYPE REQUIRED
                        PURPOSE "Required by Kexi for data handling")
 
 ##
 ## Test for KReport
 ##
-find_package(KReport ${KEXI_LIBS_MIN_VERSION})
+find_package(KReport ${KEXI_FRAMEWORKS_MIN_VERSION})
 set_package_properties(KReport PROPERTIES TYPE REQUIRED
                        PURPOSE "Required by Kexi for report handling")
 if (KReport_FOUND)
@@ -176,11 +176,11 @@ endif()
 ## Test for KPropertyWidgets
 ##
 if(SHOULD_BUILD_KEXI_DESKTOP_APP)
-    find_package(KPropertyWidgets ${KEXI_LIBS_MIN_VERSION} REQUIRED COMPONENTS KF)
+    find_package(KPropertyWidgets ${KEXI_FRAMEWORKS_MIN_VERSION} REQUIRED COMPONENTS KF)
     set_package_properties(KPropertyWidgets PROPERTIES TYPE REQUIRED
                            PURPOSE "Required by Kexi for handling properties")
 else() # only KPropertyCore
-    find_package(KPropertyCore ${KEXI_LIBS_MIN_VERSION} REQUIRED COMPONENTS KF)
+    find_package(KPropertyCore ${KEXI_FRAMEWORKS_MIN_VERSION} REQUIRED COMPONENTS KF)
     set_package_properties(KPropertyCore PROPERTIES TYPE REQUIRED
                            PURPOSE "Required by Kexi for handling properties")
 endif()
