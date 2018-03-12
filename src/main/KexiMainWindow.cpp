@@ -1325,8 +1325,9 @@ void KexiMainWindow::invalidateProjectWideActions()
     //TOOLS MENU
     // "compact db" supported if there's no db or the current db supports compacting and is opened r/w:
     d->action_tools_compact_database->setEnabled(
-        !d->prj
-        || (!readOnly && d->prj && d->prj->dbConnection()
+        //! @todo Support compacting of non-opened projects
+        /*!d->prj
+        ||*/ (!readOnly && d->prj && d->prj->dbConnection()
             && (d->prj->dbConnection()->driver()->features() & KDbDriver::CompactingDatabaseSupported))
     );
 
