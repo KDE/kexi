@@ -230,7 +230,7 @@ tristate KexiQueryDesignerSqlView::beforeSwitchTo(Kexi::ViewMode mode, bool *don
                 //yes: parse SQL text
                 if (sqlTextIsEmpty || !slotCheckQuery()) {
                     if (KMessageBox::Cancel == KMessageBox::warningContinueCancel(
-                               this, xi18n("<para>The query you entered is incorrect.</para>"
+                               this, xi18nc("@info", "<para>The query you entered is incorrect.</para>"
                                            "<para>Do you want discard changes made to this SQL "
                                            "text and switch to the other view?</para>"),
                                QString(), KGuiItem(xi18n("Discard Changes and Switch"),
@@ -410,7 +410,7 @@ KDbObject* KexiQueryDesignerSqlView::storeNewData(const KDbObject& object,
     } else { // the query is not ok
         if (KMessageBox::Yes
             != KMessageBox::questionYesNo(
-                   this, xi18n("<para>This query is invalid.</para>"
+                   this, xi18nc("@info", "<para>This query is invalid.</para>"
                                "<para>Do you want to save it?</para>"),
                    0, KStandardGuiItem::save(),
                     KStandardGuiItem::dontSave(),

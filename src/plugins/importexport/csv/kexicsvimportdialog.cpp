@@ -1957,7 +1957,7 @@ void KexiCSVImportDialog::import()
             firstColumn = 1;
         }
         if (m_destinationTableSchema->fields()->size() - firstColumn < m_table->columnCount()) {
-            KMessageBox::error(this, xi18n("<para>Field count does not match.</para>"
+            KMessageBox::error(this, xi18nc("@info", "<para>Field count does not match.</para>"
                         "<para>Please choose another table.</para>"));
             return;
         }

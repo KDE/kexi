@@ -134,8 +134,9 @@ tristate KexiTablePart::remove(KexiPart::Item *item)
     if (sch) {
         const tristate res = KexiTablePart::askForClosingObjectsUsingTableSchema(
             KexiMainWindowIface::global()->openedWindowFor(item->identifier()), conn, sch,
-            kxi18n("<para>You are about to delete table <resource>%1</resource> but it is used by "
-                   "following opened windows:</para>")
+            kxi18nc("@info",
+                    "<para>You are about to delete table <resource>%1</resource> but it is used by "
+                    "following opened windows:</para>")
                 .subs(sch->name()));
         if (res != true) {
             return res;
@@ -155,8 +156,9 @@ tristate KexiTablePart::rename(KexiPart::Item *item, const QString& newName)
         return false;
     const tristate res = KexiTablePart::askForClosingObjectsUsingTableSchema(
         KexiMainWindowIface::global()->openedWindowFor(item->identifier()), conn, schema,
-        kxi18n("<para>You are about to rename table <resource>%1</resource> but it is used by "
-               "following opened windows:</para>")
+        kxi18nc("@info",
+                "<para>You are about to rename table <resource>%1</resource> but it is used by "
+                "following opened windows:</para>")
             .subs(schema->name()));
     if (res != true) {
         return res;

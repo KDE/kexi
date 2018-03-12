@@ -105,8 +105,9 @@ tristate KexiQueryPart::remove(KexiPart::Item *item)
     if (sch) {
         const tristate res = KexiQueryPart::askForClosingObjectsUsingQuerySchema(
             KexiMainWindowIface::global()->openedWindowFor(item->identifier()), conn, sch,
-            kxi18n("<para>You are about to delete query <resource>%1</resource> but it is used by "
-                   "following opened windows:</para>")
+            kxi18nc("@info",
+                    "<para>You are about to delete query <resource>%1</resource> but it is used by "
+                    "following opened windows:</para>")
                 .subs(sch->name()));
         if (res != true) {
             return res;

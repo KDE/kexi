@@ -889,12 +889,13 @@ void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& pr
     Command *setAutonumberCommand = 0;
     Command *toplevelCommand = 0;
     if (pname == "autoIncrement" && property.value().toBool() == true) {
-        if (set["primaryKey"].value().toBool() == false) {//we need PKEY here!
-            QString msg =
-              xi18n("<para>Setting autonumber requires primary key to be set for current field.</para>");
-            if (d->primaryKeyExists)
-                msg += xi18n("<para>Previous primary key will be deleted.</para>");
-            msg += xi18n("<para>Do you want to create primary key for current field? "
+        if (set["primaryKey"].value().toBool() == false) { // we need PKEY here!
+            QString msg = xi18nc("@info", "<para>Setting autonumber requires primary key to be set "
+                                          "for current field.</para>");
+            if (d->primaryKeyExists) {
+                msg += xi18nc("@info", "<para>Previous primary key will be deleted.</para>");
+            }
+            msg += xi18nc("@info", "<para>Do you want to create primary key for current field? "
                         "Click <interface>Cancel</interface> to cancel setting autonumber.</para>");
 
             if (KMessageBox::Yes == KMessageBox::questionYesNo(this, msg,
