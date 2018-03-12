@@ -17,6 +17,9 @@ macro(kexi_add_app_icons source_var)
         )
     endif()
     ecm_add_app_icon(${source_var} ICONS ${_files})
+    ecm_install_icons(ICONS ${_files}
+                      DESTINATION ${ICON_INSTALL_DIR}
+                      THEME hicolor)
     list(APPEND ${source_var} ${_files})
     unset(_files)
 endmacro()
