@@ -200,7 +200,7 @@
       <li>Designing and displaying relational data using combo boxes (lookup columns)</li>
       <li xml:lang="bs">Izrada i prikazivanje relacijskih podataka pomoću combo kutije ( pregledavanje kolone)</li>
       <li xml:lang="ca">Disseny i visualització de dades relacionals usant quadres combinats (columnes de cerca)</li>
-      <li xml:lang="ca-valencia">Disseny i visualització de dades relacionals usant quadres combinats (columnes de busca)</li>
+      <li xml:lang="ca-valencia">Disseny i visualització de dades relacionals usant quadres combinats (columnes de cerca)</li>
       <li xml:lang="en-GB">Designing and displaying relational data using combo boxes (lookup columns)</li>
       <li xml:lang="es">Diseño y presentación de datos relacionales utilizando listas desplegables (columnas de búsqueda)</li>
       <li xml:lang="et">Relatsiooniliste andmete kujundamine ja kuvamine liitkastide abil (päringuveerud)</li>
@@ -243,7 +243,7 @@
       <li>Locked down User Mode, allowing you to switch off all commands related to editing your project's design</li>
       <li xml:lang="bs">Zatvoreni  korisnički režim, omogućavajući vam da isključite sve naredbe koje se odnose na uređivanje dizajna vašeg projekta</li>
       <li xml:lang="ca">Mode reduït d'usuari, que permet deshabilitar totes les ordres relacionades amb l'edició del disseny del projecte</li>
-      <li xml:lang="ca-valencia">Mode reduït d'usuari, que permet deshabilitar totes les ordes relacionades amb l'edició del disseny del projecte</li>
+      <li xml:lang="ca-valencia">Mode reduït d'usuari, que permet deshabilitar totes les ordres relacionades amb l'edició del disseny del projecte</li>
       <li xml:lang="en-GB">Locked down User Mode, allowing you to switch off all commands related to editing your project's design</li>
       <li xml:lang="es">Modo de usuario limitado, que permite desactivar todas las ordenes relacionadas con la edición del diseño de su proyecto</li>
       <li xml:lang="et">Piiratud õigustega kasutajarežiim, mis võimaldab lülitada välja kõik projekti kujunduse muutmisega seotud käsud</li>
