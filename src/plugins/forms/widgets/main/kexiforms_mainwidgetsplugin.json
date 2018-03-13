@@ -4,6 +4,7 @@
             {
                 "Email": "kexi@kde.org",
                 "Name": "KEXI Team",
+                "Name[ca@valencia]": "L'equip del KEXI",
                 "Name[ca]": "L'equip del KEXI",
                 "Name[de]": "Kexi-Team",
                 "Name[it]": "La squadra di KEXI",
@@ -17,6 +18,7 @@
         "Category": "",
         "Dependencies": [],
         "Description": "KEXI plugin providing database form widgets",
+        "Description[ca@valencia]": "Connector del KEXI que proporciona estris de formularis de bases de dades",
         "Description[ca]": "Connector del KEXI que proporciona estris de formularis de bases de dades",
         "Description[de]": "Kexi-Modul, das Datenbankbedienelemente bereitstellt",
         "Description[it]": "Estensione che fornisce gli oggetti dei moduli della banca dati per KEXI",
