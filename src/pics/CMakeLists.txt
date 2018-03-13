@@ -3,7 +3,7 @@ set(_theme "breeze")
 set(_prefix)
 set(_BASE_DIR ${CMAKE_CURRENT_BINARY_DIR}/resource)
 set(_QRC_FILE "${_BASE_DIR}/${_target}.qrc")
-set(_RCC_DIR "${CMAKE_BINARY_DIR}/bin/data/icons/${KEXI_BASE_PATH}")
+set(_RCC_DIR "${CMAKE_BINARY_DIR}/bin/data/${KEXI_BASE_PATH}/icons")
 set(_RCC_FILE "${_RCC_DIR}/${_target}.rcc")
 include(kexi_breeze_files.cmake)
 

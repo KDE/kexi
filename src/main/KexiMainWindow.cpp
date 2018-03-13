@@ -306,7 +306,7 @@ static bool setupIconTheme(KLocalizedString *errorMessage, KLocalizedString *det
 {
     // Register kexi resource first to have priority over the standard breeze theme.
     // For example "table" icon exists in both resources.
-    if (!registerResource("icons/" KEXI_BASE_PATH "/kexi_breeze.rcc", QStandardPaths::AppDataLocation,
+    if (!registerResource("icons/kexi_breeze.rcc", QStandardPaths::AppDataLocation,
                           QString(), QString(), errorMessage, detailsErrorMessage)
         || !registerGlobalBreezeIconsResource(errorMessage, detailsErrorMessage))
     {

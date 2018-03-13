@@ -19,7 +19,7 @@ add_custom_target(update_all_rcc
 macro(kexi_add_icons_rcc_file _target _parent_target _theme _prefix)
     set(_BASE_DIR ${CMAKE_CURRENT_BINARY_DIR}/resource)
     set(_QRC_FILE "${_BASE_DIR}/${_target}.qrc")
-    set(_RCC_DIR "${CMAKE_BINARY_DIR}/bin/data/icons/${KEXI_BASE_PATH}")
+    set(_RCC_DIR "${CMAKE_BINARY_DIR}/bin/data/${KEXI_BASE_PATH}/icons")
     set(_RCC_FILE "${_RCC_DIR}/${_target}.rcc")
     include(icons/${_theme}/files.cmake)
 

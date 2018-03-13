@@ -101,8 +101,9 @@ static QString basePath()
 
 static QString findFileName(const QString &guiFileName)
 {
+    QStringList triedLocations;
     QString result = locateFile(QString(), basePath() + '/' + guiFileName,
-                                QStandardPaths::GenericDataLocation, QString());
+                                QStandardPaths::GenericDataLocation, QString(), &triedLocations);
     if (result.isEmpty()) { // last chance: file from the source tree
         result = QFileInfo(QFile::decodeName(CMAKE_CURRENT_SOURCE_DIR "/status/") + guiFileName)
                     .canonicalFilePath();
