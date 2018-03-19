@@ -26,7 +26,7 @@ Group: MainWindow
 - GlobalSearchBoxEnabled [boolean] (default: true)
 
 Group: PropertyEditor
-# Font size in pixels. Obsolete since Kexi 3. See FontPointSize instead.
+# Font size in pixels. Obsolete since KEXI 3. See FontPointSize instead.
 -FontSize [integer] (default: system settings)
 # Font size in points.
 -FontPointSize [double] (default: system settings)
@@ -42,9 +42,9 @@ TODO: -askBeforeOpeningFileReadOnly [boolean] (default: true)
 
 Group: General
 # especially useful for SQL-related messages
-TODO: -alwaysShowDetailsInMsgBoxes [boolean] (default: true for advanced Kexi mode)
+TODO: -alwaysShowDetailsInMsgBoxes [boolean] (default: true for advanced KEXI mode)
 
-# True if internal debugger window should be displayed with Kexi.
+# True if internal debugger window should be displayed with KEXI.
 # The window shows database operations and enables extra actions like 'Show Form UI Code'
 # in the Form Designer.
 # Only available when KEXI_DEBUG_GUI build option is enabled.

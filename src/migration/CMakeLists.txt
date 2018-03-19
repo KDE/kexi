@@ -32,14 +32,14 @@ add_subdirectory(tsv)
 
 find_package(MySQL)
 set_package_properties(MySQL PROPERTIES TYPE RECOMMENDED
-                       PURPOSE "Required by Kexi MySQL migration driver")
+                       PURPOSE "Required by KEXI MySQL migration driver")
 if(MySQL_FOUND)
     add_subdirectory(mysql)
 endif()
 
 find_package(PostgreSQL)
 set_package_properties(PostgreSQL PROPERTIES TYPE RECOMMENDED
-                       PURPOSE "Required by Kexi PostgreSQL migration driver")
+                       PURPOSE "Required by KEXI PostgreSQL migration driver")
 if(PostgreSQL_FOUND)
     add_subdirectory(postgresql)
 endif()
@@ -50,7 +50,7 @@ set_package_properties(FreeTDS PROPERTIES
     DESCRIPTION "Open source implementation of the TDS (Tabular Data Stream) protocol"
     URL "http://www.freetds.org"
     TYPE RECOMMENDED
-    PURPOSE "Required by Kexi Sybase migration driver"
+    PURPOSE "Required by KEXI Sybase migration driver"
 )
 if(FREETDS_FOUND)
   add_subdirectory(sybase)
@@ -61,7 +61,7 @@ set_package_properties(XBase PROPERTIES
     DESCRIPTION "XBase compatible C++ class library"
     URL "http://linux.techass.com/projects/xdb"
     TYPE RECOMMENDED
-    PURPOSE "Required by Kexi XBase migration driver"
+    PURPOSE "Required by KEXI XBase migration driver"
 )
 if(XBASE_FOUND)
   add_subdirectory(xbase)
@@ -70,7 +70,7 @@ endif()
 endif() # KEXI3
 
 find_package(GLIB2)
-set(_REQUIRED_BY_MDB "Required by Kexi MS Access migration driver")
+set(_REQUIRED_BY_MDB "Required by KEXI MS Access migration driver")
 set_package_properties(GLIB2 PROPERTIES TYPE RECOMMENDED PURPOSE "${_REQUIRED_BY_MDB}")
 
 find_package(Iconv)

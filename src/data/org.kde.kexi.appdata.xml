@@ -3,7 +3,7 @@
   <id>org.kde.kexi.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>LGPL-2.0+</project_license>
-  <name>Kexi</name>
+  <name>KEXI</name>
   <name xml:lang="ast">Kexi</name>
   <name xml:lang="bs">Kexi</name>
   <name xml:lang="ca">Kexi</name>
@@ -52,7 +52,7 @@
   <summary xml:lang="x-test">xxVisual database apps builderxx</summary>
   <description>
     <p>
-      Kexi is a visual database applications builder. It can be used for designing database applications,
+      KEXI is a visual database applications builder. It can be used for designing database applications,
       inserting and editing data, performing queries, and processing data. Forms can be created
       to provide a custom interface to your data. All database objects - tables, queries, forms,
       reports, etc. - are stored in the database, making it easy to share data and design.

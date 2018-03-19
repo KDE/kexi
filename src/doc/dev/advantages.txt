@@ -1,5 +1,5 @@
 ---------------
-Kexi Advantages
+KEXI Advantages
 ---------------
 
 I. Over MS Access
