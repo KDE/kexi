@@ -48,6 +48,7 @@
 #include <KIconLoader>
 #include <KStandardGuiItem>
 
+#include <QAction>
 #include <QDebug>
 #include <QLayout>
 #include <QCheckBox>
