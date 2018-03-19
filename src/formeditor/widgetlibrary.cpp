@@ -176,7 +176,7 @@ private:
             }
             if (!setupPrivateIconsResourceWithMessage(
                 QLatin1String(KEXI_BASE_PATH),
-                QString::fromLatin1("icons/" KEXI_BASE_PATH "/%1_%2.rcc")
+                QString::fromLatin1("icons/%1_%2.rcc")
                     .arg(metaData->id()).arg(supportedIconTheme),
                 QtWarningMsg,
                 QString::fromLatin1(":/icons/%1").arg(metaData->id())))
