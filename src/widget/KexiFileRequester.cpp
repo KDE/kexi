@@ -476,8 +476,13 @@ void KexiFileRequester::init()
     d->locationEdit->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLength);
     connect(d->locationEdit, &KUrlComboBox::editTextChanged, d,
             &KexiFileRequester::Private::locationEditTextChanged);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 7, 0)
     connect(d->locationEdit, QOverload<>::of(&KUrlComboBox::returnPressed),
             d, &Private::locationEditReturnPressed);
+#else
+    connect(d->locationEdit, static_cast<void (KUrlComboBox::*)()>(&KUrlComboBox::returnPressed),
+            d, &Private::locationEditReturnPressed);
+#endif
     d->urlCompletion = new KexiUrlCompletion(&d->filterRegExps, &d->filterMimeTypes);
     d->locationEdit->setCompletionObject(d->urlCompletion);
     d->locationEdit->setAutoDeleteCompletionObject(true);
