@@ -103,9 +103,9 @@ if(SHOULD_BUILD_KEXI_DESKTOP_APP)
         Mainpage.dox
         Messages.sh
     )
-    kexi_add_app_icons(kexi_SRCS)
     kexi_add_app_metadata_files(kexi_SRCS)
     kexi_add_executable(kexi ${kexi_SRCS})
+    kexi_add_app_icons()
     target_link_libraries(kexi
         PRIVATE
             keximain
