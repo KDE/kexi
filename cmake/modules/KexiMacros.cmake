@@ -56,16 +56,9 @@ if(WIN32)
                         RUNTIME DESTINATION ${BIN_INSTALL_DIR}
                         LIBRARY ${INSTALL_TARGETS_DEFAULT_ARGS}
                         ARCHIVE ${INSTALL_TARGETS_DEFAULT_ARGS} )
-    set(DATA_INSTALL_DIR "$ENV{APPDATA}")
-    STRING(REGEX REPLACE "\\\\" "/" DATA_INSTALL_DIR ${DATA_INSTALL_DIR})
-    # Install own icons to CMAKE_INSTALL_FULL_ICONDIR (relative to bin/data/ on Windows) on Windows.
-    # We're consistent because icons from breeze-icons.git are installed there as well.
-    set(ICONS_INSTALL_DIR "${CMAKE_INSTALL_FULL_ICONDIR}/${KEXI_BASE_PATH}")
-else()
-    # On other OSes install own icons in app's data dir
-    set(ICONS_INSTALL_DIR
-        "${DATA_INSTALL_DIR}/${KEXI_BASE_PATH}/icons")
 endif()
+
+set(ICONS_INSTALL_DIR "${DATA_INSTALL_DIR}/${KEXI_BASE_PATH}/icons")
 
 # Fetches git revision and branch from the source dir of the current build if possible.
 # Sets ${PROJECT_NAME_UPPER}_GIT_SHA1_STRING and ${PROJECT_NAME_UPPER}_GIT_BRANCH_STRING variables.

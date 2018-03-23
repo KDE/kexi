@@ -52,7 +52,7 @@
     <p xml:lang="es">Características:</p>
     <p xml:lang="et">Omadused:</p>
     <p xml:lang="fi">Ominaisuuksia:</p>
-    <p xml:lang="fr">Fonctionnalités :</p>
+    <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="ia">Characteristicas</p>
     <p xml:lang="it">Funzionalità:</p>
@@ -339,6 +339,6 @@
   </screenshots>
   <project_group>KDE</project_group>
   <provides>
-    <binary>kexi</binary>
+    <binary>kexi-@KEXI_DISTRIBUTION_VERSION@</binary>
   </provides>
 </component>
