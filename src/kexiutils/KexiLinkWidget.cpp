@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2011 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2011-2018 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -20,6 +20,7 @@
 #include "KexiLinkWidget.h"
 
 #include <QEvent>
+#include <QShortcut>
 
 #include <KColorScheme>
 
@@ -52,6 +53,7 @@ public:
     QString linkText;
     QString format;
     QColor linkColor;
+    QShortcut *shortcut = nullptr;
 };
 
 KexiLinkWidget::KexiLinkWidget(QWidget* parent)
@@ -104,6 +106,25 @@ void KexiLinkWidget::setFormat(const QString& format)
 {
     d->format = format;
     d->updateText();
+}
+
+void KexiLinkWidget::click()
+{
+    emit linkActivated(d->link);
+}
+
+QKeySequence KexiLinkWidget::shortcut() const
+{
+    return d->shortcut ? d->shortcut->key() : QKeySequence();
+}
+
+void KexiLinkWidget::setShortcut(const QKeySequence &key)
+{
+    if (!d->shortcut) {
+        d->shortcut = new QShortcut(this);
+        connect(d->shortcut, &QShortcut::activatedAmbiguously, this, &KexiLinkWidget::click);
+    }
+    d->shortcut->setKey(key);
 }
 
 void KexiLinkWidget::changeEvent(QEvent* event)
