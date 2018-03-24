@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2011 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2011-2018 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -32,6 +32,7 @@
 #include <KLocalizedString>
 
 #include <QGridLayout>
+#include <QLineEdit>
 #include <QPointer>
 
 class Q_DECL_HIDDEN KexiAssistantPage::Private {
@@ -42,6 +43,9 @@ public:
     void setButtonVisible(KexiLinkWidget** button, bool back, bool set,
                           int x, int y);
     QColor linkColor() const;
+
+    QLineEdit *recentFocusLineEdit() { return qobject_cast<QLineEdit*>(recentFocusWidget); }
+
     KexiAssistantPage * const q;
     QGridLayout* mainLyr;
     KexiTitleLabel* titleLabel;
@@ -49,7 +53,10 @@ public:
     KexiLinkWidget* backButton;
     KexiLinkWidget* nextButton;
     KexiCloseButton* cancelButton;
-    QPointer<QWidget> focusWidget;
+    QPointer<QWidget> recentFocusWidget;
+    int recentFocusLineEditSelectionStart = -1;
+    int recentFocusLineEditSelectionLength = -1;
+    int recentFocusLineEditCursorPosition = -1;
 };
 
 void KexiAssistantPage::Private::setButtonVisible(KexiLinkWidget** button,
@@ -167,7 +174,7 @@ void KexiAssistantPage::slotLinkActivated(const QString& link)
 
 void KexiAssistantPage::slotCancel()
 {
-    emit cancelled(this);
+    emit cancelledRequested(this);
     if (parentWidget()) {
         parentWidget()->deleteLater();
     }
@@ -191,24 +198,46 @@ KexiLinkWidget* KexiAssistantPage::nextButton()
     return d->nextButton;
 }
 
+void KexiAssistantPage::tryBack()
+{
+    emit tryBackRequested(this);
+}
+
 void KexiAssistantPage::back()
 {
-    emit back(this);
+    emit backRequested(this);
 }
 
 void KexiAssistantPage::next()
 {
-    emit next(this);
+    emit nextRequested(this);
 }
 
-QWidget* KexiAssistantPage::focusWidget() const
+QWidget* KexiAssistantPage::recentFocusWidget() const
 {
-    return d->focusWidget;
+    return d->recentFocusWidget;
 }
 
-void KexiAssistantPage::setFocusWidget(QWidget* widget)
+void KexiAssistantPage::setRecentFocusWidget(QWidget* widget)
 {
-    d->focusWidget = widget;
+    d->recentFocusWidget = widget;
+    QLineEdit *edit = d->recentFocusLineEdit();
+    d->recentFocusLineEditSelectionStart = edit ? edit->selectionStart() : -1;
+    d->recentFocusLineEditSelectionLength = edit ? edit->selectionLength() : -1;
+    d->recentFocusLineEditCursorPosition = edit ? edit->cursorPosition() : -1;
+}
+
+void KexiAssistantPage::focusRecentFocusWidget()
+{
+    if (!d->recentFocusWidget) {
+        return;
+    }
+    d->recentFocusWidget->setFocus();
+    QLineEdit *edit = d->recentFocusLineEdit();
+    if (edit && d->recentFocusLineEditSelectionStart >= 0) {
+        edit->setCursorPosition(d->recentFocusLineEditCursorPosition);
+        edit->setSelection(d->recentFocusLineEditSelectionStart, d->recentFocusLineEditSelectionLength);
+    }
 }
 
 QString KexiAssistantPage::title() const

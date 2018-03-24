@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2013 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2012 Dimitrios T. Tanis <dimitrios.tanis@kdemail.net>
    Copyright (C) 2014 Roman Shtemberko <shtemberko@gmail.com>
 
@@ -78,7 +78,7 @@ KexiTemplateSelectionPage::KexiTemplateSelectionPage(QWidget* parent)
         parent)
 {
     m_templatesList = new KexiCategorizedView;
-    setFocusWidget(m_templatesList);
+    setRecentFocusWidget(m_templatesList);
     m_templatesList->setFrameShape(QFrame::NoFrame);
     m_templatesList->setContentsMargins(0, 0, 0, 0);
     int margin = style()->pixelMetric(QStyle::PM_MenuPanelWidth, 0, 0)
@@ -165,7 +165,7 @@ KexiProjectStorageTypeSelectionPage::KexiProjectStorageTypeSelectionPage(QWidget
     btn_server->setIcon(Kexi::serverIcon());
     btn_server->setIconSize(QSize(dsize, dsize));
     connect(btn_server, SIGNAL(clicked()), this, SLOT(buttonClicked()));
-    setFocusWidget(btn_file);
+    setRecentFocusWidget(btn_file);
 
     setContents(contents);
 }
@@ -213,6 +213,7 @@ KexiProjectTitleSelectionPage::KexiProjectTitleSelectionPage(QWidget* parent)
     updateUrl();
 
     setContents(contents);
+    setRecentFocusWidget(contents->le_title);
 }
 
 KexiProjectTitleSelectionPage::~KexiProjectTitleSelectionPage()
@@ -342,7 +343,7 @@ KexiProjectConnectionSelectionPage::KexiProjectConnectionSelectionPage(QWidget* 
         connSelector->hideHelpers();
         connSelector->hideDescription();
         setContents(lyr);
-        setFocusWidget(connSelector->connectionsList());
+        setRecentFocusWidget(connSelector->connectionsList());
     }
     else {
         setDescription(QString());
@@ -409,7 +410,7 @@ KexiProjectDatabaseNameSelectionPage::KexiProjectDatabaseNameSelectionPage(
     m_projectSelector->layout()->setContentsMargins(0, 0, 0, 0);
 
     setContents(contents);
-    setFocusWidget(contents->le_title);
+    setRecentFocusWidget(contents->le_title);
 }
 
 KexiProjectDatabaseNameSelectionPage::~KexiProjectDatabaseNameSelectionPage()
@@ -586,6 +587,8 @@ KexiNewProjectAssistant::KexiNewProjectAssistant(QWidget* parent)
     setCurrentPage(d->templateSelectionPage());
     setFocusProxy(d->templateSelectionPage());
     setMessageHandler(this);
+    d->templateSelectionPage()->setFocusProxy(d->templateSelectionPage()->recentFocusWidget());
+    d->templateSelectionPage()->focusRecentFocusWidget();
 }
 
 KexiNewProjectAssistant::~KexiNewProjectAssistant()
@@ -675,7 +678,7 @@ void KexiNewProjectAssistant::tryAgainActionTriggered()
 void KexiNewProjectAssistant::cancelActionTriggered()
 {
     if (currentPage() == d->m_passwordPage) {
-        d->passwordPage()->focusWidget()->setFocus();
+        d->passwordPage()->focusRecentFocusWidget();
     }
 }
 

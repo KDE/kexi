@@ -59,7 +59,7 @@ KexiMainWelcomePage::KexiMainWelcomePage(
                     pal.color(QPalette::Normal, QPalette::Base));
     m_recentProjects->setPalette(pal);
     contentsLyr->addWidget(m_recentProjects, 1);
-    setFocusWidget(m_recentProjects);
+    setRecentFocusWidget(m_recentProjects);
     m_recentProjects->setFrameShape(QFrame::NoFrame);
     m_recentProjects->setContentsMargins(0, 0, 0, 0);
     int margin = style()->pixelMetric(QStyle::PM_MenuPanelWidth, 0, 0)
@@ -244,7 +244,7 @@ void KexiWelcomeAssistant::cancelActionTriggered()
     if (currentPage() == d->mainWelcomePage()) {
         d->mainWelcomePage()->recentProjectsView()->clearSelection();
     } else if (currentPage() == d->passwordPage()) {
-        d->passwordPage()->focusWidget()->setFocus();
+        d->passwordPage()->focusRecentFocusWidget();
     }
 }
 

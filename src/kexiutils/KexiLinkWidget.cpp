@@ -27,8 +27,11 @@
 class Q_DECL_HIDDEN KexiLinkWidget::Private
 {
 public:
-    explicit Private(KexiLinkWidget* qq) : q(qq) {
-        q->setFocusPolicy(Qt::StrongFocus);
+    explicit Private(KexiLinkWidget* qq) : q(qq)
+    {
+        q->setFocusPolicy(Qt::TabFocus); // not a Strong or Click focus, otherwise we're loosing
+                                         // focus from important input widgets (e.g. in a
+                                         // KexiAssistantPage)
         q->setTextFormat(Qt::RichText);
         updateColors();
     }

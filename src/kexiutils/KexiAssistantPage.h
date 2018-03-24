@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2011 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2011-2018 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -36,8 +36,33 @@ public:
     virtual ~KexiAssistantPage();
     void setContents(QWidget* widget);
     void setContents(QLayout* layout);
-    QWidget* focusWidget() const;
-    void setFocusWidget(QWidget* widget);
+
+    /**
+     * Returns recent focus widget
+     *
+     * Useful to maintain focus when activation returns to the page
+     */
+    QWidget* recentFocusWidget() const;
+
+    /**
+     * Sets recent focus widget
+     *
+     * Useful to maintain focus when activation returns to the page
+     */
+    void setRecentFocusWidget(QWidget* widget);
+
+    /**
+     * Restores focus on recent focus widget
+     *
+     * If the widget is a QLineEdit, text selection and cursor position remembered during the
+     * setRecentFocusWidget() call is also restored. If the widget is not a QLineEdit, only focus is
+     * restored. This method does nothing if there is no focus widget set or the widget has been
+     * deleted in the meantime.
+     *
+     * @see recentFocusWidget
+     */
+    void focusRecentFocusWidget();
+
     KexiLinkWidget* backButton();
     KexiLinkWidget* nextButton();
     QString title() const;
@@ -46,12 +71,17 @@ public Q_SLOTS:
     void setDescription(const QString& text);
     void setBackButtonVisible(bool set);
     void setNextButtonVisible(bool set);
+    //! Moves to previous page; if not, warning is displayed on debug output
     void back();
+    //! Moves to previous page if possible; if not, nothing happens
+    void tryBack();
+    //! Moves to next page
     void next();
 Q_SIGNALS:
-    void back(KexiAssistantPage* page);
-    void next(KexiAssistantPage* page);
-    void cancelled(KexiAssistantPage* page);
+    void backRequested(KexiAssistantPage* page);
+    void tryBackRequested(KexiAssistantPage* page);
+    void nextRequested(KexiAssistantPage* page);
+    void cancelledRequested(KexiAssistantPage* page);
 
 private Q_SLOTS:
     void slotLinkActivated(const QString& link);

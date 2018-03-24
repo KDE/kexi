@@ -32,6 +32,7 @@
 #include <kexiutils/KexiFadeWidgetEffect.h>
 #include <KexiIcon.h>
 #include <core/kexipartmanager.h>
+#include <KexiAssistantWidget.h>
 
 KexiWindowContainer::KexiWindowContainer(QWidget* parent)
     : QWidget(parent)
@@ -1143,6 +1144,11 @@ void KexiTabbedToolBar::setMainMenuContent(QWidget *w)
     d->mainMenu->setContent(w);
 }
 
+const QWidget* KexiTabbedToolBar::mainMenuContent()
+{
+    return d->mainMenu->contentWidget();
+}
+
 void KexiTabbedToolBar::selectMainMenuItem(const char *actionName)
 {
     if (actionName) {
@@ -1553,6 +1559,15 @@ tristate KexiMainWindow::Private::showProjectMigrationWizard(
         return res;
     }
     return true;
+}
+
+KexiAssistantPage *KexiMainWindow::Private::visibleMainMenuWidgetPage()
+{
+    const KexiAssistantWidget *widget = qobject_cast<const KexiAssistantWidget*>(tabbedToolBar->mainMenuContent());
+    if (widget && widget->isVisible()) {
+        return widget->currentPage();
+    }
+    return nullptr;
 }
 
 #ifndef KEXI_NO_PENDING_DIALOGS
