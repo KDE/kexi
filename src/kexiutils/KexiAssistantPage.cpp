@@ -223,7 +223,7 @@ void KexiAssistantPage::setRecentFocusWidget(QWidget* widget)
     d->recentFocusWidget = widget;
     QLineEdit *edit = d->recentFocusLineEdit();
     d->recentFocusLineEditSelectionStart = edit ? edit->selectionStart() : -1;
-    d->recentFocusLineEditSelectionLength = edit ? edit->selectionLength() : -1;
+    d->recentFocusLineEditSelectionLength = (edit && edit->hasSelectedText()) ? edit->selectedText().length() : -1;
     d->recentFocusLineEditCursorPosition = edit ? edit->cursorPosition() : -1;
 }
 
@@ -234,7 +234,9 @@ void KexiAssistantPage::focusRecentFocusWidget()
     }
     d->recentFocusWidget->setFocus();
     QLineEdit *edit = d->recentFocusLineEdit();
-    if (edit && d->recentFocusLineEditSelectionStart >= 0) {
+    if (edit && d->recentFocusLineEditSelectionStart >= 0
+        && d->recentFocusLineEditSelectionLength >= 0)
+    {
         edit->setCursorPosition(d->recentFocusLineEditCursorPosition);
         edit->setSelection(d->recentFocusLineEditSelectionStart, d->recentFocusLineEditSelectionLength);
     }
