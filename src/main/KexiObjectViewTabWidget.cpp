@@ -94,7 +94,7 @@ KexiObjectViewTabWidget::KexiObjectViewTabWidget(QWidget *parent, KexiObjectView
 #endif
     setMovable(true);
     setDocumentMode(true);
-    tabBar()->setExpanding(true);
+    tabBar()->setExpanding(false);
 }
 
 KexiObjectViewTabWidget::~KexiObjectViewTabWidget()
