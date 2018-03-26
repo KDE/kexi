@@ -194,9 +194,12 @@ class KexiPropertyPaneLineEditProxyStyleGlobal
 {
 public:
     void alterStyle(QWidget *w) {
-        KexiPropertyPaneLineEditProxyStyle *s = new KexiPropertyPaneLineEditProxyStyle(w->style());
+        if (!style) {
+            KexiPropertyPaneLineEditProxyStyle *s = new KexiPropertyPaneLineEditProxyStyle(w->style());
+            style.reset(s);
+        }
         (void)new Filter(w);
-        w->setStyle(s);
+        w->setStyle(style.data());
     }
     QScopedPointer<KexiPropertyPaneLineEditProxyStyle> style;
 };
