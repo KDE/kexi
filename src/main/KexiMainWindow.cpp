@@ -1095,9 +1095,9 @@ void KexiMainWindow::setupActions()
     acat->addAction("close_all_tabs", Kexi::GlobalActionCategory | Kexi::WindowActionCategory);
     acat->setAllObjectTypesSupported("close_all_tabs", true);
 
-    acat->addAction("next_tab", Kexi::GlobalActionCategory);
+    acat->addAction("tab_next", Kexi::GlobalActionCategory);
 
-    acat->addAction("previous_tab", Kexi::GlobalActionCategory);
+    acat->addAction("tab_previous", Kexi::GlobalActionCategory);
 
     acat->addAction("full_screen", Kexi::GlobalActionCategory);
 
