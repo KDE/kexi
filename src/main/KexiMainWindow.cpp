@@ -1218,15 +1218,6 @@ void KexiMainWindow::setupMainMenu()
     }
 #endif
     {
-        QMenu *toolsMenu = menu->addMenu(xi18n("&Tools"));
-        toolsMenu->addAction(d->action_tools_locate);
-        toolsMenu->addSeparator();
-#ifdef KEXI_SHOW_UNIMPLEMENTED
-        toolsMenu->addAction(d->action_project_relations);
-#endif
-        toolsMenu->addAction(d->action_tools_compact_database);
-    }
-    {
         QMenu *dataMenu = menu->addMenu(xi18n("&Data"));
         if (!d->userMode) {
             dataMenu->addAction(d->action_project_import_data_table);
@@ -1236,12 +1227,13 @@ void KexiMainWindow::setupMainMenu()
         dataMenu->addAction(d->action_project_export_data_table);
     }
     {
-        QMenu *windowMenu = menu->addMenu(xi18n("&Window"));
-        windowMenu->addAction(d->action_tab_next);
-        windowMenu->addAction(d->action_tab_previous);
-        windowMenu->addSeparator();
-        windowMenu->addAction(d->action_show_nav);
-        windowMenu->addAction(d->action_show_propeditor);
+        QMenu *toolsMenu = menu->addMenu(xi18n("&Tools"));
+        toolsMenu->addAction(d->action_tools_locate);
+        toolsMenu->addSeparator();
+#ifdef KEXI_SHOW_UNIMPLEMENTED
+        toolsMenu->addAction(d->action_project_relations);
+#endif
+        toolsMenu->addAction(d->action_tools_compact_database);
     }
     {
         QMenu *settingsMenu = menu->addMenu(xi18n("&Settings"));
@@ -1250,6 +1242,14 @@ void KexiMainWindow::setupMainMenu()
 #ifdef KEXI_SHOW_UNIMPLEMENTED
         settingsMenu->addAction(d->action_settings);
 #endif
+    }
+    {
+        QMenu *windowMenu = menu->addMenu(xi18n("&Window"));
+        windowMenu->addAction(d->action_tab_next);
+        windowMenu->addAction(d->action_tab_previous);
+        windowMenu->addSeparator();
+        windowMenu->addAction(d->action_show_nav);
+        windowMenu->addAction(d->action_show_propeditor);
     }
     {
         // add help menu actions... (KexiTabbedToolBar depends on them)
