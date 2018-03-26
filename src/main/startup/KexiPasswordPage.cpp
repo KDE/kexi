@@ -59,7 +59,7 @@ void KexiPasswordPage::init()
     passEdit->setMaximumWidth(passEdit->fontMetrics().width("W")*24);
     lyr->addWidget(d->widget);
     lyr->addStretch();
-    setFocusWidget(passEdit);
+    setRecentFocusWidget(passEdit);
     setDescription(d->widget->prompt());
     d->widget->setPrompt(QString());
     setContents(lyr);

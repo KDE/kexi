@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -59,6 +59,7 @@
 #include "startup/KexiOpenProjectAssistant.h"
 #include "startup/KexiWelcomeAssistant.h"
 #include "startup/KexiImportExportAssistant.h"
+#include <KexiAssistantPage.h>
 
 #include <KDbConnection>
 #include <KDbConnectionOptions>
@@ -972,33 +973,29 @@ void KexiMainWindow::setupActions()
 
     //TOOLS MENU
 
-    //WINDOW MENU
-    //additional 'Window' menu items
-    d->action_window_next = addAction("window_next",
-                                      xi18n("&Next Window"),
-#ifdef Q_OS_WIN
-        "Ctrl+Tab"
-#else
-        "Alt+Right"
-#endif
-    );
+    // WINDOW MENU
+    // additional 'Window' menu items
+    d->action_window_next = addAction("window_next", xi18n("&Next Window"), "Alt+Right");
     d->action_window_next->setToolTip(xi18n("Next window"));
     d->action_window_next->setWhatsThis(xi18n("Switches to the next window."));
     connect(d->action_window_next, SIGNAL(triggered()),
             this, SLOT(activateNextWindow()));
 
-    d->action_window_previous = addAction("window_previous",
-                                          xi18n("&Previous Window"),
-#ifdef Q_OS_WIN
-        "Ctrl+Shift+Tab"
-#else
-        "Alt+Left"
-#endif
-    );
+    d->action_window_previous = addAction("window_previous", xi18n("&Previous Window"), "Alt+Left");
     d->action_window_previous->setToolTip(xi18n("Previous window"));
     d->action_window_previous->setWhatsThis(xi18n("Switches to the previous window."));
     connect(d->action_window_previous, SIGNAL(triggered()),
             this, SLOT(activatePreviousWindow()));
+
+    d->action_tab_next = addAction("tab_next", xi18n("&Next Tab"), "Ctrl+Tab");
+    d->action_tab_next->setToolTip(xi18n("Next tab"));
+    d->action_tab_next->setWhatsThis(xi18n("Switches to the next tab."));
+    connect(d->action_tab_next, &QAction::triggered, this, &KexiMainWindow::activateNextTab);
+
+    d->action_tab_previous = addAction("tab_previous", xi18n("&Previous Tab"), "Ctrl+Shift+Tab");
+    d->action_tab_previous->setToolTip(xi18n("Previous tab"));
+    d->action_tab_previous->setWhatsThis(xi18n("Switches to the previous tab."));
+    connect(d->action_tab_previous, &QAction::triggered, this, &KexiMainWindow::activatePreviousTab);
 
     d->action_window_fullscreen = KStandardAction::fullScreen(this, SLOT(toggleFullScreen(bool)), this, ac);
     ac->addAction("full_screen", d->action_window_fullscreen);
@@ -2288,12 +2285,36 @@ KexiMainWindow::activateWindow(KexiWindow& window)
 
 void KexiMainWindow::activateNextWindow()
 {
-//! @todo activateNextWindow()
+    // Case 1: go to next assistant page
+    KexiAssistantPage *page = d->visibleMainMenuWidgetPage();
+    if (page) {
+        page->next();
+        return;
+    }
+    // Case 2: go to next tab
+    activateNextTab();
 }
 
 void KexiMainWindow::activatePreviousWindow()
 {
-//! @todo activatePreviousWindow()
+    // Case 1: go to previous assistant page
+    KexiAssistantPage *page = d->visibleMainMenuWidgetPage();
+    if (page) {
+        page->tryBack();
+        return;
+    }
+    // Case 2: go to previous tab
+    activatePreviousTab();
+}
+
+void KexiMainWindow::activateNextTab()
+{
+    //! @todo
+}
+
+void KexiMainWindow::activatePreviousTab()
+{
+    //! @todo
 }
 
 void

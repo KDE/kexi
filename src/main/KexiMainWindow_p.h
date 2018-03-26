@@ -67,6 +67,7 @@
 #define KEXITABBEDTOOLBAR_SPACER_TAB_INDEX 1
 
 class QPainter;
+class KexiAssistantPage;
 class KexiProjectNavigator;
 
 //! @short Main application's tabbed toolbar
@@ -113,6 +114,8 @@ public:
     bool isTabVisible(const QString& name) const;
 
     bool isRolledUp();
+
+    const QWidget* mainMenuContent();
 
 public Q_SLOTS:
     void setMainMenuContent(QWidget *w);
@@ -510,6 +513,12 @@ public:
     tristate showProjectMigrationWizard(
         const QString& mimeType, const QString& databaseName, const KDbConnectionData *cdata);
 
+    /**
+     * Returns current page of active visible main menu widget or @c nullptr if there is no visible
+     * menu widget or menu widget contains no page.
+     */
+    KexiAssistantPage *visibleMainMenuWidgetPage();
+
     KexiMainWindow *wnd;
     KexiMainWidget *mainWidget;
     KActionCollection *actionCollection;
@@ -591,6 +600,7 @@ public:
 
     //! window menu
     QAction *action_window_next, *action_window_previous, *action_window_fullscreen;
+    QAction *action_tab_next, *action_tab_previous;
 
     //! global
     QAction *action_show_help_menu;

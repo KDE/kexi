@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -163,11 +163,27 @@ public Q_SLOTS:
      (see kexi/tests/altertable/ directory). */
     tristate closeWindow(KexiWindow *window, bool layoutTaskBar, bool doNotSaveChanges = false);
 
-    /*! Activates next window. */
+    /**
+     * Activates next window
+     *
+     * If any assistant window is active and visible, moves to previous page of the assistant.
+     * If assistant window is not active, this action triggers activateNextTab() if tabs are present.
+     */
     void activateNextWindow();
 
-    /*! Activates previous window. */
+    /**
+     * Activates previous window
+     *
+     * If any assistant window is active and visible, moves to previous page of the assistant.
+     * If assistant window is not active, this action triggers activatePreviousTab() if tabs are present.
+     */
     void activatePreviousWindow();
+
+    /*! Activates next tab if tabs are present. */
+    void activateNextTab();
+
+    /*! Activates next tab if tabs are present. */
+    void activatePreviousTab();
 
 //! @todo move part of this to KexiProject, because currently KexiProject::openObject() allows multiple opens!
     /*! Opens object pointed by \a item in a view \a viewMode.

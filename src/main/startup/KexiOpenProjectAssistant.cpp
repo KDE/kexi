@@ -70,7 +70,7 @@ KexiMainOpenProjectPage::KexiMainOpenProjectPage(QWidget* parent)
     tabWidget->addTab(m_connSelectorWidget, Kexi::serverIcon(),
                       xi18nc("@title:tab", "Projects Stored on Database Server"));
 
-    setFocusWidget(tabWidget);
+    setRecentFocusWidget(tabWidget);
     setContents(tabWidget);
 
     connect(tabWidget, SIGNAL(currentChanged(int)), this, SLOT(tabChanged(int)));
@@ -162,7 +162,7 @@ KexiProjectDatabaseSelectionPage::KexiProjectDatabaseSelectionPage(
     connect(projectSelector, SIGNAL(projectExecuted(KexiProjectData*)),
             m_assistant, SLOT(slotOpenProject(KexiProjectData*)));
 
-    setFocusWidget(projectSelector);
+    setRecentFocusWidget(projectSelector);
     setContents(projectSelector);
 }
 
@@ -307,7 +307,7 @@ void KexiOpenProjectAssistant::tryAgainActionTriggered()
 void KexiOpenProjectAssistant::cancelActionTriggered()
 {
     if (currentPage() == d->m_passwordPage) {
-        d->passwordPage()->focusWidget()->setFocus();
+        d->passwordPage()->focusRecentFocusWidget();
     }
 }
 

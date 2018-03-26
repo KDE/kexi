@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2013 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2012 Dimitrios T. Tanis <dimitrios.tanis@kdemail.net>
    Copyright (C) 2014 Roman Shtemberko <shtemberko@gmail.com>
 
@@ -63,12 +63,21 @@ public:
     explicit KexiProjectStorageTypeSelectionPage(QWidget* parent = 0);
     virtual ~KexiProjectStorageTypeSelectionPage();
 
-    bool fileTypeSelected() const { return m_fileTypeSelected; }
+    enum class Type {
+        None, //!< No type selected
+        File,
+        Server
+    };
+
+    /**
+     * Returns selected connection type
+     *
+     * Selection depends on button that is focused.
+     */
+    Type selectedType() const;
+
 private Q_SLOTS:
     void buttonClicked();
-
-private:
-    bool m_fileTypeSelected;
 };
 
 class KexiDBTitlePage;

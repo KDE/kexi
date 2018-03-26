@@ -89,8 +89,8 @@ void KexiAssistantMessageHandler::showErrorMessage(KDbMessageHandler::MessageTyp
         0/*contents->le_dbname*/, contextMessage);
     KexiAssistantWidget *assistant = dynamic_cast<KexiAssistantWidget*>(this);
     if (assistant && assistant->currentPage()) {
-        if (assistant->currentPage()->focusWidget()) {
-            d->messageWidget->setNextFocusWidget(assistant->currentPage()->focusWidget());
+        if (assistant->currentPage()->recentFocusWidget()) {
+            d->messageWidget->setNextFocusWidget(assistant->currentPage()->recentFocusWidget());
         }
         else {
             d->messageWidget->setNextFocusWidget(assistant->currentPage());
