@@ -153,7 +153,6 @@ KexiProjectStorageTypeSelectionPage::KexiProjectStorageTypeSelectionPage(QWidget
  : KexiAssistantPage(xi18nc("@title:window", "Storage Method"),
                   xi18nc("@info", "Select a storage method which will be used to store the new project."),
                   parent)
- , m_fileTypeSelected(true)
 {
     setBackButtonVisible(true);
     QWidget* contents = new QWidget;
@@ -176,8 +175,18 @@ KexiProjectStorageTypeSelectionPage::~KexiProjectStorageTypeSelectionPage()
 
 void KexiProjectStorageTypeSelectionPage::buttonClicked()
 {
-    m_fileTypeSelected = sender() == btn_file;
     next();
+}
+
+KexiProjectStorageTypeSelectionPage::Type KexiProjectStorageTypeSelectionPage::selectedType() const
+{
+    const QWidget *w = focusWidget();
+    if (w == btn_file) {
+        return Type::File;
+    } else if (w == btn_server) {
+        return Type::Server;
+    }
+    return Type::None;
 }
 
 // ----
@@ -602,11 +611,15 @@ void KexiNewProjectAssistant::nextPageRequested(KexiAssistantPage* page)
         setCurrentPage(d->projectStorageTypeSelectionPage());
     }
     else if (page == d->m_projectStorageTypeSelectionPage) {
-        if (d->projectStorageTypeSelectionPage()->fileTypeSelected()) {
+        switch (d->projectStorageTypeSelectionPage()->selectedType()) {
+        case KexiProjectStorageTypeSelectionPage::Type::File:
             setCurrentPage(d->titleSelectionPage());
-        }
-        else {
+            break;
+        case KexiProjectStorageTypeSelectionPage::Type::Server:
             setCurrentPage(d->projectConnectionSelectionPage());
+            break;
+        default:
+            break;
         }
     }
     else if (page == d->m_titleSelectionPage) {
