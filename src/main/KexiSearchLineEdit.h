@@ -47,6 +47,9 @@ public:
      One example is Project Navigator. */
     void addSearchableModel(KexiSearchableModel *model);
 
+    /*! Removes searchable model from the main window. @a model is not deleted. */
+    void removeSearchableModel(KexiSearchableModel *model);
+
     /*! @return true if matching substrings are highlighted in completion list.
      @see setHighlightMatchingSubstrings() */
     bool highlightMatchingSubstrings() const;

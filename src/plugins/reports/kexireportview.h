@@ -1,6 +1,7 @@
 /*
  * Kexi Report Plugin
  * Copyright (C) 2007-2008 by Adam Pigg (adam@piggz.co.uk)
+ * Copyright (C) 2014-2017 Jarosław Staniek <staniek@kde.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -38,7 +39,6 @@ class KexiRecordNavigator;
 #endif
 
 /**
- @author Adam Pigg <adam@piggz.co.uk>
 */
 class KexiReportView : public KexiView, public KexiRecordNavigatorHandler
 {
@@ -69,7 +69,7 @@ private:
 #endif
 
     KexiReportPartTempData* tempData() const;
-    KReportDataSource* createSourceData(QDomElement e);
+    KReportDataSource* createDataSource(const QDomElement &e);
     //! @todo KEXI3 KexiScriptAdaptor *m_kexi;
     KRScriptFunctions *m_functions;
     KReportRendererFactory m_factory;
@@ -80,9 +80,11 @@ private:
 private Q_SLOTS:
     void slotPrintReport();
     void slotExportAsPdf();
-    void slotExportAsSpreadsheet();
     void slotExportAsWebPage();
+#ifdef KEXI_SHOW_UNFINISHED
+    void slotExportAsSpreadsheet();
     void slotExportAsTextDocument();
+#endif
     void openExportedDocument(const QUrl &destination);
     void finishedAllASyncItems();
 };

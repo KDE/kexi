@@ -24,13 +24,13 @@
 #include <KexiView.h>
 #include "kexiquerypart.h"
 
+#include <KDbExpression>
+
 class QDragMoveEvent;
 class QDropEvent;
 class KProperty;
 class KPropertySet;
 class KDbConnection;
-class KDbQuerySchema;
-class KDbTableSchema;
 class KDbTableOrQuerySchema;
 class KDbResultInfo;
 class KDbRecordData;

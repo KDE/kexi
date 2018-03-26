@@ -23,6 +23,7 @@
 #include "kexidbconnectiondata.h"
 #include "kexidbfield.h"
 #include "kexidbschema.h"
+#include "KexiScriptingDebug.h"
 
 #include <KDbDriver>
 #include <KDbConnectionData>
@@ -31,9 +32,11 @@
 #include <KDbQuerySchema>
 
 #include <KConfigGroup>
+#include <KConfig>
 
 #include <QDebug>
 #include <QMimeDatabase>
+#include <QUrl>
 
 // The as version() published versionnumber of this kross-module.
 #define KROSS_KEXIDB_VERSION 1
@@ -44,7 +47,7 @@ extern "C"
      * Exported an loadable function as entry point to use
      * the \a KexiDBModule.
      */
-    KDE_EXPORT QObject* krossmodule() {
+    /*KEXI_EXPORT*/ QObject* krossmodule() {
         return new Scripting::KexiDBModule();
     }
 }
@@ -54,13 +57,11 @@ using namespace Scripting;
 KexiDBModule::KexiDBModule(QObject* parent)
         : QObject(parent)
 {
-    qDebug();
     setObjectName("KexiDB");
 }
 
 KexiDBModule::~KexiDBModule()
 {
-    qDebug();
 }
 
 int KexiDBModule::version()
@@ -68,43 +69,47 @@ int KexiDBModule::version()
     return KROSS_KEXIDB_VERSION;
 }
 
-const QStringList KexiDBModule::driverNames()
+QStringList KexiDBModule::driverNames()
 {
-    return m_drivermanager.driverNames();
+    return m_drivermanager.driverIds();
 }
 
 QObject* KexiDBModule::driver(const QString& drivername)
 {
     QPointer< KDbDriver > driver = m_drivermanager.driver(drivername); // caching is done by the DriverManager
     if (! driver) {
-        qWarning() << "No such driver '%1'" << drivername;
+        KexiScriptingWarning() << "No such driver:" << drivername;
         return 0;
     }
-    if (driver->error()) {
-        qWarning() << "Error for drivername" << drivername << driver->errorMsg();
+    if (driver->result().isError()) {
+        KexiScriptingWarning() << "Error for drivername" << drivername << driver->result().message();
         return 0;
     }
     return new KexiDBDriver(this, driver);
 }
 
-const QString KexiDBModule::lookupByMime(const QString& mimetype)
+QString KexiDBModule::lookupByMime(const QString& mimetype)
 {
-    return m_drivermanager.lookupByMime(mimetype);
+    QStringList ids = m_drivermanager.driverIdsForMimeType(mimetype);
+    if (ids.size() > 0) {
+        return ids.at(0);
+    }
+    return QString();
 }
 
-const QString KexiDBModule::mimeForFile(const QString& filename)
+QString KexiDBModule::mimeForFile(const QString& filename)
 {
     QMimeDatabase db;
     QString mimename = db.mimeTypeForFile(filename, QMimeDatabase::MatchContent).name();
     if (mimename.isEmpty() || mimename == "application/octet-stream" || mimename == "text/plain") {
-        mimename = db.mimeTypeForUrl(filename).name();
+        mimename = db.mimeTypeForUrl(QUrl::fromLocalFile(filename)).name();
     }
     return mimename;
 }
 
 QObject* KexiDBModule::createConnectionData()
 {
-    return new KexiDBConnectionData(this, new KDbConnectionData(), true);
+    return new KexiDBConnectionData();
 }
 
 QObject* KexiDBModule::createConnectionDataByFile(const QString& filename)
@@ -113,7 +118,7 @@ QObject* KexiDBModule::createConnectionDataByFile(const QString& filename)
     QMimeDatabase db;
     QString mimename = db.mimeTypeForFile(filename, QMimeDatabase::MatchContent).name();
     if (mimename.isEmpty() || mimename == "application/octet-stream" || mimename == "text/plain") {
-        mimename = db.mimeTypeForUrl(filename).name();
+        mimename = db.mimeTypeForUrl(QUrl::fromLocalFile(filename)).name();
     }
     if (mimename == "application/x-kexiproject-shortcut" || mimename == "application/x-kexi-connectiondata") {
         KConfig _config(filename, KConfig::NoGlobals);
@@ -125,8 +130,9 @@ QObject* KexiDBModule::createConnectionDataByFile(const QString& filename)
                 break;
             }
         }
+        
         if (groupkey.isNull()) {
-            //qDebug() << "No groupkey, filename=" << filename;
+            KexiScriptingWarning() << "No groupkey, filename=" << filename;
             return 0;
         }
 
@@ -158,14 +164,14 @@ QObject* KexiDBModule::createConnectionDataByFile(const QString& filename)
         data->setSavePassword(!data->password().isEmpty());
         data->setUserName(config.readEntry("user"));
 
-        KexiDBConnectionData* c = new KexiDBConnectionData(this, data, true);
+        KexiDBConnectionData* c = new KexiDBConnectionData(this, data);
         c->setDatabaseName(dbname);
         return c;
     }
 
     const QStringList driverIds = m_drivermanager.driverIdsForMimeType(mimename);
     if (driverIds.isEmpty()) {
-        //qDebug() << "No driver, filename=" << filename << "mimename=" << mimename;
+        KexiScriptingWarning() << "No driver, filename=" << filename << "mimename=" << mimename;
         return 0;
     }
 
@@ -173,7 +179,7 @@ QObject* KexiDBModule::createConnectionDataByFile(const QString& filename)
     data->setDatabaseName(filename);
     //! @todo there can be more than one driver
     data->setDriverId(driverIds.first());
-    return new KexiDBConnectionData(this, data, true);
+    return new KexiDBConnectionData(this, data);
 }
 
 QObject* KexiDBModule::field()
@@ -191,9 +197,8 @@ QObject* KexiDBModule::querySchema()
     return new KexiDBQuerySchema(this, new KDbQuerySchema(), true);
 }
 
-QObject* KexiDBModule::connectionWrapper(QObject* connection)
+QObject* KexiDBModule::connectionWrapper(KDbConnection* connection)
 {
-    KDbConnection* c = dynamic_cast< KDbConnection* >(connection);
-    return c ? new KexiDBConnection(c) : 0;
+    return new KexiDBConnection(connection);
 }
 

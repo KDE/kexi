@@ -28,7 +28,6 @@ set(keximain_LIB_SRCS
     startup/KexiWelcomeAssistant.cpp
     startup/KexiWelcomeStatusBar.cpp
     startup/KexiImportExportAssistant.cpp
-    startup/KexiStartupDialog.cpp
     startup/KexiStartup.cpp
     startup/KexiTemplatesModel.cpp
     startup/KexiRecentProjectsModel.cpp

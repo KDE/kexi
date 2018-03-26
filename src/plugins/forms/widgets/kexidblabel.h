@@ -36,9 +36,6 @@
 class QPainter;
 
 //! @short An extended, data-aware, read-only text label.
-/*!
- @author Christian Nitschkowski, Jarosław Staniek
-*/
 class KEXIFORMUTILS_EXPORT KexiDBLabel : public QLabel,
                                          protected KexiDBTextWidgetInterface,
                                          public KexiFormDataItemInterface,
@@ -113,7 +110,7 @@ protected Q_SLOTS:
 
 protected:
     void init();
-    virtual void setColumnInfo(KDbQueryColumnInfo* cinfo);
+    void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) override;
     virtual void paintEvent(QPaintEvent*);
     virtual void resizeEvent(QResizeEvent* e);
 

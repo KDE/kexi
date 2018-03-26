@@ -96,14 +96,16 @@ void KexiFieldComboBox::setTableOrQuery(const QString& name, bool table)
     if (d->tableOrQueryName.isEmpty() || !d->prj)
         return;
 
-    KDbTableOrQuerySchema tableOrQuery(d->prj->dbConnection(), d->tableOrQueryName.toLatin1(), d->table);
+    KDbTableOrQuerySchema tableOrQuery(d->prj->dbConnection(), d->tableOrQueryName.toLatin1(),
+                                       d->table ? KDbTableOrQuerySchema::Type::Table
+                                                : KDbTableOrQuerySchema::Type::Query);
     if (!tableOrQuery.table() && !tableOrQuery.query())
         return;
 
     delete d->model;
     d->model = new KexiFieldListModel(this, ShowEmptyItem);
 
-    d->model->setSchema(&tableOrQuery);
+    d->model->setSchema(d->prj->dbConnection(), &tableOrQuery);
     setModel(d->model);
 
     //update selection
@@ -172,7 +174,12 @@ QString KexiFieldComboBox::fieldOrExpression() const
 
 int KexiFieldComboBox::indexOfField() const
 {
-    KDbTableOrQuerySchema tableOrQuery(d->prj->dbConnection(), d->tableOrQueryName.toLatin1(), d->table);
+    if (d->tableOrQueryName.isEmpty()) {
+        return -1;
+    }
+    KDbTableOrQuerySchema tableOrQuery(d->prj->dbConnection(), d->tableOrQueryName.toLatin1(),
+                                       d->table ? KDbTableOrQuerySchema::Type::Table
+                                                : KDbTableOrQuerySchema::Type::Query);
     if (!tableOrQuery.table() && !tableOrQuery.query())
         return -1;
 

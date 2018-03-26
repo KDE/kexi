@@ -90,7 +90,7 @@ public:
      If \a listData \a nlist if not NULL but empty, Property::setListData(0) is called. */
     virtual void changeFieldPropertyForRecord(int fieldUID, const QByteArray& propertyName,
                                            const QVariant& newValue,
-                                           KPropertyListData* const listData = 0,
+                                           const KPropertyListData* listData = 0,
                                            bool addCommand = false) = 0;
 
     /*! Creates temporary table for the current design and returns debug string for it. */

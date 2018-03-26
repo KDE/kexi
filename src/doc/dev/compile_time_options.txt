@@ -20,7 +20,7 @@ within Table Designer) will be hidded for Kexi, to avoid user confusion.
 Type: defined/undefined
 Default: undefined
 Description: If defined, forces to show menu entries and dialogs just to give
-impression about development plans of Kexi Team.
+impression about development plans of KEXI Team.
 Only recommended for test/development versions.
 
 * KEXI_SCRIPTS_SUPPORT

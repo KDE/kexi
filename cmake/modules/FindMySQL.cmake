@@ -16,6 +16,9 @@
 
 include(CheckCXXSourceCompiles)
 include(MacroPushRequiredVars)
+include(FeatureSummary)
+set_package_properties(MySQL PROPERTIES
+    DESCRIPTION "MySQL Client Library (libmysqlclient)" URL "http://www.mysql.com")
 
 if(WIN32)
    find_path(MYSQL_INCLUDE_DIR mysql.h

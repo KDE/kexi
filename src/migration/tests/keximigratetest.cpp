@@ -33,7 +33,7 @@ a new kexi based db
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    KAboutData aboutData("keximigratetest", xi18n("Kexi Migrate Test"), "2.0", QString(),
+    KAboutData aboutData("keximigratetest", xi18n("KEXI Migrate Test"), "2.0", QString(),
                          KAboutLicense::GPL_V2);
     KAboutData::setApplicationData(aboutData);
 

@@ -49,6 +49,7 @@
 #include <KDbTableOrQuerySchema>
 #include <KDbTableViewColumn>
 
+#include <KPropertyListData>
 #include <KProperty>
 #include <KPropertySet>
 
@@ -87,7 +88,6 @@ class Q_DECL_HIDDEN KexiQueryDesignerGuiEditor::Private
 public:
     Private(KexiQueryDesignerGuiEditor *p)
      : q(p)
-     , conn(0)
     {
         droppedNewRecord = 0;
         slotTableAdded_enabled = true;
@@ -109,9 +109,6 @@ public:
     KexiQueryDesignerGuiEditor *q;
     KDbTableViewData *data;
     KexiDataTableView *dataTable;
-    //! @todo KEXI3 use equivalent of QPointer<KDbConnection>
-    KDbConnection *conn;
-
     KexiRelationsView *relations;
     KexiSectionHeader *head;
     QSplitter *spl;
@@ -172,8 +169,6 @@ KexiQueryDesignerGuiEditor::KexiQueryDesignerGuiEditor(
         : KexiView(parent)
         , d(new Private(this))
 {
-    d->conn = KexiMainWindowIface::global()->project()->dbConnection();
-
     d->spl = new QSplitter(Qt::Vertical, this);
     d->spl->setChildrenCollapsible(false);
     d->relations = new KexiRelationsView(d->spl);
@@ -309,6 +304,7 @@ void KexiQueryDesignerGuiEditor::initTableRows()
 
 void KexiQueryDesignerGuiEditor::updateColumnsData()
 {
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     d->dataTable->dataAwareObject()->acceptRecordEditing();
 
     QStringList sortedTableNames;
@@ -353,7 +349,7 @@ void KexiQueryDesignerGuiEditor::updateColumnsData()
         //table
         /*! @todo what about query? */
         const KDbTableSchema *table = d->relations->tables()->value(tableName)->schema()->table();
-        KDbTableSchemaChangeListener::registerForChanges(d->conn, tempData(), table); //this table will be used
+        KDbTableSchemaChangeListener::registerForChanges(conn, tempData(), table); //this table will be used
         data = d->tablesColumnData->createItem();
         (*data)[COLUMN_ID_COLUMN] = table->name();
         (*data)[COLUMN_ID_TABLE] = (*data)[COLUMN_ID_COLUMN];
@@ -396,6 +392,7 @@ bool
 KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
 {
     //build query schema
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     KexiQueryPartTempData * temp = tempData();
     if (temp->query()) {
         KexiQueryView *queryDataView = dynamic_cast<KexiQueryView*>(window()->viewForMode(Kexi::DataViewMode));
@@ -447,7 +444,7 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                 KDbToken token;
                 KDbExpression criteriaExpr = parseExpressionString(criteriaStr, &token,
                                                  true/*allowRelationalOperator*/);
-                if (criteriaExpr.isValid()) {//for sanity
+                if (!criteriaExpr.isValid()) {//for sanity
                     if (errMsg)
                         *errMsg = xi18nc("@info",
                                          "Invalid criteria <icode>%1</icode>", criteriaStr);
@@ -457,10 +454,11 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                 KDbVariableExpression varExpr(fieldAndTableName);
                 criteriaExpr = KDbBinaryExpression(varExpr, token, criteriaExpr);
                 //critera ok: add it to WHERE section
-                if (whereExpr.isValid())
-                    whereExpr = KDbBinaryExpression(whereExpr, KDbToken::AND, criteriaExpr);
-                else //first expr.
+                if (whereExpr.isNull()) {
                     whereExpr = criteriaExpr;
+                } else { //first expr.
+                    whereExpr = KDbBinaryExpression(whereExpr, KDbToken::AND, criteriaExpr);
+                }
             }
             if (tableName.isEmpty()) {
                 if ((*set)["isExpression"].value().toBool() == true) {
@@ -508,7 +506,7 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
                 }
                 continue;
             } else {
-                KDbTableSchema *t = d->conn->tableSchema(tableName);
+                KDbTableSchema *t = conn->tableSchema(tableName);
                 if (fieldName == "*") {
                     //single-table asterisk: <tablename> + ".*" + number
                     if (fieldVisible) {
@@ -561,13 +559,17 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
             *errMsg = msgCannotSwitch_EmptyDesign();
         return false;
     }
-    if (whereExpr.isValid()) {
-        //qDebug() << "setting CRITERIA:" << whereExpr;
-    }
 
     //set always, because if whereExpr==NULL,
     //this will clear prev. expr
-    temp->query()->setWhereExpression(whereExpr);
+    QString errorMessage;
+    QString errorDescription;
+    if (!temp->query()->setWhereExpression(whereExpr, &errorMessage, &errorDescription)) {
+        qWarning() << "Invalid expression cannot be set as WHERE:" << whereExpr;
+        qWarning() << "message=" << errorMessage << "description=" << errorDescription;
+        return false;
+    }
+    qDebug() << "WHERE set to" << whereExpr;
 
     //add relations (looking for connections)
     foreach(KexiRelationsConnection* conn, *d->relations->relationsConnections()) {
@@ -621,8 +623,8 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
 //! @todo ok, but not for expressions
         QString aliasString((*set)["alias"].value().toString());
         currentColumn = temp->query()->columnInfo(
-                            (*set)["table"].value().toString() + "."
-                            + (aliasString.isEmpty() ? currentField->name() : aliasString));
+            conn, (*set)["table"].value().toString() + "."
+                + (aliasString.isEmpty() ? currentField->name() : aliasString));
         if (currentField && currentColumn) {
             if (currentColumn->isVisible())
                 orderByColumns.appendColumn(currentColumn, sortOrder);
@@ -632,7 +634,7 @@ KexiQueryDesignerGuiEditor::buildSchema(QString *errMsg)
     }
     temp->query()->setOrderByColumnList(orderByColumns);
 
-    //qDebug() << *temp->query();
+    //qDebug() << KDbConnectionAndQuerySchema(conn, *temp->query());
     temp->registerTableSchemaChanges(temp->query());
     //! @todo ?
     return true;
@@ -691,8 +693,9 @@ KexiQueryDesignerGuiEditor::beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore)
 tristate
 KexiQueryDesignerGuiEditor::afterSwitchFrom(Kexi::ViewMode mode)
 {
-    if (!d->relations->setConnection(d->conn)) {
-        window()->setStatus(d->conn);
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
+    if (!d->relations->setConnection(conn)) {
+        window()->setStatus(conn);
         return false;
     }
     if (mode == Kexi::NoViewMode || (mode == Kexi::DataViewMode && !tempData()->query())) {
@@ -700,7 +703,7 @@ KexiQueryDesignerGuiEditor::afterSwitchFrom(Kexi::ViewMode mode)
         if (!window()->neverSaved()) {
             if (!loadLayout()) {
                 //err msg
-                window()->setStatus(d->conn,
+                window()->setStatus(conn,
                                     xi18n("Query definition loading failed."),
                                     xi18n("Query design may be corrupted so it could not be opened even in text view.\n"
                                          "You can delete the query and create it again."));
@@ -773,6 +776,7 @@ KexiQueryDesignerGuiEditor::storeNewData(const KDbObject& object,
 {
     Q_ASSERT(cancel);
     Q_UNUSED(options);
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     if (!d->dataTable->dataAwareObject()->acceptRecordEditing()) {
         *cancel = true;
         return 0;
@@ -789,7 +793,7 @@ KexiQueryDesignerGuiEditor::storeNewData(const KDbObject& object,
     }
     (KDbObject&)*temp->query() = object; //copy main attributes
 
-    bool ok = d->conn->storeNewObjectData(temp->query());
+    bool ok = conn->storeNewObjectData(temp->query());
     if (ok) {
         ok = KexiMainWindowIface::global()->project()->removeUserDataBlock(temp->query()->id()); // for sanity
     }
@@ -868,6 +872,7 @@ void KexiQueryDesignerGuiEditor::showFieldsAndRelationsForQuery(KDbQuerySchema *
 void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
     KDbQuerySchema *query, bool showFields, bool showRelations, KDbResultInfo& result)
 {
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     result.clear();
     const bool was_dirty = isDirty();
 
@@ -950,7 +955,7 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
     QSet<QString> usedCriterias; // <-- used criterias will be saved here
     //     so in step 4. we will be able to add
     //     remaining invisible columns with criterias
-    /*qDebug() << *query;
+    /*qDebug() << KDbConnectionAndQuerySchema(conn, *query);
     foreach(KDbField* field, *query->fields()) {
         qDebug() << *field;
     }*/
@@ -1001,11 +1006,9 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
         //OK, row inserted: create a new set for it
         KPropertySet &set = *createPropertySet(row_num, tableName, fieldName, true/*new one*/);
         if (!columnAlias.isEmpty())
-            set["alias"].setValue(columnAlias,
-                                  KProperty::DefaultValueOptions ^ KProperty::ValueOption::RememberOld);
+            set["alias"].setValue(columnAlias, KProperty::ValueOption::IgnoreOld);
         if (!criteriaString.isEmpty())
-            set["criteria"].setValue(criteriaString,
-                                     KProperty::DefaultValueOptions ^ KProperty::ValueOption::RememberOld);
+            set["criteria"].setValue(criteriaString, KProperty::ValueOption::IgnoreOld);
         if (field->isExpression()) {
             if (!d->changeSingleCellValue(newRecord, COLUMN_ID_COLUMN,
                                           QVariant(columnAlias + ": " + field->expression().toString(0).toString()), &result))
@@ -1017,8 +1020,8 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
     //4. show ORDER BY information
     d->data->clearRecordEditBuffer();
     const KDbOrderByColumnList* orderByColumns = query->orderByColumnList();
-    QHash<KDbQueryColumnInfo*, int> columnsOrder(
-        query->columnsOrder(KDbQuerySchema::UnexpandedListWithoutAsterisks));
+    const QHash<KDbQueryColumnInfo*, int> columnsOrder(
+        query->columnsOrder(conn, KDbQuerySchema::ColumnsOrderMode::UnexpandedListWithoutAsterisks));
     for (auto orderByColumnIt(orderByColumns->constBegin());
             orderByColumnIt != orderByColumns->constEnd(); ++orderByColumnIt)
     {
@@ -1058,8 +1061,7 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
             d->data->saveRecordChanges(data, true);
             (*rowPropertySet)["sorting"].clearModifiedFlag(); // this property should look "fresh"
             if (!(*data)[COLUMN_ID_VISIBLE].toBool()) //update
-                (*rowPropertySet)["visible"].setValue(QVariant(false),
-                                                      KProperty::DefaultValueOptions ^ KProperty::ValueOption::RememberOld);
+                (*rowPropertySet)["visible"].setValue(QVariant(false),  KProperty::ValueOption::IgnoreOld);
         }
     }
 
@@ -1113,10 +1115,8 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
 //! @todo  if (!columnAlias.isEmpty())
 //! @todo   set["alias"].setValue(columnAlias, false);
 ////  if (!criteriaString.isEmpty())
-        set["criteria"].setValue(criteriaString,
-                                 KProperty::DefaultValueOptions ^ KProperty::ValueOption::RememberOld);
-        set["visible"].setValue(QVariant(false),
-                                KProperty::DefaultValueOptions ^ KProperty::ValueOption::RememberOld);
+        set["criteria"].setValue(criteriaString, KProperty::ValueOption::IgnoreOld);
+        set["visible"].setValue(QVariant(false), KProperty::ValueOption::IgnoreOld);
     }
 
     //current property set has most probably changed
@@ -1131,6 +1131,7 @@ void KexiQueryDesignerGuiEditor::showFieldsOrRelationsForQueryInternal(
 
 bool KexiQueryDesignerGuiEditor::loadLayout()
 {
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     QString xml;
     //! @todo errmsg
     if (!loadDataBlock(&xml, "query_layout") || xml.isEmpty()) {
@@ -1163,7 +1164,7 @@ bool KexiQueryDesignerGuiEditor::loadLayout()
     //add tables and relations to the relation view
     for (el = doc_el.firstChild().toElement(); !el.isNull(); el = el.nextSibling().toElement()) {
         if (el.tagName() == "table") {
-            KDbTableSchema *t = d->conn->tableSchema(el.attribute("name"));
+            KDbTableSchema *t = conn->tableSchema(el.attribute("name"));
             int x = el.attribute("x", "-1").toInt();
             int y = el.attribute("y", "-1").toInt();
             int width = el.attribute("width", "-1").toInt();
@@ -1189,15 +1190,16 @@ bool KexiQueryDesignerGuiEditor::loadLayout()
 
 bool KexiQueryDesignerGuiEditor::storeLayout()
 {
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     KexiQueryPartTempData * temp = tempData();
 
     // Save SQL without driver-escaped keywords.
     if (window()->schemaObject()) //set this instance as obsolete (only if it's stored)
-        d->conn->setQuerySchemaObsolete(window()->schemaObject()->name());
+        conn->setQuerySchemaObsolete(window()->schemaObject()->name());
 
     KDbSelectStatementOptions options;
-    options.addVisibleLookupColumns = false;
-    KDbNativeStatementBuilder builder;
+    options.setAddVisibleLookupColumns(false);
+    KDbNativeStatementBuilder builder(conn, KDb::KDbEscaping);
     KDbEscapedString sql;
     if (!builder.generateSelectStatement(&sql, temp->query(), options)) {
         return false;
@@ -1577,10 +1579,10 @@ void KexiQueryDesignerGuiEditor::slotBeforeColumnCellChanged(KDbRecordData *data
             }
         }
     }
-    KProperty::ValueOptions valueOptions = KProperty::DefaultValueOptions;
+    KProperty::ValueOptions valueOptions;
     KPropertySet *set = d->sets->findPropertySetForItem(*data);
     if (!set) {
-        valueOptions ^= KProperty::ValueOption::RememberOld; // no old val.
+        valueOptions |= KProperty::ValueOption::IgnoreOld;
         const int row = d->data->indexOf(data);
         if (row < 0) {
             result->success = false;
@@ -1655,9 +1657,9 @@ void KexiQueryDesignerGuiEditor::slotBeforeVisibleCellChanged(KDbRecordData *dat
     QVariant& newValue, KDbResultInfo* result)
 {
     Q_UNUSED(result)
-    KProperty::ValueOptions valueOptions = KProperty::DefaultValueOptions;
+    KProperty::ValueOptions valueOptions;
     if (!propertySet()) {
-        valueOptions ^= KProperty::ValueOption::RememberOld; // no old val.
+        valueOptions |= KProperty::ValueOption::IgnoreOld;
         createPropertySet(d->dataTable->dataAwareObject()->currentRecord(),
                           (*data)[COLUMN_ID_TABLE].toString(),
                           (*data)[COLUMN_ID_COLUMN].toString(), true);
@@ -1687,10 +1689,10 @@ void KexiQueryDesignerGuiEditor::slotBeforeTotalsCellChanged(KDbRecordData *data
 void KexiQueryDesignerGuiEditor::slotBeforeSortingCellChanged(KDbRecordData *data,
     QVariant& newValue, KDbResultInfo* result)
 {
-    KProperty::ValueOptions valueOptions = KProperty::DefaultValueOptions;
+    KProperty::ValueOptions valueOptions;
     KPropertySet *set = d->sets->findPropertySetForItem(*data);
     if (!set) {
-        valueOptions ^= KProperty::ValueOption::RememberOld; // no old val.
+        valueOptions |= KProperty::ValueOption::IgnoreOld;
         set = createPropertySet(d->dataTable->dataAwareObject()->currentRecord(),
                                 (*data)[COLUMN_ID_TABLE].toString(),
                                 (*data)[COLUMN_ID_COLUMN].toString(), true);
@@ -1868,11 +1870,11 @@ KexiQueryDesignerGuiEditor::createPropertySet(int row,
       prop->setVisible(false);*/
 
     //sorting
-    QStringList slist, nlist;
-    slist << "nosorting" << "ascending" << "descending";
-    nlist << xi18n("None") << xi18n("Ascending") << xi18n("Descending");
+    KPropertyListData *listData = new KPropertyListData(
+        {"nosorting", "ascending", "descending"},
+        QVariantList{xi18n("None"), xi18n("Ascending"), xi18n("Descending")});
     set->addProperty(prop = new KProperty("sorting",
-            slist, nlist, slist[0], xi18n("Sorting")));
+            listData, listData->keys().first(), xi18n("Sorting")));
     prop->setVisible(false);
 
     set->addProperty(prop = new KProperty("criteria", QVariant(QString())));

@@ -56,6 +56,7 @@ bool KexiDataTableScrollArea::setData(KDbCursor *cursor)
 {
     if (!cursor) {
         clearColumns();
+        KexiTableScrollArea::setData(nullptr);
         m_cursor = 0;
         return true;
     }

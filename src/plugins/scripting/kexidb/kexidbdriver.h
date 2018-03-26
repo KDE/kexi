@@ -71,11 +71,11 @@ public Q_SLOTS:
     QString escapeString(const QString& s);
     /** Returns true if this driver is file-based. */
     bool isFileDriver();
-    /** Return a name of MIME type of files handled by this driver if it is a
-    file-based database's driver otherwise returns null string. */
-    QString fileDBDriverMimeType();
+    /** Return a list of MIME types of files handled by this driver if it is a
+    file-based database's driver otherwise returns an empty list */
+    QStringList fileDBDriverMimeTypes();
     /** Returns true if the passed string is a system object's name, eg. name
-    of build-in system table that cannot be used or created by a user. */
+    of build-in system table that cannot be used or creataned by a user. */
     bool isSystemObjectName(const QString& name);
     /** Returns true if the passed string is a system database's name, eg. name
     of build-in, system database that cannot be used or created by a user. */
@@ -87,7 +87,7 @@ public Q_SLOTS:
     a SQL-statement and those escaped string got returned by the method.
     The first argument defines the fieldtype to what we should escape the
     second argument to. */
-    QString valueToSQL(const QString& fieldtype, const QVariant& value);
+    QString valueToSql(const QString& fieldtype, const QVariant& value);
 
     /** Create and return new \a KexiDBConnection object that uses the as
     argument passed \a KexiDBConnectionData object or NULL if the connection

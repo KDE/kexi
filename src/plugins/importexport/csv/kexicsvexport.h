@@ -23,6 +23,7 @@
 #include <KDbUtils>
 
 class QTextStream;
+class KDbConnection;
 class KDbTableOrQuerySchema;
 
 namespace KexiCSVExport
@@ -55,7 +56,7 @@ public:
  @param recordCount record count of the input data or -1 if the record cound has not yet been computed
  @param predefinedTextStream text stream that should be used instead of writing to a file
 */
-bool exportData(KDbTableOrQuerySchema *tableOrQuery, const Options& options,
+bool exportData(KDbConnection* conn, KDbTableOrQuerySchema *tableOrQuery, const Options& options,
                 int recordCount = -1,  QTextStream *predefinedTextStream = 0);
 
 }

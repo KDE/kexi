@@ -21,16 +21,25 @@
 
 #include <KDbConnection>
 #include <KDbCursor>
+#include <KDbNativeStatementBuilder>
 
 #include <QDebug>
 
-KRScriptFunctions::KRScriptFunctions(const KReportDataSource* kodata, KDbConnection* conn)
+KRScriptFunctions::KRScriptFunctions(const KReportDataSource* datasource, KDbConnection* conn)
 {
-    m_cursor = kodata;
+    m_cursor = datasource;
     m_connection = conn;
 
-    if (kodata) {
-        m_source = kodata->sourceName();
+    if (datasource) {
+        if (m_connection->containsTable(datasource->sourceName()) == true) {
+            m_source = datasource->sourceName();
+        } else if (m_connection->querySchema(datasource->sourceName())) {
+            KDbNativeStatementBuilder builder(conn, KDb::DriverEscaping);
+            KDbEscapedString source;
+            if (builder.generateSelectStatement(&source, m_connection->querySchema(datasource->sourceName()))) {
+                m_source = source.toByteArray();
+            }
+        }
     }
 }
 

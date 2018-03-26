@@ -214,9 +214,9 @@ void KexiDBTextEdit::clear()
     document()->clear();
 }
 
-void KexiDBTextEdit::setColumnInfo(KDbQueryColumnInfo* cinfo)
+void KexiDBTextEdit::setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo)
 {
-    KexiFormDataItemInterface::setColumnInfo(cinfo);
+    KexiFormDataItemInterface::setColumnInfo(conn, cinfo);
     if (!cinfo) {
         m_length = 0;
         return;

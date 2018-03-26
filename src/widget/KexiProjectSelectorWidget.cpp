@@ -310,8 +310,9 @@ KexiProjectSelectorDialog::KexiProjectSelectorDialog(QWidget *parent,
                     xi18n("Open Database Connection"));
     KGuiItem::assign(button(QDialogButtonBox::Ok), okItem);
 
-    d->sel->label()->setText(xi18n("Select a project on <resource>%1</resource> database server to open:",
-                                   _cdata.toUserVisibleString(KDbConnectionData::NoUserVisibleStringOption)));
+    d->sel->label()->setText(
+        xi18n("Select a project on <resource>%1</resource> database server to open:",
+              _cdata.toUserVisibleString(KDbConnectionData::UserVisibleStringOption::None)));
 }
 
 KexiProjectSelectorDialog::~KexiProjectSelectorDialog()

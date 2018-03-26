@@ -90,7 +90,7 @@ int main(int argc, char** argv)
 
     KAboutData aboutData(prgname, 0, kxi18n("KexiDBTest"),
                          KEXI_VERSION_STRING, KLocalizedString(), KAboutData::License_GPL,
-                         kxi18n("(c) 2003-2010, Kexi Team\n"
+                         kxi18n("(c) 2003-2010, KEXI Team\n"
                                "(c) 2003-2006, OpenOffice Software.\n"),
                          KLocalizedString(),
                          "http://www.kexi-project.org",
@@ -124,7 +124,7 @@ int main(int argc, char** argv)
                           "3. All other tests require <placeholder>db_name</placeholder><nl/>"
                           " and <placeholder>driver_name</placeholder> arguments.\n"
                           "4. 'tables' test automatically runs 'dbcreation'<nl/>"
-                          " test. (<placeholder>new_db_name</placeholder> is removed if already exists).<nl/>"
+                          " test. (<placeholder>new_db_name</placeholder> is deleted if already exists).<nl/>"
                           "5. <placeholder>db_name</placeholder> must be a valid kexi database<nl/>"
                           " e.g. created with 'tables' test."));
     options.add("+driver_name", kxi18n("Driver name"));
@@ -264,7 +264,7 @@ int main(int argc, char** argv)
         app->exec();
 
     if (r)
-        qDebug() << "RECENT SQL STATEMENT:" << conn->recentSQLString();
+        qDebug() << "RECENT SQL STATEMENT: " << conn->recentSqlString();
 
     if (project) {
         if (!project->closeConnection())

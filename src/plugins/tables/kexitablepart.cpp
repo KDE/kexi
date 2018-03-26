@@ -25,12 +25,15 @@
 #include <core/kexiproject.h>
 #include <core/kexipartinfo.h>
 #include <KexiPropertyPaneWidget.h>
+#include <kexiutils/utils.h>
+#include <widget/properties/KexiCustomPropertyFactory.h>
 #include <widget/tableview/KexiDataTableView.h>
 #include <widget/tableview/KexiDataTableScrollArea.h>
 #include "kexitabledesignerview.h"
 #include "kexitabledesigner_dataview.h"
 #include "kexilookupcolumnpage.h"
 #include <KexiWindow.h>
+#include <kexiutils/utils.h>
 
 #include <KDbConnection>
 
@@ -63,6 +66,9 @@ KexiTablePart::KexiTablePart(QObject *parent, const QVariantList& l)
         l)
   , d(new Private)
 {
+    // needed for custom "identifier" property editor widget
+    KexiCustomPropertyFactory::init();
+
 //! @todo js: also add Kexi::TextViewMode when we'll have SQL ALTER TABLE EDITOR!!!
 }
 
@@ -128,8 +134,10 @@ tristate KexiTablePart::remove(KexiPart::Item *item)
     if (sch) {
         const tristate res = KexiTablePart::askForClosingObjectsUsingTableSchema(
             KexiMainWindowIface::global()->openedWindowFor(item->identifier()), conn, sch,
-            xi18n("You are about to remove table <resource>%1</resource> but following objects using this table are opened:",
-                 sch->name()));
+            kxi18nc("@info",
+                    "<para>You are about to delete table <resource>%1</resource> but it is used by "
+                    "following opened windows:</para>")
+                .subs(sch->name()));
         if (res != true) {
             return res;
         }
@@ -148,8 +156,10 @@ tristate KexiTablePart::rename(KexiPart::Item *item, const QString& newName)
         return false;
     const tristate res = KexiTablePart::askForClosingObjectsUsingTableSchema(
         KexiMainWindowIface::global()->openedWindowFor(item->identifier()), conn, schema,
-        xi18n("You are about to rename table <resource>%1</resource> but following objects using this table are opened:",
-             schema->name()));
+        kxi18nc("@info",
+                "<para>You are about to rename table <resource>%1</resource> but it is used by "
+                "following opened windows:</para>")
+            .subs(schema->name()));
     if (res != true) {
         return res;
     }
@@ -161,18 +171,22 @@ KDbObject* KexiTablePart::loadSchemaObject(KexiWindow *window, const KDbObject& 
 {
     Q_UNUSED(window);
     Q_UNUSED(viewMode);
-    if (ownedByWindow)
-        *ownedByWindow = false;
+    Q_ASSERT(ownedByWindow);
+    *ownedByWindow = false;
     return KexiMainWindowIface::global()->project()->dbConnection()->tableSchema(object.name());
 }
 
-//static
-tristate KexiTablePart::askForClosingObjectsUsingTableSchema(
-    KexiWindow *window, KDbConnection *conn,
-    KDbTableSchema *table, const QString& msg)
+// static
+tristate KexiTablePart::askForClosingObjectsUsingTableSchema(KexiWindow *window,
+                                                             KDbConnection *conn,
+                                                             KDbTableSchema *table,
+                                                             const KLocalizedString &msg)
 {
     Q_ASSERT(conn);
     Q_ASSERT(table);
+    if (!window) {
+        return true;
+    }
     QList<KDbTableSchemaChangeListener*> listeners
             = KDbTableSchemaChangeListener::listeners(conn, table);
     KexiTablePartTempData *temp = static_cast<KexiTablePartTempData*>(window->data());
@@ -186,23 +200,33 @@ tristate KexiTablePart::askForClosingObjectsUsingTableSchema(
     }
 
     if (!listeners.isEmpty()) {
-        QString openedObjectsStr = "<list>";
+        QString openedObjectsStr = "<p><ul>";
         for(const KDbTableSchemaChangeListener* listener : listeners) {
-            openedObjectsStr += QString("<item>%1</item>").arg(listener->name());
+            openedObjectsStr += QString("<li>%1</li>").arg(listener->name());
         }
-        openedObjectsStr += "</list>";
-        const int r = KMessageBox::questionYesNo(window,
-                                           i18nc("@info", "<para>%1</para><para>%2</para>", msg, openedObjectsStr)
-                                           + "<para>"
-                                           + xi18n("Do you want to close all windows for these objects?")
-                                           + "</para>",
-                                           QString(), KGuiItem(xi18nc("@action:button Close All Windows", "Close Windows"), koIconName("window-close")), KStandardGuiItem::cancel());
+        openedObjectsStr += "</ul></p>";
+        QString message = "<html>"
+            + i18nc("@info/plain Sentence1 Sentence2 Sentence3", "%1%2%3",
+                    KexiUtils::localizedStringToHtmlSubstring(msg), openedObjectsStr,
+                    KexiUtils::localizedStringToHtmlSubstring(
+                        kxi18nc("@info", "<para>Do you want to close these windows and save the "
+                                         "design or cancel saving?</para>")))
+            + "</html>";
+        KGuiItem closeAndSaveItem(KStandardGuiItem::save());
+        closeAndSaveItem.setText(
+            xi18nc("@action:button Close all windows and save", "Close Windows and Save"));
+        closeAndSaveItem.setToolTip(xi18nc("@info:tooltip Close all windows and save design",
+                                           "Close all windows and save design"));
+        const int r = KMessageBox::questionYesNo(window, message, QString(), closeAndSaveItem,
+                                                 KStandardGuiItem::cancel(), QString(),
+                                                 KMessageBox::Notify | KMessageBox::Dangerous);
         if (r != KMessageBox::Yes) {
             return cancelled;
         }
     }
-    //try to close every window depending on the table (if present) and also the temp-data's listener (if present)
-    const tristate res = KDbTableSchemaChangeListener::closeListeners(conn, table);
+    // try to close every window depending on the table (if present) and also the temp-data's
+    // listener (if present)
+    const tristate res = KDbTableSchemaChangeListener::closeListeners(conn, table, { temp });
     if (res != true) { //do not expose closing errors twice; just cancel
         return cancelled;
     }
@@ -221,7 +245,7 @@ KLocalizedString KexiTablePart::i18nMessage(
 
     if (window->currentViewMode() == Kexi::DesignViewMode && !window->neverSaved()
             && englishMessage == ":additional message before saving design")
-        return kxi18nc(I18NC_NOOP("@info", "<warning>Any data in this table will be removed upon design's saving!</warning>"));
+        return kxi18nc(I18NC_NOOP("@info", "<warning>Any data in this table will be deleted upon design's saving!</warning>"));
 
     return Part::i18nMessage(englishMessage, window);
 }
@@ -270,13 +294,15 @@ public:
     KDbConnection *conn;
 };
 
-KexiTablePartTempData::KexiTablePartTempData(QObject* parent, KDbConnection *conn)
+KexiTablePartTempData::KexiTablePartTempData(KexiWindow* parent, KDbConnection *conn)
         : KexiWindowData(parent)
         , KDbTableSchemaChangeListener()
         , tableSchemaChangedInPreviousView(true /*to force reloading on startup*/)
         , d(new Private)
 {
     d->conn = conn;
+    setName(KexiUtils::localizedStringToHtmlSubstring(
+        kxi18nc("@info", "Table <resource>%1</resource>").subs(parent->partItem()->name())));
 }
 
 KexiTablePartTempData::~KexiTablePartTempData()
@@ -295,14 +321,27 @@ KDbConnection* KexiTablePartTempData::connection()
     return d->conn;
 }
 
+void KexiTablePartTempData::closeDataInDataView()
+{
+    const KexiWindow* window = static_cast<KexiWindow*>(parent());
+    if (window->currentViewMode() != Kexi::DataViewMode) {
+        KexiTableDesigner_DataView *dataView
+            = qobject_cast<KexiTableDesigner_DataView*>(window->viewForMode(Kexi::DataViewMode));
+        if (dataView && dataView->tableView()->data()) {
+            dataView->setData(nullptr);
+        }
+    }
+}
+
 void KexiTablePartTempData::setTable(KDbTableSchema *table)
 {
     if (d->table == table) {
         return;
     }
     if (d->table) {
-        KDbTableSchemaChangeListener::unregisterForChanges(d->conn, this, d->table);
+        KDbTableSchemaChangeListener::unregisterForChanges(d->conn, d->table);
     }
+    closeDataInDataView();
     d->table = table;
     if (d->table) {
         KDbTableSchemaChangeListener::registerForChanges(d->conn, this, d->table);
@@ -312,12 +351,10 @@ void KexiTablePartTempData::setTable(KDbTableSchema *table)
 tristate KexiTablePartTempData::closeListener()
 {
     KexiWindow* window = static_cast<KexiWindow*>(parent());
-    if (window->currentViewMode() != Kexi::DataViewMode) {
-        KexiTableDesigner_DataView *dataView
-            = qobject_cast<KexiTableDesigner_DataView*>(window->viewForMode(Kexi::DataViewMode));
-        if (dataView && dataView->tableView()->data()) {
-            dataView->setData(nullptr);
-        }
+    qDebug() << window->partItem()->name();
+    closeDataInDataView();
+    if (closeWindowOnCloseListener) {
+        return KexiMainWindowIface::global()->closeWindow(window);
     }
     return true;
 }

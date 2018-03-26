@@ -42,10 +42,10 @@ public:
     virtual ~KexiDBComboBox();
 
     //! Implemented for KexiComboBoxBase: form has no 'related data' model (only the full database model)
-    virtual const KDbTableViewColumn *column() const;
+    KDbTableViewColumn *column() override;
 
     //! Implemented for KexiComboBoxBase
-    virtual KDbField *field() const;
+    KDbField *field() override;
 
     //! Implemented for KexiComboBoxBase
     virtual QVariant origValue() const;
@@ -67,7 +67,7 @@ public:
 
     //! Reimplemented after KexiDBAutoField: jsut sets \a cinfo without initializing a subwidget.
     //! Initialization is performed by \ref setVisibleColumnInfo().
-    virtual void setColumnInfo(KDbQueryColumnInfo* cinfo);
+    void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) override;
 
     /*! Used internally to set visible database column information.
      Reimplemented: performs initialization of the subwidget. */
@@ -75,7 +75,7 @@ public:
 
     /*! \return visible database column information for this item.
      Reimplemented. */
-    virtual KDbQueryColumnInfo* visibleColumnInfo() const;
+    virtual KDbQueryColumnInfo* visibleColumnInfo();
 
     virtual QColor paletteBackgroundColor() const;
 
@@ -165,6 +165,9 @@ protected:
      so the key press won't be consumed to perform "cancel editing".
      Also used for grabbing page down/up keys. */
     virtual bool keyPressed(QKeyEvent *ke);
+
+    //! Implemented for KexiComboBoxBase
+    KDbConnection *connection() override;
 
     class Private;
     Private * const d;

@@ -33,7 +33,6 @@ namespace KexiMigration
 {
 
 /**
-@author Adam Pigg
 */
 class SpreadsheetMigrate : public KexiMigrate
 {

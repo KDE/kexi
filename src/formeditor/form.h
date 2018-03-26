@@ -1,7 +1,7 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@gmx.at>
    Copyright (C) 2004 Cedric Pasteur <cedric.pasteur@free.fr>
-   Copyright (C) 2004-2014 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2017 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2014 Michał Poteralski <michalpoteralskikde@gmail.com>
 
    This library is free software; you can redistribute it and/or
@@ -231,11 +231,11 @@ public:
     /*! \return The filename of the UI file this Form was saved to,
     or empty string if the Form hasn't be saved yet. */
 //! @todo move this field out of this class
-    QString filename() const;
+    QString fileName() const;
 
     //! Sets the filename of this Form to \a filename.
 //! @todo move this field out of this class
-    void setFilename(const QString &file);
+    void setFileName(const QString &file);
 
     /*! Clears form's undo/redo stack. */
     void clearUndoStack();
@@ -703,14 +703,14 @@ protected:
     // Following methods are used to create special types of properties, different
     // from Q_PROPERTY
 
-    /*! Creates the properties related to alignment (ie hAlign, vAlign and WordBreak) for
+    /*! Creates the properties related to alignment (ie hAlign, vAlign) for
      the QWidget \a widget. \a subwidget is the same as \a widget if the widget itself handles
      the property and it's a child widget if the child handles the property.
      For example, the second case is true for KexiDBAutoField.
      \a meta  is the QMetaProperty for "alignment" property" of subwidget.  */
     void createAlignProperty(const QMetaProperty &meta, QWidget *widget, QWidget *subwidget);
 
-    /*! Saves the properties related to alignment (ie hAlign, vAlign and WordBreak)
+    /*! Saves the properties related to alignment (ie hAlign, vAlign)
      and modifies the "alignment" property of  the widget.*/
     void saveAlignProperty(const QString &property);
 

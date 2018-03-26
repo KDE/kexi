@@ -56,12 +56,14 @@ static QStringList correctStandardLocations(const QString &privateName,
                                      const QString &extraLocation)
 {
     QStringList result;
-    if (!privateName.isEmpty()) {
+    QStringList standardLocations(QStandardPaths::standardLocations(location));
+    if (!extraLocation.isEmpty()) {
+        standardLocations.append(extraLocation);
+    }
+    if (privateName.isEmpty()) {
+        result = standardLocations;
+    } else {
         QRegularExpression re(QLatin1Char('/') + QCoreApplication::applicationName() + QLatin1Char('$'));
-        QStringList standardLocations(QStandardPaths::standardLocations(location));
-        if (!extraLocation.isEmpty()) {
-            standardLocations.append(extraLocation);
-        }
         for(const QString &dir : standardLocations) {
             if (dir.indexOf(re) != -1) {
                 QString realDir(dir);
@@ -75,69 +77,59 @@ static QStringList correctStandardLocations(const QString &privateName,
 
 static QString locateFile(const QString &privateName,
                           const QString& path, QStandardPaths::StandardLocation location,
-                          const QString &extraLocation)
+                          const QString &extraLocation, QStringList *triedLocations)
 {
-    // let QStandardPaths handle this, it will look for app local stuff
-    QString fullPath = QFileInfo(
-        QStandardPaths::locate(location, path)).canonicalFilePath();
-    if (fileReadable(fullPath)) {
-        return fullPath;
-    }
-
-    // Try extra locations
-    if (!extraLocation.isEmpty()) {
-        fullPath = QFileInfo(extraLocation + '/' + path).canonicalFilePath();
-        if (fileReadable(fullPath)) {
-            return fullPath;
+    Q_ASSERT(triedLocations);
+    const QString subdirPath = QFileInfo(path).dir().path();
+    {
+        // Priority #1: This makes the app portable and working without installation, from the build dir
+        const QString dataDir = QCoreApplication::applicationDirPath() + QStringLiteral("/data/") + privateName;
+        triedLocations->append(QDir::cleanPath(dataDir + '/' + subdirPath));
+        const QString dataFile = QFileInfo(dataDir + '/' + path).canonicalFilePath();
+        if (fileReadable(dataFile)) {
+            return dataFile;
         }
     }
-#ifdef Q_OS_WIN
-    // This makes the app portable and working without installation, from the build dir
-    const QString dataDir = QFileInfo(QCoreApplication::applicationDirPath() + QStringLiteral("/data/") + path).canonicalFilePath();
-    if (fileReadable(dataDir)) {
-        return dataDir;
+    // Priority #2: Let QStandardPaths handle this, it will look for app local stuff
+    const QStringList correctedStandardLocations(correctStandardLocations(privateName, location, extraLocation));
+    for (const QString &dir : correctedStandardLocations) {
+        triedLocations->append(QDir::cleanPath(dir + '/' + subdirPath));
+        const QString dataFile = QFileInfo(dir + QLatin1Char('/') + path).canonicalFilePath();
+        if (fileReadable(dataFile)) {
+            return dataFile;
+        }
     }
-#endif
-    // Try in PATH subdirs, useful for running apps from the build dir, without installing
+    // Priority #3: Try in PATH subdirs, useful for running apps from the build dir, without installing
     for(const QByteArray &pathDir : qgetenv("PATH").split(KPATH_SEPARATOR)) {
-        const QString dataDirFromPath = QFileInfo(QFile::decodeName(pathDir) + QStringLiteral("/data/")
-                                                  + path).canonicalFilePath();
+        const QString dataDir = QFile::decodeName(pathDir) + QStringLiteral("/data/");
+        triedLocations->append(QDir::cleanPath(dataDir + '/' + subdirPath));
+        const QString dataDirFromPath = QFileInfo(dataDir + '/' + path).canonicalFilePath();
         if (fileReadable(dataDirFromPath)) {
             return dataDirFromPath;
         }
     }
-
-    const QStringList correctedStandardLocations(correctStandardLocations(privateName, location, extraLocation));
-    for(const QString &dir : correctedStandardLocations) {
-        fullPath = QFileInfo(dir + QLatin1Char('/') + path).canonicalFilePath();
-        if (fileReadable(fullPath)) {
-            return fullPath;
-        }
-    }
-    return fullPath;
+    return QString();
 }
 
 #ifndef KEXI_SKIP_REGISTERRESOURCE
 
 #ifdef KEXI_BASE_PATH
-#define BASE_PATH KEXI_BASE_PATH
+const QString BASE_PATH(KEXI_BASE_PATH);
 #else
-#define BASE_PATH QCoreApplication::applicationName()
+const QString BASE_PATH(QCoreApplication::applicationName());
 #endif
 
 static bool registerResource(const QString& path, QStandardPaths::StandardLocation location,
                              const QString &resourceRoot, const QString &extraLocation,
                              KLocalizedString *errorMessage, KLocalizedString *detailsErrorMessage)
 {
-    const QString fullPath = locateFile(BASE_PATH,
-                                        path, location, extraLocation);
+    QStringList triedLocations;
+    const QString privateName = location == QStandardPaths::GenericDataLocation
+        ? QString() : BASE_PATH;
+    const QString fullPath = locateFile(privateName, path, location, extraLocation, &triedLocations);
     if (fullPath.isEmpty()
         || !QResource::registerResource(fullPath, resourceRoot))
     {
-        QStringList triedLocations(QStandardPaths::standardLocations(location));
-        if (!extraLocation.isEmpty()) {
-            triedLocations.append(extraLocation);
-        }
         const QString triedLocationsString = QLocale().createSeparatedList(triedLocations);
 #ifdef QT_ONLY
         *errorMessage = QString("Could not open icon resource file %1.").arg(path);
@@ -145,9 +137,9 @@ static bool registerResource(const QString& path, QStandardPaths::StandardLocati
 #else
         *errorMessage = kxi18nc("@info",
             "<para>Could not open icon resource file <filename>%1</filename>.</para>"
-            "<para><application>Kexi</application> will not start. "
-            "Please check if <application>Kexi</application> is properly installed.</para>")
-            .subs(QFileInfo(path).fileName());
+            "<para><application>%2</application> will not start. "
+            "Please check if it is properly installed.</para>")
+            .subs(QFileInfo(path).fileName()).subs(QApplication::applicationDisplayName());
         *detailsErrorMessage = kxi18nc("@info Tried to find files in <dir list>",
                                        "Tried to find in %1.").subs(triedLocationsString);
 #endif
@@ -161,7 +153,7 @@ static bool registerResource(const QString& path, QStandardPaths::StandardLocati
 
 #ifndef KEXI_SKIP_SETUPBREEZEICONTHEME
 
-static bool registerGlobalBreezeIconsResource(KLocalizedString *errorMessage,
+inline bool registerGlobalBreezeIconsResource(KLocalizedString *errorMessage,
                                               KLocalizedString *detailsErrorMessage)
 {
     QString extraLocation;
@@ -177,7 +169,7 @@ static bool registerGlobalBreezeIconsResource(KLocalizedString *errorMessage,
 }
 
 //! Tell Qt about the theme
-static void setupBreezeIconTheme()
+inline void setupBreezeIconTheme()
 {
 #ifdef QT_GUI_LIB
     QIcon::setThemeSearchPaths(QStringList() << QStringLiteral(":/icons"));
@@ -201,28 +193,24 @@ static bool registerIconsResource(const QString &privateName, const QString& pat
                              const QString &resourceRoot, const QString &extraLocation,
                              QString *errorMessage, QString *detailedErrorMessage)
 {
-    const QString fullPath = locateFile(privateName, path, location, extraLocation);
+    QStringList triedLocations;
+    const QString fullPath = locateFile(privateName, path, location, extraLocation, &triedLocations);
     if (fullPath.isEmpty() || !QFileInfo(fullPath).isReadable()
         || !QResource::registerResource(fullPath, resourceRoot))
     {
-        QStringList triedLocations(QStandardPaths::standardLocations(location));
-        if (!extraLocation.isEmpty()) {
-            triedLocations.append(extraLocation);
-        }
-        triedLocations.append(correctStandardLocations(privateName, location, extraLocation));
         const QString triedLocationsString = QLocale().createSeparatedList(triedLocations);
 #ifdef QT_ONLY
-        *errorMessage = QString("Could not open icon resource file %1.").arg(path);
+        *errorMessage
+            = QString("Could not open icon resource file \"%1\". Please check if application "
+                      "is properly installed.").arg(path);
         *detailedErrorMessage = QString("Tried to find in %1.").arg(triedLocationsString);
 #else
-        //! @todo 3.1 Re-add translation
-        *errorMessage = /*QObject::tr*/ QString::fromLatin1(
-            "Could not open icon resource file \"%1\". "
-            "Application will not start. "
-            "Please check if it is properly installed.")
-            .arg(QFileInfo(path).fileName());
-        //! @todo 3.1 Re-add translation
-        *detailedErrorMessage = QString::fromLatin1("Tried to find in %1.").arg(triedLocationsString);
+        *errorMessage = xi18nc(
+            "@info", "Could not open icon resource file <filename>%1</filename>. "
+                     "Please check if <application>%2</application> is properly installed.",
+            QFileInfo(path).fileName(), QApplication::applicationDisplayName());
+        *detailedErrorMessage = xi18nc("@info Tried to find files in <dir list>",
+                                       "Tried to find in %1.", triedLocationsString);
 #endif
         return false;
     }

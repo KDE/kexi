@@ -98,7 +98,7 @@ int main(int argc, char* argv[])
                 qDebug() << "Project File:" << selFile;
             else if (startup.selectedExistingConnection()) {
                 qDebug() << "Existing connection:" << startup.selectedExistingConnection()->toUserVisibleString();
-                //ok, now we are trying to show daabases for this conenction to this user
+                //ok, now we are trying to show databases for this connection to this user
                 //! @todo
             }
         } else if (r == KexiStartupDialog::OpenRecentResult) {

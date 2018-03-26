@@ -1,7 +1,7 @@
 /*
  * Kexi Report Plugin
  * Copyright (C) 2007-2008 by Adam Pigg <adam@piggz.co.uk>
- * Copyright (C) 2011-2015 Jarosław Staniek <staniek@kde.org>
+ * Copyright (C) 2011-2017 Jarosław Staniek <staniek@kde.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -24,27 +24,42 @@
 #include <core/KexiWindowData.h>
 
 #include <KReportDataSource>
+#include <KReportScriptSource>
+
+#include <KDbTableSchemaChangeListener>
+
 #include <QDomElement>
 
-class KexiReportPartTempData : public KexiWindowData
+class KexiReportPartTempData : public KexiWindowData, public KDbTableSchemaChangeListener
 {
     Q_OBJECT
 public:
-    explicit KexiReportPartTempData(QObject* parent);
+    KexiReportPartTempData(KexiWindow* parent, KDbConnection *conn);
+    ~KexiReportPartTempData();
     QDomElement reportDefinition;
     QDomElement connectionDefinition;
 
     /*! true, if \a document member has changed in previous view. Used on view switching.
     Check this flag to see if we should refresh data for DataViewMode. */
     bool reportSchemaChangedInPreviousView;
+
+    KDbConnection *connection();
+
+protected:
+    //! This temp-data acts as a listener for tracking changes in table schema
+    //! used by the report. This method closes the report on request.
+    tristate closeListener() override;
+
+private:
+    Q_DISABLE_COPY(KexiReportPartTempData)
+    class Private;
+    Private * const d;
 };
 
 /**
  * @short Application Main Window
- * @author Adam Pigg <adam@piggz.co.uk>
- * @version 0.1
  */
-class KexiReportPart : public KexiPart::Part
+class KexiReportPart : public KexiPart::Part, public KReportScriptSource
 {
     Q_OBJECT
 public:
@@ -63,12 +78,15 @@ public:
     virtual KLocalizedString i18nMessage(const QString& englishMessage,
                                          KexiWindow* window) const;
 
-protected:
-    virtual KexiView* createView(QWidget *parent, KexiWindow* win,
-                                 KexiPart::Item *item, Kexi::ViewMode = Kexi::DataViewMode,
-                                 QMap<QString, QVariant>* staticObjectArgs = 0);
+    QStringList scriptList() const override;
+    QString scriptCode(const QString& script) const override;
 
-    virtual KexiWindowData* createWindowData(KexiWindow* window);
+protected:
+    KexiView *createView(QWidget *parent, KexiWindow *win, KexiPart::Item *item,
+                         Kexi::ViewMode = Kexi::DataViewMode,
+                         QMap<QString, QVariant> *staticObjectArgs = nullptr) override Q_REQUIRED_RESULT;
+
+    KexiWindowData* createWindowData(KexiWindow* window) override Q_REQUIRED_RESULT;
 
     virtual void initPartActions();
 

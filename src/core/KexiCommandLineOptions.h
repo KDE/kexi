@@ -22,17 +22,20 @@
 #ifndef KEXICOMMANDLINEOPTIONS_H
 #define KEXICOMMANDLINEOPTIONS_H
 
+#include "kexicore_export.h"
 #include <KLocalizedString>
-
 #include <QCommandLineOption>
 
 class QCommandLineParser;
 
-//! Command line options for Kexi
-class KexiCommandLineOptions
+//! Command line options for KEXI
+class KEXICORE_EXPORT KexiCommandLineOptions
 {
 public:
     explicit KexiCommandLineOptions(QCommandLineParser *parser);
+
+    //! @return list of options related to "auto-opening objects"
+    QList<QCommandLineOption> autoopeningObjectsOptions() const;
 
     QCommandLineOption createDb;
     QCommandLineOption createAndOpenDb;

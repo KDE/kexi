@@ -164,7 +164,7 @@ KEXICORE_EXPORT QString basePathForProject(const KDbConnectionData& connectionDa
 //! @return @c true if this is a Kexi app instance
 //! @c false is returned e.g. for test apps that are based on Kexi.
 //! This function is useful to decide if certain actions should be performed that only
-//! belong to the "real" Kexi app, for example updating a list of recent documents
+//! belong to the "real" KEXI app, for example updating a list of recent documents
 //! or collecting usage information.
 //! The check is performed by comparing component name of KAboutData to the string "kexi".
 KEXICORE_EXPORT bool isKexiInstance();

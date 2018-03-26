@@ -110,9 +110,9 @@ void KexiBugReportDialog::accept()
     //! own Bug Report GUI and communicates using RPC.
     QString desc;
     if (0 != qstrcmp(Kexi::fullVersionString(), Kexi::versionString())) {
-        desc += futureI18nc("Full version of Kexi app", "Full version: %1", Kexi::fullVersionString());
+        desc += futureI18nc("Full version of KEXI app", "Full version: %1", Kexi::fullVersionString());
     }
-    body += futureI18n("(filed directly from Kexi app)");
+    body += futureI18n("(filed directly from KEXI app)");
     query.addQueryItem("comment", m_aboutData->version());
 #endif
     query.addQueryItem("op_sys", m_op_sys);

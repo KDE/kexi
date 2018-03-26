@@ -37,7 +37,8 @@ class KexiDBConnectionData : public QObject
 {
     Q_OBJECT
 public:
-    KexiDBConnectionData(QObject* parent, KDbConnectionData* data, bool owner);
+    KexiDBConnectionData();
+    KexiDBConnectionData(QObject* parent, KDbConnectionData* data);
     virtual ~KexiDBConnectionData();
     KDbConnectionData* data() {
         return m_data;
@@ -95,26 +96,12 @@ public Q_SLOTS:
     const QString userName() const;
     /** Set the username. */
     void setUserName(const QString& username);
-
-    // For filebased drivers
-
-    /** Return the filename. */
-    const QString fileName() const;
-    /** Set the filename. */
-    void setFileName(const QString& filename);
-
-    /** Return the database path. */
-    const QString dbPath() const;
-    /** Return the database filename. */
-    const QString databaseName() const;
-
+    
     /** Return a user-friendly string representation. */
     const QString toUserVisibleString() const;
 
 private:
-    KDbConnectionData* m_data;
-    QString m_dbname;
-    bool m_owner;
+    KDbConnectionData *m_data = nullptr;
 };
 
 }

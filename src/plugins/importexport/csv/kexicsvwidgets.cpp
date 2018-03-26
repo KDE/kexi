@@ -287,8 +287,7 @@ KexiCSVInfoLabel::KexiCSVInfoLabel(const QString& labelText, QWidget* parent, bo
     if (showFnameLine) {
         d->fnameLbl = new QLabel(this);
         d->fnameLbl->setOpenExternalLinks(true);
-        d->fnameLbl->setTextInteractionFlags(Qt::TextSelectableByMouse | Qt::TextSelectableByKeyboard);
-        d->fnameLbl->setFocusPolicy(Qt::NoFocus);
+        d->fnameLbl->setTextInteractionFlags(Qt::TextSelectableByMouse);
         d->fnameLbl->setTextFormat(Qt::PlainText);
         QSizePolicy fnameLblSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
         fnameLblSizePolicy.setHorizontalStretch(1);
@@ -329,7 +328,7 @@ void KexiCSVInfoLabel::setFileName(const QString& fileName)
     d->fnameLbl->setText(QDir::toNativeSeparators(fileName));
     if (!fileName.isEmpty()) {
         d->iconLbl->setPixmap(
-            KIO::pixmapForUrl(QUrl(fileName), 0, KIconLoader::Desktop));
+            KIO::pixmapForUrl(QUrl::fromLocalFile(fileName), 0, KIconLoader::Desktop));
     }
 }
 
@@ -380,11 +379,10 @@ void KexiCSVInfoLabel::setCommentText(const QString& text)
 
 QStringList csvMimeTypes()
 {
-    QStringList mimetypes;
-    mimetypes << "text/csv"
+    return QStringList()
+              << "text/csv"
               << "text/tab-separated-value"
               << "text/plain"; // use application/octet-stream if you want
                                // all files, but then the others are not necessary
-    return mimetypes;
 }
 

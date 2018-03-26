@@ -1,0 +1,1 @@
+kexi_add_example_project(Simple_Database.kexi)

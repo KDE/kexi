@@ -30,8 +30,6 @@ KexiDBCheckBox::KexiDBCheckBox(const QString &text, QWidget *parent)
         , m_tristate(TristateDefault)
 {
     setFocusPolicy(Qt::StrongFocus);
-    setMinimumHeight(sizeHint().height());
-    setMinimumWidth(minimumHeight());
     updateTristate();
     connect(this, SIGNAL(stateChanged(int)), this, SLOT(slotStateChanged(int)));
 }
@@ -147,7 +145,9 @@ void KexiDBCheckBox::updateTristate()
 {
     if (m_tristate == TristateDefault) {
 //! @todo the data source may be defined as NOT NULL... thus disallowing NULL state
-        QCheckBox::setTristate(!dataSource().isEmpty());
+//! @todo Retrieve default Tristate value from global settings or so, for now we're defaulting
+//!       to false because this covers 99% of use cases
+        QCheckBox::setTristate(false);
     } else {
         QCheckBox::setTristate(m_tristate == TristateOn);
     }

@@ -68,6 +68,7 @@ protected Q_SLOTS:
     void helpClicked();
     void slotOptionsButtonClicked();
     void destinationTitleTextChanged(const QString & text);
+    void sourceConnectionSelected(bool selected);
 
 private:
     void parseArguments();

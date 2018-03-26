@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2004-2012 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2017 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -31,6 +31,7 @@
 #include <KexiWindow.h>
 #include <kexi_global.h>
 
+#include <KPropertyListData>
 #include <KPropertySet>
 
 #include <KDbConnection>
@@ -106,8 +107,6 @@ KexiTableDesignerView::KexiTableDesignerView(QWidget *parent)
 {
     setObjectName("KexiTableDesignerView");
     setTextToDisplayForNullSet(xi18nc("No table field selected in the Table Designer", "No field selected"));
-    //needed for custom "identifier" property editor widget
-    KexiCustomPropertyFactory::init();
 
     KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     d->view = dynamic_cast<KexiTableScrollArea*>(mainWidget());
@@ -175,8 +174,8 @@ KexiTableDesignerView::KexiTableDesignerView(QWidget *parent)
     viewActions << (d->action_toggle_pkey = new KToggleAction(KexiIcon("database-key"), xi18n("Primary Key"), this));
     a = d->action_toggle_pkey;
     a->setObjectName("tablepart_toggle_pkey");
-    a->setToolTip(xi18n("Sets or removes primary key"));
-    a->setWhatsThis(xi18n("Sets or removes primary key for currently selected field."));
+    a->setToolTip(xi18n("Sets or deletes primary key"));
+    a->setWhatsThis(xi18n("Sets or deletes primary key for currently selected field."));
     connect(a, SIGNAL(triggered()), this, SLOT(slotTogglePrimaryKey()));
     setViewActions(viewActions);
 
@@ -233,7 +232,7 @@ void KexiTableDesignerView::initData()
                 KDbLookupFieldSchema *lookupFieldSchema
                     = field->table() ? field->table()->lookupFieldSchema(*field) : 0;
                 if (lookupFieldSchema
-                    && lookupFieldSchema->recordSource().type() != KDbLookupFieldSchemaRecordSource::NoType
+                    && lookupFieldSchema->recordSource().type() != KDbLookupFieldSchemaRecordSource::Type::None
                     && !lookupFieldSchema->recordSource().name().isEmpty())
                 {
                     (*data)[COLUMN_ID_ICON] = KexiIconName("combobox");
@@ -279,9 +278,7 @@ void KexiTableDesignerView::initData()
 }
 
 //! Gets subtype strings and names for type \a fieldType
-void
-KexiTableDesignerView::getSubTypeListData(KDbField::TypeGroup fieldTypeGroup,
-        QStringList& stringsList, QStringList& namesList)
+static KPropertyListData *getSubTypeListData(KDbField::TypeGroup fieldTypeGroup)
 {
     /* disabled - "mime" is moved from subType to "objectType" custom property
       if (fieldTypeGroup==KDbField::BLOBGroup) {
@@ -291,11 +288,12 @@ KexiTableDesignerView::getSubTypeListData(KDbField::TypeGroup fieldTypeGroup,
         namesList << xi18n("Image object type", "Image");
       }
       else {*/
-    stringsList = KDb::fieldTypeStringsForGroup(fieldTypeGroup);
-    namesList = KDb::fieldTypeNamesForGroup(fieldTypeGroup);
-// }
-    //qDebug() << "subType strings:" <<
-    //    stringsList.join("|") << "\nnames:" << namesList.join("|");
+    KPropertyListData *listData = new KPropertyListData(
+        KDb::fieldTypeStringsForGroup(fieldTypeGroup), KDb::fieldTypeNamesForGroup(fieldTypeGroup));
+    // }
+    //qDebug() << "subType strings: " << listData->keysAsStringList().join("|")
+    //         << "\nnames: " << listData->namesAsStringList().join("|");
+    return listData;
 }
 
 KPropertySet *
@@ -331,8 +329,7 @@ KexiTableDesignerView::createPropertySet(int record, const KDbField& field, bool
 #endif
 
     //subtype
-    QStringList typeStringList, typeNameList;
-    getSubTypeListData(field.typeGroup(), typeStringList, typeNameList);
+    KPropertyListData *listData = getSubTypeListData(field.typeGroup());
     /* disabled - "mime" is moved from subType to "objectType" custom property
       QString subTypeValue;
       if (field.typeGroup()==KDbField::BLOBGroup) {
@@ -341,21 +338,20 @@ KexiTableDesignerView::createPropertySet(int record, const KDbField& field, bool
         subTypeValue = slist.first();
       }
       else {*/
-    QString subTypeValue = field.typeString();
+    QVariant subTypeValue = field.typeString();
     //}
-    set->addProperty(prop = new KProperty("subType",
-            typeStringList, typeNameList, subTypeValue, xi18n("Subtype")));
+    set->addProperty(prop = new KProperty("subType", listData, subTypeValue, xi18n("Subtype")));
 
     // objectType
-    QStringList objectTypeStringList, objectTypeNameList;
 //! @todo this should be retrieved from KDbField when BLOB supports many different mimetypes
-    objectTypeStringList << "image";
-    objectTypeNameList << xi18nc("Image object type", "Image");
-    QString objectTypeValue(field.customProperty("objectType").toString());
-    if (objectTypeValue.isEmpty())
+
+    listData
+        = new KPropertyListData({ "image" }, QVariantList{ xi18nc("Image object type", "Image") });
+    QVariant objectTypeValue(field.customProperty("objectType"));
+    if (objectTypeValue.toString().isEmpty())
         objectTypeValue = DEFAULT_OBJECT_TYPE_VALUE;
     set->addProperty(prop = new KProperty("objectType",
-            objectTypeStringList, objectTypeNameList, objectTypeValue,
+            listData, objectTypeValue,
             xi18n("Subtype")/*! @todo other i18n string?*/));
 
     set->addProperty(prop = new KProperty("caption", QVariant(field.caption()),
@@ -420,8 +416,8 @@ KexiTableDesignerView::createPropertySet(int record, const KDbField& field, bool
 
     //- properties related to lookup columns (used and set by the "lookup column"
     //  tab in the property pane)
-    KDbLookupFieldSchema *lookupFieldSchema
-        = field.table() ? field.table()->lookupFieldSchema(field) : 0;
+    const KDbLookupFieldSchema *lookupFieldSchema
+        = field.table() ? field.table()->lookupFieldSchema(field) : nullptr;
     set->addProperty(prop = new KProperty("rowSource",
         lookupFieldSchema ? lookupFieldSchema->recordSource().name() : QString(), xi18n("Record Source")));
     prop->setVisible(false);
@@ -580,7 +576,7 @@ tristate KexiTableDesignerView::beforeSwitchTo(Kexi::ViewMode mode, bool *dontSt
             KGuiItem discardItem(KStandardGuiItem::discard());
             discardItem.setToolTip(QString());
             if (isPhysicalAlteringNeeded) {
-                saveItem.setText(xi18nc("@action:button", "Save Design and Remove Table Data"));
+                saveItem.setText(xi18nc("@action:button", "Save Design and Delete Table Data"));
                 discardItem.setText(xi18nc("@action:button", "Discard Design"));
             }
             const KMessageBox::ButtonCode r = KMessageBox::warningYesNoCancel(this,
@@ -705,15 +701,14 @@ void KexiTableDesignerView::slotBeforeCellChanged(
         if (fieldType == KDbField::InvalidType)
             fieldType = KDbField::Text;
 
-        //-get subtypes for this type: keys (slist) and names (nlist)
-        QStringList slist, nlist;
-        getSubTypeListData(fieldTypeGroup, slist, nlist);
+        //-get subtypes for this type:
+        KPropertyListData *listData = getSubTypeListData(fieldTypeGroup);
 
-        QString subTypeValue;
+        QVariant subTypeValue;
         /* disabled - "mime" is moved from subType to "objectType" custom property
             if (fieldType==KDbField::BLOB) {
               // special case: BLOB type uses "mime-based" subtypes
-              subTypeValue = slist.first();
+              subTypeValue = listData->keys().first();
             }
             else {*/
         subTypeValue = KDbField::typeString(fieldType);
@@ -731,11 +726,10 @@ void KexiTableDesignerView::slotBeforeCellChanged(
         //update subtype list and value
         const bool forcePropertySetReload = KDbField::typeGroup(
             KDbField::typeForString(subTypeProperty->value().toString())) != fieldTypeGroup;   //<-- ?????
-        const bool useListData = slist.count() > 1;
+        const bool useListData = listData->keys().count() > 1;
 
         if (!useListData) {
-            slist.clear(); //empty list will be passed
-            nlist.clear();
+            *listData = KPropertyListData(); //empty list will be passed
         }
         d->setPropertyValueIfNeeded(set, "type", (int)fieldType, changeDataTypeCommand,
                                     false /*!forceAddCommand*/, true /*rememberOldValue*/);
@@ -761,7 +755,7 @@ void KexiTableDesignerView::slotBeforeCellChanged(
         }
         d->setPropertyValueIfNeeded(set, "subType", subTypeValue,
                                     changeDataTypeCommand, false, false /*!rememberOldValue*/,
-                                    &slist, &nlist);
+                                    listData);
 
         if (d->updatePropertiesVisibility(fieldType, set, changeDataTypeCommand)
                 || forcePropertySetReload) {
@@ -895,12 +889,13 @@ void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& pr
     Command *setAutonumberCommand = 0;
     Command *toplevelCommand = 0;
     if (pname == "autoIncrement" && property.value().toBool() == true) {
-        if (set["primaryKey"].value().toBool() == false) {//we need PKEY here!
-            QString msg =
-              xi18n("<para>Setting autonumber requires primary key to be set for current field.</para>");
-            if (d->primaryKeyExists)
-                msg += xi18n("<para>Previous primary key will be removed.</para>");
-            msg += xi18n("<para>Do you want to create primary key for current field? "
+        if (set["primaryKey"].value().toBool() == false) { // we need PKEY here!
+            QString msg = xi18nc("@info", "<para>Setting autonumber requires primary key to be set "
+                                          "for current field.</para>");
+            if (d->primaryKeyExists) {
+                msg += xi18nc("@info", "<para>Previous primary key will be deleted.</para>");
+            }
+            msg += xi18nc("@info", "<para>Do you want to create primary key for current field? "
                         "Click <interface>Cancel</interface> to cancel setting autonumber.</para>");
 
             if (KMessageBox::Yes == KMessageBox::questionYesNo(this, msg,
@@ -917,7 +912,7 @@ void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& pr
                 d->setPropertyValueIfNeeded(set, "autoIncrement", QVariant(true), setAutonumberCommand);
             } else {
                 setAutonumberCommand = new Command(
-                    kundo2_i18n("Remove autonumber from field <resource>%1</resource>", set["name"].value().toString()),
+                    kundo2_i18n("Delete autonumber from field <resource>%1</resource>", set["name"].value().toString()),
                     0, this);
                 d->setPropertyValueIfNeeded(set, "autoIncrement", QVariant(false), setAutonumberCommand,
                                             true /*forceAddCommand*/, false/*rememberOldValue*/);
@@ -1342,7 +1337,11 @@ KDbObject* KexiTableDesignerView::storeNewData(const KDbObject& object,
     if (res == true) {
         //! @todo
         KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
-        res = conn->createTable(tempData()->table(), options & KexiView::OverwriteExistingData);
+        KDbConnection::CreateTableOptions createOptions(KDbConnection::CreateTableOption::Default);
+        if (options & KexiView::OverwriteExistingData) {
+            createOptions |= KDbConnection::CreateTableOption::DropDestination;
+        }
+        res = conn->createTable(tempData()->table(), createOptions);
         if (res == true) {
             res = KexiMainWindowIface::global()->project()->removeUserDataBlock(tempData()->table()->id());
         }
@@ -1426,11 +1425,11 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
 
     if (res == true) {
         res = KexiTablePart::askForClosingObjectsUsingTableSchema(
-                  window(), conn, tempData()->table(),
-                  xi18nc("@info",
-                         "You are about to change the design of table <resource>%1</resource> "
-                         "but following objects using this table are opened:",
-                         tempData()->table()->name()));
+            window(), conn, tempData()->table(),
+            kxi18nc("@info",
+                    "<para>You are about to change the design of table <resource>%1</resource> "
+                    "but following objects using this table are open:</para>")
+                .subs(tempData()->table()->name()));
     }
 
     if (res == true) {
@@ -1443,8 +1442,13 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
                 bool emptyTable;
                 const QString msg = d->messageForSavingChanges(&emptyTable).toString();
                 if (!emptyTable) {
-                    if (KMessageBox::No == KMessageBox::questionYesNo(this, msg))
+                    if (KMessageBox::No == KMessageBox::questionYesNo(
+                                               this, msg, QString(), KStandardGuiItem::save(),
+                                               KStandardGuiItem::dontSave(), QString(),
+                                               KMessageBox::Notify | KMessageBox::Dangerous))
+                    {
                         res = cancelled;
+                    }
                 }
             }
             d->dontAskOnStoreData = false; //one-time use
@@ -1459,8 +1463,13 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
                 = static_cast<KDbObject&>(*tempData()->table());
             res = buildSchema(*newTable);
             //qDebug() << "BUILD SCHEMA:" << *newTable;
-
-            res = conn->alterTable(tempData()->table(), newTable);
+            {
+                KDbTableSchema *oldTable = tempData()->table();
+                tempData()->setTable(nullptr); // needed, otherwise setTable() will access dangling
+                                               // pointer after conn->alterTable()
+                KexiUtils::BoolBlocker guard(&tempData()->closeWindowOnCloseListener, false);
+                res = conn->alterTable(oldTable, newTable);
+            }
             if (res != true)
                 window()->setStatus(conn, "");
         } else {
@@ -1751,7 +1760,7 @@ void KexiTableDesignerView::deleteRecord(int record, bool addCommand)
 
 void KexiTableDesignerView::changeFieldPropertyForRecord(int record,
         const QByteArray& propertyName, const QVariant& newValue,
-        KPropertyListData* const listData, bool addCommand)
+        const KPropertyListData* listData, bool addCommand)
 {
 #ifdef KEXI_DEBUG_GUI
     KDb::alterTableActionDebugGUI(QString("** changeFieldProperty: \"")
@@ -1766,10 +1775,11 @@ void KexiTableDesignerView::changeFieldPropertyForRecord(int record,
         return;
     KProperty &property = set->property(propertyName);
     if (listData) {
-        if (listData->keys.isEmpty())
-            property.setListData(0);
-        else
+        if (listData->keys().isEmpty()) {
+            property.setListData(nullptr);
+        } else {
             property.setListData(new KPropertyListData(*listData));
+        }
     }
     if (propertyName != "type") //delayed type update (we need to have subtype set properly)
         property.setValue(newValue);
@@ -1820,7 +1830,7 @@ void KexiTableDesignerView::changeFieldPropertyForRecord(int record,
 
 void KexiTableDesignerView::changeFieldProperty(int fieldUID,
         const QByteArray& propertyName, const QVariant& newValue,
-        KPropertyListData* const listData, bool addCommand)
+        const KPropertyListData* listData, bool addCommand)
 {
     //find a property by UID
     const int record = d->sets->findRecordForPropertyValue("uid", fieldUID);

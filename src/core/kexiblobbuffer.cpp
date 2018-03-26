@@ -142,7 +142,6 @@ KexiBLOBBuffer::Item::Item(const QByteArray& data, KexiBLOBBuffer::Id_t ident, b
 
 KexiBLOBBuffer::Item::~Item()
 {
-    qDebug();
     delete m_pixmap;
     m_pixmap = 0;
     delete m_data;
@@ -315,8 +314,15 @@ KexiBLOBBuffer::Handle KexiBLOBBuffer::objectForId(Id_t id, bool stored)
         schema.addField(blobsTable->field("o_caption"));
         schema.addField(blobsTable->field("o_mime"));
         schema.addField(blobsTable->field("o_folder_id"));
-        schema.addToWhereExpression(blobsTable->field("o_id"), QVariant((qint64)id));
-
+        QString errorMessage;
+        QString errorDescription;
+        if (!schema.addToWhereExpression(blobsTable->field("o_id"), QVariant((qint64)id),
+                                         '=', &errorMessage, &errorDescription))
+        {
+            qWarning() << "message=" << errorMessage
+                       << "description=" << errorDescription;
+            return KexiBLOBBuffer::Handle();
+        }
         KDbRecordData recordData;
         tristate res = d->conn->querySingleRecord(&schema, &recordData);
         if (res != true || recordData.size() < 4) {

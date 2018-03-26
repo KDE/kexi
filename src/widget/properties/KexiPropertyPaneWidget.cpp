@@ -41,12 +41,13 @@ public:
     int firstSectionIndex;
     bool focusObjectNameBoxOnChange;
 
-    const char* objectNamePropertyName() const {
+    QByteArray objectNamePropertyName() const
+    {
         if (!editor->propertySet()) {
             return "objectName";
         }
-        return editor->propertySet()->propertyValue("this:visibleObjectNameProperty",
-                                                    "objectName").toByteArray().constData();
+        return editor->propertySet()->propertyValue("this:visibleObjectNameProperty", "objectName")
+            .toByteArray();
     }
 };
 
@@ -136,7 +137,7 @@ void KexiPropertyPaneWidget::updateInfoLabelForPropertySet(const QString& textTo
     if (set) {
         className = set->propertyValue("this:classString").toString();
         iconName = set->propertyValue("this:iconName").toString();
-        const bool useNameAsObjectName = qstrcmp(d->objectNamePropertyName(), "objectName") == 0;
+        const bool useNameAsObjectName = d->objectNamePropertyName() == "objectName";
         d->infoLabel->setObjectNameIsIdentifier(useNameAsObjectName);
         objectName = set->propertyValue(d->objectNamePropertyName()).toString();
         if (objectName.isEmpty() && !useNameAsObjectName) {

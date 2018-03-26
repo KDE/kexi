@@ -1,16 +1,21 @@
 # Additional CMake macros
 #
-# Copyright (C) 2015-2016 Jarosław Staniek <staniek@kde.org>
+# Copyright (C) 2015-2018 Jarosław Staniek <staniek@kde.org>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
+if(__kexi_macros)
+  return()
+endif()
+set(__kexi_macros YES)
+
 #unused: include(KDbCreateSharedDataClasses) # from KDb
 include(CheckFunctionExists)
 include(GenerateExportHeader)
-include(MacroLogFeature)
 include(GetGitRevisionDescription)
 include(MacroBoolTo01)
+include(KexiAddSimpleOption)
 
 string(TOUPPER ${PROJECT_NAME} PROJECT_NAME_UPPER)
 string(TOLOWER ${PROJECT_NAME} PROJECT_NAME_LOWER)
@@ -51,34 +56,9 @@ if(WIN32)
                         RUNTIME DESTINATION ${BIN_INSTALL_DIR}
                         LIBRARY ${INSTALL_TARGETS_DEFAULT_ARGS}
                         ARCHIVE ${INSTALL_TARGETS_DEFAULT_ARGS} )
-    set(DATA_INSTALL_DIR "$ENV{APPDATA}")
-    STRING(REGEX REPLACE "\\\\" "/" DATA_INSTALL_DIR ${DATA_INSTALL_DIR})
-    # Install own icons to CMAKE_INSTALL_FULL_ICONDIR (relative to bin/data/ on Windows) on Windows.
-    # We're consistent because icons from breeze-icons.git are installed there as well.
-    set(ICONS_INSTALL_DIR "${CMAKE_INSTALL_FULL_ICONDIR}/${KEXI_BASE_PATH}")
-else()
-    # On other OSes install own icons in app's data dir
-    set(ICONS_INSTALL_DIR
-        "${DATA_INSTALL_DIR}/${KEXI_BASE_PATH}/icons")
 endif()
 
-# Adds a feature info using add_feature_info() with _NAME and _DESCRIPTION.
-# If _NAME is equal to _DEFAULT, shows this fact.
-macro(add_simple_feature_info _NAME _DESCRIPTION _DEFAULT)
-  if("${_DEFAULT}" STREQUAL "${${_NAME}}")
-    set(_STATUS " (default value)")
-  else()
-    set(_STATUS "")
-  endif()
-  add_feature_info(${_NAME} ${_NAME} ${_DESCRIPTION}${_STATUS})
-endmacro()
-
-# Adds a simple option using option() with _NAME and _DESCRIPTION and a feature
-# info for it using add_simple_feature_info(). If _NAME is equal to _DEFAULT, shows this fact.
-macro(simple_option _NAME _DESCRIPTION _DEFAULT)
-  option(${_NAME} ${_DESCRIPTION} ${_DEFAULT})
-  add_simple_feature_info(${_NAME} ${_DESCRIPTION} ${_DEFAULT})
-endmacro()
+set(ICONS_INSTALL_DIR "${DATA_INSTALL_DIR}/${KEXI_BASE_PATH}/icons")
 
 # Fetches git revision and branch from the source dir of the current build if possible.
 # Sets ${PROJECT_NAME_UPPER}_GIT_SHA1_STRING and ${PROJECT_NAME_UPPER}_GIT_BRANCH_STRING variables.
@@ -106,45 +86,6 @@ macro(get_git_revision_and_branch)
   endif()
 endmacro()
 
-# Adds BUILD_TESTING option to enable all kinds of tests. If enabled, build in autotests/
-# and tests/ subdirectory is enabled. IF optional argument ARG1 is ON, building tests will
-# be ON by default. Otherwise building tests will be OFF. ARG1 is OFF by default.
-# If tests are OFF, BUILD_COVERAGE is set to OFF.
-# If tests are on BUILD_TESTING macro is defined.
-macro(add_tests)
-  if (NOT "${ARG1}" STREQUAL "ON")
-    set(_SET OFF)
-  endif()
-  simple_option(BUILD_TESTING "Build tests" ${_SET}) # override default from CTest.cmake
-  if(BUILD_TESTING)
-    add_definitions(-DBUILD_TESTING)
-    include(CTest)
-    if (EXISTS ${CMAKE_SOURCE_DIR}/autotests)
-        add_subdirectory(autotests)
-    endif()
-    if (EXISTS ${CMAKE_SOURCE_DIR}/tests)
-        add_subdirectory(tests)
-    endif()
-  else()
-    set(BUILD_COVERAGE OFF)
-    simple_option(BUILD_COVERAGE "Build test coverage (disabled because BUILD_TESTING is OFF)" OFF)
-  endif()
-endmacro()
-
-# Adds BUILD_EXAMPLES option to enable examples. If enabled, build in examples/ subdirectory
-# is enabled. If optional argument ARG1 is ON, building examples will be ON by default.
-# Otherwise building examples will be OFF. ARG1 is OFF by default.
-macro(add_examples)
-  set(_SET ${ARGV0})
-  if (NOT "${_SET}" STREQUAL ON)
-    set(_SET OFF)
-  endif()
-  simple_option(BUILD_EXAMPLES "Build example applications" ${_SET})
-  if (BUILD_EXAMPLES AND EXISTS ${CMAKE_SOURCE_DIR}/examples)
-    add_subdirectory(examples)
-  endif()
-endmacro()
-
 # Adds ${PROJECT_NAME_UPPER}_UNFINISHED option. If it is ON, unfinished features
 # (useful for testing but may confuse end-user) are compiled-in.
 # This option is OFF by default.
@@ -166,8 +107,9 @@ macro(add_pc_file _filename)
 endmacro()
 
 # Sets detailed version information for library co-installability.
-# - adds PROJECT_VERSION_MAJOR to the lib name
-# - sets VERSION and SOVERSION to PROJECT_VERSION_MAJOR.PROJECT_VERSION_MINOR
+# - adds PROJECT_STABLE_VERSION_MAJOR to the lib name
+# - sets VERSION to PROJECT_STABLE_VERSION_MAJOR.PROJECT_STABLE_VERSION_MINOR.PROJECT_STABLE_VERSION_RELEASE
+# - sets SOVERSION to KEXI_DISTRIBUTION_VERSION
 # - sets OUTPUT_NAME to ${_target}${KEXI_DISTRIBUTION_VERSION}
 # - sets ${_target_upper}_BASE_NAME variable to the final lib name
 # - sets ${_target_upper}_BASE_NAME_LOWER variable to the final lib name, lowercase
@@ -175,10 +117,11 @@ endmacro()
 # - (where _target_upper is uppercase ${_target}
 macro(set_coinstallable_lib_version _target)
     set(_name ${_target}${KEXI_DISTRIBUTION_VERSION})
-    #message(FATAL_ERROR ${PROJECT_VERSION_MAJOR})
+    set(_version "${PROJECT_STABLE_VERSION_MAJOR}.${PROJECT_STABLE_VERSION_MINOR}.${PROJECT_STABLE_VERSION_RELEASE}")
+    set(_soversion ${KEXI_DISTRIBUTION_VERSION})
     set_target_properties(${_target}
-        PROPERTIES VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_RELEASE}
-                   SOVERSION ${PROJECT_VERSION_MAJOR}
+        PROPERTIES VERSION ${_version}
+                   SOVERSION ${_soversion}
                    EXPORT_NAME ${_target}
                    OUTPUT_NAME ${_name}
     )
@@ -187,6 +130,8 @@ macro(set_coinstallable_lib_version _target)
     set(${_var} ${_name})
     string(TOLOWER ${_name} ${_var}_LOWER)
     set(${_target_upper}_INCLUDE_INSTALL_DIR ${INCLUDE_INSTALL_DIR}/${_name})
+    unset(_soversion)
+    unset(_version)
     unset(_target_upper)
     unset(_var)
 endmacro()
@@ -242,6 +187,54 @@ function(add_update_file_target)
     )
 endfunction()
 
-add_custom_target(update_all_rcc
-    COMMENT "Updating all file lists for rcc files"
-)
+if(WIN32)
+    set(_chmod_name attrib)
+else()
+    set(_chmod_name chmod)
+endif()
+find_program(kexi_chmod_program ${_chmod_name} DOC "chmod program")
+if(kexi_chmod_program)
+    message(STATUS "Found program for changing file permissions: ${kexi_chmod_program}")
+else()
+    message(WARNING "Could not find \"${_chmod_name}\" program for changing file permissions")
+endif()
+
+# Sets file or directory read-only for all (non-root) users.
+# The _path should exist. If it is not absolute, ${CMAKE_CURRENT_SOURCE_DIR} path is prepended.
+function(kexi_set_file_read_only _path)
+    if(NOT kexi_chmod_program)
+        return()
+    endif()
+    if(IS_ABSOLUTE ${_path})
+        set(_fullpath ${_path})
+    else()
+        set(_fullpath ${CMAKE_CURRENT_SOURCE_DIR}/${_path})
+    endif()
+    if(NOT EXISTS ${_fullpath})
+        message(FATAL_ERROR "File or directory \"${_fullpath}\" does not exist")
+        return()
+    endif()
+    if(WIN32)
+        set(_command "${kexi_chmod_program}" +R "${_fullpath}")
+    else()
+        set(_command "${kexi_chmod_program}" a-w "${_fullpath}")
+    endif()
+    execute_process(
+        COMMAND ${_command}
+        RESULT_VARIABLE _result
+        OUTPUT_VARIABLE _output
+        ERROR_VARIABLE _output
+    )
+    if(NOT _result EQUAL 0)
+        message(FATAL_ERROR "Command failed (${_result}): ${_command}\n\nOutput:\n${_output}")
+    endif()
+endfunction()
+
+# Adds example KEXI project (.kexi file)
+# - sets it read-only in the source directory
+# - installs to ${KEXI_EXAMPLES_INSTALL_DIR} as read-only for everyone
+macro(kexi_add_example_project _path)
+    kexi_set_file_read_only(${_path})
+    install(FILES ${_path} DESTINATION ${KEXI_EXAMPLES_INSTALL_DIR}
+            PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
+endmacro()

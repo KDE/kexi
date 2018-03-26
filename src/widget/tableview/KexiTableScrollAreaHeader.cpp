@@ -295,7 +295,7 @@ QSize KexiTableScrollAreaHeader::sectionSizeFromContents(int logicalIndex) const
     //qDebug() << orientation() << logicalIndex << s;
     if (orientation() == Qt::Horizontal) {
         KDbTableViewData *data = scrollArea()->data();
-        KDbTableViewColumn *col = data->visibleColumn(logicalIndex);
+        KDbTableViewColumn *col = data ? data->visibleColumn(logicalIndex) : nullptr;
         if (col && col->width() > 0) {
             size.setWidth(col->width());
         }

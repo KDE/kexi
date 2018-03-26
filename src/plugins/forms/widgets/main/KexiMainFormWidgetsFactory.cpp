@@ -182,6 +182,8 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->setCustomTypeForProperty("pixmapId", KexiCustomPropertyFactory::PixmapId);
         wi->setInternalProperty("dontStartEditingOnInserting", true);
         wi->setAutoSaveProperties(QList<QByteArray>() << "pixmap");
+        wi->setSupportedAlignmentFlags(Qt::AlignLeft | Qt::AlignRight | Qt::AlignHCenter
+                                       | Qt::AlignTop | Qt::AlignBottom | Qt::AlignVCenter);
         addClass(wi);
     }
 
@@ -1011,7 +1013,6 @@ KexiMainFormWidgetsFactory::isPropertyVisibleInternal(const QByteArray& classnam
              && property != "value";
      } else if (classname == "KexiDBLineEdit" || classname == "QLineEdit")
         ok = property != "urlDropsEnabled"
-             && property != "vAlign"
              && property != "echoMode"
              && property != "clickMessage" // Replaced by placeholderText in 2.9,
                                            // kept for backward compatibility Kexi projects created with Qt < 4.7.
@@ -1072,9 +1073,8 @@ KexiMainFormWidgetsFactory::isPropertyVisibleInternal(const QByteArray& classnam
     }
 #endif
     else if (classname == "KexiDBImageBox" || classname == "KexiPictureLabel") {
-        ok = property != "font" && property != "wordbreak" && property != "pixmapId"
-             && property != "text" && property != "indent" && property != "textFormat"
-             && property == "alignment";
+        ok = property != "font" && property != "pixmapId"
+             && property != "text" && property != "indent" && property != "textFormat";
     }
     else if (classname == "KexiDBCheckBox" || classname == "QCheckBox") {
         //hide text property if the widget is a child of an autofield beause there's already "caption" for this purpose

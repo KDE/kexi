@@ -34,12 +34,12 @@ class KexiActionProxy;
 
  Reimplement KexiSharedActionConnector: do all needed connections in the constructor.
 
- For example, with KexiQueryDesignerSQLEditor class we're using KTextEdit
- (or KTextEditor::View) that's not shared-action-aware. So it's needed to conenct
+ For example, with KexiQueryDesignerSqlEditor class we're using KTextEdit
+ (or KTextEditor::View) that's not shared-action-aware. So it's needed to connect
  e.g. "edit_undo" shared action to undo() slot, and so on. It is impelmented in more
  generic way by implementing KTextEdit_SharedActionConnector class,
- so the conenction can be reused many times by just allocating KTextEdit_SharedActionConnector
- object for any KTextEditor when required (not only within KexiQueryDesignerSQLEditor).
+ so the connection can be reused many times by just allocating KTextEdit_SharedActionConnector
+ object for any KTextEditor when required (not only within KexiQueryDesignerSqlEditor).
 */
 //! @todo add method for setAvailable()
 class KEXICORE_EXPORT KexiSharedActionConnector

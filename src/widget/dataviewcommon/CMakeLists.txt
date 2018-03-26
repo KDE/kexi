@@ -17,11 +17,8 @@ generate_export_header(kexidataviewcommon)
 
 target_link_libraries(
     kexidataviewcommon
-    kexicore
-    kexiutils
     kexiguiutils
 
-    KDb
     KPropertyWidgets
 
     KF5::KIOWidgets

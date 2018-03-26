@@ -41,15 +41,15 @@ KexiDBParser::~KexiDBParser()
 
 bool KexiDBParser::parse(const QString& sql)
 {
-    return m_parser->parse(sql);
+    return m_parser->parse(KDbEscapedString(sql));
 }
 void KexiDBParser::clear()
 {
-    m_parser->clear();
+    m_parser->reset();
 }
-const QString KexiDBParser::operation()
+QString KexiDBParser::operation() const
 {
-    return m_parser->operationString();
+    return m_parser->statementTypeString();
 }
 
 QObject* KexiDBParser::table()
@@ -68,21 +68,21 @@ QObject* KexiDBParser::connection()
 {
     return m_connection;
 }
-const QString KexiDBParser::statement()
+QString KexiDBParser::statement() const
 {
-    return m_parser->statement();
+    return m_parser->statement().toString();
 }
 
-const QString KexiDBParser::errorType()
+QString KexiDBParser::errorType() const
 {
     return m_parser->error().type();
 }
-const QString KexiDBParser::errorMsg()
+QString KexiDBParser::errorMsg() const
 {
-    return m_parser->error().error();
+    return m_parser->error().message();
 }
-int KexiDBParser::errorAt()
+int KexiDBParser::errorAt() const
 {
-    return m_parser->error().at();
+    return m_parser->error().position();
 }
 

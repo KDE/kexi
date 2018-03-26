@@ -17,14 +17,15 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#include <QDebug>
+#include "kexitabledesignercommands.h"
+#include <kexi_global.h>
 
 #include <KLocalizedString>
 
 #include <KProperty>
-#include <kexi_global.h>
+#include <KPropertyListData>
 
-#include "kexitabledesignercommands.h"
+#include <QDebug>
 
 using namespace KexiTableDesignerCommands;
 
@@ -112,11 +113,11 @@ QString ChangeFieldPropertyCommand::debugString() const
         s += QString("\nAnd list data from [%1]\n  to [%2]")
              .arg(m_oldListData ?
                   QString("%1 -> %2")
-                  .arg(m_oldListData->keysAsStringList().join(",")).arg(m_oldListData->names.join(","))
+                  .arg(m_oldListData->keysAsStringList().join(",")).arg(m_oldListData->namesAsStringList().join(","))
                   : QString("<NONE>"))
              .arg(m_listData ?
                   QString("%1 -> %2")
-                  .arg(m_listData->keysAsStringList().join(",")).arg(m_listData->names.join(","))
+                  .arg(m_listData->keysAsStringList().join(",")).arg(m_listData->namesAsStringList().join(","))
                   : QString("<NONE>"));
     return s + QString(" (UID=%1)").arg(m_alterTableAction.uid());
 }
@@ -156,9 +157,9 @@ RemoveFieldCommand::RemoveFieldCommand(Command* parent, KexiTableDesignerView* v
         , m_fieldIndex(fieldIndex)
 {
     if (m_set)
-        setText(kundo2_i18n("Remove table field <resource>%1</resource>", m_alterTableAction.fieldName()));
+        setText(kundo2_i18n("Delete table field <resource>%1</resource>", m_alterTableAction.fieldName()));
     else
-        setText(kundo2_i18n("Remove empty row at position %1", m_fieldIndex));
+        setText(kundo2_i18n("Delete empty row at position %1", m_fieldIndex));
 }
 
 RemoveFieldCommand::~RemoveFieldCommand()

@@ -19,7 +19,9 @@
 
 #include "KexiCustomPropertyFactory.h"
 #include "KexiCustomPropertyFactory_p.h"
+#include <kexiutils/utils.h>
 
+#include <KPropertyUtils>
 #include <KPropertyWidgetsFactory>
 #include <KPropertyWidgetsPluginManager>
 //! @todo KEXI3 #include <KCustomProperty>
@@ -84,7 +86,7 @@ public:
 };
 #endif
 
-class KexiIdentifierPropertyEditorDelegate : public KPropertyEditorCreatorInterface
+class KexiIdentifierPropertyEditorDelegate : public KPropertyStringDelegate
 {
 public:
     KexiIdentifierPropertyEditorDelegate() {}
@@ -98,18 +100,67 @@ public:
     }
 };
 
+class KexiImagePropertyEditorDelegate : public KPropertyPixmapDelegate
+{
+public:
+    KexiImagePropertyEditorDelegate()
+    {
+    }
+
+    virtual QWidget *createEditor(int type, QWidget *parent, const QStyleOptionViewItem &option,
+                                  const QModelIndex &index) const
+    {
+        Q_UNUSED(type);
+        Q_UNUSED(option);
+        KProperty *property = KPropertyUtils::propertyForIndex(index);
+        if (!property) {
+            return nullptr;
+        }
+        return new KexiImagePropertyEditor(property, parent);
+    }
+};
+
+//---------------
+
+KexiImagePropertyEditor::KexiImagePropertyEditor(KProperty *prop, QWidget *parent)
+    : KPropertyPixmapEditor(prop, parent)
+{
+}
+
+KexiImagePropertyEditor::~KexiImagePropertyEditor()
+{
+}
+
+void KexiImagePropertyEditor::selectPixmap()
+{
+    const QUrl url = KexiUtils::getOpenImageUrl(parentWidget());
+    if (!url.isLocalFile()) {
+        //! @todo err msg
+        return;
+    }
+    QPixmap pixmap;
+    if (!pixmap.load(url.toLocalFile())) {
+        //! @todo err msg
+        return;
+    }
+    setValue(pixmap);
+}
+
 //---------------
 
 KexiCustomPropertyFactory::KexiCustomPropertyFactory()
         : KPropertyWidgetsFactory()
 {
-//! @todo addEditor( KexiCustomPropertyFactory::PixmapId, new KexiImagePropertyEditorDelegate );
+    addEditor(KexiCustomPropertyFactory::PixmapId, new KexiImagePropertyEditorDelegate);
     addEditor( KexiCustomPropertyFactory::Identifier, new KexiIdentifierPropertyEditorDelegate );
 }
 
 void KexiCustomPropertyFactory::init()
 {
-    if (KPropertyWidgetsPluginManager::self()->isEditorForTypeAvailable(KexiCustomPropertyFactory::PixmapId))
+    if (KPropertyWidgetsPluginManager::self()->isEditorForTypeAvailable(
+            KexiCustomPropertyFactory::Identifier))
+    {
         return; //already registered
+    }
     KPropertyWidgetsPluginManager::self()->registerFactory( new KexiCustomPropertyFactory );
 }

@@ -1,5 +1,8 @@
 /* This file is part of the KDE project
    Copyright (C) 2013 - 2014 Yue Liu <yue.liu@mail.com>
+   Copyright (C) 2017 Jarosław Staniek <staniek@kde.org>
+
+   Based on Calligra libs' KoFileDialog
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -18,7 +21,8 @@
 */
 
 #include "KexiFileDialog.h"
-#include <QDebug>
+#include <kexiutils/utils.h>
+
 #include <QFileDialog>
 #include <QApplication>
 #include <QImageReader>
@@ -45,19 +49,16 @@ public:
         , dialogName(dialogName_)
         , caption(caption_)
         , defaultDirectory(defaultDir_)
-        , filterList(QStringList())
-        , defaultFilter(QString())
-        , useStaticForNative(false)
         , hideDetails(false)
-        , swapExtensionOrder(false)
     {
         // Force the native file dialogs on Windows. Except for KDE, the native file dialogs are only possible
         // using the static methods. The Qt documentation is wrong here, if it means what it says " By default,
         // the native file dialog is used unless you use a subclass of QFileDialog that contains the Q_OBJECT
         // macro."
-#ifdef Q_OS_WIN
+#if defined Q_OS_WIN || defined Q_OS_MACOS
         useStaticForNative = true;
-#endif
+        swapExtensionOrder = false;
+#else
         // Non-static KDE file is broken when called with QFileDialog::AcceptSave:
         // then the directory above defaultdir is opened, and defaultdir is given as the default file name...
         //
@@ -65,23 +66,26 @@ public:
         // KDE, which gives working Qt dialogs.
         //
         // Only show the GTK dialog in Gnome, where people deserve it
-#ifdef HAVE_X11
-        if (qgetenv("KDE_FULL_SESSION").size() > 0) {
+        const QByteArray desktopSession = KexiUtils::detectedDesktopSession();
+        if (desktopSession == "KDE") {
             useStaticForNative = true;
-        }
-        if (qgetenv("XDG_CURRENT_DESKTOP") == "GNOME") {
+            swapExtensionOrder = false;
+        } else if (desktopSession == "GNOME") {
             useStaticForNative = true;
             QClipboard *cb = QApplication::clipboard();
             cb->blockSignals(true);
             swapExtensionOrder = true;
+        } else {
+            useStaticForNative = false;
+            swapExtensionOrder = false;
         }
-
 #endif
     }
 
     ~Private()
     {
-        if (qgetenv("XDG_CURRENT_DESKTOP") == "GNOME") {
+        const QByteArray desktopSession = KexiUtils::detectedDesktopSession();
+        if (desktopSession == "GNOME") {
             useStaticForNative = true;
             QClipboard *cb = QApplication::clipboard();
             cb->blockSignals(false);
@@ -272,7 +276,7 @@ void KexiFileDialog::createFileDialog()
     connect(d->fileDialog.data(), SIGNAL(filterSelected(QString)), this, SLOT(filterSelected(QString)));
 }
 
-QString KexiFileDialog::filename()
+QString KexiFileDialog::fileName()
 {
     QString url;
     if (!d->useStaticForNative) {
@@ -352,7 +356,7 @@ QString KexiFileDialog::filename()
     return url;
 }
 
-QStringList KexiFileDialog::filenames()
+QStringList KexiFileDialog::fileNames()
 {
     QStringList urls;
 

@@ -1,6 +1,7 @@
 /*
 * Kexi Report Plugin
 * Copyright (C) 2007-2017 by Adam Pigg <adam@piggz.co.uk>
+* Copyright (C) 2017 Jarosław Staniek <staniek@kde.org>
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -17,7 +18,7 @@
 */
 
 #include "KexiDBReportDataSource.h"
-#include <core/kexipart.h>
+#include "kexireportpart.h"
 
 #include <KDbConnection>
 #include <KDbOrderByColumn>
@@ -30,8 +31,8 @@
 class Q_DECL_HIDDEN KexiDBReportDataSource::Private
 {
 public:
-    explicit Private(KDbConnection *pDb)
-      : cursor(0), connection(pDb), originalSchema(0), copySchema(0)
+    explicit Private(KexiReportPartTempData *data)
+      : cursor(0), tempData(data), originalSchema(0), copySchema(0)
     {
     }
     ~Private()
@@ -44,23 +45,14 @@ public:
     QString objectName;
 
     KDbCursor *cursor;
-    KDbConnection *connection;
+    KexiReportPartTempData *tempData;
     KDbQuerySchema *originalSchema;
     KDbQuerySchema *copySchema;
 };
 
-KexiDBReportDataSource::KexiDBReportDataSource (const QString &objectName,
-                                    KDbConnection * pDb)
-        : d(new Private(pDb))
-{
-    d->objectName = objectName;
-    getSchema();
-}
-
-KexiDBReportDataSource::KexiDBReportDataSource(const QString& objectName,
-                                   const QString& pluginId,
-                                   KDbConnection* pDb)
-        : d(new Private(pDb))
+KexiDBReportDataSource::KexiDBReportDataSource(const QString &objectName, const QString &pluginId,
+                                               KexiReportPartTempData *data)
+    : d(new Private(data))
 {
     d->objectName = objectName;
     getSchema(pluginId);
@@ -73,7 +65,7 @@ void KexiDBReportDataSource::setSorting(const QList<SortedField>& sorting)
             return;
         KDbOrderByColumnList order;
         for (int i = 0; i < sorting.count(); i++) {
-            if (!order.appendField(d->copySchema, sorting[i].field(),
+            if (!order.appendField(d->tempData->connection(), d->copySchema, sorting[i].field(),
                                    KDbOrderByColumn::fromQt(sorting[i].order())))
             {
                 qWarning() << "Cannot set sort field" << i << sorting[i].field();
@@ -92,7 +84,16 @@ void KexiDBReportDataSource::addCondition(const QString &field, const QVariant &
         KDbField *fld = d->copySchema->findTableField(field);
         if (fld) {
             if (relation.length() == 1) {
-                d->copySchema->addToWhereExpression(fld, value, KDbToken(relation.toLatin1()[0]));
+                QString errorMessage;
+                QString errorDescription;
+                if (!d->copySchema->addToWhereExpression(fld, value, KDbToken(relation.toLatin1()[0]),
+                                                         &errorMessage, &errorDescription))
+                {
+                    qWarning() << "Invalid expression cannot be added to WHERE:" << fld
+                               << relation << value;
+                    qWarning() << "addToWhereExpression() failed, message=" << errorMessage
+                               << "description=" << errorDescription;
+                }
             } else {
                 qWarning() << "Invalid relation passed in:" << relation;
             }
@@ -110,7 +111,7 @@ KexiDBReportDataSource::~KexiDBReportDataSource()
 
 bool KexiDBReportDataSource::open()
 {
-    if ( d->connection && d->cursor == 0 )
+    if ( d->tempData->connection() && d->cursor == 0 )
     {
         if ( d->objectName.isEmpty() )
         {
@@ -118,8 +119,9 @@ bool KexiDBReportDataSource::open()
         }
         else if ( d->copySchema)
         {
-            //qDebug() << "Opening cursor.." << *d->copySchema;
-            d->cursor = d->connection->executeQuery(d->copySchema, KDbCursor::Option::Buffered);
+            //qDebug() << "Opening cursor.."
+            //         << KDbConnectionAndQuerySchema(d->tempData->connection(), *d->copySchema);
+            d->cursor = d->tempData->connection()->executeQuery(d->copySchema, KDbCursor::Option::Buffered);
         }
 
 
@@ -138,7 +140,7 @@ bool KexiDBReportDataSource::close()
 {
     if (d->cursor) {
         const bool ok = d->cursor->close();
-        d->connection->deleteCursor(d->cursor);
+        d->tempData->connection()->deleteCursor(d->cursor);
         d->cursor = nullptr;
         return ok;
     }
@@ -147,43 +149,52 @@ bool KexiDBReportDataSource::close()
 
 bool KexiDBReportDataSource::getSchema(const QString& pluginId)
 {
-    if (d->connection)
-    {
+    if (d->tempData->connection()) {
+        KDbTableSchemaChangeListener::unregisterForChanges(d->tempData->connection(), d->tempData);
         delete d->originalSchema;
         d->originalSchema = 0;
         delete d->copySchema;
         d->copySchema = 0;
 
+        KDbTableSchema *table = nullptr;
+        KDbQuerySchema *query = nullptr;
         if ((pluginId.isEmpty() || pluginId == "org.kexi-project.table")
-                && d->connection->tableSchema(d->objectName))
+                && (table = d->tempData->connection()->tableSchema(d->objectName)))
         {
             //qDebug() << d->objectName <<  "is a table..";
-            d->originalSchema = new KDbQuerySchema(d->connection->tableSchema(d->objectName));
+            d->originalSchema = new KDbQuerySchema(table);
         }
         else if ((pluginId.isEmpty() || pluginId == "org.kexi-project.query")
-                 && d->connection->querySchema(d->objectName))
+                 && (query = d->tempData->connection()->querySchema(d->objectName)))
         {
-            //qDebug() << d->objectName <<  "is a query..";
-            //qDebug() << *d->connection->querySchema(d->objectName);
-            d->originalSchema = new KDbQuerySchema(*(d->connection->querySchema(d->objectName)));
+            //qDebug() << d->objectName << "is a query..";
+            //qDebug() << KDbConnectionAndQuerySchema(d->tempData->connection(), *query);
+            d->originalSchema = new KDbQuerySchema(*query, d->tempData->connection());
         }
 
         if (d->originalSchema) {
-            const KDbNativeStatementBuilder builder(d->connection);
+            const KDbNativeStatementBuilder builder(d->tempData->connection(), KDb::DriverEscaping);
             KDbEscapedString sql;
             if (builder.generateSelectStatement(&sql, d->originalSchema)) {
                 //qDebug() << "Original:" << sql;
             } else {
-                qWarning() << "Original: ERROR";
+                qDebug() << "Original: ERROR";
+                return false;
             }
-            //qDebug() << *d->originalSchema;
+            //qDebug() << KDbConnectionAndQuerySchema(d->tempData->connection(), *d->originalSchema);
+            d->copySchema = new KDbQuerySchema(*d->originalSchema, d->tempData->connection());
+            //qDebug() << KDbConnectionAndQuerySchema(d->tempData->connection(), *d->copySchema);
 
-            d->copySchema = new KDbQuerySchema(*d->originalSchema);
-            //qDebug() << *d->copySchema;
             if (builder.generateSelectStatement(&sql, d->copySchema)) {
                 //qDebug() << "Copy:" << sql;
             } else {
-                qWarning() << "Copy: ERROR";
+                qDebug() << "Copy: ERROR";
+                return false;
+            }
+            if (table) {
+                KDbTableSchemaChangeListener::registerForChanges(d->tempData->connection(), d->tempData, table);
+            } else if (query) {
+                KDbTableSchemaChangeListener::registerForChanges(d->tempData->connection(), d->tempData, query);
             }
         }
         return true;
@@ -198,13 +209,12 @@ QString KexiDBReportDataSource::sourceName() const
 
 int KexiDBReportDataSource::fieldNumber ( const QString &fld ) const
 {
-
     if (!d->cursor || !d->cursor->query()) {
         return -1;
     }
-    const KDbQueryColumnInfo::Vector fieldsExpanded(
-        d->cursor->query()->fieldsExpanded(KDbQuerySchema::Unique));
-    for (int i = 0; i < fieldsExpanded.size() ; ++i) {
+    const KDbQueryColumnInfo::Vector fieldsExpanded(d->cursor->query()->fieldsExpanded(
+        d->tempData->connection(), KDbQuerySchema::FieldsExpandedMode::Unique));
+    for (int i = 0; i < fieldsExpanded.size(); ++i) {
         if (0 == QString::compare(fld, fieldsExpanded[i]->aliasOrName(), Qt::CaseInsensitive)) {
             return i;
         }
@@ -218,10 +228,10 @@ QStringList KexiDBReportDataSource::fieldNames() const
         return QStringList();
     }
     QStringList names;
-    const KDbQueryColumnInfo::Vector fieldsExpanded(
-        d->originalSchema->fieldsExpanded(KDbQuerySchema::Unique));
+    const KDbQueryColumnInfo::Vector fieldsExpanded(d->originalSchema->fieldsExpanded(
+        d->tempData->connection(), KDbQuerySchema::FieldsExpandedMode::Unique));
     for (int i = 0; i < fieldsExpanded.size(); i++) {
-//! @todo in some Kexi mode captionOrAliasOrName() would be used here (more user-friendly)
+        //! @todo in some Kexi mode captionOrAliasOrName() would be used here (more user-friendly)
         names.append(fieldsExpanded[i]->aliasOrName());
     }
     return names;
@@ -285,127 +295,30 @@ qint64 KexiDBReportDataSource::at() const
 
 qint64 KexiDBReportDataSource::recordCount() const
 {
-    if ( d->copySchema )
-    {
-        return KDb::recordCount ( d->copySchema );
+    if (d->copySchema) {
+        return d->tempData->connection()->recordCount(d->copySchema);
     }
 
     return 1;
-}
-
-static bool isInterpreterSupported(const QString &interpreterName)
-{
-    return 0 == interpreterName.compare(QLatin1String("javascript"), Qt::CaseInsensitive)
-           || 0 == interpreterName.compare(QLatin1String("qtscript"), Qt::CaseInsensitive);
-}
-
-QStringList KexiDBReportDataSource::scriptList() const
-{
-    QStringList scripts;
-
-    if( d->connection) {
-        QList<int> scriptids = d->connection->objectIds(KexiPart::ScriptObjectType);
-        QStringList scriptnames = d->connection->objectNames(KexiPart::ScriptObjectType);
-
-        //qDebug() << scriptids << scriptnames;
-
-        //A blank entry
-        scripts << "";
-        int i = 0;
-        foreach(int id, scriptids) {
-            //qDebug() << "ID:" << id;
-            tristate res;
-            QString script;
-            res = d->connection->loadDataBlock(id, &script, QString());
-            if (res == true) {
-                QDomDocument domdoc;
-                bool parsed = domdoc.setContent(script, false);
-
-                QDomElement scriptelem = domdoc.namedItem("script").toElement();
-                if (parsed && !scriptelem.isNull()) {
-                    if (scriptelem.attribute("scripttype") == "object"
-                        && isInterpreterSupported(scriptelem.attribute("language")))
-                    {
-                        scripts << scriptnames[i];
-                    }
-                } else {
-                    qWarning() << "Unable to parse script";
-                }
-            } else {
-                qWarning() << "Unable to loadDataBlock";
-            }
-            ++i;
-        }
-
-        //qDebug() << scripts;
-    }
-    return scripts;
-}
-
-QString KexiDBReportDataSource::scriptCode(const QString& scriptname) const
-{
-    QString scripts;
-
-    if (d->connection) {
-        QList<int> scriptids = d->connection->objectIds(KexiPart::ScriptObjectType);
-        QStringList scriptnames = d->connection->objectNames(KexiPart::ScriptObjectType);
-
-        int i = 0;
-        foreach(int id, scriptids) {
-            //qDebug() << "ID:" << id;
-            tristate res;
-            QString script;
-            res = d->connection->loadDataBlock(id, &script, QString());
-            if (res == true) {
-                QDomDocument domdoc;
-                bool parsed = domdoc.setContent(script, false);
-
-                if (! parsed) {
-                    qWarning() << "XML parsing error";
-                    return QString();
-                }
-
-                QDomElement scriptelem = domdoc.namedItem("script").toElement();
-                if (scriptelem.isNull()) {
-                    //qDebug() << "script domelement is null";
-                    return QString();
-                }
-
-                QString interpretername = scriptelem.attribute("language");
-                //qDebug() << scriptelem.attribute("scripttype");
-                //qDebug() << scriptname << scriptnames[i];
-
-                if ((isInterpreterSupported(interpretername) && scriptelem.attribute("scripttype") == "module")
-                    || scriptname == scriptnames[i])
-                {
-                    scripts += '\n' + scriptelem.text().toUtf8();
-                }
-                ++i;
-            } else {
-                qWarning() << "Unable to loadDataBlock";
-            }
-        }
-    }
-    return scripts;
 }
 
 QStringList KexiDBReportDataSource::dataSourceNames() const
 {
     //Get the list of queries in the database
     QStringList qs;
-    if (d->connection && d->connection->isConnected()) {
-        QList<int> tids = d->connection->tableIds();
+    if (d->tempData->connection() && d->tempData->connection()->isConnected()) {
+        QList<int> tids = d->tempData->connection()->tableIds();
         qs << "";
         for (int i = 0; i < tids.size(); ++i) {
-            KDbTableSchema* tsc = d->connection->tableSchema(tids[i]);
+            KDbTableSchema* tsc = d->tempData->connection()->tableSchema(tids[i]);
             if (tsc)
                 qs << tsc->name();
         }
 
-        QList<int> qids = d->connection->queryIds();
+        QList<int> qids = d->tempData->connection()->queryIds();
         qs << "";
         for (int i = 0; i < qids.size(); ++i) {
-            KDbQuerySchema* qsc = d->connection->querySchema(qids[i]);
+            KDbQuerySchema* qsc = d->tempData->connection()->querySchema(qids[i]);
             if (qsc)
                 qs << qsc->name();
         }
@@ -416,5 +329,5 @@ QStringList KexiDBReportDataSource::dataSourceNames() const
 
 KReportDataSource* KexiDBReportDataSource::create(const QString& source) const
 {
-    return new KexiDBReportDataSource(source, d->connection);
+    return new KexiDBReportDataSource(source, QString(), d->tempData);
 }

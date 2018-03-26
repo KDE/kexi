@@ -22,121 +22,104 @@
 
 using namespace Scripting;
 
-KexiDBConnectionData::KexiDBConnectionData(QObject* parent, KDbConnectionData* data, bool owner)
+KexiDBConnectionData::KexiDBConnectionData() : QObject() {
+    m_data = new KDbConnectionData();
+}
+
+KexiDBConnectionData::KexiDBConnectionData(QObject* parent, KDbConnectionData* data)
         : QObject(parent)
         , m_data(data)
-        , m_owner(owner)
 {
     setObjectName("KexiDBConnectionData");
 }
 
 KexiDBConnectionData::~KexiDBConnectionData()
 {
-    if (m_owner)
-        delete m_data;
 }
 
 const QString KexiDBConnectionData::caption() const
 {
-    return m_data->caption;
+    return m_data->caption();
 }
 void KexiDBConnectionData::setCaption(const QString& name)
 {
-    m_data->caption = name;
+    m_data->setCaption(name);
 }
 
 const QString KexiDBConnectionData::description() const
 {
-    return m_data->description;
+    return m_data->description();
 }
 void KexiDBConnectionData::setDescription(const QString& desc)
 {
-    m_data->description = desc;
+    m_data->setDescription(desc);
 }
 
 const QString KexiDBConnectionData::driverName() const
 {
-    return m_data->driverName;
+    return m_data->driverId();
 }
 void KexiDBConnectionData::setDriverName(const QString& driver)
 {
-    m_data->driverName = driver;
+    m_data->setDriverId(driver);
 }
 
 bool KexiDBConnectionData::localSocketFileUsed() const
 {
-    return m_data->useLocalSocketFile;
+    return m_data->useLocalSocketFile();
 }
 void KexiDBConnectionData::setLocalSocketFileUsed(bool used)
 {
-    m_data->useLocalSocketFile = used;
+    m_data->setUseLocalSocketFile(used);
 }
 const QString KexiDBConnectionData::localSocketFileName() const
 {
-    return m_data->localSocketFileName;
+    return m_data->localSocketFileName();
 }
 void KexiDBConnectionData::setLocalSocketFileName(const QString& socketfilename)
 {
-    m_data->localSocketFileName = socketfilename;
+    m_data->setLocalSocketFileName(socketfilename);
 }
 
-const QString KexiDBConnectionData::databaseName() const
-{
-    return m_dbname;
-}
 void KexiDBConnectionData::setDatabaseName(const QString& dbname)
 {
-    m_dbname = dbname;
+    m_data->setDatabaseName(dbname);
 }
 
 const QString KexiDBConnectionData::hostName() const
 {
-    return m_data->hostName;
+    return m_data->hostName();
 }
 void KexiDBConnectionData::setHostName(const QString& hostname)
 {
-    m_data->hostName = hostname;
+    m_data->setHostName(hostname);
 }
 
 int KexiDBConnectionData::port() const
 {
-    return m_data->port;
+    return m_data->port();
 }
 void KexiDBConnectionData::setPort(int p)
 {
-    m_data->port = p;
+    m_data->setPort(p);
 }
 
 const QString KexiDBConnectionData::password() const
 {
-    return m_data->password;
+    return m_data->password();
 }
 void KexiDBConnectionData::setPassword(const QString& passwd)
 {
-    m_data->password = passwd;
+    m_data->setPassword(passwd);
 }
 
 const QString KexiDBConnectionData::userName() const
 {
-    return m_data->userName;
+    return m_data->userName();
 }
 void KexiDBConnectionData::setUserName(const QString& username)
 {
-    m_data->userName = username;
-}
-
-const QString KexiDBConnectionData::fileName() const
-{
-    return m_data->fileName();
-}
-void KexiDBConnectionData::setFileName(const QString& filename)
-{
-    m_data->setFileName(filename);
-}
-
-const QString KexiDBConnectionData::dbPath() const
-{
-    return m_data->dbPath();
+    m_data->setUserName(username);
 }
 const QString KexiDBConnectionData::databaseName() const
 {

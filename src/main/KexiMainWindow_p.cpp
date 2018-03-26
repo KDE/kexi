@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -27,6 +27,8 @@
 #include <QDebug>
 #include <QSplitter>
 
+#include <KConfigGroup>
+
 #include <KDbUtils>
 
 #include <KexiPropertyPaneWidget.h>
@@ -37,6 +39,7 @@
 #include <KexiStyle.h>
 #include <KexiProjectNavigator.h>
 #include <core/kexipartmanager.h>
+#include <KexiAssistantWidget.h>
 
 EmptyMenuContentWidget::EmptyMenuContentWidget(QWidget* parent)
  : QWidget(parent)
@@ -219,8 +222,10 @@ void KexiMainMenu::showEvent(QShowEvent * event)
         m_initialized = true;
         KActionCollection *ac = KexiMainWindowIface::global()->actionCollection();
         QHBoxLayout *hlyr = new QHBoxLayout(this);
+
         hlyr->setSpacing(0);
         hlyr->setMargin(0);
+
         m_menuWidget = new KexiMenuWidget;
 //! @todo KEXI3 is KexiMenuWidgetStyle needed?
 #if 0
@@ -252,6 +257,7 @@ void KexiMainMenu::showEvent(QShowEvent * event)
         m_menuWidget->addSeparator();
         m_menuWidget->addAction(ac->action("quit"));
         hlyr->addWidget(m_menuWidget);
+
         m_content = new EmptyMenuContentWidget;
         m_content->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
         m_content->installEventFilter(this);
@@ -294,7 +300,8 @@ KexiTabbedToolBar::Private::Private(KexiTabbedToolBar *t)
 //! @return true if @a style name is specific regarding tab styling
 static bool isSpecificTabStyle(const QString &styleName)
 {
-    return styleName == "oxygen" || styleName == "qtcurve" || styleName == "gtk+";
+    return styleName == "oxygen" || styleName == "qtcurve" || styleName == "gtk+"
+           || styleName == "gtk2";
 }
 
 KexiTabbedToolBarStyle::KexiTabbedToolBarStyle(const QString &baseStyleName)
@@ -357,7 +364,11 @@ void KexiTabbedToolBarStyle::drawControl(ControlElement element, const QStyleOpt
                     }
                 }
                 else {
-                    bg = Qt::transparent;
+                    if (styleName == "fusion") {
+                        bg = newOpt.palette.brush(QPalette::Active, QPalette::Button);
+                    } else {
+                        bg = Qt::transparent;
+                    }
                 }
                 QFont origFont(painter->font());
                 QFont f(origFont);
@@ -471,7 +482,7 @@ QSize KexiTabbedToolBarTabBar::tabSizeHint(int index) const
     ot.initFrom(this);
     QFont f(font());
     f.setBold(true);
-    ot.text = (isSpecificTabStyle(style()->objectName()) ? "  " : "") + tabText(index);
+    ot.text = (isSpecificTabStyle(customStyle->baseStyle()->objectName()) ? "  " : "") + tabText(index);
     ot.fontMetrics = QFontMetrics(f);
     int w = customStyle->pixelMetric(QStyle::PM_TabBarTabHSpace, &ot, this);
     if (w <= 0) { // needed e.g. for oxygen
@@ -539,8 +550,28 @@ void KexiTabbedToolBar::Private::updateMainMenuGeometry()
                           mainWindow->height() - pos.y() + overlap /*+ q->y()*/);
 }
 
+void KexiTabbedToolBar::Private::initSearchLineEdit()
+{
+    //! @todo use KexiConfig
+    KConfigGroup mainWindowGroup(KSharedConfig::openConfig()->group("MainWindow"));
+    const bool enabled = mainWindowGroup.readEntry("GlobalSearchBoxEnabled", true);
+    if (enabled && !searchLineEdit) {
+        searchLineEdit = new KexiSearchLineEdit;
+        kexiTester() << KexiTestObject(searchLineEdit, "globalSearch.lineEdit");
+        searchLineEdit->installEventFilter(q);
+        helpLayer->addWidget(searchLineEdit);
+    } else if (!enabled && searchLineEdit) {
+        helpLayer->removeWidget(searchLineEdit);
+        delete searchLineEdit;
+        searchLineEdit = nullptr;
+    }
+}
+
 void KexiTabbedToolBar::activateSearchLineEdit()
 {
+    if (!d->searchLineEdit) {
+        return;
+    }
     d->searchLineEdit->selectAll();
     d->searchLineEdit->setFocus();
 }
@@ -623,14 +654,10 @@ KexiTabbedToolBar::KexiTabbedToolBar(QWidget *parent)
     // help area
     QWidget *helpWidget = new QWidget(this);
     helpWidget->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    QHBoxLayout *helpLyr = new QHBoxLayout(helpWidget);
-    helpLyr->setContentsMargins(0, 0, 0, 0);
+    d->helpLayer = new QHBoxLayout(helpWidget);
+    d->helpLayer->setContentsMargins(0, 0, 0, 0);
     setCornerWidget(helpWidget, Qt::TopRightCorner);
-
-    d->searchLineEdit = new KexiSearchLineEdit;
-    kexiTester() << KexiTestObject(d->searchLineEdit, "globalSearch.lineEdit");
-    d->searchLineEdit->installEventFilter(this);
-    helpLyr->addWidget(d->searchLineEdit);
+    d->initSearchLineEdit();
 
     // needed e.g. for Windows style to remove the toolbar's frame
     QWidget *dummyWidgetForMainMenu = new QWidget(this);
@@ -787,7 +814,7 @@ bool KexiTabbedToolBar::eventFilter(QObject* watched, QEvent* event)
     case QEvent::MouseButtonPress: {
         QWidget *mainWin = KexiMainWindowIface::global()->thisWidget();
         // qDebug() << "MouseButtonPress: watched:" << watched << "window()->focusWidget():" << window()->focusWidget();
-        if (watched == d->searchLineEdit) {
+        if (d->searchLineEdit && watched == d->searchLineEdit) {
             activateSearchLineEdit(); // custom setFocus() for search box, so it's possible to focus
                                       // back on Escape key press
             return false;
@@ -1024,6 +1051,11 @@ void KexiTabbedToolBar::setMainMenuContent(QWidget *w)
     d->mainMenu->setContent(w);
 }
 
+const QWidget* KexiTabbedToolBar::mainMenuContent()
+{
+    return d->mainMenu->contentWidget();
+}
+
 void KexiTabbedToolBar::selectMainMenuItem(const char *actionName)
 {
     if (actionName) {
@@ -1037,7 +1069,18 @@ void KexiTabbedToolBar::selectMainMenuItem(const char *actionName)
 
 void KexiTabbedToolBar::addSearchableModel(KexiSearchableModel *model)
 {
+    if (!d->searchLineEdit) {
+        return;
+    }
     d->searchLineEdit->addSearchableModel(model);
+}
+
+void KexiTabbedToolBar::removeSearchableModel(KexiSearchableModel *model)
+{
+    if (!d->searchLineEdit) {
+        return;
+    }
+    d->searchLineEdit->removeSearchableModel(model);
 }
 
 KToolBar* KexiTabbedToolBar::createToolBar(const char* name, const QString& caption)
@@ -1190,7 +1233,7 @@ void KexiMainWindow::Private::clearWindows()
 void KexiMainWindow::Private::showStartProcessMsg(const QStringList& args)
 {
     wnd->showErrorMessage(xi18nc("@info", "Could not start <application>%1</application> application.",
-                                 QString::fromLatin1(KEXI_APP_NAME)),
+                                 QApplication::applicationDisplayName()),
                           xi18nc("@info",
                                  "Command <command>%1</command> failed.", args.join(" ")));
 }
@@ -1390,6 +1433,15 @@ void KexiMainWindow::Private::setProjectNavigatorVisible(bool set, ShowMode mode
             wnd->slotProjectNavigatorVisibilityChanged(set);
         }
     }
+}
+
+KexiAssistantPage *KexiMainWindow::Private::visibleMainMenuWidgetPage()
+{
+    const KexiAssistantWidget *widget = qobject_cast<const KexiAssistantWidget*>(tabbedToolBar->mainMenuContent());
+    if (widget && widget->isVisible()) {
+        return widget->currentPage();
+    }
+    return nullptr;
 }
 
 #ifndef KEXI_NO_PENDING_DIALOGS

@@ -31,6 +31,7 @@
 #include <KDbTableViewData>
 #include <KDbTableViewColumn>
 #include <KDbTransaction>
+#include <KDbTransactionGuard>
 
 #include <QDebug>
 
@@ -93,7 +94,7 @@ bool KexiDataTableView::loadTableViewSettings(KDbTableViewData* data)
             bool ok;
             const QList<int> columnWidths = KDb::deserializeIntList(columnWidthsString, &ok);
             if (!ok) {
-                qWarning() << "Invalud format of 'columnWidths' value:" << columnWidthsString;
+                qWarning() << "Invalid format of 'columnWidths' value:" << columnWidthsString;
                 return false;
             }
             QList<KDbTableViewColumn*>* columns = data->columns();
@@ -136,7 +137,7 @@ bool KexiDataTableView::saveSettings()
     if (dynamic_cast<KexiDataTableScrollArea*>(mainWidget())) { // db-aware
         KexiTableScrollArea* tv = tableView();
         const int id = window()->id();
-        if (id > 0 && tv->data()->columnCount() > 0) {
+        if (id > 0 && tv->data() && tv->data()->columnCount() > 0) {
             QStringList widths;
             bool equal = true; // will be only saved if widths are not equal
             for (int i = 0; i < tv->data()->columnCount(); ++i) {

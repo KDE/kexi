@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2011 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2011-2018 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -24,6 +24,8 @@
 
 #include <QLabel>
 
+class QKeySequence;
+
 //! Link widget
 class KEXIUTILS_EXPORT KexiLinkWidget : public QLabel
 {
@@ -44,6 +46,8 @@ public:
 
     QString format() const;
 
+    QKeySequence shortcut() const;
+
 public Q_SLOTS:
     void setLink(const QString& link);
 
@@ -56,6 +60,10 @@ public Q_SLOTS:
         where "Back" is a link. By default format is empty, what means
         only the link is displayed. */
     void setFormat(const QString& format);
+
+    void click();
+
+    void setShortcut(const QKeySequence &key);
 
 protected:
     virtual void changeEvent(QEvent* event);

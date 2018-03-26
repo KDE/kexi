@@ -16,9 +16,7 @@ set(kexi_reportplugin_SRCS
     krscriptfunctions.cpp
 )
 
-if (KEXI_MOBILE)
-
-else ()
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
 #TODO KEXI3
 #  list(APPEND kexi_reportplugin_SRCS
 #        keximigratereportdata.cpp
@@ -32,23 +30,23 @@ kcoreaddons_desktop_to_json(kexi_reportplugin kexi_reportplugin.desktop)
 
 target_link_libraries(kexi_reportplugin
     PRIVATE
-        kexicore
         kexiguiutils
         kexiextendedwidgets
 
-        KDb
         KReport
-        KPropertyWidgets
 )
 
-if (KEXI_MOBILE)
-
-else ()
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
     target_link_libraries(kexi_reportplugin
       PRIVATE
         keximain
 #TODO KEXI3       keximigrate
     )
-endif ()
+endif()
+
+if(NOT KEXI_USE_KFILEWIDGET)
+    target_link_libraries(kexi_reportplugin
+        PRIVATE KF5::KIOFileWidgets) # KFileWidget::getStartUrl
+endif()
 
 install(TARGETS kexi_reportplugin DESTINATION ${KEXI_PLUGIN_INSTALL_DIR})

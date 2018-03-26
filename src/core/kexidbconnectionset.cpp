@@ -76,9 +76,9 @@ bool KexiDBConnectionSet::addConnectionData(KDbConnectionData *data, const QStri
             m_result.setMessage(xi18n("Could not find location to save connection data file."));
             return false;
         }
-        QString baseFilename(dir + (data->hostName().isEmpty() ? "localhost" : data->hostName()));
+        QString baseFileName(dir + (data->hostName().isEmpty() ? "localhost" : data->hostName()));
         int i = 0;
-        while (QFile::exists(baseFilename + (i > 0 ? QString::number(i) : QString()) + ".kexic")) {
+        while (QFile::exists(baseFileName + (i > 0 ? QString::number(i) : QString()) + ".kexic")) {
             i++;
         }
         if (!QDir(dir).exists()) {
@@ -91,7 +91,7 @@ bool KexiDBConnectionSet::addConnectionData(KDbConnectionData *data, const QStri
             //! @todo change permission of every created subdir, see KStandardDirs::makeDir() create
             QFile(dir).setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner);
         }
-        filename = baseFilename + (i > 0 ? QString::number(i) : QString()) + ".kexic";
+        filename = baseFileName + (i > 0 ? QString::number(i) : QString()) + ".kexic";
     }
     addConnectionDataInternal(data, filename);
     bool result = saveConnectionData(data, *data);

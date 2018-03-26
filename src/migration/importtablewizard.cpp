@@ -18,6 +18,7 @@
 */
 
 #include "importtablewizard.h"
+#include "importoptionsdlg.h"
 #include "migratemanager.h"
 #include "keximigrate.h"
 #include "keximigratedata.h"
@@ -37,7 +38,6 @@
 #include <widget/KexiConnectionSelectorWidget.h>
 #include <widget/KexiProjectSelectorWidget.h>
 #include <widget/KexiDBTitlePage.h>
-#include <widget/KexiFileWidget.h>
 #include <widget/KexiNameWidget.h>
 
 #include <KDbConnectionData>
@@ -45,6 +45,7 @@
 #include <KDbDriverManager>
 #include <KDbDriverManager>
 #include <KDbSqlResult>
+#include <KDbTransactionGuard>
 #include <KDbUtils>
 
 #include <KMessageBox>
@@ -73,6 +74,7 @@ ImportTableWizard::ImportTableWizard ( KDbConnection* curDB, QWidget* parent, QM
     m_prjSet = 0;
     m_importComplete = false;
     m_importWasCanceled = false;
+    m_sourceDbEncoding = QString::fromLatin1(KexiUtils::encoding()); //default
 
     KexiMainWindowIface::global()->setReasonableDialogSize(this);
 
@@ -89,7 +91,14 @@ ImportTableWizard::ImportTableWizard ( KDbConnection* curDB, QWidget* parent, QM
 
     connect(this, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)), this, SLOT(slot_currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)));
     //! @todo Change this to message prompt when we move to non-dialog wizard.
-    connect(m_srcConnSel, SIGNAL(connectionSelected(bool)), this, SLOT(slotConnPageItemSelected(bool)));
+    connect(m_srcConnSel, SIGNAL(connectionSelected(bool)), this,
+            SLOT(slotConnPageItemSelected(bool)));
+    connect(m_srcConnSel, &KexiConnectionSelectorWidget::connectionItemHighlighted,
+            [this]() { setValid(m_srcConnPageItem, true); });
+    connect(m_srcConnSel, &KexiConnectionSelectorWidget::connectionItemExecuted, [this]() {
+        setValid(m_srcConnPageItem, true);
+        next();
+    });
 }
 
 
@@ -158,7 +167,7 @@ void ImportTableWizard::setupIntroPage()
     lblIntro->setText(
         xi18nc("@info",
              "<para>Table Importing Assistant allows you to import a table from an existing "
-             "database into the current Kexi project.</para>"
+             "database into the current KEXI project.</para>"
              "<para>Click <interface>Next</interface> button to continue or "
              "<interface>Cancel</interface> button to exit this assistant.</para>"));
     vbox->addWidget(lblIntro);
@@ -172,22 +181,20 @@ void ImportTableWizard::setupSrcConn()
 {
     m_srcConnPageWidget = new QWidget(this);
     QVBoxLayout *vbox = new QVBoxLayout(m_srcConnPageWidget);
-    KexiUtils::setStandardMarginsAndSpacing(vbox);
 
     m_srcConnSel = new KexiConnectionSelectorWidget(&Kexi::connset(),
-                                           "kfiledialog:///ProjectMigrationSourceDir",
-                                           KFileWidget::Opening, m_srcConnPageWidget);
+                            QUrl("kfiledialog:///ProjectMigrationSourceDir"),
+                            KexiConnectionSelectorWidget::Opening, m_srcConnPageWidget);
 
     m_srcConnSel->hideConnectonIcon();
-    m_srcConnSel->showSimpleConn();
+    m_srcConnSel->showSimpleConnection();
 
-    QSet<QString> excludedFilters;
     //! @todo remove when support for kexi files as source prj is added in migration
-    excludedFilters
-        << KDb::defaultFileBasedDriverMimeType()
-        << "application/x-kexiproject-shortcut"
-        << "application/x-kexi-connectiondata";
-    m_srcConnSel->fileWidget->setExcludedFilters(excludedFilters);
+    const QStringList excludedMimeTypes({
+        KDb::defaultFileBasedDriverMimeType(),
+        "application/x-kexiproject-shortcut",
+        "application/x-kexi-connectiondata"});
+    m_srcConnSel->setExcludedMimeTypes(excludedMimeTypes);
 
     vbox->addWidget(m_srcConnSel);
 
@@ -312,6 +319,7 @@ void ImportTableWizard::setupFinishPage()
     vbox->addWidget(m_finishLbl);
     m_finishCheckBox = new QCheckBox(xi18n("Open imported table"),
                                      m_finishPageWidget);
+    m_finishCheckBox->setChecked(true);
     vbox->addSpacing(KexiUtils::spacingHint());
     vbox->addWidget(m_finishCheckBox);
     vbox->addStretch(1);
@@ -346,14 +354,15 @@ void ImportTableWizard::slot_currentPageChanged(KPageWidgetItem* curPage,KPageWi
 
 void ImportTableWizard::arriveSrcConnPage()
 {
-    qDebug();
 }
 
 void ImportTableWizard::arriveSrcDBPage()
 {
     if (fileBasedSrcSelected()) {
         //! @todo Back button doesn't work after selecting a file to import
-    } else if (!m_srcDBName) {
+    } else {
+        delete m_prjSet;
+        m_prjSet = 0;
         m_srcDBPageWidget->hide();
         //qDebug() << "Looks like we need a project selector widget!";
 
@@ -367,11 +376,14 @@ void ImportTableWizard::arriveSrcDBPage()
                 m_prjSet = 0;
                 return;
             }
-            QVBoxLayout *vbox = new QVBoxLayout(m_srcDBPageWidget);
-            KexiUtils::setStandardMarginsAndSpacing(vbox);
-            m_srcDBName = new KexiProjectSelectorWidget(m_srcDBPageWidget, m_prjSet);
-            vbox->addWidget(m_srcDBName);
-            m_srcDBName->label()->setText(xi18n("Select source database you wish to import:"));
+            if (!m_srcDBName) {
+                QVBoxLayout *vbox = new QVBoxLayout(m_srcDBPageWidget);
+                KexiUtils::setStandardMarginsAndSpacing(vbox);
+                m_srcDBName = new KexiProjectSelectorWidget(m_srcDBPageWidget);
+                vbox->addWidget(m_srcDBName);
+                m_srcDBName->label()->setText(xi18n("Select source database you wish to import:"));
+            }
+            m_srcDBName->setProjectSet(m_prjSet);
         }
         m_srcDBPageWidget->show();
     }
@@ -391,6 +403,12 @@ void ImportTableWizard::arriveTableSelectPage(KPageWidgetItem *prevPage)
 
         bool ok = m_migrateDriver;
         if (ok) {
+            if (!m_sourceDbEncoding.isEmpty()) {
+                m_migrateDriver->setPropertyValue(
+                    "source_database_nonunicode_encoding",
+                    QVariant(m_sourceDbEncoding.toUpper().remove(' ')) // "CP1250", not "cp 1250"
+                    );
+            }
             ok = m_migrateDriver->connectSource(&result);
         }
         if (ok) {
@@ -452,7 +470,7 @@ void ImportTableWizard::arriveAlterTablePage()
 
 bool ImportTableWizard::readFromTable()
 {
-    QScopedPointer<KDbSqlResult> tableResult(m_migrateDriver->readFromTable(m_importTableName));
+    QSharedPointer<KDbSqlResult> tableResult = m_migrateDriver->readFromTable(m_importTableName);
     KDbTableSchema *newSchema = m_alterSchemaWidget->newSchema();
     if (!tableResult || tableResult->lastResult().isError()
             || tableResult->fieldsCount() != newSchema->fieldCount())
@@ -465,7 +483,7 @@ bool ImportTableWizard::readFromTable()
     }
     QScopedPointer<QList<KDbRecordData*>> data(new QList<KDbRecordData*>);
     for (int i = 0; i < RECORDS_FOR_PREVIEW; ++i) {
-        QScopedPointer<KDbRecordData> record(tableResult->fetchRecordData());
+        QSharedPointer<KDbRecordData> record(tableResult->fetchRecordData());
         if (!record) {
             if (tableResult->lastResult().isError()) {
                 return false;
@@ -509,7 +527,7 @@ void ImportTableWizard::arriveImportingPage()
     m_lblImportingTxt->setText(txt);
 
     //temp. hack for MS Access driver only
-    //! @todo for other databases we will need KexiMigration::Conenction
+    //! @todo for other databases we will need KexiMigration::Connection
     //! and KexiMigration::Driver classes
     bool showOptions = false;
     if (fileBasedSrcSelected()) {
@@ -527,6 +545,7 @@ void ImportTableWizard::arriveImportingPage()
         m_importOptionsButton->hide();
 
     m_importingPageWidget->show();
+    setAppropriate(m_progressPageItem, true);
 }
 
 void ImportTableWizard::arriveProgressPage()
@@ -552,16 +571,20 @@ void ImportTableWizard::arriveProgressPage()
 void ImportTableWizard::arriveFinishPage()
 {
     if (m_importComplete) {
+        m_finishPageItem->setHeader(xi18n("Success"));
         m_finishLbl->setText(xi18nc("@info",
                                     "Table <resource>%1</resource> has been imported.",
                                     m_alterSchemaWidget->nameWidget()->nameText()));
     } else {
-        m_finishCheckBox->setEnabled(false);
-        m_finishLbl->setText(xi18n("An error occured."));
+        m_finishPageItem->setHeader(xi18n("Failure"));
+        m_finishLbl->setText(xi18n("An error occurred."));
     }
     m_migrateDriver->disconnectSource();
-
-    button(QDialogButtonBox::Cancel)->setEnabled(false);
+    button(QDialogButtonBox::Cancel)->setEnabled(!m_importComplete);
+    m_finishCheckBox->setVisible(m_importComplete);
+    finishButton()->setEnabled(m_importComplete);
+    nextButton()->setEnabled(m_importComplete);
+    setAppropriate(m_progressPageItem, false);
 }
 
 bool ImportTableWizard::fileBasedSrcSelected() const
@@ -622,7 +645,7 @@ KexiMigrate* ImportTableWizard::prepareImport(Kexi::ObjectStatus *result)
 
         if (fileBasedSrcSelected()) {
             KDbConnectionData* conn_data = new KDbConnectionData();
-            conn_data->setDatabaseName(m_srcConnSel->selectedFileName());
+            conn_data->setDatabaseName(m_srcConnSel->selectedFile());
             md->source = conn_data;
             md->sourceName.clear();
         } else {
@@ -645,13 +668,14 @@ QString ImportTableWizard::driverIdForSelectedSource()
 {
     if (fileBasedSrcSelected()) {
         QMimeDatabase db;
-        QMimeType mime = db.mimeTypeForFile(m_srcConnSel->selectedFileName());
+        QMimeType mime = db.mimeTypeForFile(m_srcConnSel->selectedFile());
         if (!mime.isValid()
             || mime.name() == "application/octet-stream"
-            || mime.name() == "text/plain")
+            || mime.name() == "text/plain"
+            || mime.name() == "application/zip")
         {
             //try by URL:
-            mime = db.mimeTypeForFile(m_srcConnSel->selectedFileName());
+            mime = db.mimeTypeForFile(m_srcConnSel->selectedFile());
         }
         if (!mime.isValid()) {
             return QString();
@@ -695,7 +719,9 @@ bool ImportTableWizard::doImport()
     }
 
     //Create the table
-    if (!m_connection->createTable(newSchema, true)) {
+    if (!m_connection->createTable(newSchema,
+            KDbConnection::CreateTableOption::Default | KDbConnection::CreateTableOption::DropDestination))
+    {
         msg.showErrorMessage(KDbMessageHandler::Error,
                              xi18nc("@info", "Unable to create table <resource>%1</resource>.",
                                     newSchema->name()));
@@ -742,6 +768,9 @@ bool ImportTableWizard::doImport()
 void ImportTableWizard::slotConnPageItemSelected(bool isSelected)
 {
     setValid(m_srcConnPageItem, isSelected);
+    if (isSelected && fileBasedSrcSelected()) {
+        next();
+    }
 }
 
 void ImportTableWizard::slotTableListWidgetSelectionChanged()
@@ -757,4 +786,12 @@ void ImportTableWizard::slotNameChanged()
 void ImportTableWizard::slotCancelClicked()
 {
     m_importWasCanceled = true;
+}
+
+void ImportTableWizard::slotOptionsButtonClicked()
+{
+    OptionsDialog dlg(m_srcConnSel->selectedFile(), m_sourceDbEncoding, this);
+    if (QDialog::Accepted == dlg.exec()) {
+        m_sourceDbEncoding = dlg.encodingComboBox()->selectedEncoding();
+    }
 }

@@ -155,11 +155,14 @@ void KexiImageContextMenu::saveAs()
     }
     //qDebug() << url;
     QFile f(url.toLocalFile());
-    if (f.exists() && KMessageBox::Yes != KMessageBox::warningYesNo(this,
-            xi18n("<para>File <filename>%1</filename> already exists.</para>"
-                 "<para>Do you want to replace it with a new one?</para>",
-                 QDir::toNativeSeparators(url.toString())), 0,
-            KGuiItem(xi18nc("@action:button", "&Replace")), KGuiItem(xi18n("&Don't Replace"))))
+    if (f.exists()
+        && KMessageBox::Yes
+            != KMessageBox::warningYesNo(
+                   this, xi18nc("@info", "<para>File <filename>%1</filename> already exists.</para>"
+                                         "<para>Do you want to replace it with a new one?</para>",
+                                QDir::toNativeSeparators(url.toString())),
+                   0, KGuiItem(xi18nc("@action:button", "&Replace")),
+                   KGuiItem(xi18n("&Don't Replace"))))
     {
         return;
     }

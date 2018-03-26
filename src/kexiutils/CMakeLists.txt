@@ -32,9 +32,7 @@ set(kexiutils_LIB_SRCS
   style/KexiPropertyPaneLineEditStyle.cpp
 )
 
-if (KEXI_MOBILE)
-
-else ()
+if(SHOULD_BUILD_KEXI_MOBILE_APP)
   if (KEXI_DEBUG_GUI)
     list(APPEND kexiutils_LIB_SRCS
       debuggui.cpp
@@ -60,7 +58,6 @@ target_include_directories(kexiutils
 
 target_link_libraries(kexiutils
     PUBLIC
-        KF5::KIOWidgets #for KRun...
         KF5::IconThemes
         KF5::WidgetsAddons
         KF5::ConfigWidgets # KStandardAction KColorScheme
@@ -72,8 +69,15 @@ target_link_libraries(kexiutils
 
     PRIVATE
         Qt5::Svg
+        KF5::KIOFileWidgets # KFileWidget::getStartUrl(), KRecentDirs
 )
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
+    target_link_libraries(kexiutils
+        PUBLIC
+            KF5::KIOWidgets #for KRun...
+    )
 #target_link_libraries(kexiutils LINK_INTERFACE_LIBRARIES KF5::KIOWidgets)
+endif()
 
 if(BUILD_TESTING)
     target_link_libraries(kexiutils

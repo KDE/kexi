@@ -39,10 +39,8 @@ class KEXIRELATIONSVIEW_EXPORT KexiRelationsTableContainer : public QFrame
     Q_OBJECT
 
 public:
-    KexiRelationsTableContainer(
-        QWidget* parent,
-        KexiRelationsScrollArea *scrollArea,
-        KDbTableOrQuerySchema *schema);
+    KexiRelationsTableContainer(KexiRelationsScrollArea *scrollArea, KDbConnection *conn,
+                                KDbTableOrQuerySchema *schema, QWidget *parent = nullptr);
 
     virtual ~KexiRelationsTableContainer();
 

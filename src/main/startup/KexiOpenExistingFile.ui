@@ -27,7 +27,7 @@
             </sizepolicy>
           </property>
           <property name="text" >
-            <string>&lt;b>Select existing Kexi project file to open:&lt;/b>
+            <string>&lt;b>Select existing KEXI project file to open:&lt;/b>
 </string>
           </property>
           <property name="alignment" >

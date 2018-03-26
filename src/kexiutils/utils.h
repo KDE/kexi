@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
 
    Contains code from kglobalsettings.h:
    Copyright (C) 2000, 2006 David Faure <faure@kde.org>
@@ -47,6 +47,7 @@
 #include <KDbTristate>
 
 class QColor;
+class QDomNode;
 class QMetaProperty;
 class QLayout;
 class QLineEdit;
@@ -135,7 +136,10 @@ KEXIUTILS_EXPORT QList<QMetaProperty> propertiesForMetaObjectWithInherited(
     const QMetaObject *metaObject);
 
 //! \return a list of enum keys for meta property \a metaProperty.
-KEXIUTILS_EXPORT QStringList enumKeysForProperty(const QMetaProperty& metaProperty);
+//! If @a filter is not INT_MIN, the method only returns enum keys that overlap with filter
+//! and are not combination of other keys.
+KEXIUTILS_EXPORT QStringList enumKeysForProperty(const QMetaProperty &metaProperty,
+                                                 int filter = INT_MIN);
 
 //! Convert a list @a list of @a SourceType type to another list of @a DestinationType
 //! type using @a convertMethod function
@@ -194,8 +198,16 @@ KEXIUTILS_EXPORT void removeWaitCursor();
 class KEXIUTILS_EXPORT WaitCursor
 {
 public:
-    WaitCursor(bool noDelay = false);
+    //! Wait cursor handler for application
+    explicit WaitCursor(bool noDelay = false);
+
+    //! @overload
+    //! Wait cursor handler for widget @a widget
+    explicit WaitCursor(QWidget *widget, bool noDelay = false);
+
     ~WaitCursor();
+private:
+    QObject *m_handler;
 };
 
 /*! Helper class. Allocate it in your code block as follows:
@@ -215,20 +227,6 @@ private:
     bool m_reactivateCursor;
 };
 
-/*! \return filter string in QFileDialog format for a mime type pointed by \a mime
- If \a kdeFormat is true, QFileDialog-compatible filter string is generated,
- eg. "Image files (*.png *.xpm *.jpg)", otherwise KFileDialog -compatible
- filter string is generated, eg. "*.png *.xpm *.jpg|Image files (*.png *.xpm *.jpg)".
- "\\n" is appended if \a kdeFormat is true, otherwise ";;" is appended. */
-KEXIUTILS_EXPORT QString fileDialogFilterString(const QMimeType &mime, bool kdeFormat = true);
-
-/*! @overload QString fileDialogFilterString(const QMimeType &mime, bool kdeFormat = true) */
-KEXIUTILS_EXPORT QString fileDialogFilterString(const QString& mimeName, bool kdeFormat = true);
-
-/*! Like QString fileDialogFilterString(const QMimeType &mime, bool kdeFormat = true)
- but returns a list of filter strings. */
-KEXIUTILS_EXPORT QString fileDialogFilterStrings(const QStringList& mimeStrings, bool kdeFormat);
-
 /*! Creates a modal file dialog which returns the selected url of image filr to open
     or an empty string if none was chosen.
  Like KFileDialog::getImageOpenUrl(). */
@@ -242,6 +240,40 @@ KEXIUTILS_EXPORT QUrl getOpenImageUrl(QWidget *parent = 0, const QString &captio
 //! @todo KEXI3 add equivalent of kfiledialog:///
 KEXIUTILS_EXPORT QUrl getSaveImageUrl(QWidget *parent = 0, const QString &caption = QString(),
                                       const QUrl &directory = QUrl());
+
+/**
+ * This method implements the logic to determine the user's default directory
+ * to be listed. E.g. the documents directory, home directory or a recently
+ * used directory.
+ *
+ * Use instead of KFileWidget::getStartUrl(const QUrl &startDir, QString &recentDirClass).
+ *
+ * @param startDir A URL specifying the initial directory, or using the
+ *                 @c kfiledialog:/// syntax to specify a last used
+ *                 directory.  If this URL specifies a file name, it is
+ *                 ignored.  Refer to the KFileWidget::KFileWidget()
+ *                 documentation for the @c kfiledialog:/// URL syntax.
+ * @param recentDirClass If the @c kfiledialog:/// syntax is used, this
+ *        will return the string to be passed to KRecentDirs::dir() and
+ *        KRecentDirs::add().
+ * @return The URL that should be listed by default (e.g. by KFileDialog or
+ *         KDirSelectDialog).
+ *
+ * @see KFileWidget::KFileWidget()
+ * @since 3.1.0
+ * @todo Make it independent of KIOFileWidgets
+ */
+KEXIUTILS_EXPORT QUrl getStartUrl(const QUrl &startDirOrVariable, QString *recentDirClass);
+
+/**
+ * Associates @p directory with @p fileClass
+ *
+ * Use instead of KRecentDirs::add()
+ *
+ * @since 3.1.0
+ * @todo Make it independent of KIOFileWidgets
+ */
+KEXIUTILS_EXPORT void addRecentDir(const QString &fileClass, const QString &directory);
 
 /*! Displays a "The file %1 already exists. Do you want to overwrite it?" Yes/No message box.
  @a parent is used as a parent of the message box.
@@ -424,7 +456,7 @@ KEXIUTILS_EXPORT void setMargins(QLayout *layout, int value);
         lyr->addWidget(what); }
 
 //! A tool for setting temporary value for boolean variable.
-/*! After desctruction of the instance, the variable is set back
+/*! After destruction of the instance, the variable is set back
  to the original value. This class is useful in recursion guards.
  To use it, declare class atrribute of type bool and block it, e.g.:
  @code
@@ -601,6 +633,42 @@ inline QColor plasmaBlue() { return QColor(0x3daee9); }
 KEXIUTILS_EXPORT bool activateItemsOnSingleClick(QWidget *widget = 0);
 
 /**
+ * Detects name of desktop session based on environment variables.
+ *
+ * Possible value are like GNOME, XFCE, KDE. They are always uppercase. Following environment
+ * variables are used: XDG_SESSION_DESKTOP. XDG_CURRENT_DESKTOP, DESKTOP_SESSION, KDE_FULL_SESSION,
+ * GNOME_DESKTOP_SESSION_ID.
+ *
+ * @return empty string if no desktop session was detected or sessions are not supported for the
+ * running OS (Windows, macOS, non-desktop OS).
+ *
+ * @note use QApplication::styleHints() if possible.
+ */
+KEXIUTILS_EXPORT QByteArray detectedDesktopSession();
+
+/**
+ * @return true is this is a KDE / Plasma desktop session
+ *
+ * Detection is based on detectedDesktopSession().
+ */
+KEXIUTILS_EXPORT bool isKDEDesktopSession();
+
+/**
+ * @brief Returns @c true if native operating system's dialogs should be used
+ *
+ * Returns @c false if Qt's standard dialogs should be used instead of the operating system native
+ * dialogs. Can be used with QColorDialog, QFileDialog and QFontDialog.
+ *
+ * Depends on the curent desktop in use:
+ * - on Unix (other than macOS) returns @c true if isKDEDesktopSession() is @c true or if desktop
+ *   session can't be detected, @c false for other desktops
+ * - @c true for all other operating systems, i.e. for MS Windows, macOS, etc.
+ *
+ * @todo Share this code with KReport and Kexi
+ */
+KEXIUTILS_EXPORT bool shouldUseNativeDialogs();
+
+/**
  * @enum CaptionFlag
  * Used to specify how to construct a window caption
  *
@@ -652,5 +720,10 @@ KEXIUTILS_EXPORT QString localizedStringToHtmlSubstring(const KLocalizedString& 
 KEXIUTILS_EXPORT bool cursorAtEnd(const QLineEdit *lineEdit);
 
 } //namespace KexiUtils
+
+/**
+ * Writes the DOM tree to the stream and returns a reference to the stream.
+ */
+KEXIUTILS_EXPORT QDebug operator<<(QDebug dbg, const QDomNode &node);
 
 #endif //KEXIUTILS_UTILS_H

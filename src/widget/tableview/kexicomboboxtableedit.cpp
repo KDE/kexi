@@ -50,6 +50,7 @@ public:
             , internalEditor(0) {
     }
     ~Private() {
+        delete button;
         delete internalEditor;
         delete visibleTableViewColumn;
     }
@@ -61,11 +62,12 @@ public:
     KDbTableViewColumn* visibleTableViewColumn;
     KexiTableEdit* internalEditor;
     int arrowWidth;
+    KDbConnection *connection = nullptr;
 };
 
 //======================================================
 
-KexiComboBoxTableEdit::KexiComboBoxTableEdit(KDbTableViewColumn &column, QWidget *parent)
+KexiComboBoxTableEdit::KexiComboBoxTableEdit(KDbTableViewColumn *column, QWidget *parent)
         : KexiComboBoxBase()
         , KexiInputTableEdit(column, parent)
         , d(new Private())
@@ -79,7 +81,7 @@ KexiComboBoxTableEdit::KexiComboBoxTableEdit(KDbTableViewColumn &column, QWidget
 
     connect(m_lineedit, SIGNAL(textChanged(QString)), this, SLOT(slotLineEditTextChanged(QString)));
 
-    m_rightMarginWhenFocused = this->column()->isReadOnly() ? 0 : d->button->width();
+    m_rightMarginWhenFocused = (isReadOnly() || this->column()->isReadOnly()) ? 0 : d->button->width();
     m_rightMarginWhenFocused -= RIGHT_MARGIN_DELTA;
     updateLineEditStyleSheet();
     m_rightMarginWhenFocused += RIGHT_MARGIN_DELTA;
@@ -92,8 +94,14 @@ KexiComboBoxTableEdit::~KexiComboBoxTableEdit()
     delete d;
 }
 
-void KexiComboBoxTableEdit::createInternalEditor(KDbQuerySchema& schema)
+KDbConnection *KexiComboBoxTableEdit::connection()
 {
+    return d->connection;
+}
+
+void KexiComboBoxTableEdit::createInternalEditor(KDbConnection *conn, const KDbQuerySchema& schema)
+{
+    d->connection = conn;
     if (!m_column->visibleLookupColumnInfo() || d->visibleTableViewColumn/*sanity*/)
         return;
     const KDbField::Type t = m_column->visibleLookupColumnInfo()->field()->type();
@@ -108,11 +116,11 @@ void KexiComboBoxTableEdit::createInternalEditor(KDbQuerySchema& schema)
     KDbQueryColumnInfo *visibleLookupColumnInfo = 0;
     if (ci->indexForVisibleLookupValue() != -1) {
         //Lookup field is defined
-        visibleLookupColumnInfo = schema.expandedOrInternalField(ci->indexForVisibleLookupValue());
+        visibleLookupColumnInfo = schema.expandedOrInternalField(conn, ci->indexForVisibleLookupValue());
     }
     d->visibleTableViewColumn = new KDbTableViewColumn(schema, ci, visibleLookupColumnInfo);
 //! todo set d->internalEditor visible and use it to enable data entering by hand
-    d->internalEditor = KexiCellEditorFactory::createEditor(*d->visibleTableViewColumn, 0);
+    d->internalEditor = KexiCellEditorFactory::createEditor(d->visibleTableViewColumn, nullptr);
     m_lineedit->hide();
 }
 
@@ -136,11 +144,13 @@ void KexiComboBoxTableEdit::showFocus(const QRect& r, bool readOnly)
 void KexiComboBoxTableEdit::resize(int w, int h)
 {
     d->totalSize = QSize(w, h);
-    if (!column()->isReadOnly()) {
+    if (isReadOnly() || column()->isReadOnly()) {
+        m_rightMarginWhenFocused = 0;
+    } else {
+        m_rightMarginWhenFocused = d->button->width();
         d->button->resize(h, h);
         QWidget::resize(w, h);
     }
-    m_rightMarginWhenFocused = column()->isReadOnly() ? 0 : d->button->width();
     m_rightMarginWhenFocused -= RIGHT_MARGIN_DELTA;
     updateLineEditStyleSheet();
     m_rightMarginWhenFocused += RIGHT_MARGIN_DELTA;
@@ -159,7 +169,7 @@ void KexiComboBoxTableEdit::resize(int w, int h)
 // internal
 void KexiComboBoxTableEdit::updateFocus(const QRect& r)
 {
-    if (!column()->isReadOnly()) {
+    if (!isReadOnly() && !column()->isReadOnly()) {
         if (d->button->width() > r.width())
             moveChild(d->button, r.right() + 1, r.top());
         else
@@ -205,7 +215,7 @@ void KexiComboBoxTableEdit::setupContents(QPainter *p, bool focused, const QVari
         KexiInputTableEdit::setupContents(p, focused, val, txt, align, x, y_offset, w, h);
     }
     if (!val.isNull()) {
-        KDbTableViewData *relData = column()->relatedData();
+        const KDbTableViewData *relData = column()->relatedData();
         if (relData) {
             int recordToHighlight;
             txt = valueForString(val.toString(), &recordToHighlight, 0, 1);
@@ -223,14 +233,13 @@ void KexiComboBoxTableEdit::slotButtonClicked()
 {
     // this method is sometimes called by hand:
     // do not allow to simulate clicks when the button is disabled
-    if (column()->isReadOnly() || !d->button->isEnabled())
+    if (isReadOnly() || column()->isReadOnly() || !d->button->isEnabled())
         return;
 
     if (m_mouseBtnPressedWhenPopupVisible) {
         m_mouseBtnPressedWhenPopupVisible = false;
         return;
     }
-    qDebug();
     if (!popup() || !popup()->isVisible()) {
         //qDebug() << "SHOW POPUP";
         showPopup();
@@ -254,7 +263,7 @@ void KexiComboBoxTableEdit::hide()
 void KexiComboBoxTableEdit::show()
 {
     KexiInputTableEdit::show();
-    if (!column()->isReadOnly()) {
+    if (!isReadOnly() && !column()->isReadOnly()) {
         d->button->show();
     }
 }
@@ -289,7 +298,7 @@ void KexiComboBoxTableEdit::slotLineEditTextChanged(const QString& s)
 
 int KexiComboBoxTableEdit::widthForValue(const QVariant &val, const QFontMetrics &fm)
 {
-    KDbTableViewData *relData = column() ? column()->relatedData() : 0;
+    const KDbTableViewData *relData = column() ? column()->relatedData() : nullptr;
     if (lookupFieldSchema() || relData) {
         // in 'lookupFieldSchema' or  or 'related table data' model
         // we're assuming val is already the text, not the index
@@ -328,7 +337,7 @@ bool KexiComboBoxTableEdit::eventFilter(QObject *o, QEvent *e)
             return true;
         }
     }
-    if (!column()->isReadOnly() && e->type() == QEvent::MouseButtonPress
+    if (!isReadOnly() && !column()->isReadOnly() && e->type() == QEvent::MouseButtonPress
         && qobject_cast<KexiTableScrollAreaWidget*>(parentWidget()))
     {
         QPoint gp = static_cast<QMouseEvent*>(e)->globalPos() + d->button->pos();

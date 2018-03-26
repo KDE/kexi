@@ -4,7 +4,7 @@ include_directories(${CMAKE_SOURCE_DIR}/src/core
 
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44000)
 
-option(KEXI_MIGRATEMANAGER_DEBUG "Enable debugging for the migrate driver manager" OFF)
+simple_option(KEXI_MIGRATEMANAGER_DEBUG "Enable debugging for the migrate driver manager" OFF)
 
 set(KEXI_MIGRATE_PLUGIN_INSTALL_DIR ${KEXI_PLUGIN_INSTALL_DIR}/migrate)
 
@@ -31,28 +31,38 @@ endfunction()
 add_subdirectory(tsv)
 
 find_package(MySQL)
-macro_log_feature(MYSQL_FOUND "libmysqlclient" "MySQL Client Library" "http://www.mysql.com"
-                  FALSE "" "Required by Kexi MySQL migration driver")
-if(MYSQL_FOUND)
+set_package_properties(MySQL PROPERTIES TYPE RECOMMENDED
+                       PURPOSE "Required by KEXI MySQL migration driver")
+if(MySQL_FOUND)
     add_subdirectory(mysql)
 endif()
 
-find_package(KexiPostgreSQL)
-macro_log_feature(POSTGRESQL_FOUND "libpq" "C application programmer's interface to PostgreSQL"
-                  "http://www.postgresql.org" FALSE "" "Required by Kexi PostgreSQL migration driver")
-if(POSTGRESQL_FOUND)
+find_package(PostgreSQL)
+set_package_properties(PostgreSQL PROPERTIES TYPE RECOMMENDED
+                       PURPOSE "Required by KEXI PostgreSQL migration driver")
+if(PostgreSQL_FOUND)
     add_subdirectory(postgresql)
 endif()
 
 if(false) # TODO KEXI3
 find_package(FreeTDS)
-macro_log_feature(FREETDS_FOUND "FreeTDS" "Open source implementation of the TDS (Tabular Data Stream) protocol" "http://www.freetds.org" FALSE "" "Required by Kexi Sybase migration driver")
+set_package_properties(FreeTDS PROPERTIES
+    DESCRIPTION "Open source implementation of the TDS (Tabular Data Stream) protocol"
+    URL "http://www.freetds.org"
+    TYPE RECOMMENDED
+    PURPOSE "Required by KEXI Sybase migration driver"
+)
 if(FREETDS_FOUND)
   add_subdirectory(sybase)
 endif()
 
 find_package(XBase)
-macro_log_feature(XBASE_FOUND "XBase" "XBase compatible C++ class library" "http://linux.techass.com/projects/xdb" FALSE "" "Required by Kexi XBase migration driver")
+set_package_properties(XBase PROPERTIES
+    DESCRIPTION "XBase compatible C++ class library"
+    URL "http://linux.techass.com/projects/xdb"
+    TYPE RECOMMENDED
+    PURPOSE "Required by KEXI XBase migration driver"
+)
 if(XBASE_FOUND)
   add_subdirectory(xbase)
 endif()
@@ -60,17 +70,19 @@ endif()
 endif() # KEXI3
 
 find_package(GLIB2)
-set(_REQUIRED_BY_MDB "Required by Kexi MS Access migration driver")
-macro_log_feature(GLIB2_FOUND "GLIB2" "Common C routines used by GTK+ and other libs" "http://www.gtk.org" FALSE "" ${_REQUIRED_BY_MDB})
+set(_REQUIRED_BY_MDB "Required by KEXI MS Access migration driver")
+set_package_properties(GLIB2 PROPERTIES TYPE RECOMMENDED PURPOSE "${_REQUIRED_BY_MDB}")
 
-include(FindIconv)
-macro_log_feature(ICONV_FOUND "Iconv" "A library to convert between different character encodings" "https://www.gnu.org/software/libiconv" FALSE "" ${_REQUIRED_BY_MDB})
+find_package(Iconv)
+set_package_properties(Iconv PROPERTIES TYPE RECOMMENDED PURPOSE "${_REQUIRED_BY_MDB}")
 
-if(GLIB2_FOUND AND ICONV_FOUND)
+if(GLIB2_FOUND AND Iconv_FOUND)
     add_subdirectory(mdb)
 endif()
 
-add_subdirectory(tests)
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
 
 ########### next target ###############
 
@@ -89,13 +101,7 @@ kexi_add_library(keximigrate SHARED ${keximigrate_LIB_SRCS})
 
 target_link_libraries(keximigrate
     PUBLIC
-        kexicore
         kexiextendedwidgets
-        kexiutils
-
-        KDb
-
-        Qt5::Gui
 )
 
 generate_export_header(keximigrate)

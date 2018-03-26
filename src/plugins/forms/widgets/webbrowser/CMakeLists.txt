@@ -18,15 +18,12 @@ set (QT_USE_QTWEBKIT TRUE)
 
 target_link_libraries(org.kexi-project.form.widgets.web-browser
     kformdesigner
-    kexicore
     kexiguiutils
     kexidatatable
     kexiextendedwidgets
     kexidataviewcommon
     kexiformutils
 
-    Qt5::Core
-    Qt5::Gui
     Qt5::WebKitWidgets
     Qt5::Xml
 )

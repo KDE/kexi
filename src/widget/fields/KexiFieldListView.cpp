@@ -67,7 +67,7 @@ KexiFieldListView::~KexiFieldListView()
     delete d;
 }
 
-void KexiFieldListView::setSchema(KDbTableOrQuerySchema* schema)
+void KexiFieldListView::setSchema(KDbConnection *conn, KDbTableOrQuerySchema* schema)
 {
     if (schema && d->schema == schema)
         return;
@@ -84,7 +84,7 @@ void KexiFieldListView::setSchema(KDbTableOrQuerySchema* schema)
 
     d->model = new KexiFieldListModel(this, d->options);
 
-    d->model->setSchema(schema);
+    d->model->setSchema(conn, schema);
     setModel(d->model);
 }
 
@@ -116,7 +116,6 @@ QStringList KexiFieldListView::selectedFieldNames() const
 
 void KexiFieldListView::slotDoubleClicked(const QModelIndex &idx)
 {
-    qDebug();
     if (schema() && idx.isValid()) {
         //! @todo what about query fields/aliases? it.current()->text(0) can be not enough
         emit fieldDoubleClicked(schema()->table() ? "kexi/table" : "kexi/query",

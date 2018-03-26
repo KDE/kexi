@@ -67,14 +67,14 @@ public:
     void setPropertyValueIfNeeded(const KPropertySet& set, const QByteArray& propertyName,
                                   const QVariant& newValue, KexiTableDesignerCommands::Command* commandGroup,
                                   bool forceAddCommand = false, bool rememberOldValue = true,
-                                  QStringList* const slist = 0, QStringList* const nlist = 0);
+                                  KPropertyListData *listData = nullptr);
 
     /*! Like above but allows to specify \a oldValue. */
     void setPropertyValueIfNeeded(
         const KPropertySet& set, const QByteArray& propertyName,
         const QVariant& newValue, const QVariant& oldValue, KexiTableDesignerCommands::Command* commandGroup,
         bool forceAddCommand = false, bool rememberOldValue = true,
-        QStringList* const slist = 0, QStringList* const nlist = 0);
+        KPropertyListData *listData = nullptr);
 
     /*! @internal
      Used in updatePropertiesVisibility().

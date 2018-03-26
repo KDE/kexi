@@ -19,17 +19,11 @@ kcoreaddons_desktop_to_json(kexi_queryplugin kexi_queryplugin.desktop)
 
 target_link_libraries(kexi_queryplugin
     PRIVATE
-        kexicore
         kexiextendedwidgets
         kexidataviewcommon
         kexidatatable
         kexirelationsview
-        kexiutils
 
-        KDb
-        KPropertyWidgets
-
-        Qt5::Gui
         Qt5::Xml
 )
 

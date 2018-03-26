@@ -101,7 +101,7 @@ public:
     virtual bool cursorAtEnd();
     virtual void clear();
 
-    virtual void setColumnInfo(KDbQueryColumnInfo* cinfo);
+    void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) override;
 
     /*! Handles action having standard name \a actionName.
      Action could be: "edit_copy", "edit_paste", etc.

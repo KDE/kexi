@@ -40,6 +40,7 @@ set(kexicore_LIB_SRCS
    KexiRecordNavigatorIface.cpp
    KexiSearchableModel.cpp
    KexiGroupButton.cpp #TODO belongs to widget/?
+   KexiFileFilters.cpp
 )
 
 kexi_add_library(kexicore SHARED ${kexicore_LIB_SRCS})
@@ -58,12 +59,14 @@ target_link_libraries(kexicore
         kexiutils
 
         KDb
-        KPropertyWidgets
+        KPropertyCore
 )
 
 if(WIN32)
-    target_include_directories(kexicore PUBLIC "${KDEWIN_INCLUDES}")
-    target_link_libraries(kexicore PUBLIC ${KDEWIN_LIBRARIES})
+    target_link_libraries(kexicore
+        PUBLIC
+            kdewin
+    )
 endif()
 
 target_include_directories(kexicore PUBLIC ${CMAKE_SOURCE_DIR}/src/kexiutils/style)

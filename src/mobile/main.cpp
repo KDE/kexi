@@ -26,8 +26,8 @@
 int main(int argc, char** argv)
 {
     KAboutData aboutData( "keximobile", "keximobile",
-      kxi18n("Kexi Mobile"), "0.2",
-      kxi18n("A mobile optimized version of Kexi from Calligra Suite"),
+      kxi18n("KEXI Mobile"), "0.2",
+      kxi18n("A mobile optimized version of KEXI"),
       KAboutData::License_LGPL,
       kxi18n("Copyright (c) 2014 Adam Pigg") );
     KCmdLineArgs::init( argc, argv, &aboutData );

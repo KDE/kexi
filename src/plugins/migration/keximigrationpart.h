@@ -32,12 +32,12 @@ public:
 
     /*! Reimplement this if your internal part has to return widgets
      or QDialog objects. */
-    virtual QWidget *createWidget(const char* widgetClass,
-                                  QWidget *parent, const char *objName = 0, QMap<QString, QString>* args = 0);
+    QWidget *createWidget(const char *widgetClass, QWidget *parent, const char *objName = nullptr,
+                          QMap<QString, QString> *args = nullptr) override Q_REQUIRED_RESULT;
 
     QObject *createObject(const char* objectClass,
-                          QObject * parent, const char * objName = 0,
-                          QMap<QString, QString>* args = 0) Q_DECL_OVERRIDE;
+                          QObject * parent, const char * objName = nullptr,
+                          QMap<QString, QString>* args = nullptr) override Q_REQUIRED_RESULT;
 };
 
 #endif

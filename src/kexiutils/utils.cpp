@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
 
    Contains code from kglobalsettings.cpp:
    Copyright (C) 2000, 2006 David Faure <faure@kde.org>
@@ -34,6 +34,7 @@
 #include "kexiutils_global.h"
 #include <KexiIcon.h>
 
+#include <QDomNode>
 #include <QPainter>
 #include <QImage>
 #include <QImageReader>
@@ -59,14 +60,20 @@
 #include <QDesktopServices>
 #include <QStyleHints>
 #include <QLineEdit>
+#include <QProcess>
 
+#ifndef KEXI_MOBILE
+#include <kio_version.h>
 #include <KRun>
 #include <KToolInvocation>
-#include <KIconEffect>
-#include <KColorScheme>
-#include <KLocalizedString>
-#include <KConfigGroup>
+#endif
 #include <KAboutData>
+#include <KColorScheme>
+#include <KConfigGroup>
+#include <KFileWidget>
+#include <KIconEffect>
+#include <KLocalizedString>
+#include <KRecentDirs>
 
 #if HAVE_LANGINFO_H
 #include <langinfo.h>
@@ -83,27 +90,38 @@ static QRgb qt_colorref2qrgb(COLORREF col)
 
 using namespace KexiUtils;
 
-DelayedCursorHandler::DelayedCursorHandler()
-        : startedOrActive(false)
+DelayedCursorHandler::DelayedCursorHandler(QWidget *widget)
+        : startedOrActive(false), m_widget(widget), m_handleWidget(widget)
 {
-    timer.setSingleShot(true);
-    connect(&timer, SIGNAL(timeout()), this, SLOT(show()));
+    m_timer.setSingleShot(true);
+    connect(&m_timer, SIGNAL(timeout()), this, SLOT(show()));
 }
 void DelayedCursorHandler::start(bool noDelay)
 {
     startedOrActive = true;
-    timer.start(noDelay ? 0 : 1000);
+    m_timer.start(noDelay ? 0 : 1000);
 }
 void DelayedCursorHandler::stop()
 {
     startedOrActive = false;
-    timer.stop();
-    QApplication::restoreOverrideCursor();
+    m_timer.stop();
+    if (m_handleWidget && m_widget) {
+        m_widget->unsetCursor();
+    } else {
+        QApplication::restoreOverrideCursor();
+    }
 }
+
 void DelayedCursorHandler::show()
 {
-    QApplication::restoreOverrideCursor();
-    QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
+    const QCursor waitCursor(Qt::WaitCursor);
+    if (m_handleWidget && m_widget) {
+        m_widget->unsetCursor();
+        m_widget->setCursor(waitCursor);
+    } else {
+        QApplication::restoreOverrideCursor();
+        QApplication::setOverrideCursor(waitCursor);
+    }
 }
 
 Q_GLOBAL_STATIC(DelayedCursorHandler, _delayedCursorHandler)
@@ -123,13 +141,26 @@ void KexiUtils::removeWaitCursor()
 }
 
 WaitCursor::WaitCursor(bool noDelay)
+    : m_handler(nullptr)
 {
     setWaitCursor(noDelay);
 }
 
+WaitCursor::WaitCursor(QWidget *widget, bool noDelay)
+{
+    DelayedCursorHandler *handler = new DelayedCursorHandler(widget);
+    handler->start(noDelay);
+    m_handler = handler;
+}
+
 WaitCursor::~WaitCursor()
 {
-    removeWaitCursor();
+    if (m_handler) {
+        qobject_cast<DelayedCursorHandler*>(m_handler)->stop();
+        delete m_handler;
+    } else {
+        removeWaitCursor();
+    }
 }
 
 WaitCursorRemover::WaitCursorRemover()
@@ -236,61 +267,24 @@ QList<QMetaProperty> KexiUtils::propertiesForMetaObjectWithInherited(
     return result;
 }
 
-QStringList KexiUtils::enumKeysForProperty(const QMetaProperty& metaProperty)
+QStringList KexiUtils::enumKeysForProperty(const QMetaProperty& metaProperty, int filter)
 {
     QStringList result;
-    QMetaEnum enumerator(metaProperty.enumerator());
+    const QMetaEnum enumerator(metaProperty.enumerator());
     const int count = enumerator.keyCount();
-    for (int i = 0; i < count; i++)
-        result.append(QString::fromLatin1(enumerator.key(i)));
-    return result;
-}
-
-QString KexiUtils::fileDialogFilterString(const QMimeType &mime, bool kdeFormat)
-{
-    if (!mime.isValid()) {
-        return QString();
-    }
-
-    QString str;
-    if (kdeFormat) {
-        if (mime.globPatterns().isEmpty()) {
-            str = "*";
+    int total = 0;
+    for (int i = 0; i < count; i++) {
+        if (filter == INT_MIN) {
+            result.append(QString::fromLatin1(enumerator.key(i)));
         } else {
-            str = mime.globPatterns().join(" ");
+            const int v = enumerator.value(i);
+            if ((v & filter) && !(total & v)) { // !(total & v) is a protection adding against masks
+                result.append(QString::fromLatin1(enumerator.key(i)));
+                total |= v;
+            }
         }
-        str += "|";
     }
-    str += mime.comment();
-    if (!mime.globPatterns().isEmpty() || !kdeFormat) {
-        str += " (";
-        if (mime.globPatterns().isEmpty())
-            str += "*";
-        else
-            str += mime.globPatterns().join("; ");
-        str += ")";
-    }
-    if (kdeFormat)
-        str += "\n";
-    else
-        str += ";;";
-    return str;
-}
-
-QString KexiUtils::fileDialogFilterString(const QString& mimeName, bool kdeFormat)
-{
-    QMimeDatabase db;
-    QMimeType mime = db.mimeTypeForName(mimeName);
-    return fileDialogFilterString(mime, kdeFormat);
-}
-
-QString KexiUtils::fileDialogFilterStrings(const QStringList& mimeStrings, bool kdeFormat)
-{
-    QString ret;
-    QStringList::ConstIterator endIt = mimeStrings.constEnd();
-    for (QStringList::ConstIterator it = mimeStrings.constBegin(); it != endIt; ++it)
-        ret += fileDialogFilterString(*it, kdeFormat);
-    return ret;
+    return result;
 }
 
 //! @internal
@@ -312,8 +306,11 @@ QUrl KexiUtils::getOpenImageUrl(QWidget *parent, const QString &caption, const Q
                        QImageReader::supportedMimeTypes()));
     dialog->setFileMode(QFileDialog::ExistingFile);
     dialog->setAcceptMode(QFileDialog::AcceptOpen);
-    dialog->exec();
-    return dialog->selectedUrls().value(0);
+    if (QDialog::Accepted == dialog->exec()) {
+        return dialog->selectedUrls().value(0);
+    } else {
+        return QUrl();
+    }
 }
 
 QUrl KexiUtils::getSaveImageUrl(QWidget *parent, const QString &caption, const QUrl &directory)
@@ -322,8 +319,33 @@ QUrl KexiUtils::getSaveImageUrl(QWidget *parent, const QString &caption, const Q
         getImageDialog(parent, caption.isEmpty() ? i18n("Save") : caption, directory,
                        QImageWriter::supportedMimeTypes()));
     dialog->setAcceptMode(QFileDialog::AcceptSave);
-    dialog->exec();
-    return dialog->selectedUrls().value(0);
+    if (QDialog::Accepted == dialog->exec()) {
+        return dialog->selectedUrls().value(0);
+    } else {
+        return QUrl();
+    }
+}
+
+QUrl KexiUtils::getStartUrl(const QUrl &startDirOrVariable, QString *recentDirClass)
+{
+    QUrl result;
+    if (recentDirClass) {
+        result = KFileWidget::getStartUrl(startDirOrVariable, *recentDirClass);
+        // Fix bug introduced by Kexi 3.0.x in KexiFileWidget: remove file protocol from path
+        // (the KRecentDirs::add(.., dir.url()) call was invalid because of prepended protocol)
+        const QString protocol("file:/");
+        if (result.path().startsWith(protocol) && !result.path().startsWith(protocol + '/')) {
+            result.setPath(result.path().mid(protocol.length() - 1));
+        }
+    } else {
+        qWarning() << "Missing recentDirClass";
+    }
+    return result;
+}
+
+void KexiUtils::addRecentDir(const QString &fileClass, const QString &directory)
+{
+    KRecentDirs::add(fileClass, directory);
 }
 
 bool KexiUtils::askForFileOverwriting(const QString& filePath, QWidget *parent)
@@ -611,6 +633,7 @@ void KexiUtils::replaceColors(QPixmap* original, const QColor& color)
 void KexiUtils::replaceColors(QImage* original, const QColor& color)
 {
     Q_ASSERT(original);
+    *original = original->convertToFormat(QImage::Format_ARGB32_Premultiplied);
     QPainter p(original);
     p.setCompositionMode(QPainter::CompositionMode_SourceIn);
     p.fillRect(original->rect(), color);
@@ -719,6 +742,7 @@ bool PaintBlocker::eventFilter(QObject* watched, QEvent* event)
 
 tristate KexiUtils::openHyperLink(const QUrl &url, QWidget *parent, const OpenHyperlinkOptions &options)
 {
+#ifndef KEXI_MOBILE
     if (url.isLocalFile()) {
         QFileInfo fileInfo(url.toLocalFile());
         if (!fileInfo.exists()) {
@@ -755,7 +779,7 @@ tristate KexiUtils::openHyperLink(const QUrl &url, QWidget *parent, const OpenHy
                     , QString()
                     , KGuiItem(xi18nc("@action:button Run script file", "Run"), koIconName("system-run"))
                     , KStandardGuiItem::no()
-                    , "AllowRunExecutable", KMessageBox::Dangerous);
+                    , "AllowRunExecutable", KMessageBox::Notify | KMessageBox::Dangerous);
 
         if (ret != KMessageBox::Yes) {
             return cancelled;
@@ -764,13 +788,18 @@ tristate KexiUtils::openHyperLink(const QUrl &url, QWidget *parent, const OpenHy
 
     switch(options.tool) {
         case OpenHyperlinkOptions::DefaultHyperlinkTool:
+#if KIO_VERSION >= QT_VERSION_CHECK(5, 31, 0)
+            return KRun::runUrl(url, type, parent, KRun::RunFlags(KRun::RunExecutables));
+#else
             return KRun::runUrl(url, type, parent);
+#endif
         case OpenHyperlinkOptions::BrowserHyperlinkTool:
             return QDesktopServices::openUrl(url);
         case OpenHyperlinkOptions::MailerHyperlinkTool:
             return QDesktopServices::openUrl(url);
         default:;
     }
+#endif
     return false;
 }
 
@@ -908,6 +937,113 @@ GraphicEffects KexiUtils::graphicEffectsLevel()
     return g_graphicEffectsLevel->value;
 }
 
+#if defined Q_OS_UNIX && !defined Q_OS_MACOS
+//! For detectedDesktopSession()
+class DetectedDesktopSession
+{
+public:
+    DetectedDesktopSession() : name(detect()), isKDE(name == QStringLiteral("KDE"))
+    {
+    }
+    const QByteArray name;
+    const bool isKDE;
+
+private:
+    static QByteArray detect() {
+        // https://www.freedesktop.org/software/systemd/man/pam_systemd.html#%24XDG_SESSION_DESKTOP
+        // KDE, GNOME, UNITY, LXDE, MATE, XFCE...
+        const QString xdgSessionDesktop = qgetenv("XDG_SESSION_DESKTOP").trimmed();
+        if (!xdgSessionDesktop.isEmpty()) {
+            return xdgSessionDesktop.toLatin1().toUpper();
+        }
+        // Similar to detectDesktopEnvironment() from qgenericunixservices.cpp
+        const QString xdgCurrentDesktop = qgetenv("XDG_CURRENT_DESKTOP").trimmed();
+        if (!xdgCurrentDesktop.isEmpty()) {
+            return xdgCurrentDesktop.toLatin1().toUpper();
+        }
+        // fallbacks
+        if (!qEnvironmentVariableIsEmpty("KDE_FULL_SESSION")) {
+            return QByteArrayLiteral("KDE");
+        }
+        if (!qEnvironmentVariableIsEmpty("GNOME_DESKTOP_SESSION_ID")) {
+            return QByteArrayLiteral("GNOME");
+        }
+        const QString desktopSession = qgetenv("DESKTOP_SESSION").trimmed();
+        if (desktopSession.compare("gnome", Qt::CaseInsensitive) == 0) {
+            return QByteArrayLiteral("GNOME");
+        } else if (desktopSession.compare("xfce", Qt::CaseInsensitive) == 0) {
+            return QByteArrayLiteral("XFCE");
+        }
+        return QByteArray();
+    }
+};
+
+Q_GLOBAL_STATIC(DetectedDesktopSession, s_detectedDesktopSession)
+
+QByteArray KexiUtils::detectedDesktopSession()
+{
+    return s_detectedDesktopSession->name;
+}
+
+bool KexiUtils::isKDEDesktopSession()
+{
+    return s_detectedDesktopSession->isKDE;
+}
+
+bool KexiUtils::shouldUseNativeDialogs()
+{
+#if defined Q_OS_UNIX && !defined Q_OS_MACOS
+    return isKDEDesktopSession() || detectedDesktopSession().isEmpty();
+#else
+    return true;
+#endif
+}
+
+
+//! @return value of XFCE property @a property for channel @a channel
+//! Sets the value pointed by @a ok to status.
+//! @todo Should be part of desktop integration or KF
+static QByteArray xfceSettingValue(const QByteArray &channel, const QByteArray &property,
+                                   bool *ok = nullptr)
+{
+    if (ok) {
+        *ok = false;
+    }
+    QByteArray result;
+    const QString program = QString::fromLatin1("xfconf-query");
+    const QString programPath = QStandardPaths::findExecutable(program);
+    const QStringList arguments{ program, "-c", channel, "-p", property };
+    QProcess process;
+    process.start(programPath, arguments);//, QIODevice::ReadOnly | QIODevice::Text);
+    qDebug() << "a" << int(process.exitCode());
+    if (!process.waitForStarted()) {
+        qWarning() << "Count not execute command" << programPath << arguments
+                   << "error:" << process.error();
+        return QByteArray();
+    }
+    const int exitCode = process.exitCode(); // !=0 e.g. for "no such property or channel"
+    if (exitCode != 0 || !process.waitForFinished() || process.exitStatus() != QProcess::NormalExit) {
+        qWarning() << "Count not finish command" << programPath << arguments
+                   << "error:" << process.error() << "exit code:" << exitCode
+                   << "exit status:" << process.exitStatus();
+        return QByteArray();
+    }
+    if (ok) {
+        *ok = true;
+    }
+    result = process.readAll();
+    result.chop(1);
+    return result;
+}
+
+#else
+
+QByteArray KexiUtils::detectedDesktopSession()
+{
+    return QByteArray();
+}
+#endif
+
 bool KexiUtils::activateItemsOnSingleClick(QWidget *widget)
 {
     const KConfigGroup mainWindowGroup = KSharedConfig::openConfig()->group("MainWindow");
@@ -916,6 +1052,15 @@ bool KexiUtils::activateItemsOnSingleClick(QWidget *widget)
 #else
     if (mainWindowGroup.hasKey("SingleClickOpensItem")) {
         return mainWindowGroup.readEntry("SingleClickOpensItem", true);
+    }
+    const QByteArray desktopSession = detectedDesktopSession();
+    if (desktopSession == "XFCE") {
+        /* To test:
+           Set to true: fconf-query -c xfce4-desktop -p /desktop-icons/single-click -n -t bool -s true
+           Get value: xfconf-query -c xfce4-desktop -p /desktop-icons/single-click
+           Reset: xfconf-query -c xfce4-desktop -p /desktop-icons/single-click -r
+        */
+        return xfceSettingValue("xfce4-desktop", "/desktop-icons/single-click") == "true";
     }
 # if QT_VERSION >= QT_VERSION_CHECK(5, 5, 0)
     Q_UNUSED(widget)
@@ -1042,4 +1187,13 @@ bool KexiUtils::cursorAtEnd(const QLineEdit *lineEdit)
     } else {
         return lineEdit->cursorPosition() >= (lineEdit->displayText().length() - 1);
     }
+}
+
+QDebug operator<<(QDebug dbg, const QDomNode &node)
+{
+  QString s;
+  QTextStream str(&s, QIODevice::WriteOnly);
+  node.save(str, 2);
+  dbg << qPrintable(s);
+  return dbg;
 }

@@ -34,7 +34,7 @@
         </font>
        </property>
        <property name="text">
-        <string>You in Kexi Project</string>
+        <string>You in KEXI Project</string>
        </property>
       </widget>
      </item>
@@ -309,7 +309,7 @@
          <enum>Qt::StrongFocus</enum>
         </property>
         <property name="text">
-         <string>&lt;span style=&quot;color:gray;&quot;&gt;Thank you for being part of Kexi!&lt;/span&gt;</string>
+         <string>&lt;span style=&quot;color:gray;&quot;&gt;Thank you for being part of KEXI!&lt;/span&gt;</string>
         </property>
         <property name="wordWrap">
          <bool>true</bool>
@@ -408,7 +408,7 @@
       <enum>Qt::StrongFocus</enum>
      </property>
      <property name="toolTip">
-      <string>Visit http://kexi-project home page</string>
+      <string>Visit KEXI home page</string>
      </property>
      <property name="text">
       <string>&lt;a href=&quot;http://kexi-project.org&quot;&gt;&lt;nobr&gt;&lt;b&gt;Home page &amp;raquo;&lt;/b&gt;&lt;/nobr&gt;&lt;/a&gt;</string>

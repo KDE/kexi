@@ -7,4 +7,6 @@ set(kexidbtest_SRCS main.cpp )
 
 add_executable(kexidbtest NOGUI ${kexidbtest_SRCS})
 
-target_link_libraries(kexidbtest KDb kexiextendedwidgets kexidatatable kexicore kexidataviewcommon)
+target_link_libraries(kexidbtest
+    kexiextendedwidgets kexidatatable kexidataviewcommon
+)

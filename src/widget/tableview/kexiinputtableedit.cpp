@@ -56,7 +56,7 @@ protected:
 
 //======================================================
 
-KexiInputTableEdit::KexiInputTableEdit(KDbTableViewColumn &column, QWidget *parent)
+KexiInputTableEdit::KexiInputTableEdit(KDbTableViewColumn *column, QWidget *parent)
         : KexiTableEdit(column, parent)
 {
     init();
@@ -148,7 +148,6 @@ KexiInputTableEdit::setRestrictedCompletion()
 {
 //! @todo
 #if 0
-    qDebug();
     if (m_cview->text().isEmpty())
         return;
 

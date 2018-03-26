@@ -115,14 +115,14 @@ bool
 FormIO::saveFormToFile(Form *form, const QString &filename)
 {
     QString _filename;
-    if (!form->filename().isEmpty() && filename.isEmpty()) {
-        _filename = form->filename();
+    if (!form->fileName().isEmpty() && filename.isEmpty()) {
+        _filename = form->fileName();
     }
 
     if (filename.isEmpty()) {
         KexiFileDialog dlg(0, KexiFileDialog::SaveFile, "SaveForm");
         dlg.setNameFilter("*.ui|" + xi18n("Qt Designer UI Files"));
-        _filename = dlg.filename();
+        _filename = dlg.fileName();
         if (_filename.isEmpty()) {
             return false;
         }
@@ -130,7 +130,7 @@ FormIO::saveFormToFile(Form *form, const QString &filename)
     else {
         _filename = filename;
     }
-    form->setFilename(_filename);
+    form->setFileName(_filename);
 
     QDomDocument domDoc;
     if (!saveFormToDom(form, domDoc))
@@ -299,7 +299,7 @@ FormIO::loadFormFromFile(Form *form, QWidget *container, const QString &filename
     if (filename.isEmpty()) {
         KexiFileDialog dlg(0, KexiFileDialog::OpenFile, "LoadForm");
         dlg.setNameFilter("*.ui|" + xi18n("Qt Designer UI Files"));
-        _filename = dlg.filename();
+        _filename = dlg.fileName();
         if (_filename.isEmpty()) {
             return false;
         }
@@ -385,7 +385,7 @@ bool FormIO::loadFormFromDom(Form *form, QWidget *container, const QDomDocument 
             QString name = n.toElement().text();
             ObjectTreeItem *item = form->objectTree()->lookup(name);
             if (!item) {
-                qWarning() << "ERROR : no ObjectTreeItem ";
+                qWarning() << "Tabstops loading: no item" << name;
                 continue;
             }
             const int index = form->tabStops()->indexOf(item);
@@ -397,7 +397,7 @@ bool FormIO::loadFormFromDom(Form *form, QWidget *container, const QDomDocument 
             }
             if (index == -1) {
                 itemsNotFound++;
-                qDebug() << "FormIO: item '" << name << "' not in list";
+                qDebug() << "Tabstops loading: item" << name << "not on the list";
             }
         }
     }
@@ -967,7 +967,7 @@ FormIO::saveWidget(ObjectTreeItem *item, QDomElement &parent, QDomDocument &domD
     }
 
     QStringList alignProperties;
-    alignProperties << "hAlign" << "vAlign" << "wordbreak" << "alignment";
+    alignProperties << "hAlign" << "vAlign" << "alignment";
     foreach (const QString& name, alignProperties) {
         if (names.contains(name)) {
             names.removeOne(name);

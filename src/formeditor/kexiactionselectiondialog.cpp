@@ -55,13 +55,13 @@ public:
     ActionPluginIdRole
   };
 
-  ActionSelectorDialogTreeItem(QString label, QTreeWidget *parent)
+  ActionSelectorDialogTreeItem(const QString &label, QTreeWidget *parent)
   : QTreeWidgetItem(parent) {
       setText(0, label);
 
   }
 
-  ActionSelectorDialogTreeItem(QString label, QTreeWidgetItem *parent)
+  ActionSelectorDialogTreeItem(const QString &label, QTreeWidgetItem *parent)
           : QTreeWidgetItem(parent) {
               setText(0, label);
 
@@ -74,7 +74,7 @@ public:
   };
 
   using QTreeWidgetItem::setData;
-  void setData(ActionRole role, QVariant value) {
+  void setData(ActionRole role, const QVariant &value) {
       QTreeWidgetItem::setData(0, role, value);
   }
 
@@ -293,19 +293,19 @@ public:
         }
 #ifdef KEXI_QUICK_PRINTING_SUPPORT
         if (part->info()->isPrintingSupported()) {
-            ActionSelectorDialogListItem *printItem = new ActionSelectorDialogListItem(
-                "print", this, futureI18n("Print"));
-            printItem->setPixmap(0, koIcon("document-print"));
+            itm = new ActionSelectorDialogTreeItem(futureI18n("Print"), this);
+            itm->setData(ActionSelectorDialogTreeItem::ActionDataRole , "print");
+            itm->setIcon(koIcon("document-print"));
             QAction *a = KStandardAction::printPreview(0, 0, 0);
-            item = new ActionSelectorDialogListItem("printPreview", printItem,
-                                                    a->text().remove('&').remove("..."));
-            item->setPixmap(0, a->icon().pixmap(16));
+            itm = new ActionSelectorDialogTreeItem(a->text().remove('&').remove("..."),
+                                                   this);
+            itm->setData(ActionSelectorDialogTreeItem::ActionDataRole , "printPreview");
+            itm->setIcon(a->icon());
             delete a;
-            item = new ActionSelectorDialogListItem(
-                "pageSetup", printItem, futureI18n("Show Page Setup"));
-            item->setPixmap(0, noIcon);
-            setOpen(printItem, true);
-            printItem->setExpandable(false);
+            itm = new ActionSelectorDialogTreeItem(futureI18n("Show Page Setup"), this);
+            itm->setData(ActionSelectorDialogTreeItem::ActionDataRole , "pageSetup");
+            itm->setIcon(noIcon);
+            setItemExpanded(itm, true);
         }
 #endif
         if (part->info()->isDataExportSupported()) {
@@ -620,8 +620,7 @@ void KexiActionSelectionDialog::slotActionToExecuteItemExecuted(QTreeWidgetItem*
 
 void KexiActionSelectionDialog::slotActionToExecuteItemSelected(QTreeWidgetItem*)
 {
-  //qDebug();
-  updateOKButtonStatus();
+    updateOKButtonStatus();
 }
 
 void KexiActionSelectionDialog::slotActionCategorySelected(QTreeWidgetItem* item)

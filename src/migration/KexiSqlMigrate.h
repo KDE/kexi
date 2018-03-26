@@ -52,8 +52,8 @@ protected:
     /*! Fetches single string at column \a columnNumber for each record from result obtained
      by running \a sqlStatement. \a numRecords can be specified to limit number of records read.
      If \a numRecords is -1, all records are loaded.
-     @see KexiMigrate::drv_queryStringListFromSQL() */
-    tristate drv_queryStringListFromSQL(
+     @see KexiMigrate::drv_queryStringListFromSql() */
+    tristate drv_queryStringListFromSql(
         const KDbEscapedString& sqlStatement, int columnNumber,
         QStringList *stringList, int numRecords = -1) Q_DECL_OVERRIDE;
 
@@ -73,7 +73,7 @@ protected:
 
     //Extended API
     //! Starts reading data from the source dataset's table
-    KDbSqlResult* drv_readFromTable(const QString & tableName) Q_DECL_OVERRIDE;
+    QSharedPointer<KDbSqlResult> drv_readFromTable(const QString & tableName) Q_DECL_OVERRIDE;
 
     const QString m_kdbDriverId;
 

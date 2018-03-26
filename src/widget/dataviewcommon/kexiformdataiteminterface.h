@@ -25,6 +25,7 @@
 #include <core/kexidataiteminterface.h>
 #include <QWidget>
 
+class KDbConnection;
 class KDbField;
 
 //! An interface for declaring form widgets to be data-aware.
@@ -95,10 +96,10 @@ public:
     virtual void setReadOnly(bool readOnly) = 0;
 
     //! \return database column information for this item
-    virtual KDbField* field() const;
+    KDbField* field() override;
 
     //! \return database column information for this item
-    virtual KDbQueryColumnInfo* columnInfo() const {
+    KDbQueryColumnInfo* columnInfo() {
         return m_columnInfo;
     }
 
@@ -106,7 +107,8 @@ public:
      Reimplement if you need to do additional actions,
      e.g. set data validator based on field type. Don't forget about
      calling superclass implementation. */
-    virtual void setColumnInfo(KDbQueryColumnInfo* cinfo) {
+    virtual void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) {
+        Q_UNUSED(conn)
         m_columnInfo = cinfo;
     }
 
@@ -118,7 +120,7 @@ public:
 
     /*! \return visible database column information for this item.
      Except for combo box, this is exactly the same as columnInfo(). */
-    virtual KDbQueryColumnInfo* visibleColumnInfo() const {
+    virtual KDbQueryColumnInfo* visibleColumnInfo() {
         return columnInfo();
     }
 
@@ -158,7 +160,7 @@ public:
 
 protected:
     QString m_dataSource;
-    QString m_dataSourcePartClass;
+    QString m_dataSourcePartClass = QStringLiteral("org.kexi-project.table"); //!< default for cases when the part class is missing
     KDbQueryColumnInfo* m_columnInfo;
     KexiDisplayUtils::DisplayParameters *m_displayParametersForEnteredValue; //!< used in setDisplayDefaultValue()
     KexiDisplayUtils::DisplayParameters *m_displayParametersForDefaultValue; //!< used in setDisplayDefaultValue()

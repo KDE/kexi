@@ -14,7 +14,6 @@ add_library(kexi_formplugin MODULE ${kexi_formplugin_SRCS})
 kcoreaddons_desktop_to_json(kexi_formplugin kexi_formplugin.desktop)
 
 target_link_libraries(kexi_formplugin
-    kexicore
     kexiguiutils
     kexidatatable
     kexiextendedwidgets
@@ -65,15 +64,12 @@ generate_export_header(kexiformutils)
 
 target_link_libraries(kexiformutils
     PRIVATE
-        kexicore
         kexiextendedwidgets
         kformdesigner
-        kexiutils
         kexidataviewcommon
         kexidatatable
         kexiguiutils
 
-        KDb
         KPropertyWidgets
 
         Qt5::Gui

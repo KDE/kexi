@@ -4,23 +4,28 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH} ${ECM
 include(SetKexiCMakePolicies NO_POLICY_SCOPE)
 include(SetKexiVersionInfo)
 
-project(Kexi VERSION ${PROJECT_VERSION})
+project(KEXI VERSION ${PROJECT_VERSION})
 
-include(ECMInstallIcons)
+include(KexiAddTests)
+kexi_add_tests(OFF)
+
+# ECM
 include(ECMAddAppIcon)
-include(ECMSetupVersion)
 include(ECMAddTests)
+include(ECMGenerateHeaders)
+include(ECMInstallIcons)
 include(ECMMarkAsTest)
 include(ECMMarkNonGuiExecutable)
-include(ECMGenerateHeaders)
 include(ECMPoQmTools)
-
+include(ECMSetupVersion)
 include(KDEInstallDirs)
 include(KDECMakeSettings NO_POLICY_SCOPE)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
+# Own
 include(KexiMacros)
 include(KexiAddIconsRccFile)
+include(KexiGenerateDependencyGraph)
 
 ensure_out_of_source_build("Please refer to the build instruction https://community.kde.org/Kexi/Building")
 get_git_revision_and_branch()
@@ -45,14 +50,15 @@ detect_release_build()
 # get the special macros
 include(CalligraProductSetMacros)
 
-# get the definitions of products, features and product sets
-include(KexiProducts.cmake)
+set(PRODUCTSET_DEFAULT "DESKTOP")
 
-set(PRODUCTSET_DEFAULT "ALL")
-
-if(NOT PRODUCTSET)
+if(NOT PRODUCTSET OR PRODUCTSET STREQUAL "ALL")
+    # Force the default set also when it is "ALL" because we can't build both desktop and mobile
     set(PRODUCTSET ${PRODUCTSET_DEFAULT} CACHE STRING "Set of products/features to build" FORCE)
 endif()
+
+# get the definitions of products, features and product sets
+include(KexiProducts.cmake)
 
 if (RELEASE_BUILD)
     set(KEXI_SHOULD_BUILD_STAGING FALSE)
@@ -70,28 +76,34 @@ calligra_set_productset(${PRODUCTSET})
 ##########################
 
 set(REQUIRED_KF5_VERSION 5.16.0)
-find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS
-        Archive 
-        Codecs 
-        Completion
-        Config 
-        ConfigWidgets 
-        CoreAddons
-        GuiAddons 
-        I18n 
-        IconThemes 
-        ItemViews
-        KIO 
-        TextEditor 
-        TextWidgets 
-        WidgetsAddons 
-        XmlGui 
+set(REQUIRED_KF5_COMPONENTS
+    Archive
+    Codecs
+    Config
+    ConfigWidgets
+    CoreAddons
+    GuiAddons
+    I18n
+    IconThemes
+    ItemViews
+    WidgetsAddons
+    TextWidgets
+    XmlGui
 )
-find_package(KF5 ${REQUIRED_KF5_VERSION} QUIET OPTIONAL_COMPONENTS Crash)
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
+    list(APPEND REQUIRED_KF5_COMPONENTS
+        Completion
+        KIO
+        TextEditor
+        TextWidgets
+    )
+endif()
+find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS ${REQUIRED_KF5_COMPONENTS})
+
+find_package(KF5 ${REQUIRED_KF5_VERSION} COMPONENTS Crash)
 macro_bool_to_01(KF5Crash_FOUND HAVE_KCRASH)
-macro_log_feature(${KF5Crash_FOUND} "KCrash" "KDE's Crash Handler"
-                  "https://api.kde.org/frameworks/kcrash/html" FALSE ""
-                  "Optionally used to provide crash reporting on Linux")
+set_package_properties(KF5Crash PROPERTIES TYPE OPTIONAL
+                       PURPOSE "Used to provide crash reporting on Linux")
 
 set(REQUIRED_QT_VERSION 5.4.0)
 find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Xml Network PrintSupport Svg Test)
@@ -108,19 +120,20 @@ add_definitions(
   -DQT_USE_QSTRINGBUILDER
 )
 
-# only with COMPILING_TESTS definition will all the FOO_TEST_EXPORT macros do something
-# TODO: check if this can be moved to only those places which make use of it,
-# to reduce global compiler definitions that would trigger a recompile of
-# everything on a change (like adding/removing tests to/from the build)
-macro_bool_to_01(BUILD_TESTING COMPILING_TESTS)
-
 # overcome some platform incompatibilities
 if(WIN32)
     find_package(KDEWin REQUIRED)
 endif()
 
-# set custom Kexi plugin installdir
+# set custom KEXI plugin installdir
 set(KEXI_PLUGIN_INSTALL_DIR ${PLUGIN_INSTALL_DIR}/${KEXI_BASE_PATH})
+
+simple_option(BUILD_EXAMPLES "Build and install examples" ON)
+
+macro_bool_to_01(BUILD_EXAMPLES COMPILING_EXAMPLES)
+
+# set custom KEXI examples installdir
+set(KEXI_EXAMPLES_INSTALL_DIR ${SHARE_INSTALL_PREFIX}/${KEXI_BASE_PATH}/examples)
 
 # TEMPORARY: for initial Qt5/KF5 build porting phase deprecation warnings are only annoying noise
 # remove once code porting phase starts, perhaps first locally in product subdirs
@@ -134,39 +147,48 @@ set(KEXI_PLUGIN_INSTALL_DIR ${PLUGIN_INSTALL_DIR}/${KEXI_BASE_PATH})
 ############################
 ###########################
 
-set(KEXI_LIBS_MIN_VERSION 3.0.90)
+set(KEXI_FRAMEWORKS_MIN_VERSION 3.1.0)
 
 ##
 ## Test for KDb
 ##
-option(KEXI_DEBUG_GUI "Debugging GUI for Kexi (requires KDB_DEBUG_GUI to be set too)" OFF)
+simple_option(KEXI_DEBUG_GUI "Debugging GUI for KEXI (requires KDB_DEBUG_GUI to be set too)" OFF)
 if(KEXI_DEBUG_GUI)
     set(KDB_REQUIRED_COMPONENTS DEBUG_GUI)
 endif()
-find_package(KDb ${KEXI_LIBS_MIN_VERSION} REQUIRED COMPONENTS ${KDB_REQUIRED_COMPONENTS})
-macro_log_feature(KDb_FOUND "KDb" "A database connectivity and creation framework"
-                            "http://community.kde.org/KDb" FALSE "" "Required by Kexi for data handling")
+find_package(KDb ${KEXI_FRAMEWORKS_MIN_VERSION} REQUIRED COMPONENTS ${KDB_REQUIRED_COMPONENTS})
+set_package_properties(KDb PROPERTIES TYPE REQUIRED
+                       PURPOSE "Required by KEXI for data handling")
 
 ##
 ## Test for KReport
 ##
-find_package(KReport ${KEXI_LIBS_MIN_VERSION} REQUIRED)
+find_package(KReport ${KEXI_FRAMEWORKS_MIN_VERSION})
+set_package_properties(KReport PROPERTIES TYPE REQUIRED
+                       PURPOSE "Required by KEXI for report handling")
 if (KReport_FOUND)
     if(NOT KREPORT_SCRIPTING)
-        message(FATAL_ERROR "Kexi requires KReport package with scripting support enabled (KREPORT_SCRIPTING)")
+        message(FATAL_ERROR "KEXI requires KReport package with scripting support enabled (KREPORT_SCRIPTING)")
     endif()
 endif()
 
 ##
 ## Test for KPropertyWidgets
 ##
-find_package(KPropertyWidgets ${KEXI_LIBS_MIN_VERSION} REQUIRED COMPONENTS KF)
-macro_log_feature(KPropertyWidgets_FOUND "KPropertyWidgets" "A property editing framework with editor widget"
-                                  "http://community.kde.org/KProperty" FALSE "" "Required by Kexi")
-
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
+    find_package(KPropertyWidgets ${KEXI_FRAMEWORKS_MIN_VERSION} REQUIRED COMPONENTS KF)
+    set_package_properties(KPropertyWidgets PROPERTIES TYPE REQUIRED
+                           PURPOSE "Required by KEXI for handling properties")
+else() # only KPropertyCore
+    find_package(KPropertyCore ${KEXI_FRAMEWORKS_MIN_VERSION} REQUIRED COMPONENTS KF)
+    set_package_properties(KPropertyCore PROPERTIES TYPE REQUIRED
+                           PURPOSE "Required by KEXI for handling properties")
+endif()
 include(CheckIfQtGuiCanBeExecuted)
-include(CheckGlobalBreezeIcons)
 
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
+include(CheckGlobalBreezeIcons)
+endif()
  ###########################
 ############################
 ## Optional dependencies  ##
@@ -177,20 +199,35 @@ include(CheckGlobalBreezeIcons)
 ## Test for marble
 ##
 set(MARBLE_MIN_VERSION "0.19.2")
-find_package(KexiMarble)
+find_package(KexiMarble ${MARBLE_MIN_VERSION})
+set_package_properties(KexiMarble PROPERTIES
+    DESCRIPTION "KDE World Globe Widget library"
+    URL "https://marble.kde.org"
+    TYPE RECOMMENDED
+    PURPOSE "Required by KEXI form map widget"
+)
 if(NOT MARBLE_FOUND)
     set(MARBLE_INCLUDE_DIR "")
 else()
     set(HAVE_MARBLE TRUE)
 endif()
-macro_log_feature(MARBLE_FOUND "Marble" "KDE World Globe Widget library" "https://marble.kde.org/" FALSE "${MARBLE_MIN_VERSION}" "Required by Kexi form map widget")
+set_package_properties(GLIB2 PROPERTIES TYPE RECOMMENDED PURPOSE "${_REQUIRED_BY_MDB}")
 
 ##
 ## Test for Qt WebKitWidgets
 ##
 #TODO switch to Qt WebEngine
 macro_bool_to_01(Qt5WebKitWidgets_FOUND HAVE_QTWEBKITWIDGETS)
-macro_log_feature(Qt5WebKitWidgets_FOUND "Qt WebkitWidgets" "QWidgets module for Webkit, the HTML engine." "http://qt.io" FALSE "" "Required by Kexi web form widget")
+set_package_properties(Qt5WebKit PROPERTIES
+                       DESCRIPTION "Webkit for Qt, the HTML engine."
+                       URL "http://qt.io"
+                       TYPE RECOMMENDED PURPOSE "Required by KEXI web form widget"
+)
+set_package_properties(Qt5WebKitWidgets PROPERTIES
+                       DESCRIPTION "QWidgets module for Webkit, the HTML engine."
+                       URL "http://qt.io"
+                       TYPE RECOMMENDED PURPOSE "Required by KEXI web form widget"
+)
 
  ##################
 ###################
@@ -241,7 +278,7 @@ if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
     ki18n_install(po)
 endif()
 
-macro_display_feature_log()
-
 calligra_product_deps_report("product_deps")
 calligra_log_should_build()
+
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

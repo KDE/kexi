@@ -71,7 +71,6 @@
 /*!
     \class KUndo2View
     \brief The KUndo2View class displays the contents of a KUndo2QStack.
-    \since 4.2
 
     \ingroup advanced
 

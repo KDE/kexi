@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2013 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2012 Dimitrios T. Tanis <dimitrios.tanis@kdemail.net>
    Copyright (C) 2014 Roman Shtemberko <shtemberko@gmail.com>
 
@@ -34,7 +34,6 @@
 #include <kexiutils/utils.h>
 #include <kexiutils/KexiAssistantPage.h>
 #include <kexiutils/KexiLinkWidget.h>
-#include <widget/KexiFileWidget.h>
 #include <widget/KexiConnectionSelectorWidget.h>
 #include <widget/KexiDBTitlePage.h>
 #include <widget/KexiProjectSelectorWidget.h>
@@ -47,9 +46,9 @@
 #include <KDbIdentifierValidator>
 
 #include <KIconLoader>
-#include <KRecentDirs>
 #include <KStandardGuiItem>
 
+#include <QAction>
 #include <QDebug>
 #include <QLayout>
 #include <QCheckBox>
@@ -72,14 +71,17 @@ KexiServerDBNamePage::KexiServerDBNamePage(QWidget* parent)
 
 // ----
 
-KexiTemplateSelectionPage::KexiTemplateSelectionPage(QWidget* parent)
- : KexiAssistantPage(xi18nc("@title:window", "New Project"),
-        xi18nc("@info", "Kexi will create a new database project. Select blank database."),
-        //! @todo Change to this when templates work: "Kexi will create a new database project. Select blank database or template.",
-        parent)
+KexiTemplateSelectionPage::KexiTemplateSelectionPage(QWidget *parent)
+    : KexiAssistantPage(xi18nc("@title:window", "New Project"),
+                        xi18nc("@info", "<application>%1</application> will create a new database "
+                                        "project. Select blank database.",
+                               QApplication::applicationDisplayName()),
+                        //! @todo Change to this when templates work: "Kexi will create a new
+                        //! database project. Select blank database or template.",
+                        parent)
 {
     m_templatesList = new KexiCategorizedView;
-    setFocusWidget(m_templatesList);
+    setRecentFocusWidget(m_templatesList);
     m_templatesList->setFrameShape(QFrame::NoFrame);
     m_templatesList->setContentsMargins(0, 0, 0, 0);
     int margin = style()->pixelMetric(QStyle::PM_MenuPanelWidth, 0, 0)
@@ -154,7 +156,6 @@ KexiProjectStorageTypeSelectionPage::KexiProjectStorageTypeSelectionPage(QWidget
  : KexiAssistantPage(xi18nc("@title:window", "Storage Method"),
                   xi18nc("@info", "Select a storage method which will be used to store the new project."),
                   parent)
- , m_fileTypeSelected(true)
 {
     setBackButtonVisible(true);
     QWidget* contents = new QWidget;
@@ -166,7 +167,7 @@ KexiProjectStorageTypeSelectionPage::KexiProjectStorageTypeSelectionPage(QWidget
     btn_server->setIcon(Kexi::serverIcon());
     btn_server->setIconSize(QSize(dsize, dsize));
     connect(btn_server, SIGNAL(clicked()), this, SLOT(buttonClicked()));
-    setFocusWidget(btn_file);
+    setRecentFocusWidget(btn_file);
 
     setContents(contents);
 }
@@ -177,8 +178,18 @@ KexiProjectStorageTypeSelectionPage::~KexiProjectStorageTypeSelectionPage()
 
 void KexiProjectStorageTypeSelectionPage::buttonClicked()
 {
-    m_fileTypeSelected = sender() == btn_file;
     next();
+}
+
+KexiProjectStorageTypeSelectionPage::Type KexiProjectStorageTypeSelectionPage::selectedType() const
+{
+    const QWidget *w = focusWidget();
+    if (w == btn_file) {
+        return Type::File;
+    } else if (w == btn_server) {
+        return Type::Server;
+    }
+    return Type::None;
 }
 
 // ----
@@ -205,7 +216,7 @@ KexiProjectTitleSelectionPage::KexiProjectTitleSelectionPage(QWidget* parent)
             this, SLOT(titleTextChanged(QString)));
     fileHandler = new KexiStartupFileHandler(
         QUrl("kfiledialog:///OpenExistingOrCreateNewProject"),
-        KexiStartupFileHandler::SavingFileBasedDB,
+        KexiFileFilters::SavingFileBasedDB,
         contents->file_requester);
     fileHandler->setDefaultExtension("kexi");
     connect(fileHandler, SIGNAL(askForOverwriting(KexiContextMessage)),
@@ -214,6 +225,7 @@ KexiProjectTitleSelectionPage::KexiProjectTitleSelectionPage(QWidget* parent)
     updateUrl();
 
     setContents(contents);
+    setRecentFocusWidget(contents->le_title);
 }
 
 KexiProjectTitleSelectionPage::~KexiProjectTitleSelectionPage()
@@ -322,8 +334,8 @@ KexiProjectConnectionSelectionPage::KexiProjectConnectionSelectionPage(QWidget* 
  : KexiAssistantPage(xi18nc("@title:window", "Database Connection"),
                   xi18nc("@info",
                         "<para>Select database server's connection you wish to use to "
-                        "create a new Kexi project.</para>"
-                        "<para>Here you may also add, edit or remove connections "
+                        "create a new KEXI project.</para>"
+                        "<para>Here you may also add, edit or delete connections "
                         "from the list.</para>"),
                   parent)
 {
@@ -333,17 +345,17 @@ KexiProjectConnectionSelectionPage::KexiProjectConnectionSelectionPage(QWidget* 
         QVBoxLayout *lyr = new QVBoxLayout;
         connSelector = new KexiConnectionSelectorWidget(
             &Kexi::connset(),
-            "kfiledialog:///OpenExistingOrCreateNewProject",
-            KFileWidget::Saving);
+            QUrl("kfiledialog:///OpenExistingOrCreateNewProject"),
+            KexiConnectionSelectorWidget::Saving);
         lyr->addWidget(connSelector);
-        connSelector->showAdvancedConn();
+        connSelector->showAdvancedConnection();
         connect(connSelector, SIGNAL(connectionItemExecuted(ConnectionDataLVItem*)),
                 this, SLOT(next()));
         connSelector->layout()->setContentsMargins(0, 0, 0, 0);
         connSelector->hideHelpers();
         connSelector->hideDescription();
         setContents(lyr);
-        setFocusWidget(connSelector->connectionsList());
+        setRecentFocusWidget(connSelector->connectionsList());
     }
     else {
         setDescription(QString());
@@ -410,7 +422,7 @@ KexiProjectDatabaseNameSelectionPage::KexiProjectDatabaseNameSelectionPage(
     m_projectSelector->layout()->setContentsMargins(0, 0, 0, 0);
 
     setContents(contents);
-    setFocusWidget(contents->le_title);
+    setRecentFocusWidget(contents->le_title);
 }
 
 KexiProjectDatabaseNameSelectionPage::~KexiProjectDatabaseNameSelectionPage()
@@ -425,7 +437,6 @@ bool KexiProjectDatabaseNameSelectionPage::setConnection(KDbConnectionData* data
         m_projectSetToShow = new KexiProjectSet(m_assistant->messageHandler());
         KDbMessageGuard mg(m_projectSetToShow);
         if (!m_projectSetToShow->setConnectionData(data)) {
-            delete m_projectSetToShow;
             m_projectSetToShow = 0;
             return false;
         }
@@ -588,6 +599,8 @@ KexiNewProjectAssistant::KexiNewProjectAssistant(QWidget* parent)
     setCurrentPage(d->templateSelectionPage());
     setFocusProxy(d->templateSelectionPage());
     setMessageHandler(this);
+    d->templateSelectionPage()->setFocusProxy(d->templateSelectionPage()->recentFocusWidget());
+    d->templateSelectionPage()->focusRecentFocusWidget();
 }
 
 KexiNewProjectAssistant::~KexiNewProjectAssistant()
@@ -601,11 +614,15 @@ void KexiNewProjectAssistant::nextPageRequested(KexiAssistantPage* page)
         setCurrentPage(d->projectStorageTypeSelectionPage());
     }
     else if (page == d->m_projectStorageTypeSelectionPage) {
-        if (d->projectStorageTypeSelectionPage()->fileTypeSelected()) {
+        switch (d->projectStorageTypeSelectionPage()->selectedType()) {
+        case KexiProjectStorageTypeSelectionPage::Type::File:
             setCurrentPage(d->titleSelectionPage());
-        }
-        else {
+            break;
+        case KexiProjectStorageTypeSelectionPage::Type::Server:
             setCurrentPage(d->projectConnectionSelectionPage());
+            break;
+        default:
+            break;
         }
     }
     else if (page == d->m_titleSelectionPage) {
@@ -677,7 +694,7 @@ void KexiNewProjectAssistant::tryAgainActionTriggered()
 void KexiNewProjectAssistant::cancelActionTriggered()
 {
     if (currentPage() == d->m_passwordPage) {
-        d->passwordPage()->focusWidget()->setFocus();
+        d->passwordPage()->focusRecentFocusWidget();
     }
 }
 

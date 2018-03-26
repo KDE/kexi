@@ -41,21 +41,21 @@ class KEXIDATATABLE_EXPORT KexiTableEdit : public QWidget, public KexiDataItemIn
     Q_OBJECT
 
 public:
-    explicit KexiTableEdit(KDbTableViewColumn &column, QWidget* parent = 0);
+    explicit KexiTableEdit(KDbTableViewColumn *column, QWidget* parent = 0);
 
     virtual ~KexiTableEdit();
 
     //! Implemented for KexiDataItemInterface.
     //! \return field information for this item
-    virtual KDbField *field() const;
+    KDbField *field() override;
 
     /*! A rich field information for db-aware data.
      For not-db-aware data it is always 0 (use field() instead. */
-    virtual KDbQueryColumnInfo *columnInfo() const;
+    KDbQueryColumnInfo *columnInfo() override;
 
     //! Implemented for KexiDataItemInterface.
     //! Does nothing because instead KDbTableViewColumn is used to get field's schema.
-    virtual void setColumnInfo(KDbQueryColumnInfo *);
+    void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo *cinfo) override;
 
     //! \return column information for this item
     //! (extended information, comparing to field()).
@@ -66,7 +66,7 @@ public:
      displaying data dependent on the type and specifics of the field definition
      (e.g. text type versus integer type). Note that to compute the editor's value
      we still use field(). */
-    const KDbField *displayedField() const;
+    const KDbField *displayedField();
 
     /*! Reimplemented: resizes a view(). */
     virtual void resize(int w, int h);
@@ -169,7 +169,7 @@ public:
     /*! Created internal editor for this editor is needed. This method is only implemented
      in KexiComboBoxTableEdit since it's visible value differs from internal value,
      so a different KexiTableEdit object is used to displaying the data. */
-    virtual void createInternalEditor(KDbQuerySchema& schema);
+    virtual void createInternalEditor(KDbConnection *conn, const KDbQuerySchema& schema);
 
 Q_SIGNALS:
     void editRequested();
@@ -189,7 +189,7 @@ protected:
      displayed by a QWidget but rather by table view cell itself, for example KexiBlobTableEdit. */
     void repaintRelatedCell();
 
-    const KDbTableViewColumn * const m_column;
+    KDbTableViewColumn * const m_column;
     KexiTextFormatter* m_textFormatter;
     int m_leftMargin;
     int m_rightMargin, m_rightMarginWhenFocused;
@@ -209,7 +209,7 @@ private:
         virtual ~factoryclassname(); \
         \
     protected: \
-        virtual KexiTableEdit* createEditor(KDbTableViewColumn &column, QWidget* parent = 0); \
+        virtual KexiTableEdit* createEditor(KDbTableViewColumn *column, QWidget* parent = 0); \
     };
 
 //! Implementation of cell editor factory
@@ -224,7 +224,7 @@ private:
     {} \
     \
     KexiTableEdit* factoryclassname::createEditor( \
-            KDbTableViewColumn &column, QWidget* parent) \
+            KDbTableViewColumn *column, QWidget* parent) \
     { \
         return new itemclassname(column, parent); \
     }

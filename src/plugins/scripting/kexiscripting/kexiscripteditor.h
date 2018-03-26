@@ -62,7 +62,7 @@ public:
      * highlighter will be reset, undo/redo are cleared and
      * setDirty(false) is set.
      */
-    void initialize(Kross::Action* scriptaction);
+    void initialize(const QString &scriptProgram);
 
 public Q_SLOTS:
     void slotTextChanged();

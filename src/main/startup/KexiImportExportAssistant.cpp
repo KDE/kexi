@@ -45,7 +45,7 @@ KexiMainImportExportPage::KexiMainImportExportPage(
     btn_import->setIconSize(QSize(dsize, dsize));
     connect(btn_import, SIGNAL(clicked()), assistant, SIGNAL(importProject()));
 
-    setFocusWidget(contents);
+    setRecentFocusWidget(contents);
     setContents(contents);
 }
 

@@ -29,8 +29,9 @@
 #include <kexiutils/utils.h>
 #include <KexiWindow.h>
 
-#include <KDbParser>
+#include <KDbConnection>
 #include <KDbCursor>
+#include <KDbParser>
 #include <KDbQuerySchemaParameter>
 #include <KDbTableViewColumn>
 
@@ -43,6 +44,7 @@ public:
               currentParams()
     {}
     ~Private() {}
+    KDbQuerySchema* query = nullptr;
     KDbCursor *cursor;
     QList<QVariant> currentParams;
     /*! Used in storeNewData(), storeData() to decide whether
@@ -72,60 +74,72 @@ KexiQueryView::~KexiQueryView()
     delete d;
 }
 
-tristate KexiQueryView::executeQuery(KDbQuerySchema *query)
+tristate KexiQueryView::setQuery(KDbQuerySchema *query)
 {
-    if (!query)
-        return false;
-    KexiUtils::WaitCursor wait;
-    KDbCursor *oldCursor = d->cursor;
-    //qDebug() << query->parameters();
-    bool ok;
-    KDbConnection * conn = KexiMainWindowIface::global()->project()->dbConnection();
-    {
-        KexiUtils::WaitCursorRemover remover;
-        d->currentParams = KexiQueryParameters::getParameters(this,
-                 *conn->driver(), query, &ok);
+    if (d->query == query) {
+        return true;
     }
-    if (!ok) {//input cancelled
-        return cancelled;
+    KDbCursor* newCursor;
+    if (query) {
+        KexiUtils::WaitCursor wait;
+        KDbConnection * conn = KexiMainWindowIface::global()->project()->dbConnection();
+        //qDebug() << query->parameters(conn);
+        bool ok;
+        {
+            KexiUtils::WaitCursorRemover remover;
+            d->currentParams = KexiQueryParameters::getParameters(this, conn, query, &ok);
+        }
+        if (!ok) {//input cancelled
+            return cancelled;
+        }
+        newCursor = conn->executeQuery(query, d->currentParams);
+        if (!newCursor) {
+            window()->setStatus(conn, xi18n("Query executing failed."));
+            //! @todo also provide server result and sql statement
+            return false;
+        }
+    } else {
+        newCursor = nullptr;
     }
-    d->cursor = conn->executeQuery(query, d->currentParams);
-    if (!d->cursor) {
-        window()->setStatus(
-            conn,
-            xi18n("Query executing failed."));
-//! @todo also provide server result and sql statement
-        return false;
+
+    if (d->cursor) {
+        d->cursor->connection()->deleteCursor(d->cursor);
     }
+    d->cursor = newCursor;
+    d->query = query;
     setData(d->cursor);
 
 //! @todo remove close() when dynamic cursors arrive
-    if (!d->cursor->close()) {
+    if (d->cursor && !d->cursor->close()) {
         return false;
     }
-
-    if (oldCursor)
-        oldCursor->connection()->deleteCursor(oldCursor);
 
 //! @todo maybe allow writing and inserting for single-table relations?
     tableView()->setReadOnly(true);
 //! @todo maybe allow writing and inserting for single-table relations?
     //set data model itself read-only too
-    tableView()->data()->setReadOnly(true);
+    if (tableView()->data()) {
+        tableView()->data()->setReadOnly(true);
+    }
     tableView()->setInsertingEnabled(false);
     return true;
+}
+
+KDbQuerySchema* KexiQueryView::query()
+{
+    return d->query;
 }
 
 tristate KexiQueryView::afterSwitchFrom(Kexi::ViewMode mode)
 {
     if (mode == Kexi::NoViewMode) {
         KDbQuerySchema *querySchema = static_cast<KDbQuerySchema *>(window()->schemaObject());
-        const tristate result = executeQuery(querySchema);
+        const tristate result = setQuery(querySchema);
         if (true != result)
             return result;
     } else if (mode == Kexi::DesignViewMode || mode == Kexi::TextViewMode) {
         KexiQueryPartTempData * temp = static_cast<KexiQueryPartTempData*>(window()->data());
-        const tristate result = executeQuery(temp->query());
+        const tristate result = setQuery(temp->query());
         if (true != result)
             return result;
     }
@@ -141,7 +155,7 @@ KDbObject* KexiQueryView::storeNewData(const KDbObject& object,
     if (guiView) {
         return guiView->storeNewData(object, options, cancel);
     }
-    KexiQueryDesignerSQLView *sqlView = dynamic_cast<KexiQueryDesignerSQLView*>(view);
+    KexiQueryDesignerSqlView *sqlView = dynamic_cast<KexiQueryDesignerSqlView*>(view);
     if (sqlView) {
         return sqlView->storeNewData(object, options, cancel);
     }
@@ -155,7 +169,7 @@ tristate KexiQueryView::storeData(bool dontAsk)
     if (guiView) {
         return guiView->storeData(dontAsk);
     }
-    KexiQueryDesignerSQLView *sqlView = dynamic_cast<KexiQueryDesignerSQLView*>(view);
+    KexiQueryDesignerSqlView *sqlView = dynamic_cast<KexiQueryDesignerSqlView*>(view);
     if (sqlView) {
         return sqlView->storeData(dontAsk);
     }

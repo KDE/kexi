@@ -1,7 +1,7 @@
 /*
  * Kexi Report Plugin
  * Copyright (C) 2007-2008 by Adam Pigg <adam@piggz.co.uk>
- * Copyright (C) 2011-2015 Jarosław Staniek <staniek@kde.org>
+ * Copyright (C) 2011-2017 Jarosław Staniek <staniek@kde.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -22,6 +22,8 @@
 
 #include <QDebug>
 
+#include <KDbConnection>
+
 #include <KLocalizedString>
 
 #include <KexiIcon.h>
@@ -31,6 +33,8 @@
 #include <core/KexiMainWindowIface.h>
 #include <KexiPropertyPaneWidget.h>
 #include "kexisourceselector.h"
+#include <widget/properties/KexiCustomPropertyFactory.h>
+#include <kexiutils/utils.h>
 
 //! @internal
 class Q_DECL_HIDDEN KexiReportPart::Private
@@ -47,6 +51,12 @@ public:
     QMap<QString, QAction*> toolboxActionsByName;
 };
 
+static bool isInterpreterSupported(const QString &interpreterName)
+{
+    return 0 == interpreterName.compare(QLatin1String("javascript"), Qt::CaseInsensitive)
+           || 0 == interpreterName.compare(QLatin1String("qtscript"), Qt::CaseInsensitive);
+}
+
 KexiReportPart::KexiReportPart(QObject *parent, const QVariantList &l)
   : KexiPart::Part(parent,
         xi18nc("Translate this word using only lowercase alphanumeric characters (a..z, 0..9). "
@@ -59,6 +69,8 @@ KexiReportPart::KexiReportPart(QObject *parent, const QVariantList &l)
   , d(new Private)
 {
     setInternalPropertyValue("newObjectsAreDirty", true);
+    // needed for custom "pixmap" property editor widget
+    KexiCustomPropertyFactory::init();
 }
 
 KexiReportPart::~KexiReportPart()
@@ -92,7 +104,9 @@ KexiView* KexiReportPart::createView(QWidget *parent, KexiWindow* window,
 
     } else if (viewMode == Kexi::DesignViewMode) {
         view = new KexiReportDesignView(parent, d->sourceSelector);
-        connect(d->sourceSelector, &KexiSourceSelector::sourceDataChanged, qobject_cast<KexiReportDesignView*>(view), &KexiReportDesignView::slotSourceDataChanged);
+        connect(d->sourceSelector, &KexiSourceSelector::dataSourceChanged,
+                qobject_cast<KexiReportDesignView *>(view),
+                &KexiReportDesignView::slotDataSourceChanged);
         connect(view, SIGNAL(itemInserted(QString)), this, SLOT(slotItemInserted(QString)));
     }
     return view;
@@ -115,6 +129,7 @@ KDbObject* KexiReportPart::loadSchemaObject(
     KexiWindow *window, const KDbObject& object, Kexi::ViewMode viewMode,
     bool *ownedByWindow)
 {
+    Q_ASSERT(ownedByWindow);
     QString layout;
     if (   !loadDataBlock(window, &layout, "layout") == true
         && !loadDataBlock(window, &layout, "pgzreport_layout") == true /* compat */)
@@ -126,7 +141,6 @@ KDbObject* KexiReportPart::loadSchemaObject(
     if (!doc.setContent(layout)) {
         return 0;
     }
-    //qDebug() << doc.toString();
 
     KexiReportPartTempData * temp = static_cast<KexiReportPartTempData*>(window->data());
     const QDomElement root = doc.documentElement();
@@ -145,13 +159,47 @@ KDbObject* KexiReportPart::loadSchemaObject(
 
 KexiWindowData* KexiReportPart::createWindowData(KexiWindow* window)
 {
-    return new KexiReportPartTempData(window);
+    KexiMainWindowIface *win = KexiMainWindowIface::global();
+    return new KexiReportPartTempData(window, win->project()->dbConnection());
 }
 
-KexiReportPartTempData::KexiReportPartTempData(QObject* parent)
+//----------------
+
+class Q_DECL_HIDDEN KexiReportPartTempData::Private
+{
+public:
+    Private()
+    {
+    }
+    KDbConnection *conn;
+};
+
+KexiReportPartTempData::KexiReportPartTempData(KexiWindow* parent, KDbConnection *conn)
         : KexiWindowData(parent)
         , reportSchemaChangedInPreviousView(true /*to force reloading on startup*/)
+        , d(new Private)
 {
+    d->conn = conn;
+    setName(KexiUtils::localizedStringToHtmlSubstring(
+        kxi18nc("@info", "Report <resource>%1</resource>").subs(parent->partItem()->name())));
+}
+
+KexiReportPartTempData::~KexiReportPartTempData()
+{
+    KDbTableSchemaChangeListener::unregisterForChanges(d->conn, this);
+    delete d;
+}
+
+KDbConnection* KexiReportPartTempData::connection()
+{
+    return d->conn;
+}
+
+tristate KexiReportPartTempData::closeListener()
+{
+    KexiWindow* window = static_cast<KexiWindow*>(parent());
+    qDebug() << window->partItem()->name();
+    return KexiMainWindowIface::global()->closeWindow(window);
 }
 
 void KexiReportPart::setupPropertyPane(KexiPropertyPaneWidget *pane)
@@ -198,3 +246,93 @@ void KexiReportPart::slotItemInserted(const QString& entity)
     }
 }
 
+QStringList KexiReportPart::scriptList() const
+{
+    QStringList scripts;
+
+    KexiMainWindowIface *win = KexiMainWindowIface::global();
+
+    if (win->project() && win->project()->dbConnection()) {
+        QList<int> scriptids = win->project()->dbConnection()->objectIds(KexiPart::ScriptObjectType);
+        QStringList scriptnames = win->project()->dbConnection()->objectNames(KexiPart::ScriptObjectType);
+
+        qDebug() << scriptids << scriptnames;
+
+        int i = 0;
+        foreach(int id, scriptids) {
+            qDebug() << "ID:" << id;
+            tristate res;
+            QString script;
+            res = win->project()->dbConnection()->loadDataBlock(id, &script, QString());
+            if (res == true) {
+                QDomDocument domdoc;
+                bool parsed = domdoc.setContent(script, false);
+
+                QDomElement scriptelem = domdoc.namedItem("script").toElement();
+                if (parsed && !scriptelem.isNull()) {
+                    if (scriptelem.attribute("scripttype") == "object"
+                        && isInterpreterSupported(scriptelem.attribute("language")))
+                    {
+                        scripts << scriptnames[i];
+                    }
+                } else {
+                    qWarning() << "Unable to parse script";
+                }
+            } else {
+                qWarning() << "Unable to loadDataBlock";
+            }
+            ++i;
+        }
+
+        qDebug() << scripts;
+    }
+    return scripts;
+}
+
+QString KexiReportPart::scriptCode(const QString& scriptname) const
+{
+    QString scripts;
+
+    KexiMainWindowIface *win = KexiMainWindowIface::global();
+
+    if (win->project() && win->project()->dbConnection()) {
+        QList<int> scriptids = win->project()->dbConnection()->objectIds(KexiPart::ScriptObjectType);
+        QStringList scriptnames = win->project()->dbConnection()->objectNames(KexiPart::ScriptObjectType);
+
+        int i = 0;
+        foreach(int id, scriptids) {
+            qDebug() << "ID:" << id;
+            tristate res;
+            QString script;
+            res = win->project()->dbConnection()->loadDataBlock(id, &script, QString());
+            if (res == true) {
+                QDomDocument domdoc;
+                bool parsed = domdoc.setContent(script, false);
+
+                if (! parsed) {
+                    qWarning() << "XML parsing error";
+                    return QString();
+                }
+
+                QDomElement scriptelem = domdoc.namedItem("script").toElement();
+                if (scriptelem.isNull()) {
+                    qWarning() << "script domelement is null";
+                    return QString();
+                }
+
+                QString interpretername = scriptelem.attribute("language");
+                qDebug() << scriptelem.attribute("scripttype");
+                qDebug() << scriptname << scriptnames[i];
+
+                if ((isInterpreterSupported(interpretername) && scriptelem.attribute("scripttype") == "module") || scriptname == scriptnames[i])
+                {
+                    scripts += '\n' + scriptelem.text().toUtf8();
+                }
+                ++i;
+            } else {
+                qWarning() << "Unable to loadDataBlock";
+            }
+        }
+    }
+    return scripts;
+}

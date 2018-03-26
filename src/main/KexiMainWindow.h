@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -167,10 +167,26 @@ public Q_SLOTS:
      (see kexi/tests/altertable/ directory). */
     tristate closeWindow(KexiWindow *window, bool layoutTaskBar, bool doNotSaveChanges = false);
 
-    /*! Activates next tab. */
+    /**
+     * Activates next window
+     *
+     * If any assistant window is active and visible, moves to previous page of the assistant.
+     * If assistant window is not active, this action triggers activateNextTab() if tabs are present.
+     */
+    void activateNextWindow();
+
+    /**
+     * Activates previous window
+     *
+     * If any assistant window is active and visible, moves to previous page of the assistant.
+     * If assistant window is not active, this action triggers activatePreviousTab() if tabs are present.
+     */
+    void activatePreviousWindow();
+
+    /*! Activates next tab if tabs are present. */
     void activateNextTab();
 
-    /*! Activates previous tab. */
+    /*! Activates next tab if tabs are present. */
     void activatePreviousTab();
 
 //! @todo move part of this to KexiProject, because currently KexiProject::openObject() allows multiple opens!
@@ -263,7 +279,7 @@ public Q_SLOTS:
      and false on failure.*/
     tristate openProject(const KexiProjectData& data, const QString& shortcutPath, bool *opened);
 
-    /*! Creates a new project usign template pointed by \a projectData.
+    /*! Creates a new project using template pointed by \a projectData.
      Application state (e.g. actions) is updated.
      New project data is copied into a project structures.
      \return true on success */
@@ -293,7 +309,11 @@ public Q_SLOTS:
 
     /*! Add searchable model to the main window. This extends search to a new area.
      One example is Project Navigator. @see KexiMainWindowIface */
-    virtual void addSearchableModel(KexiSearchableModel *model);
+    void addSearchableModel(KexiSearchableModel *model) override;
+
+    /*! Removes searchable model from the main window. @a model is not deleted.
+     @see KexiMainWindowIface */
+    void removeSearchableModel(KexiSearchableModel *model) override;
 
     //! Shows design tab when switching between objects or views. Depends on current window and view mode.
     void showDesignTabIfNeeded(int previousItemId);

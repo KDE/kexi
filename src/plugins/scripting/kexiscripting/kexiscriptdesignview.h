@@ -27,15 +27,11 @@
 
 #include <KPropertySet>
 #include <KProperty>
+#include <QJSValue>
 
 // Forward declarations.
 class KexiScriptEditor;
 class KexiScriptDesignViewPrivate;
-
-namespace Kross
-{
-class Action;
-}
 
 /**
  * The KexiScriptDesignView class provides the KexiView to
@@ -52,7 +48,7 @@ public:
     /**
      * Constructor.
      */
-    KexiScriptDesignView(QWidget *parent, Kross::Action* scriptaction);
+    KexiScriptDesignView(QWidget *parent);
 
     /**
      * Destructor.
@@ -60,10 +56,10 @@ public:
     virtual ~KexiScriptDesignView();
 
     /**
-     * \return the \a Kross::Action this \a KexiScriptDesignView
+     * \return the program string this \a KexiScriptDesignView
      * is responsible for.
      */
-    Kross::Action* scriptAction() const;
+//    QString scriptAction() const;
 
     /**
      * \return a property set for this view.
@@ -95,7 +91,7 @@ private Q_SLOTS:
     /**
      * Deferred initialization.
      */
-    void initialize();
+    void initialize(const QString &program);
 
     void slotImport();
     void slotExport();
@@ -118,7 +114,7 @@ private Q_SLOTS:
 
 private:
     KexiScriptDesignViewPrivate* d;
-
+    
     /**
      * Load the data from XML source and fill the internally
      * used \a Kross::Action instance.

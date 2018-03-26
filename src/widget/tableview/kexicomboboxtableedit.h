@@ -40,16 +40,16 @@ class KexiComboBoxTableEdit : public KexiInputTableEdit, virtual public KexiComb
     Q_OBJECT
 
 public:
-    explicit KexiComboBoxTableEdit(KDbTableViewColumn &column, QWidget *parent = 0);
+    explicit KexiComboBoxTableEdit(KDbTableViewColumn *column, QWidget *parent = 0);
     virtual ~KexiComboBoxTableEdit();
 
     //! Implemented for KexiComboBoxBase
-    virtual const KDbTableViewColumn *column() const {
+    KDbTableViewColumn *column() override {
         return m_column;
     }
 
     //! Implemented for KexiComboBoxBase
-    virtual KDbField *field() const {
+    KDbField *field() override {
         return m_column->field();
     }
 
@@ -97,7 +97,7 @@ public:
     /*! \return total size of this editor, including popup button. */
     virtual QSize totalSize() const;
 
-    virtual void createInternalEditor(KDbQuerySchema& schema);
+    virtual void createInternalEditor(KDbConnection *conn, const KDbQuerySchema& schema);
 
     /*! Reimplemented after KexiInputTableEdit. */
     virtual void handleAction(const QString& actionName);
@@ -132,6 +132,9 @@ protected Q_SLOTS:
     void slotPopupHidden();
 
 protected:
+    //! Implemented for KexiComboBoxBase
+    KDbConnection *connection() override;
+
     //! internal
     void updateFocus(const QRect& r);
 

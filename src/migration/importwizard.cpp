@@ -30,7 +30,6 @@
 #include <kexitextmsghandler.h>
 #include <widget/kexicharencodingcombobox.h>
 #include <widget/kexiprjtypeselector.h>
-#include <widget/KexiFileWidget.h>
 #include <widget/KexiConnectionSelectorWidget.h>
 #include <widget/KexiProjectSelectorWidget.h>
 #include <widget/KexiDBTitlePage.h>
@@ -161,7 +160,7 @@ ImportWizard::ImportWizard(QWidget *parent, QMap<QString, QString>* args)
 
     if (d->predefinedConnectionData) {
         // setup wizard for predefined server source
-        d->srcConn->showAdvancedConn();
+        d->srcConn->showAdvancedConnection();
         setAppropriate(d->srcConnPageItem, false);
         setAppropriate(d->srcDBPageItem, false);
     } else if (!d->predefinedDatabaseName.isEmpty()) {
@@ -169,8 +168,8 @@ ImportWizard::ImportWizard(QWidget *parent, QMap<QString, QString>* args)
         // (used when external project type was opened in Kexi, e.g. mdb file)
         setAppropriate(d->srcConnPageItem, false);
         setAppropriate(d->srcDBPageItem, false);
-        d->srcConn->showSimpleConn();
-        d->srcConn->setSelectedFileName(d->predefinedDatabaseName);
+        d->srcConn->showSimpleConnection();
+        d->srcConn->setSelectedFile(d->predefinedDatabaseName);
 
         #if 0
         //disable all prev pages except "welcome" page
@@ -217,7 +216,7 @@ void ImportWizard::parseArguments()
 QString ImportWizard::selectedSourceFileName() const
 {
     if (d->predefinedDatabaseName.isEmpty())
-        return d->srcConn->selectedFileName();
+        return d->srcConn->selectedFile();
 
     return d->predefinedDatabaseName;
 }
@@ -241,7 +240,7 @@ void ImportWizard::setupIntro()
     if (d->predefinedConnectionData) { //predefined import: server source
         msg = xi18nc("@info",
                      "Database Importing Assistant is about to import <resource>%1</resource> database "
-                     "(connection <resource>%2</resource>) into a Kexi project.",
+                     "(connection <resource>%2</resource>) into a KEXI project.",
                      d->predefinedDatabaseName, d->predefinedConnectionData->toUserVisibleString());
     } else if (!d->predefinedDatabaseName.isEmpty()) { //predefined import: file source
 //! @todo this message is currently ok for files only
@@ -253,13 +252,13 @@ void ImportWizard::setupIntro()
         d->driverIdForSelectedSource = driverIdForMimeType(mime);
         msg = xi18nc("@info",
                      "Database Importing Assistant is about to import <filename>%1</filename> file "
-                     "of type <resource>%2</resource> into a Kexi project.",
+                     "of type <resource>%2</resource> into a KEXI project.",
                      QDir::toNativeSeparators(d->predefinedDatabaseName),
                      mime.isValid() ? mime.comment() : "???");
     } else {
         msg = xi18nc("@info",
                      "Database Importing Assistant allows you to import an existing database "
-                     "into a Kexi project.");
+                     "into a KEXI project.");
     }
     // note: we're using .arg() here because the msg argument is already in rich-text format
     QString finalMessage = xi18nc("@info",
@@ -283,18 +282,20 @@ void ImportWizard::setupSrcConn()
     KexiUtils::setStandardMarginsAndSpacing(vbox);
 
     d->srcConn = new KexiConnectionSelectorWidget(&Kexi::connset(),
-                                                 "kfiledialog:///ProjectMigrationSourceDir",
-                                                 KFileWidget::Opening, d->srcConnPageWidget);
+                         QUrl("kfiledialog:///ProjectMigrationSourceDir"),
+                         KexiConnectionSelectorWidget::Opening, d->srcConnPageWidget);
 
     d->srcConn->hideConnectonIcon();
-    d->srcConn->showSimpleConn();
+    d->srcConn->showSimpleConnection();
+    connect(d->srcConn, &KexiConnectionSelectorWidget::connectionSelected,
+            this, &ImportWizard::sourceConnectionSelected);
 
-    QSet<QString> excludedFilters;
+    const QStringList excludedMimeTypes({
 //! @todo remove when support for kexi files as source prj is added in migration
-    excludedFilters += KDb::defaultFileBasedDriverMimeType();
-    excludedFilters += "application/x-kexiproject-shortcut";
-    excludedFilters += "application/x-kexi-connectiondata";
-    d->srcConn->fileWidget->setExcludedFilters(excludedFilters);
+        KDb::defaultFileBasedDriverMimeType(),
+        "application/x-kexiproject-shortcut",
+        "application/x-kexi-connectiondata"});
+    d->srcConn->setExcludedMimeTypes(excludedMimeTypes);
     vbox->addWidget(d->srcConn);
 
     d->srcConnPageItem = new KPageWidgetItem(d->srcConnPageWidget, xi18n("Select Location for Source Database"));
@@ -353,7 +354,7 @@ void ImportWizard::setupDstTitle()
     d->dstNewDBNameUrl = d->dstTitlePageWidget->file_requester;
     d->dstNewDBFileHandler = new KexiStartupFileHandler(
         QUrl("kfiledialog:///ProjectMigrationDestinationDir"),
-        KexiStartupFileHandler::SavingFileBasedDB,
+        KexiFileFilters::SavingFileBasedDB,
         d->dstTitlePageWidget->file_requester);
     d->dstNewDBNameLabel = new QLabel(xi18n("Destination project's name:"), d->dstTitlePageWidget);
     d->dstTitlePageWidget->formLayout->setWidget(2, QFormLayout::LabelRole, d->dstNewDBNameLabel);
@@ -389,17 +390,17 @@ void ImportWizard::setupDst()
     KexiUtils::setStandardMarginsAndSpacing(vbox);
 
     d->dstConn = new KexiConnectionSelectorWidget(&Kexi::connset(),
-                                                 "kfiledialog:///ProjectMigrationDestinationDir",
-                                                 KFileWidget::Saving, d->dstPageWidget);
+                         QUrl("kfiledialog:///ProjectMigrationDestinationDir"),
+                         KexiConnectionSelectorWidget::Saving, d->dstPageWidget);
     d->dstConn->hideHelpers();
 
     vbox->addWidget(d->dstConn);
     connect(d->dstConn, SIGNAL(connectionItemExecuted(ConnectionDataLVItem*)),
             this, SLOT(next()));
 
-    d->dstConn->showSimpleConn();
+    d->dstConn->showSimpleConnection();
     //anyway, db files will be _saved_
-    d->dstConn->fileWidget->setMode(KexiFileWidget::SavingFileBasedDB);
+    d->dstConn->setFileMode(KexiFileFilters::SavingFileBasedDB);
     d->dstPageItem = new KPageWidgetItem(d->dstPageWidget, xi18n("Select Location for Destination Database Project"));
     addPage(d->dstPageItem);
 }
@@ -545,10 +546,8 @@ void ImportWizard::arriveSrcConnPage()
     in addition to just "open" */
     if (d->setupFileBasedSrcNeeded) {
         d->setupFileBasedSrcNeeded = false;
-        QSet<QString> additionalMimeTypes;
-        d->srcConn->fileWidget->setMode(KexiFileWidget::Opening);
-        d->srcConn->fileWidget->setAdditionalFilters(additionalMimeTypes);
-
+        d->srcConn->setFileMode(KexiFileFilters::Opening);
+        d->srcConn->setAdditionalMimeTypes(QStringList());
     }
 
     /*! @todo Support different file extensions based on MigrationDriver */
@@ -616,7 +615,7 @@ void ImportWizard::arriveDstPage()
         return;
     }
     else {
-        d->dstConn->showAdvancedConn();
+        d->dstConn->showAdvancedConnection();
     }
     d->dstPageWidget->show();
 }
@@ -635,7 +634,7 @@ void ImportWizard::arriveImportingPage()
                                    "determine this for you."*/));
 
     //temp. hack for MS Access driver only
-//! @todo for other databases we will need KexiMigration::Conenction
+//! @todo for other databases we will need KexiMigration::Connection
 //!       and KexiMigration::Driver classes
     bool showOptions = false;
     if (fileBasedSrcSelected()) {
@@ -959,7 +958,7 @@ void ImportWizard::next()
         if (!import || d->migrateManager.result().isError()) {
             QString dbname;
             if (fileBasedSrcSelected())
-                dbname = selectedSourceFileName();
+                dbname = QDir::toNativeSeparators(selectedSourceFileName());
             else
                 dbname = conndata ? conndata->toUserVisibleString() : QString();
             KMessageBox::error(this,
@@ -1030,7 +1029,7 @@ void ImportWizard::next()
             if (true == res) {
                 d->finishLbl->setText(
                     xi18nc("@info",
-                           "Database has been imported into Kexi project <resource>%1</resource>.",
+                           "Database has been imported into KEXI project <resource>%1</resource>.",
                            d->dstNewDBNameLineEdit->text()));
                 button(QDialogButtonBox::Cancel)->setEnabled(false);
                 backButton()->setEnabled(false);
@@ -1121,12 +1120,15 @@ void ImportWizard::helpClicked()
 
 void ImportWizard::slotOptionsButtonClicked()
 {
-    QPointer<OptionsDialog> dlg = new OptionsDialog(selectedSourceFileName(), d->sourceDBEncoding, this);
-    if (QDialog::Accepted == dlg->exec()) {
-        if (d->sourceDBEncoding != dlg->encodingComboBox()->selectedEncoding()) {
-            d->sourceDBEncoding = dlg->encodingComboBox()->selectedEncoding();
-        }
+    OptionsDialog dlg(selectedSourceFileName(), d->sourceDBEncoding, this);
+    if (QDialog::Accepted == dlg.exec()) {
+        d->sourceDBEncoding = dlg.encodingComboBox()->selectedEncoding();
     }
-    delete dlg;
 }
 
+void ImportWizard::sourceConnectionSelected(bool selected)
+{
+    if (selected) {
+        next();
+    }
+}

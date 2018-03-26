@@ -283,6 +283,8 @@ public:
     void updateLogoPixmap();
     QPixmap calligraLogoPixmap;
     ClickableLogoArea *clickableLogoArea;
+    QWidget *socialWidget;
+    QFont smallTextFont;
 };
 
 #endif // KEXIMENUWIDGET_P_H

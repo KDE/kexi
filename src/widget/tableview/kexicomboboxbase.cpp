@@ -56,21 +56,31 @@ KexiComboBoxBase::~KexiComboBoxBase()
 {
 }
 
-KDbLookupFieldSchema *KexiComboBoxBase::lookupFieldSchema() const
+const KDbTableViewColumn *KexiComboBoxBase::column() const
+{
+    return const_cast<KexiComboBoxBase*>(this)->column();
+}
+
+KDbLookupFieldSchema *KexiComboBoxBase::lookupFieldSchema()
 {
     if (field() && field()->table()) {
         KDbLookupFieldSchema *lookupFieldSchema = field()->table()->lookupFieldSchema(*field());
         if (lookupFieldSchema && !lookupFieldSchema->recordSource().name().isEmpty())
             return lookupFieldSchema;
     }
-    return 0;
+    return nullptr;
+}
+
+const KDbLookupFieldSchema *KexiComboBoxBase::lookupFieldSchema() const
+{
+    return const_cast<KexiComboBoxBase*>(this)->lookupFieldSchema();
 }
 
 int KexiComboBoxBase::recordToHighlightForLookupTable() const
 {
     if (!popup())
         return -1;//err
-    KDbLookupFieldSchema *lookupFieldSchema = this->lookupFieldSchema();
+    const KDbLookupFieldSchema *lookupFieldSchema = this->lookupFieldSchema();
     if (!lookupFieldSchema)
         return -1;
     if (lookupFieldSchema->boundColumn() == -1)
@@ -103,7 +113,7 @@ void KexiComboBoxBase::setValueInternal(const QVariant& add_, bool removeOld)
     m_updatePopupSelectionOnShow = true;
     QString add(add_.toString());
     if (add.isEmpty()) {
-        KDbTableViewData *relData = column() ? column()->relatedData() : 0;
+        const KDbTableViewData *relData = column() ? column()->relatedData() : nullptr;
         QVariant valueToSet;
         bool hasValueToSet = true;
         int recordToHighlight = -1;
@@ -212,7 +222,7 @@ QString KexiComboBoxBase::valueForString(const QString& str, int* record,
         int lookInColumn, int returnFromColumn, bool allowNulls)
 {
     Q_UNUSED(returnFromColumn);
-    KDbTableViewData *relData = column() ? column()->relatedData() : 0;
+    const KDbTableViewData *relData = column() ? column()->relatedData() : nullptr;
     if (!relData)
         return QString(); //safety
     //use 'related table data' model
@@ -220,8 +230,8 @@ QString KexiComboBoxBase::valueForString(const QString& str, int* record,
     //.trimmed() is not generic!
 
     const QString txt(str.trimmed());
-    KDbTableViewDataIterator it(relData->begin());
-    for (*record = 0;it != relData->end();++it, (*record)++) {
+    KDbTableViewDataConstIterator it(relData->constBegin());
+    for (*record = 0;it != relData->constEnd();++it, (*record)++) {
         const QString s((*it)->at(lookInColumn).toString());
         if (s.trimmed().compare(txt, Qt::CaseInsensitive) == 0)
             return s;
@@ -244,7 +254,7 @@ int KexiComboBoxBase::boundColumnIndex() const
         return -1;
     }
     switch (lookupFieldSchema()->recordSource().type()) {
-    case KDbLookupFieldSchemaRecordSource::Table:
+    case KDbLookupFieldSchemaRecordSource::Type::Table:
         // When the record source is Table we have hardcoded columns: <visible>, <bound>
         return lookupFieldSchema()->visibleColumns().count();
     default:;
@@ -260,7 +270,7 @@ int KexiComboBoxBase::visibleColumnIndex() const
         return -1;
     }
     switch (lookupFieldSchema()->recordSource().type()) {
-    case KDbLookupFieldSchemaRecordSource::Table:
+    case KDbLookupFieldSchemaRecordSource::Type::Table:
         // When the record source is Table we have hardcoded columns: <visible>, <bound>
         return lookupFieldSchema()->visibleColumn(0);
     default:;
@@ -273,7 +283,7 @@ int KexiComboBoxBase::visibleColumnIndex() const
 
 QVariant KexiComboBoxBase::value()
 {
-    KDbTableViewData *relData = column() ? column()->relatedData() : 0;
+    const KDbTableViewData *relData = column() ? column()->relatedData() : nullptr;
     KDbLookupFieldSchema *lookupFieldSchema = 0;
     if (relData) {
         if (m_internalEditorValueChanged) {
@@ -343,7 +353,7 @@ void KexiComboBoxBase::clear()
 tristate KexiComboBoxBase::valueChangedInternal()
 {
     //avoid comparing values:
-    KDbTableViewData *relData = column() ? column()->relatedData() : 0;
+    const KDbTableViewData *relData = column() ? column()->relatedData() : nullptr;
     KDbLookupFieldSchema *lookupFieldSchema = this->lookupFieldSchema();
     if (relData || lookupFieldSchema) {
         if (m_internalEditorValueChanged)
@@ -402,8 +412,8 @@ void KexiComboBoxBase::createPopup(bool show)
     }
 
     if (!popup()) {
-        setPopup(column() ? new KexiComboBoxPopup(thisWidget, *column())
-                 : new KexiComboBoxPopup(thisWidget, *field()));
+        setPopup(column() ? new KexiComboBoxPopup(connection(), column(), thisWidget)
+                 : new KexiComboBoxPopup(connection(), field(), thisWidget));
         QObject::connect(popup(), SIGNAL(recordAccepted(KDbRecordData*,int)),
                          thisWidget, SLOT(slotRecordAccepted(KDbRecordData*,int)));
         QObject::connect(popup()->tableView(), SIGNAL(itemSelected(KDbRecordData*)),
@@ -476,8 +486,8 @@ void KexiComboBoxBase::createPopup(bool show)
 
         if (m_updatePopupSelectionOnShow) {
             int recordToHighlight = -1;
-            KDbLookupFieldSchema *lookupFieldSchema = this->lookupFieldSchema();
-            KDbTableViewData *relData = column() ? column()->relatedData() : 0;
+            const KDbLookupFieldSchema *lookupFieldSchema = this->lookupFieldSchema();
+            const KDbTableViewData *relData = column() ? column()->relatedData() : nullptr;
             if (lookupFieldSchema) {
                 recordToHighlight = recordToHighlightForLookupTable();
             } else if (relData) {
@@ -550,7 +560,7 @@ void KexiComboBoxBase::slotRecordSelected(KDbRecordData*)
     //qDebug() << "m_visibleValue=" << m_visibleValue;
 
     QVariant valueToSet;
-    KDbTableViewData *relData = column() ? column()->relatedData() : 0;
+    const KDbTableViewData *relData = column() ? column()->relatedData() : nullptr;
     KDbLookupFieldSchema *lookupFieldSchema = this->lookupFieldSchema();
 
     m_visibleValue = lookupFieldSchema ? visibleValueForLookupField() : QVariant();

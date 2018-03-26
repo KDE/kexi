@@ -3,33 +3,14 @@
   <id>org.kde.kexi.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>LGPL-2.0+</project_license>
-  <name>Kexi</name>
-  <name xml:lang="ast">Kexi</name>
-  <name xml:lang="bs">Kexi</name>
-  <name xml:lang="ca">Kexi</name>
-  <name xml:lang="ca-valencia">Kexi</name>
-  <name xml:lang="cs">Kexi</name>
-  <name xml:lang="da">Kexi</name>
-  <name xml:lang="de">Kexi</name>
-  <name xml:lang="en-GB">Kexi</name>
-  <name xml:lang="es">Kexi</name>
-  <name xml:lang="et">Kexi</name>
-  <name xml:lang="fi">Kexi</name>
-  <name xml:lang="fr">Kexi</name>
-  <name xml:lang="gl">Kexi</name>
-  <name xml:lang="ia">Kexi</name>
-  <name xml:lang="it">Kexi</name>
-  <name xml:lang="ja">Kexi</name>
-  <name xml:lang="nb">Kexi</name>
-  <name xml:lang="nl">Kexi</name>
-  <name xml:lang="pl">Kexi</name>
+  <name>KEXI</name>
+  <name xml:lang="ca">KEXI</name>
+  <name xml:lang="ca-valencia">KEXI</name>
+  <name xml:lang="nl">KEXI</name>
   <name xml:lang="pt">Kexi</name>
-  <name xml:lang="pt-BR">Kexi</name>
-  <name xml:lang="sk">Kexi</name>
-  <name xml:lang="sv">Kexi</name>
-  <name xml:lang="uk">Kexi</name>
-  <name xml:lang="x-test">xxKexixx</name>
-  <name xml:lang="zh-CN">Kexi</name>
+  <name xml:lang="sv">KEXI</name>
+  <name xml:lang="uk">KEXI</name>
+  <name xml:lang="x-test">xxKEXIxx</name>
   <summary>Visual database apps builder</summary>
   <summary xml:lang="ca">Constructor visual d'aplicacions de bases de dades</summary>
   <summary xml:lang="ca-valencia">Constructor visual d'aplicacions de bases de dades</summary>
@@ -38,39 +19,31 @@
   <summary xml:lang="es">Constructor visual de aplicaciones de base de datos</summary>
   <summary xml:lang="fi">Visuaalinen tietokantasovellusten luonti</summary>
   <summary xml:lang="fr">Constructeur d'applications de bases de données visuel</summary>
-  <summary xml:lang="gl">Construtor visual de programas de base de datos.</summary>
+  <summary xml:lang="gl">Construtor visual de aplicativos de base de datos.</summary>
   <summary xml:lang="it">Generatore visuale di applicazioni di banche dati</summary>
   <summary xml:lang="nl">Visuele database van bouwer van apps</summary>
   <summary xml:lang="pl">Tworzenie wizualnych aplikacji baz danych</summary>
   <summary xml:lang="pt">Construtor visual de aplicações de bases de dados</summary>
   <summary xml:lang="pt-BR">Construtor visual de aplicativos de banco de dados</summary>
+  <summary xml:lang="ru">Среда для создания приложений, работающих с базами данных</summary>
   <summary xml:lang="sk">Vizuálny tvorca databázových aplikácií</summary>
   <summary xml:lang="sv">Visuellt byggverktyg för databasprogram</summary>
   <summary xml:lang="uk">Програма для побудови візуальних обробників баз даних</summary>
   <summary xml:lang="x-test">xxVisual database apps builderxx</summary>
   <description>
     <p>
-      Kexi is a visual database applications builder. It can be used for designing database applications,
+      KEXI is a visual database applications builder. It can be used for designing database applications,
       inserting and editing data, performing queries, and processing data. Forms can be created
       to provide a custom interface to your data. All database objects - tables, queries, forms,
       reports, etc. - are stored in the database, making it easy to share data and design.
     </p>
-    <p xml:lang="ca">El Kexi és un constructor visual de base de dades. Es pot utilitzar per dissenyar aplicacions de bases de dades, inserció i edició de dades, execució de consultes, i procés de dades. Es poden generar formularis per proporcionar una interfície personalitzada a les dades. Tots els objectes de les bases de dades -taules, consultes, formularis, informes, etc.- s'emmagatzemen en la base de dades, facilitant compartir les dades i el disseny.</p>
-    <p xml:lang="ca-valencia">El Kexi és un constructor visual de base de dades. Es pot utilitzar per dissenyar aplicacions de bases de dades, inserció i edició de dades, execució de consultes, i procés de dades. Es poden generar formularis per proporcionar una interfície personalitzada a les dades. Tots els objectes de les bases de dades -taules, consultes, formularis, informes, etc.- s'emmagatzemen en la base de dades, facilitant compartir les dades i el disseny.</p>
-    <p xml:lang="en-GB">Kexi is a visual database applications builder. It can be used for designing database applications, inserting and editing data, performing queries, and processing data. Forms can be created to provide a custom interface to your data. All database objects - tables, queries, forms, reports, etc. - are stored in the database, making it easy to share data and design.</p>
-    <p xml:lang="es">Kexi es un creador visual de aplicaciones de bases de datos. Se puede usar para diseñar aplicaciones de bases de datos, insertar y editar datos, realizar consultas y procesar datos. Se pueden crear formularios para proporcionar una interfaz personalizada para sus datos. Todos los objetos de la base de datos (tablas, consultas, formularios, informes, etc.) se almacenan en la base de datos, facilitando el intercambio de datos y diseños.</p>
-    <p xml:lang="fi">Kexi on ohjelma tietokantasovellusten luomiseen visuaalisesti. Se on osa Calligra-ohjelmistoa. Sen avulla voi suunnitella tietokantasovelluksia, lisätä ja muokata tietoja, suorittaa kyselyjä ja käsitellä tietoja. Voit luoda lomakkeita mukauttaaksesi tietojesi käyttöliittymää. Kaikki tietokantaoliot – taulukot, kyselyt, lomakkeet, raportit jne. – tallennetaan tietokantaan, joten tiedon jako ja suunnittelu on helppoa.</p>
-    <p xml:lang="fr">Kexi est un constructeur d'applications de bases de données visuel. Il peut être utilisé pour concevoir des applications de base de données, insérer et éditer des données, effectuer des requêtes, et traiter des données. Des formulaires peuvent être créés pour fournir une interface personnalisée pour vos données. Tous les objets de bases de données (tables, requêtes, formulaires, rapports, etc) sont stockés dans la base de données, rendant facile le partage de données et de design.</p>
-    <p xml:lang="gl">Kexi é un construtor visual de aplicativos de base de datos. Pode usarse para deseñar aplicativos de base de datos, inserindo e editando datos, realizando consultas, e procesando datos. Poden crearse formularios para fornecer unha interface adaptada aos datos. Todos os obxectos de base de datos (táboas, consultas, formularios, informes, etc.) añmacénanse na base de datos, facendo fácil compartir os datos e o deseño.</p>
-    <p xml:lang="it">Kexi è uno strumento visuale per la creazione di banche dati. Può essere utilizzato per progettare applicazioni che usano banche dati, inserire e modificare dati, eseguire query ed elaborare dati. Puoi creare moduli per fornire un'interfaccia personalizzata ai tuoi dati. Tutti gli oggetti di una banca dati - tabelle, query, moduli, rapporti - sono memorizzati nella banca dati stessa, semplificando la condivisione dei dati e la progettazione.</p>
-    <p xml:lang="nl">Kexi is een bouwer van toepassingen met een database op een visuele manier. Het kan gebruikt worden voor het ontwerpen van toepassingen met een database, gegevens invoeren en bewerken, zoekopdrachten uitvoeren en gegevens verwerken. Formulieren kunnen gemaakt worden om een aangepast interface naar uw gegevens te bieden. Alle database-objecten - tabellen, zoekopdrachten, formulieren, rapporten, etc. - worden opgeslagen in de database, waarmee het gemakkelijk wordt gegevens en ontwerp te delen.</p>
-    <p xml:lang="pl">Kexi to aplikacja do wizualnego tworzenia bazdanych. Można jej używać do opracowywania programów bazodanowych,wstawiania, edycji i przetwarzania danych, a także do wykonywania zapytań.Dostęp do danych można zapewniać przy pomocy formularzy. Wszystkie obiekty bazy danych, tabele, zapytania, formularze i raporty, itp. są przechowywane w bazie danych, co czyni je łatwymi do współdzielenia i opracowywania.</p>
+    <p xml:lang="ca">El KEXI és un constructor visual de base de dades. Es pot utilitzar per dissenyar aplicacions de bases de dades, inserció i edició de dades, execució de consultes, i procés de dades. Es poden generar formularis per proporcionar una interfície personalitzada a les dades. Tots els objectes de les bases de dades -taules, consultes, formularis, informes, etc.- s'emmagatzemen en la base de dades, facilitant compartir les dades i el disseny.</p>
+    <p xml:lang="ca-valencia">El KEXI és un constructor visual de base de dades. Es pot utilitzar per dissenyar aplicacions de bases de dades, inserció i edició de dades, execució de consultes, i procés de dades. Es poden generar formularis per proporcionar una interfície personalitzada a les dades. Tots els objectes de les bases de dades -taules, consultes, formularis, informes, etc.- s'emmagatzemen en la base de dades, facilitant compartir les dades i el disseny.</p>
+    <p xml:lang="nl">KEXI is een bouwer van toepassingen met een database op een visuele manier. Het kan gebruikt worden voor het ontwerpen van toepassingen met een database, gegevens invoeren en bewerken, zoekopdrachten uitvoeren en gegevens verwerken. Formulieren kunnen gemaakt worden om een aangepast interface naar uw gegevens te bieden. Alle database-objecten - tabellen, zoekopdrachten, formulieren, rapporten, etc. - worden opgeslagen in de database, waarmee het gemakkelijk wordt gegevens en ontwerp te delen.</p>
     <p xml:lang="pt">O Kexi é um criador de bases de dados visuais, que pode ser usado para desenhar aplicações de bases de dados, inserir e editar dados, executar pesquisas e processar os dados. Poderá criar formulários para oferecer uma interface personalizada para os seus dados. Todos os objectos da base de dados - tabelas, pesquisas, formulários, relatórios, etc. - são guardados na base de dados, tornando simples a partilha e o desenho dos dados.</p>
-    <p xml:lang="pt-BR">Kexi é um construtor de aplicativos visuais de banco de dados. Pode ser usado para desenhar aplicativos de banco de dados, inserir e editar dados, executar pesquisas e processar dados. Podem ser criados formulários para oferecer uma interface personalizada para seus dados. Todos os objetos do banco de dados - tabelas, pesquisas, formulários, relatórios, etc. - são armazenados no próprio banco de dados, tornando simples o compartilhamento de dados e o visual.</p>
-    <p xml:lang="sk">Kexi je vizuálny tvorca databáz, súčasť Calligra Suite. Dá sa použiť na návrh databázových aplikácií, vkladanie a úpravu údajov, vykonávanie dotazov a spracúvanie údajov. Formuláre sa dajú vytvoriť na poskytnutie vlastného rozhrania pre vaše údaje. Všetky databázové objekty - tabuľky, dotazy, formuláre, správy - sú uložené v databáze, čo uľahčuje zdieľanie dát a dizajn.</p>
-    <p xml:lang="sv">Kexi är ett visuell byggverktyg för databasprogram, en del av Calligra-sviten. Den kan användas för att skapa databasprogram, infoga och redigera data, ställa frågor och behandla data. Formulär kan skapas för att tillhandahålla ett anpassat gränssnitt för data. Alla databasobjekt (tabeller, frågor, formulär, rapporter, etc.) lagras i databasen, vilket gör det enkelt att dela data och konstruktion.</p>
-    <p xml:lang="uk">Kexi — програма для створення обробників баз даних у візуальному режимі. Цією програмою можна скористатися для створень мініпрограм для роботи з базами даних, додавання та редагування даних, виконання запитів та обробки даних. За допомогою створених програмою форм ви можете отримати потрібний вам режим доступу до ваших даних. Всі об’єкти баз даних — таблиці, запити, форми, звіти тощо, — зберігаються у самій базі даних, що спрощує поширення даних та представлення даних.</p>
-    <p xml:lang="x-test">xxKexi is a visual database applications builder. It can be used for designing database applications, inserting and editing data, performing queries, and processing data. Forms can be created to provide a custom interface to your data. All database objects - tables, queries, forms, reports, etc. - are stored in the database, making it easy to share data and design.xx</p>
+    <p xml:lang="sv">KEXI är ett visuell byggverktyg för databasprogram, en del av Calligra-sviten. Den kan användas för att skapa databasprogram, infoga och redigera data, ställa frågor och behandla data. Formulär kan skapas för att tillhandahålla ett anpassat gränssnitt för data. Alla databasobjekt (tabeller, frågor, formulär, rapporter, etc.) lagras i databasen, vilket gör det enkelt att dela data och konstruktion.</p>
+    <p xml:lang="uk">KEXI — програма для створення обробників баз даних у візуальному режимі. Цією програмою можна скористатися для створень мініпрограм для роботи з базами даних, додавання та редагування даних, виконання запитів та обробки даних. За допомогою створених програмою форм ви можете отримати потрібний вам режим доступу до ваших даних. Всі об’єкти баз даних — таблиці, запити, форми, звіти тощо, — зберігаються у самій базі даних, що спрощує поширення даних та представлення даних.</p>
+    <p xml:lang="x-test">xxKEXI is a visual database applications builder. It can be used for designing database applications, inserting and editing data, performing queries, and processing data. Forms can be created to provide a custom interface to your data. All database objects - tables, queries, forms, reports, etc. - are stored in the database, making it easy to share data and design.xx</p>
     <p>Features:</p>
     <p xml:lang="bs">Osobine:</p>
     <p xml:lang="ca">Característiques:</p>
@@ -91,6 +64,7 @@
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Funcionalidades:</p>
+    <p xml:lang="ru">Возможности:</p>
     <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="uk">Можливості:</p>
@@ -197,7 +171,7 @@
       <li>Designing and displaying relational data using combo boxes (lookup columns)</li>
       <li xml:lang="bs">Izrada i prikazivanje relacijskih podataka pomoću combo kutije ( pregledavanje kolone)</li>
       <li xml:lang="ca">Disseny i visualització de dades relacionals usant quadres combinats (columnes de cerca)</li>
-      <li xml:lang="ca-valencia">Disseny i visualització de dades relacionals usant quadres combinats (columnes de busca)</li>
+      <li xml:lang="ca-valencia">Disseny i visualització de dades relacionals usant quadres combinats (columnes de cerca)</li>
       <li xml:lang="en-GB">Designing and displaying relational data using combo boxes (lookup columns)</li>
       <li xml:lang="es">Diseño y presentación de datos relacionales utilizando listas desplegables (columnas de búsqueda)</li>
       <li xml:lang="et">Relatsiooniliste andmete kujundamine ja kuvamine liitkastide abil (päringuveerud)</li>
@@ -240,7 +214,7 @@
       <li>Locked down User Mode, allowing you to switch off all commands related to editing your project's design</li>
       <li xml:lang="bs">Zatvoreni  korisnički režim, omogućavajući vam da isključite sve naredbe koje se odnose na uređivanje dizajna vašeg projekta</li>
       <li xml:lang="ca">Mode reduït d'usuari, que permet deshabilitar totes les ordres relacionades amb l'edició del disseny del projecte</li>
-      <li xml:lang="ca-valencia">Mode reduït d'usuari, que permet deshabilitar totes les ordes relacionades amb l'edició del disseny del projecte</li>
+      <li xml:lang="ca-valencia">Mode reduït d'usuari, que permet deshabilitar totes les ordres relacionades amb l'edició del disseny del projecte</li>
       <li xml:lang="en-GB">Locked down User Mode, allowing you to switch off all commands related to editing your project's design</li>
       <li xml:lang="es">Modo de usuario limitado, que permite desactivar todas las ordenes relacionadas con la edición del diseño de su proyecto</li>
       <li xml:lang="et">Piiratud õigustega kasutajarežiim, mis võimaldab lülitada välja kõik projekti kujunduse muutmisega seotud käsud</li>
@@ -282,37 +256,45 @@
       <li xml:lang="x-test">xxScripting using JavaScript, Python or Ruby programming languages (experimental)xx</li>
     </ul>
   </description>
-  <url type="homepage">http://www.calligra.org/kexi/</url>
-  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kexi</url>
+  <url type="homepage">http://www.kexi-project.org</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=kexi</url>
   <url type="help">http://userbase.kde.org/Kexi/Handbook</url>
   <screenshots>
     <screenshot type="default">
-      <image>https://www.calligra.org/wp-content/uploads/2012/06/kexi-2.5-new-form-widgets.png</image>
+      <image>http://kexi-project.org/pics/3.0/kexi-3.0.png</image>
     </screenshot>
     <screenshot>
-      <caption>Table View storing images</caption>
-      <caption xml:lang="bs">Tabela View čuvanje slika</caption>
-      <caption xml:lang="ca">Vista de taula emmagatzemant imatges</caption>
-      <caption xml:lang="ca-valencia">Vista de taula emmagatzemant imatges</caption>
-      <caption xml:lang="de">Tabellenansicht mit Bildern</caption>
-      <caption xml:lang="en-GB">Table View storing images</caption>
-      <caption xml:lang="es">Una vista de tabla para almacenar imágenes</caption>
-      <caption xml:lang="et">Tabelivaates piltide salvestamise võimalus</caption>
-      <caption xml:lang="fi">Kuvien tallennus taulukkonäkymään</caption>
-      <caption xml:lang="fr">Affichage de tables stockant des images</caption>
-      <caption xml:lang="gl">Vista de táboa que almacena imaxes.</caption>
-      <caption xml:lang="it">Vista tabella per archiviare immagini</caption>
-      <caption xml:lang="ja">イメージを格納するテーブルビュー</caption>
-      <caption xml:lang="nb">Tabellvisning som lagrer bilder</caption>
-      <caption xml:lang="nl">Tabelweergave bij opslaan van afbeeldingen</caption>
-      <caption xml:lang="pl">Przechowywanie obrazów w widoku tabeli</caption>
-      <caption xml:lang="pt">A área da tabela permite guardar as imagens</caption>
-      <caption xml:lang="pt-BR">Área da tabela armazenando imagens</caption>
-      <caption xml:lang="sk">Tabuľkový pohľad uloženia obrázkov</caption>
-      <caption xml:lang="sv">Tabellvy som lagrar bilder</caption>
-      <caption xml:lang="uk">Збереження зображень у перегляді таблиць.</caption>
-      <caption xml:lang="x-test">xxTable View storing imagesxx</caption>
-      <image>http://www.calligra.org/wp-content/uploads/2011/11/kexi-2.2-rc1-tableview-images.png</image>
+      <caption>Tabular view</caption>
+      <caption xml:lang="ca">Vista de taules</caption>
+      <caption xml:lang="ca-valencia">Vista de taules</caption>
+      <caption xml:lang="nl">Tabelweergave</caption>
+      <caption xml:lang="pt">Área em páginas</caption>
+      <caption xml:lang="sv">Tabellvy</caption>
+      <caption xml:lang="uk">Перегляд таблиць</caption>
+      <caption xml:lang="x-test">xxTabular viewxx</caption>
+      <image>http://kexi-project.org/pics/3.0/kexi-3.0-table-view.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Query Designer</caption>
+      <caption xml:lang="ca">Dissenyador de consultes</caption>
+      <caption xml:lang="ca-valencia">Dissenyador de consultes</caption>
+      <caption xml:lang="nl">Ontwerper van query</caption>
+      <caption xml:lang="pt">Desenhador de Pesquisas</caption>
+      <caption xml:lang="sv">Frågekonstruktion</caption>
+      <caption xml:lang="uk">Засіб для розробки запитів</caption>
+      <caption xml:lang="x-test">xxQuery Designerxx</caption>
+      <image>http://kexi-project.org/pics/3.1/kexi-3.1-query-designer.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>SQL Editor</caption>
+      <caption xml:lang="ca">Editor de SQL</caption>
+      <caption xml:lang="ca-valencia">Editor de SQL</caption>
+      <caption xml:lang="nl">SQL-bewerker</caption>
+      <caption xml:lang="pt">Editor de SQL</caption>
+      <caption xml:lang="sv">SQL-editor</caption>
+      <caption xml:lang="uk">Редактор SQL</caption>
+      <caption xml:lang="x-test">xxSQL Editorxx</caption>
+      <image>http://kexi-project.org/pics/3.0/kexi-3.0-alpha-sql_editor.png</image>
     </screenshot>
     <screenshot>
       <caption>Form Designer</caption>
@@ -337,11 +319,33 @@
       <caption xml:lang="sv">Formulärkonstruktion</caption>
       <caption xml:lang="uk">Засіб для розробки форм.</caption>
       <caption xml:lang="x-test">xxForm Designerxx</caption>
-      <image>http://www.calligra.org/wp-content/uploads/2011/11/kexi-2.3-form.png</image>
+      <image>http://kexi-project.org/pics/3.0/kexi-3.0-compare-old.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Report Designer</caption>
+      <caption xml:lang="ca">Dissenyador d'informes</caption>
+      <caption xml:lang="ca-valencia">Dissenyador d'informes</caption>
+      <caption xml:lang="nl">Ontwerper van rapporten</caption>
+      <caption xml:lang="pt">Desenhador de Relatórios</caption>
+      <caption xml:lang="sv">Rapportkonstruktion</caption>
+      <caption xml:lang="uk">Засіб для розробки звітів</caption>
+      <caption xml:lang="x-test">xxReport Designerxx</caption>
+      <image>http://kexi-project.org/pics/3.1/kreport-3.1-custompagesize.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>MS Access database import</caption>
+      <caption xml:lang="ca">Importació d'una base de dades de MS Access</caption>
+      <caption xml:lang="ca-valencia">Importació d'una base de dades de MS Access</caption>
+      <caption xml:lang="nl">Importeren van MS Access database</caption>
+      <caption xml:lang="pt">Importação de bases de dados MS Access</caption>
+      <caption xml:lang="sv">Databasimport från MS Access</caption>
+      <caption xml:lang="uk">Імпортування баз даних MS Access</caption>
+      <caption xml:lang="x-test">xxMS Access database importxx</caption>
+      <image>http://kexi-project.org/pics/3.1/kexi-3.1-import-ms-access.png</image>
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
   <provides>
-    <binary>kexi</binary>
+    <binary>kexi-@KEXI_DISTRIBUTION_VERSION@</binary>
   </provides>
 </component>

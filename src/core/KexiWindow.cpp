@@ -32,6 +32,7 @@
 #include <kexiutils/FlowLayout.h>
 
 #include <KDbConnection>
+#include <KDbTransactionGuard>
 
 #include <KStandardGuiItem>
 #include <KMessageBox>
@@ -448,12 +449,13 @@ tristate KexiWindow::switchToViewMode(
             cancelItem.setText(xi18n("Do Not Switch"));
             const int res = KMessageBox::questionYesNoCancel(
                 selectedView(),
-                xi18n("<para>There are unsaved changes in object <resource>%1</resource>.</para>"
-                     "<para>Do you want to save these changes before switching to other view?</para>",
-                     partItem()->captionOrName()),
-                    xi18n("Confirm Saving Changes"),
-                    saveItem, dontSaveItem, cancelItem
-            );
+                xi18nc("@info",
+                       "<para>There are unsaved changes in object <resource>%1</resource>.</para>"
+                       "<para>Do you want to save these changes before switching to other "
+                       "view?</para>",
+                       partItem()->captionOrName()),
+                xi18n("Confirm Saving Changes"), saveItem, dontSaveItem, cancelItem, QString(),
+                KMessageBox::Notify | KMessageBox::Dangerous);
             if (res == KMessageBox::Yes) {
                 if (true != view->saveDataChanges())
                     return cancelled;
@@ -536,12 +538,19 @@ tristate KexiWindow::switchToViewMode(
     if (prevViewMode == Kexi::NoViewMode)
         d->newlySelectedView->setDirty(false);
 
-    wasDirty = newView->isDirty(); // remember and restore the flag if the view was clean
+    if ((prevViewMode == Kexi::DesignViewMode && d->currentViewMode == Kexi::TextViewMode)
+            || (prevViewMode == Kexi::TextViewMode && d->currentViewMode == Kexi::DesignViewMode)) {
+        if (view) {
+            wasDirty = view->isDirty(); // synchronize the dirty flag between Design and Text views
+        }
+    } else {
+        wasDirty = newView->isDirty(); // remember and restore the flag if the view was clean
+    }
+
     res = newView->afterSwitchFrom(
               designModePreloadedForTextModeHack ? Kexi::NoViewMode : prevViewMode);
-    if (!wasDirty) {
-        newView->setDirty(false);
-    }
+    newView->setDirty(wasDirty);
+
     *proposeOpeningInTextViewModeBecauseOfProblems
         = data()->proposeOpeningInTextViewModeBecauseOfProblems;
     if (!res) {

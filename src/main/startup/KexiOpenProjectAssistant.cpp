@@ -24,7 +24,6 @@
 #include "ui_KexiProjectStorageTypeSelectionPage.h"
 #include <widget/KexiProjectSelectorWidget.h>
 #include <widget/KexiConnectionSelectorWidget.h>
-#include <widget/KexiFileWidget.h>
 #include <kexiutils/KexiLinkWidget.h>
 #include <kexiprojectset.h>
 #include <kexiprojectdata.h>
@@ -58,22 +57,20 @@ KexiMainOpenProjectPage::KexiMainOpenProjectPage(QWidget* parent)
                       xi18nc("@title:tab", "Projects Stored in File"));
     fileSelector = new KexiConnectionSelectorWidget(
         &Kexi::connset(),
-        "kfiledialog:///OpenExistingOrCreateNewProject",
-        KFileWidget::Opening);
+        QUrl("kfiledialog:///OpenExistingOrCreateNewProject"),
+        KexiConnectionSelectorWidget::Opening);
     fileSelector->hide(); // delayed opening
-    fileSelector->showSimpleConn();
-    fileSelector->layout()->setContentsMargins(0, 0, 0, 0);
+    fileSelector->showSimpleConnection();
     fileSelector->hideHelpers();
     fileSelector->hideDescription();
-    //connect(fileSelector->fileWidget, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(fileSelector->fileWidget, SIGNAL(selectionChanged()),
-            this, SLOT(next()));
+    fileSelector->setFileWidgetFrameVisible(false);
+    connect(fileSelector, &KexiConnectionSelectorWidget::fileSelected, this, [=]() { next(); });
 
     m_connSelectorWidget = new QWidget;
     tabWidget->addTab(m_connSelectorWidget, Kexi::serverIcon(),
                       xi18nc("@title:tab", "Projects Stored on Database Server"));
 
-    setFocusWidget(tabWidget);
+    setRecentFocusWidget(tabWidget);
     setContents(tabWidget);
 
     connect(tabWidget, SIGNAL(currentChanged(int)), this, SLOT(tabChanged(int)));
@@ -108,16 +105,16 @@ void KexiMainOpenProjectPage::tabChanged(int index)
                 QLabel* connSelectorLabel = new QLabel(
                     xi18nc("@info",
                           "<para>Select database server's connection with project you wish to open.</para>"
-                          "<para>Here you may also add, edit or remove connections from the list.</para>"));
+                          "<para>Here you may also add, edit or delete connections from the list.</para>"));
                 connSelectorLayout->addWidget(connSelectorLabel);
                 connSelectorLayout->addSpacing(KexiUtils::marginHint());
                 connSelector = new KexiConnectionSelectorWidget(
                     &Kexi::connset(),
-                    "kfiledialog:///OpenExistingOrCreateNewProject",
-                    KFileWidget::Opening);
+                    QUrl("kfiledialog:///OpenExistingOrCreateNewProject"),
+                    KexiConnectionSelectorWidget::Opening);
                 connSelectorLayout->addWidget(connSelector);
 
-                connSelector->showAdvancedConn();
+                connSelector->showAdvancedConnection();
                 connSelector->layout()->setContentsMargins(0, 0, 0, 0);
                 connSelector->hideHelpers();
                 connSelector->hideDescription();
@@ -165,7 +162,7 @@ KexiProjectDatabaseSelectionPage::KexiProjectDatabaseSelectionPage(
     connect(projectSelector, SIGNAL(projectExecuted(KexiProjectData*)),
             m_assistant, SLOT(slotOpenProject(KexiProjectData*)));
 
-    setFocusWidget(projectSelector);
+    setRecentFocusWidget(projectSelector);
     setContents(projectSelector);
 }
 
@@ -256,10 +253,9 @@ void KexiOpenProjectAssistant::nextPageRequested(KexiAssistantPage* page)
     if (page == d->m_projectOpenPage) {
         if (d->m_projectOpenPage->tabWidget->currentIndex() == 0) {
             // file-based
-            if (!d->m_projectOpenPage->fileSelector->fileWidget->checkSelectedFile())
+            if (!d->m_projectOpenPage->fileSelector->checkSelectedFile())
                 return;
-            emit openProject(
-                d->m_projectOpenPage->fileSelector->fileWidget->highlightedFile());
+            emit openProject(d->m_projectOpenPage->fileSelector->selectedFile());
         }
         else { // server-based
             KDbConnectionData *cdata
@@ -311,7 +307,7 @@ void KexiOpenProjectAssistant::tryAgainActionTriggered()
 void KexiOpenProjectAssistant::cancelActionTriggered()
 {
     if (currentPage() == d->m_passwordPage) {
-        d->passwordPage()->focusWidget()->setFocus();
+        d->passwordPage()->focusRecentFocusWidget();
     }
 }
 

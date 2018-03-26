@@ -39,8 +39,8 @@ public:
     //! @todo support defaults
     //! @todo support validation rules, e.g. min/max value, unsigned
     //! @todo support Enum type (list of strings, need support for keys and user-visible strings)
-    static QList<QVariant> getParameters(QWidget *parent, const KDbDriver &driver,
-                                         KDbQuerySchema* querySchema, bool *ok);
+    static QList<QVariant> getParameters(QWidget *parent, KDbConnection *conn,
+                                         KDbQuerySchema *querySchema, bool *ok);
 };
 
 #endif // KEXIDBCONNECTIONWIDGET_H

@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2015 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2012 Dimitrios T. Tanis <dimitrios.tanis@kdemail.net>
 
    This program is free software; you can redistribute it and/or
@@ -19,13 +19,14 @@
  */
 
 #include "KexiConnectionSelectorWidget.h"
-#include "KexiFileWidget.h"
 #include "ui_KexiConnectionSelector.h"
 #include "kexiprjtypeselector.h"
 #include "kexidbconnectionwidget.h"
+#include "KexiFileWidgetInterface.h"
 #include <kexiutils/utils.h>
 #include <core/kexi.h>
 #include <KexiIcon.h>
+#include <KexiServerDriverNotFoundMessage.h>
 
 #include <KDbDriverManager>
 #include <KDbDriverMetaData>
@@ -60,7 +61,7 @@ public:
         lblIcon->setFixedSize(lblIcon->pixmap()->size());
         btn_add->setToolTip(xi18n("Add a new database connection"));
         btn_edit->setToolTip(xi18n("Edit selected database connection"));
-        btn_remove->setToolTip(xi18n("Remove selected database connections"));
+        btn_remove->setToolTip(xi18n("Delete selected database connections"));
     }
     ~KexiConnectionSelector()
     {
@@ -106,7 +107,6 @@ class Q_DECL_HIDDEN KexiConnectionSelectorWidget::Private
 public:
     Private()
             : conn_sel_shown(false)
-            , file_sel_shown(false)
             , confirmOverwrites(true)
     {
     }
@@ -117,37 +117,44 @@ public:
         remote->list->resizeColumnToContents(1); // type
     }
 
+    QWidget *fileWidget()
+    {
+        return fileIface ? fileIface->widget() : nullptr;
+    }
+
+    KexiFileWidgetInterface *fileIface = nullptr;
     KexiConnectionSelector *remote;
     QWidget* openExistingWidget;
     KexiPrjTypeSelector* prjTypeSelector;
-    QString startDirOrVariable;
-    KFileWidget::OperationMode fileAccessType;
+    QUrl startDirOrVariable;
+    KexiConnectionSelectorWidget::OperationMode operationMode;
     QStackedWidget *stack;
     QPointer<KexiDBConnectionSet> conn_set;
     KDbDriverManager manager;
     bool conn_sel_shown; //!< helper
-    bool file_sel_shown;
     bool confirmOverwrites;
     KexiUtils::PaintBlocker* descGroupBoxPaintBlocker;
     bool isConnectionSelected;
+    bool fileWidgetFrameVisible = true;
+    QPointer<KexiServerDriverNotFoundMessage> errorMessagePopup;
 };
 
 /*================================================================*/
 
 KexiConnectionSelectorWidget::KexiConnectionSelectorWidget(
     KexiDBConnectionSet *conn_set,
-    const QString& startDirOrVariable, KFileWidget::OperationMode fileAccessType, QWidget* parent)
+    const QUrl& startDirOrVariable, OperationMode mode, QWidget* parent)
     : QWidget(parent)
     , d(new Private())
 {
     Q_ASSERT(conn_set);
     d->conn_set = conn_set;
     d->startDirOrVariable = startDirOrVariable;
-    d->fileAccessType = fileAccessType;
-    m_errorMessagePopup = 0;
+    d->operationMode = mode;
     setWindowIcon(Kexi::defaultFileBasedDriverIcon());
 
     QBoxLayout* globalLyr = new QVBoxLayout(this);
+    globalLyr->setContentsMargins(QMargins());
 
     //create header with radio buttons
     d->openExistingWidget = new QWidget(this);
@@ -169,8 +176,6 @@ KexiConnectionSelectorWidget::KexiConnectionSelectorWidget(
     d->stack = new QStackedWidget(this);
     d->stack->setObjectName("stack");
     globalLyr->addWidget(d->stack, 1);
-
-    fileWidget = 0;
 
     d->remote = new KexiConnectionSelector(d->stack);
     connect(d->remote->btn_add, SIGNAL(clicked()), this, SLOT(slotRemoteAddBtnClicked()));
@@ -194,7 +199,7 @@ KexiConnectionSelectorWidget::~KexiConnectionSelectorWidget()
     delete d;
 }
 
-void KexiConnectionSelectorWidget::showAdvancedConn()
+void KexiConnectionSelectorWidget::showAdvancedConnection()
 {
     d->prjTypeSelector->option_server->setChecked(true);
     slotPrjTypeSelected(d->prjTypeSelector->option_server);
@@ -203,7 +208,7 @@ void KexiConnectionSelectorWidget::showAdvancedConn()
 void KexiConnectionSelectorWidget::slotPrjTypeSelected(QAbstractButton *btn)
 {
     if (btn == d->prjTypeSelector->option_file) { //file-based prj type
-        showSimpleConn();
+        showSimpleConnection();
     } else if (btn == d->prjTypeSelector->option_server) { //server-based prj type
         if (KDbDriverManager().hasDatabaseServerDrivers()) {
             if (!d->conn_sel_shown) {
@@ -228,19 +233,19 @@ void KexiConnectionSelectorWidget::slotPrjTypeSelected(QAbstractButton *btn)
             d->stack->setCurrentWidget(d->remote);
         }
         else {
-            if (!m_errorMessagePopup) {
+            if (!d->errorMessagePopup) {
                 QWidget *errorMessagePopupParent = new QWidget(this);
                 QVBoxLayout *vbox = new QVBoxLayout(errorMessagePopupParent);
-                m_errorMessagePopup = new KexiServerDriverNotFoundMessage(errorMessagePopupParent);
-                vbox->addWidget(m_errorMessagePopup);
+                d->errorMessagePopup = new KexiServerDriverNotFoundMessage(errorMessagePopupParent);
+                vbox->addWidget(d->errorMessagePopup);
                 vbox->addStretch(0);
                 d->stack->addWidget(errorMessagePopupParent);
-                m_errorMessagePopup->setAutoDelete(false);
-                d->stack->setCurrentWidget(m_errorMessagePopup->parentWidget());
-                m_errorMessagePopup->animatedShow();
+                d->errorMessagePopup->setAutoDelete(false);
+                d->stack->setCurrentWidget(d->errorMessagePopup->parentWidget());
+                d->errorMessagePopup->animatedShow();
             }
             else {
-                d->stack->setCurrentWidget(m_errorMessagePopup->parentWidget());
+                d->stack->setCurrentWidget(d->errorMessagePopup->parentWidget());
             }
         }
     }
@@ -253,35 +258,33 @@ ConnectionDataLVItem* KexiConnectionSelectorWidget::addConnectionData(KDbConnect
                 new ConnectionDataLVItem(data, *driverMetaData, d->remote->list) : 0;
 }
 
-void KexiConnectionSelectorWidget::showSimpleConn()
+void KexiConnectionSelectorWidget::showSimpleConnection()
 {
     d->prjTypeSelector->option_file->setChecked(true);
-    if (!d->file_sel_shown) {
-        d->file_sel_shown = true;
-        fileWidget = new KexiFileWidget(
-            QUrl(d->startDirOrVariable),
-            d->fileAccessType == KFileWidget::Opening
-            ? KexiFileWidget::Opening : KexiFileWidget::SavingFileBasedDB,
+    if (!d->fileIface) {
+        d->fileIface = KexiFileWidgetInterface::createWidget(
+            d->startDirOrVariable, d->operationMode == Opening ? KexiFileFilters::Opening
+                                                               : KexiFileFilters::SavingFileBasedDB,
             d->stack);
-        fileWidget->setOperationMode(d->fileAccessType);
-        fileWidget->setObjectName("openFileWidget");
-        fileWidget->setConfirmOverwrites(d->confirmOverwrites);
-        d->stack->addWidget(fileWidget);
-
-        for (QWidget *w = parentWidget(); w; w = w->parentWidget()) {
-            if (w->windowType() == Qt::Dialog) {
-//! @todo KEXI3 KFileWidget    connect(m_fileDlg, SIGNAL(rejected()), qobject_cast<QDialog*>(w), SLOT(reject()));
-                break;
-            }
-        }
+        d->fileIface->setWidgetFrame(d->fileWidgetFrameVisible);
+        d->fileIface->setConfirmOverwrites(d->confirmOverwrites);
+        d->stack->addWidget(d->fileIface->widget());
+        d->fileIface->connectFileSelectedSignal(this, SLOT(slotFileConnectionSelected(QString)));
     }
-    d->stack->setCurrentWidget(fileWidget);
-    connect(fileWidget, SIGNAL(fileHighlighted()), this, SLOT(slotConnectionSelected()));
+    d->stack->setCurrentWidget(d->fileIface->widget());
+}
+
+void KexiConnectionSelectorWidget::setFileWidgetFrameVisible(bool set)
+{
+    d->fileWidgetFrameVisible = set;
+    if (d->fileIface) {
+        d->fileIface->setWidgetFrame(d->fileWidgetFrameVisible);
+    }
 }
 
 KexiConnectionSelectorWidget::ConnectionType KexiConnectionSelectorWidget::selectedConnectionType() const
 {
-    return (d->stack->currentWidget() == fileWidget) ? FileBased : ServerBased;
+    return (d->stack->currentWidget() == d->fileWidget()) ? FileBased : ServerBased;
 }
 
 KDbConnectionData* KexiConnectionSelectorWidget::selectedConnectionData() const
@@ -295,30 +298,20 @@ KDbConnectionData* KexiConnectionSelectorWidget::selectedConnectionData() const
     return item->data();
 }
 
-QString KexiConnectionSelectorWidget::selectedFileName()
+QString KexiConnectionSelectorWidget::selectedFile() const
 {
-    if (selectedConnectionType() != KexiConnectionSelectorWidget::FileBased)
+    if (selectedConnectionType() != KexiConnectionSelectorWidget::FileBased) {
         return QString();
-    else if (fileWidget->selectedFile().isEmpty()) {
-        QUrl path = fileWidget->baseUrl();
-        const QString firstUrl(fileWidget->locationEdit()->lineEdit()->text());
-        if (QDir::isAbsolutePath(firstUrl))
-            path = QUrl::fromLocalFile(firstUrl);
-        else {
-            path = path.adjusted(QUrl::StripTrailingSlash);
-            path.setPath(path.path() + '/' + (firstUrl));
-        }
-        return path.toLocalFile();
     }
-
-    return fileWidget->highlightedFile(); //ok? fileWidget->selectedFile();
+    return d->fileIface->selectedFile();
 }
 
-void KexiConnectionSelectorWidget::setSelectedFileName(const QString& fileName)
+void KexiConnectionSelectorWidget::setSelectedFile(const QString& name)
 {
-    if (selectedConnectionType() != KexiConnectionSelectorWidget::FileBased)
+    if (selectedConnectionType() != KexiConnectionSelectorWidget::FileBased) {
         return;
-    return fileWidget->setSelection(fileName);
+    }
+    return d->fileIface->setSelectedFile(name);
 }
 
 void KexiConnectionSelectorWidget::slotConnectionItemExecuted(QTreeWidgetItem* item)
@@ -350,7 +343,7 @@ void KexiConnectionSelectorWidget::slotConnectionSelectionChanged()
     }
     d->descGroupBoxPaintBlocker->setEnabled(desc.isEmpty());
     d->remote->descriptionLabel->setText(desc);
-    slotConnectionSelected();
+    emit connectionSelected(d->isConnectionSelected);
     emit connectionItemHighlighted(item);
 }
 
@@ -362,10 +355,11 @@ QTreeWidget* KexiConnectionSelectorWidget::connectionsList() const
 void KexiConnectionSelectorWidget::setFocus()
 {
     QWidget::setFocus();
-    if (d->stack->currentWidget() == fileWidget)
-        fileWidget->setFocus();
-    else
+    if (d->stack->currentWidget() == d->fileWidget()) {
+        d->fileWidget()->setFocus();
+    } else {
         d->remote->list->setFocus();
+    }
 }
 
 void KexiConnectionSelectorWidget::hideHelpers()
@@ -376,8 +370,9 @@ void KexiConnectionSelectorWidget::hideHelpers()
 void KexiConnectionSelectorWidget::setConfirmOverwrites(bool set)
 {
     d->confirmOverwrites = set;
-    if (fileWidget)
-        fileWidget->setConfirmOverwrites(d->confirmOverwrites);
+    if (d->fileIface) {
+        d->fileIface->setConfirmOverwrites(d->confirmOverwrites);
+    }
 }
 
 bool KexiConnectionSelectorWidget::confirmOverwrites() const
@@ -449,11 +444,11 @@ void KexiConnectionSelectorWidget::slotRemoteRemoveBtnClicked()
         return;
     if (KMessageBox::Yes != KMessageBox::questionYesNo(this,
             xi18nc("@info",
-                "Do you want to remove database connection <resource>%1</resource> from "
+                "Do you want to delete database connection <resource>%1</resource> from "
                 "the list of available connections?",
                 item->data()->toUserVisibleString()),
             QString(), //caption
-            KStandardGuiItem::remove(), KStandardGuiItem::cancel(),
+            KStandardGuiItem::del(), KStandardGuiItem::cancel(),
             QString(), //dont'ask name
             KMessageBox::Notify | KMessageBox::Dangerous)) {
         return;
@@ -486,6 +481,11 @@ void KexiConnectionSelectorWidget::hideDescription()
     d->remote->label->hide();
 }
 
+void KexiConnectionSelectorWidget::setExcludedMimeTypes(const QStringList &mimeTypes)
+{
+    d->fileIface->setExcludedMimeTypes(mimeTypes);
+}
+
 bool KexiConnectionSelectorWidget::eventFilter(QObject* watched, QEvent* event)
 {
     if (event->type() == QEvent::KeyPress) {
@@ -500,25 +500,53 @@ bool KexiConnectionSelectorWidget::eventFilter(QObject* watched, QEvent* event)
     return QWidget::eventFilter(watched, event);
 }
 
+void KexiConnectionSelectorWidget::slotFileConnectionSelected(const QString &name)
+{
+    Q_UNUSED(name)
+    d->isConnectionSelected = !d->fileIface->selectedFile().isEmpty();
+    emit connectionSelected(d->isConnectionSelected);
+    emit fileSelected(name);
+}
+
 void KexiConnectionSelectorWidget::slotConnectionSelected()
 {
-    switch (selectedConnectionType()) {
-    case KexiConnectionSelectorWidget::FileBased: {
-        QLineEdit *lineEdit = fileWidget->locationEdit()->lineEdit();
-        d->isConnectionSelected = !lineEdit->text().isEmpty();
-        break;
-    }
-    case KexiConnectionSelectorWidget::ServerBased:
-        d->isConnectionSelected = !d->remote->list->selectedItems().isEmpty();
-        break;
-    default:;
-    }
-    emit connectionSelected (d->isConnectionSelected);
+    d->isConnectionSelected = !d->remote->list->selectedItems().isEmpty();
+    emit connectionSelected(d->isConnectionSelected);
 }
 
 bool KexiConnectionSelectorWidget::hasSelectedConnection() const
 {
     return d->isConnectionSelected;
+}
+
+void KexiConnectionSelectorWidget::setFileMode(KexiFileFilters::Mode mode)
+{
+    if (d->fileIface) {
+        d->fileIface->setMode(mode);
+    }
+}
+
+void KexiConnectionSelectorWidget::setAdditionalMimeTypes(const QStringList &mimeTypes)
+{
+    if (d->fileIface) {
+        d->fileIface->setAdditionalMimeTypes(mimeTypes);
+    }
+}
+
+bool KexiConnectionSelectorWidget::checkSelectedFile()
+{
+    if (d->fileIface) {
+        return d->fileIface->checkSelectedFile();
+    }
+    return false;
+}
+
+QString KexiConnectionSelectorWidget::highlightedFile() const
+{
+    if (d->fileIface) {
+        return d->fileIface->highlightedFile();
+    }
+    return QString();
 }
 
 #include "KexiConnectionSelectorWidget.moc"

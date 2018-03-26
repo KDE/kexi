@@ -418,6 +418,7 @@ bool KexiRelationsView::setConnection(KDbConnection *conn)
         result.sort();
         d->tableCombo->addItems(result);
     }
+    d->scrollArea->setConnection(conn);
     return true;
 }
 

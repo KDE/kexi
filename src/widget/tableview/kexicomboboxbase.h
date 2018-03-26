@@ -41,10 +41,13 @@ public:
     virtual ~KexiComboBoxBase();
 
     //! \return column related to this combo; for KexiComboBoxTableEdit 0 is returned here
-    virtual const KDbTableViewColumn *column() const = 0;
+    virtual KDbTableViewColumn *column() = 0;
+
+    //! @overload
+    const KDbTableViewColumn *column() const;
 
     //! \return database field related to this combo
-    virtual KDbField *field() const = 0;
+    virtual KDbField *field() = 0;
 
     //! \return the original value
     virtual QVariant origValue() const = 0;
@@ -61,10 +64,7 @@ public:
     virtual bool valueIsNull();
     virtual bool valueIsEmpty();
 
-public:
     virtual void hide();
-
-    void createPopup(bool show);
 
     void showPopup();
 
@@ -81,6 +81,11 @@ public:
     virtual QWidget *internalEditor() const = 0;
 
 protected:
+    //! @return connection for this combo
+    virtual KDbConnection *connection() = 0;
+
+    void createPopup(bool show);
+
     virtual void setValueInternal(const QVariant& add, bool removeOld);
 
     //! Used to select record item for a user-entered value \a v.
@@ -100,7 +105,10 @@ protected:
     void setValueOrTextInInternalEditor(const QVariant& value);
 
     //! \return lookup field schema for this combo box, if present and if is valid (i.e. has defined record source)
-    KDbLookupFieldSchema* lookupFieldSchema() const;
+    KDbLookupFieldSchema* lookupFieldSchema();
+
+    //! @override
+    const KDbLookupFieldSchema* lookupFieldSchema() const;
 
     int recordToHighlightForLookupTable() const;
 

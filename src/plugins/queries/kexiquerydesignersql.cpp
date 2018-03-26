@@ -44,7 +44,7 @@
 #include <QDebug>
 #include <QHBoxLayout>
 
-static bool compareSQL(const QString& sql1, const QString& sql2)
+static bool compareSql(const QString& sql1, const QString& sql2)
 {
     //! @todo use reformatting functions here
     return sql1.trimmed() == sql2.trimmed();
@@ -53,7 +53,7 @@ static bool compareSQL(const QString& sql1, const QString& sql2)
 //===================
 
 //! @internal
-class Q_DECL_HIDDEN KexiQueryDesignerSQLView::Private
+class Q_DECL_HIDDEN KexiQueryDesignerSqlView::Private
 {
 public:
     Private() :
@@ -65,7 +65,10 @@ public:
             , justSwitchedFromNoViewMode(false)
             , slotTextChangedEnabled(true) {
     }
-    KexiQueryDesignerSQLEditor *editor;
+    ~Private() {
+        delete parsedQuery;
+    }
+    KexiQueryDesignerSqlEditor *editor;
     QLabel *pixmapStatus, *lblStatus;
     QHBoxLayout *statusHLyr;
     QFrame *statusMainWidget;
@@ -75,6 +78,7 @@ public:
     QSplitter *splitter;
     //! For internal use, this pointer is usually copied to TempData structure,
     //! when switching out of this view (then it's cleared).
+    //! If it's still present at destruction of Private then it's deleted.
     KDbQuerySchema *parsedQuery;
     //! For internal use, statement passed in switching to this view
     KDbEscapedString origStatement;
@@ -88,7 +92,7 @@ public:
 
 //===================
 
-KexiQueryDesignerSQLView::KexiQueryDesignerSQLView(QWidget *parent)
+KexiQueryDesignerSqlView::KexiQueryDesignerSqlView(QWidget *parent)
         : KexiView(parent)
         , d(new Private())
 {
@@ -99,7 +103,7 @@ KexiQueryDesignerSQLView::KexiQueryDesignerSQLView(QWidget *parent)
     d->splitter->addWidget(d->head);
     d->splitter->setStretchFactor(
         d->splitter->indexOf(d->head), 3/*stretch*/);
-    d->editor = new KexiQueryDesignerSQLEditor(d->head);
+    d->editor = new KexiQueryDesignerSqlEditor(d->head);
     d->editor->setObjectName("sqleditor");
     d->editor->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
     d->head->setWidget(d->editor);
@@ -158,46 +162,45 @@ KexiQueryDesignerSQLView::KexiQueryDesignerSQLView(QWidget *parent)
 
     setViewActions(viewActions);
 
-    slotUpdateMode();
     slotCheckQuery();
     updateGeometry();
 }
 
-KexiQueryDesignerSQLView::~KexiQueryDesignerSQLView()
+KexiQueryDesignerSqlView::~KexiQueryDesignerSqlView()
 {
     delete d;
 }
 
-KexiQueryDesignerSQLEditor *KexiQueryDesignerSQLView::editor() const
+KexiQueryDesignerSqlEditor *KexiQueryDesignerSqlView::editor() const
 {
     return d->editor;
 }
 
-void KexiQueryDesignerSQLView::setStatusOk()
+void KexiQueryDesignerSqlView::setStatusOk()
 {
     d->pixmapStatus->setPixmap(d->statusPixmapOk);
     setStatusText("<h3>" + xi18n("The query is correct") + "</h3>");
 }
 
-void KexiQueryDesignerSQLView::setStatusError(const QString& msg)
+void KexiQueryDesignerSqlView::setStatusError(const QString& msg)
 {
     d->pixmapStatus->setPixmap(d->statusPixmapErr);
     setStatusText("<h3>" + xi18n("The query is incorrect") + "</h3><p>" + msg + "</p>");
 }
 
-void KexiQueryDesignerSQLView::setStatusEmpty()
+void KexiQueryDesignerSqlView::setStatusEmpty()
 {
     d->pixmapStatus->setPixmap(d->statusPixmapInfo);
     setStatusText(
         xi18n("Please enter your query and execute \"Check query\" function to verify it."));
 }
 
-void KexiQueryDesignerSQLView::setStatusText(const QString& text)
+void KexiQueryDesignerSqlView::setStatusText(const QString& text)
 {
     d->lblStatus->setText(text);
 }
 
-tristate KexiQueryDesignerSQLView::beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore)
+tristate KexiQueryDesignerSqlView::beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore)
 {
     Q_ASSERT(dontStore);
 //! @todo
@@ -219,23 +222,32 @@ tristate KexiQueryDesignerSQLView::beforeSwitchTo(Kexi::ViewMode mode, bool *don
             if (designViewWasVisible
                     && !sqlTextIsEmpty //for empty text always show error
                     && !d->justSwitchedFromNoViewMode //unchanged, but we should check SQL text
-                    && compareSQL(d->origStatement.toString(), d->editor->text()))
+                    && compareSql(d->origStatement.toString(), d->editor->text()))
             {
                 //statement unchanged! - nothing to do
                 temp->setQueryChangedInView(false);
             } else {
                 //yes: parse SQL text
                 if (sqlTextIsEmpty || !slotCheckQuery()) {
-                    if (KMessageBox::No == KMessageBox::warningYesNo(this,
-                            "<p>" + xi18n("The query you entered is incorrect.")
-                            + "</p><p>" + xi18n("Do you want to cancel any changes made to this SQL text?") + "</p>"
-                            + "</p><p>" + xi18n("Answering \"No\" allows you to make corrections.") + "</p>")) {
+                    if (KMessageBox::Cancel == KMessageBox::warningContinueCancel(
+                               this, xi18nc("@info", "<para>The query you entered is incorrect.</para>"
+                                           "<para>Do you want discard changes made to this SQL "
+                                           "text and switch to the other view?</para>"),
+                               QString(), KGuiItem(xi18n("Discard Changes and Switch"),
+                                                   KStandardGuiItem::yes().iconName()),
+                               KGuiItem(xi18n("Don't Switch"),
+                                        KStandardGuiItem::cancel().iconName())))
+                    {
                         return cancelled;
                     }
                     //do not change original query - it's invalid
                     temp->setQueryChangedInView(false);
                     //this view is no longer _just_ switched from "NoViewMode"
                     d->justSwitchedFromNoViewMode = false;
+                    d->slotTextChangedEnabled = false;
+                    d->editor->setText(d->origStatement.toString());
+                    d->slotTextChangedEnabled = true;
+                    slotCheckQuery();
                     return true;
                 }
                 //this view is no longer _just_ switched from "NoViewMode"
@@ -243,7 +255,9 @@ tristate KexiQueryDesignerSQLView::beforeSwitchTo(Kexi::ViewMode mode, bool *don
                 //replace old query schema with new one
                 temp->setQuery(d->parsedQuery);   //this will also delete temp->query()
                 d->parsedQuery = 0;
-                temp->setQueryChangedInView(true);
+                if (!compareSql(d->origStatement.toString(), d->editor->text())) {
+                    temp->setQueryChangedInView(true);
+                }
             }
         }
         d->origStatement = KDbEscapedString(d->editor->text());
@@ -254,15 +268,15 @@ tristate KexiQueryDesignerSQLView::beforeSwitchTo(Kexi::ViewMode mode, bool *don
 }
 
 tristate
-KexiQueryDesignerSQLView::afterSwitchFrom(Kexi::ViewMode mode)
+KexiQueryDesignerSqlView::afterSwitchFrom(Kexi::ViewMode mode)
 {
-    qDebug();
     if (mode == Kexi::NoViewMode) {
         //User opened text view _directly_.
         //This flag is set to indicate for beforeSwitchTo() that even if text has not been changed,
         //SQL text should be invalidated.
         d->justSwitchedFromNoViewMode = true;
     }
+    KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     KexiQueryPartTempData * temp = tempData();
     KDbQuerySchema *query = temp->query();
     if (!query) {//try to just get saved schema, instead of temporary one
@@ -279,8 +293,8 @@ KexiQueryDesignerSQLView::afterSwitchFrom(Kexi::ViewMode mode)
         temp->setQuery(query);
         if (temp->queryChangedInView() != Kexi::NoViewMode) {
             KDbSelectStatementOptions options;
-            options.addVisibleLookupColumns = false;
-            KDbNativeStatementBuilder builder;
+            options.setAddVisibleLookupColumns(false);
+            KDbNativeStatementBuilder builder(conn, KDb::KDbEscaping);
             if (!builder.generateSelectStatement(&d->origStatement, query, options)) {
                 //! @todo msg
                 return false;
@@ -295,6 +309,9 @@ KexiQueryDesignerSQLView::afterSwitchFrom(Kexi::ViewMode mode)
             return false;
         }
         d->origStatement = KDbEscapedString(sql);
+        d->slotTextChangedEnabled = false;
+        d->editor->setText(d->origStatement.toString());
+        d->slotTextChangedEnabled = true;
     }
 
     if (temp->queryChangedInView() == Kexi::DesignViewMode /* true in this scenario:
@@ -305,7 +322,7 @@ KexiQueryDesignerSQLView::afterSwitchFrom(Kexi::ViewMode mode)
         || mode != Kexi::DataViewMode) /* true in this scenario: user switched from No-view
                                           or Design view */
     {
-        if (!compareSQL(d->origStatement.toString(), d->editor->text())) {
+        if (!compareSql(d->origStatement.toString(), d->editor->text())) {
             d->slotTextChangedEnabled = false;
             d->editor->setText(d->origStatement.toString());
             d->slotTextChangedEnabled = true;
@@ -315,12 +332,12 @@ KexiQueryDesignerSQLView::afterSwitchFrom(Kexi::ViewMode mode)
     return true;
 }
 
-QString KexiQueryDesignerSQLView::sqlText() const
+QString KexiQueryDesignerSqlView::sqlText() const
 {
     return d->editor->text();
 }
 
-bool KexiQueryDesignerSQLView::slotCheckQuery()
+bool KexiQueryDesignerSqlView::slotCheckQuery()
 {
     QString sqlText(d->editor->text().trimmed());
     if (sqlText.isEmpty()) {
@@ -330,7 +347,6 @@ bool KexiQueryDesignerSQLView::slotCheckQuery()
         return true;
     }
 
-    qDebug();
     KDbParser *parser = KexiMainWindowIface::global()->project()->sqlParser();
     const bool ok = parser->parse(KDbEscapedString(sqlText));
     delete d->parsedQuery;
@@ -348,12 +364,7 @@ bool KexiQueryDesignerSQLView::slotCheckQuery()
     return true;
 }
 
-void KexiQueryDesignerSQLView::slotUpdateMode()
-{
-    slotCheckQuery();
-}
-
-void KexiQueryDesignerSQLView::slotTextChanged()
+void KexiQueryDesignerSqlView::slotTextChanged()
 {
     if (!d->slotTextChangedEnabled)
         return;
@@ -361,21 +372,23 @@ void KexiQueryDesignerSQLView::slotTextChanged()
     setStatusEmpty();
 }
 
-void KexiQueryDesignerSQLView::updateActions(bool activated)
+void KexiQueryDesignerSqlView::updateActions(bool activated)
 {
     if (activated) {
-        slotUpdateMode();
+        if (isDirty()) {
+            slotCheckQuery();
+        }
     }
     setAvailable("querypart_check_query", true);
     KexiView::updateActions(activated);
 }
 
-KexiQueryPartTempData* KexiQueryDesignerSQLView::tempData() const
+KexiQueryPartTempData* KexiQueryDesignerSqlView::tempData() const
 {
     return dynamic_cast<KexiQueryPartTempData*>(window()->data());
 }
 
-KDbObject* KexiQueryDesignerSQLView::storeNewData(const KDbObject& object,
+KDbObject* KexiQueryDesignerSqlView::storeNewData(const KDbObject& object,
                                                            KexiView::StoreNewDataOptions options,
                                                            bool *cancel)
 {
@@ -394,11 +407,14 @@ KDbObject* KexiQueryDesignerSQLView::storeNewData(const KDbObject& object,
         else { //empty query
             query = new KDbObject(); //just empty
         }
-    }
-    else { //the query is not ok
-        if (KMessageBox::Yes != KMessageBox::questionYesNo(this, xi18n("Do you want to save invalid query?"),
-                                         0, KStandardGuiItem::yes(), KStandardGuiItem::no(),
-                                         "askBeforeSavingInvalidQueries"/*config entry*/))
+    } else { // the query is not ok
+        if (KMessageBox::Yes
+            != KMessageBox::questionYesNo(
+                   this, xi18nc("@info", "<para>This query is invalid.</para>"
+                               "<para>Do you want to save it?</para>"),
+                   0, KStandardGuiItem::save(),
+                    KStandardGuiItem::dontSave(),
+                   "askBeforeSavingInvalidQueries" /*config entry*/))
         {
             *cancel = true;
             return 0;
@@ -423,7 +439,7 @@ KDbObject* KexiQueryDesignerSQLView::storeNewData(const KDbObject& object,
     return query;
 }
 
-tristate KexiQueryDesignerSQLView::storeData(bool dontAsk)
+tristate KexiQueryDesignerSqlView::storeData(bool dontAsk)
 {
     if (window()->schemaObject()) { //set this instance as obsolete (only if it's stored)
         KexiMainWindowIface::global()->project()->dbConnection()->setQuerySchemaObsolete(window()->schemaObject()->name());

@@ -66,7 +66,7 @@ public:
      * @note not all of the records have to be processed
      */
     virtual int recordCount() const {
-        return m_data->count();
+        return m_data ? m_data->count() : 0;
     }
 
 #ifdef KEXI_TABLE_PRINT_SUPPORT

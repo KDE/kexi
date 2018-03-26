@@ -23,7 +23,6 @@
 #include "kexiprojectdata.h"
 #include "kexiprojectset.h"
 #include "kexiguimsghandler.h"
-#include "KexiStartupDialog.h"
 #include <core/kexipartmanager.h>
 #include <core/kexipartinfo.h>
 #include <core/KexiCommandLineOptions.h>
@@ -63,13 +62,23 @@ static void destroyStartupHandler()
 class KexiStartupData;
 //---------------------------------
 
+static bool stripQuotes(const QString &item, QString *name)
+{
+    if (item.left(1) == "\"" && item.right(1) == "\"") {
+        *name = item.mid(1, item.length() - 2);
+        return true;
+    }
+    *name = item;
+    return false;
+}
+
 //! @internal
 class Q_DECL_HIDDEN KexiStartupHandler::Private
 {
 public:
-    Private()
-            : passwordDialog(0)//, showConnectionDetailsExecuted(false)
-            , connShortcutFile(0), connDialog(0), startupDialog(0) {
+    Private(KexiStartupHandler *handler)
+        : q(handler)
+    {
     }
 
     ~Private() {
@@ -80,16 +89,88 @@ public:
         passwordDialog = 0;
         delete connDialog;
         connDialog = 0;
-        delete startupDialog;
-        startupDialog = 0;
     }
 
-    KexiDBPasswordDialog* passwordDialog;
+    bool findAutoopenObjects()
+    {
+        bool atLeastOneFound = false;
+        KexiProjectData::AutoOpenObjects *objects
+            = q->projectData() ? &q->projectData()->autoopenObjects : nullptr;
+        for (const QCommandLineOption &option : q->options().autoopeningObjectsOptions()) {
+            if (findAutoopenObjects(option, objects)) {
+                atLeastOneFound = true;
+            }
+        }
+        return atLeastOneFound;
+    }
+
+    bool findAutoopenObjects(const QCommandLineOption &option,
+                             KexiProjectData::AutoOpenObjects *objects)
+    {
+        bool atLeastOneFound = false;
+        for (const QString &value : q->values(option)) {
+            QString typeName;
+            QString objectName;
+            int idx;
+            bool nameRequired = true;
+            if (option.names() == q->options().newObject.names()) {
+                objectName.clear();
+                stripQuotes(value, &typeName);
+                nameRequired = false;
+            } else {//open, design, text...
+                QString defaultType;
+                if (option.names() == q->options().execute.names()) {
+#ifdef KEXI_MACROS_SUPPORT
+                    defaultType = "macro";
+#else
+                    defaultType = "script";
+#endif
+                } else {
+                    defaultType = "table";
+                }
+
+                //option with " " (set default type)
+                if (stripQuotes(value, &objectName)) {
+                    typeName = defaultType;
+                } else if ((idx = value.indexOf(':')) != -1) {
+                    //option with type name specified:
+                    typeName = value.left(idx).toLower();
+                    objectName = value.mid(idx + 1);
+                    (void)stripQuotes(objectName, &objectName); // remove optional quotes
+                } else {
+                    //just obj. name: set default type name
+                    objectName = value;
+                    typeName = defaultType;
+                }
+            }
+            if (typeName.isEmpty()) {
+                continue;
+            }
+            if (nameRequired && objectName.isEmpty()) {
+                continue;
+            }
+            atLeastOneFound = true;
+            if (objects) {
+                KexiProjectData::ObjectInfo info;
+                info.insert("name", objectName);
+                info.insert("type", typeName);
+                info.insert("action", option.names().first());
+                //ok, now add info for this object
+                objects->append(info);
+            } else {
+                return true; //no need to find more because we do not have project anyway
+            }
+        } //for
+        return atLeastOneFound;
+    }
+
+    KexiDBPasswordDialog* passwordDialog = nullptr;
     QString shortcutFileName;
-    KexiDBConnShortcutFile *connShortcutFile;
-    KexiDBConnectionDialog *connDialog;
+    KexiDBConnShortcutFile *connShortcutFile = nullptr;
+    KexiDBConnectionDialog *connDialog = nullptr;
     QString shortcutFileGroupKey;
-    KexiStartupDialog *startupDialog;
+private:
+    KexiStartupHandler* const q;
 };
 
 //---------------------------------
@@ -123,7 +204,7 @@ void updateProgressBar(QProgressDialog *pd, char *buffer, int buflen)
 KexiStartupHandler::KexiStartupHandler()
         : QObject(0)
         , KexiStartupData()
-        , d(new Private())
+        , d(new Private(this))
 {
     connect(qApp, SIGNAL(aboutToQuit()), this, SLOT(slotAboutToAppQuit()));
 }
@@ -147,75 +228,6 @@ void KexiStartupHandler::slotAboutToAppQuit()
 {
     d->destroyGui();
 }
-
-//! @todo KEXI3 port getAutoopenObjects()
-#if 0
-static bool stripQuotes(const QString &item, QString &name)
-{
-    if (item.left(1) == "\"" && item.right(1) == "\"") {
-        name = item.mid(1, item.length() - 2);
-        return true;
-    }
-    name = item;
-    return false;
-}
-
-bool KexiStartupHandler::getAutoopenObjects(KCmdLineArgs *args, const QByteArray &action_name)
-{
-    QStringList list = args->getOptionList(action_name);
-    bool atLeastOneFound = false;
-    foreach(const QString &option, list) {
-        QString type_name, obj_name, item = option;
-        int idx;
-        bool name_required = true;
-        if (action_name == "new") {
-            obj_name.clear();
-            stripQuotes(item, type_name);
-            name_required = false;
-        } else {//open, design, text...
-            QString defaultType;
-            if (action_name == "execute")
-                defaultType = "macro";
-            else
-                defaultType = "table";
-
-            //option with " " (set default type)
-            if (stripQuotes(item, obj_name)) {
-                type_name = defaultType;
-            } else if ((idx = item.indexOf(':')) != -1) {
-                //option with type name specified:
-                type_name = item.left(idx).toLower();
-                obj_name = item.mid(idx + 1);
-                //optional: remove ""
-                if (obj_name.startsWith(QLatin1Char('\"')) && obj_name.endsWith(QLatin1Char('\"'))) {
-                    obj_name.chop(1);
-                    obj_name.remove(0, 1);
-                }
-            } else {
-                //just obj. name: set default type name
-                obj_name = item;
-                type_name = defaultType;
-            }
-        }
-        if (type_name.isEmpty())
-            continue;
-        if (name_required && obj_name.isEmpty())
-            continue;
-
-        atLeastOneFound = true;
-        if (projectData()) {
-            KexiProjectData::ObjectInfo* info = new KexiProjectData::ObjectInfo();
-            info->insert("name", obj_name);
-            info->insert("type", type_name);
-            info->insert("action", action_name);
-            //ok, now add info for this object
-            projectData()->autoopenObjects.append(info);
-        } else
-            return true; //no need to find more because we do not have projectData() anyway
-    } //for
-    return atLeastOneFound;
-}
-#endif
 
 void prettyPrintPluginMetaData(int maxWidth, const QStringList &labels, QTextStream *out,
                                const KPluginMetaData& metaData)
@@ -246,10 +258,10 @@ static void prettyPrintListOfPlugins()
 
     // 1. Kexi plugins
     if (Kexi::partManager().infoList()->isEmpty()) {
-        out << i18n("No Kexi plugins found.") << endl;
+        out << i18n("No KEXI plugins found.") << endl;
     }
     else {
-        out << i18n("Kexi plugins (%1):", Kexi::partManager().infoList()->count()) << endl;
+        out << i18n("KEXI plugins (%1):", Kexi::partManager().infoList()->count()) << endl;
         foreach(const KexiPart::Info *info, *Kexi::partManager().infoList()) {
             prettyPrintPluginMetaData(maxWidth, labels, &out, *info);
         }
@@ -401,7 +413,8 @@ tristate KexiStartupHandler::init(const QStringList &arguments,
     const bool openExisting = !createDB && !isSet(options().dropDb);
     bool readOnly = isSet(options().readOnly);
     const QString couldnotMsg = QString::fromLatin1("\n")
-                                + xi18n("Could not start Kexi application this way.");
+        + xi18nc("@info", "Could not start <application>%1</application> application this way.",
+                QApplication::applicationDisplayName());
 
     if (createDB && isSet(options().dropDb)) {
         KMessageBox::sorry(0,
@@ -474,7 +487,7 @@ tristate KexiStartupHandler::init(const QStringList &arguments,
             if (isSet(options().dropDb) && !projectFileExists) {
                 KMessageBox::sorry(0,
                                    xi18nc("@info",
-                                          "Could not remove project. The file "
+                                          "Could not delete project. The file "
                                           "<filename>%1</filename> does not exist.",
                                           QDir::toNativeSeparators(cdata.databaseName())));
                 return 0;
@@ -643,25 +656,16 @@ tristate KexiStartupHandler::init(const QStringList &arguments,
         }
     }
 
-//! @todo KEXI3 port getAutoopenObjects()
-#if 0
     //---autoopen objects:
-    const bool atLeastOneAOOFound = getAutoopenObjects(args, "open")
-                                    || getAutoopenObjects(args, "design")
-                                    || getAutoopenObjects(args, "edittext")
-                                    || getAutoopenObjects(args, "execute")
-                                    || getAutoopenObjects(args, "new")
-                                    || getAutoopenObjects(args, "print")
-                                    || getAutoopenObjects(args, "print-preview");
+    const bool atLeastOneAOOFound = d->findAutoopenObjects();
 
     if (atLeastOneAOOFound && !openExisting) {
         KMessageBox::information(0,
                                  xi18n("You have specified a few database objects to be opened automatically, "
-                                      "using startup options.\n"
-                                      "These options will be ignored because they are not available while creating "
-                                      "or dropping projects."));
+                                       "using startup options.\n"
+                                       "These options will be ignored because they are not available while creating "
+                                       "or dropping projects."));
     }
-#endif
 
     if (createDB) {
         bool creationCancelled;
@@ -724,7 +728,7 @@ tristate KexiStartupHandler::init(const QStringList &arguments,
         }
 #ifdef KEXI_PROJECT_TEMPLATES
         else if (r == KexiStartupDialog::CreateFromTemplateResult) {
-            const QString selFile(d->startupDialog->selectedFileName());
+            const QString selFile(d->startupDialog->selectedFile());
             cdata.setDatabaseName(selFile);
             QString detectedDriverId;
             KexiStartupData::Import importData = KexiStartupData::importActionData();
@@ -743,7 +747,7 @@ tristate KexiStartupHandler::init(const QStringList &arguments,
         }
 #endif
         else if (r == KexiStartupDialog::OpenExistingResult) {
-            const QString selectedFile(d->startupDialog->selectedFileName());
+            const QString selectedFile(d->startupDialog->selectedFile());
             if (!selectedFile.isEmpty()) {
                 //file-based project
                 cdata.setDatabaseName(selectedFile);
@@ -890,7 +894,7 @@ tristate KexiStartupHandler::detectActionForFile(
             if ((options & SkipMessages) || KMessageBox::Yes != KMessageBox::questionYesNo(
                 parent, xi18nc("@info",
                                "<para><filename>%1</filename> is an external file of type <resource>%2</resource>.</para>"
-                               "<para>Do you want to import the file as a Kexi project?</para>",
+                               "<para>Do you want to import the file as a KEXI project?</para>",
                                QDir::toNativeSeparators(databaseName), mime.comment()),
                                xi18n("Open External File"),
                                KGuiItem(xi18nc("@action:button Import File", "Import..."),
@@ -952,8 +956,9 @@ tristate KexiStartupHandler::detectActionForFile(
             const QString comment(mime.comment().isEmpty() ? QString() : QString::fromLatin1(" (%1)").arg(mime.comment()));
             KMessageBox::detailedSorry(parent,
                xi18nc("@info",
-                      "The file <filename>%1</filename> is not recognized as being supported by Kexi.",
-                      QDir::toNativeSeparators(databaseName)),
+                      "The file <filename>%1</filename> is not recognized as being supported by "
+                      "<application>%2</application>.",
+                      QDir::toNativeSeparators(databaseName), QApplication::applicationDisplayName()),
                       possibleProblemsMessage.isEmpty()
                        ? xi18nc("@info",
                                 "<para>Could not find plugin supporting for this file type.</para>"

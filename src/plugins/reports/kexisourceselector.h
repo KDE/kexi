@@ -1,6 +1,7 @@
 /*
 * Kexi Report Plugin
-* Copyright (C) 2007-2016 by Adam Pigg (adam@piggz.co.uk)
+* Copyright (C) 2007-2016 by Adam Pigg <adam@piggz.co.uk>
+* Copyright (C) 2017 Jarosław Staniek <staniek@kde.org>
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -40,12 +41,26 @@ public:
     explicit KexiSourceSelector(KexiProject* project, QWidget* parent = 0);
     ~KexiSourceSelector();
 
-    KReportDataSource* createSourceData() const Q_REQUIRED_RESULT;
-    void setConnectionData(const QDomElement &c);
+    KReportDataSource* createDataSource() const Q_REQUIRED_RESULT;
+
     QDomElement connectionData();
 
+    //! @return name plugin ID of selected item (a table or a query). Can return an empty string.
+    QString selectedPluginId() const;
+
+    //! @return name of selected table or query.
+    QString selectedName() const;
+
+    //! \return true if the current selection is valid
+    bool isSelectionValid() const;
+
+public Q_SLOTS:
+    /*! Sets item for data source described by \a pluginId and \a name.
+     If \a pluginId is empty, either "org.kexi-project.table" and "org.kexi-project.query" are tried. */
+    void setDataSource(const QString& pluginId, const QString& name);
+
 Q_SIGNALS:
-    void sourceDataChanged();
+    void dataSourceChanged();
 
 private:
     class Private;

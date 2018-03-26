@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2012 Oleg Kukharchuk <oleg.kuh@gmail.org>
-   Copyright (C) 2005-2013 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -30,11 +30,11 @@
 class QCheckBox;
 class QGroupBox;
 class QPushButton;
-class KexiFileWidget;
 class KexiCSVDelimiterWidget;
 class KexiCSVTextQuoteComboBox;
 class KexiCSVInfoLabel;
 class KexiCharacterEncodingComboBox;
+class KexiFileWidgetInterface;
 class KPageWidgetItem;
 class KDbTableOrQuerySchema;
 
@@ -88,8 +88,9 @@ protected:
     //! Helper like \ref writeEntry(const char *, bool), but for deleting config entry.
     void deleteEntry(const char *key);
 
+    QString selectedFile() const;
+
     KexiCSVExport::Options m_options;
-    KexiFileWidget* m_fileSaveWidget = nullptr;
     QWidget* m_exportOptionsWidget = nullptr;
     KPageWidgetItem *m_fileSavePage = nullptr;
     KPageWidgetItem *m_exportOptionsPage = nullptr;
@@ -103,6 +104,7 @@ protected:
     KexiCharacterEncodingComboBox *m_characterEncodingCombo = nullptr;
     QCheckBox *m_addColumnNamesCheckBox = nullptr;
     QCheckBox *m_alwaysUseCheckBox = nullptr;
+    KexiFileWidgetInterface *m_fileIface = nullptr;
     KDbTableOrQuerySchema* m_tableOrQuery;
     KConfigGroup m_importExportGroup;
     bool m_canceled = false;

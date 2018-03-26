@@ -757,9 +757,9 @@ void KexiDBImageBox::resizeEvent(QResizeEvent * e)
     }
 }
 
-void KexiDBImageBox::setColumnInfo(KDbQueryColumnInfo* cinfo)
+void KexiDBImageBox::setColumnInfo(KDbConnection *conn,KDbQueryColumnInfo* cinfo)
 {
-    KexiFormDataItemInterface::setColumnInfo(cinfo);
+    KexiFormDataItemInterface::setColumnInfo(conn, cinfo);
     //updating strings and title is needed
     updateActionStrings();
 }

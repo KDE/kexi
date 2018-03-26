@@ -22,6 +22,9 @@
 #include "kexiscriptpart.h"
 #include "kexiscriptdesignview.h"
 #include "kexiscriptadaptor.h"
+#include "../kexidb/kexidbmodule.h"
+#include "KexiScriptingDebug.h"
+
 #include <kexipart.h>
 #include <kexipartitem.h>
 #include <KexiIcon.h>
@@ -29,9 +32,7 @@
 #include <KexiWindow.h>
 #include <KexiMainWindowIface.h>
 #include <kexiproject.h>
-
-#include <Kross/Manager>
-#include <Kross/ActionCollection>
+#include <KDbConnection>
 
 #include <KConfig>
 #include <KConfigGroup>
@@ -39,6 +40,10 @@
 #include <KMessageBox>
 
 #include <QDebug>
+#include <QJSEngine>
+#include <QJSValue>
+#include <QJSValueIterator>
+#include <QDomDocument>
 
 KEXI_PLUGIN_FACTORY(KexiScriptPart, "kexi_scriptplugin.json")
 
@@ -47,28 +52,14 @@ class Q_DECL_HIDDEN KexiScriptPart::Private
 {
 public:
     explicit Private(KexiScriptPart* p)
-            : p(p)
-            , actioncollection(new Kross::ActionCollection("projectscripts"))
-            , adaptor(0) {}
+            : p(p) {}
     ~Private() {
-        delete actioncollection; delete adaptor;
     }
 
+    QJSEngine engine;
     KexiScriptPart* p;
-    Kross::ActionCollection* actioncollection;
-    KexiScriptAdaptor* adaptor;
-
-    Kross::Action* action(const QString &partname) {
-        Kross::Action *action = actioncollection->action(partname);
-        if (! action) {
-            if (! adaptor)
-                adaptor = new KexiScriptAdaptor();
-            action = new Kross::Action(p, partname);
-            actioncollection->addAction(action);
-            action->addObject(adaptor);
-        }
-        return action;
-    }
+    KexiScriptAdaptor adaptor;
+    Scripting::KexiDBModule kexidbmodule;
 };
 
 KexiScriptPart::KexiScriptPart(QObject *parent, const QVariantList& l)
@@ -82,6 +73,15 @@ KexiScriptPart::KexiScriptPart(QObject *parent, const QVariantList& l)
         l)
   , d(new Private(this))
 {
+    d->engine.installExtensions(QJSEngine::ConsoleExtension);
+    
+    registerMetaObjects();
+    
+    QJSValueIterator it(d->engine.globalObject());
+    while (it.hasNext()) {
+        it.next();
+        KexiScriptingDebug() << it.name() << ": " << it.value().toString();
+    }
 }
 
 KexiScriptPart::~KexiScriptPart()
@@ -97,97 +97,43 @@ bool KexiScriptPart::execute(KexiPart::Item* item, QObject* sender)
         return false;
     }
 
-#if 0
-    KexiDialogBase* dialog = new KexiDialogBase(m_mainWin);
-    dialog->setId(item->identifier());
-    KexiScriptDesignView* view = dynamic_cast<KexiScriptDesignView*>(
-                                     createView(dialog, dialog, *item, Kexi::DesignViewMode));
-    if (! view) {
-        qWarning() << "Failed to create a view.";
-        return false;
+    QString p = loadData(item);
+
+    QJSValue result = execute(p);
+    
+    if (result.isError()) {
+            QString errormessage = result.toString();
+            long lineno = result.property("lineNumber").toInt();
+            QMessageBox mb(xi18n("KEXI Script"), xi18n("Error executing script at line %1:\n%2").arg(lineno).arg(errormessage),  QMessageBox::Critical, QMessageBox::Ok, QMessageBox::NoButton, QMessageBox::NoButton);
+            mb.exec();
+            return false;
     }
+    return true; 
+}
 
-    Kross::Action* scriptaction = view->scriptAction();
-    if (scriptaction) {
-
-        const QString dontAskAgainName = "askExecuteScript";
-        KSharedConfig::Ptr config = KSharedConfig::openConfig();
-        QString dontask = config->readEntry(dontAskAgainName).toLower();
-
-        bool exec = (dontask == "yes");
-        if (!exec && dontask != "no") {
-            exec = KMessageBox::Yes == KMessageBox::questionYesNo(view,
-                    futureI18n("Do you want to execute the script \"%1\"?\n\n"
-                         "Scripts obtained from unknown sources can contain dangerous code.", scriptaction->text()),
-                    futureI18n("Execute Script?"), KGuiItem(futureI18nc("@action:button", "Execute"), koIconName("system-run")),
-                    dontAskAgainName, KMessageBox::Notify | KMessageBox::Dangerous
-                                                     );
-        }
-
-        if (exec) {
-            //QTimer::singleShot(10, scriptaction, SLOT(activate()));
-            d->scriptguiclient->executeScriptAction(scriptaction);
-        }
+QJSValue KexiScriptPart::execute(const QString& program)
+{
+    QJSValue val;
+    
+    if (!d->engine.globalObject().hasProperty("KDb")) {
+        val = d->engine.newQObject(&d->kexidbmodule);
+        d->engine.globalObject().setProperty("KDb", val);
     }
-    view->deleteLater(); // not needed any longer.
-#else
-
-    Kross::Action *action = d->action(item->name());
-    Q_ASSERT(action);
-    action->trigger();
-#endif
-    return true;
+    
+    if (!program.isEmpty()) {
+        return  d->engine.evaluate(program);
+    }  
+    return QJSValue();
 }
 
 void KexiScriptPart::initPartActions()
 {
-    //qDebug() << ".............";
-#if 0
-    if (m_mainWin) {
-        // At this stage the KexiPart::Part::m_mainWin should be defined, so
-        // that we are able to use it's KXMLGUIClient.
 
-        // Initialize the ScriptGUIClient.
-        d->scriptguiclient = new Kross::Api::ScriptGUIClient(m_mainWin);
-
-        // Publish the KexiMainWindow singelton instance. At least the KexiApp
-        // scripting-plugin depends on this instance and loading the plugin will
-        // fail if it's not avaiable.
-        if (! Kross::Api::Manager::scriptManager()->hasChild("KexiMainWindow")) {
-            Kross::Api::Manager::scriptManager()->addQObject(m_mainWin, "KexiMainWindow");
-
-            // Add the QAction's provided by the ScriptGUIClient to the
-            // KexiMainWindow.
-            //FIXME: fix+use createSharedPartAction() whyever it doesn't work as expected right now...
-            Q3PopupMenu* popup = m_mainWin->findPopupMenu("tools");
-            if (popup) {
-                QAction* execscriptaction = d->scriptguiclient->action("executescriptfile");
-                if (execscriptaction)
-                    execscriptaction->plug(popup);
-                QAction* configscriptaction = d->scriptguiclient->action("configurescripts");
-                if (configscriptaction)
-                    configscriptaction->plug(popup);
-                QAction* scriptmenuaction = d->scriptguiclient->action("installedscripts");
-                if (scriptmenuaction)
-                    scriptmenuaction->plug(popup);
-                /*
-                QAction * execscriptmenuaction = d->scriptguiclient->action("executedscripts");
-                if(execscriptmenuaction)
-                    execscriptmenuaction->plug( popup );
-                QAction * loadedscriptmenuaction = d->scriptguiclient->action("loadedscripts");
-                if(loadedscriptmenuaction)
-                    loadedscriptmenuaction->plug( popup );
-                */
-            }
-        }
-    }
-#endif
 }
 
 void KexiScriptPart::initInstanceActions()
 {
-    qDebug();
-    createSharedAction(Kexi::DesignViewMode, xi18n("Configure Editor..."),
+    createSharedAction(Kexi::TextViewMode, xi18n("Configure Editor..."),
                        koIconName("configure"), QKeySequence(), "script_config_editor");
 }
 
@@ -200,28 +146,11 @@ KexiView* KexiScriptPart::createView(QWidget *parent,
     Q_ASSERT(item);
     Q_UNUSED(window);
     Q_UNUSED(staticObjectArgs);
-    //qDebug() << "............. createView";
+
     QString partname = item->name();
     if (! partname.isNull()) {
-        Kross::Action *action = d->action(partname);
-#if 0
-        KexiMainWindow *win = dialog->mainWin();
-        if (!win || !win->project() || !win->project()->dbConnection())
-            return 0;
-        Kross::Api::ScriptActionCollection* collection = d->scriptguiclient->getActionCollection("projectscripts");
-        if (! collection) {
-            collection = new Kross::Api::ScriptActionCollection(xi18n("Scripts"), d->scriptguiclient->actionCollection(), "projectscripts");
-            d->scriptguiclient->addActionCollection("projectscripts", collection);
-        }
-        const char* name = partname.toLatin1();
-        Kross::Api::ScriptAction::Ptr scriptaction = collection->action(name);
-        if (! scriptaction) {
-            scriptaction = new Kross::Api::ScriptAction(partname);
-            collection->attach(scriptaction); //!< @todo remove again on unload!
-        }
-#endif
-        if (viewMode == Kexi::DesignViewMode) {
-            return new KexiScriptDesignView(parent, action);
+        if (viewMode == Kexi::TextViewMode) {
+            return new KexiScriptDesignView(parent);
         }
     }
     return 0;
@@ -235,6 +164,60 @@ KLocalizedString KexiScriptPart::i18nMessage(
     if (englishMessage == "Object <resource>%1</resource> already exists.")
         return kxi18nc(I18NC_NOOP("@info", "Script <resource>%1</resource> already exists."));
     return Part::i18nMessage(englishMessage, window);
+}
+
+QString KexiScriptPart::loadData(KexiPart::Item* item)
+{
+    QString data;
+    if (!item) {
+        return QString();
+    }
+
+    if (true != KexiMainWindowIface::global()->project()->dbConnection()->loadDataBlock(
+                item->identifier(), &data))
+    {
+        return QString();
+    }
+
+    QString errMsg;
+    int errLine;
+    int errCol;
+
+    QString scriptType;
+
+    QDomDocument domdoc;
+    bool parsed = domdoc.setContent(data, false, &errMsg, &errLine, &errCol);
+
+    if (!parsed) {
+        KexiScriptingWarning() << "XML parsing error line: " << errLine << " col: " << errCol << " message: " << errMsg;
+        return QString();
+    }
+
+    QDomElement scriptelem = domdoc.namedItem("script").toElement();
+    if (scriptelem.isNull()) {
+        KexiScriptingWarning() << "script domelement is null";
+        return QString();
+    }
+
+    scriptType = scriptelem.attribute("scripttype");
+    if (scriptType.isEmpty()) {
+        scriptType = "executable";
+    }
+
+    if (scriptType == "executable") {
+        return scriptelem.text().toUtf8();
+    } else {
+        return QString();
+    }
+}
+
+void KexiScriptPart::registerMetaObjects()
+{
+     QJSValue meta = d->engine.newQMetaObject(&KexiScriptAdaptor::staticMetaObject);
+     d->engine.globalObject().setProperty("KexiScriptAdaptor", meta);
+     
+     meta = d->engine.newQMetaObject(&Scripting::KexiDBModule::staticMetaObject);
+     d->engine.globalObject().setProperty("KDb", meta);
 }
 
 #include "kexiscriptpart.moc"

@@ -254,9 +254,12 @@ bool KexiDBForm::eventFilter(QObject * watched, QEvent * e)
         if (isPreviewing()) {
             QKeyEvent *ke = static_cast<QKeyEvent*>(e);
             const int key = ke->key();
-            bool tab = ke->modifiers() == Qt::NoModifier && key == Qt::Key_Tab;
-            bool backtab = ((ke->modifiers() == Qt::NoModifier || ke->modifiers() == Qt::ShiftModifier) && key == Qt::Key_Backtab)
-                           || (ke->modifiers() == Qt::ShiftModifier && key == Qt::Key_Tab);
+            const bool keyPress = e->type() == QEvent::KeyPress;
+            bool tab = keyPress && ke->modifiers() == Qt::NoModifier && key == Qt::Key_Tab;
+            bool backtab = keyPress
+                && (((ke->modifiers() == Qt::NoModifier || ke->modifiers() == Qt::ShiftModifier)
+                     && key == Qt::Key_Backtab)
+                    || (ke->modifiers() == Qt::ShiftModifier && key == Qt::Key_Tab));
             QObject *o = watched; //focusWidget();
             QWidget* realWidget = dynamic_cast<QWidget*>(o); //will beused below (for tab/backtab handling)
 
@@ -432,10 +435,10 @@ bool KexiDBForm::eventFilter(QObject * watched, QEvent * e)
 
                 if (widgetToFocus && d->dataAwareObject->acceptEditor()) {
                     if (tab) {
+                        //qDebug() << e->type() << "focusing " << widgetToFocus->objectName();
                         widgetToFocus->setFocus();
-                        //qDebug() << "focusing" << widgetToFocus->objectName();
-                        (*d->orderedFocusWidgetsIterator)->setFocus();
                         //qDebug() << "focusing" << (*d->orderedFocusWidgetsIterator)->objectName();
+                        (*d->orderedFocusWidgetsIterator)->setFocus();
                     }
                     KexiFormDataItemInterface *formItem = dynamic_cast<KexiFormDataItemInterface*>(widgetToSelectAll);
                     if (formItem) {

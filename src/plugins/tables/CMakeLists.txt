@@ -16,20 +16,10 @@ kcoreaddons_desktop_to_json(kexi_tableplugin kexi_tableplugin.desktop)
 
 target_link_libraries(kexi_tableplugin
     PRIVATE
-        kexicore
         kexidataviewcommon
         kexidatatable
         kexiextendedwidgets
-        kexiutils
         kexiundo
-
-        KDb
-        KPropertyWidgets
-
-        KF5::CoreAddons
-
-        Qt5::Core
-        Qt5::Gui
 )
 
 install(TARGETS kexi_tableplugin DESTINATION ${KEXI_PLUGIN_INSTALL_DIR})

@@ -155,7 +155,7 @@ public:
     bool readTableSchema(const QString& originalName, KDbTableSchema *tableSchema);
 
     //! Starts reading data from the source dataset's table
-    KDbSqlResult* readFromTable(const QString& tableName);
+    QSharedPointer<KDbSqlResult> readFromTable(const QString& tableName);
 
     //!Move to the next row
     bool moveNext();
@@ -241,7 +241,7 @@ protected:
      \a result is set to 0 and true is returned.
      - Note 1: implement only if the database can already contain kexidb__* tables
        (so e.g. keximdb driver doea not need this).
-     - Note 2: default implementation uses drv_querySingleStringFromSQL()
+     - Note 2: default implementation uses drv_querySingleStringFromSql()
        with "SELECT MAX(columName) FROM tableName" statement, assuming SQL-compliant
        backend.
     */
@@ -256,7 +256,7 @@ protected:
      - Note: implement only if the database can already contain kexidb__* tables
       (so e.g. keximdb driver does not need this). */
 //! @todo SQL-dependent!
-    virtual tristate drv_queryStringListFromSQL(
+    virtual tristate drv_queryStringListFromSql(
         const KDbEscapedString& sqlStatement, int columnNumber, QStringList *stringList,
         int numRecords = -1)
     {
@@ -269,9 +269,9 @@ protected:
      by running \a sqlStatement.
      On success the result is stored in \a string and true is returned.
      \return cancelled if there are no records available.
-     This implementation uses drv_queryStringListFromSQL() with numRecords == 1. */
+     This implementation uses drv_queryStringListFromSql() with numRecords == 1. */
 //! @todo SQL-dependent!
-    virtual tristate drv_querySingleStringFromSQL(const KDbEscapedString& sqlStatement,
+    virtual tristate drv_querySingleStringFromSql(const KDbEscapedString& sqlStatement,
             int columnNumber, QString *string);
 
     //! A functor for filtering records
@@ -280,7 +280,7 @@ protected:
     public:
         RecordFilter() {}
         virtual ~RecordFilter() {}
-        virtual bool operator() (const KDbSqlRecord &record) const = 0;
+        virtual bool operator() (const QSharedPointer<KDbSqlRecord> &record) const = 0;
         virtual bool operator() (const QList<QVariant> &record) const = 0;
     };
 
@@ -326,9 +326,9 @@ protected:
 
     //Extended API
     //! Position the source dataset at the start of a table
-    virtual KDbSqlResult* drv_readFromTable(const QString & tableName) {
+    virtual QSharedPointer<KDbSqlResult> drv_readFromTable(const QString & tableName) {
       Q_UNUSED(tableName);
-      return nullptr;
+      return QSharedPointer<KDbSqlResult>();
     }
 
     //! Move to the next row

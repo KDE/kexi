@@ -1,7 +1,7 @@
 /* This file is part of the KDE project
    Copyright (C) 2004 Lucijan Busch <lucijan@kde.org>
    Copyright (C) 2004 Cedric Pasteur <cedric.pasteur@free.fr>
-   Copyright (C) 2005-2009 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -28,6 +28,8 @@
 #include <KexiWindowData.h>
 #include <kexiformview.h>
 
+#include <KDbTableSchemaChangeListener>
+
 class QDomDocument;
 namespace KFormDesigner
 {
@@ -37,12 +39,18 @@ class WidgetTreeWidget;
 class KDbFieldList;
 class KexiDataSourcePage;
 
-class KexiFormPartTempData : public KexiWindowData
+class KexiFormPartTempData : public KexiWindowData, public KDbTableSchemaChangeListener
 {
     Q_OBJECT
 public:
-    explicit KexiFormPartTempData(QObject* parent);
+    KexiFormPartTempData(KexiWindow* parent, KDbConnection *conn);
     ~KexiFormPartTempData();
+
+    //! Sets data source used for this data.
+    //! If the previous data source is different and is not empty, listener for it will be unregistered.
+    //! If the new data source is empty this temp-data object will be registered as a listener for it.
+    void setDataSource(const QString &pluginId, const QString &dataSource);
+
     QPointer<KFormDesigner::Form> form;
     QPointer<KFormDesigner::Form> previewForm;
     QString tempForm;
@@ -52,6 +60,16 @@ public:
     //! Used when loading a form from (temporary) XML in Data View
     //! to get unsaved blobs collected at design mode.
     QHash<QByteArray, KexiBLOBBuffer::Id_t> unsavedLocalBLOBsByName;
+
+protected:
+    //! This temp-data acts as a listener for tracking changes in table schema
+    //! used by the form. This method closes the form on request.
+    tristate closeListener() override;
+
+private:
+    Q_DISABLE_COPY(KexiFormPartTempData)
+    class Private;
+    Private * const d;
 };
 
 //! Kexi Form Plugin
@@ -76,11 +94,11 @@ public:
                                          KexiWindow* window) const;
 
 protected:
-    virtual KexiWindowData* createWindowData(KexiWindow* window);
+    KexiWindowData* createWindowData(KexiWindow* window) override Q_REQUIRED_RESULT;
 
-    virtual KexiView* createView(QWidget *parent, KexiWindow* window,
-                                 KexiPart::Item *item, Kexi::ViewMode viewMode = Kexi::DataViewMode,
-                                 QMap<QString, QVariant>* staticObjectArgs = 0);
+    KexiView *createView(QWidget *parent, KexiWindow *window, KexiPart::Item *item,
+                         Kexi::ViewMode viewMode = Kexi::DataViewMode,
+                         QMap<QString, QVariant> *staticObjectArgs = nullptr) override Q_REQUIRED_RESULT;
 
     virtual void initPartActions();
     virtual void initInstanceActions();

@@ -20,19 +20,20 @@
 #include "KexiServerDriverNotFoundMessage.h"
 #include <KLocalizedString>
 
-KexiServerDriverNotFoundMessage::KexiServerDriverNotFoundMessage(QWidget *parent):
-    KexiContextMessageWidget(parent, 0, 0,
-            KexiContextMessage (
-                xi18nc("@info",
-                "<title>No database server drivers found</title>"
-                "<para>Connection to a database server requires an appropriate driver which "
-                "you do not have installed.</para>"
-                "<subtitle>Details</subtitle>"
-                "<para>To obtain database drivers please use your Package Manager to search "
-                "and install packages with so-called <emphasis>KDb drivers</emphasis> named <filename>kdb-****-driver</filename>. "
-                "Please note that your package names could vary slightly depending on the "
-                "operating system you use.</para>"))
-            )
+ KexiServerDriverNotFoundMessage::KexiServerDriverNotFoundMessage(QWidget *parent)
+     : KexiContextMessageWidget(
+           parent, 0, 0,
+           KexiContextMessage(
+               xi18nc("@info",
+                      "<title>No database server drivers found</title>"
+                      "<para>Connection to a database server requires an appropriate driver which "
+                      "you do not have installed.</para>"
+                      "<subtitle>Details</subtitle>"
+                      "<para>To obtain database drivers please use your Package Manager to search "
+                      "and install packages with so-called <emphasis>KDb drivers</emphasis> named "
+                      "<filename>kdb-****-driver</filename>. "
+                      "Please note that your package names could vary slightly depending on the "
+                      "operating system you use.</para>")))
 {
         setMessageType(KMessageWidget::Warning);
         setCalloutPointerDirection(KMessageWidget::NoPointer);

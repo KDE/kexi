@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2012 Oleg Kukharchuk <oleg.kuh@gmail.org>
-   Copyright (C) 2005-2013 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -27,7 +27,7 @@
 #include <core/kexiguimsghandler.h>
 #include <kexiutils/utils.h>
 #include <widget/kexicharencodingcombobox.h>
-#include <widget/KexiFileWidget.h>
+#include <widget/KexiFileWidgetInterface.h>
 #include <KexiIcon.h>
 
 #include <KDbConnection>
@@ -67,12 +67,12 @@ KexiCSVExportWizard::KexiCSVExportWizard(const KexiCSVExport::Options& options,
     QString infoLblFromText;
     QString captionOrName;
     KexiGUIMessageHandler msgh(this);
+    KDbConnection* conn = KexiMainWindowIface::global()->project()->dbConnection();
     if (m_options.useTempQuery) {
         m_tableOrQuery = new KDbTableOrQuerySchema(KexiMainWindowIface::global()->unsavedQuery(options.itemId));
-        captionOrName = KexiMainWindowIface::global()->project()->dbConnection()->querySchema(m_options.itemId)->captionOrName();
+        captionOrName = conn->querySchema(m_options.itemId)->captionOrName();
     } else {
-        m_tableOrQuery = new KDbTableOrQuerySchema(
-            KexiMainWindowIface::global()->project()->dbConnection(), m_options.itemId);
+        m_tableOrQuery = new KDbTableOrQuerySchema(conn, m_options.itemId);
         captionOrName = m_tableOrQuery->captionOrName();
     }
     if (m_tableOrQuery->table()) {
@@ -92,16 +92,15 @@ KexiCSVExportWizard::KexiCSVExportWizard(const KexiCSVExport::Options& options,
             infoLblFromText = xi18n("Exporting data from query:");
         }
     } else {
-        msgh.showErrorMessage(KexiMainWindowIface::global()->project()->dbConnection()->result(),
-                              KDbMessageHandler::Error,
+        msgh.showErrorMessage(conn->result(), KDbMessageHandler::Error,
                               xi18n("Could not open data for exporting."));
         m_canceled = true;
         return;
     }
 
     QString text = "\n" + captionOrName;
-    int m_recordCount = KDb::recordCount(m_tableOrQuery);
-    int columns = KDb::fieldCount(m_tableOrQuery);
+    int m_recordCount = conn->recordCount(m_tableOrQuery);
+    int columns = m_tableOrQuery->fieldCount(conn);
     text += "\n";
     if (m_recordCount > 0)
         text += xi18n("(rows: %1, columns: %2)", m_recordCount, columns);
@@ -115,16 +114,15 @@ KexiCSVExportWizard::KexiCSVExportWizard(const KexiCSVExport::Options& options,
 
     // 1. File Save Page
     if (m_options.mode == KexiCSVExport::File) {
-        m_fileSaveWidget = new KexiFileWidget(
-            QUrl("kfiledialog:///CSVImportExport"), //startDir
-            KexiFileWidget::Custom | KexiFileWidget::SavingFileBasedDB,
-            this);
-        m_fileSaveWidget->setObjectName("m_fileSavePage");
-        m_fileSaveWidget->setAdditionalFilters(csvMimeTypes().toSet());
-        m_fileSaveWidget->setDefaultExtension("csv");
-        m_fileSaveWidget->setLocationText(
-            KDbUtils::stringToFileName(captionOrName));
-        m_fileSavePage = new KPageWidgetItem(m_fileSaveWidget, xi18n("Enter Name of File You Want to Save Data To"));
+        const QUrl url("kfiledialog:///CSVImportExport"); // startDir
+        m_fileIface = KexiFileWidgetInterface::createWidget(
+            url, KexiFileFilters::CustomSavingFileBasedDB, this);
+        m_fileIface->setAdditionalMimeTypes(csvMimeTypes());
+        m_fileIface->setDefaultExtension("csv");
+        //TODO m_fileSaveWidget->setLocationText(
+        //    KDbUtils::stringToFileName(captionOrName));
+        m_fileSavePage = new KPageWidgetItem(m_fileIface->widget(),
+                                             xi18n("Enter Name of File You Want to Save Data To"));
         addPage(m_fileSavePage);
         connect(this, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
                 this, SLOT(slotCurrentPageChanged(KPageWidgetItem*,KPageWidgetItem*)));
@@ -282,22 +280,24 @@ void KexiCSVExportWizard::slotCurrentPageChanged(KPageWidgetItem *page, KPageWid
     Q_UNUSED(prev)
 
     if (page == m_fileSavePage) {
-        m_fileSaveWidget->setFocus();
+        m_fileIface->widget()->setFocus();
     } else if (page == m_exportOptionsPage) {
         if (m_options.mode == KexiCSVExport::File)
-            m_infoLblTo->setFileName(m_fileSaveWidget->highlightedFile());
+            m_infoLblTo->setFileName(selectedFile());
     }
+}
+
+QString KexiCSVExportWizard::selectedFile() const
+{
+    return m_fileIface->selectedFile();
 }
 
 void KexiCSVExportWizard::next()
 {
     if (currentPage() == m_fileSavePage) {
-        if (!m_fileSaveWidget->checkSelectedFile()) {
+        if (!m_fileIface->checkSelectedFile()) {
             return;
         }
-        /*qDebug() << "selectedFile:" << m_fileSaveWidget->selectedFile();
-        qDebug() << "selectedUrl:" << m_fileSaveWidget->selectedUrl();
-        qDebug() << "highlightedFile:" << m_fileSaveWidget->highlightedFile();*/
         KAssistantDialog::next();
         return;
     }
@@ -306,15 +306,16 @@ void KexiCSVExportWizard::next()
 
 void KexiCSVExportWizard::done(int result)
 {
+    KDbConnection* conn = KexiMainWindowIface::global()->project()->dbConnection();
     if (QDialog::Accepted == result) {
         if (m_fileSavePage) {
-            //qDebug() << m_fileSaveWidget->highlightedFile();
-            m_options.fileName = m_fileSaveWidget->highlightedFile();
+            //qDebug() << selectedFile();
+            m_options.fileName = selectedFile();
         }
         m_options.delimiter = m_delimiterWidget->delimiter();
         m_options.textQuote = m_textQuote->textQuote();
         m_options.addColumnNames = m_addColumnNamesCheckBox->isChecked();
-        if (!KexiCSVExport::exportData(m_tableOrQuery, m_options))
+        if (!KexiCSVExport::exportData(conn, m_tableOrQuery, m_options))
             return;
 
         //store options

@@ -42,7 +42,6 @@
 /*!
     \class KexiCompleter
     \brief The KexiCompleter class provides completions based on an item model.
-    \since 4.2
 
     You can use KexiCompleter to provide auto completions in any Qt
     widget, such as QLineEdit and QComboBox.
@@ -1596,9 +1595,7 @@ int KexiCompleter::completionRole() const
 }
 
 /*!
-    \property KexiCompleter::wrapAround
     \brief the completions wrap around when navigating through items
-    \since 4.3
 
     The default is true.
 */
@@ -1617,7 +1614,6 @@ bool KexiCompleter::wrapAround() const
 /*!
     \property KexiCompleter::maxVisibleItems
     \brief the maximum allowed size on screen of the completer, measured in items
-    \since 4.6
 
     By default, this property has a value of 7.
 */

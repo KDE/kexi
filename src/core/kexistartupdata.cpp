@@ -247,6 +247,11 @@ QString	KexiStartupData::value(const QCommandLineOption & option) const
     return d->parser.value(option);
 }
 
+QStringList KexiStartupData::values(const QCommandLineOption &option) const
+{
+    return d->parser.values(option);
+}
+
 QStringList KexiStartupData::positionalArguments() const
 {
     return d->parser.positionalArguments();

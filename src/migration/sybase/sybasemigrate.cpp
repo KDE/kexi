@@ -158,7 +158,7 @@ bool SybaseMigrate::drv_tableNames(QStringList *tableNames)
  by running \a sqlStatement.
  On success the result is stored in \a stringList and true is returned.
  \return cancelled if there are no records available. */
-tristate SybaseMigrate::drv_queryStringListFromSQL(
+tristate SybaseMigrate::drv_queryStringListFromSql(
     const KDbEscapedString& sqlStatement, int columnNumber, QStringList *stringList, int numRecords)
 {
     if (!query(sqlStatement))
@@ -193,7 +193,7 @@ tristate SybaseMigrate::drv_queryStringListFromSQL(
 
 /*! Fetches single record from result obtained
  by running \a sqlStatement. */
-tristate SybaseMigrate::drv_fetchRecordFromSQL(const KDbEscapedString& sqlStatement,
+tristate SybaseMigrate::drv_fetchRecordFromSql(const KDbEscapedString& sqlStatement,
         KDbRecordData* data, bool *firstRecord)
 {
     Q_ASSERT(data);

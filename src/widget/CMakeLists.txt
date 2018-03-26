@@ -3,10 +3,8 @@ add_subdirectory( relations )
 add_subdirectory( undo )
 add_subdirectory( utils )
 
-if(KEXI_MOBILE)
-
-else()
-  add_subdirectory( tableview )
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
+    add_subdirectory( tableview )
 endif()
 
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=44023)
@@ -50,14 +48,14 @@ set(kexiextendedwidgets_LIB_SRCS
     KexiServerDriverNotFoundMessage.cpp
     KexiNameWidget.cpp
     KexiNameDialog.cpp
+    KexiFileWidgetInterface.cpp
+    KexiFileRequester.cpp
     KexiStartupFileHandler.cpp
     KexiListView.cpp
     KexiWidgetWidthAnimator.cpp
   )
 
-if (KEXI_MOBILE)
-
-else ()
+if(SHOULD_BUILD_KEXI_DESKTOP_APP)
   list(APPEND kexiextendedwidgets_LIB_SRCS
     #navigator/KexiProjectListView.cpp
     #navigator/KexiProjectListViewItem.cpp
@@ -66,11 +64,13 @@ else ()
 #      in kexiactionselectiondialog and remove them
     kexiprjtypeselector.cpp
     KexiConnectionSelectorWidget.cpp
-    KexiFileWidget.cpp
     KexiFileDialog.cpp
     KexiPasswordWidget.cpp
     KexiDBPasswordDialog.cpp
   )
+  if(KEXI_USE_KFILEWIDGET)
+    list(APPEND kexiextendedwidgets_LIB_SRCS KexiFileWidget.cpp)
+  endif()
   ki18n_wrap_ui(kexiextendedwidgets_LIB_SRCS
     KexiConnectionSelector.ui
     kexidbconnectionwidget.ui
@@ -92,19 +92,25 @@ generate_export_header(kexiextendedwidgets BASE_NAME kexiextwidgets)
 target_link_libraries(kexiextendedwidgets
     PRIVATE
         kexidataviewcommon
-        kexiutils
         kexiguiutils
-        kexicore
-
-        KDb
-        KPropertyWidgets
 
         KF5::TextWidgets # KTextEdit
         KF5::Codecs # KCharsets
     PUBLIC
-        KF5::KIOFileWidgets # KFileWidget
+        kexicore
+
+        KPropertyWidgets
+
         KF5::TextEditor
         KF5::ConfigWidgets
 )
+
+if(KEXI_USE_KFILEWIDGET)
+    target_link_libraries(kexiextendedwidgets
+        PUBLIC KF5::KIOFileWidgets) # KFileWidget
+else()
+    target_link_libraries(kexiextendedwidgets
+        PRIVATE KF5::KIOFileWidgets) # KFileWidget::getStartUrl, KFileFilterCombo
+endif()
 
 install(TARGETS kexiextendedwidgets  ${INSTALL_TARGETS_DEFAULT_ARGS})

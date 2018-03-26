@@ -26,12 +26,13 @@
 
 #include <KDbConnection>
 
+#include "kexidbconnectiondata.h"
+
 namespace Scripting
 {
 
 // Forward declarations.
 class KexiDBDriver;
-class KexiDBConnectionData;
 class KexiDBCursor;
 class KexiDBTableSchema;
 class KexiDBQuerySchema;
@@ -64,7 +65,8 @@ class KexiDBConnection : public QObject
 {
     Q_OBJECT
 public:
-    KexiDBConnection(KDbConnection* connection, KexiDBDriver* driver = 0, KexiDBConnectionData* connectiondata = 0);
+    KexiDBConnection(KDbConnection* connection, KexiDBConnectionData* connectiondata, KexiDBDriver* driver = 0);
+    KexiDBConnection(KDbConnection* connection, KexiDBDriver* driver = 0);
     virtual ~KexiDBConnection();
 
 public Q_SLOTS:
@@ -72,7 +74,7 @@ public Q_SLOTS:
     /** Return true if there was an error during last operation on the database. */
     bool hadError() const;
     /** Return the last errormessage. */
-    const QString lastError() const;
+    QString lastError() const;
 
     /** Return the \a KexiDBConnectionData object used to create this connection. */
     QObject* data();
@@ -93,7 +95,7 @@ public Q_SLOTS:
     bool databaseExists(const QString& dbname);
     /** Return the name of currently used database for this connection or empty
     string if there is no used database. */
-    const QString currentDatabase() const;
+    QString currentDatabase() const;
     /** Return list of database names for opened connection. */
     const QStringList databaseNames() const;
     /** Return true if connection is properly established. */
@@ -158,7 +160,7 @@ public Q_SLOTS:
 
 private:
     KDbConnection* m_connection;
-    QPointer<KexiDBConnectionData> m_connectiondata;
+    KexiDBConnectionData* m_connectiondata;
     QPointer<KexiDBDriver> m_driver;
 };
 

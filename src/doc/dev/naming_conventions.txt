@@ -1,12 +1,12 @@
 ---------------------------------------------------------
- Kexi Naming Conventions
+ KEXI Naming Conventions
 
- These rules apply to Kexi Team developers
+ These rules apply to KEXI Team developers
  There are also guidelines for future naming decissions.
 
  Started: 2003-10-17
- Copyright (C) 2003 Kexi Team
- Kexi home page: http://www.kexi-project.org/
+ Copyright (C) 2003 KEXI Team
+ KEXI home page: http://www.kexi-project.org/
 ---------------------------------------------------
 
 1. Namespaces

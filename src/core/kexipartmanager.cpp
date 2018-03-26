@@ -109,8 +109,9 @@ PartClass* Manager::part(Info *info, QHash<QString, PartClass*> *partDict)
     KPluginFactory *factory = qobject_cast<KPluginFactory*>(info->instantiate());
     if (!factory) {
         m_result = KDbResult(ERR_CANNOT_LOAD_OBJECT,
-                             xi18nc("@info", "Could not load Kexi plugin file <filename>%1</filename>.",
-                                    info->fileName()));
+                             xi18nc("@info", "Could not load plugin file <filename>%1</filename> "
+                                             "for <application>%2</application>.",
+                                    info->fileName(), QApplication::applicationDisplayName()));
         QPluginLoader loader(info->fileName()); // use this to get the message
         (void)loader.load();
         m_result.setServerMessage(loader.errorString());
@@ -120,9 +121,12 @@ PartClass* Manager::part(Info *info, QHash<QString, PartClass*> *partDict)
     }
     p = factory->create<PartClass>(this);
     if (!p) {
-        m_result = KDbResult(ERR_CANNOT_LOAD_OBJECT,
-                             xi18nc("@info",
-                                    "Could not open Kexi plugin <filename>%1</filename>.").arg(info->fileName()));
+        m_result = KDbResult(
+            ERR_CANNOT_LOAD_OBJECT,
+            xi18nc(
+                "@info",
+                "Could not open plugin <filename>%1</filename> for <application>%2</application>.",
+                info->fileName(), QApplication::applicationDisplayName()));
         qWarning() << m_result.message();
         return 0;
     }
@@ -181,7 +185,7 @@ bool Manager::lookup()
         // check version
         const QString expectedVersion = KexiPart::version();
         if (info->version() != expectedVersion) {
-            qWarning() << "Kexi plugin" << info->id() << "has version"
+            qWarning() << "Kexi plugin" << info->id() << info->fileName() << "has version"
                        << info->version() << "but version required by Kexi is"
                        << expectedVersion
                        << "-- skipping this plugin!";
@@ -220,6 +224,16 @@ bool Manager::lookup()
     }
     qDeleteAll(offers);
     offers.clear();
+    if (d->partsByPluginId.isEmpty()) {
+        m_result = KDbResult(xi18nc(
+            "@info", "<para>Could not find any plugins for <application>%1</application>, e.g. for "
+                     "tables or forms. "
+                     "<application>%1</application> would not be functional so it will exit.</para>"
+                     "<para><note>Please check if <application>%1</application> is properly "
+                     "installed.</note></para>",
+            QApplication::applicationDisplayName()));
+        return false;
+    }
 
     // fill the final list using computed order
     for (int i = 0; i < orderedInfos.size(); i++) {
@@ -272,7 +286,9 @@ Info* Manager::infoForPluginId(const QString &pluginId)
     Info *i = realId.isEmpty() ? 0 : d->partsByPluginId.value(realId);
     if (i)
         return i;
-    m_result = KDbResult(xi18nc("@info", "No plugin for ID <resource>%1</resource>", realId));
+    m_result = KDbResult(kxi18nc("@info", "No plugin for ID <resource>%1</resource>")
+                             .subs(realId)
+                             .toString(Kuit::VisualFormat::PlainText));
     return 0;
 }
 

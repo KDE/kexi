@@ -46,9 +46,6 @@ set(kformdesigner_LIBS
   kexicore
   kexiextendedwidgets
   kexiundo
-
-  KDb
-  KPropertyWidgets
 )
 
 if(KFD_SIGSLOTS)

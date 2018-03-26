@@ -138,6 +138,7 @@ static void setLineEditReadOnly(QLineEdit *edit, bool readOnly)
     edit->setFrame(!readOnly);
     edit->setPalette(readOnly ? p : edit->parentWidget()->palette());
     edit->setFocusPolicy(readOnly ? Qt::NoFocus : Qt::StrongFocus);
+    edit->setClearButtonEnabled(!readOnly);
     QFont f = edit->font();
     f.setBold(readOnly);
     edit->setFont(f);

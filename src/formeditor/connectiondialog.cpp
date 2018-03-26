@@ -118,7 +118,7 @@ ConnectionDialog::ConnectionDialog(Form *form, QWidget *parent)
     vlayout->addWidget(d->addButton);
     connect(d->addButton, SIGNAL(clicked()), this, SLOT(newItem()));
 
-    d->removeButton = new QPushButton(koIcon("edit-delete"), xi18n("&Remove Connection"), frame);
+    d->removeButton = new QPushButton(KStandardGuiItem::del().icon(), xi18n("&Delete Connection"), frame);
     vlayout->addWidget(d->removeButton);
     connect(d->removeButton, SIGNAL(clicked()), this, SLOT(removeItem()));
 
@@ -433,7 +433,8 @@ ConnectionDialog::removeItem()
               QString(),
               KGuiItem(xi18nc("@action:button", "&Delete Connection")),
               KStandardGuiItem::no(),
-              "AskBeforeDeleteConnection"/*config entry*/))
+              "AskBeforeDeleteConnection"/*config entry*/,
+              KMessageBox::Notify | KMessageBox::Dangerous))
     {
         return;
     }

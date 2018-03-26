@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2005-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2017 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2012 Oleg Kukharchuk <oleg.kuh@gmail.com>
 
    This work is based on kspread/dialogs/kspread_dlg_csv.cc.
@@ -53,6 +53,7 @@ class QFile;
 class QStackedWidget;
 class QProgressDialog;
 class QProgressBar;
+class QRadioButton;
 class QSpinBox;
 class KComboBox;
 class KPageWidgetItem;
@@ -67,8 +68,7 @@ class KexiCSVInfoLabel;
 class KexiProject;
 class KexiCSVImportDialogModel;
 class KexiCSVImportDialogItemDelegate;
-class KexiFileWidget;
-class KexiCommandLinkButton;
+class KexiFileWidgetInterface;
 class KexiNameWidget;
 class KexiProjectNavigator;
 class KexiFieldListModel;
@@ -139,15 +139,15 @@ private:
     QCheckBox* m_ignoreDuplicates;
     QCheckBox* m_1stRowForFieldNames;
     QCheckBox* m_primaryKeyField;
-    KexiFileWidget *m_openFileWidget;
+    KexiFileWidgetInterface *m_fileIface;
     QWidget *m_optionsWidget;
     QWidget *m_saveMethodWidget;
     KPageWidgetItem *m_openFilePage;
     KPageWidgetItem *m_optionsPage;
     KPageWidgetItem *m_saveMethodPage;
     KPageWidgetItem *m_chooseTablePage;
-    KexiCommandLinkButton *m_newTableButton;
-    KexiCommandLinkButton *m_existentTableButton;
+    QRadioButton *m_newTableOption;
+    QRadioButton *m_existingTableOption;
 
     QStackedWidget *m_tableNameWidget;
     KPageWidgetItem *m_tableNamePage;
@@ -283,7 +283,6 @@ private:
     void createTableNamePage();
     void createImportPage();
 
-    bool m_newTable;
     KDbPreparedStatementParameters m_valuesToInsert;
     KexiPart::Item* m_partItemForSavedTable;
     bool m_importInProgress;
@@ -309,7 +308,6 @@ private Q_SLOTS:
     void optionsButtonClicked();
     void slotPrimaryKeyFieldToggled(bool on);
     void slotCurrentPageChanged(KPageWidgetItem *page, KPageWidgetItem *prev);
-    void slotCommandLinkClicked();
     void slotShowSchema(KexiPart::Item *item);
     void import();
 };

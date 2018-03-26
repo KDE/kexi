@@ -1,6 +1,7 @@
 /*
 * Kexi Report Plugin
 * Copyright (C) 2007-2017 by Adam Pigg <adam@piggz.co.uk>
+* Copyright (C) 2017 Jarosław Staniek <staniek@kde.org>
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -22,15 +23,14 @@
 #include <QString>
 #include <QStringList>
 
-#include <KDbCursor>
 #include <KReportDataSource>
+
+class KexiReportPartTempData;
 
 //! @brief Implementation of database report data source
 class KexiDBReportDataSource : public KReportDataSource
 {
 public:
-    KexiDBReportDataSource(const QString &objectName, KDbConnection *conn);
-
     /*!
      * @a pluginId specifies type of @a objectName, a table or query.
      * Types accepted:
@@ -38,7 +38,8 @@ public:
      * -"org.kexi-project.query"
      * -empty QString() - attempt to resolve @a objectName
      */
-    KexiDBReportDataSource(const QString &objectName, const QString& pluginId, KDbConnection *conn);
+    KexiDBReportDataSource(const QString &objectName, const QString &pluginId,
+                           KexiReportPartTempData *data);
     virtual ~KexiDBReportDataSource();
 
     virtual QStringList fieldNames() const;
@@ -66,8 +67,6 @@ public:
     virtual qint64 recordCount() const;
 
     //Utility Functions
-    virtual QStringList scriptList() const;
-    virtual QString scriptCode(const QString& script) const;
     virtual QStringList dataSourceNames() const;
     virtual KReportDataSource* create(const QString& source) const Q_REQUIRED_RESULT;
 
@@ -75,7 +74,7 @@ private:
     class Private;
     Private * const d;
 
-    bool getSchema(const QString& pluginId = QString());
+    bool getSchema(const QString& pluginId);
 };
 
 #endif

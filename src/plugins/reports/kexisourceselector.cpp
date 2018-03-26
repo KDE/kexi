@@ -1,6 +1,7 @@
 /*
 * Kexi Report Plugin
-* Copyright (C) 2007-2009 by Adam Pigg (adam@piggz.co.uk)
+* Copyright (C) 2007-2009 by Adam Pigg <adam@piggz.co.uk>
+* Copyright (C) 2017 Jarosław Staniek <staniek@kde.org>
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -23,17 +24,9 @@
 #include <KLocalizedString>
 
 #include <QDebug>
-#include <QPushButton>
 #include <QLabel>
-#include <QLineEdit>
 #include <QDomElement>
 #include <QVBoxLayout>
-
-//#define NO_EXTERNAL_SOURCES
-
-#ifdef NO_EXTERNAL_SOURCES
-//! @todo KEXI3 enable external data sources for 2.3
-#endif
 
 class Q_DECL_HIDDEN KexiSourceSelector::Private
 {
@@ -47,12 +40,8 @@ public:
     }
 
     KDbConnection *conn;
-
     QVBoxLayout *layout;
-    QComboBox *sourceType;
-    KexiDataSourceComboBox *internalSource;
-    QLineEdit *externalSource;
-    QPushButton *setData;
+    KexiDataSourceComboBox *dataSource;
 };
 
 KexiSourceSelector::KexiSourceSelector(KexiProject* project, QWidget* parent)
@@ -62,39 +51,15 @@ KexiSourceSelector::KexiSourceSelector(KexiProject* project, QWidget* parent)
     d->conn = project->dbConnection();
 
     d->layout = new QVBoxLayout(this);
-    d->sourceType = new QComboBox(this);
-    d->internalSource = new KexiDataSourceComboBox(this);
-    d->internalSource->setProject(project);
-    d->externalSource = new QLineEdit(this);
-    d->setData = new QPushButton(xi18n("Set Data"));
+    d->dataSource = new KexiDataSourceComboBox(this);
+    d->dataSource->setProject(project);
+    connect(d->dataSource, &KexiDataSourceComboBox::dataSourceChanged, this,
+            &KexiSourceSelector::dataSourceChanged);
 
-    connect(d->setData, &QPushButton::clicked, this, &KexiSourceSelector::sourceDataChanged);
-
-    d->sourceType->addItem(xi18n("Internal"), QVariant("internal"));
-    d->sourceType->addItem(xi18n("External"), QVariant("external"));
-
-#ifndef NO_EXTERNAL_SOURCES
-
-//!@TODO enable when adding external data
-
-    d->layout->addWidget(new QLabel(xi18n("Source type:"), this));
-    d->layout->addWidget(d->sourceType);
-    d->layout->addSpacing(10);
-#else
-    d->sourceType->setVisible(false);
-    d->externalSource->setVisible(false);
-#endif
-
-    d->layout->addWidget(new QLabel(xi18n("Report's data source:"), this));
-    d->layout->addWidget(d->internalSource);
-    d->layout->addSpacing(10);
-
-#ifndef NO_EXTERNAL_SOURCES
-    d->layout->addWidget(new QLabel(xi18n("External source:"), this));
-    d->layout->addWidget(d->externalSource);
-#endif
-    d->layout->addSpacing(20);
-    d->layout->addWidget(d->setData);
+    QLabel *label = new QLabel(xi18n("Report's data source:"));
+    label->setBuddy(d->dataSource);
+    d->layout->addWidget(label);
+    d->layout->addWidget(d->dataSource);
     d->layout->addStretch();
     setLayout(d->layout);
 }
@@ -104,67 +69,22 @@ KexiSourceSelector::~KexiSourceSelector()
     delete d;
 }
 
-void KexiSourceSelector::setConnectionData(const QDomElement &c)
+QString KexiSourceSelector::selectedPluginId() const
 {
-    if (c.attribute("type") == "internal") {
-        d->sourceType->setCurrentIndex(d->sourceType->findData("internal"));
-        d->internalSource->setCurrentIndex(d->internalSource->findText(c.attribute("source")));
-    }
-
-    if (c.attribute("type") == "external") {
-        d->sourceType->setCurrentIndex(d->sourceType->findText("external"));
-        d->externalSource->setText(c.attribute("source"));
-    }
-
-    emit sourceDataChanged();
+    return d->dataSource->selectedPluginId();
 }
 
-QDomElement KexiSourceSelector::connectionData()
+QString KexiSourceSelector::selectedName() const
 {
-    qDebug();
-    QDomDocument dd;
-    QDomElement conndata = dd.createElement("connection");
-
-#ifndef NO_EXTERNAL_SOURCES
-//!@TODO Make a better gui for selecting external data source
-
-    conndata.setAttribute("type", d->sourceType->itemData(d->sourceType->currentIndex()).toString());
-
-    if (d->sourceType->itemData(d->sourceType->currentIndex()).toString() == "internal") {
-        conndata.setAttribute("source", d->internalSource->currentText());
-    } else {
-        conndata.setAttribute("source", d->externalSource->text());
-    }
-#else
-    conndata.setAttribute("type", "internal");
-    conndata.setAttribute("source", d->internalSource->currentText());
-#endif
-    return conndata;
+    return d->dataSource->selectedName();
 }
 
-KReportDataSource* KexiSourceSelector::createSourceData() const
+bool KexiSourceSelector::isSelectionValid() const
 {
-//!@TODO Fix when enable external data
-#ifndef NO_EXTERNAL_SOURCES
-    if (d->sourceType->itemData(d->sourceType->currentIndex()).toString() == "internal" && d->internalSource->isSelectionValid()) {
-        return new KexiDBReportDataSource(d->internalSource->selectedName(), d->internalSource->selectedPluginId(), d->conn);
-    }
-
-#ifndef KEXI_MOBILE
-//! @todo KEXI3
-#if 0
-    if (d->sourceType->itemData(d->sourceType->currentIndex()).toString() == "external") {
-        return new KexiMigrateReportData(d->externalSource->text());
-        return d->kexiMigrateData;
-    }
-#endif
-#endif
-
-#else
-    if (d->internalSource->isSelectionValid()) {
-        return new KexiDBReportData(d->internalSource->selectedName(), d->conn);
-    }
-#endif
-    return 0;
+    return d->dataSource->isSelectionValid();
 }
 
+void KexiSourceSelector::setDataSource(const QString& pluginId, const QString& name)
+{
+    d->dataSource->setDataSource(pluginId, name);
+}

@@ -25,15 +25,15 @@
 #include "kexieditor.h"
 
 //! Text editor for entering query statements.
-/*! The KexiQueryDesignerSQLEditor class embeds text editor
+/*! The KexiQueryDesignerSqlEditor class embeds text editor
  for entering query statements. */
-class KEXIEXTWIDGETS_EXPORT KexiQueryDesignerSQLEditor : public KexiEditor
+class KEXIEXTWIDGETS_EXPORT KexiQueryDesignerSqlEditor : public KexiEditor
 {
     Q_OBJECT
 
 public:
-    explicit KexiQueryDesignerSQLEditor(QWidget *parent = 0);
-    virtual ~KexiQueryDesignerSQLEditor();
+    explicit KexiQueryDesignerSqlEditor(QWidget *parent = 0);
+    virtual ~KexiQueryDesignerSqlEditor();
 };
 
 #endif

@@ -39,8 +39,8 @@ class KexiRelationsTableFieldList : public KexiFieldListView
     Q_OBJECT
 
 public:
-    KexiRelationsTableFieldList(KDbTableOrQuerySchema* tableOrQuerySchema,
-                                KexiRelationsScrollArea *scrollArea, QWidget *parent = 0);
+    KexiRelationsTableFieldList(KDbConnection *conn, KDbTableOrQuerySchema* tableOrQuerySchema,
+                                KexiRelationsScrollArea *scrollArea, QWidget *parent = nullptr);
     virtual ~KexiRelationsTableFieldList();
 
     int globalY(const QString &item);

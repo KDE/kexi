@@ -1,7 +1,7 @@
 /*
 * Kexi Report Plugin
 * Copyright (C) 2007-2009 by Adam Pigg <adam@piggz.co.uk>
-* Copyright (C) 2011 Jarosław Staniek <staniek@kde.org>
+* Copyright (C) 2011-2017 Jarosław Staniek <staniek@kde.org>
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -32,7 +32,6 @@ class QScrollArea;
 class KexiSourceSelector;
 
 /**
- @author
 */
 class KexiReportDesignView : public KexiView
 {
@@ -50,8 +49,11 @@ Q_SIGNALS:
     void itemInserted(const QString& entity);
 
 private:
-    KReportDesigner *m_reportDesigner;
     KexiReportPartTempData* tempData() const;
+    QDomElement connectionData() const;
+    void setConnectionData(const QDomElement &c);
+
+    KReportDesigner *m_reportDesigner;
     QScrollArea * m_scrollArea;
 
     //Actions
@@ -76,7 +78,7 @@ private Q_SLOTS:
     void slotDesignerPropertySetChanged();
     
 public Q_SLOTS:
-    void slotSourceDataChanged();
+    void slotDataSourceChanged();
 };
 
 #endif

@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2011-2013 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2011-2018 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -41,9 +41,10 @@ public:
 
     void addPage(KexiAssistantPage* page) {
         lyr->addWidget(page);
-        connect(page, SIGNAL(back(KexiAssistantPage*)), q, SLOT(previousPageRequested(KexiAssistantPage*)));
-        connect(page, SIGNAL(next(KexiAssistantPage*)), q, SLOT(nextPageRequested(KexiAssistantPage*)));
-        connect(page, SIGNAL(cancelled(KexiAssistantPage*)), q, SLOT(cancelRequested(KexiAssistantPage*)));
+        connect(page, &KexiAssistantPage::backRequested, q, &KexiAssistantWidget::previousPageRequested);
+        connect(page, &KexiAssistantPage::tryBackRequested, q, &KexiAssistantWidget::tryPreviousPageRequested);
+        connect(page, &KexiAssistantPage::nextRequested, q, &KexiAssistantWidget::nextPageRequested);
+        connect(page, &KexiAssistantPage::cancelledRequested, q, &KexiAssistantWidget::cancelRequested);
     }
 
     KexiAnimatedLayout *lyr;
@@ -79,9 +80,17 @@ void KexiAssistantWidget::addPage(KexiAssistantPage* page)
 
 void KexiAssistantWidget::previousPageRequested(KexiAssistantPage* page)
 {
-    Q_UNUSED(page);
     if (d->stack.count() < 2) {
         qWarning() << "Page stack's' count < 2";
+        return;
+    }
+    tryPreviousPageRequested(page);
+}
+
+void KexiAssistantWidget::tryPreviousPageRequested(KexiAssistantPage* page)
+{
+    Q_UNUSED(page);
+    if (d->stack.count() < 2) {
         return;
     }
     d->stack.pop();
@@ -109,9 +118,19 @@ void KexiAssistantWidget::setCurrentPage(KexiAssistantPage* page)
         qWarning() << "!page";
         return;
     }
+    if (currentPage() && currentPage() != page) {
+        QWidget *actualFocusWidget = currentPage()->focusWidget();
+        if (actualFocusWidget) {
+            currentPage()->setRecentFocusWidget(actualFocusWidget);
+        }
+    }
     d->lyr->setCurrentWidget(page);
-    if (page->focusWidget()) {
-        page->focusWidget()->setFocus();
+    if (page->recentFocusWidget()) {
+        page->focusRecentFocusWidget();
+    } else {
+        qWarning() << "Missing recent focus widget for" << page
+                   << "-- this cat lead to usability isses; please call "
+                      "KexiAssistantPage::setRecentFocusWidget() for that page.";
     }
     if (d->stack.isEmpty() || d->stack.top() != page) {
         int index = d->stack.indexOf(page);

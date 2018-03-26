@@ -11,7 +11,16 @@
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <property name="margin">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
     <number>0</number>
    </property>
    <item row="0" column="0">
@@ -20,6 +29,9 @@
       <widget class="KexiCommandLinkButton" name="btn_file">
        <property name="text">
         <string comment="New Project Stored in File">File</string>
+       </property>
+       <property name="autoDefault">
+        <bool>true</bool>
        </property>
        <property name="description">
         <string>New Project Stored in File</string>
@@ -33,6 +45,9 @@
       <widget class="KexiCommandLinkButton" name="btn_server">
        <property name="text">
         <string comment="New Project Stored on Database Server">Server</string>
+       </property>
+       <property name="autoDefault">
+        <bool>true</bool>
        </property>
        <property name="description">
         <string>New Project Stored on Database Server</string>
@@ -76,8 +91,6 @@
    <header location="global">kexiutils/KexiCommandLinkButton.h</header>
   </customwidget>
  </customwidgets>
- <includes>
- </includes>
  <resources/>
  <connections/>
 </ui>

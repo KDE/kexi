@@ -17,16 +17,8 @@ kexi_add_library(kexirelationsview SHARED ${kexirelationsview_LIB_SRCS})
 
 generate_export_header(kexirelationsview)
 
-target_link_libraries(
-    kexirelationsview
-    kexicore
+target_link_libraries(kexirelationsview
     kexiextendedwidgets
-    kexiutils
-
-    KDb
-
-    Qt5::Core
-    Qt5::Gui
-    )
+)
 
 install(TARGETS kexirelationsview  ${INSTALL_TARGETS_DEFAULT_ARGS})

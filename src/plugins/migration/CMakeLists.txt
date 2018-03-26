@@ -7,7 +7,6 @@ kcoreaddons_desktop_to_json(kexi_migrationplugin kexi_migrationplugin.desktop)
 
 target_link_libraries(kexi_migrationplugin
     PRIVATE
-        kexicore
         keximigrate
 )
 

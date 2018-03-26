@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2004 Cedric Pasteur <cedric.pasteur@free.fr>
-   Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2004-2017 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -344,7 +344,8 @@ void KexiFormView::updateAutoFieldsDataSource()
     QString dataSourcePartClassString(d->dbform->dataSourcePluginId());
     KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     KDbTableOrQuerySchema tableOrQuery(
-        conn, dataSourceString.toLatin1(), dataSourcePartClassString == "org.kexi-project.table");
+        conn, dataSourceString.toLatin1(), dataSourcePartClassString == "org.kexi-project.table"
+        ? KDbTableOrQuerySchema::Type::Table :: KDbTableOrQuerySchema::Type::Query);
     if (!tableOrQuery.table() && !tableOrQuery.query())
         return;
     foreach (KFormDesigner::ObjectTreeItem *item, *form()->objectTree()->hash()) {
@@ -378,8 +379,10 @@ void KexiFormView::updateValuesForSubproperties()
     QString dataSourceString(d->dbform->dataSource());
     QString dataSourcePartClassString(d->dbform->dataSourcePluginId());
     KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
-    KDbTableOrQuerySchema tableOrQuery(
-        conn, dataSourceString.toLatin1(), dataSourcePartClassString == "org.kexi-project.table");
+    KDbTableOrQuerySchema tableOrQuery(conn, dataSourceString.toLatin1(),
+                                       dataSourcePartClassString == "org.kexi-project.table"
+                                           ? KDbTableOrQuerySchema::Type::Table
+                                           : KDbTableOrQuerySchema::Type::Query);
     if (!tableOrQuery.table() && !tableOrQuery.query())
         return;
 
@@ -464,6 +467,7 @@ bool KexiFormView::loadForm()
         if (!KFormDesigner::FormIO::loadFormFromString(form(), d->dbform, data)) {
             return false;
         }
+        tempData()->setDataSource(d->dbform->dataSourcePluginId(), d->dbform->dataSource());
     }
 
     //"autoTabStops" property is loaded -set it within the form tree as well
@@ -720,12 +724,13 @@ void KexiFormView::initDataSource()
             QList<QVariant> params;
             {
                 KexiUtils::WaitCursorRemover remover;
-                params = KexiQueryParameters::getParameters(this, *conn->driver(), d->query, &ok);
+                params = KexiQueryParameters::getParameters(this, conn, d->query, &ok);
             }
             if (ok) //input cancelled
                 d->cursor = conn->executeQuery(d->query, params);
         }
-        d->scrollView->invalidateDataSources(invalidSources, d->query);
+        d->scrollView->invalidateDataSources(
+            invalidSources, d->cursor ? d->cursor->connection() : nullptr, d->query);
         ok = d->cursor != 0;
     }
 
@@ -1068,9 +1073,17 @@ void
 KexiFormView::updateDataSourcePage()
 {
     if (viewMode() == Kexi::DesignViewMode) {
-        const QString dataSourcePartClass = d->dbform->dataSourcePluginId();
-        const QString dataSource = d->dbform->dataSource();
+        KPropertySet *set = form()->propertySet();
+        QString dataSourcePartClass = set->propertyValue("dataSourcePartClass").toString();
+        const QString dataSource = set->propertyValue("dataSource").toString();
         formPart()->dataSourcePage()->setFormDataSource(dataSourcePartClass, dataSource);
+        if (dataSourcePartClass.isEmpty()
+            && !formPart()->dataSourcePage()->selectedPluginId().isEmpty())
+        {
+            set->property("dataSourcePartClass")
+                .setValue(formPart()->dataSourcePage()->selectedPluginId(),
+                          KProperty::ValueOption::IgnoreOld);
+        }
     }
 }
 
@@ -1119,7 +1132,9 @@ KexiFormView::insertAutoFields(const QString& sourcePartClass, const QString& so
 
     KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
     KDbTableOrQuerySchema tableOrQuery(conn, sourceName.toLatin1(),
-                                            sourcePartClass == "org.kexi-project.table");
+                                       sourcePartClass == "org.kexi-project.table"
+                                       ? KDbTableOrQuerySchema::Type::Table
+                                       : KDbTableOrQuerySchema::Type::Query);
     if (!tableOrQuery.table() && !tableOrQuery.query()) {
         qWarning() << "no such table/query" << sourceName;
         return;

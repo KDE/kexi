@@ -1,7 +1,7 @@
 /*
  * Kexi Report Plugin
  * Copyright (C) 2007-2008 by Adam Pigg (adam@piggz.co.uk)
-   Copyright (C) 2014 Jarosław Staniek <staniek@kde.org>
+ * Copyright (C) 2014-2017 Jarosław Staniek <staniek@kde.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -22,10 +22,6 @@
 #include "KexiDBReportDataSource.h"
 #ifndef KEXI_MOBILE
 #include <widget/utils/kexirecordnavigator.h>
- //! @todo KEXI3
-#if 0
-#include "keximigratereportdata.h"
-#endif
 #endif
 #include <core/KexiWindow.h>
 #include <core/KexiMainWindowIface.h>
@@ -96,12 +92,14 @@ KexiReportView::KexiReportView(QWidget *parent)
     exportMenu->setDelayed(false);
 #endif
 
+#ifdef KEXI_SHOW_UNFINISHED
 #ifdef KEXI_MOBILE
     viewActions << (a = new QAction(xi18n("Export:"), this));
     a->setEnabled(false); //!TODO this is a bit of a dirty way to add what looks like a label to the toolbar!
     // " ", not "", is said to be needed in maemo, the icon didn't display properly without it
     viewActions << (a = new QAction(koIcon("application-vnd.oasis.opendocument.text"), QLatin1String(" "), this));
 #else
+
     exportMenu->addAction(a = new QAction(koIcon("application-vnd.oasis.opendocument.text"),
                                           xi18nc("open dialog to export as text document", "Text Document..."), this));
 #endif
@@ -110,6 +108,7 @@ KexiReportView::KexiReportView(QWidget *parent)
     a->setWhatsThis(xi18n("Exports the report as a text document (in OpenDocument Text format)."));
     a->setEnabled(true);
     connect(a, SIGNAL(triggered()), this, SLOT(slotExportAsTextDocument()));
+#endif
 
 #ifdef KEXI_MOBILE
     viewActions << (a = new QAction(koIcon("application-pdf"), QLatin1String(" "), this));
@@ -123,6 +122,7 @@ KexiReportView::KexiReportView(QWidget *parent)
     a->setEnabled(true);
     connect(a, SIGNAL(triggered()), this, SLOT(slotExportAsPdf()));
 
+#ifdef KEXI_SHOW_UNFINISHED
 #ifdef KEXI_MOBILE
     viewActions << (a = new QAction(koIcon("application-vnd.oasis.opendocument.spreadsheet"), QLatin1String(" "), this));
 #else
@@ -134,6 +134,8 @@ KexiReportView::KexiReportView(QWidget *parent)
     a->setWhatsThis(xi18n("Exports the report as a spreadsheet (in OpenDocument Spreadsheet format)."));
     a->setEnabled(true);
     connect(a, SIGNAL(triggered()), this, SLOT(slotExportAsSpreadsheet()));
+
+#endif
 
 #ifdef KEXI_MOBILE
     viewActions << (a = new QAction(koIcon("text-html"), QLatin1String(" "), this));
@@ -159,7 +161,6 @@ KexiReportView::KexiReportView(QWidget *parent)
 
 KexiReportView::~KexiReportView()
 {
-    qDebug();
     delete m_preRenderer;
 }
 
@@ -224,6 +225,7 @@ QUrl KexiReportView::getExportUrl(const QString &mimetype, const QString &captio
 {
     QString defaultSavePath;
     QString recentDirClass;
+    //TODO use utils
     defaultSavePath = KFileWidget::getStartUrl(QUrl(lastExportPath), recentDirClass).toLocalFile()
         + '/' + window()->partItem()->captionOrName() + '.' + extension;
 
@@ -248,6 +250,8 @@ void KexiReportView::openExportedDocument(const QUrl &destination)
         (void)new KRun(destination, this->topLevelWidget());
     }
 }
+
+#ifdef KEXI_SHOW_UNFINISHED
 
 void KexiReportView::slotExportAsSpreadsheet()
 {
@@ -296,6 +300,7 @@ void KexiReportView::slotExportAsTextDocument()
         }
     }
 }
+#endif
 
 void KexiReportView::slotExportAsWebPage()
 {
@@ -350,7 +355,6 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
     if (tempData()->reportSchemaChangedInPreviousView) {
         tempData()->reportSchemaChangedInPreviousView = false;
 
-        //qDebug() << "Schema changed";
         delete m_preRenderer;
 
         //qDebug() << tempData()->reportDefinition.tagName();
@@ -359,9 +363,10 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
         if (m_preRenderer->isValid()) {
             KReportDataSource *reportData = 0;
             if (!tempData()->connectionDefinition.isNull())  {
-                reportData = createSourceData(tempData()->connectionDefinition);
+                reportData = createDataSource(tempData()->connectionDefinition);
             }
-            m_preRenderer->setSourceData(reportData);
+            m_preRenderer->setDataSource(reportData);
+            m_preRenderer->setScriptSource(qobject_cast<KexiReportPart*>(part()));
 
             m_preRenderer->setName(window()->partItem()->name());
 
@@ -373,13 +378,13 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
             //If using a kexidb source, add a functions scripting object
             if (tempData()->connectionDefinition.attribute("type") == "internal") {
                 m_functions = new KRScriptFunctions(reportData, KexiMainWindowIface::global()->project()->dbConnection());
-            
+
                 m_preRenderer->registerScriptObject(m_functions, "field");
                 connect(m_preRenderer, SIGNAL(groupChanged(QMap<QString, QVariant>)),
                         m_functions, SLOT(setGroupData(QMap<QString, QVariant>)));
             }
             connect(m_preRenderer, SIGNAL(finishedAllASyncItems()), this, SLOT(finishedAllASyncItems()));
-            
+
             if (!m_preRenderer->generateDocument()) {
                 qWarning() << "Could not generate report document";
                 return false;
@@ -397,22 +402,12 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
     return true;
 }
 
-KReportDataSource* KexiReportView::createSourceData(QDomElement e)
+KReportDataSource* KexiReportView::createDataSource(const QDomElement &e)
 {
-    KReportDataSource *kodata = 0;
-
     if (e.attribute("type") == "internal" && !e.attribute("source").isEmpty()) {
-        kodata = new KexiDBReportDataSource(e.attribute("source"), KexiMainWindowIface::global()->project()->dbConnection());
+        return new KexiDBReportDataSource(e.attribute("source"), e.attribute("class"), tempData());
     }
-#ifndef KEXI_MOBILE
-//! @todo KEXI3
-#if 0
-    if (e.attribute("type") ==  "external") {
-        kodata = new KexiMigrateReportData(e.attribute("source"));
-    }
-#endif
-#endif
-    return kodata;
+    return nullptr;
 }
 
 KexiReportPartTempData* KexiReportView::tempData() const
@@ -427,41 +422,45 @@ void KexiReportView::addNewRecordRequested()
 
 void KexiReportView::moveToFirstRecordRequested()
 {
-
     m_reportView->moveToFirstPage();
-    #ifndef KEXI_MOBILE
+#ifndef KEXI_MOBILE
     m_pageSelector->setCurrentRecordNumber(m_reportView->currentPage());
-    #endif
-
+#endif
 }
 
 void KexiReportView::moveToLastRecordRequested()
 {
     m_reportView->moveToLastPage();
-    #ifndef KEXI_MOBILE
+#ifndef KEXI_MOBILE
     m_pageSelector->setCurrentRecordNumber(m_reportView->currentPage());
-    #endif
+#endif
 }
 
 void KexiReportView::moveToNextRecordRequested()
 {
     m_reportView->moveToNextPage();
-    #ifndef KEXI_MOBILE
+#ifndef KEXI_MOBILE
     m_pageSelector->setCurrentRecordNumber(m_reportView->currentPage());
-    #endif
+#endif
 }
 
 void KexiReportView::moveToPreviousRecordRequested()
 {
     m_reportView->moveToPreviousPage();
-    #ifndef KEXI_MOBILE
+#ifndef KEXI_MOBILE
     m_pageSelector->setCurrentRecordNumber(m_reportView->currentPage());
-    #endif
+#endif
 }
 
 void KexiReportView::moveToRecordRequested(int r)
 {
-    Q_UNUSED(r);
+#ifdef KEXI_MOBILE
+    m_reportView->moveToPage(r + 1);
+#else
+    // set in the navigator widget first, this will fix up the value it it's too small or large
+    m_pageSelector->setCurrentRecordNumber(r + 1);
+    m_reportView->moveToPage(m_pageSelector->currentRecordNumber());
+#endif
 }
 
 int KexiReportView::currentRecord() const

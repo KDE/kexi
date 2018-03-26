@@ -16,17 +16,11 @@ kcoreaddons_desktop_to_json(kexi_csvimportexportplugin kexi_csvimportexportplugi
 
 target_link_libraries(kexi_csvimportexportplugin
     PRIVATE
-        kexicore
-        kexiutils
         kexiextendedwidgets
         keximain
 
-        KDb
-
         KF5::Codecs
         KF5::KIOWidgets #for KIO::pixmapForUrl...
-
-        Qt5::Gui
 )
 
 install(TARGETS kexi_csvimportexportplugin  DESTINATION ${KEXI_PLUGIN_INSTALL_DIR})

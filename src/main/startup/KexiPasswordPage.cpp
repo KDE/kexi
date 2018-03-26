@@ -59,7 +59,7 @@ void KexiPasswordPage::init()
     passEdit->setMaximumWidth(passEdit->fontMetrics().width("W")*24);
     lyr->addWidget(d->widget);
     lyr->addStretch();
-    setFocusWidget(passEdit);
+    setRecentFocusWidget(passEdit);
     setDescription(d->widget->prompt());
     d->widget->setPrompt(QString());
     setContents(lyr);
@@ -121,7 +121,7 @@ void KexiPasswordPage::setConnectionData(const KDbConnectionData &data)
 {
     setPassword(data.savePassword() ? data.password() : QString());
     setUserName(data.userName());
-    setServer(data.toUserVisibleString(KDbConnectionData::NoUserVisibleStringOption));
+    setServer(data.toUserVisibleString(KDbConnectionData::UserVisibleStringOption::None));
 }
 
 void KexiPasswordPage::updateConnectionData(KDbConnectionData *data)

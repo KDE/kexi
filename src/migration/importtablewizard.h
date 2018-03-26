@@ -86,6 +86,9 @@ Q_OBJECT
         bool m_importComplete;
         bool m_importWasCanceled;
         unsigned m_recordCount;
+        //! Encoding for source db. Currently only used for MDB driver.
+        //! @todo Hardcoded. Move to KexiMigrate driver's impl.
+        QString m_sourceDbEncoding;
 
         bool doImport();
         bool readFromTable();
@@ -121,6 +124,7 @@ Q_OBJECT
         void slotTableListWidgetSelectionChanged();
         void slotNameChanged();
         void slotCancelClicked();
+        void slotOptionsButtonClicked();
 };
 }
 #endif // IMPORTTABLEWIZARD_H

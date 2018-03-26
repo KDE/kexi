@@ -99,10 +99,11 @@ static QString basePath()
     return QString(KEXI_BASE_PATH "/status");
 }
 
-static QString findFilename(const QString &guiFileName)
+static QString findFileName(const QString &guiFileName)
 {
+    QStringList triedLocations;
     QString result = locateFile(QString(), basePath() + '/' + guiFileName,
-                                QStandardPaths::GenericDataLocation, QString());
+                                QStandardPaths::GenericDataLocation, QString(), &triedLocations);
     if (result.isEmpty()) { // last chance: file from the source tree
         result = QFileInfo(QFile::decodeName(CMAKE_CURRENT_SOURCE_DIR "/status/") + guiFileName)
                     .canonicalFilePath();
@@ -317,7 +318,7 @@ private:
 
     void checkFile(const QByteArray &hash, const QString &remoteFname, QStringList *fileNamesToUpdate)
     {
-        QString localFname = findFilename(remoteFname);
+        QString localFname = findFileName(remoteFname);
         if (localFname.isEmpty()) {
             fileNamesToUpdate->append(remoteFname);
             qDebug() << "missing filename" << remoteFname << "- download it";
@@ -500,7 +501,7 @@ public:
      : statusWidget(0), helpAction(0), shareAction(0), cancelAction(0),
        q(_q)
     {
-        rccFname = findFilename("status.rcc");
+        rccFname = findFileName("status.rcc");
         if (!rccFname.isEmpty())  {
             QResource::registerResource(rccFname);
         }
@@ -601,7 +602,7 @@ public:
 
     QWidget* loadGui(const QString &guiFileName, QWidget *parentWidget = 0)
     {
-        QString fname = findFilename(guiFileName);
+        QString fname = findFileName(guiFileName);
         if (fname.isEmpty()) {
             qWarning() << "filename" << fname << "not found";
             return 0;
@@ -933,12 +934,12 @@ void KexiWelcomeStatusBar::showDonation()
         return;
     }
     if (KMessageBox::Yes != KMessageBox::questionYesNo(this,
-       xi18nc("@info donate to the project", "<title>Kexi may be totally free, but its development is costly.</title>"
+       xi18nc("@info donate to the project", "<title>KEXI may be totally free, but its development is costly.</title>"
             "<para>Power, hardware, office space, internet access, traveling for meetings - everything costs.</para>"
-            "<para>Direct donation is the easiest and fastest way to efficiently support the Kexi Project. "
+            "<para>Direct donation is the easiest and fastest way to efficiently support the KEXI Project. "
             "Everyone, regardless of any degree of involvement can do so.</para>"
-            "<para>What do you receive for your donation? Kexi will become more feature-full and stable as "
-            "contributors will be able to devote more time to Kexi. Not only you can "
+            "<para>What do you receive for your donation? KEXI will become more feature-full and stable as "
+            "contributors will be able to devote more time to KEXI. Not only you can "
             "expect new features, but you can also have an influence on what features are added!</para>"
             "<para>Currently we are accepting donations through <emphasis>BountySource</emphasis> (a funding platform "
             "for open-source software) using secure PayPal, Bitcoin and Google Wallet transfers.</para>"

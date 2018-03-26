@@ -270,7 +270,7 @@ bool KexiMigrate::importTable(const QString& tableName, KDbConnectionProxy *dest
             .arg(int(KDb::TableObjectType));
     QScopedPointer<KDbRecordData> record;
     {
-        QScopedPointer<KDbSqlResult> result(d->sourceConnection->executeSQL(sqlStatement));
+        QSharedPointer<KDbSqlResult> result = d->sourceConnection->prepareSql(sqlStatement);
         if (!result) {
             m_result = d->sourceConnection->result();
             return false;
@@ -290,7 +290,7 @@ bool KexiMigrate::importTable(const QString& tableName, KDbConnectionProxy *dest
                            " FROM kexi__fields WHERE t_id=%1 ORDER BY f_order").arg(t->id());
     QVector<QList<QVariant>> fieldRecords;
     {
-        QScopedPointer<KDbSqlResult> fieldsResult(d->sourceConnection->executeSQL(sqlStatement));
+        QSharedPointer<KDbSqlResult> fieldsResult = d->sourceConnection->prepareSql(sqlStatement);
         if (!fieldsResult) {
             m_result = d->sourceConnection->result();
             return false;
@@ -411,7 +411,7 @@ bool KexiMigrate::performImportInternal(Kexi::ObjectStatus* result)
     const bool kexi__objects_exists = tables.contains("kexi__objects");
     QStringList kexiDBTables;
     if (kexi__objects_exists) {
-        tristate res = drv_queryStringListFromSQL(
+        tristate res = drv_queryStringListFromSql(
                            KDbEscapedString("SELECT o_name FROM kexi__objects WHERE o_type=%1")
                            .arg(int(KDb::TableObjectType)), 0, &kexiDBTables, -1);
         if (res == true) {
@@ -778,7 +778,7 @@ bool KexiMigrate::drv_queryMaxNumber(const QString& tableName,
                                      const QString& columnName, int *result)
 {
     QString string;
-    tristate r = drv_querySingleStringFromSQL(
+    tristate r = drv_querySingleStringFromSql(
                      KDbEscapedString("SELECT MAX(%1) FROM %2")
                      .arg(drv_escapeIdentifier(columnName))
                      .arg(drv_escapeIdentifier(tableName)), 0, &string);
@@ -795,11 +795,11 @@ bool KexiMigrate::drv_queryMaxNumber(const QString& tableName,
     return ok;
 }
 
-tristate KexiMigrate::drv_querySingleStringFromSQL(
+tristate KexiMigrate::drv_querySingleStringFromSql(
     const KDbEscapedString& sqlStatement, int columnNumber, QString *string)
 {
     QStringList stringList;
-    const tristate res = drv_queryStringListFromSQL(sqlStatement, columnNumber, &stringList, 1);
+    const tristate res = drv_queryStringListFromSql(sqlStatement, columnNumber, &stringList, 1);
     if (true == res)
         *string = stringList.first();
     return res;
@@ -828,7 +828,7 @@ bool KexiMigrate::tableNames(QStringList *tn)
     return drv_tableNames(tn);
 }
 
-KDbSqlResult* KexiMigrate::readFromTable(const QString & tableName)
+QSharedPointer<KDbSqlResult> KexiMigrate::readFromTable(const QString & tableName)
 {
   return drv_readFromTable(tableName);
 }

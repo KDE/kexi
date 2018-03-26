@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -69,6 +69,7 @@
 #define KEXITABBEDTOOLBAR_SPACER_TAB_INDEX 1
 
 class QPainter;
+class KexiAssistantPage;
 class KexiProjectNavigator;
 class KPropertyEditorView;
 
@@ -97,6 +98,8 @@ public:
 
     void addSearchableModel(KexiSearchableModel *model);
 
+    void removeSearchableModel(KexiSearchableModel *model);
+
     KToolBar *createToolBar(const char *name, const QString& caption);
 
     void setCurrentTab(const QString& name);
@@ -112,6 +115,8 @@ public:
     bool isTabVisible(const QString& name) const;
 
     bool isRolledUp();
+
+    const QWidget* mainMenuContent();
 
 public Q_SLOTS:
     void setMainMenuContent(QWidget *w);
@@ -236,6 +241,9 @@ public Q_SLOTS:
     void toggleMainMenu();
     void updateMainMenuGeometry();
 
+    //! Initializes global search line edit. If it is enabled, it's created, if disabled, it's deleted.
+    void initSearchLineEdit();
+
 public:
     KexiTabbedToolBarTabBar *customTabBar;
     QPointer<KexiMainMenu> mainMenu;
@@ -244,6 +252,7 @@ public:
     KActionCollection *ac;
     int createId;
     KToolBar *createWidgetToolBar;
+    QHBoxLayout *helpLayer;
 #ifdef KEXI_AUTORISE_TABBED_TOOLBAR
     //! Used for delayed tab raising
     int tabToRaise;
@@ -260,7 +269,7 @@ public:
     QPropertyAnimation tabBarAnimation;
     QGraphicsOpacityEffect tabBarOpacityEffect;
     int rolledUpIndex;
-    KexiSearchLineEdit *searchLineEdit;
+    KexiSearchLineEdit *searchLineEdit = nullptr;
     void setCurrentTab(const QString& name);
     void hideTab(const QString& name);
     void showTab(const QString& name);
@@ -439,6 +448,12 @@ public:
         menu->addAction(actionCollection->action(QLatin1String(actionName)));
     }
 
+    /**
+     * Returns current page of active visible main menu widget or @c nullptr if there is no visible
+     * menu widget or menu widget contains no page.
+     */
+    KexiAssistantPage *visibleMainMenuWidgetPage();
+
     KexiMainWindow *wnd;
     QStackedWidget *globalViewStack;
     KexiObjectViewWidget *objectViewWidget;
@@ -508,9 +523,9 @@ public:
     QAction *action_activate_nav;
     QAction *action_activate_mainarea;
     QAction *action_activate_propeditor;
+    QAction *action_window_next, *action_window_previous, *action_window_fullscreen;
     QAction *action_close_tab, *action_close_all_tabs;
-    QAction *action_next_tab, *action_previous_tab;
-    QAction *action_window_fullscreen;
+    QAction *action_tab_next, *action_tab_previous;
 
     //! for dock windows
 

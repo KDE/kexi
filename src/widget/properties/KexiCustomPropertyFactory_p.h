@@ -22,6 +22,7 @@
 
 //! @todo #include <kexiblobbuffer.h>
 #include <KPropertyStringEditor>
+#include <PixmapEdit>
 
 #if 0 // todo
 //! Kexi-specific image editor for property editor's item
@@ -69,5 +70,19 @@ public Q_SLOTS:
      If \a value is empty string, this method has no effect. */
     virtual void setValue(const QString &value);
 };
+
+
+class KexiImagePropertyEditor: public KPropertyPixmapEditor
+{
+    Q_OBJECT
+
+public:
+    explicit KexiImagePropertyEditor(KProperty *property, QWidget *parent = nullptr);
+    virtual ~KexiImagePropertyEditor();
+
+public Q_SLOTS:
+    void selectPixmap() override;
+};
+
 
 #endif

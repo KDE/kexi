@@ -140,10 +140,11 @@ QString KexiTextFormatter::toString(const QVariant& value, const QString& add,
             return add.isEmpty() ? QString::fromLatin1("0") : add; //eat 0
         }
         return KDb::numberToLocaleString(
-            value.toDouble(), // use Double for Float too for better accuracy
-            d->overrideDecimalPlaces.enabled ? d->overrideDecimalPlaces.value
-                                             : d->field->visibleDecimalPlaces(),
-            &d->locale) + add;
+                   value.toDouble(), // use Double for Float too for better accuracy
+                   d->overrideDecimalPlaces.enabled ? d->overrideDecimalPlaces.value
+                                                    : d->field->visibleDecimalPlaces(),
+                   d->locale)
+            + add;
     }
 
     switch (d->field->type()) {

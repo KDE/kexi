@@ -1,7 +1,7 @@
 /*
 * Kexi Report Plugin
 * Copyright (C) 2007-2009 by Adam Pigg <adam@piggz.co.uk>
-* Copyright (C) 2011 Jarosław Staniek <staniek@kde.org>
+* Copyright (C) 2011-2017 Jarosław Staniek <staniek@kde.org>
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -22,6 +22,7 @@
 #include <core/KexiWindow.h>
 #include "kexisourceselector.h"
 #include <KexiIcon.h>
+#include <kexiutils/utils.h>
 
 #include <KDbConnection>
 
@@ -76,7 +77,7 @@ KexiReportDesignView::~KexiReportDesignView()
 
 KPropertySet *KexiReportDesignView::propertySet()
 {
-    return m_reportDesigner->itemPropertySet();
+    return m_reportDesigner->selectedItemPropertySet();
 }
 
 //! Finds or creates property
@@ -133,7 +134,7 @@ tristate KexiReportDesignView::storeData(bool dontAsk)
 
     QDomDocument doc("kexireport");
     QDomElement root = doc.createElement("kexireport");
-    QDomElement conndata = m_sourceSelector->connectionData();
+    QDomElement conndata = connectionData();
 
     if (conndata.isNull()) {
         //qDebug() << "Null conn data!";
@@ -183,7 +184,8 @@ tristate KexiReportDesignView::afterSwitchFrom(Kexi::ViewMode mode)
         }
 
         m_reportDesigner = new KReportDesigner(this, tempData()->reportDefinition);
-        m_sourceSelector->setConnectionData(tempData()->connectionDefinition);
+        setConnectionData(tempData()->connectionDefinition);
+        m_reportDesigner->setScriptSource(qobject_cast<KexiReportPart*>(part()));
     }
     connect(m_reportDesigner, SIGNAL(itemInserted(QString)), this, SIGNAL(itemInserted(QString)));
 
@@ -222,14 +224,44 @@ KexiReportPartTempData* KexiReportDesignView::tempData() const
     return static_cast<KexiReportPartTempData*>(window()->data());
 }
 
-void KexiReportDesignView::slotSourceDataChanged()
+void KexiReportDesignView::slotDataSourceChanged()
 {
-    m_reportDesigner->setDataSource(m_sourceSelector->createSourceData());
-    tempData()->connectionDefinition = m_sourceSelector->connectionData();
+    if (m_sourceSelector->isSelectionValid()) {
+        m_reportDesigner->setDataSource(new KexiDBReportDataSource(
+            m_sourceSelector->selectedName(), m_sourceSelector->selectedPluginId(), tempData()));
+        tempData()->connectionDefinition = connectionData();
+    } else {
+        m_reportDesigner->setDataSource(nullptr);
+        tempData()->connectionDefinition = QDomElement();
+    }
     setDirty(true);
 }
 
 void KexiReportDesignView::triggerAction(const QString &action)
 {
     m_reportDesigner->slotItem(action);
+}
+
+QDomElement KexiReportDesignView::connectionData() const
+{
+    QDomDocument dd;
+    QDomElement conndata = dd.createElement("connection");
+    conndata.setAttribute("type", "internal"); // for backward compatibility, currently always
+                                               // internal, we used to have "external" in old KEXI
+    conndata.setAttribute("source", m_sourceSelector->selectedName());
+    conndata.setAttribute("class", m_sourceSelector->selectedPluginId());
+    return conndata;
+}
+
+void KexiReportDesignView::setConnectionData(const QDomElement &c)
+{
+    qDebug() << c;
+    if (c.attribute("type") == "internal") {
+        QString sourceClass(c.attribute("class"));
+        if (sourceClass != "org.kexi-project.table" && sourceClass != "org.kexi-project.query") {
+            sourceClass.clear(); // KexiDataSourceComboBox will try to find table, then query
+        }
+        m_sourceSelector->setDataSource(sourceClass, c.attribute("source"));
+        slotDataSourceChanged();
+    }
 }

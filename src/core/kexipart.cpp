@@ -336,10 +336,10 @@ KDbObject* Part::loadSchemaObject(KexiWindow *window, const KDbObject& object,
 {
     Q_UNUSED(window);
     Q_UNUSED(viewMode);
+    Q_ASSERT(ownedByWindow);
     KDbObject *newObject = new KDbObject();
     *newObject = object;
-    if (ownedByWindow)
-        *ownedByWindow = true;
+    *ownedByWindow = true;
     return newObject;
 }
 

@@ -234,7 +234,7 @@ public:
      * In implementations 0 should be returned if there is no such Kexi object
      * in the current project or if the object's window is not opened or if
      * the window contains no edited query at the moment.
-     * If the query is "unsaved" the window displaying the corresponding Kexi object is marked as "dirty".
+     * If the query is "unsaved" the window displaying the corresponding KEXI object is marked as "dirty".
      * Currently supported type of Kexi objects are only queries being in data view.
      * See KexiQueryPart::unsavedQuery(int) for this implementation.
      * The query schema returned by this method can be used for example by data
@@ -314,6 +314,9 @@ public:
     /*! Add searchable model to the main window. This extends search to a new area.
      One example is Project Navigator. */
     virtual void addSearchableModel(KexiSearchableModel *model) = 0;
+
+    /*! Removes searchable model from the main window. @a model is not deleted. */
+    virtual void removeSearchableModel(KexiSearchableModel *model) = 0;
 
     virtual KexiUserFeedbackAgent* userFeedbackAgent() const = 0;
 

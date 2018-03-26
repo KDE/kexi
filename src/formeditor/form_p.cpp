@@ -22,6 +22,8 @@
 #include "form_p.h"
 #include "formIO.h"
 
+#include <KPropertyListData>
+
 #include <KLocalizedString>
 
 #include <QStyleOption>
@@ -255,7 +257,7 @@ void FormPrivate::initPropertiesDescription()
     propCaption["windowTitle"] = xi18n("Window title");
     propCaption["text"] = xi18n("Text");
     propCaption["paletteBackgroundPixmap"] = xi18n("Background Pixmap");
-    propCaption["enabled"] = xi18nc("Propery: enabled widget", "Enabled");
+    propCaption["enabled"] = xi18nc("Property: enabled widget", "Enabled");
     propCaption["geometry"] = xi18n("Geometry");
     propCaption["sizePolicy"] = xi18n("Size Policy");
     propCaption["minimumSize"] = xi18n("Minimum Size");
@@ -288,8 +290,11 @@ void FormPrivate::initPropertiesDescription()
     propValCaption["AutoText"] = xi18nc("Auto (HINT: for AutoText)", "Auto");
 
     propValCaption["AlignAuto"] = xi18nc("Auto (HINT: for Align)", "Auto");
+    propValCaption["AlignBaseline"] = xi18nc("Baseline (HINT: for Align)", "Baseline");
     propValCaption["AlignLeft"] = xi18nc("Left (HINT: for Align)", "Left");
+    propValCaption["AlignLeading"] = xi18nc("Left (HINT: for Align)", "Left");
     propValCaption["AlignRight"] = xi18nc("Right (HINT: for Align)", "Right");
+    propValCaption["AlignTrailing"] = xi18nc("Right (HINT: for Align)", "Right");
     propValCaption["AlignHCenter"] = xi18nc("Center (HINT: for Align)", "Center");
     propValCaption["AlignJustify"] = xi18nc("Justify (HINT: for Align)", "Justify");
     propValCaption["AlignVCenter"] = xi18nc("Center (HINT: for Align)", "Center");

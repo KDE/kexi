@@ -30,12 +30,12 @@ static const char description[] =
 KexiAboutData::KexiAboutData()
  : KAboutData(
         "kexi",
-        KEXI_APP_NAME,
+        "KEXI",
         Kexi::fullVersionString(),
         xi18n(description),
         KAboutLicense::LGPL_V2,
-        xi18n("© 2002-%1, The Kexi Team", QLatin1String(KEXI_YEAR)),
-        xi18n("This software is developed by Kexi Team - an international group "
+        xi18n("© 2002-%1, The KEXI Team", QLatin1String(KEXI_YEAR)),
+        xi18n("This software is developed by KEXI Team - an international group "
               "of independent developers. They form a part of the Calligra Project."),
         "https://www.kexi-project.org",
         "submit@bugs.kde.org"
@@ -57,7 +57,7 @@ KexiAboutData::KexiAboutData()
     addAuthor(
         xi18n("Roman Shtemberko"), xi18n("Features and bug fixes"), "shtemberko@gmail.com");
     addAuthor(
-        xi18n("Dimitrios T. Tanis"), xi18n("Users Manual for Kexi 2, main window improvements, numerous bug reports"),  "dimitrios.tanis@kdemail.net");
+        xi18n("Dimitrios T. Tanis"), xi18n("Users Manual for KEXI 2, main window improvements, numerous bug reports"),  "dimitrios.tanis@kdemail.net");
     addAuthor(
         xi18n("Oleg Kukharchuk"), xi18n("Several form widgets, porting to Qt 4, stabilization"), "oleg.kuh@gmail.com");
     addAuthor(
@@ -91,6 +91,10 @@ KexiAboutData::KexiAboutData()
     addAuthor(
         xi18n("Till Busch"), xi18n("Bugfixes, original Table Widget"), "till@bux.at");
 
+    addCredit(
+        xi18n("Ian Whitfield"), xi18n("Numerous bug reports and tests"), "whitfield@telkomsa.net");
+    addCredit(
+        xi18n("Scarlett Gately Clark"), xi18n("AppImage packages for Linux"), "scarlett.gately.clark@gmail.com");
     addCredit(
         xi18n("Ian Balchin"), xi18n("Numerous bug reports and tests, handbook improvements"), "inksi@fables.co.za");
     addCredit(

@@ -37,7 +37,7 @@ class KEXIDATATABLE_EXPORT KexiInputTableEdit : public KexiTableEdit
     Q_OBJECT
 
 public:
-    explicit KexiInputTableEdit(KDbTableViewColumn &column, QWidget *parent = 0);
+    explicit KexiInputTableEdit(KDbTableViewColumn *column, QWidget *parent = 0);
 
     virtual ~KexiInputTableEdit();
 

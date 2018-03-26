@@ -49,7 +49,6 @@
 /*!
     \class KUndo2Group
     \brief The KUndo2Group class is a group of KUndo2QStack objects.
-    \since 4.2
 
     For an overview of the Qt's undo framework, see the
     \link qundo.html overview\endlink.

@@ -74,7 +74,7 @@ public:
      be omitted for fillDataItems().
      Used by KexiFormView::initDataSource(). */
     void invalidateDataSources(const QSet<QString>& invalidSources,
-                               KDbQuerySchema* query = 0);
+                               KDbConnection *conn, KDbQuerySchema* query);
 
     /*! Fills the same data provided by \a value to every data item (other than \a item)
      having the same data source as \a item. This method is called immediately when
