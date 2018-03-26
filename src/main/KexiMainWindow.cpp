@@ -986,14 +986,14 @@ void KexiMainWindow::setupActions()
     connect(d->action_window_previous, SIGNAL(triggered()),
             this, SLOT(activatePreviousWindow()));
 
-    d->action_tab_next = addAction("tab_next", xi18n("&Next Tab"), "Ctrl+Tab");
-    d->action_tab_next->setToolTip(xi18n("Next tab"));
-    d->action_tab_next->setWhatsThis(xi18n("Switches to the next tab."));
+    d->action_tab_next = addAction("tab_next", futureI18n("&Next Tab"), "Ctrl+Tab");
+    d->action_tab_next->setToolTip(futureI18n("Next tab"));
+    d->action_tab_next->setWhatsThis(futureI18n("Switches to the next tab."));
     connect(d->action_tab_next, &QAction::triggered, this, &KexiMainWindow::activateNextTab);
 
-    d->action_tab_previous = addAction("tab_previous", xi18n("&Previous Tab"), "Ctrl+Shift+Tab");
-    d->action_tab_previous->setToolTip(xi18n("Previous tab"));
-    d->action_tab_previous->setWhatsThis(xi18n("Switches to the previous tab."));
+    d->action_tab_previous = addAction("tab_previous", futureI18n("&Previous Tab"), "Ctrl+Shift+Tab");
+    d->action_tab_previous->setToolTip(futureI18n("Previous tab"));
+    d->action_tab_previous->setWhatsThis(futureI18n("Switches to the previous tab."));
     connect(d->action_tab_previous, &QAction::triggered, this, &KexiMainWindow::activatePreviousTab);
 
     d->action_window_fullscreen = KStandardAction::fullScreen(this, SLOT(toggleFullScreen(bool)), this, ac);
