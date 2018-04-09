@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2006-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2006-2018 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -102,6 +102,7 @@
 //! @brief If defined, support for project templates is enabled in KEXI
 #cmakedefine KEXI_PROJECT_TEMPLATES
 
+#ifndef KEXI_MOBILE
 //! @def KEXI_AUTORISE_TABBED_TOOLBAR
 //! @brief If defined, tabs in the main tabbed toolbar autorise in KEXI
 #cmakedefine KEXI_AUTORISE_TABBED_TOOLBAR
@@ -112,6 +113,7 @@
 //! on Windows and macOS.
 //! @note Non-plasma Linux desktops still default to the simple replacement at runtime.
 #cmakedefine KEXI_USE_KFILEWIDGET
+#endif // !KEXI_MOBILE
 
 //! @def KEXI_FORM_CURSOR_PROPERTY_SUPPORT
 //! @brief If defined, "cursor" property is displayed in the form designer

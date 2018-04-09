@@ -45,7 +45,8 @@ public Q_SLOTS:
     virtual void acceptProjectClosingRequested(bool *cancel);
     virtual void acceptPropertySetEditing();
     virtual KActionCollection* actionCollection() const;
-    virtual void addSearchableModel(KexiSearchableModel*);
+    void addSearchableModel(KexiSearchableModel *model) ;
+    void removeSearchableModel(KexiSearchableModel *model) override;
     virtual void addToolBarAction(const QString& toolBarName, QAction* action);
     virtual QList< QAction* > allActions() const;
     virtual void appendWidgetToToolbar(const QString& name, QWidget* widget);

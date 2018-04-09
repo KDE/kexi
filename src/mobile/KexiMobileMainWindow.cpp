@@ -362,9 +362,14 @@ bool KexiMobileMainWindow::userMode() const
     return true;
 }
 
-void KexiMobileMainWindow::addSearchableModel(KexiSearchableModel*)
+void KexiMobileMainWindow::addSearchableModel(KexiSearchableModel *model)
 {
+    Q_UNUSED(model)
+}
 
+void KexiMobileMainWindow::removeSearchableModel(KexiSearchableModel *model)
+{
+    Q_UNUSED(model)
 }
 
 tristate KexiMobileMainWindow::getNewObjectInfo(KexiPart::Item*, const QString&, KexiPart::Part*, bool, bool*, const QString&)
