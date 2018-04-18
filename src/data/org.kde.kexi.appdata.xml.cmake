@@ -13,6 +13,7 @@
   <name xml:lang="sv">KEXI</name>
   <name xml:lang="uk">KEXI</name>
   <name xml:lang="x-test">xxKEXIxx</name>
+  <name xml:lang="zh-CN">KEXI</name>
   <summary>Visual database apps builder</summary>
   <summary xml:lang="ca">Constructor visual d'aplicacions de bases de dades</summary>
   <summary xml:lang="ca-valencia">Constructor visual d'aplicacions de bases de dades</summary>
