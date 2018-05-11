@@ -23,7 +23,11 @@ macro(kexi_add_app_icons)
         VERBATIM
     )
     add_dependencies(kexi copy_app_icons)
-    ecm_add_app_icon(_source_var ICONS ${_files})
+    ecm_add_app_icon(
+        _source_var ICONS ${_source_files}) # Win/Mac: still install copied KEXI files (_files)
+                                            # BUT add the original ones (_source_files) to the binary
+                                            # because the copied ones do not exist yet before
+                                            # ecm_add_app_icon() gets called
     ecm_install_icons(ICONS ${_files}
                       DESTINATION ${ICON_INSTALL_DIR}
                       THEME hicolor)
