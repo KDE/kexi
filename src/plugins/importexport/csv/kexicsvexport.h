@@ -32,7 +32,7 @@ namespace KexiCSVExport
 //! Exporting mode: a file or clipboard
 enum Mode { Clipboard, File };
 
-//! Options used in KexiCSVExportWizard contructor.
+//! Options used in KexiCSVExportWizard constructor.
 class Options
 {
 public:
