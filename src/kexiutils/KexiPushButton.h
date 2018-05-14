@@ -49,7 +49,7 @@ public:
     };
     Q_ENUM(HyperlinkType)
 
-    //! Default contructor
+    //! Default constructor
     explicit KexiPushButton(QWidget *parent = 0);
 
     //! Constructor, that sets the button-text to text
