@@ -7,6 +7,7 @@
   <name xml:lang="ca">KEXI</name>
   <name xml:lang="ca-valencia">KEXI</name>
   <name xml:lang="en-GB">KEXI</name>
+  <name xml:lang="es">KEXI</name>
   <name xml:lang="gl">KEXI</name>
   <name xml:lang="it">KEXI</name>
   <name xml:lang="nl">KEXI</name>
@@ -44,6 +45,7 @@
     <p xml:lang="ca">El KEXI és un constructor visual de base de dades. Es pot utilitzar per dissenyar aplicacions de bases de dades, inserció i edició de dades, execució de consultes, i procés de dades. Es poden generar formularis per proporcionar una interfície personalitzada a les dades. Tots els objectes de les bases de dades -taules, consultes, formularis, informes, etc.- s'emmagatzemen en la base de dades, facilitant compartir les dades i el disseny.</p>
     <p xml:lang="ca-valencia">El KEXI és un constructor visual de base de dades. Es pot utilitzar per dissenyar aplicacions de bases de dades, inserció i edició de dades, execució de consultes, i procés de dades. Es poden generar formularis per proporcionar una interfície personalitzada a les dades. Tots els objectes de les bases de dades -taules, consultes, formularis, informes, etc.- s'emmagatzemen en la base de dades, facilitant compartir les dades i el disseny.</p>
     <p xml:lang="en-GB">KEXI is a visual database applications builder. It can be used for designing database applications, inserting and editing data, performing queries, and processing data. Forms can be created to provide a custom interface to your data. All database objects - tables, queries, forms, reports, etc. - are stored in the database, making it easy to share data and design.</p>
+    <p xml:lang="es">KEXI es un creador visual de aplicaciones de bases de datos. Se puede usar para diseñar aplicaciones de bases de datos, insertar y editar datos, realizar consultas y procesar datos. Se pueden crear formularios para proporcionar una interfaz personalizada para sus datos. Todos los objetos de la base de datos (tablas, consultas, formularios, informes, etc.) se almacenan en la base de datos, facilitando el intercambio de datos y diseños.</p>
     <p xml:lang="gl">KEXI é un construtor visual de aplicativos de base de datos. Pode usarse para deseñar aplicativos de base de datos, inserindo e editando datos, realizando consultas, e procesando datos. Poden crearse formularios para fornecer unha interface personalizada para os datos. Todos os obxectos de base de datos (táboas, consultas, formularios, informes, etc.) almacénanse na base de datos, facendo fácil compartir os datos e o deseño.</p>
     <p xml:lang="it">KEXI è uno strumento visuale per la creazione di banche dati. Può essere utilizzato per progettare applicazioni che usano banche dati, inserire e modificare dati, eseguire query ed elaborare dati. Puoi creare moduli per fornire un'interfaccia personalizzata ai tuoi dati. Tutti gli oggetti di una banca dati - tabelle, query, moduli, report - sono memorizzati nella banca dati stessa, semplificando la condivisione dei dati e la progettazione.</p>
     <p xml:lang="nl">KEXI is een bouwer van toepassingen met een database op een visuele manier. Het kan gebruikt worden voor het ontwerpen van toepassingen met een database, gegevens invoeren en bewerken, zoekopdrachten uitvoeren en gegevens verwerken. Formulieren kunnen gemaakt worden om een aangepast interface naar uw gegevens te bieden. Alle database-objecten - tabellen, zoekopdrachten, formulieren, rapporten, etc. - worden opgeslagen in de database, waarmee het gemakkelijk wordt gegevens en ontwerp te delen.</p>
@@ -275,6 +277,7 @@
       <caption xml:lang="ca">Vista de taules</caption>
       <caption xml:lang="ca-valencia">Vista de taules</caption>
       <caption xml:lang="en-GB">Tabular view</caption>
+      <caption xml:lang="es">Vista tabular</caption>
       <caption xml:lang="gl">Vista de táboa</caption>
       <caption xml:lang="it">Vista tabellare</caption>
       <caption xml:lang="nl">Tabelweergave</caption>
@@ -289,6 +292,7 @@
       <caption xml:lang="ca">Dissenyador de consultes</caption>
       <caption xml:lang="ca-valencia">Dissenyador de consultes</caption>
       <caption xml:lang="en-GB">Query Designer</caption>
+      <caption xml:lang="es">Diseñador de consultas</caption>
       <caption xml:lang="gl">Deseñador de consultas</caption>
       <caption xml:lang="it">Strumento di progettazione delle query</caption>
       <caption xml:lang="nl">Ontwerper van query</caption>
@@ -303,6 +307,7 @@
       <caption xml:lang="ca">Editor de SQL</caption>
       <caption xml:lang="ca-valencia">Editor de SQL</caption>
       <caption xml:lang="en-GB">SQL Editor</caption>
+      <caption xml:lang="es">Editor SQL</caption>
       <caption xml:lang="gl">Editor de SQL</caption>
       <caption xml:lang="it">Editor SQL</caption>
       <caption xml:lang="nl">SQL-bewerker</caption>
@@ -342,6 +347,7 @@
       <caption xml:lang="ca">Dissenyador d'informes</caption>
       <caption xml:lang="ca-valencia">Dissenyador d'informes</caption>
       <caption xml:lang="en-GB">Report Designer</caption>
+      <caption xml:lang="es">Diseñador de informes</caption>
       <caption xml:lang="gl">Deseñador de informes</caption>
       <caption xml:lang="it">Strumento di progettazione di report</caption>
       <caption xml:lang="nl">Ontwerper van rapporten</caption>
@@ -356,6 +362,7 @@
       <caption xml:lang="ca">Importació d'una base de dades de MS Access</caption>
       <caption xml:lang="ca-valencia">Importació d'una base de dades de MS Access</caption>
       <caption xml:lang="en-GB">MS Access database import</caption>
+      <caption xml:lang="es">Importación de bases de datos de MS Access</caption>
       <caption xml:lang="gl">Importación da base de datos de MS Access</caption>
       <caption xml:lang="it">Importazione banca dati MS Access</caption>
       <caption xml:lang="nl">Importeren van MS Access database</caption>
