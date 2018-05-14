@@ -1,7 +1,7 @@
 /*
  * Kexi Report Plugin
  * Copyright (C) 2007-2008 by Adam Pigg (adam@piggz.co.uk)
- * Copyright (C) 2014-2017 Jarosław Staniek <staniek@kde.org>
+ * Copyright (C) 2014-2018 Jarosław Staniek <staniek@kde.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,8 +20,6 @@
 #ifndef KEXIREPORTVIEW_H
 #define KEXIREPORTVIEW_H
 
-#include <QGraphicsView>
-
 #include <config-kreport.h>
 #include <KReportRendererBase>
 
@@ -29,6 +27,7 @@
 #include <core/KexiRecordNavigatorHandler.h>
 #include "kexireportpart.h"
 
+class KexiDBReportDataSource;
 class KReportPreRenderer;
 class ORODocument;
 class KReportView;
@@ -69,7 +68,7 @@ private:
 #endif
 
     KexiReportPartTempData* tempData() const;
-    KReportDataSource* createDataSource(const QDomElement &e);
+    KexiDBReportDataSource* createDataSource(const QDomElement &e);
     //! @todo KEXI3 KexiScriptAdaptor *m_kexi;
     KRScriptFunctions *m_functions;
     KReportRendererFactory m_factory;

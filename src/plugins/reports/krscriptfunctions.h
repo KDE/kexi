@@ -1,6 +1,7 @@
 /*
  * Kexi Report Plugin
  * Copyright (C) 2007-2008 by Adam Pigg (adam@piggz.co.uk)
+ * Copyright (C) 2012-2018 Jarosław Staniek <staniek@kde.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,11 +20,13 @@
 #ifndef KRSCRIPTFUNCTIONS_H
 #define KRSCRIPTFUNCTIONS_H
 
-#include <KReportDataSource>
 #include <KReportGroupTracker>
 
 #include <KDbEscapedString>
 
+#include <QMap>
+
+class KexiDBReportDataSource;
 class KDbConnection;
 class KDbCursor;
 
@@ -33,19 +36,18 @@ class KRScriptFunctions : public KReportGroupTracker
 {
     Q_OBJECT
 public:
-    KRScriptFunctions(const KReportDataSource *, KDbConnection*);
+    KRScriptFunctions(KexiDBReportDataSource *dataSource);
 
     ~KRScriptFunctions();
 
 private:
-    KDbConnection *m_connection;
-    const KReportDataSource *m_cursor;
+    KexiDBReportDataSource * const m_dataSource;
     QString m_source;
+
+    //! @todo Move SQL aggregate functions to KDb
     qreal math(const QString &, const QString &);
 
     QMap<QString, QVariant> m_groupData;
-
-    KDbEscapedString where();
 
 public Q_SLOTS:
     virtual void setGroupData(const QMap<QString, QVariant> &groupData);

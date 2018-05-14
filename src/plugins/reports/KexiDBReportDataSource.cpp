@@ -1,7 +1,7 @@
 /*
 * Kexi Report Plugin
 * Copyright (C) 2007-2017 by Adam Pigg <adam@piggz.co.uk>
-* Copyright (C) 2017 Jarosław Staniek <staniek@kde.org>
+* Copyright (C) 2017-2018 Jarosław Staniek <staniek@kde.org>
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -48,6 +48,7 @@ public:
     KexiReportPartTempData *tempData;
     KDbQuerySchema *originalSchema;
     KDbQuerySchema *copySchema;
+    KDbEscapedString schemaSql;
 };
 
 KexiDBReportDataSource::KexiDBReportDataSource(const QString &objectName, const QString &pluginId,
@@ -185,8 +186,8 @@ bool KexiDBReportDataSource::getSchema(const QString& pluginId)
 
             d->copySchema = new KDbQuerySchema(*d->originalSchema, d->tempData->connection());
             qDebug() << KDbConnectionAndQuerySchema(d->tempData->connection(), *d->copySchema);
-            if (builder.generateSelectStatement(&sql, d->copySchema)) {
-                qDebug() << "Copy:" << sql;
+            if (builder.generateSelectStatement(&d->schemaSql, d->copySchema)) {
+                qDebug() << "Copy:" << d->schemaSql;
             } else {
                 qDebug() << "Copy: ERROR";
                 return false;
@@ -300,6 +301,55 @@ qint64 KexiDBReportDataSource::recordCount() const
     }
 
     return 1;
+}
+
+double KexiDBReportDataSource::runAggregateFunction(const QString &function, const QString &field,
+                                                    const QMap<QString, QVariant> &conditions)
+{
+    double numberResult = 0.0;
+    if (d->schemaSql.isEmpty()) {
+        qWarning() << "No query for running aggregate function" << function << field;
+        return numberResult;
+    }
+    KDbEscapedString whereSql;
+    KDbConnection *conn = d->tempData->connection();
+    if (!conditions.isEmpty()) {
+        for (QMap<QString, QVariant>::ConstIterator it = conditions.constBegin();
+             it != conditions.constEnd(); ++it)
+        {
+            if (!whereSql.isEmpty()) {
+                whereSql.append(" AND ");
+            }
+            KDbQueryColumnInfo *cinfo = d->copySchema->columnInfo(conn, it.key());
+            if (!cinfo) {
+                qWarning() << "Could not find column" << it.key() << "for condition" << it.key()
+                           << "=" << it.value();
+                return numberResult;
+            }
+            whereSql.append(
+                KDbEscapedString(d->tempData->connection()->escapeIdentifier(cinfo->aliasOrName()))
+                + " = "
+                + d->tempData->connection()->driver()->valueToSql(cinfo->field(), it.value()));
+        }
+        whereSql.prepend(" WHERE ");
+    }
+
+    const KDbEscapedString sql = KDbEscapedString("SELECT " + function + "(" + field + ") FROM ("
+                                                  + d->schemaSql + ")" + whereSql);
+    QString stringResult;
+    const tristate res = d->tempData->connection()->querySingleString(sql, &stringResult);
+    if (res != true) {
+        qWarning() << "Failed to execute query for running aggregate function" << function << field;
+        return numberResult;
+    }
+    bool ok;
+    numberResult = stringResult.toDouble(&ok);
+    if (!ok) {
+        qWarning() << "Result of query for running aggregate function" << function << field
+                   << "is not a number (" << stringResult << ")";
+        return numberResult;
+    }
+    return numberResult;
 }
 
 QStringList KexiDBReportDataSource::dataSourceNames() const
