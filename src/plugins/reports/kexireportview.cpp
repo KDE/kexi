@@ -41,14 +41,15 @@
 #include <KMessageBox>
 #include <KFileWidget>
 
+#include <QAbstractScrollArea>
+#include <QDebug>
+#include <QFileDialog>
+#include <QGraphicsScene>
 #include <QLayout>
+#include <QMimeDatabase>
 #include <QPainter>
 #include <QPrintDialog>
 #include <QPrinter>
-#include <QGraphicsScene>
-#include <QDebug>
-#include <QFileDialog>
-#include <QMimeDatabase>
 
 KexiReportView::KexiReportView(QWidget *parent)
         : KexiView(parent), m_preRenderer(0), m_functions(0) //! @todo KEXI3, m_kexi(0)
