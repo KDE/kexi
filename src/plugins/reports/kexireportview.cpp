@@ -1,7 +1,7 @@
 /*
  * Kexi Report Plugin
  * Copyright (C) 2007-2008 by Adam Pigg (adam@piggz.co.uk)
- * Copyright (C) 2014-2017 Jarosław Staniek <staniek@kde.org>
+ * Copyright (C) 2014-2018 Jarosław Staniek <staniek@kde.org>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -361,7 +361,7 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
 
         m_preRenderer = new KReportPreRenderer(tempData()->reportDefinition);
         if (m_preRenderer->isValid()) {
-            KReportDataSource *reportData = 0;
+            KexiDBReportDataSource *reportData = nullptr;
             if (!tempData()->connectionDefinition.isNull())  {
                 reportData = createDataSource(tempData()->connectionDefinition);
             }
@@ -376,8 +376,8 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
 //            }
 //            m_preRenderer->registerScriptObject(m_kexi, "Kexi");
             //If using a kexidb source, add a functions scripting object
-            if (tempData()->connectionDefinition.attribute("type") == "internal") {
-                m_functions = new KRScriptFunctions(reportData, KexiMainWindowIface::global()->project()->dbConnection());
+            if (reportData && tempData()->connectionDefinition.attribute("type") == "internal") {
+                m_functions = new KRScriptFunctions(reportData);
 
                 m_preRenderer->registerScriptObject(m_functions, "field");
                 connect(m_preRenderer, SIGNAL(groupChanged(QMap<QString, QVariant>)),
@@ -402,7 +402,7 @@ tristate KexiReportView::afterSwitchFrom(Kexi::ViewMode mode)
     return true;
 }
 
-KReportDataSource* KexiReportView::createDataSource(const QDomElement &e)
+KexiDBReportDataSource* KexiReportView::createDataSource(const QDomElement &e)
 {
     if (e.attribute("type") == "internal" && !e.attribute("source").isEmpty()) {
         return new KexiDBReportDataSource(e.attribute("source"), e.attribute("class"), tempData());

@@ -1,7 +1,7 @@
 /*
 * Kexi Report Plugin
 * Copyright (C) 2007-2017 by Adam Pigg <adam@piggz.co.uk>
-* Copyright (C) 2017 Jarosław Staniek <staniek@kde.org>
+* Copyright (C) 2017-2018 Jarosław Staniek <staniek@kde.org>
 *
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -65,6 +65,21 @@ public:
 
     virtual qint64 at() const;
     virtual qint64 recordCount() const;
+
+    /**
+     * Runs aggregate function @a function on the data source
+     *
+     * @param function name such as max, min, avg
+     * @param field name of field for which the aggregation should be executed
+     * @param conditions optional conditions that limit the record set
+     * @return value of the function, 0.0 on failure
+     *
+     * @warning SQL injection warning: validity of @a function name is not checked, this should not
+     *          be part of a public API.
+     * @todo Move SQL aggregate functions to KDb. Current code depends on support for subqueries.
+     */
+    double runAggregateFunction(const QString &function, const QString &field,
+                                const QMap<QString, QVariant> &conditions);
 
     //Utility Functions
     virtual QStringList dataSourceNames() const;
