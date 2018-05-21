@@ -170,7 +170,7 @@ bool KexiCSVExport::exportData(KDbConnection* conn, KDbTableOrQuerySchema *table
     const int fieldsCount = query->fieldsExpanded(conn).count(); //real fields count without internals
     const QChar delimiter(options.delimiter.at(0));
     const bool hasTextQuote = !options.textQuote.isEmpty();
-    const QString textQuote(options.textQuote.at(0));
+    const QString textQuote(hasTextQuote ? options.textQuote.at(0) : QString());
     const QByteArray escapedTextQuote((textQuote + textQuote).toLatin1());   //ok?
     //cache for faster checks
     QScopedArrayPointer<bool> isText(new bool[fieldsCount]);

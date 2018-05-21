@@ -34,7 +34,7 @@ class KEXICORE_EXPORT KexiFileFilters
 public:
     //! Filter mode
     enum Mode {
-        Opening, //!< Opening opens existing database (or shortcut)
+        Opening, //!< Opening existing database (or shortcut)
         CustomOpening, //!< Used for opening other files, like CSV
         SavingFileBasedDB, //!< Saving file-based database file
         CustomSavingFileBasedDB, //!< Used for saving other files, like CSV
