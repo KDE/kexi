@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2012 Oleg Kukharchuk <oleg.kuh@gmail.org>
-   Copyright (C) 2005-2017 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2005-2018 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -43,11 +43,28 @@
 #include <QGroupBox>
 #include <QClipboard>
 #include <QGridLayout>
-#include <QLabel>
+#include <QFileInfo>
 #include <QHBoxLayout>
+#include <QLabel>
+#include <QMimeDatabase>
 #include <QPushButton>
 #include <QDialog>
 #include <QDebug>
+
+namespace {
+    const QString DEFAULT_EXTENSION("csv");
+
+    //! Adds extension if missing
+    //! @todo Move to KexiFileWidgetInterface or so
+    void addExtensionIfNeeded(QString *fileName) {
+        QMimeDatabase db;
+        const QMimeType currentMimeType(db.mimeTypeForFile(*fileName, QMimeDatabase::MatchExtension));
+        qDebug() << currentMimeType.name();
+        if (!fileName->isEmpty() && currentMimeType.isDefault()) { // no known extension, add
+            fileName->append('.' + DEFAULT_EXTENSION);
+        }
+    }
+}
 
 KexiCSVExportWizard::KexiCSVExportWizard(const KexiCSVExport::Options& options,
         QWidget * parent)
@@ -56,12 +73,11 @@ KexiCSVExportWizard::KexiCSVExportWizard(const KexiCSVExport::Options& options,
         , m_importExportGroup(KSharedConfig::openConfig()->group("ImportExport"))
 {
     KexiMainWindowIface::global()->setReasonableDialogSize(this);
-    buttonBox()->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     if (m_options.mode == KexiCSVExport::Clipboard) {
         //! @todo KEXI3 ?
-        button(QDialogButtonBox::Ok)->setText(xi18n("Copy"));
+        finishButton()->setText(xi18n("Copy"));
     } else {
-        button(QDialogButtonBox::Ok)->setText(xi18n("Export"));
+        finishButton()->setText(xi18n("Export"));
     }
 
     QString infoLblFromText;
@@ -114,13 +130,13 @@ KexiCSVExportWizard::KexiCSVExportWizard(const KexiCSVExport::Options& options,
 
     // 1. File Save Page
     if (m_options.mode == KexiCSVExport::File) {
-        const QUrl url("kfiledialog:///CSVImportExport"); // startDir
+        QString defaultFileName(KDbUtils::stringToFileName(captionOrName));
+        addExtensionIfNeeded(&defaultFileName);
         m_fileIface = KexiFileWidgetInterface::createWidget(
-            url, KexiFileFilters::CustomSavingFileBasedDB, this);
+            QUrl("kfiledialog:///CSVImportExport"), KexiFileFilters::CustomSavingFileBasedDB,
+            defaultFileName, this);
         m_fileIface->setAdditionalMimeTypes(csvMimeTypes());
-        m_fileIface->setDefaultExtension("csv");
-        //TODO m_fileSaveWidget->setLocationText(
-        //    KDbUtils::stringToFileName(captionOrName));
+        m_fileIface->setDefaultExtension(DEFAULT_EXTENSION);
         m_fileSavePage = new KPageWidgetItem(m_fileIface->widget(),
                                              xi18n("Enter Name of File You Want to Save Data To"));
         addPage(m_fileSavePage);
@@ -295,6 +311,12 @@ QString KexiCSVExportWizard::selectedFile() const
 void KexiCSVExportWizard::next()
 {
     if (currentPage() == m_fileSavePage) {
+        const QString selectedFile(this->selectedFile());
+        QString newSelectedFile(selectedFile);
+        addExtensionIfNeeded(&newSelectedFile);
+        if (selectedFile != newSelectedFile) {
+            m_fileIface->setSelectedFile(newSelectedFile);
+        }
         if (!m_fileIface->checkSelectedFile()) {
             return;
         }

@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -35,6 +35,9 @@ class KEXIEXTWIDGETS_EXPORT KexiFileWidget : public KFileWidget, public KexiFile
 
 public:
     //! @todo KEXI3 add equivalent of kfiledialog:/// for startDirOrVariable
+    KexiFileWidget(const QUrl &startDirOrVariable, KexiFileFilters::Mode mode,
+                   const QString &fileName, QWidget *parent = nullptr);
+
     KexiFileWidget(const QUrl &startDirOrVariable, KexiFileFilters::Mode mode,
                    QWidget *parent = nullptr);
 

@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -58,10 +58,19 @@ public:
 
 //------------------
 
+static QUrl startDirWithFileName(const QUrl &startDirOrVariable, const QString &fileName)
+{
+    QUrl result = startDirOrVariable;
+    if (!fileName.isEmpty()) {
+        result.setPath(result.path() + '/' + fileName);
+    }
+    return result;
+}
+
 KexiFileWidget::KexiFileWidget(const QUrl &startDirOrVariable, KexiFileFilters::Mode mode,
-                               QWidget *parent)
-    : KFileWidget(startDirOrVariable, parent)
-    , KexiFileWidgetInterface(startDirOrVariable)
+                               const QString &fileName, QWidget *parent)
+    : KFileWidget(startDirWithFileName(startDirOrVariable, fileName), parent)
+    , KexiFileWidgetInterface(startDirOrVariable, fileName)
     , d(new Private)
 {
     setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
@@ -72,6 +81,12 @@ KexiFileWidget::KexiFileWidget(const QUrl &startDirOrVariable, KexiFileFilters::
     setFocusProxy(locationEdit());
     connect(this, &KFileWidget::fileHighlighted, this, &KexiFileWidget::slotFileHighlighted);
     setMode(mode);
+}
+
+KexiFileWidget::KexiFileWidget(const QUrl &startDirOrVariable, KexiFileFilters::Mode mode,
+                               QWidget *parent)
+    : KexiFileWidget(startDirOrVariable, mode, QString(), parent)
+{
 }
 
 KexiFileWidget::~KexiFileWidget()

@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -52,13 +52,17 @@ public:
 
 //------------------
 
-KexiFileWidgetInterface::KexiFileWidgetInterface(const QUrl &startDirOrVariable)
+KexiFileWidgetInterface::KexiFileWidgetInterface(const QUrl &startDirOrVariable,
+                                                 const QString &fileName)
     : d(new Private)
 {
     if (startDirOrVariable.scheme() == "kfiledialog") {
-        d->startUrl = KexiUtils::getStartUrl(startDirOrVariable, &d->recentDirClass);
+        d->startUrl = KexiUtils::getStartUrl(startDirOrVariable, &d->recentDirClass, fileName);
+    } else if (fileName.isEmpty()) {
+        d->startUrl = startDirOrVariable;
     } else {
         d->startUrl = startDirOrVariable;
+        d->startUrl.setPath(startDirOrVariable.path() + '/' + fileName);
     }
 }
 
@@ -102,6 +106,7 @@ void KexiFileWidgetInterface::done()
 // static
 KexiFileWidgetInterface *KexiFileWidgetInterface::createWidget(const QUrl &startDirOrVariable,
                                                                KexiFileFilters::Mode mode,
+                                                               const QString &fileName,
                                                                QWidget *parent)
 {
 #ifdef KEXI_USE_KFILEWIDGET
@@ -113,10 +118,18 @@ KexiFileWidgetInterface *KexiFileWidgetInterface::createWidget(const QUrl &start
         useKFileWidget = KexiUtils::isKDEDesktopSession();
     }
     if (useKFileWidget) {
-        return new KexiFileWidget(startDirOrVariable, mode, parent);
+        return new KexiFileWidget(startDirOrVariable, mode, fileName, parent);
     }
 #endif
-    return new KexiFileRequester(startDirOrVariable, mode, parent);
+    return new KexiFileRequester(startDirOrVariable, mode, fileName, parent);
+}
+
+// static
+KexiFileWidgetInterface *KexiFileWidgetInterface::createWidget(const QUrl &startDirOrVariable,
+                                                               KexiFileFilters::Mode mode,
+                                                               QWidget *parent)
+{
+    return KexiFileWidgetInterface::createWidget(startDirOrVariable, mode, QString(), parent);
 }
 
 KexiFileFilters::Mode KexiFileWidgetInterface::mode() const
@@ -191,6 +204,11 @@ bool KexiFileWidgetInterface::filtersUpdated() const
 }
 
 KexiFileFilters* KexiFileWidgetInterface::filters()
+{
+    return &d->filters;
+}
+
+const KexiFileFilters* KexiFileWidgetInterface::filters() const
 {
     return &d->filters;
 }

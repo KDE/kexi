@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2016-2017 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2016-2018 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -28,11 +28,14 @@ class KEXIEXTWIDGETS_EXPORT KexiFileRequester : public QWidget, public KexiFileW
 {
     Q_OBJECT
 public:
-    explicit KexiFileRequester(const QUrl &fileOrVariable, KexiFileFilters::Mode mode,
-                               QWidget *parent = nullptr);
+    KexiFileRequester(const QUrl &fileOrVariable, KexiFileFilters::Mode mode,
+                      const QString &fileName, QWidget *parent = nullptr);
 
-    explicit KexiFileRequester(const QString &selectedFile, KexiFileFilters::Mode mode,
-                               QWidget *parent = nullptr);
+    KexiFileRequester(const QUrl &fileOrVariable, KexiFileFilters::Mode mode,
+                      QWidget *parent = nullptr);
+
+    KexiFileRequester(const QString &selectedFile, KexiFileFilters::Mode mode,
+                      QWidget *parent = nullptr);
 
     ~KexiFileRequester() override;
 

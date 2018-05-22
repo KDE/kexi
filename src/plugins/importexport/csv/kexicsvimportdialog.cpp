@@ -278,6 +278,7 @@ KexiCSVImportDialog::KexiCSVImportDialog(Mode mode, QWidget * parent)
 
     KGuiItem::assign(configureButton(), KStandardGuiItem::configure());
 
+    KGuiItem::assign(finishButton(), KGuiItem(xi18nc("@action:button Import CSV", "&Import..."), _IMPORT_ICON));
     finishButton()->setEnabled(false);
     backButton()->setEnabled(false);
 
@@ -483,9 +484,6 @@ void KexiCSVImportDialog::slotCurrentPageChanged(KPageWidgetItem *page, KPageWid
 {
     nextButton()->setEnabled(page == m_saveMethodPage ? false : true);
     finishButton()->setEnabled(page == m_importPage ? true : false);
-    if (page == m_importPage) {
-        KGuiItem::assign(finishButton(), KGuiItem(xi18nc("@action:button Import CSV", "&Import..."), _IMPORT_ICON));
-    }
     configureButton()->setEnabled(page == m_optionsPage);
     nextButton()->setEnabled(page == m_importPage ? false : true);
     backButton()->setEnabled(page == m_openFilePage ? false : true);
@@ -1783,7 +1781,6 @@ void KexiCSVImportDialog::dropDestinationTable(KexiProject* project, KexiPart::I
 void KexiCSVImportDialog::raiseErrorInAccept(KexiProject* project, KexiPart::Item* &partItemForSavedTable)
 {
     finishButton()->setEnabled(true);
-    KGuiItem::assign(finishButton(), KGuiItem(xi18nc("@action:button Import CSV", "&Import..."), _IMPORT_ICON));
     project->deleteUnstoredItem(partItemForSavedTable);
     partItemForSavedTable = 0;
     delete m_destinationTableSchema;

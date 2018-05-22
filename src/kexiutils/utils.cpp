@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
 
    Contains code from kglobalsettings.cpp:
    Copyright (C) 2000, 2006 David Faure <faure@kde.org>
@@ -327,7 +327,8 @@ QUrl KexiUtils::getSaveImageUrl(QWidget *parent, const QString &caption, const Q
 }
 
 #ifndef KEXI_MOBILE
-QUrl KexiUtils::getStartUrl(const QUrl &startDirOrVariable, QString *recentDirClass)
+QUrl KexiUtils::getStartUrl(const QUrl &startDirOrVariable, QString *recentDirClass,
+                            const QString &fileName)
 {
     QUrl result;
     if (recentDirClass) {
@@ -337,6 +338,9 @@ QUrl KexiUtils::getStartUrl(const QUrl &startDirOrVariable, QString *recentDirCl
         const QString protocol("file:/");
         if (result.path().startsWith(protocol) && !result.path().startsWith(protocol + '/')) {
             result.setPath(result.path().mid(protocol.length() - 1));
+        }
+        if (!fileName.isEmpty()) {
+            result.setPath(result.path() + '/' + fileName);
         }
     } else {
         qWarning() << "Missing recentDirClass";
