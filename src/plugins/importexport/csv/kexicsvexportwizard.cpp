@@ -73,12 +73,11 @@ KexiCSVExportWizard::KexiCSVExportWizard(const KexiCSVExport::Options& options,
         , m_importExportGroup(KSharedConfig::openConfig()->group("ImportExport"))
 {
     KexiMainWindowIface::global()->setReasonableDialogSize(this);
-    buttonBox()->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     if (m_options.mode == KexiCSVExport::Clipboard) {
         //! @todo KEXI3 ?
-        button(QDialogButtonBox::Ok)->setText(xi18n("Copy"));
+        finishButton()->setText(xi18n("Copy"));
     } else {
-        button(QDialogButtonBox::Ok)->setText(xi18n("Export"));
+        finishButton()->setText(xi18n("Export"));
     }
 
     QString infoLblFromText;
