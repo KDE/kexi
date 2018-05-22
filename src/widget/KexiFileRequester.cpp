@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2016-2017 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2016-2018 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -230,13 +230,24 @@ public Q_SLOTS:
         }
         if (model->rootPath() != dirPath) {
             model->setRootPath(dirPath);
-            list->setRootIndex(model->index(filePath));
+            list->setRootIndex(model->index(dirPath));
             list->resizeColumnToContents(LastModifiedColumnId);
             urlCompletion->setDir(QUrl::fromLocalFile(dirPath));
         }
-        const QModelIndex fileIndex = model->index(filePath);
-        list->scrollTo(fileIndex);
-        list->selectionModel()->select(fileIndex, QItemSelectionModel::ClearAndSelect);
+        if (!fileInfo.isDir()) {
+            list->clearSelection();
+            const QModelIndex fileIndex = model->index(filePath);
+            list->scrollTo(fileIndex);
+            list->selectionModel()->select(fileIndex, QItemSelectionModel::ClearAndSelect);
+            /*qWarning() << model->rootPath() << fileIndex.isValid() << model->filePath(fileIndex)
+                       << model->fileName(fileIndex) << list->selectionModel()->selection().isEmpty()
+                       << q->filters()->isExistingFileRequired();*/
+            const QString newText(QFileInfo(filePath).fileName());
+            if (newText != locationEdit->lineEdit()->text()) {
+                KexiUtils::BoolBlocker guard(&locationEditTextChangedEnabled, false);
+                locationEdit->lineEdit()->setText(newText);
+            }
+        }
     }
 
     void itemClicked(const QModelIndex &index)
@@ -291,6 +302,9 @@ public Q_SLOTS:
 
     void locationEditTextChanged(const QString &text)
     {
+        if (!locationEditTextChangedEnabled) {
+            return;
+        }
         locationEdit->lineEdit()->setModified(true);
         if (text.isEmpty()) {
             list->clearSelection();
@@ -298,8 +312,10 @@ public Q_SLOTS:
         QFileInfo info(model->rootPath() + '/' + text);
         if (info.isFile() && model->rootDirectory().exists(text)) {
             updateFileName(model->rootDirectory().absoluteFilePath(text)); // select file
-        } else {
+        } else if (q->filters()->isExistingFileRequired()) {
             updateFileName(model->rootPath()); // only dir, unselect file
+        } else {
+            updateFileName(info.absoluteFilePath()); // only dir, unselect file
         }
     }
 
@@ -351,6 +367,14 @@ public Q_SLOTS:
         }
     }
 
+    //! @todo added to display select filename, still does not work
+    void directoryLoaded()
+    {
+        if (!list->selectionModel()->selectedIndexes().isEmpty()) {
+            list->scrollTo(list->selectionModel()->selectedIndexes().first());
+        }
+    }
+
 private:
     void handleItem(const QModelIndex &index, std::function<void(const QString&)> sig, bool silent)
     {
@@ -385,25 +409,34 @@ public:
     KFileFilterCombo *filterCombo;
     QList<QRegExp*> filterRegExps; //!< Regular expression for the completer in the URL box
     QList<QMimeType> filterMimeTypes;
+    bool locationEditTextChangedEnabled = true;
 };
 
 KexiFileRequester::KexiFileRequester(const QUrl &fileOrVariable, KexiFileFilters::Mode mode,
-                                     QWidget *parent)
-    : QWidget(parent), KexiFileWidgetInterface(fileOrVariable), d(new Private(this))
+                                     const QString &fileName, QWidget *parent)
+    : QWidget(parent), KexiFileWidgetInterface(fileOrVariable, fileName), d(new Private(this))
 {
     init();
-    const QString fileName = Private::urlToPath(startUrl());
-    d->updateFileName(fileName);
+    const QString actualFileName = Private::urlToPath(startUrl());
     setMode(mode);
+    d->updateFileName(actualFileName); // note: we had to call it after setMode(), not before
+}
+
+KexiFileRequester::KexiFileRequester(const QUrl &fileOrVariable, KexiFileFilters::Mode mode,
+                                     QWidget *parent)
+    : KexiFileRequester(fileOrVariable, mode, QString(), parent)
+{
 }
 
 KexiFileRequester::KexiFileRequester(const QString &selectedFileName, KexiFileFilters::Mode mode,
                                      QWidget *parent)
-    : QWidget(parent), KexiFileWidgetInterface(QUrl(selectedFileName)), d(new Private(this))
+    : QWidget(parent)
+    , KexiFileWidgetInterface(QUrl(selectedFileName), QString())
+    , d(new Private(this))
 {
     init();
-    d->updateFileName(selectedFileName);
     setMode(mode);
+    d->updateFileName(selectedFileName); // note: we had to call it after setMode(), not before
 }
 
 KexiFileRequester::~KexiFileRequester()
@@ -461,6 +494,7 @@ void KexiFileRequester::init()
     lyr->addWidget(d->list);
     d->model = new KexiFileSystemModel(d->list);
     d->model->setNameFilterDisables(false);
+    connect(d->model, &QFileSystemModel::directoryLoaded, d, &Private::directoryLoaded);
 
     d->list->setModel(d->model);
     d->list->header()->setStretchLastSection(false);
@@ -473,6 +507,7 @@ void KexiFileRequester::init()
     QLabel *locationLabel = new QLabel(xi18n("Name:"));
     bottomLyr->addWidget(locationLabel, 0, 0, Qt::AlignVCenter | Qt::AlignRight);
     d->locationEdit = new KUrlComboBox(KUrlComboBox::Files, true);
+    setFocusProxy(d->locationEdit);
     d->locationEdit->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLength);
     connect(d->locationEdit, &KUrlComboBox::editTextChanged, d,
             &KexiFileRequester::Private::locationEditTextChanged);
@@ -502,7 +537,14 @@ void KexiFileRequester::init()
 QString KexiFileRequester::selectedFile() const
 {
     const QModelIndexList list(d->list->selectionModel()->selectedIndexes());
-    if (list.isEmpty()) {
+    if (list.isEmpty() || d->model->isDir(list.first())) { // no file selection but try entered filename
+        const QString text(d->locationEdit->lineEdit()->text().trimmed());
+        if (!text.isEmpty() && !filters()->isExistingFileRequired()) {
+            const QFileInfo info(currentDir() + '/' + text);
+            if (info.isNativePath()) {
+                return info.absoluteFilePath();
+            }
+        }
         return QString();
     }
     if (d->model->isDir(list.first())) {

@@ -250,13 +250,14 @@ KEXIUTILS_EXPORT QUrl getSaveImageUrl(QWidget *parent = 0, const QString &captio
  * Use instead of KFileWidget::getStartUrl(const QUrl &startDir, QString &recentDirClass).
  *
  * @param startDir A URL specifying the initial directory, or using the
- *                 @c kfiledialog:/// syntax to specify a last used
- *                 directory.  If this URL specifies a file name, it is
- *                 ignored.  Refer to the KFileWidget::KFileWidget()
- *                 documentation for the @c kfiledialog:/// URL syntax.
+ *                 @c kfiledialog:/// syntax to specify a last used directory.
+ *                 If the string includes a file name, it is ignored.
+ *                 Refer to the KFileWidget::KFileWidget() documentation for the @c kfiledialog:///
+ *                 URL syntax.
  * @param recentDirClass If the @c kfiledialog:/// syntax is used, this
  *        will return the string to be passed to KRecentDirs::dir() and
- *        KRecentDirs::add().
+ *        KRecentDirs::add(). Optional file name is supported.
+ * @param fileName Optional file name that is added to the resulting URL.
  * @return The URL that should be listed by default (e.g. by KFileDialog or
  *         KDirSelectDialog).
  *
@@ -264,7 +265,8 @@ KEXIUTILS_EXPORT QUrl getSaveImageUrl(QWidget *parent = 0, const QString &captio
  * @since 3.1.0
  * @todo Make it independent of KIOFileWidgets
  */
-KEXIUTILS_EXPORT QUrl getStartUrl(const QUrl &startDirOrVariable, QString *recentDirClass);
+KEXIUTILS_EXPORT QUrl getStartUrl(const QUrl &startDirOrVariable, QString *recentDirClass,
+                                  const QString &fileName = QString());
 
 /**
  * Associates @p directory with @p fileClass

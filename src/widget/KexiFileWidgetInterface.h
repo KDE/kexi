@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2017 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -37,6 +37,7 @@ public:
      *                 Refer to the KFileWidget::KFileWidget() documentation
      *                 for the @c kfiledialog:/// URL syntax.
      * @param mode File widget's mode
+     * @param fileName Optional file name that is added to the resulting URL.
      * @param parent File widget's parent widget
      *
      * Depending on settings one of two file widget implementations is used:
@@ -55,6 +56,14 @@ public:
      * @return the new file widget.
      *
      * @todo Share this code with KReport and Kexi
+     */
+    static KexiFileWidgetInterface *createWidget(const QUrl &startDirOrVariable,
+                                                 KexiFileFilters::Mode mode,
+                                                 const QString &fileName,
+                                                 QWidget *parent = nullptr) Q_REQUIRED_RESULT;
+
+    /**
+     * @overload
      */
     static KexiFileWidgetInterface *createWidget(const QUrl &startDirOrVariable,
                                                  KexiFileFilters::Mode mode,
@@ -168,7 +177,7 @@ public:
     void connectFileSelectedSignal(QObject *receiver, const char *slot);
 
 protected:
-    KexiFileWidgetInterface(const QUrl &startDirOrVariable);
+    KexiFileWidgetInterface(const QUrl &startDirOrVariable, const QString &fileName);
 
     /**
      * @brief Updates filters in the widget based on current filter selection.
@@ -189,6 +198,8 @@ protected:
     void addRecentDir(const QString &name);
 
     KexiFileFilters* filters();
+
+    const KexiFileFilters* filters() const;
 
     void setFiltersUpdated(bool set);
 
