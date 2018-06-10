@@ -51,6 +51,9 @@ public:
     //! (check this with KDbField::hasEmptyProperty()),
     virtual bool valueIsEmpty();
 
+    //! \return true if the value is valid
+    bool valueIsValid() override;
+
     virtual QVariant value();
 
     virtual bool cursorAtStart();

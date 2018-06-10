@@ -186,6 +186,12 @@ bool KexiInputTableEdit::valueIsEmpty()
     return !m_lineedit->text().isNull() && m_lineedit->text().isEmpty();
 }
 
+bool KexiInputTableEdit::valueIsValid()
+{
+    return m_textFormatter.valueIsValid(m_lineedit->text())
+           && m_lineedit->hasAcceptableInput();
+}
+
 QVariant KexiInputTableEdit::value()
 {
     return m_textFormatter.fromString(m_lineedit->text());
