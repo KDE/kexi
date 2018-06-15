@@ -130,7 +130,7 @@ QString KexiTextFormatter::toString(const QVariant& value, const QString& add,
         *lengthExceeded = false;
     }
     if (d->field->isIntegerType()) {
-        if (value.toInt() == 0)
+        if (!add.isEmpty() && value.toInt() == 0)
             return add; //eat 0
     }
     else if (d->field->isFPNumericType()) {
@@ -166,10 +166,6 @@ QString KexiTextFormatter::toString(const QVariant& value, const QString& add,
             return add;
         return KexiDateTimeFormatter::toString(
                    *d->dateFormatter, *d->timeFormatter, value.toDateTime());
-    case KDbField::BigInteger:
-        if (value.toLongLong() == 0)
-            return add; //eat 0
-        break;
     default:
         break;
     }
