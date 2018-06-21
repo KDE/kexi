@@ -322,6 +322,7 @@
       <caption xml:lang="bs">Obrazac Designer</caption>
       <caption xml:lang="ca">Dissenyador de formularis</caption>
       <caption xml:lang="ca-valencia">Dissenyador de formularis</caption>
+      <caption xml:lang="cs">Návrhář formulářů</caption>
       <caption xml:lang="de">Formular-Designer</caption>
       <caption xml:lang="en-GB">Form Designer</caption>
       <caption xml:lang="es">Diseñador de formularios</caption>
