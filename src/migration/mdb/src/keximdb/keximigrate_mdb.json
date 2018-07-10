@@ -13,6 +13,7 @@
                 "Name[it]": "La squadra di KEXI",
                 "Name[nl]": "Het team van KEXI",
                 "Name[pt]": "Equipa do Kexi",
+                "Name[pt_BR]": "Equipe do KEXI",
                 "Name[sv]": "Kexi-gruppen",
                 "Name[uk]": "Команда KEXI",
                 "Name[x-test]": "xxKEXI Teamxx"
@@ -30,6 +31,7 @@
         "Description[it]": "Estensione di importazione MS Access (MDB) per KEXI",
         "Description[nl]": "MS Access (MDB)-importplug-in voor KEXI",
         "Description[pt]": "'Plugin' de importação do MS Access (MDB) para o Kexi",
+        "Description[pt_BR]": "Plugin de importação do MS Access (MDB) para o KEXI",
         "Description[sv]": "MS Access (MDB) importinsticksprogram för KEXI",
         "Description[uk]": "Додаток імпортування даних з MS Access (MDB) для KEXI",
         "Description[x-test]": "xxMS Access (MDB) import plugin for KEXIxx",

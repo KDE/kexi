@@ -13,6 +13,7 @@
                 "Name[it]": "La squadra di KEXI",
                 "Name[nl]": "Het team van KEXI",
                 "Name[pt]": "Equipa do Kexi",
+                "Name[pt_BR]": "Equipe do KEXI",
                 "Name[sv]": "Kexi-gruppen",
                 "Name[uk]": "Команда KEXI",
                 "Name[x-test]": "xxKEXI Teamxx"
@@ -30,6 +31,7 @@
         "Description[it]": "Estensione che fornisce l'oggetto del browser web per KEXI",
         "Description[nl]": "KEXI-plug-in levert formulierwidget voor webbrowser",
         "Description[pt]": "'Plugin' do Kexi que oferece um elemento gráfico de navegação Web",
+        "Description[pt_BR]": "KEXI plugin que fornece widget de formulário de navegador web ",
         "Description[sv]": "KEXI-insticksprogram som tillhandahåller formulärkomponent med webbläsare",
         "Description[uk]": "Додаток до KEXI, що забезпечує роботу форми віджета навігатора інтернетом",
         "Description[x-test]": "xxKEXI plugin providing web browser form widgetxx",
