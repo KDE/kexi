@@ -57,7 +57,6 @@ Comment[x-test]=xxKexi plugin for handling tablesxx
 Comment[zh_CN]=用于处理表格的 Kexi 插件
 Type=Service
 Icon=table
-Encoding=UTF-8
 
 X-KDE-Library=kexi_tableplugin
 X-KDE-ServiceTypes=Kexi/Viewer,Kexi/Designer

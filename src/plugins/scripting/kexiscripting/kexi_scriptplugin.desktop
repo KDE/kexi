@@ -62,7 +62,6 @@ Name[zh_CN]=脚本
 
 Type=Service
 Icon=script
-Encoding=UTF-8
 
 X-KDE-Library=kexi_scriptplugin
 X-KDE-ServiceTypes=Kexi/Editor

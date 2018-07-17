@@ -55,7 +55,6 @@ Comment[x-test]=xxKexi plugin for handling database migrationxx
 Comment[zh_CN]=用于处理数据库迁移的 Kexi 插件
 Type=Service
 Icon=database-import
-Encoding=UTF-8
 
 X-KDE-Library=kexi_migrationplugin
 X-KDE-ServiceTypes=Kexi/Internal
