@@ -43,7 +43,6 @@ Comment[uk]=Додаток до Kexi для обробки запитів
 Comment[x-test]=xxKexi plugin for handling queriesxx
 Type=Service
 Icon=query
-Encoding=UTF-8
 
 X-KDE-Library=kexi_queryplugin
 X-KDE-ServiceTypes=Kexi/Viewer,Kexi/Designer,Kexi/Editor

@@ -37,7 +37,6 @@ Comment[uk]=Додаток до Kexi, що забезпечує роботу ф�
 Comment[x-test]=xxKexi plugin providing map browser form widgetxx
 Type=Service
 Icon=form
-Encoding=UTF-8
 
 X-KDE-Library=kexiforms_mapwidgetplugin
 X-KDE-ServiceTypes=Kexi/FormWidgets

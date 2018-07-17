@@ -43,7 +43,6 @@ Comment[uk]=Додаток до Kexi для обробки форм
 Comment[x-test]=xxKexi plugin for handling formsxx
 Type=Service
 Icon=form
-Encoding=UTF-8
 
 X-KDE-Library=kexi_formplugin
 X-KDE-ServiceTypes=Kexi/Viewer,Kexi/Designer

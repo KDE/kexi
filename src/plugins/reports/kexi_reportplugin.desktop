@@ -42,7 +42,6 @@ Comment[uk]=Додаток до Kexi для обробки звітів
 Comment[x-test]=xxKexi plugin for handling reportsxx
 Type=Service
 Icon=report
-Encoding=UTF-8
 
 X-KDE-Library=kexi_reportplugin
 X-KDE-ServiceTypes=Kexi/Viewer,Kexi/Designer

@@ -40,7 +40,6 @@ Comment[uk]=Додаток до Kexi для імпортування та екс
 Comment[x-test]=xxKexi Plugin for CSV data import/exportxx
 Type=Service
 Icon=document-import
-Encoding=UTF-8
 
 X-KDE-Library=kexi_csvimportexportplugin
 X-KDE-ServiceTypes=Kexi/Internal

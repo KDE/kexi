@@ -37,7 +37,6 @@ Comment[uk]=Додаток до Kexi для перенесення баз дан
 Comment[x-test]=xxKexi plugin for handling database migrationxx
 Type=Service
 Icon=database-import
-Encoding=UTF-8
 
 X-KDE-Library=kexi_migrationplugin
 X-KDE-ServiceTypes=Kexi/Internal
