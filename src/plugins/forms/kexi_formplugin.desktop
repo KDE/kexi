@@ -58,7 +58,6 @@ Comment[x-test]=xxKexi plugin for handling formsxx
 Comment[zh_CN]=用于处理表单的 Kexi 插件
 Type=Service
 Icon=form
-Encoding=UTF-8
 
 X-KDE-Library=kexi_formplugin
 X-KDE-ServiceTypes=Kexi/Viewer,Kexi/Designer

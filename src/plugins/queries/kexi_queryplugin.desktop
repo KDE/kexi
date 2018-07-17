@@ -58,7 +58,6 @@ Comment[x-test]=xxKexi plugin for handling queriesxx
 Comment[zh_CN]=用于处理查询的 Kexi 插件
 Type=Service
 Icon=query
-Encoding=UTF-8
 
 X-KDE-Library=kexi_queryplugin
 X-KDE-ServiceTypes=Kexi/Viewer,Kexi/Designer,Kexi/Editor

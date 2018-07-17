@@ -58,7 +58,6 @@ Comment[x-test]=xxKexi plugin for handling reportsxx
 Comment[zh_CN]=用于处理报告的 Kexi 插件
 Type=Service
 Icon=report
-Encoding=UTF-8
 
 X-KDE-Library=kexi_reportplugin
 X-KDE-ServiceTypes=Kexi/Viewer,Kexi/Designer

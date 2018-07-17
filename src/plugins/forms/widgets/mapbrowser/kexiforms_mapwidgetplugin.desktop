@@ -54,7 +54,6 @@ Comment[x-test]=xxKexi plugin providing map browser form widgetxx
 Comment[zh_CN]=提供地图浏览器表单部件的 Kexi 插件
 Type=Service
 Icon=form
-Encoding=UTF-8
 
 X-KDE-Library=kexiforms_mapwidgetplugin
 X-KDE-ServiceTypes=Kexi/FormWidgets
