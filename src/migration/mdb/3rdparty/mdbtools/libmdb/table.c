@@ -76,7 +76,7 @@ MdbTableDef *mdb_read_table(MdbCatalogEntry *entry)
 	MdbHandle *mdb = entry->mdb;
 	MdbFormatConstants *fmt = mdb->fmt;
 	int row_start, pg_row;
-	unsigned char *buf, *pg_buf = mdb->pg_buf;
+	char *buf, *pg_buf = (char *)mdb->pg_buf;
 	guint i;
 
 	mdb_read_pg(mdb, entry->table_pg);
@@ -157,7 +157,7 @@ read_pg_if_8(MdbHandle *mdb, int *cur_pos)
 {
 	guint8 c;
 
-	read_pg_if_n(mdb, &c, cur_pos, 1);
+	read_pg_if_n(mdb, (char *)&c, cur_pos, 1);
 	return c;
 }
 /*
@@ -166,12 +166,12 @@ read_pg_if_8(MdbHandle *mdb, int *cur_pos)
  * are still advanced and the page cursor is still updated.
  */
 void *
-read_pg_if_n(MdbHandle *mdb, unsigned char *buf, int *cur_pos, size_t len)
+read_pg_if_n(MdbHandle *mdb, char *buf, int *cur_pos, size_t len)
 {
 	char* _buf = buf;
 	/* Advance to page which contains the first byte */
 	while (*cur_pos >= mdb->fmt->pg_size) {
-		mdb_read_pg(mdb, mdb_get_int32(mdb->pg_buf,4));
+		mdb_read_pg(mdb, mdb_get_int32((char *)mdb->pg_buf,4));
 		*cur_pos -= (int)(mdb->fmt->pg_size - 8);
 	}
 	/* Copy pages into buffer */
@@ -182,7 +182,7 @@ read_pg_if_n(MdbHandle *mdb, unsigned char *buf, int *cur_pos, size_t len)
 			_buf += piece_len;
 		}
 		len -= piece_len;
-		mdb_read_pg(mdb, mdb_get_int32(mdb->pg_buf,4));
+		mdb_read_pg(mdb, mdb_get_int32((char *)mdb->pg_buf,4));
 		*cur_pos = 8;
 	}
 	/* Copy into buffer from final page */
@@ -244,7 +244,7 @@ GPtrArray *mdb_read_columns(MdbTableDef *table)
 	/* printf("column %d\n", i);
 	mdb_buffer_dump(mdb->pg_buf, cur_pos, fmt->tab_col_entry_size); */
 #endif
-		read_pg_if_n(mdb, col, &cur_pos, fmt->tab_col_entry_size);
+		read_pg_if_n(mdb, (char *)col, &cur_pos, fmt->tab_col_entry_size);
 		pcol = (MdbColumn *) g_malloc0(sizeof(MdbColumn));
 
 		pcol->table = table;
@@ -256,11 +256,11 @@ GPtrArray *mdb_read_columns(MdbTableDef *table)
 
 		//fprintf(stdout,"----- column %d -----\n",pcol->col_num);
 		// col_var == 3 or 7
-		pcol->var_col_num = mdb_get_int16(col, fmt->tab_col_offset_var);
+		pcol->var_col_num = mdb_get_int16((char *)col, fmt->tab_col_offset_var);
 		//fprintf(stdout,"var column pos %d\n",pcol->var_col_num);
 
 		// col_var == 5 or 9
-		pcol->row_col_num = mdb_get_int16(col, fmt->tab_row_col_num_offset);
+		pcol->row_col_num = mdb_get_int16((char *)col, fmt->tab_row_col_num_offset);
 		//fprintf(stdout,"row column num %d\n",pcol->row_col_num);
 
 		/* FIXME: can this be right in Jet3 and Jet4? */
@@ -275,13 +275,13 @@ GPtrArray *mdb_read_columns(MdbTableDef *table)
 		pcol->is_uuid_auto = col[fmt->col_flags_offset] & 0x40 ? 1 : 0;
 
 		// tab_col_offset_fixed == 14 or 21
-		pcol->fixed_offset = mdb_get_int16(col, fmt->tab_col_offset_fixed);
+		pcol->fixed_offset = mdb_get_int16((char *)col, fmt->tab_col_offset_fixed);
 		//fprintf(stdout,"fixed column offset %d\n",pcol->fixed_offset);
 		//fprintf(stdout,"col type %s\n",pcol->is_fixed ? "fixed" : "variable");
 
 		if (pcol->col_type != MDB_BOOL) {
 			// col_size_offset == 16 or 23
-			pcol->col_size = mdb_get_int16(col, fmt->col_size_offset);
+			pcol->col_size = mdb_get_int16((char *)col, fmt->col_size_offset);
 		} else {
 			pcol->col_size=0;
 		}

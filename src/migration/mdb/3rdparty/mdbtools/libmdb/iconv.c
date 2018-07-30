@@ -47,7 +47,7 @@ mdb_unicode2ascii(MdbHandle *mdb, char *src, size_t slen, char *dest, size_t dle
 		unsigned int compress=1;
 		src += 2;
 		slen -= 2;
-		tmp = (char *)g_malloc(slen*2);
+		tmp = g_malloc(slen*2);
 		while (slen) {
 			if (*src == 0) {
 				compress = (compress) ? 0 : 1;

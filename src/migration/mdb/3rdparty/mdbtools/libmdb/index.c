@@ -72,7 +72,7 @@ mdb_read_indices(MdbTableDef *table)
 	int key_num, col_num, cleaned_col_num;
 	int cur_pos, name_sz, idx2_sz, type_offset;
 	int index_start_pg = mdb->cur_pg;
-	gchar *tmpbuf;
+	char *tmpbuf;
 
 	table->indices = g_ptr_array_new();
 
@@ -91,7 +91,7 @@ mdb_read_indices(MdbTableDef *table)
 	 * It's not always the case. Happens on Northwind Orders table.
 	 */
 	table->num_real_idxs = 0;
-	tmpbuf = (gchar *) g_malloc(idx2_sz);
+	tmpbuf = g_malloc(idx2_sz);
 	for (i=0;i<table->num_idxs;i++) {
 		read_pg_if_n(mdb, tmpbuf, &cur_pos, idx2_sz);
 		pidx = (MdbIndex *) g_malloc0(sizeof(MdbIndex));
@@ -123,8 +123,8 @@ mdb_read_indices(MdbTableDef *table)
 			name_sz=read_pg_if_16(mdb, &cur_pos);
 		}
 		tmpbuf = g_malloc(name_sz);
-		read_pg_if_n(mdb, tmpbuf, &cur_pos, name_sz);
-		mdb_unicode2ascii(mdb, tmpbuf, name_sz, pidx->name, MDB_MAX_OBJ_NAME);
+		read_pg_if_n(mdb, (char *)tmpbuf, &cur_pos, name_sz);
+		mdb_unicode2ascii(mdb, (char *)tmpbuf, name_sz, pidx->name, MDB_MAX_OBJ_NAME);
 		g_free(tmpbuf);
 		//fprintf(stderr, "index %d type %d name %s\n", pidx->index_num, pidx->index_type, pidx->name);
 	}
@@ -146,7 +146,7 @@ mdb_read_indices(MdbTableDef *table)
 		}
 		//fprintf(stderr, "index %d #%d (%s) index_type:%d\n", i, pidx->index_num, pidx->name, pidx->index_type);
 
-		pidx->num_rows = mdb_get_int32(mdb->alt_pg_buf,
+		pidx->num_rows = mdb_get_int32((char *)mdb->alt_pg_buf,
 				fmt->tab_cols_start_offset +
 				(pidx->index_num*fmt->tab_ridx_entry_size));
 		/*
@@ -490,7 +490,7 @@ mdb_find_next_leaf(MdbHandle *mdb, MdbIndex *idx, MdbIndexChain *chain)
 			//printf("find_next_on_page returned 0\n");
 			return 0;
 		}
-		pg = mdb_get_int32_msb(mdb->pg_buf, ipg->offset + ipg->len - 3) >> 8;
+		pg = mdb_get_int32_msb((char *)mdb->pg_buf, ipg->offset + ipg->len - 3) >> 8;
 		//printf("Looking at pg %lu at %lu %d\n", pg, ipg->offset, ipg->len);
 		ipg->offset += ipg->len;
 
@@ -624,7 +624,7 @@ mdb_index_find_next(MdbHandle *mdb, MdbIndex *idx, MdbIndexChain *chain, guint32
 				if (!chain->last_leaf_found) return 0;
 				mdb_read_pg(mdb, chain->last_leaf_found);
 				chain->last_leaf_found = mdb_get_int32(
-					mdb->pg_buf, 0x0c);
+					(char *)mdb->pg_buf, 0x0c);
 				//printf("next leaf %lu\n", chain->last_leaf_found);
 				mdb_read_pg(mdb, chain->last_leaf_found);
 				/* reuse the chain for cleanup mode */
@@ -637,7 +637,7 @@ mdb_index_find_next(MdbHandle *mdb, MdbIndex *idx, MdbIndexChain *chain, guint32
 					return 0;
 			}
 		}
-		pg_row = mdb_get_int32_msb(mdb->pg_buf, ipg->offset + ipg->len - 4);
+		pg_row = mdb_get_int32_msb((char *)mdb->pg_buf, ipg->offset + ipg->len - 4);
 		*row = pg_row & 0xff;
 		*pg = pg_row >> 8;
 		//printf("row = %d pg = %lu ipg->pg = %lu offset = %lu len = %d\n", *row, *pg, ipg->pg, ipg->offset, ipg->len);
@@ -706,7 +706,7 @@ mdb_index_find_row(MdbHandle *mdb, MdbIndex *idx, MdbIndexChain *chain, guint32 
 				return 0;
 		}
 		/* test row and pg */
-		datapg_row = mdb_get_int32_msb(mdb->pg_buf, ipg->offset + ipg->len - 4);
+		datapg_row = mdb_get_int32_msb((char *)mdb->pg_buf, ipg->offset + ipg->len - 4);
 		if (pg_row == datapg_row) {
 			passed = 1;
 		}
