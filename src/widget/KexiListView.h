@@ -68,7 +68,7 @@ protected:
 
     //! Alternative constructor, the same as the default but if @a useDelegate is DontUseDelegate,
     //! delegate is not set. This allows to replace delegate.
-    KexiListView(UseDelegate useDelegate = UseDefaultDelegate, QWidget *parent = 0);
+    KexiListView(UseDelegate useDelegate, QWidget *parent);
 
 private Q_SLOTS:
     void updateWidth();
