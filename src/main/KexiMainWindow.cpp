@@ -39,6 +39,7 @@
 #include "KexiObjectViewWidget.h"
 #include "KexiObjectViewTabWidget.h"
 #include <kexiutils/utils.h>
+#include <kexiutils_global.h>
 #include <KexiStyle.h>
 #include <kexiutils/KexiCloseButton.h>
 #include <kexiutils/KexiTester.h>
@@ -2226,7 +2227,11 @@ void KexiMainWindow::updateCustomPropertyPanelTabs(
            )
        )
     {
+#ifdef __GNUC__
 #warning TODO KexiMainWindow::updateCustomPropertyPanelTabs()
+#else
+#pragma WARNING(TODO KexiMainWindow::updateCustomPropertyPanelTabs())
+#endif
 #if 0
         if (d->partForPreviouslySetupPropertyPanelTabs) {
             //remember current page number for this part
@@ -2262,7 +2267,11 @@ void KexiMainWindow::updateCustomPropertyPanelTabs(
         d->objectViewWidget->propertyPane()->removeAllSections();
         curWindowPart->setupPropertyPane(d->objectViewWidget->propertyPane());
 
+#ifdef __GNUC__
 #warning TODO KexiMainWindow::updateCustomPropertyPanelTabs()
+#else
+#pragma WARNING(TODO KexiMainWindow::updateCustomPropertyPanelTabs())
+#endif
 #if 0
         //restore current page number for this part
         if (d->recentlySelectedPropertyPanelPages.contains(curWindowPart)) {
