@@ -45,6 +45,7 @@
         "Description[tr]": "Kexi eklentisi web tarayıcı programcığı sağlar",
         "Description[uk]": "Додаток до Kexi, що забезпечує роботу форми віджета навігатора інтернетом",
         "Description[x-test]": "xxKexi plugin providing web browser form widgetxx",
+        "Description[zh_CN]": "Kexi Web 浏览器表单小部件插件",
         "EnabledByDefault": true,
         "Icon": "kexiform-web-browser",
         "Id": "org.kexi-project.form.widgets.web-browser",

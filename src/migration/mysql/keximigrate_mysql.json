@@ -47,6 +47,7 @@
         "Description[tr]": "Kexi için MySQL veritabanı içe aktarma eklentisi",
         "Description[uk]": "Додаток імпортування баз даних з MySQL для Kexi",
         "Description[x-test]": "xxMySQL database import plugin for Kexixx",
+        "Description[zh_CN]": "Kexi MySQL 数据库导入插件",
         "EnabledByDefault": true,
         "Icon": "",
         "Id": "org.kexi-project.migration.mysql",

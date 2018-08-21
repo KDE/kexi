@@ -47,6 +47,7 @@
         "Description[tr]": "Kexi için PostgreSQL veritabanı içe aktarma eklentisi",
         "Description[uk]": "Додаток імпортування баз даних з PostgreSQL для Kexi",
         "Description[x-test]": "xxPostgreSQL database import plugin for Kexixx",
+        "Description[zh_CN]": "Kexi PostgreSQL 数据库导入插件",
         "EnabledByDefault": true,
         "Icon": "",
         "Id": "org.kexi-project.migration.postgresql",

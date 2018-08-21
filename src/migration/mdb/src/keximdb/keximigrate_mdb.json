@@ -44,6 +44,7 @@
         "Description[tr]": "Kexi için Access (MDB) içe aktarma eklentisi",
         "Description[uk]": "Додаток імпортування даних з MS Access (MDB) для Kexi",
         "Description[x-test]": "xxMS Access (MDB) import plugin for Kexixx",
+        "Description[zh_CN]": "Kexi MS Access (MDB) 导入插件",
         "EnabledByDefault": true,
         "Icon": "",
         "Id": "org.kexi-project.migration.mdb",
