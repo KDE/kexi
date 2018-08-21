@@ -73,6 +73,7 @@
     <p xml:lang="sv">Kexi är ett visuell byggverktyg för databasprogram, en del av Calligra-sviten. Den kan användas för att skapa databasprogram, infoga och redigera data, ställa frågor och behandla data. Formulär kan skapas för att tillhandahålla ett anpassat gränssnitt för data. Alla databasobjekt (tabeller, frågor, formulär, rapporter, etc.) lagras i databasen, vilket gör det enkelt att dela data och konstruktion.</p>
     <p xml:lang="uk">Kexi — програма для створення обробників баз даних у візуальному режимі. Цією програмою можна скористатися для створень мініпрограм для роботи з базами даних, додавання та редагування даних, виконання запитів та обробки даних. За допомогою створених програмою форм ви можете отримати потрібний вам режим доступу до ваших даних. Всі об’єкти баз даних — таблиці, запити, форми, звіти тощо, — зберігаються у самій базі даних, що спрощує поширення даних та представлення даних.</p>
     <p xml:lang="x-test">xxKexi is a visual database applications builder. It can be used for designing database applications, inserting and editing data, performing queries, and processing data. Forms can be created to provide a custom interface to your data. All database objects - tables, queries, forms, reports, etc. - are stored in the database, making it easy to share data and design.xx</p>
+    <p xml:lang="zh-CN">Kexi 是一个可视化的数据库应用程序生成器。它能够被用于设计数据库应用程序，插入和编辑数据，执行查询，以及处理数据。您可以创建表单作为数据的自定义接口。所有数据库对象——表，查询，表单，报告，等等——都存储在数据库中，以便于共享数据和设计。</p>
     <p>Features:</p>
     <p xml:lang="bs">Osobine:</p>
     <p xml:lang="ca">Característiques:</p>
@@ -315,6 +316,7 @@
       <caption xml:lang="sv">Tabellvy som lagrar bilder</caption>
       <caption xml:lang="uk">Збереження зображень у перегляді таблиць.</caption>
       <caption xml:lang="x-test">xxTable View storing imagesxx</caption>
+      <caption xml:lang="zh-CN">存储图像的表格视图</caption>
       <image>http://www.calligra.org/wp-content/uploads/2011/11/kexi-2.2-rc1-tableview-images.png</image>
     </screenshot>
     <screenshot>
