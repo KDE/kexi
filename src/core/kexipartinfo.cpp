@@ -21,6 +21,7 @@
 #include "kexipartinfo_p.h"
 #include "kexipartmanager.h"
 #include "KexiMainWindowIface.h"
+#include <KexiJsonTrader.h>
 
 #include <KDbGlobal>
 
@@ -41,7 +42,7 @@ static bool isTrue(KPluginMetaData *metaData, const char* fieldName, bool defaul
     return 0 == s.compare(QLatin1String("true"), Qt::CaseInsensitive);
 }
 
-Info::Private::Private(Info *info, const QJsonObject &rootObject)
+Info::Private::Private(Info *info, const QPluginLoader &loader)
     : untranslatedGroupName(info->value("X-Kexi-GroupName"))
     , typeName(info->value("X-Kexi-TypeName"))
     , supportedViewModes(0)
@@ -53,7 +54,8 @@ Info::Private::Private(Info *info, const QJsonObject &rootObject)
     , isPropertyEditorAlwaysVisibleInDesignMode(
           isTrue(info, "X-Kexi-PropertyEditorAlwaysVisibleInDesignMode", true))
 {
-    groupName = info->readTranslatedString(rootObject, "X-Kexi-GroupName", untranslatedGroupName);
+    const QJsonObject metaDataObject = KexiJsonTrader::metaDataObjectForPluginLoader(loader);
+    groupName = info->readTranslatedString(metaDataObject, "X-Kexi-GroupName", untranslatedGroupName);
     const QStringList serviceTypes = info->serviceTypes();
     if (serviceTypes.contains("Kexi/Viewer")) {
         supportedViewModes |= Kexi::DataViewMode;
@@ -65,14 +67,15 @@ Info::Private::Private(Info *info, const QJsonObject &rootObject)
         supportedViewModes |= Kexi::TextViewMode;
     }
 
-    const QJsonArray userServiceTypes = rootObject.value("X-Kexi-ServiceTypesInUserMode").toArray();
-    if (userServiceTypes.contains(QJsonValue("Kexi/Viewer"))) {
+    const QStringList userServiceTypes = metaDataObject.value("X-Kexi-ServiceTypesInUserMode")
+            .toString().split(QLatin1Char(',')); // NOTE: toArray() does not work
+    if (userServiceTypes.contains("Kexi/Viewer")) {
         supportedUserViewModes |= Kexi::DataViewMode;
     }
-    if (userServiceTypes.contains(QJsonValue("Kexi/Designer"))) {
+    if (userServiceTypes.contains("Kexi/Designer")) {
         supportedUserViewModes |= Kexi::DesignViewMode;
     }
-    if (userServiceTypes.contains(QJsonValue("Kexi/Editor"))) {
+    if (userServiceTypes.contains("Kexi/Editor")) {
         supportedUserViewModes |= Kexi::TextViewMode;
     }
 }
@@ -132,7 +135,7 @@ void KexiNewObjectAction::slotTriggered()
 //}
 
 Info::Info(const QPluginLoader &loader)
-    : KexiPluginMetaData(loader), d(new Private(this, rootObject()))
+    : KexiPluginMetaData(loader), d(new Private(this, loader))
 {
 }
 
