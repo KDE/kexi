@@ -67,12 +67,6 @@ protected:
      */
     void setErrorMessage(const QString& errorMessage);
 
-    /**
-     * @return root object for this plugin, useful to retrieve Kexi-specific fields using
-     * readStringList(), readTranslatedValue() or readTranslatedString().
-     */
-    QJsonObject rootObject() const;
-
 private:
     Q_DISABLE_COPY(KexiPluginMetaData)
     class Private;

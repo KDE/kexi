@@ -28,8 +28,7 @@
 class Q_DECL_HIDDEN KexiPluginMetaData::Private
 {
 public:
-    Private(KexiPluginMetaData *info, const QPluginLoader &loader)
-     : rootObject(KexiJsonTrader::rootObjectForPluginLoader(loader))
+    Private(KexiPluginMetaData *info)
     {
         QStringList v(info->version().split('.'));
         bool ok = v.count() >= 2;
@@ -45,7 +44,6 @@ public:
         }
     }
 
-    QJsonObject rootObject;
     QString errorMessage;
     int majorVersion;
     int minorVersion;
@@ -54,7 +52,7 @@ public:
 //------------------------------
 
 KexiPluginMetaData::KexiPluginMetaData(const QPluginLoader &loader)
-    : KPluginMetaData(loader), d(new Private(this, loader))
+    : KPluginMetaData(loader), d(new Private(this))
 {
 }
 
@@ -86,9 +84,4 @@ int KexiPluginMetaData::majorVersion() const
 int KexiPluginMetaData::minorVersion() const
 {
     return d->minorVersion;
-}
-
-QJsonObject KexiPluginMetaData::rootObject() const
-{
-    return d->rootObject;
 }

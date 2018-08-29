@@ -31,7 +31,7 @@ namespace KexiPart
 class Q_DECL_HIDDEN Info::Private
 {
 public:
-    Private(Info *info, const QJsonObject &rootObject);
+    Private(Info *info, const QPluginLoader &loader);
 
     //! used in StaticItem class
     Private();
