@@ -16,7 +16,6 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-#include <inttypes.h>
 #include "mdbtools.h"
 
 #ifdef DMALLOC
@@ -250,7 +249,7 @@ MdbHandle *mdb_open(const char *filename, MdbFileFlags flags)
 		mdb_close(mdb);
 		return NULL;
 	}
-	mdb->f->jet_version = mdb_get_int32(mdb->pg_buf, 0x14);
+	mdb->f->jet_version = mdb_get_int32((char *)mdb->pg_buf, 0x14);
 	switch(mdb->f->jet_version) {
 	case MDB_VER_JET3:
 		mdb->fmt = &MdbJet3Constants;
@@ -265,7 +264,7 @@ MdbHandle *mdb_open(const char *filename, MdbFileFlags flags)
 		mdb_close(mdb);
 		return NULL;
 	}
-	mdb->f->db_key = mdb_get_int32(mdb->pg_buf, 0x3e);
+	mdb->f->db_key = mdb_get_int32((char *)mdb->pg_buf, 0x3e);
 	/* I don't know if this value is valid for some versions?
 	 * it doesn't seem to be valid for the databases I have
 	 *
@@ -276,7 +275,7 @@ MdbHandle *mdb_open(const char *filename, MdbFileFlags flags)
 	if (mdb->f->db_key) {
 		/* write is not supported for encrypted files yet */
 		mdb->f->writable = FALSE;
-		/* that should be enought, but reopen the file read only just to be
+		/* that should be enough, but reopen the file read only just to be
 		 * sure we don't write invalid data */
 		close(mdb->f->fd);
 		open_flags = O_RDONLY;
@@ -293,7 +292,7 @@ MdbHandle *mdb_open(const char *filename, MdbFileFlags flags)
 
 	/* get the db password located at 0x42 bytes into the file */
 	for (pos=0;pos<14;pos++) {
-		j = mdb_get_int32(mdb->pg_buf, 0x42+pos);
+		j = mdb_get_int32((char *)mdb->pg_buf, 0x42+pos);
 		j ^= key[pos];
 		if ( j != 0)
 			mdb->f->db_passwd[pos] = j;
@@ -414,7 +413,7 @@ static ssize_t _mdb_read_pg(MdbHandle *mdb, void *pg_buf, unsigned long pg)
 		return 0;
 	}
         if (status.st_size < offset) {
-                fprintf(stderr,"offset %jd is beyond EOF\n",(intmax_t)offset);
+                fprintf(stderr,"offset %jd is beyond EOF\n",offset);
                 return 0;
         }
 #if !MDB_NO_STATS
@@ -469,42 +468,42 @@ unsigned char mdb_pg_get_byte(MdbHandle *mdb, int offset)
 	return mdb->pg_buf[offset];
 }
 
-int mdb_get_int16(void *buf, int offset)
+int mdb_get_int16(char *buf, int offset)
 {
 	guint16 l;
-	memcpy(&l, (char*)buf + offset, 2);
+	memcpy(&l, buf + offset, 2);
 	return (int)GUINT16_FROM_LE(l);
 }
 int mdb_pg_get_int16(MdbHandle *mdb, int offset)
 {
 	if (offset < 0 || (offset+2) > (int)mdb->fmt->pg_size) return -1;
 	mdb->cur_pos+=2;
-	return mdb_get_int16(mdb->pg_buf, offset);
+	return mdb_get_int16((char *)mdb->pg_buf, offset);
 }
 
-long mdb_get_int32_msb(void *buf, int offset)
+long mdb_get_int32_msb(char *buf, int offset)
 {
 	gint32 l;
-	memcpy(&l, (char*)buf + offset, 4);
+	memcpy(&l, buf + offset, 4);
 	return (long)GINT32_FROM_BE(l);
 }
-long mdb_get_int32(void *buf, int offset)
+long mdb_get_int32(char *buf, int offset)
 {
 	gint32 l;
-	memcpy(&l, (char*)buf + offset, 4);
+	memcpy(&l, buf + offset, 4);
 	return (long)GINT32_FROM_LE(l);
 }
 long mdb_pg_get_int32(MdbHandle *mdb, int offset)
 {
 	if (offset <0 || (offset+4) > (int)mdb->fmt->pg_size) return -1;
 	mdb->cur_pos+=4;
-	return mdb_get_int32(mdb->pg_buf, offset);
+	return mdb_get_int32((char *)mdb->pg_buf, offset);
 }
 
-float mdb_get_single(void *buf, int offset)
+float mdb_get_single(char *buf, int offset)
 {
 	union {guint32 g; float f;} f;
-	memcpy(&f, (char*)buf + offset, 4);
+	memcpy(&f, buf + offset, 4);
 	f.g = GUINT32_FROM_LE(f.g);
 	return f.f;
 }
@@ -512,13 +511,13 @@ float mdb_pg_get_single(MdbHandle *mdb, int offset)
 {
        if (offset <0 || (offset+4) > (int)mdb->fmt->pg_size) return -1;
        mdb->cur_pos+=4;
-       return mdb_get_single(mdb->pg_buf, offset);
+       return mdb_get_single((char *)mdb->pg_buf, offset);
 }
 
-double mdb_get_double(void *buf, int offset)
+double mdb_get_double(char *buf, int offset)
 {
 	union {guint64 g; double d;} d;
-	memcpy(&d, (char*)buf + offset, 8);
+	memcpy(&d, buf + offset, 8);
 	d.g = GUINT64_FROM_LE(d.g);
 	return d.d;
 }
@@ -526,7 +525,7 @@ double mdb_pg_get_double(MdbHandle *mdb, int offset)
 {
 	if (offset <0 || (offset+8) > (int)mdb->fmt->pg_size) return -1;
 	mdb->cur_pos+=8;
-	return mdb_get_double(mdb->pg_buf, offset);
+	return mdb_get_double((char *)mdb->pg_buf, offset);
 }
 
 

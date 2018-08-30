@@ -18,7 +18,6 @@
 
 #include <time.h>
 #include <math.h>
-#include <inttypes.h>
 #include "mdbtools.h"
 
 #ifdef DMALLOC
@@ -30,10 +29,10 @@
 static int mdb_add_row_to_leaf_pg(MdbTableDef *table, MdbIndex *idx, MdbIndexPage *ipg, MdbField *idx_fields, guint32 pgnum, guint16 rownum);
 
 void
-mdb_put_int16(void *buf, guint32 offset, guint32 value)
+mdb_put_int16(char *buf, guint32 offset, guint32 value)
 {
 	value = GINT32_TO_LE(value);
-	memcpy((char*)buf + offset, &value, 2);
+	memcpy(buf + offset, &value, 2);
 }
 void
 _mdb_put_int16(void *buf, guint32 offset, guint32 value)
@@ -44,10 +43,10 @@ __attribute__((alias("mdb_put_int16")));
 #endif
 
 void
-mdb_put_int32(void *buf, guint32 offset, guint32 value)
+mdb_put_int32(char *buf, guint32 offset, guint32 value)
 {
 	value = GINT32_TO_LE(value);
-	memcpy((char*)buf + offset, &value, 4);
+	memcpy(buf + offset, &value, 4);
 }
 void
 _mdb_put_int32(void *buf, guint32 offset, guint32 value)
@@ -58,10 +57,10 @@ __attribute__((alias("mdb_put_int32")));
 #endif
 
 void
-mdb_put_int32_msb(void *buf, guint32 offset, guint32 value)
+mdb_put_int32_msb(char *buf, guint32 offset, guint32 value)
 {
 	value = GINT32_TO_BE(value);
-	memcpy((char*)buf + offset, &value, 4);
+	memcpy(buf + offset, &value, 4);
 }
 void
 _mdb_put_int32_mdb(void *buf, guint32 offset, guint32 value)
@@ -84,7 +83,7 @@ mdb_write_pg(MdbHandle *mdb, unsigned long pg)
 	}
 	/* is page beyond current size + 1 ? */
 	if ((size_t)status.st_size < (offset + mdb->fmt->pg_size)) {
-		fprintf(stderr,"offset %jd is beyond EOF\n",(intmax_t)offset);
+		fprintf(stderr,"offset %jd is beyond EOF\n",offset);
 		return 0;
 	}
 	if (lseek(mdb->f->fd, offset, SEEK_SET) == -1) {
@@ -124,7 +123,7 @@ mdb_crack_row4(MdbHandle *mdb, int row_start, int row_end, unsigned int bitmask_
 	unsigned int i;
 
 	for (i=0; i<row_var_cols+1; i++) {
-		var_col_offsets[i] = mdb_get_int16(mdb->pg_buf,
+		var_col_offsets[i] = mdb_get_int16((char *)mdb->pg_buf,
 			row_end - bitmask_sz - 3 - (i*2));
 	}
 }
@@ -156,7 +155,7 @@ mdb_crack_row3(MdbHandle *mdb, int row_start, int row_end, unsigned int bitmask_
  * @table: Table that the row belongs to
  * @row_start: offset to start of row on current page
  * @row_end: offset to end of row on current page
- * @fields: pointer to MdbField array to be popluated by mdb_crack_row
+ * @fields: pointer to MdbField array to be populated by mdb_crack_row
  *
  * Cracks a row buffer apart into its component fields.
  *
@@ -178,7 +177,7 @@ mdb_crack_row(MdbTableDef *table, int row_start, int row_end, MdbField *fields)
 	MdbColumn *col;
 	MdbCatalogEntry *entry = table->entry;
 	MdbHandle *mdb = entry->mdb;
-	void *pg_buf = mdb->pg_buf;
+	unsigned char *pg_buf = mdb->pg_buf;
 	unsigned int row_var_cols=0, row_cols;
 	unsigned char *nullmask;
 	unsigned int bitmask_sz;
@@ -195,18 +194,18 @@ mdb_crack_row(MdbTableDef *table, int row_start, int row_end, MdbField *fields)
 		row_cols = mdb_get_byte(pg_buf, row_start);
 		col_count_size = 1;
 	} else {
-		row_cols = mdb_get_int16(pg_buf, row_start);
+		row_cols = mdb_get_int16((char *)pg_buf, row_start);
 		col_count_size = 2;
 	}
 
 	bitmask_sz = (row_cols + 7) / 8;
-	nullmask = (unsigned char *)pg_buf + row_end - bitmask_sz + 1;
+	nullmask = (unsigned char*)pg_buf + row_end - bitmask_sz + 1;
 
 	/* read table of variable column locations */
 	if (table->num_var_cols > 0) {
 		row_var_cols = IS_JET3(mdb) ?
 			mdb_get_byte(pg_buf, row_end - bitmask_sz) :
-			mdb_get_int16(pg_buf, row_end - bitmask_sz - 1);
+			mdb_get_int16((char *)pg_buf, row_end - bitmask_sz - 1);
 		var_col_offsets = (unsigned int *)g_malloc((row_var_cols+1)*sizeof(int));
 		if (IS_JET3(mdb)) {
 			mdb_crack_row3(mdb, row_start, row_end, bitmask_sz,
@@ -446,9 +445,9 @@ mdb_pg_get_freespace(MdbHandle *mdb)
 	int rows, free_start, free_end;
 	int row_count_offset = mdb->fmt->row_count_offset;
 
-	rows = mdb_get_int16(mdb->pg_buf, row_count_offset);
+	rows = mdb_get_int16((char *)mdb->pg_buf, row_count_offset);
 	free_start = row_count_offset + 2 + (rows * 2);
-	free_end = mdb_get_int16(mdb->pg_buf, row_count_offset + (rows * 2));
+	free_end = mdb_get_int16((char *)mdb->pg_buf, row_count_offset + (rows * 2));
 	mdb_debug(MDB_DEBUG_WRITE,"free space left on page = %d", free_end - free_start);
 	return (free_end - free_start);
 }
@@ -600,7 +599,7 @@ mdb_insert_row(MdbTableDef *table, int num_fields, MdbField *fields)
 guint16
 mdb_add_row_to_pg(MdbTableDef *table, unsigned char *row_buffer, int new_row_size)
 {
-	void *new_pg;
+	unsigned char *new_pg;
 	int num_rows, i, pos, row_start;
 	size_t row_size;
 	MdbCatalogEntry *entry = table->entry;
@@ -614,19 +613,19 @@ mdb_add_row_to_pg(MdbTableDef *table, unsigned char *row_buffer, int new_row_siz
 			g_ptr_array_add(pages, new_pg);
 		} else {
 			new_pg = g_ptr_array_index(pages, pages->len - 1);
-			if (mdb_get_int16(new_pg, 2) < new_row_size + 2) {
+			if (mdb_get_int16((char *)new_pg, 2) < new_row_size + 2) {
 				new_pg = mdb_new_data_pg(entry);
 				g_ptr_array_add(pages, new_pg);
 			}
 		}
 
-		num_rows = mdb_get_int16(new_pg, fmt->row_count_offset);
+		num_rows = mdb_get_int16((char *)new_pg, fmt->row_count_offset);
 		pos = (num_rows == 0) ? fmt->pg_size :
-			mdb_get_int16(new_pg, fmt->row_count_offset + (num_rows*2));
+			mdb_get_int16((char *)new_pg, fmt->row_count_offset + (num_rows*2));
 	} else {  /* is not a temp table */
 		new_pg = mdb_new_data_pg(entry);
 
-		num_rows = mdb_get_int16(mdb->pg_buf, fmt->row_count_offset);
+		num_rows = mdb_get_int16((char *)mdb->pg_buf, fmt->row_count_offset);
 		pos = fmt->pg_size;
 
 		/* copy existing rows */
@@ -634,7 +633,7 @@ mdb_add_row_to_pg(MdbTableDef *table, unsigned char *row_buffer, int new_row_siz
 			mdb_find_row(mdb, i, &row_start, &row_size);
 			pos -= row_size;
 			memcpy((char*)new_pg + pos, mdb->pg_buf + row_start, row_size);
-			mdb_put_int16(new_pg, (fmt->row_count_offset + 2) + (i*2), pos);
+			mdb_put_int16((char *)new_pg, (fmt->row_count_offset + 2) + (i*2), pos);
 		}
 	}
 
@@ -642,14 +641,14 @@ mdb_add_row_to_pg(MdbTableDef *table, unsigned char *row_buffer, int new_row_siz
 	pos -= new_row_size;
 	memcpy((char*)new_pg + pos, row_buffer, new_row_size);
 	/* add row to the row offset table */
-	mdb_put_int16(new_pg, (fmt->row_count_offset + 2) + (num_rows*2), pos);
+	mdb_put_int16((char *)new_pg, (fmt->row_count_offset + 2) + (num_rows*2), pos);
 
 	/* update number rows on this page */
 	num_rows++;
-	mdb_put_int16(new_pg, fmt->row_count_offset, num_rows);
+	mdb_put_int16((char *)new_pg, fmt->row_count_offset, num_rows);
 
 	/* update the freespace */
-	mdb_put_int16(new_pg,2,pos - fmt->row_count_offset - 2 - (num_rows*2));
+	mdb_put_int16((char *)new_pg,2,pos - fmt->row_count_offset - 2 - (num_rows*2));
 
 	/* copy new page over old */
 	if (!table->is_temp_table) {
@@ -731,7 +730,7 @@ MdbCatalogEntry *entry = table->entry;
 MdbHandle *mdb = entry->mdb;
 int pg_size = mdb->fmt->pg_size;
 int rco = mdb->fmt->row_count_offset;
-	void *new_pg;
+	unsigned char *new_pg;
 guint16 num_rows;
 	int row_start;
 	size_t row_size;
@@ -744,8 +743,8 @@ int i, pos;
 	mdb_debug(MDB_DEBUG_WRITE,"updating row %d on page %lu", row, (unsigned long) table->cur_phys_pg);
 	new_pg = mdb_new_data_pg(entry);
 
-	num_rows = mdb_get_int16(mdb->pg_buf, rco);
-	mdb_put_int16(new_pg, rco, num_rows);
+	num_rows = mdb_get_int16((char *)mdb->pg_buf, rco);
+	mdb_put_int16((char *)new_pg, rco, num_rows);
 
 	pos = pg_size;
 
@@ -754,20 +753,20 @@ int i, pos;
 		mdb_find_row(mdb, i, &row_start, &row_size);
 		pos -= row_size;
 		memcpy((char*)new_pg + pos, mdb->pg_buf + row_start, row_size);
-		mdb_put_int16(new_pg, rco + 2 + i*2, pos);
+		mdb_put_int16((char *)new_pg, rco + 2 + i*2, pos);
 	}
 
 	/* our row */
 	pos -= new_row_size;
 	memcpy((char*)new_pg + pos, new_row, new_row_size);
-	mdb_put_int16(new_pg, rco + 2 + row*2, pos);
+	mdb_put_int16((char *)new_pg, rco + 2 + row*2, pos);
 
 	/* rows after */
 	for (i=row+1;i<num_rows;i++) {
 		mdb_find_row(mdb, i, &row_start, &row_size);
 		pos -= row_size;
 		memcpy((char*)new_pg + pos, mdb->pg_buf + row_start, row_size);
-		mdb_put_int16(new_pg, rco + 2 + i*2, pos);
+		mdb_put_int16((char *)new_pg, rco + 2 + i*2, pos);
 	}
 
 	/* almost done, copy page over current */
@@ -775,7 +774,7 @@ int i, pos;
 
 	g_free(new_pg);
 
-	mdb_put_int16(mdb->pg_buf, 2, mdb_pg_get_freespace(mdb));
+	mdb_put_int16((char *)mdb->pg_buf, 2, mdb_pg_get_freespace(mdb));
 	if (mdb_get_option(MDB_DEBUG_WRITE)) {
 		mdb_buffer_dump(mdb->pg_buf, 0, 40);
 		mdb_buffer_dump(mdb->pg_buf, pg_size - 160, 160);
@@ -799,7 +798,7 @@ mdb_copy_index_pg(MdbTableDef *table, MdbIndex *idx, MdbIndexPage *ipg)
 	MdbColumn *col;
 	guint32 pg_row;
 	guint16 row = 0;
-	void *new_pg;
+	unsigned char *new_pg;
 	unsigned char key_hash[256];
 	int keycol;
 
@@ -829,7 +828,7 @@ mdb_copy_index_pg(MdbTableDef *table, MdbIndex *idx, MdbIndexPage *ipg)
 			return 0;
 		}
 
-		pg_row = mdb_get_int32_msb(mdb->pg_buf, ipg->offset + ipg->len - 4);
+		pg_row = mdb_get_int32_msb((char *)mdb->pg_buf, ipg->offset + ipg->len - 4);
 		/* guint32 pg = pg_row >> 8; */
 		row = pg_row & 0xff;
 		/* unsigned char iflag = mdb->pg_buf[ipg->offset]; */
@@ -857,7 +856,7 @@ mdb_copy_index_pg(MdbTableDef *table, MdbIndex *idx, MdbIndexPage *ipg)
 	}
 	//mdb_put_int16(new_pg, mdb->fmt->row_count_offset, row);
 	/* free space left */
-	mdb_put_int16(new_pg, 2, mdb->fmt->pg_size - ipg->offset);
+	mdb_put_int16((char *)new_pg, 2, mdb->fmt->pg_size - ipg->offset);
 	//printf("offset = %d\n", ipg->offset);
 
 	mdb_index_swap_n(idx_fields[0].value, col->col_size, key_hash);
@@ -871,7 +870,7 @@ mdb_copy_index_pg(MdbTableDef *table, MdbIndex *idx, MdbIndexPage *ipg)
 	((char *)new_pg)[ipg->offset] = 0x7f;
 	memcpy((char*)new_pg + ipg->offset + 1, key_hash, col->col_size);
 	pg_row = (pgnum << 8) | ((rownum-1) & 0xff);
-	mdb_put_int32_msb(new_pg, ipg->offset + 5, pg_row);
+	mdb_put_int32_msb((char *)new_pg, ipg->offset + 5, pg_row);
 	ipg->idx_starts[row++] = ipg->offset + ipg->len;
 	//ipg->idx_starts[row] = ipg->offset + ipg->len;
 	if (mdb_get_option(MDB_DEBUG_WRITE)) {
