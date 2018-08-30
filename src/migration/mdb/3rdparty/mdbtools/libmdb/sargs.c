@@ -175,13 +175,10 @@ mdb_test_sarg(MdbHandle *mdb, MdbColumn *col, MdbSargNode *node, MdbField *field
 {
 	char tmpbuf[256];
 
-	if (node->op == MDB_ISNULL) {
-		if (field->is_null) return 0;
-		else return 1;
-	} else if (node->op == MDB_NOTNULL) {
-		if (field->is_null) return 1;
-		else return 0;
-	}
+	if (node->op == MDB_ISNULL)
+		return field->is_null?1:0;
+	else if (node->op == MDB_NOTNULL)
+		return field->is_null?0:1;
 	switch (col->col_type) {
 		case MDB_BOOL:
 			return mdb_test_int(node, !field->is_null);
@@ -302,7 +299,7 @@ int mdb_add_sarg_by_name(MdbTableDef *table, char *colname, MdbSarg *in_sarg)
 
 	for (i=0;i<table->num_cols;i++) {
 		col = g_ptr_array_index (table->columns, i);
-		if (!strcasecmp(col->name,colname)) {
+		if (!g_ascii_strcasecmp(col->name,colname)) {
 			return mdb_add_sarg(col, in_sarg);
 		}
 	}

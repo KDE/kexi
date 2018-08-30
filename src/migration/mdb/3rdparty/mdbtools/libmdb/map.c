@@ -28,7 +28,7 @@ mdb_map_find_next0(MdbHandle *mdb, unsigned char *map, unsigned int map_sz, guin
 	guint32 pgnum, i, usage_bitlen;
 	unsigned char *usage_bitmap;
 
-	pgnum = mdb_get_int32(map, 1);
+	pgnum = mdb_get_int32((char *)map, 1);
 	usage_bitmap = map + 5;
 	usage_bitlen = (map_sz - 5) * 8;
 
@@ -63,7 +63,7 @@ mdb_map_find_next1(MdbHandle *mdb, unsigned char *map, unsigned int map_sz, guin
 		unsigned char *usage_bitmap;
 		guint32 i, map_pg;
 
-		if (!(map_pg = mdb_get_int32(map, (map_ind*4)+1))) {
+		if (!(map_pg = mdb_get_int32((char *)map, (map_ind*4)+1))) {
 			continue;
 		}
 		if(mdb_read_alt_pg(mdb, map_pg) != mdb->fmt->pg_size) {
