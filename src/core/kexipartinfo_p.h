@@ -18,8 +18,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXIPROJECTPARTITEM_P_H
-#define KEXIPROJECTPARTITEM_P_H
+#ifndef KEXIPARTINFO_P_H
+#define KEXIPARTINFO_P_H
 
 #include "kexipartinfo.h"
 

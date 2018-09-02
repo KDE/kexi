@@ -18,8 +18,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef TABSTOPEDIT_DIALOG_H
-#define TABSTOPEDIT_DIALOG_H
+#ifndef TABSTOP_DIALOG_H
+#define TABSTOP_DIALOG_H
 
 #include "kformdesigner_export.h"
 

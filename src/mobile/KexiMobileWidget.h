@@ -18,8 +18,8 @@
  *  Boston, MA 02110-1301, USA.
  */
 
-#ifndef KEXIMOBILEWIDHET_H
-#define KEXIMOBILEWIDHET_H
+#ifndef KEXIMOBILEWIDGET_H
+#define KEXIMOBILEWIDGET_H
 
 #include <QStackedWidget>
 #include <core/kexiproject.h>

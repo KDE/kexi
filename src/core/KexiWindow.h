@@ -301,7 +301,7 @@ private:
     //! Closes the window and all views. If @a force is true, attempts to close every
     //! view even if one of them refuses to close. If @a force is false, false is returned
     //! as soon as first view refuses to close.
-    //! @return true on sucessfull close; forced close always returns true
+    //! @return true on successful close; forced close always returns true
     bool close(bool force = false);
 
     void createSubwidgets();

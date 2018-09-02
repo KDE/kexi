@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXISCRIPTDEBUG_H
-#define KEXISCRIPTDEBUG_H
+#ifndef KEXISCRIPTINGDEBUG_H
+#define KEXISCRIPTINGDEBUG_H
 #include <QDebug>
 
 

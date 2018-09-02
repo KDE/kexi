@@ -43,7 +43,6 @@
 #include <KDbConnectionData>
 #include <KDbDriver>
 #include <KDbDriverManager>
-#include <KDbDriverManager>
 #include <KDbSqlResult>
 #include <KDbTransactionGuard>
 #include <KDbUtils>

@@ -24,8 +24,8 @@
    Original Project: buX (www.bux.at)
 */
 
-#ifndef KEXITABLEVIEW_P_H
-#define KEXITABLEVIEW_P_H
+#ifndef KEXITABLESCROLLAREA_P_H
+#define KEXITABLESCROLLAREA_P_H
 
 #include "KexiTableScrollArea.h"
 #include "KexiTableScrollAreaHeader.h"

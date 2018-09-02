@@ -32,7 +32,6 @@
 #include "kexitabledesigner_dataview.h"
 #include "kexilookupcolumnpage.h"
 #include <KexiWindow.h>
-#include <kexiutils/utils.h>
 
 #include <KDbConnection>
 
