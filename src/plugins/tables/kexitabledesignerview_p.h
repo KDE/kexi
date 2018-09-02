@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXIALTERTABLEDIALOG_P_H
-#define KEXIALTERTABLEDIALOG_P_H
+#ifndef KEXITABLEDESIGNERVIEW_P_H
+#define KEXITABLEDESIGNERVIEW_P_H
 
 #include "kexitabledesignerview.h"
 #include <kundo2command.h>

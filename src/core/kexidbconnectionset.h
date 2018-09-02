@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KEXIDBCONNSET_H
-#define KEXIDBCONNSET_H
+#ifndef KEXIDBCONNECTIONSET_H
+#define KEXIDBCONNECTIONSET_H
 
 #include "kexicore_export.h"
 

@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXI_UTILS_PROPERTYMAP_H
-#define KEXI_UTILS_PROPERTYMAP_H
+#ifndef KEXI_UTILS_INTERNALPROPERTYMAP_H
+#define KEXI_UTILS_INTERNALPROPERTYMAP_H
 
 #include "kexiutils_export.h"
 #include <QVariant>

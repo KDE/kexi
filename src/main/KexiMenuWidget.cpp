@@ -29,6 +29,7 @@
 */
 
 #include "KexiMenuWidget.h"
+#include "KexiMenuWidget_p.h"
 #include <KColorScheme>
 #include <KColorUtils>
 #include <KIconLoader>
@@ -61,10 +62,6 @@
 #ifndef QT_NO_WHATSTHIS
 # include <QWhatsThis>
 #endif
-
-#include <KColorScheme>
-
-#include "KexiMenuWidget_p.h"
 
 const int calligraLogoPixmapInternalWidth = 100;
 const int calligraLogoPixmapInternalHeight = 71;
@@ -2150,7 +2147,7 @@ int KexiMenuWidgetPrivate::bottomOfLastItem() const
     return actionRects.last().bottom();
 }
 
-/* Logo's pixmap is consisted of logo and some glow (cutted-off vertically).
+/* Logo's pixmap is consisted of logo and some glow (cut-off vertically).
    (without the glow the math would be simpler)
  +--------+   +
  |  glow  |   |--- glowHeight - cutOffGlow

@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef RICHTEXTEDIT_DIALOG_H
-#define RICHTEXTEDIT_DIALOG_H
+#ifndef RICHTEXT_DIALOG_H
+#define RICHTEXT_DIALOG_H
 
 #include "kformdesigner_export.h"
 

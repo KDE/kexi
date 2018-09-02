@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KFORMDESIGNERFORMWIDGETIFACE_H
-#define KFORMDESIGNERFORMWIDGETIFACE_H
+#ifndef FORM_WIDGET_INTERFACE_H
+#define FORM_WIDGET_INTERFACE_H
 
 #include "kformdesigner_export.h"
 

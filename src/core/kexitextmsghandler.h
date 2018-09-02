@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXITXTMSGHANDLER_H
-#define KEXITXTMSGHANDLER_H
+#ifndef KEXITEXTMSGHANDLER_H
+#define KEXITEXTMSGHANDLER_H
 
 #include "kexiguimsghandler.h"
 

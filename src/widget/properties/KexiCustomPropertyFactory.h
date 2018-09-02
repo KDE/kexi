@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXICUSTOMPROPFACTORY_H
-#define KEXICUSTOMPROPFACTORY_H
+#ifndef KEXICUSTOMPROPERTYFACTORY_H
+#define KEXICUSTOMPROPERTYFACTORY_H
 
 #include "kexiextwidgets_export.h"
 

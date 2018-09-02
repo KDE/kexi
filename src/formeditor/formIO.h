@@ -27,7 +27,6 @@
 #include <QPixmap>
 #include <QLabel>
 #include <QPaintEvent>
-#include <QLabel>
 
 class QString;
 class QDomElement;

@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KDBWIDGETS_UTILS_H
-#define KDBWIDGETS_UTILS_H
+#ifndef KEXI_DB_UTILS_H
+#define KEXI_DB_UTILS_H
 
 #include <core/kexidataiteminterface.h>
 

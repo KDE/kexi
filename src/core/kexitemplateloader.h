@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXI_TEMPLLOADER_H
-#define KEXI_TEMPLLOADER_H
+#ifndef KEXI_TEMPLATELOADER_H
+#define KEXI_TEMPLATELOADER_H
 
 #include "kexiprojectdata.h"
 
