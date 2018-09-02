@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXIFORMDATAPROVIDER_H
-#define KEXIFORMDATAPROVIDER_H
+#ifndef KEXIDATAPROVIDER_H
+#define KEXIDATAPROVIDER_H
 
 #include "kexidataviewcommon_export.h"
 #include "kexiformdataiteminterface.h"

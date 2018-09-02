@@ -42,7 +42,7 @@ public:
 
     //! Sets database connection @a conn for which tables and connections will be displayed.
     //! If @a conn is 0, contents is cleared.
-    //! @return true on successfull retrieval of table and relation information.
+    //! @return true on successful retrieval of table and relation information.
     //! On failure result is available at conn->result() and KdbMessageGuard can be used.
     bool setConnection(KDbConnection *conn);
 

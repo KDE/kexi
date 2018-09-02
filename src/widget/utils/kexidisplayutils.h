@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXIDISPUTILS_H
-#define KEXIDISPUTILS_H
+#ifndef KEXIDISPLAYUTILS_H
+#define KEXIDISPLAYUTILS_H
 
 #include "kexiguiutils_export.h"
 

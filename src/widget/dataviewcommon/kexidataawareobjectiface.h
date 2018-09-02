@@ -23,8 +23,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXIDATAAWAREOBJECTINTERFACE_H
-#define KEXIDATAAWAREOBJECTINTERFACE_H
+#ifndef KEXIDATAAWAREOBJECTIFACE_H
+#define KEXIDATAAWAREOBJECTIFACE_H
 
 #include "kexidataviewcommon_export.h"
 #include <core/kexisearchandreplaceiface.h>

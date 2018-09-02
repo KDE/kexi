@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KEXICSVOPTIONSDIALOG_H
-#define KEXICSVOPTIONSDIALOG_H
+#ifndef KEXICSVIMPORTOPTIONSDLG_H
+#define KEXICSVIMPORTOPTIONSDLG_H
 
 #include <QDialog>
 #include <QCheckBox>

@@ -22,8 +22,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXIUTILS_FONTSETTINGS_H
-#define KEXIUTILS_FONTSETTINGS_H
+#ifndef KEXIUTILS_FONTSETTINGS_P_H
+#define KEXIUTILS_FONTSETTINGS_P_H
 
 #include <QFont>
 #include <KSharedConfig>

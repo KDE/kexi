@@ -23,10 +23,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QWidget>
-#include <QPushButton>
 
-#include <KGuiItem>
-#include <KStandardGuiItem>
 #include <KGuiItem>
 #include <KStandardGuiItem>
 #include <KLocalizedString>

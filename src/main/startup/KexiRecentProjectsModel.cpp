@@ -32,8 +32,6 @@
 #include <QFileInfo>
 #include <QDebug>
 
-#include <QFileInfo>
-
 KexiRecentProjectsModel::KexiRecentProjectsModel(
     const KexiRecentProjects& projects, QObject *parent)
  : QAbstractListModel(parent), m_projects(&projects)

@@ -17,8 +17,8 @@
  * Boston, MA 02110-1301, USA.
 */
 
-#ifndef KEXI_MIGRATION_MNGR_H
-#define KEXI_MIGRATION_MNGR_H
+#ifndef KEXI_MIGRATE_MANAGER_H
+#define KEXI_MIGRATE_MANAGER_H
 
 #include <QObject>
 #include <QMap>

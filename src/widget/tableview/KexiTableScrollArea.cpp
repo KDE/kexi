@@ -64,7 +64,6 @@
 #include <QScrollArea>
 #include <QApplication>
 #include <QScrollBar>
-#include <QMenu>
 #include <QAction>
 #include <QDebug>
 #ifdef KEXI_TABLE_PRINT_SUPPORT

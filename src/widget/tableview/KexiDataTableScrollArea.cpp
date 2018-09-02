@@ -20,7 +20,6 @@
  */
 
 #include "KexiDataTableScrollArea.h"
-#include "KexiDataTableScrollArea.h"
 #include "KexiDataTableView.h"
 
 #include <KDbConnection>
