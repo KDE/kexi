@@ -186,7 +186,7 @@ bool KexiDBReportDataSource::getSchema(const QString& pluginId)
         if (d->originalSchema) {
             const KDbNativeStatementBuilder builder(d->tempData->connection(), KDb::DriverEscaping);
             KDbEscapedString sql;
-            if (builder.generateSelectStatement(&sql, d->originalSchema)) {
+            if (builder.generateSelectStatement(&sql, d->originalSchema, d->currentParams)) {
                 qDebug() << "Original:" << sql;
             } else {
                 qDebug() << "Original: ERROR";
@@ -196,7 +196,7 @@ bool KexiDBReportDataSource::getSchema(const QString& pluginId)
 
             d->copySchema = new KDbQuerySchema(*d->originalSchema, d->tempData->connection());
             qDebug() << KDbConnectionAndQuerySchema(d->tempData->connection(), *d->copySchema);
-            if (builder.generateSelectStatement(&d->schemaSql, d->copySchema)) {
+            if (builder.generateSelectStatement(&d->schemaSql, d->copySchema, d->currentParams)) {
                 qDebug() << "Copy:" << d->schemaSql;
             } else {
                 qDebug() << "Copy: ERROR";
