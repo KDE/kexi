@@ -19,6 +19,8 @@
 
 #include "KexiDBReportDataSource.h"
 #include "kexireportpart.h"
+#include <kexiutils/utils.h>
+#include <kexiqueryparameters.h>
 
 #include <KDbConnection>
 #include <KDbOrderByColumn>
@@ -49,6 +51,7 @@ public:
     KDbQuerySchema *originalSchema;
     KDbQuerySchema *copySchema;
     KDbEscapedString schemaSql;
+    QList<QVariant> currentParams;
 };
 
 KexiDBReportDataSource::KexiDBReportDataSource(const QString &objectName, const QString &pluginId,
@@ -120,9 +123,9 @@ bool KexiDBReportDataSource::open()
         }
         else if ( d->copySchema)
         {
-            qDebug() << "Opening cursor.."
-                     << KDbConnectionAndQuerySchema(d->tempData->connection(), *d->copySchema);
-            d->cursor = d->tempData->connection()->executeQuery(d->copySchema, KDbCursor::Option::Buffered);
+            //qDebug() << "Opening cursor.."
+            //         << KDbConnectionAndQuerySchema(d->tempData->connection(), *d->copySchema);
+            d->cursor = d->tempData->connection()->executeQuery(d->copySchema, d->currentParams, KDbCursor::Option::Buffered);
         }
 
 
@@ -171,6 +174,13 @@ bool KexiDBReportDataSource::getSchema(const QString& pluginId)
             qDebug() << d->objectName <<  "is a query..";
             qDebug() << KDbConnectionAndQuerySchema(d->tempData->connection(), *query);
             d->originalSchema = new KDbQuerySchema(*query, d->tempData->connection());
+
+            bool ok;
+            KexiUtils::WaitCursorRemover remover;
+            d->currentParams = KexiQueryParameters::getParameters(0, d->tempData->connection(), d->originalSchema, &ok);
+            if (!ok) {
+                return false;
+            }
         }
 
         if (d->originalSchema) {
