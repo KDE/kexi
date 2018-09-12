@@ -125,6 +125,13 @@ bool KexiDBReportDataSource::open()
         {
             //qDebug() << "Opening cursor.."
             //         << KDbConnectionAndQuerySchema(d->tempData->connection(), *d->copySchema);
+            bool ok;
+            KexiUtils::WaitCursorRemover remover;
+            d->currentParams = KexiQueryParameters::getParameters(0, d->tempData->connection(), d->originalSchema, &ok);
+            if (!ok) {
+                return false;
+            }
+
             d->cursor = d->tempData->connection()->executeQuery(d->copySchema, d->currentParams, KDbCursor::Option::Buffered);
         }
 
@@ -174,13 +181,6 @@ bool KexiDBReportDataSource::getSchema(const QString& pluginId)
             qDebug() << d->objectName <<  "is a query..";
             qDebug() << KDbConnectionAndQuerySchema(d->tempData->connection(), *query);
             d->originalSchema = new KDbQuerySchema(*query, d->tempData->connection());
-
-            bool ok;
-            KexiUtils::WaitCursorRemover remover;
-            d->currentParams = KexiQueryParameters::getParameters(0, d->tempData->connection(), d->originalSchema, &ok);
-            if (!ok) {
-                return false;
-            }
         }
 
         if (d->originalSchema) {
