@@ -19,6 +19,8 @@
 
 #include "KexiDBReportDataSource.h"
 #include "kexireportpart.h"
+#include <kexiutils/utils.h>
+#include <kexiqueryparameters.h>
 
 #include <KDbConnection>
 #include <KDbOrderByColumn>
@@ -49,6 +51,7 @@ public:
     KDbQuerySchema *originalSchema;
     KDbQuerySchema *copySchema;
     KDbEscapedString schemaSql;
+    QList<QVariant> currentParams;
 };
 
 KexiDBReportDataSource::KexiDBReportDataSource(const QString &objectName, const QString &pluginId,
@@ -120,9 +123,16 @@ bool KexiDBReportDataSource::open()
         }
         else if ( d->copySchema)
         {
-            qDebug() << "Opening cursor.."
-                     << KDbConnectionAndQuerySchema(d->tempData->connection(), *d->copySchema);
-            d->cursor = d->tempData->connection()->executeQuery(d->copySchema, KDbCursor::Option::Buffered);
+            //qDebug() << "Opening cursor.."
+            //         << KDbConnectionAndQuerySchema(d->tempData->connection(), *d->copySchema);
+            bool ok;
+            KexiUtils::WaitCursorRemover remover;
+            d->currentParams = KexiQueryParameters::getParameters(0, d->tempData->connection(), d->originalSchema, &ok);
+            if (!ok) {
+                return false;
+            }
+
+            d->cursor = d->tempData->connection()->executeQuery(d->copySchema, d->currentParams, KDbCursor::Option::Buffered);
         }
 
 
@@ -176,7 +186,7 @@ bool KexiDBReportDataSource::getSchema(const QString& pluginId)
         if (d->originalSchema) {
             const KDbNativeStatementBuilder builder(d->tempData->connection(), KDb::DriverEscaping);
             KDbEscapedString sql;
-            if (builder.generateSelectStatement(&sql, d->originalSchema)) {
+            if (builder.generateSelectStatement(&sql, d->originalSchema, d->currentParams)) {
                 qDebug() << "Original:" << sql;
             } else {
                 qDebug() << "Original: ERROR";
@@ -186,7 +196,7 @@ bool KexiDBReportDataSource::getSchema(const QString& pluginId)
 
             d->copySchema = new KDbQuerySchema(*d->originalSchema, d->tempData->connection());
             qDebug() << KDbConnectionAndQuerySchema(d->tempData->connection(), *d->copySchema);
-            if (builder.generateSelectStatement(&d->schemaSql, d->copySchema)) {
+            if (builder.generateSelectStatement(&d->schemaSql, d->copySchema, d->currentParams)) {
                 qDebug() << "Copy:" << d->schemaSql;
             } else {
                 qDebug() << "Copy: ERROR";
