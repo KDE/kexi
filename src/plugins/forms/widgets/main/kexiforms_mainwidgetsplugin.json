@@ -70,6 +70,7 @@
         "Name[tr]": "Ana form programcıkları",
         "Name[uk]": "Віджети головної форми",
         "Name[x-test]": "xxMain form widgetsxx",
+        "Name[zh_CN]": "主窗体小部件",
         "ServiceTypes": [
             "Kexi/FormWidget"
         ],

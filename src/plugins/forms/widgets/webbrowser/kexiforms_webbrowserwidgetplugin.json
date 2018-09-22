@@ -71,6 +71,7 @@
         "Name[tr]": "Web tarayıcı programcığı",
         "Name[uk]": "Віджет перегляду інтернету",
         "Name[x-test]": "xxWeb browser widgetxx",
+        "Name[zh_CN]": "Web 浏览器小部件",
         "ServiceTypes": [
             "Kexi/FormWidget"
         ],

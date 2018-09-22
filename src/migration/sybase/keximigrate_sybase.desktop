@@ -41,6 +41,7 @@ Comment[sk]=Sybase importný plugin pre Kexi
 Comment[sv]=Sybase importinsticksprogram för Kexi
 Comment[uk]=Додаток імпортування даних з Sybase для Kexi
 Comment[x-test]=xxSybase Import Plugin for Kexixx
+Comment[zh_CN]=用于 Kexi 的 Sybase 导入插件
 X-KDE-Library=keximigrate_sybase
 X-KDE-ServiceTypes=Kexi/MigrationDriver
 Type=Service
