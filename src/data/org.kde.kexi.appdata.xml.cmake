@@ -39,6 +39,7 @@
   <summary xml:lang="sv">Visuellt byggverktyg för databasprogram</summary>
   <summary xml:lang="uk">Програма для побудови візуальних обробників баз даних</summary>
   <summary xml:lang="x-test">xxVisual database apps builderxx</summary>
+  <summary xml:lang="zh-CN">可视化数据库应用程序生成器</summary>
   <description>
     <p>
       KEXI is a visual database applications builder. It can be used for designing database applications,
@@ -60,6 +61,7 @@
     <p xml:lang="sv">KEXI är ett visuell byggverktyg för databasprogram, en del av Calligra-sviten. Den kan användas för att skapa databasprogram, infoga och redigera data, ställa frågor och behandla data. Formulär kan skapas för att tillhandahålla ett anpassat gränssnitt för data. Alla databasobjekt (tabeller, frågor, formulär, rapporter, etc.) lagras i databasen, vilket gör det enkelt att dela data och konstruktion.</p>
     <p xml:lang="uk">KEXI — програма для створення обробників баз даних у візуальному режимі. Цією програмою можна скористатися для створень мініпрограм для роботи з базами даних, додавання та редагування даних, виконання запитів та обробки даних. За допомогою створених програмою форм ви можете отримати потрібний вам режим доступу до ваших даних. Всі об’єкти баз даних — таблиці, запити, форми, звіти тощо, — зберігаються у самій базі даних, що спрощує поширення даних та представлення даних.</p>
     <p xml:lang="x-test">xxKEXI is a visual database applications builder. It can be used for designing database applications, inserting and editing data, performing queries, and processing data. Forms can be created to provide a custom interface to your data. All database objects - tables, queries, forms, reports, etc. - are stored in the database, making it easy to share data and design.xx</p>
+    <p xml:lang="zh-CN">KEXI 是一个可视化的数据库应用程序生成器。它能够被用于设计数据库应用程序，插入和编辑数据，执行查询，以及处理数据。您可以创建表单作为数据的自定义接口。所有数据库对象——表，查询，表单，报告，等等——都存储在数据库中，以便于共享数据和设计。</p>
     <p>Features:</p>
     <p xml:lang="bs">Osobine:</p>
     <p xml:lang="ca">Característiques:</p>
@@ -108,6 +110,7 @@
       <li xml:lang="sv">Fullständigt visuell konstruktion av tabeller, frågor, formulär och rapporter</li>
       <li xml:lang="uk">Повноцінне візуальне середовище для створення таблиць, запитів, форм та звітів.</li>
       <li xml:lang="x-test">xxFull visual designers for tables, queries, forms and reportsxx</li>
+      <li xml:lang="zh-CN">表格，查询，窗体和报告的完整视觉设计器</li>
       <li>Running queries, support for parametrized queries</li>
       <li xml:lang="bs">Potrebno upite , podršku za parametrizovan upite</li>
       <li xml:lang="ca">Execució de consultes, admet consultes paramètriques</li>
@@ -130,6 +133,7 @@
       <li xml:lang="sv">Ställa frågor, stöd för parameterbaserade frågor</li>
       <li xml:lang="uk">Виконання запитів, підтримка параметризованих запитів.</li>
       <li xml:lang="x-test">xxRunning queries, support for parametrized queriesxx</li>
+      <li xml:lang="zh-CN">运行查询，支持参数化查询</li>
       <li>Supports SQLite, MySQL, PostgreSQL, xBase, and Sybase/MS SQL Server databases</li>
       <li xml:lang="ca">Permet bases de dades SQLite, MySQL, PostgreSQL, xBase i Sybase/MS SQL Server</li>
       <li xml:lang="ca-valencia">Permet bases de dades SQLite, MySQL, PostgreSQL, xBase i Sybase/MS SQL Server</li>
@@ -148,6 +152,7 @@
       <li xml:lang="sv">Stöder databaserna SQLite, MySQL, PostgreSQL, xBase och Sybase/MS SQL Server</li>
       <li xml:lang="uk">Підтримка баз даних SQLite, MySQL, PostgreSQL, xBase та Sybase/MS SQL.</li>
       <li xml:lang="x-test">xxSupports SQLite, MySQL, PostgreSQL, xBase, and Sybase/MS SQL Server databasesxx</li>
+      <li xml:lang="zh-CN">支持SQLite，MySQL，PostgreSQL，xBase和Sybase/MS SQL Server数据库</li>
       <li>The only multiplatform visual tool that can easily import data from MS Access databases</li>
       <li xml:lang="ca">L'única eina visual multiplataforma que pot importar fàcilment dades des de les bases de dades MS Access</li>
       <li xml:lang="ca-valencia">L'única eina visual multiplataforma que pot importar fàcilment dades des de les bases de dades MS Access</li>
@@ -166,6 +171,7 @@
       <li xml:lang="sv">Det enda visuella verktyget för flera plattformar som enkelt kan importera data från MS Access-databaser</li>
       <li xml:lang="uk">Єдиний візуальний багатоплатформовий інструмент, здатний без проблем імпортувати дані з баз даних MS Access.</li>
       <li xml:lang="x-test">xxThe only multiplatform visual tool that can easily import data from MS Access databasesxx</li>
+      <li xml:lang="zh-CN">唯一可以轻松从MS Access数据库导入数据的多平台可视化工具</li>
       <li>Support for query design in dedicated SQL view</li>
       <li xml:lang="ca">Permet el disseny de consultes en vistes SQL dedicades</li>
       <li xml:lang="ca-valencia">Permet el disseny de consultes en vistes SQL dedicades</li>
@@ -184,6 +190,7 @@
       <li xml:lang="sv">Stöd för frågekonstruktion i en dedicerad SQL-vy</li>
       <li xml:lang="uk">Підтримка створення запитів за допомогою спеціальної панелі SQL.</li>
       <li xml:lang="x-test">xxSupport for query design in dedicated SQL viewxx</li>
+      <li xml:lang="zh-CN">支持专用SQL视图中的查询设计</li>
       <li>Designing and displaying relational data using combo boxes (lookup columns)</li>
       <li xml:lang="bs">Izrada i prikazivanje relacijskih podataka pomoću combo kutije ( pregledavanje kolone)</li>
       <li xml:lang="ca">Disseny i visualització de dades relacionals usant quadres combinats (columnes de cerca)</li>
@@ -205,6 +212,7 @@
       <li xml:lang="sv">Konstruktion och visning av relationsdata med användning av kombinationsrutor (uppslagning av kolumner)</li>
       <li xml:lang="uk">Створення та показ пов’язаних даних за допомогою спадних списків (стовпчики пошуку).</li>
       <li xml:lang="x-test">xxDesigning and displaying relational data using combo boxes (lookup columns)xx</li>
+      <li xml:lang="zh-CN">使用下拉框设计和显示关系数据(查找列)</li>
       <li>Direct data entry or import using CSV format</li>
       <li xml:lang="bs">Unos podataka direktno  ili uvoz pomoću CSV formata</li>
       <li xml:lang="ca">Entrada directa de dades o importació usant el format CSV</li>
@@ -227,6 +235,7 @@
       <li xml:lang="sv">Direkt datainmatning eller import med CSV-format</li>
       <li xml:lang="uk">Безпосереднє введення даних або імпортування даних у форматі CSV.</li>
       <li xml:lang="x-test">xxDirect data entry or import using CSV formatxx</li>
+      <li xml:lang="zh-CN">使用CSV格式直接输入或导入数据</li>
       <li>Locked down User Mode, allowing you to switch off all commands related to editing your project's design</li>
       <li xml:lang="bs">Zatvoreni  korisnički režim, omogućavajući vam da isključite sve naredbe koje se odnose na uređivanje dizajna vašeg projekta</li>
       <li xml:lang="ca">Mode reduït d'usuari, que permet deshabilitar totes les ordres relacionades amb l'edició del disseny del projecte</li>
@@ -248,6 +257,7 @@
       <li xml:lang="sv">Låsbart användarläge, som låter dig stänga av alla kommandon relaterade till redigering av projektets konstruktion</li>
       <li xml:lang="uk">Заблокований режим користувача, у якому можна вимкнути усі пов’язані з командами редагування компонування вашого проекту команди.</li>
       <li xml:lang="x-test">xxLocked down User Mode, allowing you to switch off all commands related to editing your project's designxx</li>
+      <li xml:lang="zh-CN">锁定用户模式，允许您关闭与编辑您的项目设计相关的所有命令</li>
       <li>Scripting using JavaScript, Python or Ruby programming languages (experimental)</li>
       <li xml:lang="bs">Scripting koristeći JavaScript, Python ili Ruby programskim jezicima (eksperimentalno)</li>
       <li xml:lang="ca">Crear scripts usant els llenguatges de programació JavaScript, Python o Ruby (experimental)</li>
@@ -270,6 +280,7 @@
       <li xml:lang="sv">Skript med användning av programspråken Javascript, Python eller Ruby (experimentellt)</li>
       <li xml:lang="uk">Керування за допомогою скриптів мовами JavaScript, Python та Ruby (експериментальна можливість).</li>
       <li xml:lang="x-test">xxScripting using JavaScript, Python or Ruby programming languages (experimental)xx</li>
+      <li xml:lang="zh-CN">使用JavaScript, Python 或Ruby语言来编写脚本(实验性质)</li>
     </ul>
   </description>
   <url type="homepage">http://www.kexi-project.org</url>
@@ -294,6 +305,7 @@
       <caption xml:lang="sv">Tabellvy</caption>
       <caption xml:lang="uk">Перегляд таблиць</caption>
       <caption xml:lang="x-test">xxTabular viewxx</caption>
+      <caption xml:lang="zh-CN">表格视图</caption>
       <image>http://kexi-project.org/pics/3.0/kexi-3.0-table-view.png</image>
     </screenshot>
     <screenshot>
@@ -312,6 +324,7 @@
       <caption xml:lang="sv">Frågekonstruktion</caption>
       <caption xml:lang="uk">Засіб для розробки запитів</caption>
       <caption xml:lang="x-test">xxQuery Designerxx</caption>
+      <caption xml:lang="zh-CN">查询设计器</caption>
       <image>http://kexi-project.org/pics/3.1/kexi-3.1-query-designer.png</image>
     </screenshot>
     <screenshot>
@@ -331,6 +344,7 @@
       <caption xml:lang="sv">SQL-editor</caption>
       <caption xml:lang="uk">Редактор SQL</caption>
       <caption xml:lang="x-test">xxSQL Editorxx</caption>
+      <caption xml:lang="zh-CN">SQL 编辑器</caption>
       <image>http://kexi-project.org/pics/3.0/kexi-3.0-alpha-sql_editor.png</image>
     </screenshot>
     <screenshot>
@@ -357,6 +371,7 @@
       <caption xml:lang="sv">Formulärkonstruktion</caption>
       <caption xml:lang="uk">Засіб для розробки форм.</caption>
       <caption xml:lang="x-test">xxForm Designerxx</caption>
+      <caption xml:lang="zh-CN">窗体设计器</caption>
       <image>http://kexi-project.org/pics/3.0/kexi-3.0-compare-old.png</image>
     </screenshot>
     <screenshot>
@@ -375,6 +390,7 @@
       <caption xml:lang="sv">Rapportkonstruktion</caption>
       <caption xml:lang="uk">Засіб для розробки звітів</caption>
       <caption xml:lang="x-test">xxReport Designerxx</caption>
+      <caption xml:lang="zh-CN">报表设计器</caption>
       <image>http://kexi-project.org/pics/3.1/kreport-3.1-custompagesize.png</image>
     </screenshot>
     <screenshot>
@@ -393,6 +409,7 @@
       <caption xml:lang="sv">Databasimport från MS Access</caption>
       <caption xml:lang="uk">Імпортування баз даних MS Access</caption>
       <caption xml:lang="x-test">xxMS Access database importxx</caption>
+      <caption xml:lang="zh-CN">MS Access 数据库导入</caption>
       <image>http://kexi-project.org/pics/3.1/kexi-3.1-import-ms-access.png</image>
     </screenshot>
   </screenshots>
