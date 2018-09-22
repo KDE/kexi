@@ -42,6 +42,7 @@ Comment[sk]=Importný plugin zošita pre Kexi
 Comment[sv]=Importinsticksprogram av kalkylark för Kexi
 Comment[uk]=Додаток імпортування даних з електронної таблиці для Kexi
 Comment[x-test]=xxSpreadsheet Import Plugin for Kexixx
+Comment[zh_CN]=用于 Kexi 的工作表导入插件
 X-KDE-Library=keximigrate_spreadsheet
 X-KDE-ServiceTypes=Kexi/MigrationDriver
 Type=Service

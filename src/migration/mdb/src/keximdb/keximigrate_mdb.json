@@ -17,7 +17,8 @@
                 "Name[pt_BR]": "Equipe do KEXI",
                 "Name[sv]": "Kexi-gruppen",
                 "Name[uk]": "Команда KEXI",
-                "Name[x-test]": "xxKEXI Teamxx"
+                "Name[x-test]": "xxKEXI Teamxx",
+                "Name[zh_CN]": "KEXI 团队"
             }
         ],
         "Category": "",
@@ -37,6 +38,7 @@
         "Description[sv]": "MS Access (MDB) importinsticksprogram för KEXI",
         "Description[uk]": "Додаток імпортування даних з MS Access (MDB) для KEXI",
         "Description[x-test]": "xxMS Access (MDB) import plugin for KEXIxx",
+        "Description[zh_CN]": "KEXI MS Access (MDB) 导入插件",
         "EnabledByDefault": true,
         "Icon": "",
         "Id": "org.kexi-project.migration.mdb",

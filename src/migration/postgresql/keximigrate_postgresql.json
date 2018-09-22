@@ -17,7 +17,8 @@
                 "Name[pt_BR]": "Equipe do KEXI",
                 "Name[sv]": "Kexi-gruppen",
                 "Name[uk]": "Команда KEXI",
-                "Name[x-test]": "xxKEXI Teamxx"
+                "Name[x-test]": "xxKEXI Teamxx",
+                "Name[zh_CN]": "KEXI 团队"
             }
         ],
         "Category": "",
@@ -39,6 +40,7 @@
         "Description[sv]": "Importinsticksprogram av PostgreSQL-databaser för KEXI",
         "Description[uk]": "Додаток імпортування баз даних з PostgreSQL для KEXI",
         "Description[x-test]": "xxPostgreSQL database import plugin for KEXIxx",
+        "Description[zh_CN]": "KEXI PostgreSQL 数据库导入插件",
         "EnabledByDefault": true,
         "Icon": "",
         "Id": "org.kexi-project.migration.postgresql",

@@ -38,6 +38,7 @@ Comment[sk]=Kexi Plugin na import/export CSV dát
 Comment[sv]=Kexi insticksprogram för import/export av CSV-data
 Comment[uk]=Додаток до Kexi для імпортування та експортування даних у форматі CSV
 Comment[x-test]=xxKexi Plugin for CSV data import/exportxx
+Comment[zh_CN]=用于 CSV 数据导入/导出的 Kexi 插件
 Type=Service
 Icon=document-import
 

@@ -17,6 +17,7 @@ Name[sk]=Widget Mapa
 Name[sv]=Kartkomponenter
 Name[uk]=Віджет карти
 Name[x-test]=xxMap Widgetxx
+Name[zh_CN]=地图部件
 Comment=Kexi plugin providing map browser form widget
 Comment[ca]=Connector del Kexi que proporciona estris de formularis de navegació de mapes
 Comment[ca@valencia]=Connector del Kexi que proporciona estris de formularis de navegació de mapes
@@ -35,6 +36,7 @@ Comment[sk]=Kexi plugin poskytujúci prehliadač máp z widgetu
 Comment[sv]=Kexi-insticksprogram som tillhandahåller formulärkomponent med kartbläddrare
 Comment[uk]=Додаток до Kexi, що забезпечує роботу форми навігатора картою
 Comment[x-test]=xxKexi plugin providing map browser form widgetxx
+Comment[zh_CN]=Kexi Web 浏览器地图小部件插件
 Type=Service
 Icon=form
 

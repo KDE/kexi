@@ -17,7 +17,8 @@
                 "Name[pt_BR]": "Equipe do KEXI",
                 "Name[sv]": "Kexi-gruppen",
                 "Name[uk]": "Команда KEXI",
-                "Name[x-test]": "xxKEXI Teamxx"
+                "Name[x-test]": "xxKEXI Teamxx",
+                "Name[zh_CN]": "KEXI 团队"
             }
         ],
         "Category": "",
@@ -37,6 +38,7 @@
         "Description[sv]": "KEXI-insticksprogram som tillhandahåller komponenter för databasformulär",
         "Description[uk]": "Додаток до KEXI, що забезпечує роботу віджетів форм бази даних",
         "Description[x-test]": "xxKEXI plugin providing database form widgetsxx",
+        "Description[zh_CN]": "KEXI 数据库表单小部件插件",
         "EnabledByDefault": true,
         "Icon": "form",
         "Id": "org.kexi-project.form.widgets.main",
@@ -59,6 +61,7 @@
         "Name[tr]": "Ana form programcıkları",
         "Name[uk]": "Віджети головної форми",
         "Name[x-test]": "xxMain form widgetsxx",
+        "Name[zh_CN]": "主窗体小部件",
         "ServiceTypes": [
             "Kexi/FormWidget"
         ],

@@ -18,6 +18,7 @@ Name[sk]=Migrácia
 Name[sv]=Konvertering
 Name[uk]=Перенесення
 Name[x-test]=xxMigrationxx
+Name[zh_CN]=迁移
 Comment=Kexi plugin for handling database migration
 Comment[ca]=Connector del Kexi per gestionar migracions de bases de dades
 Comment[ca@valencia]=Connector del Kexi per gestionar migracions de bases de dades
@@ -37,6 +38,7 @@ Comment[sk]=Kexi plugin na spracovanie migrácie databáz
 Comment[sv]=Kexi-insticksprogram för att hantera databaskonvertering
 Comment[uk]=Додаток до Kexi для перенесення баз даних
 Comment[x-test]=xxKexi plugin for handling database migrationxx
+Comment[zh_CN]=用于处理数据库迁移的 Kexi 插件
 Type=Service
 Icon=database-import
 
