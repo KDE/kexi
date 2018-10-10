@@ -1,6 +1,5 @@
 [Desktop Entry]
 Name=Kexi
-Name[ast]=Kexi
 Name[ca]=Kexi
 Name[ca@valencia]=Kexi
 Name[cs]=Kexi
