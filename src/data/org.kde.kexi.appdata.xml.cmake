@@ -7,6 +7,7 @@
   <name xml:lang="ca">KEXI</name>
   <name xml:lang="ca-valencia">KEXI</name>
   <name xml:lang="cs">KEXI</name>
+  <name xml:lang="de">Kexi</name>
   <name xml:lang="en-GB">KEXI</name>
   <name xml:lang="es">KEXI</name>
   <name xml:lang="fi">Kexi</name>
@@ -313,6 +314,7 @@
       <caption xml:lang="ca">Dissenyador de consultes</caption>
       <caption xml:lang="ca-valencia">Dissenyador de consultes</caption>
       <caption xml:lang="cs">Návrhář dotazů</caption>
+      <caption xml:lang="de">Abfrage-Designer</caption>
       <caption xml:lang="en-GB">Query Designer</caption>
       <caption xml:lang="es">Diseñador de consultas</caption>
       <caption xml:lang="fi">Kyselyjen suunnittelu</caption>
@@ -332,6 +334,7 @@
       <caption xml:lang="ca">Editor de SQL</caption>
       <caption xml:lang="ca-valencia">Editor de SQL</caption>
       <caption xml:lang="cs">Editor SQL</caption>
+      <caption xml:lang="de">SQL-Editor</caption>
       <caption xml:lang="en-GB">SQL Editor</caption>
       <caption xml:lang="es">Editor SQL</caption>
       <caption xml:lang="fi">SQL-muokkain</caption>
@@ -379,6 +382,7 @@
       <caption xml:lang="ca">Dissenyador d'informes</caption>
       <caption xml:lang="ca-valencia">Dissenyador d'informes</caption>
       <caption xml:lang="cs">Návrhář hlášení</caption>
+      <caption xml:lang="de">Bericht-Designer</caption>
       <caption xml:lang="en-GB">Report Designer</caption>
       <caption xml:lang="es">Diseñador de informes</caption>
       <caption xml:lang="fi">Raporttien suunnittelu</caption>
@@ -398,6 +402,7 @@
       <caption xml:lang="ca">Importació d'una base de dades de MS Access</caption>
       <caption xml:lang="ca-valencia">Importació d'una base de dades de MS Access</caption>
       <caption xml:lang="cs">Import databáze MS Access</caption>
+      <caption xml:lang="de">Import von MS Access Datenbank</caption>
       <caption xml:lang="en-GB">MS Access database import</caption>
       <caption xml:lang="es">Importación de bases de datos de MS Access</caption>
       <caption xml:lang="fi">MS Access -tietokannan tuonti</caption>
