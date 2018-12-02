@@ -53,7 +53,7 @@
 
     \tableofcontents
 
-    \section1 Basic Usage
+    \section section1 Basic Usage
 
     A KexiCompleter is used typically with a QLineEdit or QComboBox.
     For example, here's how to provide auto completions from a simple
@@ -90,7 +90,7 @@
     The completionMode() determines the mode used to provide completions to
     the user.
 
-    \section1 Iterating Through Completions
+    \section section2 Iterating Through Completions
 
     To retrieve a single candidate string, call setCompletionPrefix()
     with the text that needs to be completed and call
@@ -103,7 +103,7 @@
     current prefix. completionCount() should be avoided when possible,
     since it requires a scan of the entire model.
 
-    \section1 The Completion Model
+    \section section3 The Completion Model
 
     completionModel() return a list model that contains all possible
     completions for the current completion prefix, in the order in which
@@ -111,7 +111,7 @@
     completions in a custom view. Calling setCompletionPrefix() automatically
     refreshes the completion model.
 
-    \section1 Handling Tree Models
+    \section section4 Handling Tree Models
 
     KexiCompleter can look for completions in tree models, assuming
     that any item (or sub-item or sub-sub-item) can be unambiguously
@@ -1525,7 +1525,7 @@ int KexiCompleter::completionCount() const
     The sort order (i.e ascending or descending order) of the model is determined
     dynamically by inspecting the contents of the model.
 
-    \bold{Note:} The performance improvements described above cannot take place
+    \b Note: The performance improvements described above cannot take place
     when the completer's \l caseSensitivity is different to the case sensitivity
     used by the model's when sorting.
 
