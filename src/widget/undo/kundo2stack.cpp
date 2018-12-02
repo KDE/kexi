@@ -1126,12 +1126,11 @@ QAction *KUndo2QStack::createRedoAction(QObject *parent) const
     beginMacro() must have a matching call to endMacro().
 
     While a macro is composed, the stack is disabled. This means that:
-    \list
-    \i indexChanged() and cleanChanged() are not emitted,
-    \i canUndo() and canRedo() return false,
-    \i calling undo() or redo() has no effect,
-    \i the undo/redo actions are disabled.
-    \endlist
+
+    \li indexChanged() and cleanChanged() are not emitted,
+    \li canUndo() and canRedo() return false,
+    \li calling undo() or redo() has no effect,
+    \li the undo/redo actions are disabled.
 
     The stack becomes enabled and appropriate signals are emitted when endMacro()
     is called for the outermost macro.

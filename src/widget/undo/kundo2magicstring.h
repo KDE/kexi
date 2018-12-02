@@ -29,7 +29,8 @@
 #include "kexiundo_export.h"
 
 /**
- * \class KUndo2MagicString is a special wrapper for a string that is
+ * \class KUndo2MagicString
+ * The class is a special wrapper for a string that is
  * going to passed to a KUndo2Command and be later shown in the undo
  * history and undo action in menu. The strings like that must have
  * (qtundo-format) context to let translators know that they are

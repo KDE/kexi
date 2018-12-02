@@ -181,7 +181,7 @@ public:
     /**
     * Open an item. A window for the item defined with \p pluginId and \p name will
     * be opened and we switch to it. The \p viewmode could be for example "data" (the
-    * default), "design" or "text" while the \args are optional arguments passed
+    * default), "design" or "text" while the \p args are optional arguments passed
     * to the item.
     *
     * Python sample that opens the "cars" form in design view mode and sets then the

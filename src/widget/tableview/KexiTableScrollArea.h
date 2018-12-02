@@ -116,7 +116,7 @@ public:
          combobox look and feel. */
         bool verticalGridEnabled;
 
-        /*! \if the navigation panel is enabled (visible) for the view.
+        /*! True if the navigation panel is enabled (visible) for the view.
          True by default. */
         bool navigatorEnabled;
 

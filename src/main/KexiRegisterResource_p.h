@@ -184,8 +184,9 @@ inline void setupBreezeIconTheme()
  * @param path Relative path to the resource file
  * @param location Standard file location to use for file lookup
  * @param resourceRoot A resource root for QResource::registerResource()
+ * @param extraLocation Extra location
  * @param errorMessage On failure it is set to a brief error message.
- * @param errorDescription On failure it is set to a detailed error message.
+ * @param detailedErrorMessage On failure it is set to a detailed error message.
  * other for warning
  */
 static bool registerIconsResource(const QString &privateName, const QString& path,
@@ -227,7 +228,7 @@ static bool registerIconsResource(const QString &privateName, const QString& pat
  * @param path Relative path to the resource file
  * @param themeName Icon theme to use. It affects filename.
  * @param errorMessage On failure it is set to a brief error message
- * @param errorDescription On failure it is set to a detailed error message
+ * @param detailedErrorMessage On failure it is set to a detailed error message
  * other for warning
  * @param prefix Resource path prefix. The default is useful for library-global resource,
  * other values is useful for plugins.
@@ -270,7 +271,7 @@ static bool setupPrivateIconsResource(const QString &privateName, const QString&
  * @param path Relative path to the resource file
  * @param themeName Icon theme to use. It affects filename.
  * @param errorMessage On failure it is set to a brief error message.
- * @param errorDescription On failure it is set to a detailed error message.
+ * @param detailedErrorMessage On failure it is set to a detailed error message.
  * other for warning
  * @param prefix Resource path prefix. The default is useful for library-global resource,
  * other values is useful for plugins.

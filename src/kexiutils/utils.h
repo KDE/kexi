@@ -249,7 +249,7 @@ KEXIUTILS_EXPORT QUrl getSaveImageUrl(QWidget *parent = 0, const QString &captio
  *
  * Use instead of KFileWidget::getStartUrl(const QUrl &startDir, QString &recentDirClass).
  *
- * @param startDir A URL specifying the initial directory, or using the
+ * @param startDirOrVariable A URL specifying the initial directory, or using the
  *                 @c kfiledialog:/// syntax to specify a last used directory.
  *                 If the string includes a file name, it is ignored.
  *                 Refer to the KFileWidget::KFileWidget() documentation for the @c kfiledialog:///
@@ -676,9 +676,11 @@ KEXIUTILS_EXPORT bool shouldUseNativeDialogs();
  * @enum CaptionFlag
  * Used to specify how to construct a window caption
  *
- * @value AppNameCaption Indicates that the method shall include
+ * @var AppNameCaption
+ * Indicates that the method shall include
  * the application name when making the caption string.
- * @value ModifiedCaption Causes a 'modified' sign will be included in the
+ * @var ModifiedCaption
+ * Causes a 'modified' sign will be included in the
  * returned string. This is useful when indicating that a file is
  * modified, i.e., it contains data that has not been saved.
  */
@@ -711,7 +713,7 @@ KEXIUTILS_EXPORT QString makeStandardCaption(const QString &userCaption,
 
 /**
  * Return rich text for @a string. Equivalent of KLocalizedString::toString(Kuit::RichText)
- * but <html> and </html> is removed so the result can be used as %* argument in other string.
+ * but \<html\> and \</html\> is removed so the result can be used as %* argument in other string.
  */
 KEXIUTILS_EXPORT QString localizedStringToHtmlSubstring(const KLocalizedString& string);
 
