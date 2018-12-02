@@ -1611,7 +1611,7 @@ QAction *KexiMenuWidget::addAction(const QIcon &icon, const QString &text)
 
     This convenience function creates a new action with the text \a
     text and an optional shortcut \a shortcut. The action's
-    \l{QAction::triggered()}{triggered()} signal is connected to the
+    QAction::triggered() signal is connected to the
     \a receiver's \a member slot. The function adds the newly created
     action to the menu's list of actions and returns it.
 
@@ -1635,7 +1635,7 @@ QAction *KexiMenuWidget::addAction(const QString &text, const QObject *receiver,
 
     This convenience function creates a new action with an \a icon and
     some \a text and an optional shortcut \a shortcut. The action's
-    \l{QAction::triggered()}{triggered()} signal is connected to the
+    QAction::triggered() signal is connected to the
     \a member slot of the \a receiver object. The function adds the
     newly created action to the menu's list of actions, and returns it.
 
