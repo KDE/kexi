@@ -107,7 +107,7 @@ protected:
     //! \return lookup field schema for this combo box, if present and if is valid (i.e. has defined record source)
     KDbLookupFieldSchema* lookupFieldSchema();
 
-    //! override
+    //! @overload
     const KDbLookupFieldSchema* lookupFieldSchema() const;
 
     int recordToHighlightForLookupTable() const;

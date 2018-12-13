@@ -145,7 +145,7 @@ set(KEXI_EXAMPLES_INSTALL_DIR ${SHARE_INSTALL_PREFIX}/${KEXI_BASE_PATH}/examples
 ############################
 ###########################
 
-set(KEXI_FRAMEWORKS_MIN_VERSION 3.1.90)
+set(KEXI_FRAMEWORKS_MIN_VERSION 3.2.90)
 
 ##
 ## Test for KDb

@@ -45,10 +45,14 @@ class Q_DECL_HIDDEN KexiDateFormatter::Private
 public:
     Private()
         // use "short date" format system settings
+        //! @note Qt has broken support for some time formats: https://bugreports.qt.io/browse/QTBUG-59382
+        //!       en_DK should be yyyy-MM-dd but it's dd/MM/yyyy in Qt 5.
+        //!       Use en_SE as a workaround.
         //! @todo allow to override the format using column property and/or global app settings
         : inputFormat(QLocale().dateFormat(QLocale::ShortFormat))
     {
         outputFormat = inputFormat;
+        //qDebug() << inputFormat << QLocale().dateFormat(QLocale::LongFormat);
         emptyFormat = inputFormat;
         inputMask = inputFormat;
         computeDaysFormatAndMask();
