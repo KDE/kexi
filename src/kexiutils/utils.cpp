@@ -73,7 +73,6 @@
 #include <KColorScheme>
 #include <KConfigGroup>
 #include <KIconEffect>
-#include <KLocalizedString>
 
 #if HAVE_LANGINFO_H
 #include <langinfo.h>
@@ -1182,10 +1181,25 @@ QIcon themedIcon(const QString &name)
     return icon;
 }
 
-QString KexiUtils::localizedStringToHtmlSubstring(const KLocalizedString& string)
+QString KexiUtils::localizedStringToHtmlSubstring(const KLocalizedString &string)
 {
-    return string.toString(Kuit::RichText)
-            .remove(QLatin1String("<html>")).remove(QLatin1String("</html>"));
+    return string.isEmpty() ? QString()
+                            : string.toString(Kuit::RichText)
+                                  .remove(QLatin1String("<html>"))
+                                  .remove(QLatin1String("</html>"));
+}
+
+QString KexiUtils::localizedSentencesToHtml(const KLocalizedString &part1, const KLocalizedString &part2,
+                                    const KLocalizedString &part3, const KLocalizedString &part4,
+                                    const KLocalizedString &part5, const KLocalizedString &part6)
+{
+    return xi18nc("@info/plain Concatenated sentence1 sentence2 ...", "<html>%1%2%3%4%5%6</html>",
+                  KexiUtils::localizedStringToHtmlSubstring(part1),
+                  KexiUtils::localizedStringToHtmlSubstring(part2),
+                  KexiUtils::localizedStringToHtmlSubstring(part3),
+                  KexiUtils::localizedStringToHtmlSubstring(part4),
+                  KexiUtils::localizedStringToHtmlSubstring(part5),
+                  KexiUtils::localizedStringToHtmlSubstring(part6));
 }
 
 bool KexiUtils::cursorAtEnd(const QLineEdit *lineEdit)

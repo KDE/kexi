@@ -43,6 +43,7 @@
 #include <QUrl>
 
 #include <KIconLoader>
+#include <KLocalizedString>
 
 #include <KDbTristate>
 
@@ -51,7 +52,6 @@ class QDomNode;
 class QMetaProperty;
 class QLayout;
 class QLineEdit;
-class KLocalizedString;
 
 //! @short General Utils
 namespace KexiUtils
@@ -693,6 +693,18 @@ KEXIUTILS_EXPORT QString makeStandardCaption(const QString &userCaption,
  * but <html> and </html> is removed so the result can be used as %* argument in other string.
  */
 KEXIUTILS_EXPORT QString localizedStringToHtmlSubstring(const KLocalizedString& string);
+
+/**
+ * Return rich text for concatenated sentences or paragraphs.
+ *
+ * Any of the parameters can be empty but at least first should be non-empty.
+ */
+KEXIUTILS_EXPORT QString localizedSentencesToHtml(
+    const KLocalizedString &part1, const KLocalizedString &part2 = KLocalizedString(),
+    const KLocalizedString &part3 = KLocalizedString(),
+    const KLocalizedString &part4 = KLocalizedString(),
+    const KLocalizedString &part5 = KLocalizedString(),
+    const KLocalizedString &part6 = KLocalizedString());
 
 /**
  * @return @c true if text cursor is at the end of the line edit @a lineEdit.
