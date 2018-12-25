@@ -85,9 +85,12 @@ void KexiRecentProjects::Private::load()
     if (!dir.exists() || !dir.isReadable()) {
         return;
     }
-    QStringList shortcuts = dir.entryList(
-        QStringList() << QLatin1String("*.kexis"),
-        QDir::Files | QDir::NoSymLinks | QDir::Readable | QDir::CaseSensitive);
+    const QStringList shortcuts
+        = dir.entryList(QStringList() << QLatin1String("*.kexis"),
+                        QDir::Files | QDir::NoSymLinks | QDir::Readable | QDir::CaseSensitive
+                            | QDir::Hidden // Hidden too because there can be names starting with
+                                           // dot or hidden for without a clear reason
+        );
 #ifdef KexiRecentProjects_DEBUG
     qDebug() << shortcuts;
 #endif
