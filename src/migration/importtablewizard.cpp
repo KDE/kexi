@@ -37,7 +37,7 @@
 #include <widget/kexiprjtypeselector.h>
 #include <widget/KexiConnectionSelectorWidget.h>
 #include <widget/KexiProjectSelectorWidget.h>
-#include <widget/KexiDBTitlePage.h>
+#include <widget/KexiDBCaptionPage.h>
 #include <widget/KexiNameWidget.h>
 
 #include <KDbConnectionData>
