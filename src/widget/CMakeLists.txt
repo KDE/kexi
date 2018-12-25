@@ -39,7 +39,7 @@ set(kexiextendedwidgets_LIB_SRCS
     KexiDataSourceComboBox.cpp
     KexiObjectInfoLabel.cpp
     kexicharencodingcombobox.cpp
-    KexiDBTitlePage.cpp
+    KexiDBCaptionPage.cpp
     KexiProjectSelectorWidget.cpp
     kexislider.cpp
     KexiServerDriverNotFoundMessage.cpp
@@ -77,7 +77,7 @@ if(SHOULD_BUILD_KEXI_DESKTOP_APP)
 endif ()
 
 ki18n_wrap_ui(kexiextendedwidgets_LIB_SRCS
-    KexiDBTitlePage.ui
+    KexiDBCaptionPage.ui
     KexiProjectSelector.ui
 )
 

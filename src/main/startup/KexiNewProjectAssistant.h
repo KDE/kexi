@@ -80,23 +80,23 @@ private Q_SLOTS:
     void buttonClicked();
 };
 
-class KexiDBTitlePage;
+class KexiDBCaptionPage;
 class KexiStartupFileHandler;
 
-class KexiProjectTitleSelectionPage : public KexiAssistantPage
+class KexiProjectCaptionSelectionPage : public KexiAssistantPage
 {
     Q_OBJECT
 public:
-    explicit KexiProjectTitleSelectionPage(QWidget* parent = 0);
-    virtual ~KexiProjectTitleSelectionPage();
+    explicit KexiProjectCaptionSelectionPage(QWidget* parent = nullptr);
+    virtual ~KexiProjectCaptionSelectionPage();
 
     bool isAcceptable();
 
-    KexiDBTitlePage* contents;
+    KexiDBCaptionPage* contents;
     KexiStartupFileHandler *fileHandler;
     QPointer<KexiContextMessageWidget> messageWidget;
 private Q_SLOTS:
-    void titleTextChanged(const QString & text);
+    void captionTextChanged(const QString &text);
     void askForOverwriting(const KexiContextMessage& message);
 private:
     void updateUrl();
@@ -149,7 +149,7 @@ public:
     bool isAcceptable();
 
 private Q_SLOTS:
-    void slotTitleChanged(const QString &capt);
+    void slotCaptionChanged(const QString &capt);
     void slotNameChanged(const QString &);
     void overwriteActionTriggered();
 
