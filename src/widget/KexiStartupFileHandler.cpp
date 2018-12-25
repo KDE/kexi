@@ -461,12 +461,15 @@ void KexiStartupFileHandler::messageWidgetActionNoTriggered()
 void KexiStartupFileHandler::updateUrl(const QString &name)
 {
     QUrl url = d->requester->url();
+    QString path = url.toLocalFile();
+    if (!QFileInfo(path).isDir() && !path.endsWith('/')) {
+        url = url.adjusted(QUrl::RemoveFilename);
+        path = url.toLocalFile();
+    }
     QString fn = KDbUtils::stringToFileName(name);
     if (!fn.isEmpty() && !fn.endsWith(".kexi"))
         fn += ".kexi";
-    url = url.adjusted(QUrl::RemoveFilename);
-    qDebug() << url.toLocalFile();
-    url.setPath(url.toLocalFile() + fn);
+    url.setPath(QDir(path).absoluteFilePath(fn));
     d->requester->setUrl(url);
 }
 
