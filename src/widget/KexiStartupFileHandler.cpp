@@ -43,6 +43,7 @@
 #include <QEventLoop>
 #include <QMimeDatabase>
 #include <QMimeType>
+#include <QStandardPaths>
 #include <QUrl>
 
 //! @internal
@@ -120,6 +121,13 @@ void KexiStartupFileHandler::init(const QUrl &startDirOrVariable, KexiFileFilter
     }
     else {
         url = startDirOrVariable;
+    }
+    if (url.toLocalFile().isEmpty() || !QDir(url.toLocalFile()).exists()) {
+        url = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
+        QDir docDir(url.toLocalFile());
+        if (!docDir.exists()) { // create if missing
+            (void)docDir.mkpath(QString());
+        }
     }
     d->setUrl(url);
     setMode(mode);
