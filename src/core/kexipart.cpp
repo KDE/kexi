@@ -290,13 +290,11 @@ KexiWindow* Part::openInstance(QWidget* parent, KexiPart::Item *item, Kexi::View
         tristate askForOpeningInTextModeRes
         = d->askForOpeningInTextMode(window, item, window->supportedViewModes(), viewMode);
         if (true == askForOpeningInTextModeRes) {
-            delete window->schemaObject(); //old one
             window->close();
             delete window;
             //try in text mode
             return openInstance(parent, item, Kexi::TextViewMode, staticObjectArgs);
         } else if (false == askForOpeningInTextModeRes) {
-            delete window->schemaObject(); //old one
             window->close();
             delete window;
             qWarning() << "!window, cannot switch to a view mode" <<
