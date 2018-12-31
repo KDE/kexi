@@ -127,21 +127,27 @@ QVariant KexiRecentProjectsModel::data(const QModelIndex& index, int role) const
         }
         return result.join('\n');
     }
-    case Qt::ToolTipRole:
+    case Qt::ToolTipRole: {
         //! @todo add support for imported entries, e.g. MS Access
+        QStringList result;
         if (fileBased) {
-            return xi18nc("@info File database <file>", "File database <filename>%1</filename>",
-                          pdata->connectionData()->databaseName());
-        }
-        else {
+            result << xi18nc("@info File database <file>", "File database <filename>%1</filename>",
+                             pdata->connectionData()->databaseName());
+        } else {
             KDbDriverManager manager;
             const KDbDriverMetaData *driverMetaData = manager.driverMetaData(pdata->connectionData()->driverId());
             if (!driverMetaData) {
-                return xi18n("database");
+                result << xi18n("database");
             }
-            return xi18nc("<type> database, e.g. PostgreSQL database, MySQL database", "%1 database",
+            result << xi18nc("<type> database, e.g. PostgreSQL database, MySQL database", "%1 database",
                           driverMetaData->name());
         }
+        const QDateTime opened(pdata->lastOpened());
+        if (!opened.isNull()) { // for precision
+            result << xi18n("Last opened on %1", QLocale().toString(opened));
+        }
+        return QStringLiteral("<p>%1</p>").arg(result.join(QStringLiteral("</p><p>")));
+    }
     case Qt::DecorationRole: {
         //! @todo show icon specific to given database or mimetype
         if (fileBased) {
