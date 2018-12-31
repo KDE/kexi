@@ -139,7 +139,9 @@ void KexiFileWidget::updateFilters()
     setFiltersUpdated(true);
     clearFilter();
     filters()->setDefaultFilter(filterWidget()->defaultFilter());
-    setFilter(filters()->toString(KexiFileFilters::KDEFormat));
+    KexiFileFiltersFormat format;
+    format.type = KexiFileFiltersFormat::Type::KDE;
+    setFilter(filters()->toString(format));
 
     if (filters()->mode() == KexiFileFilters::Opening || filters()->mode() == KexiFileFilters::CustomOpening) {
         KFileWidget::setMode(KFile::ExistingOnly | KFile::LocalOnly | KFile::File);

@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -74,7 +74,8 @@ private:
 
         foreach(const QString& mimeName, additionalMimeTypes) {
             if (mimeName == "all/allfiles") {
-                continue;
+                continue; // "All files" is added automatically by KFileWidget and we add it
+                          // dynamically for KexiFileRequester
             }
             addMimeType(mimeName);
         }
@@ -217,12 +218,13 @@ bool KexiFileFilters::isExistingFileRequired() const
 }
 
 //static
-QString KexiFileFilters::separator(KexiFileFilters::Format format)
+QString KexiFileFilters::separator(const KexiFileFiltersFormat &format)
 {
-    return format == KexiFileFilters::QtFormat ? QStringLiteral(";;") : QStringLiteral("\n");
+    return format.type == KexiFileFiltersFormat::Type::Qt ? QStringLiteral(";;")
+                                                          : QStringLiteral("\n");
 }
 
-QStringList KexiFileFilters::toList(Format format) const
+QStringList KexiFileFilters::toList(const KexiFileFiltersFormat &format) const
 {
     QStringList result;
     QStringList allPatterns;
@@ -239,23 +241,32 @@ QStringList KexiFileFilters::toList(Format format) const
         result.prepend(KexiFileFilters::toString(allGlobPatterns,
             xi18n("All Supported Files"), format));
     }
+
+    if (format.addAllFiles) {
+        result.append(KexiFileFilters::toString({ QStringLiteral("*") }, xi18n("All Files"), format));
+    }
     return result;
 }
 
-QString KexiFileFilters::toString(Format format) const
+QString KexiFileFilters::toString(const KexiFileFiltersFormat &format) const
 {
     return toList(format).join(KexiFileFilters::separator(format));
 }
 
 //static
-QString KexiFileFilters::toString(const QStringList &patterns, const QString &comment, Format format)
+QString KexiFileFilters::toString(const QStringList &patterns, const QString &comment,
+                                  const KexiFileFiltersFormat &format)
 {
     QString str;
-    if (format == KDEFormat || format == KUrlRequesterFormat) {
+    if (format.type == KexiFileFiltersFormat::Type::KDE
+        || format.type == KexiFileFiltersFormat::Type::KUrlRequester)
+    {
         str += patterns.join(QStringLiteral(" ")) + QStringLiteral("|");
     }
     str += comment;
-    if (format == QtFormat || format == KDEFormat) {
+    if (format.type == KexiFileFiltersFormat::Type::Qt
+        || format.type == KexiFileFiltersFormat::Type::KDE)
+    {
         str += QStringLiteral(" (");
         if (patterns.isEmpty()) {
             str += QStringLiteral("*");
@@ -272,13 +283,13 @@ QString KexiFileFilters::toString(const QStringList &patterns, const QString &co
 }
 
 //static
-QString KexiFileFilters::toString(const QMimeType &mime, Format format)
+QString KexiFileFilters::toString(const QMimeType &mime, const KexiFileFiltersFormat &format)
 {
     if (!mime.isValid()) {
         return QString();
     }
 
-    if (format == QtFormat) {
+    if (format.type == KexiFileFiltersFormat::Type::Qt) {
         return mime.filterString();
     }
 
@@ -291,14 +302,15 @@ QString KexiFileFilters::toString(const QMimeType &mime, Format format)
 }
 
 //static
-QString KexiFileFilters::toString(const QString& mimeName, Format format)
+QString KexiFileFilters::toString(const QString& mimeName, const KexiFileFiltersFormat &format)
 {
     QMimeDatabase db;
     return KexiFileFilters::toString(db.mimeTypeForName(mimeName), format);
 }
 
-//static
-QStringList KexiFileFilters::toList(const QStringList& mimeNames, Format format)
+// static
+QStringList KexiFileFilters::toList(const QStringList &mimeNames,
+                                    const KexiFileFiltersFormat &format)
 {
     QStringList result;
     for(const QString &mimeName : mimeNames) {
@@ -308,7 +320,7 @@ QStringList KexiFileFilters::toList(const QStringList& mimeNames, Format format)
 }
 
 //static
-QString KexiFileFilters::toString(const QStringList& mimeNames, Format format)
+QString KexiFileFilters::toString(const QStringList& mimeNames, const KexiFileFiltersFormat &format)
 {
     return KexiFileFilters::toList(mimeNames, format).join(KexiFileFilters::separator(format));
 }

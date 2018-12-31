@@ -580,7 +580,10 @@ void KexiFileRequester::updateFilters()
             d->filterRegExps.append(new QRegExp(pattern, Qt::CaseInsensitive, QRegExp::Wildcard));
         }
         d->filterMimeTypes = filters()->mimeTypes();
-        d->filterCombo->setFilter(filters()->toString(KexiFileFilters::KDEFormat));
+        KexiFileFiltersFormat format;
+        format.type = KexiFileFiltersFormat::Type::KDE;
+        format.addAllFiles = true;
+        d->filterCombo->setFilter(filters()->toString(format));
     }
 }
 
