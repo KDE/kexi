@@ -68,7 +68,7 @@
         "ServiceTypes": [
             "Kexi/FormWidget"
         ],
-        "Version": "3.2",
+        "Version": "3.3",
         "Website": "http://kexi-project.org"
     },
     "X-Kexi-FormWidgetsFactoryGroup": ""
