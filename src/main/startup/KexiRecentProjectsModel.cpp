@@ -1,5 +1,5 @@
 /* This file is part of the KDE project
-   Copyright (C) 2011 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2011-2018 Jarosław Staniek <staniek@kde.org>
 
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -89,51 +89,63 @@ QVariant KexiRecentProjectsModel::data(const QModelIndex& index, int role) const
     }
     KexiProjectData *pdata = static_cast<KexiProjectData*>(index.internalPointer());
     bool fileBased = !pdata->connectionData()->databaseName().isEmpty();
-    QString opened(openedString(pdata->lastOpened()));
-    if (!opened.isEmpty())
-        opened.prepend('\n');
     switch (role) {
     case Qt::DisplayRole: {
         //! @todo add support for imported entries, e.g. MS Access
+        QStringList result;
         if (fileBased) {
-            QString n = pdata->caption().trimmed();
-            if (n.isEmpty()) { // file's base name is a good replacement for caption
-                n = QFileInfo(pdata->connectionData()->databaseName()).baseName();
+            const QString caption = pdata->caption().trimmed();
+            if (!caption.isEmpty()) {
+                result << caption;
             }
-            return QString(n + opened);
+            // Filename is a good replacement for caption but append it always since
+            // sometimes captions can be misleading and not in par with that the file really
+            // contains. Moreover it's currently it is not possible to edit the caption afterwards
+            // for the users.
+            result << QFileInfo(pdata->connectionData()->databaseName()).fileName();
         }
         else {
-            QString n = pdata->captionOrName();
-            if (!n.isEmpty()) {
-                n += '\n';
+            const QString name = pdata->captionOrName();
+            if (!name.isEmpty()) {
+                result << name;
             }
             QString serverInfo = pdata->connectionData()->toUserVisibleString(
                 KDbConnectionData::UserVisibleStringOption::None);
             // friendly message:
             if (serverInfo == "localhost") {
-                serverInfo = xi18n("on local server");
+                result << xi18n("on local server");
             }
             else {
-                serverInfo = xi18nc("@info", "on <resource>%1</resource> server", serverInfo);
+                result << xi18nc("@info", "on <resource>%1</resource> server", serverInfo);
             }
-            return QString(n + serverInfo + opened);
         }
+        const QString opened(openedString(pdata->lastOpened()));
+        if (!opened.isEmpty()) {
+            result << opened;
+        }
+        return result.join('\n');
     }
-    case Qt::ToolTipRole:
+    case Qt::ToolTipRole: {
         //! @todo add support for imported entries, e.g. MS Access
+        QStringList result;
         if (fileBased) {
-            return xi18nc("@info File database <file>", "File database <filename>%1</filename>",
-                          pdata->connectionData()->databaseName());
-        }
-        else {
+            result << xi18nc("@info File database <file>", "File database <filename>%1</filename>",
+                             pdata->connectionData()->databaseName());
+        } else {
             KDbDriverManager manager;
             const KDbDriverMetaData *driverMetaData = manager.driverMetaData(pdata->connectionData()->driverId());
             if (!driverMetaData) {
-                return xi18n("database");
+                result << xi18n("database");
             }
-            return xi18nc("<type> database, e.g. PostgreSQL database, MySQL database", "%1 database",
+            result << xi18nc("<type> database, e.g. PostgreSQL database, MySQL database", "%1 database",
                           driverMetaData->name());
         }
+        const QDateTime opened(pdata->lastOpened());
+        if (!opened.isNull()) { // for precision
+            result << xi18n("Last opened on %1", QLocale().toString(opened));
+        }
+        return QStringLiteral("<p>%1</p>").arg(result.join(QStringLiteral("</p><p>")));
+    }
     case Qt::DecorationRole: {
         //! @todo show icon specific to given database or mimetype
         if (fileBased) {

@@ -236,35 +236,38 @@ void ImportWizard::setupIntro()
     lblIntro->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     lblIntro->setWordWrap(true);
     lblIntro->setTextFormat(Qt::RichText);
-    QString msg;
-    if (d->predefinedConnectionData) { //predefined import: server source
-        msg = xi18nc("@info",
-                     "Database Importing Assistant is about to import <resource>%1</resource> database "
-                     "(connection <resource>%2</resource>) into a KEXI project.",
-                     d->predefinedDatabaseName, d->predefinedConnectionData->toUserVisibleString());
-    } else if (!d->predefinedDatabaseName.isEmpty()) { //predefined import: file source
-//! @todo this message is currently ok for files only
+    KLocalizedString msg;
+    if (d->predefinedConnectionData) { // predefined import: server source
+        msg = kxi18nc("@info",
+                      "Database Importing Assistant is about to import <resource>%1</resource> "
+                      "database "
+                      "(connection <resource>%2</resource>) into a KEXI project.")
+                  .subs(d->predefinedDatabaseName)
+                  .subs(d->predefinedConnectionData->toUserVisibleString());
+    } else if (!d->predefinedDatabaseName.isEmpty()) { // predefined import: file source
+        //! @todo this message is currently ok for files only
         QMimeDatabase db;
         QMimeType mime = db.mimeTypeForName(d->predefinedMimeType);
         if (!mime.isValid()) {
             qWarning() << QString("'%1' mimetype not installed!").arg(d->predefinedMimeType);
         }
         d->driverIdForSelectedSource = driverIdForMimeType(mime);
-        msg = xi18nc("@info",
-                     "Database Importing Assistant is about to import <filename>%1</filename> file "
-                     "of type <resource>%2</resource> into a KEXI project.",
-                     QDir::toNativeSeparators(d->predefinedDatabaseName),
-                     mime.isValid() ? mime.comment() : "???");
+        msg = kxi18nc(
+                  "@info",
+                  "Database Importing Assistant is about to import <filename>%1</filename> file "
+                  "of type <resource>%2</resource> into a KEXI project.")
+                  .subs(QDir::toNativeSeparators(d->predefinedDatabaseName))
+                  .subs(mime.isValid() ? mime.comment() : "???");
     } else {
-        msg = xi18nc("@info",
-                     "Database Importing Assistant allows you to import an existing database "
-                     "into a KEXI project.");
+        msg = kxi18nc("@info",
+                      "Database Importing Assistant allows you to import an existing database "
+                      "into a KEXI project.");
     }
-    // note: we're using .arg() here because the msg argument is already in rich-text format
-    QString finalMessage = xi18nc("@info",
-                                  "<para>%1</para>"
-                                  "<para>Click <interface>Next</interface> button to continue or "
-                                  "<interface>Cancel</interface> button to exit this assistant.</para>").arg(msg);
+    const QString finalMessage = KexiUtils::localizedSentencesToHtml(
+        msg,
+        kxi18nc("@info",
+                "<para>Click <interface>Next</interface> button to continue or "
+                "<interface>Cancel</interface> button to exit this assistant.</para>"));
     lblIntro->setText(finalMessage);
     vbox->addWidget(lblIntro);
 

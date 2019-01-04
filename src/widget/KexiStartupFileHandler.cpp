@@ -205,14 +205,17 @@ void KexiStartupFileHandler::updateFilters()
     QMimeType mime;
     QStringList allfilters;
 
-    const QString separator(KexiFileFilters::separator(KexiFileFilters::KDEFormat));
+    KexiFileFiltersFormat format;
+    format.type = KexiFileFiltersFormat::Type::KDE;
+    format.addAllFiles = true;
+    const QString separator(KexiFileFilters::separator(format));
     if (d->mode == KexiFileFilters::Opening || d->mode == KexiFileFilters::SavingFileBasedDB) {
         mime = db.mimeTypeForName(KDb::defaultFileBasedDriverMimeType());
         if (mime.isValid() && !d->excludedMimeTypes.contains(mime.name().toLower())) {
             if (!filter.isEmpty()) {
                 filter += separator;
             }
-            filter += KexiFileFilters::toString(mime, KexiFileFilters::KDEFormat);
+            filter += KexiFileFilters::toString(mime, format);
             allfilters += mime.globPatterns();
         }
     }
@@ -222,7 +225,7 @@ void KexiStartupFileHandler::updateFilters()
             if (!filter.isEmpty()) {
                 filter += separator;
             }
-            filter += KexiFileFilters::toString(mime, KexiFileFilters::KDEFormat);
+            filter += KexiFileFilters::toString(mime, format);
             allfilters += mime.globPatterns();
         }
     }
@@ -232,7 +235,7 @@ void KexiStartupFileHandler::updateFilters()
             if (!filter.isEmpty()) {
                 filter += separator;
             }
-            filter += KexiFileFilters::toString(mime, KexiFileFilters::KDEFormat);
+            filter += KexiFileFilters::toString(mime, format);
             allfilters += mime.globPatterns();
         }
     }
@@ -244,7 +247,7 @@ void KexiStartupFileHandler::updateFilters()
             if (!filter.isEmpty()) {
                 filter += separator;
             }
-            filter += KexiFileFilters::toString(mime, KexiFileFilters::KDEFormat);
+            filter += KexiFileFilters::toString(mime, format);
             allfilters += mime.globPatterns();
         }
     }
@@ -259,17 +262,11 @@ void KexiStartupFileHandler::updateFilters()
         if (!filter.isEmpty()) {
             filter += separator;
         }
-        filter += KexiFileFilters::toString(mimeName, KexiFileFilters::KDEFormat);
+        filter += KexiFileFilters::toString(mimeName, format);
         mime = db.mimeTypeForName(mimeName);
         allfilters += mime.globPatterns();
     }
 
-    if (!d->excludedMimeTypes.contains("all/allfiles")) {
-        if (!filter.isEmpty()) {
-            filter += separator;
-        }
-        filter += KexiFileFilters::toString("all/allfiles", KexiFileFilters::KDEFormat);
-    }
     //remove duplicates made because upper- and lower-case extenstions are used:
     QStringList allfiltersUnique = allfilters.toSet().toList();
     qSort(allfiltersUnique);
@@ -278,8 +275,8 @@ void KexiStartupFileHandler::updateFilters()
         if (!filter.isEmpty()) {
             filter += separator;
         }
-        filter.prepend(KexiFileFilters::toString(allfiltersUnique,
-            xi18n("All Supported Files"), KexiFileFilters::KDEFormat));
+        filter.prepend(
+            KexiFileFilters::toString(allfiltersUnique, xi18n("All Supported Files"), format));
     }
 
     d->requester->setFilter(filter);
