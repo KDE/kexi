@@ -77,7 +77,7 @@ class QString;
  * @brief Major version of Kexi, at compile time
  *
  * Generally it's the same as KEXI_STABLE_VERSION_MAJOR but for unstable x.0
- * x is decreased by one, e.g. 3.0 Beta is 2.99.
+ * x is decreased by one, e.g. 3.0 Beta 1 is 2.91.
 */
 #define KEXI_VERSION_MAJOR @PROJECT_VERSION_MAJOR@
 
@@ -95,8 +95,7 @@ class QString;
  * @brief Minor version of Kexi, at compile time
  *
  * Generally it's equal to KEXI_STABLE_VERSION_MINOR for stable releases,
- * equal to 99 for x.0 unstable releases (e.g. it's 3.0 Beta has minor version 99),
- * and equal to KEXI_STABLE_VERSION_MINOR-1 for unstable releases other than x.0.
+ * equal to 9x for x.0 unstable releases (e.g. 3.0 Beta 1 has minor version 91).
  */
 #define KEXI_VERSION_MINOR @PROJECT_VERSION_MINOR@
 
@@ -104,7 +103,7 @@ class QString;
  * @def KEXI_VERSION_RELEASE
  * @ingroup KexiMacros
  * @brief Release version of Kexi, at compile time.
- * 89 for Alpha.
+ * 90 for Alpha.
  */
 #define KEXI_VERSION_RELEASE @PROJECT_VERSION_RELEASE@
 
@@ -120,21 +119,21 @@ class QString;
 /**
  * @def KEXI_ALPHA
  * @ingroup KexiMacros
- * @brief If defined (1..9), indicates at compile time that Kexi is in alpha stage
+ * @brief If defined (1), indicates at compile time that Kexi is in alpha stage
  */
 #cmakedefine KEXI_ALPHA @KEXI_ALPHA@
 
 /**
  * @def KEXI_BETA
  * @ingroup KexiMacros
- * @brief If defined (1..9), indicates at compile time that Kexi is in beta stage
+ * @brief If defined (1, 2..), indicates at compile time that Kexi is in beta stage
  */
 #cmakedefine KEXI_BETA @KEXI_BETA@
 
 /**
  * @def KEXI_RC
  * @ingroup KexiMacros
- * @brief If defined (1..9), indicates at compile time that Kexi is in "release candidate" stage
+ * @brief If defined (1, 2..), indicates at compile time that Kexi is in "release candidate" stage
  */
 #cmakedefine KEXI_RC @KEXI_RC@
 
@@ -144,6 +143,13 @@ class QString;
  * @brief If defined, indicates at compile time that Kexi is in stable stage
  */
 #cmakedefine KEXI_STABLE @KEXI_STABLE@
+
+/**
+ * @def KEXI_STAGE
+ * @ingroup KexiMacros
+ * @brief Release stage (number) for Kexi, e.g. 1 for Beta 1, 2 for 3.3.2, etc.
+ */
+#define KEXI_STAGE @KEXI_STAGE@
 
 /**
  * @ingroup KexiMacros
