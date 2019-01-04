@@ -272,7 +272,7 @@ QString KexiFileFilters::toString(const QStringList &patterns, const QString &co
             str += QStringLiteral("*");
         } else {
 #ifdef Q_OS_WIN
-            str += patterns.join(format == QtFormat ? " " : ";");
+            str += patterns.join(format == KexiFileFiltersFormat::Type::Qt ? " " : ";");
 #else
             str += QLocale().createSeparatedList(patterns);
 #endif
