@@ -200,17 +200,17 @@ static bool registerIconsResource(const QString &privateName, const QString& pat
     {
         const QString triedLocationsString = QLocale().createSeparatedList(triedLocations);
 #ifdef QT_ONLY
-        *errorMessage = QString("Could not open icon resource file %1.").arg(path);
+        *errorMessage
+            = QString("Could not open icon resource file \"%1\". Please check if application "
+                      "is properly installed.").arg(path);
         *detailedErrorMessage = QString("Tried to find in %1.").arg(triedLocationsString);
 #else
-        //! @todo 3.1 Re-add translation
-        *errorMessage = /*QObject::tr*/ QString::fromLatin1(
-            "Could not open icon resource file \"%1\". "
-            "Application will not start. "
-            "Please check if it is properly installed.")
-            .arg(QFileInfo(path).fileName());
-        //! @todo 3.1 Re-add translation
-        *detailedErrorMessage = QString::fromLatin1("Tried to find in %1.").arg(triedLocationsString);
+        *errorMessage = xi18nc(
+            "@info", "Could not open icon resource file <filename>%1</filename>. "
+                     "Please check if <application>%2</application> is properly installed.",
+            QFileInfo(path).fileName(), QApplication::applicationDisplayName());
+        *detailedErrorMessage = xi18nc("@info Tried to find files in <dir list>",
+                                       "Tried to find in %1.", triedLocationsString);
 #endif
         return false;
     }
