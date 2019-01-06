@@ -86,21 +86,9 @@ bool KexiSqlMigrate::drv_readTableSchema(
 
 bool KexiSqlMigrate::drv_tableNames(QStringList *tableNames)
 {
-    QSharedPointer<KDbSqlResult> result = sourceConnection()->prepareSql(m_tableNamesSql);
-    if (!result || result->fieldsCount() < 1) {
-        return false;
-    }
-    Q_FOREVER {
-        QSharedPointer<KDbSqlRecord> record = result->fetchRecord();
-        if (!record) {
-            if (result->lastResult().isError()) {
-                return false;
-            }
-            break;
-        }
-        tableNames->append(record->stringValue(0));
-    }
-    return true;
+    bool ok;
+    *tableNames = sourceConnection()->drv_getTableNames(&ok);
+    return ok;
 }
 
 tristate KexiSqlMigrate::drv_queryStringListFromSql(
