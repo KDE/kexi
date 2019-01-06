@@ -296,15 +296,15 @@
       <li xml:lang="zh-CN">使用JavaScript, Python 或Ruby语言来编写脚本(实验性质)</li>
     </ul>
   </description>
-  <url type="homepage">http://www.calligra.org/kexi/</url>
-  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kexi</url>
+  <url type="homepage">http://www.kexi-project.org</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?product=kexi</url>
   <url type="help">http://userbase.kde.org/Kexi/Handbook</url>
   <screenshots>
     <screenshot type="default">
-      <image>https://www.calligra.org/wp-content/uploads/2012/06/kexi-2.5-new-form-widgets.png</image>
+      <image>http://kexi-project.org/pics/3.0/kexi-3.0.png</image>
     </screenshot>
     <screenshot>
-      <caption>Table View storing images</caption>
+      <caption>Tabular view</caption>
       <caption xml:lang="bs">Tabela View čuvanje slika</caption>
       <caption xml:lang="ca">Vista de taula emmagatzemant imatges</caption>
       <caption xml:lang="ca-valencia">Vista de taula emmagatzemant imatges</caption>
@@ -327,7 +327,16 @@
       <caption xml:lang="uk">Збереження зображень у перегляді таблиць.</caption>
       <caption xml:lang="x-test">xxTable View storing imagesxx</caption>
       <caption xml:lang="zh-CN">存储图像的表格视图</caption>
-      <image>http://www.calligra.org/wp-content/uploads/2011/11/kexi-2.2-rc1-tableview-images.png</image>
+      <image>http://kexi-project.org/pics/3.0/kexi-3.0-table-view.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Query Designer</caption>
+      <image>http://kexi-project.org/pics/3.1/kexi-3.1-query-designer.png</image>
+    </screenshot>
+  </screenshots>
+    <screenshot>
+      <caption>SQL Editor</caption>
+      <image>http://kexi-project.org/pics/3.0/kexi-3.0-alpha-sql_editor.png</image>
     </screenshot>
     <screenshot>
       <caption>Form Designer</caption>
@@ -354,7 +363,15 @@
       <caption xml:lang="uk">Засіб для розробки форм.</caption>
       <caption xml:lang="x-test">xxForm Designerxx</caption>
       <caption xml:lang="zh-CN">窗体设计器</caption>
-      <image>http://www.calligra.org/wp-content/uploads/2011/11/kexi-2.3-form.png</image>
+      <image>http://kexi-project.org/pics/3.0/kexi-3.0-compare-old.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Report Designer</caption>
+      <image>http://kexi-project.org/pics/3.1/kreport-3.1-custompagesize.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>MS Access database import</caption>
+      <image>http://kexi-project.org/pics/3.1/kexi-3.1-import-ms-access.png</image>
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
