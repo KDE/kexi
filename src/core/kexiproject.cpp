@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2016 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -793,6 +793,7 @@ bool KexiProject::retrieveItems()
     int recentTypeId = -1000;
     QString pluginId;
     KexiPart::ItemDict *dict = 0;
+    QSet<QString> tableNamesSet;
     for (cursor->moveFirst(); !cursor->eof(); cursor->moveNext()) {
         bool ok;
         const int typeId = cursor->value(3).toInt(&ok);
@@ -802,8 +803,9 @@ bool KexiProject::retrieveItems()
             continue;
         }
         if (recentTypeId == typeId) {
-            if (pluginId.isEmpty()) // still the same unknown plugin ID
+            if (pluginId.isEmpty()) { // still the same unknown plugin ID
                 continue;
+            }
         }
         else {
             // a new type ID: create another plugin items dict if it's an ID for a known type
@@ -813,20 +815,44 @@ bool KexiProject::retrieveItems()
                 continue;
             dict = new KexiPart::ItemDict();
             d->itemDicts.insert(pluginId, dict);
+            if (typeId == KDb::TableObjectType) {
+                // Starting to load table names: initialize.
+                // This list since 3.2 does not contain names without physical tables so we can
+                // catch these cases below.
+                const QStringList tableNames(d->connection->tableNames(false /*public*/, &ok));
+                if (!ok) {
+                    m_result = KDbResult(ERR_OBJECT_NOT_FOUND, xi18n("Could not load list of tables."));
+                    qDeleteAll(d->itemDicts);
+                    return false;
+                }
+                for (const QString &name : tableNames) {
+                    tableNamesSet.insert(name.toLower());
+                }
+            }
         }
         const int ident = cursor->value(0).toInt(&ok);
         const QString objName(cursor->value(1).toString());
-        if (ok && (ident > 0) && !d->connection->isInternalTableSchema(objName)
-                && KDb::isIdentifier(objName))
+        if (!ok || ident <= 0 || !KDb::isIdentifier(objName))
         {
-            KexiPart::Item *it = new KexiPart::Item();
-            it->setIdentifier(ident);
-            it->setPluginId(pluginId);
-            it->setName(objName);
-            it->setCaption(cursor->value(2).toString());
-            dict->insert(it->identifier(), it);
+            continue; // invalid ID or invalid name
         }
-  //qDebug() << "ITEM ADDED == "<<objName <<" id="<<ident;
+        if (typeId == KDb::TableObjectType) {
+            if (d->connection->isInternalTableSchema(objName)) {
+                qInfo() << "table" << objName << "id=" << ident << "is internal, skipping";
+                continue;
+            }
+            if (!tableNamesSet.contains(objName.toLower())) {
+                qInfo() << "table" << objName << "id=" << ident
+                        << "does not correspondent with physical table";
+                continue;
+            }
+        }
+        KexiPart::Item *it = new KexiPart::Item();
+        it->setIdentifier(ident);
+        it->setPluginId(pluginId);
+        it->setName(objName);
+        it->setCaption(cursor->value(2).toString());
+        dict->insert(it->identifier(), it);
     }
 
     d->connection->deleteCursor(cursor);

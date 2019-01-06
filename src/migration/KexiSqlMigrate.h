@@ -76,9 +76,6 @@ protected:
     QSharedPointer<KDbSqlResult> drv_readFromTable(const QString & tableName) Q_DECL_OVERRIDE;
 
     const QString m_kdbDriverId;
-
-    //! Used by drv_tableNames, should be filled in constructor of a subclass
-    KDbEscapedString m_tableNamesSql;
 };
 
 #endif
