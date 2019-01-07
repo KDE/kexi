@@ -110,7 +110,6 @@ void KexiNameWidget::init(
 
     d->le_name = new QLineEdit(this);
     setNameText(nameText);
-    QSizePolicy le_nameSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     le_captionSizePolicy.setHorizontalStretch(1);
     d->le_name->setSizePolicy(le_captionSizePolicy);
     d->le_name->setClearButtonEnabled(true);

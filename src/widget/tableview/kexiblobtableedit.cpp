@@ -200,7 +200,6 @@ KexiBlobTableEdit::setupContents(QPainter *p, bool focused, const QVariant& val,
     Q_UNUSED(txt);
     Q_UNUSED(align);
 
-    QPoint pos;
     PixmapAndPos *pp = 0;
     x = 0;
     w -= 1; //a place for border
