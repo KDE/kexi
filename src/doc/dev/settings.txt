@@ -50,6 +50,14 @@ TODO: -alwaysShowDetailsInMsgBoxes [boolean] (default: true for advanced Kexi mo
 # Only available when KEXI_DEBUG_GUI build option is enabled.
 -ShowInternalDebugger [boolean] (default: false)
 
+# True if two-digit year formats for dates are allowed, e.g. 5/20/18 (month/day/year as for en_US).
+# If false, KEXI alters the formats by replacing two-digits with four-digits for year.
+# The goal is accuracy, that is ensuring clarity for dates regardless of century, e.g. 2018
+# versus 1918.
+# This setting affects input and display of date and date/time types.
+# Since 3.2.0
+-AllowTwoDigitYearFormats [boolean] (default: false)
+
 Group: File Dialogs
 # If the KEXI_USE_KFILEWIDGET build option is on and UseKFileWidget is true,
 # KF5's KFileWidget-based widget is used in places where embedded file widget is needed.

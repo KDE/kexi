@@ -19,7 +19,9 @@
 
 #include "kexidatetimeformatter.h"
 
+#include <KConfigGroup>
 #include <KLocalizedString>
+#include <KSharedConfig>
 
 #include <QDebug>
 #include <QLineEdit>
@@ -38,7 +40,22 @@ namespace {
         }
         return false;
     }
+
+    //! Settings-related values - cached
+    class KexiDateFormatterSettings
+    {
+    public:
+        KexiDateFormatterSettings()
+        {
+            KConfigGroup generalGroup(KSharedConfig::openConfig(), "General");
+            allowTwoDigitYearFormats = generalGroup.readEntry("AllowTwoDigitYearFormats", false);
+        }
+        bool allowTwoDigitYearFormats;
+        bool displayInfoOnce_allowTwoDigitYearFormats = true;
+    };
+    Q_GLOBAL_STATIC(KexiDateFormatterSettings, g_kexiDateFormatterSettings)
 }
+
 
 class Q_DECL_HIDDEN KexiDateFormatter::Private
 {
@@ -49,17 +66,21 @@ public:
         //!       en_DK should be yyyy-MM-dd but it's dd/MM/yyyy in Qt 5.
         //!       Use en_SE as a workaround.
         //! @todo allow to override the format using column property and/or global app settings
-        : inputFormat(QLocale().dateFormat(QLocale::ShortFormat))
+        : originalFormat(QLocale().dateFormat(QLocale::ShortFormat))
     {
-        outputFormat = inputFormat;
+        inputFormat = originalFormat;
+        outputFormat = originalFormat;
         //qDebug() << inputFormat << QLocale().dateFormat(QLocale::LongFormat);
-        emptyFormat = inputFormat;
-        inputMask = inputFormat;
+        emptyFormat = originalFormat;
+        inputMask = originalFormat;
         computeDaysFormatAndMask();
         computeMonthsFormatAndMask();
         computeYearsFormatAndMask();
         inputMask += INPUT_MASK_BLANKS_FORMAT;
     }
+
+    //! Original format.
+    const QString originalFormat;
 
     //! Input mask generated using the formatter settings. Can be used in QLineEdit::setInputMask().
     QString inputMask;
@@ -140,13 +161,36 @@ private:
     }
     void computeYearsFormatAndMask() {
         // - yyyy - The year as four digit number.
-        if (tryReplace(&inputMask, "yyyy", "9999")) {
+        const char *longDigits = "9999";
+        if (tryReplace(&inputMask, "yyyy", longDigits)) {
             emptyFormat.remove(QLatin1String("yyyy"));
             return;
         }
-        // - yy - The year as four digit number.
-        if (tryReplace(&inputMask, "yy", "99")) {
+        const char *shortYearDigits
+            = g_kexiDateFormatterSettings->allowTwoDigitYearFormats ? "99" : longDigits;
+        // - yy - The year as two digit number.
+        if (tryReplace(&inputMask, "yy", shortYearDigits)) {
             emptyFormat.remove(QLatin1String("yy"));
+            if (!g_kexiDateFormatterSettings->allowTwoDigitYearFormats) {
+                // change input format too
+                inputFormat.replace(QLatin1String("yy"), QLatin1String("yyyy"));
+                // change output format too
+                outputFormat.replace(QLatin1String("yy"), QLatin1String("yyyy"));
+                if (g_kexiDateFormatterSettings->displayInfoOnce_allowTwoDigitYearFormats) {
+                    qInfo() << qPrintable(
+                                   QStringLiteral(
+                                       "Two-digit year formats for dates are not allowed so KEXI "
+                                       "will alter "
+                                       "date format \"%1\" by replacing two-digits years with "
+                                       "four-digits for accuracy. New input format is \"%2\", new "
+                                       "input mask is \"%3\" and new output format is \"%4\".")
+                                       .arg(originalFormat, inputFormat, inputMask, outputFormat))
+                            << "This change will affect input and display. Set the "
+                               "General/AllowTwoDigitYearFormats option to true to enable use of "
+                               "two-digit year formats.";
+                    g_kexiDateFormatterSettings->displayInfoOnce_allowTwoDigitYearFormats = false;
+                }
+            }
             return;
         }
         qWarning() << "Not found 'years' part in format" << inputFormat;
