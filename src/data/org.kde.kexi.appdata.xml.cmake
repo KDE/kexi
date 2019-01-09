@@ -333,6 +333,7 @@
       <caption>Query Designer</caption>
       <image>http://kexi-project.org/pics/3.1/kexi-3.1-query-designer.png</image>
     </screenshot>
+  </screenshots>
     <screenshot>
       <caption>SQL Editor</caption>
       <image>http://kexi-project.org/pics/3.0/kexi-3.0-alpha-sql_editor.png</image>
