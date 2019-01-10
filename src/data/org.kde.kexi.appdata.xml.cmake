@@ -305,28 +305,6 @@
     </screenshot>
     <screenshot>
       <caption>Tabular view</caption>
-      <caption xml:lang="bs">Tabela View čuvanje slika</caption>
-      <caption xml:lang="ca">Vista de taula emmagatzemant imatges</caption>
-      <caption xml:lang="ca-valencia">Vista de taula emmagatzemant imatges</caption>
-      <caption xml:lang="de">Tabellenansicht mit Bildern</caption>
-      <caption xml:lang="en-GB">Table View storing images</caption>
-      <caption xml:lang="es">Una vista de tabla para almacenar imágenes</caption>
-      <caption xml:lang="et">Tabelivaates piltide salvestamise võimalus</caption>
-      <caption xml:lang="fi">Kuvien tallennus taulukkonäkymään</caption>
-      <caption xml:lang="fr">Affichage de tables stockant des images</caption>
-      <caption xml:lang="gl">Vista de táboa que almacena imaxes.</caption>
-      <caption xml:lang="it">Vista tabella per archiviare immagini</caption>
-      <caption xml:lang="ja">イメージを格納するテーブルビュー</caption>
-      <caption xml:lang="nb">Tabellvisning som lagrer bilder</caption>
-      <caption xml:lang="nl">Tabelweergave bij opslaan van afbeeldingen</caption>
-      <caption xml:lang="pl">Przechowywanie obrazów w widoku tabeli</caption>
-      <caption xml:lang="pt">A área da tabela permite guardar as imagens</caption>
-      <caption xml:lang="pt-BR">Área da tabela armazenando imagens</caption>
-      <caption xml:lang="sk">Tabuľkový pohľad uloženia obrázkov</caption>
-      <caption xml:lang="sv">Tabellvy som lagrar bilder</caption>
-      <caption xml:lang="uk">Збереження зображень у перегляді таблиць.</caption>
-      <caption xml:lang="x-test">xxTable View storing imagesxx</caption>
-      <caption xml:lang="zh-CN">存储图像的表格视图</caption>
       <image>http://kexi-project.org/pics/3.0/kexi-3.0-table-view.png</image>
     </screenshot>
     <screenshot>
