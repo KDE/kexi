@@ -305,14 +305,35 @@
     </screenshot>
     <screenshot>
       <caption>Tabular view</caption>
+      <caption xml:lang="ca">Vista de taules</caption>
+      <caption xml:lang="ca-valencia">Vista de taules</caption>
+      <caption xml:lang="es">Vista tabular</caption>
+      <caption xml:lang="nl">Tabelweergave</caption>
+      <caption xml:lang="sv">Tabellvy</caption>
+      <caption xml:lang="uk">Перегляд таблиць</caption>
+      <caption xml:lang="x-test">xxTabular viewxx</caption>
       <image>http://kexi-project.org/pics/3.0/kexi-3.0-table-view.png</image>
     </screenshot>
     <screenshot>
       <caption>Query Designer</caption>
+      <caption xml:lang="ca">Dissenyador de consultes</caption>
+      <caption xml:lang="ca-valencia">Dissenyador de consultes</caption>
+      <caption xml:lang="es">Diseñador de consultas</caption>
+      <caption xml:lang="nl">Ontwerper van query</caption>
+      <caption xml:lang="sv">Frågekonstruktion</caption>
+      <caption xml:lang="uk">Засіб для розробки запитів</caption>
+      <caption xml:lang="x-test">xxQuery Designerxx</caption>
       <image>http://kexi-project.org/pics/3.1/kexi-3.1-query-designer.png</image>
     </screenshot>
     <screenshot>
       <caption>SQL Editor</caption>
+      <caption xml:lang="ca">Editor de SQL</caption>
+      <caption xml:lang="ca-valencia">Editor de SQL</caption>
+      <caption xml:lang="es">Editor SQL</caption>
+      <caption xml:lang="nl">SQL-bewerker</caption>
+      <caption xml:lang="sv">SQL-editor</caption>
+      <caption xml:lang="uk">Редактор SQL</caption>
+      <caption xml:lang="x-test">xxSQL Editorxx</caption>
       <image>http://kexi-project.org/pics/3.0/kexi-3.0-alpha-sql_editor.png</image>
     </screenshot>
     <screenshot>
@@ -344,10 +365,24 @@
     </screenshot>
     <screenshot>
       <caption>Report Designer</caption>
+      <caption xml:lang="ca">Dissenyador d'informes</caption>
+      <caption xml:lang="ca-valencia">Dissenyador d'informes</caption>
+      <caption xml:lang="es">Diseñador de informes</caption>
+      <caption xml:lang="nl">Ontwerper van rapporten</caption>
+      <caption xml:lang="sv">Rapportkonstruktion</caption>
+      <caption xml:lang="uk">Засіб для розробки звітів</caption>
+      <caption xml:lang="x-test">xxReport Designerxx</caption>
       <image>http://kexi-project.org/pics/3.1/kreport-3.1-custompagesize.png</image>
     </screenshot>
     <screenshot>
       <caption>MS Access database import</caption>
+      <caption xml:lang="ca">Importació d'una base de dades de MS Access</caption>
+      <caption xml:lang="ca-valencia">Importació d'una base de dades de MS Access</caption>
+      <caption xml:lang="es">Importación de bases de datos de MS Access</caption>
+      <caption xml:lang="nl">Importeren van MS Access database</caption>
+      <caption xml:lang="sv">MS Access-databasimport</caption>
+      <caption xml:lang="uk">Імпортування баз даних MS Access</caption>
+      <caption xml:lang="x-test">xxMS Access database importxx</caption>
       <image>http://kexi-project.org/pics/3.1/kexi-3.1-import-ms-access.png</image>
     </screenshot>
   </screenshots>
