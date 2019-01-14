@@ -308,6 +308,7 @@
       <caption xml:lang="ca">Vista de taules</caption>
       <caption xml:lang="ca-valencia">Vista de taules</caption>
       <caption xml:lang="es">Vista tabular</caption>
+      <caption xml:lang="it">Vista tabellare</caption>
       <caption xml:lang="nl">Tabelweergave</caption>
       <caption xml:lang="pt">Vista em tabelas</caption>
       <caption xml:lang="sv">Tabellvy</caption>
@@ -320,6 +321,7 @@
       <caption xml:lang="ca">Dissenyador de consultes</caption>
       <caption xml:lang="ca-valencia">Dissenyador de consultes</caption>
       <caption xml:lang="es">Diseñador de consultas</caption>
+      <caption xml:lang="it">Strumento di progettazione delle query</caption>
       <caption xml:lang="nl">Ontwerper van query</caption>
       <caption xml:lang="pt">Desenhador de Pesquisas</caption>
       <caption xml:lang="sv">Frågekonstruktion</caption>
@@ -333,6 +335,7 @@
       <caption xml:lang="ca-valencia">Editor de SQL</caption>
       <caption xml:lang="es">Editor SQL</caption>
       <caption xml:lang="fr">Éditeur SQL</caption>
+      <caption xml:lang="it">Editor SQL</caption>
       <caption xml:lang="nl">SQL-bewerker</caption>
       <caption xml:lang="pt">Editor de SQL</caption>
       <caption xml:lang="sv">SQL-editor</caption>
@@ -372,6 +375,7 @@
       <caption xml:lang="ca">Dissenyador d'informes</caption>
       <caption xml:lang="ca-valencia">Dissenyador d'informes</caption>
       <caption xml:lang="es">Diseñador de informes</caption>
+      <caption xml:lang="it">Strumento di progettazione di report</caption>
       <caption xml:lang="nl">Ontwerper van rapporten</caption>
       <caption xml:lang="pt">Desenhador de Formulários</caption>
       <caption xml:lang="sv">Rapportkonstruktion</caption>
@@ -384,6 +388,7 @@
       <caption xml:lang="ca">Importació d'una base de dades de MS Access</caption>
       <caption xml:lang="ca-valencia">Importació d'una base de dades de MS Access</caption>
       <caption xml:lang="es">Importación de bases de datos de MS Access</caption>
+      <caption xml:lang="it">Importazione banca dati MS Access</caption>
       <caption xml:lang="nl">Importeren van MS Access database</caption>
       <caption xml:lang="pt">Importação de bases de dados MS Access</caption>
       <caption xml:lang="sv">MS Access-databasimport</caption>
