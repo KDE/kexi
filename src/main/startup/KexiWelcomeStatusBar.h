@@ -35,18 +35,7 @@ public:
     QPixmap externalLinkPixmap();
 
 private Q_SLOTS:
-    void showContributionHelp();
-    void showShareUsageInfo();
-    void showContributionDetails();
     void showDonation();
-    void slotShareFeedback();
-    void slotCancelled();
-    //! Used for async show for speeding up the message displaying
-    void slotShowContributionHelpContents();
-    void slotMessageWidgetClosed();
-    void slotShareContributionDetailsToggled(bool on);
-    void slotShareContributionDetailsGroupToggled(bool on);
-    void slotToggleContributionDetailsDataVisibility();
 
 private:
     void init();

@@ -27,6 +27,12 @@
 
 int main(int argc, char *argv[])
 {
+    // Initialize before constructing QGuiApplication to avoid issue
+    // "Qt WebEngine seems to be initialized from a plugin. Please set
+    // Qt::AA_ShareOpenGLContexts using QCoreApplication::setAttribute before constructing
+    // QGuiApplication."
+    QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
+
     //! @todo use non-GUI app when needed
     QApplication app(argc, argv);
     const int result = KexiMainWindow::create(QCoreApplication::arguments());

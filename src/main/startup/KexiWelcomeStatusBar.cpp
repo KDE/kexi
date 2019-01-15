@@ -179,7 +179,7 @@ public Q_SLOTS:
             }
         }
         if (m_fileNamesToUpdate.isEmpty()) {
-            qDebug() << "No files to update.";
+            //qDebug() << "No files to update.";
             return;
         }
         // update files
@@ -498,25 +498,13 @@ class Q_DECL_HIDDEN KexiWelcomeStatusBar::Private
 {
 public:
     explicit Private(KexiWelcomeStatusBar* _q)
-     : statusWidget(0), helpAction(0), shareAction(0), cancelAction(0),
+     : statusWidget(0),
        q(_q)
     {
         rccFname = findFileName("status.rcc");
         if (!rccFname.isEmpty())  {
             QResource::registerResource(rccFname);
         }
-
-        scores.insert(KexiUserFeedbackAgent::BasicArea, 4);
-        scores.insert(KexiUserFeedbackAgent::SystemInfoArea, 4);
-        scores.insert(KexiUserFeedbackAgent::ScreenInfoArea, 2);
-        scores.insert(KexiUserFeedbackAgent::RegionalSettingsArea, 2);
-        totalFeedbackScore = 0;
-        foreach (int s, scores.values()) {
-            totalFeedbackScore += s;
-        }
-        donationScore = 20;
-        donated = false;
-        //qDebug() << "totalFeedbackScore:" << totalFeedbackScore;
     }
 
     ~Private() {
@@ -524,22 +512,6 @@ public:
         if (!rccFname.isEmpty())  {
             QResource::unregisterResource(rccFname);
         }
-    }
-
-    int currentFeedbackScore() const
-    {
-        int score = 0;
-        KexiUserFeedbackAgent *f = KexiMainWindowIface::global()->userFeedbackAgent();
-        KexiUserFeedbackAgent::Areas areas = f->enabledAreas();
-        for (QMap<KexiUserFeedbackAgent::Area, int>::ConstIterator it(scores.constBegin());
-             it!=scores.constEnd(); ++it)
-        {
-            if (areas & it.key()) {
-                score += it.value();
-            }
-        }
-        //qDebug() << score;
-        return score;
     }
 
     template<typename T>
@@ -636,94 +608,20 @@ public:
         //delete statusWidget;
         statusWidget = widget;
         statusScrollArea->setWidget(statusWidget);
-        setProperty(statusWidget, "contribution_progress", "minimumHeight",
-                    q->fontMetrics().height());
-        setProperty(statusWidget, "contribution_progress", "maximumHeight",
-                    q->fontMetrics().height());
-        label_involved_text_mask = property(statusWidget, "label_involved", "text").toString();
-        setProperty(statusWidget, "link_share_usage_info", "text",
-                    property(statusWidget, "link_share_usage_info", "text").toString().arg(totalFeedbackScore));
-        link_share_more_usage_info_mask = property(statusWidget, "link_share_more_usage_info", "text").toString();
 
-        setProperty(statusWidget, "link_donate", "text",
-                    property(statusWidget, "link_donate", "text").toString().arg(donationScore));
+        QString donationText = property(statusWidget, "link_donate", "text").toString();
+        donationText.remove(QStringLiteral("(+%1%)"));
+        setProperty(statusWidget, "link_donate", "text", donationText);
 
-        updateDonationInfo();
-        updateUserProgress();
-        updateContributionLinksVisibility();
         // do not alter background palette
         QPalette pal(widget->palette());
         pal.setColor(QPalette::Disabled, QPalette::Base,
                      pal.color(QPalette::Normal, QPalette::Base));
         widget->setPalette(pal);
-        connect(statusWidget, "link_contribute_show_help", SIGNAL(linkActivated(QString)),
-                q, SLOT(showContributionHelp()));
-        connect(statusWidget, "link_share_usage_info", SIGNAL(linkActivated(QString)),
-                q, SLOT(showShareUsageInfo()));
-        connect(statusWidget, "link_share_more_usage_info", SIGNAL(linkActivated(QString)),
-                q, SLOT(showShareUsageInfo()));
-        connect(statusWidget, "link_show_contribution_details", SIGNAL(linkActivated(QString)),
-                q, SLOT(showContributionDetails()));
 
         setProperty(statusWidget, "donation_url", "visible", false);
         connect(statusWidget, "link_donate", SIGNAL(linkActivated(QString)),
                 q, SLOT(showDonation()));
-    }
-
-    void setUserProgress(int progress)
-    {
-        setProperty(statusWidget, "contribution_progress", "value", progress);
-        setProperty(statusWidget, "label_involved", "text",
-                    label_involved_text_mask.arg(progress));
-    }
-
-    void updateUserProgress()
-    {
-        int progress = 0;
-        progress += currentFeedbackScore();
-        if (donated) {
-            progress += donationScore;
-        }
-        setUserProgress(progress);
-    }
-
-    void updateContributionLinksVisibility()
-    {
-        KexiUserFeedbackAgent *f = KexiMainWindowIface::global()->userFeedbackAgent();
-        int availableLinks = 0;
-        bool noneEnabled = f->enabledAreas() == KexiUserFeedbackAgent::NoAreas;
-        bool allEnabled = f->enabledAreas() == KexiUserFeedbackAgent::AllAreas;
-        setProperty(statusWidget, "share_usage_info", "visible", noneEnabled);
-        if (noneEnabled) {
-            availableLinks++;
-        }
-        setProperty(statusWidget, "share_more_usage_info", "visible",
-                    !noneEnabled && !allEnabled);
-        if (!noneEnabled && !allEnabled) {
-            availableLinks++;
-        }
-        setProperty(statusWidget, "link_share_more_usage_info", "text",
-                    link_share_more_usage_info_mask.arg(totalFeedbackScore - currentFeedbackScore()));
-
-        setProperty(statusWidget, "lbl_contribute", "visible", availableLinks > 0);
-    }
-
-    void updateDonationInfo()
-    {
-        KConfigGroup configGroup(KSharedConfig::openConfig()->group("User Feedback"));
-        QDateTime lastDonation = configGroup.readEntry("LastDonation", QDateTime());
-        if (lastDonation.isValid()) {
-            int days = lastDonation.secsTo(QDateTime::currentDateTime()) / 60 / 60 / 24;
-            if (days >= DONATION_INTERVAL) {
-                donated = false;
-                //qDebug() << "last donation declared" << days << "days ago, next in"
-                //         << (DONATION_INTERVAL - days) << "days.";
-            }
-            else if (days >= 0) {
-                donated = true;
-            }
-        }
-        //show always: setProperty(statusWidget, "donate", "visible", !donated);
     }
 
     enum CalloutAlignment {
@@ -813,21 +711,7 @@ public:
     QVBoxLayout *lyr;
     QPointer<KexiContextMessageWidget> msgWidget;
     QFont smallFont;
-    QAction *helpAction;
-    QAction *shareAction;
-    QAction *cancelAction;
-    QString label_involved_text_mask;
-    QString link_share_more_usage_info_mask;
-    QPointer<QGridLayout> contributionHelpLayout;
-    QPointer<QGridLayout> contributionDetailsLayout;
-    QPointer<QWidget> contributionDetailsWidget;
-    QMap<KexiUserFeedbackAgent::Area, int> scores;
-    QString countryMask;
-    QString languageMask;
     bool detailsDataVisible = false;
-    int totalFeedbackScore;
-    int donationScore;
-    bool donated;
 
     KexiWelcomeStatusBarGuiUpdater guiUpdater;
 private:
@@ -856,76 +740,6 @@ void KexiWelcomeStatusBar::init()
 
     d->updateStatusWidget();
     QTimer::singleShot(10, &d->guiUpdater, SLOT(update()));
-}
-
-void KexiWelcomeStatusBar::showContributionHelp()
-{
-    d->showMaximizedMessageWidget("link_contribute_show_help",
-                                  &d->contributionHelpLayout,
-                                  SLOT(slotShowContributionHelpContents()));
-    d->msgWidget->animatedShow();
-}
-
-void KexiWelcomeStatusBar::slotShowContributionHelpContents()
-{
-    QWidget *helpWidget = d->loadGui("contribution_help.ui");
-    d->contributionHelpLayout->addWidget(helpWidget, 1, 1);
-    d->msgWidget->setPaletteInherited();
-}
-
-void KexiWelcomeStatusBar::slotMessageWidgetClosed()
-{
-    d->statusScrollArea->setEnabled(true);
-    d->updateDonationInfo();
-    d->updateUserProgress();
-    d->updateContributionLinksVisibility();
-}
-
-void KexiWelcomeStatusBar::showShareUsageInfo()
-{
-    if (!sender()) {
-        return;
-    }
-    QWidget *widget = d->loadGui("status_strings.ui");
-    if (!widget) {
-        return;
-    }
-    QLabel *lbl = widget->findChild<QLabel*>("question");
-    if (!lbl) {
-        return;
-    }
-    KexiContextMessage msg(lbl->text());
-    delete widget;
-    if (!d->helpAction) {
-        d->helpAction = new QAction(KStandardGuiItem::help().icon(),
-                                    KStandardGuiItem::help().text(), this);
-        connect(d->helpAction, SIGNAL(triggered()), this, SLOT(showContributionHelp()));
-    }
-    if (!d->shareAction) {
-        d->shareAction = new QAction(KStandardGuiItem::yes().icon(), xi18n("Share"), this);
-        connect(d->shareAction, SIGNAL(triggered()), this, SLOT(slotShareFeedback()));
-    }
-    if (!d->cancelAction) {
-        d->cancelAction = new QAction(KStandardGuiItem::cancel().icon(),
-                                      KStandardGuiItem::cancel().text(), this);
-        QObject::connect(d->cancelAction, SIGNAL(triggered()), this, SLOT(slotCancelled()));
-    }
-    msg.addAction(d->helpAction, KexiContextMessage::AlignLeft);
-    msg.addAction(d->shareAction);
-    msg.addAction(d->cancelAction);
-    if (d->msgWidget) {
-        delete static_cast<KexiContextMessageWidget*>(d->msgWidget);
-    }
-    d->msgWidget
-        = new KexiContextMessageWidget(parentWidget(), 0, 0, msg);
-    d->msgWidget->setMessageType(KMessageWidget::Information);
-    d->msgWidget->setCalloutPointerDirection(KMessageWidget::Right);
-    d->setMessageWidgetCalloutPointerPosition(sender()->objectName());
-    d->statusScrollArea->setEnabled(false);
-    d->msgWidget->setMaximumWidth(parentWidget()->width() - width());
-    d->msgWidget->setResizeTrackingPolicy(Qt::Horizontal);
-
-    d->msgWidget->animatedShow();
 }
 
 void KexiWelcomeStatusBar::showDonation()
@@ -957,274 +771,12 @@ void KexiWelcomeStatusBar::showDonation()
     QUrl donationUrl(d->property(this, "donation_url", "text").toString());
     if (donationUrl.isValid()) {
         QDesktopServices::openUrl(donationUrl);
-        d->donated = true;
-        d->updateStatusWidget();
         KConfigGroup configGroup(KSharedConfig::openConfig()->group("User Feedback"));
-        int donationsCount = configGroup.readEntry("DonationsCount", 0);
         configGroup.writeEntry("LastDonation", QDateTime::currentDateTime());
-        configGroup.writeEntry("DonationsCount", donationsCount + 1);
     }
     else {
         qWarning() << "Invalid donation URL" << donationUrl;
     }
 }
-
-void KexiWelcomeStatusBar::slotShareFeedback()
-{
-    d->statusScrollArea->setEnabled(true);
-    d->msgWidget->animatedHide();
-    KexiMainWindowIface::global()->userFeedbackAgent()
-        ->setEnabledAreas(KexiUserFeedbackAgent::AllAreas);
-
-    d->animatedHide(d->statusWidget, "share_usage_info");
-    d->animatedHide(d->statusWidget, "share_more_usage_info");
-    d->animatedHide(d->statusWidget, "lbl_contribute");
-    d->updateUserProgress();
-}
-
-void KexiWelcomeStatusBar::slotCancelled()
-{
-    d->statusScrollArea->setEnabled(true);
-}
-
-// Contribution Details BEGIN
-
-void KexiWelcomeStatusBar::showContributionDetails()
-{
-    d->showMaximizedMessageWidget("link_show_contribution_details",
-                                  &d->contributionDetailsLayout,
-                                  0,
-                                  KexiWelcomeStatusBar::Private::AlignToWidget);
-    d->contributionDetailsLayout->setColumnMinimumWidth(0, 6); // smaller
-    d->contributionDetailsWidget = d->loadGui("contribution_details.ui");
-
-    KexiUserFeedbackAgent *f = KexiMainWindowIface::global()->userFeedbackAgent();
-    d->setProperty(d->contributionDetailsWidget, "group_share", "checked",
-                   f->enabledAreas() != KexiUserFeedbackAgent::NoAreas);
-    d->setProperty(d->contributionDetailsWidget, "group_basic", "title",
-                   d->property(d->contributionDetailsWidget, "group_basic", "title")
-                       .toString().arg(d->scores.value(KexiUserFeedbackAgent::BasicArea)));
-
-    updateContributionGroupCheckboxes();
-
-    d->setProperty(d->contributionDetailsWidget, "group_system", "title",
-                   d->property(d->contributionDetailsWidget, "group_system", "title")
-                       .toString().arg(d->scores.value(KexiUserFeedbackAgent::SystemInfoArea)));
-    d->connect(d->contributionDetailsWidget, "group_system", SIGNAL(toggled(bool)),
-               this, SLOT(slotShareContributionDetailsGroupToggled(bool)));
-
-    d->setProperty(d->contributionDetailsWidget, "group_screen", "title",
-                   d->property(d->contributionDetailsWidget, "group_screen", "title")
-                       .toString().arg(d->scores.value(KexiUserFeedbackAgent::ScreenInfoArea)));
-    d->connect(d->contributionDetailsWidget, "group_screen", SIGNAL(toggled(bool)),
-               this, SLOT(slotShareContributionDetailsGroupToggled(bool)));
-
-    d->setProperty(d->contributionDetailsWidget, "group_regional_settings", "title",
-                   d->property(d->contributionDetailsWidget, "group_regional_settings", "title")
-                       .toString().arg(d->scores.value(KexiUserFeedbackAgent::RegionalSettingsArea)));
-    d->connect(d->contributionDetailsWidget, "group_regional_settings", SIGNAL(toggled(bool)),
-               this, SLOT(slotShareContributionDetailsGroupToggled(bool)));
-
-    d->detailsDataVisible = false;
-    slotShareContributionDetailsToggled(
-        d->property(d->contributionDetailsWidget, "group_share", "checked").toBool());
-    d->detailsDataVisible = true; // to switch off
-    slotToggleContributionDetailsDataVisibility();
-    d->connect(d->contributionDetailsWidget, "group_share", SIGNAL(toggled(bool)),
-               this, SLOT(slotShareContributionDetailsToggled(bool)));
-    d->connect(d->contributionDetailsWidget, "link_show_shared_info",
-               SIGNAL(linkActivated(QString)),
-               this, SLOT(slotToggleContributionDetailsDataVisibility()));
-
-    d->setProperty(d->contributionDetailsWidget, "label_where_is_info_sent", "visible", false);
-
-    ScrollArea *contributionDetailsArea = new ScrollArea(d->msgWidget);
-    d->contributionDetailsLayout->addWidget(contributionDetailsArea, 1, 1);
-    contributionDetailsArea->setWidget(d->contributionDetailsWidget);
-    d->msgWidget->animatedShow();
-    d->msgWidget->setPaletteInherited();
-}
-
-void KexiWelcomeStatusBar::updateContributionGroupCheckboxes()
-{
-    KexiUserFeedbackAgent *f = KexiMainWindowIface::global()->userFeedbackAgent();
-    d->setProperty(d->contributionDetailsWidget, "group_system", "checked",
-                   bool(f->enabledAreas() & KexiUserFeedbackAgent::SystemInfoArea));
-    d->setProperty(d->contributionDetailsWidget, "group_screen", "checked",
-                   bool(f->enabledAreas() & KexiUserFeedbackAgent::ScreenInfoArea));
-    d->setProperty(d->contributionDetailsWidget, "group_regional_settings", "checked",
-                   bool(f->enabledAreas() & KexiUserFeedbackAgent::RegionalSettingsArea));
-}
-
-void KexiWelcomeStatusBar::slotShareContributionDetailsToggled(bool on)
-{
-    //qDebug() << sender();
-    QWidget* group_share = d->widget(d->contributionDetailsWidget,
-                                     "group_share");
-    KexiUserFeedbackAgent *f = KexiMainWindowIface::global()->userFeedbackAgent();
-    if (sender() == group_share) {
-        f->setEnabledAreas(on ? KexiUserFeedbackAgent::AllAreas : KexiUserFeedbackAgent::NoAreas);
-        updateContributionGroupCheckboxes();
-    }
-    if (!group_share) {
-        return;
-    }
-    for (int i=0; i < group_share->layout()->count(); i++) {
-        QWidget *w = group_share->layout()->itemAt(i)->widget();
-        if (w) {
-            w->setVisible(on);
-        }
-    }
-    if (d->detailsDataVisible) {
-        slotToggleContributionDetailsDataVisibility();
-    }
-    // fill shared values
-    QLocale locale;
-    foreach(QLabel* lbl, d->contributionDetailsWidget->findChildren<QLabel*>()) {
-        if (lbl->objectName().startsWith(QLatin1String("value_"))) {
-            QString name = lbl->objectName().mid(6); // cut "value_"
-            QVariant value;
-            if (name == QLatin1String("screen_size")) {
-                value = QString("%1 x %2").arg(f->value("screen_width").toString())
-                                          .arg(f->value("screen_height").toString());
-            }
-            else if (name == QLatin1String("country")) {
-                if (d->countryMask.isEmpty()) {
-                    d->countryMask = lbl->text();
-                }
-                value = d->countryMask
-                    .arg(f->value(name).toString() /*!< @todo KEXI3 port KLocale::global()->countryCodeToName(f->value(name).toString()) */)
-                    .arg(f->value(name).toString());
-            }
-            else if (name == QLatin1String("language")) {
-                if (d->languageMask.isEmpty()) {
-                    d->languageMask = lbl->text();
-                }
-                value = d->languageMask
-                    .arg(f->value(name).toString() /*!< @todo KEXI3 port KLocale::global()->languageCodeToName(f->value(name).toString()) */)
-                    .arg(f->value(name).toString());
-            }
-            else {
-                value = f->value(name);
-            }
-
-            if (value.type() == QVariant::Bool) {
-                value = value.toBool() ? KStandardGuiItem::yes().plainText()
-                                       : KStandardGuiItem::no().plainText();
-            }
-
-            if (!value.isNull()) {
-                lbl->setText(value.toString());
-            }
-        }
-        else if (lbl->objectName().startsWith(QLatin1String("desc_"))) {
-            lbl->setFont(d->smallFont);
-        }
-    }
-    QLabel* lbl;
-    KConfigGroup configGroup(KSharedConfig::openConfig()->group("User Feedback"));
-    if ((lbl = d->contributionDetailsWidget->findChild<QLabel*>("value_recent_donation"))) {
-        QDateTime lastDonation = configGroup.readEntry("LastDonation", QDateTime());
-        QString recentDonation = "-";
-        if (lastDonation.isValid()) {
-            int days = lastDonation.secsTo(QDateTime::currentDateTime()) / 60 / 60 / 24;
-            if (days == 0) {
-                recentDonation = xi18nc("Donation today", "today");
-            }
-            else if (days > 0) {
-                recentDonation = xi18ncp("Recent donation date (xx days)", "%1 (1 day)", "%1 (%2 days)",
-                                         locale.toString(lastDonation), days);
-            }
-        }
-        lbl->setText(recentDonation);
-    }
-    if ((lbl = d->contributionDetailsWidget->findChild<QLabel*>("value_donations_count"))) {
-        int donationsCount = configGroup.readEntry("DonationsCount", 0);
-        if (donationsCount == 0) {
-            lbl->setText(QString::number(donationsCount));
-        }
-        else {
-            lbl->setText(xi18nc("donations count", "%1 (thanks!)", donationsCount));
-        }
-    }
-}
-
-static void setArea(KexiUserFeedbackAgent::Areas *areas,
-                    KexiUserFeedbackAgent::Area area, bool on)
-{
-    *areas |= area;
-    if (!on) {
-        *areas ^= area;
-    }
-}
-
-void KexiWelcomeStatusBar::slotShareContributionDetailsGroupToggled(bool on)
-{
-    if (!sender()) {
-        return;
-    }
-    const QString name = sender()->objectName();
-    KexiUserFeedbackAgent *f = KexiMainWindowIface::global()->userFeedbackAgent();
-    KexiUserFeedbackAgent::Areas areas = f->enabledAreas();
-    //qDebug() << areas;
-    if (name == "group_system") {
-        setArea(&areas, KexiUserFeedbackAgent::SystemInfoArea, on);
-    }
-    else if (name == "group_screen") {
-        setArea(&areas, KexiUserFeedbackAgent::ScreenInfoArea, on);
-    }
-    else if (name == "group_regional_settings") {
-        setArea(&areas, KexiUserFeedbackAgent::RegionalSettingsArea, on);
-    }
-    if (areas) {
-        areas |= KexiUserFeedbackAgent::AnonymousIdentificationArea;
-    }
-    f->setEnabledAreas(areas);
-    //qDebug() << f->enabledAreas();
-}
-
-void KexiWelcomeStatusBar::slotToggleContributionDetailsDataVisibility()
-{
-    QWidget* value_app_ver = d->widget(d->contributionDetailsWidget, "value_app_ver");
-    if (!value_app_ver) {
-        return;
-    }
-    d->detailsDataVisible = !d->detailsDataVisible;
-    if (d->detailsDataVisible) {
-        d->setProperty(d->contributionDetailsWidget, "link_show_shared_info", "visible", false);
-        d->setProperty(d->contributionDetailsWidget, "label_where_is_info_sent", "visible", true);
-    }
-    bool show = d->contributionDetailsWidget->isVisible();
-    QList<QWidget*> list;
-    d->contributionDetailsWidget->hide();
-    QWidget* group_basic = d->widget(d->contributionDetailsWidget, "group_basic");
-    if (group_basic) {
-        list += group_basic->findChildren<QWidget*>();
-    }
-    QWidget* group_system = d->widget(d->contributionDetailsWidget, "group_system");
-    if (group_system) {
-        list += group_system->findChildren<QWidget*>();
-    }
-    QWidget* group_screen = d->widget(d->contributionDetailsWidget, "group_screen");
-    if (group_screen) {
-        list += group_screen->findChildren<QWidget*>();
-    }
-    QWidget* group_regional_settings = d->widget(d->contributionDetailsWidget, "group_regional_settings");
-    if (group_regional_settings) {
-        list += group_regional_settings->findChildren<QWidget*>();
-    }
-
-    foreach (QWidget* w, list) {
-        if (qobject_cast<QLabel*>(w) && !w->objectName().startsWith(QLatin1String("desc_"))) {
-            //qDebug() << "+++" << w;
-            w->setVisible(d->detailsDataVisible);
-        }
-    }
-    if (show) {
-        d->contributionDetailsWidget->show();
-    }
-}
-
-// Contribution Details END
 
 #include "KexiWelcomeStatusBar.moc"
