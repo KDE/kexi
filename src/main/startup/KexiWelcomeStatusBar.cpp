@@ -179,7 +179,7 @@ public Q_SLOTS:
             }
         }
         if (m_fileNamesToUpdate.isEmpty()) {
-            qDebug() << "No files to update.";
+            //qDebug() << "No files to update.";
             return;
         }
         // update files

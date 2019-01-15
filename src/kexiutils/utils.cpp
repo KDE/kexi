@@ -1025,7 +1025,6 @@ static QByteArray xfceSettingValue(const QByteArray &channel, const QByteArray &
     const QStringList arguments{ program, "-c", channel, "-p", property };
     QProcess process;
     process.start(programPath, arguments);//, QIODevice::ReadOnly | QIODevice::Text);
-    qDebug() << "a" << int(process.exitCode());
     if (!process.waitForStarted()) {
         qWarning() << "Count not execute command" << programPath << arguments
                    << "error:" << process.error();
