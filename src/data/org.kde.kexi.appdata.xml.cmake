@@ -315,6 +315,7 @@
       <caption xml:lang="id">Tampilan tabular</caption>
       <caption xml:lang="it">Vista tabellare</caption>
       <caption xml:lang="nl">Tabelweergave</caption>
+      <caption xml:lang="pl">Widok tabeli</caption>
       <caption xml:lang="pt">Área em páginas</caption>
       <caption xml:lang="pt-BR">Exibição em tabelas</caption>
       <caption xml:lang="sv">Tabellvy</caption>
@@ -336,6 +337,7 @@
       <caption xml:lang="id">Pendesain Queri</caption>
       <caption xml:lang="it">Strumento di progettazione delle query</caption>
       <caption xml:lang="nl">Ontwerper van query</caption>
+      <caption xml:lang="pl">Opracowywanie zapytań</caption>
       <caption xml:lang="pt">Desenhador de Pesquisas</caption>
       <caption xml:lang="pt-BR">Designer de pesquisas</caption>
       <caption xml:lang="sv">Frågekonstruktion</caption>
@@ -358,6 +360,7 @@
       <caption xml:lang="id">Pengedit SQL</caption>
       <caption xml:lang="it">Editor SQL</caption>
       <caption xml:lang="nl">SQL-bewerker</caption>
+      <caption xml:lang="pl">Edytor SQL</caption>
       <caption xml:lang="pt">Editor de SQL</caption>
       <caption xml:lang="pt-BR">Editor SQL</caption>
       <caption xml:lang="sv">SQL-editor</caption>
@@ -407,6 +410,7 @@
       <caption xml:lang="id">Pendesain Laporan</caption>
       <caption xml:lang="it">Strumento di progettazione di report</caption>
       <caption xml:lang="nl">Ontwerper van rapporten</caption>
+      <caption xml:lang="pl">Opracowywanie sprawozdań</caption>
       <caption xml:lang="pt">Desenhador de Relatórios</caption>
       <caption xml:lang="pt-BR">Desenho de formulários</caption>
       <caption xml:lang="sv">Rapportkonstruktion</caption>
@@ -428,6 +432,7 @@
       <caption xml:lang="id">Impor database MS Access</caption>
       <caption xml:lang="it">Importazione banca dati MS Access</caption>
       <caption xml:lang="nl">Importeren van MS Access database</caption>
+      <caption xml:lang="pl">Importowanie bazy danych MS Access</caption>
       <caption xml:lang="pt">Importação de bases de dados MS Access</caption>
       <caption xml:lang="pt-BR">Importação de bancos de dados MS Access</caption>
       <caption xml:lang="sv">Databasimport från MS Access</caption>
