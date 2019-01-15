@@ -17,22 +17,24 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef KEXIDBTITLEPAGE_H
-#define KEXIDBTITLEPAGE_H
+#ifndef KEXIDBCAPTIONPAGE_H
+#define KEXIDBCAPTIONPAGE_H
 
 #include "kexiextwidgets_export.h"
-#include "ui_KexiDBTitlePage.h"
+#include "ui_KexiDBCaptionPage.h"
 #include <QWidget>
 
 //! @short A helper widget used to displaying a line edit with a label and layout
-class KEXIEXTWIDGETS_EXPORT KexiDBTitlePage : public QWidget, public Ui_KexiDBTitlePage
+class KEXIEXTWIDGETS_EXPORT KexiDBCaptionPage : public QWidget, public Ui_KexiDBCaptionPage
 {
     Q_OBJECT
 public:
-    //! Constructs title page. \a labelText can be provided to change default
-    //! "Project caption:" label.
-    explicit KexiDBTitlePage(const QString& labelText, QWidget* parent = 0);
-    ~KexiDBTitlePage();
+    //! Constructs a caption editing page.
+    //!
+    //! \a labelText can be provided to change default "Project caption:" label.
+    explicit KexiDBCaptionPage(const QString &labelText, QWidget *parent = nullptr);
+
+    ~KexiDBCaptionPage();
 };
 
-#endif // KEXIDBTITLEPAGE_H
+#endif // KEXIDBCAPTIONPAGE_H

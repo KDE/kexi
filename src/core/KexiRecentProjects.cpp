@@ -85,9 +85,12 @@ void KexiRecentProjects::Private::load()
     if (!dir.exists() || !dir.isReadable()) {
         return;
     }
-    QStringList shortcuts = dir.entryList(
-        QStringList() << QLatin1String("*.kexis"),
-        QDir::Files | QDir::NoSymLinks | QDir::Readable | QDir::CaseSensitive);
+    const QStringList shortcuts
+        = dir.entryList(QStringList() << QLatin1String("*.kexis"),
+                        QDir::Files | QDir::NoSymLinks | QDir::Readable | QDir::CaseSensitive
+                            | QDir::Hidden // Hidden too because there can be names starting with
+                                           // dot or hidden for without a clear reason
+        );
 #ifdef KexiRecentProjects_DEBUG
     qDebug() << shortcuts;
 #endif
@@ -202,17 +205,21 @@ bool KexiRecentProjects::Private::add(KexiProjectData *newData,
                 return false;
             }
             if (metaData->isFileBased()) {
-                shortcutPath = path + QFileInfo(newData->databaseName()).fileName();
+                shortcutPath = QFileInfo(newData->databaseName()).fileName();
                 QFileInfo fi(shortcutPath);
                 if (!fi.suffix().isEmpty()) {
                     shortcutPath.chop(fi.suffix().length() + 1);
                 }
             } else {
-                shortcutPath = path + newData->databaseName();
+                shortcutPath = newData->databaseName();
                 if (!conn.hostName().isEmpty()) {
                     shortcutPath += '_' + conn.hostName();
                 }
             }
+            if (shortcutPath.startsWith('.')) {
+                shortcutPath.prepend('_');
+            }
+            shortcutPath = path + shortcutPath;
             int suffixNumber = 0;
             QString suffixNumberString;
             forever { // add "_{number}" to ensure uniqueness

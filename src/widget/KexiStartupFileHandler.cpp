@@ -43,6 +43,7 @@
 #include <QEventLoop>
 #include <QMimeDatabase>
 #include <QMimeType>
+#include <QStandardPaths>
 #include <QUrl>
 
 //! @internal
@@ -120,6 +121,13 @@ void KexiStartupFileHandler::init(const QUrl &startDirOrVariable, KexiFileFilter
     }
     else {
         url = startDirOrVariable;
+    }
+    if (url.toLocalFile().isEmpty() || !QDir(url.toLocalFile()).exists()) {
+        url = QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
+        QDir docDir(url.toLocalFile());
+        if (!docDir.exists()) { // create if missing
+            (void)docDir.mkpath(QString());
+        }
     }
     d->setUrl(url);
     setMode(mode);
@@ -450,12 +458,15 @@ void KexiStartupFileHandler::messageWidgetActionNoTriggered()
 void KexiStartupFileHandler::updateUrl(const QString &name)
 {
     QUrl url = d->requester->url();
+    QString path = url.toLocalFile();
+    if (!QFileInfo(path).isDir() && !path.endsWith('/')) {
+        url = url.adjusted(QUrl::RemoveFilename);
+        path = url.toLocalFile();
+    }
     QString fn = KDbUtils::stringToFileName(name);
     if (!fn.isEmpty() && !fn.endsWith(".kexi"))
         fn += ".kexi";
-    url = url.adjusted(QUrl::RemoveFilename);
-    qDebug() << url.toLocalFile();
-    url.setPath(url.toLocalFile() + fn);
+    url.setPath(QDir(path).absoluteFilePath(fn));
     d->requester->setUrl(url);
 }
 

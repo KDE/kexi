@@ -11,7 +11,16 @@
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <property name="margin">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
     <number>0</number>
    </property>
    <item row="0" column="0">
@@ -24,7 +33,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="KLineEdit" name="le_title">
+      <widget class="KLineEdit" name="le_caption">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -103,7 +112,7 @@
   <customwidget>
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
-   <header location="global">KLineEdit</header>
+   <header>klineedit.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
