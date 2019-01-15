@@ -17,10 +17,10 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#include "KexiDBTitlePage.h"
+#include "KexiDBCaptionPage.h"
 
 
-KexiDBTitlePage::KexiDBTitlePage(const QString& labelText, QWidget* parent)
+KexiDBCaptionPage::KexiDBCaptionPage(const QString& labelText, QWidget* parent)
         : QWidget(parent)
 {
     setupUi(this);
@@ -28,6 +28,6 @@ KexiDBTitlePage::KexiDBTitlePage(const QString& labelText, QWidget* parent)
         label->setText(labelText);
 }
 
-KexiDBTitlePage::~KexiDBTitlePage()
+KexiDBCaptionPage::~KexiDBCaptionPage()
 {
 }

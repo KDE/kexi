@@ -35,7 +35,7 @@
 #include <kexiutils/KexiAssistantPage.h>
 #include <kexiutils/KexiLinkWidget.h>
 #include <widget/KexiConnectionSelectorWidget.h>
-#include <widget/KexiDBTitlePage.h>
+#include <widget/KexiDBCaptionPage.h>
 #include <widget/KexiProjectSelectorWidget.h>
 #include <KexiIcon.h>
 
@@ -199,7 +199,7 @@ static QString defaultDatabaseName()
     return xi18n("New database");
 }
 
-KexiProjectTitleSelectionPage::KexiProjectTitleSelectionPage(QWidget* parent)
+KexiProjectCaptionSelectionPage::KexiProjectCaptionSelectionPage(QWidget* parent)
  : KexiAssistantPage(xi18nc("@title:window", "Project Caption & Filename"),
                   xi18nc("@info", "Enter caption for the new project. "
                        "Filename will be created automatically based on the caption. "
@@ -208,12 +208,12 @@ KexiProjectTitleSelectionPage::KexiProjectTitleSelectionPage(QWidget* parent)
 {
     setBackButtonVisible(true);
     setNextButtonVisible(true);
-    contents = new KexiDBTitlePage(QString());
+    contents = new KexiDBCaptionPage(QString());
     contents->formLayout->setSpacing(KexiUtils::spacingHint());
-    contents->le_title->setText(defaultDatabaseName());
-    contents->le_title->selectAll();
-    connect(contents->le_title, SIGNAL(textChanged(QString)),
-            this, SLOT(titleTextChanged(QString)));
+    contents->le_caption->setText(defaultDatabaseName());
+    contents->le_caption->selectAll();
+    connect(contents->le_caption, &KLineEdit::textChanged, this,
+            &KexiProjectCaptionSelectionPage::captionTextChanged);
     fileHandler = new KexiStartupFileHandler(
         QUrl("kfiledialog:///OpenExistingOrCreateNewProject"),
         KexiFileFilters::SavingFileBasedDB,
@@ -225,43 +225,43 @@ KexiProjectTitleSelectionPage::KexiProjectTitleSelectionPage(QWidget* parent)
     updateUrl();
 
     setContents(contents);
-    setRecentFocusWidget(contents->le_title);
+    setRecentFocusWidget(contents->le_caption);
 }
 
-KexiProjectTitleSelectionPage::~KexiProjectTitleSelectionPage()
+KexiProjectCaptionSelectionPage::~KexiProjectCaptionSelectionPage()
 {
     delete fileHandler;
 }
 
-void KexiProjectTitleSelectionPage::askForOverwriting(const KexiContextMessage& message)
+void KexiProjectCaptionSelectionPage::askForOverwriting(const KexiContextMessage& message)
 {
     //qDebug() << message.text();
     delete messageWidget;
     messageWidget = new KexiContextMessageWidget(this,
                                                  contents->formLayout,
                                                  contents->file_requester, message);
-    messageWidget->setNextFocusWidget(contents->le_title);
+    messageWidget->setNextFocusWidget(contents->le_caption);
 }
 
-void KexiProjectTitleSelectionPage::titleTextChanged(const QString & text)
+void KexiProjectCaptionSelectionPage::captionTextChanged(const QString &text)
 {
     Q_UNUSED(text);
     updateUrl();
 }
 
-void KexiProjectTitleSelectionPage::updateUrl()
+void KexiProjectCaptionSelectionPage::updateUrl()
 {
-    fileHandler->updateUrl(contents->le_title->text());
+    fileHandler->updateUrl(contents->le_caption->text());
 }
 
-bool KexiProjectTitleSelectionPage::isAcceptable()
+bool KexiProjectCaptionSelectionPage::isAcceptable()
 {
     delete messageWidget;
-    if (contents->le_title->text().trimmed().isEmpty()) {
+    if (contents->le_caption->text().trimmed().isEmpty()) {
         messageWidget = new KexiContextMessageWidget(contents->formLayout,
-                                                     contents->le_title,
+                                                     contents->le_caption,
                                                      xi18n("Enter project caption."));
-        contents->le_title->setText(QString());
+        contents->le_caption->setText(QString());
         return false;
     }
     QUrl url = contents->file_requester->url();
@@ -396,16 +396,16 @@ KexiProjectDatabaseNameSelectionPage::KexiProjectDatabaseNameSelectionPage(
     m_le_dbname_txtchanged_enabled = true;
     contents = new KexiServerDBNamePage;
 
-    connect(contents->le_title, SIGNAL(textChanged(QString)),
-            this, SLOT(slotTitleChanged(QString)));
+    connect(contents->le_caption, &KLineEdit::textChanged, this,
+            &KexiProjectDatabaseNameSelectionPage::slotCaptionChanged);
     connect(contents->le_dbname, SIGNAL(textChanged(QString)),
             this, SLOT(slotNameChanged(QString)));
-    connect(contents->le_title, SIGNAL(returnPressed()),
-            this, SLOT(next()));
+    connect(contents->le_caption, &KLineEdit::returnPressed,
+            this, &KexiProjectDatabaseNameSelectionPage::next);
     connect(contents->le_dbname, SIGNAL(returnPressed()),
             this, SLOT(next()));
-    contents->le_title->setText(defaultDatabaseName());
-    contents->le_title->selectAll();
+    contents->le_caption->setText(defaultDatabaseName());
+    contents->le_caption->selectAll();
     KDbIdentifierValidator *idValidator = new KDbIdentifierValidator(this);
     idValidator->setLowerCaseForced(true);
     contents->le_dbname->setValidator(idValidator);
@@ -422,7 +422,7 @@ KexiProjectDatabaseNameSelectionPage::KexiProjectDatabaseNameSelectionPage(
     m_projectSelector->layout()->setContentsMargins(0, 0, 0, 0);
 
     setContents(contents);
-    setRecentFocusWidget(contents->le_title);
+    setRecentFocusWidget(contents->le_caption);
 }
 
 KexiProjectDatabaseNameSelectionPage::~KexiProjectDatabaseNameSelectionPage()
@@ -453,7 +453,7 @@ bool KexiProjectDatabaseNameSelectionPage::setConnection(KDbConnectionData* data
     return true;
 }
 
-void KexiProjectDatabaseNameSelectionPage::slotTitleChanged(const QString &capt)
+void KexiProjectDatabaseNameSelectionPage::slotCaptionChanged(const QString &capt)
 {
     if (contents->le_dbname->text().isEmpty())
         m_dbNameAutofill = true;
@@ -482,11 +482,11 @@ QString KexiProjectDatabaseNameSelectionPage::enteredDbName() const
 bool KexiProjectDatabaseNameSelectionPage::isAcceptable()
 {
     delete messageWidget;
-    if (contents->le_title->text().trimmed().isEmpty()) {
+    if (contents->le_caption->text().trimmed().isEmpty()) {
         messageWidget = new KexiContextMessageWidget(contents->formLayout,
-                                                     contents->le_title,
+                                                     contents->le_caption,
                                                      xi18n("Enter project caption."));
-        contents->le_title->setText(QString());
+        contents->le_caption->setText(QString());
         return false;
     }
     QString dbName(enteredDbName());
@@ -520,7 +520,7 @@ bool KexiProjectDatabaseNameSelectionPage::isAcceptable()
                 this, contents->formLayout,
                 contents->le_dbname, message);
             messageWidget->setMessageType(KMessageWidget::Warning);
-            messageWidget->setNextFocusWidget(contents->le_title);
+            messageWidget->setNextFocusWidget(contents->le_caption);
             return false;
         }
     }
@@ -554,8 +554,8 @@ public:
     KexiProjectStorageTypeSelectionPage* projectStorageTypeSelectionPage() {
         return page<KexiProjectStorageTypeSelectionPage>(&m_projectStorageTypeSelectionPage);
     }
-    KexiProjectTitleSelectionPage* titleSelectionPage() {
-        return page<KexiProjectTitleSelectionPage>(&m_titleSelectionPage);
+    KexiProjectCaptionSelectionPage* captionSelectionPage() {
+        return page<KexiProjectCaptionSelectionPage>(&m_captionSelectionPage);
     }
     KexiProjectCreationPage* projectCreationPage() {
         return page<KexiProjectCreationPage>(&m_projectCreationPage);
@@ -581,7 +581,7 @@ public:
 
     QPointer<KexiTemplateSelectionPage> m_templateSelectionPage;
     QPointer<KexiProjectStorageTypeSelectionPage> m_projectStorageTypeSelectionPage;
-    QPointer<KexiProjectTitleSelectionPage> m_titleSelectionPage;
+    QPointer<KexiProjectCaptionSelectionPage> m_captionSelectionPage;
     QPointer<KexiProjectCreationPage> m_projectCreationPage;
     QPointer<KexiProjectConnectionSelectionPage> m_projectConnectionSelectionPage;
     QPointer<KexiProjectDatabaseNameSelectionPage> m_projectDatabaseNameSelectionPage;
@@ -616,7 +616,7 @@ void KexiNewProjectAssistant::nextPageRequested(KexiAssistantPage* page)
     else if (page == d->m_projectStorageTypeSelectionPage) {
         switch (d->projectStorageTypeSelectionPage()->selectedType()) {
         case KexiProjectStorageTypeSelectionPage::Type::File:
-            setCurrentPage(d->titleSelectionPage());
+            setCurrentPage(d->captionSelectionPage());
             break;
         case KexiProjectStorageTypeSelectionPage::Type::Server:
             setCurrentPage(d->projectConnectionSelectionPage());
@@ -625,15 +625,15 @@ void KexiNewProjectAssistant::nextPageRequested(KexiAssistantPage* page)
             break;
         }
     }
-    else if (page == d->m_titleSelectionPage) {
-        if (!d->titleSelectionPage()->isAcceptable()) {
+    else if (page == d->m_captionSelectionPage) {
+        if (!d->captionSelectionPage()->isAcceptable()) {
             return;
         }
         //file-based project
         KDbConnectionData cdata;
         cdata.setDriverId(KDb::defaultFileBasedDriverId());
-        cdata.setDatabaseName(d->titleSelectionPage()->contents->file_requester->url().toLocalFile());
-        createProject(cdata, cdata.databaseName(), d->titleSelectionPage()->contents->le_title->text());
+        cdata.setDatabaseName(d->captionSelectionPage()->contents->file_requester->url().toLocalFile());
+        createProject(cdata, cdata.databaseName(), d->captionSelectionPage()->contents->le_caption->text());
     }
     else if (page == d->m_projectConnectionSelectionPage) {
         KDbConnectionData *cdata
@@ -666,7 +666,7 @@ void KexiNewProjectAssistant::nextPageRequested(KexiAssistantPage* page)
         //server-based project
         createProject(*d->m_projectDatabaseNameSelectionPage->conndataToShow,
                       d->m_projectDatabaseNameSelectionPage->contents->le_dbname->text().trimmed(),
-                      d->m_projectDatabaseNameSelectionPage->contents->le_title->text().trimmed());
+                      d->m_projectDatabaseNameSelectionPage->contents->le_caption->text().trimmed());
     }
 }
 

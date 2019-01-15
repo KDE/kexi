@@ -32,7 +32,7 @@
 #include <widget/kexiprjtypeselector.h>
 #include <widget/KexiConnectionSelectorWidget.h>
 #include <widget/KexiProjectSelectorWidget.h>
-#include <widget/KexiDBTitlePage.h>
+#include <widget/KexiDBCaptionPage.h>
 #include <widget/KexiDBPasswordDialog.h>
 #include <widget/KexiStartupFileHandler.h>
 #include <KexiIcon.h>
@@ -95,15 +95,15 @@ public:
     QGroupBox *importTypeGroupBox;
     QRadioButton *importTypeStructureAndDataCheckBox;
     QRadioButton *importTypeStructureOnlyCheckBox;
-    KexiDBTitlePage* dstTitlePageWidget;
-    KPageWidgetItem *dstTitlePageItem;
+    KexiDBCaptionPage* dstCaptionPageWidget;
+    KPageWidgetItem *dstCaptionPageItem;
 
     KexiPrjTypeSelector *dstPrjTypeSelector;
 
     KexiConnectionSelectorWidget *srcConn, *dstConn;
     QString driverIdForSelectedSource;
 
-    QLineEdit *dstNewDBTitleLineEdit;
+    QLineEdit *dstNewDBCaptionLineEdit;
     QLabel *dstNewDBNameLabel;
     QLineEdit *dstNewDBNameLineEdit;
 
@@ -149,7 +149,7 @@ ImportWizard::ImportWizard(QWidget *parent, QMap<QString, QString>* args)
     setupSrcConn();
     setupSrcDB();
     setupDstType();
-    setupDstTitle();
+    setupDstCaption();
     setupDst();
     setupImportType();
     setupImporting();
@@ -345,34 +345,34 @@ void ImportWizard::setupDstType()
 
 //===========================================================
 //
-void ImportWizard::setupDstTitle()
+void ImportWizard::setupDstCaption()
 {
-    d->dstTitlePageWidget = new KexiDBTitlePage(xi18n("Destination project's caption:"), this);
-    d->dstTitlePageWidget->layout()->setMargin(KexiUtils::marginHint());
-    d->dstTitlePageWidget->updateGeometry();
-    d->dstNewDBTitleLineEdit = d->dstTitlePageWidget->le_title;
-    connect(d->dstNewDBTitleLineEdit, SIGNAL(textChanged(QString)),
-            this, SLOT(destinationTitleTextChanged(QString)));
-    d->dstNewDBNameUrlLabel = d->dstTitlePageWidget->label_requester;
-    d->dstNewDBNameUrl = d->dstTitlePageWidget->file_requester;
+    d->dstCaptionPageWidget = new KexiDBCaptionPage(xi18n("Destination project's caption:"), this);
+    d->dstCaptionPageWidget->layout()->setMargin(KexiUtils::marginHint());
+    d->dstCaptionPageWidget->updateGeometry();
+    d->dstNewDBCaptionLineEdit = d->dstCaptionPageWidget->le_caption;
+    connect(d->dstNewDBCaptionLineEdit, &QLineEdit::textChanged, this,
+            &ImportWizard::destinationCaptionTextChanged);
+    d->dstNewDBNameUrlLabel = d->dstCaptionPageWidget->label_requester;
+    d->dstNewDBNameUrl = d->dstCaptionPageWidget->file_requester;
     d->dstNewDBFileHandler = new KexiStartupFileHandler(
         QUrl("kfiledialog:///ProjectMigrationDestinationDir"),
         KexiFileFilters::SavingFileBasedDB,
-        d->dstTitlePageWidget->file_requester);
-    d->dstNewDBNameLabel = new QLabel(xi18n("Destination project's name:"), d->dstTitlePageWidget);
-    d->dstTitlePageWidget->formLayout->setWidget(2, QFormLayout::LabelRole, d->dstNewDBNameLabel);
-    d->dstNewDBNameLineEdit = new QLineEdit(d->dstTitlePageWidget);
+        d->dstCaptionPageWidget->file_requester);
+    d->dstNewDBNameLabel = new QLabel(xi18n("Destination project's name:"), d->dstCaptionPageWidget);
+    d->dstCaptionPageWidget->formLayout->setWidget(2, QFormLayout::LabelRole, d->dstNewDBNameLabel);
+    d->dstNewDBNameLineEdit = new QLineEdit(d->dstCaptionPageWidget);
     d->dstNewDBNameLineEdit->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed));
     KDbIdentifierValidator *idValidator = new KDbIdentifierValidator(this);
     idValidator->setLowerCaseForced(true);
     d->dstNewDBNameLineEdit->setValidator(idValidator);
-    d->dstTitlePageWidget->formLayout->setWidget(2, QFormLayout::FieldRole, d->dstNewDBNameLineEdit);
+    d->dstCaptionPageWidget->formLayout->setWidget(2, QFormLayout::FieldRole, d->dstNewDBNameLineEdit);
 
-    d->dstTitlePageItem = new KPageWidgetItem(d->dstTitlePageWidget, xi18n("Enter Destination Database Project's Caption"));
-    addPage(d->dstTitlePageItem);
+    d->dstCaptionPageItem = new KPageWidgetItem(d->dstCaptionPageWidget, xi18n("Enter Destination Database Project's Caption"));
+    addPage(d->dstCaptionPageItem);
 }
 
-void ImportWizard::destinationTitleTextChanged(const QString & text)
+void ImportWizard::destinationCaptionTextChanged(const QString &text)
 {
     Q_UNUSED(text);
     updateDestinationDBFileName();
@@ -380,8 +380,8 @@ void ImportWizard::destinationTitleTextChanged(const QString & text)
 
 void ImportWizard::updateDestinationDBFileName()
 {
-    d->dstNewDBFileHandler->updateUrl(d->dstNewDBTitleLineEdit->text());
-    d->dstNewDBNameLineEdit->setText(d->dstNewDBTitleLineEdit->text());
+    d->dstNewDBFileHandler->updateUrl(d->dstNewDBCaptionLineEdit->text());
+    d->dstNewDBNameLineEdit->setText(d->dstNewDBCaptionLineEdit->text());
 }
 
 //===========================================================
@@ -517,7 +517,7 @@ bool ImportWizard::checkUserInput()
 {
     QString issues;
 
-    if (d->dstNewDBTitleLineEdit->text().isEmpty()) {
+    if (d->dstNewDBCaptionLineEdit->text().isEmpty()) {
         issues = xi18nc("@info", "<para>No new database name was entered.</para>");
     }
 
@@ -579,7 +579,7 @@ void ImportWizard::arriveSrcDBPage()
     }
 }
 
-void ImportWizard::arriveDstTitlePage()
+void ImportWizard::arriveDstCaptionPage()
 {
     d->dstNewDBNameUrlLabel->setVisible(fileBasedDstSelected());
     d->dstNewDBNameUrl->setVisible(fileBasedDstSelected());
@@ -591,22 +591,22 @@ void ImportWizard::arriveDstTitlePage()
         const QFileInfo fi(suggestedDBName);
         suggestedDBName = suggestedDBName.left(suggestedDBName.length()
                                                - (fi.completeSuffix().isEmpty() ? 0 : (fi.completeSuffix().length() + 1)));
-        d->dstNewDBTitleLineEdit->setText(suggestedDBName);
+        d->dstNewDBCaptionLineEdit->setText(suggestedDBName);
     }
     else {
         if (d->predefinedConnectionData) {
             // server source db is predefined
-            d->dstNewDBTitleLineEdit->setText(d->predefinedDatabaseName);
+            d->dstNewDBCaptionLineEdit->setText(d->predefinedDatabaseName);
         } else {
             if (!d->srcProjectSelector || !d->srcProjectSelector->selectedProjectData()) {
                 back(); //!< @todo
                 return;
             }
-            d->dstNewDBTitleLineEdit->setText(d->srcProjectSelector->selectedProjectData()->databaseName());
+            d->dstNewDBCaptionLineEdit->setText(d->srcProjectSelector->selectedProjectData()->databaseName());
         }
     }
-    d->dstNewDBTitleLineEdit->selectAll();
-    d->dstNewDBTitleLineEdit->setFocus();
+    d->dstNewDBCaptionLineEdit->selectAll();
+    d->dstNewDBCaptionLineEdit->setFocus();
     updateDestinationDBFileName();
 }
 
@@ -771,9 +771,9 @@ KexiMigrate* ImportWizard::prepareImport(Kexi::ObjectStatus& result)
             //qDebug() << "File Destination...";
             cdata = new KDbConnectionData();
             cdataDeleter.reset(cdata); // ownership won't be transferred
-            cdata->setCaption(d->dstNewDBTitleLineEdit->text());
+            cdata->setCaption(d->dstNewDBCaptionLineEdit->text());
             cdata->setDriverId(KDb::defaultFileBasedDriverId());
-            dbname = d->dstTitlePageWidget->file_requester->url().toLocalFile();
+            dbname = d->dstCaptionPageWidget->file_requester->url().toLocalFile();
             cdata->setDatabaseName(dbname);
             //qDebug() << "Current file name:" << dbname;
         }
@@ -997,7 +997,7 @@ void ImportWizard::next()
                 return;
             }
         }
-    } else if (currentPage() == d->dstTitlePageItem) {
+    } else if (currentPage() == d->dstCaptionPageItem) {
         if (fileBasedDstSelected()) {
             if (QFileInfo::exists(d->dstNewDBNameUrl->url().toLocalFile())) {
                 if (!KexiUtils::askForFileOverwriting(d->dstNewDBNameUrl->url().toLocalFile(), this)) {
@@ -1082,8 +1082,8 @@ void ImportWizard::slot_currentPageChanged(KPageWidgetItem* curPage,KPageWidgetI
     } else if (curPage == d->srcDBPageItem) {
         arriveSrcDBPage();
     } else if (curPage == d->dstTypePageItem) {
-    } else if (curPage == d->dstTitlePageItem) {
-        arriveDstTitlePage();
+    } else if (curPage == d->dstCaptionPageItem) {
+        arriveDstCaptionPage();
     } else if (curPage == d->dstPageItem) {
         if (fileBasedDstSelected()) {
             if (prevPage == d->importTypePageItem) {

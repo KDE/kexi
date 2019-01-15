@@ -1,4 +1,4 @@
-/* This file is part of the KDE project
+﻿/* This file is part of the KDE project
    Copyright (C) 2004 Adam Pigg <adam@piggz.co.uk>
    Copyright (C) 2004-2016 Jarosław Staniek <staniek@kde.org>
    Copyright (C) 2005 Martin Ellis <martin.ellis@kdemail.net>
@@ -67,7 +67,7 @@ protected Q_SLOTS:
     virtual void reject();
     void helpClicked();
     void slotOptionsButtonClicked();
-    void destinationTitleTextChanged(const QString & text);
+    void destinationCaptionTextChanged(const QString &text);
     void sourceConnectionSelected(bool selected);
 
 private:
@@ -77,7 +77,7 @@ private:
     void setupSrcConn();
     void setupSrcDB();
     void setupDstType();
-    void setupDstTitle();
+    void setupDstCaption();
     void setupDst();
     void setupFinish();
     void setupImportType();
@@ -99,7 +99,7 @@ private:
 
     void arriveSrcConnPage();
     void arriveSrcDBPage();
-    void arriveDstTitlePage();
+    void arriveDstCaptionPage();
     void arriveDstPage();
     void arriveFinishPage();
     void arriveImportingPage();
