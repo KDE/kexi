@@ -313,6 +313,7 @@
       <caption xml:lang="nl">Tabelweergave</caption>
       <caption xml:lang="pl">Widok tabeli</caption>
       <caption xml:lang="pt">Vista em tabelas</caption>
+      <caption xml:lang="pt-BR">Exibição em tabelas</caption>
       <caption xml:lang="sv">Tabellvy</caption>
       <caption xml:lang="uk">Перегляд таблиць</caption>
       <caption xml:lang="x-test">xxTabular viewxx</caption>
@@ -328,6 +329,7 @@
       <caption xml:lang="nl">Ontwerper van query</caption>
       <caption xml:lang="pl">Opracowywanie zapytań</caption>
       <caption xml:lang="pt">Desenhador de Pesquisas</caption>
+      <caption xml:lang="pt-BR">Designer de pesquisas</caption>
       <caption xml:lang="sv">Frågekonstruktion</caption>
       <caption xml:lang="uk">Засіб для розробки запитів</caption>
       <caption xml:lang="x-test">xxQuery Designerxx</caption>
@@ -344,6 +346,7 @@
       <caption xml:lang="nl">SQL-bewerker</caption>
       <caption xml:lang="pl">Edytor SQL</caption>
       <caption xml:lang="pt">Editor de SQL</caption>
+      <caption xml:lang="pt-BR">Editor SQL</caption>
       <caption xml:lang="sv">SQL-editor</caption>
       <caption xml:lang="uk">Редактор SQL</caption>
       <caption xml:lang="x-test">xxSQL Editorxx</caption>
@@ -386,6 +389,7 @@
       <caption xml:lang="nl">Ontwerper van rapporten</caption>
       <caption xml:lang="pl">Opracowywanie sprawozdań</caption>
       <caption xml:lang="pt">Desenhador de Formulários</caption>
+      <caption xml:lang="pt-BR">Ferramenta de desenho de relatórios</caption>
       <caption xml:lang="sv">Rapportkonstruktion</caption>
       <caption xml:lang="uk">Засіб для розробки звітів</caption>
       <caption xml:lang="x-test">xxReport Designerxx</caption>
@@ -401,6 +405,7 @@
       <caption xml:lang="nl">Importeren van MS Access database</caption>
       <caption xml:lang="pl">Importowanie bazy danych MS Access</caption>
       <caption xml:lang="pt">Importação de bases de dados MS Access</caption>
+      <caption xml:lang="pt-BR">Importação de bancos de dados MS Access</caption>
       <caption xml:lang="sv">MS Access-databasimport</caption>
       <caption xml:lang="uk">Імпортування баз даних MS Access</caption>
       <caption xml:lang="x-test">xxMS Access database importxx</caption>
