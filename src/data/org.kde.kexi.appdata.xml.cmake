@@ -338,6 +338,7 @@
       <caption>Query Designer</caption>
       <caption xml:lang="ca">Dissenyador de consultes</caption>
       <caption xml:lang="ca-valencia">Dissenyador de consultes</caption>
+      <caption xml:lang="cs">Návrhář dotazů</caption>
       <caption xml:lang="es">Diseñador de consultas</caption>
       <caption xml:lang="fi">Kyselyjen suunnittelu</caption>
       <caption xml:lang="gl">Deseñador de consultas</caption>
@@ -356,6 +357,7 @@
       <caption>SQL Editor</caption>
       <caption xml:lang="ca">Editor de SQL</caption>
       <caption xml:lang="ca-valencia">Editor de SQL</caption>
+      <caption xml:lang="cs">Editor SQL</caption>
       <caption xml:lang="es">Editor SQL</caption>
       <caption xml:lang="fi">SQL-muokkain</caption>
       <caption xml:lang="fr">Éditeur SQL</caption>
@@ -403,6 +405,7 @@
       <caption>Report Designer</caption>
       <caption xml:lang="ca">Dissenyador d'informes</caption>
       <caption xml:lang="ca-valencia">Dissenyador d'informes</caption>
+      <caption xml:lang="cs">Návrhář hlášení</caption>
       <caption xml:lang="es">Diseñador de informes</caption>
       <caption xml:lang="fi">Raporttien suunnittelu</caption>
       <caption xml:lang="gl">Deseñador de informes</caption>
@@ -421,6 +424,7 @@
       <caption>MS Access database import</caption>
       <caption xml:lang="ca">Importació d'una base de dades de MS Access</caption>
       <caption xml:lang="ca-valencia">Importació d'una base de dades de MS Access</caption>
+      <caption xml:lang="cs">Import databáze MS Access</caption>
       <caption xml:lang="es">Importación de bases de datos de MS Access</caption>
       <caption xml:lang="fi">MS Access -tietokannan tuonti</caption>
       <caption xml:lang="gl">Importación da base de datos de MS Access</caption>
