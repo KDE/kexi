@@ -332,6 +332,7 @@
       <caption xml:lang="sv">Tabellvy</caption>
       <caption xml:lang="uk">Перегляд таблиць</caption>
       <caption xml:lang="x-test">xxTabular viewxx</caption>
+      <caption xml:lang="zh-CN">表格视图</caption>
       <image>http://kexi-project.org/pics/3.0/kexi-3.0-table-view.png</image>
     </screenshot>
     <screenshot>
@@ -351,6 +352,7 @@
       <caption xml:lang="sv">Frågekonstruktion</caption>
       <caption xml:lang="uk">Засіб для розробки запитів</caption>
       <caption xml:lang="x-test">xxQuery Designerxx</caption>
+      <caption xml:lang="zh-CN">查询设计器</caption>
       <image>http://kexi-project.org/pics/3.1/kexi-3.1-query-designer.png</image>
     </screenshot>
     <screenshot>
@@ -371,6 +373,7 @@
       <caption xml:lang="sv">SQL-editor</caption>
       <caption xml:lang="uk">Редактор SQL</caption>
       <caption xml:lang="x-test">xxSQL Editorxx</caption>
+      <caption xml:lang="zh-CN">SQL 编辑器</caption>
       <image>http://kexi-project.org/pics/3.0/kexi-3.0-alpha-sql_editor.png</image>
     </screenshot>
     <screenshot>
@@ -418,6 +421,7 @@
       <caption xml:lang="sv">Rapportkonstruktion</caption>
       <caption xml:lang="uk">Засіб для розробки звітів</caption>
       <caption xml:lang="x-test">xxReport Designerxx</caption>
+      <caption xml:lang="zh-CN">报表设计器</caption>
       <image>http://kexi-project.org/pics/3.1/kreport-3.1-custompagesize.png</image>
     </screenshot>
     <screenshot>
@@ -437,6 +441,7 @@
       <caption xml:lang="sv">MS Access-databasimport</caption>
       <caption xml:lang="uk">Імпортування баз даних MS Access</caption>
       <caption xml:lang="x-test">xxMS Access database importxx</caption>
+      <caption xml:lang="zh-CN">MS Access 数据库导入</caption>
       <image>http://kexi-project.org/pics/3.1/kexi-3.1-import-ms-access.png</image>
     </screenshot>
   </screenshots>
