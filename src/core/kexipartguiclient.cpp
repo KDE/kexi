@@ -21,7 +21,7 @@
 #include "kexipart.h"
 #include "kexipartinfo.h"
 #include "kexipartitem.h"
-//! @todo KEXI3 #include "kexistaticpart.h"
+//! @todo KEXI3 include "kexistaticpart.h"
 #include "KexiWindow.h"
 #include "KexiWindowData.h"
 #include "KexiView.h"

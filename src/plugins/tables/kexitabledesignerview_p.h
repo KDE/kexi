@@ -143,8 +143,8 @@ public:
     //! Used in slotExecuteRealAlterTable() to switch on real alter table for a while.
     bool tempStoreDataUsingRealAlterTable;
 
-    /*! Set to a recent result of calling \ref tristate KexiTableDesignerView::storeData(bool dontAsk).
-     Then, it is used in \ref void KexiTableDesignerView::executeRealAlterTable()
+    /*! Set to a recent result of calling KexiTableDesignerView::storeData(bool dontAsk).
+     Then, it is used in KexiTableDesignerView::executeRealAlterTable()
      to know what return value should be. */
     tristate recentResultOfStoreData;
 

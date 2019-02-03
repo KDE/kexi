@@ -49,8 +49,8 @@ protected:
 #endif
 
 /*! Identifier editor based on ordinary string editor but always keeps a valid identifier
- or empty value. It's line edit has IdentifierValidator::IdentifierValidator set, so user
- is unable to enter invalid characters. Any chages to a null value or empty string,
+ or empty value. It's line edit has IdentifierValidator set, so user
+ is unable to enter invalid characters. Any changes to a null value or empty string,
  have no effect.
 
  @todo move this to the KPropertyWidgets library (when KexiUtils moves to KProperty)
