@@ -27,7 +27,7 @@
 #include <core/KexiMainWindowIface.h>
 #include <KexiIcon.h>
 
-//! @todo KEXI3 #include "../scripting/kexiscripting/kexiscriptadaptor.h"
+//! @todo KEXI3 include "../scripting/kexiscripting/kexiscriptadaptor.h"
 
 #include <KReportPage>
 #include <KReportRenderObjects>

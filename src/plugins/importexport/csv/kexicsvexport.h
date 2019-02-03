@@ -52,8 +52,10 @@ public:
 };
 
 /*! Exports data. \return false on failure.
+ @param conn connection
+ @param tableOrQuery table OR query schema
  @param options options for the export
- @param recordCount record count of the input data or -1 if the record cound has not yet been computed
+ @param recordCount record count of the input data or -1 if the record count has not yet been computed
  @param predefinedTextStream text stream that should be used instead of writing to a file
 */
 bool exportData(KDbConnection* conn, KDbTableOrQuerySchema *tableOrQuery, const Options& options,

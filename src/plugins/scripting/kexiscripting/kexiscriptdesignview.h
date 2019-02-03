@@ -71,6 +71,7 @@ public:
      * success the matching \a KDbObject is returned.
      *
      * \param object The source \a KDbObject instance.
+     * \param options options for the export
      * \param cancel Cancel on failure and don't try to clean
      *       possible temporary created data up.
      * \return The matching \a KDbObject instance or NULL

@@ -881,7 +881,7 @@ protected:
 
 //! @todo really keep this here and not in KexiTableView?
     /*! true if currently double click action was is performed
-    (so accept/cancel editor shoudn't be executed) */
+    (so accept/cancel editor shouldn't be executed) */
     bool m_contentsMousePressEvent_dblClick;
 
     /*! like for readOnly: 1 if inserting is enabled */
@@ -902,7 +902,7 @@ protected:
     /*! true, if this table accepts dropping data on the records (false by default). */
     bool m_dropsAtRecordEnabled;
 
-    /*! true, if this entire (visible) record should be updated when boving to other record.
+    /*! true, if this entire (visible) record should be updated when moving to other record.
      False by default. For table view with 'record highlighting' flag enabled, it is true. */
     bool m_updateEntireRecordWhenMovingToOtherRecord;
 
