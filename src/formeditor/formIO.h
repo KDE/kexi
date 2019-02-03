@@ -161,6 +161,7 @@ public:
                                     const QString &property, const QVariant &value);
 
     /*! Read an object property in the DOM doc.
+       \param form   the Form of the property
        \param node   the QDomNode of the property
        \param obj    the widget whose property is being read
        \param name   the name of the property being read
@@ -169,11 +170,12 @@ public:
 
     /*! Write an object property in the DOM doc.
        \param item   the widget item whose property is being saved
-       \param parentNode the DOM document to write to
+       \param parentNode the DOM element to write to
+       \param parent the parent QDomDocument
        \param name   the name of the property being saved
        \param value  the value of this property
 
-       Properties of subwidget are saved with subwidget="true" arribute added
+       Properties of subwidget are saved with subwidget="true" attribute added
        to 'property' XML element.
     */
     static void savePropertyValue(ObjectTreeItem *item, QDomElement &parentNode,

@@ -40,7 +40,7 @@ public Q_SLOTS:
     //! Sets the current widget to be the specified widget.
     /*! Animation is performed while switching the widgets
         (assuming animations are enabled (see the explanation
-        for @ref KexiAnimatedStackedLayout).
+        for KexiAnimatedStackedLayout).
         The new current widget must already be contained in this stacked layout.
         Because of the animation, changing current widget is asynchronous, i.e.
         after this methods returns, current widget is not changed.

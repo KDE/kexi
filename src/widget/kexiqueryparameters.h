@@ -29,7 +29,7 @@ class KEXIEXTWIDGETS_EXPORT KexiQueryParameters
 {
 public:
     /*! Asks for query parameters using a QInputDialog, one dialog per query parameter
-     (see @ref KDbQuerySchema::parameters()). The type of each dialog depends
+     (see KDbQuerySchema::parameters()). The type of each dialog depends
      on the type of query parameter.
      \return list of values obtained from the user
      \a ok is set to true on success and to false on failure. */

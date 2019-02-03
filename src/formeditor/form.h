@@ -163,8 +163,8 @@ public:
      */
     Container* parentContainer(QWidget *w = 0) const;
 
-    /*! \return The \ref Container which is a parent of all widgets in \a wlist.
-     Used by \ref activeContainer(), and to find where
+    /*! \return The Container which is a parent of all widgets in \a wlist.
+     Used by activeContainer(), and to find where
      to paste widgets when multiple widgets are selected. */
     ObjectTreeItem* commonParentContainer(const QWidgetList &wlist);
 
@@ -503,10 +503,10 @@ public Q_SLOTS:
     /*! Adjusts the size of the selected widget, ie resize it to its size hint. */
     void adjustWidgetSize();
 
-    /*! Creates a dialog to edit the \ref activeForm() PixmapCollection. */
+    /*! Creates a dialog to edit the activeForm() PixmapCollection. */
     void editFormPixmapCollection();
 
-    /*! Creates a dialog to edit the Connection of \ref activeForm(). */
+    /*! Creates a dialog to edit the Connection of activeForm(). */
     void editConnections();
 
     void alignWidgetsToLeft();

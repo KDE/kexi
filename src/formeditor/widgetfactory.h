@@ -77,7 +77,7 @@ protected:
   The following functions allow you to customize even more the look-n-feel of your widgets inside KFormDesigner.
   You can use createMenuActions() to add custom items in widget's context menu. The previewWidget()
   is called when the Form gets in Preview mode, and you have a last opportunity to remove all editing-related
-  stuff (see eg \ref Spring class).\n
+  stuff (see eg Spring class).\n
   You can also choose which properties to show in the Property Editor.
   By default, most all properties are shown (see implementation for details),
   but you can hide some reimplementing isPropertyVisibleInternal() (don't forget to call superclass' method)
