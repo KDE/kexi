@@ -22,6 +22,8 @@
 
 #include "kexiextwidgets_export.h"
 
+#include <KDbTableOrQuerySchema>
+
 #include <KComboBox>
 
 class KexiProject;
@@ -44,7 +46,7 @@ public Q_SLOTS:
     //! Sets global project that is used to retrieve schema informationm for this combo box.
     void setProject(KexiProject *prj);
 
-    void setTableOrQuery(const QString& name, bool table);
+    void setTableOrQuery(const QString& name, KDbTableOrQuerySchema::Type type);
     QString tableOrQueryName() const;
     bool isTableAssigned() const;
     void setFieldOrExpression(const QString& string);

@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2012 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-2019 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -30,6 +30,8 @@
 #include "kexiprojectdata.h"
 #include "kexipartitem.h"
 #include "kexi.h"
+
+#include <KDbTableOrQuerySchema>
 
 /*! KexiProject implementation version.
  It is altered after every change:
@@ -139,6 +141,19 @@ public:
      * @see typeIdForPluginId()
      */
     QString pluginIdForTypeId(int typeId) const;
+
+    /**
+     * Returns table or query type for given plugin ID
+     *
+     * - KDbTableOrQuerySchema::Type::Table for "org.kexi-project.table"
+     * - KDbTableOrQuerySchema::Type::Query for "org.kexi-project.query"
+     *
+     * @a ok must not be @c nullptr. For "org.kexi-project.table" or "org.kexi-project.query" plugin
+     * ID *ok is set to @c true, for other IDs it is set to @c false and
+     * KDbTableOrQuerySchema::Type::Table is returned.
+     */
+    static KDbTableOrQuerySchema::Type pluginIdToTableOrQueryType(const QString &pluginId,
+                                                                  bool *ok);
 
     /**
      * @return all items of a type \a i in this project

@@ -343,9 +343,13 @@ void KexiFormView::updateAutoFieldsDataSource()
     QString dataSourceString(d->dbform->dataSource());
     QString dataSourcePartClassString(d->dbform->dataSourcePluginId());
     KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
-    KDbTableOrQuerySchema tableOrQuery(
-        conn, dataSourceString.toLatin1(), dataSourcePartClassString == "org.kexi-project.table"
-        ? KDbTableOrQuerySchema::Type::Table :: KDbTableOrQuerySchema::Type::Query);
+    bool ok;
+    const KDbTableOrQuerySchema::Type type = KexiProject::pluginIdToTableOrQueryType(
+                dataSourcePartClassString, &ok);
+    if (!ok) {
+        return;
+    }
+    KDbTableOrQuerySchema tableOrQuery(conn, dataSourceString.toLatin1(), type);
     if (!tableOrQuery.table() && !tableOrQuery.query())
         return;
     foreach (KFormDesigner::ObjectTreeItem *item, *form()->objectTree()->hash()) {
@@ -370,10 +374,13 @@ void KexiFormView::updateValuesForSubproperties()
     QString dataSourceString(d->dbform->dataSource());
     QString dataSourcePartClassString(d->dbform->dataSourcePluginId());
     KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
-    KDbTableOrQuerySchema tableOrQuery(conn, dataSourceString.toLatin1(),
-                                       dataSourcePartClassString == "org.kexi-project.table"
-                                           ? KDbTableOrQuerySchema::Type::Table
-                                           : KDbTableOrQuerySchema::Type::Query);
+    bool ok;
+    const KDbTableOrQuerySchema::Type type = KexiProject::pluginIdToTableOrQueryType(
+                dataSourcePartClassString, &ok);
+    if (dataSourceString.isEmpty() || !ok) {
+        return;
+    }
+    KDbTableOrQuerySchema tableOrQuery(conn, dataSourceString.toLatin1(), type);
     if (!tableOrQuery.table() && !tableOrQuery.query())
         return;
 
@@ -629,8 +636,10 @@ void KexiFormView::initDataSource()
         sources = d->scrollView->usedDataSources();
         conn = KexiMainWindowIface::global()->project()->dbConnection();
         QString dataSourcePartClassString(d->dbform->dataSourcePluginId());
+        const KDbTableOrQuerySchema::Type type = KexiProject::pluginIdToTableOrQueryType(
+                    dataSourcePartClassString, &ok);
         if (dataSourcePartClassString.isEmpty() /*table type is the default*/
-            || dataSourcePartClassString == "org.kexi-project.table")
+            || type == KDbTableOrQuerySchema::Type::Table)
         {
             tableSchema = conn->tableSchema(dataSourceString);
             if (tableSchema) {
@@ -645,7 +654,7 @@ void KexiFormView::initDataSource()
 
         if (!tableSchema) {
             if (dataSourcePartClassString.isEmpty() /*also try to find a query (for compatibility with Kexi<=0.9)*/
-                || dataSourcePartClassString == "org.kexi-project.query")
+                || type == KDbTableOrQuerySchema::Type::Query)
             {
                 //try to find predefined query schema.
                 //Note: In general, we could not skip unused fields within this query because
@@ -1122,10 +1131,13 @@ KexiFormView::insertAutoFields(const QString& sourcePartClass, const QString& so
         return;
 
     KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
-    KDbTableOrQuerySchema tableOrQuery(conn, sourceName.toLatin1(),
-                                       sourcePartClass == "org.kexi-project.table"
-                                       ? KDbTableOrQuerySchema::Type::Table
-                                       : KDbTableOrQuerySchema::Type::Query);
+    bool ok;
+    const KDbTableOrQuerySchema::Type type = KexiProject::pluginIdToTableOrQueryType(
+                sourcePartClass, &ok);
+    if (sourceName.isEmpty() || !ok) {
+        return;
+    }
+    KDbTableOrQuerySchema tableOrQuery(conn, sourceName.toLatin1(), type);
     if (!tableOrQuery.table() && !tableOrQuery.query()) {
         qWarning() << "no such table/query" << sourceName;
         return;
