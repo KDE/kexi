@@ -138,12 +138,12 @@ tristate KexiReportDesignView::storeData(bool dontAsk)
 
 tristate KexiReportDesignView::beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore)
 {
-    qDebug() << mode;
+    //qDebug() << mode;
     *dontStore = true;
     if (m_reportDesigner && mode == Kexi::DataViewMode) {
-        qDebug() << "Saving temp data";
+        //qDebug() << "Saving temp data";
         tempData()->reportDefinition = m_reportDesigner->document();
-        qDebug() << m_reportDesigner->document().toDocument().toString();
+        //qDebug() << m_reportDesigner->document().toDocument().toString();
         tempData()->reportSchemaChangedInPreviousView = true;
     }
     return true;
@@ -234,7 +234,7 @@ QDomElement KexiReportDesignView::connectionData() const
 
 void KexiReportDesignView::setConnectionData(const QDomElement &c)
 {
-    qDebug() << c;
+    //qDebug() << c;
     if (c.attribute("type") == "internal") {
         QString sourceClass(c.attribute("class"));
         if (sourceClass != "org.kexi-project.table" && sourceClass != "org.kexi-project.query") {

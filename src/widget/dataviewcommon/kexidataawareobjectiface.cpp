@@ -107,7 +107,7 @@ void KexiDataAwareObjectInterface::setData(KDbTableViewData *data, bool owner)
 {
     const bool theSameData = m_data && m_data == data;
     if (m_owner && m_data && m_data != data/*don't destroy if it's the same*/) {
-        qDebug() << "destroying old data (owned)";
+        //qDebug() << "destroying old data (owned)";
         delete m_data; //destroy old data
         m_data = 0;
         m_itemIterator = KDbTableViewDataIterator();

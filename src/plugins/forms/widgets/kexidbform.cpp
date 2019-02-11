@@ -115,7 +115,6 @@ KexiDBForm::KexiDBForm(QWidget *parent, KexiDataAwareObjectInterface* dataAwareO
     d->dataAwareObject = dataAwareObject;
     KexiDataItemInterface::setHasFocusableWidget(false);
 
-    qDebug() << ":";
     setCursor(QCursor(Qt::ArrowCursor)); //to avoid keeping Size cursor when moving from form's boundaries
     setAcceptDrops(true);
     setAutoFillBackground(true);
