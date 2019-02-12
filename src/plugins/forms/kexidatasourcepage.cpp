@@ -308,7 +308,7 @@ void KexiDataSourcePage::slotFormDataSourceChanged()
             m_tableOrQuerySchema = tableOrQuery;
 #endif
             dataSourceFound = true;
-            m_widgetDataSourceCombo->setTableOrQuery(name, KDbTableOrQuerySchema::Type::Table);
+            m_widgetDataSourceCombo->setTableOrQuery(name, type);
         } else {
             delete tableOrQuery;
         }
