@@ -97,9 +97,9 @@ void KexiFormDataProvider::fillDataItems(KDbRecordData *data, bool cursorAtNewRe
         if (indexForVisibleLookupValue != -1 && (int)data->count() > indexForVisibleLookupValue) {
             visibleLookupValue = data->at(indexForVisibleLookupValue);
         }
-        /*qDebug() << "fill data of" << itemIface->dataSource() <<  "at idx" << it.value()
-            << "data=" << KDbUtils::squeezedValue(value)
-            << "indexForVisibleLookupValue=" << indexForVisibleLookupValue << "visibleLookupValue=" << KDbUtils::squeezedValue(visibleLookupValue);*/
+        //qDebug() << "fill data of" << itemIface->dataSource() <<  "at idx" << it.value()
+        //    << "data=" << KDbUtils::squeezedValue(value)
+        //    << "indexForVisibleLookupValue=" << indexForVisibleLookupValue << "visibleLookupValue=" << KDbUtils::squeezedValue(visibleLookupValue);
         const bool displayDefaultValue = cursorAtNewRecord && (value.isNull() && visibleLookupValue.isNull())
                                          && !itemIface->columnInfo()->field()->defaultValue().isNull()
                                          && !itemIface->columnInfo()->field()->isAutoIncrement(); //no value to set but there is default value defined
@@ -141,8 +141,8 @@ void KexiFormDataProvider::fillDuplicatedDataItems(
         for (it_dup = tmpDuplicatedItems.constBegin(); it_dup != tmpDuplicatedItems.constEnd(); ++it_dup) {
             if (it_dup.value() > 1) {
                 m_duplicatedItems->insert(it_dup.key());
-                //qDebug() << "duplicated item:" << static_cast<KDbField*>(it_dup.key())->name()
-                //    << "(" << it_dup.value() << "times)";
+                //qDebug() << "duplicated item: " << static_cast<KDbField*>(it_dup.key())->name()
+                //    << " (" << it_dup.value() << " times)";
             }
         }
     }
@@ -150,7 +150,7 @@ void KexiFormDataProvider::fillDuplicatedDataItems(
         foreach(KexiFormDataItemInterface *dataItemIface, m_dataItems) {
             if (dataItemIface != item && item->columnInfo()->field() == dataItemIface->columnInfo()->field()) {
                 //qDebug() << "- setting a copy of value for item '"
-                //    << dynamic_cast<QObject*>(dataItemIface)->objectName() << "'==" << value;
+                //    << dynamic_cast<QObject*>(dataItemIface)->objectName() << "' == " << value;
                 dataItemIface->setValue(value);
             }
         }
@@ -187,9 +187,9 @@ void KexiFormDataProvider::invalidateDataSources(const QSet<QString> &invalidSou
         foreach(KexiFormDataItemInterface *item, m_dataItems) {
             KDbQueryColumnInfo* ci = query->columnInfo(conn, item->dataSource());
             int index = ci ? columnsOrder[ ci ] : -1;
-            /*qDebug() << "query->columnsOrder()[ " << (ci ? ci->field()->name() : QString()) << " ] = " << index
-                << " (dataSource: " << item->dataSource() << ", name="
-                << dynamic_cast<QObject*>(item)->objectName() << ")";*/
+            //qDebug() << "query->columnsOrder()[ " << (ci ? ci->field()->name() : QString()) << " ] = " << index
+            //    << " (dataSource: " << item->dataSource() << ", name="
+            //    << dynamic_cast<QObject*>(item)->objectName() << ")";
             if (index != -1 && !m_fieldNumbersForDataItems[ item ])
                 m_fieldNumbersForDataItems.insert(item, index);
             //! @todo
@@ -221,9 +221,9 @@ void KexiFormDataProvider::invalidateDataSources(const QSet<QString> &invalidSou
         if (query) {
             KDbQueryColumnInfo *ci = fieldsExpanded[fieldNumber];
             item->setColumnInfo(conn, ci);
-            /*qDebug() << "- item=" << dynamic_cast<QObject*>(item)->objectName()
-                << " dataSource=" << item->dataSource()
-                << " field=" << ci->field()->name();*/
+            //qDebug() << "- item=" << dynamic_cast<QObject*>(item)->objectName()
+            //    << " dataSource=" << item->dataSource()
+            //    << " field=" << ci->field()->name();
             const int indexForVisibleLookupValue = ci->indexForVisibleLookupValue();
             if (-1 != indexForVisibleLookupValue && indexForVisibleLookupValue < (int)fieldsExpanded.count()) {
                 //there's lookup column defined: set visible column as well
@@ -238,7 +238,7 @@ void KexiFormDataProvider::invalidateDataSources(const QSet<QString> &invalidSou
                     }
 
                     //qDebug() << "ALSO SET visibleColumn=" << *visibleColumnInfo
-                    //    << "\n at position" << indexForVisibleLookupValue;
+                    //    << "\n at position " << indexForVisibleLookupValue;
                 }
             }
         }

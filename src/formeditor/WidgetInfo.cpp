@@ -22,7 +22,11 @@
 #include "WidgetInfo.h"
 #include "widgetfactory.h"
 
+#include <KDb>
+
 #include <KProperty>
+
+#include <KLocalizedString>
 
 namespace KFormDesigner {
 class Q_DECL_HIDDEN WidgetInfo::Private
@@ -46,7 +50,8 @@ public:
     QString iconName;
     QByteArray className;
     QString name;
-    QString prefixName;
+    QByteArray namePrefix;
+    QString translatedNamePrefix;
     QString desc;
     QString include;
     QList<QByteArray> alternateNames;
@@ -121,12 +126,40 @@ WidgetInfo* WidgetInfo::inheritedClass() const
 
 QString WidgetInfo::namePrefix() const
 {
-    return d->prefixName;
+    return QString::fromLatin1(d->namePrefix);
 }
 
-void WidgetInfo::setNamePrefix(const QString &n)
+QString WidgetInfo::translatedNamePrefix() const
 {
-    d->prefixName = n;
+    return d->translatedNamePrefix;
+}
+
+void WidgetInfo::setNamePrefix(const char *context, const char *prefix)
+{
+    Q_UNUSED(context)
+    d->namePrefix = prefix;
+    if (!KDb::isIdentifier(d->namePrefix)) {
+        qWarning() << "Invalid untranslated name prefix" << d->namePrefix
+                   << "for form widgets of class" << className()
+                   << "has been detected. It is not a valid identifier. \"widget\" prefix"
+                   << "will be used. Please report the issue to authors of the" << className()
+                   << "class implementation so they can fix it.";
+        d->namePrefix = "widget";
+        d->translatedNamePrefix = d->namePrefix;
+        return;
+    }
+    // Proper prefix, but is it translated properly?
+    const QString newTranslatedNamePrefix = i18n(d->namePrefix);
+    if (KDb::isIdentifier(newTranslatedNamePrefix)) {
+        d->translatedNamePrefix = newTranslatedNamePrefix;
+    } else {
+        qWarning() << "Invalid translation" << newTranslatedNamePrefix
+                   << "of name prefix" << d->namePrefix << "for form widgets of class" << className()
+                   << "has been detected. It is not a valid identifier. Untranslated prefix"
+                   << d->namePrefix << "will be used. Please report the issue to authors of"
+                   << QLocale().name() << "translation so they can fix it.";
+        d->translatedNamePrefix = d->namePrefix;
+    }
 }
 
 QString WidgetInfo::name() const

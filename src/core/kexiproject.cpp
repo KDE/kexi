@@ -1,6 +1,6 @@
 /* This file is part of the KDE project
    Copyright (C) 2003 Lucijan Busch <lucijan@kde.org>
-   Copyright (C) 2003-2018 Jarosław Staniek <staniek@kde.org>
+   Copyright (C) 2003-20198 Jarosław Staniek <staniek@kde.org>
 
    This library is free software; you can redistribute it and/or
    modify it under the terms of the GNU Library General Public
@@ -867,6 +867,25 @@ int KexiProject::typeIdForPluginId(const QString &pluginId) const
 QString KexiProject::pluginIdForTypeId(int typeId) const
 {
     return d->pluginIdsForTypeIds.value(typeId);
+}
+
+//static
+KDbTableOrQuerySchema::Type KexiProject::pluginIdToTableOrQueryType(
+        const QString &pluginId, bool *ok)
+{
+    Q_ASSERT(ok);
+    KDbTableOrQuerySchema::Type result;
+    if (pluginId == QStringLiteral("org.kexi-project.table")) {
+        result = KDbTableOrQuerySchema::Type::Table;
+        *ok = true;
+    } else if (pluginId == QStringLiteral("org.kexi-project.query")) {
+        result = KDbTableOrQuerySchema::Type::Query;
+        *ok = true;
+    } else {
+        result = KDbTableOrQuerySchema::Type::Table;
+        *ok = false;
+    }
+    return result;
 }
 
 KexiPart::ItemDict*

@@ -306,7 +306,7 @@ private:
                 if (w->name().isEmpty())
                     w->setName(inheritedClass->name());
                 if (w->namePrefix().isEmpty())
-                    w->setNamePrefix(inheritedClass->namePrefix());
+                    w->setNamePrefix(nullptr, qPrintable(inheritedClass->namePrefix()));
                 if (w->description().isEmpty())
                     w->setDescription(inheritedClass->description());
             }

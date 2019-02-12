@@ -255,7 +255,7 @@ QDomElement KexiReportDesignView::connectionData() const
 
 void KexiReportDesignView::setConnectionData(const QDomElement &c)
 {
-    qDebug() << c;
+    //qDebug() << c;
     if (c.attribute("type") == "internal") {
         QString sourceClass(c.attribute("class"));
         if (sourceClass != "org.kexi-project.table" && sourceClass != "org.kexi-project.query") {

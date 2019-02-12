@@ -37,8 +37,6 @@ class Q_DECL_HIDDEN KexiFieldComboBox::Private
 {
 public:
     Private()
-            : table(true)
-            , insideSetFieldOrExpression(false)
     {
     }
     ~Private() {
@@ -49,8 +47,8 @@ public:
     QString tableOrQueryName;
     QString fieldOrExpression;
 
-    bool table;
-    bool insideSetFieldOrExpression;
+    KDbTableOrQuerySchema::Type type = KDbTableOrQuerySchema::Type::Table;
+    bool insideSetFieldOrExpression = false;
 };
 
 //------------------------
@@ -79,7 +77,7 @@ void KexiFieldComboBox::setProject(KexiProject *prj)
     if ((KexiProject*)d->prj == prj)
         return;
     d->prj = prj;
-    setTableOrQuery(QString(), true);
+    setTableOrQuery(QString(), KDbTableOrQuerySchema::Type::Table);
 }
 
 KexiProject* KexiFieldComboBox::project() const
@@ -87,18 +85,17 @@ KexiProject* KexiFieldComboBox::project() const
     return d->prj;
 }
 
-void KexiFieldComboBox::setTableOrQuery(const QString& name, bool table)
+void KexiFieldComboBox::setTableOrQuery(const QString& name, KDbTableOrQuerySchema::Type type)
 {
     d->tableOrQueryName = name;
-    d->table = table;
+    d->type = type;
     clear();
 
     if (d->tableOrQueryName.isEmpty() || !d->prj)
         return;
 
     KDbTableOrQuerySchema tableOrQuery(d->prj->dbConnection(), d->tableOrQueryName.toLatin1(),
-                                       d->table ? KDbTableOrQuerySchema::Type::Table
-                                                : KDbTableOrQuerySchema::Type::Query);
+                                       type);
     if (!tableOrQuery.table() && !tableOrQuery.query())
         return;
 
@@ -119,7 +116,7 @@ QString KexiFieldComboBox::tableOrQueryName() const
 
 bool KexiFieldComboBox::isTableAssigned() const
 {
-    return d->table;
+    return d->type == KDbTableOrQuerySchema::Type::Table;
 }
 
 void KexiFieldComboBox::setFieldOrExpression(const QString& string)
@@ -178,8 +175,7 @@ int KexiFieldComboBox::indexOfField() const
         return -1;
     }
     KDbTableOrQuerySchema tableOrQuery(d->prj->dbConnection(), d->tableOrQueryName.toLatin1(),
-                                       d->table ? KDbTableOrQuerySchema::Type::Table
-                                                : KDbTableOrQuerySchema::Type::Query);
+                                       d->type);
     if (!tableOrQuery.table() && !tableOrQuery.query())
         return -1;
 

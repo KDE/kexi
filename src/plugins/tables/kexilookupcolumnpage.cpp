@@ -41,10 +41,20 @@
 
 QString pluginIdToTypeName(const QString& pluginId)
 {
-    if (pluginId == "org.kexi-project.table")
-        return "table";
-    else if (pluginId == "org.kexi-project.query")
-        return "query";
+    bool ok;
+    const KDbTableOrQuerySchema::Type type = KexiProject::pluginIdToTableOrQueryType(
+                pluginId, &ok);
+    if (!ok) {
+        return pluginId;
+    }
+    switch (type) {
+    case KDbTableOrQuerySchema::Type::Table:
+        return QStringLiteral("table");
+    case KDbTableOrQuerySchema::Type::Query:
+        return QStringLiteral("query");
+    default:
+        break;
+    }
 //! @todo more types
     return pluginId;
 }
@@ -296,25 +306,26 @@ void KexiLookupColumnPage::slotRowSourceChanged()
     QString pluginId(d->rowSourceCombo->selectedPluginId());
     bool rowSourceFound = false;
     QString name = d->rowSourceCombo->selectedName();
-    if ((pluginId == "org.kexi-project.table" || pluginId == "org.kexi-project.query") && d->rowSourceCombo->isSelectionValid()) {
+    bool ok;
+    KDbTableOrQuerySchema::Type type = KexiProject::pluginIdToTableOrQueryType(
+                pluginId, &ok);
+    if (!name.isEmpty() && ok && d->rowSourceCombo->isSelectionValid()) {
         KDbTableOrQuerySchema *tableOrQuery = new KDbTableOrQuerySchema(
-            d->rowSourceCombo->project()->dbConnection(), name.toLatin1(),
-            pluginId == "org.kexi-project.table" ? KDbTableOrQuerySchema::Type::Table
-                                                 : KDbTableOrQuerySchema::Type::Query);
+            d->rowSourceCombo->project()->dbConnection(), name.toLatin1(), type);
         if (tableOrQuery->table() || tableOrQuery->query()) {
 //! @todo disabled   d->fieldListView->setSchema( tableOrQuery );
             /*tmp*/
             delete tableOrQuery;
             rowSourceFound = true;
-            d->boundColumnCombo->setTableOrQuery(name, pluginId == "org.kexi-project.table");
-            d->visibleColumnCombo->setTableOrQuery(name, pluginId == "org.kexi-project.table");
+            d->boundColumnCombo->setTableOrQuery(name, type);
+            d->visibleColumnCombo->setTableOrQuery(name, type);
         } else {
             delete tableOrQuery;
         }
     }
     if (!rowSourceFound) {
-        d->boundColumnCombo->setTableOrQuery("", true);
-        d->visibleColumnCombo->setTableOrQuery("", true);
+        d->boundColumnCombo->setTableOrQuery("", KDbTableOrQuerySchema::Type::Table);
+        d->visibleColumnCombo->setTableOrQuery("", KDbTableOrQuerySchema::Type::Table);
     }
     clearBoundColumnSelection();
     clearVisibleColumnSelection();
@@ -358,7 +369,9 @@ void KexiLookupColumnPage::clearRowSourceSelection(bool alsoClearComboBox)
 void KexiLookupColumnPage::slotGotoSelectedRowSource()
 {
     const QString pluginId(d->rowSourceCombo->selectedPluginId());
-    if (pluginId == "org.kexi-project.table" || pluginId == "org.kexi-project.query") {
+    bool ok;
+    (void)KexiProject::pluginIdToTableOrQueryType(pluginId, &ok);
+    if (ok) {
         if (d->rowSourceCombo->isSelectionValid())
             emit jumpToObjectRequested(pluginId, d->rowSourceCombo->selectedName());
     }

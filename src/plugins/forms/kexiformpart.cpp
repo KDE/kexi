@@ -390,38 +390,56 @@ public:
         if (dataSource.isEmpty()) {
             return;
         }
-        if (pluginId == "org.kexi-project.table") {
-            KDbTableSchema *table = conn->tableSchema(dataSource);
-            if (!table) {
-                return;
-            }
-            KDbTableSchemaChangeListener::unregisterForChanges(conn, table);
-        } else if (pluginId == "org.kexi-project.query") {
-            KDbQuerySchema *query = conn->querySchema(dataSource);
-            if (!query) {
-                return;
-            }
-            KDbTableSchemaChangeListener::unregisterForChanges(conn, query);
-        } else {
+        bool ok;
+        const KDbTableOrQuerySchema::Type type = KexiProject::pluginIdToTableOrQueryType(
+                    pluginId, &ok);
+        if (!ok) {
             return;
+        }
+        switch (type) {
+        case KDbTableOrQuerySchema::Type::Table: {
+            const KDbTableSchema *table = conn->tableSchema(dataSource);
+            if (table) {
+                KDbTableSchemaChangeListener::unregisterForChanges(conn, table);
+            }
+            break;
+        }
+        case KDbTableOrQuerySchema::Type::Query: {
+            const KDbQuerySchema *query = conn->querySchema(dataSource);
+            if (query) {
+                KDbTableSchemaChangeListener::unregisterForChanges(conn, query);
+            }
+            break;
+        }
+        default:
+            break;
         }
     }
 
     void registerForChanges(const QString &newPluginId, const QString &newDataSource)
     {
-        if (newPluginId == "org.kexi-project.table") {
-            KDbTableSchema *table = conn->tableSchema(newDataSource);
-            if (!table) {
-                return;
+        bool ok;
+        const KDbTableOrQuerySchema::Type type = KexiProject::pluginIdToTableOrQueryType(
+                    newPluginId, &ok);
+        if (!ok) {
+            return;
+        }
+        switch (type) {
+        case KDbTableOrQuerySchema::Type::Table: {
+            const KDbTableSchema *table = conn->tableSchema(newDataSource);
+            if (table) {
+                KDbTableSchemaChangeListener::registerForChanges(conn, q, table);
             }
-            KDbTableSchemaChangeListener::registerForChanges(conn, q, table);
-        } else if (pluginId == "org.kexi-project.query") {
-            KDbQuerySchema *query = conn->querySchema(newDataSource);
-            if (!query) {
-                return;
+            break;
+        }
+        case KDbTableOrQuerySchema::Type::Query: {
+            const KDbQuerySchema *query = conn->querySchema(newDataSource);
+            if (query) {
+                KDbTableSchemaChangeListener::registerForChanges(conn, q, query);
             }
-            KDbTableSchemaChangeListener::registerForChanges(conn, q, query);
-        } else {
+            break;
+        }
+        default:
             return;
         }
         pluginId = newPluginId;

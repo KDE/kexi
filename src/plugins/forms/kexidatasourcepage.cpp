@@ -211,7 +211,9 @@ void KexiDataSourcePage::clearWidgetDataSourceSelection()
 void KexiDataSourcePage::slotGotoSelected()
 {
     const QString pluginId(m_formDataSourceCombo->selectedPluginId());
-    if (pluginId == "org.kexi-project.table" || pluginId == "org.kexi-project.query") {
+    bool ok;
+    (void)KexiProject::pluginIdToTableOrQueryType(pluginId, &ok);
+    if (ok) {
         if (m_formDataSourceCombo->isSelectionValid())
             emit jumpToObjectRequested(pluginId, m_formDataSourceCombo->selectedName());
     }
@@ -262,13 +264,12 @@ void KexiDataSourcePage::slotFormDataSourceChanged()
     const QString pluginId(m_formDataSourceCombo->selectedPluginId());
     bool dataSourceFound = false;
     QString name(m_formDataSourceCombo->selectedName());
-    const bool isIdAcceptable = pluginId == QLatin1String("org.kexi-project.table")
-        || pluginId == QLatin1String("org.kexi-project.query");
+    bool isIdAcceptable;
+    const KDbTableOrQuerySchema::Type type = KexiProject::pluginIdToTableOrQueryType(
+                pluginId, &isIdAcceptable);
     if (isIdAcceptable && m_formDataSourceCombo->isSelectionValid()) {
         KDbTableOrQuerySchema *tableOrQuery = new KDbTableOrQuerySchema(
-            m_formDataSourceCombo->project()->dbConnection(), name.toLatin1(),
-            pluginId == "org.kexi-project.table" ? KDbTableOrQuerySchema::Type::Table
-                                                 : KDbTableOrQuerySchema::Type::Query);
+            m_formDataSourceCombo->project()->dbConnection(), name.toLatin1(), type);
         if (tableOrQuery->table() || tableOrQuery->query()) {
 #ifdef KEXI_AUTOFIELD_FORM_WIDGET_SUPPORT
             m_fieldListView->setSchema(tableOrQuery);
@@ -277,14 +278,14 @@ void KexiDataSourcePage::slotFormDataSourceChanged()
 #endif
             dataSourceFound = true;
             m_slotWidgetDataSourceTextChangedEnabled = false; // block clearing widget's data source property
-            m_widgetDataSourceCombo->setTableOrQuery(name, pluginId == "org.kexi-project.table");
+            m_widgetDataSourceCombo->setTableOrQuery(name, type);
             m_slotWidgetDataSourceTextChangedEnabled = true;
         } else {
             delete tableOrQuery;
         }
     }
     if (!dataSourceFound) {
-        m_widgetDataSourceCombo->setTableOrQuery(QString(), true);
+        m_widgetDataSourceCombo->setTableOrQuery(QString(), KDbTableOrQuerySchema::Type::Table);
     }
     //! @todo m_gotoButton->setEnabled(dataSourceFound);
     if (dataSourceFound) {

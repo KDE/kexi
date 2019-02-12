@@ -56,11 +56,51 @@ public:
 
     void setInheritedClassName(const QByteArray& inheritedClassName);
 
-    /*! \return the name used to name widget, that will appear eg in scripts (must not contain spaces
-      nor non-latin1 characters) */
+    /**
+     * @return Untranslated name prefix used to generate unique names for widget instances
+     *
+     * Widget names appear in the property editor or in scripts and can be references there.
+     * Names and prefixes must be valid identifiers, as defined by KDb::isIdentifier().
+     *
+     * @see translatedNamePrefix()
+     */
     QString namePrefix() const;
 
-    void setNamePrefix(const QString &n);
+    /**
+     * Sets untranslated name prefix used to generate unique names for widget instances
+     *
+     * @a prefix must be a valid identifier, as defined by KDb::isIdentifier(). If it is not then
+     * real name prefix will be reset to "widget".
+     * Parameters of setNamePrefix() should be enclosed with I18N_NOOP2() to enable translation
+     * text extraction without actual translation of the argument. @a context parameter is unused;
+     * it's provided only to make I18N_NOOP2() work.
+     *
+     * Example use for a label class:
+     * @code
+     * setNamePrefix(
+     *      I18N_NOOP2("A prefix for identifiers of label widgets. Based on that, identifiers such as "
+     *          "label1, label2 are generated. "
+     *          "This string can be used to refer the widget object as variables in programming "
+     *          "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
+     *          "should start with lower case letter and if there are subsequent words, these should "
+     *          "start with upper case letter. Example: smallCamelCase. "
+     *          "Moreover, try to make this prefix as short as possible.",
+     *          "label"));
+     * @endcode
+     *
+     * If translation of @a prefix for given locale is not a valid identifier, as defined by
+     * KDb::isIdentifier() then a warning is issued to the error channel and untranslated prefix is
+     * used, e.g. "label".
+     */
+    void setNamePrefix(const char *context, const char *prefix);
+
+    /**
+     * @return Translated name prefix used to generate unique names for widget instances
+     *
+     * This string is created using i18n(namePrefix()). See setNamePrefix() for exceptional cases
+     * of invalid translations.
+     */
+    QString translatedNamePrefix() const;
 
     //! \return the real name e.g. 'Line Edit', showed eg in ObjectTreeView
     QString name() const;
