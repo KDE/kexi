@@ -43,7 +43,7 @@ WebBrowserFactory::WebBrowserFactory(QObject* parent, const QVariantList& args)
     webBrowser->setClassName("WebBrowserWidget");
     webBrowser->setName(xi18n("Web Browser"));
     webBrowser->setNamePrefix(
-        xi18nc("A prefix for identifiers of web browser widgets. Based on that, identifiers such as "
+        I18NC_NOOP("A prefix for identifiers of web browser widgets. Based on that, identifiers such as "
             "webBrowser1, webBrowser2 are generated. "
             "This string can be used to refer the widget object as variables in programming "
             "languages or macros so it must _not_ contain white spaces and non latin1 characters, "

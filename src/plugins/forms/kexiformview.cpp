@@ -26,6 +26,7 @@
 #include <formeditor/commands.h>
 #include <formeditor/widgetwithsubpropertiesinterface.h>
 #include <formeditor/WidgetTreeWidget.h>
+#include <formeditor/WidgetInfo.h>
 #include <kexi.h>
 #include <kexi_global.h>
 #include <kexidragobjects.h>
@@ -235,15 +236,11 @@ bool KexiFormView::initForm()
     else {
         d->scrollView->setMainAreaWidget(d->dbform);
     }
-    d->dbform->setObjectName(
-        xi18nc("A prefix for identifiers of forms. Based on that, identifiers such as "
-            "form1, form2 are generated. "
-            "This string can be used to refer the widget object as variables in programming "
-            "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
-            "should start with lower case letter and if there are subsequent words, these should "
-            "start with upper case letter. Example: smallCamelCase. "
-            "Moreover, try to make this prefix as short as possible.",
-            "form"));
+    const KFormDesigner::WidgetInfo *formInfo
+        = KexiFormManager::self()->library()->widgetInfoForClassName("KexiDBForm");
+    const QString formName
+        = formInfo ? formInfo->translatedNamePrefix() : QStringLiteral("form") /*sanity*/;
+    d->dbform->setObjectName(formName);
     QPalette pal(d->dbform->palette());
     pal.setBrush(QPalette::Window, palette().brush(QPalette::Window));
     d->dbform->setPalette(pal); // avoid inheriting QPalette::Window role

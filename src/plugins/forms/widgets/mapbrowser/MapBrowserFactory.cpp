@@ -47,7 +47,7 @@ MapBrowserFactory::MapBrowserFactory(QObject* parent, const QVariantList& args)
     mapBrowser->setClassName("MapBrowserWidget");
     mapBrowser->setName(xi18n("Map Browser"));
     mapBrowser->setNamePrefix(
-        xi18nc("A prefix for identifiers of map browser widgets. Based on that, identifiers such as "
+        I18NC_NOOP("A prefix for identifiers of map browser widgets. Based on that, identifiers such as "
             "mapBrowser1, mapBrowser2 are generated. "
             "This string can be used to refer the widget object as variables in programming "
             "languages or macros so it must _not_ contain white spaces and non latin1 characters, "

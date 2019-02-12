@@ -76,7 +76,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->setClassName("KexiDBForm");
         wi->setName(xi18nc("Form widget", "Form"));
         wi->setNamePrefix(
-            xi18nc("A prefix for identifiers of forms. Based on that, identifiers such as "
+            I18NC_NOOP("A prefix for identifiers of forms. Based on that, identifiers such as "
                 "form1, form2 are generated. "
                 "This string can be used to refer the widget object as variables in programming "
                 "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
@@ -93,7 +93,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->setIconName(KexiIconName("unknown-widget"));
         wi->setClassName("CustomWidget");
         wi->setName(/* no i18n needed */ "Custom Widget");
-        wi->setNamePrefix(/* no i18n needed */ "customWidget");
+        wi->setNamePrefix(nullptr, /* no i18n needed */ "customWidget");
         wi->setDescription(/* no i18n needed */ "A custom or non-supported widget");
         addClass(wi);
     }
@@ -106,7 +106,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->addAlternateClassName("KLineEdit", true/*override*/);
         wi->setName(xi18nc("Text Box widget", "Text Box"));
         wi->setNamePrefix(
-            xi18nc("A prefix for identifiers of text box widgets. Based on that, identifiers such as "
+            I18NC_NOOP("A prefix for identifiers of text box widgets. Based on that, identifiers such as "
                 "textBox1, textBox2 are generated. "
                 "This string can be used to refer the widget object as variables in programming "
                 "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
@@ -127,7 +127,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->addAlternateClassName("KTextEdit", true/*override*/);
         wi->setName(xi18nc("Text Editor widget", "Text Editor"));
         wi->setNamePrefix(
-            xi18nc("A prefix for identifiers of text editor widgets. Based on that, identifiers such as "
+            I18NC_NOOP("A prefix for identifiers of text editor widgets. Based on that, identifiers such as "
                 "textEditor1, textEditor2 are generated. "
                 "This string can be used to refer the widget object as variables in programming "
                 "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
@@ -148,7 +148,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->addAlternateClassName("KexiLabel", true/*override*/); //older
         wi->setName(xi18nc("Text Label widget", "Label"));
         wi->setNamePrefix(
-            xi18nc("A prefix for identifiers of label widgets. Based on that, identifiers such as "
+            I18NC_NOOP("A prefix for identifiers of label widgets. Based on that, identifiers such as "
                 "label1, label2 are generated. "
                 "This string can be used to refer the widget object as variables in programming "
                 "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
@@ -169,7 +169,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->addAlternateClassName("KexiImageBox", true/*override*/); //older
         wi->setName(xi18nc("Image Box widget", "Image Box"));
         wi->setNamePrefix(
-            xi18nc("A prefix for identifiers of image box widgets. Based on that, identifiers such as "
+            I18NC_NOOP("A prefix for identifiers of image box widgets. Based on that, identifiers such as "
                 "image1, image2 are generated. "
                 "This string can be used to refer the widget object as variables in programming "
                 "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
@@ -195,7 +195,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->addAlternateClassName("KComboBox", true/*override*/);
         wi->setName(xi18nc("Combo Box widget", "Combo Box"));
         wi->setNamePrefix(
-            xi18nc("A prefix for identifiers of combo box widgets. Based on that, identifiers such as "
+            I18NC_NOOP("A prefix for identifiers of combo box widgets. Based on that, identifiers such as "
                 "comboBox1, comboBox2 are generated. "
                 "This string can be used to refer the widget object as variables in programming "
                 "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
@@ -213,7 +213,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->addAlternateClassName("QCheckBox", true/*override*/);
         wi->setName(xi18nc("Check Box widget", "Check Box"));
         wi->setNamePrefix(
-            xi18nc("A prefix for identifiers of combo box widgets. Based on that, identifiers such as "
+            I18NC_NOOP("A prefix for identifiers of combo box widgets. Based on that, identifiers such as "
                 "checkBox1, checkBox2 are generated. "
                 "This string can be used to refer the widget object as variables in programming "
                 "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
@@ -249,7 +249,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->addAlternateClassName("QPushButton", true/*override*/);
         wi->setName(xi18nc("Button widget", "Button"));
         wi->setNamePrefix(
-            xi18nc("A prefix for identifiers of button widgets. Based on that, identifiers such as "
+            I18NC_NOOP("A prefix for identifiers of button widgets. Based on that, identifiers such as "
                 "button1, button2 are generated. "
                 "This string can be used to refer the widget object as variables in programming "
                 "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
@@ -266,7 +266,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->setIconName(KexiIconName("button"));
         wi->setName(xi18nc("Link Button widget", "Link Button"));
         wi->setNamePrefix(
-            xi18nc("A prefix for identifiers of link button widgets. Based on that, identifiers such as "
+            I18NC_NOOP("A prefix for identifiers of link button widgets. Based on that, identifiers such as "
                 "linkButton1, linkButton2 are generated. "
                 "This string can be used to refer the widget object as variables in programming "
                 "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
@@ -306,7 +306,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->addAlternateClassName("QSlider", true/*override*/);
         wi->setName(xi18nc("Slider widget", "Slider"));
         wi->setNamePrefix(
-            xi18nc("A prefix for identifiers of slider widgets. Based on that, identifiers such as "
+            I18NC_NOOP("A prefix for identifiers of slider widgets. Based on that, identifiers such as "
                 "slider1, slider2 are generated. "
                 "This string can be used to refer the widget object as variables in programming "
                 "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
@@ -324,7 +324,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->addAlternateClassName("QProgressBar", true/*override*/);
         wi->setName(xi18nc("Progress Bar widget", "Progress Bar"));
         wi->setNamePrefix(
-            xi18nc("A prefix for identifiers of progress bar widgets. Based on that, identifiers such as "
+            I18NC_NOOP("A prefix for identifiers of progress bar widgets. Based on that, identifiers such as "
                 "progressBar1, progressBar2 are generated. "
                 "This string can be used to refer the widget object as variables in programming "
                 "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
@@ -342,7 +342,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->addAlternateClassName("Line", true/*override*/);
         wi->setName(xi18n("Line"));
         wi->setNamePrefix(
-            xi18nc("A prefix for identifiers of line widgets. Based on that, identifiers such as "
+            I18NC_NOOP("A prefix for identifiers of line widgets. Based on that, identifiers such as "
                 "line1, line2 are generated. "
                 "This string can be used to refer the widget object as variables in programming "
                 "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
@@ -367,7 +367,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->addAlternateClassName("KDateWidget", true/*override*/);
         wi->setName(xi18nc("Date Picker widget", "Date Picker"));
         wi->setNamePrefix(
-            xi18nc("A prefix for identifiers of date picker widgets. Based on that, identifiers such as "
+            I18NC_NOOP("A prefix for identifiers of date picker widgets. Based on that, identifiers such as "
                 "datePicker1, datePicker2 are generated. "
                 "This string can be used to refer the widget object as variables in programming "
                 "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
@@ -562,7 +562,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->setSavingName("QTabWidget");
         wi->setName(xi18n("Tab Widget"));
         wi->setNamePrefix(
-            xi18nc("A prefix for identifiers of tab widgets. Based on that, identifiers such as "
+            I18NC_NOOP("A prefix for identifiers of tab widgets. Based on that, identifiers such as "
                   "tab1, tab2 are generated. "
                   "This string can be used to refer the widget object as variables in programming "
                   "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
@@ -579,7 +579,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->setClassName("QWidget");
         wi->addAlternateClassName("ContainerWidget");
         wi->setName(/* no i18n needed */ "Basic container");
-        wi->setNamePrefix(/* no i18n needed */ "container");
+        wi->setNamePrefix(nullptr, /* no i18n needed */ "container");
         wi->setDescription(/* no i18n needed */ "An empty container with no frame");
         addClass(wi);
     }
@@ -591,7 +591,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->addAlternateClassName("Q3Frame", true/*override*/);
         wi->setName(xi18nc("Frame widget", "Frame"));
         wi->setNamePrefix(
-            xi18nc("A prefix for identifiers of frame widgets. Based on that, identifiers such as "
+            I18NC_NOOP("A prefix for identifiers of frame widgets. Based on that, identifiers such as "
                 "frame1, frame2 are generated. "
                 "This string can be used to refer the widget object as variables in programming "
                 "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
@@ -609,7 +609,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->addAlternateClassName("GroupBox");
         wi->setName(xi18n("Group Box"));
         wi->setNamePrefix(
-            xi18nc("A prefix for identifiers of group box widgets. Based on that, identifiers such as "
+            I18NC_NOOP("A prefix for identifiers of group box widgets. Based on that, identifiers such as "
                   "groupBox1, groupBox2 are generated. "
                   "This string can be used to refer the widget object as variables in programming "
                   "languages or macros so it must _not_ contain white spaces and non latin1 characters, "
