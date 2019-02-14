@@ -65,7 +65,7 @@
     <p xml:lang="en-GB">Kexi is a visual database applications builder. It can be used for designing database applications, inserting and editing data, performing queries, and processing data. Forms can be created to provide a custom interface to your data. All database objects - tables, queries, forms, reports, etc. - are stored in the database, making it easy to share data and design.</p>
     <p xml:lang="es">Kexi es un creador visual de aplicaciones de bases de datos. Se puede usar para diseñar aplicaciones de bases de datos, insertar y editar datos, realizar consultas y procesar datos. Se pueden crear formularios para proporcionar una interfaz personalizada para sus datos. Todos los objetos de la base de datos (tablas, consultas, formularios, informes, etc.) se almacenan en la base de datos, facilitando el intercambio de datos y diseños.</p>
     <p xml:lang="fi">Kexi on ohjelma tietokantasovellusten luomiseen visuaalisesti. Se on osa Calligra-ohjelmistoa. Sen avulla voi suunnitella tietokantasovelluksia, lisätä ja muokata tietoja, suorittaa kyselyjä ja käsitellä tietoja. Voit luoda lomakkeita mukauttaaksesi tietojesi käyttöliittymää. Kaikki tietokantaoliot – taulukot, kyselyt, lomakkeet, raportit jne. – tallennetaan tietokantaan, joten tiedon jako ja suunnittelu on helppoa.</p>
-    <p xml:lang="fr">Kexi est un constructeur d'applications de bases de données visuel. Il peut être utilisé pour concevoir des applications de base de données, insérer et éditer des données, effectuer des requêtes, et traiter des données. Des formulaires peuvent être créés pour fournir une interface personnalisée pour vos données. Tous les objets de bases de données (tables, requêtes, formulaires, rapports, etc) sont stockés dans la base de données, rendant facile le partage de données et de design.</p>
+    <p xml:lang="fr">Kexi est un constructeur d'applications de bases de données visuel. Il peut être utilisé pour concevoir des applications de base de données, insérer et éditer des données, effectuer des requêtes, et traiter des données. Des formulaires peuvent être créés pour fournir une interface personnalisée pour vos données. Tous les objets de bases de données (tables, requêtes, formulaires, rapports, etc.) sont stockés dans la base de données, simplifiant le partage de données et de design.</p>
     <p xml:lang="gl">Kexi é un construtor visual de aplicativos de base de datos. Pode usarse para deseñar aplicativos de base de datos, inserindo e editando datos, realizando consultas, e procesando datos. Poden crearse formularios para fornecer unha interface personalizada para os datos. Todos os obxectos de base de datos (táboas, consultas, formularios, informes, etc.) almacénanse na base de datos, facendo fácil compartir os datos e o deseño.</p>
     <p xml:lang="id">Kexi adalah pembangun aplikasi database visual. Dapat digunakan untuk merancang aplikasi basis data, memasukkan dan mengedit data, melakukan queri, dan memproses data. Formulir dapat dibuat untuk memberikan antarmuka khusus ke data Anda. Semua objek basis data - tabel, queri, formulir, laporan, dll. - disimpan dalam basis data, sehingga mudah untuk berbagi data dan desain.</p>
     <p xml:lang="it">Kexi è uno strumento visuale per la creazione di banche dati. Può essere utilizzato per progettare applicazioni che usano banche dati, inserire e modificare dati, eseguire query ed elaborare dati. Puoi creare moduli per fornire un'interfaccia personalizzata ai tuoi dati. Tutti gli oggetti di una banca dati - tabelle, query, moduli, report - sono memorizzati nella banca dati stessa, semplificando la condivisione dei dati e la progettazione.</p>
@@ -180,7 +180,7 @@
       <li xml:lang="en-GB">The only multiplatform visual tool that can easily import data from MS Access databases</li>
       <li xml:lang="es">La única herramienta gráfica multiplataforma que puede importar con facilidad datos de las bases de datos de MS Access</li>
       <li xml:lang="fi">Ainoa useampialustainen visuaalinen työkalu, jolla voi helposti tuoda tietoja MS Access -tietokannoista</li>
-      <li xml:lang="fr">Le seul outil visuel multi plate-formes qui importe les bases de données de MS Access</li>
+      <li xml:lang="fr">Le seul outil visuel multi plates-formes qui importe les bases de données de MS Access</li>
       <li xml:lang="gl">A única ferramenta visual multiplataforma que pode importar facilmente datos de bases de datos de MS Access.</li>
       <li xml:lang="id">Satu-satunya alat visual multiplatform yang dapat dengan mudah mengimpor data dari database MS Access</li>
       <li xml:lang="it">Il solo strumento grafico multipiattaforma in grado di importare facilmente da banche dati MS Access</li>
@@ -200,7 +200,7 @@
       <li xml:lang="en-GB">Support for query design in dedicated SQL view</li>
       <li xml:lang="es">Permite el diseño de consultas en vista SQL dedicada</li>
       <li xml:lang="fi">Kyselyn suunnittelun tuki SQL-näkymässä</li>
-      <li xml:lang="fr">Prise en charge de la conception de requêtes dans une vue SQL dédiée</li>
+      <li xml:lang="fr">Prend en charge la conception de requêtes SQL dans une vue dédiée</li>
       <li xml:lang="gl">Funcionalidade de deseño de consultas nunha vista de SQL dedicada.</li>
       <li xml:lang="id">Dukungan untuk desain queri dalam tampilan SQL terdedikasi</li>
       <li xml:lang="it">Supporta la progettazione di query in una vista SQL dedicata</li>
@@ -221,7 +221,7 @@
       <li xml:lang="es">Diseño y presentación de datos relacionales utilizando listas desplegables (columnas de búsqueda)</li>
       <li xml:lang="et">Relatsiooniliste andmete kujundamine ja kuvamine liitkastide abil (päringuveerud)</li>
       <li xml:lang="fi">Relaatiotiedon suunnittelu ja näyttö yhdistelmäkenttiä käyttäen (hakusarakkeet)</li>
-      <li xml:lang="fr">Conception et affichage de données relationnelles à l'aide de listes déroulantes (colonnes de consultation)</li>
+      <li xml:lang="fr">Conception et affichage des données relationnelles à l'aide de listes déroulantes (colonnes de consultation)</li>
       <li xml:lang="gl">Deseño e mostra de datos relacionais mediante caixas despregábeis (columnas de busca).</li>
       <li xml:lang="id">Pendesainan dan pendisplaian data yang berhubungan menggunakan kotak kombo (kolom-kolom dangak)</li>
       <li xml:lang="it">Progettazione e visualizzazione dei dati relazionali utilizzando caselle combinate (colonne di ricerca)</li>
@@ -292,7 +292,7 @@
       <li xml:lang="es">Programación de scripts escritos en los lenguajes de programación JavaScript, Python o Ruby (experimental)</li>
       <li xml:lang="et">Skriptimisvõimalused JavaScripti, Pythoni või Ruby programmeerimiskeeles (eksperimentaalne)</li>
       <li xml:lang="fi">Skriptaus JavaScript-, Python- tai Ruby-ohjelmointikielillä (kokeellinen)</li>
-      <li xml:lang="fr">Pilotage par scripts utilisant les les langages JavaScript, Python ou Ruby (expérimental)</li>
+      <li xml:lang="fr">Pilotage par scripts utilisant les langages de programmation JavaScript, Python ou Ruby (expérimental)</li>
       <li xml:lang="gl">Uso de scripts nas linguaxes de programación JavaScript, Python e Ruby (experimental).</li>
       <li xml:lang="id">Penskripan menggunakan bahasa pemrograman JavaScript, Python atau Ruby</li>
       <li xml:lang="it">Creazione script utilizzando i linguaggi di programmazione JavaScript, Python o Ruby (sperimentale)</li>
@@ -322,6 +322,7 @@
       <caption xml:lang="ca-valencia">Vista de taules</caption>
       <caption xml:lang="es">Vista tabular</caption>
       <caption xml:lang="fi">Taulukkonäkymä</caption>
+      <caption xml:lang="fr">Vue tabulaire</caption>
       <caption xml:lang="gl">Vista de táboa</caption>
       <caption xml:lang="id">Tampilan tabular</caption>
       <caption xml:lang="it">Vista tabellare</caption>
@@ -342,6 +343,7 @@
       <caption xml:lang="cs">Návrhář dotazů</caption>
       <caption xml:lang="es">Diseñador de consultas</caption>
       <caption xml:lang="fi">Kyselyjen suunnittelu</caption>
+      <caption xml:lang="fr">Concepteur de requêtes</caption>
       <caption xml:lang="gl">Deseñador de consultas</caption>
       <caption xml:lang="id">Pendesain Queri</caption>
       <caption xml:lang="it">Strumento di progettazione delle query</caption>
@@ -411,6 +413,7 @@
       <caption xml:lang="cs">Návrhář hlášení</caption>
       <caption xml:lang="es">Diseñador de informes</caption>
       <caption xml:lang="fi">Raporttien suunnittelu</caption>
+      <caption xml:lang="fr">Concepteur de rapports</caption>
       <caption xml:lang="gl">Deseñador de informes</caption>
       <caption xml:lang="id">Pendesain Laporan</caption>
       <caption xml:lang="it">Strumento di progettazione di report</caption>
@@ -431,6 +434,7 @@
       <caption xml:lang="cs">Import databáze MS Access</caption>
       <caption xml:lang="es">Importación de bases de datos de MS Access</caption>
       <caption xml:lang="fi">MS Access -tietokannan tuonti</caption>
+      <caption xml:lang="fr">Importation de base de données MS Access</caption>
       <caption xml:lang="gl">Importación da base de datos de MS Access</caption>
       <caption xml:lang="id">Impor database MS Access</caption>
       <caption xml:lang="it">Importazione banca dati MS Access</caption>
