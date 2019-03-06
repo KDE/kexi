@@ -42,8 +42,9 @@
 
 //! Use these macros for icons without any issues - global icons (breeze)
 #define koIcon(name) (QIcon::fromTheme(QLatin1String(name)))
-#define koDarkIcon(name, ...) (KexiStyle::darkIcon(QLatin1String(name), ##__VA_ARGS__))
 #define koIconName(name) (QLatin1String(name))
+#define koDarkIcon(name) (KexiStyle::darkIcon(QStringLiteral(name)))
+#define koDarkIcon2(name, context) (KexiStyle::darkIcon(QStringLiteral(name), context))
 #define koIconNameCStr(name) (name)
 #define koSmallIcon(name) (QIcon::fromTheme(QLatin1String(name)).pixmap(IconSize(KIconLoader::Small)))
 #define koDesktopIcon(name) (QIcon::fromTheme(QLatin1String(name)).pixmap(IconSize(KIconLoader::Desktop)))

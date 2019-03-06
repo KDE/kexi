@@ -204,7 +204,7 @@ public:
     QScopedPointer<KexiPropertyPaneLineEditProxyStyle> style;
 };
 
-Q_GLOBAL_STATIC(KexiPropertyPaneLineEditProxyStyleGlobal, s_style);
+Q_GLOBAL_STATIC(KexiPropertyPaneLineEditProxyStyleGlobal, s_style)
 
 void alterPropertyPaneLineEditProxyStyle(QWidget *w)
 {
