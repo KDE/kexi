@@ -131,7 +131,7 @@ public:
     }
 };
 
-Q_GLOBAL_STATIC(PaletteForPages, origPagesPalettes);
+Q_GLOBAL_STATIC(PaletteForPages, origPagesPalettes)
 
 class Q_DECL_HIDDEN KexiContextMessageWidget::Private
 {
