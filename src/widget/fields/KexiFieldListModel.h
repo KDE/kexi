@@ -36,9 +36,9 @@ enum KexiFieldListOption {
         ShowEmptyItem = 8 //!< if set, an empty item is prepended to the list
 };
 
-Q_DECLARE_FLAGS(KexiFieldListOptions, KexiFieldListOption);
-Q_DECLARE_OPERATORS_FOR_FLAGS ( KexiFieldListOptions )
-Q_FLAGS(KexiFieldListOption);
+Q_DECLARE_FLAGS(KexiFieldListOptions, KexiFieldListOption)
+Q_DECLARE_OPERATORS_FOR_FLAGS(KexiFieldListOptions)
+Q_FLAGS(KexiFieldListOption)
 
 class KEXIEXTWIDGETS_EXPORT KexiFieldListModel : public QAbstractTableModel
 {
