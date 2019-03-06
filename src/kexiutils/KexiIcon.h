@@ -36,26 +36,26 @@
  *
  * The naming pattern of the macros is like this:
  * * koIcon* returns a QIcon object
- * * koIconName* returns a QLatin1String (aligned with usual API where "iconName" property is of type QString)
+ * * koIconName* returns a QString
  * * koIconNameCStr* returns a const char*
  */
 
 //! Use these macros for icons without any issues - global icons (breeze)
-#define koIcon(name) (QIcon::fromTheme(QLatin1String(name)))
-#define koIconName(name) (QLatin1String(name))
+#define koIcon(name) (QIcon::fromTheme(QStringLiteral(name)))
 #define koDarkIcon(name) (KexiStyle::darkIcon(QStringLiteral(name)))
 #define koDarkIcon2(name, context) (KexiStyle::darkIcon(QStringLiteral(name), context))
+#define koIconName(name) (QStringLiteral(name))
 #define koIconNameCStr(name) (name)
-#define koSmallIcon(name) (QIcon::fromTheme(QLatin1String(name)).pixmap(IconSize(KIconLoader::Small)))
-#define koDesktopIcon(name) (QIcon::fromTheme(QLatin1String(name)).pixmap(IconSize(KIconLoader::Desktop)))
+#define koSmallIcon(name) (QIcon::fromTheme(QStringLiteral(name)).pixmap(IconSize(KIconLoader::Small)))
+#define koDesktopIcon(name) (QIcon::fromTheme(QStringLiteral(name)).pixmap(IconSize(KIconLoader::Desktop)))
 #define koSmallIconCStr(name) (QIcon::fromTheme(name).pixmap(IconSize(KIconLoader::Small)))
 #define koDesktopIconCStr(name) (QIcon::fromTheme(name).pixmap(IconSize(KIconLoader::Desktop)))
 
 //! Use these macros if there is a proper icon missing
-#define koIconNeeded(comment, neededName) (QIcon::fromTheme(QLatin1String(neededName)))
-#define koIconNeededWithSubs(comment, neededName, substituteName) (QIcon::fromTheme(QLatin1String(substituteName)))
-#define koIconNameNeeded(comment, neededName) (QLatin1String(neededName))
-#define koIconNameNeededWithSubs(comment, neededName, substituteName) (QLatin1String(substituteName))
+#define koIconNeeded(comment, neededName) (QIcon::fromTheme(QStringLiteral(neededName)))
+#define koIconNeededWithSubs(comment, neededName, substituteName) (QIcon::fromTheme(QStringLiteral(substituteName)))
+#define koIconNameNeeded(comment, neededName) (QStringLiteral(neededName))
+#define koIconNameNeededWithSubs(comment, neededName, substituteName) (QStringLiteral(substituteName))
 #define koIconNameCStrNeeded(comment, neededName) (neededName)
 #define koIconNameCStrNeededWithSubs(comment, neededName, substituteName) (substituteName)
 
