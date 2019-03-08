@@ -19,6 +19,7 @@
 
 #include "KexiDBCaptionPage.h"
 
+#include <kio_version.h>
 
 KexiDBCaptionPage::KexiDBCaptionPage(const QString& labelText, QWidget* parent)
         : QWidget(parent)
@@ -26,6 +27,11 @@ KexiDBCaptionPage::KexiDBCaptionPage(const QString& labelText, QWidget* parent)
     setupUi(this);
     if (!labelText.isEmpty())
         label->setText(labelText);
+#if KIO_VERSION >= QT_VERSION_CHECK(5, 33, 0)
+    file_requester->setAcceptMode(QFileDialog::AcceptSave);
+#else
+    file_requester->fileDialog()->setAcceptMode(QFileDialog::AcceptSave);
+#endif
 }
 
 KexiDBCaptionPage::~KexiDBCaptionPage()
