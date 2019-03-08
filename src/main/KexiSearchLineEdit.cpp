@@ -437,8 +437,8 @@ KexiSearchLineEdit::KexiSearchLineEdit(QWidget *parent)
                                  // We need this information to focus back when pressing Escape key.
     setClearButtonEnabled(true);
     QAction *action_tools_locate = KexiMainWindowIface::global()->actionCollection()->action("tools_locate");
-    setPlaceholderText(xi18nc("Tools->Locate textbox' placeholder text with shortcut", "Locate (%1)")
-                       .arg(action_tools_locate->shortcut().toString(QKeySequence::NativeText)));
+    setPlaceholderText(xi18nc("Tools->Locate textbox' placeholder text with shortcut", "Locate (%1)",
+                       action_tools_locate->shortcut().toString(QKeySequence::NativeText)));
     fixLeftMargin(this);
     setMinimumWidth(fontMetrics().width("  " + placeholderText() + "    " + "    " + "      "));
 }
