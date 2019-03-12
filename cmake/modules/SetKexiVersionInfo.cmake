@@ -8,9 +8,9 @@
 set(PROJECT_STABLE_VERSION_MAJOR 3) # 3 for 3.x, 4 for 4.x, etc.
 set(PROJECT_STABLE_VERSION_MINOR 2) # 0 for 3.0, 1 for 3.1, etc.
 #set(KEXI_ALPHA 1) # uncomment only for x.y.0 Alpha
-set(KEXI_BETA 1) # uncomment and set stage version only for x.y.0 Beta N
+#set(KEXI_BETA 1) # uncomment and set stage version only for x.y.0 Beta N
 #set(KEXI_RC 1) # uncomment and set stage version only for x.y.0 RC N
-#set(KEXI_STABLE 0) # uncomment and set release version only for Stable x.y.N
+set(KEXI_STABLE 0) # uncomment and set release version only for Stable x.y.N
 set(KEXI_YEAR 2019) # update every year
 
 # -- do not edit below this line --
