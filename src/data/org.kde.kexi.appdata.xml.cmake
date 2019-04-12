@@ -43,6 +43,7 @@
   <summary xml:lang="gl">Construtor visual de aplicativos de base de datos</summary>
   <summary xml:lang="id">Pembangun apps database visual</summary>
   <summary xml:lang="it">Generatore visuale di applicazioni di banche dati</summary>
+  <summary xml:lang="ko">비주얼 데이터베이스 앱 빌더</summary>
   <summary xml:lang="nl">Visuele database van bouwer van apps</summary>
   <summary xml:lang="pl">Tworzenie wizualnych aplikacji baz danych</summary>
   <summary xml:lang="pt">Construtor visual de aplicações de bases de dados</summary>
@@ -69,6 +70,7 @@
     <p xml:lang="gl">Kexi é un construtor visual de aplicativos de base de datos. Pode usarse para deseñar aplicativos de base de datos, inserindo e editando datos, realizando consultas, e procesando datos. Poden crearse formularios para fornecer unha interface personalizada para os datos. Todos os obxectos de base de datos (táboas, consultas, formularios, informes, etc.) almacénanse na base de datos, facendo fácil compartir os datos e o deseño.</p>
     <p xml:lang="id">Kexi adalah pembangun aplikasi database visual. Dapat digunakan untuk merancang aplikasi basis data, memasukkan dan mengedit data, melakukan queri, dan memproses data. Formulir dapat dibuat untuk memberikan antarmuka khusus ke data Anda. Semua objek basis data - tabel, queri, formulir, laporan, dll. - disimpan dalam basis data, sehingga mudah untuk berbagi data dan desain.</p>
     <p xml:lang="it">Kexi è uno strumento visuale per la creazione di banche dati. Può essere utilizzato per progettare applicazioni che usano banche dati, inserire e modificare dati, eseguire query ed elaborare dati. Puoi creare moduli per fornire un'interfaccia personalizzata ai tuoi dati. Tutti gli oggetti di una banca dati - tabelle, query, moduli, report - sono memorizzati nella banca dati stessa, semplificando la condivisione dei dati e la progettazione.</p>
+    <p xml:lang="ko">Kexi는 비주얼 데이터베이스 응용 프로그램 빌더입니다. 데이터베이스 응용 프로그램 설계, 데이터 삽입 및 편집, 쿼리 수행 및 데이터 처리에 사용할 수 있습니다. 데이터에 사용자 정의 인터페이스를 제공하기 위해 양식을 생성할 수 있습니다. 모든 데이터베이스 개체(테이블, 쿼리, 양식, 보고서 등)가 데이터베이스에 저장되므로 데이터 및 설계를 쉽게 공유할 수 있습니다.</p>
     <p xml:lang="nl">Kexi is een bouwer van toepassingen met een database op een visuele manier. Het kan gebruikt worden voor het ontwerpen van toepassingen met een database, gegevens invoeren en bewerken, zoekopdrachten uitvoeren en gegevens verwerken. Formulieren kunnen gemaakt worden om een aangepast interface naar uw gegevens te bieden. Alle database-objecten - tabellen, zoekopdrachten, formulieren, rapporten, etc. - worden opgeslagen in de database, waarmee het gemakkelijk wordt gegevens en ontwerp te delen.</p>
     <p xml:lang="pl">Kexi to aplikacja do wizualnego tworzenia bazdanych. Można jej używać do opracowywania programów bazodanowych,wstawiania, edycji i przetwarzania danych, a także do wykonywania zapytań.Dostęp do danych można zapewniać przy pomocy formularzy. Wszystkie obiekty bazy danych, tabele, zapytania, formularze i raporty, itp. są przechowywane w bazie danych, co czyni je łatwymi do współdzielenia i opracowywania.</p>
     <p xml:lang="pt">O Kexi é um criador de bases de dados visuais, que pode ser usado para desenhar aplicações de bases de dados, inserir e editar dados, executar pesquisas e processar os dados. Poderá criar formulários para oferecer uma interface personalizada para os seus dados. Todos os objectos da base de dados - tabelas, pesquisas, formulários, relatórios, etc. - são guardados na base de dados, tornando simples a partilha e o desenho dos dados.</p>
@@ -94,6 +96,7 @@
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="ja">機能:</p>
+    <p xml:lang="ko">기능 :</p>
     <p xml:lang="nb">Funksjoner:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="pl">Możliwości:</p>
@@ -119,6 +122,7 @@
       <li xml:lang="id">Pendesain visual lengkap untuk tabel, queri, formulir, dan laporan</li>
       <li xml:lang="it">Progettazione completamente visuale di tabelle, query e report</li>
       <li xml:lang="ja">テーブル、クエリー、フォームおよびレポートをすべて視覚的にでデザインできます</li>
+      <li xml:lang="ko">테이블, 쿼리, 양식 및 보고서를 위한 전체 비주얼 디자이너</li>
       <li xml:lang="nb">Fullstendig visuell utforming for tabeller, spøøringer, skjemaer og rapporter</li>
       <li xml:lang="nl">Volledige visueel ontwerpen van tabellen, zoekopdrachten, formulieren en rapporten</li>
       <li xml:lang="pl">W pełni wizualna możliwość tworzenia tabel, zapytań, formularzy i raportów</li>
@@ -143,6 +147,7 @@
       <li xml:lang="id">Menjalankan queri, mendukung queri terparameterisasi</li>
       <li xml:lang="it">Esecuzione di query, supporto per le query parametriche</li>
       <li xml:lang="ja">クエリーの実行、パラメータ化クエリーのサポート</li>
+      <li xml:lang="ko">쿼리 실행, 매개 변수화된 쿼리 지원</li>
       <li xml:lang="nb">Kjøre spørriner, støtte for parametriserte spørringer</li>
       <li xml:lang="nl">Zoekopdrachten uitvoeren, ondersteuning voor zoekopdrachten met parameters</li>
       <li xml:lang="pl">Wykonywanie zapytań, obsługa dla zapytań parametrycznych</li>
@@ -164,6 +169,7 @@
       <li xml:lang="gl">Compatíbel con bases de datos SQLite, MySQL, PostgreSQL, xBase, Sybase SQL Server e MS SQL Server.</li>
       <li xml:lang="id">Dukungan database SQLite, MySQL, PostgreSQL, xBase, dan Sybase/MS SQL Server</li>
       <li xml:lang="it">Supporta SQLite, MySQL, PostgreSQL, xBase e banche dati Sybase/MS SQL Server</li>
+      <li xml:lang="ko">SQLite, MySQL, PostgreSQL, xBase 및 Sybase/MS SQL Server 데이터베이스 지원</li>
       <li xml:lang="nl">Ondersteunt databases SQLite, MySQL, PostgreSQL, xBase en Sybase/MS SQL Server</li>
       <li xml:lang="pl">Obsługa SQLite, MySQL, PostgreSQL, xBase oraz baz danych Sybase/MS SQL Server</li>
       <li xml:lang="pt">Suporta bases de dados SQLite, MySQL, PostgreSQL, xBase e Sybase/MS SQL Server</li>
@@ -184,6 +190,7 @@
       <li xml:lang="gl">A única ferramenta visual multiplataforma que pode importar facilmente datos de bases de datos de MS Access.</li>
       <li xml:lang="id">Satu-satunya alat visual multiplatform yang dapat dengan mudah mengimpor data dari database MS Access</li>
       <li xml:lang="it">Il solo strumento grafico multipiattaforma in grado di importare facilmente da banche dati MS Access</li>
+      <li xml:lang="ko">MS Access 데이터베이스에서 데이터를 쉽게 가져올 수 있는 유일한 멀티플랫폼 비주얼 도구</li>
       <li xml:lang="nl">Het enige multiplatform visuele hulpmiddel die gemakkelijk gegevens kan importeren uit MS Access databases</li>
       <li xml:lang="pl">Jedyne graficzne narzędzie wieloplatformowe, dzięki któremu łatwo można zaimportować dane z baz danych MS Access</li>
       <li xml:lang="pt">A única ferramenta gráfica multi-plataforma que consegue importar facilmente bases de dados MS Access</li>
@@ -204,6 +211,7 @@
       <li xml:lang="gl">Funcionalidade de deseño de consultas nunha vista de SQL dedicada.</li>
       <li xml:lang="id">Dukungan untuk desain queri dalam tampilan SQL terdedikasi</li>
       <li xml:lang="it">Supporta la progettazione di query in una vista SQL dedicata</li>
+      <li xml:lang="ko">전용 SQL 보기에서 쿼리 디자인 지원</li>
       <li xml:lang="nl">Ondersteuning voor ontwerp van zoekopdrachten in een gerichte SQL-weergave</li>
       <li xml:lang="pl">Obsługa tworzenia zapytań w widoku przeznaczonym dla SQL</li>
       <li xml:lang="pt">Suporta o desenho de pesquisas numa área de SQL dedicada</li>
@@ -226,6 +234,7 @@
       <li xml:lang="id">Pendesainan dan pendisplaian data yang berhubungan menggunakan kotak kombo (kolom-kolom dangak)</li>
       <li xml:lang="it">Progettazione e visualizzazione dei dati relazionali utilizzando caselle combinate (colonne di ricerca)</li>
       <li xml:lang="ja">コンボボックスを使用した関係データのデザインと表示(参照列)</li>
+      <li xml:lang="ko">콤보 상자를 사용하여 관계형 데이터 디자인 및 표시 (조회 열)</li>
       <li xml:lang="nb">Utforming og visning av relasjonsdata vhja kombo-bokser (oppslagskolonner)</li>
       <li xml:lang="nl">Ontwerpen en tonen van relationele gegevens met gebruik van keuzelijsten (kolommen voor opzoeken)</li>
       <li xml:lang="pl">Opracowywanie i wyświetlanie danych relacyjnych przy użyciu pól rozwijanych (kolumn wyszukiwania)</li>
@@ -250,6 +259,7 @@
       <li xml:lang="id">Entri data langsung atau impor menggunakan format CSV</li>
       <li xml:lang="it">Inserimento diretto dei dati o importazione utilizzando il formato CSV</li>
       <li xml:lang="ja">CSV を使用したダイレクトデータの入力もしくはインポート</li>
+      <li xml:lang="ko">CSV 형식을 사용하여 직접 데이터 입력 또는 가져오기</li>
       <li xml:lang="nb">Direkte datainnskriving eller import med CSV-format</li>
       <li xml:lang="nl">Directe invoer van gegevens of importeren met het CSV-format</li>
       <li xml:lang="pl">Bezpośrednie wprowadzanie danych lub importowanie ich z postaci CSV</li>
@@ -273,6 +283,7 @@
       <li xml:lang="id">Mode User terkunci, memungkinkan Anda untuk mematikankan semua perintah yang berhubungan untuk pengeditan desain projek Anda</li>
       <li xml:lang="it">Modalità utente bloccata, che ti consente di disattivare tutti i comandi in grado di modificare la struttura del tuo progetto.</li>
       <li xml:lang="ja">プロジェクトデザインの編集スイッチをオフにする事でユーザモードへのロックダウンが可能</li>
+      <li xml:lang="ko">사용자 모드를 잠궈 프로젝트 디자인 편집과 관련된 모든 명령을 끌 수 있습니다</li>
       <li xml:lang="nb">Låst brukermodus, slik at du kan slå av alle kommandoer som gjelder endring av prosjektets utforming</li>
       <li xml:lang="nl">Vergrendelde gebruikersodus, waarmee u alle commando's uitschakelt die zijn gerelateerd aan bewerken en ontwerpen van uw project</li>
       <li xml:lang="pl">Zamknięty tryb użytkownika, umożliwiający wyłączenie wszystkich poleceń związanych z edytowaniem twojego projektu</li>
@@ -297,6 +308,7 @@
       <li xml:lang="id">Penskripan menggunakan bahasa pemrograman JavaScript, Python atau Ruby</li>
       <li xml:lang="it">Creazione script utilizzando i linguaggi di programmazione JavaScript, Python o Ruby (sperimentale)</li>
       <li xml:lang="ja">JavaScript, Python や Ruby を使用してのスクリプティング(実験的)</li>
+      <li xml:lang="ko">자바 스크립트, 파이썬 또는 루비 프로그래밍 언어를 사용한 스크립팅 (실험적)</li>
       <li xml:lang="nb">Skripting ved bruk av JavaScript, Python eller Ruby programmeringsspråk (eksperimentelt)</li>
       <li xml:lang="nl">Scripting met de programmeertalen JavaScript, Python of Ruby (experimenteel)</li>
       <li xml:lang="pl">Skrypty wykorzystujące języki programowania JavaScript, Python lub Ruby (eksperymentalnie)</li>
@@ -327,6 +339,7 @@
       <caption xml:lang="gl">Vista de táboa</caption>
       <caption xml:lang="id">Tampilan tabular</caption>
       <caption xml:lang="it">Vista tabellare</caption>
+      <caption xml:lang="ko">표 형식보기</caption>
       <caption xml:lang="nl">Tabelweergave</caption>
       <caption xml:lang="pl">Widok tabeli</caption>
       <caption xml:lang="pt">Vista em tabelas</caption>
@@ -349,6 +362,7 @@
       <caption xml:lang="gl">Deseñador de consultas</caption>
       <caption xml:lang="id">Pendesain Queri</caption>
       <caption xml:lang="it">Strumento di progettazione delle query</caption>
+      <caption xml:lang="ko">쿼리 디자이너</caption>
       <caption xml:lang="nl">Ontwerper van query</caption>
       <caption xml:lang="pl">Opracowywanie zapytań</caption>
       <caption xml:lang="pt">Desenhador de Pesquisas</caption>
@@ -371,6 +385,7 @@
       <caption xml:lang="gl">Editor de SQL</caption>
       <caption xml:lang="id">Pengedit SQL</caption>
       <caption xml:lang="it">Editor SQL</caption>
+      <caption xml:lang="ko">SQL 편집기</caption>
       <caption xml:lang="nl">SQL-bewerker</caption>
       <caption xml:lang="pl">Edytor SQL</caption>
       <caption xml:lang="pt">Editor de SQL</caption>
@@ -397,6 +412,7 @@
       <caption xml:lang="id">Pendesain Formulir</caption>
       <caption xml:lang="it">Progettazione moduli</caption>
       <caption xml:lang="ja">フォームデザイナー</caption>
+      <caption xml:lang="ko">양식 디자이너</caption>
       <caption xml:lang="nb">Skjemautformer</caption>
       <caption xml:lang="nl">Ontwerper van formulieren</caption>
       <caption xml:lang="pl">Opracowywanie formularzy</caption>
@@ -421,6 +437,7 @@
       <caption xml:lang="gl">Deseñador de informes</caption>
       <caption xml:lang="id">Pendesain Laporan</caption>
       <caption xml:lang="it">Strumento di progettazione di report</caption>
+      <caption xml:lang="ko">보고서 디자이너</caption>
       <caption xml:lang="nl">Ontwerper van rapporten</caption>
       <caption xml:lang="pl">Opracowywanie sprawozdań</caption>
       <caption xml:lang="pt">Desenhador de Formulários</caption>
@@ -443,6 +460,7 @@
       <caption xml:lang="gl">Importación da base de datos de MS Access</caption>
       <caption xml:lang="id">Impor database MS Access</caption>
       <caption xml:lang="it">Importazione banca dati MS Access</caption>
+      <caption xml:lang="ko">MS Access 데이터베이스 가져오기</caption>
       <caption xml:lang="nl">Importeren van MS Access database</caption>
       <caption xml:lang="pl">Importowanie bazy danych MS Access</caption>
       <caption xml:lang="pt">Importação de bases de dados MS Access</caption>
