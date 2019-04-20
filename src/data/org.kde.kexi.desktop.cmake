@@ -12,6 +12,7 @@ Name[gl]=Kexi
 Name[ia]=Kexi
 Name[it]=Kexi
 Name[ja]=Kexi
+Name[ko]=Kexi
 Name[nb]=Kexi
 Name[nl]=Kexi
 Name[pl]=Kexi
