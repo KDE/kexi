@@ -47,6 +47,21 @@ macro(kexi_add_app_metadata_files source_var)
 
     install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kexi-${KEXI_DISTRIBUTION_VERSION}.desktop
             DESTINATION ${XDG_APPS_INSTALL_DIR})
-    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/org.kde.kexi-${KEXI_DISTRIBUTION_VERSION}.appdata.xml
+
+    # Check if the <binary> tag has proper binary version.
+    set(_appdata ${CMAKE_CURRENT_SOURCE_DIR}/data/org.kde.kexi.appdata.xml)
+    file(READ ${_appdata} _content)
+    set(_binary_spec "<binary>kexi-${KEXI_DISTRIBUTION_VERSION}</binary>")
+    string(FIND "${_content}" "${_binary_spec}" _pos)
+    if(${_pos} EQUAL -1)
+        message(FATAL_ERROR "Missing or invalid specification of KEXI binary \"${_binary_spec}\" in \"${_appdata}\". Please fix it.")
+    endif()
+    unset(_binary_spec)
+    unset(_pos)
+
+    # Keep org.kde.kexi.appdata.xml in-source to satisfy the kde.org/applications scanner.
+    # Then install with proper coinstallable name org.kde.kexi-${KEXI_DISTRIBUTION_VERSION}.appdata.xml.
+    install(FILES ${_appdata}
+            RENAME org.kde.kexi-${KEXI_DISTRIBUTION_VERSION}.appdata.xml
             DESTINATION ${CMAKE_INSTALL_METAINFODIR})
 endmacro()
