@@ -40,13 +40,6 @@ endmacro()
 
 # Adds metadata files to the source_var list
 macro(kexi_add_app_metadata_files source_var)
-    list(APPEND ${source_var}
-         ${CMAKE_CURRENT_SOURCE_DIR}/data/org.kde.kexi.desktop.cmake)
-    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/data/org.kde.kexi.desktop.cmake
-                   ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kexi-${KEXI_DISTRIBUTION_VERSION}.desktop)
-
-    install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kexi-${KEXI_DISTRIBUTION_VERSION}.desktop
-            DESTINATION ${XDG_APPS_INSTALL_DIR})
 
     # Check if the <binary> tag has proper binary version.
     set(_appdata ${CMAKE_CURRENT_SOURCE_DIR}/data/org.kde.kexi.appdata.xml)
@@ -64,4 +57,7 @@ macro(kexi_add_app_metadata_files source_var)
     install(FILES ${_appdata}
             RENAME org.kde.kexi-${KEXI_DISTRIBUTION_VERSION}.appdata.xml
             DESTINATION ${CMAKE_INSTALL_METAINFODIR})
+    install(PROGRAMS org.kde.kexi.desktop
+            RENAME org.kde.kexi-${KEXI_DISTRIBUTION_VERSION}.desktop
+            DESTINATION ${XDG_APPS_INSTALL_DIR})
 endmacro()
