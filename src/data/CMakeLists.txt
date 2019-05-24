@@ -57,7 +57,7 @@ macro(kexi_add_app_metadata_files source_var)
     install(FILES ${_appdata}
             RENAME org.kde.kexi-${KEXI_DISTRIBUTION_VERSION}.appdata.xml
             DESTINATION ${CMAKE_INSTALL_METAINFODIR})
-    install(PROGRAMS org.kde.kexi.desktop
+    install(PROGRAMS ${CMAKE_CURRENT_SOURCE_DIR}/data/org.kde.kexi.desktop
             RENAME org.kde.kexi-${KEXI_DISTRIBUTION_VERSION}.desktop
             DESTINATION ${XDG_APPS_INSTALL_DIR})
 endmacro()
