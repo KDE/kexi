@@ -15,6 +15,7 @@
   <name xml:lang="gl">KEXI</name>
   <name xml:lang="id">KEXI</name>
   <name xml:lang="it">KEXI</name>
+  <name xml:lang="ko">KEXI</name>
   <name xml:lang="nl">KEXI</name>
   <name xml:lang="pt">Kexi</name>
   <name xml:lang="pt-BR">KEXI</name>
@@ -60,6 +61,7 @@
     <p xml:lang="gl">KEXI é un construtor visual de aplicativos de base de datos. Pode usarse para deseñar aplicativos de base de datos, inserindo e editando datos, realizando consultas, e procesando datos. Poden crearse formularios para fornecer unha interface personalizada para os datos. Todos os obxectos de base de datos (táboas, consultas, formularios, informes, etc.) almacénanse na base de datos, facendo fácil compartir os datos e o deseño.</p>
     <p xml:lang="id">KEXI adalah pembangun aplikasi database visual. Dapat digunakan untuk merancang aplikasi basis data, memasukkan dan mengedit data, melakukan queri, dan memproses data. Formulir dapat dibuat untuk memberikan antarmuka khusus ke data Anda. Semua objek basis data - tabel, queri, formulir, laporan, dll. - disimpan dalam basis data, sehingga mudah untuk berbagi data dan desain.</p>
     <p xml:lang="it">KEXI è uno strumento visuale per la creazione di banche dati. Può essere utilizzato per progettare applicazioni che usano banche dati, inserire e modificare dati, eseguire query ed elaborare dati. Puoi creare moduli per fornire un'interfaccia personalizzata ai tuoi dati. Tutti gli oggetti di una banca dati - tabelle, query, moduli, report - sono memorizzati nella banca dati stessa, semplificando la condivisione dei dati e la progettazione.</p>
+    <p xml:lang="ko">KEXI는 시각적 데이터베이스 애플리케이션 빌더입니다. 데이터베이스 응용 프로그램 설계, 데이터 삽입 및 편집, 질의 수행 및 데이터 처리에 사용할 수 있습니다. 데이터에 사용자 지정 인터페이스를 제공하기 위해 양식을 생성할 수 있습니다. 모든 데이터베이스 개체(테이블, 질의, 양식, 보고서 등)가 데이터베이스에 저장되므로 데이터와 설계를 쉽게 공유할 수 있습니다.</p>
     <p xml:lang="nl">KEXI is een bouwer van toepassingen met een database op een visuele manier. Het kan gebruikt worden voor het ontwerpen van toepassingen met een database, gegevens invoeren en bewerken, zoekopdrachten uitvoeren en gegevens verwerken. Formulieren kunnen gemaakt worden om een aangepast interface naar uw gegevens te bieden. Alle database-objecten - tabellen, zoekopdrachten, formulieren, rapporten, etc. - worden opgeslagen in de database, waarmee het gemakkelijk wordt gegevens en ontwerp te delen.</p>
     <p xml:lang="pt">O Kexi é um criador de bases de dados visuais, que pode ser usado para desenhar aplicações de bases de dados, inserir e editar dados, executar pesquisas e processar os dados. Poderá criar formulários para oferecer uma interface personalizada para os seus dados. Todos os objectos da base de dados - tabelas, pesquisas, formulários, relatórios, etc. - são guardados na base de dados, tornando simples a partilha e o desenho dos dados.</p>
     <p xml:lang="pt-BR">KEXI é um construtor de aplicativos visuais de banco de dados. Pode ser usado para desenhar aplicativos de banco de dados, inserir e editar dados, executar pesquisas e processar dados. Podem ser criados formulários para oferecer uma interface personalizada para seus dados. Todos os objetos do banco de dados - tabelas, pesquisas, formulários, relatórios, etc. - são armazenados no próprio banco de dados, tornando simples o compartilhamento de dados e o visual.</p>
@@ -109,7 +111,7 @@
       <li xml:lang="id">Pendesain visual lengkap untuk tabel, queri, formulir, dan laporan</li>
       <li xml:lang="it">Progettazione completamente visuale di tabelle, query e report</li>
       <li xml:lang="ja">テーブル、クエリー、フォームおよびレポートをすべて視覚的にでデザインできます</li>
-      <li xml:lang="ko">테이블, 쿼리, 양식 및 보고서를 위한 전체 비주얼 디자이너</li>
+      <li xml:lang="ko">테이블, 질의, 양식 및 보고서를 위한 전체 비주얼 디자이너</li>
       <li xml:lang="nb">Fullstendig visuell utforming for tabeller, spøøringer, skjemaer og rapporter</li>
       <li xml:lang="nl">Volledige visueel ontwerpen van tabellen, zoekopdrachten, formulieren en rapporten</li>
       <li xml:lang="pl">W pełni wizualna możliwość tworzenia tabel, zapytań, formularzy i raportów</li>
@@ -134,7 +136,7 @@
       <li xml:lang="id">Menjalankan queri, mendukung queri terparameterisasi</li>
       <li xml:lang="it">Esecuzione di query, supporto per le query parametriche</li>
       <li xml:lang="ja">クエリーの実行、パラメータ化クエリーのサポート</li>
-      <li xml:lang="ko">쿼리 실행, 매개 변수화된 쿼리 지원</li>
+      <li xml:lang="ko">질의 실행, 매개 변수화된 질의 지원</li>
       <li xml:lang="nb">Kjøre spørriner, støtte for parametriserte spørringer</li>
       <li xml:lang="nl">Zoekopdrachten uitvoeren, ondersteuning voor zoekopdrachten met parameters</li>
       <li xml:lang="pl">Wykonywanie zapytań, obsługa dla zapytań parametrycznych</li>
@@ -198,7 +200,7 @@
       <li xml:lang="gl">Funcionalidade de deseño de consultas nunha vista de SQL dedicada.</li>
       <li xml:lang="id">Dukungan untuk desain queri dalam tampilan SQL terdedikasi</li>
       <li xml:lang="it">Supporta la progettazione di query in una vista SQL dedicata</li>
-      <li xml:lang="ko">전용 SQL 보기에서 쿼리 디자인 지원</li>
+      <li xml:lang="ko">전용 SQL 보기에서 질의 디자인 지원</li>
       <li xml:lang="nl">Ondersteuning voor ontwerp van zoekopdrachten in een gerichte SQL-weergave</li>
       <li xml:lang="pl">Obsługa tworzenia zapytań w widoku przeznaczonym dla SQL</li>
       <li xml:lang="pt">Suporta o desenho de pesquisas numa área de SQL dedicada</li>
@@ -350,7 +352,7 @@
       <caption xml:lang="gl">Deseñador de consultas</caption>
       <caption xml:lang="id">Pendesain Queri</caption>
       <caption xml:lang="it">Strumento di progettazione delle query</caption>
-      <caption xml:lang="ko">쿼리 디자이너</caption>
+      <caption xml:lang="ko">질의 디자이너</caption>
       <caption xml:lang="nl">Ontwerper van query</caption>
       <caption xml:lang="pl">Opracowywanie zapytań</caption>
       <caption xml:lang="pt">Desenhador de Pesquisas</caption>
