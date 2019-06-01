@@ -92,4 +92,4 @@ Comment[x-test]=xxVisually develop database applicationsxx
 Comment[zh_CN]=在可视化设计环境下开发数据库应用程序
 X-DocPath=kexi-3.2/index.html
 X-KDE-NativeMimeType=application/x-kexiproject-sqlite
-Categories=Qt;KDE;Office;Database;Development;
+Categories=Qt;KDE;Office;Database;
