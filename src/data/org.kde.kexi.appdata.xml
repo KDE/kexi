@@ -292,7 +292,7 @@
       <li xml:lang="pt-BR">Modo de usuário reduzido, permitindo-lhe desligar todos os comandos relacionados à edição do visual do seu projeto</li>
       <li xml:lang="sk">Uzamknutý používateľský režim, umožňujúci vám vypnúť všetky príkazy súvisiace s úpravou dizajnu vášho projektu</li>
       <li xml:lang="sv">Låsbart användarläge, som låter dig stänga av alla kommandon relaterade till redigering av projektets konstruktion</li>
-      <li xml:lang="uk">Заблокований режим користувача, у якому можна вимкнути усі пов’язані з командами редагування компонування вашого проекту команди.</li>
+      <li xml:lang="uk">Заблокований режим користувача, у якому можна вимкнути усі пов’язані з командами редагування компонування вашого проєкту команди.</li>
       <li xml:lang="x-test">xxLocked down User Mode, allowing you to switch off all commands related to editing your project's designxx</li>
       <li xml:lang="zh-CN">锁定用户模式，允许您关闭与编辑您的项目设计相关的所有命令</li>
       <li>Scripting using JavaScript, Python or Ruby programming languages (experimental)</li>
