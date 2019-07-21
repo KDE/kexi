@@ -22,6 +22,7 @@
 #include "kexidbdatepicker.h"
 #include <kexiutils/utils.h>
 
+#include <QDate>
 #include <QLineEdit>
 #include <QInputMethodEvent>
 
