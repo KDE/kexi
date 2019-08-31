@@ -3,12 +3,26 @@
         "Authors": [
             {
                 "Email": "kexi@kde.org",
-                "Name": "Kexi Team"
+                "Name": "Kexi Team",
+                "Name[ca]": "L'equip del Kexi",
+                "Name[es]": "Equipo de Kexi",
+                "Name[fr]": "L'équipe Kexi",
+                "Name[sk]": "Tím Kexi",
+                "Name[sv]": "Kexi-gruppen",
+                "Name[uk]": "Команда Kexi",
+                "Name[x-test]": "xxKexi Teamxx"
             }
         ],
         "Category": "",
         "Dependencies": [],
         "Description": "MS Access (MDB) import plugin for Kexi",
+        "Description[ca]": "Connector d'importació del MS Access (MDB) per al Kexi",
+        "Description[es]": "Complemento de importación de MS Access (MDB) para Kexi",
+        "Description[fr]": "Module d'importation MS Access (MDB) pour Kexi",
+        "Description[sk]": "MS Access (MDB) importný plugin pre Kexi",
+        "Description[sv]": "MS Access (MDB) importinsticksprogram för Kexi",
+        "Description[uk]": "Додаток імпортування даних з MS Access (MDB) для Kexi",
+        "Description[x-test]": "xxMS Access (MDB) import plugin for Kexixx",
         "EnabledByDefault": true,
         "Icon": "",
         "Id": "org.kexi-project.migration.mdb",

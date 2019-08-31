@@ -3,12 +3,26 @@
         "Authors": [
             {
                 "Email": "kexi@kde.org",
-                "Name": "Kexi Team"
+                "Name": "Kexi Team",
+                "Name[ca]": "L'equip del Kexi",
+                "Name[es]": "Equipo de Kexi",
+                "Name[fr]": "L'équipe Kexi",
+                "Name[sk]": "Tím Kexi",
+                "Name[sv]": "Kexi-gruppen",
+                "Name[uk]": "Команда Kexi",
+                "Name[x-test]": "xxKexi Teamxx"
             }
         ],
         "Category": "",
         "Dependencies": [],
         "Description": "Tab Separated Values (TSV) file import plugin for Kexi",
+        "Description[ca]": "Connector d'importació de fitxers amb valors separats per tabulacions (TSV) per al Kexi",
+        "Description[es]": "Complemento de importación de archivos de valores separados por tabuladores (TSV) para Kexi",
+        "Description[fr]": "Module d'importation de ficher « séparations par tabulation » pour Kexi",
+        "Description[sk]": "Importný plugin pre Kexi pre súbory hodnôt oddelených tabulátorom (TSV)",
+        "Description[sv]": "Importinsticksprogram för Kexi av filer med värden åtskilda av tabulatortecken (TSV)",
+        "Description[uk]": "Додаток імпортування даних, відокремлених символами табуляції (TSV), для Kexi",
+        "Description[x-test]": "xxTab Separated Values (TSV) file import plugin for Kexixx",
         "EnabledByDefault": true,
         "Icon": "",
         "Id": "org.kexi-project.migration.tsv",

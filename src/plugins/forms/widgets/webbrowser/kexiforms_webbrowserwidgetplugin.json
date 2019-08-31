@@ -3,12 +3,26 @@
         "Authors": [
             {
                 "Email": "kexi@kde.org",
-                "Name": "Kexi Team"
+                "Name": "Kexi Team",
+                "Name[ca]": "L'equip del Kexi",
+                "Name[es]": "Equipo de Kexi",
+                "Name[fr]": "L'équipe Kexi",
+                "Name[sk]": "Tím Kexi",
+                "Name[sv]": "Kexi-gruppen",
+                "Name[uk]": "Команда Kexi",
+                "Name[x-test]": "xxKexi Teamxx"
             }
         ],
         "Category": "",
         "Dependencies": [],
         "Description": "Kexi plugin providing web browser form widget",
+        "Description[ca]": "Connector del KEXI que proporciona estris de formularis per al navegador web",
+        "Description[es]": "Complemento de Kexi que proporciona un elemento gráfico de formulario para navegación web",
+        "Description[fr]": "Module complémentaire Kexi fournissant des composants graphiques de formulaire pour bases de données",
+        "Description[sk]": "Kexi plugin poskytujúci webový prehliadač z widgetu",
+        "Description[sv]": "Kexi-insticksprogram som tillhandahåller formulärkomponent med webbläsare",
+        "Description[uk]": "Додаток до Kexi, що забезпечує роботу форми віджета навігатора інтернетом",
+        "Description[x-test]": "xxKexi plugin providing web browser form widgetxx",
         "EnabledByDefault": true,
         "Icon": "kexiform-web-browser",
         "Id": "org.kexi-project.form.widgets.web-browser",
