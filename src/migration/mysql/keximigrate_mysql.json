@@ -18,7 +18,8 @@
                 "Name[sk]": "Tím Kexi",
                 "Name[sv]": "Kexi-gruppen",
                 "Name[uk]": "Команда Kexi",
-                "Name[x-test]": "xxKexi Teamxx"
+                "Name[x-test]": "xxKexi Teamxx",
+                "Name[zh_CN]": "Kexi 团队"
             }
         ],
         "Category": "",
@@ -41,6 +42,7 @@
         "Description[sv]": "Importinsticksprogram för Kexi av MySQL-databaser",
         "Description[uk]": "Додаток імпортування баз даних з MySQL для Kexi",
         "Description[x-test]": "xxMySQL database import plugin for Kexixx",
+        "Description[zh_CN]": "Kexi MySQL 数据库导入插件",
         "EnabledByDefault": true,
         "Icon": "",
         "Id": "org.kexi-project.migration.mysql",
