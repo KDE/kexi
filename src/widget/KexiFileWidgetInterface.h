@@ -46,7 +46,7 @@ public:
      * - if the KEXI_USE_KFILEWIDGET build option is off or if non-KDE Plasma desktop is detected
      *   as the current desktop, a simple KexiFileRequester widget is created.
      *
-     * In addition, if the KEXI_USE_KFILEWIDGET build option is on, defaults can be overriden by
+     * In addition, if the KEXI_USE_KFILEWIDGET build option is on, defaults can be overridden by
      * "UseKFileWidget" boolean option in the "File Dialogs" group of the application's config file:
      * - if "UseKFileWidget" is @c true, KF5's KFileWidget-based widget is created,
      * - if "UseKFileWidget" is @c false a simple KexiFileRequester widget is created.
