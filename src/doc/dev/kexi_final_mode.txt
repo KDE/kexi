@@ -16,6 +16,6 @@ c) More than one startup item would be useful.
 
 d) startup-related property (for kexi__db):
   - "startup_mode", value: "0"==Design Mode, "1"==Final Mode
-    (default satartup mode; can be overriden by --final-mode and --design-mode)
+    (default satartup mode; can be overridden by --final-mode and --design-mode)
     "0" is the default
 
