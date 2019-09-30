@@ -20,6 +20,7 @@
   <name xml:lang="pl">KEXI</name>
   <name xml:lang="pt">Kexi</name>
   <name xml:lang="pt-BR">KEXI</name>
+  <name xml:lang="sk">KEXI</name>
   <name xml:lang="sv">KEXI</name>
   <name xml:lang="uk">KEXI</name>
   <name xml:lang="x-test">xxKEXIxx</name>
@@ -383,6 +384,7 @@
       <caption xml:lang="pl">Edytor SQL</caption>
       <caption xml:lang="pt">Editor de SQL</caption>
       <caption xml:lang="pt-BR">Editor SQL</caption>
+      <caption xml:lang="sk">SQL Editor</caption>
       <caption xml:lang="sv">SQL-editor</caption>
       <caption xml:lang="uk">Редактор SQL</caption>
       <caption xml:lang="x-test">xxSQL Editorxx</caption>
