@@ -68,6 +68,7 @@
     <p xml:lang="pl">KEXI to aplikacja do graficznego tworzenia baz danych. Można jej używać do opracowywania programów bazodanowych,wstawiania, edycji i przetwarzania danych, a także do wykonywania zapytań.Dostęp do danych można zapewniać przy pomocy formularzy. Wszystkie obiekty bazy danych, tabele, zapytania, formularze i raporty, itp. są przechowywane w bazie danych, co czyni je łatwymi do współdzielenia i opracowywania.</p>
     <p xml:lang="pt">O Kexi é um criador de bases de dados visuais, que pode ser usado para desenhar aplicações de bases de dados, inserir e editar dados, executar pesquisas e processar os dados. Poderá criar formulários para oferecer uma interface personalizada para os seus dados. Todos os objectos da base de dados - tabelas, pesquisas, formulários, relatórios, etc. - são guardados na base de dados, tornando simples a partilha e o desenho dos dados.</p>
     <p xml:lang="pt-BR">KEXI é um construtor de aplicativos visuais de banco de dados. Pode ser usado para desenhar aplicativos de banco de dados, inserir e editar dados, executar pesquisas e processar dados. Podem ser criados formulários para oferecer uma interface personalizada para seus dados. Todos os objetos do banco de dados - tabelas, pesquisas, formulários, relatórios, etc. - são armazenados no próprio banco de dados, tornando simples o compartilhamento de dados e o visual.</p>
+    <p xml:lang="sk">Kexi je vizuálny tvorca databáz, súčasť Calligra Suite. Dá sa použiť na návrh databázových aplikácií, vkladanie a úpravu údajov, vykonávanie dotazov a spracúvanie údajov. Formuláre sa dajú vytvoriť na poskytnutie vlastného rozhrania pre vaše údaje. Všetky databázové objekty - tabuľky, dotazy, formuláre, správy - sú uložené v databáze, čo uľahčuje zdieľanie dát a dizajn.</p>
     <p xml:lang="sv">KEXI är ett visuell byggverktyg för databasprogram, en del av Calligra-sviten. Den kan användas för att skapa databasprogram, infoga och redigera data, ställa frågor och behandla data. Formulär kan skapas för att tillhandahålla ett anpassat gränssnitt för data. Alla databasobjekt (tabeller, frågor, formulär, rapporter, etc.) lagras i databasen, vilket gör det enkelt att dela data och konstruktion.</p>
     <p xml:lang="uk">KEXI — програма для створення обробників баз даних у візуальному режимі. Цією програмою можна скористатися для створень мініпрограм для роботи з базами даних, додавання та редагування даних, виконання запитів та обробки даних. За допомогою створених програмою форм ви можете отримати потрібний вам режим доступу до ваших даних. Всі об’єкти баз даних — таблиці, запити, форми, звіти тощо, — зберігаються у самій базі даних, що спрощує поширення даних та представлення даних.</p>
     <p xml:lang="x-test">xxKEXI is a visual database applications builder. It can be used for designing database applications, inserting and editing data, performing queries, and processing data. Forms can be created to provide a custom interface to your data. All database objects - tables, queries, forms, reports, etc. - are stored in the database, making it easy to share data and design.xx</p>
@@ -336,6 +337,7 @@
       <caption xml:lang="pl">Widok tabeli</caption>
       <caption xml:lang="pt">Área em páginas</caption>
       <caption xml:lang="pt-BR">Exibição em tabelas</caption>
+      <caption xml:lang="sk">Tabuľkový pohľad</caption>
       <caption xml:lang="sv">Tabellvy</caption>
       <caption xml:lang="uk">Перегляд таблиць</caption>
       <caption xml:lang="x-test">xxTabular viewxx</caption>
@@ -360,6 +362,7 @@
       <caption xml:lang="pl">Opracowywanie zapytań</caption>
       <caption xml:lang="pt">Desenhador de Pesquisas</caption>
       <caption xml:lang="pt-BR">Designer de pesquisas</caption>
+      <caption xml:lang="sk">Návrhár dotazov</caption>
       <caption xml:lang="sv">Frågekonstruktion</caption>
       <caption xml:lang="uk">Засіб для розробки запитів</caption>
       <caption xml:lang="x-test">xxQuery Designerxx</caption>
@@ -438,6 +441,7 @@
       <caption xml:lang="pl">Opracowywanie sprawozdań</caption>
       <caption xml:lang="pt">Desenhador de Relatórios</caption>
       <caption xml:lang="pt-BR">Desenho de formulários</caption>
+      <caption xml:lang="sk">Návrhár reportov</caption>
       <caption xml:lang="sv">Rapportkonstruktion</caption>
       <caption xml:lang="uk">Засіб для розробки звітів</caption>
       <caption xml:lang="x-test">xxReport Designerxx</caption>
@@ -462,6 +466,7 @@
       <caption xml:lang="pl">Importowanie bazy danych MS Access</caption>
       <caption xml:lang="pt">Importação de bases de dados MS Access</caption>
       <caption xml:lang="pt-BR">Importação de bancos de dados MS Access</caption>
+      <caption xml:lang="sk">Import databázy MS Access</caption>
       <caption xml:lang="sv">Databasimport från MS Access</caption>
       <caption xml:lang="uk">Імпортування баз даних MS Access</caption>
       <caption xml:lang="x-test">xxMS Access database importxx</caption>
