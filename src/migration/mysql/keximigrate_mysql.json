@@ -46,6 +46,7 @@
         "Description[pl]": "Wtyczka importu bazy danych MySQL dla KEXI",
         "Description[pt]": "'Plugin' de importação do MySQL para o Kexi",
         "Description[pt_BR]": "Plugin de Importação de banco de dados MySQL para o KEXI",
+        "Description[sk]": "MySQL importný plugin pre Kexi",
         "Description[sv]": "Importinsticksprogram av MySQL-databaser för KEXI",
         "Description[uk]": "Додаток імпортування баз даних з MySQL для KEXI",
         "Description[x-test]": "xxMySQL database import plugin for KEXIxx",
