@@ -45,7 +45,7 @@ public:
 protected:
     virtual void drawBranches(QPainter *painter,
                               const QRect &rect,
-                              const QModelIndex &index) const;
+                              const QModelIndex &index) const override;
 protected Q_SLOTS:
     void slotHighlightSearchedItem(const QModelIndex &index);
     void slotActivateSearchedItem(const QModelIndex &index);

@@ -66,7 +66,7 @@ public Q_SLOTS:
     void setShortcut(const QKeySequence &key);
 
 protected:
-    virtual void changeEvent(QEvent* event);
+    virtual void changeEvent(QEvent* event) override;
 
 private:
     QString text() const { return QLabel::text(); }

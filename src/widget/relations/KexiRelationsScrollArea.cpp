@@ -72,8 +72,8 @@ public:
     ~KexiRelationsScrollAreaWidget();
 
 protected:
-    virtual void paintEvent(QPaintEvent *event);
-    virtual void mousePressEvent(QMouseEvent *ev);
+    virtual void paintEvent(QPaintEvent *event) override;
+    virtual void mousePressEvent(QMouseEvent *ev) override;
 
 private:
     KexiRelationsScrollArea *scrollArea() {

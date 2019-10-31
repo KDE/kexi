@@ -412,7 +412,7 @@ public:
     }
 
 protected:
-    virtual void changeEvent(QEvent* event)
+    virtual void changeEvent(QEvent* event) override
     {
         switch (event->type()) {
         case QEvent::EnabledChange:

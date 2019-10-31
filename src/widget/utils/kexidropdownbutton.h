@@ -36,11 +36,11 @@ public:
     explicit KexiDropDownButton(QWidget *parent = 0);
     virtual ~KexiDropDownButton();
 
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
 
 protected:
-    virtual void paintEvent(QPaintEvent *e);
-    virtual void keyPressEvent(QKeyEvent * e);
+    virtual void paintEvent(QPaintEvent *e) override;
+    virtual void keyPressEvent(QKeyEvent * e) override;
 };
 
 #endif

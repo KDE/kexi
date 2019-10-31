@@ -49,13 +49,13 @@ public:
     //! @return number of objects
     int objectsCount() const;
 
-    virtual QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
-    virtual int columnCount(const QModelIndex& parent = QModelIndex()) const;
-    virtual int rowCount(const QModelIndex& parent = QModelIndex()) const;
-    virtual QModelIndex parent(const QModelIndex& child) const;
-    virtual QModelIndex index(int row, int column, const QModelIndex& parent = QModelIndex()) const;
-    virtual bool hasChildren(const QModelIndex& parent = QModelIndex()) const;
-    virtual Qt::ItemFlags flags(const QModelIndex& index) const;
+    virtual QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
+    virtual int columnCount(const QModelIndex& parent = QModelIndex()) const override;
+    virtual int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+    virtual QModelIndex parent(const QModelIndex& child) const override;
+    virtual QModelIndex index(int row, int column, const QModelIndex& parent = QModelIndex()) const override;
+    virtual bool hasChildren(const QModelIndex& parent = QModelIndex()) const override;
+    virtual Qt::ItemFlags flags(const QModelIndex& index) const override;
 
     void updateItemName(KexiPart::Item& item, bool dirty);
     QModelIndex indexFromItem(KexiProjectModelItem *item) const;
@@ -69,22 +69,22 @@ public:
     QModelIndex firstPartItem() const;
 
     //! Implemented for KexiSearchableModel
-    virtual int searchableObjectCount() const;
+    virtual int searchableObjectCount() const override;
 
     //! Implemented for KexiSearchableModel
-    virtual QModelIndex sourceIndexForSearchableObject(int objectIndex) const;
+    virtual QModelIndex sourceIndexForSearchableObject(int objectIndex) const override;
 
     //! Implemented for KexiSearchableModel
-    virtual QVariant searchableData(const QModelIndex &sourceIndex, int role) const;
+    virtual QVariant searchableData(const QModelIndex &sourceIndex, int role) const override;
 
     //! Implemented for KexiSearchableModel
-    virtual QString pathFromIndex(const QModelIndex &sourceIndex) const;
+    virtual QString pathFromIndex(const QModelIndex &sourceIndex) const override;
 
     //! Implemented for KexiSearchableModel
-    virtual bool highlightSearchableObject(const QModelIndex &index);
+    virtual bool highlightSearchableObject(const QModelIndex &index) override;
 
     //! Implemented for KexiSearchableModel
-    virtual bool activateSearchableObject(const QModelIndex &index);
+    virtual bool activateSearchableObject(const QModelIndex &index) override;
 
     QPersistentModelIndex itemWithSearchHighlight() const;
 

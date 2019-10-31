@@ -36,7 +36,7 @@ public:
     }
     virtual ~KexiComboBoxDropDownButtonStyle() {}
     virtual void drawComplexControl(ComplexControl control, const QStyleOptionComplex * option,
-                                    QPainter * painter, const QWidget * widget = 0) const
+                                    QPainter * painter, const QWidget * widget = 0) const override
     {
         QStyleOptionToolButton opt(*qstyleoption_cast<const QStyleOptionToolButton*>(option));
         opt.state |= (State_MouseOver | State_DownArrow | State_Sunken);

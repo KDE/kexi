@@ -57,7 +57,7 @@ public:
     void setIcon(const QIcon &icon);
 
 protected:
-    virtual void changeEvent(QEvent* event);
+    virtual void changeEvent(QEvent* event) override;
 
 private:
     void init();

@@ -34,13 +34,13 @@ public:
     explicit KexiToolTip(const QVariant& value, QWidget* parent = 0);
     virtual ~KexiToolTip();
 
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
 
 public Q_SLOTS:
     virtual void show();
 
 protected:
-    virtual void paintEvent(QPaintEvent *pev);
+    virtual void paintEvent(QPaintEvent *pev) override;
     virtual void drawFrame(QPainter& p);
     virtual void drawContents(QPainter& p);
 

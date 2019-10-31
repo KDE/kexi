@@ -198,7 +198,7 @@ protected:
     QAction * addAction(const QString& name, const QIcon& icon, const QString& text,
                        const QString& toolTip, const QString& whatsThis, const char* slot);
 
-    virtual void contextMenuEvent ( QContextMenuEvent *event );
+    virtual void contextMenuEvent ( QContextMenuEvent *event ) override;
 
 
 private:

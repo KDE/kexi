@@ -91,7 +91,7 @@ class KexiIdentifierPropertyEditorDelegate : public KPropertyStringDelegate
 public:
     KexiIdentifierPropertyEditorDelegate() {}
     virtual QWidget * createEditor( int type, QWidget *parent,
-        const QStyleOptionViewItem & option, const QModelIndex & index ) const
+        const QStyleOptionViewItem & option, const QModelIndex & index ) const override
     {
         Q_UNUSED(type);
         Q_UNUSED(option);
@@ -108,7 +108,7 @@ public:
     }
 
     virtual QWidget *createEditor(int type, QWidget *parent, const QStyleOptionViewItem &option,
-                                  const QModelIndex &index) const
+                                  const QModelIndex &index) const override
     {
         Q_UNUSED(type);
         Q_UNUSED(option);

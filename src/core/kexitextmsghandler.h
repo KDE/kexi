@@ -35,7 +35,7 @@ public:
 
     virtual void showErrorMessage(const QString &title, const QString &details = QString());
     virtual void showMessage(MessageType type, const QString &title, const QString &details,
-                             const QString& dontShowAgainName = QString());
+                             const QString& dontShowAgainName = QString()) override;
 
 protected:
     class Private;

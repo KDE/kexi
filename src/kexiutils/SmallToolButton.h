@@ -49,7 +49,7 @@ public:
     virtual void setIcon(const QString &iconName);
     virtual void setText(const QString& text);
     void setToolButtonStyle(Qt::ToolButtonStyle style);
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
     QAction* action() const;
 
 protected Q_SLOTS:
@@ -75,12 +75,12 @@ public:
     explicit KexiToolBarSeparator(QWidget *parent);
     virtual ~KexiToolBarSeparator();
 
-    QSize sizeHint() const;
+    QSize sizeHint() const override;
     Qt::Orientation orientation() const;
 public Q_SLOTS:
     void setOrientation(Qt::Orientation o);
 protected:
-    virtual void paintEvent(QPaintEvent *e);
+    virtual void paintEvent(QPaintEvent *e) override;
     void initStyleOption(QStyleOption *o) const;
 
 private:

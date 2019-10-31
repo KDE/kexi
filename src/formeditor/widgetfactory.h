@@ -346,7 +346,7 @@ protected:
     /*! Assigns \a value for internal property \a property for a class \a classname.
      Internal properties are not stored within objects, but can be provided
      to describe class' details. */
-    void setInternalProperty(const QByteArray& classname, const QByteArray& property, const QVariant& value);
+    void setInternalProperty(const QByteArray& classname, const QByteArray& property, const QVariant& value) override;
 
     WidgetInfo* widgetInfoForClassName(const char* classname);
 

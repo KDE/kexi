@@ -51,28 +51,28 @@ public:
     inline QString dataSourcePluginId() const {
         return KexiFormDataItemInterface::dataSourcePluginId();
     }
-    virtual QVariant value();
-    virtual void setInvalidState(const QString& displayText);
+    virtual QVariant value() override;
+    virtual void setInvalidState(const QString& displayText) override;
 
     //! \return true if editor's value is null (not empty)
     //! Used for checking if a given constraint within table of form is met.
-    virtual bool valueIsNull();
+    virtual bool valueIsNull() override;
 
     //! \return true if editor's value is empty (not necessary null).
     //! Only few data types can accept "EMPTY" property
     //! (use KDbField::hasEmptyProperty() to check this).
     //! Used for checking if a given constraint within table or form is met.
-    virtual bool valueIsEmpty();
+    virtual bool valueIsEmpty() override;
 
     /*! \return 'readOnly' flag for this widget. */
-    virtual bool isReadOnly() const;
+    virtual bool isReadOnly() const override;
 
     /*! \return the view widget of this item, e.g. line edit widget. */
-    virtual QWidget* widget();
+    virtual QWidget* widget() override;
 
-    virtual bool cursorAtStart();
-    virtual bool cursorAtEnd();
-    virtual void clear();
+    virtual bool cursorAtStart() override;
+    virtual bool cursorAtEnd() override;
+    virtual void clear() override;
 
     void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) override;
 
@@ -80,46 +80,46 @@ public:
      is displayed in a special way. Used by KexiFormDataProvider::fillDataItems().
      \a widget is equal to 'this'.
      Reimplemented after KexiFormDataItemInterface. */
-    virtual void setDisplayDefaultValue(QWidget* widget, bool displayDefaultValue);
+    virtual void setDisplayDefaultValue(QWidget* widget, bool displayDefaultValue) override;
 
     //! Windows uses Ctrl+Tab for moving between tabs, so do not steal this shortcut
-    virtual void keyPressEvent(QKeyEvent *ke);
+    virtual void keyPressEvent(QKeyEvent *ke) override;
 
-    virtual bool event(QEvent *e);
+    virtual bool event(QEvent *e) override;
 
     //! Selects contents of the widget if there is such behaviour set (it is by default).
 //! @todo add option for not selecting the field
-    virtual void selectAllOnFocusIfNeeded();
+    virtual void selectAllOnFocusIfNeeded() override;
 
 public Q_SLOTS:
     void setDataSource(const QString &ds);
 
     void setDataSourcePluginId(const QString &pluginId);
 
-    virtual void setReadOnly(bool readOnly);
+    virtual void setReadOnly(bool readOnly) override;
 
     //! Reimplemented, so "undo" means the same as "cancelEditor" action
 //! @todo enable "real" undo internally so user can use ctrl+z while editing
     virtual void undo();
 
     //! Implemented for KexiDataItemInterface
-    virtual void moveCursorToEnd();
+    virtual void moveCursorToEnd() override;
 
     //! Implemented for KexiDataItemInterface
-    virtual void moveCursorToStart();
+    virtual void moveCursorToStart() override;
 
     //! Implemented for KexiDataItemInterface
-    virtual void selectAll();
+    virtual void selectAll() override;
 
 protected Q_SLOTS:
     void slotTextChanged();
 
 protected:
-    virtual void paintEvent(QPaintEvent *);
-    virtual void contextMenuEvent(QContextMenuEvent *e);
-    virtual void changeEvent(QEvent *e);
-    virtual void setValueInternal(const QVariant& add, bool removeOld);
-    virtual void focusOutEvent(QFocusEvent *e);
+    virtual void paintEvent(QPaintEvent *) override;
+    virtual void contextMenuEvent(QContextMenuEvent *e) override;
+    virtual void changeEvent(QEvent *e) override;
+    virtual void setValueInternal(const QVariant& add, bool removeOld) override;
+    virtual void focusOutEvent(QFocusEvent *e) override;
     QMenu * createPopupMenu(const QPoint & pos);
     void updateTextForDataSource();
     void createDataSourceLabel();

@@ -65,7 +65,7 @@ public:
     KexiGroupButton::GroupPosition groupPosition() const;
 
 protected:
-    virtual void paintEvent(QPaintEvent* event);
+    virtual void paintEvent(QPaintEvent* event) override;
     void mousePressEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
 
 private:

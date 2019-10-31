@@ -37,41 +37,41 @@ public:
     virtual ~KexiBoolTableEdit();
 
     //! \return true if editor's value is null (not empty)
-    virtual bool valueIsNull();
+    virtual bool valueIsNull() override;
 
     //! \return true if editor's value is empty (not null).
     //! Only few field types can accept "EMPTY" property
     //! (check this with KDbField::hasEmptyProperty()),
-    virtual bool valueIsEmpty();
+    virtual bool valueIsEmpty() override;
 
-    virtual QVariant value();
+    virtual QVariant value() override;
 
-    virtual bool cursorAtStart();
-    virtual bool cursorAtEnd();
+    virtual bool cursorAtStart() override;
+    virtual bool cursorAtEnd() override;
 
-    virtual void clear();
+    virtual void clear() override;
 
     virtual void setupContents(QPainter *p, bool focused, const QVariant& val,
-                               QString &txt, int &align, int &x, int &y_offset, int &w, int &h);
+                               QString &txt, int &align, int &x, int &y_offset, int &w, int &h) override;
 
-    virtual void clickedOnContents();
+    virtual void clickedOnContents() override;
 
     /*! Handles action having standard name \a actionName.
      Action could be: "edit_cut", "edit_paste", etc. */
-    virtual void handleAction(const QString& actionName);
+    virtual void handleAction(const QString& actionName) override;
 
     /*! Handles copy action for value. Copies empty string for null, "1" for true, "0" for false.
      \a visibleValue is unused here. Reimplemented after KexiTableEdit. */
-    virtual void handleCopyAction(const QVariant& value, const QVariant& visibleValue);
+    virtual void handleCopyAction(const QVariant& value, const QVariant& visibleValue) override;
 
     /*! \return width of \a value. Reimplemented  after KexiTableEdit. */
-    virtual int widthForValue(const QVariant &val, const QFontMetrics &fm);
+    virtual int widthForValue(const QVariant &val, const QFontMetrics &fm) override;
 
 protected Q_SLOTS:
 
 protected:
     //! initializes this editor with \a add value
-    virtual void setValueInternal(const QVariant& add, bool removeOld);
+    virtual void setValueInternal(const QVariant& add, bool removeOld) override;
 
     void showHintButton();
 

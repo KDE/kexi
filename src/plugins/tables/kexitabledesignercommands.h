@@ -54,8 +54,8 @@ public:
         return text().toString();
     }
 
-    virtual void redo();
-    virtual void undo();
+    virtual void redo() override;
+    virtual void undo() override;
 
     //! Used to block execution of redo() once, on adding the command to the stack.
     void blockRedoOnce();
@@ -87,10 +87,10 @@ public:
 
     virtual ~ChangeFieldPropertyCommand();
 
-    virtual void redoInternal();
-    virtual void undoInternal();
-    virtual KDbAlterTableHandler::ActionBase* createAction() const;
-    virtual QString debugString() const;
+    virtual void redoInternal() override;
+    virtual void undoInternal() override;
+    virtual KDbAlterTableHandler::ActionBase* createAction() const override;
+    virtual QString debugString() const override;
 
 protected:
     KDbAlterTableHandler::ChangeFieldPropertyAction m_alterTableAction;
@@ -109,11 +109,11 @@ public:
 
     virtual ~RemoveFieldCommand();
 
-    virtual void redoInternal();
-    virtual void undoInternal();
-    virtual KDbAlterTableHandler::ActionBase* createAction() const;
+    virtual void redoInternal() override;
+    virtual void undoInternal() override;
+    virtual KDbAlterTableHandler::ActionBase* createAction() const override;
 
-    virtual QString debugString() const;
+    virtual QString debugString() const override;
 
 protected:
     KDbAlterTableHandler::RemoveFieldAction m_alterTableAction;
@@ -129,11 +129,11 @@ public:
                        int fieldIndex/*, const KDbField& field*/, const KPropertySet& set);
     virtual ~InsertFieldCommand();
 
-    virtual void redoInternal();
-    virtual void undoInternal();
-    virtual KDbAlterTableHandler::ActionBase* createAction() const;
+    virtual void redoInternal() override;
+    virtual void undoInternal() override;
+    virtual KDbAlterTableHandler::ActionBase* createAction() const override;
 
-    virtual QString debugString() const;
+    virtual QString debugString() const override;
 
 protected:
     KDbAlterTableHandler::InsertFieldAction *m_alterTableAction;
@@ -159,8 +159,8 @@ public:
 
     virtual ~ChangePropertyVisibilityCommand();
 
-    virtual void redoInternal();
-    virtual void undoInternal();
+    virtual void redoInternal() override;
+    virtual void undoInternal() override;
 
 protected:
     KDbAlterTableHandler::ChangeFieldPropertyAction m_alterTableAction;
@@ -176,8 +176,8 @@ public:
     InsertEmptyRecordCommand(Command* parent, KexiTableDesignerView* view, int row);
     virtual ~InsertEmptyRecordCommand();
 
-    virtual void redoInternal();
-    virtual void undoInternal();
+    virtual void redoInternal() override;
+    virtual void undoInternal() override;
 
 protected:
     KDbAlterTableHandler::ChangeFieldPropertyAction m_alterTableAction;

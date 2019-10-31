@@ -49,17 +49,17 @@ public:
     bool drv_connect() Q_DECL_OVERRIDE;
 
     //! Disconnect from source
-    virtual bool drv_disconnect();
+    virtual bool drv_disconnect() override;
 
     //! Get table names in source
-    virtual bool drv_tableNames(QStringList *tablenames);
+    virtual bool drv_tableNames(QStringList *tablenames) override;
 
     bool drv_copyTable(const QString& srcTable, KDbConnection *destConn,
                        KDbTableSchema* dstTable,
                        const RecordFilter *recordFilter = 0) Q_DECL_OVERRIDE;
 
     //! Read schema for a given table
-    virtual bool drv_readTableSchema(const QString& originalName, KDbTableSchema *tableSchema);
+    virtual bool drv_readTableSchema(const QString& originalName, KDbTableSchema *tableSchema) override;
 
     //! Starts reading data from the source dataset's table
     QSharedPointer<KDbSqlResult> drv_readFromTable(const QString & tableName) Q_DECL_OVERRIDE;

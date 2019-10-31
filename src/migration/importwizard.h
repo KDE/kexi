@@ -60,11 +60,11 @@ public Q_SLOTS:
     void progressUpdated(int percent);
 
 protected Q_SLOTS:
-    virtual void next();
-    virtual void back();
+    virtual void next() override;
+    virtual void back() override;
     void slot_currentPageChanged(KPageWidgetItem*,KPageWidgetItem*);
-    virtual void accept();
-    virtual void reject();
+    virtual void accept() override;
+    virtual void reject() override;
     void helpClicked();
     void slotOptionsButtonClicked();
     void destinationCaptionTextChanged(const QString &text);

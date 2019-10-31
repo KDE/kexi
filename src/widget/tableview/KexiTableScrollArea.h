@@ -174,13 +174,13 @@ public:
 
     /*! \return maximum number of records that can be displayed per one "page"
      for current table view's size. */
-    virtual int recordsPerPage() const;
+    virtual int recordsPerPage() const override;
 
     /*! \return number of records in this view. */
-    virtual int recordCount() const;
+    virtual int recordCount() const override;
 
     /*! \return number of the currently selected record number or -1. */
-    virtual int currentRecord() const;
+    virtual int currentRecord() const override;
 
     QRect cellGeometry(int record, int column) const;
     int columnWidth(int col) const;
@@ -197,16 +197,16 @@ public:
     /*! \return last record visible on the screen (counting from 0).
      The returned value is guaranteed to be smaller or equal to currentRecord() or -1
      if there are no records. */
-    virtual int lastVisibleRecord() const;
+    virtual int lastVisibleRecord() const override;
 
     /*! Redraws specified cell. */
-    virtual void updateCell(int record, int column);
+    virtual void updateCell(int record, int column) override;
 
     /*! Redraws the current cell. Implemented after KexiDataAwareObjectInterface. */
-    virtual void updateCurrentCell();
+    virtual void updateCurrentCell() override;
 
     /*! Redraws all cells of specified record. */
-    virtual void updateRecord(int record);
+    virtual void updateRecord(int record) override;
 
     bool editableOnDoubleClick() const;
     void setEditableOnDoubleClick(bool set);
@@ -233,12 +233,12 @@ public:
 
     // reimplemented for internal reasons
     virtual QSizePolicy sizePolicy() const;
-    virtual QSize sizeHint() const;
-    virtual QSize minimumSizeHint() const;
+    virtual QSize sizeHint() const override;
+    virtual QSize minimumSizeHint() const override;
 
     /*! @return geometry of the viewport, i.e. the scrollable area, minus any scrollbars, etc.
      Implementation for KexiDataAwareObjectInterface. */
-    virtual QRect viewportGeometry() const;
+    virtual QRect viewportGeometry() const override;
 
     /*! Reimplemented to update cached fonts and record sizes for the painter. */
     void setFont(const QFont &f);
@@ -261,17 +261,17 @@ public:
     KDbRecordData *highlightedRecord() const;
 
     /*! \return vertical scrollbar. Implemented for KexiDataAwareObjectInterface. */
-    virtual QScrollBar* verticalScrollBar() const;
+    virtual QScrollBar* verticalScrollBar() const override;
 
-    virtual bool eventFilter(QObject *o, QEvent *e);
+    virtual bool eventFilter(QObject *o, QEvent *e) override;
 
 public Q_SLOTS:
     void setData(KDbTableViewData *data, bool owner = true);
 
-    virtual void clearColumnsInternal(bool repaint);
+    virtual void clearColumnsInternal(bool repaint) override;
 
     /*! Reimplementation for KexiDataAwareObjectInterface */
-    virtual void setSpreadSheetMode(bool set);
+    virtual void setSpreadSheetMode(bool set) override;
 
     /*! Adjusts \a column column's width to its (current) contents.
      If \a column == -1, all columns' width is adjusted. */
@@ -320,17 +320,17 @@ public Q_SLOTS:
      If \a column is -1, current column number is used.
      If \a record is -1, current record number is used.
      \a record and \a column, if not -1, must be between 0 and recordCount()-1 (or columnCount()-1 accordingly). */
-    virtual void ensureCellVisible(int record, int column);
+    virtual void ensureCellVisible(int record, int column) override;
 
     /*! Ensures that column \a col is visible.
      If \a col is -1, current column number is used. \a col, if not -1, must be between
      0 and columnCount()-1. */
-    virtual void ensureColumnVisible(int col);
+    virtual void ensureColumnVisible(int col) override;
 
     /*! Deletes currently selected record; does nothing if no record
      is currently selected. If record is in edit mode, editing
      is cancelled before deleting.  */
-    virtual void deleteCurrentRecord();
+    virtual void deleteCurrentRecord() override;
 
     /*! Inserts one empty record above record \a record. If \a record is -1 (the default),
      new record is inserted above the current record (or above 1st record if there is no current).
@@ -340,7 +340,7 @@ public Q_SLOTS:
      -read-only flag is set (see isReadOnly())
      \ return inserted record's data
     */
-    virtual KDbRecordData *insertEmptyRecord(int pos = -1);
+    virtual KDbRecordData *insertEmptyRecord(int pos = -1) override;
 
     /*! Used when Return key is pressed on cell or "+" nav. button is clicked.
      Also used when we want to continue editing a cell after "invalid value" message
@@ -348,20 +348,20 @@ public Q_SLOTS:
      that text will be set in the cell replacing previous value).
     */
     virtual void startEditCurrentCell(const QString& setText = QString(),
-                                      CreateEditorFlags flags = DefaultCreateEditorFlags) {
+                                      CreateEditorFlags flags = DefaultCreateEditorFlags) override {
         KexiDataAwareObjectInterface::startEditCurrentCell(setText, flags);
     }
 
     /*! Deletes currently selected cell's contents, if allowed.
      In most cases delete is not accepted immediately but "record editing" mode is just started. */
-    virtual void deleteAndStartEditCurrentCell() {
+    virtual void deleteAndStartEditCurrentCell() override {
         KexiDataAwareObjectInterface::deleteAndStartEditCurrentCell();
     }
 
     /*! Cancels record editing All changes made to the editing
      record during this current session will be undone.
      \return true on success or false on failure (e.g. when editor does not exist) */
-    virtual bool cancelRecordEditing() {
+    virtual bool cancelRecordEditing() override {
         return KexiDataAwareObjectInterface::cancelRecordEditing();
     }
 
@@ -369,14 +369,14 @@ public Q_SLOTS:
      record during this current session will be accepted (saved).
      \return true if accepting was successful, false otherwise
      (e.g. when current record contain data that does not meet given constraints). */
-    virtual bool acceptRecordEditing() {
+    virtual bool acceptRecordEditing() override {
         return KexiDataAwareObjectInterface::acceptRecordEditing();
     }
 
     /*! Specifies, if this table view automatically accepts
      record editing (using acceptRecordEdit()) on accepting any cell's edit
      (i.e. after acceptEditor()). \sa acceptsRecordEditingAfterCellAccepting() */
-    virtual void setAcceptsRecordEditAfterCellAccepting(bool set) {
+    virtual void setAcceptsRecordEditAfterCellAccepting(bool set) override {
         KexiDataAwareObjectInterface::setAcceptsRecordEditAfterCellAccepting(set);
     }
 
@@ -386,26 +386,26 @@ public Q_SLOTS:
      - dragOverRecord() signal will be emitted on dragging,
       -droppedAtRecord() will be emitted on dropping
      By default this flag is set to false. */
-    virtual void setDropsAtRecordEnabled(bool set) {
+    virtual void setDropsAtRecordEnabled(bool set) override {
         KexiDataAwareObjectInterface::setDropsAtRecordEnabled(set);
     }
 
-    virtual bool cancelEditor() {
+    virtual bool cancelEditor() override {
         return KexiDataAwareObjectInterface::cancelEditor();
     }
-    virtual bool acceptEditor() {
+    virtual bool acceptEditor() override {
         return KexiDataAwareObjectInterface::acceptEditor();
     }
 
     /*! Reimplementation for KexiDataAwareObjectInterface, to react on changes
      of the sorting flag. */
-    virtual void setSortingEnabled(bool set);
+    virtual void setSortingEnabled(bool set) override;
 
 Q_SIGNALS:
-    void dataSet(KDbTableViewData *data);
+    void dataSet(KDbTableViewData *data) override;
 
-    void itemSelected(KDbRecordData *data);
-    void cellSelected(int record, int column);
+    void itemSelected(KDbRecordData *data) override;
+    void cellSelected(int record, int column) override;
 
     void itemReturnPressed(KDbRecordData *data, int record, int column);
     void itemDblClicked(KDbRecordData *data, int record, int column);
@@ -415,36 +415,36 @@ Q_SIGNALS:
     void droppedAtRecord(KDbRecordData *data, int record, QDropEvent *e, KDbRecordData*& newData);
 
     /*! Data has been refreshed on-screen - emitted from initDataContents(). */
-    void dataRefreshed();
+    void dataRefreshed() override;
 
-    void itemChanged(KDbRecordData *data, int record, int column);
-    void itemChanged(KDbRecordData *data, int record, int column, const QVariant &oldValue);
-    void itemDeleteRequest(KDbRecordData *data, int record, int column);
-    void currentItemDeleteRequest();
+    void itemChanged(KDbRecordData *data, int record, int column) override;
+    void itemChanged(KDbRecordData *data, int record, int column, const QVariant &oldValue) override;
+    void itemDeleteRequest(KDbRecordData *data, int record, int column) override;
+    void currentItemDeleteRequest() override;
     //! Emitted for spreadsheet mode when an item was deleted and a new item has been appended
-    void newItemAppendedForAfterDeletingInSpreadSheetMode();
-    void sortedColumnChanged(int col);
+    void newItemAppendedForAfterDeletingInSpreadSheetMode() override;
+    void sortedColumnChanged(int col) override;
 
     //! emitted when record editing is started (for updating or inserting)
-    void recordEditingStarted(int record);
+    void recordEditingStarted(int record) override;
 
     //! emitted when record editing is terminated (for updating or inserting)
     //! no matter if accepted or not
-    void recordEditingTerminated(int record);
+    void recordEditingTerminated(int record) override;
 
     //! emitted when state of 'save/cancel record changes' actions should be updated.
-    void updateSaveCancelActions();
+    void updateSaveCancelActions() override;
 
     //! Emitted in initActions() to force reload actions
     //! You should remove existing actions and add them again.
-    void reloadActions();
+    void reloadActions() override;
 
 protected Q_SLOTS:
-    virtual void slotDataDestroying() {
+    virtual void slotDataDestroying() override {
         KexiDataAwareObjectInterface::slotDataDestroying();
     }
 
-    virtual void slotRecordsDeleted(const QList<int> &records);
+    virtual void slotRecordsDeleted(const QList<int> &records) override;
 
     //! updates display after deletion of many records
     void slotColumnWidthChanged(int column, int oldSize, int newSize);
@@ -454,49 +454,49 @@ protected Q_SLOTS:
     void slotUpdate();
 
     //! implemented because we needed this as slot
-    virtual void sortColumnInternal(int col, int order = 0);
+    virtual void sortColumnInternal(int col, int order = 0) override;
 
     //! receives a signal from cell editors
     void slotEditRequested();
 
     /*! Reloads data for this widget.
      Handles KDbTableViewData::reloadRequested() signal. */
-    virtual void reloadData();
+    virtual void reloadData() override;
 
     //! Handles KDbTableViewData::recordRepaintRequested() signal
-    virtual void slotRecordRepaintRequested(KDbRecordData* data);
+    virtual void slotRecordRepaintRequested(KDbRecordData* data) override;
 
     //! Handles KDbTableViewData::aboutToDeleteRecord() signal. Prepares info for slotRecordDeleted().
-    virtual void slotAboutToDeleteRecord(KDbRecordData* data, KDbResultInfo* result, bool repaint) {
+    virtual void slotAboutToDeleteRecord(KDbRecordData* data, KDbResultInfo* result, bool repaint) override {
         KexiDataAwareObjectInterface::slotAboutToDeleteRecord(data, result, repaint);
     }
 
     //! Handles KDbTableViewData::recordDeleted() signal to repaint when needed.
-    virtual void slotRecordDeleted() {
+    virtual void slotRecordDeleted() override {
         KexiDataAwareObjectInterface::slotRecordDeleted();
     }
 
     //! Handles KDbTableViewData::recordInserted() signal to repaint when needed.
-    virtual void slotRecordInserted(KDbRecordData *data, bool repaint) {
+    virtual void slotRecordInserted(KDbRecordData *data, bool repaint) override {
         KexiDataAwareObjectInterface::slotRecordInserted(data, repaint);
     }
 
     //! Like above, not db-aware version
-    virtual void slotRecordInserted(KDbRecordData *data, int record, bool repaint) {
+    virtual void slotRecordInserted(KDbRecordData *data, int record, bool repaint) override {
         KexiDataAwareObjectInterface::slotRecordInserted(data, record, repaint);
     }
 
     /*! Handles verticalScrollBar()'s valueChanged(int) signal.
      Called when vscrollbar's value has been changed. */
-    virtual void verticalScrollBarValueChanged(int v);
+    virtual void verticalScrollBarValueChanged(int v) override;
 
     //! for navigator
-    virtual void moveToRecordRequested(int record);
-    virtual void moveToLastRecordRequested();
-    virtual void moveToPreviousRecordRequested();
-    virtual void moveToNextRecordRequested();
-    virtual void moveToFirstRecordRequested();
-    virtual void addNewRecordRequested() {
+    virtual void moveToRecordRequested(int record) override;
+    virtual void moveToLastRecordRequested() override;
+    virtual void moveToPreviousRecordRequested() override;
+    virtual void moveToNextRecordRequested() override;
+    virtual void moveToFirstRecordRequested() override;
+    virtual void addNewRecordRequested() override {
         KexiDataAwareObjectInterface::addNewRecordRequested();
     }
 
@@ -505,27 +505,27 @@ protected:
      Initializes data contents (resizes it, sets cursor at 1st row).
      Called on setData(). Also called once on show event after
      reloadRequested() signal was received from KDbTableViewData object. */
-    virtual void initDataContents();
+    virtual void initDataContents() override;
 
     /*! Implementation for KexiDataAwareObjectInterface.
      Updates widget's contents size using QScrollView::resizeContents()
      depending on tableSize(). */
-    virtual void updateWidgetContentsSize();
+    virtual void updateWidgetContentsSize() override;
 
     /*! Reimplementation for KexiDataAwareObjectInterface */
-    virtual void clearVariables();
+    virtual void clearVariables() override;
 
     /*! Implementation for KexiDataAwareObjectInterface */
-    virtual KDbOrderByColumn::SortOrder currentLocalSortOrder() const;
+    virtual KDbOrderByColumn::SortOrder currentLocalSortOrder() const override;
 
     /*! Implementation for KexiDataAwareObjectInterface */
-    virtual int currentLocalSortColumn() const;
+    virtual int currentLocalSortColumn() const override;
 
     /*! Implementation for KexiDataAwareObjectInterface */
-    virtual void setLocalSortOrder(int column, KDbOrderByColumn::SortOrder order);
+    virtual void setLocalSortOrder(int column, KDbOrderByColumn::SortOrder order) override;
 
     /*! Implementation for KexiDataAwareObjectInterface */
-    virtual void updateGUIAfterSorting(int previousRow);
+    virtual void updateGUIAfterSorting(int previousRow) override;
 
     int leftMargin() const;
 
@@ -557,31 +557,31 @@ protected:
     void contentsMouseMoveEvent(QMouseEvent* e);
     void contentsMouseDoubleClickEvent(QMouseEvent* e);
     void contentsContextMenuEvent(QContextMenuEvent* e);
-    virtual void keyPressEvent(QKeyEvent *e);
-    //virtual void focusInEvent(QFocusEvent* e);
-    virtual void focusOutEvent(QFocusEvent* e);
-    virtual void resizeEvent(QResizeEvent* e);
+    virtual void keyPressEvent(QKeyEvent *e) override;
+    //virtual void focusInEvent(QFocusEvent* e) override;
+    virtual void focusOutEvent(QFocusEvent* e) override;
+    virtual void resizeEvent(QResizeEvent* e) override;
     //virtual void viewportResizeEvent(QResizeEvent *e);
-    virtual void showEvent(QShowEvent *e);
-    virtual void dragMoveEvent(QDragMoveEvent *e);
-    virtual void dropEvent(QDropEvent *e);
-    virtual void dragLeaveEvent(QDragLeaveEvent *e);
+    virtual void showEvent(QShowEvent *e) override;
+    virtual void dragMoveEvent(QDragMoveEvent *e) override;
+    virtual void dropEvent(QDropEvent *e) override;
+    virtual void dragLeaveEvent(QDragLeaveEvent *e) override;
     //! For handling changes of palette
-    virtual void changeEvent(QEvent *e);
+    virtual void changeEvent(QEvent *e) override;
 
     /*! Implementation for KexiDataAwareObjectInterface */
-    virtual KexiDataItemInterface *editor(int col, bool ignoreMissingEditor = false);
+    virtual KexiDataItemInterface *editor(int col, bool ignoreMissingEditor = false) override;
 
     KexiTableEdit *tableEditorWidget(int col, bool ignoreMissingEditor = false);
 
     /*! Implementation for KexiDataAwareObjectInterface */
-    virtual void editorShowFocus(int row, int col);
+    virtual void editorShowFocus(int row, int col) override;
 
     //! Creates editors and shows it, what usually means the beginning of a cell editing
     virtual void createEditor(int row, int col, const QString& addText = QString(),
-                              CreateEditorFlags flags = DefaultCreateEditorFlags);
+                              CreateEditorFlags flags = DefaultCreateEditorFlags) override;
 
-    bool focusNextPrevChild(bool next);
+    bool focusNextPrevChild(bool next) override;
 
     /*! Used in key event: \return true if event \a e should execute action \a action_name.
      Action shortcuts defined by shortCutPressed() are reused, if present, and if \a e matches
@@ -614,31 +614,31 @@ protected:
 
     /*! Reimplementation for KexiDataAwareObjectInterface
      (viewport()->setFocus() is just added) */
-    virtual void removeEditor();
+    virtual void removeEditor() override;
 
     /*! @internal Changes bottom margin settings, in pixels.
      At this time, it's used by KexiComboBoxPopup to decrease margin for popup's table. */
     void setBottomMarginInternal(int pixels);
 
-    virtual void updateWidgetContents() {
+    virtual void updateWidgetContents() override {
         update();
     }
 
     //! Copy current selection to a clipboard (e.g. cell)
-    virtual void copySelection();
+    virtual void copySelection() override;
 
     //! Cut current selection to a clipboard (e.g. cell)
-    virtual void cutSelection();
+    virtual void cutSelection() override;
 
     //! Paste current clipboard contents (e.g. to a cell)
-    virtual void paste();
+    virtual void paste() override;
 
     /*! Used in KexiDataAwareObjectInterface::slotRecordDeleted()
      to repaint tow \a row and all visible below. */
-    virtual void updateAllVisibleRecordsBelow(int row);
+    virtual void updateAllVisibleRecordsBelow(int row) override;
 
-    void updateAfterCancelRecordEditing();
-    void updateAfterAcceptRecordEditing();
+    void updateAfterCancelRecordEditing() override;
+    void updateAfterAcceptRecordEditing() override;
 
     /*! Sets \a cellValue if there is a lookup value for the cell \a data.
      Used in paintCell() and KexiTableCellToolTip::maybeTip()
@@ -648,18 +648,18 @@ protected:
 
     /*! Implementation for KexiDataItemChangesListener.
      Reaction for change of \a item. */
-    virtual void valueChanged(KexiDataItemInterface* item);
+    virtual void valueChanged(KexiDataItemInterface* item) override;
 
     /*! Implementation for KexiDataItemChangesListener. */
-    virtual bool cursorAtNewRecord() const;
+    virtual bool cursorAtNewRecord() const override;
 
     /*! Implementation for KexiDataItemChangesListener. */
-    virtual void lengthExceeded(KexiDataItemInterface *item, bool lengthExceeded);
+    virtual void lengthExceeded(KexiDataItemInterface *item, bool lengthExceeded) override;
 
     /*! Implementation for KexiDataItemChangesListener. */
-    virtual void updateLengthExceededMessage(KexiDataItemInterface *item);
+    virtual void updateLengthExceededMessage(KexiDataItemInterface *item) override;
 
-    virtual int horizontalHeaderHeight() const;
+    virtual int horizontalHeaderHeight() const override;
 
     //! @return record navigator pane
     QWidget* navPanelWidget() const;
@@ -667,20 +667,20 @@ protected:
     //! @return true if record navigator pane exists and is has "visible" appearance set to ON
     bool navPanelWidgetVisible() const;
 
-    virtual bool event(QEvent *e);
+    virtual bool event(QEvent *e) override;
 
     //! @internal @return text information about a given column or other specific areas of the table view.
     QString whatsThisText(const QPoint &pos) const;
 
     /*! Called by KexiDataAwareObjectInterface::setCursorPosition()
       if cursor's position is really changed. */
-    virtual void selectCellInternal(int previousRow, int previousColumn);
+    virtual void selectCellInternal(int previousRow, int previousColumn) override;
 
     //! @return horizontal header
-    virtual QHeaderView* horizontalHeader() const;
+    virtual QHeaderView* horizontalHeader() const override;
 
     //! @return vertical header
-    virtual QHeaderView* verticalHeader() const;
+    virtual QHeaderView* verticalHeader() const override;
 
     //! @return common model for header views of this area. @see KexiTableScrollAreaHeader
     QAbstractItemModel* headerModel() const;
@@ -688,15 +688,15 @@ protected:
     void updateScrollAreaWidgetSize();
 
     //! Update section of vertical header
-    virtual void updateVerticalHeaderSection(int section);
+    virtual void updateVerticalHeaderSection(int section) override;
 
-    virtual void beginInsertItem(KDbRecordData *data, int pos);
+    virtual void beginInsertItem(KDbRecordData *data, int pos) override;
 
-    virtual void endInsertItem(KDbRecordData *data, int pos);
+    virtual void endInsertItem(KDbRecordData *data, int pos) override;
 
-    virtual void beginRemoveItem(KDbRecordData *data, int pos);
+    virtual void beginRemoveItem(KDbRecordData *data, int pos) override;
 
-    virtual void endRemoveItem(int pos);
+    virtual void endRemoveItem(int pos) override;
 
     class Private;
     Private * const d;

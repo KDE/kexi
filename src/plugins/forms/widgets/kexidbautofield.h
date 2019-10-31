@@ -85,19 +85,19 @@ public:
     }
     void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) override;
 
-    virtual void setInvalidState(const QString& text);
-    virtual bool isReadOnly() const;
-    virtual void setReadOnly(bool readOnly);
+    virtual void setInvalidState(const QString& text) override;
+    virtual bool isReadOnly() const override;
+    virtual void setReadOnly(bool readOnly) override;
 
-    virtual QVariant value();
-    virtual bool valueIsNull();
-    virtual bool valueIsEmpty();
-    virtual bool valueIsValid();
-    virtual bool valueChanged();
-    virtual void clear();
+    virtual QVariant value() override;
+    virtual bool valueIsNull() override;
+    virtual bool valueIsEmpty() override;
+    virtual bool valueIsValid() override;
+    virtual bool valueChanged() override;
+    virtual void clear() override;
 
     //! Reimplemented to also install \a listenter for internal editor
-    virtual void installListener(KexiDataItemChangesListener* listener);
+    virtual void installListener(KexiDataItemChangesListener* listener) override;
 
     WidgetType widgetType() const;
     void setWidgetType(WidgetType type);
@@ -115,13 +115,13 @@ public:
      is displayed in a special way. Used by KexiFormDataProvider::fillDataItems().
      \a widget is equal to 'this'.
      Reimplemented after KexiFormDataItemInterface. */
-    virtual void setDisplayDefaultValue(QWidget* widget, bool displayDefaultValue);
+    virtual void setDisplayDefaultValue(QWidget* widget, bool displayDefaultValue) override;
 
     QWidget* editor() const;
     QLabel* label() const;
 
-    virtual bool cursorAtStart();
-    virtual bool cursorAtEnd();
+    virtual bool cursorAtStart() override;
+    virtual bool cursorAtEnd() override;
 
     static WidgetType widgetTypeForFieldType(KDbField::Type type);
 
@@ -141,7 +141,7 @@ public:
     /*! @internal */
     QString fieldCaptionInternal() const;
 
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
     virtual void setFocusPolicy(Qt::FocusPolicy policy);
 
     //! Reimplemented to return internal editor's color.
@@ -175,7 +175,7 @@ public:
     virtual bool setProperty(const char * name, const QVariant & value);
 
     /*! Called by the top-level form on key press event to consume widget-specific shortcuts. */
-    virtual bool keyPressed(QKeyEvent *ke);
+    virtual bool keyPressed(QKeyEvent *ke) override;
 
 public Q_SLOTS:
     virtual void unsetPalette();
@@ -184,16 +184,16 @@ protected Q_SLOTS:
     virtual void paletteChange(const QPalette& oldPal);
 
     //! Implemented for KexiDataItemInterface
-    virtual void moveCursorToEnd();
+    virtual void moveCursorToEnd() override;
 
     //! Implemented for KexiDataItemInterface
-    virtual void moveCursorToStart();
+    virtual void moveCursorToStart() override;
 
     //! Implemented for KexiDataItemInterface
-    virtual void selectAll();
+    virtual void selectAll() override;
 
 protected:
-    virtual void setValueInternal(const QVariant&add, bool removeOld);
+    virtual void setValueInternal(const QVariant&add, bool removeOld) override;
     void init(const QString &text, WidgetType type, LabelPosition pos);
     virtual void createEditor();
     void changeText(const QString &text, bool beautify = true);
@@ -202,7 +202,7 @@ protected:
     //! internal editor can be created too late, so certain properties should be copied
     void copyPropertiesToEditor();
 
-    virtual bool eventFilter(QObject *o, QEvent *e);
+    virtual bool eventFilter(QObject *o, QEvent *e) override;
 
     //! Used by @ref setLabelPositionInternal(LabelPosition)
     void setLabelPositionInternal(LabelPosition position, bool noLabel);

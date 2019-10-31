@@ -52,7 +52,7 @@ Q_SIGNALS:
 
 protected Q_SLOTS:
     /** reimplemented from KToggleAction */
-    virtual void slotToggled(bool checked);
+    virtual void slotToggled(bool checked) override;
 
 private:
     class Private;

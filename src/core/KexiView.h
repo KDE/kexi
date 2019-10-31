@@ -120,11 +120,11 @@ public:
      \return shared action with name \a action_name for this view.
      If there's no such action declared in Kexi Part (part()),
      global shared action is returned (if exists). */
-    virtual QAction* sharedAction(const QString& action_name);
+    virtual QAction* sharedAction(const QString& action_name) override;
 
     /*! Enables or disables shared action declared in Kexi Part (part()).
      If there's no such action, global shared action is enabled or disabled (if exists). */
-    virtual void setAvailable(const QString& action_name, bool set);
+    virtual void setAvailable(const QString& action_name, bool set) override;
 
     enum StoreNewDataOption {
         OverwriteExistingData = 1 //!< Overwerite existing object in storeNewData()
@@ -167,7 +167,7 @@ Q_SIGNALS:
     void focus(bool in);
 
 protected:
-    virtual bool eventFilter(QObject *o, QEvent *e);
+    virtual bool eventFilter(QObject *o, QEvent *e) override;
 
     /*! called by KexiWindow::switchToViewMode() right before window is switched to new mode
      By default does nothing. Reimplement this if you need to do something
@@ -187,7 +187,7 @@ protected:
      (probably after showing some info messages), you need to return cancelled. */
     virtual tristate afterSwitchFrom(Kexi::ViewMode mode);
 
-    virtual void closeEvent(QCloseEvent * e);
+    virtual void closeEvent(QCloseEvent * e) override;
 
     /*! \return a property set for this view. For reimplementation. By default returns NULL. */
     virtual KPropertySet *propertySet();

@@ -107,10 +107,10 @@ public:
     bool canceled() const;
 
 protected:
-    virtual bool eventFilter(QObject *watched, QEvent *e);
+    virtual bool eventFilter(QObject *watched, QEvent *e) override;
     bool openData();
-    virtual void accept();
-    virtual void reject();
+    virtual void accept() override;
+    virtual void reject() override;
 
 private:
     //! Used in emergency by accept()
@@ -291,7 +291,7 @@ private:
     Private * const d;
 
 public Q_SLOTS:
-    virtual void next();
+    virtual void next() override;
 
 private Q_SLOTS:
     void fillTable();

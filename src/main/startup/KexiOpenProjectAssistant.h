@@ -84,8 +84,8 @@ public:
     ~KexiOpenProjectAssistant();
 
 public Q_SLOTS:
-    virtual void nextPageRequested(KexiAssistantPage* page);
-    virtual void cancelRequested(KexiAssistantPage* page);
+    virtual void nextPageRequested(KexiAssistantPage* page) override;
+    virtual void cancelRequested(KexiAssistantPage* page) override;
     void tryAgainActionTriggered();
     void cancelActionTriggered();
 
@@ -97,7 +97,7 @@ private Q_SLOTS:
     void slotOpenProject(KexiProjectData* data);
 
 protected:
-    virtual const QWidget* calloutWidget() const;
+    virtual const QWidget* calloutWidget() const override;
 
 private:
     class Private;

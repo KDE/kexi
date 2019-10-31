@@ -45,7 +45,7 @@ public:
     void addButton(const QIcon& icon, const QString& toolTip,
                    const QObject * receiver, const char * member);
 
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
 
     void setCaption(const QString& caption);
     QString caption() const;
@@ -54,7 +54,7 @@ public Q_SLOTS:
     void slotFocus(bool in);
 
 protected:
-    virtual bool eventFilter(QObject *o, QEvent *e);
+    virtual bool eventFilter(QObject *o, QEvent *e) override;
 
 private:
     class Private;

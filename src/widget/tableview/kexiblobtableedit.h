@@ -34,45 +34,45 @@ public:
     explicit KexiBlobTableEdit(KDbTableViewColumn *column, QWidget *parent = 0);
     virtual ~KexiBlobTableEdit();
 
-    bool valueIsNull();
-    bool valueIsEmpty();
+    bool valueIsNull() override;
+    bool valueIsEmpty() override;
 
-    virtual QVariant value();
+    virtual QVariant value() override;
 
-    virtual bool cursorAtStart();
-    virtual bool cursorAtEnd();
+    virtual bool cursorAtStart() override;
+    virtual bool cursorAtEnd() override;
 
     /*! Reimplemented: resizes a view(). */
-    virtual void resize(int w, int h);
+    virtual void resize(int w, int h) override;
 
-    virtual void showFocus(const QRect& r, bool readOnly);
+    virtual void showFocus(const QRect& r, bool readOnly) override;
 
-    virtual void hideFocus();
+    virtual void hideFocus() override;
 
     /*! \return total size of this editor, including popup button. */
-    virtual QSize totalSize() const;
+    virtual QSize totalSize() const override;
 
-    virtual void paintFocusBorders(QPainter *p, QVariant &, int x, int y, int w, int h);
+    virtual void paintFocusBorders(QPainter *p, QVariant &, int x, int y, int w, int h) override;
 
     /*! Reimplemented to handle the key events. */
-    virtual bool handleKeyPress(QKeyEvent* ke, bool editorActive);
+    virtual bool handleKeyPress(QKeyEvent* ke, bool editorActive) override;
 
     /*! Handles double click request coming from the table view.
      \return true if it has been consumed.
      Reimplemented in KexiBlobTableEdit (to execute "insert file" action. */
-    virtual bool handleDoubleClick();
+    virtual bool handleDoubleClick() override;
 
     /*! Handles action having standard name \a actionName.
      Action could be: "edit_cut", "edit_paste", etc. */
-    virtual void handleAction(const QString& actionName);
+    virtual void handleAction(const QString& actionName) override;
 
     /*! Handles copy action for value. The \a value is copied to clipboard in format appropriate
      for the editor's impementation, e.g. for image cell it can be a pixmap.
      \a visibleValue is unused here. Reimplemented after KexiTableEdit. */
-    virtual void handleCopyAction(const QVariant& value, const QVariant& visibleValue);
+    virtual void handleCopyAction(const QVariant& value, const QVariant& visibleValue) override;
 
     virtual void setupContents(QPainter *p, bool focused, const QVariant& val,
-                               QString &txt, int &align, int &x, int &y_offset, int &w, int &h);
+                               QString &txt, int &align, int &x, int &y_offset, int &w, int &h) override;
 
 protected Q_SLOTS:
     void slotUpdateActionsAvailabilityRequested(bool *valueIsNull, bool *valueIsReadOnly);
@@ -83,12 +83,12 @@ protected Q_SLOTS:
     void handleCutAction();
     void handleCopyAction();
     void handlePasteAction();
-    virtual void clear();
+    virtual void clear() override;
     void handleShowPropertiesAction();
 
 protected:
     //! initializes this editor with \a add value
-    virtual void setValueInternal(const QVariant& add, bool removeOld);
+    virtual void setValueInternal(const QVariant& add, bool removeOld) override;
 
     //! @todo QString openWithDlg(const QString& file);
     //! @todo void execute(const QString& app, const QString& file);
@@ -105,7 +105,7 @@ protected:
     //! @internal
     void executeCopyAction(const QByteArray& data);
 
-    virtual bool eventFilter(QObject *o, QEvent *e);
+    virtual bool eventFilter(QObject *o, QEvent *e) override;
 
     class Private;
     Private * const d;
@@ -132,30 +132,30 @@ public:
     virtual ~KexiKIconTableEdit();
 
     //! \return true if editor's value is null (not empty)
-    virtual bool valueIsNull();
+    virtual bool valueIsNull() override;
 
     //! \return true if editor's value is empty (not null).
     //! Only few field types can accept "EMPTY" property
     //! (check this with KDbField::hasEmptyProperty()),
-    virtual bool valueIsEmpty();
+    virtual bool valueIsEmpty() override;
 
-    virtual QVariant value();
+    virtual QVariant value() override;
 
-    virtual bool cursorAtStart();
-    virtual bool cursorAtEnd();
+    virtual bool cursorAtStart() override;
+    virtual bool cursorAtEnd() override;
 
-    virtual void clear();
+    virtual void clear() override;
 
     virtual void setupContents(QPainter *p, bool focused, const QVariant& val,
-                               QString &txt, int &align, int &x, int &y_offset, int &w, int &h);
+                               QString &txt, int &align, int &x, int &y_offset, int &w, int &h) override;
 
     /*! Handles copy action for value. Does nothing.
      \a visibleValue is unused here. Reimplemented after KexiTableEdit. */
-    virtual void handleCopyAction(const QVariant& value, const QVariant& visibleValue);
+    virtual void handleCopyAction(const QVariant& value, const QVariant& visibleValue) override;
 
 protected:
     //! initializes this editor with \a add value
-    virtual void setValueInternal(const QVariant& add, bool removeOld);
+    virtual void setValueInternal(const QVariant& add, bool removeOld) override;
 
     void showHintButton();
     void init();

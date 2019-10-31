@@ -1013,27 +1013,27 @@ inline KDbRecordData *KexiDataAwareObjectInterface::recordAt(int pos) const
 //! Convenience macro used for KexiDataAwareObjectInterface implementations.
 #define KEXI_DATAAWAREOBJECTINTERFACE \
     public: \
-    void connectCellSelectedSignal(const QObject* receiver, const char* intIntMember) { \
+    void connectCellSelectedSignal(const QObject* receiver, const char* intIntMember) override { \
         connect(this, SIGNAL(cellSelected(int,int)), receiver, intIntMember); \
     } \
-    void connectRecordEditingStartedSignal(const QObject* receiver, const char* intMember) { \
+    void connectRecordEditingStartedSignal(const QObject* receiver, const char* intMember) override { \
         connect(this, SIGNAL(recordEditingStarted(int)), receiver, intMember); \
     } \
-    void connectRecordEditingTerminatedSignal(const QObject* receiver, const char* voidMember) { \
+    void connectRecordEditingTerminatedSignal(const QObject* receiver, const char* voidMember) override { \
         connect(this, SIGNAL(recordEditingTerminated(int)), receiver, voidMember); \
     } \
     void connectUpdateSaveCancelActionsSignal(const QObject* receiver, \
-                                              const char* voidMember) { \
+                                              const char* voidMember) override { \
         connect(this, SIGNAL(updateSaveCancelActions()), receiver, voidMember); \
     } \
-    void connectReloadActionsSignal(const QObject* receiver, const char* voidMember) { \
+    void connectReloadActionsSignal(const QObject* receiver, const char* voidMember) override { \
         connect(this, SIGNAL(reloadActions()), receiver, voidMember); \
     } \
     void connectDataSetSignal(const QObject* receiver, \
-                              const char* kexiTableViewDataMember) { \
+                              const char* kexiTableViewDataMember) override { \
         connect(this, SIGNAL(dataSet(KDbTableViewData*)), receiver, kexiTableViewDataMember); \
     } \
-    void connectToReloadDataSlot(const QObject* sender, const char* voidSignal) { \
+    void connectToReloadDataSlot(const QObject* sender, const char* voidSignal) override { \
         connect(sender, voidSignal, this, SLOT(reloadData())); \
     }
 

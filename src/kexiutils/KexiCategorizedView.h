@@ -50,7 +50,7 @@ public:
     //! Shouldn't be needed in KDElibs >= 4.5,
     //! where KexiTemplatesCategoryDrawer::mouseButtonPressed() works.
     void select(const QItemSelection& selection,
-                QItemSelectionModel::SelectionFlags command);
+                QItemSelectionModel::SelectionFlags command) override;
 };
 
 //! Single selection categorized view.
@@ -60,7 +60,7 @@ class KEXIUTILS_EXPORT KexiCategorizedView : public KCategorizedView
 public:
     explicit KexiCategorizedView(QWidget *parent = 0);
 
-    virtual void setModel(QAbstractItemModel *model);
+    virtual void setModel(QAbstractItemModel *model) override;
 };
 
 #endif

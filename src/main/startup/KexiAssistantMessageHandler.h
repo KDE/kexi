@@ -41,7 +41,7 @@ protected:
         const QString &message,
         const QString &details = QString(),
         const QString &caption = QString()
-    );
+    ) override;
 
     /*! Shows error message with @a msg text. Existing error message from @a obj object
      is also copied, if present. */
@@ -51,7 +51,7 @@ protected:
         KDbMessageHandler::MessageType messageType = Error,
         const QString& message = QString(),
         const QString& caption = QString()
-    );
+    ) override;
 
     virtual const QWidget* calloutWidget() const = 0;
     virtual QPoint calloutPointerPosition() const;

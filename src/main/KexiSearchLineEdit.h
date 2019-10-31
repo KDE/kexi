@@ -69,11 +69,11 @@ private Q_SLOTS:
     void slotClearShortcutActivated();
 
 protected:
-    virtual void inputMethodEvent(QInputMethodEvent *e);
-    virtual void focusInEvent(QFocusEvent *e);
-    virtual void focusOutEvent(QFocusEvent *e);
-    virtual void keyPressEvent(QKeyEvent *e);
-    virtual void changeEvent(QEvent *event);
+    virtual void inputMethodEvent(QInputMethodEvent *e) override;
+    virtual void focusInEvent(QFocusEvent *e) override;
+    virtual void focusOutEvent(QFocusEvent *e) override;
+    virtual void keyPressEvent(QKeyEvent *e) override;
+    virtual void changeEvent(QEvent *event) override;
 
 private:
     void connectCompleter();

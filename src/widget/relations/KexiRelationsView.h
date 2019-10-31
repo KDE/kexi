@@ -55,7 +55,7 @@ public:
 
     void addTable(const QString& t);
 
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
 
     /*! Used to add newly created object information to the combo box. */
     void objectCreated(const QString &mime, const QString& name);

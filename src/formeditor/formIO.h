@@ -45,7 +45,7 @@ public:
     CustomWidget(const QByteArray &className, QWidget *parent);
     virtual ~CustomWidget();
 
-    virtual void paintEvent(QPaintEvent *ev);
+    virtual void paintEvent(QPaintEvent *ev) override;
 
 private:
     QByteArray m_className;

@@ -49,7 +49,7 @@ public:
 
     virtual void drawControl(ControlElement ce,
                              const QStyleOption *option, QPainter *painter,
-                             const QWidget *widget = 0) const
+                             const QWidget *widget = 0) const override
     {
         const KexiTableScrollAreaHeader *headerWidget
                 = qobject_cast<const KexiTableScrollAreaHeader*>(parent());

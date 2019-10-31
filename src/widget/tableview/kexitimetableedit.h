@@ -37,23 +37,23 @@ public:
     explicit KexiTimeTableEdit(KDbTableViewColumn *column, QWidget *parent = 0);
     virtual ~KexiTimeTableEdit();
     virtual void setupContents(QPainter *p, bool focused, const QVariant& val,
-                               QString &txt, int &align, int &x, int &y_offset, int &w, int &h);
-    virtual QVariant value();
-    virtual bool valueIsNull();
-    virtual bool valueIsEmpty();
-    virtual bool valueIsValid();
-    virtual bool valueChanged();
+                               QString &txt, int &align, int &x, int &y_offset, int &w, int &h) override;
+    virtual QVariant value() override;
+    virtual bool valueIsNull() override;
+    virtual bool valueIsEmpty() override;
+    virtual bool valueIsValid() override;
+    virtual bool valueChanged() override;
 
     /*! Reimplemented after KexiInputTableEdit. */
-    virtual void handleAction(const QString& actionName);
+    virtual void handleAction(const QString& actionName) override;
 
     /*! Reimplemented after KexiInputTableEdit. */
-    virtual void handleCopyAction(const QVariant& value, const QVariant& visibleValue);
+    virtual void handleCopyAction(const QVariant& value, const QVariant& visibleValue) override;
 
 protected:
     //! helper
     void setValueInInternalEditor(const QVariant &value);
-    virtual void setValueInternal(const QVariant& add, bool removeOld);
+    virtual void setValueInternal(const QVariant& add, bool removeOld) override;
     QTime timeValue();
 
     //! Used to format and convert time values

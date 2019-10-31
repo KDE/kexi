@@ -54,75 +54,75 @@ public:
     }
 
     //! Implemented for KexiComboBoxBase
-    virtual QVariant origValue() const;
+    virtual QVariant origValue() const override;
 
-    virtual void setValueInternal(const QVariant& add, bool removeOld) {
+    virtual void setValueInternal(const QVariant& add, bool removeOld) override {
         KexiComboBoxBase::setValueInternal(add, removeOld);
     }
 
-    virtual QVariant value() {
+    virtual QVariant value() override {
         return KexiComboBoxBase::value();
     }
 
-    virtual void clear();
+    virtual void clear() override;
 
-    virtual bool valueChanged();
+    virtual bool valueChanged() override;
 
-    virtual QVariant visibleValue();
+    virtual QVariant visibleValue() override;
 
     /*! Reimplemented: resizes a view(). */
-    virtual void resize(int w, int h);
+    virtual void resize(int w, int h) override;
 
-    virtual void showFocus(const QRect& r, bool readOnly);
+    virtual void showFocus(const QRect& r, bool readOnly) override;
 
-    virtual void hideFocus();
+    virtual void hideFocus() override;
 
-    virtual void paintFocusBorders(QPainter *p, QVariant &cal, int x, int y, int w, int h);
+    virtual void paintFocusBorders(QPainter *p, QVariant &cal, int x, int y, int w, int h) override;
 
     /*! Setups contents of the cell. As a special case, if there is lookup field schema
      defined, \a val already contains the visible value (usually the text)
      set by \ref KexiTableView::paintcell(), so there is noo need to lookup the value
      in the combo box's popup. */
     virtual void setupContents(QPainter *p, bool focused, const QVariant& val,
-                               QString &txt, int &align, int &x, int &y_offset, int &w, int &h);
+                               QString &txt, int &align, int &x, int &y_offset, int &w, int &h) override;
 
     /*! Used to handle key press events for the item. */
-    virtual bool handleKeyPress(QKeyEvent *ke, bool editorActive);
+    virtual bool handleKeyPress(QKeyEvent *ke, bool editorActive) override;
 
-    virtual int widthForValue(const QVariant &val, const QFontMetrics &fm);
+    virtual int widthForValue(const QVariant &val, const QFontMetrics &fm) override;
 
-    virtual void hide();
+    virtual void hide() override;
     virtual void show();
 
     /*! \return total size of this editor, including popup button. */
-    virtual QSize totalSize() const;
+    virtual QSize totalSize() const override;
 
-    virtual void createInternalEditor(KDbConnection *conn, const KDbQuerySchema& schema);
+    virtual void createInternalEditor(KDbConnection *conn, const KDbQuerySchema& schema) override;
 
     /*! Reimplemented after KexiInputTableEdit. */
-    virtual void handleAction(const QString& actionName);
+    virtual void handleAction(const QString& actionName) override;
 
     /*! Reimplemented after KexiInputTableEdit.
      For a special case (combo box), \a visibleValue can be provided,
      so it can be copied to the clipboard instead of unreadable \a value. */
-    virtual void handleCopyAction(const QVariant& value, const QVariant& visibleValue);
+    virtual void handleCopyAction(const QVariant& value, const QVariant& visibleValue) override;
 
 public Q_SLOTS:
     //! Implemented for KexiDataItemInterface
-    virtual void moveCursorToEnd();
+    virtual void moveCursorToEnd() override;
 
     //! Implemented for KexiDataItemInterface
-    virtual void moveCursorToStart();
+    virtual void moveCursorToStart() override;
 
     //! Implemented for KexiDataItemInterface
-    virtual void selectAll();
+    virtual void selectAll() override;
 
 protected Q_SLOTS:
     void slotButtonClicked();
-    void slotRecordAccepted(KDbRecordData *data, int record) {
+    void slotRecordAccepted(KDbRecordData *data, int record) override {
         KexiComboBoxBase::slotRecordAccepted(data, record);
     }
-    void slotRecordSelected(KDbRecordData* data) {
+    void slotRecordSelected(KDbRecordData* data) override {
         KexiComboBoxBase::slotRecordSelected(data);
     }
     void slotInternalEditorValueChanged(const QVariant& v) {
@@ -138,44 +138,44 @@ protected:
     //! internal
     void updateFocus(const QRect& r);
 
-    virtual bool eventFilter(QObject *o, QEvent *e);
+    virtual bool eventFilter(QObject *o, QEvent *e) override;
 
     //! Implemented for KexiComboBoxBase
-    virtual QWidget *internalEditor() const;
+    virtual QWidget *internalEditor() const override;
 
     //! Implemented for KexiComboBoxBase
-    virtual void moveCursorToEndInInternalEditor();
+    virtual void moveCursorToEndInInternalEditor() override;
 
     //! Implemented for KexiComboBoxBase
-    virtual void selectAllInInternalEditor();
+    virtual void selectAllInInternalEditor() override;
 
     //! Implemented for KexiComboBoxBase
-    virtual void setValueInInternalEditor(const QVariant& value);
+    virtual void setValueInInternalEditor(const QVariant& value) override;
 
     //! Implemented for KexiComboBoxBase
-    virtual QVariant valueFromInternalEditor();
+    virtual QVariant valueFromInternalEditor() override;
 
     //! Implemented for KexiComboBoxBase
-    virtual void editRequested() {
+    virtual void editRequested() override {
         KexiInputTableEdit::editRequested();
     }
 
     //! Implemented for KexiComboBoxBase
-    virtual void acceptRequested() {
+    virtual void acceptRequested() override {
         KexiInputTableEdit::acceptRequested();
     }
 
     //! Implemented for KexiComboBoxBase
-    virtual QPoint mapFromParentToGlobal(const QPoint& pos) const;
+    virtual QPoint mapFromParentToGlobal(const QPoint& pos) const override;
 
     //! Implemented for KexiComboBoxBase
-    virtual int popupWidthHint() const;
+    virtual int popupWidthHint() const override;
 
     //! Implemented this to update button state.
-    virtual void updateButton();
+    virtual void updateButton() override;
 
-    virtual KexiComboBoxPopup *popup() const;
-    virtual void setPopup(KexiComboBoxPopup *popup);
+    virtual KexiComboBoxPopup *popup() const override;
+    virtual void setPopup(KexiComboBoxPopup *popup) override;
 
     class Private;
     Private * const d;

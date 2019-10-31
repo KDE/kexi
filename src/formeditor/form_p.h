@@ -56,7 +56,7 @@ public:
 
     //! Reimplemented to remove handling of the State_MouseOver state.
     virtual void drawControl(ControlElement element, const QStyleOption *option,
-                             QPainter *p, const QWidget *w = 0) const;
+                             QPainter *p, const QWidget *w = 0) const override;
 
 private:
     QStyleOption* alterOption(ControlElement element, const QStyleOption *option) const;

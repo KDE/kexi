@@ -86,12 +86,12 @@ public:
 
 protected Q_SLOTS:
     void slotTextChanged();
-    virtual void accept();
+    virtual void accept() override;
     void updateSize();
 
 protected:
     void init();
-    virtual void showEvent(QShowEvent * event);
+    virtual void showEvent(QShowEvent * event) override;
     //! Checks if specified name already exists.
     bool canOverwrite();
 

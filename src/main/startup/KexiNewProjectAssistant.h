@@ -178,8 +178,8 @@ public:
     ~KexiNewProjectAssistant();
 
 public Q_SLOTS:
-    virtual void nextPageRequested(KexiAssistantPage* page);
-    virtual void cancelRequested(KexiAssistantPage* page);
+    virtual void nextPageRequested(KexiAssistantPage* page) override;
+    virtual void cancelRequested(KexiAssistantPage* page) override;
     void tryAgainActionTriggered();
     void cancelActionTriggered();
 
@@ -187,7 +187,7 @@ Q_SIGNALS:
     void createProject(const KexiProjectData &data);
 
 protected:
-    virtual const QWidget* calloutWidget() const;
+    virtual const QWidget* calloutWidget() const override;
 
 private:
     void createProject(

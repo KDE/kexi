@@ -152,9 +152,9 @@ public:
      */
     void setAutoDelete(bool set);
 
-    QSize sizeHint() const;
+    QSize sizeHint() const override;
 
-    QSize minimumSizeHint() const;
+    QSize minimumSizeHint() const override;
 
     QPoint calloutPointerPosition() const;
 
@@ -197,13 +197,13 @@ Q_SIGNALS:
     void animatedHideFinished();
 
 protected:
-    virtual void paintEvent(QPaintEvent *event);
+    virtual void paintEvent(QPaintEvent *event) override;
 
-    virtual bool event(QEvent *event);
+    virtual bool event(QEvent *event) override;
 
-    virtual void resizeEvent(QResizeEvent *event);
+    virtual void resizeEvent(QResizeEvent *event) override;
 
-    virtual void showEvent(QShowEvent *event);
+    virtual void showEvent(QShowEvent *event) override;
 
 private Q_SLOTS:
     void slotTimeLineChanged(qreal value);

@@ -81,7 +81,7 @@ protected Q_SLOTS:
     void slotItemSelected();
 
 protected:
-    virtual bool eventFilter(QObject* watched, QEvent* event);
+    virtual bool eventFilter(QObject* watched, QEvent* event) override;
 
     class Private;
     Private * const d;
@@ -111,7 +111,7 @@ public:
     /*! \return currently assigned project set or NULL if no project set is assigned. */
     KexiProjectSet *projectSet() const;
 
-    virtual void showEvent(QShowEvent * event);
+    virtual void showEvent(QShowEvent * event) override;
 
 protected Q_SLOTS:
     void slotProjectExecuted(KexiProjectData*);

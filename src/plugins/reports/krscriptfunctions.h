@@ -50,7 +50,7 @@ private:
     QMap<QString, QVariant> m_groupData;
 
 public Q_SLOTS:
-    virtual void setGroupData(const QMap<QString, QVariant> &groupData);
+    virtual void setGroupData(const QMap<QString, QVariant> &groupData) override;
 
     qreal sum(const QString &);
     qreal avg(const QString &);

@@ -60,11 +60,11 @@ public:
     }
 
     //! no effect
-    virtual QVariant value() {
+    virtual QVariant value() override {
         return QVariant();
     }
 
-    virtual void setInvalidState(const QString& displayText);
+    virtual void setInvalidState(const QString& displayText) override;
 
     bool autoTabStops() const;
 
@@ -76,13 +76,13 @@ public:
 
     void updateTabStopsOrder();
 
-    virtual bool valueIsNull();
-    virtual bool valueIsEmpty();
-    virtual bool isReadOnly() const;
-    virtual QWidget* widget();
-    virtual bool cursorAtStart();
-    virtual bool cursorAtEnd();
-    virtual void clear();
+    virtual bool valueIsNull() override;
+    virtual bool valueIsEmpty() override;
+    virtual bool isReadOnly() const override;
+    virtual QWidget* widget() override;
+    virtual bool cursorAtStart() override;
+    virtual bool cursorAtEnd() override;
+    virtual void clear() override;
 
     bool isPreviewing() const;
 
@@ -96,7 +96,7 @@ public Q_SLOTS:
     }
 
     //! This implementation just disables read only widget
-    virtual void setReadOnly(bool readOnly);
+    virtual void setReadOnly(bool readOnly) override;
 
     //! @internal for sizeInternal property
     QSize sizeInternal() const {
@@ -113,18 +113,18 @@ Q_SIGNALS:
     void handleDropEvent(QDropEvent *e);
 
 protected:
-    virtual bool eventFilter(QObject * watched, QEvent * e);
+    virtual bool eventFilter(QObject * watched, QEvent * e) override;
 
-    virtual void paintEvent(QPaintEvent *e);
+    virtual void paintEvent(QPaintEvent *e) override;
 
     //! no effect
-    virtual void setValueInternal(const QVariant&, bool) {}
+    virtual void setValueInternal(const QVariant&, bool) override {}
 
     //! Used to emit handleDragMoveEvent() signal needed to control dragging over the container's surface
-    virtual void dragMoveEvent(QDragMoveEvent *e);
+    virtual void dragMoveEvent(QDragMoveEvent *e) override;
 
     //! Used to emit handleDropEvent() signal needed to control dropping on the container's surface
-    virtual void dropEvent(QDropEvent *e);
+    virtual void dropEvent(QDropEvent *e) override;
 
     //! called from KexiFormScrollView::initDataContents()
     void updateReadOnlyFlags();

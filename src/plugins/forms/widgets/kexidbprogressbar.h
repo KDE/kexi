@@ -46,28 +46,28 @@ public:
     inline QString dataSourcePluginId() const {
         return KexiFormDataItemInterface::dataSourcePluginId();
     }
-    virtual QVariant value();
-    virtual void setInvalidState(const QString& displayText);
+    virtual QVariant value() override;
+    virtual void setInvalidState(const QString& displayText) override;
 
     //! \return true if editor's value is null (not empty)
     //! Used for checking if a given constraint within table of form is met.
-    virtual bool valueIsNull();
+    virtual bool valueIsNull() override;
 
     //! \return true if editor's value is empty (not necessary null).
     //! Only few data types can accept "EMPTY" property
     //! (use KDbField::hasEmptyProperty() to check this).
     //! Used for checking if a given constraint within table or form is met.
-    virtual bool valueIsEmpty();
+    virtual bool valueIsEmpty() override;
 
     /*! \return 'readOnly' flag for this widget. */
-    virtual bool isReadOnly() const;
+    virtual bool isReadOnly() const override;
 
     /*! \return the view widget of this item, e.g. line edit widget. */
-    virtual QWidget* widget();
+    virtual QWidget* widget() override;
 
-    virtual bool cursorAtStart();
-    virtual bool cursorAtEnd();
-    virtual void clear();
+    virtual bool cursorAtStart() override;
+    virtual bool cursorAtEnd() override;
+    virtual void clear() override;
 
     virtual void  setEnabled(bool enabled);
 
@@ -79,9 +79,9 @@ public Q_SLOTS:
         KexiFormDataItemInterface::setDataSourcePluginId(pluginId);
     }
     void slotValueChanged();
-    virtual void setReadOnly(bool set);
+    virtual void setReadOnly(bool set) override;
 protected:
-    virtual void setValueInternal(const QVariant& add, bool removeOld);
+    virtual void setValueInternal(const QVariant& add, bool removeOld) override;
 
 private:
     bool m_invalidState;

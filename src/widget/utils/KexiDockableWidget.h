@@ -46,7 +46,7 @@ public:
     //! @return widget that has been set as a child.
     QWidget *widget() const;
 
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
 
     void setSizeHint(const QSize& size);
 

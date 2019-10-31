@@ -34,11 +34,11 @@ public:
     explicit KexiProjectItemDelegate(QObject *parent = 0);
     virtual ~KexiProjectItemDelegate();
     virtual void paint(QPainter *painter, const QStyleOptionViewItem &option,
-                       const QModelIndex &index) const;
+                       const QModelIndex &index) const override;
     virtual QWidget* createEditor(QWidget *parent, const QStyleOptionViewItem &option,
-                                  const QModelIndex &index) const;
+                                  const QModelIndex &index) const override;
     virtual QSize sizeHint(const QStyleOptionViewItem &option,
-                           const QModelIndex &index) const;
+                           const QModelIndex &index) const override;
 
 private:
     class Private;

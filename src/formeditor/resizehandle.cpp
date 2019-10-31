@@ -60,13 +60,13 @@ public:
     void setEditingMode(bool editing);
 
 protected:
-    virtual void mousePressEvent(QMouseEvent *ev);
-    virtual void mouseMoveEvent(QMouseEvent *ev);
-    virtual void mouseReleaseEvent(QMouseEvent *ev);
-    virtual void paintEvent(QPaintEvent *ev);
+    virtual void mousePressEvent(QMouseEvent *ev) override;
+    virtual void mouseMoveEvent(QMouseEvent *ev) override;
+    virtual void mouseReleaseEvent(QMouseEvent *ev) override;
+    virtual void paintEvent(QPaintEvent *ev) override;
 
 protected Q_SLOTS:
-    bool eventFilter(QObject *obj, QEvent *ev);
+    bool eventFilter(QObject *obj, QEvent *ev) override;
     void updatePos();
 
 private:

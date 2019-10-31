@@ -2805,7 +2805,7 @@ public:
      : m_originalObjectName(originalObjectName)
     {
     }
-    virtual bool validate(KexiNameDialog *dialog) const {
+    virtual bool validate(KexiNameDialog *dialog) const override {
         if (dialog->widget()->nameText() == m_originalObjectName) {
             KMessageBox::information(dialog,
                                      xi18nc("Could not save object under the original name.",

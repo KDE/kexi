@@ -54,10 +54,10 @@ Q_OBJECT
         explicit ImportTableWizard(KDbConnection* curDB, QWidget* parent = 0, QMap<QString, QString>* args = 0, Qt::WindowFlags flags = 0);
         virtual ~ImportTableWizard( );
 
-        virtual void back();
-        virtual void next();
-        virtual void accept();
-        virtual void reject();
+        virtual void back() override;
+        virtual void next() override;
+        virtual void accept() override;
+        virtual void reject() override;
 
     protected Q_SLOTS:
         void slot_currentPageChanged(KPageWidgetItem*,KPageWidgetItem*);

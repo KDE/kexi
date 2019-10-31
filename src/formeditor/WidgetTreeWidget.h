@@ -61,10 +61,10 @@ public:
     ObjectTreeItem* data() const;
 
     //! Added to unhide.
-    virtual QVariant data(int column, int role) const { return QTreeWidgetItem::data(column, role); }
+    virtual QVariant data(int column, int role) const override { return QTreeWidgetItem::data(column, role); }
 
     //! Reimplemented to alter sorting for certain widget types, e.g. tab pages.
-    virtual bool operator<( const QTreeWidgetItem & other ) const;
+    virtual bool operator<( const QTreeWidgetItem & other ) const override;
 
     //! Used to alter sorting for certain widget types, e.g. tab pages.
     QString customSortingKey() const;
@@ -150,7 +150,7 @@ protected:
     //! @return the item whose text in column 0 is @a text.
     WidgetTreeWidgetItem* findItemByFirstColumn(const QString& text);
 
-    virtual void contextMenuEvent(QContextMenuEvent* e);
+    virtual void contextMenuEvent(QContextMenuEvent* e) override;
 
     void handleContextMenuEvent(QContextMenuEvent* e);
 

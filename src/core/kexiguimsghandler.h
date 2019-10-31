@@ -58,7 +58,7 @@ public:
         const QString &message,
         const QString &details = QString(),
         const QString &caption = QString()
-    );
+    ) override;
 
     /*! Shows error message with @a message text. Existing error message from @a obj object
      is also copied, if present. */
@@ -67,7 +67,7 @@ public:
         KDbMessageHandler::MessageType messageType = Error,
         const QString& message = QString(),
         const QString& caption = QString()
-    );
+    ) override;
 
     /*! Interactively asks a question. For GUI version, message boxes are used.
      @a defaultResult is returned in case when no message handler is installed.
@@ -83,7 +83,7 @@ public:
             const KDbGuiItem &buttonNo = KDbGuiItem(),
             const QString &dontShowAskAgainName = QString(),
             KDbMessageHandler::Options options = 0,
-            KDbMessageHandler* msgHandler = 0);
+            KDbMessageHandler* msgHandler = 0) override;
 
     //! @return GUI message redirection for this handler or 0 if there is no GUI redirection.
     KexiGUIMessageHandler* guiRedirection();

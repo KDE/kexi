@@ -40,11 +40,11 @@ Q_SIGNALS:
     bool resized();
 
 protected:
-    virtual void paintEvent(QPaintEvent *e);
-    virtual void mouseMoveEvent(QMouseEvent *e);
-    virtual void mousePressEvent(QMouseEvent *e);
-    virtual void mouseReleaseEvent(QMouseEvent *e);
-    virtual void leaveEvent(QEvent *e);
+    virtual void paintEvent(QPaintEvent *e) override;
+    virtual void mouseMoveEvent(QMouseEvent *e) override;
+    virtual void mousePressEvent(QMouseEvent *e) override;
+    virtual void mouseReleaseEvent(QMouseEvent *e) override;
+    virtual void leaveEvent(QEvent *e) override;
 
 private:
     bool m_resizing;

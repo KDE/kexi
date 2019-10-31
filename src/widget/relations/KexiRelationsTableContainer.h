@@ -78,8 +78,8 @@ protected Q_SLOTS:
     friend class KexiRelationViewTableContainerHeader;
 
 protected:
-    virtual void focusInEvent(QFocusEvent* event);
-    virtual void focusOutEvent(QFocusEvent* event);
+    virtual void focusInEvent(QFocusEvent* event) override;
+    virtual void focusOutEvent(QFocusEvent* event) override;
 
 private:
     class Private;

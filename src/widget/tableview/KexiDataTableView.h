@@ -67,7 +67,7 @@ public Q_SLOTS:
     void setData(KDbCursor *cursor);
 
     /*! Saves settings for the view. Implemented for KexiView. */
-    virtual bool saveSettings();
+    virtual bool saveSettings() override;
 
 protected Q_SLOTS:
 //! @todo

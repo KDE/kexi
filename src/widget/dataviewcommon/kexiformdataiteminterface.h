@@ -77,7 +77,7 @@ public:
 
     /*! Convenience function: casts this item to a QWidget.
      Can return 0 if the item is not a QWidget-derived object. */
-    virtual QWidget* widget() {
+    virtual QWidget* widget() override {
         return dynamic_cast<QWidget*>(this);
     }
 
@@ -99,7 +99,7 @@ public:
     KDbField* field() override;
 
     //! \return database column information for this item
-    KDbQueryColumnInfo* columnInfo() {
+    KDbQueryColumnInfo* columnInfo() override {
         return m_columnInfo;
     }
 
@@ -107,7 +107,7 @@ public:
      Reimplement if you need to do additional actions,
      e.g. set data validator based on field type. Don't forget about
      calling superclass implementation. */
-    virtual void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) {
+    virtual void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) override {
         Q_UNUSED(conn)
         m_columnInfo = cinfo;
     }
@@ -125,10 +125,10 @@ public:
     }
 
     /*! Does nothing, because within forms, widgets are always visible. */
-    virtual void hideWidget() { }
+    virtual void hideWidget() override { }
 
     /*! Does nothing, because within forms, widgets are always visible. */
-    virtual void showWidget() { }
+    virtual void showWidget() override { }
 
     /*! Undoes changes made to this item - just resets the widget to original value.
      Note: This is internal method called by KexiFormScrollView::cancelEditor().

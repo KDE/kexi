@@ -52,29 +52,29 @@ public:
         return KexiFormDataItemInterface::dataSourcePluginId();
     }
 
-    virtual QVariant value();
+    virtual QVariant value() override;
 
     //! \return true if editor's value is null (not empty)
     //! Used for checking if a given constraint within table of form is met.
-    virtual bool valueIsNull();
+    virtual bool valueIsNull() override;
 
     //! \return true if editor's value is empty (not necessary null).
     //! Only few data types can accept "EMPTY" property
     //! (use KDbField::hasEmptyProperty() to check this).
     //! Used for checking if a given constraint within table or form is met.
-    virtual bool valueIsEmpty();
+    virtual bool valueIsEmpty() override;
 
     //! always false
-    virtual bool cursorAtStart();
+    virtual bool cursorAtStart() override;
 
     //! always false
-    virtual bool cursorAtEnd();
+    virtual bool cursorAtEnd() override;
 
-    virtual void clear();
+    virtual void clear() override;
 
-    virtual void setInvalidState(const QString& displayText);
+    virtual void setInvalidState(const QString& displayText) override;
 
-    virtual bool isReadOnly() const;
+    virtual bool isReadOnly() const override;
 public Q_SLOTS:
     //! action string for "on click" event
     //! @see KexiFormPart::slotAssignAction()
@@ -99,10 +99,10 @@ public Q_SLOTS:
     inline void setDataSourcePluginId(const QString &pluginId) {
         KexiFormDataItemInterface::setDataSourcePluginId(pluginId);
     }
-    virtual void setReadOnly(bool readOnly);
+    virtual void setReadOnly(bool readOnly) override;
 protected:
     //! Sets value \a value for a widget.
-    virtual void setValueInternal(const QVariant& add, bool removeOld);
+    virtual void setValueInternal(const QVariant& add, bool removeOld) override;
 
     friend class KexiDBPushButtonPrivate;
     KexiDBPushButtonPrivate * const d;

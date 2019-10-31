@@ -66,7 +66,7 @@ public:
 
     /*! Sets record navigator handler. This allows to react
      on actions performed within navigator and vice versa. */
-    void setRecordHandler(KexiRecordNavigatorHandler *handler);
+    void setRecordHandler(KexiRecordNavigatorHandler *handler) override;
 
     /*! \return true if data inserting is enabled (the default). */
     bool isInsertingEnabled() const;
@@ -83,7 +83,7 @@ public:
      in QScrollView::setHBarGeometry() implementations:
      see KexiTableView::setHBarGeometry() and KexiFormScrollView::setHBarGeometry()
      for usage examples. */
-    virtual void setHBarGeometry(QScrollBar & hbar, int x, int y, int w, int h);
+    virtual void setHBarGeometry(QScrollBar & hbar, int x, int y, int w, int h) override;
 
     /*! \return true if "editing" indicator is visible for this navigator.
      @see showEditingIndicator() */
@@ -122,10 +122,10 @@ public:
 
 public Q_SLOTS:
     /*! Sets insertingEnabled flag. If true, "+" button will be enabled. */
-    void setInsertingEnabled(bool set);
+    void setInsertingEnabled(bool set) override;
 
     /*! Sets visibility of "inserting" button. */
-    void setInsertingButtonVisible(bool set);
+    void setInsertingButtonVisible(bool set) override;
 
     /*! Sets visibility of the place where "editing" indicator will be displayed.
      "editing" indicator will display KexiRecordMarker::penImage() image when
@@ -135,7 +135,7 @@ public Q_SLOTS:
     void setEditingIndicatorEnabled(bool set);
 
     /*! Shows or hides "editing" indicator. */
-    virtual void showEditingIndicator(bool show);
+    virtual void showEditingIndicator(bool show) override;
 
     virtual void setEnabled(bool set);
 
@@ -143,16 +143,16 @@ public Q_SLOTS:
      i.e. a value that will be displayed in the 'record number' text box.
      This can also affect button's enabling and disabling.
      @p r is counted from 1; if it is 0 'record number' text box's content is cleared. */
-    virtual void setCurrentRecordNumber(int r);
+    virtual void setCurrentRecordNumber(int r) override;
 
     /*! Sets record count for this navigator.
      This can also affect button's enabling and disabling.
      By default count is 0. */
-    virtual void setRecordCount(int count);
+    virtual void setRecordCount(int count) override;
 
     /*! Sets label text at the left of the for record navigator's button.
      By default this label contains translated "Record:" text. */
-    virtual void setLabelText(const QString& text);
+    virtual void setLabelText(const QString& text) override;
 
     void setButtonToolTipText(KexiRecordNavigator::Button btn, const QString& tooltip);
     void setButtonWhatsThisText(KexiRecordNavigator::Button btn, const QString& whatsThis);
@@ -175,14 +175,14 @@ protected Q_SLOTS:
 
 protected:
     //! @internal used for keyboard handling.
-    virtual bool eventFilter(QObject *o, QEvent *e);
+    virtual bool eventFilter(QObject *o, QEvent *e) override;
 
-    virtual void wheelEvent(QWheelEvent *e);
+    virtual void wheelEvent(QWheelEvent *e) override;
 
-    virtual void resizeEvent(QResizeEvent *e);
+    virtual void resizeEvent(QResizeEvent *e) override;
 
     QToolButton* createAction(const KGuiItem& item);
-    virtual void paintEvent(QPaintEvent* pe);
+    virtual void paintEvent(QPaintEvent* pe) override;
     void updateButtons(int recCnt);
 
     class Private;

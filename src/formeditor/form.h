@@ -723,7 +723,7 @@ protected:
     void setInlineEditorText(const QString& text);
 
     /*! This function destroys the editor when it loses focus or Enter is pressed. */
-    virtual bool eventFilter(QObject *obj, QEvent *ev);
+    virtual bool eventFilter(QObject *obj, QEvent *ev) override;
 
 private:
     void init(Mode mode, KActionCollection &col, KFormDesigner::ActionGroup &group);

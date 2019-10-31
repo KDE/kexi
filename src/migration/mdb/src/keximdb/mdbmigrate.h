@@ -58,34 +58,34 @@ public:
 
     //! Reimplemented to add support for "sourceDatabaseHasNonUnicodeEncoding" property
     //! @todo this should be in KDbConnection class but Migration framework has no such yet!
-    virtual QVariant propertyValue(const QByteArray& propName);
+    virtual QVariant propertyValue(const QByteArray& propName) override;
 
 protected:
     //! Driver specific function to return table names
-    virtual bool drv_tableNames(QStringList *tablenames);
+    virtual bool drv_tableNames(QStringList *tablenames) override;
 
     //! Driver specific implementation to read a table schema
     virtual bool drv_readTableSchema(
-        const QString& originalName, KDbTableSchema *tableSchema);
+        const QString& originalName, KDbTableSchema *tableSchema) override;
 
     //! Creates connection object to the source database (driver-specific).
     KDbConnection* drv_createConnection() Q_DECL_OVERRIDE;
 
     //! Driver specific connection implementation
-    virtual bool drv_connect();
+    virtual bool drv_connect() override;
 
     //! Disconnect from the db backend
-    virtual bool drv_disconnect();
+    virtual bool drv_disconnect() override;
 
     //! Copy MDB table to a KDb table
     bool drv_copyTable(const QString& srcTable,
                        KDbConnection *destConn, KDbTableSchema* dstTable,
                        const RecordFilter *recordFilter = nullptr) Q_DECL_OVERRIDE;
 
-    virtual bool drv_progressSupported() {
+    virtual bool drv_progressSupported() override {
         return true;
     }
-    virtual bool drv_getTableSize(const QString& table, quint64 *size);
+    virtual bool drv_getTableSize(const QString& table, quint64 *size) override;
 
 private:
     MdbHandle *m_mdb = nullptr;

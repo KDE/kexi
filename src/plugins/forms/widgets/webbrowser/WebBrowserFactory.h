@@ -34,10 +34,10 @@ public:
                           KFormDesigner::Container *container,
                           CreateWidgetOptions options = DefaultOptions) override Q_REQUIRED_RESULT;
     virtual bool createMenuActions(const QByteArray &classname, QWidget *w, QMenu *menu,
-                                   KFormDesigner::Container *container);
-    virtual bool startInlineEditing(InlineEditorCreationArguments& args);
+                                   KFormDesigner::Container *container) override;
+    virtual bool startInlineEditing(InlineEditorCreationArguments& args) override;
     virtual bool previewWidget(const QByteArray &classname, QWidget *widget,
-                               KFormDesigner::Container *container);
+                               KFormDesigner::Container *container) override;
 };
 
 #endif // WEBBROWSERFACTORY_H

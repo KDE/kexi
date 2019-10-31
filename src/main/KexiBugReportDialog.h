@@ -32,7 +32,7 @@ public:
     explicit KexiBugReportDialog(QWidget *parent = 0);
 
 public Q_SLOTS:
-    virtual void accept();
+    virtual void accept() override;
 
 private:
     void collectData();

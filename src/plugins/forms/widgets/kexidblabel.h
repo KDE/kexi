@@ -60,26 +60,26 @@ public:
         return KexiFormDataItemInterface::dataSourcePluginId();
     }
 
-    virtual QVariant value();
+    virtual QVariant value() override;
 
-    virtual void setInvalidState(const QString& displayText);
+    virtual void setInvalidState(const QString& displayText) override;
 
-    virtual bool valueIsNull();
+    virtual bool valueIsNull() override;
 
-    virtual bool valueIsEmpty();
+    virtual bool valueIsEmpty() override;
 
     //! always true
-    virtual bool isReadOnly() const;
+    virtual bool isReadOnly() const override;
 
-    virtual QWidget* widget();
-
-    //! always false
-    virtual bool cursorAtStart();
+    virtual QWidget* widget() override;
 
     //! always false
-    virtual bool cursorAtEnd();
+    virtual bool cursorAtStart() override;
 
-    virtual void clear();
+    //! always false
+    virtual bool cursorAtEnd() override;
+
+    virtual void clear() override;
 
     //! used to catch setIndent(), etc.
     virtual bool setProperty(const char * name, const QVariant & value);
@@ -106,16 +106,16 @@ public Q_SLOTS:
 
 protected Q_SLOTS:
     //! empty
-    virtual void setReadOnly(bool readOnly);
+    virtual void setReadOnly(bool readOnly) override;
 
 protected:
     void init();
     void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) override;
-    virtual void paintEvent(QPaintEvent*);
-    virtual void resizeEvent(QResizeEvent* e);
+    virtual void paintEvent(QPaintEvent*) override;
+    virtual void resizeEvent(QResizeEvent* e) override;
 
     //! Sets value \a value for a widget.
-    virtual void setValueInternal(const QVariant& add, bool removeOld);
+    virtual void setValueInternal(const QVariant& add, bool removeOld) override;
 
     //! Reimplemented to paint using real frame color instead of froeground.
     //! Also allows to paint more types of frame.

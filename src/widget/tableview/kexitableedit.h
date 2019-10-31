@@ -72,13 +72,13 @@ public:
     virtual void resize(int w, int h);
 
     /*! \return the view widget of this editor, e.g. line edit widget. */
-    virtual QWidget* widget();
+    virtual QWidget* widget() override;
 
     /*! Hides item's widget, if available. */
-    virtual void hideWidget();
+    virtual void hideWidget() override;
 
     /*! Shows item's widget, if available. */
-    virtual void showWidget();
+    virtual void showWidget() override;
 
     /*! Paints a border for the cell described by \a x, \a y, \a w, \a h on \a p painter.
      The cell's value is \a val (may be useful if you want to reimplement this method).
@@ -209,7 +209,7 @@ private:
         virtual ~factoryclassname(); \
         \
     protected: \
-        virtual KexiTableEdit* createEditor(KDbTableViewColumn *column, QWidget* parent = 0); \
+        virtual KexiTableEdit* createEditor(KDbTableViewColumn *column, QWidget* parent = 0) override; \
     };
 
 //! Implementation of cell editor factory

@@ -32,7 +32,7 @@ public:
     explicit KexiTitleLabel(const QString & text, QWidget * parent = 0, Qt::WindowFlags f = 0);
     ~KexiTitleLabel();
 protected:
-    void changeEvent(QEvent* event);
+    void changeEvent(QEvent* event) override;
 private:
     void updateFont();
     void init();

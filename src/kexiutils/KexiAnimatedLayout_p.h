@@ -34,7 +34,7 @@ public:
     explicit Private(KexiAnimatedLayout* qq);
     void animateTo(QWidget* destination);
 protected:
-    void paintEvent(QPaintEvent* event);
+    void paintEvent(QPaintEvent* event) override;
 protected Q_SLOTS:
     void animationFinished();
 private:

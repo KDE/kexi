@@ -51,7 +51,7 @@ public:
     int headerWidth() const;
 
     //! @return a suitable size hint for this header.
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
 
     //! @return preferred size for section @a logicalIndex.
     //! Preferred size is a minimal one that has still visible text and sort indicator
@@ -72,18 +72,18 @@ public Q_SLOTS:
     void setSortingEnabled(bool set);
 
 protected:
-    virtual void changeEvent(QEvent *e);
+    virtual void changeEvent(QEvent *e) override;
 
-    virtual bool viewportEvent(QEvent *e);
+    virtual bool viewportEvent(QEvent *e) override;
 
     //! For vertical header. We do not use sectionClicked() because we want to handle clicking on any pixel.
-    virtual void mousePressEvent(QMouseEvent *e);
+    virtual void mousePressEvent(QMouseEvent *e) override;
 
-    virtual void mouseMoveEvent(QMouseEvent *e);
+    virtual void mouseMoveEvent(QMouseEvent *e) override;
 
-    virtual void leaveEvent(QEvent *e);
+    virtual void leaveEvent(QEvent *e) override;
 
-    virtual QSize sectionSizeFromContents(int logicalIndex) const;
+    virtual QSize sectionSizeFromContents(int logicalIndex) const override;
 
 private:
     void styleChanged();

@@ -420,7 +420,7 @@ class KEXIUTILS_EXPORT KTextEditorFrame : public QFrame
 public:
     explicit KTextEditorFrame(QWidget * parent = 0, Qt::WindowFlags f = 0);
 protected:
-    virtual void changeEvent(QEvent *event);
+    virtual void changeEvent(QEvent *event) override;
 };
 
 /**
@@ -504,7 +504,7 @@ public:
     void setEnabled(bool set);
     bool enabled() const;
 protected:
-    virtual bool eventFilter(QObject* watched, QEvent* event);
+    virtual bool eventFilter(QObject* watched, QEvent* event) override;
 private:
     bool m_enabled;
 };

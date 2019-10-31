@@ -53,21 +53,21 @@ public:
 
     KexiRelationsView *relationsView() const;
 
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
 
 public Q_SLOTS:
-    virtual void setFocus();
+    virtual void setFocus() override;
 
 protected:
     void initTableColumns(); //!< Called just once.
     void initTableRows(); //!< Called to have all rows empty.
-    virtual tristate beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore);
-    virtual tristate afterSwitchFrom(Kexi::ViewMode mode);
+    virtual tristate beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore) override;
+    virtual tristate afterSwitchFrom(Kexi::ViewMode mode) override;
 
     virtual KDbObject* storeNewData(const KDbObject& object,
                                              KexiView::StoreNewDataOptions options,
-                                             bool *cancel);
-    virtual tristate storeData(bool dontAsk = false);
+                                             bool *cancel) override;
+    virtual tristate storeData(bool dontAsk = false) override;
 
     /*! Updates data in columns depending on tables that are currently inserted.
      Tabular Data in combo box popups is updated as well. */
@@ -75,7 +75,7 @@ protected:
 
     /*! \return property buffer associated with currently selected row (i.e. field)
      or 0 if current row is empty. */
-    virtual KPropertySet *propertySet();
+    virtual KPropertySet *propertySet() override;
 
     KPropertySet* createPropertySet(int row,
                                        const QString& tableName, const QString& fieldName, bool newOne = false);

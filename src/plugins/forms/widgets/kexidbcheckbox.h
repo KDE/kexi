@@ -46,28 +46,28 @@ public:
     inline QString dataSourcePluginId() const {
         return KexiFormDataItemInterface::dataSourcePluginId();
     }
-    virtual QVariant value();
-    virtual void setInvalidState(const QString& displayText);
+    virtual QVariant value() override;
+    virtual void setInvalidState(const QString& displayText) override;
 
     //! \return true if editor's value is null (not empty)
     //! Used for checking if a given constraint within table of form is met.
-    virtual bool valueIsNull();
+    virtual bool valueIsNull() override;
 
     //! \return true if editor's value is empty (not necessary null).
     //! Only few data types can accept "EMPTY" property
     //! (use KDbField::hasEmptyProperty() to check this).
     //! Used for checking if a given constraint within table or form is met.
-    virtual bool valueIsEmpty();
+    virtual bool valueIsEmpty() override;
 
     /*! \return 'readOnly' flag for this widget.  */
-    virtual bool isReadOnly() const;
+    virtual bool isReadOnly() const override;
 
     /*! \return the view widget of this item, e.g. line edit widget. */
-    virtual QWidget* widget();
+    virtual QWidget* widget() override;
 
-    virtual bool cursorAtStart();
-    virtual bool cursorAtEnd();
-    virtual void clear();
+    virtual bool cursorAtStart() override;
+    virtual bool cursorAtEnd() override;
+    virtual void clear() override;
 
     virtual void setEnabled(bool enabled);
 
@@ -78,9 +78,9 @@ public:
     Tristate isTristate() const;
 
     /*! Reimplemented after KexiFormDataItemInterface. */
-    virtual void setDisplayDefaultValue(QWidget* widget, bool displayDefaultValue);
+    virtual void setDisplayDefaultValue(QWidget* widget, bool displayDefaultValue) override;
 
-    virtual void paintEvent(QPaintEvent* e);
+    virtual void paintEvent(QPaintEvent* e) override;
 
 public Q_SLOTS:
     void setDataSource(const QString &ds);
@@ -90,10 +90,10 @@ public Q_SLOTS:
     void slotStateChanged(int state);
 
     //! This implementation just disables read only widget
-    virtual void setReadOnly(bool readOnly);
+    virtual void setReadOnly(bool readOnly) override;
 
 protected:
-    virtual void setValueInternal(const QVariant& add, bool removeOld);
+    virtual void setValueInternal(const QVariant& add, bool removeOld) override;
 
     //! \return true in isTristate() == TristateDefault and the widget has bound data source
     //! or if isTristate() == TristateOn, else false is returned.

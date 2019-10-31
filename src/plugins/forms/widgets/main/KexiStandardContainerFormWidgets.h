@@ -42,7 +42,7 @@ class HBox : public QFrame, public KFormDesigner::FormWidgetInterface
 public:
     explicit HBox(QWidget *parent);
     virtual ~HBox();
-    virtual void paintEvent(QPaintEvent *ev);
+    virtual void paintEvent(QPaintEvent *ev) override;
 };
 
 //! Helper widget (used when using 'Lay out vertically')
@@ -52,7 +52,7 @@ class VBox : public QFrame, public KFormDesigner::FormWidgetInterface
 public:
     explicit VBox(QWidget *parent);
     virtual ~VBox();
-    virtual void paintEvent(QPaintEvent *ev);
+    virtual void paintEvent(QPaintEvent *ev) override;
 };
 
 //! Helper widget (used when using 'Lay out in a grid')
@@ -62,7 +62,7 @@ class Grid : public QFrame, public KFormDesigner::FormWidgetInterface
 public:
     explicit Grid(QWidget *parent);
     virtual ~Grid();
-    virtual void paintEvent(QPaintEvent *ev);
+    virtual void paintEvent(QPaintEvent *ev) override;
 };
 
 //! Helper widget (used when using 'Lay out with horizontal flow')
@@ -72,7 +72,7 @@ class HFlow : public QFrame, public KFormDesigner::FormWidgetInterface
 public:
     explicit HFlow(QWidget *parent);
     virtual ~HFlow();
-    virtual void paintEvent(QPaintEvent *ev);
+    virtual void paintEvent(QPaintEvent *ev) override;
 };
 
 //! Helper widget (used when using 'Lay out with horizontal flow')
@@ -82,8 +82,8 @@ class VFlow : public QFrame, public KFormDesigner::FormWidgetInterface
 public:
     explicit VFlow(QWidget *parent);
     virtual ~VFlow();
-    virtual void paintEvent(QPaintEvent *ev);
-    virtual QSize sizeHint() const;
+    virtual void paintEvent(QPaintEvent *ev) override;
+    virtual QSize sizeHint() const override;
 };
 
 //! A simple container widget
@@ -96,13 +96,13 @@ public:
     explicit ContainerWidget(QWidget *parent);
     virtual ~ContainerWidget();
 
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
 
     //! Used to emit handleDragMoveEvent() signal needed to control dragging over the container's surface
-    virtual void dragMoveEvent(QDragMoveEvent *e);
+    virtual void dragMoveEvent(QDragMoveEvent *e) override;
 
     //! Used to emit handleDropEvent() signal needed to control dropping on the container's surface
-    virtual void dropEvent(QDropEvent *e);
+    virtual void dropEvent(QDropEvent *e) override;
 
 Q_SIGNALS:
     //! Needed to control dragging over the container's surface
@@ -217,13 +217,13 @@ public:
     KFDTabWidget(KFormDesigner::Container *container, QWidget *parent);
     virtual ~KFDTabWidget();
 
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
 
     //! Used to emit handleDragMoveEvent() signal needed to control dragging over the container's surface
-    virtual void dragMoveEvent(QDragMoveEvent *e);
+    virtual void dragMoveEvent(QDragMoveEvent *e) override;
 
     //! Used to emit handleDropEvent() signal needed to control dropping on the container's surface
-    virtual void dropEvent(QDropEvent *e);
+    virtual void dropEvent(QDropEvent *e) override;
 
     KFormDesigner::Container *container() const { return m_container; }
 
@@ -247,12 +247,12 @@ public:
     virtual ~GroupBox();
 
     //! Used to emit handleDragMoveEvent() signal needed to control dragging over the container's surface
-    virtual void dragMoveEvent(QDragMoveEvent *e);
+    virtual void dragMoveEvent(QDragMoveEvent *e) override;
 
     //! Used to emit handleDropEvent() signal needed to control dropping on the container's surface
-    virtual void dropEvent(QDropEvent *e);
+    virtual void dropEvent(QDropEvent *e) override;
 
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
 
 Q_SIGNALS:
     //! Needed to control dragging over the container's surface
