@@ -56,7 +56,7 @@ public:
 
     virtual ~KexiListView();
 
-    void setModel(QAbstractItemModel *model) Q_DECL_OVERRIDE;
+    void setModel(QAbstractItemModel *model) override;
 
 protected:
     //! Used in KexiListView(UseDelegate, QWidget*)

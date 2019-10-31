@@ -129,7 +129,7 @@ public:
     // static QAction *exec(QList<QAction*> actions, const QPoint &pos, QAction *at=0);
     // static QAction *exec(QList<QAction*> actions, const QPoint &pos, QAction *at, QWidget *parent);
 
-    QSize sizeHint() const;
+    QSize sizeHint() const override;
 
     QRect actionGeometry(QAction *) const;
     QAction *actionAt(const QPoint &) const;
@@ -156,23 +156,23 @@ Q_SIGNALS:
 protected:
     int columnCount() const;
 
-    void changeEvent(QEvent *);
-    void keyPressEvent(QKeyEvent *);
-    void mouseReleaseEvent(QMouseEvent *);
-    void mousePressEvent(QMouseEvent *);
-    void mouseMoveEvent(QMouseEvent *);
+    void changeEvent(QEvent *) override;
+    void keyPressEvent(QKeyEvent *) override;
+    void mouseReleaseEvent(QMouseEvent *) override;
+    void mousePressEvent(QMouseEvent *) override;
+    void mouseMoveEvent(QMouseEvent *) override;
 #ifndef QT_NO_WHEELEVENT
-    void wheelEvent(QWheelEvent *);
+    void wheelEvent(QWheelEvent *) override;
 #endif
-    void enterEvent(QEvent *);
-    void leaveEvent(QEvent *);
-    void showEvent(QShowEvent* event);
-    void hideEvent(QHideEvent *);
-    void paintEvent(QPaintEvent *);
-    void actionEvent(QActionEvent *);
-    void timerEvent(QTimerEvent *);
-    bool event(QEvent *);
-    bool focusNextPrevChild(bool next);
+    void enterEvent(QEvent *) override;
+    void leaveEvent(QEvent *) override;
+    void showEvent(QShowEvent* event) override;
+    void hideEvent(QHideEvent *) override;
+    void paintEvent(QPaintEvent *) override;
+    void actionEvent(QActionEvent *) override;
+    void timerEvent(QTimerEvent *) override;
+    bool event(QEvent *) override;
+    bool focusNextPrevChild(bool next) override;
     void initStyleOption(QStyleOptionMenuItem *option, const QAction *action) const;
 
 private Q_SLOTS:

@@ -35,7 +35,7 @@ public:
     virtual ~KexiComboBoxDropDownButton();
 
 protected:
-    virtual bool event(QEvent *event);
+    virtual bool event(QEvent *event) override;
 
 private:
     void styleChanged();

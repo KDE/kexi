@@ -41,37 +41,37 @@ public:
 
     virtual ~KexiInputTableEdit();
 
-    virtual bool valueChanged();
+    virtual bool valueChanged() override;
 
     //! \return true if editor's value is null (not empty)
-    virtual bool valueIsNull();
+    virtual bool valueIsNull() override;
 
     //! \return true if editor's value is empty (not null).
     //! Only few field types can accept "EMPTY" property
     //! (check this with KDbField::hasEmptyProperty()),
-    virtual bool valueIsEmpty();
+    virtual bool valueIsEmpty() override;
 
     //! \return true if the value is valid
     bool valueIsValid() override;
 
-    virtual QVariant value();
+    virtual QVariant value() override;
 
-    virtual bool cursorAtStart();
-    virtual bool cursorAtEnd();
+    virtual bool cursorAtStart() override;
+    virtual bool cursorAtEnd() override;
 
-    virtual void clear();
+    virtual void clear() override;
 
     /*! \return total size of this editor, including any buttons, etc. (if present). */
-    virtual QSize totalSize() const;
+    virtual QSize totalSize() const override;
 
     /*! Handles action having standard name \a actionName.
      Action could be: "edit_cut", "edit_paste", etc. */
-    virtual void handleAction(const QString& actionName);
+    virtual void handleAction(const QString& actionName) override;
 
     /*! Handles copy action for value. The \a value is copied to clipboard in format appropriate
      for the editor's impementation, e.g. for image cell it can be a pixmap.
      \a visibleValue is unused here. Reimplemented after KexiTableEdit. */
-    virtual void handleCopyAction(const QVariant& value, const QVariant& visibleValue);
+    virtual void handleCopyAction(const QVariant& value, const QVariant& visibleValue) override;
 
     /*! Shows a special tooltip for \a value if needed, i.e. if the value could not fit
      inside \a rect for a given font metrics \a fm.
@@ -81,20 +81,20 @@ public:
      if \a value is not string to see whether it can fit inside the cell's \a rect.
      If the cell is currentl focused (selected), \a focused is true. */
     virtual bool showToolTipIfNeeded(const QVariant& value, const QRect& rect, const QFontMetrics& fm,
-                                     bool focused);
+                                     bool focused) override;
 
 public Q_SLOTS:
     //! Implemented for KexiDataItemInterface
-    virtual void moveCursorToEnd();
+    virtual void moveCursorToEnd() override;
 
     //! Implemented for KexiDataItemInterface
-    virtual void moveCursorToStart();
+    virtual void moveCursorToStart() override;
 
     //! Implemented for KexiDataItemInterface
-    virtual void selectAll();
+    virtual void selectAll() override;
 
     //! Implemented for KexiDataItemInterface
-    virtual bool fixup();
+    virtual bool fixup() override;
 
 protected Q_SLOTS:
     void setRestrictedCompletion();
@@ -103,11 +103,11 @@ protected Q_SLOTS:
 
 protected:
     //! initializes this editor with \a add value
-    virtual void setValueInternal(const QVariant& add, bool removeOld);
+    virtual void setValueInternal(const QVariant& add, bool removeOld) override;
 
     void showHintButton();
     void init();
-    virtual void paintEvent(QPaintEvent *e);
+    virtual void paintEvent(QPaintEvent *e) override;
     void updateLineEditStyleSheet();
 
     KexiTextFormatter m_textFormatter;

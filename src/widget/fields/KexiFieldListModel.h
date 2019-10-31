@@ -51,14 +51,14 @@ public:
     The schema object will be owned by the KexiFieldListView object. */
     void setSchema(KDbConnection *conn, KDbTableOrQuerySchema* schema);
 
-    virtual QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
-    virtual int rowCount(const QModelIndex& parent = QModelIndex()) const;
-    virtual int columnCount(const QModelIndex& parent = QModelIndex()) const;
-    virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
+    virtual QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
+    virtual int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+    virtual int columnCount(const QModelIndex& parent = QModelIndex()) const override;
+    virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
 
-    virtual QStringList mimeTypes() const;
-    virtual QMimeData* mimeData(const QModelIndexList& indexes) const;
-    virtual Qt::ItemFlags flags(const QModelIndex& index) const;
+    virtual QStringList mimeTypes() const override;
+    virtual QMimeData* mimeData(const QModelIndexList& indexes) const override;
+    virtual Qt::ItemFlags flags(const QModelIndex& index) const override;
 
 private:
     class Private;

@@ -79,8 +79,8 @@ public:
     KexiRecentProjects* projects();
 
 public Q_SLOTS:
-    virtual void nextPageRequested(KexiAssistantPage* page);
-    virtual void cancelRequested(KexiAssistantPage* page);
+    virtual void nextPageRequested(KexiAssistantPage* page) override;
+    virtual void cancelRequested(KexiAssistantPage* page) override;
     void tryAgainActionTriggered();
     void cancelActionTriggered();
 
@@ -94,9 +94,9 @@ Q_SIGNALS:
 protected:
     void openProjectOrShowPasswordPage(KexiProjectData *data);
     void emitOpenProject(KexiProjectData *data);
-    virtual const QWidget* calloutWidget() const;
-    virtual QPoint calloutPointerPosition() const;
-    virtual KMessageWidget::CalloutPointerDirection calloutPointerDirection() const;
+    virtual const QWidget* calloutWidget() const override;
+    virtual QPoint calloutPointerPosition() const override;
+    virtual KMessageWidget::CalloutPointerDirection calloutPointerDirection() const override;
 
 private:
     void createProject(

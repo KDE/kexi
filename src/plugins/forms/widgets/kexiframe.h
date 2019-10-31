@@ -63,10 +63,10 @@ public:
 #endif
 
     //! Used to emit handleDragMoveEvent() signal needed to control dragging over the container's surface
-    virtual void dragMoveEvent(QDragMoveEvent *e);
+    virtual void dragMoveEvent(QDragMoveEvent *e) override;
 
     //! Used to emit handleDropEvent() signal needed to control dropping on the container's surface
-    virtual void dropEvent(QDropEvent *e);
+    virtual void dropEvent(QDropEvent *e) override;
 
 public Q_SLOTS:
     virtual void setPalette(const QPalette &pal);
@@ -83,7 +83,7 @@ protected:
     virtual void drawFrame(QPainter *);
 
     //! Adds frame in design mode if there is no frame
-    void paintEvent(QPaintEvent *pe);
+    void paintEvent(QPaintEvent *pe) override;
 
     class Private;
     Private * const d;

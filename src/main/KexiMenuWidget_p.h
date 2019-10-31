@@ -54,7 +54,7 @@ public:
 protected Q_SLOTS:
     void slotClicked();
 protected:
-    virtual void paintEvent(QPaintEvent*);
+    virtual void paintEvent(QPaintEvent*) override;
 };
 
 //used to walk up the popup list

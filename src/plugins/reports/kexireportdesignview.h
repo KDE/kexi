@@ -40,8 +40,8 @@ public:
     KexiReportDesignView(QWidget *parent, KexiSourceSelector*);
 
     ~KexiReportDesignView();
-    virtual tristate afterSwitchFrom(Kexi::ViewMode mode);
-    virtual tristate beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore);
+    virtual tristate afterSwitchFrom(Kexi::ViewMode mode) override;
+    virtual tristate beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore) override;
 
     void triggerAction(const QString &);
 
@@ -68,11 +68,11 @@ private:
     KexiSourceSelector *m_sourceSelector;
 
 protected:
-    virtual KPropertySet *propertySet();
-    virtual tristate storeData(bool dontAsk = false);
+    virtual KPropertySet *propertySet() override;
+    virtual tristate storeData(bool dontAsk = false) override;
     virtual KDbObject* storeNewData(const KDbObject& object,
                                              KexiView::StoreNewDataOptions options,
-                                             bool *cancel);
+                                             bool *cancel) override;
 
 private Q_SLOTS:
     void slotDesignerPropertySetChanged();

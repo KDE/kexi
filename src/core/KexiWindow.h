@@ -70,10 +70,10 @@ public:
 //  virtual QWidget* mainWidget() = 0;
 
     /*! reimplemented: minimum size hint is inherited from currently visible view. */
-    virtual QSize minimumSizeHint() const;
+    virtual QSize minimumSizeHint() const override;
 
     /*! reimplemented: size hint is inherited from currently visible view. */
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
 
     //js todo: maybe remove this since it's often the same as partItem()->identifier()?:
 
@@ -262,7 +262,7 @@ protected:
 
     void registerWindow();
 
-    virtual void closeEvent(QCloseEvent * e);
+    virtual void closeEvent(QCloseEvent * e) override;
 
     //! \internal
     void addView(KexiView *view, Kexi::ViewMode mode);
@@ -271,7 +271,7 @@ protected:
     void removeView(Kexi::ViewMode mode);
 
     //! \internal
-    virtual bool eventFilter(QObject *obj, QEvent *e);
+    virtual bool eventFilter(QObject *obj, QEvent *e) override;
 
     //! Used by \a view to inform the dialog about changing state of the "dirty" flag.
     void dirtyChanged(KexiView* view);

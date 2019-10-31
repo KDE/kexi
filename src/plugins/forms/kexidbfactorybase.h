@@ -45,7 +45,7 @@ public:
 
 protected:
     virtual bool isPropertyVisibleInternal(const QByteArray& classname, QWidget *w,
-                                           const QByteArray& property, bool isTopLevel);
+                                           const QByteArray& property, bool isTopLevel) override;
 };
 
 #endif

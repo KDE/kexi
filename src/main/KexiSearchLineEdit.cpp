@@ -52,9 +52,9 @@ class KexiSearchLineEditCompleterPopupModel : public QAbstractListModel
 public:
     explicit KexiSearchLineEditCompleterPopupModel(QObject *parent = 0);
     ~KexiSearchLineEditCompleterPopupModel();
-    virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
-    virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
-    virtual QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const;
+    virtual int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    virtual QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
 
 public Q_SLOTS:
     //! Adds a new model or updates information (model items) about existing one
@@ -198,7 +198,7 @@ public:
         setCompletionRole(Qt::DisplayRole);
     }
 
-    virtual QString pathFromIndex(const QModelIndex &index) const {
+    virtual QString pathFromIndex(const QModelIndex &index) const override {
         if (!index.isValid())
             return QString();
         SearchableObject *object = static_cast<SearchableObject*>(index.internalPointer());
@@ -279,7 +279,7 @@ public:
     }
 
     //! Implemented to improve width hint
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override
     {
         QSize size(QStyledItemDelegate::sizeHint(option, index));
         QStyleOptionViewItem v4 = option;
@@ -290,7 +290,7 @@ public:
     }
 
     virtual void paint(QPainter *painter, const QStyleOptionViewItem &option,
-                       const QModelIndex &index) const
+                       const QModelIndex &index) const override
     {
         QStyledItemDelegate::paint(painter, option, index);
         QStyleOptionViewItem v4 = option;
@@ -369,7 +369,7 @@ protected:
         }
     }
 
-    virtual void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const
+    virtual void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const override
     {
         QStyledItemDelegate::initStyleOption(option, index);
         QStyleOptionViewItem *v4 = qstyleoption_cast<QStyleOptionViewItem*>(option);

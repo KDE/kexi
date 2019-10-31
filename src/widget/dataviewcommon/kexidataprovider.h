@@ -61,13 +61,13 @@ public:
 
     /*! Implementation for KexiDataItemChangesListener.
      Reaction for change of \a item. Does nothing here. */
-    virtual void valueChanged(KexiDataItemInterface* item);
+    virtual void valueChanged(KexiDataItemInterface* item) override;
 
     /*! Implementation for KexiDataItemChangesListener.
      Implement this to return information whether we're currently at new record or not.
      This can be used e.g. by data-aware widgets to determine if "(autonumber)"
      label should be displayed. Returns false here. */
-    virtual bool cursorAtNewRecord() const;
+    virtual bool cursorAtNewRecord() const override;
 
     /*! Invalidates data sources collected by this provided.
      \a invalidSources is the set of data sources that should

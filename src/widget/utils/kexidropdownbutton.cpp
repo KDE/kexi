@@ -40,7 +40,7 @@ public:
     virtual ~KexiDropDownButtonStyle() {}
 
     virtual void drawComplexControl( ComplexControl control, const QStyleOptionComplex * option,
-        QPainter * painter, const QWidget * widget = 0 ) const
+        QPainter * painter, const QWidget * widget = 0 ) const override
     {
         if (control == CC_ToolButton && qstyleoption_cast<const QStyleOptionToolButton *>(option)) {
             QStyleOptionToolButton newOption(*qstyleoption_cast<const QStyleOptionToolButton *>(option));
@@ -52,7 +52,7 @@ public:
         QProxyStyle::drawComplexControl(control, option, painter, widget);
     }
 
-    virtual int styleHint( StyleHint hint, const QStyleOption * option = 0, const QWidget * widget = 0, QStyleHintReturn * returnData = 0 ) const
+    virtual int styleHint( StyleHint hint, const QStyleOption * option = 0, const QWidget * widget = 0, QStyleHintReturn * returnData = 0 ) const override
     {
         if (hint == QStyle::SH_ToolButton_PopupDelay) {
             return 0;

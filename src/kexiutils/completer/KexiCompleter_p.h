@@ -173,7 +173,7 @@ class QSortedModelEngine : public KexiCompletionEngine
 {
 public:
     explicit QSortedModelEngine(KexiCompleterPrivate *c) : KexiCompletionEngine(c) { }
-    KexiMatchData filter(const QString&, const QModelIndex&, int);
+    KexiMatchData filter(const QString&, const QModelIndex&, int) override;
     KexiIndexMapper indexHint(QString, const QModelIndex&, Qt::SortOrder);
     Qt::SortOrder sortOrder(const QModelIndex&) const;
 };
@@ -183,8 +183,8 @@ class QUnsortedModelEngine : public KexiCompletionEngine
 public:
     explicit QUnsortedModelEngine(KexiCompleterPrivate *c) : KexiCompletionEngine(c) { }
 
-    void filterOnDemand(int);
-    KexiMatchData filter(const QString&, const QModelIndex&, int);
+    void filterOnDemand(int) override;
+    KexiMatchData filter(const QString&, const QModelIndex&, int) override;
 private:
     int buildIndices(const QString& str, const QModelIndex& parent, int n,
                      const KexiIndexMapper& iv, KexiMatchData* m);
@@ -196,7 +196,7 @@ class KexiCompleterItemDelegate : public QItemDelegate
 public:
     explicit KexiCompleterItemDelegate(QAbstractItemView *view)
         : QItemDelegate(view), view(view) { }
-    void paint(QPainter *p, const QStyleOptionViewItem& opt, const QModelIndex& idx) const {
+    void paint(QPainter *p, const QStyleOptionViewItem& opt, const QModelIndex& idx) const override {
         QStyleOptionViewItem optCopy = opt;
         optCopy.showDecorationSelected = true;
         if (view->currentIndex() == idx)
@@ -227,16 +227,16 @@ public:
     QModelIndex currentIndex(bool) const;
     void resetModel();
 
-    QModelIndex index(int row, int column, const QModelIndex & = QModelIndex()) const;
-    int rowCount(const QModelIndex &index = QModelIndex()) const;
-    int columnCount(const QModelIndex &index = QModelIndex()) const;
-    bool hasChildren(const QModelIndex &parent = QModelIndex()) const;
-    QModelIndex parent(const QModelIndex & = QModelIndex()) const { return QModelIndex(); }
-    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const;
+    QModelIndex index(int row, int column, const QModelIndex & = QModelIndex()) const override;
+    int rowCount(const QModelIndex &index = QModelIndex()) const override;
+    int columnCount(const QModelIndex &index = QModelIndex()) const override;
+    bool hasChildren(const QModelIndex &parent = QModelIndex()) const override;
+    QModelIndex parent(const QModelIndex & = QModelIndex()) const override { return QModelIndex(); }
+    QVariant data(const QModelIndex& index, int role = Qt::DisplayRole) const override;
 
-    void setSourceModel(QAbstractItemModel *sourceModel);
-    QModelIndex mapToSource(const QModelIndex& proxyIndex) const;
-    QModelIndex mapFromSource(const QModelIndex& sourceIndex) const;
+    void setSourceModel(QAbstractItemModel *sourceModel) override;
+    QModelIndex mapToSource(const QModelIndex& proxyIndex) const override;
+    QModelIndex mapFromSource(const QModelIndex& sourceIndex) const override;
 
     KexiCompleterPrivate *c;
     QScopedPointer<KexiCompletionEngine> engine;

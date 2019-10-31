@@ -42,7 +42,7 @@ public:
     KexiCharacterEncodingComboBox* encodingComboBox() const;
 
 protected Q_SLOTS:
-    virtual void accept();
+    virtual void accept() override;
 
 protected:
     KexiCharacterEncodingComboBox *m_encodingComboBox;

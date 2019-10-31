@@ -91,7 +91,7 @@ public:
 #endif
 
     virtual KLocalizedString i18nMessage(const QString& englishMessage,
-                                         KexiWindow* window) const;
+                                         KexiWindow* window) const override;
 
 protected:
     KexiWindowData* createWindowData(KexiWindow* window) override Q_REQUIRED_RESULT;
@@ -100,9 +100,9 @@ protected:
                          Kexi::ViewMode viewMode = Kexi::DataViewMode,
                          QMap<QString, QVariant> *staticObjectArgs = nullptr) override Q_REQUIRED_RESULT;
 
-    virtual void initPartActions();
-    virtual void initInstanceActions();
-    virtual void setupPropertyPane(KexiPropertyPaneWidget *pane);
+    virtual void initPartActions() override;
+    virtual void initInstanceActions() override;
+    virtual void setupPropertyPane(KexiPropertyPaneWidget *pane) override;
 
 private:
     class Private;

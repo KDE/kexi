@@ -51,21 +51,21 @@ public:
     void setJustified(bool justify);
     bool isJustified() const;
 
-    virtual void addItem(QLayoutItem *item);
+    virtual void addItem(QLayoutItem *item) override;
     virtual void addSpacing(int size);
     void insertWidget(int index, QWidget* widget, int stretch = 0, Qt::Alignment alignment = 0);
-    virtual void invalidate();
+    virtual void invalidate() override;
 
-    virtual bool hasHeightForWidth() const;
-    virtual int heightForWidth(int width) const;
-    virtual QSize sizeHint() const;
-    virtual QSize minimumSize() const;
-    virtual Qt::Orientations expandingDirections() const;
-    virtual int count() const;
-    virtual bool isEmpty() const;
-    virtual void setGeometry(const QRect&);
-    virtual QLayoutItem *itemAt(int index) const;
-    virtual QLayoutItem *takeAt(int index);
+    virtual bool hasHeightForWidth() const override;
+    virtual int heightForWidth(int width) const override;
+    virtual QSize sizeHint() const override;
+    virtual QSize minimumSize() const override;
+    virtual Qt::Orientations expandingDirections() const override;
+    virtual int count() const override;
+    virtual bool isEmpty() const override;
+    virtual void setGeometry(const QRect&) override;
+    virtual QLayoutItem *itemAt(int index) const override;
+    virtual QLayoutItem *takeAt(int index) override;
 
 protected:
     int simulateLayout(const QRect &r);

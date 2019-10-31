@@ -45,7 +45,7 @@ public:
 
     int globalY(const QString &item);
 
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
 
 Q_SIGNALS:
     void tableScrolling();
@@ -54,11 +54,11 @@ protected Q_SLOTS:
     void slotContentsMoving();
 
 protected:
-    virtual void dragEnterEvent(QDragEnterEvent* event);
-    virtual void dragMoveEvent(QDragMoveEvent* e);
-    virtual void dropEvent(QDropEvent *e);
+    virtual void dragEnterEvent(QDragEnterEvent* event) override;
+    virtual void dragMoveEvent(QDragMoveEvent* e) override;
+    virtual void dropEvent(QDropEvent *e) override;
     virtual void contentsMousePressEvent(QMouseEvent * e);
-    virtual bool eventFilter(QObject *o, QEvent *ev);
+    virtual bool eventFilter(QObject *o, QEvent *ev) override;
 
 private:
     KexiRelationsScrollArea *m_scrollArea;
@@ -80,9 +80,9 @@ Q_SIGNALS:
     void endDrag();
 
 protected:
-    bool eventFilter(QObject *obj, QEvent *ev);
-    void mousePressEvent(QMouseEvent *ev);
-    void mouseReleaseEvent(QMouseEvent *ev);
+    bool eventFilter(QObject *obj, QEvent *ev) override;
+    void mousePressEvent(QMouseEvent *ev) override;
+    void mouseReleaseEvent(QMouseEvent *ev) override;
 
     bool m_dragging;
     int m_grabX;

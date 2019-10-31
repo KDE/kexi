@@ -183,7 +183,7 @@ public:
     }
     virtual ~KActionsListView() {}
 
-    virtual bool isActionVisible(const char* actionName, int actionCategories) const {
+    virtual bool isActionVisible(const char* actionName, int actionCategories) const override {
         Q_UNUSED(actionName);
         return actionCategories & Kexi::GlobalActionCategory;
     }
@@ -199,7 +199,7 @@ public:
     }
     virtual ~CurrentFormActionsListView() {}
 
-    virtual bool isActionVisible(const char* actionName, int actionCategories) const {
+    virtual bool isActionVisible(const char* actionName, int actionCategories) const override {
         return actionCategories & Kexi::WindowActionCategory
                && Kexi::actionCategories()->actionSupportsObjectType(actionName, KexiPart::FormObjectType);
     }

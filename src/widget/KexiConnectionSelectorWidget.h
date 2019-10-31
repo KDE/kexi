@@ -163,7 +163,7 @@ protected Q_SLOTS:
     void slotConnectionSelected();
 
 protected:
-    virtual bool eventFilter(QObject* watched, QEvent* event);
+    virtual bool eventFilter(QObject* watched, QEvent* event) override;
 
 private:
     ConnectionDataLVItem* addConnectionData(KDbConnectionData* data);

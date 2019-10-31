@@ -128,9 +128,9 @@ public Q_SLOTS:
     void toggleRollDown();
 
 protected:
-    virtual void mouseMoveEvent(QMouseEvent* event);
-    virtual void leaveEvent(QEvent* event);
-    virtual bool eventFilter(QObject* watched, QEvent* event);
+    virtual void mouseMoveEvent(QMouseEvent* event) override;
+    virtual void leaveEvent(QEvent* event) override;
+    virtual bool eventFilter(QObject* watched, QEvent* event) override;
 
 protected Q_SLOTS:
     void slotCurrentChanged(int index);
@@ -157,7 +157,7 @@ public:
 
     void alterBackground();
 
-    virtual void changeEvent(QEvent *e);
+    virtual void changeEvent(QEvent *e) override;
 };
 
 //! @todo KEXI3 is KexiMenuWidgetStyle needed?
@@ -184,7 +184,7 @@ public:
 
     ~KexiMainMenu();
 
-    virtual bool eventFilter(QObject * watched, QEvent* event);
+    virtual bool eventFilter(QObject * watched, QEvent* event) override;
 
     void setContent(QWidget *contentWidget);
 
@@ -207,7 +207,7 @@ protected Q_SLOTS:
     //void contentWidgetDestroyed();
 
 protected:
-    virtual void showEvent(QShowEvent * event);
+    virtual void showEvent(QShowEvent * event) override;
 
 private:
     QPointer<KexiMenuWidget> m_menuWidget;
@@ -291,7 +291,7 @@ class KexiTabbedToolBarTabBar : public QTabBar
 public:
     explicit KexiTabbedToolBarTabBar(QWidget *parent = 0);
     virtual QSize originalTabSizeHint(int index) const;
-    virtual QSize tabSizeHint(int index) const;
+    virtual QSize tabSizeHint(int index) const override;
 
     KexiTabbedToolBarStyle* customStyle;
 };
@@ -306,13 +306,13 @@ public:
     virtual ~KexiTabbedToolBarStyle();
 
     virtual void drawControl(ControlElement element, const QStyleOption *option,
-                             QPainter *painter, const QWidget *widget = 0) const;
+                             QPainter *painter, const QWidget *widget = 0) const override;
 
     virtual void drawPrimitive(PrimitiveElement element, const QStyleOption *option,
-                               QPainter *painter, const QWidget *widget = 0) const;
+                               QPainter *painter, const QWidget *widget = 0) const override;
 
     virtual int pixelMetric(PixelMetric metric, const QStyleOption* option = 0,
-                            const QWidget* widget = 0) const;
+                            const QWidget* widget = 0) const override;
 };
 
 //! Style proxy for KexiTabbedToolBar, to fix the hardcoded margins (e.g. for Breeze).
@@ -325,7 +325,7 @@ public:
     virtual ~KexiDockWidgetStyle();
 
     using QProxyStyle::polish;
-    void polish(QWidget* widget) Q_DECL_OVERRIDE;
+    void polish(QWidget* widget) override;
 };
 
 //------------------------------------------
@@ -341,12 +341,12 @@ public:
 
     virtual void setSizeHint(const QSize& hint);
 
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
 
     const QString tabText; //!< for tab bar tabs
 
 protected:
-    virtual void paintEvent(QPaintEvent *pe);
+    virtual void paintEvent(QPaintEvent *pe) override;
 
 private:
     class Private;

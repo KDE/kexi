@@ -42,29 +42,29 @@ public:
                            KexiReportPartTempData *data);
     virtual ~KexiDBReportDataSource();
 
-    virtual QStringList fieldNames() const;
-    virtual void setSorting(const QList<SortedField>& sorting);
+    virtual QStringList fieldNames() const override;
+    virtual void setSorting(const QList<SortedField>& sorting) override;
 
     //! Adds a condition <field> <relation> <value> to the data source.
     //! @note Only single-character relation operators such as "=" or ">" are supported now.
     //! @todo Use KDb parser to support all relation operators such as ">=".
     virtual void addCondition(const QString &field, const QVariant &value,
-                              const QString &relation = QLatin1String("="));
+                              const QString &relation = QLatin1String("=")) override;
 
-    virtual QString sourceName() const;
-    virtual int fieldNumber(const QString &field) const;
-    virtual QVariant value(int) const;
-    virtual QVariant value(const QString &field) const;
+    virtual QString sourceName() const override;
+    virtual int fieldNumber(const QString &field) const override;
+    virtual QVariant value(int) const override;
+    virtual QVariant value(const QString &field) const override;
 
-    virtual bool open();
-    virtual bool close();
-    virtual bool moveNext();
-    virtual bool movePrevious();
-    virtual bool moveFirst();
-    virtual bool moveLast();
+    virtual bool open() override;
+    virtual bool close() override;
+    virtual bool moveNext() override;
+    virtual bool movePrevious() override;
+    virtual bool moveFirst() override;
+    virtual bool moveLast() override;
 
-    virtual qint64 at() const;
-    virtual qint64 recordCount() const;
+    virtual qint64 at() const override;
+    virtual qint64 recordCount() const override;
 
     /**
      * Runs aggregate function @a function on the data source
@@ -82,8 +82,8 @@ public:
                                 const QMap<QString, QVariant> &conditions);
 
     //Utility Functions
-    virtual QStringList dataSourceNames() const;
-    virtual KReportDataSource* create(const QString& source) const Q_REQUIRED_RESULT;
+    virtual QStringList dataSourceNames() const override;
+    virtual KReportDataSource* create(const QString& source) const override Q_REQUIRED_RESULT;
 
 private:
     class Private;

@@ -53,8 +53,8 @@ public:
     bool canceled() const;
 
 protected Q_SLOTS:
-    virtual void next();
-    virtual void done(int result);
+    virtual void next() override;
+    virtual void done(int result) override;
     void slotShowOptionsButtonClicked();
     void slotDefaultsButtonClicked();
     void slotCurrentPageChanged(KPageWidgetItem*, KPageWidgetItem*);

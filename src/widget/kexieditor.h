@@ -108,7 +108,7 @@ protected Q_SLOTS:
 
 protected:
     /*! Update the actions. This call is redirected to \a KexiView::updateActions */
-    virtual void updateActions(bool activated);
+    virtual void updateActions(bool activated) override;
 
 Q_SIGNALS:
     /*! Emitted if the text displayed in the editor changed. */

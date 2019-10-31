@@ -167,15 +167,15 @@ public:
     {
     }
 
-    inline QString stringValue(int index) Q_DECL_OVERRIDE {
+    inline QString stringValue(int index) override {
         return m_info->codec->toUnicode(m_values.value(index));
     }
 
-    inline QByteArray toByteArray(int index) Q_DECL_OVERRIDE {
+    inline QByteArray toByteArray(int index) override {
         return m_values.value(index);
     }
 
-    inline KDbSqlString cstringValue(int index) Q_DECL_OVERRIDE {
+    inline KDbSqlString cstringValue(int index) override {
         return KDbSqlString(m_values[index].constData(), m_values[index].length());
     }
 
@@ -191,24 +191,24 @@ public:
         Q_ASSERT(info);
     }
 
-    inline int fieldsCount() Q_DECL_OVERRIDE {
+    inline int fieldsCount() override {
         return m_info->fieldNames.count();
     }
 
     //! Not needed for ImportTableWizard
-    inline KDbSqlField *field(int index) Q_DECL_OVERRIDE {
+    inline KDbSqlField *field(int index) override {
         Q_UNUSED(index);
         return nullptr;
     }
 
     //! Not needed for ImportTableWizard
-    inline KDbField* createField(const QString &tableName, int index) Q_DECL_OVERRIDE {
+    inline KDbField* createField(const QString &tableName, int index) override {
         Q_UNUSED(tableName);
         Q_UNUSED(index);
         return nullptr;
     }
 
-    inline QSharedPointer<KDbSqlRecord> fetchRecord() Q_DECL_OVERRIDE {
+    inline QSharedPointer<KDbSqlRecord> fetchRecord() override {
         QSharedPointer<KDbSqlRecord> sqlRecord;
         QVector<QByteArray> record = readLine(m_info, &m_eof);
         if (!m_eof) {
@@ -217,7 +217,7 @@ public:
         return sqlRecord;
     }
 
-    inline KDbResult lastResult() Q_DECL_OVERRIDE {
+    inline KDbResult lastResult() override {
         return KDbResult();
     }
 

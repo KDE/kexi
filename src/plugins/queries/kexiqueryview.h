@@ -34,16 +34,16 @@ public:
     virtual ~KexiQueryView();
 
     /*! \return curent parameters for parametrized query */
-    virtual QList<QVariant> currentParameters() const;
+    virtual QList<QVariant> currentParameters() const override;
 
 protected:
-    virtual tristate afterSwitchFrom(Kexi::ViewMode mode);
+    virtual tristate afterSwitchFrom(Kexi::ViewMode mode) override;
 
     virtual KDbObject* storeNewData(const KDbObject& object,
                                              KexiView::StoreNewDataOptions options,
-                                             bool *cancel);
+                                             bool *cancel) override;
 
-    virtual tristate storeData(bool dontAsk = false);
+    virtual tristate storeData(bool dontAsk = false) override;
 
     /**
      * Assigns query @a query to this view

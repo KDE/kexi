@@ -40,14 +40,14 @@ public:
 
 protected:
     //! Driver specific function to return table names
-    bool drv_tableNames(QStringList *tablenames) Q_DECL_OVERRIDE;
+    bool drv_tableNames(QStringList *tablenames) override;
 
     //! Driver specific implementation to read a table schema
     bool drv_readTableSchema(
-        const QString& originalName, KDbTableSchema *tableSchema) Q_DECL_OVERRIDE;
+        const QString& originalName, KDbTableSchema *tableSchema) override;
 
     //! Driver specific connection creation
-    KDbConnection* drv_createConnection() Q_DECL_OVERRIDE;
+    KDbConnection* drv_createConnection() override;
 
     /*! Fetches single string at column \a columnNumber for each record from result obtained
      by running \a sqlStatement. \a numRecords can be specified to limit number of records read.
@@ -55,25 +55,25 @@ protected:
      @see KexiMigrate::drv_queryStringListFromSql() */
     tristate drv_queryStringListFromSql(
         const KDbEscapedString& sqlStatement, int columnNumber,
-        QStringList *stringList, int numRecords = -1) Q_DECL_OVERRIDE;
+        QStringList *stringList, int numRecords = -1) override;
 
     //! Copy a table from source DB to target DB (driver specific)
     bool drv_copyTable(const QString& srcTable,
                        KDbConnection *destConn, KDbTableSchema* dstTable,
-                       const RecordFilter *recordFilter = nullptr) Q_DECL_OVERRIDE;
+                       const RecordFilter *recordFilter = nullptr) override;
 
-    bool drv_progressSupported() Q_DECL_OVERRIDE {
+    bool drv_progressSupported() override {
         return true;
     }
 
-    bool drv_getTableSize(const QString& table, quint64* size) Q_DECL_OVERRIDE;
+    bool drv_getTableSize(const QString& table, quint64* size) override;
 
 //! @todo move this somewhere to low level class (MIGRATION?) virtual bool drv_getTablesList( QStringList &list );
 //! @todo move this somewhere to low level class (MIGRATION?) virtual bool drv_containsTable( const QString &tableName );
 
     //Extended API
     //! Starts reading data from the source dataset's table
-    QSharedPointer<KDbSqlResult> drv_readFromTable(const QString & tableName) Q_DECL_OVERRIDE;
+    QSharedPointer<KDbSqlResult> drv_readFromTable(const QString & tableName) override;
 
     const QString m_kdbDriverId;
 };

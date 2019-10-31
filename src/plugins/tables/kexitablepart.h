@@ -87,9 +87,9 @@ public:
     KexiTablePart(QObject *parent, const QVariantList &);
     virtual ~KexiTablePart();
 
-    virtual tristate remove(KexiPart::Item *item);
+    virtual tristate remove(KexiPart::Item *item) override;
 
-    virtual tristate rename(KexiPart::Item *item, const QString& newName);
+    virtual tristate rename(KexiPart::Item *item, const QString& newName) override;
 
     /**
      * Closes objects that listenen to changes of the table schema @a table, i.e. use it.
@@ -120,7 +120,7 @@ public:
                                                          const KLocalizedString &msg);
 
     virtual KLocalizedString i18nMessage(const QString& englishMessage,
-                                         KexiWindow* window) const;
+                                         KexiWindow* window) const override;
 
     KexiLookupColumnPage* lookupColumnPage() const;
 
@@ -131,13 +131,13 @@ protected:
                          Kexi::ViewMode viewMode = Kexi::DataViewMode,
                          QMap<QString, QVariant> *staticObjectArgs = nullptr) override Q_REQUIRED_RESULT;
 
-    virtual void initPartActions();
-    virtual void initInstanceActions();
+    virtual void initPartActions() override;
+    virtual void initInstanceActions() override;
 
-    virtual void setupPropertyPane(KexiPropertyPaneWidget *pane);
+    virtual void setupPropertyPane(KexiPropertyPaneWidget *pane) override;
 
     virtual KDbObject* loadSchemaObject(KexiWindow *window, const KDbObject& object,
-            Kexi::ViewMode viewMode, bool *ownedByWindow);
+            Kexi::ViewMode viewMode, bool *ownedByWindow) override;
 
 private:
     class Private;

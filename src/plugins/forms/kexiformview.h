@@ -69,7 +69,7 @@ public:
     explicit KexiFormView(QWidget *parent, bool dbAware = true);
     virtual ~KexiFormView();
 
-    virtual QSize preferredSizeHint(const QSize& otherSize);
+    virtual QSize preferredSizeHint(const QSize& otherSize) override;
 
     int resizeMode() const;
 
@@ -122,13 +122,13 @@ protected Q_SLOTS:
     void slotWidgetNameChanged(const QByteArray& oldname, const QByteArray& newname);
 
 protected:
-    virtual tristate beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore);
-    virtual tristate afterSwitchFrom(Kexi::ViewMode mode);
-    virtual KPropertySet* propertySet();
+    virtual tristate beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore) override;
+    virtual tristate afterSwitchFrom(Kexi::ViewMode mode) override;
+    virtual KPropertySet* propertySet() override;
     virtual KDbObject* storeNewData(const KDbObject& object,
                                              KexiView::StoreNewDataOptions options,
-                                             bool *cancel);
-    virtual tristate storeData(bool dontAsk = false);
+                                             bool *cancel) override;
+    virtual tristate storeData(bool dontAsk = false) override;
     KexiFormPartTempData* tempData() const;
     KexiFormPart* formPart() const;
     void setForm(KFormDesigner::Form *f);
@@ -144,14 +144,14 @@ protected:
     //! Reimplemented to pass the information
     void propertySetSwitched() Q_DECL_OVERRIDE;
 
-    virtual void resizeEvent(QResizeEvent *);
+    virtual void resizeEvent(QResizeEvent *) override;
 
     //! Reimplemented for context key event of top-level form widget.
     //! Redirects to Container::eventFilter().
-    virtual void contextMenuEvent(QContextMenuEvent *e);
+    virtual void contextMenuEvent(QContextMenuEvent *e) override;
 
     void initDataSource();
-    virtual void setFocusInternal();
+    virtual void setFocusInternal() override;
 
     /*! Called after loading the form contents (before showing it). */
     void updateTabStopsOrder();
@@ -164,7 +164,7 @@ protected:
 
     /*! Reimplemented after KexiView.
      Updates actions (e.g. availability). */
-    virtual void updateActions(bool activated);
+    virtual void updateActions(bool activated) override;
 
     //! Updates internal actions specific to forms.
     //! @todo merge with other "update" routines?

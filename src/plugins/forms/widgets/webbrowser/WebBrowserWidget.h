@@ -95,16 +95,16 @@ public:
       return m_view->textSizeMultiplier();
     }
 
-    virtual QVariant value();
-    virtual bool valueIsNull();
-    virtual bool valueIsEmpty();
-    virtual bool cursorAtStart();
-    virtual bool cursorAtEnd();
-    virtual void clear();
+    virtual QVariant value() override;
+    virtual bool valueIsNull() override;
+    virtual bool valueIsEmpty() override;
+    virtual bool cursorAtStart() override;
+    virtual bool cursorAtEnd() override;
+    virtual void clear() override;
     void updateToolBar();
-    bool isReadOnly() const;
-    virtual void setReadOnly(bool readOnly);
-    virtual void setInvalidState(const QString& displayText);
+    bool isReadOnly() const override;
+    virtual void setReadOnly(bool readOnly) override;
+    virtual void setInvalidState(const QString& displayText) override;
 
 public Q_SLOTS:
     void setDataSource(const QString &ds);
@@ -115,7 +115,7 @@ public Q_SLOTS:
     void hide_bar();
 
 protected:
-    virtual void setValueInternal(const QVariant& add, bool removeOld);
+    virtual void setValueInternal(const QVariant& add, bool removeOld) override;
     void setUrl(const QUrl& url);
     bool m_readOnly;
 

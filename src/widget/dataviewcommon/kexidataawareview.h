@@ -51,27 +51,27 @@ public:
 
     QWidget* mainWidget() const;
 
-    virtual QSize minimumSizeHint() const;
+    virtual QSize minimumSizeHint() const override;
 
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
 
     KexiDataAwareObjectInterface* dataAwareObject() const;
 
     /*! Sets up data for find/replace dialog, based on view's data model.
      Implemented for KexiSearchAndReplaceViewInterface. */
     virtual bool setupFindAndReplace(QStringList& columnNames, QStringList& columnCaptions,
-                                     QString& currentColumnName);
+                                     QString& currentColumnName) override;
 
     /*! Finds \a valueToFind within the view.
      Implemented for KexiSearchAndReplaceViewInterface. */
     virtual tristate find(const QVariant& valueToFind,
-                          const KexiSearchAndReplaceViewInterface::Options& options, bool next);
+                          const KexiSearchAndReplaceViewInterface::Options& options, bool next) override;
 
     /*! Finds \a valueToFind within the view and replaces with \a replacement.
      Implemented for KexiSearchAndReplaceViewInterface. */
     virtual tristate findNextAndReplace(const QVariant& valueToFind,
                                         const QVariant& replacement,
-                                        const KexiSearchAndReplaceViewInterface::Options& options, bool replaceAll);
+                                        const KexiSearchAndReplaceViewInterface::Options& options, bool replaceAll) override;
 
 public Q_SLOTS:
     void deleteAllRecords();
@@ -93,17 +93,17 @@ public Q_SLOTS:
 
     /*! @return true if data editing is in progress.
      * Implemented for KexiView. */
-    bool isDataEditingInProgress() const;
+    bool isDataEditingInProgress() const override;
 
     /*! Identical to acceptRecordEditing()
      * @todo replace acceptRecordEditing() with this method
      * Implemented for KexiView. */
-    virtual tristate saveDataChanges();
+    virtual tristate saveDataChanges() override;
 
     /*! Identical to cancelRecordEditing()
      * @todo replace cancelRecordEditing() with this method
      * Implemented for KexiView. */
-    virtual tristate cancelDataChanges();
+    virtual tristate cancelDataChanges() override;
 
 protected Q_SLOTS:
     void slotCellSelected(int record, int column);
@@ -120,11 +120,11 @@ protected:
               bool noDataAware = false
              );
     void initActions();
-    virtual void updateActions(bool activated);
+    virtual void updateActions(bool activated) override;
 
     QWidget* internalView() const;
 
-    virtual bool eventFilter(QObject *o, QEvent *e);
+    virtual bool eventFilter(QObject *o, QEvent *e) override;
     QAction* sharedActionRequested(QKeyEvent *ke, const char *actionName);
 
 private:

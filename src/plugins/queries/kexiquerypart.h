@@ -37,7 +37,7 @@ class KexiQueryPartTempData : public KexiWindowData,
 public:
     KexiQueryPartTempData(KexiWindow* parent, KDbConnection *conn);
     virtual ~KexiQueryPartTempData();
-    virtual tristate closeListener();
+    virtual tristate closeListener() override;
     void clearQuery();
     void unregisterForTablesSchemaChanges();
     void registerTableSchemaChanges(KDbQuerySchema *q);
@@ -89,17 +89,17 @@ public:
     KexiQueryPart(QObject *parent, const QVariantList &);
     virtual ~KexiQueryPart();
 
-    virtual tristate remove(KexiPart::Item *item);
+    virtual tristate remove(KexiPart::Item *item) override;
 
     //! Implemented for KexiPart::Part.
-    virtual KDbQuerySchema* currentQuery(KexiView* view);
+    virtual KDbQuerySchema* currentQuery(KexiView* view) override;
 
     virtual KLocalizedString i18nMessage(const QString& englishMessage,
-                                         KexiWindow* window) const;
+                                         KexiWindow* window) const override;
 
     /*! Renames stored data pointed by \a item to \a newName.
      Reimplemented to mark the query obsolete by using KDbConnection::setQuerySchemaObsolete(). */
-    virtual tristate rename(KexiPart::Item *item, const QString& newName);
+    virtual tristate rename(KexiPart::Item *item, const QString& newName) override;
 
     void setupPropertyPane(KexiPropertyPaneWidget* pane) Q_DECL_OVERRIDE;
 
@@ -142,11 +142,11 @@ protected:
                          Kexi::ViewMode viewMode = Kexi::DataViewMode,
                          QMap<QString, QVariant> *staticObjectArgs = nullptr) override Q_REQUIRED_RESULT;
 
-    virtual void initPartActions();
-    virtual void initInstanceActions();
+    virtual void initPartActions() override;
+    virtual void initInstanceActions() override;
 
     virtual KDbObject* loadSchemaObject(KexiWindow *window,
-            const KDbObject& object, Kexi::ViewMode viewMode, bool *ownedByWindow);
+            const KDbObject& object, Kexi::ViewMode viewMode, bool *ownedByWindow) override;
 
     Q_DISABLE_COPY(KexiQueryPart)
 

@@ -95,9 +95,9 @@ protected Q_SLOTS:
     void slotFileSelected(const QUrl& url);
 
 protected:
-    virtual void showEvent(QShowEvent *event);
+    virtual void showEvent(QShowEvent *event) override;
 
-    virtual void focusInEvent(QFocusEvent *event);
+    virtual void focusInEvent(QFocusEvent *event) override;
 
     /**
      * Updates filters in the widget based on current filter selection.

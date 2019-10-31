@@ -38,10 +38,10 @@ public:
                                      QObject *parent = 0);
 
     QModelIndex  index(int row, int column = 0,
-                       const QModelIndex& parent = QModelIndex() ) const;
-    int rowCount(const QModelIndex& parent = QModelIndex()) const;
-    QVariant data(const QModelIndex& index, int role) const;
-    Qt::ItemFlags flags( const QModelIndex& index ) const;
+                       const QModelIndex& parent = QModelIndex() ) const override;
+    int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex& index, int role) const override;
+    Qt::ItemFlags flags( const QModelIndex& index ) const override;
 
 private:
     const KexiRecentProjects* m_projects;
@@ -54,7 +54,7 @@ public:
     explicit KexiRecentProjectsProxyModel(QObject *parent = 0);
 
 protected:
-    virtual bool subSortLessThan(const QModelIndex& left, const QModelIndex& right) const;
+    virtual bool subSortLessThan(const QModelIndex& left, const QModelIndex& right) const override;
 };
 
 #endif

@@ -36,7 +36,7 @@ public:
                           QMap<QString, QString> *args = nullptr) override Q_REQUIRED_RESULT;
 
     /*! Reimplemented to execute a command \a commandName (nonvisual). The result are put into the \a args. */
-    virtual bool executeCommand(const char* commandName, QMap<QString, QString>* args = 0);
+    virtual bool executeCommand(const char* commandName, QMap<QString, QString>* args = 0) override;
 
 protected:
 };

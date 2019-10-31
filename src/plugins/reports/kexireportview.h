@@ -47,17 +47,17 @@ public:
 
     ~KexiReportView();
 
-    virtual tristate afterSwitchFrom(Kexi::ViewMode mode);
-    virtual tristate beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore);
+    virtual tristate afterSwitchFrom(Kexi::ViewMode mode) override;
+    virtual tristate beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore) override;
 
-    virtual void addNewRecordRequested();
-    virtual void moveToFirstRecordRequested();
-    virtual void moveToLastRecordRequested();
-    virtual void moveToNextRecordRequested();
-    virtual void moveToPreviousRecordRequested();
-    virtual void moveToRecordRequested(int r);
-    virtual int currentRecord() const;
-    virtual int recordCount() const;
+    virtual void addNewRecordRequested() override;
+    virtual void moveToFirstRecordRequested() override;
+    virtual void moveToLastRecordRequested() override;
+    virtual void moveToNextRecordRequested() override;
+    virtual void moveToPreviousRecordRequested() override;
+    virtual void moveToRecordRequested(int r) override;
+    virtual int currentRecord() const override;
+    virtual int recordCount() const override;
 
 private:
     KReportPreRenderer *m_preRenderer;

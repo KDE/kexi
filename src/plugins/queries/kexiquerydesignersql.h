@@ -44,19 +44,19 @@ public:
 protected:
     KexiQueryPartTempData * tempData() const;
 
-    virtual tristate beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore);
-    virtual tristate afterSwitchFrom(Kexi::ViewMode mode);
+    virtual tristate beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore) override;
+    virtual tristate afterSwitchFrom(Kexi::ViewMode mode) override;
     virtual KDbObject* storeNewData(const KDbObject& object,
                                              KexiView::StoreNewDataOptions options,
-                                             bool *cancel);
-    virtual tristate storeData(bool dontAsk = false);
+                                             bool *cancel) override;
+    virtual tristate storeData(bool dontAsk = false) override;
 
     void setStatusOk();
     void setStatusError(const QString& msg);
     void setStatusEmpty();
     void setStatusText(const QString& text);
 
-    virtual void updateActions(bool activated);
+    virtual void updateActions(bool activated) override;
 
 protected Q_SLOTS:
     /*! Performs query checking (by text parsing). \return true and sets d->parsedQuery

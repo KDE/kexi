@@ -56,10 +56,10 @@ public:
     explicit KexiMainWindow(QWidget *parent = 0);
     virtual ~KexiMainWindow();
 
-    virtual KActionCollection* actionCollection() const;
+    virtual KActionCollection* actionCollection() const override;
 
 //! @todo virtual QWidget* focusWidget() const;
-    virtual QWidget* focusWidget() const {
+    virtual QWidget* focusWidget() const override {
         return QMainWindow::focusWidget();
     }
 
@@ -76,10 +76,10 @@ public:
                       const QList<QCommandLineOption> &extraOptions = QList<QCommandLineOption>());
 
     //! Project data of currently opened project or NULL if no project here yet.
-    virtual KexiProject *project();
+    virtual KexiProject *project() override;
 
     /*! Registers window \a window for watching and adds it to the main window's stack. */
-    virtual void registerChild(KexiWindow *window);
+    virtual void registerChild(KexiWindow *window) override;
 
     /*! Activates a window by it's document identifier.
      \return false if doc couldn't be raised or isn't opened. */
@@ -93,7 +93,7 @@ public:
     tristate startup();
 
     /*! \return true if the application window is in the User Mode. */
-    virtual bool userMode() const;
+    virtual bool userMode() const override;
 
     //! @return current global mode
     Kexi::GlobalViewMode currentMode() const Q_DECL_OVERRIDE;
@@ -104,29 +104,29 @@ public:
     bool openingAllowed(KexiPart::Item* item, Kexi::ViewMode viewMode, QString* errorMessage = 0);
 
     /*! Implemented for KexiMainWindow. */
-    virtual QList<QAction*> allActions() const;
+    virtual QList<QAction*> allActions() const override;
 
     /*! \return currently active window or 0 if there is no active window.
      Implemented for KexiWindow. */
-    virtual KexiWindow* currentWindow() const;
+    virtual KexiWindow* currentWindow() const override;
 
     /*! @return window for tab @a tabIndex or 0 if there is no such tab. */
     KexiWindow* windowForTab(int tabIndex) const;
 
 //! @todo temporary solution before the tabbed toolbar framework emerges
     // see KexiMainWindowIface
-    virtual void appendWidgetToToolbar(const QString& name, QWidget* widget);
+    virtual void appendWidgetToToolbar(const QString& name, QWidget* widget) override;
 
 //! @todo temporary solution before the tabbed toolbar framework emerges
     // see KexiMainWindowIface
-    virtual void setWidgetVisibleInToolbar(QWidget* widget, bool visible);
+    virtual void setWidgetVisibleInToolbar(QWidget* widget, bool visible) override;
 
 //! @todo replace with the final Actions API
     // see KexiMainWindowIface
-    virtual void addToolBarAction(const QString& toolBarName, QAction *action);
+    virtual void addToolBarAction(const QString& toolBarName, QAction *action) override;
 
     // see KexiMainWindowIface
-    virtual KToolBar *toolBar(const QString& name) const;
+    virtual KToolBar *toolBar(const QString& name) const override;
 
     //! Shows design tab @a tabName again and activates it as current if it was hidden
     //! before for the same object.
@@ -143,14 +143,14 @@ public:
     virtual void hideDesignTab(int itemId, const QString &pluginId = QString());
 
     /*! Implemented for KexiMainWindow */
-    virtual KexiUserFeedbackAgent* userFeedbackAgent() const;
+    virtual KexiUserFeedbackAgent* userFeedbackAgent() const override;
 
     /*! Implemented for KexiMainWindow */
-    virtual KexiMigrateManagerInterface* migrateManager();
+    virtual KexiMigrateManagerInterface* migrateManager() override;
 
 public Q_SLOTS:
     /*! Implemented for KexiMainWindow */
-    virtual tristate closeWindow(KexiWindow *window);
+    virtual tristate closeWindow(KexiWindow *window) override;
 
     /*! Closes the current window. */
     tristate closeCurrentWindow();
@@ -202,42 +202,42 @@ public Q_SLOTS:
      is not set; the caller should not display error message but the opening should be silently abandoned. */
     virtual KexiWindow* openObject(KexiPart::Item *item, Kexi::ViewMode viewMode,
                                    bool *openingCancelled, QMap<QString, QVariant>* staticObjectArgs = 0,
-                                   QString* errorMessage = 0);
+                                   QString* errorMessage = 0) override;
 
     //! For convenience
     virtual KexiWindow* openObject(const QString& pluginId, const QString& name,
                                    Kexi::ViewMode viewMode, bool *openingCancelled,
-                                   QMap<QString, QVariant>* staticObjectArgs = 0);
+                                   QMap<QString, QVariant>* staticObjectArgs = 0) override;
 
     /*! Closes the object for \a item.
      \return true on success (closing can be dealyed though), false on failure and cancelled
      if the object has "opening" job assigned. */
-    virtual tristate closeObject(KexiPart::Item* item);
+    virtual tristate closeObject(KexiPart::Item* item) override;
 
     /*! Implemented for KexiMainWindow */
     virtual tristate saveObject(KexiWindow *window,
                                 const QString& messageWhenAskingForName = QString(),
-                                SaveObjectOptions options = 0);
+                                SaveObjectOptions options = 0) override;
 
     /*! Implemented for KexiMainWindowIface. */
-    virtual KexiWindow *openedWindowFor(int identifier);
-    virtual KexiWindow *openedWindowFor(const KexiPart::Item *item);
+    virtual KexiWindow *openedWindowFor(int identifier) override;
+    virtual KexiWindow *openedWindowFor(const KexiPart::Item *item) override;
 
     /*! Implemented for KexiMainWindowIface */
-    virtual QList<QVariant> currentParametersForQuery(int queryId) const;
+    virtual QList<QVariant> currentParametersForQuery(int queryId) const override;
 
     /*! Implemented for KexiMainWindowIface. */
-    virtual KDbQuerySchema *unsavedQuery(int queryId);
+    virtual KDbQuerySchema *unsavedQuery(int queryId) override;
 
     /*! Implemented for KexiMainWindow */
     virtual tristate getNewObjectInfo(KexiPart::Item *partItem,
                                       const QString &originalName,
                                       KexiPart::Part *part,
                                       bool allowOverwriting, bool *overwriteNeeded,
-                                      const QString& messageWhenAskingForName = QString());
+                                      const QString& messageWhenAskingForName = QString()) override;
 
     /*! Implemented for KexiMainWindow */
-    virtual void highlightObject(const QString& pluginId, const QString& name);
+    virtual void highlightObject(const QString& pluginId, const QString& name) override;
 
     /*! Opens project pointed by \a projectData.
      Application state (e.g. actions) is updated.
@@ -293,19 +293,19 @@ public Q_SLOTS:
 
     //! Shows "print" dialog for \a item.
     //! \return true on success.
-    virtual tristate printItem(KexiPart::Item* item);
+    virtual tristate printItem(KexiPart::Item* item) override;
 
     //! Shows "print preview" window.
     //! \return true on success.
-    virtual tristate printPreviewForItem(KexiPart::Item* item);
+    virtual tristate printPreviewForItem(KexiPart::Item* item) override;
 
     //! Shows "page setup" window for \a item.
     //! \return true on success and cancelled when the action was cancelled.
-    virtual tristate showPageSetupForItem(KexiPart::Item* item);
+    virtual tristate showPageSetupForItem(KexiPart::Item* item) override;
 
     /*! Executes custom action for the main window, usually provided by a plugin.
      Also used by KexiFormEventAction. */
-    virtual tristate executeCustomActionForObject(KexiPart::Item* item, const QString& actionName);
+    virtual tristate executeCustomActionForObject(KexiPart::Item* item, const QString& actionName) override;
 
     /*! Add searchable model to the main window. This extends search to a new area.
      One example is Project Navigator. @see KexiMainWindowIface */
@@ -322,19 +322,19 @@ public Q_SLOTS:
 
     /*! Implemented for KexiMainWindowIface.
      Sets reasonable dialog size based on main window size, that is 80% of its size. */
-    virtual void setReasonableDialogSize(QDialog *dialog);
+    virtual void setReasonableDialogSize(QDialog *dialog) override;
 
 Q_SIGNALS:
     //! Emitted to make sure the project can be close.
     //! Connect a slot here and set \a cancel to true to cancel the closing.
-    void acceptProjectClosingRequested(bool *cancel);
+    void acceptProjectClosingRequested(bool *cancel) override;
 
     //! Emitted before closing the project (and destroying all it's data members).
     //! You can do you cleanup of your structures here.
-    void beforeProjectClosing();
+    void beforeProjectClosing() override;
 
     //! Emitted after closing the project.
-    void projectClosed();
+    void projectClosed() override;
 
     //! Emitted after opening a project, even after slotAutoOpenObjectsLater().
     void projectOpened();
@@ -376,7 +376,7 @@ protected:
 
     /*! Invalidates action availability for current application state.
      These actions are dependent on active window. */
-    virtual void invalidateSharedActions(QObject *o);
+    virtual void invalidateSharedActions(QObject *o) override;
 
     /*! Invalidates action availability for current application state.
      These actions only depend on project availability, not on curently active window. */
@@ -404,12 +404,12 @@ protected:
     /*! Performs lookup like in KexiSharedActionHost::focusWindow()
      but starting from \a w instead of a widget returned by QWidget::focusWidget().
      \return NULL if no widget matches acceptsSharedActions() or if \a w is NULL. */
-    virtual QWidget* findWindow(QWidget *w);
+    virtual QWidget* findWindow(QWidget *w) override;
 
     /*! Updates application's caption - also shows project's name. */
     void updateAppCaption();
 
-    virtual void closeEvent(QCloseEvent *ev);
+    virtual void closeEvent(QCloseEvent *ev) override;
 
     void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
 
@@ -418,7 +418,7 @@ protected:
 
     /*! Implemented for KexiMainWindowIface.
      Switches \a window to view \a mode. Activates the window if it is not the current window. */
-    virtual tristate switchToViewMode(KexiWindow& window, Kexi::ViewMode viewMode);
+    virtual tristate switchToViewMode(KexiWindow& window, Kexi::ViewMode viewMode) override;
 
     /*! Helper. Updates setup of property panel's tabs. Used when switching
      from \a prevWindow window to a current window. */
@@ -480,7 +480,7 @@ protected Q_SLOTS:
     /*! Creates new object of type defined by \a info part info.
      \a openingCancelled is set to true if opening has been cancelled.
      \return true on success. */
-    virtual bool newObject(KexiPart::Info *info, bool *openingCancelled);
+    virtual bool newObject(KexiPart::Info *info, bool *openingCancelled) override;
 
     //! For convenience
     bool newObject(KexiPart::Info *info) {
@@ -513,7 +513,7 @@ protected Q_SLOTS:
     /*! Reaction for object rename (signalled by KexiProject).
      If this item has opened window, it's caption is updated,
      and also optionally application's caption. */
-    virtual void slotObjectRenamed(const KexiPart::Item &item, const QString& oldName);
+    virtual void slotObjectRenamed(const KexiPart::Item &item, const QString& oldName) override;
 
 //! @todo virtual void fillWindowMenu();
 
@@ -572,12 +572,12 @@ protected Q_SLOTS:
     //! There are performed all actions that need to be done immediately after  ctro (using timer)
     void slotLastActions();
 
-    virtual void acceptPropertySetEditing();
+    virtual void acceptPropertySetEditing() override;
 
     virtual void propertySetSwitched(KexiWindow *window, bool force = false,
                                      bool preservePrevSelection = true,
                                      bool sortedProperties = false,
-                                     const QByteArray& propertyToSelect = QByteArray());
+                                     const QByteArray& propertyToSelect = QByteArray()) override;
 
     /*! Handles changes in 'dirty' flag for windows. */
     void slotDirtyFlagChanged(KexiWindow* window);

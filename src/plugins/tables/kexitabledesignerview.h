@@ -69,33 +69,33 @@ public:
     /*! Clears field information entered for record.
      This is performed by removing values from caption and data type columns.
      Used by InsertFieldCommand to undo inserting a new field. */
-    virtual void clearRecord(int record, bool addCommand = false);
+    virtual void clearRecord(int record, bool addCommand = false) override;
 
     /*! Inserts a new field with \a caption for \a record.
      Property set is also created.  */
-    virtual void insertField(int record, const QString& caption, bool addCommand = false);
+    virtual void insertField(int record, const QString& caption, bool addCommand = false) override;
 
     /*! Inserts a new \a field for \a record.
      Property set is also created. \a set will be deeply-copied into the new set.
      Used by InsertFieldCommand to insert a new field. */
-    virtual void insertField(int record, KPropertySet& set, bool addCommand = false);
+    virtual void insertField(int record, KPropertySet& set, bool addCommand = false) override;
 
     /*! Inserts a new empty record at position \a record.
      Used by RemoveFieldCommand as a part of undo inserting a new field;
      also used by InsertEmptyRecordCommand. */
-    virtual void insertEmptyRecord(int record, bool addCommand = false);
+    virtual void insertEmptyRecord(int record, bool addCommand = false) override;
 
     /*! Deletes \a record from the table view. Property set is also deleted.
      All the subsequent fields are moved up. Used for undoing InsertEmptyRecordCommand
      and by RemoveFieldCommand to remove a field. */
-    virtual void deleteRecord(int record, bool addCommand = false);
+    virtual void deleteRecord(int record, bool addCommand = false) override;
 
     /*! Changes property \a propertyName to \a newValue for a field at record \a record.
      If \a listData is not NULL and not empty, a deep copy of it is passed to Property::setListData().
      If \a listData \a nlist if not NULL but empty, Property::setListData(0) is called. */
     virtual void changeFieldPropertyForRecord(int record,
                                            const QByteArray& propertyName, const QVariant& newValue,
-                                           const KPropertyListData* listData, bool addCommand);
+                                           const KPropertyListData* listData, bool addCommand) override;
 
     /*! Changes property \a propertyName to \a newValue.
      Works exactly like changeFieldPropertyForRecord(); except the field is pointed by \a fieldUID.
@@ -112,17 +112,17 @@ public:
     KDbField * buildField(const KPropertySet &set) const;
 
     /*! Creates temporary table for the current design and returns debug string for it. */
-    virtual QString debugStringForCurrentTableSchema(tristate& result);
+    virtual QString debugStringForCurrentTableSchema(tristate& result) override;
 
     /*! Simulates execution of alter table, and puts debug into \a debugTarget.
      A case when debugTarget is not 0 is true for the alter table test suite. */
-    virtual tristate simulateAlterTableExecution(QString *debugTarget);
+    virtual tristate simulateAlterTableExecution(QString *debugTarget) override;
 
 public Q_SLOTS:
     /*! Real execution of the Alter Table. For debugging of the real alter table.
      \return true on success, false on failure and cancelled if user has cancelled
      execution. */
-    virtual tristate executeRealAlterTable();
+    virtual tristate executeRealAlterTable() override;
 
 protected Q_SLOTS:
     /*! Equivalent to updateActions(false). Called on record insert/delete
@@ -164,7 +164,7 @@ protected Q_SLOTS:
     void slotSimulateAlterTableExecution();
 
 protected:
-    virtual void updateActions(bool activated);
+    virtual void updateActions(bool activated) override;
 
     //! called whenever data should be reloaded (on switching to this view mode)
     void initData();
@@ -175,30 +175,30 @@ protected:
      \return newly created property set. */
     KPropertySet* createPropertySet(int record, const KDbField& field, bool newOne = false);
 
-    virtual tristate beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore);
+    virtual tristate beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore) override;
 
-    virtual tristate afterSwitchFrom(Kexi::ViewMode mode);
+    virtual tristate afterSwitchFrom(Kexi::ViewMode mode) override;
 
     /*! \return property set associated with currently selected record (i.e. field)
      or 0 if current record is empty. */
-    virtual KPropertySet *propertySet();
+    virtual KPropertySet *propertySet() override;
 
     /*! Reimplemented from KexiView, because tables creation is more complex.
      No table schema altering is required, so just buildSchema() is used to create a new schema.
     */
     virtual KDbObject* storeNewData(const KDbObject& object,
                                     KexiView::StoreNewDataOptions options,
-                                    bool *cancel);
+                                    bool *cancel) override;
 
     /*! Reimplemented from KexiView, because cloning of table objects is more complex. */
     virtual KDbObject* copyData(const KDbObject& object,
                                 KexiView::StoreNewDataOptions options,
-                                bool *cancel);
+                                bool *cancel) override;
 
     /*! Reimplemented from KexiView, because table storage is more complex.
      Table schema altering may be required, so just buildSchema() is used to create a new schema.
     */
-    virtual tristate storeData(bool dontAsk = false);
+    virtual tristate storeData(bool dontAsk = false) override;
 
     /*! Builds table schema by looking at the current design. Used in storeNewData()
      and storeData().
@@ -237,7 +237,7 @@ protected:
     void insertFieldInternal(int record, KPropertySet* set, const QString& caption, bool addCommand);
 
     //! Reimplemented to pass the information also to the "Lookup" tab
-    virtual void propertySetSwitched();
+    virtual void propertySetSwitched() override;
 
     /*! \return true if physical altering is needed for the current list of actions.
      Used in KexiTableDesignerView::beforeSwitchTo() to avoid warning about removinf

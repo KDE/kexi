@@ -44,7 +44,7 @@ public:
             : QValidator(parent) {
     }
     ~KexiDBLineEdit_ReadOnlyValidator() {}
-    virtual State validate(QString &input, int &pos) const {
+    virtual State validate(QString &input, int &pos) const override {
         input = qobject_cast<KexiDBLineEdit*>(parent())->originalText();
         pos = qobject_cast<KexiDBLineEdit*>(parent())->originalCursorPosition();
         return Intermediate;
@@ -69,7 +69,7 @@ public:
         this->indent = indent;
     }
 
-    QRect subElementRect(SubElement element, const QStyleOption *option, const QWidget *widget = 0) const
+    QRect subElementRect(SubElement element, const QStyleOption *option, const QWidget *widget = 0) const override
     {
         const KFormDesigner::FormWidgetInterface *formWidget = dynamic_cast<const KFormDesigner::FormWidgetInterface*>(widget);
         if (formWidget && formWidget->designMode()) {

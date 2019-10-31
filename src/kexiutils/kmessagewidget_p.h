@@ -31,7 +31,7 @@ class KMessageWidgetFrame : public QFrame
 public:
     explicit KMessageWidgetFrame(QWidget* parent = 0);
 
-    virtual void paintEvent(QPaintEvent* event);
+    virtual void paintEvent(QPaintEvent* event) override;
 
     KMessageWidget::CalloutPointerDirection calloutPointerDirection() const;
 
@@ -67,7 +67,7 @@ class ClickableLabel : public QLabel
 public:
     explicit ClickableLabel(QWidget *parent = 0);
     virtual ~ClickableLabel();
-    virtual void mousePressEvent(QMouseEvent *ev);
+    virtual void mousePressEvent(QMouseEvent *ev) override;
 
 Q_SIGNALS:
     void clicked();

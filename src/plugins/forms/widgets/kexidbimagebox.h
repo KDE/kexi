@@ -72,7 +72,7 @@ public:
         return KexiFormDataItemInterface::dataSourcePluginId();
     }
 
-    virtual QVariant value(); // { return m_value.data(); }
+    virtual QVariant value() override; // { return m_value.data(); }
 
     QPixmap pixmap() const;
 
@@ -80,21 +80,21 @@ public:
 
     int storedPixmapId() const;
 
-    virtual void setInvalidState(const QString& displayText);
+    virtual void setInvalidState(const QString& displayText) override;
 
-    virtual bool valueIsNull();
+    virtual bool valueIsNull() override;
 
-    virtual bool valueIsEmpty();
+    virtual bool valueIsEmpty() override;
 
-    virtual QWidget* widget();
-
-    //! always true
-    virtual bool cursorAtStart();
+    virtual QWidget* widget() override;
 
     //! always true
-    virtual bool cursorAtEnd();
+    virtual bool cursorAtStart() override;
 
-    virtual bool isReadOnly() const;
+    //! always true
+    virtual bool cursorAtEnd() override;
+
+    virtual bool isReadOnly() const override;
 
     bool hasScaledContents() const;
 
@@ -104,7 +104,7 @@ public:
 
     bool keepAspectRatio() const;
 
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
 
     KexiImageContextMenu *contextMenu() const;
 
@@ -115,7 +115,7 @@ public:
 
     //! Reimplemented to override behaviour of "paletteBackgroundColor"
     //! and "paletteForegroundColor" properties.
-    virtual void setPalette(const QPalette &pal);
+    virtual void setPalette(const QPalette &pal) override;
 
     //! Reimplemented to override behaviour of "paletteBackgroundColor" property.
     virtual void setPaletteBackgroundColor(const QColor & color);
@@ -151,7 +151,7 @@ public Q_SLOTS:
         KexiFormDataItemInterface::setDataSourcePluginId(pluginId);
     }
 
-    virtual void setReadOnly(bool set);
+    virtual void setReadOnly(bool set) override;
 
     //! Sets \a pixmapData data for this widget. If the widget has data source set,
     //! the pixmap will be also placed inside of the buffer and saved later.
@@ -195,21 +195,21 @@ protected Q_SLOTS:
     void handleCutAction();
     void handleCopyAction();
     void handlePasteAction();
-    virtual void clear();
+    virtual void clear() override;
     void handleShowPropertiesAction();
 
 protected:
     //! \return data depending on the current mode (db-aware or static)
     QByteArray data() const;
 
-    virtual void contextMenuEvent(QContextMenuEvent * e);
+    virtual void contextMenuEvent(QContextMenuEvent * e) override;
     void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) override;
-    virtual void paintEvent(QPaintEvent*);
-    virtual void resizeEvent(QResizeEvent* e);
-    virtual bool eventFilter(QObject * watched, QEvent * e);
+    virtual void paintEvent(QPaintEvent*) override;
+    virtual void resizeEvent(QResizeEvent* e) override;
+    virtual bool eventFilter(QObject * watched, QEvent * e) override;
 
     //! Sets value \a value for a widget.
-    virtual void setValueInternal(const QVariant& add, bool removeOld);
+    virtual void setValueInternal(const QVariant& add, bool removeOld) override;
 
     //! @internal, added \a loadPixmap option used by paste().
     void setValueInternal(const QVariant& add, bool removeOld, bool loadPixmap);
@@ -226,14 +226,14 @@ protected:
     /*! Called by top-level form on key press event.
      Used for Key_Escape to if the popup is visible,
      so the key press won't be consumed to perform "cancel editing". */
-    virtual bool keyPressed(QKeyEvent *ke);
+    virtual bool keyPressed(QKeyEvent *ke) override;
 
     //! \return real line width, i.e. for Boxed sunken or Boxed raised
     //! frames returns doubled width value.
     int realLineWidth() const;
 
     //! Implemented for KexiSubwidgetInterface
-    virtual bool subwidgetStretchRequired(KexiDBAutoField* autoField) const;
+    virtual bool subwidgetStretchRequired(KexiDBAutoField* autoField) const override;
 
     QPixmap m_pixmap;
     QByteArray m_value; //!< for db-aware mode

@@ -52,23 +52,23 @@ public:
         return KexiFormDataItemInterface::dataSourcePluginId();
     }
 
-    virtual QVariant value();
+    virtual QVariant value() override;
 
-    virtual bool valueIsNull();
+    virtual bool valueIsNull() override;
 
-    virtual bool valueIsEmpty();
-
-    //! always false
-    virtual bool cursorAtStart();
+    virtual bool valueIsEmpty() override;
 
     //! always false
-    virtual bool cursorAtEnd();
+    virtual bool cursorAtStart() override;
 
-    virtual void clear();
+    //! always false
+    virtual bool cursorAtEnd() override;
 
-    virtual void setInvalidState(const QString& displayText);
+    virtual void clear() override;
 
-    virtual bool isReadOnly() const;
+    virtual void setInvalidState(const QString& displayText) override;
+
+    virtual bool isReadOnly() const override;
 public Q_SLOTS:
     //! action string for "on click" event
     //! @see KexiFormPart::slotAssignAction()
@@ -93,11 +93,11 @@ public Q_SLOTS:
     inline void setDataSourcePluginId(const QString &pluginId) {
         KexiFormDataItemInterface::setDataSourcePluginId(pluginId);
     }
-    virtual void setReadOnly(bool readOnly);
+    virtual void setReadOnly(bool readOnly) override;
 
 protected:
     //! Sets value \a value for a widget.
-    virtual void setValueInternal(const QVariant& add, bool removeOld);
+    virtual void setValueInternal(const QVariant& add, bool removeOld) override;
 
     friend class KexiDBCommanLinkButtonPrivate;
     KexiDBCommandLinkButtonPrivate * const d;

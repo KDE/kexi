@@ -89,7 +89,7 @@ public:
 
     KexiRelationsTableContainer* focusedTableContainer() const;
 
-    virtual QSize sizeHint() const;
+    virtual QSize sizeHint() const override;
 
     const QSet<KexiRelationsConnection*>* relationsConnections() const;
 
@@ -138,8 +138,8 @@ protected Q_SLOTS:
 
 protected:
     void contentsMousePressEvent(QMouseEvent *ev);
-    virtual void keyPressEvent(QKeyEvent *ev);
-    virtual void contextMenuEvent(QContextMenuEvent* event);
+    virtual void keyPressEvent(QKeyEvent *ev) override;
+    virtual void contextMenuEvent(QContextMenuEvent* event) override;
 
     void hideTable(KexiRelationsTableContainer* tableView);
     void removeConnection(KexiRelationsConnection *conn);

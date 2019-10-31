@@ -38,7 +38,7 @@ public:
     void setMarginEnabled(bool set);
 
 protected:
-    virtual void paintEvent(QPaintEvent *e);
+    virtual void paintEvent(QPaintEvent *e) override;
 
 private:
     void init();

@@ -35,11 +35,11 @@ public:
     KexiListViewSelectionModel(QAbstractItemModel *model, QObject *parent);
 
 public Q_SLOTS:
-    void clear() Q_DECL_OVERRIDE;
+    void clear() override;
     void select(const QModelIndex &index,
-                QItemSelectionModel::SelectionFlags command) Q_DECL_OVERRIDE;
+                QItemSelectionModel::SelectionFlags command) override;
     void select(const QItemSelection &selection,
-                QItemSelectionModel::SelectionFlags command) Q_DECL_OVERRIDE;
+                QItemSelectionModel::SelectionFlags command) override;
 };
 
 #endif

@@ -126,7 +126,7 @@ public:
     void setPaletteInherited();
 
 protected:
-    virtual bool eventFilter(QObject* watched, QEvent* event);
+    virtual bool eventFilter(QObject* watched, QEvent* event) override;
 
 private Q_SLOTS:
     void actionTriggered();

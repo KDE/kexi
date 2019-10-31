@@ -39,12 +39,12 @@ public:
                           KFormDesigner::Container *container,
                           CreateWidgetOptions options = DefaultOptions) override Q_REQUIRED_RESULT;
 
-    virtual void createCustomActions(KActionCollection* col);
+    virtual void createCustomActions(KActionCollection* col) override;
     virtual bool createMenuActions(const QByteArray &classname, QWidget *w, QMenu *menu,
-                                   KFormDesigner::Container *container);
-    virtual bool startInlineEditing(InlineEditorCreationArguments& args);
-    virtual bool previewWidget(const QByteArray &, QWidget *, KFormDesigner::Container *);
-    virtual bool clearWidgetContent(const QByteArray &classname, QWidget *w);
+                                   KFormDesigner::Container *container) override;
+    virtual bool startInlineEditing(InlineEditorCreationArguments& args) override;
+    virtual bool previewWidget(const QByteArray &, QWidget *, KFormDesigner::Container *) override;
+    virtual bool clearWidgetContent(const QByteArray &classname, QWidget *w) override;
 
     //! Moved into public for EditRichTextAction
     bool editRichText(QWidget *w, QString &text) const
@@ -71,18 +71,18 @@ protected Q_SLOTS:
     void reorderTabs(int oldpos, int newpos);
 
 protected:
-    KFormDesigner::ObjectTreeItem* selectableItem(KFormDesigner::ObjectTreeItem* item);
+    KFormDesigner::ObjectTreeItem* selectableItem(KFormDesigner::ObjectTreeItem* item) override;
     virtual bool changeInlineText(KFormDesigner::Form *form, QWidget *widget,
-        const QString &text, QString &oldText);
-    virtual void resizeEditor(QWidget *editor, QWidget *widget, const QByteArray &classname);
+        const QString &text, QString &oldText) override;
+    virtual void resizeEditor(QWidget *editor, QWidget *widget, const QByteArray &classname) override;
 
     virtual bool isPropertyVisibleInternal(const QByteArray& classname, QWidget *w,
-                                           const QByteArray& property, bool isTopLevel);
+                                           const QByteArray& property, bool isTopLevel) override;
 
     //! Sometimes property sets should be reloaded when a given property value changed.
     //! @todo this does not seem to work in Kexi 2.x
     virtual bool propertySetShouldBeReloadedAfterPropertyChange(const QByteArray& classname, QWidget *w,
-            const QByteArray& property);
+            const QByteArray& property) override;
 
     QAction * m_assignAction;
 };

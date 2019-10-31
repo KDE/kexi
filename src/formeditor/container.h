@@ -60,7 +60,7 @@ public:
     void setContainer(QObject *container);
 
 protected:
-    bool eventFilter(QObject *o, QEvent *ev);
+    bool eventFilter(QObject *o, QEvent *ev) override;
 
 private:
     QPointer<QWidget>  m_widget;
@@ -143,7 +143,7 @@ public:
        to the watched widget.\n It takes care of drawing the background and
        the insert rect, of creating the new child widgets, of moving the widgets
         and pop up a menu when right-clicking. */
-    virtual bool eventFilter(QObject *o, QEvent *e);
+    virtual bool eventFilter(QObject *o, QEvent *e) override;
 
 public Q_SLOTS:
     /*! Sets \a selected to be the selected widget of this container

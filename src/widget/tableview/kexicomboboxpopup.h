@@ -76,7 +76,7 @@ protected Q_SLOTS:
 protected:
     void init();
 
-    virtual bool eventFilter(QObject *o, QEvent *e);
+    virtual bool eventFilter(QObject *o, QEvent *e) override;
 
     //! The main function for setting data; data can be set either by passing \a column or \a field.
     //! The second case is used for lookup.

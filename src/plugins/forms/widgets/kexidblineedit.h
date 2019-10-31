@@ -69,47 +69,47 @@ public:
     inline QString dataSourcePluginId() const {
         return KexiFormDataItemInterface::dataSourcePluginId();
     }
-    virtual QVariant value();
-    virtual void setInvalidState(const QString& displayText);
+    virtual QVariant value() override;
+    virtual void setInvalidState(const QString& displayText) override;
 
     //! \return true if editor's value is null (not empty)
     //! Used for checking if a given constraint within table of form is met.
-    virtual bool valueIsNull();
+    virtual bool valueIsNull() override;
 
     //! \return true if editor's value is empty (not necessary null).
     //! Only few data types can accept "EMPTY" property
     //! (use KDbField::hasEmptyProperty() to check this).
     //! Used for checking if a given constraint within table or form is met.
-    virtual bool valueIsEmpty();
+    virtual bool valueIsEmpty() override;
 
     /*! \return true if the value is valid */
-    virtual bool valueIsValid();
+    virtual bool valueIsValid() override;
 
     /*! \return 'readOnly' flag for this widget. */
-    virtual bool isReadOnly() const;
+    virtual bool isReadOnly() const override;
 
     /*! If \a displayDefaultValue is true, the value set by KexiDataItemInterface::setValue()
      is displayed in a special way. Used by KexiFormDataProvider::fillDataItems().
      \a widget is equal to 'this'.
      Reimplemented after KexiFormDataItemInterface. */
-    virtual void setDisplayDefaultValue(QWidget* widget, bool displayDefaultValue);
+    virtual void setDisplayDefaultValue(QWidget* widget, bool displayDefaultValue) override;
 
     /*! \return the view widget of this item, e.g. line edit widget. */
-    virtual QWidget* widget();
+    virtual QWidget* widget() override;
 
-    virtual bool cursorAtStart();
-    virtual bool cursorAtEnd();
-    virtual void clear();
+    virtual bool cursorAtStart() override;
+    virtual bool cursorAtEnd() override;
+    virtual void clear() override;
 
     void setColumnInfo(KDbConnection *conn, KDbQueryColumnInfo* cinfo) override;
 
     /*! Handles action having standard name \a actionName.
      Action could be: "edit_copy", "edit_paste", etc.
      Reimplemented after KexiDataItemInterface. */
-    virtual void handleAction(const QString& actionName);
+    virtual void handleAction(const QString& actionName) override;
 
     /*! Called by top-level form on key press event to consume widget-specific shortcuts. */
-    virtual bool keyPressed(QKeyEvent *ke);
+    virtual bool keyPressed(QKeyEvent *ke) override;
 
     //! Used when read only flag is true
     QString originalText() const { return m_originalText; }
@@ -122,22 +122,22 @@ public Q_SLOTS:
 
     void setDataSourcePluginId(const QString &pluginId);
 
-    virtual void setReadOnly(bool readOnly);
+    virtual void setReadOnly(bool readOnly) override;
 
     //! Reimplemented, so "undo" means the same as "cancelEditor" action
     virtual void undo();
 
     //! Implemented for KexiDataItemInterface
-    virtual void moveCursorToEnd();
+    virtual void moveCursorToEnd() override;
 
     //! Implemented for KexiDataItemInterface
-    virtual void moveCursorToStart();
+    virtual void moveCursorToStart() override;
 
     //! Implemented for KexiDataItemInterface
-    virtual void selectAll();
+    virtual void selectAll() override;
 
     //! Implemented for KexiDataItemInterface
-    virtual bool fixup();
+    virtual bool fixup() override;
 
 protected Q_SLOTS:
     void slotTextChanged(const QString&);
@@ -150,14 +150,14 @@ protected Q_SLOTS:
     void slotReadWriteValidatorDestroyed(QObject*);
 
 protected:
-    virtual void paintEvent(QPaintEvent *);
-    virtual void setValueInternal(const QVariant& add, bool removeOld);
-    virtual bool event(QEvent *);
-    virtual void contextMenuEvent(QContextMenuEvent *e);
-    virtual void changeEvent(QEvent *e);
+    virtual void paintEvent(QPaintEvent *) override;
+    virtual void setValueInternal(const QVariant& add, bool removeOld) override;
+    virtual bool event(QEvent *) override;
+    virtual void contextMenuEvent(QContextMenuEvent *e) override;
+    virtual void changeEvent(QEvent *e) override;
 
     //! Implemented for KexiSubwidgetInterface
-    virtual bool appendStretchRequired(KexiDBAutoField* autoField) const;
+    virtual bool appendStretchRequired(KexiDBAutoField* autoField) const override;
 
     void updateTextForDataSource();
 

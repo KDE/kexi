@@ -67,7 +67,7 @@ protected Q_SLOTS:
     void slotReturnPressed(const QString & text);
 
 protected:
-    virtual void focusOutEvent(QFocusEvent *e);
+    virtual void focusOutEvent(QFocusEvent *e) override;
 
     class Private;
     Private * const d;

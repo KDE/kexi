@@ -55,7 +55,7 @@ public:
     virtual ~Command();
 
     //! Reimplemented to support effect of blockRedoOnce().
-    virtual void redo();
+    virtual void redo() override;
 
     //! Implement instead of redo().
     virtual void execute() = 0;
@@ -93,15 +93,15 @@ public:
 
     Form* form() const;
 
-    virtual int id() const;
+    virtual int id() const override;
 
     void setUniqueId(int id);
 
-    virtual void execute();
+    virtual void execute() override;
 
-    virtual void undo();
+    virtual void undo() override;
 
-    bool mergeWith(const KUndo2Command * command);
+    bool mergeWith(const KUndo2Command * command) override;
 
     QByteArray propertyName() const;
 
@@ -119,7 +119,7 @@ public:
     /*! Otherwise empty value is returned. */
     QByteArray widgetName() const;
 
-    virtual void debug() const;
+    virtual void debug() const override;
 
     friend KFORMDESIGNER_EXPORT QDebug operator<<(QDebug dbg, const PropertyCommand &c);
 protected:
@@ -142,11 +142,11 @@ public:
 
     virtual ~GeometryPropertyCommand();
 
-    virtual int id() const;
+    virtual int id() const override;
 
-    virtual void execute();
+    virtual void execute() override;
 
-    virtual void undo();
+    virtual void undo() override;
 
     void setPos(const QPoint& pos);
 
@@ -154,7 +154,7 @@ public:
 
     QPoint oldPos() const;
 
-    virtual void debug() const;
+    virtual void debug() const override;
 
     friend KFORMDESIGNER_EXPORT QDebug operator<<(QDebug dbg, const GeometryPropertyCommand &c);
 protected:
@@ -176,13 +176,13 @@ public:
 
     virtual ~AlignWidgetsCommand();
 
-    virtual int id() const;
+    virtual int id() const override;
 
-    virtual void execute();
+    virtual void execute() override;
 
-    virtual void undo();
+    virtual void undo() override;
 
-    virtual void debug() const;
+    virtual void debug() const override;
 
     friend KFORMDESIGNER_EXPORT QDebug operator<<(QDebug dbg, const AlignWidgetsCommand &c);
 protected:
@@ -212,13 +212,13 @@ public:
 
     virtual ~AdjustSizeCommand();
 
-    virtual int id() const;
+    virtual int id() const override;
 
-    virtual void execute();
+    virtual void execute() override;
 
-    virtual void undo();
+    virtual void undo() override;
 
-    virtual void debug() const;
+    virtual void debug() const override;
 
     friend KFORMDESIGNER_EXPORT QDebug operator<<(QDebug dbg, const AdjustSizeCommand &c);
 protected:
@@ -243,13 +243,13 @@ public:
 
     virtual ~LayoutPropertyCommand();
 
-    virtual int id() const;
+    virtual int id() const override;
 
-    virtual void execute();
+    virtual void execute() override;
 
-    virtual void undo();
+    virtual void undo() override;
 
-    virtual void debug() const;
+    virtual void debug() const override;
 
     friend KFORMDESIGNER_EXPORT QDebug operator<<(QDebug dbg, const LayoutPropertyCommand &c);
 protected:
@@ -281,16 +281,16 @@ public:
 
     virtual ~InsertWidgetCommand();
 
-    virtual int id() const;
+    virtual int id() const override;
 
-    virtual void execute();
+    virtual void execute() override;
 
-    virtual void undo();
+    virtual void undo() override;
 
     //! @return inserted widget's name
     QByteArray widgetName() const;
 
-    virtual void debug() const;
+    virtual void debug() const override;
 
     friend KFORMDESIGNER_EXPORT QDebug operator<<(QDebug dbg, const InsertWidgetCommand &c);
 protected:
@@ -316,13 +316,13 @@ public:
 
     virtual ~PasteWidgetCommand();
 
-    virtual int id() const;
+    virtual int id() const override;
 
-    virtual void execute();
+    virtual void execute() override;
 
-    virtual void undo();
+    virtual void undo() override;
 
-    virtual void debug() const;
+    virtual void debug() const override;
 
     friend KFORMDESIGNER_EXPORT QDebug operator<<(QDebug dbg, const PasteWidgetCommand &c);
 
@@ -364,13 +364,13 @@ public:
 
     virtual ~DeleteWidgetCommand();
 
-    virtual int id() const;
+    virtual int id() const override;
 
-    virtual void execute();
+    virtual void execute() override;
 
-    virtual void undo();
+    virtual void undo() override;
 
-    virtual void debug() const;
+    virtual void debug() const override;
 
     friend KFORMDESIGNER_EXPORT QDebug operator<<(QDebug dbg, const DeleteWidgetCommand &c);
 protected:
@@ -391,13 +391,13 @@ public:
 
     virtual ~DuplicateWidgetCommand();
 
-    virtual int id() const;
+    virtual int id() const override;
 
-    virtual void execute();
+    virtual void execute() override;
 
-    virtual void undo();
+    virtual void undo() override;
 
-    virtual void debug() const;
+    virtual void debug() const override;
 
     friend KFORMDESIGNER_EXPORT QDebug operator<<(QDebug dbg, const DuplicateWidgetCommand &c);
 protected:
@@ -417,13 +417,13 @@ public:
 
     virtual ~CutWidgetCommand();
 
-    virtual int id() const;
+    virtual int id() const override;
 
-    virtual void execute();
+    virtual void execute() override;
 
-    virtual void undo();
+    virtual void undo() override;
 
-    virtual void debug() const;
+    virtual void debug() const override;
 
     friend KFORMDESIGNER_EXPORT QDebug operator<<(QDebug dbg, const CutWidgetCommand &c);
 protected:
@@ -443,11 +443,11 @@ public:
 
     virtual ~PropertyCommandGroup();
 
-    virtual int id() const;
+    virtual int id() const override;
 
-    virtual void execute();
+    virtual void execute() override;
 
-    virtual void debug() const;
+    virtual void debug() const override;
 
     friend KFORMDESIGNER_EXPORT QDebug operator<<(QDebug dbg, const PropertyCommandGroup &c);
 protected:
@@ -470,15 +470,15 @@ public:
 
     virtual ~InlineTextEditingCommand();
 
-    virtual int id() const;
+    virtual int id() const override;
 
-    virtual bool mergeWith(const KUndo2Command * command);
+    virtual bool mergeWith(const KUndo2Command * command) override;
 
-    virtual void execute();
+    virtual void execute() override;
 
-    virtual void debug() const;
+    virtual void debug() const override;
 
-    virtual void undo();
+    virtual void undo() override;
 
     Form* form() const;
 
@@ -503,15 +503,15 @@ public:
 
     virtual ~InsertPageCommand();
 
-    virtual int id() const;
+    virtual int id() const override;
 
-    virtual void execute();
+    virtual void execute() override;
 
     void execute(const QString& pageWidgetName, const QString& pageName, int pageIndex);
 
-    virtual void debug() const;
+    virtual void debug() const override;
 
-    virtual void undo();
+    virtual void undo() override;
 
     void undo(const QString& name);
 
@@ -532,13 +532,13 @@ public:
 
     virtual ~RemovePageCommand();
 
-    virtual int id() const;
+    virtual int id() const override;
 
-    virtual void execute();
+    virtual void execute() override;
 
-    virtual void debug() const;
+    virtual void debug() const override;
 
-    virtual void undo();
+    virtual void undo() override;
 
     int pageIndex() const;
 

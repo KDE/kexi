@@ -48,7 +48,7 @@ public:
 
     }
 
-    QSize sizeHint() const
+    QSize sizeHint() const override
     {
         if (tickPosition() == QSlider::NoTicks)
             return QSlider::sizeHint();
@@ -71,7 +71,7 @@ public:
     }
 
 protected:
-    virtual void paintEvent(QPaintEvent *ev)
+    virtual void paintEvent(QPaintEvent *ev) override
     {
         if (tickPosition() == QSlider::NoTicks)
             return QSlider::paintEvent(ev);

@@ -73,10 +73,10 @@ public:
      */
     virtual ~KexiReportPart();
 
-    virtual void setupPropertyPane(KexiPropertyPaneWidget *pane);
+    virtual void setupPropertyPane(KexiPropertyPaneWidget *pane) override;
 
     virtual KLocalizedString i18nMessage(const QString& englishMessage,
-                                         KexiWindow* window) const;
+                                         KexiWindow* window) const override;
 
     QStringList scriptList() const override;
     QString scriptCode(const QString& script) const override;
@@ -88,10 +88,10 @@ protected:
 
     KexiWindowData* createWindowData(KexiWindow* window) override Q_REQUIRED_RESULT;
 
-    virtual void initPartActions();
+    virtual void initPartActions() override;
 
     virtual KDbObject* loadSchemaObject(KexiWindow *window,
-            const KDbObject& object, Kexi::ViewMode viewMode, bool *ownedByWindow);
+            const KDbObject& object, Kexi::ViewMode viewMode, bool *ownedByWindow) override;
 
 private Q_SLOTS:
     void slotToolboxActionTriggered(bool checked);

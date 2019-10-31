@@ -89,7 +89,7 @@ public:
     //! Copy constructor needed required by foreach()
     HorizontalWidgetList(const HorizontalWidgetList& list);
     virtual ~HorizontalWidgetList();
-    virtual void sort();
+    virtual void sort() override;
 protected:
     class LessThan;
     LessThan *m_lessThan;
@@ -103,7 +103,7 @@ public:
     //! Copy constructor needed required by foreach()
     VerticalWidgetList(const VerticalWidgetList& list);
     virtual ~VerticalWidgetList();
-    virtual void sort();
+    virtual void sort() override;
 protected:
     class LessThan;
     LessThan *m_lessThan;

@@ -52,8 +52,8 @@ public:
     const QAction *action_import_project;
 
 public Q_SLOTS:
-    virtual void nextPageRequested(KexiAssistantPage* page);
-    virtual void cancelRequested(KexiAssistantPage* page);
+    virtual void nextPageRequested(KexiAssistantPage* page) override;
+    virtual void cancelRequested(KexiAssistantPage* page) override;
 
 Q_SIGNALS:
     void importProject();

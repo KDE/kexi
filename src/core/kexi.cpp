@@ -314,7 +314,7 @@ public:
     virtual void showErrorMessage(KDbMessageHandler::MessageType messageType,
                                   const QString &msg,
                                   const QString &details = QString(),
-                                  const QString &caption = QString())
+                                  const QString &caption = QString()) override
     {
         Q_UNUSED(messageType);
         Q_UNUSED(caption);
@@ -324,7 +324,7 @@ public:
     virtual void showErrorMessage(const KDbResult& result,
                                   KDbMessageHandler::MessageType messageType = KDbMessageHandler::Error,
                                   const QString& msg = QString(),
-                                  const QString& caption = QString())
+                                  const QString& caption = QString()) override
     {
         Q_UNUSED(messageType);
         m_status->setStatus(result, 0, caption, msg);
