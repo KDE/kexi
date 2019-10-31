@@ -142,7 +142,7 @@ protected:
     void updateValuesForSubproperties();
 
     //! Reimplemented to pass the information
-    void propertySetSwitched() Q_DECL_OVERRIDE;
+    void propertySetSwitched() override;
 
     virtual void resizeEvent(QResizeEvent *) override;
 

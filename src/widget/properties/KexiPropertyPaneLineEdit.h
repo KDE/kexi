@@ -40,8 +40,8 @@ Q_SIGNALS:
     void focusOut();
 
 protected:
-    void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
-    void focusOutEvent(QFocusEvent *event) Q_DECL_OVERRIDE;
+    void keyPressEvent(QKeyEvent *event) override;
+    void focusOutEvent(QFocusEvent *event) override;
 
 private:
     class Private;

@@ -79,8 +79,8 @@ Q_SIGNALS:
     void projectNavigatorAnimationFinished(bool visible);
 
 protected:
-    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
-    void showEvent(QShowEvent *e) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent *e) override;
+    void showEvent(QShowEvent *e) override;
 
 private:
     void setupCentralWidget();

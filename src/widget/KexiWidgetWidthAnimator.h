@@ -41,7 +41,7 @@ Q_SIGNALS:
 protected:
     int width() const;
     void setWidth(int width);
-    bool eventFilter(QObject *obj, QEvent *event) Q_DECL_OVERRIDE;
+    bool eventFilter(QObject *obj, QEvent *event) override;
 
 protected Q_SLOTS:
     void slotWidthAnimationFinished();

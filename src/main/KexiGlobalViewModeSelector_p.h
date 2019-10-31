@@ -44,13 +44,13 @@ public:
 
     ~KexiGlobalViewModeSelectorModel();
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const  Q_DECL_OVERRIDE;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const  override;
 
-    QVariant data(const QModelIndex &index, int role) const  Q_DECL_OVERRIDE;
+    QVariant data(const QModelIndex &index, int role) const  override;
 
-    Qt::ItemFlags flags(const QModelIndex &index) const Q_DECL_OVERRIDE;
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
 
-    QModelIndex index(int row, int column, const QModelIndex& parent) const Q_DECL_OVERRIDE;
+    QModelIndex index(int row, int column, const QModelIndex& parent) const override;
 
     QList<KexiGlobalViewModeItem*> modes;
 };
@@ -64,7 +64,7 @@ public:
     explicit KexiGlobalViewModeSelectorDelegate(QObject *parent = 0);
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option,
-               const QModelIndex &index) const Q_DECL_OVERRIDE;
+               const QModelIndex &index) const override;
 };
 
 #endif // KEXIGLOBALVIEWMODESELECTOR_P_H

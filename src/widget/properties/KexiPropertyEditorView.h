@@ -47,8 +47,8 @@ public:
     explicit KexiPropertyEditorView(QWidget* parent);
     virtual ~KexiPropertyEditorView();
 
-    QSize sizeHint() const Q_DECL_OVERRIDE;
-    QSize minimumSizeHint() const Q_DECL_OVERRIDE;
+    QSize sizeHint() const override;
+    QSize minimumSizeHint() const override;
     KPropertyEditorView *editor() const;
 
 protected Q_SLOTS:

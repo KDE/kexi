@@ -233,12 +233,12 @@ public:
      : m_parameters(parameters)
     {
     }
-    inline QIconEngine *clone() const Q_DECL_OVERRIDE {
+    inline QIconEngine *clone() const override {
         return new IconEngine(*this);
     }
 
     //! @todo add caching?
-    QPixmap pixmap(const QSize &size, QIcon::Mode mode, QIcon::State state) Q_DECL_OVERRIDE {
+    QPixmap pixmap(const QSize &size, QIcon::Mode mode, QIcon::State state) override {
         Q_UNUSED(state)
         QFile f(QLatin1String(":/icons/breeze/") + g_contexts[m_parameters.context] + QChar('/') + QString::number(size.width())
                 + QChar('/') + m_parameters.name + ".svg");
@@ -267,7 +267,7 @@ public:
     }
 
     //! Nothing to paint extra here
-    void paint(QPainter *painter, const QRect &rect, QIcon::Mode mode, QIcon::State state) Q_DECL_OVERRIDE {
+    void paint(QPainter *painter, const QRect &rect, QIcon::Mode mode, QIcon::State state) override {
         Q_UNUSED(painter)
         Q_UNUSED(rect)
         Q_UNUSED(mode)

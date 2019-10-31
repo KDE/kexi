@@ -44,7 +44,7 @@ public:
     {
     }
 
-    int pixelMetric(PixelMetric metric, const QStyleOption* option, const QWidget* widget) const Q_DECL_OVERRIDE {
+    int pixelMetric(PixelMetric metric, const QStyleOption* option, const QWidget* widget) const override {
         const QLineEdit* lineEdit = qobject_cast<const QLineEdit*>(widget);
         if (lineEdit) {
             switch( metric ) {
@@ -60,7 +60,7 @@ public:
         return QProxyStyle::pixelMetric(metric, option, widget);
     }
 
-    QRect subControlRect(ComplexControl cc, const QStyleOptionComplex *opt, SubControl sc, const QWidget *widget) const Q_DECL_OVERRIDE {
+    QRect subControlRect(ComplexControl cc, const QStyleOptionComplex *opt, SubControl sc, const QWidget *widget) const override {
         if (cc == CC_ComboBox) {
             if (sc == SC_ComboBoxEditField) {
                 //qDebug() << opt->rect;
@@ -72,7 +72,7 @@ public:
         return QProxyStyle::subControlRect(cc, opt, sc, widget);
     }
 
-    QSize sizeFromContents(ContentsType type, const QStyleOption *option, const QSize &size, const QWidget *widget) const Q_DECL_OVERRIDE {
+    QSize sizeFromContents(ContentsType type, const QStyleOption *option, const QSize &size, const QWidget *widget) const override {
         if (type == CT_ComboBox) {
             return size;
         }
@@ -83,7 +83,7 @@ public:
     }
 
     void drawPrimitive(PrimitiveElement element, const QStyleOption* option, QPainter* painter,
-                       const QWidget* widget ) const Q_DECL_OVERRIDE
+                       const QWidget* widget ) const override
     {
         switch (element) {
         case PE_FrameLineEdit: {
@@ -139,7 +139,7 @@ public:
     }
 
     void drawComplexControl(ComplexControl cc, const QStyleOptionComplex *option, QPainter *painter,
-                            const QWidget *widget = nullptr) const Q_DECL_OVERRIDE
+                            const QWidget *widget = nullptr) const override
     {
         QProxyStyle::drawComplexControl(cc, option, painter, widget);
         const bool enabled(option->state & State_Enabled);
@@ -163,7 +163,7 @@ public:
     }
 
     QIcon standardIcon(StandardPixmap standardIcon, const QStyleOption *option = nullptr,
-                       const QWidget *widget = nullptr) const Q_DECL_OVERRIDE
+                       const QWidget *widget = nullptr) const override
     {
         if (standardIcon == SP_LineEditClearButton) {
             return koDarkIcon("edit-clear-small");
@@ -182,7 +182,7 @@ public:
     {
         parent->installEventFilter(this);
     }
-    bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE {
+    bool eventFilter(QObject *watched, QEvent *event) override {
         if (event->type() == QEvent::StyleChange) {
             return true;
         }

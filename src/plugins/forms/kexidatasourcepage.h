@@ -48,7 +48,7 @@ public:
     explicit KexiDataSourcePage(QWidget *parent = 0);
     virtual ~KexiDataSourcePage();
 
-    //QSize sizeHint() const Q_DECL_OVERRIDE { return QSize(); }
+    //QSize sizeHint() const override { return QSize(); }
 
     enum AssignFlag {
         NoFlags = 0,

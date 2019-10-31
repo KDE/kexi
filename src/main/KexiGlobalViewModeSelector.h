@@ -51,19 +51,19 @@ Q_SIGNALS:
     void currentModeChanged(Kexi::GlobalViewMode previousMode);
 
 protected Q_SLOTS:
-    void currentChanged(const QModelIndex &current, const QModelIndex &previous) Q_DECL_OVERRIDE;
+    void currentChanged(const QModelIndex &current, const QModelIndex &previous) override;
 
 protected:
-    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent *event) override;
 
     //! Reimplemented to handle keyboardModifiers() and disable modifiers for selections
-    void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void mousePressEvent(QMouseEvent *event) override;
 
     //! Emptied to disable double clicks
-    void mouseDoubleClickEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void mouseDoubleClickEvent(QMouseEvent *event) override;
 
     //! Emptied to disable dragging over items that changes selection
-    void mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void mouseMoveEvent(QMouseEvent *event) override;
 
     class Private;
     const QScopedPointer<Private> d;

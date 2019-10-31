@@ -96,7 +96,7 @@ public:
     virtual bool userMode() const override;
 
     //! @return current global mode
-    Kexi::GlobalViewMode currentMode() const Q_DECL_OVERRIDE;
+    Kexi::GlobalViewMode currentMode() const override;
 
     /*! \return true if opening of item \a item in \a viewMode mode is allowed.
      userMode() is taken into account as well
@@ -411,7 +411,7 @@ protected:
 
     virtual void closeEvent(QCloseEvent *ev) override;
 
-    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent *e) override;
 
     //! Called by KexiMainWidget::queryClose()
     bool queryClose();
@@ -440,17 +440,17 @@ protected:
 
      Implemented for KexiMainWindow.
      @see KexiPropertyPaneWidget::updateInfoLabelForPropertySet() */
-    void updatePropertyEditorInfoLabel() Q_DECL_OVERRIDE;
+    void updatePropertyEditorInfoLabel() override;
 
     //! Activates design tab when switching to design view, according to \a pluginId.
     void activateDesignTab(const QString &pluginId);
 
     //! Sets current global mode
-    void setCurrentMode(Kexi::GlobalViewMode mode) Q_DECL_OVERRIDE;
+    void setCurrentMode(Kexi::GlobalViewMode mode) override;
 
-    void beginPropertyPaneUpdate() Q_DECL_OVERRIDE;
+    void beginPropertyPaneUpdate() override;
 
-    void endPropertyPaneUpdate() Q_DECL_OVERRIDE;
+    void endPropertyPaneUpdate() override;
 
 protected Q_SLOTS:
     tristate createNewProject(const KexiProjectData &projectData);

@@ -101,7 +101,7 @@ public:
      Reimplemented to mark the query obsolete by using KDbConnection::setQuerySchemaObsolete(). */
     virtual tristate rename(KexiPart::Item *item, const QString& newName) override;
 
-    void setupPropertyPane(KexiPropertyPaneWidget* pane) Q_DECL_OVERRIDE;
+    void setupPropertyPane(KexiPropertyPaneWidget* pane) override;
 
     /**
      * Closes objects that listenen to changes of the query schema @a query, i.e. use it.
