@@ -37,7 +37,7 @@ public:
 
     virtual ~KexiListView();
 
-    void setModel(QAbstractItemModel *model) Q_DECL_OVERRIDE;
+    void setModel(QAbstractItemModel *model) override;
 
 private Q_SLOTS:
     void updateWidth();

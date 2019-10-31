@@ -130,7 +130,7 @@ protected Q_SLOTS:
     }
 
 protected:
-    bool event(QEvent *e) Q_DECL_OVERRIDE;
+    bool event(QEvent *e) override;
 
     class Private;
     Private * const d;

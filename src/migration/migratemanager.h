@@ -78,10 +78,10 @@ public:
     QString possibleProblemsMessage() const;
 
     //! @return list of file MIME types that are supported by migration drivers
-    QStringList supportedFileMimeTypes() Q_DECL_OVERRIDE;
+    QStringList supportedFileMimeTypes() override;
 
     //! @return list of KDb driver IDs supported that are supported by migration drivers
-    QStringList supportedSourceDriverIds() Q_DECL_OVERRIDE;
+    QStringList supportedSourceDriverIds() override;
 };
 
 } //namespace KexiMigrate

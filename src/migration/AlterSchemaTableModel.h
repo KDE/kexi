@@ -45,7 +45,7 @@ public:
 private:
     //! Reimplemented just to avoid 'hidden' warnings
     bool setData(const QModelIndex & index, const QVariant & value,
-                 int role = Qt::EditRole) Q_DECL_OVERRIDE
+                 int role = Qt::EditRole) override
     {
         return QAbstractTableModel::setData(index, value, role);
     }

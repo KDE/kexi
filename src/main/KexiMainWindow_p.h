@@ -342,7 +342,7 @@ public:
     virtual ~KexiDockWidgetStyle();
 
     using QProxyStyle::polish;
-    void polish(QWidget* widget) Q_DECL_OVERRIDE;
+    void polish(QWidget* widget) override;
 };
 
 class KexiMainWidget;

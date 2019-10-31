@@ -35,9 +35,9 @@ public:
     explicit KexiListViewDelegate(QObject *parent = 0);
 
     void paint(QPainter *painter, const QStyleOptionViewItem &option,
-               const QModelIndex &index) const Q_DECL_OVERRIDE;
+               const QModelIndex &index) const override;
     QSize sizeHint(const QStyleOptionViewItem &option,
-                   const QModelIndex &index) const Q_DECL_OVERRIDE;
+                   const QModelIndex &index) const override;
 
 private:
     void drawFocus(QPainter *, const QStyleOptionViewItem &, const QRect &) const;
@@ -51,11 +51,11 @@ public:
     KexiListViewSelectionModel(QAbstractItemModel *model, QObject *parent);
 
 public Q_SLOTS:
-    void clear() Q_DECL_OVERRIDE;
+    void clear() override;
     void select(const QModelIndex &index,
-                QItemSelectionModel::SelectionFlags command) Q_DECL_OVERRIDE;
+                QItemSelectionModel::SelectionFlags command) override;
     void select(const QItemSelection &selection,
-                QItemSelectionModel::SelectionFlags command) Q_DECL_OVERRIDE;
+                QItemSelectionModel::SelectionFlags command) override;
 };
 
 #endif
