@@ -124,7 +124,7 @@ public:
         QProxyStyle::drawPrimitive(element, option, painter, widget);
     }
 
-    void drawControl(ControlElement element, const QStyleOption *opt, QPainter *p, const QWidget *widget) const {
+    void drawControl(ControlElement element, const QStyleOption *opt, QPainter *p, const QWidget *widget) const override {
         if (element == CE_ComboBoxLabel) {
             const QStyleOptionComboBox *cb = qstyleoption_cast<const QStyleOptionComboBox *>(opt);
             if (cb) {

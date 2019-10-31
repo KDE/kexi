@@ -54,9 +54,9 @@ protected:
     void showContextMenuForTab(int index, const QPoint& point);
 
     //! Reimplemented to hide frame when no tabs are displayed
-    virtual void paintEvent(QPaintEvent * event);
+    virtual void paintEvent(QPaintEvent * event) override;
 
-    virtual void mousePressEvent(QMouseEvent *event);
+    virtual void mousePressEvent(QMouseEvent *event) override;
 
     KexiObjectViewWidget *m_mainWidget;
 
