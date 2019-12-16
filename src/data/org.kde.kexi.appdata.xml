@@ -39,6 +39,7 @@
   <summary xml:lang="de">Visuelle Erstellung von Datenbankanwendungen</summary>
   <summary xml:lang="en-GB">Visual database apps builder</summary>
   <summary xml:lang="es">Constructor visual de aplicaciones de base de datos</summary>
+  <summary xml:lang="et">Visuaalne andmebaasirakenduste looja</summary>
   <summary xml:lang="fi">Visuaalinen tietokantasovellusten luonti</summary>
   <summary xml:lang="fr">Constructeur d'applications de bases de données visuel</summary>
   <summary xml:lang="gl">Construtor visual de aplicativos de base de datos</summary>
@@ -165,6 +166,7 @@
       <li xml:lang="de">Unterstützt Datenbanken wie SQLite, MySQL, PostgreSQL, xBase und Sybase/MS SQL Server</li>
       <li xml:lang="en-GB">Supports SQLite, MySQL, PostgreSQL, xBase, and Sybase/MS SQL Server databases</li>
       <li xml:lang="es">Permite usar servidores de bases de datos SQLite, MySQL, PostgreSQL, xBase y Sybase/MS SQL</li>
+      <li xml:lang="et">SQLite'i, MySQL'i, PostgreSQL-i, xBase'i ja Sybase/MS SQL Serveri andmebaaside toetamine</li>
       <li xml:lang="fi">SQLite-, MySQL-, PostgreSQL-, xBase- ja Sybase/MS SQL Server -tietokantojen tuki</li>
       <li xml:lang="fr">Prend en charge les bases de données SQLite, MySQL, PostgreSQL, xBase et Sybase/MS SQL Server</li>
       <li xml:lang="gl">Compatíbel con bases de datos SQLite, MySQL, PostgreSQL, xBase, Sybase SQL Server e MS SQL Server.</li>
@@ -186,6 +188,7 @@
       <li xml:lang="de">Das einzige Programm mit grafischer Oberfläche für mehrere Plattformen, das Daten aus MS-Access-Datenbanken importieren kann.</li>
       <li xml:lang="en-GB">The only multiplatform visual tool that can easily import data from MS Access databases</li>
       <li xml:lang="es">La única herramienta gráfica multiplataforma que puede importar con facilidad datos de las bases de datos de MS Access</li>
+      <li xml:lang="et">Ainuke mitmel platvormil töötav visuaalne töörist MS Accessi andmebaaside andmete importimiseks</li>
       <li xml:lang="fi">Ainoa useampialustainen visuaalinen työkalu, jolla voi helposti tuoda tietoja MS Access -tietokannoista</li>
       <li xml:lang="fr">Le seul outil visuel multi plates-formes qui importe les bases de données de MS Access</li>
       <li xml:lang="gl">A única ferramenta visual multiplataforma que pode importar facilmente datos de bases de datos de MS Access.</li>
@@ -207,6 +210,7 @@
       <li xml:lang="de">Unterstützt Abfrageentwürfe in einer eigenen SQL-Ansicht</li>
       <li xml:lang="en-GB">Support for query design in dedicated SQL view</li>
       <li xml:lang="es">Permite el diseño de consultas en vista SQL dedicada</li>
+      <li xml:lang="et">Päringute kujundamise toetamine SQL-vaates</li>
       <li xml:lang="fi">Kyselyn suunnittelun tuki SQL-näkymässä</li>
       <li xml:lang="fr">Prend en charge la conception de requêtes SQL dans une vue dédiée</li>
       <li xml:lang="gl">Funcionalidade de deseño de consultas nunha vista de SQL dedicada.</li>
@@ -335,6 +339,7 @@
       <caption xml:lang="ca-valencia">Vista de taules</caption>
       <caption xml:lang="en-GB">Tabular view</caption>
       <caption xml:lang="es">Vista tabular</caption>
+      <caption xml:lang="et">Tabelivaade</caption>
       <caption xml:lang="fi">Taulukkonäkymä</caption>
       <caption xml:lang="fr">Vue tabulaire</caption>
       <caption xml:lang="gl">Vista de táboa</caption>
@@ -360,6 +365,7 @@
       <caption xml:lang="de">Abfrage-Designer</caption>
       <caption xml:lang="en-GB">Query Designer</caption>
       <caption xml:lang="es">Diseñador de consultas</caption>
+      <caption xml:lang="et">Päringukujundaja</caption>
       <caption xml:lang="fi">Kyselyjen suunnittelu</caption>
       <caption xml:lang="fr">Concepteur de requêtes</caption>
       <caption xml:lang="gl">Deseñador de consultas</caption>
@@ -385,6 +391,7 @@
       <caption xml:lang="de">SQL-Editor</caption>
       <caption xml:lang="en-GB">SQL Editor</caption>
       <caption xml:lang="es">Editor SQL</caption>
+      <caption xml:lang="et">SQL-redaktor</caption>
       <caption xml:lang="fi">SQL-muokkain</caption>
       <caption xml:lang="fr">Éditeur SQL</caption>
       <caption xml:lang="gl">Editor de SQL</caption>
@@ -439,6 +446,7 @@
       <caption xml:lang="de">Berichts-Designer</caption>
       <caption xml:lang="en-GB">Report Designer</caption>
       <caption xml:lang="es">Diseñador de informes</caption>
+      <caption xml:lang="et">Aruandekujundaja</caption>
       <caption xml:lang="fi">Raporttien suunnittelu</caption>
       <caption xml:lang="fr">Concepteur de rapports</caption>
       <caption xml:lang="gl">Deseñador de informes</caption>
@@ -464,6 +472,7 @@
       <caption xml:lang="de">Import von MS Access Datenbank</caption>
       <caption xml:lang="en-GB">MS Access database import</caption>
       <caption xml:lang="es">Importación de bases de datos de MS Access</caption>
+      <caption xml:lang="et">MS Accessi andmebaasi import</caption>
       <caption xml:lang="fi">MS Access -tietokannan tuonti</caption>
       <caption xml:lang="fr">Importation de base de données MS Access</caption>
       <caption xml:lang="gl">Importación da base de datos de MS Access</caption>
