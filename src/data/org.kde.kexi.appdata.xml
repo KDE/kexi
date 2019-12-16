@@ -10,6 +10,7 @@
   <name xml:lang="de">Kexi</name>
   <name xml:lang="en-GB">KEXI</name>
   <name xml:lang="es">KEXI</name>
+  <name xml:lang="et">KEXI</name>
   <name xml:lang="fi">Kexi</name>
   <name xml:lang="fr">KEXI</name>
   <name xml:lang="gl">KEXI</name>
@@ -31,6 +32,7 @@
   <summary xml:lang="de">Visuelle Erstellung von Datenbankanwendungen</summary>
   <summary xml:lang="en-GB">Visual database apps builder</summary>
   <summary xml:lang="es">Constructor visual de aplicaciones de base de datos</summary>
+  <summary xml:lang="et">Visuaalne andmebaasirakenduste looja</summary>
   <summary xml:lang="fi">Visuaalinen tietokantasovellusten luonti</summary>
   <summary xml:lang="fr">Constructeur d'applications de bases de données visuel</summary>
   <summary xml:lang="gl">Construtor visual de aplicativos de base de datos</summary>
@@ -58,6 +60,7 @@
     <p xml:lang="ca-valencia">El KEXI és un constructor visual de base de dades. Es pot utilitzar per dissenyar aplicacions de bases de dades, inserció i edició de dades, execució de consultes, i procés de dades. Es poden generar formularis per proporcionar una interfície personalitzada a les dades. Tots els objectes de les bases de dades -taules, consultes, formularis, informes, etc.- s'emmagatzemen en la base de dades, facilitant compartir les dades i el disseny.</p>
     <p xml:lang="en-GB">KEXI is a visual database applications builder. It can be used for designing database applications, inserting and editing data, performing queries, and processing data. Forms can be created to provide a custom interface to your data. All database objects - tables, queries, forms, reports, etc. - are stored in the database, making it easy to share data and design.</p>
     <p xml:lang="es">KEXI es un creador visual de aplicaciones de bases de datos. Se puede usar para diseñar aplicaciones de bases de datos, insertar y editar datos, realizar consultas y procesar datos. Se pueden crear formularios para proporcionar una interfaz personalizada para sus datos. Todos los objetos de la base de datos (tablas, consultas, formularios, informes, etc.) se almacenan en la base de datos, facilitando el intercambio de datos y diseños.</p>
+    <p xml:lang="et">Kexi on visuaalne andmebaaside loomise rakendus. Selle abil saab kujundada andmebaasirakendusi, sisestada ja muuta andmeid, sooritada päringuid ning töödelda andmeid. Saab luua vorme, mis kindlustada andmetele kohandatava liidese. Kõik andmebaasiobjektid - tabelid, päringud, vormid, aruanded jne - salvestatakse andmebaasi, mis muudab andmete ja kujunduse jagamise õige lihtsaks.</p>
     <p xml:lang="fi">Kexi on ohjelma tietokantasovellusten luomiseen visuaalisesti. Sitä voi käyttää tietokantasovellusten suunniteluun, tiedon lisäämiseen ja muokkaukseen, kyselyihin ja tiedon käsittelyyn. Lomakkein voi luoda tietoon mukautettuja käyttöliittymiä. Kaikki tietokantaoliot – taulukot, kyselyt, lomakkeet, raportit jne – tallennetaan tietokantaan, jolloin tiedon jakaminen ja suunnittelu on helppoa.</p>
     <p xml:lang="fr">Kexi est un constructeur d'applications de bases de données visuel. Il peut être utilisé pour concevoir des applications de base de données, insérer et éditer des données, effectuer des requêtes, et traiter des données. Des formulaires peuvent être créés pour fournir une interface personnalisée pour vos données. Tous les objets de bases de données (tables, requêtes, formulaires, rapports, etc.) sont stockés dans la base de données, simplifiant le partage de données et de design.</p>
     <p xml:lang="gl">KEXI é un construtor visual de aplicacións de base de datos. Pode usarse para deseñar aplicacións de base de datos, inserindo e editando datos, realizando consultas, e procesando datos. Poden crearse formularios para fornecer unha interface personalizada para os datos. Todos os obxectos de base de datos (táboas, consultas, formularios, informes, etc.) almacénanse na base de datos, facendo fácil compartir os datos e o deseño.</p>
@@ -157,6 +160,7 @@
       <li xml:lang="de">Unterstützt Datenbanken wie SQLite, MySQL, PostgreSQL, xBase und Sybase/MS SQL Server</li>
       <li xml:lang="en-GB">Supports SQLite, MySQL, PostgreSQL, xBase, and Sybase/MS SQL Server databases</li>
       <li xml:lang="es">Permite usar servidores de bases de datos SQLite, MySQL, PostgreSQL, xBase y Sybase/MS SQL</li>
+      <li xml:lang="et">SQLite'i, MySQL'i, PostgreSQL-i, xBase'i ja Sybase/MS SQL Serveri andmebaaside toetamine</li>
       <li xml:lang="fi">SQLite-, MySQL-, PostgreSQL-, xBase- ja Sybase/MS SQL Server -tietokantojen tuki</li>
       <li xml:lang="fr">Prend en charge les bases de données SQLite, MySQL, PostgreSQL, xBase et Sybase/MS SQL Server</li>
       <li xml:lang="gl">Compatíbel con bases de datos SQLite, MySQL, PostgreSQL, xBase, Sybase SQL Server e MS SQL Server.</li>
@@ -178,6 +182,7 @@
       <li xml:lang="de">Das einzige Programm mit grafischer Oberfläche für mehrere Plattformen, das Daten aus MS-Access-Datenbanken importieren kann.</li>
       <li xml:lang="en-GB">The only multiplatform visual tool that can easily import data from MS Access databases</li>
       <li xml:lang="es">La única herramienta gráfica multiplataforma que puede importar con facilidad datos de las bases de datos de MS Access</li>
+      <li xml:lang="et">Ainuke mitmel platvormil töötav visuaalne töörist MS Accessi andmebaaside andmete importimiseks</li>
       <li xml:lang="fi">Ainoa useampialustainen visuaalinen työkalu, jolla voi helposti tuoda tietoja MS Access -tietokannoista</li>
       <li xml:lang="fr">Le seul outil visuel multi plates-formes qui importe les bases de données de MS Access</li>
       <li xml:lang="gl">A única ferramenta visual multiplataforma que pode importar facilmente datos de bases de datos de MS Access.</li>
@@ -199,6 +204,7 @@
       <li xml:lang="de">Unterstützt Abfrageentwürfe in einer eigenen SQL-Ansicht</li>
       <li xml:lang="en-GB">Support for query design in dedicated SQL view</li>
       <li xml:lang="es">Permite el diseño de consultas en vista SQL dedicada</li>
+      <li xml:lang="et">Päringute kujundamise toetamine SQL-vaates</li>
       <li xml:lang="fi">Kyselyn suunnittelun tuki SQL-näkymässä</li>
       <li xml:lang="fr">Prend en charge la conception de requêtes SQL dans une vue dédiée</li>
       <li xml:lang="gl">Funcionalidade de deseño de consultas nunha vista de SQL dedicada.</li>
@@ -327,6 +333,7 @@
       <caption xml:lang="ca-valencia">Vista de taules</caption>
       <caption xml:lang="en-GB">Tabular view</caption>
       <caption xml:lang="es">Vista tabular</caption>
+      <caption xml:lang="et">Tabelivaade</caption>
       <caption xml:lang="fi">Taulukkonäkymä</caption>
       <caption xml:lang="fr">Vue tabulaire</caption>
       <caption xml:lang="gl">Vista de táboa</caption>
@@ -352,6 +359,7 @@
       <caption xml:lang="de">Abfrage-Designer</caption>
       <caption xml:lang="en-GB">Query Designer</caption>
       <caption xml:lang="es">Diseñador de consultas</caption>
+      <caption xml:lang="et">Päringukujundaja</caption>
       <caption xml:lang="fi">Kyselyjen suunnittelu</caption>
       <caption xml:lang="fr">Concepteur de requêtes</caption>
       <caption xml:lang="gl">Deseñador de consultas</caption>
@@ -377,6 +385,7 @@
       <caption xml:lang="de">SQL-Editor</caption>
       <caption xml:lang="en-GB">SQL Editor</caption>
       <caption xml:lang="es">Editor SQL</caption>
+      <caption xml:lang="et">SQL-redaktor</caption>
       <caption xml:lang="fi">SQL-muokkain</caption>
       <caption xml:lang="fr">Éditeur SQL</caption>
       <caption xml:lang="gl">Editor de SQL</caption>
@@ -431,6 +440,7 @@
       <caption xml:lang="de">Bericht-Designer</caption>
       <caption xml:lang="en-GB">Report Designer</caption>
       <caption xml:lang="es">Diseñador de informes</caption>
+      <caption xml:lang="et">Aruandekujundaja</caption>
       <caption xml:lang="fi">Raporttien suunnittelu</caption>
       <caption xml:lang="fr">Concepteur de rapports</caption>
       <caption xml:lang="gl">Deseñador de informes</caption>
@@ -456,6 +466,7 @@
       <caption xml:lang="de">Import von MS Access Datenbank</caption>
       <caption xml:lang="en-GB">MS Access database import</caption>
       <caption xml:lang="es">Importación de bases de datos de MS Access</caption>
+      <caption xml:lang="et">MS Accessi andmebaasi import</caption>
       <caption xml:lang="fi">MS Access -tietokannan tuonti</caption>
       <caption xml:lang="fr">Importation de base de données MS Access</caption>
       <caption xml:lang="gl">Importación da base de datos de MS Access</caption>
