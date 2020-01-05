@@ -78,7 +78,6 @@
 #include <KActionCollection>
 #include <KActionMenu>
 #include <KToggleAction>
-#include <KRecentFilesAction>
 #include <KStandardShortcut>
 #include <KStandardGuiItem>
 #include <KConfig>
