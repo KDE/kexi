@@ -41,7 +41,7 @@ public:
     explicit KexiSourceSelector(KexiProject* project, QWidget* parent = 0);
     ~KexiSourceSelector();
 
-    KReportDataSource* createDataSource() const Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT KReportDataSource *createDataSource() const;
 
     QDomElement connectionData();
 

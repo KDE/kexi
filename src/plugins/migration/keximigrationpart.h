@@ -32,12 +32,13 @@ public:
 
     /*! Reimplement this if your internal part has to return widgets
      or QDialog objects. */
-    QWidget *createWidget(const char *widgetClass, QWidget *parent, const char *objName = nullptr,
-                          QMap<QString, QString> *args = nullptr) override Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT QWidget *createWidget(const char *widgetClass, QWidget *parent,
+                                            const char *objName = nullptr,
+                                            QMap<QString, QString> *args = nullptr) override;
 
-    QObject *createObject(const char* objectClass,
-                          QObject * parent, const char * objName = nullptr,
-                          QMap<QString, QString>* args = nullptr) override Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT QObject *createObject(const char *objectClass, QObject *parent,
+                                            const char *objName = nullptr,
+                                            QMap<QString, QString> *args = nullptr) override;
 };
 
 #endif

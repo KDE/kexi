@@ -94,11 +94,11 @@ public:
                                          KexiWindow* window) const override;
 
 protected:
-    KexiWindowData* createWindowData(KexiWindow* window) override Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT KexiWindowData *createWindowData(KexiWindow* window) override;
 
-    KexiView *createView(QWidget *parent, KexiWindow *window, KexiPart::Item *item,
+    Q_REQUIRED_RESULT KexiView *createView(QWidget *parent, KexiWindow *window, KexiPart::Item *item,
                          Kexi::ViewMode viewMode = Kexi::DataViewMode,
-                         QMap<QString, QVariant> *staticObjectArgs = nullptr) override Q_REQUIRED_RESULT;
+                         QMap<QString, QVariant> *staticObjectArgs = nullptr) override;
 
     virtual void initPartActions() override;
     virtual void initInstanceActions() override;

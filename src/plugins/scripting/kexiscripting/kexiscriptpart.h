@@ -57,7 +57,7 @@ public:
     virtual bool execute(KexiPart::Item* item, QObject* sender = 0);
 
     QJSValue execute(const QString &program);
-    
+
     /**
      * \return the i18n message for the passed \p englishMessage string.
      */
@@ -77,11 +77,11 @@ protected:
      *
      * @todo Port It!!!
      */
-    KexiView* createView(QWidget *parent,
+    Q_REQUIRED_RESULT KexiView *createView(QWidget *parent,
                                  KexiWindow *window,
                                  KexiPart::Item *item,
                                  Kexi::ViewMode viewMode = Kexi::DataViewMode,
-                                 QMap<QString, QVariant>* staticObjectArgs = nullptr) override Q_REQUIRED_RESULT;
+                                 QMap<QString, QVariant>* staticObjectArgs = nullptr) override;
 
     /**
      * Initialize the part's actions.
@@ -99,7 +99,7 @@ private:
     class Private;
     /// \internal d-pointer instance.
     Private* const d;
-    
+
     void registerMetaObjects();
 
     QString loadData(KexiPart::Item* item);
