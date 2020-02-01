@@ -86,9 +86,10 @@ public:
      * searches the right factory and creates a widget.
      * \return the widget or 0 if something falid
      */
-    QWidget *createWidget(const QByteArray &classname, QWidget *parent, const char *name,
+    Q_REQUIRED_RESULT QWidget *createWidget(
+                          const QByteArray &classname, QWidget *parent, const char *name,
                           Container *c,
-                          WidgetFactory::CreateWidgetOptions options = WidgetFactory::DefaultOptions) Q_REQUIRED_RESULT;
+                          WidgetFactory::CreateWidgetOptions options = WidgetFactory::DefaultOptions);
 
     bool createMenuActions(const QByteArray &c, QWidget *w, QMenu *menu,
                            KFormDesigner::Container *container);

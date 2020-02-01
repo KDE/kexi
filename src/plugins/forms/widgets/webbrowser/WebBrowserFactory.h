@@ -30,9 +30,9 @@ class WebBrowserFactory: public KexiDBFactoryBase
 public:
     WebBrowserFactory(QObject* parent, const QVariantList &args);
     virtual ~WebBrowserFactory();
-    QWidget *createWidget(const QByteArray &classname, QWidget *parent, const char *name,
-                          KFormDesigner::Container *container,
-                          CreateWidgetOptions options = DefaultOptions) override Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT QWidget *createWidget(const QByteArray &classname, QWidget *parent,
+                                            const char *name, KFormDesigner::Container *container,
+                                            CreateWidgetOptions options = DefaultOptions) override;
     virtual bool createMenuActions(const QByteArray &classname, QWidget *w, QMenu *menu,
                                    KFormDesigner::Container *container) override;
     virtual bool startInlineEditing(InlineEditorCreationArguments& args) override;

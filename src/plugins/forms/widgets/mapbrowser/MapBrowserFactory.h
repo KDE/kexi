@@ -29,9 +29,9 @@ class MapBrowserFactory: public KexiDBFactoryBase
 public:
     MapBrowserFactory(QObject* parent, const QVariantList &args);
     virtual ~MapBrowserFactory();
-    QWidget *createWidget(const QByteArray &classname, QWidget *parent, const char *name,
-                          KFormDesigner::Container *container,
-                          CreateWidgetOptions options = DefaultOptions) override Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT QWidget *createWidget(const QByteArray &classname, QWidget *parent,
+                                            const char *name, KFormDesigner::Container *container,
+                                            CreateWidgetOptions options = DefaultOptions) override;
     virtual bool createMenuActions(const QByteArray &classname, QWidget *w,
                                    QMenu *menu, KFormDesigner::Container *container);
     virtual bool startInlineEditing(InlineEditorCreationArguments& args);

@@ -32,8 +32,9 @@ public:
     virtual ~KexiCsvImportExportPlugin();
 
     /*! Reimplemented to return wizard object. */
-    QWidget *createWidget(const char *widgetClass, QWidget *parent, const char *objName = nullptr,
-                          QMap<QString, QString> *args = nullptr) override Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT QWidget *createWidget(const char *widgetClass, QWidget *parent,
+                                            const char *objName = nullptr,
+                                            QMap<QString, QString> *args = nullptr) override;
 
     /*! Reimplemented to execute a command \a commandName (nonvisual). The result are put into the \a args. */
     virtual bool executeCommand(const char* commandName, QMap<QString, QString>* args = 0) override;

@@ -82,11 +82,11 @@ public:
     QString scriptCode(const QString& script) const override;
 
 protected:
-    KexiView *createView(QWidget *parent, KexiWindow *win, KexiPart::Item *item,
+    Q_REQUIRED_RESULT KexiView *createView(QWidget *parent, KexiWindow *win, KexiPart::Item *item,
                          Kexi::ViewMode = Kexi::DataViewMode,
-                         QMap<QString, QVariant> *staticObjectArgs = nullptr) override Q_REQUIRED_RESULT;
+                         QMap<QString, QVariant> *staticObjectArgs = nullptr) override;
 
-    KexiWindowData* createWindowData(KexiWindow* window) override Q_REQUIRED_RESULT;
+    Q_REQUIRED_RESULT KexiWindowData *createWindowData(KexiWindow* window) override;
 
     virtual void initPartActions() override;
 

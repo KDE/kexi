@@ -57,17 +57,17 @@ public:
      *
      * @todo Share this code with KReport and Kexi
      */
-    static KexiFileWidgetInterface *createWidget(const QUrl &startDirOrVariable,
+    static Q_REQUIRED_RESULT KexiFileWidgetInterface *createWidget(const QUrl &startDirOrVariable,
                                                  KexiFileFilters::Mode mode,
                                                  const QString &fileName,
-                                                 QWidget *parent = nullptr) Q_REQUIRED_RESULT;
+                                                 QWidget *parent = nullptr);
 
     /**
      * @overload
      */
-    static KexiFileWidgetInterface *createWidget(const QUrl &startDirOrVariable,
+    static Q_REQUIRED_RESULT KexiFileWidgetInterface *createWidget(const QUrl &startDirOrVariable,
                                                  KexiFileFilters::Mode mode,
-                                                 QWidget *parent = nullptr) Q_REQUIRED_RESULT;
+                                                 QWidget *parent = nullptr);
 
     /**
      * @brief returns this object casted to QWidget pointer

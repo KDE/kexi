@@ -57,24 +57,25 @@ public:
      on widget's creation. Depending on implementation, the created widget can write its
      state (e.g. result or status information) back to this argument.
      Created widget will have assigned \a parent widget and \a objName name. */
-    static QWidget* createWidgetInstance(const QString &className, const char* widgetClass,
+    static Q_REQUIRED_RESULT QWidget *createWidgetInstance(const QString &className,
+                                         const char* widgetClass,
                                          KDbMessageHandler *msgHdr,
                                          QWidget *parent, const char *objName = nullptr,
-                                         QMap<QString, QString>* args = nullptr) Q_REQUIRED_RESULT;
+                                         QMap<QString, QString>* args = nullptr);
 
     /*! For convenience. */
-    static QWidget* createWidgetInstance(const QString &className,
+    static Q_REQUIRED_RESULT QWidget *createWidgetInstance(const QString &className,
                                          KDbMessageHandler *msgHdr,
                                          QWidget *parent, const char *objName = nullptr,
-                                         QMap<QString, QString>* args = nullptr) Q_REQUIRED_RESULT;
+                                         QMap<QString, QString>* args = nullptr);
 
     /*! Creates a new object instance using part pointed by \a className.
      \a widgetClass is a pseudo class used in case when the part offers more
      than one object type. */
-    static QObject* createObjectInstance(const QString &className,
+    static Q_REQUIRED_RESULT QObject *createObjectInstance(const QString &className,
                                          const char* objectClass, KDbMessageHandler *msgHdr,
                                          QObject *parent, const char *objName = nullptr,
-                                         QMap<QString, QString>* args = nullptr) Q_REQUIRED_RESULT;
+                                         QMap<QString, QString>* args = nullptr);
 
     /*! Creates a new KexiWindow instance. If such instance already exists,
      and is unique (see uniqueWindow()) it is just returned.
@@ -83,8 +84,8 @@ public:
      \a msgHdr is a message handler for displaying error messages.
      The window is assigned to the main window,
      and \a objName name is set. */
-    static KexiWindow* createKexiWindowInstance(const QString &className,
-            KDbMessageHandler *msgHdr, const char *objName = nullptr) Q_REQUIRED_RESULT;
+    static Q_REQUIRED_RESULT KexiWindow *createKexiWindowInstance(const QString &className,
+            KDbMessageHandler *msgHdr, const char *objName = nullptr);
 
     /*! Creates a new modal dialog instance (QDialog or a subclass).
      If such instance already exists, and is unique (see uniqueWindow())
@@ -99,14 +100,14 @@ public:
      so on another call the dialog will be created again.
      The dialog is assigned to the main window,
      and \a objName name is set. */
-    static QDialog* createModalDialogInstance(const QString &className,
+    static Q_REQUIRED_RESULT QDialog *createModalDialogInstance(const QString &className,
             const char* dialogClass, KDbMessageHandler *msgHdr,
-            const char *objName = nullptr, QMap<QString, QString>* args = nullptr) Q_REQUIRED_RESULT;
+            const char *objName = nullptr, QMap<QString, QString>* args = nullptr);
 
     /*! Adeded For convenience. */
-    static QDialog* createModalDialogInstance(const QString &className,
+    static Q_REQUIRED_RESULT QDialog *createModalDialogInstance(const QString &className,
             KDbMessageHandler *msgHdr, const char *objName = nullptr,
-            QMap<QString, QString>* args = nullptr) Q_REQUIRED_RESULT;
+            QMap<QString, QString>* args = nullptr);
 
     /*! Executes a command \a commandName (usually nonvisual) using part pointed by \a className.
      The result can be put into the \a args. \return true on successful calling. */
@@ -133,18 +134,18 @@ protected:
     KexiWindow *findOrCreateKexiWindow(const char *objName);
 
     /*! Reimplement this if your internal part has to return objects. */
-    virtual QObject *createObject(const char* objectClass,
+    virtual Q_REQUIRED_RESULT QObject *createObject(const char* objectClass,
                                   QObject * parent, const char * objName = nullptr,
-                                  QMap<QString, QString>* args = nullptr) Q_REQUIRED_RESULT;
+                                  QMap<QString, QString>* args = nullptr);
 
     /*! Reimplement this if your internal part has to return widgets
      or QDialog objects. */
-    virtual QWidget *createWidget(const char* widgetClass,
+    virtual Q_REQUIRED_RESULT QWidget *createWidget(const char* widgetClass,
                                   QWidget * parent, const char * objName = nullptr,
-                                  QMap<QString, QString>* args = nullptr) Q_REQUIRED_RESULT;
+                                  QMap<QString, QString>* args = nullptr);
 
     /*! Reimplement this if your internal part has to return a view object. */
-    virtual KexiView *createView(QWidget * parent, const char *objName = nullptr) Q_REQUIRED_RESULT;
+    virtual Q_REQUIRED_RESULT KexiView *createView(QWidget * parent, const char *objName = nullptr);
 
     /*! Reimplement this if your internal part has to execute a command \a commandName
      (usually nonvisual). Arguments are put into \a args and the result can be put into the \a args.
