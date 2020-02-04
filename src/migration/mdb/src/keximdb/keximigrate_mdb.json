@@ -4,6 +4,7 @@
             {
                 "Email": "kexi@kde.org",
                 "Name": "Kexi Team",
+                "Name[ca@valencia]": "L'equip del Kexi",
                 "Name[ca]": "L'equip del Kexi",
                 "Name[cs]": "Tým Kexi",
                 "Name[de]": "Kexi-Team",
@@ -29,6 +30,7 @@
         "Category": "",
         "Dependencies": [],
         "Description": "MS Access (MDB) import plugin for Kexi",
+        "Description[ca@valencia]": "Connector d'importació del MS Access (MDB) per al Kexi",
         "Description[ca]": "Connector d'importació del MS Access (MDB) per al Kexi",
         "Description[cs]": "Modul Kexi pro import MS Access (MDB)",
         "Description[de]": "MS-Access-(MDB)-Importmodul für Kexi",
