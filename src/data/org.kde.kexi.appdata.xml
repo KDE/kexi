@@ -14,6 +14,7 @@
   <name xml:lang="fi">Kexi</name>
   <name xml:lang="fr">KEXI</name>
   <name xml:lang="gl">KEXI</name>
+  <name xml:lang="ia">KEXI</name>
   <name xml:lang="id">KEXI</name>
   <name xml:lang="it">KEXI</name>
   <name xml:lang="ko">KEXI</name>
@@ -389,6 +390,7 @@
       <caption xml:lang="fi">SQL-muokkain</caption>
       <caption xml:lang="fr">Éditeur SQL</caption>
       <caption xml:lang="gl">Editor de SQL</caption>
+      <caption xml:lang="ia">Editor SQL</caption>
       <caption xml:lang="id">Pengedit SQL</caption>
       <caption xml:lang="it">Editor SQL</caption>
       <caption xml:lang="ko">SQL 편집기</caption>
