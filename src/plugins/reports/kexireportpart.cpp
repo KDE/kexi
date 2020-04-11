@@ -151,7 +151,7 @@ KDbObject* KexiReportPart::loadSchemaObject(
     }
     temp->connectionDefinition = root.firstChildElement("connection");
     if (temp->connectionDefinition.isNull()) {
-        qWarning() << "no report report:content element found in report" << window->partItem()->name();
+        qWarning() << "no report report:connection element found in report" << window->partItem()->name();
         return 0;
     }
     return KexiPart::Part::loadSchemaObject(window, object, viewMode, ownedByWindow);
