@@ -57,7 +57,7 @@ function kundo2_aware_xgettext_internal() {
 
     XGETTEXT_FLAGS_KUNDO2="\
 --copyright-holder=This_file_is_part_of_KDE \
---msgid-bugs-address=http://bugs.kde.org \
+--msgid-bugs-address=https://bugs.kde.org \
 --from-code=UTF-8
 -C -k --kde \
 -kkundo2_i18n:1 -kkundo2_i18np:1,2 -kkundo2_i18nc:1c,2 -kkundo2_i18ncp:1c,2,3 \
@@ -78,7 +78,7 @@ function kundo2_aware_xgettext_internal() {
         # ensure an empty line or else KDE_HEADER search will fail
         # in case POT_PART_NORMAL only contains header
         echo "" >>${POT_PART_NORMAL}
-        
+
         ${MSGCAT} -F "${POT_PART_NORMAL}" "${POT_PART_QUNDOFORMAT}" > ${POT_MERGED}
         MERGED_HEADER_LINE_COUNT=$(cat ${POT_MERGED} | grep "^$" -B 100000 --max-count=1 | wc -l)
         KDE_HEADER="$(cat ${POT_PART_NORMAL} | grep "^$" -B 100000 --max-count=1)"

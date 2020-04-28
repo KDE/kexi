@@ -780,7 +780,7 @@ void KexiMainWindow::setupActions()
     }
 
     if (d->isProjectNavigatorVisible) {
-        // Shortcut taken from "Activate Projects pane" http://doc.qt.io/qtcreator/creator-keyboard-shortcuts.html
+        // Shortcut taken from "Activate Projects pane" https://doc.qt.io/qtcreator/creator-keyboard-shortcuts.html
         d->action_activate_nav = addAction("activate_navigator",
                                        xi18n("Activate Project Navigator"),
                                        "Alt+X");

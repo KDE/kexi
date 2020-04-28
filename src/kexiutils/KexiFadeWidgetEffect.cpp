@@ -34,7 +34,7 @@ KexiFadeWidgetEffectPrivate::KexiFadeWidgetEffectPrivate(QWidget *_destWidget)
 
 // Code from KFileItemDelegate (Author: Frederik Höglund)
 // Fast transitions. Read:
-// http://techbase.kde.org/Development/Tutorials/Graphics/Performance
+// https://techbase.kde.org/Development/Tutorials/Graphics/Performance
 // for further information on why not use setOpacity.
 QPixmap KexiFadeWidgetEffectPrivate::transition(const QPixmap &from, const QPixmap &to, qreal amount) const
 {

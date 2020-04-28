@@ -1,7 +1,7 @@
 Kexi Translation Issues
 -----------------------
 
-Many things can be found here: http://i18n.kde.org/translation-howto/index.html
+Many things can be found here: https://i18n.kde.org/translation-howto/index.html
 
 
 Additional guidelines:

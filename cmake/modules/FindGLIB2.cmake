@@ -28,8 +28,8 @@ find_path(GLIB2_MAIN_INCLUDE_DIR
           HINTS ${PC_LibGLIB2_INCLUDEDIR}
           PATH_SUFFIXES glib-2.0)
 
-find_library(GLIB2_LIBRARY 
-             NAMES glib-2.0 
+find_library(GLIB2_LIBRARY
+             NAMES glib-2.0
              HINTS ${PC_LibGLIB2_LIBDIR}
 )
 

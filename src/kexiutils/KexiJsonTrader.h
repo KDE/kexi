@@ -59,7 +59,7 @@ public:
      *                    get all services of the given @p servicetypes.
      *
      * @return A list of QPluginLoader that satisfy the query
-     * @see http://techbase.kde.org/Development/Tutorials/Services/Traders#The_KTrader_Query_Language
+     * @see https://techbase.kde.org/Development/Tutorials/Services/Traders#The_KTrader_Query_Language
      *
      * @note Ownership of the QPluginLoader objects is transferred to the caller.
      */

@@ -109,7 +109,7 @@ void KexiUserFeedbackAgent::Private::updateData()
         const QByteArray gdm = qgetenv("GDMSESSION").trimmed().toUpper();
         const bool kdeSession = qgetenv("KDE_FULL_SESSION").trimmed().toLower() == "true";
         // detect running desktop
-        // http://standards.freedesktop.org/menu-spec/latest/apb.html
+        // https://standards.freedesktop.org/menu-spec/latest/apb.html
         QString runningDesktop;
         QString runningDesktopVersion;
         //! @todo set runningDesktopVersion for other desktops
@@ -175,7 +175,7 @@ void KexiUserFeedbackAgent::Private::updateData()
         p.start("lsb_release", QStringList() << "-i" << "-r" << "-d");
         if (p.waitForFinished()) {
             QString info = p.readLine().replace("Distributor ID:", "").trimmed();
-            if (info.toLower() == "ubuntu") { // Ubuntu derivatives (http://askubuntu.com/a/227669/226642)
+            if (info.toLower() == "ubuntu") { // Ubuntu derivatives (https://askubuntu.com/a/227669/226642)
                 if (runningDesktop == "KDE Plasma") {
                     info = "Kubuntu";
                 }
@@ -328,7 +328,7 @@ KexiUserFeedbackAgent::Areas  KexiUserFeedbackAgent::enabledAreas() const
     return d->areas;
 }
 
-//! Escapes string for json format (see http://json.org/string.gif).
+//! Escapes string for JSON format (see https://json.org).
 inline QString escapeJson(const QString& s)
 {
     QString res;

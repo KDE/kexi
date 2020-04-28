@@ -630,7 +630,7 @@ KexiProjectModel* KexiProjectNavigator::model() const
 void KexiProjectNavigator::slotUpdateEmptyStateLabel()
 {
     if (d->model->objectsCount() == 0) {
-        // handle the empty state with care... http://www.pinterest.com/romanyakimovich/ui-empty-states/
+        // handle the empty state with care... https://www.pinterest.com/romanyakimovich/ui-empty-states/
         if (!d->emptyStateLabel) {
             QString imgPath = KIconLoader::global()->iconPath(KexiIconName("document-empty"), - KIconLoader::SizeLarge);
             //qDebug() << imgPath;
