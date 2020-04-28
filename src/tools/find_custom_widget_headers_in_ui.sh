@@ -13,7 +13,7 @@
 #
 # Instead of altering that in Designer, you can edit the file by hand.
 #
-# PS: The UI file format: http://doc.qt.io/qt-5.4/designer-ui-file-format.html
+# PS: The UI file format: https://doc.qt.io/qt-5.4/designer-ui-file-format.html
 # Relevant part:
 #      <xs:complexType name="Header" mixed="true" >
 #         <xs:attribute name="location" type="xs:string" />  <!-- local or global -->

@@ -220,12 +220,12 @@ set_package_properties(GLIB2 PROPERTIES TYPE RECOMMENDED PURPOSE "${_REQUIRED_BY
 macro_bool_to_01(Qt5WebKitWidgets_FOUND HAVE_QTWEBKITWIDGETS)
 set_package_properties(Qt5WebKit PROPERTIES
                        DESCRIPTION "Webkit for Qt, the HTML engine."
-                       URL "http://qt.io"
+                       URL "https://qt.io"
                        TYPE RECOMMENDED PURPOSE "Required by Kexi web form widget"
 )
 set_package_properties(Qt5WebKitWidgets PROPERTIES
                        DESCRIPTION "QWidgets module for Webkit, the HTML engine."
-                       URL "http://qt.io"
+                       URL "https://qt.io"
                        TYPE RECOMMENDED PURPOSE "Required by Kexi web form widget"
 )
 

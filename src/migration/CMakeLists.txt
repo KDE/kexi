@@ -48,7 +48,7 @@ if(false) # TODO KEXI3
 find_package(FreeTDS)
 set_package_properties(FreeTDS PROPERTIES
     DESCRIPTION "Open source implementation of the TDS (Tabular Data Stream) protocol"
-    URL "http://www.freetds.org"
+    URL "https://www.freetds.org"
     TYPE RECOMMENDED
     PURPOSE "Required by Kexi Sybase migration driver"
 )
@@ -59,7 +59,7 @@ endif()
 find_package(XBase)
 set_package_properties(XBase PROPERTIES
     DESCRIPTION "XBase compatible C++ class library"
-    URL "http://linux.techass.com/projects/xdb"
+    URL "https://linux.techass.com/projects/xdb"
     TYPE RECOMMENDED
     PURPOSE "Required by Kexi XBase migration driver"
 )

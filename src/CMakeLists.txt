@@ -28,7 +28,7 @@ if(KEXI_SCRIPTS_SUPPORT)
     find_package(Qt5Qml ${REQUIRED_QTQML_VERSION} REQUIRED)
     set_package_properties(Qt5Qml PROPERTIES
                         DESCRIPTION "A framework for developing applications and libraries with the QML and JavaScript language."
-                        URL "http://qt.io"
+                        URL "https://qt.io"
                         TYPE REQUIRED PURPOSE "Required by Kexi scripting (JavaScript)"
     )
 endif()

@@ -284,7 +284,7 @@ public Q_SLOTS:
     {
         QUrl dirUrl;
 #ifdef Q_OS_WIN
-        if (!upButton->isEnabled()) { // Computer folder, see http://doc.qt.io/qt-5/qfiledialog.html#setDirectoryUrl
+        if (!upButton->isEnabled()) { // Computer folder, see https://doc.qt.io/qt-5/qfiledialog.html#setDirectoryUrl
             dirUrl = QUrl("clsid:0AC0837C-BBF8-452A-850D-79D08E667CA7");
         }
 #else
