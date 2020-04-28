@@ -34,22 +34,37 @@
 class Q_DECL_HIDDEN KexiJsonTrader::Private
 {
 public:
-    Private() : pluginPathFound(false)
+    Private(const QString &subDir) : m_subDir(subDir)
     {
     }
-    QString subDir;
-    bool pluginPathFound;
-    QStringList pluginPaths;
+
+    QStringList pluginPaths()
+    {
+        if (!m_pluginPathFound) {
+            QStringList searchDirs;
+            searchDirs += QCoreApplication::libraryPaths();
+            for (const QString &dir : searchDirs) {
+                const QString possiblePath = dir + QLatin1Char('/') + m_subDir;
+                if (QDir(possiblePath).exists()) {
+                    m_pluginPaths += possiblePath;
+                }
+            }
+            m_pluginPathFound = true;
+        }
+        return m_pluginPaths;
+    }
+
+private:
+    QString m_subDir;
+    QStringList m_pluginPaths;
+    bool m_pluginPathFound = false;
 };
 
 // ---
 
 KexiJsonTrader::KexiJsonTrader(const QString& subDir)
-    : d(new Private)
+    : d(new Private(subDir))
 {
-    Q_ASSERT(!subDir.isEmpty());
-    Q_ASSERT(!subDir.contains(' '));
-    d->subDir = subDir;
 }
 
 KexiJsonTrader::~KexiJsonTrader()
@@ -144,21 +159,8 @@ static QList<QPluginLoader *> findPlugins(const QString &path, const QStringList
 QList<QPluginLoader *> KexiJsonTrader::query(const QStringList &servicetypes,
                                              const QString &mimetype)
 {
-    if (!d->pluginPathFound) {
-        QStringList searchDirs;
-        searchDirs += QCoreApplication::libraryPaths();
-        foreach(const QString &dir, searchDirs) {
-            //qDebug() << dir;
-            QString possiblePath = dir + QLatin1Char('/') + d->subDir;
-            if (QDir(possiblePath).exists()) {
-                d->pluginPaths += possiblePath;
-            }
-        }
-        d->pluginPathFound = true;
-    }
-
     QList<QPluginLoader *> list;
-    foreach(const QString &path, d->pluginPaths) {
+    foreach(const QString &path, d->pluginPaths()) {
         list += findPlugins(path, servicetypes, mimetype);
     }
     return list;
@@ -169,4 +171,9 @@ QList<QPluginLoader *> KexiJsonTrader::query(const QString &servicetype, const Q
     QStringList servicetypes;
     servicetypes << servicetype;
     return query(servicetypes, mimetype);
+}
+
+QStringList KexiJsonTrader::pluginPaths() const
+{
+    return d->pluginPaths();
 }

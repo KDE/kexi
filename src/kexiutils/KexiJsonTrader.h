@@ -81,6 +81,13 @@ public:
       */
      static QJsonObject rootObjectForPluginLoader(const QPluginLoader &pluginLoader);
 
+     /**
+      * @return plugin paths that are used to find plugins
+      *
+      * Empty list means invalid configuration, e.g. missing QT_PLUGIN_PATH.
+      */
+     QStringList pluginPaths() const;
+
 private:
      Q_DISABLE_COPY(KexiJsonTrader)
      class Private;

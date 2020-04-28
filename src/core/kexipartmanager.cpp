@@ -225,13 +225,28 @@ bool Manager::lookup()
     qDeleteAll(offers);
     offers.clear();
     if (d->partsByPluginId.isEmpty()) {
-        m_result = KDbResult(xi18nc(
-            "@info", "<para>Could not find any plugins for <application>%1</application>, e.g. for "
+
+        QString message
+            = xi18nc("@info",
+                     "<para>Could not find any plugins for <application>%1</application>, e.g. for "
                      "tables or forms. "
                      "<application>%1</application> would not be functional so it will exit.</para>"
                      "<para><note>Please check if <application>%1</application> is properly "
                      "installed.</note></para>",
-            QApplication::applicationDisplayName()));
+                     QApplication::applicationDisplayName());
+
+        // It can happen primarily on development machines, but worth mentioning: lack of
+        // plugin configuration.
+        if (KexiPartTrader_instance->pluginPaths().isEmpty()) {
+            message += xi18nc(
+                "@info",
+                "<para><note>No single <filename>%1</filename> directory has been located so it is possible "
+                "that custom plugin configuration was requested but it is not set up properly. Set "
+                "the <envar>QT_PLUGIN_PATH</envar> environment variable properly before running <application>%2</application>.</note></para>",
+                KEXI_BASE_PATH, QApplication::applicationDisplayName());
+        }
+
+        m_result = KDbResult(message);
         return false;
     }
 
