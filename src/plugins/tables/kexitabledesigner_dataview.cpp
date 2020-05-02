@@ -77,7 +77,9 @@ tristate KexiTableDesigner_DataView::afterSwitchFrom(Kexi::ViewMode mode)
         if (!c) {
             return false;
         }
-        setData(c);
+        if (!setData(c)) {
+            return false;
+        }
         tempData()->tableSchemaChangedInPreviousView = false;
     }
     return true;
