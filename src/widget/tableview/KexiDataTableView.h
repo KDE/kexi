@@ -64,7 +64,7 @@ public:
 
 public Q_SLOTS:
     /*! Sets data. Only works for db-aware table. */
-    void setData(KDbCursor *cursor);
+    bool setData(KDbCursor *cursor);
 
     /*! Saves settings for the view. Implemented for KexiView. */
     virtual bool saveSettings() override;
