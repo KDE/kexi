@@ -3440,7 +3440,10 @@ bool KexiMainWindow::newObject(KexiPart::Info *info, bool* openingCancelled)
     if (!it->neverSaved()) { //only add stored objects to the browser
         d->navigator->model()->slotAddItem(it);
     }
-    return openObject(it, Kexi::DesignViewMode, openingCancelled);
+    Kexi::ViewMode viewMode = info->supportedViewModes() & Kexi::DesignViewMode
+            ? Kexi::DesignViewMode
+            : Kexi::TextViewMode;
+    return openObject(it, viewMode, openingCancelled);
 }
 
 tristate KexiMainWindow::removeObject(KexiPart::Item *item, bool dontAsk)
