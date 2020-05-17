@@ -515,27 +515,25 @@ void ImportWizard::setupFinish()
 //
 bool ImportWizard::checkUserInput()
 {
-    QString issues;
+    KLocalizedString issues;
 
     if (d->dstNewDBCaptionLineEdit->text().isEmpty()) {
-        issues = xi18nc("@info", "<para>No new database name was entered.</para>");
+        issues = kxi18nc("@info", "<para>No new database name was entered.</para>");
     }
 
     Kexi::ObjectStatus result;
     KexiMigrate* sourceDriver = prepareImport(result);
     if (sourceDriver && sourceDriver->isSourceAndDestinationDataSourceTheSame()) {
-        // note: we're using .arg() here because the 'issues' argument is already in rich-text format
-        issues = xi18nc("@info", "%1<para>Source database is the same as destination.</para>")
-                        .arg(issues);
+        KLocalizedString sameDbIssue = kxi18nc("@info", "%1<para>Source database is the same as destination.</para>");
+        issues = issues.isEmpty() ? sameDbIssue.subs("") : sameDbIssue.subs(issues);
     }
 
     if (!issues.isEmpty()) {
-        // note: we're using .arg() here because the 'issues' argument is already in rich-text format
         d->lblImportingErrTxt->setText(
             xi18nc("@info", "<para>Following issues were found with the data you entered:</para>"
                    "%1"
-                   "<para>Please click <interface>Back</interface> button and correct these issues.</para>")
-                   .arg(issues));
+                   "<para>Please click <interface>Back</interface> button and correct these issues.</para>",
+                   issues));
         return false;
     }
     return true;
@@ -920,14 +918,18 @@ tristate ImportWizard::import()
         //qDebug() << msg << "\n" << details;
 
         d->finishPageItem->setHeader(xi18n("Failure"));
-        // note: we're using .arg() here because the msg and details arguments are already in rich-text format
+        // note: we're using QString.arg() here because the msg and details
+        // arguments are already in rich-text format, but leaving out the
+        // arguments from xi18nc writes (I18N_ARGUMENT_MISSING). Thus, first
+        // replace %n with themselves to avoid ki18n warning and then call
+        // QString.arg() to replace them with HTML text.
         d->finishLbl->setText(
             xi18nc("@info",
                    "<para>Import failed.</para>"
                    "<para>%1</para>"
                    "<para>%2</para>"
-                   "<para>You can click <interface>Back</interface> button and try again.</para>")
-                    .arg(msg).arg(details));
+                   "<para>You can click <interface>Back</interface> button and try again.</para>",
+                    "%1", "%2").arg(msg).arg(details));
         return false;
     }
     return true;
