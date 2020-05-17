@@ -16,27 +16,22 @@ lack of Rapid Application Development (RAD) tools for database systems that
 are sufficiently powerful, inexpensive, open standards driven and portable
 across many operating systems and hardware platforms.
 
-# Contact
-
-- All contact options: https://community.kde.org/Kexi/Contact
-
-- Geting started with contributions: https://community.kde.org/Kexi/Getting_Started
-
-- Users mailing list: kexi@kde.org
-  (subscribe at https://mail.kde.org/mailman/listinfo/kexi)
-
-- Developers mailing list: kexi-devel@kde.org
-  (subscribe at https://mail.kde.org/mailman/listinfo/kexi-devel)
-
-- Users and Contributors Forum: http://forum.kde.org/kexi
-
+*If you are reading this on GitHub, be aware that this is just a mirror.
+Our real code repository [is located here](https://invent.kde.org/office/kexi).*
 
 # Links
 
 - Kexi Project home page: http://kexi-project.org
 - Development wiki: https://community.kde.org/Kexi
+- All contact options: https://community.kde.org/Kexi/Contact
+- Geting started with contributions: https://community.kde.org/Kexi/Getting_Started
 - Kexi within the Calligra Suite: http://www.calligra.org/kexi
 
+# Donate Money
+
+If you love KEXI, you can help developers to build new incredible features or enhance new ones. Thanks in advance for your generous donations.
+
+For more information, [look here](https://community.kde.org/Kexi/Contact#Donations).
 
 Have fun,  
 --- Your Kexi Team
