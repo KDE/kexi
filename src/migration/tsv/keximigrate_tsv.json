@@ -23,7 +23,6 @@
                 "Name[sk]": "Tím Kexi",
                 "Name[sv]": "Kexi-gruppen",
                 "Name[uk]": "Команда Kexi",
-                "Name[x-test]": "xxKexi Teamxx",
                 "Name[zh_CN]": "Kexi 团队"
             }
         ],
@@ -48,7 +47,6 @@
         "Description[sk]": "Importný plugin pre Kexi pre súbory hodnôt oddelených tabulátorom (TSV)",
         "Description[sv]": "Importinsticksprogram för Kexi av filer med värden åtskilda av tabulatortecken (TSV)",
         "Description[uk]": "Додаток імпортування даних, відокремлених символами табуляції (TSV), для Kexi",
-        "Description[x-test]": "xxTab Separated Values (TSV) file import plugin for Kexixx",
         "Description[zh_CN]": "Kexi 制表符分隔值 (TSV) 文件导入插件",
         "EnabledByDefault": true,
         "Icon": "",
@@ -78,7 +76,6 @@
         "Name[sv]": "TSV",
         "Name[tr]": "TSV",
         "Name[uk]": "TSV",
-        "Name[x-test]": "xxTSVxx",
         "Name[zh_CN]": "TSV",
         "ServiceTypes": [
             "Kexi/MigrationDriver"
