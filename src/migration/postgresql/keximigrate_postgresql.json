@@ -23,6 +23,7 @@
                 "Name[sk]": "Tím Kexi",
                 "Name[sv]": "Kexi-gruppen",
                 "Name[uk]": "Команда KEXI",
+                "Name[x-test]": "xxKEXI Teamxx",
                 "Name[zh_CN]": "KEXI 团队"
             }
         ],
@@ -50,6 +51,7 @@
         "Description[sk]": "PostgreSQL importný plugin pre Kexi",
         "Description[sv]": "Importinsticksprogram av PostgreSQL-databaser för KEXI",
         "Description[uk]": "Додаток імпортування баз даних з PostgreSQL для KEXI",
+        "Description[x-test]": "xxPostgreSQL database import plugin for KEXIxx",
         "Description[zh_CN]": "KEXI PostgreSQL 数据库导入插件",
         "EnabledByDefault": true,
         "Icon": "",
@@ -78,6 +80,7 @@
         "Name[sv]": "PostgreSQL",
         "Name[tr]": "PostgreSQL",
         "Name[uk]": "PostgreSQL",
+        "Name[x-test]": "xxPostgreSQLxx",
         "Name[zh_CN]": "PostgreSQL",
         "ServiceTypes": [
             "Kexi/MigrationDriver"

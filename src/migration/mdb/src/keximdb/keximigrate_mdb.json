@@ -23,6 +23,7 @@
                 "Name[sk]": "Tím Kexi",
                 "Name[sv]": "Kexi-gruppen",
                 "Name[uk]": "Команда KEXI",
+                "Name[x-test]": "xxKEXI Teamxx",
                 "Name[zh_CN]": "KEXI 团队"
             }
         ],
@@ -48,6 +49,7 @@
         "Description[sk]": "MS Access (MDB) importný plugin pre Kexi",
         "Description[sv]": "MS Access (MDB) importinsticksprogram för KEXI",
         "Description[uk]": "Додаток імпортування даних з MS Access (MDB) для KEXI",
+        "Description[x-test]": "xxMS Access (MDB) import plugin for KEXIxx",
         "Description[zh_CN]": "KEXI MS Access (MDB) 导入插件",
         "EnabledByDefault": true,
         "Icon": "",
@@ -78,6 +80,7 @@
         "Name[sv]": "MS Access",
         "Name[tr]": "MS Access",
         "Name[uk]": "MS Access",
+        "Name[x-test]": "xxMS Accessxx",
         "Name[zh_CN]": "MS Access",
         "ServiceTypes": [
             "Kexi/MigrationDriver"
