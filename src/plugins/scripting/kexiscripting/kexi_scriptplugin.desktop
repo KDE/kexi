@@ -23,6 +23,7 @@ GenericName[se]=Skriptat
 GenericName[sk]=Skripty
 GenericName[sv]=Skript
 GenericName[uk]=Скрипти
+GenericName[x-test]=xxScriptsxx
 GenericName[zh_CN]=脚本
 
 Name=Script
@@ -48,6 +49,7 @@ Name[pt_BR]=Script
 Name[sk]=Skript
 Name[sv]=Skript
 Name[uk]=Скрипт
+Name[x-test]=xxScriptxx
 Name[zh_CN]=脚本
 
 Type=Service
