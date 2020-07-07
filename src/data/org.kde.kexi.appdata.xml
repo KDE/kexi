@@ -23,6 +23,7 @@
   <name xml:lang="pt">Kexi</name>
   <name xml:lang="pt-BR">KEXI</name>
   <name xml:lang="sk">KEXI</name>
+  <name xml:lang="sl">KEXI</name>
   <name xml:lang="sv">KEXI</name>
   <name xml:lang="uk">KEXI</name>
   <name xml:lang="x-test">xxKEXIxx</name>
@@ -46,6 +47,7 @@
   <summary xml:lang="pt-BR">Construtor visual de aplicativos de banco de dados</summary>
   <summary xml:lang="ru">Среда для создания приложений, работающих с базами данных</summary>
   <summary xml:lang="sk">Vizuálny tvorca databázových aplikácií</summary>
+  <summary xml:lang="sl">Izdelovalec vizualnih aplikacij za baze podatkov</summary>
   <summary xml:lang="sv">Visuellt byggverktyg för databasprogram</summary>
   <summary xml:lang="uk">Програма для побудови візуальних обробників баз даних</summary>
   <summary xml:lang="x-test">xxVisual database apps builderxx</summary>
@@ -73,6 +75,7 @@
     <p xml:lang="pt">O Kexi é um criador de bases de dados visuais, que pode ser usado para desenhar aplicações de bases de dados, inserir e editar dados, executar pesquisas e processar os dados. Poderá criar formulários para oferecer uma interface personalizada para os seus dados. Todos os objectos da base de dados - tabelas, pesquisas, formulários, relatórios, etc. - são guardados na base de dados, tornando simples a partilha e o desenho dos dados.</p>
     <p xml:lang="pt-BR">KEXI é um construtor de aplicativos visuais de banco de dados. Pode ser usado para desenhar aplicativos de banco de dados, inserir e editar dados, executar pesquisas e processar dados. Podem ser criados formulários para oferecer uma interface personalizada para seus dados. Todos os objetos do banco de dados - tabelas, pesquisas, formulários, relatórios, etc. - são armazenados no próprio banco de dados, tornando simples o compartilhamento de dados e o visual.</p>
     <p xml:lang="sk">Kexi je vizuálny tvorca databáz, súčasť Calligra Suite. Dá sa použiť na návrh databázových aplikácií, vkladanie a úpravu údajov, vykonávanie dotazov a spracúvanie údajov. Formuláre sa dajú vytvoriť na poskytnutie vlastného rozhrania pre vaše údaje. Všetky databázové objekty - tabuľky, dotazy, formuláre, správy - sú uložené v databáze, čo uľahčuje zdieľanie dát a dizajn.</p>
+    <p xml:lang="sl">KEXI je ustvarjalec vizualnih aplikacij za baze podatkov. Lahko se uporablja za oblikovanje aplikacije za baze podatkov, vstavljanje in urejanje podatkov, izvajanje poizvedb in obdelavo podatkov. Ustvarite lahko obrazce, da svojim podatkom omogočite vmesnik po meri. Vsi predmeti baze podatkov - tabele, poizvedbe, obrazci, poročila itd. - so shranjene v bazi podatkov, kar omogoča enostavno izmenjavo podatkov in oblikovanje.</p>
     <p xml:lang="sv">KEXI är ett visuell byggverktyg för databasprogram, en del av Calligra-sviten. Den kan användas för att skapa databasprogram, infoga och redigera data, ställa frågor och behandla data. Formulär kan skapas för att tillhandahålla ett anpassat gränssnitt för data. Alla databasobjekt (tabeller, frågor, formulär, rapporter, etc.) lagras i databasen, vilket gör det enkelt att dela data och konstruktion.</p>
     <p xml:lang="uk">KEXI — програма для створення обробників баз даних у візуальному режимі. Цією програмою можна скористатися для створень мініпрограм для роботи з базами даних, додавання та редагування даних, виконання запитів та обробки даних. За допомогою створених програмою форм ви можете отримати потрібний вам режим доступу до ваших даних. Всі об’єкти баз даних — таблиці, запити, форми, звіти тощо, — зберігаються у самій базі даних, що спрощує поширення даних та представлення даних.</p>
     <p xml:lang="x-test">xxKEXI is a visual database applications builder. It can be used for designing database applications, inserting and editing data, performing queries, and processing data. Forms can be created to provide a custom interface to your data. All database objects - tables, queries, forms, reports, etc. - are stored in the database, making it easy to share data and design.xx</p>
@@ -101,6 +104,7 @@
     <p xml:lang="pt-BR">Funcionalidades:</p>
     <p xml:lang="ru">Возможности:</p>
     <p xml:lang="sk">Funkcie:</p>
+    <p xml:lang="sl">Zmožnosti:</p>
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
@@ -126,6 +130,7 @@
       <li xml:lang="pt">Desenhadores visuais completos para tabelas, pesquisas, formulários e relatórios</li>
       <li xml:lang="pt-BR">Desenhos visuais completos para tabelas, pesquisas, formulários e relatórios</li>
       <li xml:lang="sk">Plne vizuálny návrh pre tabuľky, dotazy, formuláre a správy</li>
+      <li xml:lang="sl">Popolni vizualni oblikovalci za tabele, poizvedbe, obrazce in poročila</li>
       <li xml:lang="sv">Fullständigt visuell konstruktion av tabeller, frågor, formulär och rapporter</li>
       <li xml:lang="uk">Повноцінне візуальне середовище для створення таблиць, запитів, форм та звітів.</li>
       <li xml:lang="x-test">xxFull visual designers for tables, queries, forms and reportsxx</li>
@@ -151,6 +156,7 @@
       <li xml:lang="pt">Execução de pesquisas, suporte para pesquisas parametrizadas</li>
       <li xml:lang="pt-BR">Execução de pesquisas, suporte para pesquisas parametrizadas</li>
       <li xml:lang="sk">Spúšťanie dotazov, podpora pre parametrizované dotazy</li>
+      <li xml:lang="sl">Zagon poizvedb, podpora za parametrizirane poizvedbe</li>
       <li xml:lang="sv">Ställa frågor, stöd för parameterbaserade frågor</li>
       <li xml:lang="uk">Виконання запитів, підтримка параметризованих запитів.</li>
       <li xml:lang="x-test">xxRunning queries, support for parametrized queriesxx</li>
@@ -173,6 +179,7 @@
       <li xml:lang="pt">Suporta bases de dados SQLite, MySQL, PostgreSQL, xBase e Sybase/MS SQL Server</li>
       <li xml:lang="pt-BR">Suporte aos banco de dados SQLite, MySQL, PostgreSQL, xBase e Sybase/MS SQL Server</li>
       <li xml:lang="sk">Podporuje serverové databázy SQLite, MySQL, PostgreSQL, xBase a Sybase/MS SQL</li>
+      <li xml:lang="sl">Podpira baze podatkov SQLite, MySQL, PostgreSQL, xBase in Sybase/MS SQL Server</li>
       <li xml:lang="sv">Stöder databaserna SQLite, MySQL, PostgreSQL, xBase och Sybase/MS SQL Server</li>
       <li xml:lang="uk">Підтримка баз даних SQLite, MySQL, PostgreSQL, xBase та Sybase/MS SQL.</li>
       <li xml:lang="x-test">xxSupports SQLite, MySQL, PostgreSQL, xBase, and Sybase/MS SQL Server databasesxx</li>
@@ -195,6 +202,7 @@
       <li xml:lang="pt">A única ferramenta gráfica multi-plataforma que consegue importar facilmente bases de dados MS Access</li>
       <li xml:lang="pt-BR">Única ferramenta visual e multiplataforma que consegue importar facilmente um banco de dados do MS Access</li>
       <li xml:lang="sk">Jediný mnohoplatformový grafický nástroj importujúci údaje z databáz MS Access</li>
+      <li xml:lang="sl">Edino vizualno orodje na več platformah, ki zlahka uvaža podatke iz baze podatkov MS Access</li>
       <li xml:lang="sv">Det enda visuella verktyget för flera plattformar som enkelt kan importera data från MS Access-databaser</li>
       <li xml:lang="uk">Єдиний візуальний багатоплатформовий інструмент, здатний без проблем імпортувати дані з баз даних MS Access.</li>
       <li xml:lang="x-test">xxThe only multiplatform visual tool that can easily import data from MS Access databasesxx</li>
@@ -217,6 +225,7 @@
       <li xml:lang="pt">Suporta o desenho de pesquisas numa área de SQL dedicada</li>
       <li xml:lang="pt-BR">Suporte para desenho de pesquisas em uma área de SQL dedicada</li>
       <li xml:lang="sk">Podporuje návrh dotazov vo vyhradenom SQL pohľade</li>
+      <li xml:lang="sl">Podpora za oblikovanje poizvedb v namenskem pogledu SQL</li>
       <li xml:lang="sv">Stöd för frågekonstruktion i en dedicerad SQL-vy</li>
       <li xml:lang="uk">Підтримка створення запитів за допомогою спеціальної панелі SQL.</li>
       <li xml:lang="x-test">xxSupport for query design in dedicated SQL viewxx</li>
@@ -241,6 +250,7 @@
       <li xml:lang="pt">Desenho e apresentação de dados relacionais com listas (colunas de pesquisa)</li>
       <li xml:lang="pt-BR">Desenho e apresentação de dados relacionais usando listas (colunas de pesquisa)</li>
       <li xml:lang="sk">Návrh a zobrazenie relačných dát pomocou combo boxov (lookup stĺpce)</li>
+      <li xml:lang="sl">Oblikovanje in prikaz relacijskih podatkov s pomočjo kombiniranih polj (stolpcev za iskanje)</li>
       <li xml:lang="sv">Konstruktion och visning av relationsdata med användning av kombinationsrutor (uppslagning av kolumner)</li>
       <li xml:lang="uk">Створення та показ пов’язаних даних за допомогою спадних списків (стовпчики пошуку).</li>
       <li xml:lang="x-test">xxDesigning and displaying relational data using combo boxes (lookup columns)xx</li>
@@ -266,6 +276,7 @@
       <li xml:lang="pt">Introdução ou importação directa de dados com o formato CSV</li>
       <li xml:lang="pt-BR">Entrada ou importação direta de dados usando o formato CSV</li>
       <li xml:lang="sk">Priamy vstup údajov alebo import pomocou formátu CSV</li>
+      <li xml:lang="sl">Neposreden vnos ali uvoz podatkov v formatu CSV</li>
       <li xml:lang="sv">Direkt datainmatning eller import med CSV-format</li>
       <li xml:lang="uk">Безпосереднє введення даних або імпортування даних у форматі CSV.</li>
       <li xml:lang="x-test">xxDirect data entry or import using CSV formatxx</li>
@@ -290,6 +301,7 @@
       <li xml:lang="pt">Modo reduzido de utilizador, permitindo-lhe desligar todos os comandos relacionados com a edição do desenho do seu projecto</li>
       <li xml:lang="pt-BR">Modo de usuário reduzido, permitindo-lhe desligar todos os comandos relacionados à edição do visual do seu projeto</li>
       <li xml:lang="sk">Uzamknutý používateľský režim, umožňujúci vám vypnúť všetky príkazy súvisiace s úpravou dizajnu vášho projektu</li>
+      <li xml:lang="sl">Zaklenjen uporabniški način, vam omogoča izklop vseh ukazov v zvezi urejanja zasnove vašega projekta</li>
       <li xml:lang="sv">Låsbart användarläge, som låter dig stänga av alla kommandon relaterade till redigering av projektets konstruktion</li>
       <li xml:lang="uk">Заблокований режим користувача, у якому можна вимкнути усі пов’язані з командами редагування компонування вашого проєкту команди.</li>
       <li xml:lang="x-test">xxLocked down User Mode, allowing you to switch off all commands related to editing your project's designxx</li>
@@ -315,6 +327,7 @@
       <li xml:lang="pt">Programável através das linguagens JavaScript, Python ou Ruby (experimental)</li>
       <li xml:lang="pt-BR">Criação de scripts usando as linguagens de programação JavaScript, Python ou Ruby (experimental)</li>
       <li xml:lang="sk">Skriptovanie pomocou programovacích jazykov JavaScript, Python alebo Ruby (experimentálne)</li>
+      <li xml:lang="sl">Raba skriptov v programskih jezikih JavaScript, Python ali Ruby (poskusno)</li>
       <li xml:lang="sv">Skript med användning av programspråken Javascript, Python eller Ruby (experimentellt)</li>
       <li xml:lang="uk">Керування за допомогою скриптів мовами JavaScript, Python та Ruby (експериментальна можливість).</li>
       <li xml:lang="x-test">xxScripting using JavaScript, Python or Ruby programming languages (experimental)xx</li>
@@ -346,6 +359,7 @@
       <caption xml:lang="pt">Área em páginas</caption>
       <caption xml:lang="pt-BR">Exibição em tabelas</caption>
       <caption xml:lang="sk">Tabuľkový pohľad</caption>
+      <caption xml:lang="sl">Tabelni pogled</caption>
       <caption xml:lang="sv">Tabellvy</caption>
       <caption xml:lang="uk">Перегляд таблиць</caption>
       <caption xml:lang="x-test">xxTabular viewxx</caption>
@@ -372,6 +386,7 @@
       <caption xml:lang="pt">Desenhador de Pesquisas</caption>
       <caption xml:lang="pt-BR">Designer de pesquisas</caption>
       <caption xml:lang="sk">Návrhár dotazov</caption>
+      <caption xml:lang="sl">Oblikovalnik poizvedb</caption>
       <caption xml:lang="sv">Frågekonstruktion</caption>
       <caption xml:lang="uk">Засіб для розробки запитів</caption>
       <caption xml:lang="x-test">xxQuery Designerxx</caption>
@@ -399,6 +414,7 @@
       <caption xml:lang="pt">Editor de SQL</caption>
       <caption xml:lang="pt-BR">Editor SQL</caption>
       <caption xml:lang="sk">SQL Editor</caption>
+      <caption xml:lang="sl">Urejevalnik SQL</caption>
       <caption xml:lang="sv">SQL-editor</caption>
       <caption xml:lang="uk">Редактор SQL</caption>
       <caption xml:lang="x-test">xxSQL Editorxx</caption>
@@ -428,6 +444,7 @@
       <caption xml:lang="pt">Desenhador de Formulários</caption>
       <caption xml:lang="pt-BR">Ferramenta de desenho de formulários</caption>
       <caption xml:lang="sk">Návrhár formulárov</caption>
+      <caption xml:lang="sl">Oblikovalnik obrazcev</caption>
       <caption xml:lang="sv">Formulärkonstruktion</caption>
       <caption xml:lang="uk">Засіб для розробки форм.</caption>
       <caption xml:lang="x-test">xxForm Designerxx</caption>
@@ -454,6 +471,7 @@
       <caption xml:lang="pt">Desenhador de Relatórios</caption>
       <caption xml:lang="pt-BR">Desenho de formulários</caption>
       <caption xml:lang="sk">Návrhár reportov</caption>
+      <caption xml:lang="sl">Oblikovalnik poročil</caption>
       <caption xml:lang="sv">Rapportkonstruktion</caption>
       <caption xml:lang="uk">Засіб для розробки звітів</caption>
       <caption xml:lang="x-test">xxReport Designerxx</caption>
@@ -480,6 +498,7 @@
       <caption xml:lang="pt">Importação de bases de dados MS Access</caption>
       <caption xml:lang="pt-BR">Importação de bancos de dados MS Access</caption>
       <caption xml:lang="sk">Import databázy MS Access</caption>
+      <caption xml:lang="sl">Uvoz podatkov iz podatkovne baze MS Access</caption>
       <caption xml:lang="sv">Databasimport från MS Access</caption>
       <caption xml:lang="uk">Імпортування баз даних MS Access</caption>
       <caption xml:lang="x-test">xxMS Access database importxx</caption>
