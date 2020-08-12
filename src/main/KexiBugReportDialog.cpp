@@ -25,7 +25,6 @@
 
 #include <KAboutData>
 #include <KTitleWidget>
-#include <KToolInvocation>
 #include <KLocalizedString>
 
 #include <QGridLayout>

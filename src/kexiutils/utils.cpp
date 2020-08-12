@@ -66,7 +66,6 @@
 #include <KFileWidget>
 #include <KRecentDirs>
 #include <KRun>
-#include <KToolInvocation>
 #include <kio_version.h>
 #endif
 #include <KAboutData>
