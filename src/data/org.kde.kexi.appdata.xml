@@ -11,6 +11,7 @@
   <name xml:lang="cs">Kexi</name>
   <name xml:lang="da">Kexi</name>
   <name xml:lang="de">Kexi</name>
+  <name xml:lang="el">Kexi</name>
   <name xml:lang="en-GB">Kexi</name>
   <name xml:lang="es">Kexi</name>
   <name xml:lang="et">Kexi</name>
@@ -66,6 +67,7 @@
     </p>
     <p xml:lang="ca">El Kexi és un constructor visual de base de dades. Es pot utilitzar per dissenyar aplicacions de bases de dades, inserció i edició de dades, execució de consultes, i procés de dades. Es poden generar formularis per proporcionar una interfície personalitzada a les dades. Tots els objectes de les bases de dades -taules, consultes, formularis, informes, etc.- s'emmagatzemen en la base de dades, facilitant compartir les dades i el disseny.</p>
     <p xml:lang="ca-valencia">El Kexi és un constructor visual de base de dades. Es pot utilitzar per dissenyar aplicacions de bases de dades, inserció i edició de dades, execució de consultes, i procés de dades. Es poden generar formularis per proporcionar una interfície personalitzada a les dades. Tots els objectes de les bases de dades -taules, consultes, formularis, informes, etc.- s'emmagatzemen en la base de dades, facilitant compartir les dades i el disseny.</p>
+    <p xml:lang="el">Το Kexi είναι ένα πρόγραμμα κατασκευής εφαρμογών με οπτική βάση δεδομένων. Χρησιμεύει για τη σχεδίαση εφαρμογών βάσεων δεδομένων, την εισαγωγή και διόρθωση δεδομένων, την εκτέλεση ερωτήσεων και την επεξεργασία δεδομένων. Οι φόρμες κατασκευάζονται για να παρέχουν ένα προσαρμοσμένο περιβάλλον χρήσης για τα δεδομένα σας. Όλα τα αντικείμενα της βάσης - πίνακες, ερωτήσεις, φόρμες, αναφορές, κλπ. - αποθηκεύονται στη βάση δεδομένων, διευκολύνοντας το διαμοιρασμό δεδομένων και σχεδίασης.</p>
     <p xml:lang="en-GB">Kexi is a visual database applications builder. It can be used for designing database applications, inserting and editing data, performing queries, and processing data. Forms can be created to provide a custom interface to your data. All database objects - tables, queries, forms, reports, etc. - are stored in the database, making it easy to share data and design.</p>
     <p xml:lang="es">Kexi es un creador visual de aplicaciones de bases de datos. Se puede usar para diseñar aplicaciones de bases de datos, insertar y editar datos, realizar consultas y procesar datos. Se pueden crear formularios para proporcionar una interfaz personalizada para sus datos. Todos los objetos de la base de datos (tablas, consultas, formularios, informes, etc.) se almacenan en la base de datos, facilitando el intercambio de datos y diseños.</p>
     <p xml:lang="fi">Kexi on ohjelma tietokantasovellusten luomiseen visuaalisesti. Se on osa Calligra-ohjelmistoa. Sen avulla voi suunnitella tietokantasovelluksia, lisätä ja muokata tietoja, suorittaa kyselyjä ja käsitellä tietoja. Voit luoda lomakkeita mukauttaaksesi tietojesi käyttöliittymää. Kaikki tietokantaoliot – taulukot, kyselyt, lomakkeet, raportit jne. – tallennetaan tietokantaan, joten tiedon jako ja suunnittelu on helppoa.</p>
