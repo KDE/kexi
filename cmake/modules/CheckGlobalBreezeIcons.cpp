@@ -42,8 +42,8 @@ int main(int argc, char *argv[])
     QString detailsErrorMessage;
     const char *file
     = "The icon resource is invalid, please build repository "
-      "from https://quickgit.kde.org/?p=breeze-icons.git (with -DBINARY_ICONS_RESOURCE=ON) "
-      "or install \"breeze-icons\" package that delivers the file.\nIssue: ";
+      "from https://invent.kde.org/frameworks/breeze-icons (with -DBINARY_ICONS_RESOURCE=ON) "
+      "or install the \"breeze-icon-theme\" and \"breeze-icon-theme-rcc\" packages.\nIssue: ";
     if (!registerGlobalBreezeIconsResource(&errorMessage, &detailsErrorMessage)) {
         std::cerr << file << " " << errorMessage.toStdString()
                   << detailsErrorMessage.toStdString() << std::endl;
