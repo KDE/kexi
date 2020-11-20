@@ -44,6 +44,7 @@
         "Description[fi]": "Kexin sarkaimin erotettujen arvojen (TSV) tuontiliitännäinen",
         "Description[fr]": "Module d'importation de fichier « séparations par tabulation » pour KEXI",
         "Description[gl]": "Complemento para KEXI de importación de ficheiros de valores separados por tabulacións (TSV)",
+        "Description[ia]": "Plugin de importation de tab Separated Values (TSV) per Kexi",
         "Description[id]": "Plugin impor file Tab Separated Values (TSV) untuk KEXI",
         "Description[it]": "Estensione di importazione di file con valori separati da tabulazioni (TSV) per KEXI",
         "Description[nl]": "Plug-in voor importeren van bestand met Tab Separated Values (TSV) voor KEXI",
