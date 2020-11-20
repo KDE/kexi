@@ -40,6 +40,7 @@
   <summary xml:lang="fi">Visuaalinen tietokantasovellusten luonti</summary>
   <summary xml:lang="fr">Constructeur d'applications de bases de données visuel</summary>
   <summary xml:lang="gl">Construtor visual de aplicativos de base de datos</summary>
+  <summary xml:lang="ia">Constructor visual de apps per base de datos</summary>
   <summary xml:lang="id">Pembangun apps database visual</summary>
   <summary xml:lang="it">Generatore visuale di applicazioni di banche dati</summary>
   <summary xml:lang="ko">비주얼 데이터베이스 앱 빌더</summary>
@@ -226,6 +227,7 @@
       <li xml:lang="fi">Kyselyn suunnittelun tuki SQL-näkymässä</li>
       <li xml:lang="fr">Prend en charge la conception de requêtes SQL dans une vue dédiée</li>
       <li xml:lang="gl">Funcionalidade de deseño de consultas nunha vista de SQL dedicada.</li>
+      <li xml:lang="ia">Supporto per designo de query in vista de SQL dedicate</li>
       <li xml:lang="id">Dukungan untuk desain queri dalam tampilan SQL terdedikasi</li>
       <li xml:lang="it">Supporta la progettazione di query in una vista SQL dedicata</li>
       <li xml:lang="ko">전용 SQL 보기에서 질의 디자인 지원</li>
@@ -277,6 +279,7 @@
       <li xml:lang="fi">Suora tiedon syöttö tai tuonti CSV-muodossa</li>
       <li xml:lang="fr">Saisie directe de données ou import utilisant le format CSV</li>
       <li xml:lang="gl">Introdución directa de datos ou importación en formato CSV.</li>
+      <li xml:lang="ia">Entrata de datos directe o importation usante formato CSV</li>
       <li xml:lang="id">Entri data langsung atau impor menggunakan format CSV</li>
       <li xml:lang="it">Inserimento diretto dei dati o importazione utilizzando il formato CSV</li>
       <li xml:lang="ja">CSV を使用したダイレクトデータの入力もしくはインポート</li>
@@ -365,6 +368,7 @@
       <caption xml:lang="fi">Taulukkonäkymä</caption>
       <caption xml:lang="fr">Vue tabulaire</caption>
       <caption xml:lang="gl">Vista de táboa</caption>
+      <caption xml:lang="ia">Vista a tabellas</caption>
       <caption xml:lang="id">Tampilan tabular</caption>
       <caption xml:lang="it">Vista tabellare</caption>
       <caption xml:lang="ko">표 형식 보기</caption>
@@ -393,6 +397,7 @@
       <caption xml:lang="fi">Kyselyjen suunnittelu</caption>
       <caption xml:lang="fr">Concepteur de requêtes</caption>
       <caption xml:lang="gl">Deseñador de consultas</caption>
+      <caption xml:lang="ia">Designator de Query</caption>
       <caption xml:lang="id">Pendesain Queri</caption>
       <caption xml:lang="it">Strumento di progettazione delle query</caption>
       <caption xml:lang="ko">질의 디자이너</caption>
@@ -451,6 +456,7 @@
       <caption xml:lang="fi">Lomakkeiden suunnittelu</caption>
       <caption xml:lang="fr">Concepteur de formulaires</caption>
       <caption xml:lang="gl">Deseñador de formularios</caption>
+      <caption xml:lang="ia">Designator de formato</caption>
       <caption xml:lang="id">Pendesain Formulir</caption>
       <caption xml:lang="it">Progettazione moduli</caption>
       <caption xml:lang="ja">フォームデザイナー</caption>
@@ -481,6 +487,7 @@
       <caption xml:lang="fi">Raporttien suunnittelu</caption>
       <caption xml:lang="fr">Concepteur de rapports</caption>
       <caption xml:lang="gl">Deseñador de informes</caption>
+      <caption xml:lang="ia">Designator de Reporto</caption>
       <caption xml:lang="id">Pendesain Laporan</caption>
       <caption xml:lang="it">Strumento di progettazione di report</caption>
       <caption xml:lang="ko">보고서 디자이너</caption>
@@ -509,6 +516,7 @@
       <caption xml:lang="fi">MS Access -tietokannan tuonti</caption>
       <caption xml:lang="fr">Importation de base de données MS Access</caption>
       <caption xml:lang="gl">Importación da base de datos de MS Access</caption>
+      <caption xml:lang="ia">Importation de base de datos MS Access</caption>
       <caption xml:lang="id">Impor database MS Access</caption>
       <caption xml:lang="it">Importazione banca dati MS Access</caption>
       <caption xml:lang="ko">MS Access 데이터베이스 가져오기</caption>
