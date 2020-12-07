@@ -71,6 +71,7 @@
     <p xml:lang="fi">Kexi on ohjelma tietokantasovellusten luomiseen visuaalisesti. Sitä voi käyttää tietokantasovellusten suunniteluun, tiedon lisäämiseen ja muokkaukseen, kyselyihin ja tiedon käsittelyyn. Lomakkein voi luoda tietoon mukautettuja käyttöliittymiä. Kaikki tietokantaoliot – taulukot, kyselyt, lomakkeet, raportit jne – tallennetaan tietokantaan, jolloin tiedon jakaminen ja suunnittelu on helppoa.</p>
     <p xml:lang="fr">Kexi est un constructeur d'applications de bases de données visuel. Il peut être utilisé pour concevoir des applications de base de données, insérer et éditer des données, effectuer des requêtes, et traiter des données. Des formulaires peuvent être créés pour fournir une interface personnalisée pour vos données. Tous les objets de bases de données (tables, requêtes, formulaires, rapports, etc.) sont stockés dans la base de données, simplifiant le partage de données et de design.</p>
     <p xml:lang="gl">KEXI é un construtor visual de aplicacións de base de datos. Pode usarse para deseñar aplicacións de base de datos, inserindo e editando datos, realizando consultas, e procesando datos. Poden crearse formularios para fornecer unha interface personalizada para os datos. Todos os obxectos de base de datos (táboas, consultas, formularios, informes, etc.) almacénanse na base de datos, facendo fácil compartir os datos e o deseño.</p>
+    <p xml:lang="ia">KEXI es un constructor de applicationes de base de datos visual. Illo pote esser usate per designar applicationes de base de dato, insertar e modificar datos, executar queries, e processar datos. Formularios pote esser create per fornir un interfacie personalisate per tu datos. Omne objectos de datos - tabellas, queries, formularios, reportos, etc. - es immagazinate  in le base de datos, facente facile le compartir datos e designo.</p>
     <p xml:lang="id">KEXI adalah pembangun aplikasi database visual. Dapat digunakan untuk merancang aplikasi basis data, memasukkan dan mengedit data, melakukan queri, dan memproses data. Formulir dapat dibuat untuk memberikan antarmuka khusus ke data Anda. Semua objek basis data - tabel, queri, formulir, laporan, dll. - disimpan dalam basis data, sehingga mudah untuk berbagi data dan desain.</p>
     <p xml:lang="it">KEXI è uno strumento visuale per la creazione di banche dati. Può essere utilizzato per progettare applicazioni che usano banche dati, inserire e modificare dati, eseguire query ed elaborare dati. Puoi creare moduli per fornire un'interfaccia personalizzata ai tuoi dati. Tutti gli oggetti di una banca dati - tabelle, query, moduli, report - sono memorizzati nella banca dati stessa, semplificando la condivisione dei dati e la progettazione.</p>
     <p xml:lang="ko">KEXI는 시각적 데이터베이스 애플리케이션 빌더입니다. 데이터베이스 응용 프로그램 설계, 데이터 삽입 및 편집, 질의 수행 및 데이터 처리에 사용할 수 있습니다. 데이터에 사용자 정의 인터페이스를 제공하려면 양식을 생성할 수 있습니다. 모든 데이터베이스 개체(테이블, 질의, 양식, 보고서 등)가 데이터베이스에 저장되므로 데이터와 설계를 쉽게 공유할 수 있습니다.</p>
@@ -126,6 +127,7 @@
       <li xml:lang="fi">Täysin visuaalinen taulukoiden, kyselyjen, lomakkeiden ja raporttien suunnittelu</li>
       <li xml:lang="fr">Conception complètement visuelle pour les tables, requêtes, formulaires et rapports</li>
       <li xml:lang="gl">Deseñadores completamente visuais para táboas, consultas, formularios e informes.</li>
+      <li xml:lang="ia">Plen designator visual per tabelas, queries, formularios e reportos</li>
       <li xml:lang="id">Pendesain visual lengkap untuk tabel, queri, formulir, dan laporan</li>
       <li xml:lang="it">Progettazione completamente visuale di tabelle, query e report</li>
       <li xml:lang="ja">テーブル、クエリー、フォームおよびレポートをすべて視覚的にでデザインできます</li>
@@ -153,6 +155,7 @@
       <li xml:lang="fi">Kyselyjen suoritus ja parametroitavien kyselyjen tuki</li>
       <li xml:lang="fr">Exécution de requêtes, prise en charge des requêtes paramétrées</li>
       <li xml:lang="gl">Execución de consultas, e funcionalidade de consultas parametrizadas.</li>
+      <li xml:lang="ia">Executar queries, supporto per queries parametrizate</li>
       <li xml:lang="id">Menjalankan queri, mendukung queri terparameterisasi</li>
       <li xml:lang="it">Esecuzione di query, supporto per le query parametriche</li>
       <li xml:lang="ja">クエリーの実行、パラメータ化クエリーのサポート</li>
@@ -179,6 +182,7 @@
       <li xml:lang="fi">SQLite-, MySQL-, PostgreSQL-, xBase- ja Sybase/MS SQL Server -tietokantojen tuki</li>
       <li xml:lang="fr">Prend en charge les bases de données SQLite, MySQL, PostgreSQL, xBase et Sybase/MS SQL Server</li>
       <li xml:lang="gl">Compatíbel con bases de datos SQLite, MySQL, PostgreSQL, xBase, Sybase SQL Server e MS SQL Server.</li>
+      <li xml:lang="ia">Supporta base de datos SQLite, MySQL, PostgreSQL, xBase, e Sybase/MS SQL Server</li>
       <li xml:lang="id">Dukungan database SQLite, MySQL, PostgreSQL, xBase, dan Sybase/MS SQL Server</li>
       <li xml:lang="it">Supporta SQLite, MySQL, PostgreSQL, xBase e banche dati Sybase/MS SQL Server</li>
       <li xml:lang="ko">SQLite, MySQL, PostgreSQL, xBase 및 Sybase/MS SQL Server 데이터베이스 지원</li>
@@ -203,6 +207,7 @@
       <li xml:lang="fi">Ainoa useampialustainen visuaalinen työkalu, jolla voi helposti tuoda tietoja MS Access -tietokannoista</li>
       <li xml:lang="fr">Le seul outil visuel multi plates-formes qui importe les bases de données de MS Access</li>
       <li xml:lang="gl">A única ferramenta visual multiplataforma que pode importar facilmente datos de bases de datos de MS Access.</li>
+      <li xml:lang="ia">Le sol instrumento visual multiplatteforma que pote importar facilemente datos ex base de datos de MS Access</li>
       <li xml:lang="id">Satu-satunya alat visual multiplatform yang dapat dengan mudah mengimpor data dari database MS Access</li>
       <li xml:lang="it">Il solo strumento grafico multipiattaforma in grado di importare facilmente da banche dati MS Access</li>
       <li xml:lang="ko">MS Access 데이터베이스에서 데이터를 쉽게 가져올 수 있는 유일한 멀티플랫폼 비주얼 도구</li>
@@ -252,6 +257,7 @@
       <li xml:lang="fi">Relaatiotiedon suunnittelu ja näyttö yhdistelmäkenttiä käyttäen (hakusarakkeet)</li>
       <li xml:lang="fr">Conception et affichage des données relationnelles à l'aide de listes déroulantes (colonnes de consultation)</li>
       <li xml:lang="gl">Deseño e mostra de datos relacionais mediante caixas despregábeis (columnas de busca).</li>
+      <li xml:lang="ia">Designante e monstrante datos relational per usar  listas combinate (columnas de cerca)</li>
       <li xml:lang="id">Pendesainan dan pendisplaian data yang berhubungan menggunakan kotak kombo (kolom-kolom dangak)</li>
       <li xml:lang="it">Progettazione e visualizzazione dei dati relazionali utilizzando caselle combinate (colonne di ricerca)</li>
       <li xml:lang="ja">コンボボックスを使用した関係データのデザインと表示(参照列)</li>
@@ -306,6 +312,7 @@
       <li xml:lang="fi">Lukittu käyttäjätila, jossa voit poistaa käytöstä projektin suunnitteluun liittyvät komennot</li>
       <li xml:lang="fr">Mode utilisateur verrouillé, vous permettant de désactiver toutes les commandes liées à la modification de la conception de votre projet</li>
       <li xml:lang="gl">Modo de usuario bloqueado, que permite desactivar todas as ordes de edición do deseño do proxecto.</li>
+      <li xml:lang="ia">Modo de usator confinate, que te permitte commutar omne commandos referite al modificar tu designo de projecto</li>
       <li xml:lang="id">Mode User terkunci, memungkinkan Anda untuk mematikankan semua perintah yang berhubungan untuk pengeditan desain projek Anda</li>
       <li xml:lang="it">Modalità utente bloccata, che ti consente di disattivare tutti i comandi in grado di modificare la struttura del tuo progetto.</li>
       <li xml:lang="ja">プロジェクトデザインの編集スイッチをオフにする事でユーザモードへのロックダウンが可能</li>
@@ -333,6 +340,7 @@
       <li xml:lang="fi">Skriptaus JavaScript-, Python- tai Ruby-ohjelmointikielillä (kokeellinen)</li>
       <li xml:lang="fr">Pilotage par scripts utilisant les langages de programmation JavaScript, Python ou Ruby (expérimental)</li>
       <li xml:lang="gl">Uso de scripts nas linguaxes de programación JavaScript, Python e Ruby (experimental).</li>
+      <li xml:lang="ia">Scripting usante linguages de programmation JavaScript, Python o Ruby (experimental)</li>
       <li xml:lang="id">Penskripan menggunakan bahasa pemrograman JavaScript, Python atau Ruby</li>
       <li xml:lang="it">Creazione script utilizzando i linguaggi di programmazione JavaScript, Python o Ruby (sperimentale)</li>
       <li xml:lang="ja">JavaScript, Python や Ruby を使用してのスクリプティング(実験的)</li>
