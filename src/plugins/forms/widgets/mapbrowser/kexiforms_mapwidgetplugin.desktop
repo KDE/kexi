@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Map Widget
-Name[ca]=Estris de mapes
+Name[ca]=Ginys de mapes
 Name[ca@valencia]=Estris de mapes
 Name[de]=Karten-Bedienelement
 Name[el]=Γραφικό συστατικό για χάρτες
@@ -24,7 +24,7 @@ Name[uk]=Віджет карти
 Name[x-test]=xxMap Widgetxx
 Name[zh_CN]=地图部件
 Comment=Kexi plugin providing map browser form widget
-Comment[ca]=Connector del Kexi que proporciona estris de formularis de navegació de mapes
+Comment[ca]=Connector del Kexi que proporciona ginys de formularis de navegació de mapes
 Comment[ca@valencia]=Connector del Kexi que proporciona estris de formularis de navegació de mapes
 Comment[de]=Kexi-Modul, das ein Karten-Bedienelement bereitstellt
 Comment[el]=Πρόσθετο του Kexi που παρέχει γραφικό συστατικό φόρμας περιήγησης σε χάρτη
