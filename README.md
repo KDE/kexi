@@ -25,7 +25,7 @@ Our real code repository [is located here](https://invent.kde.org/office/kexi).*
 - Development wiki: https://community.kde.org/Kexi
 - All contact options: https://community.kde.org/Kexi/Contact
 - Geting started with contributions: https://community.kde.org/Kexi/Getting_Started
-- KEXI within the Calligra Suite: http://www.calligra.org/kexi
+- KEXI within the Calligra Suite: https://www.calligra.org/kexi
 
 # Donate Money
 
