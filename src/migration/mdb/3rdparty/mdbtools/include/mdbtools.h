@@ -18,6 +18,8 @@
 #ifndef _mdbtools_h_
 #define _mdbtools_h_
 
+#include <glib.h>
+
 #ifdef __cplusplus
   extern "C" {
 #endif
@@ -32,7 +34,6 @@
 #endif
 #include <ctype.h>
 #include <string.h>
-#include <glib.h>
 
 #ifdef HAVE_ICONV
 #include <iconv.h>
