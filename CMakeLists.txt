@@ -197,16 +197,14 @@ endif()
 ## Test for marble
 ##
 set(MARBLE_MIN_VERSION "0.19.2")
-find_package(KexiMarble ${MARBLE_MIN_VERSION})
-set_package_properties(KexiMarble PROPERTIES
+find_package(Marble ${MARBLE_MIN_VERSION} CONFIG)
+set_package_properties(Marble PROPERTIES
     DESCRIPTION "KDE World Globe Widget library"
     URL "https://marble.kde.org"
     TYPE RECOMMENDED
     PURPOSE "Required by KEXI form map widget"
 )
-if(NOT MARBLE_FOUND)
-    set(MARBLE_INCLUDE_DIR "")
-else()
+if(Marble_FOUND)
     set(HAVE_MARBLE TRUE)
 endif()
 set_package_properties(GLIB2 PROPERTIES TYPE RECOMMENDED PURPOSE "${_REQUIRED_BY_MDB}")

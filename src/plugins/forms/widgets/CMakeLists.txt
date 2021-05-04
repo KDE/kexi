@@ -11,7 +11,7 @@ endmacro()
 # the main widgets plugin
 add_subdirectory(main)
 
-if(MARBLE_FOUND)
+if(Marble_FOUND)
 #TODO  add_subdirectory(mapbrowser)
 endif()
 

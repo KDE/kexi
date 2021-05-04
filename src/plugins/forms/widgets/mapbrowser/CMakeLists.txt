@@ -1,7 +1,6 @@
 include_directories(
     ${CMAKE_SOURCE_DIR}/src/formeditor
     ${CMAKE_SOURCE_DIR}/src/core
-    ${MARBLE_INCLUDE_DIR}
 )
 
 set(kexiforms_mapwidgetplugin_SRCS
@@ -20,8 +19,8 @@ target_link_libraries(kexiforms_mapwidgetplugin
     kexiextendedwidgets
     kexiformutils
     kexidataviewcommon
-    ${MARBLE_LIBRARIES}
 
+    Marble
     Qt5::Xml
 )
 
