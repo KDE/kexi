@@ -29,3 +29,8 @@ GRTAGS
 GSYMS
 BROWSE
 GIT_VERSION
+/.clang-format
+/compile_commands.json
+.clangd
+.cache
+/cmake-build*
