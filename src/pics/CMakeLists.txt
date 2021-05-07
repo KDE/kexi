@@ -48,6 +48,7 @@ add_custom_target(build_qrc
     COMMAND ${Qt5Core_RCC_EXECUTABLE} --project -o "${CMAKE_CURRENT_BINARY_DIR}/${_target}.qrc"
     # avoid adding the .qrc file to rcc due to rcc misfeature
     COMMAND ${CMAKE_COMMAND} -E rename "${CMAKE_CURRENT_BINARY_DIR}/${_target}.qrc" "${_QRC_FILE}"
+    BYPRODUCTS "${_QRC_FILE}"
     DEPENDS "${_FILES}"
     SOURCES "${_FILES}"
     WORKING_DIRECTORY "${_BASE_DIR}"
@@ -57,6 +58,7 @@ add_custom_target(build_qrc
 add_dependencies(build_qrc colorize_icons)
 
 add_custom_target(build_rcc
+    BYPRODUCTS "${_RCC_FILE}"
     COMMAND ${Qt5Core_RCC_EXECUTABLE} --compress 9 --threshold 0 --binary
             --output "${_RCC_FILE}" "${_QRC_FILE}"
     DEPENDS "${_QRC_FILE}" "${_FILES}"
