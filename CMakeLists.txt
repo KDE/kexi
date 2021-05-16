@@ -1,5 +1,7 @@
-cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
-find_package(ECM 1.8.0 REQUIRED NOMODULE)
+cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
+set (QT_MIN_VERSION "5.12.0")
+set (KF5_MIN_VERSION "5.68.0")
+find_package(ECM ${KF5_MIN_VERSION} REQUIRED NOMODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 include(SetKexiCMakePolicies NO_POLICY_SCOPE)
 include(SetKexiVersionInfo)
@@ -30,6 +32,9 @@ include(KexiGenerateDependencyGraph)
 ensure_out_of_source_build("Please refer to the build instruction https://community.kde.org/Kexi/Building")
 get_git_revision_and_branch()
 detect_release_build()
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 
  #######################
 ########################
@@ -75,7 +80,6 @@ calligra_set_productset(${PRODUCTSET})
 ###########################
 ##########################
 
-set(REQUIRED_KF5_VERSION 5.16.0)
 set(REQUIRED_KF5_COMPONENTS
     Archive
     Codecs
@@ -98,16 +102,15 @@ if(SHOULD_BUILD_KEXI_DESKTOP_APP)
         TextWidgets
     )
 endif()
-find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS ${REQUIRED_KF5_COMPONENTS})
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS ${REQUIRED_KF5_COMPONENTS})
 
-find_package(KF5 ${REQUIRED_KF5_VERSION} COMPONENTS Crash)
+find_package(KF5 ${KF5_MIN_VERSION} COMPONENTS Crash)
 macro_bool_to_01(KF5Crash_FOUND HAVE_KCRASH)
 set_package_properties(KF5Crash PROPERTIES TYPE OPTIONAL
                        PURPOSE "Used to provide crash reporting on Linux")
 
-set(REQUIRED_QT_VERSION 5.4.0)
-find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Gui Widgets Xml Network PrintSupport Svg Test)
-find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS UiTools WebKit WebKitWidgets)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Gui Widgets Xml Network PrintSupport Svg Test)
+find_package(Qt5 ${QT_MIN_VERSION} COMPONENTS UiTools WebKit WebKitWidgets)
 
 # use sane compile flags
 add_definitions(
@@ -196,8 +199,7 @@ endif()
 ##
 ## Test for marble
 ##
-set(MARBLE_MIN_VERSION "0.19.2")
-find_package(Marble ${MARBLE_MIN_VERSION} CONFIG)
+find_package(Marble CONFIG)
 set_package_properties(Marble PROPERTIES
     DESCRIPTION "KDE World Globe Widget library"
     URL "https://marble.kde.org"
