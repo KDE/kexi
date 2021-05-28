@@ -70,6 +70,7 @@
     </p>
     <p xml:lang="ca">El Kexi és un constructor visual de base de dades. Es pot utilitzar per dissenyar aplicacions de bases de dades, inserció i edició de dades, execució de consultes, i procés de dades. Es poden generar formularis per proporcionar una interfície personalitzada a les dades. Tots els objectes de les bases de dades -taules, consultes, formularis, informes, etc.- s'emmagatzemen en la base de dades, facilitant compartir les dades i el disseny.</p>
     <p xml:lang="ca-valencia">El Kexi és un constructor visual de base de dades. Es pot utilitzar per dissenyar aplicacions de bases de dades, inserció i edició de dades, execució de consultes, i procés de dades. Es poden generar formularis per proporcionar una interfície personalitzada a les dades. Tots els objectes de les bases de dades -taules, consultes, formularis, informes, etc.- s'emmagatzemen en la base de dades, facilitant compartir les dades i el disseny.</p>
+    <p xml:lang="de">Kexi ist ein visueller Generator für Datenbankanwendungen. Es kann für den Entwurf von Datenbankanwendungen, zum Einfügen und Bearbeiten von Daten, zur Durchführung von Abfragen und zur Verarbeitung von Daten verwendet werden. Formulare können erstellt werden, um eine eigene Schnittstelle zu Ihren Daten bereitzustellen. Alle Datenbankobjekte - Tabellen, Abfragen, Formulare, Berichte usw. - werden in der Datenbank gespeichert, was die gemeinsame Nutzung von Daten und Entwurf erleichtert.</p>
     <p xml:lang="el">Το Kexi είναι ένα πρόγραμμα κατασκευής εφαρμογών με οπτική βάση δεδομένων. Χρησιμεύει για τη σχεδίαση εφαρμογών βάσεων δεδομένων, την εισαγωγή και διόρθωση δεδομένων, την εκτέλεση ερωτήσεων και την επεξεργασία δεδομένων. Οι φόρμες κατασκευάζονται για να παρέχουν ένα προσαρμοσμένο περιβάλλον χρήσης για τα δεδομένα σας. Όλα τα αντικείμενα της βάσης - πίνακες, ερωτήσεις, φόρμες, αναφορές, κλπ. - αποθηκεύονται στη βάση δεδομένων, διευκολύνοντας το διαμοιρασμό δεδομένων και σχεδίασης.</p>
     <p xml:lang="en-GB">Kexi is a visual database applications builder. It can be used for designing database applications, inserting and editing data, performing queries, and processing data. Forms can be created to provide a custom interface to your data. All database objects - tables, queries, forms, reports, etc. - are stored in the database, making it easy to share data and design.</p>
     <p xml:lang="es">Kexi es un creador visual de aplicaciones de bases de datos. Se puede usar para diseñar aplicaciones de bases de datos, insertar y editar datos, realizar consultas y procesar datos. Se pueden crear formularios para proporcionar una interfaz personalizada para sus datos. Todos los objetos de la base de datos (tablas, consultas, formularios, informes, etc.) se almacenan en la base de datos, facilitando el intercambio de datos y diseños.</p>
@@ -125,6 +126,7 @@
       <li xml:lang="bs">Potpuni vizualni dizajneri za tablice , upite , obrasce i izvještaje</li>
       <li xml:lang="ca">Dissenyadors visuals complets per a taules, consultes, formularis i informes</li>
       <li xml:lang="ca-valencia">Dissenyadors visuals complets per a taules, consultes, formularis i informes</li>
+      <li xml:lang="de">Vollständiger visuelle Entwurf für Tabellen, Abfragen, Formulare und Berichte</li>
       <li xml:lang="el">Πλήρης οπτική σχεδίαση για πίνακες, ερωτήσεις, φόρμες και αναφορές</li>
       <li xml:lang="en-GB">Full visual designers for tables, queries, forms and reports</li>
       <li xml:lang="es">Herramientas de diseño completamente visuales para las tablas, consultas, formularios e informes.</li>
@@ -255,6 +257,7 @@
       <li xml:lang="bs">Izrada i prikazivanje relacijskih podataka pomoću combo kutije ( pregledavanje kolone)</li>
       <li xml:lang="ca">Disseny i visualització de dades relacionals usant quadres combinats (columnes de cerca)</li>
       <li xml:lang="ca-valencia">Disseny i visualització de dades relacionals usant quadres combinats (columnes de cerca)</li>
+      <li xml:lang="de">Entwurf und Anzeige von relationalen Daten mit Hilfe von Kombinationsfeldern (Nachschlagspalten)</li>
       <li xml:lang="el">Σχεδιασμός και εμφάνιση σχεσιακών δεδομένων με χρήση συνδυαστικών πλαισίων (στήλες αναζήτησης)</li>
       <li xml:lang="en-GB">Designing and displaying relational data using combo boxes (lookup columns)</li>
       <li xml:lang="es">Diseño y presentación de datos relacionales utilizando listas desplegables (columnas de búsqueda)</li>
@@ -310,6 +313,7 @@
       <li xml:lang="bs">Zatvoreni  korisnički režim, omogućavajući vam da isključite sve naredbe koje se odnose na uređivanje dizajna vašeg projekta</li>
       <li xml:lang="ca">Mode reduït d'usuari, que permet inhabilitar totes les ordres relacionades amb l'edició del disseny del projecte</li>
       <li xml:lang="ca-valencia">Mode reduït d'usuari, que permet inhabilitar totes les ordres relacionades amb l'edició del disseny del projecte</li>
+      <li xml:lang="de">Gesperrter Benutzermodus, der es Ihnen ermöglicht, alle Befehle für die Bearbeitung des Entwurfs Ihres Projekts auszuschalten.</li>
       <li xml:lang="el">Κλειδωμένη λειτουργία χρήστη, που σας επιτρέπει να απενεργοποιήσετε όλες τις εντολές που σχετίζονται με την επεξεργασία της σχεδίασης του έργου σας</li>
       <li xml:lang="en-GB">Locked down User Mode, allowing you to switch off all commands related to editing your project's design</li>
       <li xml:lang="es">Modo de usuario limitado, que permite desactivar todas las ordenes relacionadas con la edición del diseño de su proyecto</li>
@@ -374,6 +378,7 @@
       <caption>Tabular view</caption>
       <caption xml:lang="ca">Vista de taules</caption>
       <caption xml:lang="ca-valencia">Vista de taules</caption>
+      <caption xml:lang="de">Tabellarische Ansicht</caption>
       <caption xml:lang="el">Προβολή σε στήλες</caption>
       <caption xml:lang="en-GB">Tabular view</caption>
       <caption xml:lang="es">Vista tabular</caption>
