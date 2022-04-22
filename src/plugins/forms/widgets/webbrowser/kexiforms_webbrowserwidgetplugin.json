@@ -4,7 +4,7 @@
             {
                 "Email": "kexi@kde.org",
                 "Name": "Kexi Team",
-                "Name[ca@valencia]": "L'equip del Kexi",
+                "Name[ca@valencia]": "L'equip de Kexi",
                 "Name[ca]": "L'equip del Kexi",
                 "Name[cs]": "Tým Kexi",
                 "Name[de]": "Kexi-Team",
@@ -33,7 +33,7 @@
         "Category": "",
         "Dependencies": [],
         "Description": "Kexi plugin providing web browser form widget",
-        "Description[ca@valencia]": "Connector del Kexi que proporciona ginys de formularis per al navegador web",
+        "Description[ca@valencia]": "Connector de Kexi que proporciona ginys de formularis per al navegador web",
         "Description[ca]": "Connector del Kexi que proporciona ginys de formularis per al navegador web",
         "Description[cs]": "Modul Kexi poskytující widget pro webový formulář",
         "Description[de]": "Kexi-Modul, das ein Webbrowser-Bedienelement bereitstellt",

@@ -4,7 +4,7 @@
             {
                 "Email": "kexi@kde.org",
                 "Name": "Kexi Team",
-                "Name[ca@valencia]": "L'equip del Kexi",
+                "Name[ca@valencia]": "L'equip de Kexi",
                 "Name[ca]": "L'equip del Kexi",
                 "Name[cs]": "Tým Kexi",
                 "Name[de]": "Kexi-Team",
@@ -35,7 +35,7 @@
             "org.kde.kdb.postgresql"
         ],
         "Description": "PostgreSQL database import plugin for Kexi",
-        "Description[ca@valencia]": "Connector d'importació de la base de dades PostgreSQL per al Kexi",
+        "Description[ca@valencia]": "Connector d'importació de la base de dades PostgreSQL per a Kexi",
         "Description[ca]": "Connector d'importació de la base de dades PostgreSQL per al Kexi",
         "Description[cs]": "Modul Kexi pro import databáze PostgreSQL",
         "Description[de]": "PostgreSQL-Datenbank-Importmodul für Kexi",
