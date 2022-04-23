@@ -6,7 +6,7 @@ target_link_libraries(kexitableviewtest
     kexiextendedwidgets
 )
 
-install(TARGETS kexitableviewtest  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kexitableviewtest  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 
 ########### next target ###############

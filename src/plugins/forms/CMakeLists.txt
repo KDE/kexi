@@ -78,6 +78,6 @@ target_include_directories(kexiformutils
     PUBLIC "$<BUILD_INTERFACE:${kexiformutils_INCLUDE_DIRS}>"
 )
 
-install(TARGETS kexiformutils  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kexiformutils  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 add_subdirectory(widgets)

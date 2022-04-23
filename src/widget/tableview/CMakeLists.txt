@@ -35,4 +35,4 @@ target_link_libraries(kexidatatable
     KF5::KIOWidgets
 )
 
-install(TARGETS kexidatatable  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kexidatatable  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

@@ -4,7 +4,7 @@ add_executable(kexidbparser ${kexidbparser_SRCS})
 
 target_link_libraries(kexidbparser KDb kexidbparser)
 
-install(TARGETS kexidbparser  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kexidbparser  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 
 ########### next target ###############

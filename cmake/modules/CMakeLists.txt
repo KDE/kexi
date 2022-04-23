@@ -1,1 +1,1 @@
-set(module_install_dir ${DATA_INSTALL_DIR}/cmake/modules)
+set(module_install_dir ${KDE_INSTALL_DATADIR}/cmake/modules)

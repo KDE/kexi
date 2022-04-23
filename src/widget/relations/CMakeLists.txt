@@ -18,4 +18,4 @@ target_link_libraries(kexirelationsview
     kexiextendedwidgets
 )
 
-install(TARGETS kexirelationsview  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kexirelationsview  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
