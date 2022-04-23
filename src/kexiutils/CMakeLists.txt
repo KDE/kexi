@@ -90,7 +90,7 @@ endif()
 
 generate_export_header(kexiutils)
 
-install(TARGETS kexiutils  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kexiutils  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 if(FALSE) # TODO: install when we move to independent place
     install( FILES  tristate.h utils.h kexiutils_export.h kexiutils_global.h
@@ -98,7 +98,7 @@ if(FALSE) # TODO: install when we move to independent place
     SmallToolButton.h FlowLayout.h
     kmessagewidget.h KexiContextMessage.h KexiTitleLabel.h KexiAssistantPage.h
     KexiAssistantWidget.h KexiAnimatedLayout.h
-    DESTINATION ${INCLUDE_INSTALL_DIR}/kexiutils COMPONENT Devel)
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kexiutils COMPONENT Devel)
 endif()
 
 if(BUILD_TESTING)

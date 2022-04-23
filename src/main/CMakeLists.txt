@@ -71,7 +71,7 @@ if(HAVE_KCRASH)
 endif()
 
 target_compile_definitions(keximain PRIVATE CMAKE_CURRENT_SOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
-install(TARGETS keximain  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS keximain  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 add_subdirectory(status)
 

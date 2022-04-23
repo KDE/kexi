@@ -29,6 +29,6 @@ install(TARGETS kexiforms_mapwidgetplugin DESTINATION ${KEXI_FORM_WIDGETS_PLUGIN
 ecm_install_icons(ICONS
     16-actions-map_browser.png
     22-actions-map_browser.png
-    DESTINATION ${DATA_INSTALL_DIR}/kexi/icons
+    DESTINATION ${KDE_INSTALL_DATADIR}/kexi/icons
     THEME hicolor
 )

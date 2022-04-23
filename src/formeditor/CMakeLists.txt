@@ -62,4 +62,4 @@ generate_export_header(kformdesigner)
 
 target_link_libraries(kformdesigner ${kformdesigner_LIBS})
 
-install(TARGETS kformdesigner  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kformdesigner  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

@@ -112,7 +112,7 @@ if(SHOULD_BUILD_KEXI_DESKTOP_APP)
         PRIVATE
             keximain
     )
-    install(TARGETS kexi ${INSTALL_TARGETS_DEFAULT_ARGS})
+    install(TARGETS kexi ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
     add_subdirectory( pics )
 endif()

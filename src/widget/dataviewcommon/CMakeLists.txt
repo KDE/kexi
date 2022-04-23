@@ -25,4 +25,4 @@ target_link_libraries(
     KF5::XmlGui #KActionCollection...
 )
 
-install(TARGETS kexidataviewcommon  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kexidataviewcommon  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

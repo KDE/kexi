@@ -122,14 +122,14 @@ add_definitions(
 )
 
 # set custom KEXI plugin installdir
-set(KEXI_PLUGIN_INSTALL_DIR ${PLUGIN_INSTALL_DIR}/${KEXI_BASE_PATH})
+set(KEXI_PLUGIN_INSTALL_DIR ${KDE_INSTALL_PLUGINDIR}/${KEXI_BASE_PATH})
 
 simple_option(BUILD_EXAMPLES "Build and install examples" ON)
 
 macro_bool_to_01(BUILD_EXAMPLES COMPILING_EXAMPLES)
 
 # set custom KEXI examples installdir
-set(KEXI_EXAMPLES_INSTALL_DIR ${SHARE_INSTALL_PREFIX}/${KEXI_BASE_PATH}/examples)
+set(KEXI_EXAMPLES_INSTALL_DIR ${KDE_INSTALL_DATAROOTDIR}/${KEXI_BASE_PATH}/examples)
 
 # TEMPORARY: for initial Qt5/KF5 build porting phase deprecation warnings are only annoying noise
 # remove once code porting phase starts, perhaps first locally in product subdirs

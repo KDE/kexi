@@ -64,5 +64,5 @@ target_link_libraries(kexicore
 
 target_include_directories(kexicore PUBLIC ${CMAKE_SOURCE_DIR}/src/kexiutils/style)
 
-install(TARGETS kexicore  ${INSTALL_TARGETS_DEFAULT_ARGS})
-#install(FILES kexihandler.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR})
+install(TARGETS kexicore  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+#install(FILES kexihandler.desktop DESTINATION ${KDE_INSTALL_KSERVICETYPES5DIR})
