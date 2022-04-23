@@ -4,7 +4,7 @@ add_executable(kexistartuptest ${kexistartuptest_SRCS})
 
 target_link_libraries(kexistartuptest kexicore)
 
-install(TARGETS kexistartuptest  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kexistartuptest  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 
 ########### next target ###############

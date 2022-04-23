@@ -62,5 +62,5 @@ target_link_libraries(kexicore
         KPropertyCore
 )
 
-install(TARGETS kexicore  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kexicore  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 #install(FILES kexihandler.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR})

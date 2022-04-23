@@ -29,7 +29,7 @@ macro(kexi_add_app_icons)
                                             # because the copied ones do not exist yet before
                                             # ecm_add_app_icon() gets called
     ecm_install_icons(ICONS ${_files}
-                      DESTINATION ${ICON_INSTALL_DIR}
+                      DESTINATION ${KDE_INSTALL_ICONDIR}
                       THEME hicolor)
     target_sources(kexi PRIVATE ${_source_var})
     unset(_files)
@@ -61,8 +61,8 @@ macro(kexi_add_app_metadata_files source_var)
     # Then install with proper coinstallable name org.kde.kexi-${KEXI_DISTRIBUTION_VERSION}.appdata.xml.
     install(FILES ${_appdata}
             RENAME org.kde.kexi-${KEXI_DISTRIBUTION_VERSION}.appdata.xml
-            DESTINATION ${CMAKE_INSTALL_METAINFODIR})
+            DESTINATION ${KDE_INSTALL_METAINFODIR})
     install(PROGRAMS ${CMAKE_CURRENT_SOURCE_DIR}/data/org.kde.kexi.desktop
             RENAME org.kde.kexi-${KEXI_DISTRIBUTION_VERSION}.desktop
-            DESTINATION ${XDG_APPS_INSTALL_DIR})
+            DESTINATION ${KDE_INSTALL_APPDIR})
 endmacro()

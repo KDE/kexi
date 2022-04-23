@@ -21,7 +21,7 @@ target_link_libraries(kexiundo
         kexicore # TODO remove when KexiIcon() goes out of core/
 )
 
-install(TARGETS kexiundo ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kexiundo ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 if(FALSE) # no need to install
 install(FILES
@@ -33,6 +33,6 @@ install(FILES
     kundo2model.h
     kundo2command.h
     kundo2magicstring.h
-    DESTINATION ${INCLUDE_INSTALL_DIR}/kexi COMPONENT Devel
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kexi COMPONENT Devel
 )
 endif()

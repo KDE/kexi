@@ -108,4 +108,4 @@ else()
         PRIVATE KF5::KIOFileWidgets) # KFileWidget::getStartUrl, KFileFilterCombo
 endif()
 
-install(TARGETS kexiextendedwidgets  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kexiextendedwidgets  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

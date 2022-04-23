@@ -27,4 +27,4 @@ target_link_libraries(kexiguiutils
     KF5::KIOWidgets
 )
 
-install(TARGETS kexiguiutils  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kexiguiutils  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

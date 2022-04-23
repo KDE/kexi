@@ -106,12 +106,12 @@ target_link_libraries(keximigrate
 
 generate_export_header(keximigrate)
 
-install(TARGETS keximigrate  ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS keximigrate  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
 if(FALSE) # TODO: install when we move to independent place
     install(FILES KexiMigratePluginMetaData.h keximigrate.h keximigratedata.h KexiSqlMigrate.h migratemanager.h
-            DESTINATION ${INCLUDE_INSTALL_DIR}/kexidb COMPONENT Devel
+            DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kexidb COMPONENT Devel
     )
 endif()

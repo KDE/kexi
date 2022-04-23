@@ -21,4 +21,4 @@ target_link_libraries(keximobile
     kexicore
 )
 
-install(TARGETS keximobile ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS keximobile ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
