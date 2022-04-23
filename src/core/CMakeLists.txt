@@ -63,4 +63,4 @@ target_link_libraries(kexicore
 )
 
 install(TARGETS kexicore  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-#install(FILES kexihandler.desktop DESTINATION ${SERVICETYPES_INSTALL_DIR})
+#install(FILES kexihandler.desktop DESTINATION ${KDE_INSTALL_KSERVICETYPES5DIR})
