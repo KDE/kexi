@@ -24,5 +24,5 @@ Dependencies:
     'libraries/kdb': '@same'
     'libraries/kreport': '@same'
     'libraries/kproperty': '@same'
-    'education/marble': '@same'
+    'education/marble': '@stable'
 
