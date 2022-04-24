@@ -1,0 +1,28 @@
+Dependencies:
+- 'on': ['@all']
+  'require':
+    'frameworks/extra-cmake-modules': '@stable'
+    'frameworks/karchive': '@stable'
+    'frameworks/kcodecs': '@stable'
+    'frameworks/kconfig': '@stable'
+    'frameworks/kconfigwidgets': '@stable'
+    'frameworks/kcoreaddons': '@stable'
+    'frameworks/kguiaddons': '@stable'
+    'frameworks/ki18n': '@stable'
+    'frameworks/kiconthemes': '@stable'
+    'frameworks/kitemviews': '@stable'
+    'frameworks/widgetsaddons': '@stable'
+    'frameworks/ktextwidgets': '@stable'
+    'frameworks/kxmlgui': '@stable'
+    'frameworks/kcompletion': '@stable'
+    'frameworks/kio': '@stable'
+    'frameworks/ktexteditor': '@stable'
+    'frameworks/ktextwidgets': '@stable'
+    'frameworks/kcrash': '@stable'
+    'frameworks/kdoctools': '@stable'
+    'frameworks/breeze-icons': '@stable'
+    'libraries/kdb': '@same'
+    'libraries/kreport': '@same'
+    'libraries/kproperty': '@same'
+    'education/marble': '@same'
+
