@@ -121,11 +121,6 @@ add_definitions(
   -DQT_USE_QSTRINGBUILDER
 )
 
-# overcome some platform incompatibilities
-if(WIN32)
-    find_package(KDEWin REQUIRED)
-endif()
-
 # set custom KEXI plugin installdir
 set(KEXI_PLUGIN_INSTALL_DIR ${PLUGIN_INSTALL_DIR}/${KEXI_BASE_PATH})
 

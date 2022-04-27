@@ -22,10 +22,6 @@
 
 #include <config-kexi.h>
 
-#ifdef _MSC_VER
-#include <kdewin_export.h> // for WARNING
-#endif
-
 #ifndef futureI18n
 # ifdef USE_FUTURE_I18N
 #  define futureI18n(a) i18n(a)

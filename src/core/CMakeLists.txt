@@ -62,13 +62,6 @@ target_link_libraries(kexicore
         KPropertyCore
 )
 
-if(WIN32)
-    target_link_libraries(kexicore
-        PUBLIC
-            kdewin
-    )
-endif()
-
 target_include_directories(kexicore PUBLIC ${CMAKE_SOURCE_DIR}/src/kexiutils/style)
 
 install(TARGETS kexicore  ${INSTALL_TARGETS_DEFAULT_ARGS})
