@@ -37,8 +37,6 @@
 #include <QClipboard>
 #include <QDebug>
 
-#include <unistd.h>
-
 QString testFilename;
 QFile testFile;
 QTextStream testFileStream;

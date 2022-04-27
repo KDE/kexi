@@ -31,8 +31,6 @@
 #include <QDir>
 #include <QStandardPaths>
 
-#include <unistd.h>
-
 //#define KexiRecentProjects_DEBUG
 
 //! @internal
