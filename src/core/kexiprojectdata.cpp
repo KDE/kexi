@@ -34,9 +34,6 @@
 #include <QStringList>
 #include <QDebug>
 
-#include <sys/types.h>
-#include <unistd.h>
-
 //! Version of the KexiProjectData format.
 #define KEXIPROJECTDATA_FORMAT 3
 /* CHANGELOG:

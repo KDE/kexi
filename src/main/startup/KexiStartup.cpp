@@ -48,8 +48,6 @@
 #include <QMimeType>
 #include <QProgressDialog>
 
-#include <unistd.h>
-
 static void destroyStartupHandler()
 {
     if (!KexiStartupData::global()) {
