@@ -142,7 +142,7 @@ public:
      This method is called on openInstance() once per dialog.
      Reimplement this to return KexiWindowData subclass instance.
      Default implemention just returns empty KexiWindowData object. */
-    virtual Q_REQUIRED_RESULT KexiWindowData *createWindowData(KexiWindow *window);
+    Q_REQUIRED_RESULT virtual KexiWindowData *createWindowData(KexiWindow *window);
 
     /*! Creates a new view for mode \a viewMode, \a item and \a parent. The view will be
      used inside \a dialog. */
@@ -223,7 +223,7 @@ protected:
      In this case value pointed by @a ownedByWindow is set to false. Default implemenatation returns
      owned KDbObject object (value pointed by @a ownedByWindow is set to true).
      @a ownedByWindow is required. */
-    virtual Q_REQUIRED_RESULT KDbObject *loadSchemaObject(KexiWindow *window, const KDbObject &object,
+    Q_REQUIRED_RESULT virtual KDbObject *loadSchemaObject(KexiWindow *window, const KDbObject &object,
                                         Kexi::ViewMode viewMode, bool *ownedByWindow);
 
     bool loadDataBlock(KexiWindow *window, QString *dataString, const QString& dataID = QString());
