@@ -83,7 +83,7 @@ public:
 
     //Utility Functions
     virtual QStringList dataSourceNames() const override;
-    virtual Q_REQUIRED_RESULT KReportDataSource *create(const QString &source) const override;
+    Q_REQUIRED_RESULT virtual KReportDataSource *create(const QString &source) const override;
 
 private:
     class Private;
