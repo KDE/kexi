@@ -35,7 +35,7 @@
             "org.kde.kdb.mysql"
         ],
         "Description": "MySQL database import plugin for Kexi",
-        "Description[ca@valencia]": "Connector d'importació de la base de dades MySQL per a Kexi",
+        "Description[ca@valencia]": "Conector d'importació de la base de dades MySQL per a Kexi",
         "Description[ca]": "Connector d'importació de la base de dades MySQL per al Kexi",
         "Description[cs]": "Modul Kexi pro import databáze MySQL",
         "Description[de]": "MySQL-Datenbank-Importmodul für Kexi",
