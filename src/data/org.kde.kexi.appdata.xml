@@ -63,7 +63,7 @@
       reports, etc. - are stored in the database, making it easy to share data and design.
     </p>
     <p xml:lang="ca">El KEXI és un constructor visual de base de dades. Es pot utilitzar per a dissenyar aplicacions de bases de dades, inserció i edició de dades, execució de consultes, i procés de dades. Es poden generar formularis per a proporcionar una interfície personalitzada a les dades. Tots els objectes de les bases de dades -taules, consultes, formularis, informes, etc.- s'emmagatzemen en la base de dades, facilitant compartir les dades i el disseny.</p>
-    <p xml:lang="ca-valencia">KEXI és un constructor visual de base de dades. Es pot utilisar per a dissenyar aplicacions de bases de dades, inserció i edició de dades, execució de consultes, i procés de dades. Es poden generar formularis per a proporcionar una interfície personalisada a les dades. Tots els objectes de les bases de dades -taules, consultes, formularis, informes, etc.- s'almagasenen en la base de dades, facilitant compartir les dades i el disseny.</p>
+    <p xml:lang="ca-valencia">KEXI és un constructor visual de base de dades. Es pot utilitzar per a dissenyar aplicacions de bases de dades, inserció i edició de dades, execució de consultes, i procés de dades. Es poden generar formularis per a proporcionar una interfície personalitzada a les dades. Tots els objectes de les bases de dades -taules, consultes, formularis, informes, etc.- s'emmagatzemen en la base de dades, facilitant compartir les dades i el disseny.</p>
     <p xml:lang="de">Kexi ist ein visueller Generator für Datenbankanwendungen. Es kann für den Entwurf von Datenbankanwendungen, zum Einfügen und Bearbeiten von Daten, zur Durchführung von Abfragen und zur Verarbeitung von Daten verwendet werden. Formulare können erstellt werden, um eine eigene Schnittstelle zu Ihren Daten bereitzustellen. Alle Datenbankobjekte - Tabellen, Abfragen, Formulare, Berichte usw. - werden in der Datenbank gespeichert, was die gemeinsame Nutzung von Daten und Entwurf erleichtert.</p>
     <p xml:lang="el">Το Kexi είναι ένα πρόγραμμα κατασκευής εφαρμογών με οπτική βάση δεδομένων. Χρησιμεύει για τη σχεδίαση εφαρμογών βάσεων δεδομένων, την εισαγωγή και διόρθωση δεδομένων, την εκτέλεση ερωτήσεων και την επεξεργασία δεδομένων. Οι φόρμες κατασκευάζονται για να παρέχουν ένα προσαρμοσμένο περιβάλλον χρήσης για τα δεδομένα σας. Όλα τα αντικείμενα της βάσης - πίνακες, ερωτήσεις, φόρμες, αναφορές, κλπ. - αποθηκεύονται στη βάση δεδομένων, διευκολύνοντας το διαμοιρασμό δεδομένων και σχεδίασης.</p>
     <p xml:lang="en-GB">KEXI is a visual database applications builder. It can be used for designing database applications, inserting and editing data, performing queries, and processing data. Forms can be created to provide a custom interface to your data. All database objects - tables, queries, forms, reports, etc. - are stored in the database, making it easy to share data and design.</p>
@@ -251,7 +251,7 @@
       <li>Designing and displaying relational data using combo boxes (lookup columns)</li>
       <li xml:lang="bs">Izrada i prikazivanje relacijskih podataka pomoću combo kutije ( pregledavanje kolone)</li>
       <li xml:lang="ca">Disseny i visualització de dades relacionals usant quadres combinats (columnes de cerca)</li>
-      <li xml:lang="ca-valencia">Disseny i visualisació de dades relacionals utilisant quadros combinats (columnes de busca)</li>
+      <li xml:lang="ca-valencia">Disseny i visualització de dades relacionals utilitzant quadros combinats (columnes de busca)</li>
       <li xml:lang="de">Entwurf und Anzeige von relationalen Daten mit Hilfe von Kombinationsfeldern (Nachschlagspalten)</li>
       <li xml:lang="el">Σχεδιασμός και εμφάνιση σχεσιακών δεδομένων με χρήση συνδυαστικών πλαισίων (στήλες αναζήτησης)</li>
       <li xml:lang="en-GB">Designing and displaying relational data using combo boxes (lookup columns)</li>
@@ -279,7 +279,7 @@
       <li>Direct data entry or import using CSV format</li>
       <li xml:lang="bs">Unos podataka direktno  ili uvoz pomoću CSV formata</li>
       <li xml:lang="ca">Entrada directa de dades o importació usant el format CSV</li>
-      <li xml:lang="ca-valencia">Entrada directa de dades o importació utilisant el format CSV</li>
+      <li xml:lang="ca-valencia">Entrada directa de dades o importació utilitzant el format CSV</li>
       <li xml:lang="de">Direkte Dateneingabe oder Import aus dem CSV-Format</li>
       <li xml:lang="el">Άμεση εγγραφή δεδομένων ή εισαγωγή με χρήση τύπου αποθήκευσης CSV</li>
       <li xml:lang="en-GB">Direct data entry or import using CSV format</li>
@@ -307,7 +307,7 @@
       <li>Locked down User Mode, allowing you to switch off all commands related to editing your project's design</li>
       <li xml:lang="bs">Zatvoreni  korisnički režim, omogućavajući vam da isključite sve naredbe koje se odnose na uređivanje dizajna vašeg projekta</li>
       <li xml:lang="ca">Mode reduït d'usuari, que permet inhabilitar totes les ordres relacionades amb l'edició del disseny del projecte</li>
-      <li xml:lang="ca-valencia">Modo reduït d'usuari, que permet inhabilitar totes les ordres relacionades amb l'edició del disseny del projecte</li>
+      <li xml:lang="ca-valencia">Mode reduït d'usuari, que permet inhabilitar totes les ordres relacionades amb l'edició del disseny del projecte</li>
       <li xml:lang="de">Gesperrter Benutzermodus, der es Ihnen ermöglicht, alle Befehle für die Bearbeitung des Entwurfs Ihres Projekts auszuschalten.</li>
       <li xml:lang="el">Κλειδωμένη λειτουργία χρήστη, που σας επιτρέπει να απενεργοποιήσετε όλες τις εντολές που σχετίζονται με την επεξεργασία της σχεδίασης του έργου σας</li>
       <li xml:lang="en-GB">Locked down User Mode, allowing you to switch off all commands related to editing your project's design</li>
@@ -335,7 +335,7 @@
       <li>Scripting using JavaScript, Python or Ruby programming languages (experimental)</li>
       <li xml:lang="bs">Scripting koristeći JavaScript, Python ili Ruby programskim jezicima (eksperimentalno)</li>
       <li xml:lang="ca">Crear scripts usant els llenguatges de programació JavaScript, Python o Ruby (experimental)</li>
-      <li xml:lang="ca-valencia">Crear scripts utilisant els llenguatges de programació JavaScript, Python o Ruby (experimental)</li>
+      <li xml:lang="ca-valencia">Crear scripts utilitzant els llenguatges de programació JavaScript, Python o Ruby (experimental)</li>
       <li xml:lang="de">Unterstützung für Skripte in den Programmsprachen JavaScript, Python oder Ruby (experimentell)</li>
       <li xml:lang="el">Συγγραφή σεναρίων με τη χρήση γλωσσών JavaScript, Python ή Ruby (πειραματικό)</li>
       <li xml:lang="en-GB">Scripting using JavaScript, Python or Ruby programming languages (experimental)</li>
