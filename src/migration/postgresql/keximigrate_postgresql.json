@@ -36,7 +36,7 @@
             "org.kde.kdb.postgresql"
         ],
         "Description": "PostgreSQL database import plugin for KEXI",
-        "Description[ca@valencia]": "Conector d'importació de la base de dades PostgreSQL per a Kexi",
+        "Description[ca@valencia]": "Connector d'importació de la base de dades PostgreSQL per a Kexi",
         "Description[ca]": "Connector d'importació de la base de dades PostgreSQL per al Kexi",
         "Description[cs]": "Modul KEXI pro import databáze PostgreSQL",
         "Description[de]": "PostgreSQL-Datenbank-Importmodul für Kexi",
