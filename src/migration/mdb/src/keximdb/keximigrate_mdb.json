@@ -33,7 +33,7 @@
         "Category": "",
         "Dependencies": [],
         "Description": "MS Access (MDB) import plugin for Kexi",
-        "Description[ca@valencia]": "Conector d'importació del MS Access (MDB) per a Kexi",
+        "Description[ca@valencia]": "Connector d'importació del MS Access (MDB) per a Kexi",
         "Description[ca]": "Connector d'importació del MS Access (MDB) per al Kexi",
         "Description[cs]": "Modul Kexi pro import MS Access (MDB)",
         "Description[de]": "MS-Access-(MDB)-Importmodul für Kexi",

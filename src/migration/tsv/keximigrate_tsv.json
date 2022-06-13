@@ -33,7 +33,7 @@
         "Category": "",
         "Dependencies": [],
         "Description": "Tab Separated Values (TSV) file import plugin for Kexi",
-        "Description[ca@valencia]": "Conector d'importació de fitxers amb valors separats per tabulacions (TSV) per a Kexi",
+        "Description[ca@valencia]": "Connector d'importació de fitxers amb valors separats per tabulacions (TSV) per a Kexi",
         "Description[ca]": "Connector d'importació de fitxers amb valors separats per tabulacions (TSV) per al Kexi",
         "Description[cs]": "Importní modul Kexi pro hodnoty oddělené tabulátorem (Tab Separated Values - TSV)",
         "Description[de]": "„Durch Tabulator getrennte Werte“-(TSV)-Datei-Importmodul für Kexi",
