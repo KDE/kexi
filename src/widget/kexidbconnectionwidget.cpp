@@ -357,7 +357,7 @@ void KexiDBConnectionTabWidget::slotTestConnection()
         connectionData.setPassword(mainWidget->passwordEdit->text()); //not saved otherwise
     }
     if (mainWidget->passwordEdit->text().isEmpty()) {
-        connectionData.setPassword(QString::null);
+        connectionData.setPassword(QString());
         if (savePasswordChecked) {
             connectionData.setSavePassword(false); //for getPasswordIfNeeded()
         }

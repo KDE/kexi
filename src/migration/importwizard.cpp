@@ -992,7 +992,7 @@ void ImportWizard::next()
             }
             if (!ok) {
                 if (passwordNeeded == true) {
-                    conndata->setPassword(QString::null); // not clear(), we have to remove password
+                    conndata->setPassword(QString()); // not clear(), we have to remove password
                 }
                 delete d->prjSet;
                 d->prjSet = 0;
@@ -1018,7 +1018,7 @@ void ImportWizard::next()
             bool ok = passwordNeeded != cancelled;
             if (!ok) {
                 if (passwordNeeded == true) {
-                    condata->setPassword(QString::null); // not clear(), we have to remove password
+                    condata->setPassword(QString()); // not clear(), we have to remove password
                 }
                 return;
             }
