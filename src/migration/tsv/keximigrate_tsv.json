@@ -26,6 +26,7 @@
                 "Name[sk]": "Tím Kexi",
                 "Name[sl]": "Ekipa KEXI",
                 "Name[sv]": "Kexi-gruppen",
+                "Name[tr]": "KEXI Takımı",
                 "Name[uk]": "Команда KEXI",
                 "Name[x-test]": "xxKEXI Teamxx",
                 "Name[zh_CN]": "KEXI 团队"
@@ -56,6 +57,7 @@
         "Description[sk]": "Importný plugin pre Kexi pre súbory hodnôt oddelených tabulátorom (TSV)",
         "Description[sl]": "Vtičnik uvoza datotek podatkov ločenih s tabulatorjem (TSV) v KEXI",
         "Description[sv]": "Importinsticksprogram av filer med värden åtskilda av tabulatortecken (TSV) för KEXI",
+        "Description[tr]": "KEXI için Sekme ile Ayrılmış Değerler (TSV) dosyası içe aktarma eklentisi",
         "Description[uk]": "Додаток імпортування даних, відокремлених символами табуляції (TSV), для KEXI",
         "Description[x-test]": "xxTab Separated Values (TSV) file import plugin for KEXIxx",
         "Description[zh_CN]": "KEXI 制表符分隔值 (TSV) 文件导入插件",

@@ -26,6 +26,7 @@
                 "Name[sk]": "Tím Kexi",
                 "Name[sl]": "Ekipa KEXI",
                 "Name[sv]": "Kexi-gruppen",
+                "Name[tr]": "KEXI Takımı",
                 "Name[uk]": "Команда KEXI",
                 "Name[x-test]": "xxKEXI Teamxx",
                 "Name[zh_CN]": "KEXI 团队"
@@ -56,6 +57,7 @@
         "Description[sk]": "MS Access (MDB) importný plugin pre Kexi",
         "Description[sl]": "Vtičnik uvoza iz MS Access (MDB) v KEXI",
         "Description[sv]": "MS Access (MDB) importinsticksprogram för KEXI",
+        "Description[tr]": "KEXI için MS Access (MDB) içe aktarma eklentisi",
         "Description[uk]": "Додаток імпортування даних з MS Access (MDB) для KEXI",
         "Description[x-test]": "xxMS Access (MDB) import plugin for KEXIxx",
         "Description[zh_CN]": "KEXI MS Access (MDB) 导入插件",
