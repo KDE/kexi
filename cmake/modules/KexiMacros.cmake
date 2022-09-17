@@ -51,13 +51,6 @@ macro(detect_release_build)
     endif()
 endmacro()
 
-if(WIN32)
-    set(LIB_INSTALL_DIR ${LIB_INSTALL_DIR}
-                        RUNTIME DESTINATION ${BIN_INSTALL_DIR}
-                        LIBRARY ${INSTALL_TARGETS_DEFAULT_ARGS}
-                        ARCHIVE ${INSTALL_TARGETS_DEFAULT_ARGS} )
-endif()
-
 set(ICONS_INSTALL_DIR "${DATA_INSTALL_DIR}/${KEXI_BASE_PATH}/icons")
 
 # Fetches git revision and branch from the source dir of the current build if possible.
