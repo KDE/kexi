@@ -33,5 +33,5 @@ If you love KEXI, you can help developers to build new incredible features or en
 
 For more information, [look here](https://community.kde.org/Kexi/Contact#Donations).
 
-Have fun,  
+Have fun,
 --- Your KEXI Team
