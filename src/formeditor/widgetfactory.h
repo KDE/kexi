@@ -369,7 +369,7 @@ public Q_SLOTS:
     This slot is called when the line edit text changes, and you have to make
     it really change property of the widget using changeProperty() (text, title, etc.). */
     virtual bool changeInlineText(Form *form, QWidget *widget,
-                                  const QString& text, QString &oldText);
+                                  const QString& text, QString *oldText = nullptr);
 private:
     class Private;
     Private* const d;

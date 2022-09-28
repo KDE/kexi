@@ -82,7 +82,7 @@ protected:
     virtual bool isPropertyVisibleInternal(const QByteArray &classname, QWidget *w,
                                            const QByteArray &property, bool isTopLevel);
     virtual bool changeInlineText(KFormDesigner::Form *form, QWidget *widget,
-                                  const QString &text, QString &oldText);
+                                  const QString &text, QString *oldText);
     virtual void resizeEditor(QWidget *editor, QWidget *widget, const QByteArray &classname);
 #ifdef KEXI_LIST_FORM_WIDGET_SUPPORT
     void saveTreeItem(QTreeWidgetItem *item, QDomNode &parentNode, QDomDocument &domDoc);

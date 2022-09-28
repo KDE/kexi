@@ -210,8 +210,7 @@ void KexiCSVCommentWidget::slotcommentSymbolChanged(int index)
 
 void KexiCSVCommentWidget::slotcommentSymbolChangedInternal(int index)
 {
-    bool changed = false;
-    changed = d->commentSymbol != d->availablecommentSymbols[index];
+    bool changed = d->commentSymbol != d->availablecommentSymbols[index];
     d->commentSymbol = d->availablecommentSymbols[index];
     if (changed)
       emit commentSymbolChanged(d->commentSymbol);

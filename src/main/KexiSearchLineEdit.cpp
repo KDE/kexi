@@ -296,7 +296,7 @@ public:
         if (!v4.text.isEmpty()) {
             painter->save();
             painter->setClipRect(v4.rect);
-            QPalette::ColorGroup cg = v4.state & QStyle::State_Enabled
+            QPalette::ColorGroup cg = (v4.state & QStyle::State_Enabled)
                                     ? QPalette::Normal : QPalette::Disabled;
             if (cg == QPalette::Normal && !(v4.state & QStyle::State_Active)) {
                 cg = QPalette::Inactive;

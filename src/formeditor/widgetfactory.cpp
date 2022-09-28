@@ -195,7 +195,8 @@ bool WidgetFactory::editRichText(QWidget *w, QString &text) const
 void
 WidgetFactory::editListWidget(QListWidget *listwidget) const
 {
-    EditListViewDialog dlg(((QWidget*)listwidget)->topLevelWidget());
+    EditListViewDialog dlg(static_cast<QWidget*>(listwidget)->topLevelWidget());
+    Q_UNUSED(dlg)
 //! @todo
     //dlg.exec(listview);
 }
@@ -276,9 +277,11 @@ WidgetFactory::clearWidgetContent(const QByteArray &, QWidget *)
 }
 
 bool WidgetFactory::changeInlineText(Form *form, QWidget *widget,
-                                     const QString& text, QString &oldText)
+                                     const QString& text, QString *oldText)
 {
-    oldText = widget->property("text").toString();
+    if (oldText) {
+        *oldText = widget->property("text").toString();
+    }
     changeProperty(form, widget, "text", text);
     return true;
 }

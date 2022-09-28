@@ -1751,13 +1751,17 @@ QString KexiCompleter::pathFromIndex(const QModelIndex& index) const
     QAbstractItemModel *sourceModel = d->proxy->sourceModel();
     if (!sourceModel)
         return QString();
-    bool isDirModel = false;
-    bool isFsModel = false;
-#ifndef QT_NO_DIRMODEL
-    isDirModel = qobject_cast<QDirModel *>(d->proxy->sourceModel()) != 0;
+    bool isDirModel =
+#ifdef QT_NO_DIRMODEL
+        false;
+#else
+        qobject_cast<QDirModel *>(d->proxy->sourceModel()) != nullptr;
 #endif
-#ifndef QT_NO_FILESYSTEMMODEL
-    isFsModel = qobject_cast<QFileSystemModel *>(d->proxy->sourceModel()) != 0;
+    bool isFsModel =
+#ifdef QT_NO_FILESYSTEMMODEL
+        false;
+#else
+        qobject_cast<QFileSystemModel *>(d->proxy->sourceModel()) != nullptr;
 #endif
     if (!isDirModel && !isFsModel)
         return sourceModel->data(index, d->role).toString();

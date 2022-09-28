@@ -74,7 +74,7 @@ KexiFieldComboBox::~KexiFieldComboBox()
 
 void KexiFieldComboBox::setProject(KexiProject *prj)
 {
-    if ((KexiProject*)d->prj == prj)
+    if (static_cast<KexiProject*>(d->prj) == prj)
         return;
     d->prj = prj;
     setTableOrQuery(QString(), KDbTableOrQuerySchema::Type::Table);

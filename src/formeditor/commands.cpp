@@ -664,11 +664,10 @@ void AdjustSizeCommand::execute()
 
     switch (d->type) {
     case SizeToGrid: {
-        int tmpx = 0, tmpy = 0;
         // same as in 'Align to Grid' + for the size
         foreach (QWidget *w, list) {
-            tmpx = alignValueToGrid(w->x(), gridX);
-            tmpy = alignValueToGrid(w->y(), gridY);
+            int tmpx = alignValueToGrid(w->x(), gridX);
+            int tmpy = alignValueToGrid(w->y(), gridY);
             tmpw = alignValueToGrid(w->width(), gridX);
             tmph = alignValueToGrid(w->height(), gridY);
             if ((tmpx != w->x()) || (tmpy != w->y()))
@@ -1716,9 +1715,9 @@ void InlineTextEditingCommand::execute()
 
     QString oldText;
     d->form->setSlotPropertyChangedEnabled(false);
-    bool ok = wi->factory()->changeInlineText(d->form, d->widget, d->text, oldText);
+    bool ok = wi->factory()->changeInlineText(d->form, d->widget, d->text, &oldText);
     if (!ok && wi && wi->inheritedClass()) {
-        ok = wi->inheritedClass()->factory()->changeInlineText(d->form, d->widget, d->text, oldText);
+        ok = wi->inheritedClass()->factory()->changeInlineText(d->form, d->widget, d->text, &oldText);
     }
     d->form->setSlotPropertyChangedEnabled(true);
     if (!ok)
@@ -1735,11 +1734,11 @@ void InlineTextEditingCommand::undo()
     if (!wi)
         return;
 
-    QString dummy;
     d->form->setSlotPropertyChangedEnabled(false);
-    bool ok = wi->factory()->changeInlineText(d->form, d->widget, d->oldText, dummy);
-    if (!ok && wi && wi->inheritedClass()) {
-        ok = wi->inheritedClass()->factory()->changeInlineText(d->form, d->widget, d->oldText, dummy);
+    bool ok = wi->factory()->changeInlineText(d->form, d->widget, d->oldText);
+    if (!ok && wi->inheritedClass()) {
+        ok = wi->inheritedClass()->factory()->changeInlineText(d->form, d->widget, d->oldText);
+        Q_UNUSED(ok)
     }
     d->form->setSlotPropertyChangedEnabled(true);
 }

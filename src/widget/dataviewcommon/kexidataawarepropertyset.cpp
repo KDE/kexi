@@ -210,14 +210,13 @@ void KexiDataAwarePropertySet::slotRecordsDeleted(const QList<int> &_record)
     const int orig_size = size();
     int prev_r = -1;
     int num_removed = 0;
-    int cur_r = -1;
     QList<int> record(_record);
     qSort(record);
     enlargeToFitRecord(record.last());
     for (QList<int>::ConstIterator r_it = record.constBegin(); r_it != record.constEnd() && *r_it <
          orig_size; ++r_it)
     {
-        cur_r = *r_it;
+        const int cur_r = *r_it;
         if (prev_r >= 0) {
 //   qDebug() << "move " << prev_r+nud->removed-1 << ".." << cur_r-1 << " to " << prev_r+nud->removed-1 << ".." << cur_r-2;
             int i = prev_r;

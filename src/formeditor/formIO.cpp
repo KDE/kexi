@@ -1376,18 +1376,18 @@ void FormIO::readChildNodes(ObjectTreeItem *item, Container *container, const QD
             } else { // grid layout
                 item->container()->setLayoutType(Form::Grid);
                 QGridLayout *layout = new QGridLayout(item->widget());
-                item->container()->setLayout((QLayout*)layout);
+                item->container()->setLayout(static_cast<QLayout*>(layout));
             }
             readChildNodes(item, container, node, w, buddies);
         } else if (tag == "vbox")  {
             item->container()->setLayoutType(Form::VBox);
             QVBoxLayout *layout = new QVBoxLayout(item->widget());
-            item->container()->setLayout((QLayout*)layout);
+            item->container()->setLayout(static_cast<QLayout*>(layout));
             readChildNodes(item, container, node, w, buddies);
         } else if (tag == "hbox") {
             item->container()->setLayoutType(Form::HBox);
             QHBoxLayout *layout = new QHBoxLayout(item->widget());
-            item->container()->setLayout((QLayout*)layout);
+            item->container()->setLayout(static_cast<QLayout*>(layout));
             readChildNodes(item, container, node, w, buddies);
         } else {// unknown tag, we let the Factory handle it
             if (w->metaObject()->className() == QString::fromLatin1("CustomWidget"))

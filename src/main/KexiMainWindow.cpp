@@ -390,10 +390,9 @@ int KexiMainWindow::create(const QStringList &arguments, const QString &componen
 
     KexiMainWindow *win = new KexiMainWindow();
 #ifdef KEXI_DEBUG_GUI
-    QWidget* debugWindow = 0;
     KConfigGroup generalGroup = KSharedConfig::openConfig()->group("General");
     if (generalGroup.readEntry("ShowInternalDebugger", false)) {
-        debugWindow = KexiUtils::createDebugWindow(win);
+        QWidget* debugWindow = KexiUtils::createDebugWindow(win);
         debugWindow->show();
     }
 #endif
@@ -1489,7 +1488,7 @@ tristate KexiMainWindow::createProjectFromTemplate(const KexiProjectData& projec
         if (QDialog::Accepted != dlg.exec()) {
             return cancelled;
         }
-        if (dlg.selectedFiles().isEmpty() {
+        if (dlg.selectedFiles().isEmpty()) {
             return cancelled;
         }
         fname = dlg.selectedFiles().first();
@@ -2801,7 +2800,7 @@ void KexiMainWindow::slotViewTextMode()
 class SaveAsObjectNameValidator : public KexiNameDialogValidator
 {
 public:
-    SaveAsObjectNameValidator(const QString &originalObjectName)
+    explicit SaveAsObjectNameValidator(const QString &originalObjectName)
      : m_originalObjectName(originalObjectName)
     {
     }
@@ -3440,7 +3439,7 @@ bool KexiMainWindow::newObject(KexiPart::Info *info, bool* openingCancelled)
     if (!it->neverSaved()) { //only add stored objects to the browser
         d->navigator->model()->slotAddItem(it);
     }
-    Kexi::ViewMode viewMode = info->supportedViewModes() & Kexi::DesignViewMode
+    Kexi::ViewMode viewMode = (info->supportedViewModes() & Kexi::DesignViewMode)
             ? Kexi::DesignViewMode
             : Kexi::TextViewMode;
     return openObject(it, viewMode, openingCancelled);
@@ -4412,9 +4411,8 @@ KexiMigrateManagerInterface* KexiMainWindow::migrateManager()
 
 void KexiMainWindow::toggleFullScreen(bool isFullScreen)
 {
-    static bool isTabbarRolledDown;
-
     if (d->tabbedToolBar) {
+        static bool isTabbarRolledDown;
         if (isFullScreen) {
             isTabbarRolledDown = !d->tabbedToolBar->isRolledUp();
             if (isTabbarRolledDown) {

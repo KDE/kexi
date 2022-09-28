@@ -89,7 +89,7 @@
 class KUndo2ViewPrivate
 {
 public:
-    KUndo2ViewPrivate(KUndo2View *view) :
+    explicit KUndo2ViewPrivate(KUndo2View *view) :
 #ifndef QT_NO_UNDOGROUP
         group(0),
 #endif
@@ -207,7 +207,7 @@ void KUndo2View::setGroup(KUndo2Group *group)
     if (d->group != 0) {
         connect(d->group, SIGNAL(activeStackChanged(KUndo2QStack*)),
                 d->model, SLOT(setStack(KUndo2QStack*)));
-        d->model->setStack((KUndo2QStack *)d->group->activeStack());
+        d->model->setStack(static_cast<KUndo2QStack *>(d->group->activeStack()));
     } else {
         d->model->setStack(0);
     }

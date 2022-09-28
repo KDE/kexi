@@ -73,7 +73,7 @@ protected Q_SLOTS:
 protected:
     KFormDesigner::ObjectTreeItem* selectableItem(KFormDesigner::ObjectTreeItem* item) override;
     virtual bool changeInlineText(KFormDesigner::Form *form, QWidget *widget,
-        const QString &text, QString &oldText) override;
+        const QString &text, QString *oldText) override;
     virtual void resizeEditor(QWidget *editor, QWidget *widget, const QByteArray &classname) override;
 
     virtual bool isPropertyVisibleInternal(const QByteArray& classname, QWidget *w,
