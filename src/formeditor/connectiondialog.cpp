@@ -89,7 +89,7 @@ ConnectionDialog::ConnectionDialog(Form *form, QWidget *parent)
 
     d->pixmapLabel = new QLabel(details);
     detailsLyr->addWidget(d->pixmapLabel);
-    d->pixmapLabel->setFixedWidth(int(IconSize(KIconLoader::Desktop) * 1.5));
+    d->pixmapLabel->setFixedWidth(int(KIconLoader::global()->currentSize(KIconLoader::Desktop) * 1.5));
     d->pixmapLabel->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
 
     d->textLabel = new QLabel(details);

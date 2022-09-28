@@ -65,7 +65,7 @@ struct KexiFormStatics
         if (!m_dataSourceTagIcon.isNull())
             return;
         QFontMetrics fm(QApplication::fontMetrics());
-        int size = IconSize(KIconLoader::Small);
+        int size = KIconLoader::global()->currentSize(KIconLoader::Small);
         if (size < KIconLoader::SizeSmallMedium && fm.height() >= KIconLoader::SizeSmallMedium)
             size = KIconLoader::SizeSmallMedium;
         m_dataSourceTagIcon = QIcon::fromTheme(KexiIconName("data-source-tag")).pixmap(size);

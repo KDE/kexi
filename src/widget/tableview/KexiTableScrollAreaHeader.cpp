@@ -167,7 +167,7 @@ int KexiTableScrollAreaHeader::preferredSectionSize(int logicalIndex) const
     QVariant decoration = model()->headerData(logicalIndex, orientation(), Qt::DecorationRole);
     const QIcon icon = decoration.value<QIcon>();
     if (!icon.isNull()) {
-        preferredWidth += IconSize(KIconLoader::Small) + style()->pixelMetric(QStyle::PM_HeaderMargin);
+        preferredWidth += KIconLoader::global()->currentSize(KIconLoader::Small) + style()->pixelMetric(QStyle::PM_HeaderMargin);
     }
     else {
         const QPixmap iconPixmap = decoration.value<QPixmap>();
