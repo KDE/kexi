@@ -28,7 +28,7 @@
 #include <QLineEdit>
 
 #include <KIconLoader>
-#include <KIO/PixmapLoader>
+#include <KIO/Global>
 #include <KLocalizedString>
 
 #include <kexi_global.h>
@@ -327,8 +327,8 @@ void KexiCSVInfoLabel::setFileName(const QString& fileName)
         return;
     d->fnameLbl->setText(QDir::toNativeSeparators(fileName));
     if (!fileName.isEmpty()) {
-        d->iconLbl->setPixmap(
-            KIO::pixmapForUrl(QUrl::fromLocalFile(fileName), 0, KIconLoader::Desktop));
+        d->iconLbl->setPixmap(KIconLoader::global()->loadMimeTypeIcon(
+            KIO::iconNameForUrl(QUrl::fromLocalFile(fileName)), KIconLoader::Desktop));
     }
 }
 

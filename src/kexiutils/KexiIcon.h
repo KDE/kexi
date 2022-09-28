@@ -44,10 +44,10 @@
 #define koIcon(name) (QIcon::fromTheme(QLatin1String(name)))
 #define koIconName(name) (QLatin1String(name))
 #define koIconNameCStr(name) (name)
-#define koSmallIcon(name) (QIcon::fromTheme(QLatin1String(name)).pixmap(IconSize(KIconLoader::Small)))
-#define koDesktopIcon(name) (QIcon::fromTheme(QLatin1String(name)).pixmap(IconSize(KIconLoader::Desktop)))
-#define koSmallIconCStr(name) (QIcon::fromTheme(name).pixmap(IconSize(KIconLoader::Small)))
-#define koDesktopIconCStr(name) (QIcon::fromTheme(name).pixmap(IconSize(KIconLoader::Desktop)))
+#define koSmallIcon(name) (QIcon::fromTheme(QLatin1String(name)).pixmap(KIconLoader::global()->currentSize(KIconLoader::Small)))
+#define koDesktopIcon(name) (QIcon::fromTheme(QLatin1String(name)).pixmap(KIconLoader::global()->currentSize(KIconLoader::Desktop)))
+#define koSmallIconCStr(name) (QIcon::fromTheme(name).pixmap(KIconLoader::global()->currentSize(KIconLoader::Small)))
+#define koDesktopIconCStr(name) (QIcon::fromTheme(name).pixmap(KIconLoader::global()->currentSize(KIconLoader::Desktop)))
 
 //! Use these macros if there is a proper icon missing
 #define koIconNeeded(comment, neededName) (QIcon::fromTheme(QLatin1String(neededName)))

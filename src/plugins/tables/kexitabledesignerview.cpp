@@ -262,7 +262,7 @@ void KexiTableDesignerView::initData()
     }
 
     //column widths
-    d->view->setColumnWidth(COLUMN_ID_ICON, IconSize(KIconLoader::Small) + 10);
+    d->view->setColumnWidth(COLUMN_ID_ICON, KIconLoader::global()->currentSize(KIconLoader::Small) + 10);
     d->view->setColumnResizeEnabled(COLUMN_ID_ICON, false);
     d->view->adjustColumnWidthToContents(COLUMN_ID_CAPTION); //adjust column width
     d->view->setColumnWidth(COLUMN_ID_TYPE, d->maxTypeNameTextWidth + 2 * d->view->recordHeight());

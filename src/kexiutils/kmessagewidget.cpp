@@ -621,7 +621,7 @@ void KMessageWidget::setMessageType(KMessageWidget::MessageType type)
         break;
     }
     if (d->iconLabel) {
-        const int size = IconSize(KIconLoader::MainToolbar);
+        const int size = KIconLoader::global()->currentSize(KIconLoader::MainToolbar);
         d->iconLabel->setPixmap(icon.pixmap(size));
     }
 

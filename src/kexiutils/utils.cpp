@@ -64,6 +64,8 @@
 
 #ifndef KEXI_MOBILE
 #include <KFileWidget>
+#include <KIO/JobUiDelegate>
+#include <KIO/OpenUrlJob>
 #include <KRecentDirs>
 #include <KRun>
 #include <kio_version.h>
@@ -414,7 +416,8 @@ QIcon KexiUtils::colorizeIconToTextColor(const QPixmap& icon, const QPalette& pa
 
 QPixmap KexiUtils::emptyIcon(KIconLoader::Group iconGroup)
 {
-    QPixmap noIcon(IconSize(iconGroup), IconSize(iconGroup));
+    const int size = KIconLoader::global()->currentSize(iconGroup);
+    QPixmap noIcon(size, size);
     noIcon.fill(Qt::transparent);
     return noIcon;
 }
@@ -797,7 +800,15 @@ tristate KexiUtils::openHyperLink(const QUrl &url, QWidget *parent, const OpenHy
 
     switch(options.tool) {
         case OpenHyperlinkOptions::DefaultHyperlinkTool:
-#if KIO_VERSION >= QT_VERSION_CHECK(5, 31, 0)
+#if KIO_VERSION >= QT_VERSION_CHECK(5, 71, 0)
+        {
+            auto *job = new KIO::OpenUrlJob(url, type);
+            job->setUiDelegate(new KIO::JobUiDelegate(KJobUiDelegate::AutoHandlingEnabled, parent));
+            job->setRunExecutables(true);
+            job->start();
+            return true;
+        }
+#elif KIO_VERSION >= QT_VERSION_CHECK(5, 31, 0)
             return KRun::runUrl(url, type, parent, KRun::RunFlags(KRun::RunExecutables));
 #else
             return KRun::runUrl(url, type, parent);
