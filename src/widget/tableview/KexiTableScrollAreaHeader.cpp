@@ -41,7 +41,7 @@ class KexiTableScrollAreaHeaderStyle : public QProxyStyle
 {
     Q_OBJECT
 public:
-    KexiTableScrollAreaHeaderStyle(const QString &baseStyleName)
+    explicit KexiTableScrollAreaHeaderStyle(const QString &baseStyleName)
             : QProxyStyle(baseStyleName)
     {
     }

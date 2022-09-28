@@ -44,7 +44,7 @@ class KexiComboBoxPopup_KexiTableView : public KexiDataTableScrollArea
 {
     Q_OBJECT
 public:
-    KexiComboBoxPopup_KexiTableView(QWidget* parent = 0)
+    explicit KexiComboBoxPopup_KexiTableView(QWidget* parent = nullptr)
             : KexiDataTableScrollArea(parent) {
         init();
     }

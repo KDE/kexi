@@ -138,7 +138,7 @@ int KexiFlowLayout::heightForWidth(int w) const
 {
     if (d->cached_width != w) {
         // workaround to allow this method to stay 'const'
-        KexiFlowLayout *mthis = (KexiFlowLayout*)this;
+        KexiFlowLayout *mthis = const_cast<KexiFlowLayout*>(this);
         int h = mthis->simulateLayout(QRect(0, 0, w, 0));
         mthis->d->cached_hfw = h;
         mthis->d->cached_width = w;
@@ -150,7 +150,7 @@ int KexiFlowLayout::heightForWidth(int w) const
 QSize KexiFlowLayout::sizeHint() const
 {
     if (d->cached_sizeHint.isEmpty()) {
-        KexiFlowLayout *mthis = (KexiFlowLayout*)this;
+        KexiFlowLayout *mthis = const_cast<KexiFlowLayout*>(this);
         QRect r = QRect(0, 0, 2000, 2000);
         mthis->simulateLayout(r);
     }

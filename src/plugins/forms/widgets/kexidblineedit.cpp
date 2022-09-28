@@ -40,7 +40,7 @@ class KexiDBLineEdit_ReadOnlyValidator : public QValidator
 {
     Q_OBJECT
 public:
-    KexiDBLineEdit_ReadOnlyValidator(QObject * parent)
+    explicit KexiDBLineEdit_ReadOnlyValidator(QObject * parent)
             : QValidator(parent) {
     }
     ~KexiDBLineEdit_ReadOnlyValidator() {}

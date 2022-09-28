@@ -31,7 +31,7 @@ namespace Kexi
 class ActionInternal
 {
 public:
-    ActionInternal(int _categories)
+    explicit ActionInternal(int _categories)
             : categories(_categories)
             , supportedObjectTypes(0)
             , allObjectTypesAreSupported(false) {

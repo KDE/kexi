@@ -180,8 +180,8 @@ Qt::ItemFlags KexiProjectModelItem::flags() const
 void KexiProjectModelItem::removeChild(const KexiPart::Item& item)
 {
     KexiProjectModelItem *to_delete = 0;
-    int i = 0;
     if (!d->item) {
+        int i = 0;
         foreach(KexiProjectModelItem *child, d->childItems) {
             ++i;
             if (!to_delete) {
@@ -200,9 +200,8 @@ void KexiProjectModelItem::removeChild(const KexiPart::Item& item)
 
 KexiProjectModelItem* KexiProjectModelItem::modelItemFromItem(const KexiPart::Item& item) const
 {
-    KexiProjectModelItem* itm = 0;
-
     if (!d->item) {
+        KexiProjectModelItem *itm = nullptr;
         foreach(KexiProjectModelItem *child, d->childItems) {
             if (child->d->item) {
                if (child->d->item && child->d->item->identifier() == item.identifier()) {
@@ -216,7 +215,7 @@ KexiProjectModelItem* KexiProjectModelItem::modelItemFromItem(const KexiPart::It
             }
         }
     }
-    return 0;
+    return nullptr;
 }
 
 KexiProjectModelItem* KexiProjectModelItem::modelItemFromName(const QString& name) const

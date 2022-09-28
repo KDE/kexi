@@ -58,30 +58,24 @@
 
 class KexiFormManagerPrivate {
 public:
-    explicit KexiFormManagerPrivate(KexiFormManager *qq) : part(0)
-        , q(qq)
+    explicit KexiFormManagerPrivate(KexiFormManager *qq) : part(nullptr), lib(nullptr), q(qq)
     {
         features = KFormDesigner::Form::NoFeatures;
         widgetActionGroup = new KFormDesigner::ActionGroup(q);
-#ifdef KFD_SIGSLOTS
-        dragConnectionAction = 0;
-#endif
-        widgetTree = 0;
-        collection = 0;
     }
     ~KexiFormManagerPrivate() {
     }
     KexiFormPart* part;
     KFormDesigner::WidgetLibrary* lib;
-    KFormDesigner::ActionGroup* widgetActionGroup;
-    KFormDesigner::WidgetTreeWidget *widgetTree;
-    KActionCollection  *collection;
+    QPointer<KFormDesigner::ActionGroup> widgetActionGroup;
+    QPointer<KFormDesigner::WidgetTreeWidget> widgetTree;
+    QPointer<KActionCollection> collection;
     KFormDesigner::Form::Features features;
-    KToggleAction *pointerAction;
+    QPointer<KToggleAction> pointerAction;
 #ifdef KFD_SIGSLOTS
-    KToggleAction *dragConnectionAction;
+    QPointer<KToggleAction> dragConnectionAction;
 #endif
-    KToggleAction *snapToGridAction;
+    QPointer<KToggleAction> snapToGridAction;
 
     KexiFormManager *q;
 };

@@ -720,7 +720,7 @@ KexiMainFormWidgetsFactory::createWidget(const QByteArray &c, QWidget *p, const 
     }
 #endif
     else if (c == "KexiLineWidget" || c == "Line") {
-        w = new KexiLineWidget(options & WidgetFactory::VerticalOrientation
+        w = new KexiLineWidget((options & WidgetFactory::VerticalOrientation)
                 ? Qt::Vertical : Qt::Horizontal, p);
     } // --- containers ---
     else if (c == "KFDTabWidget") {
@@ -1119,26 +1119,32 @@ KexiMainFormWidgetsFactory::propertySetShouldBeReloadedAfterPropertyChange(const
 }
 
 bool KexiMainFormWidgetsFactory::changeInlineText(KFormDesigner::Form *form, QWidget *widget,
-    const QString &text, QString &oldText)
+    const QString &text, QString *oldText)
 {
     const QByteArray n(widget->metaObject()->className());
     if (false) {
     }
 #ifdef KEXI_AUTOFIELD_FORM_WIDGET_SUPPORT
     else if (n == "KexiDBAutoField") {
-        oldText = widget->property("caption").toString();
+        if (oldText) {
+            *oldText = widget->property("caption").toString();
+        }
         changeProperty(form, widget, "caption", text);
         return true;
     }
 #endif
 #ifdef KEXI_SHOW_UNFINISHED
     else if (n == "KIntSpinBox") {
-        oldText = QString::number(qobject_cast<QSpinBox*>(widget)->value());
+        if (oldText) {
+            *oldText = QString::number(qobject_cast<QSpinBox*>(widget)->value());
+        }
         qobject_cast<QSpinBox*>(widget)->setValue(text.toInt());
     }
 #endif
     else {
-        oldText = widget->property("text").toString();
+        if (oldText) {
+            *oldText = widget->property("text").toString();
+        }
         changeProperty(form, widget, "text", text);
         return true;
     }
@@ -1174,6 +1180,7 @@ KexiMainFormWidgetsFactory::resizeEditor(QWidget *editor, QWidget *w, const QByt
                 QStyle::SE_RadioButtonContents, &option, w);
         p += r.topLeft();
         s.setWidth(r.width());
+    }
 #endif
 
     editor->resize(s);
@@ -1184,7 +1191,7 @@ KexiMainFormWidgetsFactory::resizeEditor(QWidget *editor, QWidget *w, const QByt
         QSize s = w->size();
         editor->move(w->x() + 2, w->y() - 5);
         editor->resize(s.width() - 20, w->fontMetrics().height() + 10); */
-    
+
 #ifdef KEXI_AUTOFIELD_FORM_WIDGET_SUPPORT
     if (classname == "KexiDBAutoField") {
         editor->setGeometry(static_cast<KexiDBAutoField*>(w)->label()->geometry());

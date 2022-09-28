@@ -109,7 +109,6 @@ public:
         for (const QString &value : q->values(option)) {
             QString typeName;
             QString objectName;
-            int idx;
             bool nameRequired = true;
             if (option.names() == q->options().newObject.names()) {
                 objectName.clear();
@@ -128,6 +127,7 @@ public:
                 }
 
                 //option with " " (set default type)
+                int idx;
                 if (stripQuotes(value, &objectName)) {
                     typeName = defaultType;
                 } else if ((idx = value.indexOf(':')) != -1) {
@@ -382,8 +382,6 @@ tristate KexiStartupHandler::init(const QStringList &arguments,
         fileDriverSelected = driverMetaData->isFileBased();
     }
 
-    bool projectFileExists = false;
-
     if (isSet(options().port)) {
         bool ok;
         const int p = value(options().port).toInt(&ok);
@@ -479,8 +477,7 @@ tristate KexiStartupHandler::init(const QStringList &arguments,
             QFileInfo finfo(fileName);
             prjName = finfo.fileName(); //filename only, to avoid messy names like when Kexi is started with "../../db" arg
             cdata.setDatabaseName(finfo.absoluteFilePath());
-            projectFileExists = finfo.exists();
-
+            const bool projectFileExists = finfo.exists();
             if (isSet(options().dropDb) && !projectFileExists) {
                 KMessageBox::sorry(0,
                                    xi18nc("@info",
