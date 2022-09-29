@@ -2297,6 +2297,8 @@ void KexiTableScrollArea::setAppearance(const Appearance& a)
         d->recordHeight += 1;
     }
     if (d->verticalHeader) {
+        d->verticalHeader->setMinimumSectionSize(d->recordHeight); // because by default it's style-
+                                                                   // dependent and may be too large
         d->verticalHeader->setDefaultSectionSize(d->recordHeight);
     }
     if (a.recordHighlightingEnabled) {
