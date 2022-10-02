@@ -1,0 +1,9439 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Estonian  "INCLUDE">
+  <!ENTITY calligra "Calligra">
+  <!ENTITY ged.vertaald           '<othercredit role="translator"
+><firstname
+>Dit document is nog maar gedeeltelijk vertaald.</firstname
+> <surname
+>Wilt u meehelpen, stuur een bericht naar:</surname
+><affiliation
+><address
+> <email
+>kde-i18n-nl@kde.org</email
+></address
+></affiliation
+> <contrib
+>Nieuwe vertaler</contrib
+></othercredit
+>'>
+]>
+<book id="kexi" lang="&language;">
+<bookinfo>
+<title
+>&kexi; käsiraamat</title>
+<authorgroup>
+<author>
+<personname
+><firstname
+>Käesolev käsiraamat on teisendatud KDE Userbase'i <ulink url=" http://userbase.kde.org/Kexi/Handbook/Introduction"
+>Kexi/Handbook</ulink
+> leheküljelt 14. septembril 2012.</firstname
+> <surname
+></surname
+> </personname>
+      </author>
+<author>
+<personname
+><firstname
+>Uuendatud versioonile 2.4: &kde; dokumentatsiooni meeskond</firstname
+> <surname
+></surname
+> </personname>
+ </author>
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+><surname
+>Laane</surname
+><affiliation
+><address
+><email
+>bald@smail.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+      </authorgroup>
+<legalnotice
+>&FDLNotice;</legalnotice>
+<date
+>2012-09-14</date>
+      <releaseinfo
+>2.5</releaseinfo>
+<abstract>
+  <para
+>&kexi; on kontoritööpaketi &calligra; andmebaaside loomise ja nende haldamise rakendus. </para>
+</abstract>
+
+<!-- Keywords -->
+<keywordset>
+  <keyword
+>KDE</keyword>
+  <keyword
+>Calligra</keyword>
+  <keyword
+>Kexi</keyword>
+  <keyword
+>andmebaas</keyword>
+</keywordset>
+</bookinfo>
+<!--userbase <timestamp
+>2012-09-14T07:13:33Z</timestamp
+>-->
+
+<!--userbase-content-->
+<chapter id="introduction"
+><title
+>Sissejuhatus</title
+> 
+<para
+>&kexi; on andmebaaside haldamise rakendus. Seda saab kasutada andmebaaside loomiseks, andmete sisestamiseks, päringute sooritamiseks ning andmete töötlemiseks. Võimalik on luua vorme, kasutades sealjuures just enda vajadustele kohandatud liidest. Kõik andmebaasiobjektid - tabelid, päringud ja vormid - salvestatakse andmebaasi, mis tagab andmete ja kujunduse hõlpsa jagamise. </para>
+<para
+>&kexi; kuulub KDE kontoritööpaketti &calligra;. </para>
+<para
+>Lisaks sinu &kexi; andmebaaside salvestamisele failidena võib &kexi; sinu andmed salvestada ka andmebaasiserverisse. Sellise serveri kasutamine võimaldab jagada oma andmebaasi teiste inimestega, samuti võib andmebaasi korraga kasutada rohkem kui üks inimene. &kexi; toetab järgmisi andmebaasiservereid: </para>
+<itemizedlist>
+<listitem
+><para
+><ulink url="http://www.mysql.com/"
+>MySQL</ulink
+></para
+></listitem>
+<listitem
+><para
+><ulink url="http://www.postgresql.org/"
+>PostgreSQL</ulink
+></para
+></listitem>
+</itemizedlist>
+<para
+>Rohkem infot &kexi; kohta leiab &kexi; <ulink url="http://www.calligra-suite.org/kexi/"
+>leheküljelt Calligra veebisaidil</ulink
+> ja <ulink url="http://www.kexi-project.org/about.html"
+>Kexi enda veebileheküljel</ulink
+>. </para>
+<para
+>Kui sul on küsimusi &kexi; kohta, on sinu käsutuses kaks postiloendit &kexi; kasutajate postiloendis saab esitada küsimusi &kexi; kasutamise või &kexi; projekti kohta. &kexi; arendajate postiloendis saab esitada küsimusi &kexi; arendamise kohta. Täiendavat teavet selle kohta, kuidas nende postiloenditega liituda, samuti veel mõned viisid luua ühendus &kexi; arendajatega, leiab a<ulink url="http://www.kexi-project.org/support.html"
+>siit</ulink
+>. </para>
+<para
+><note
+><para
+>Käesolev &kexi; 2.5 käsiraamat tugineb &kexi; 1.1 käsiraamatule. Palun kooskõlasta igasugused katsed seda täiendada Jarosław Staniekiga e-posti aadressil kexi at kde.org</para
+></note>
+</para>
+</chapter>
+<chapter id="kexi-basics"
+><title
+>Kexi põhitõed</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="kexi-databases"
+>Kexi andmebaasid</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="creating-a-new-database-file"
+>Uue andmebaasifaili loomine</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-kexi-main-window"
+>Kexi peaaken</link
+>&nbsp;<itemizedlist
+> <listitem
+><para
+><link linkend="main-application-elements"
+>Rakenduse põhielemendid</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+<listitem
+><para
+><link linkend="opening-an-existing-kexi-database-file"
+>Olemasoleva Kexi andmebaasifaili avamine</link
+>&nbsp;<itemizedlist>
+<listitem
+><para
+><link linkend="opening-a-database-file-in-the-open-existing-project-dialog"
+>Andmebaasifaili avamine dialoogis Olemasoleva projekti avamine</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="opening-an-existing-kexi-database-file-by-clicking-on--kexi-files-icon"
+>Olemasoleva Kexi andmebaasifaili avamine .kexi-faili ikoonile klõpsates</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+<listitem
+><para
+><link linkend="using-built-in-help"
+>Sisseehitatud abi kasutamine</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="kexi-databases"
+><title
+>Kexi andmebaasid</title
+> 
+<para
+>Paljud rakendused, näiteks <trademark class="registered"
+>OpenOffice.org</trademark
+>, <trademark class="registered"
+>LibreOffice</trademark
+> või <application
+>&Microsoft; Excel</application
+>, loovad faile, mida nimetatakse dokumendiks. Ka &kexi; loob faile, kuid meie nimetame neid &kexi; andmebaasifailideks või lihtsalt andmebaasifailideks. </para>
+<para
+>Lisaks andmebaaside salvestamisele andmebaasifailidena võib &kexi; kasutada ka andmebaase andmebaasiserverites, mistõttu me nimetame neid andmebaasifailideks, mitte aga lihtsalt andmebaasideks. </para>
+<para
+>Ka mõistet &kexi; projekt või lihtsalt projekt kasutatakse &kexi; andmebaasi tähistamiseks sõltumata sellest, kas see on salvestatud faili või andmebaasiserverisse. </para>
+<para
+><note
+><para
+>&kexi; andmebaasifailidel on tavaliselt laiend <filename
+>.kexi</filename
+></para
+></note>
+</para>
+</sect1>
+<sect1 id="creating-a-new-database-file"
+><title
+>Uue andmebaasifaili loomine</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="newproject.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<orderedlist>
+<listitem
+><para
+>Käivita &kexi; või kui see juba töötab, vali <menuchoice
+><guimenu
+>Kexi</guimenu
+><guimenuitem
+>Uus... (Ctrl+N)</guimenuitem
+></menuchoice
+>.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>Uue projekti</guilabel
+> leheküljel vali sektsioonis <guilabel
+>Tühjad projektid</guilabel
+> <guilabel
+>Tühi andmebaas</guilabel
+>. <screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="projectstorage.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Salvestamismeetodi</guilabel
+> leheküljel vali <guilabel
+>Fail</guilabel
+>. <screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="projectfilename.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot
+></para
+></listitem>
+<listitem
+><para
+><guilabel
+>Projekti pealkirja ja failinime</guilabel
+> leheküljel kirjuta oma projekti pealkiri ehk nimi ja failinimi.</para
+></listitem>
+<listitem
+><para
+>Projekti loomiseks klõpsa <guilabel
+>Järgmine</guilabel
+>.</para
+></listitem>
+</orderedlist>
+<para
+><note>
+<itemizedlist>
+<listitem
+><para
+>Kui muudad projekti pealkirja, muutub automaatselt ka pakutav failinimi.</para
+></listitem>
+<listitem
+><para
+>Failibrauseri abil võib valida kataloogi, kuhu andmebaasifail salvestada.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+</sect1>
+<sect1 id="the-kexi-main-window"
+><title
+>Kexi peaaken</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_mainwindow.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>Ülal asuv <guilabel
+>kaartidega tööriistariba</guilabel
+> võimaldab kasutada levinumaid toiminguid ja käske. </para>
+<para
+><guilabel
+>Projekti navigaator</guilabel
+> ja <guilabel
+>omaduste redaktor</guilabel
+> asuvad paneelidena mõlemal pool peaakent. Neid saab peita või nende suurust muuta just enda soovi kohaselt. Paneeli peitmiseks tuleb klõpsata väiksele ristile selle ülaservas (otse tööriistariba peal). </para>
+<para
+>Andmebaasiobjekte (tabelid, päringud jne.), mida toob ära <guilabel
+>projekti navigaator</guilabel
+>, saab avada klõpsuga (või topeltklõpsuga sõltuvalt sinu üldistest KDE seadistustest) nende nimele. </para>
+<sect2 id="main-application-elements"
+><title
+>Rakenduse põhielemendid</title
+> 
+<para
+>&kexi; rakenduse peaakna põhielemendid on järgmised: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Kaartidega tööriistariba</emphasis
+></term>
+    <listitem>
+    <para
+>Sisaldab kõiki rakenduse käske. Nende põhjalikuma kirjelduse leiab vastavast <link linkend="command-reference"
+>lisast</link
+>..</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Projekti navigaatori paneel</emphasis
+></term>
+    <listitem>
+    <para
+>Sisadab kõigi parajasti avatud andmebaasiprojekti objektide (tabelid, päringud, vormid...) nimekirja. Navigaatoril on ka väike tööriistariba, mis sisaldab kõige sagedasemaid käske andmebaasiobjektide käsitsemisel.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Avatud andmebaasiobjektide ala / kaartidega aknad</emphasis
+></term>
+    <listitem>
+      <para
+>Rakenduse keskne ala, mis hõlmab enamiku ekraanist. Kasutajaliides sisaldab lülitatavaid akendega kaarte, mis on alati maksimeeritud.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Omaduste redaktori paneel</emphasis
+></term>
+    <listitem>
+    <para
+>Sisaldab parajasti aktiivse andmebaasiobjekti omaduste nimekirja. Teatud objektide korral (&eg; vormide vidinad) võib see koosneda mitmest kaardist.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect2>
+<sect2 id="tabbed-toolbar"
+><title
+>Kaartidega tööriistariba</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_tabbedtoolbar.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>Tööriistariba on koht, mis tagab ligipääsu tähtsamatele &kexi; käskudele ja toimingutele. </para>
+<para
+>Tööriistariba eri kaartidel olevate toimingutega saab: </para>
+<itemizedlist>
+<listitem
+><para
+>Luua / avada / sulgeda Kexi projekte</para
+></listitem>
+<listitem
+><para
+>Luua andmebaasiobjekte</para
+></listitem>
+<listitem
+><para
+>Importida / eksportida andmeid</para
+></listitem>
+</itemizedlist>
+<para
+>Sõltuvalt kontekstist võib näha teisigi kaarte: </para>
+<itemizedlist>
+<listitem
+><para
+><guilabel
+>Vormi kujunduse</guilabel
+> kaart on näha, kui kasutatakse vormi kujundajat.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>Aruande kujunduse</guilabel
+> kaart on näha, kui kasutatakse aruande kujundajat.</para
+></listitem>
+</itemizedlist>
+</sect2>
+<sect2 id="project-navigator-pane"
+><title
+>Projekti navigaatori paneel</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_projectnavigator.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+><guilabel
+>Projekti navigaator</guilabel
+>i paneel on üks &kexi; peaakna tähtsamaid elemente. See sisaldab kõigi parajasti avatud &kexi; andmebaasiprojekti objektide nimekirja. Objektid on jagatud rühmadesse: tabelid, päringud, vormid, aruanded ja skriptid. </para>
+<para
+>Projekti navigaatori paneel sisaldab ka väikest tööriistariba kõige sagedamini vajaminevate käskudega (vasakult paremale): <guilabel
+>Ava</guilabel
+> valitud objekt, <guilabel
+>Kujunda</guilabel
+> valitud objekt ja <guilabel
+>Kustuta</guilabel
+> valitud objekt. </para>
+<para
+>Kõigil nimekirja objektidel on oma kontekstimenüü, mille saab avada  hiire parema nupuga klõpsates. </para>
+<para
+>Topeltklõps hiire vasaku nupuga objekti nimel avab selle objekti <guilabel
+>andmevaates</guilabel
+>. Kui objekti aken on juba avatud, aktiveerib see toiming lihtsalt antud objekti akna. </para>
+<para
+><note
+><para
+>Isegi kui operatsioonisüsteemi või aknahalduri seadistustes võib olla määratud, et meie kirjeldatud topeltklõpsu toimingu teeb ära ühekordne klõps, kasutab &kexi; <guilabel
+>projekti navigaatoris</guilabel
+> topeltklõpse, et vältida juhuslikku suurte andmekogumite avamist või päringute esitamist.</para
+></note>
+</para>
+</sect2>
+<sect2 id="opened-database-objects-area---tabbed-windows"
+><title
+>Avatud andmebaasiobjektide ala / kaartidega aknad</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_windowtabs.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>Kui teed projekti navigaatoris mõnel objektil topeltklõpsu, avatakse see <guilabel
+>avatud andmebaasiobjektide alas</guilabel
+>. Igal aknal on &kexi;s oma kaart. </para>
+<para
+>Kaarte saab ümber korraldada lohistades, samuti sulgeda kaardiriba parempoolses servas asuva sulgemisnupuga <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-tab-close.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> </para>
+<para
+><note
+><para
+>Kunagi tulevikus tekib ka võimalus kaardid lahti haakida, millega luuakse mõneti MDI liidesele sarnanev olukord. See on näiteks kasulik kohandatud lahenduste või mitme ekraani korral.</para
+></note>
+</para>
+</sect2>
+<sect2 id="property-editor-pane"
+><title
+>Omaduste redaktori paneel</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_propertyeditor.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+><guilabel
+>Omaduste redaktor</guilabel
+>i paneelis saab muuta aktiivses aknas näidatava objekti omadusi. Sõltuvalt kontekstist võib paneel koosneda ühest või ka mitmest kaardist. Esimene, alati nähtav <guilabel
+>omaduste</guilabel
+> kaart toob ära saadaolevate omaduste nimekirja. </para>
+<para
+><guilabel
+>Omaduste redaktor</guilabel
+>i kasutamise reeglid: </para>
+<itemizedlist>
+<listitem
+><para
+>Üks rida tähendab üht konkreetset omadust.</para
+></listitem>
+<listitem
+><para
+>Konkreetset omadust võib muuta nii klaviatuurilt kui ka hiirega.</para
+></listitem>
+<listitem
+><para
+>Levinuimad omaduste tüübid on järgmised:<itemizedlist>
+<listitem
+><para
+>arv: väärtuse saab kas otse sisestada või suurendada või vähendada hiire vasaku nupuga noolenuppudele klõpsates.</para
+></listitem>
+<listitem
+><para
+>tekst</para
+></listitem>
+<listitem
+><para
+>väärtuste valiknimekiri</para
+></listitem>
+<listitem
+><para
+>Jah/Ei tõeväärtus lülitatavate nuppude näol: nupu sisselülitamine tähendab Jah (Tõene), väljalülitamine Ei (Väär).</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</itemizedlist
+><para
+><note>
+<itemizedlist>
+<listitem
+><para
+>Väärtuse muutmist ei ole vaja eraldi kinnitada: muudatused jõustuvad kohe, kui liigud omaduste redaktoris mõnele teisele reale või vajutad klahvi &Enter;.</para
+></listitem>
+<listitem
+><para
+>Hiljuti muudetud ja veel andmebaasi salvestamata omaduste nimed on tähistatud rasvase kirjaga.</para
+></listitem>
+<listitem
+><para
+>Pärast omaduse väärtuse muutmist ilmub spetsiaalne nupp <guilabel
+>Võta muudatused tagasi</guilabel
+> antud omaduse kirje paremasse serva. Sellele klõpsates saab taastada omaduse algse väärtuse, mis laaditi andmebaasist andmebaasiobjekti avamisel. Seda nuppu näeb ainult siis, kui antud omadus on valitud.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+<para
+><guilabel
+>Omaduste redaktor</guilabel
+>i paneel on tühi, kui: </para>
+<itemizedlist>
+<listitem
+><para
+>pole avatud ühtegi andmebaasiobjekti akent või</para
+></listitem>
+<listitem
+><para
+>aktiivne andmebaasiobjekti aken ei paku mingeid omadusi (see on tavaline siis, kui objekt avada mitte <guilabel
+>kujundusvaates</guilabel
+>, vaid <guilabel
+>andmevaates</guilabel
+>).</para
+></listitem>
+</itemizedlist>
+</sect2>
+</sect1>
+<sect1 id="opening-an-existing-kexi-database-file"
+><title
+>Olemasoleva Kexi andmebaasifaili avamine</title
+> 
+<para
+>Olemasolevat &kexi; andmebaasifaili saab avada kahel viisil: </para>
+<sect2 id="opening-a-database-file-in-the-open-existing-project-dialog"
+><title
+>Andmebaasifaili avamine dialoogis Projekti avamine</title
+> 
+<itemizedlist>
+<listitem
+><para
+>Käivita &kexi;. Ilmub dialoog <guilabel
+>Tere tulemast kasutama Kexit</guilabel
+>, mis lubab avamiseks valida mõne hiljuti kasutatud projektidest.</para
+></listitem>
+<listitem
+><para
+>Kui vajalikku projekti ei leidu viimati kasutatud projektide seas, vali <guibutton
+>Ava...</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>). Ilmub järgmine dialoog:</para>
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_openproject.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+</listitem>
+<listitem
+><para
+>Vali asukoharibal kataloog, mis sisaldab vajalikku faili.</para
+></listitem>
+<listitem
+><para
+>Faili võib valida sellele klõpsates või sisestades selle nime kasti <guilabel
+>Nimi</guilabel
+> ja klõpsates <guilabel
+>Järgmine</guilabel
+>.</para
+></listitem>
+</itemizedlist>
+<para
+><guilabel
+>Märkused</guilabel>
+</para>
+<itemizedlist>
+<listitem
+><para
+>Vaikimisi on liitkastis <guilabel
+>Filter</guilabel
+> valitud <guilabel
+>Kõik toetatud failid (*.kexi, *.kexic, *.kexis, *.mdb)</guilabel
+>. Kui otsid mõne muu laiendiga faili, võid liitkastis <guilabel
+>Filter</guilabel
+> valida hoopis <guilabel
+>Kõik failid</guilabel
+>, et näidataks kõiki faile sõltumata nende laiendist.</para
+></listitem>
+<listitem
+><para
+>Kui valid mõne võõra tüübiga faili, näiteks <guilabel
+>MS Access</guilabel
+>'i <filename
+>.mdb</filename
+>-faili, pakub &kexi; võimalust fail importida.</para
+></listitem>
+<listitem
+><para
+>Kui valid ühenduse andmete faili (laiendiga <filename
+>.kexic</filename
+>) või projekti viida andmebaasiserveris (laiendiga <filename
+>.kexis</filename
+>), näitab &kexi; vastavat dialoogi.</para
+></listitem>
+</itemizedlist>
+</sect2>
+<sect2 id="opening-an-existing-kexi-database-file-by-clicking-on--kexi-files-icon"
+><title
+>Olemasoleva Kexi andmebaasifaili avamine .kexi-faili ikoonile klõpsates</title
+> 
+<itemizedlist>
+<listitem
+><para
+>Klõpsa failihalduris või töölaual faili ikoonile. &kexi; avab automaatselt selle andmebaasiprojekti.</para
+></listitem>
+</itemizedlist>
+<para
+><guilabel
+>Märkused</guilabel>
+</para>
+<para
+>Märkus võrgus paiknevate andmebaasifailide kohta. Soovi korral saab avada ka võrgus (&eg; veebis või FTP-serveris või MS Windows'i jagatud ressursis) paikneva andmebaasifaili. KDE võimaldab muidu avada võrgufaile otse rakendustes ja salvestada otsekohe võrku ka tehtud muudatused, kuid andmebaasifailide puhul on asjad teisiti. Võrgus paiknevale andmebaasifailile klõpsates laaditakse fail alla sinu arvuti ajutisse kataloogi ning kõik muudatused tehakse sellesse kohalikku faili. Võrgus paiknev originaalfail jääb Kexi sulgemise järel muutmata, mistõttu on soovitatav fail esmalt oma arvutisse tõmmata, siis see avada ja töödelda ning kui soovid muudatusi ka edaspidi näha, võrku tagasi kopeerida. </para>
+</sect2>
+</sect1>
+<sect1 id="using-built-in-help"
+><title
+>Sisseehitatud abi kasutamine</title
+> 
+<para
+>&kexi; võimaldab kasutada järgmisi sisseehitatud abivõimalusi: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Käsiraamat elektroonilise dokumendina.</emphasis
+></term>
+    <listitem>
+    <para
+>Käsiraamatu saab avada kiirklahviga <keycap
+>F1</keycap
+> või klõpsuga menüüribal ikoonile <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-help-contents.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> ja valides <guilabel
+>Abi</guilabel
+>.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><emphasis
+>Mis see on?</emphasis
+> kohtspikrid.</emphasis
+></term>
+    <listitem>
+    <para
+>Vali <guilabel
+>Mis see on?</guilabel
+> menüüs, mis ilmub nähtavale, kui klõpsad ikoonile <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-help-contents.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+>, ja klõpsa seejärel rakenduses piirkonnale, mille kohta soovid teavet saada.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+</chapter>
+<chapter id="building-simple-databases"
+><title
+>Lihtsate andmebaaside loomine</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="building-simple-databases"
+>Sissejuhatus</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="designing-database-tables"
+>Andmebaasi tabelite kirjeldamine</link
+>&nbsp;<itemizedlist
+> <listitem
+><para
+><link linkend="the-table-designer-window"
+>Tabeli kirjeldamise aken</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+<listitem
+><para
+><link linkend="entering-data-into-tables"
+>Andmete sisestamine tabelitesse</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="designing-database-queries"
+>Andmebaasi päringute kirjeldamine</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="designing-forms"
+>Vormide kujundamine</link
+>&nbsp;<itemizedlist>
+<listitem
+><para
+><link linkend="most-important-terms"
+>Tähtsamad mõisted</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="forms-versus-tables"
+>Vormid või tabelid</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="working-with-form-design"
+>Vormi kujundamine</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="using-the-widgets-tab"
+>Kaardi Vidinad kasutamine</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="inserting-widgets---text-fields"
+>Vidinate lisamine - tekstiväljad</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="assigning-data-sources"
+>Andmeallikate omistamine</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="inserting-text-labels"
+>Tekstipealdiste lisamine</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="actions"
+>Toimingud</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="widget-layouts"
+>Vidinate paigutus</link
+>&nbsp;</para
+></listitem>
+<!--FIXME not implemented in kexi 2.4
+<listitem
+><para
+><link linkend="setting-widgets-size-and-position-by-hand"
+>Setting widgets size and position by hand</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="setting-the-tab-order"
+>Setting the tab order</link
+>&nbsp;</para
+></listitem>
+-->
+</itemizedlist>
+</para
+></listitem>
+<listitem
+><para
+><link linkend="entering-data-using-forms"
+>Andmete sisestamine vormide abil</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="introduction0"
+><title
+>Sissejuhatus</title
+> 
+<para
+>&kexi; põhialuste tundmaõppimiseks tuleks esmalt luua lihtne andmebaas, mille juures saab ära kasutada kõige põhilisemaid &kexi; omadusi. Et asjad lihtsamini selgeks saaksid, ei käsitleta siinkohal andmebaaside disaini kõiki üksikasju. </para>
+<para
+>Alustuseks loo uus tühi telefoniraamat. </para>
+<para
+>Kui sul on nüüd uus tühi andmebaasiprojekt, võta ette järgmised sammud: </para>
+<orderedlist>
+<listitem
+><para
+>Andmebaasi tabelite kirjeldamine. Loe osa <link linkend="designing-database-tables"
+>Andmebaasi tabelite kirjeldamine</link
+>.</para
+></listitem>
+<listitem
+><para
+>Andmete sisestamine tabelitesse. Loe osa <link linkend="entering-data-into-tables"
+>Andmete sisestamine tabelitesse</link
+>.</para
+></listitem>
+<listitem
+><para
+>Andmebaasipäringute kirjeldamine. Loe osa <link linkend="designing-database-queries"
+>Andmebaasipäringute kirjeldamine</link
+>.</para
+></listitem>
+<listitem
+><para
+>Vormide kujundamine. Loe osa <link linkend="designing-forms"
+>Vormide kujundamine</link
+>.</para
+></listitem>
+<listitem
+><para
+>Vormide kasutamine andmete sisestamiseks. Loe osa <link linkend="entering-data-using-forms"
+>Vormide kasutamine andmete sisestamiseks</link
+>.</para
+></listitem>
+</orderedlist>
+</sect1>
+<sect1 id="designing-database-tables"
+><title
+>Andmebaasi tabelite kirjeldamine</title
+> 
+<!--FIXME to refer to these two tables later, sometimes the caption "Persons"/"Phones" and sometimes the Name "persons"/"phone_numbers" are used; together with different markup guilabel/replaceable, make that consistent. It is really confusing-->
+<para
+>Kõigepealt pane tähele, et sinu andmebaasis on kaks tabelit: <replaceable
+>isikud</replaceable
+> ja <replaceable
+>telefoninumbrid</replaceable
+> Need on samad tabelid, mida kirjeldab osa <link linkend="database-and-spreadsheet"
+>Andmebaas ja arvutustabel</link
+>. Tabeli <replaceable
+>Isikud</replaceable
+> ülesehitust tutvustab sama peatüki osa <link linkend="data-integrity-and-validity"
+>Andmeterviklus ja -õigsus</link
+>. </para>
+<orderedlist>
+<listitem
+><para
+>Vali tööriistaribal <guilabel
+>Tabel</guilabel
+>. Samuti võib kasutada projekti navigaatori elemendi <guilabel
+>Tabelid</guilabel
+> kontekstimenüü käsku <guilabel
+>Loo objekt: Tabel</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Ilmub tabeli kirjeldamise aken. Selle ülaosas märkad, et &kexi; on andnud sinu uuele tabelile üldise nime, näiteks <guilabel
+>Tabel1</guilabel
+>. Tabel ei ole veel aga salvestatud, nii et hiljem saad sellele anda sobivama nime. Samal põhjusel ei ole ka tabeli nime veel näha <guilabel
+>projekti navigaatoris</guilabel
+>.</para
+></listitem>
+</orderedlist>
+<sect2 id="the-table-designer-window"
+><title
+>Tabeli kirjeldamise aken</title
+> 
+<sect3 id="table-designer-window-consists-of-following-columns-"
+><title
+>Tabeli kirjeldamise aken koosneb järgmistest veergudest:</title
+> 
+<itemizedlist>
+<listitem
+><para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-help-about-desaturated.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> - Välja lisateave.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>Välja pealdis</guilabel
+> - välja ehk veeru nimi, mis on näha andmete sisestamise ajal.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>Andmetüüp</guilabel
+> - liitkast erinevate andmetüüpide nimekirjaga, mis võimaldab valida antud väljale sisestatavate andmete põhireegli. Kui selleks on näiteks täisarv, siis ei saa andmebaasi kasutaja sisestada antud väljale tähti.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>Kommentaarid</guilabel
+> - siia saab lisada mis tahes infot, mis aitab mõista, milleks antud väli on mõeldud. See lisatekst salvestatakse koos tabeli kirjeldusega ja seda näeb ainult kujundamisrežiimis.</para
+></listitem>
+</itemizedlist>
+<para
+>Tabeli kirjeldamise aknas vastab iga rida tabeli ühele väljale. Seda, et viibid parajasti kujundamisrežiimis, näitab tabeli kirjeldamise akna  tööriistaribal sisselülitatud nupp <guilabel
+>Kujundus</guilabel
+>. </para>
+</sect3>
+<sect3 id="designing-the-persons-table"
+><title
+>Tabeli Isikud kirjeldamine</title
+> 
+<para
+>Klõpsa esimeses reas lahtrile veerus <guilabel
+>Välja pealdis</guilabel
+> ja määra välja pealdiseks <replaceable
+>Nimi</replaceable
+>. Välja <guilabel
+>Välja pealdis</guilabel
+> täitmine täidab automaatselt välja <guilabel
+>Nimi</guilabel
+>, nagu näeb paneelil <guilabel
+>Omaduste redaktor</guilabel
+>. </para>
+<para
+>Märkus väljanimede ja pealdiste kohta </para>
+<itemizedlist>
+<listitem
+><para
+>Igal tabeli väljal peab olema nimi ja pealdis, need ei tohi puududa.</para
+></listitem>
+<listitem
+><para
+>Väljanimi on sõna, mida kasutab andmebaas ja mis ei ole tavaliselt andmebaasirakenduse kasutajale nähtav. Väljanimed ei tohi sisaldada erimärke (näiteks ±, ¶, Ü) ega tühikut. Nimed võivad sisaldada ainult tähti, arve ja alakriipsu <quote
+>_</quote
+>. Viimast on hea kasutada näiteks tühikute või side/mõttekriipsude asemel.</para
+></listitem>
+<listitem
+><para
+>Väljanimed peavad algama tähe või alakriipsuga <quote
+>_</quote
+>, aga mitte arvuga.</para
+></listitem>
+<listitem
+><para
+>Pole vahet, kas kasutad suur- või väiketähti. &kexi; jaoks on andmebaasi nimi <replaceable
+>Isikud</replaceable
+> samaväärne nimega <replaceable
+>isikud</replaceable
+>.</para
+></listitem>
+<listitem
+><para
+>Välja pealdis aga võimaldab kasutada mis tahes märke ja sümboleid. Seda näidatakse andmebaasirakenduse kasutajale.</para
+></listitem>
+</itemizedlist>
+<para
+>Samamoodi sisesta tabelisse järgmised väljad: </para>
+<itemizedlist>
+<listitem
+><para
+><replaceable
+>perekonnanimi</replaceable
+></para
+></listitem>
+<listitem
+><para
+><replaceable
+>tänav</replaceable
+></para
+></listitem>
+<listitem
+><para
+><replaceable
+>majanumber</replaceable
+></para
+></listitem>
+<listitem
+><para
+><replaceable
+>linn</replaceable
+></para
+></listitem>
+</itemizedlist>
+<para
+>Kõigi mainitud väljade, välja arvatud <replaceable
+>majanumber</replaceable
+>, tüübiks on <emphasis
+>tekst</emphasis
+> Määra välja <replaceable
+>majanumber</replaceable
+> tüübiks täisarv. Selleks klõpsa lahtril veerus <guilabel
+>Andmetüüp</guilabel
+> ja reas <replaceable
+>majanumber</replaceable
+> ning seejärel andmetüüpide nimekirja sisaldaval nupul (sama tulemuse saab vajutamisega klahvile <keycap
+>F4</keycap
+>). Andmetüübi muutmiseks võib kasutada ka nooleklahve <keysym
+>Nool üles</keysym
+> ja <keysym
+>Nool alla</keysym
+>). Vali <guilabel
+>Täisarv</guilabel
+>. </para>
+<para
+>Edaspidi saab väljale <replaceable
+>majanumber</replaceable
+> sisestada ainult arve. </para>
+<para
+>Tabel Isikud ongi nüüd kirjeldatud. Klõpsa tööriistaribal nupule <guilabel
+>Andmed</guilabel
+>, millega saad lõpetada kirjeldamise ja näha tabelit <guilabel
+>andmevaates</guilabel
+>. See võimaldab sisestada tabelisse andmeid. </para>
+<para
+>Tabel ei ole veel andmebaasi salvestatud, mistõttu ilmub dialoog <guilabel
+>Objekti salvestamine</guilabel
+>. Siin tuleb uuele tabelile nimi anda. </para>
+<para
+>&kexi; pakub välja üldise nime, näiteks <guilabel
+>Tabel1</guilabel
+>. Selle muutmiseks kirjuta <replaceable
+>Isikud</replaceable
+> väljale <guilabel
+>Pealdis</guilabel
+> ja vajuta &Enter; või klõpsa nupule <keycap
+>OK</keycap
+>. Väljale <guilabel
+>Pealdis</guilabel
+> kirjutatut kasutatakse tabeli kuvamisel andmebaasi kasutajale, &eg; vormina. Erinevalt nimest võib pealdis sisaldada igasuguseid sümboleid, sealhulgas tühikuid ja erimärke. </para>
+<para
+>Pane tähele, et välja <guilabel
+>Pealdis</guilabel
+> täitmisel täidetakse automaatselt ka väli <guilabel
+>Nimi</guilabel
+>. Sinu elu kergendamiseks peetakse kinni reeglist, et nimes saab kasutada ainult tähti, arve ja märki <quote
+>_</quote
+>. Soovi korral võid muidugi välja <guilabel
+>Nimi</guilabel
+> sisu muuta. </para>
+<orderedlist>
+<listitem
+><para
+>Sinu käest päritakse, kas soovid tabelile automaatselt lisada primaarvõtme. Jätkamiseks klõpsa nupule <guilabel
+>Lisa primaarvõti</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Nüüd ongi tabel <replaceable
+>Isikud</replaceable
+> loodud ja avatud andmevaates. Selle nime näeb ka <guilabel
+>projekti navigaator</guilabel
+>i paneelil.</para
+></listitem>
+<listitem
+><para
+>Loo tabel <replaceable
+>telefoninumbrid</replaceable
+> samamoodi, nagu lõid tabeli <replaceable
+>isikud</replaceable
+>.</para
+></listitem>
+<listitem
+><para
+>Määra välja <replaceable
+>isik</replaceable
+> tüübiks <guilabel
+>Täisarv</guilabel
+> ja välja <replaceable
+>telefon</replaceable
+> tüübiks <guilabel
+>Tekst</guilabel
+>. Ära kasuta arvutüüpi, sest telefoninumbrid võivad esineda väga mitmesugusel kujul ja väga erinevate eesliidetega.</para
+></listitem>
+<listitem
+><para
+>Klõpsa tööriistaribal nupule <guibutton
+>Andmed</guibutton
+> ja määra tabeli pealdiseks <replaceable
+>Telefonid</replaceable
+>. Nagu eelmise tabeli korral, luba &kexi;l automaatselt luua primaarvõti.</para
+></listitem>
+</orderedlist>
+</sect3>
+</sect2>
+</sect1>
+<sect1 id="entering-data-into-tables"
+><title
+>Andmete sisestamine tabelitesse</title
+> 
+<para
+>Oled loonud kaks tabelit: <replaceable
+>Isikud</replaceable
+> ja <replaceable
+>telefoninumbrid</replaceable
+> Kummaski pole veel andmeid. Selles peatükis selgitatakse, kuidas sisestada andmeid kiiresti ja tõhusalt. </para>
+<para
+>Alustame tabeliga <replaceable
+>Isikud</replaceable
+> Ava see andmevaates <guilabel
+>projekti navigaator</guilabel
+>i kontekstimenüü käsu <guilabel
+>Ava</guilabel
+> või tööriistariba nupu abil. Aktiivne lahter on märgitud (tavaliselt musta) ristkülikuga, kursoriga. Lahtri sisu, kui see on olemas, on värviga esile tõstetud. Aktiivset rida, s.t. rida, kuhu oled asetanud ristkülikukujulise kursori, tähistab vasakul noolesümbol. </para>
+<para
+>Tabeli lahtrite vahel saab liikuda hiirega või nooleklahvidega, samuti klahvidega <keycap
+>Page Down</keycap
+>, <keycap
+>Page Up</keycap
+>, <keycap
+>Home</keycap
+> ja <keycap
+>End</keycap
+>. </para>
+<para
+>Pärast tabeli <replaceable
+>Isikud</replaceable
+> avamist on kursor esialgu veerus <replaceable
+>ID</replaceable
+>. Veerul on kirjeldatud automaatse numbri omadus, mida tähistab sinine tekst (automaatnumber) viimases reas. See tähendab, et sa ei pea väärtusi andmete sisestamisel uude ritta käsitsi sisestama, sest lahter täidetakse automaatselt üksteisele järgnevate numbritega. </para>
+<para
+>Uute ridade lisamine ja neisse andmete lisamine käib &kexi;s teisiti kui arvutustabelites. Uue rea andmete sisestamiseks tuleb nooleklahvide või hiirega viia kursor spetsiaalsele tühjale viimasele reale, mida tähistab plussmärk. Vii kursor (teise) veergu <replaceable
+>Nimi</replaceable
+> ja sisesta isiku eesnimi. Samamoodi sisesta perekonnanimi, tänav, majanumber ja linn. Kui oled valmis, liigu klahviga <keycap
+>Nool alla</keycap
+> või hiirega viimasele tühjale reale uue rea lisamiseks. Võid lisada read, mida näitab pilt, aga ka rohkem. </para>
+<sect2 id="details-about-actions-available-while-entering-data-into-tables"
+><title
+>Andmete sisestamisel tabelisse kasutatavad toimingud</title
+> 
+<itemizedlist>
+<listitem
+><para
+>Kui alustad andmete sisestamist, käivitatakse pärast esimese märgi kirjutamist aktiivse rea redigeerimisrežiim. Andmetabelist vasakul ilmub nähtavale pliiatsisümbol.</para
+></listitem>
+<listitem
+><para
+>Aktiivse rea redigeerimisrežiimi käivitab ka topeltklõps lahtril hiire vasaku nupuga või klahvi &Enter; või <keycap
+>F2</keycap
+> vajutamine.</para
+></listitem>
+<listitem
+><para
+>Lahtri redigeerimise ajal klahvile &Esc; vajutades tühistatakse lahtrisse tehtud muudatused. Pliiatsisümbol siiski ei kao, sest sa võid redigeeritavas reas liikuda mõnele muule lahtrile ja muuta selle sisu. Tühistamaks tervesse ritta tehtud muudatused, vajuta uuesti klahvi &Esc;.</para
+></listitem
+><!--FIXME Esc does not work in master (2.4) as described here bug in docs or app?-->
+<listitem
+><para
+>Klahvi &Esc; vajutamise asemel võib klõpsata tööriistaribal nupule <guilabel
+>Loobu kirje muudatustest</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Klahve <keycombo
+>&Shift;&Enter;</keycombo
+> vajutades saab salvestada kõik aktiivse rea lahtritesse tehtud muudatused.</para
+></listitem>
+</itemizedlist>
+<para
+>Täida tabel <replaceable
+>Telefoninumbrid</replaceable
+> andmetega. Veerus <replaceable
+>Isikud</replaceable
+> tuleb anda isiku <replaceable
+>ID</replaceable
+> number tabelist <replaceable
+>Isikud</replaceable
+>. </para>
+</sect2>
+</sect1>
+<sect1 id="designing-database-queries"
+><title
+>Andmebaasi päringute kirjeldamine</title
+> 
+<para
+>Andmebaasi esmane ülesanne on salvestada ja aidata hankida teavet, mida kasutajal tarvis läheb. Erinevalt paberandmebaasidest võimaldab &kexi; andmebaas mitmete kriteeriumide alusel andmeid otsida. Tulemused tagastatakse väga kiiresti isegi suurte andmekogumite korral. Kuigi andmebaasid on niisiis väga võimsad vahendid, on selleks, et sooritada andmebaasis edukaid päringuid, vaja teada, kuidas andmebaasile teada anda, mida otsida. </para>
+<para
+>Andmebaasi päringutega saab piirata tabeli andmeid eelnevalt määratud ridade ja veergude kogumiga või ka dünaamiliselt ühendada mitmest tabelist pärit andmeid. </para>
+<para
+>Selgitamaks, kuidas päringud toimivad, loome päringu Kontaktid tabelite <replaceable
+>Isikud</replaceable
+> ja <replaceable
+>Telefoninumbrid</replaceable
+> andmete ühendamisel (nende tabelite kirjeldamisest kõneldi <link linkend="designing-database-tables"
+>siin</link
+> ning andmetega täitmisest <link linkend="entering-data-into-tables"
+>siin</link
+> ) </para>
+<orderedlist>
+<listitem
+><para
+>Loo uus päring tööriistariba nupuga <guilabel
+>Päring</guilabel
+>. Ilmub kujundusaken See on jagatud kaheks: päringu seosed ülal ning päringu veerud all.</para
+></listitem>
+<listitem
+><para
+>Vali tabel <replaceable
+>Isikud</replaceable
+> rippmenüüst <guilabel
+>Tabel</guilabel
+> akna ülaosas ja klõpsa nupule <guilabel
+>Lisa</guilabel
+>. Tabeli visuaalne esitus ilmub nähtavale seoste alas. Lisa samamoodi ka tabel <replaceable
+>Telefoninumbrid</replaceable
+>.</para
+></listitem>
+<listitem
+><para
+>Lisa lohistades päringu seos: klõpsa väljale <replaceable
+>ID</replaceable
+> tabelis <replaceable
+>Isikud</replaceable
+> ja lohista see väljale <replaceable
+>Isik</replaceable
+> tabelis <replaceable
+>Telefoninumbrid</replaceable
+>. See ühendab mõlemad väljad, luues uue seose.</para
+></listitem>
+<listitem
+><para
+>Topeltklõpsuga väljal <replaceable
+>Nimi</replaceable
+> tabelis <replaceable
+>Isikud</replaceable
+> saab välja lisada päringu veeruna. Samamoodi lisa väljad <replaceable
+>perekonnanimi</replaceable
+>, <replaceable
+>tänav</replaceable
+>, <replaceable
+>majanumber</replaceable
+> ja <replaceable
+>linn</replaceable
+> tabelist <replaceable
+>Isikud</replaceable
+> ning väli <replaceable
+>Telefon</replaceable
+> tabelist <replaceable
+>telefoninumbrid</replaceable
+>.</para
+></listitem>
+<listitem
+><para
+>Nüüd on aeg päringut testida. Klõpsa tööriistaribal nupule <guilabel
+>Andmed</guilabel
+>, millega saad kirjeldamisest lülituda päringu tulemusel pakutavate andmete vaatamisele.</para
+></listitem>
+<listitem
+><para
+>Salvesta päring hilisemaks kasutamiseks klõpsuga tööriistariba nupule <guilabel
+>Salvesta</guilabel
+>. Et päringu kirjeldust pole veel salvestatud, palutakse sul sellele nimi anda. Kirjuta <literal
+>Kontaktid</literal
+> väljale <guilabel
+>Pealdis</guilabel
+> ja klõpsa <guibutton
+>OK</guibutton
+>.</para
+></listitem>
+</orderedlist>
+</sect1>
+<sect1 id="designing-forms"
+><title
+>Vormide kujundamine</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="most-important-terms"
+>Tähtsamad mõisted</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="forms-versus-tables"
+>Vormid või tabelid</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="working-with-form-design"
+>Vormi kujundamine</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="using-the-widgets-tab"
+>Kaardi Vidinad kasutamine</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="inserting-widgets---text-fields"
+>Vidinate lisamine - tekstiväljad</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="assigning-data-sources"
+>Andmeallikate omistamine</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="inserting-text-labels"
+>Tekstipealdiste lisamine</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="actions"
+>Toimingud</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="widget-layouts"
+>Vidinate paigutus</link
+>&nbsp;</para
+></listitem>
+<!--FIXME not implemented in kexi 2.4
+<listitem
+><para
+><link linkend="setting-widgets-size-and-position-by-hand"
+>Setting widgets size and position by hand</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="setting-the-tab-order"
+>Setting the tab order</link
+>&nbsp;</para
+></listitem>
+-->
+</itemizedlist>
+<sect2 id="most-important-terms"
+><title
+>Tähtsamad mõisted</title
+> 
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Vorm</emphasis
+></term>
+    <listitem>
+    <para
+>Aken andmete hõlpsaks sisestamiseks ja kuvamiseks arvutiekraanil.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Vormi andmeallikas</emphasis
+></term>
+    <listitem>
+    <para
+>Andmebaasi tabel või päring vormis kuvatavate andmetega. Andmeallikas on vajalik, sest vormid on kõigest tööriistad andmete kuvamiseks ja sisestamiseks, tabelid ja päringud aga andmeallikad. Tühjale vormile pole ühtegi andmeallikat omistatud, mistõttu nad ei näita mingeid andmebaasi andmeid seni, kuni neile pole andmeallikat omistatud.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Vormi väli</emphasis
+></term>
+    <listitem>
+    <para
+>Otsene tabeli või päringu veeru vaste. Enamasti kasutatakse välju teksti ja arvude esitamiseks. Sellisele väljale uue väärtuse sisestamine või olemasoleva väärtuse muutmine põhjustab muudatuse ka sellega seotud tabeli või päringu veerus (pärast muudatusega nõustumist).</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Vormi kujundamine</emphasis
+></term>
+    <listitem>
+    <para
+>Toimingud, millega määratakse kindlaks vormi välimus ja funktsioonid. Selleks on vajalik määrata andmeallikas, lisada vajalikku tüüpi vormi väljad ning asetada nad sobivasse asukohta.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Vormividin</emphasis
+></term>
+    <listitem>
+    <para
+>Vormi element. Peamised vidinatüübid on järgmised:</para>
+<itemizedlist>
+<listitem
+><para
+>Infot esitavad vidinad, näiteks tekstikast või pildikast. Iga sellist tüüpi vidin võib olla seotud andmeallika väljaga (tabeli või päringu veeruga). Seepärast nimetatakse neid lühidalt vormi väljadeks.</para
+></listitem>
+<listitem
+><para
+>Teatud toiminguks mõeldud vidinad, näiteks nupp, mis sulgeb aktiivse vormi. Mõnes muus rakenduses nimetatakse sellist tüüpi vidinaid vahel vormi juhtelementideks, sest nad sooritavad eelnevalt määratud toimingu, millega juhitakse andmebaasirakenduse käitumist.</para
+></listitem>
+<listitem
+><para
+>Muud vormi välimust parandavad vidinad, näiteks joonevidin, mis eraldab visuaalselt vormi kaht piirkonda.</para
+></listitem>
+</itemizedlist>
+
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Konteinervidin</emphasis
+></term>
+    <listitem>
+    <para
+>Vidin, mis sisaldab nagu konteiner teisi antud ala vidinaid. Näiteks on paneelividin või kaardividin. Ka vormi enda pind on konteiner. Käsunupud ei ole vidinad, sest nende sisse pole võimalik ühtegi muud vidinat asetada. Keerulisematel juhtudel võib konteinervidina lisada omakorda konteinerisse.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect2>
+<sect2 id="forms-versus-tables"
+><title
+>Vormid või tabelid</title
+> 
+<para
+>Peatükis <link linkend="entering-data-into-tables"
+>Andmete sisestamine tabelitesse</link
+> oli juttu, kuidas lisada andmed tabelisse otse, kasutades andmelehe vaadet. Kuid paljudel juhtudel sobivad andmete sisestamiseks paremini vormid: </para>
+<itemizedlist>
+<listitem
+><para
+>Tabel võib sisaldada nii palju veerge, et neid ei saa ekraanil korraga kuvada. Vormid võivad selliseid andmeid esitada paljude ridadena.</para
+></listitem>
+<listitem
+><para
+>Vormid võimaldavad andmete välju jagada visuaalselt loogilistesse rühmadesse, mis hõlbustab nende käitlemist. Võimalik on lisada täiendava infoga pealdisi, mis lubavad paremini mõista, kuidas vormi kasutada või mida antud andmeväljad tähendavad.</para
+></listitem>
+<listitem
+><para
+>Vormides saab kasutada levinumate käskudega nuppe, mis lubab kasutajal vormides tegutseda nii, nagu nad on harjunud tegutsema autonoomsetes rakendustes.</para
+></listitem>
+</itemizedlist>
+<para
+>Andmelehevaates on mitmerealiste tekstandmetega väljade või piltide esitamine sama lihtne nagu vormides. </para>
+</sect2>
+<sect2 id="working-with-form-design"
+><title
+>Vormi kujundamine</title
+> 
+<para
+>Nagu tabeli või päringu kirjeldamisel, saab ka siin kasutada andmevaadet ja kujundusvaadet. Vormi kujundamine käib kujundusvaates. Vormi kujundamise akent nimetatakse sageli lihtsalt <emphasis
+>vormikujundajaks</emphasis
+>. </para>
+<orderedlist>
+<listitem
+><para
+>Uue tühja vormi loomiseks vali tööriistaribal <guilabel
+>Vorm</guilabel
+>. Teise võimalusena võib kasutada projekti navigaatori tööriistariba rippmenüü käsku <guilabel
+>Loo objekt. Vorm</guilabel
+> või projekti navigaatori kontekstimenüü käsku <guilabel
+>Loo objekt: vorm</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Ilmub uus paneel, kus vormi suurust saab muuta piirdeid liigutades. Vormi katab punktidena esitatud alusvõrk, mis hõlbustab vidinate täpset paigutamist.</para
+></listitem>
+</orderedlist>
+<para
+>Nagu tabeli puhul, on ka vormikujundajas omaette <guilabel
+>omaduste paneel</guilabel
+>. Et see ekraanil liigselt ruumi ei rööviks, on paneel jagatud kolmeks aktiivse vormi kohta käivaks kaardiks: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Omaduste kaart</emphasis
+></term>
+    <listitem>
+    <para
+>Sisaldab parajasti valitud vidina omaduste loendit.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Kaart Andmeallikas <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-server-database.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+></emphasis
+></term>
+    <listitem>
+    <para
+>Sisaldab parajasti valitud vidina või terve vormi otseselt andmeallikaga seotud omadusi.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Kaart Vidinad <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-action-widgets.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+></emphasis
+></term>
+    <listitem>
+    <para
+>Sisaldab vormi kõigi vidinate hierarhiat. Loend lihtsustab vidinate leidmist nime järgi ja nende vahel liikumist.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+>Esimesel ja teisel kaardil kuvatakse ka infot parajasti valitud vidina nime ja tüübi kohta. </para>
+<para
+>Kasutada saab ka lisatööriistaribasid: </para>
+<itemizedlist>
+<listitem
+><para
+><guilabel
+>Vidinate</guilabel
+> tööriistariba uute vidinate lisamiseks vormi. Nägemiseks vali <guibutton
+>Vormi kujundus</guibutton
+>.</para
+></listitem>
+<!--FIXME no Format toolbar and Format menu in master/2.4
+<listitem
+><para
+>The <guilabel
+>Format</guilabel
+> toolbar used to format form's elements (&eg; adjusting widget's size, grouping). Formatting commands are also available in the <guilabel
+>Format</guilabel
+> menu.</para
+></listitem
+>-->
+</itemizedlist>
+</sect2>
+<sect2 id="using-the-widgets-tab"
+><title
+>Kaardi Vidinad kasutamine</title
+> 
+<para
+>Vidinate kaart <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-action-widgets.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> <guilabel
+>omaduste paneel</guilabel
+>il näitab vormi vidinate loendit ja nende hierarhiat. Iga vidinat näidatakse hierarhias kõrvuti teiste samal tasandil (samas konteineris) asuvate vidinatega. Alamvidinate (kuuluvad konteinerisse) nimesid kuvatakse taandega. </para>
+<para
+>Iga vidina korral näidatakse selle nime ja tüüpi. Tüübile lisaks näeb ka ikooni - see on sama, mida kasutatakse tööriistaribal vormi kujundamise ajal. </para>
+<para
+><note>
+<itemizedlist>
+<listitem
+><para
+>Aktiivse valiku muutmisel loendis muudetakse valikut ka kujundatavas vormis. See võimaldab hõlpsasti otsida vidinaid nime järgi ning nende vahel liikuda. Nii võib näiteks valida nime järgi vidina ning lülituda seejärel kaardile <guilabel
+>Omadused</guilabel
+>, et muuda vidina omadusi.</para
+></listitem>
+<listitem
+><para
+>Hoides loendis vidinate valimise ajal all klahvi &Ctrl;, saab korraga valida mitu vidinat. Klahvi &Shift; all hoides saab valida terve vidinate loendi.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+<para
+>Vidinale mõistliku nime andmine on kasuks, kuid see pole kohustuslik. Pane tähele, et vidina nimi on omadus, mida vormi kasutaja ei näe. Kasutajad näevad ainult vidina teksti, mida pakub omadus <guilabel
+>Tekst</guilabel
+> või mõni muu omadus. </para>
+</sect2>
+<sect2 id="inserting-widgets---text-fields"
+><title
+>Vidinate lisamine - tekstiväljad</title
+> 
+<para
+>Loome vormi, mis pakub teavet isikute kohta, s.t vormi, mis on ühendatud tabeliga <replaceable
+>Isikud</replaceable
+>. </para>
+<para
+>Kui kujundatav vorm peab sisaldama andmebaasist hangitavaid andmeid, tuleb sellele asetada vajalikud väljad. Selleks tuleb kasutada tööriistariba <guilabel
+>Vidinad</guilabel
+>, mis sisaldab tervet rida nuppe. Iga nupp vastab teatud kindlale vidinatüübile. </para>
+<orderedlist>
+<listitem
+><para
+>Klõpsa tööriistaribal <guilabel
+>Vidinad</guilabel
+> nupule <guilabel
+>Tekstikast</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Klõpsa vormipinnal hiire vasaku nupuga. Uus tekstikast asetatakse klõpsamise kohta. Enne nupu vabastamist lohista hiirt, et tekstikast võtaks vajaliku suuruse.</para
+></listitem>
+<listitem
+><para
+>Vajaduse korral lohista lisatud vidin vajalikku asukohta. Vidina suurust saab hiljem muuta, kui lohistada mõnda selle servadel asuvat väikest kastikest. Pane tähele, et kastikesed on näha ainult siis, kui vidin on valitud. Kui valid mõne muu vidina või klõpsad vormipinnale, kastikesed kaovad.</para
+></listitem>
+<listitem
+><para
+>Klõpsa uuesti tööriistaribal nupule <guilabel
+>Tekstikast</guilabel
+> ja lisa vormipinnale veel üks vidin. Korda operatsiooni. Nüüd on vormis veel kolm tekstikasti. Lihtsuse mõttes piirdumegi siinkohal viie andmeväljaga.</para
+></listitem>
+</orderedlist>
+<para
+><note>
+<itemizedlist>
+  <listitem
+><para
+>Vormi kujundamise režiimis saab kasutada ka kontekstimenüüd, mille avamiseks klõpsa hiire parema nupuga valitud vidinale või vormipinnale. Menüüs leiduvad sellised käsud, nagu <guilabel
+>Lõika</guilabel
+>, <guilabel
+>Kopeeri</guilabel
+>, <guilabel
+>Aseta</guilabel
+>, <guilabel
+>Kustuta</guilabel
+> ja mõned keerulisemadki. Käske saab kasutada ka kiirklahvidega. Teatud käsud on saadaval ainult konkreetset tüüpi vidinate puhul.</para
+></listitem>
+<listitem
+><para
+>Käsud <guilabel
+>Lõika</guilabel
+>, <guilabel
+>Kopeeri</guilabel
+> ja <guilabel
+>Aseta</guilabel
+> võimaldavad vidinaid liigutada või kopeerida vormide vahel isegi erinevate andmebaasiprojektide korral.</para
+></listitem>
+<listitem
+><para
+>Vidinatel klõpsamise ajal klahvi &Ctrl; all hoides saab valida mitu vidinat.</para
+></listitem>
+<listitem
+><para
+>Käskude <guilabel
+>Kopeeri</guilabel
+> ja <guilabel
+>Aseta</guilabel
+> asemel võib ühes ja samas vormis vidina kloonimiseks ka hoida vidina liigutamise ajal all klahvi &Ctrl;. Pärast hiirenupu vabastamist lohistatud vidinat mitte ei liigutata, vaid kopeeritakse uude asukohta.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+</sect2>
+<sect2 id="assigning-data-sources"
+><title
+>Andmeallikate omistamine</title
+> 
+<para
+>Sisestatud väljadele ei ole veel omistatud andmeallikat, mistõttu need ei saa esitada mingit andmebaasi infot. Andmeallika omistamiseks vali <guilabel
+>omaduste paneelil</guilabel
+> kaart <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-server-database.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> (Andmeallikas). </para>
+<para
+>Esimene samm on määrata vormi andmeallikas, s.t koht, kust kuvatavad andmed hangitakse. Nagu eespool mainitud, kasutame antud juhul uue vormi jaoks andmeallikana tabelit <replaceable
+>Isikud</replaceable
+>. </para>
+<orderedlist>
+<listitem
+><para
+>Klõpsa vormipinnal, sest ees seisab vormi enda omaduste muutmine.</para
+></listitem>
+<listitem
+><para
+>Ava kaart <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-server-database.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> (Andmeallikas) ja kirjuta <replaceable
+>isikud</replaceable
+> väljale <guilabel
+>Vormi andmeallikas</guilabel
+>. Teise võimalusena võib selle nime valida ka ripploendist.</para
+></listitem>
+</orderedlist>
+<para
+>Sellega on vormi andmeallikas määratud. Nüüd tuleb määrata vidina andmeallikas. </para>
+<orderedlist>
+<listitem
+><para
+>Klõpsa vormi ülaosas esimesele tekstivälja vidinale.</para
+></listitem>
+<listitem
+><para
+>Kirjuta omaduste paneeli kaardil <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-server-database.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> (Andmeallikas) <replaceable
+>nimi</replaceable
+> väljale <guilabel
+>Vidina andmeallikas</guilabel
+>. Teise võimalusena võib selle nime valida ka ripploendist.</para
+></listitem>
+<listitem
+><para
+>Klõpsa järgmisel tekstivälja vidinal ja määra andmeallikaks <replaceable
+>perekonnanimi</replaceable
+>.</para
+></listitem>
+<listitem
+><para
+>Samamoodi sisesta tekstiväljade tänav, majanumber ja linn andmeallikad.</para
+></listitem>
+</orderedlist>
+<para
+>Nüüd võib vormi kujunduse salvestada (selle testimine pole kohustuslik) Salvestamiseks klõpsa tööriistaribal nupule <guilabel
+>Salvesta</guilabel
+>. Salvestamisel palutakse anda vormile nimi. Anna selleks näiteks <replaceable
+>Isikud</replaceable
+> ja klõpsa <guilabel
+>OK</guilabel
+>. Vormi nimi täidetakse automaatselt. </para>
+<para
+>Nüüd on õige aeg vormi testida. Klõpsa tööriistaribal nupule <guilabel
+>Andmed</guilabel
+>. Kui sa pole andmeallikaid sisestades vigu teinud, näed vormi välju, mis on täidetud tabeli <replaceable
+>Isikud</replaceable
+> andmetega. </para>
+<para
+><note>
+<itemizedlist>
+<listitem
+><para
+>Kui soovid eemaldada vormi vidina andmeallika omistamise, klõpsa <guilabel
+>vidina andmeallika</guilabel
+> kastis nupule <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-edit-clear-locationbar-rtl.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+>. Samamoodi saab eemaldada vormi andmete allika omistamise.</para
+></listitem>
+<listitem
+><para
+>Nupuga <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-go-jump.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> (Liigu valitud vormi andmeallikale) saab valida <guilabel
+>projekti navigaatoris</guilabel
+> vajaliku tabeli või päringu, mis võimaldab kiiresti avada tabeli või päringu, mida kasutada vormi andmeallikana.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+</sect2>
+<sect2 id="inserting-text-labels"
+><title
+>Tekstipealdiste lisamine</title
+> 
+<para
+>Et vormi kasutajal oleks hõlpsam tuvastada iga väljavidina tähendust, tuleks neile lisada vajaliku sisuga tekstipealdis. Tekstipealdise loomiseks tuleb kasutada vidinat <guilabel
+>Pealdis</guilabel
+>. </para>
+<para
+>Lisa vormile kolm tekstipealdise vidinat, asetades need tekstiväljadest vasakule (või ka paremale, kui sinu operatsioonisüsteem kasutab paremalt vasakule paigutust). Uue pealdise sisestamisel ilmub kursor asukohta, kus saad kirjutada vajaliku pealkirja. Kirjuta nüüd <replaceable
+>Nimi</replaceable
+>, <replaceable
+>Perekonnanimi</replaceable
+>, <replaceable
+>Tänav</replaceable
+>, <replaceable
+>Majanumber</replaceable
+> ja <replaceable
+>Linn</replaceable
+>. Lisa veel vormi ülaossa pealdis, mis näitab vormi enda nime, s.t <replaceable
+>Isikud</replaceable
+>. Suurenda pealdise suurust ja fonti, kasutades kirjet <guilabel
+>Font</guilabel
+> kaardil <guilabel
+>Omadused</guilabel
+>. </para>
+</sect2>
+<sect2 id="actions"
+><title
+>Toimingud</title
+> 
+<para
+>Toiming on ühekordne rakendusesisene tegevus, mida kasutaja saab käivitada. Seda on võimalik panna käivituma ka automaatselt reaktsioonina teatud sündmusele (nt. vormi avamise järel). </para>
+<sect3 id="assigning-actions-to-form-buttons"
+><title
+>Toimingute omistamine vormi nuppudele</title
+> 
+<para
+>Enamikku toiminguid saab omistada vormi nuppudele. Omistatud toiming käivitatakse pärast nupule klõpsamist. </para>
+<para
+>Toimingu omistamiseks: </para>
+<orderedlist>
+<listitem
+><para
+>Lülitu vormi kujundamisvaatele, kui sa pole seda veel teinud.</para
+></listitem>
+<listitem
+><para
+>Vali olemasolev nupuvidin sellele klõpsates või paiguta vormi uus nupuvidin. Kui lisad uue nupu, kirjuta selle nimi ja vajuta klahvi &Enter;.</para
+></listitem>
+<listitem
+><para
+>Klõpsa nupuvidinal hiire parema nupuga, et avada kontekstimenüü.</para
+></listitem>
+<listitem
+><para
+>Vali kontekstimenüüst käsk <guilabel
+>Omista toiming...</guilabel
+></para
+></listitem>
+<listitem
+><para
+>Ilmub <guilabel
+>nupule toimingu omistamise</guilabel
+> dialoog, mis pakub võimalikke toiminguid. Kui vidinale on toiming juba omistatud, on see valitud. Vastasel juhul on <guilabel
+>toimingu kategooriate</guilabel
+> loendis valitud <guilabel
+>Toiming puudub</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Vali loendis <guilabel
+>Toimingu kategooria</guilabel
+> kirje <guilabel
+>Rakenduse toimingud</guilabel
+>. Ilmub kogu rakenduses saadaolevate toimingute nimekiri.</para
+></listitem>
+<listitem
+><para
+>Vali nimekirjast mõni toiming (nt. <guilabel
+>Kustuta valitud objekt</guilabel
+>).</para
+></listitem>
+<!--dialog closes immediately after clicking an action in the list-->
+</orderedlist>
+<para
+>Pärast lülitumist vormi andmevaatele võid proovida, kas toiming töötab korralikult. </para>
+<para
+><note>
+<itemizedlist>
+<listitem
+><para
+>Toimingu omistamise tühistamiseks vali dialoogis <guilabel
+>Toimingu omistamine nupule</guilabel
+> loendis <guilabel
+>Toimingu kategooriad</guilabel
+> kirje <guilabel
+>Toiming puudub</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Toiming toimib ainult vormi andmevaates. Mitte kõik toimingud pole ühtmoodi kasutatavad. Näiteks toiming <guilabel
+>Font...</guilabel
+> on andmevaates saadaval ainult juhul, kui vidin on valitud kujundamisvaates. Fondiseadistusi muutes rakendatakse muudatused valitud vidina tekstile.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+</sect3>
+</sect2>
+<sect2 id="widget-layouts"
+><title
+>Vidinate paigutus</title
+> 
+<para
+>Enamasti on mõttekas ja kasulik vormi vidinad mingil moel korrastatult paigutada. Vidinate asukoha määramine, nende joondamine ja suuruse muutmine käsitsi pole kuigi hõlpus, pealegi ei muudeta neid parameetreid, kui kasutaja muudab vormi suurust. Tegelikult on asi veel hullem: pole mingit põhjust arvata, nagu peaks antud vorm võtma just nii palju ruumi, sest kasutajatel võivad olla väga erinevad fondisuurused ja ekraanilahutused. </para>
+<para
+>Spetsiaalne tööriist, mida nimetatakse vidinate paigutuseks, aitab vormi vidinad automaatselt paigutada. Vidina paigutus on toiming, millega kaks või enam vidinat rühmitatakse, et need asuksid üksteise suhtes mõistlikult ja et nende suurus oleks samuti mõistlik. </para>
+<para
+>Paigutuse kasutamine vormis parandab joondust. Lisaks kasutatakse ruumi paremini ära. Tekstiväljad on üksteisele lähemal, vahed on ühesugused. </para>
+<!--FIXME not implemented in kexi 2.4
+<para
+>There are two methods to create widget layout.
+</para>
+<itemizedlist>
+<listitem
+><para
+>Select two or more widgets that should be placed in a common layout, and select one of the layout types from the context menu item <guilabel
+>Layout Widgets</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Click a container widget (or a form surface itself), where widgets are inserted and select one of the layout types from the context menu item <guilabel
+>Layout Widgets</guilabel
+>. All widgets existing within the container or within the form, being on the same level will be put into a single common layout.</para
+></listitem>
+</itemizedlist>
+<para
+>In each of these cases you can also use <menuchoice
+><guimenu
+>Format</guimenu
+><guimenuitem
+>Layout Widgets</guimenuitem
+></menuchoice
+> menu.
+</para>
+<para
+>Widget layout is presented in the design view using a blue, green or red box drawn with a broken line. This line is displayed only in the form's design view.
+</para>
+<para
+>Besides the grid type, there are other widget layout types.
+</para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>vertical</emphasis
+></term>
+    <listitem>
+    <para
+>Vertical widget layout</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>horizontal</emphasis
+></term>
+    <listitem>
+    <para
+>Horizontal widget layout</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<sect3 id="springs-in-widget-layouts"
+><title
+>Springs in widget layouts</title
+> 
+<para
+>A spring in widget layouts is a special, invisible element allowing to adjust widget's position and size within layouts. Such a spring stretches or squeezes a widget on the right, top, bottom or left hand, so it can have desired size and position.
+</para>
+<para
+>To use a spring:
+</para>
+<orderedlist>
+<listitem
+><para
+>Select spring icon on the <guilabel
+>Widgets</guilabel
+> toolbar.</para
+></listitem>
+<listitem
+><para
+>Click on a selected point of the form to insert the spring.</para
+></listitem>
+</orderedlist>
+<para
+>To make springs work you need to create a global widget layout, &ie; a layout for the form itself. Then, springs can use edges of the form as a boundary for expanding.
+</para>
+</sect3>
+<sect3 id="removing-widget-layouts"
+><title
+>Removing widget layouts</title
+> 
+<para
+>To remove widget layout without removing widgets, perform one of these actions:
+</para>
+<itemizedlist>
+<listitem
+><para
+>Click with the right mouse button on the layout's border and select <guilabel
+>Break Layout</guilabel
+> command from the context menu.</para
+></listitem>
+<listitem
+><para
+>Click with the left mouse button on the layout's border and select <menuchoice
+><guimenu
+>Format</guimenu
+><guimenuitem
+>Break Layout</guimenuitem
+></menuchoice
+> menu command.</para
+></listitem>
+</itemizedlist>
+<para
+><note
+><para
+>Removing widget layout using the Break Layout command will not remove widgets contained in the layout. If you want to remove the widgets as well, just select the layout by clicking on its border and press <keycap
+>Delete</keycap
+> key or use <menuchoice
+><guimenu
+>Edit</guimenu
+><guimenuitem
+>Delete</guimenuitem
+></menuchoice
+> menu command or context menu command.</para
+></note>
+</para>
+</sect3>
+-->
+<sect3 id="size-policies-for-widgets-within-a-layout"
+><title
+>Vidinate suuruse reeglid paigutuses</title
+> 
+<para
+>&kexi; võimaldab valida vidinate mitmesuguse suuruse vahel. Suuruse reeglid on väga paindlikud ning lubavad täpselt määrata, kuidas vidinat kasvatatakse või kahandatakse vastavalt teda ümbritsevatele vidinatele ja vormis saadaolevale ruumile. </para>
+<para
+>Pärast vidinate asetamist reale nende suurust muudetakse, et nad mahutaksid ära oma nähtava teksti. </para>
+<para
+>Iga vormi lisatud vidina puhul pakub <guilabel
+>omaduste redaktor</guilabel
+> välja suuruse reeglid. Need on koondatud rühma <guilabel
+>Suuruse reegel</guilabel
+>. </para>
+<para
+>See omaduste rühm sisaldab järgmisi elemente: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Horisontaalse suuruse tüüp</emphasis
+></term>
+    <listitem>
+    <para
+>määrab vidina suuruse rõhtsuunas</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Vertikaalse suuruse tüüp</emphasis
+></term>
+    <listitem>
+    <para
+>määrab vidina suuruse püstsuunas</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Horisontaalne venitamine</emphasis
+></term>
+    <listitem>
+    <para
+>määrab horisontaalse suuruse tüübi tugevuse</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Vertikaalne venitamine</emphasis
+></term>
+    <listitem>
+    <para
+>määrab vertikaalse suuruse tüübi tugevuse</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect3>
+<sect3 id="values-of-size-policies"
+><title
+>Suuruse reeglite väärtused</title
+> 
+<para
+>Järgnevad väärused on nähtavad <guilabel
+>omaduste redaktor</guilabel
+>i omaduste <guilabel
+>Horisontaalse suuruse tüüp</guilabel
+> ja <guilabel
+>Vertikaalse suuruse tüüp</guilabel
+> ripploendis: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Fikseeritud</emphasis
+></term>
+    <listitem>
+    <para
+>vidina suurust ei muudeta automaatselt, see jääb alati täpselt nii suureks, nagu kujundamise ajal määratud (kõrgus või laius)</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Miinimum</emphasis
+></term>
+    <listitem>
+    <para
+>vidina algne suurus määratakse nii väikeseks kui võimalik, kuid vajaduse korral seda suurendatakse. Selle reegliga saab vidina sundida vajaduse korral laienema kas või tervele laiusele või kõrgusele, eriti kui venitamise väärtus määrata suuremaks kui 0.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Maksimum</emphasis
+></term>
+    <listitem>
+    <para
+>vidina algne suurus määratakse nii suureks kui võimalik ning seda saab kahandada ilma vidina kasutuskõlblikkust ja loetavust halvendamata, kui teised vidinad vajavad rohkem ruumi</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Eelistatud</emphasis
+></term>
+    <listitem>
+    <para
+>vidina algne suurus on parim ja eelistatud, vidinat saab suurendada või vähendada, ilma et see kaotaks loetavuses</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Laienev</emphasis
+></term>
+    <listitem>
+    <para
+>vidina algne suurus määratakse mõistlikuna, kuid seda saab kahandada või suurendada, et see hõivaks nii palju ruumi kui parajasti vaja</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Minimaalselt laienev</emphasis
+></term>
+    <listitem>
+    <para
+>vidina algne suurus määratakse mõistlikuna, kuid seda saab suurendada, et see hõivaks nii palju ruumi kui parajasti vaja</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Ignoreeritud</emphasis
+></term>
+    <listitem>
+    <para
+>vidina algset suurust ignoreeritakse, kuid seda saab suurendada, et see hõivaks nii palju ruumi kui parajasti vaja, ehkki tavaliselt teised vidinad seda tegelikkuses ei luba</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+>Erinevat tüüpi vidinatel on erinevad vaikimisi suuruse reeglid: näiteks nupuvidina vaikimisi suuruse reegel on <guilabel
+>Miinimum</guilabel
+> (mõlemas suunas), tekstiväljal aga vertikaalne suurus <guilabel
+>Fikseeritud</guilabel
+>. </para>
+<para
+>Kõige levinumad suuruse reeglid on <guilabel
+>Eelistatud</guilabel
+>, <guilabel
+>Miinimum</guilabel
+> ja <guilabel
+>Maksimum</guilabel
+>. </para>
+</sect3>
+<sect3 id="vertical-and-horizontal-stretch"
+><title
+>Vertikaalne ja horisontaalne venitamine</title
+> 
+<para
+>Omadused <guilabel
+>Vertikaalne venitamine</guilabel
+> ja <guilabel
+>Horisontaalne venitamine</guilabel
+> tunnistavad täisarvväärtusi 0 või suuremad. Need omadused võimaldavad suuruse reegli täppishäälestust. Omaduste vaikimisi väärtus on 0. Venitamise suurem väärus tähendab seda, et vidinat suurendatakse rohkem kui teisi vidinaid, mille venitamise väärtus on väiksem. </para>
+</sect3>
+</sect2>
+<!--FIXME No in master/2.4
+<sect2 id="setting-widgets-size-and-position-by-hand"
+><title
+>Setting widgets size and position by hand</title
+> 
+<para
+>In case when your form has no main layout set for auto-positioning and auto-resizing its widgets, you will probably want to modify the position and size of widgets so the form can look cleaner and be easier to use. The &kexi; form designer simplifies this task by offering the following groups of commands:
+</para>
+<itemizedlist>
+<listitem
+><para
+>Adjusting sizes of selected widgets. The commands are available in the <menuchoice
+><guimenu
+>Format</guimenu
+><guimenuitem
+>Adjust Widgets Size</guimenuitem
+></menuchoice
+> submenu of the menubar and in the <guilabel
+>Adjust Widgets Size</guilabel
+> submenu of the context menu. The toolbar's drop down button <guilabel
+>Adjust Widgets Size</guilabel
+> is also available.</para
+></listitem>
+</itemizedlist>
+<itemizedlist>
+<listitem
+><para
+>Aligning positions of the selected widgets. The commands are available in the <menuchoice
+><guimenu
+>Format</guimenu
+><guimenuitem
+>Align Widgets Position</guimenuitem
+></menuchoice
+> submenu of the menubar and in the <guilabel
+>Align Widgets Position</guilabel
+> submenu of the context menu. The toolbar's drop down button <guilabel
+>Align Widgets Position</guilabel
+> is also available.</para
+></listitem>
+</itemizedlist>
+
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Fit</emphasis
+></term>
+    <listitem>
+    <para
+>The size of the selected widgets will be altered so each widget will be resized to its preferred size and its contents; for example, a text label's size will be changed to fit its text. The position of the widgets will not be changed.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Grid</emphasis
+></term>
+    <listitem>
+    <para
+>The size of the selected widgets will be altered so each widget's corner will be placed on the form's (or other container's) grid point. The widget's position can be slightly altered.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Shortest</emphasis
+></term>
+    <listitem>
+    <para
+>The height of the selected widgets will be altered so that each of them will have the same height as the shortest one. The position of the widgets will not be changed.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Tallest</emphasis
+></term>
+    <listitem>
+    <para
+>The height of the selected widgets will be altered so that each of them will have the same height as the tallest one. The position of the widgets will not be changed.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Narrowest</emphasis
+></term>
+    <listitem>
+    <para
+>The width of the selected widgets will be altered so that each of them will have the same height as the narrowest one. The position of the widgets will not be changed.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Widest</emphasis
+></term>
+    <listitem>
+    <para
+>The width of the selected widgets will be altered so that each of them will have the same height as the widest one. The position of the widgets will not be changed.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Left</emphasis
+></term>
+    <listitem>
+    <para
+>All the selected widgets' left positions will be moved to the position of the leftmost widget's left edge.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Right</emphasis
+></term>
+    <listitem>
+    <para
+>All the selected widgets' right positions will be moved to the position of the rightmost widget's right edge.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Top</emphasis
+></term>
+    <listitem>
+    <para
+>All the selected widgets' top positions will be moved to the position of the uppermost widget's upper edge.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Bottom</emphasis
+></term>
+    <listitem>
+    <para
+>All the selected widgets' bottom positions will be moved to the position of the bottommost widget's bottom edge.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Grid</emphasis
+></term>
+    <listitem>
+    <para
+>All the selected widgets' top-left corners will be moved so that they are positioned in the nearest grid point.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+>None of the above commands resizes the widgets.
+</para>
+<para
+>There are also additional commands available: <guilabel
+>Bring Widget to Front</guilabel
+> (&ie; above all other widgets) and <guilabel
+>Send Widget to Back</guilabel
+> (&ie; below all other widgets). These two commands are rarely used, as it is not common to place one widget on top of an other (except when a container widget contains other widget inside). Also note that clicking a widget with a mouse button is enough to bring the widget to front.
+</para>
+</sect2>
+<sect2 id="setting-the-tab-order"
+><title
+>Setting the tab order</title
+> 
+<para
+>A widget's focus determines that widget's activity available using keyboard. Focus is related to widgets displayed in the form's data view. Exactly one form widget can have focus at the same time. The most frequent use of focus is text entry (when a given text field is active, &ie; it is focused). An other example is a button widget - when focused, it is possible to “press” it using the &Enter; or <keycap
+>Space</keycap
+> key instead of a mouse button.
+</para>
+<para
+>There are a few methods of making the widgets active (moving the focus to the widget): clicking with a mouse button, rotating the mouse wheel over the widget, or using the &Tab; key. The latter method is often used because of its speed and convenience for users. Availability of the focusing methods is controlled by <guilabel
+>Focus Policy</guilabel
+> property of a given widget.
+</para>
+<para
+>There is a relationship between focusing (activating) widgets using &Tab; key and tab order setting of a form. After pressing the &Tab; key, the next widget should be focused, so the form should know about the tab order.
+</para>
+<para
+>To alter tab order for a form's widget:
+</para>
+<orderedlist>
+<listitem
+><para
+>Switch to design view of the form.</para
+></listitem>
+<listitem
+><para
+>Execute <menuchoice
+><guimenu
+>Edit</guimenu
+><guimenuitem
+>Edit Tab Order...</guimenuitem
+></menuchoice
+> menu command. The <guilabel
+>Edit Tab Order</guilabel
+> dialog will appear with settings for this form.The window contains a list with two columns: the first column displays widget names, the second - types of the widgets. To make it easier to recognize meaning of the names and types for the user, icons related to the types are also displayed. The list contains only widgets having focus policy allowing to use the &Tab; key. The window allows you to change the tab order or set the automatic tab order.</para
+></listitem>
+<listitem
+><para
+>To change tab order, either:<itemizedlist>
+<listitem
+><para
+>Click a selected widget name in the widgets list and drag it to a desired position (up or down) using the mouse.</para
+></listitem>
+<listitem
+><para
+>Click a selected widget name on the widgets list and use <guilabel
+>Move Up</guilabel
+> or <guilabel
+>Move Down</guilabel
+> buttons, to move the widgets to a desired position.</para
+></listitem>
+<listitem
+><para
+>Click the <guilabel
+>Handle tab order automatically</guilabel
+> check box to set the automatic tab order for the form. If this option has been switched on, any changes made to the list of widgets by hand are not taken into account - &kexi; will be handling the tab orders on its own. The automatic ordering means that the top-left widget will be focused first (or the top-right if your operating system uses right-to-left layout), and the order comes from the left to right (from the right to left, respectively) and from the top to bottom.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</orderedlist>
+<para
+>Click the <guilabel
+>OK</guilabel
+> button to accept the changes or <guilabel
+>Cancel</guilabel
+> button to dismiss the changes.
+</para>
+</sect2>
+-->
+</sect1>
+<sect1 id="entering-data-using-forms"
+><title
+>Andmete sisestamine vormide abil</title
+> 
+<para
+>Andmete sisestamine ja redigeerimine on tavaliselt  andmebaasirakenduse kasutaja ülesanne. Andmebaasi looja peaks aga kontrollima vormi andmekirjete korrektsust ning vaatama, kas vorm toimib nii nagu vaja. </para>
+<para
+>Vormi testimiseks lülitu selle andmevaatele. Näidatakse üht andmebaasirida (kirjet). Väljade vahel saab liikuda hiire vasaju nupuga või klahvidega &Tab;
+> ja <keycombo
+>&Shift;&Tab;</keycombo
+>. Redigeerimise ajal on kirje navigaatori juures näha pliiatsisümbol. Pärast rea (kirje) andmete sisestamist vajuta klahve <keycombo
+>&Shift;&Enter;</keycombo
+> või klõpsa tööriistaribal nuppu <guilabel
+>Salvesta kirje</guilabel
+>, mis salvestab aktiivsesse ritta tehtud muudatused. Klõps tööriistariba nupule <guilabel
+>Tühista kirje muudatused</guilabel
+> tühistab aktiivsesse ritta tehtud muudatused ning taastab andmeväljade sisu. Kirje navigaatori nupuga saab liikuda uude ritta. Kõik navigaatori funktsioonid on  samasugused nagu andmetabelivaates. </para>
+</sect1>
+</chapter>
+<chapter id="configuring-kexi"
+><title
+>Kexi seadistamine</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="docking-and-undocking-side-panels"
+>Külgpaneelide dokkimine ja lahtihaakimine</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="docking-and-undocking-side-panels"
+><title
+>Külgpaneelide dokkimine ja lahtihaakimine</title
+> 
+<para
+><guilabel
+>Projekti navigaator</guilabel
+>i ja <guilabel
+>omaduste redaktor</guilabel
+>i külgpaneeli saab lahti haakida: </para>
+<itemizedlist>
+<listitem
+><para
+>topeltklõpsuga paneeli ülaosas asuvale 'haarderibale' või</para
+></listitem>
+<listitem
+><para
+>ühekordse klõpsuga rombikujulisele nupule paneeli ülaosas x-i kõrval.</para
+></listitem>
+</itemizedlist>
+<para
+>Lahtihaagitud paneele saab taas peaaknasse dokkida samamoodi: </para>
+<itemizedlist>
+<listitem
+><para
+>topeltklõpsuga akna ülaosas asuvale 'haarderibale' või</para
+></listitem>
+<listitem
+><para
+>ühekordse klõpsuga rombikujulisele nupule paneeli ülaosas x-i kõrval.</para
+></listitem>
+</itemizedlist>
+<para
+><tip
+><para
+>Paneeli lahtihaakimisel jätab &kexi; meelde viimase dokitud asukohta, nii et kui dokid paneeli uuesti, asetatakse see sinna, kus see paiknes viimati.</para
+></tip>
+</para>
+</sect1>
+</chapter>
+<chapter id="command-reference"
+><title
+>Käskude seletused</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="the-kexi-tab"
+>Kaart Kexi</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-create-tab"
+>Kaart Loomine</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-data-tab"
+>Kaart Andmed</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-external-data-tab"
+>Kaart Välised andmed</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-tools-tab"
+>Kaart Tööriistad</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-form-design-tab"
+>Kaart Vormi kujundus</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-report-design-tab"
+>Kaart Aruande kujundus</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="the-kexi-tab"
+><title
+>Kaart Kexi</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_kexi_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>Kaart &kexi; on koht, kus saad käidelda &kexi; projekte. </para>
+<para
+>Toimingu valimine avab ekraani menüüst paremal, pakkudes valikuid valitud toimingule. </para>
+<para
+>Saadaval on järgmised valikud: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Tere tulemast</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Siin saab valida avamiseks projekti, mille kallal oled hiljuti töötanud.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Ava</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Siin saab avada &kexi; projekti, olgu see siis salvestatud faili või andmebaasiserverisse.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Sulge</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Siin saab sulgeda parajasti avatud &kexi; projekti.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Uus</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Siin saab nõustaja abil luua uue &kexi; projekti.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Import, eksport või saatmine...</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Siin saab nõustaja abil importida olemasolevad andmed parajasti avatud &kexi; projekti.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Välju</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Sulgeb &kexi;.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="the-create-tab"
+><title
+>Kaart Loomine</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_create_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>Kaardil <guilabel
+>Loomine</guilabel
+> saab luua projekti lisatavaid objekte. </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Tabel</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Kui valid <guilabel
+>Tabel</guilabel
+>, ilmub tabeli kirjeldamise ekraan kujundusvaates, mis lubab lisada tabelisse väljade definitsioone.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Päring</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Kui valid <guilabel
+>Päring</guilabel
+>, ilmub päringu kirjeldamise ekraan kujundusvaates, mis võimaldab kirjeldada päringu, millega hankida projekti tabelitest kohandatud tulemusi.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Vorm</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Kui valid <guilabel
+>Vorm</guilabel
+>, ilmub vormi kujundamise ekraan kujundusvaates, mis lubab lisada vormi vidinaid.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Aruanne</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Kui valid <guilabel
+>Aruanne</guilabel
+>, ilmub aruande kujundamise ekraan kujundusvaates, mis lubab lisada aruandesse vidinaid.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Skript</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Kui valid <guilabel
+>Skript</guilabel
+>, ilmub skriptiredaktor, mis lubab lisada projekti või objektidele kohandatud koodi.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="the-data-tab"
+><title
+>Kaart Andmed</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_data_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>Kaardil <guilabel
+>Andmed</guilabel
+> saab käidelda tabelite andmeid või objektide (vormide, aruannete jms.) vidinaid. </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Lõika</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Lõika</guilabel
+> kopeerib andmed või vidina lõikepuhvrisse ja eemaldab selle praegusest asukohast.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Kopeeri</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Kopeeri</guilabel
+> kopeerib andmed või vidina lõikepuhvrisse, eemaldamata seda selle praegusest asukohast.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Aseta</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Aseta</guilabel
+> asetab lõikepuhvris leiduvad andmed või vidina tabelisse või objekti.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Aseta eriliselt</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Aseta eriliselt</guilabel
+> on kasutusel suvaliste lõikepuhvris leiduvate andmete asetamiseks tabelisse teataval kindlal viisil, et need lisataks korrektselt tabeli definitsiooni.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Otsi</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Otsi</guilabel
+> avab <guilabel
+>otsimisdialoogi</guilabel
+> konkreetse teksti otsimiseks andmebaasi andmetest.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="the-external-data-tab"
+><title
+>Kaart Välised andmed</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_external_data_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>Kaardil Välised andmed saab importida muude allikate andmeid &kexi; projekti. </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Impordi andmed failist</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Impordi andmed failist</guilabel
+> avab dialoogi, mille abil saab importida CSV- või lihttekstifaili andmed projekti uude tabelisse.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Impordi tabelid</guilabel
+></emphasis
+></term>
+    <listitem>
+      <para
+><guilabel
+>Impordi tabelid</guilabel
+> avab <guilabel
+>tabeli importimise nõustaja</guilabel
+>, mis lubab importida andmeid <filename
+>fods</filename
+>-, <filename
+>mdb</filename
+>-, <filename
+>ods</filename
+>- või <filename
+>tsv</filename
+>-failist või mõnest muust andmebaasiserverist projekti uude tabelisse.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Ekspordi andmed failina</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Ekspordi andmed failina</guilabel
+> avab dialoogi, mis lubab eksportida aktiivsete tabelite andmed lihtteksti- või CSV-failina.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+><note
+><para
+>Et andmeid saaks tabelist faili eksportida, peab tabel olema avatud.</para
+></note>
+</para>
+</sect1>
+<sect1 id="the-tools-tab"
+><title
+>Kaart Tööriistad</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_tools_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>Kaardil <guilabel
+>Tööriistad</guilabel
+> saab käidelda projekte. </para>
+<variablelist>
+  <!--FIXME no aktion Import Database in the toolbar in kexi 2.7 here
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Import Database</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Import Database</guilabel
+>, opens the <guilabel
+>Database Importing Wizard</guilabel
+> that allows to import complete data from an <filename
+>mdb</filename
+> file or another database server.</para>
+     </listitem>
+  </varlistentry>
+  -->
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Tihenda andmebaas</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Tihenda andmebaas</guilabel
+> kontrollib väiksemaid vigasid andmebaasis ja vähendab andmebaasi suurust.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+><note
+><para
+>Andmebaasi tuleks regulaarselt tihendada, et see ikka heas korras püsiks, eriti pärast suuremaid kirjendamistegevusi (massiline lisamine või kustutamine jne.).</para
+></note>
+</para>
+</sect1>
+<sect1 id="the-form-design-tab"
+><title
+>Kaart Vormi kujundus</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_form_design_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>Kaardil <guilabel
+>Vormi kujundus</guilabel
+> saab valida vidinaid, mida lisada vormi. </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Viit</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Viit</guilabel
+> lülitab vidina valimise režiimi.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+><note
+><para
+>Suvalise vidina valimine lülitab vidina lisamise režiimi. Seejärel võib klõpsata sobivale kohale vormis, et vidin paika asetada.</para
+></note>
+</para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Pealdis</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Vidin <guilabel
+>Pealdis</guilabel
+> kuvab vormis määratud teavet. Tavaliselt kasutatakse seda pealdisena teiste andmetundlike vidinate kõrval.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Tekstikast</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Tekstikast</guilabel
+> on üherealine tabelis leiduvate andmete konteiner.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Tekstiredaktor</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Tekstiredaktor</guilabel
+> on mitmerealine tabelis leiduvate andmete konteiner.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Liitkast</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Liitkast</guilabel
+> kuvab kasutajale mitu valikut.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Märkekast</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Märkekast</guilabel
+> sisaldab kaks või kolm andmeolekut (nt. sees/väljas).</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Pildikast</guilabel
+></emphasis
+></term>
+    <listitem>
+      <para
+><guilabel
+>Pildikast</guilabel
+> sisaldab tabeli väljaga seotud pilti.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Nupp</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Nupp</guilabel
+> võimaldab defineerida toiminguid, mis käivitatakse sellele klõpsamisel.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Raam</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Raam</guilabel
+> on konteiner teiste vidinate jaoks.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Grupikast</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Grupikasti</guilabel
+> kasutatakse teiste vidinate rühmitamiseks ja nende oleku kontrollimiseks.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Kaardividin</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Kaardividinat</guilabel
+> kasutatakse teiste vidinate konteinerina ja sel võib olla mitu eri vidinaid sisaldavat lehekülge.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Joon</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Joon</guilabel
+> on kasutusel vormi erinevate osade eraldamiseks.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Veebibrauser</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Veebibrauser</guilabel
+> on vidin, mis lubab vormis kuvada veebilehekülge.</para>
+     </listitem>
+     <!--FIXME missing Map Browser + Slider + Progress Bar + Link Button + Date Picker-->
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Omista toiming</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Omista toiming</guilabel
+> võimaldab kindlaks määrata toimingu, mis täidetakse teatava sündmuse korral (nt. nupule klõpsates).</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="the-report-design-tab"
+><title
+>Kaart Aruande kujundus</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_report_design_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>Kaardil <guilabel
+>Aruande kujundus</guilabel
+> saab valida vidinaid, mida lisada aruandesse. </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Pealdis</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Vidin <guilabel
+>Pealdis</guilabel
+> kuvab aruandes määratud teavet Tavaliselt kasutatakse seda pealdisena teiste andmetundlike vidinate kõrval.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Väli</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Väli</guilabel
+> on üherealine tabelis leiduvate andmete konteiner.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Tekst</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Tekst</guilabel
+> on mitmerealine tabelis leiduvate andmete konteiner.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Pilt</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Pilt</guilabel
+> sisaldab tabeli väljaga seotud pilti.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Märgis</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Märgis</guilabel
+> sisaldab kaks või kolm andmeolekut (nt. sees/väljas).</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Joon</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Joon</guilabel
+> on kasutusel vormi erinevate osade eraldamiseks.</para>
+     </listitem>
+  </varlistentry>
+  <!--FIXME no Shape in 2.7
+  <varlistentry
+><term
+><emphasis role="bold"
+>Shape</emphasis
+></term>
+    <listitem>
+    <para
+>A <guilabel
+>Shape</guilabel
+> widget is used to add special shape visuals to your report.</para>
+     </listitem>
+  </varlistentry>
+  -->
+  <varlistentry
+><term
+><emphasis role="bold"
+>Diagramm</emphasis
+></term>
+    <listitem>
+    <para
+>Vidinat <guilabel
+>Diagramm</guilabel
+> saab kasutada andmete esitamiseks diagrammina.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Veeb</emphasis
+></term>
+    <listitem>
+    <para
+>Vidin <guilabel
+>Veeb</guilabel
+> tagab minimaalse veebibrauseri komponendi, et näidata aruandes kohalikku või veebilehekülje teavet.</para>
+     </listitem>
+     <!--FIXME missing Map-->
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Ribakood</emphasis
+></term>
+    <listitem>
+    <para
+>Vidinaga <guilabel
+>Ribakood</guilabel
+> saab luua väljas leiduvate andmete põhjal aruandes näidatava ribakoodi.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+</chapter>
+<chapter id="appendix-a--introduction-to-databases"
+><title
+>Lisa A. Sissejuhatus andmebaasidesse</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="what-is-a-database"
+>Mis on andmebaas?</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="database-and-spreadsheet"
+>Andmebaas ja arvutustabel</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="database-design"
+>Andmebaasi disain</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="who-needs-a-database"
+>Kes vajab andmebaasi?</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="database-creation-software"
+>Andmebaaside loomise tarkvara</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="what-is-a-database"
+><title
+>Mis on andmebaas?</title
+> 
+<para
+>Andmebaasi võib määratleda kui teatud teemat puudutavate andmete kogumit. See on korraldatud viisil, mis lubab infot hõlpsasti uurida, muudatusi teha ning uusi kirjeid lisada. </para>
+<para
+>Vaatame näiteks siinset skeemi, millel on kujutatud lihtne telefoniraamat. </para>
+
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="contact-example.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+
+<para
+>Toodud pildil on näha kaks kontakti, kumbki omaette kaardil. Tabelis saab sellise kaardi seada ühele reale: </para>
+<para>
+<table>
+  <title
+><emphasis
+>Kontaktide tabel</emphasis
+></title>
+  <tgroup cols="2">
+  <thead>
+  <row>
+    <entry
+><guilabel
+>Nimi</guilabel
+></entry>
+    <entry
+><guilabel
+>Tel. nr.</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>Joan</para>
+    </entry>
+    <entry>
+    <para
+>699 23 43 12</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Adam</para>
+    </entry>
+    <entry>
+    <para
+>711 19 77 21</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+<para
+>Mõisted: konkreetsed andmed, mis moodustavad osa suuremast kogust, kannavad nimetust <emphasis
+>rida</emphasis
+> või kui kasutada professionaalsemat väljendit, siis <emphasis
+>kirje</emphasis
+>. Kogu ise kannab tavaliselt nimetust <emphasis
+>tabel</emphasis
+>. Kõige mõistlikum on üldiselt anda tabelile nimi, mis väljendab selles peituvate andmete sisu - antud juhul siis Kontaktid. Iga rida koosneb mitmest veerust, mida mõnikord nimetatakse ka <emphasis
+>väljadeks</emphasis
+>. Tabelis <replaceable
+>Kontaktid</replaceable
+> on kaks veergu (välja): <guilabel
+>Nimi</guilabel
+> ja <guilabel
+>Tel. nr.</guilabel
+> </para>
+<para
+>Lihtsamas tähenduses moodustab juba üks tabel andmebaasi. Paljud peavadki neid samaväärseks. Aga nagu edaspidi näeme, on tegelikes andmebaasides tavaliselt märksa enam kui üks tabel. </para>
+<para
+>Kokkuvõtteks võib öelda, et meil on nüüd juba lihtne andmebaas ühe tabeliga, mis kannab nime <replaceable
+>Kontaktid</replaceable
+>. </para>
+<para
+><note
+><para
+>Uuri lähemalt linki <ulink url="https://www.zoho.com/creator/database-software-vs-spreadsheet.html"
+></ulink
+></para
+></note>
+</para>
+</sect1>
+<sect1 id="database-and-spreadsheet"
+><title
+>Andmebaas ja arvutustabel</title
+> 
+<para
+>Arvatavasti oled juba kasutanud mõnda tabeliarvutusrakendust, näiteks <guilabel
+>Calligra Sheets</guilabel
+>, <guilabel
+>LibreOffice Calc</guilabel
+> või <application
+>&Microsoft; Excel</application
+>. Sellisel juhul tekib vahest mõte: kui nii arvutustabelis kui ka andmebaasis on tabelid, siis miks viimast üldse kasutada? </para>
+<para
+>Arvutustabeleid ja andmebaase võrreldes puutud usutavasti kokku järgmiste probleemidega, mida vaatleme allpool lähemalt. </para>
+<sect2 id="how-is-a-database-different-from-a-spreadsheet"
+><title
+>Mille poolest erineb andmebaas arvutustabelist?</title
+> 
+<para
+>Laiendame oma tabelit <replaceable
+>Kontaktid</replaceable
+> veidi ja lisame veeru (välja) <replaceable
+>Aadress</replaceable
+>. Lisame igale isikule veel telefoninumbreid (kodus, tööl) ning ka nende perekonnanimed. Lihtsuse mõttes eeldame järgmisi asju: </para>
+<itemizedlist>
+<listitem
+><para
+>Tabel on piiratud kahe inimesega (mõistagi võib reaalses andmebaasis olla sadu ja tuhandeid isikuid)</para
+></listitem>
+<listitem
+><para
+>Pole ühesuguse ees- ja perekonnanimega isikuid</para
+></listitem>
+</itemizedlist>
+<para>
+<table>
+  <title
+><emphasis
+>Kontaktide tabel</emphasis
+></title>
+  <tgroup cols="3">
+  <thead>
+  <row>
+    <entry
+><guilabel
+>Ees- ja perekonnanimi</guilabel
+></entry>
+    <entry
+><guilabel
+>Tel. nr.</guilabel
+></entry>
+    <entry
+><guilabel
+>Aadress</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>Joan Smith</para>
+    </entry>
+    <entry>
+    <para
+>699 23 43 12</para>
+    </entry>
+    <entry>
+    <para
+>Brama Zachodnia 1, Varssavi</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Adam Willson</para>
+    </entry>
+    <entry>
+    <para
+>711 19 77 21</para>
+    </entry>
+    <entry>
+    <para
+>London, Frogs Drive 5</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Joan Smith</para>
+    </entry>
+    <entry>
+    <para
+>110 98 98 00</para>
+    </entry>
+    <entry>
+    <para
+>Brama Zachodnia 1</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Smith Joan</para>
+    </entry>
+    <entry>
+    <para
+>312 43 42 22</para>
+    </entry>
+    <entry>
+    <para
+>Varssavi, Brama Zachodnia 1</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>ADAM Willson</para>
+    </entry>
+    <entry>
+    <para
+>231 83 02 04</para>
+    </entry>
+    <entry>
+    <para
+>Frogs Drive 5, London</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+<para
+>Sellist tabelit võib luua nii arvutustabeli kui andmebaasina. Arvutustabeli kasutamine on loomulikult väga lihtne. Milliste probleemidega me hetkel silmitsi seisame? </para>
+</sect2>
+<sect2 id="referential-data-integrity"
+><title
+>Andmete viiteterviklus</title
+> 
+<para
+>Oletame, et kasutad arvutustabelit ja sul tuleb muuta vähemalt ühe isiku aadressi. Sinu ees seisab pisike probleem: sageli tuleb selleks muuta aadressi paljudel ridadel. Nii võib näiteks Joan esineda kolmel real. Probleem tekib siis, kui unustad üht neist ridadest muuta: isikule omistatud aadress muutub mitmetähenduslikuks, see aga tähendab, et sinu andmed kaotavad tervikluse. </para>
+<para
+>Pealegi pole kuigi lihtsat võimalust mõnda isikut tabelist kustutada: selleks tuleb kustutada kõik teda sisaldavad read. </para>
+</sect2>
+<sect2 id="data-redundancy"
+><title
+>Andmete liiasus</title
+> 
+<para
+>See on otseselt seotud eelneva probleemiga. Väljadele Ees- ja perekonnanimi ning Aadress on samu andmeid sisestatud mitu korda. See on arvutustabelitele tüüpiline vähetõhus viis andmete salvestamiseks, sest andmebaas kasvab nii või teisiti, nõudes vastavalt aina enam ressursse arvutilt (suuremad andmed ja aeglasem ligipääs). </para>
+<para
+>Kuidas aitab andmebaas neid probleeme lahendada? Info võib jagada väikesteks tükkideks, luues täiendava tabeli <replaceable
+>Isikud</replaceable
+> vaid kahe veeruga: <replaceable
+>Ees- ja perekonnanimi</replaceable
+> ning <replaceable
+>Aadress</replaceable
+>: </para>
+<para>
+<table>
+  <title
+><emphasis
+>Isikute tabel</emphasis
+></title>
+  <tgroup cols="2">
+  <thead>
+  <row>
+    <entry
+><guilabel
+>Ees- ja perekonnanimi</guilabel
+></entry>
+    <entry
+><guilabel
+>Aadress</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>Joan Smith</para>
+    </entry>
+    <entry>
+    <para
+>Brama Zachodnia 1, Varssavi</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Adam Willson</para>
+    </entry>
+    <entry>
+    <para
+>Frogs Drive 5, London</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+<para
+>Iga tabeli <replaceable
+>Isikud</replaceable
+> rida vastab ainult ühele isikule. Tabel <replaceable
+>Kontaktid</replaceable
+> on nüüd seotud tabeliga <replaceable
+>Isikud</replaceable
+>. </para>
+</sect2>
+<sect2 id="data-integrity-and-validity"
+><title
+>Andmeterviklus ja -õigsus</title
+> 
+<para
+>Pane tähele, kuidas on andmed sisestatud väljadele <replaceable
+>Ees- ja perekonnanimi</replaceable
+> ning <replaceable
+>Aadress</replaceable
+>. Andmeid sisestavad inimesed võivad mõnikord eksida või olla hooletud. Meie näites ongi andmeid sisestatud erinevalt: Joan Smith ja Smith Joan, Adam ja ADAM. Üht ja sama aadressi võib samuti mitmel moel sisestada, nagu ka meie tabel näitab. </para>
+<para
+>See probleem ilmneb siis, kui otsid näiteks isiku telefoninumbrit, kelle aadress on <quote
+>Brama Zachodnia 1, Varssavi</quote
+>. Sa leiad kolme kirje asemel ainult ühe. Samuti ei leia sa kaugeltki kõiki telefoninumbreid, kui otsid välja <replaceable
+>Ees- ja perekonnanimi</replaceable
+> järgi isikut <quote
+>Joan Smith</quote
+>, sest <quote
+>Joan Smith</quote
+> ja <quote
+>Smith Joan</quote
+> loetakse antud juhul erinevaks. </para>
+<para
+>Kuidas aitab andmebaas neid probleeme lahendada? Selleks tuleks muuta tabeli <replaceable
+>Isikud</replaceable
+> ülesehitust: </para>
+<orderedlist>
+<listitem
+><para
+>Jagada andmed väljal <guilabel
+>Ees- ja perekonnanimi</guilabel
+> kahele väljale: <replaceable
+>Eesnimi</replaceable
+> ja <replaceable
+>Perekonnanimi</replaceable
+>.</para
+></listitem>
+<listitem
+><para
+>Jagada andmed väljal <replaceable
+>Aadress</replaceable
+> kolmele väljale: <replaceable
+>Tänav</replaceable
+>, <replaceable
+>Majanumber</replaceable
+> ja <replaceable
+>Linn</replaceable
+>.</para
+></listitem>
+<listitem
+><para
+>Tagada andmeõigsus nõudega, et väljad ei oleks tühjad (s.t. et alati tuleb sisestada ka näiteks majanumber).</para
+></listitem>
+</orderedlist>
+<para
+>Muudetud tabel näeb välja nii: </para>
+<para>
+<table>
+  <title
+><emphasis
+>Isikute tabel</emphasis
+></title>
+  <tgroup cols="5">
+  <thead>
+  <row>
+    <entry
+><guilabel
+>Nimi</guilabel
+></entry>
+    <entry
+><guilabel
+>Perekonnanimi</guilabel
+></entry>
+    <entry
+><guilabel
+>Tänav</guilabel
+></entry>
+    <entry
+><guilabel
+>Majanumber</guilabel
+></entry>
+    <entry
+><guilabel
+>Linn</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>Joan</para>
+    </entry>
+    <entry>
+    <para
+>Smith</para>
+    </entry>
+    <entry>
+    <para
+>Brama Zachodnia</para>
+    </entry>
+    <entry>
+    <para
+>1</para>
+    </entry>
+    <entry>
+    <para
+>Varssavi</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Adam</para>
+    </entry>
+    <entry>
+    <para
+>Willson</para>
+    </entry>
+    <entry>
+    <para
+>Frogs Drive</para>
+    </entry>
+    <entry>
+    <para
+>5</para>
+    </entry>
+    <entry>
+    <para
+>London</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+><emphasis
+>Tingimused</emphasis
+></para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>nõutav väli</para>
+    </entry>
+    <entry>
+    <para
+>nõutav väli</para>
+    </entry>
+    <entry>
+    <para
+>nõutav väli</para>
+    </entry>
+    <entry>
+    <para
+>nõutav väli</para>
+    </entry>
+    <entry>
+    <para
+>nõutav väli</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+<para
+>Tänu tingimuse nõutav väli lisamisele võime olla kindlad, et sisestatud andmed on täielikud. Mõningate tabelite korral võib muidugi andmete sisestamisel lubada teatud väljade tühjaksjätmist. </para>
+</sect2>
+<sect2 id="limiting-data-view"
+><title
+>Andmevaate piiramine</title
+> 
+<para
+>Arvutustabelid näitavad tabeli kõiki ridu ja veerge, mis eriti väga suurte andmetabelite korral on päris tülikas. Arvutustabelis võib muidugi ridu filtreerida ja sorteerida, kuid seejuures peab olema väga ettevaatlik. Arvutustabeli kasutajad võivad sageli unustada, et andmevaade on filtreeritud, mis võib kaasa tuua eksimusi. Näiteks summa arvutamisel võid arvata, et sul ongi 100 andmerida, ehkki tegelikult on veel 20, aga need on peidetud. </para>
+<para
+>Kui soovid kasutada andmete väiksemat hulka, näiteks saata neid teistele redigeerimiseks, võib need kopeerida ja asetada teise arvutustabelisse ning redigeerimise järel muudetud andmed taas põhitabelisse asetada. Kuid sellise <quote
+>käsitsi</quote
+> redigeerimise korral valitseb suur andmekao või vigaste arvutuste võimalus. </para>
+<para
+>Andmevaate piiramiseks pakuvad andmebaasirakendused päringuid, vorme ja aruandeid. </para>
+<para
+>Ühe praktilise piiramise näitena vaatleme varasema tabeli <replaceable
+>Isikud</replaceable
+> laiendatud versiooni: </para>
+<para>
+<table>
+  <title
+><emphasis
+>Isikute tabel</emphasis
+></title>
+  <tgroup cols="6">
+  <thead>
+  <row>
+    <entry
+><guilabel
+>Nimi</guilabel
+></entry>
+    <entry
+><guilabel
+>Perekonnanimi</guilabel
+></entry>
+    <entry
+><guilabel
+>Tänav</guilabel
+></entry>
+    <entry
+><guilabel
+>Majanumber</guilabel
+></entry>
+    <entry
+><guilabel
+>Linn</guilabel
+></entry>
+    <entry
+><guilabel
+>Sissetulek</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>Joan</para>
+    </entry>
+    <entry>
+    <para
+>Smith</para>
+    </entry>
+    <entry>
+    <para
+>Brama Zachodnia</para>
+    </entry>
+    <entry>
+    <para
+>1</para>
+    </entry>
+    <entry>
+    <para
+>Varssavi</para>
+    </entry>
+    <entry>
+    <para
+>2300</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Adam</para>
+    </entry>
+    <entry>
+    <para
+>Willson</para>
+    </entry>
+    <entry>
+    <para
+>Frogs Drive</para>
+    </entry>
+    <entry>
+    <para
+>5</para>
+    </entry>
+    <entry>
+    <para
+>London</para>
+    </entry>
+    <entry>
+    <para
+>1900</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+<para
+>Eeldame, et lisatud veerg Sissetulek sisaldab konfidentsiaalseid andmeid. Kuidas jagada nüüd näiteks isikute kontaktandmeid oma kaastöötajatega ilma nende isikute sissetulekut paljastamata? See on võimalik, kui jagad ainult päringu, aga mitte terve tabeli. Päring võib valida kõik veerud, välja arvatud veerg Sissetulek. Andmebaaside maailmas kannab selline päring sageli nimetust vaade. </para>
+</sect2>
+<sect2 id="performance-and-capacity"
+><title
+>Jõudlus ja võimsus</title
+> 
+<para
+>Sinu arvuti võib olla küll võimas, aga peaaegu kindlasti koged, et väga suurte arvutustabelite korral jääb see ometi aeglaseks. Selle põhjuseks on esmajoones indeksi puudumine, mis kiirendaks andmete otsingut. Andmebaasid pakuvad sellist võimalust. Kui aga kasutad näiteks süsteemset lõikepuhvrit, võib isegi andmete kopeerimisele kuluda närviajavalt palju aega. </para>
+<para
+>Suuri andmekogumeid sisaldavate arvutustabelite avamisele võib kuluda väga palju aega. Arvutustabelid laadivad avamisel hulga andmeid arvuti mällu. Tõenäoliselt on enamik laaditud andmeist parajasti kasutud või ebavajalikud. Erinevalt arvutustabelitest laadivad andmebaasid andmeid arvuti mällu ainult sellise vajaduse tekkimisel. </para>
+<para
+>Enamasti pole vaja andmebaaside puhul muret tunda, kuidas need andmeid salvestavad. See tähendab, et erinevalt arvutustabelitest ei ole andmebaaside puhul vaja muret tunda järgmiste asjade pärast: </para>
+<itemizedlist>
+<listitem
+><para
+>Ridade järjekord, sest sa võid ridu järjestada vastavalt vajadusele. Pealegi võib samu andmeid vaadata mitmes vaates erineval moel.</para
+></listitem>
+<listitem
+><para
+>Sama käib tabeli veergude (väljade) kohta.</para
+></listitem>
+</itemizedlist>
+<para
+>Koos eelnevas alajaotuses kirjeldatud <link linkend="limiting-data-view"
+>andmevaate piiramise</link
+> võimalusega on need omadused andmebaaside väga suureks eeliseks. </para>
+</sect2>
+<sect2 id="data-entry"
+><title
+>Andmekirje</title
+> 
+<para
+>Tabelitöötlusrakenduste uusimad versioonid võimaldavad kujundada andmekirjete vorme. Neist on kõige enam kasu siis, kui sinu andmeid ei ole eriti mõistlik esitada tabelina: näiteks kui tekst hõlmab liiga palju ridu või kui kõik veerud ei mahu mingil tingimusel ekraanile ära. </para>
+<para
+>Sellisel juhul osutuvad arvutustabelid juba olemuselt problemaatiliseks. Selliste andmekirjete väljad paiknevad arvutustabelis suvaliselt ega pole tihtipeale eriti turvaliselt kaitstud kasutaja (tahtliku või tahtmatu) sekkumise eest. </para>
+</sect2>
+<sect2 id="reports"
+><title
+>Aruanded</title
+> 
+<para
+>Andmebaasid võimaldavad andmeid rühmitada, piirata ja summeerida aruande kujul. Arvutustabelid esitatakse nii ekraanil kui ka trükituna tavaliselt väikeste tabelitena, ilma et sul oleks täielik kontroll lehekülje ja väljade paigutuse üle. </para>
+</sect2>
+<sect2 id="programming"
+><title
+>Programmeerimine</title
+> 
+<para
+>Andmebaaside loomise rakendused sisaldavad sageli terveid programmeerimiskeeli. Uuematel tabelitöötlusrakendustel on samuti see funktsionaalsus, kuid arvutused piirduvad arvutustabeli väljade muutmise ja lihtsa andmete kopeerimisega ega arvesta kuigivõrd eelpool mainitud tervikluse nõuetega. </para>
+<para
+>Andmete töötlemine arvutustabelis käib sageli graafilises kasutajaliideses, mis võib aeglustada andmetöötluse kiirust. Andmebaasid võivad töötada taustal, ilma graafilist kasutajaliidest kasutamata. </para>
+</sect2>
+<sect2 id="multiuse"
+><title
+>Ühiskasutus</title
+> 
+<para
+>Ühe arvutustabeli ühiskasutust on isegi raske ette kujutada. Uusimate rakendustega võib see küll olla tehniliselt võimalik, kuid see nõuab kasutajatelt väga suurt distsipliini, tähelepanelikkust ja teadlikkust, mida on väga raske tagada. </para>
+<para
+>Arvutustabelisse salvestatud andmete klassikaline teistega jagamise viis on saata neile fail tervikuna (tavaliselt e-postiga) või panna see tabelarvutuse failina välja võrku. Suuremate inimrühmade korral on see väga vähetõhus: andmed, mida sul mingil konkreetsel hetkel vaja läheb, võivad olla lukustatud, sest neid kasutab keegi teine. </para>
+<para
+>Andmebaasid on aga juba kavandatud mõttega, et neid võib korraga kasutada ka palju inimesi. Isegi kõige lihtsamates versioonides saab lukustada või vabaks anda tabeli iga rida, mis tagab väga lihtsa ja hõlpsa tabeliandmete jagamise. </para>
+</sect2>
+<sect2 id="security"
+><title
+>Turvalisus</title
+> 
+<para
+>Arvutustabeli või selle konkreetsete osade kaitsmine parooliga on üldiselt rohkem sümboolne. Kui tabelarvutuse fail on võrku pandud, võib iga isik, kellel on antud asukohta ligipääs, selle sealt endale kopeerida ja üritada parooli murda. Mõnikord pole see sugugi raske, sest parool on salvestatud arvutustabeliga samasse faili. </para>
+<para
+>Sama lihtne on jagu saada arvutustabeli või selle osa redigeerimise või kopeerimise lukustamise võimalustest. </para>
+<para
+>Andmebaasid aga (välja arvatud need, mis on serveri asemel salvestatud failina) ei pruugi üldse asuda ühes failis. Neile pääseb ligi võrgus, tavaliselt on selleks vaja anda kasutajanimi ja parool. Ligipääsu saad ainult neile aladele (tabelid, vormid või isegi konkreetsed read ja veerud), millele sulle on selline õigus antud. </para>
+<para
+>Kasutamisõigused võivad tähendada õigust andmeid muuta või ka ainult neid vaadata ehk lugeda. Kui mingeid andmeid pole sulle kättesaadavaks tehtud, ei saadeta neid sinu arvutisse, nii et sul pole neid võimalik kopeerida või vähemalt ei ole see kaugeltki nii lihtne kui tabelarvutuse failide korral. </para>
+</sect2>
+</sect1>
+<sect1 id="database-design"
+><title
+>Andmebaasi disain</title
+> 
+<para
+>Andmebaasi disain vajab hoolikat läbimõtlemist. Pane tähele, et näiteks osas <link linkend="data-integrity-and-validity"
+>Andmeterviklus ja -õigsus</link
+> kirjeldatud tabeli <replaceable
+>Isikud</replaceable
+> ümberkujundamine võib tekitada probleeme, kui tabel on juba andmetega täidetud. Nii ei ole näiteks välja ümbernimetamine sugugi raske tegevus, kuid välja <replaceable
+>Aadress</replaceable
+> jagamine kaheks eraldi väljaks nõuab väga hoolikat ja pingsat tööd. </para>
+<para
+>Selliste probleemide vältimiseks loo oma andmebaasiprojekt üksikasjalikult juba peas, enne kui hakkad seda looma arvutis ning sa ise ja teised seda kasutama hakkavad. Kui kulutad algul aega veidi rohkem, säästad tõenäoliselt edaspidi omajagu nii enda kui kõigi teiste aega. </para>
+</sect1>
+<sect1 id="who-needs-a-database"
+><title
+>Kes vajab andmebaasi?</title
+> 
+<sect2 id="stick-to-spreadsheets-if-"
+><title
+>Püsi arvutustabelite juures, kui:</title
+> 
+<itemizedlist>
+<listitem
+><para
+>Sinu vajadused on piiratud ning sinu andmed ei kasva kunagi kuigi suureks (ehkki - kas sa oskad seda tõesti ette näha?)</para
+></listitem>
+<listitem
+><para
+>Sa ei ole suuteline omandama andmebaaside loomise meetodeid. Siiski võiks sellisel juhul kaaluda mõtet anda see ülesanne kellelegi teisele või kasutada lihtsamaid tööriistu.</para
+></listitem>
+<listitem
+><para
+>Sa kasutad keerukaid arvutustabeleid ning sul puudub aeg või raha andmebaasidele üleminekuks. Mõtle siiski või pea kellegagi aru, kas see ei vii sind ummikusse. Ära looda maagilistele abivahenditele, mis muudavad sinu (ükspuha kui hästi loodud) arvutustabelid vaevata andmebaasiks.</para
+></listitem>
+</itemizedlist>
+</sect2>
+<sect2 id="consider-using-databases-if-"
+><title
+>Kaalu andmebaaside kasutamist, kui:</title
+> 
+<itemizedlist>
+<listitem
+><para
+>Sinu andmekogu kasvab iga nädalaga.</para
+></listitem>
+<listitem
+><para
+>Sa lood sageli uusi arvutustabeleid, kopeerid nende vahel andmeid ning tunned, et see muutub aina keerulisemaks ja vaevalisemaks. Sel juhul tasub üleminek andmebaasidele ennast kindlasti ära.</para
+></listitem>
+<listitem
+><para
+>Sa lood aruandeid ja õiendeid, mille jaoks arvutustabeli tabelivaade hästi ei sobi. Sel juhul tasuks kasutada vormivaadetega andmebaasi.</para
+></listitem>
+</itemizedlist>
+</sect2>
+</sect1>
+<sect1 id="database-creation-software"
+><title
+>Andmebaaside loomise tarkvara</title
+> 
+<para
+>Seni on juttu olnud andmebaaside üldistest omadustest, kuid me pole puudutanud konkreetseid rakendusi, millega neid luua ja kujundada. </para>
+<para
+>Esimesed andmebaasid loodi 1960. aastatel koos võimsate suurarvutitega (&eg; IBM System/360). Toona ei olnud tänaseid personaalarvuteid, mistõttu ka andmebaasid nõudsid hea väljaõppega personali. Ehkki omaaegsete arvutite riistvara polnud kuigi usaldusväärne ning nad olid üüratult aeglased ja mahutasid vähe andmeid, on üks andmebaaside juba toonane omadus jäänud tänini püsima: ligipääsu tagamine andmetele üle võrgu paljudele kasutajatele korraga. </para>
+<para
+>1970. aastatel töötasid teadlased välja relatsioonandmebaaside teooria (märksõnadeks on sellised mõisted nagu tabel, kirje, veerg (väli), relatsioonilisus ja nii edasi). Selle teooria alusel loodi IBM-i DB2 ja Oracle'i andmebaasid, mida arendatakse ja kasutatakse veel tänapäevalgi. 1970. aastate lõpus loodi esimesed personaalarvutid. Nende kasutajad said (aegamööda) võimaluse hakata kasutama mitmesuguseid rakendusi, sealhulgas selliseid, millega luua andmebaase. </para>
+<para
+>Kui rääkida firmade suurtest andmebaasidest, pole olukord väga palju muutunud: need vajavad endiselt võimsaid arvuteid või arvutikogumeid ehk klastreid. See teema aga väljub käesoleva käsiraamatu piirest. </para>
+<para
+>Personaalarvutites <quote
+>kättesaadavate</quote
+> graafilise kasutajaliidesega andmebaaside osas on valida järgmiste seast: </para>
+<itemizedlist>
+<listitem
+><para
+><ulink url="http://www.dbase.com"
+>DBase</ulink
+> - tööriist andmebaasioperatsioonide sooritamiseks DOS-is, mis oli populaarne 1980. aastatel. DBase-vormingus faile kasutatakse nende lihtsuse tõttu teatud erijuhtudel seniajani.</para
+></listitem>
+<listitem
+><para
+><ulink url="http://msdn.microsoft.com/vfoxpro/"
+>FoxPro</ulink
+> - DBase'iga sarnane rakendus (1990. aastate algus). Pärast ülevõtmist Microsofti poolt juurutati graafiline kasutajaliides ning seda hakati kasutama ka andmebaaside loomisel personaalarvutites. Seda rakendust pakutakse veel tänapäevalgi, ehkki see tundub olevat veidi iganenud.</para
+></listitem>
+<listitem
+><para
+><ulink url="http://office.microsoft.com/access/"
+>Microsoft Access</ulink
+> - graafilise kasutajaliidesega andmebaaside disaini võimaldav rakendus, mis tänu mitmetele lihtsustustele sobib ka algajatele. Loodi 1980. aastate lõpus, tugineb 16-bitisele arvutiarhitektuurile. Seda toodet pakutakse tänaseni laialdaselt ja ka kasutatakse ohtralt eriti väikeettevõtetes, kus tõhusus ja ühiskasutus pole esmatähtsad.</para
+></listitem>
+<listitem
+><para
+><ulink url="http://www.filemaker.com"
+>FileMaker</ulink
+> - lihtsuse mõttes MS Access'iga sarnanev rakendus, mis töötab Windowsi ja Macintoshi platvormil. Turul alates 1985. aastast.</para
+></listitem>
+<listitem
+><para
+><ulink url="http://www.calligra-suite.org/kexi"
+>Kexi</ulink
+> - rakendus paljudele platvormidele (&UNIX;/&Linux;, Windows, &MacOS; X), mis loodi 2003 aastal Seda arendatakse vaba tarkvara põhimõtetest lähtudes ning see kuulub üleilmse KDE kogukonna koosseisu, mis muu hulgas loob &UNIX;/&Linux; süsteemide graafilist töökeskkonda. &kexi; arendamise üks märkimisväärsemaid toetajaid on ettevõte OpenOffice Polska.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+<chapter id="appendix-b--comparing-kexi-to-other-database-applications"
+><title
+>Lisa B. Kexi võrdlus teiste andmebaasirakendustega</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="data-types"
+>Andmetüübid</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="data-types"
+><title
+>Andmetüübid</title
+> 
+<para
+>Kuigi erinevad andmebaasirakendused pakuvad üldiselt samasugust funktsionaalsust, kipub nende terminoloogia mõnikord erinema. Et sul lihtsam oleks, näitab see lisa, millised on &kexi; ja teiste andmebaasirakenduste terminite vastavused. Selle teadmine tuleb eriti kasuks siis, kui võtad ette näiteks andmebaasi migreerimise ühest rakendusest teise. </para>
+<para
+>Siinne tabel näitab vastavusi &kexi; ja teiste andmebaasirakenduste andmetüüpide vahel. </para>
+<para
+>Mõned toodud andmetüübid on teiste tüüpide alamtüübid. Näiteks <guilabel
+>Long text</guilabel
+> on tüübi <guilabel
+>Text</guilabel
+> alamtüüp. Alamtüübi kasutamiseks &kexi;s tuleb valida tabelidisaineris vastav baastüüp (antud juhul <guilabel
+>Text</guilabel
+>) ning seejärel alamtüüp valikuga <guilabel
+>Alamtüüp</guilabel
+> <guilabel
+>omaduste redaktoris</guilabel
+>. </para>
+<para>
+<table>
+  <title
+><emphasis
+>Kexi ja teiste andmebaasirakenduste andmetüüpide võrdlus</emphasis
+></title>
+  <tgroup cols="4">
+  <thead>
+  <row>
+    <entry
+>&kexi;</entry>
+    <entry
+><guilabel
+>MS Access</guilabel
+></entry>
+    <entry
+><guilabel
+>dBase/FoxPro</guilabel
+></entry>
+    <entry
+><guilabel
+>Paradox</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>Text (Text)</para>
+    </entry>
+    <entry>
+    <para
+>Text</para>
+    </entry>
+    <entry>
+    <para
+>Character</para>
+    </entry>
+    <entry>
+    <para
+>Alphanumeric</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Long text (Long text)</para>
+    </entry>
+    <entry>
+    <para
+>Memo</para>
+    </entry>
+    <entry>
+    <para
+>Memo</para>
+    </entry>
+    <entry>
+    <para
+>Memo</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Date/Time (Date/Time)</para>
+    </entry>
+    <entry>
+    <para
+>Date, Time</para>
+    </entry>
+    <entry>
+    <para
+>Date</para>
+    </entry>
+    <entry>
+    <para
+>DateTime</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Integer Number (Integer Number)</para>
+    </entry>
+    <entry>
+    <para
+>Number (Integer)</para>
+    </entry>
+    <entry>
+    <para
+>Numeric</para>
+    </entry>
+    <entry>
+    <para
+>Integer</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Big Integer Number (Big Integer Number)</para>
+    </entry>
+    <entry>
+    <para
+>Long Integer</para>
+    </entry>
+    <entry>
+    <para
+>Numeric</para>
+    </entry>
+    <entry>
+    <para
+>Long Integer</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Floating Point Number (Floating Point Number)</para>
+    </entry>
+    <entry>
+    <para
+>Single/Double precision number</para>
+    </entry>
+    <entry>
+    <para
+>Float</para>
+    </entry>
+    <entry>
+    <para
+>Number</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+</sect1>
+</chapter>
+<chapter id="reserved-words-for-sql"
+><title
+>Lisa C. SQL-i reserveeritud sõnad</title
+> 
+<para
+>Järgnev nimekiri sisaldab sõnu, mida &kexi; kasutab sisemiselt andmeallikatega tegeldes. </para>
+<para
+><warning
+><para
+>Andmebaasi kujundades tuleks kindlasti vältida nende reserveeritud sõnade kasutamist, sest see võib lõppeda andmebaasifaili probleemidega või selle sootuks ära rikkuda.</para
+></warning>
+</para>
+<para
+><tip
+><para
+>Kui siiski tunned vajadust kasutada reserveeritud sõnu, ümbritse nad topeltjutumärkidega <quote
+></quote
+>.</para
+></tip>
+</para>
+<sect1 id="kexi-sql-reserved-words"
+><title
+>Kexi SQL-i reserveeritud sõnad</title
+> 
+<para
+>See nimekiri sisaldab võtmesõnu, mis on reserveeritud Kexi SQL-i tarbeks. </para>
+<itemizedlist>
+<listitem
+><para
+>AFTER</para
+></listitem>
+<listitem
+><para
+>ALL</para
+></listitem>
+<listitem
+><para
+>ASC</para
+></listitem>
+<listitem
+><para
+>BEFORE</para
+></listitem>
+<listitem
+><para
+>BEGIN</para
+></listitem>
+<listitem
+><para
+>BETWEEN</para
+></listitem>
+<listitem
+><para
+>BY</para
+></listitem>
+<listitem
+><para
+>CASCADE</para
+></listitem>
+<listitem
+><para
+>CASE</para
+></listitem>
+<listitem
+><para
+>CHECK</para
+></listitem>
+<listitem
+><para
+>COLLATE</para
+></listitem>
+<listitem
+><para
+>COMMIT</para
+></listitem>
+<listitem
+><para
+>CONSTRAINT</para
+></listitem>
+<listitem
+><para
+>CROSS</para
+></listitem>
+<listitem
+><para
+>DATABASE</para
+></listitem>
+<listitem
+><para
+>DEFAULT</para
+></listitem>
+<listitem
+><para
+>DELETE</para
+></listitem>
+<listitem
+><para
+>DESC</para
+></listitem>
+<listitem
+><para
+>DISTINCT</para
+></listitem>
+<listitem
+><para
+>DROP</para
+></listitem>
+<listitem
+><para
+>END</para
+></listitem>
+<listitem
+><para
+>ELSE</para
+></listitem>
+<listitem
+><para
+>EXPLAIN</para
+></listitem>
+<listitem
+><para
+>FOR</para
+></listitem>
+<listitem
+><para
+>FOREIGN</para
+></listitem>
+<listitem
+><para
+>FULL</para
+></listitem>
+<listitem
+><para
+>GROUP</para
+></listitem>
+<listitem
+><para
+>HAVING</para
+></listitem>
+<listitem
+><para
+>IGNORE</para
+></listitem>
+<listitem
+><para
+>INDEX</para
+></listitem>
+<listitem
+><para
+>INNER</para
+></listitem>
+<listitem
+><para
+>INSERT</para
+></listitem>
+<listitem
+><para
+>INTO</para
+></listitem>
+<listitem
+><para
+>KEY</para
+></listitem>
+<listitem
+><para
+>LIMIT</para
+></listitem>
+<listitem
+><para
+>MATCH</para
+></listitem>
+<listitem
+><para
+>NATURAL</para
+></listitem>
+<listitem
+><para
+>OFFSET</para
+></listitem>
+<listitem
+><para
+>ORDER</para
+></listitem>
+<listitem
+><para
+>OUTER</para
+></listitem>
+<listitem
+><para
+>PRIMARY</para
+></listitem>
+<listitem
+><para
+>REFERENCES</para
+></listitem>
+<listitem
+><para
+>REPLACE</para
+></listitem>
+<listitem
+><para
+>RESTRICT</para
+></listitem>
+<listitem
+><para
+>ROLLBACK</para
+></listitem>
+<listitem
+><para
+>ROW</para
+></listitem>
+<listitem
+><para
+>SET</para
+></listitem>
+<listitem
+><para
+>TEMPORARY</para
+></listitem>
+<listitem
+><para
+>THEN</para
+></listitem>
+<listitem
+><para
+>TRANSACTION</para
+></listitem>
+<listitem
+><para
+>UNION</para
+></listitem>
+<listitem
+><para
+>UNIQUE</para
+></listitem>
+<listitem
+><para
+>UPDATE</para
+></listitem>
+<listitem
+><para
+>USING</para
+></listitem>
+<listitem
+><para
+>VALUES</para
+></listitem>
+<listitem
+><para
+>WHEN</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-sqlite-driver-reserved-words"
+><title
+>Kexi SQLite'i draiveri reserveeritud sõnad</title
+> 
+<para
+>See nimekiri sisaldab võtmesõnu, mis on reserveeritud Kexi SQLite'i draiveri tarbeks. </para>
+<itemizedlist>
+<listitem
+><para
+>ABORT</para
+></listitem>
+<listitem
+><para
+>ATTACH</para
+></listitem>
+<listitem
+><para
+>CLUSTER</para
+></listitem>
+<listitem
+><para
+>CONFLICT</para
+></listitem>
+<listitem
+><para
+>DEFERRED</para
+></listitem>
+<listitem
+><para
+>DEFERRABLE</para
+></listitem>
+<listitem
+><para
+>DETACH</para
+></listitem>
+<listitem
+><para
+>EACH</para
+></listitem>
+<listitem
+><para
+>EXCEPT</para
+></listitem>
+<listitem
+><para
+>FAIL</para
+></listitem>
+<listitem
+><para
+>GLOB</para
+></listitem>
+<listitem
+><para
+>IMMEDIATE</para
+></listitem>
+<listitem
+><para
+>INITIALLY</para
+></listitem>
+<listitem
+><para
+>INSTEAD</para
+></listitem>
+<listitem
+><para
+>INTERSECT</para
+></listitem>
+<listitem
+><para
+>ISNULL</para
+></listitem>
+<listitem
+><para
+>NOTNULL</para
+></listitem>
+<listitem
+><para
+>OF</para
+></listitem>
+<listitem
+><para
+>PRAGMA</para
+></listitem>
+<listitem
+><para
+>RAISE</para
+></listitem>
+<listitem
+><para
+>STATEMENT</para
+></listitem>
+<listitem
+><para
+>TEMP</para
+></listitem>
+<listitem
+><para
+>TRIGGER</para
+></listitem>
+<listitem
+><para
+>VACUUM</para
+></listitem>
+<listitem
+><para
+>VIEW</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-mysql-driver-reserved-words"
+><title
+>Kexi MySQL'i draiveri reserveeritud sõnad</title
+> 
+<para
+>See nimekiri sisaldab võtmesõnu, mis on reserveeritud Kexi MySQL'i draiveri tarbeks. </para>
+<itemizedlist>
+<listitem
+><para
+>ACTION</para
+></listitem>
+<listitem
+><para
+>ADD</para
+></listitem>
+<listitem
+><para
+>AGAINST</para
+></listitem>
+<listitem
+><para
+>AGGREGATE</para
+></listitem>
+<listitem
+><para
+>ALTER</para
+></listitem>
+<listitem
+><para
+>ANALYZE</para
+></listitem>
+<listitem
+><para
+>ANY</para
+></listitem>
+<listitem
+><para
+>ASCII</para
+></listitem>
+<listitem
+><para
+>AUTO_INCREMENT</para
+></listitem>
+<listitem
+><para
+>AVG</para
+></listitem>
+<listitem
+><para
+>AVG_ROW_LENGTH</para
+></listitem>
+<listitem
+><para
+>BACKUP</para
+></listitem>
+<listitem
+><para
+>BDB</para
+></listitem>
+<listitem
+><para
+>BERKELEYDB</para
+></listitem>
+<listitem
+><para
+>BIGINT</para
+></listitem>
+<listitem
+><para
+>BINARY</para
+></listitem>
+<listitem
+><para
+>BINLOG</para
+></listitem>
+<listitem
+><para
+>BIT</para
+></listitem>
+<listitem
+><para
+>BLOB</para
+></listitem>
+<listitem
+><para
+>BOOL</para
+></listitem>
+<listitem
+><para
+>BOOLEAN</para
+></listitem>
+<listitem
+><para
+>BOTH</para
+></listitem>
+<listitem
+><para
+>BTREE</para
+></listitem>
+<listitem
+><para
+>BYTE</para
+></listitem>
+<listitem
+><para
+>CACHE</para
+></listitem>
+<listitem
+><para
+>CHANGE</para
+></listitem>
+<listitem
+><para
+>CHANGED</para
+></listitem>
+<listitem
+><para
+>CHAR</para
+></listitem>
+<listitem
+><para
+>CHARACTER</para
+></listitem>
+<listitem
+><para
+>CHARSET</para
+></listitem>
+<listitem
+><para
+>CHECKSUM</para
+></listitem>
+<listitem
+><para
+>CIPHER</para
+></listitem>
+<listitem
+><para
+>CLIENT</para
+></listitem>
+<listitem
+><para
+>CLOSE</para
+></listitem>
+<listitem
+><para
+>COLLATION</para
+></listitem>
+<listitem
+><para
+>COLUMN</para
+></listitem>
+<listitem
+><para
+>COLUMNS</para
+></listitem>
+<listitem
+><para
+>COMMENT</para
+></listitem>
+<listitem
+><para
+>COMMITTED</para
+></listitem>
+<listitem
+><para
+>COMPRESSED</para
+></listitem>
+<listitem
+><para
+>CONCURRENT</para
+></listitem>
+<listitem
+><para
+>CONVERT</para
+></listitem>
+<listitem
+><para
+>CUBE</para
+></listitem>
+<listitem
+><para
+>CURRENT_DATE</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIME</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>CURRENT_USER</para
+></listitem>
+<listitem
+><para
+>DATA</para
+></listitem>
+<listitem
+><para
+>DATABASES</para
+></listitem>
+<listitem
+><para
+>DATE</para
+></listitem>
+<listitem
+><para
+>DATETIME</para
+></listitem>
+<listitem
+><para
+>DAY</para
+></listitem>
+<listitem
+><para
+>DAY_HOUR</para
+></listitem>
+<listitem
+><para
+>DAY_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>DAY_MINUTE</para
+></listitem>
+<listitem
+><para
+>DAY_SECOND</para
+></listitem>
+<listitem
+><para
+>DEALLOCATE</para
+></listitem>
+<listitem
+><para
+>DEC</para
+></listitem>
+<listitem
+><para
+>DECIMAL</para
+></listitem>
+<listitem
+><para
+>DELAYED</para
+></listitem>
+<listitem
+><para
+>DELAY_KEY_WRITE</para
+></listitem>
+<listitem
+><para
+>DESCRIBE</para
+></listitem>
+<listitem
+><para
+>DES_KEY_FILE</para
+></listitem>
+<listitem
+><para
+>DIRECTORY</para
+></listitem>
+<listitem
+><para
+>DISABLE</para
+></listitem>
+<listitem
+><para
+>DISCARD</para
+></listitem>
+<listitem
+><para
+>DISTINCTROW</para
+></listitem>
+<listitem
+><para
+>DIV</para
+></listitem>
+<listitem
+><para
+>DO</para
+></listitem>
+<listitem
+><para
+>DOUBLE</para
+></listitem>
+<listitem
+><para
+>DUAL</para
+></listitem>
+<listitem
+><para
+>DUMPFILE</para
+></listitem>
+<listitem
+><para
+>DUPLICATE</para
+></listitem>
+<listitem
+><para
+>DYNAMIC</para
+></listitem>
+<listitem
+><para
+>ENABLE</para
+></listitem>
+<listitem
+><para
+>ENCLOSED</para
+></listitem>
+<listitem
+><para
+>ENGINE</para
+></listitem>
+<listitem
+><para
+>ENGINES</para
+></listitem>
+<listitem
+><para
+>ENUM</para
+></listitem>
+<listitem
+><para
+>ERRORS</para
+></listitem>
+<listitem
+><para
+>ESCAPE</para
+></listitem>
+<listitem
+><para
+>ESCAPED</para
+></listitem>
+<listitem
+><para
+>EVENTS</para
+></listitem>
+<listitem
+><para
+>EXECUTE</para
+></listitem>
+<listitem
+><para
+>EXISTS</para
+></listitem>
+<listitem
+><para
+>EXPANSION</para
+></listitem>
+<listitem
+><para
+>EXTENDED</para
+></listitem>
+<listitem
+><para
+>FALSE</para
+></listitem>
+<listitem
+><para
+>FAST</para
+></listitem>
+<listitem
+><para
+>FIELDS</para
+></listitem>
+<listitem
+><para
+>FILE</para
+></listitem>
+<listitem
+><para
+>FIRST</para
+></listitem>
+<listitem
+><para
+>FIXED</para
+></listitem>
+<listitem
+><para
+>FLOAT</para
+></listitem>
+<listitem
+><para
+>FLOAT4</para
+></listitem>
+<listitem
+><para
+>FLOAT8</para
+></listitem>
+<listitem
+><para
+>FLUSH</para
+></listitem>
+<listitem
+><para
+>FORCE</para
+></listitem>
+<listitem
+><para
+>FULLTEXT</para
+></listitem>
+<listitem
+><para
+>FUNCTION</para
+></listitem>
+<listitem
+><para
+>GEOMETRY</para
+></listitem>
+<listitem
+><para
+>GEOMETRYCOLLECTION</para
+></listitem>
+<listitem
+><para
+>GET_FORMAT</para
+></listitem>
+<listitem
+><para
+>GLOBAL</para
+></listitem>
+<listitem
+><para
+>GRANT</para
+></listitem>
+<listitem
+><para
+>GRANTS</para
+></listitem>
+<listitem
+><para
+>HANDLER</para
+></listitem>
+<listitem
+><para
+>HASH</para
+></listitem>
+<listitem
+><para
+>HELP</para
+></listitem>
+<listitem
+><para
+>HIGH_PRIORITY</para
+></listitem>
+<listitem
+><para
+>HOSTS</para
+></listitem>
+<listitem
+><para
+>HOUR</para
+></listitem>
+<listitem
+><para
+>HOUR_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>HOUR_MINUTE</para
+></listitem>
+<listitem
+><para
+>HOUR_SECOND</para
+></listitem>
+<listitem
+><para
+>IDENTIFIED</para
+></listitem>
+<listitem
+><para
+>IF</para
+></listitem>
+<listitem
+><para
+>IMPORT</para
+></listitem>
+<listitem
+><para
+>INDEXES</para
+></listitem>
+<listitem
+><para
+>INFILE</para
+></listitem>
+<listitem
+><para
+>INNOBASE</para
+></listitem>
+<listitem
+><para
+>INNODB</para
+></listitem>
+<listitem
+><para
+>INSERT_METHOD</para
+></listitem>
+<listitem
+><para
+>INT</para
+></listitem>
+<listitem
+><para
+>INT1</para
+></listitem>
+<listitem
+><para
+>INT2</para
+></listitem>
+<listitem
+><para
+>INT3</para
+></listitem>
+<listitem
+><para
+>INT4</para
+></listitem>
+<listitem
+><para
+>INT8</para
+></listitem>
+<listitem
+><para
+>INTERVAL</para
+></listitem>
+<listitem
+><para
+>IO_THREAD</para
+></listitem>
+<listitem
+><para
+>ISOLATION</para
+></listitem>
+<listitem
+><para
+>ISSUER</para
+></listitem>
+<listitem
+><para
+>KEYS</para
+></listitem>
+<listitem
+><para
+>KILL</para
+></listitem>
+<listitem
+><para
+>LAST</para
+></listitem>
+<listitem
+><para
+>LEADING</para
+></listitem>
+<listitem
+><para
+>LEAVES</para
+></listitem>
+<listitem
+><para
+>LEVEL</para
+></listitem>
+<listitem
+><para
+>LINES</para
+></listitem>
+<listitem
+><para
+>LINESTRING</para
+></listitem>
+<listitem
+><para
+>LOAD</para
+></listitem>
+<listitem
+><para
+>LOCAL</para
+></listitem>
+<listitem
+><para
+>LOCALTIME</para
+></listitem>
+<listitem
+><para
+>LOCALTIMESTAMP</para
+></listitem>
+<listitem
+><para
+>LOCK</para
+></listitem>
+<listitem
+><para
+>LOCKS</para
+></listitem>
+<listitem
+><para
+>LOGS</para
+></listitem>
+<listitem
+><para
+>LONG</para
+></listitem>
+<listitem
+><para
+>LONGBLOB</para
+></listitem>
+<listitem
+><para
+>LONGTEXT</para
+></listitem>
+<listitem
+><para
+>LOW_PRIORITY</para
+></listitem>
+<listitem
+><para
+>MASTER</para
+></listitem>
+<listitem
+><para
+>MASTER_CONNECT_RETRY</para
+></listitem>
+<listitem
+><para
+>MASTER_HOST</para
+></listitem>
+<listitem
+><para
+>MASTER_LOG_FILE</para
+></listitem>
+<listitem
+><para
+>MASTER_LOG_POS</para
+></listitem>
+<listitem
+><para
+>MASTER_PASSWORD</para
+></listitem>
+<listitem
+><para
+>MASTER_PORT</para
+></listitem>
+<listitem
+><para
+>MASTER_SERVER_ID</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CA</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CAPATH</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CERT</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CIPHER</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_KEY</para
+></listitem>
+<listitem
+><para
+>MASTER_USER</para
+></listitem>
+<listitem
+><para
+>MAX_CONNECTIONS_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MAX_QUERIES_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MAX_ROWS</para
+></listitem>
+<listitem
+><para
+>MAX_UPDATES_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MEDIUM</para
+></listitem>
+<listitem
+><para
+>MEDIUMBLOB</para
+></listitem>
+<listitem
+><para
+>MEDIUMINT</para
+></listitem>
+<listitem
+><para
+>MEDIUMTEXT</para
+></listitem>
+<listitem
+><para
+>MICROSECOND</para
+></listitem>
+<listitem
+><para
+>MIDDLEINT</para
+></listitem>
+<listitem
+><para
+>MINUTE</para
+></listitem>
+<listitem
+><para
+>MINUTE_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>MINUTE_SECOND</para
+></listitem>
+<listitem
+><para
+>MIN_ROWS</para
+></listitem>
+<listitem
+><para
+>MOD</para
+></listitem>
+<listitem
+><para
+>MODE</para
+></listitem>
+<listitem
+><para
+>MODIFY</para
+></listitem>
+<listitem
+><para
+>MONTH</para
+></listitem>
+<listitem
+><para
+>MULTILINESTRING</para
+></listitem>
+<listitem
+><para
+>MULTIPOINT</para
+></listitem>
+<listitem
+><para
+>MULTIPOLYGON</para
+></listitem>
+<listitem
+><para
+>NAMES</para
+></listitem>
+<listitem
+><para
+>NATIONAL</para
+></listitem>
+<listitem
+><para
+>NDB</para
+></listitem>
+<listitem
+><para
+>NDBCLUSTER</para
+></listitem>
+<listitem
+><para
+>NCHAR</para
+></listitem>
+<listitem
+><para
+>NEW</para
+></listitem>
+<listitem
+><para
+>NEXT</para
+></listitem>
+<listitem
+><para
+>NO</para
+></listitem>
+<listitem
+><para
+>NONE</para
+></listitem>
+<listitem
+><para
+>NO_WRITE_TO_BINLOG</para
+></listitem>
+<listitem
+><para
+>NUMERIC</para
+></listitem>
+<listitem
+><para
+>NVARCHAR</para
+></listitem>
+<listitem
+><para
+>OLD_PASSWORD</para
+></listitem>
+<listitem
+><para
+>ONE_SHOT</para
+></listitem>
+<listitem
+><para
+>OPEN</para
+></listitem>
+<listitem
+><para
+>OPTIMIZE</para
+></listitem>
+<listitem
+><para
+>OPTION</para
+></listitem>
+<listitem
+><para
+>OPTIONALLY</para
+></listitem>
+<listitem
+><para
+>OUTFILE</para
+></listitem>
+<listitem
+><para
+>PACK_KEYS</para
+></listitem>
+<listitem
+><para
+>PARTIAL</para
+></listitem>
+<listitem
+><para
+>PASSWORD</para
+></listitem>
+<listitem
+><para
+>POINT</para
+></listitem>
+<listitem
+><para
+>POLYGON</para
+></listitem>
+<listitem
+><para
+>PRECISION</para
+></listitem>
+<listitem
+><para
+>PREPARE</para
+></listitem>
+<listitem
+><para
+>PREV</para
+></listitem>
+<listitem
+><para
+>PRIVILEGES</para
+></listitem>
+<listitem
+><para
+>PROCEDURE</para
+></listitem>
+<listitem
+><para
+>PROCESS</para
+></listitem>
+<listitem
+><para
+>PROCESSLIST</para
+></listitem>
+<listitem
+><para
+>PURGE</para
+></listitem>
+<listitem
+><para
+>QUERY</para
+></listitem>
+<listitem
+><para
+>QUICK</para
+></listitem>
+<listitem
+><para
+>RAID0</para
+></listitem>
+<listitem
+><para
+>RAID_CHUNKS</para
+></listitem>
+<listitem
+><para
+>RAID_CHUNKSIZE</para
+></listitem>
+<listitem
+><para
+>RAID_TYPE</para
+></listitem>
+<listitem
+><para
+>READ</para
+></listitem>
+<listitem
+><para
+>REAL</para
+></listitem>
+<listitem
+><para
+>REGEXP</para
+></listitem>
+<listitem
+><para
+>RELAY_LOG_FILE</para
+></listitem>
+<listitem
+><para
+>RELAY_LOG_POS</para
+></listitem>
+<listitem
+><para
+>RELAY_THREAD</para
+></listitem>
+<listitem
+><para
+>RELOAD</para
+></listitem>
+<listitem
+><para
+>RENAME</para
+></listitem>
+<listitem
+><para
+>REPAIR</para
+></listitem>
+<listitem
+><para
+>REPEATABLE</para
+></listitem>
+<listitem
+><para
+>REPLICATION</para
+></listitem>
+<listitem
+><para
+>REQUIRE</para
+></listitem>
+<listitem
+><para
+>RESET</para
+></listitem>
+<listitem
+><para
+>RESTORE</para
+></listitem>
+<listitem
+><para
+>RETURNS</para
+></listitem>
+<listitem
+><para
+>REVOKE</para
+></listitem>
+<listitem
+><para
+>RLIKE</para
+></listitem>
+<listitem
+><para
+>ROLLUP</para
+></listitem>
+<listitem
+><para
+>ROWS</para
+></listitem>
+<listitem
+><para
+>ROW_FORMAT</para
+></listitem>
+<listitem
+><para
+>RTREE</para
+></listitem>
+<listitem
+><para
+>SAVEPOINT</para
+></listitem>
+<listitem
+><para
+>SECOND</para
+></listitem>
+<listitem
+><para
+>SECOND_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>SEPARATOR</para
+></listitem>
+<listitem
+><para
+>SERIAL</para
+></listitem>
+<listitem
+><para
+>SERIALIZABLE</para
+></listitem>
+<listitem
+><para
+>SESSION</para
+></listitem>
+<listitem
+><para
+>SHARE</para
+></listitem>
+<listitem
+><para
+>SHOW</para
+></listitem>
+<listitem
+><para
+>SHUTDOWN</para
+></listitem>
+<listitem
+><para
+>SIGNED</para
+></listitem>
+<listitem
+><para
+>SIMPLE</para
+></listitem>
+<listitem
+><para
+>SLAVE</para
+></listitem>
+<listitem
+><para
+>SMALLINT</para
+></listitem>
+<listitem
+><para
+>SOME</para
+></listitem>
+<listitem
+><para
+>SONAME</para
+></listitem>
+<listitem
+><para
+>SOUNDS</para
+></listitem>
+<listitem
+><para
+>SPATIAL</para
+></listitem>
+<listitem
+><para
+>SQL_BIG_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_BUFFER_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_CACHE</para
+></listitem>
+<listitem
+><para
+>SQL_CALC_FOUND_ROWS</para
+></listitem>
+<listitem
+><para
+>SQL_NO_CACHE</para
+></listitem>
+<listitem
+><para
+>SQL_SMALL_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_THREAD</para
+></listitem>
+<listitem
+><para
+>SSL</para
+></listitem>
+<listitem
+><para
+>START</para
+></listitem>
+<listitem
+><para
+>STARTING</para
+></listitem>
+<listitem
+><para
+>STATUS</para
+></listitem>
+<listitem
+><para
+>STOP</para
+></listitem>
+<listitem
+><para
+>STORAGE</para
+></listitem>
+<listitem
+><para
+>STRAIGHT_JOIN</para
+></listitem>
+<listitem
+><para
+>STRING</para
+></listitem>
+<listitem
+><para
+>STRIPED</para
+></listitem>
+<listitem
+><para
+>SUBJECT</para
+></listitem>
+<listitem
+><para
+>SUPER</para
+></listitem>
+<listitem
+><para
+>TABLES</para
+></listitem>
+<listitem
+><para
+>TABLESPACE</para
+></listitem>
+<listitem
+><para
+>TERMINATED</para
+></listitem>
+<listitem
+><para
+>TEXT</para
+></listitem>
+<listitem
+><para
+>TIME</para
+></listitem>
+<listitem
+><para
+>TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>TINYBLOB</para
+></listitem>
+<listitem
+><para
+>TINYINT</para
+></listitem>
+<listitem
+><para
+>TINYTEXT</para
+></listitem>
+<listitem
+><para
+>TRAILING</para
+></listitem>
+<listitem
+><para
+>TRUE</para
+></listitem>
+<listitem
+><para
+>TRUNCATE</para
+></listitem>
+<listitem
+><para
+>TYPE</para
+></listitem>
+<listitem
+><para
+>TYPES</para
+></listitem>
+<listitem
+><para
+>UNCOMMITTED</para
+></listitem>
+<listitem
+><para
+>UNICODE</para
+></listitem>
+<listitem
+><para
+>UNLOCK</para
+></listitem>
+<listitem
+><para
+>UNSIGNED</para
+></listitem>
+<listitem
+><para
+>UNTIL</para
+></listitem>
+<listitem
+><para
+>USAGE</para
+></listitem>
+<listitem
+><para
+>USE</para
+></listitem>
+<listitem
+><para
+>USER</para
+></listitem>
+<listitem
+><para
+>USER_RESOURCES</para
+></listitem>
+<listitem
+><para
+>USE_FRM</para
+></listitem>
+<listitem
+><para
+>UTC_DATE</para
+></listitem>
+<listitem
+><para
+>UTC_TIME</para
+></listitem>
+<listitem
+><para
+>UTC_TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>VALUE</para
+></listitem>
+<listitem
+><para
+>VARBINARY</para
+></listitem>
+<listitem
+><para
+>VARCHAR</para
+></listitem>
+<listitem
+><para
+>VARCHARACTER</para
+></listitem>
+<listitem
+><para
+>VARIABLES</para
+></listitem>
+<listitem
+><para
+>VARYING</para
+></listitem>
+<listitem
+><para
+>WARNINGS</para
+></listitem>
+<listitem
+><para
+>WITH</para
+></listitem>
+<listitem
+><para
+>WORK</para
+></listitem>
+<listitem
+><para
+>WRITE</para
+></listitem>
+<listitem
+><para
+>X509</para
+></listitem>
+<listitem
+><para
+>YEAR</para
+></listitem>
+<listitem
+><para
+>YEAR_MONTH</para
+></listitem>
+<listitem
+><para
+>ZEROFILL</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-postgresql-driver-reserved-words"
+><title
+>Kexi PostgreSQL'i draiveri reserveeritud sõnad</title
+> 
+<para
+>See nimekiri sisaldab võtmesõnu, mis on reserveeritud Kexi pqxx draiveri tarbeks. </para>
+<itemizedlist>
+<listitem
+><para
+>ABORT</para
+></listitem>
+<listitem
+><para
+>ABSOLUTE</para
+></listitem>
+<listitem
+><para
+>ACCESS</para
+></listitem>
+<listitem
+><para
+>ACTION</para
+></listitem>
+<listitem
+><para
+>ADD</para
+></listitem>
+<listitem
+><para
+>AGGREGATE</para
+></listitem>
+<listitem
+><para
+>ALTER</para
+></listitem>
+<listitem
+><para
+>ANALYSE</para
+></listitem>
+<listitem
+><para
+>ANALYZE</para
+></listitem>
+<listitem
+><para
+>ANY</para
+></listitem>
+<listitem
+><para
+>ARRAY</para
+></listitem>
+<listitem
+><para
+>ASSERTION</para
+></listitem>
+<listitem
+><para
+>ASSIGNMENT</para
+></listitem>
+<listitem
+><para
+>AT</para
+></listitem>
+<listitem
+><para
+>AUTHORIZATION</para
+></listitem>
+<listitem
+><para
+>BACKWARD</para
+></listitem>
+<listitem
+><para
+>BIGINT</para
+></listitem>
+<listitem
+><para
+>BINARY</para
+></listitem>
+<listitem
+><para
+>BIT</para
+></listitem>
+<listitem
+><para
+>BOOLEAN</para
+></listitem>
+<listitem
+><para
+>BOTH</para
+></listitem>
+<listitem
+><para
+>CACHE</para
+></listitem>
+<listitem
+><para
+>CALLED</para
+></listitem>
+<listitem
+><para
+>CAST</para
+></listitem>
+<listitem
+><para
+>CHAIN</para
+></listitem>
+<listitem
+><para
+>CHAR</para
+></listitem>
+<listitem
+><para
+>CHARACTER</para
+></listitem>
+<listitem
+><para
+>CHARACTERISTICS</para
+></listitem>
+<listitem
+><para
+>CHECKPOINT</para
+></listitem>
+<listitem
+><para
+>CLASS</para
+></listitem>
+<listitem
+><para
+>CLOSE</para
+></listitem>
+<listitem
+><para
+>CLUSTER</para
+></listitem>
+<listitem
+><para
+>COALESCE</para
+></listitem>
+<listitem
+><para
+>COLUMN</para
+></listitem>
+<listitem
+><para
+>COMMENT</para
+></listitem>
+<listitem
+><para
+>COMMITTED</para
+></listitem>
+<listitem
+><para
+>CONSTRAINTS</para
+></listitem>
+<listitem
+><para
+>CONVERSION</para
+></listitem>
+<listitem
+><para
+>CONVERT</para
+></listitem>
+<listitem
+><para
+>COPY</para
+></listitem>
+<listitem
+><para
+>CREATEDB</para
+></listitem>
+<listitem
+><para
+>CREATEUSER</para
+></listitem>
+<listitem
+><para
+>CURRENT_DATE</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIME</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>CURRENT_USER</para
+></listitem>
+<listitem
+><para
+>CURSOR</para
+></listitem>
+<listitem
+><para
+>CYCLE</para
+></listitem>
+<listitem
+><para
+>DAY</para
+></listitem>
+<listitem
+><para
+>DEALLOCATE</para
+></listitem>
+<listitem
+><para
+>DEC</para
+></listitem>
+<listitem
+><para
+>DECIMAL</para
+></listitem>
+<listitem
+><para
+>DECLARE</para
+></listitem>
+<listitem
+><para
+>DEFAULTS</para
+></listitem>
+<listitem
+><para
+>DEFERRABLE</para
+></listitem>
+<listitem
+><para
+>DEFERRED</para
+></listitem>
+<listitem
+><para
+>DEFINER</para
+></listitem>
+<listitem
+><para
+>DELIMITER</para
+></listitem>
+<listitem
+><para
+>DELIMITERS</para
+></listitem>
+<listitem
+><para
+>DO</para
+></listitem>
+<listitem
+><para
+>DOMAIN</para
+></listitem>
+<listitem
+><para
+>DOUBLE</para
+></listitem>
+<listitem
+><para
+>EACH</para
+></listitem>
+<listitem
+><para
+>ENCODING</para
+></listitem>
+<listitem
+><para
+>ENCRYPTED</para
+></listitem>
+<listitem
+><para
+>ESCAPE</para
+></listitem>
+<listitem
+><para
+>EXCEPT</para
+></listitem>
+<listitem
+><para
+>EXCLUDING</para
+></listitem>
+<listitem
+><para
+>EXCLUSIVE</para
+></listitem>
+<listitem
+><para
+>EXECUTE</para
+></listitem>
+<listitem
+><para
+>EXISTS</para
+></listitem>
+<listitem
+><para
+>EXTERNAL</para
+></listitem>
+<listitem
+><para
+>EXTRACT</para
+></listitem>
+<listitem
+><para
+>FALSE</para
+></listitem>
+<listitem
+><para
+>FETCH</para
+></listitem>
+<listitem
+><para
+>FIRST</para
+></listitem>
+<listitem
+><para
+>FLOAT</para
+></listitem>
+<listitem
+><para
+>FORCE</para
+></listitem>
+<listitem
+><para
+>FORWARD</para
+></listitem>
+<listitem
+><para
+>FREEZE</para
+></listitem>
+<listitem
+><para
+>FUNCTION</para
+></listitem>
+<listitem
+><para
+>GLOBAL</para
+></listitem>
+<listitem
+><para
+>GRANT</para
+></listitem>
+<listitem
+><para
+>HANDLER</para
+></listitem>
+<listitem
+><para
+>HOLD</para
+></listitem>
+<listitem
+><para
+>HOUR</para
+></listitem>
+<listitem
+><para
+>ILIKE</para
+></listitem>
+<listitem
+><para
+>IMMEDIATE</para
+></listitem>
+<listitem
+><para
+>IMMUTABLE</para
+></listitem>
+<listitem
+><para
+>IMPLICIT</para
+></listitem>
+<listitem
+><para
+>INCLUDING</para
+></listitem>
+<listitem
+><para
+>INCREMENT</para
+></listitem>
+<listitem
+><para
+>INHERITS</para
+></listitem>
+<listitem
+><para
+>INITIALLY</para
+></listitem>
+<listitem
+><para
+>INOUT</para
+></listitem>
+<listitem
+><para
+>INPUT</para
+></listitem>
+<listitem
+><para
+>INSENSITIVE</para
+></listitem>
+<listitem
+><para
+>INSTEAD</para
+></listitem>
+<listitem
+><para
+>INT</para
+></listitem>
+<listitem
+><para
+>INTERSECT</para
+></listitem>
+<listitem
+><para
+>INTERVAL</para
+></listitem>
+<listitem
+><para
+>INVOKER</para
+></listitem>
+<listitem
+><para
+>ISNULL</para
+></listitem>
+<listitem
+><para
+>ISOLATION</para
+></listitem>
+<listitem
+><para
+>LANCOMPILER</para
+></listitem>
+<listitem
+><para
+>LANGUAGE</para
+></listitem>
+<listitem
+><para
+>LAST</para
+></listitem>
+<listitem
+><para
+>LEADING</para
+></listitem>
+<listitem
+><para
+>LEVEL</para
+></listitem>
+<listitem
+><para
+>LISTEN</para
+></listitem>
+<listitem
+><para
+>LOAD</para
+></listitem>
+<listitem
+><para
+>LOCAL</para
+></listitem>
+<listitem
+><para
+>LOCALTIME</para
+></listitem>
+<listitem
+><para
+>LOCALTIMESTAMP</para
+></listitem>
+<listitem
+><para
+>LOCATION</para
+></listitem>
+<listitem
+><para
+>LOCK</para
+></listitem>
+<listitem
+><para
+>MAXVALUE</para
+></listitem>
+<listitem
+><para
+>MINUTE</para
+></listitem>
+<listitem
+><para
+>MINVALUE</para
+></listitem>
+<listitem
+><para
+>MODE</para
+></listitem>
+<listitem
+><para
+>MONTH</para
+></listitem>
+<listitem
+><para
+>MOVE</para
+></listitem>
+<listitem
+><para
+>NAMES</para
+></listitem>
+<listitem
+><para
+>NATIONAL</para
+></listitem>
+<listitem
+><para
+>NCHAR</para
+></listitem>
+<listitem
+><para
+>NEW</para
+></listitem>
+<listitem
+><para
+>NEXT</para
+></listitem>
+<listitem
+><para
+>NO</para
+></listitem>
+<listitem
+><para
+>NOCREATEDB</para
+></listitem>
+<listitem
+><para
+>NOCREATEUSER</para
+></listitem>
+<listitem
+><para
+>NONE</para
+></listitem>
+<listitem
+><para
+>NOTHING</para
+></listitem>
+<listitem
+><para
+>NOTIFY</para
+></listitem>
+<listitem
+><para
+>NOTNULL</para
+></listitem>
+<listitem
+><para
+>NULLIF</para
+></listitem>
+<listitem
+><para
+>NUMERIC</para
+></listitem>
+<listitem
+><para
+>OF</para
+></listitem>
+<listitem
+><para
+>OFF</para
+></listitem>
+<listitem
+><para
+>OIDS</para
+></listitem>
+<listitem
+><para
+>OLD</para
+></listitem>
+<listitem
+><para
+>ONLY</para
+></listitem>
+<listitem
+><para
+>OPERATOR</para
+></listitem>
+<listitem
+><para
+>OPTION</para
+></listitem>
+<listitem
+><para
+>OUT</para
+></listitem>
+<listitem
+><para
+>OVERLAPS</para
+></listitem>
+<listitem
+><para
+>OVERLAY</para
+></listitem>
+<listitem
+><para
+>OWNER</para
+></listitem>
+<listitem
+><para
+>PARTIAL</para
+></listitem>
+<listitem
+><para
+>PASSWORD</para
+></listitem>
+<listitem
+><para
+>PATH</para
+></listitem>
+<listitem
+><para
+>PENDANT</para
+></listitem>
+<listitem
+><para
+>PLACING</para
+></listitem>
+<listitem
+><para
+>POSITION</para
+></listitem>
+<listitem
+><para
+>PRECISION</para
+></listitem>
+<listitem
+><para
+>PREPARE</para
+></listitem>
+<listitem
+><para
+>PRESERVE</para
+></listitem>
+<listitem
+><para
+>PRIOR</para
+></listitem>
+<listitem
+><para
+>PRIVILEGES</para
+></listitem>
+<listitem
+><para
+>PROCEDURAL</para
+></listitem>
+<listitem
+><para
+>PROCEDURE</para
+></listitem>
+<listitem
+><para
+>READ</para
+></listitem>
+<listitem
+><para
+>REAL</para
+></listitem>
+<listitem
+><para
+>RECHECK</para
+></listitem>
+<listitem
+><para
+>REINDEX</para
+></listitem>
+<listitem
+><para
+>RELATIVE</para
+></listitem>
+<listitem
+><para
+>RENAME</para
+></listitem>
+<listitem
+><para
+>RESET</para
+></listitem>
+<listitem
+><para
+>RESTART</para
+></listitem>
+<listitem
+><para
+>RETURNS</para
+></listitem>
+<listitem
+><para
+>REVOKE</para
+></listitem>
+<listitem
+><para
+>ROWS</para
+></listitem>
+<listitem
+><para
+>RULE</para
+></listitem>
+<listitem
+><para
+>SCHEMA</para
+></listitem>
+<listitem
+><para
+>SCROLL</para
+></listitem>
+<listitem
+><para
+>SECOND</para
+></listitem>
+<listitem
+><para
+>SECURITY</para
+></listitem>
+<listitem
+><para
+>SEQUENCE</para
+></listitem>
+<listitem
+><para
+>SERIALIZABLE</para
+></listitem>
+<listitem
+><para
+>SESSION</para
+></listitem>
+<listitem
+><para
+>SESSION_USER</para
+></listitem>
+<listitem
+><para
+>SETOF</para
+></listitem>
+<listitem
+><para
+>SHARE</para
+></listitem>
+<listitem
+><para
+>SHOW</para
+></listitem>
+<listitem
+><para
+>SIMPLE</para
+></listitem>
+<listitem
+><para
+>SMALLINT</para
+></listitem>
+<listitem
+><para
+>SOME</para
+></listitem>
+<listitem
+><para
+>STABLE</para
+></listitem>
+<listitem
+><para
+>START</para
+></listitem>
+<listitem
+><para
+>STATEMENT</para
+></listitem>
+<listitem
+><para
+>STATISTICS</para
+></listitem>
+<listitem
+><para
+>STDIN</para
+></listitem>
+<listitem
+><para
+>STDOUT</para
+></listitem>
+<listitem
+><para
+>STORAGE</para
+></listitem>
+<listitem
+><para
+>STRICT</para
+></listitem>
+<listitem
+><para
+>SUBSTRING</para
+></listitem>
+<listitem
+><para
+>SYSID</para
+></listitem>
+<listitem
+><para
+>TEMP</para
+></listitem>
+<listitem
+><para
+>TEMPLATE</para
+></listitem>
+<listitem
+><para
+>TIME</para
+></listitem>
+<listitem
+><para
+>TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>TOAST</para
+></listitem>
+<listitem
+><para
+>TRAILING</para
+></listitem>
+<listitem
+><para
+>TREAT</para
+></listitem>
+<listitem
+><para
+>TRIGGER</para
+></listitem>
+<listitem
+><para
+>TRIM</para
+></listitem>
+<listitem
+><para
+>TRUE</para
+></listitem>
+<listitem
+><para
+>TRUNCATE</para
+></listitem>
+<listitem
+><para
+>TRUSTED</para
+></listitem>
+<listitem
+><para
+>TYPE</para
+></listitem>
+<listitem
+><para
+>UNENCRYPTED</para
+></listitem>
+<listitem
+><para
+>UNKNOWN</para
+></listitem>
+<listitem
+><para
+>UNLISTEN</para
+></listitem>
+<listitem
+><para
+>UNTIL</para
+></listitem>
+<listitem
+><para
+>USAGE</para
+></listitem>
+<listitem
+><para
+>USER</para
+></listitem>
+<listitem
+><para
+>VACUUM</para
+></listitem>
+<listitem
+><para
+>VALID</para
+></listitem>
+<listitem
+><para
+>VALIDATOR</para
+></listitem>
+<listitem
+><para
+>VARCHAR</para
+></listitem>
+<listitem
+><para
+>VARYING</para
+></listitem>
+<listitem
+><para
+>VERBOSE</para
+></listitem>
+<listitem
+><para
+>VERSION</para
+></listitem>
+<listitem
+><para
+>VIEW</para
+></listitem>
+<listitem
+><para
+>VOLATILE</para
+></listitem>
+<listitem
+><para
+>WITH</para
+></listitem>
+<listitem
+><para
+>WITHOUT</para
+></listitem>
+<listitem
+><para
+>WORK</para
+></listitem>
+<listitem
+><para
+>WRITE</para
+></listitem>
+<listitem
+><para
+>YEAR</para
+></listitem>
+<listitem
+><para
+>ZONE</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-oracle-driver-reserved-words"
+><title
+>Kexi Oracle'i draiveri reserveeritud sõnad</title
+> 
+<para
+>See nimekiri sisaldab võtmesõnu, mis on reserveeritud Kexi Oracle'i draiveri tarbeks. </para>
+<itemizedlist>
+<listitem
+><para
+>ADMIN</para
+></listitem>
+<listitem
+><para
+>AFTER</para
+></listitem>
+<listitem
+><para
+>ALLOCATE</para
+></listitem>
+<listitem
+><para
+>ANALYZE</para
+></listitem>
+<listitem
+><para
+>ARCHIVE</para
+></listitem>
+<listitem
+><para
+>ARCHIVELOG</para
+></listitem>
+<listitem
+><para
+>AUTHORIZATION</para
+></listitem>
+<listitem
+><para
+>AVG</para
+></listitem>
+<listitem
+><para
+>BACKUP</para
+></listitem>
+<listitem
+><para
+>BECOME</para
+></listitem>
+<listitem
+><para
+>BEFORE</para
+></listitem>
+<listitem
+><para
+>BEGIN</para
+></listitem>
+<listitem
+><para
+>BLOCK</para
+></listitem>
+<listitem
+><para
+>BODY</para
+></listitem>
+<listitem
+><para
+>CACHE</para
+></listitem>
+<listitem
+><para
+>CANCEL</para
+></listitem>
+<listitem
+><para
+>CASCADE</para
+></listitem>
+<listitem
+><para
+>CHANGE</para
+></listitem>
+<listitem
+><para
+>CHARACTER</para
+></listitem>
+<listitem
+><para
+>CHECKPOINT</para
+></listitem>
+<listitem
+><para
+>CLOSE</para
+></listitem>
+<listitem
+><para
+>COBOL</para
+></listitem>
+<listitem
+><para
+>COMMIT</para
+></listitem>
+<listitem
+><para
+>COMPILE</para
+></listitem>
+<listitem
+><para
+>CONSTRAINT</para
+></listitem>
+<listitem
+><para
+>CONSTRAINTS</para
+></listitem>
+<listitem
+><para
+>CONTENTS</para
+></listitem>
+<listitem
+><para
+>CONTINUE</para
+></listitem>
+<listitem
+><para
+>CONTROLFILE</para
+></listitem>
+<listitem
+><para
+>COUNT</para
+></listitem>
+<listitem
+><para
+>CURSOR</para
+></listitem>
+<listitem
+><para
+>CYCLE</para
+></listitem>
+<listitem
+><para
+>DATABASE</para
+></listitem>
+<listitem
+><para
+>DATAFILE</para
+></listitem>
+<listitem
+><para
+>DATE</para
+></listitem>
+<listitem
+><para
+>DBA</para
+></listitem>
+<listitem
+><para
+>DEC</para
+></listitem>
+<listitem
+><para
+>DECLARE</para
+></listitem>
+<listitem
+><para
+>DISABLE</para
+></listitem>
+<listitem
+><para
+>DISMOUNT</para
+></listitem>
+<listitem
+><para
+>DOUBLE</para
+></listitem>
+<listitem
+><para
+>DUMP</para
+></listitem>
+<listitem
+><para
+>EACH</para
+></listitem>
+<listitem
+><para
+>ENABLE</para
+></listitem>
+<listitem
+><para
+>END</para
+></listitem>
+<listitem
+><para
+>ESCAPE</para
+></listitem>
+<listitem
+><para
+>EVENTS</para
+></listitem>
+<listitem
+><para
+>EXCEPT</para
+></listitem>
+<listitem
+><para
+>EXCEPTIONS</para
+></listitem>
+<listitem
+><para
+>EXEC</para
+></listitem>
+<listitem
+><para
+>EXECUTE</para
+></listitem>
+<listitem
+><para
+>EXPLAIN</para
+></listitem>
+<listitem
+><para
+>EXTENT</para
+></listitem>
+<listitem
+><para
+>EXTERNALLY</para
+></listitem>
+<listitem
+><para
+>FETCH</para
+></listitem>
+<listitem
+><para
+>FLUSH</para
+></listitem>
+<listitem
+><para
+>FORCE</para
+></listitem>
+<listitem
+><para
+>FOREIGN</para
+></listitem>
+<listitem
+><para
+>FORTRAN</para
+></listitem>
+<listitem
+><para
+>FOUND</para
+></listitem>
+<listitem
+><para
+>FREELIST</para
+></listitem>
+<listitem
+><para
+>FREELISTS</para
+></listitem>
+<listitem
+><para
+>FUNCTION</para
+></listitem>
+<listitem
+><para
+>GO</para
+></listitem>
+<listitem
+><para
+>GOTO</para
+></listitem>
+<listitem
+><para
+>GROUPS</para
+></listitem>
+<listitem
+><para
+>INCLUDING</para
+></listitem>
+<listitem
+><para
+>INDICATOR</para
+></listitem>
+<listitem
+><para
+>INITRANS</para
+></listitem>
+<listitem
+><para
+>INSTANCE</para
+></listitem>
+<listitem
+><para
+>INT</para
+></listitem>
+<listitem
+><para
+>KEY</para
+></listitem>
+<listitem
+><para
+>LANGUAGE</para
+></listitem>
+<listitem
+><para
+>LAYER</para
+></listitem>
+<listitem
+><para
+>LINK</para
+></listitem>
+<listitem
+><para
+>LISTS</para
+></listitem>
+<listitem
+><para
+>LOGFILE</para
+></listitem>
+<listitem
+><para
+>MANAGE</para
+></listitem>
+<listitem
+><para
+>MANUAL</para
+></listitem>
+<listitem
+><para
+>MAX</para
+></listitem>
+<listitem
+><para
+>MAXDATAFILES</para
+></listitem>
+<listitem
+><para
+>MAXINSTANCES</para
+></listitem>
+<listitem
+><para
+>MAXLOGFILES</para
+></listitem>
+<listitem
+><para
+>MAXLOGHISTORY</para
+></listitem>
+<listitem
+><para
+>MAXLOGMEMBERS</para
+></listitem>
+<listitem
+><para
+>MAXTRANS</para
+></listitem>
+<listitem
+><para
+>MAXVALUE</para
+></listitem>
+<listitem
+><para
+>MIN</para
+></listitem>
+<listitem
+><para
+>MINEXTENTS</para
+></listitem>
+<listitem
+><para
+>MINVALUE</para
+></listitem>
+<listitem
+><para
+>MODULE</para
+></listitem>
+<listitem
+><para
+>MOUNT</para
+></listitem>
+<listitem
+><para
+>NEW</para
+></listitem>
+<listitem
+><para
+>NEXT</para
+></listitem>
+<listitem
+><para
+>NOARCHIVELOG</para
+></listitem>
+<listitem
+><para
+>NOCACHE</para
+></listitem>
+<listitem
+><para
+>NOCYCLE</para
+></listitem>
+<listitem
+><para
+>NOMAXVALUE</para
+></listitem>
+<listitem
+><para
+>NOMINVALUE</para
+></listitem>
+<listitem
+><para
+>NONE</para
+></listitem>
+<listitem
+><para
+>NOORDER</para
+></listitem>
+<listitem
+><para
+>NORESETLOGS</para
+></listitem>
+<listitem
+><para
+>NORMAL</para
+></listitem>
+<listitem
+><para
+>NOSORT</para
+></listitem>
+<listitem
+><para
+>NUMERIC</para
+></listitem>
+<listitem
+><para
+>OFF</para
+></listitem>
+<listitem
+><para
+>OLD</para
+></listitem>
+<listitem
+><para
+>ONLY</para
+></listitem>
+<listitem
+><para
+>OPEN</para
+></listitem>
+<listitem
+><para
+>OPTIMAL</para
+></listitem>
+<listitem
+><para
+>OWN</para
+></listitem>
+<listitem
+><para
+>PACKAGE</para
+></listitem>
+<listitem
+><para
+>PARALLEL</para
+></listitem>
+<listitem
+><para
+>PCTINCREASE</para
+></listitem>
+<listitem
+><para
+>PCTUSED</para
+></listitem>
+<listitem
+><para
+>PLAN</para
+></listitem>
+<listitem
+><para
+>PLI</para
+></listitem>
+<listitem
+><para
+>PRECISION</para
+></listitem>
+<listitem
+><para
+>PRIMARY</para
+></listitem>
+<listitem
+><para
+>PRIVATE</para
+></listitem>
+<listitem
+><para
+>PROCEDURE</para
+></listitem>
+<listitem
+><para
+>PROFILE</para
+></listitem>
+<listitem
+><para
+>QUOTA</para
+></listitem>
+<listitem
+><para
+>READ</para
+></listitem>
+<listitem
+><para
+>REAL</para
+></listitem>
+<listitem
+><para
+>RECOVER</para
+></listitem>
+<listitem
+><para
+>REFERENCES</para
+></listitem>
+<listitem
+><para
+>REFERENCING</para
+></listitem>
+<listitem
+><para
+>RESETLOGS</para
+></listitem>
+<listitem
+><para
+>RESTRICTED</para
+></listitem>
+<listitem
+><para
+>REUSE</para
+></listitem>
+<listitem
+><para
+>ROLE</para
+></listitem>
+<listitem
+><para
+>ROLES</para
+></listitem>
+<listitem
+><para
+>ROLLBACK</para
+></listitem>
+<listitem
+><para
+>SAVEPOINT</para
+></listitem>
+<listitem
+><para
+>SCHEMA</para
+></listitem>
+<listitem
+><para
+>SCN</para
+></listitem>
+<listitem
+><para
+>SECTION</para
+></listitem>
+<listitem
+><para
+>SEGMENT</para
+></listitem>
+<listitem
+><para
+>SEQUENCE</para
+></listitem>
+<listitem
+><para
+>SHARED</para
+></listitem>
+<listitem
+><para
+>SNAPSHOT</para
+></listitem>
+<listitem
+><para
+>SOME</para
+></listitem>
+<listitem
+><para
+>SORT</para
+></listitem>
+<listitem
+><para
+>SQL</para
+></listitem>
+<listitem
+><para
+>SQLCODE</para
+></listitem>
+<listitem
+><para
+>SQLERROR</para
+></listitem>
+<listitem
+><para
+>SQLSTATE</para
+></listitem>
+<listitem
+><para
+>STATEMENT_ID</para
+></listitem>
+<listitem
+><para
+>STATISTICS</para
+></listitem>
+<listitem
+><para
+>STOP</para
+></listitem>
+<listitem
+><para
+>STORAGE</para
+></listitem>
+<listitem
+><para
+>SUM</para
+></listitem>
+<listitem
+><para
+>SWITCH</para
+></listitem>
+<listitem
+><para
+>SYSTEM</para
+></listitem>
+<listitem
+><para
+>TABLES</para
+></listitem>
+<listitem
+><para
+>TABLESPACE</para
+></listitem>
+<listitem
+><para
+>TEMPORARY</para
+></listitem>
+<listitem
+><para
+>THREAD</para
+></listitem>
+<listitem
+><para
+>TIME</para
+></listitem>
+<listitem
+><para
+>TRACING</para
+></listitem>
+<listitem
+><para
+>TRANSACTION</para
+></listitem>
+<listitem
+><para
+>TRIGGERS</para
+></listitem>
+<listitem
+><para
+>TRUNCATE</para
+></listitem>
+<listitem
+><para
+>UNDER</para
+></listitem>
+<listitem
+><para
+>UNLIMITED</para
+></listitem>
+<listitem
+><para
+>UNTIL</para
+></listitem>
+<listitem
+><para
+>USE</para
+></listitem>
+<listitem
+><para
+>USING</para
+></listitem>
+<listitem
+><para
+>WHEN</para
+></listitem>
+<listitem
+><para
+>WORK</para
+></listitem>
+<listitem
+><para
+>WRITE</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-sybase-driver-reserved-words"
+><title
+>Kexi Sybase'i draiveri reserveeritud sõnad</title
+> 
+<para
+>See nimekiri sisaldab võtmesõnu, mis on reserveeritud Kexi Sybase'i draiveri tarbeks. </para>
+<itemizedlist>
+<listitem
+><para
+>ACTION</para
+></listitem>
+<listitem
+><para
+>ADD</para
+></listitem>
+<listitem
+><para
+>AGAINST</para
+></listitem>
+<listitem
+><para
+>AGGREGATE</para
+></listitem>
+<listitem
+><para
+>ALTER</para
+></listitem>
+<listitem
+><para
+>ANALYZE</para
+></listitem>
+<listitem
+><para
+>ANY</para
+></listitem>
+<listitem
+><para
+>ASCII</para
+></listitem>
+<listitem
+><para
+>AUTOINCREMENT</para
+></listitem>
+<listitem
+><para
+>AVG</para
+></listitem>
+<listitem
+><para
+>AVG_ROW_LENGTH</para
+></listitem>
+<listitem
+><para
+>BACKUP</para
+></listitem>
+<listitem
+><para
+>BDB</para
+></listitem>
+<listitem
+><para
+>BERKELEYDB</para
+></listitem>
+<listitem
+><para
+>BIGINT</para
+></listitem>
+<listitem
+><para
+>BINARY</para
+></listitem>
+<listitem
+><para
+>BINLOG</para
+></listitem>
+<listitem
+><para
+>BIT</para
+></listitem>
+<listitem
+><para
+>BLOB</para
+></listitem>
+<listitem
+><para
+>BOOL</para
+></listitem>
+<listitem
+><para
+>BOOLEAN</para
+></listitem>
+<listitem
+><para
+>BOTH</para
+></listitem>
+<listitem
+><para
+>BTREE</para
+></listitem>
+<listitem
+><para
+>BYTE</para
+></listitem>
+<listitem
+><para
+>CACHE</para
+></listitem>
+<listitem
+><para
+>CHANGE</para
+></listitem>
+<listitem
+><para
+>CHANGED</para
+></listitem>
+<listitem
+><para
+>CHAR</para
+></listitem>
+<listitem
+><para
+>CHARACTER</para
+></listitem>
+<listitem
+><para
+>CHARSET</para
+></listitem>
+<listitem
+><para
+>CHECKSUM</para
+></listitem>
+<listitem
+><para
+>CIPHER</para
+></listitem>
+<listitem
+><para
+>CLIENT</para
+></listitem>
+<listitem
+><para
+>CLOSE</para
+></listitem>
+<listitem
+><para
+>COLLATION</para
+></listitem>
+<listitem
+><para
+>COLUMN</para
+></listitem>
+<listitem
+><para
+>COLUMNS</para
+></listitem>
+<listitem
+><para
+>COMMENT</para
+></listitem>
+<listitem
+><para
+>COMMITTED</para
+></listitem>
+<listitem
+><para
+>COMPRESSED</para
+></listitem>
+<listitem
+><para
+>CONCURRENT</para
+></listitem>
+<listitem
+><para
+>CONVERT</para
+></listitem>
+<listitem
+><para
+>CUBE</para
+></listitem>
+<listitem
+><para
+>CURRENT_DATE</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIME</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>CURRENT_USER</para
+></listitem>
+<listitem
+><para
+>DATA</para
+></listitem>
+<listitem
+><para
+>DATABASES</para
+></listitem>
+<listitem
+><para
+>DATE</para
+></listitem>
+<listitem
+><para
+>DATETIME</para
+></listitem>
+<listitem
+><para
+>DAY</para
+></listitem>
+<listitem
+><para
+>DAY_HOUR</para
+></listitem>
+<listitem
+><para
+>DAY_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>DAY_MINUTE</para
+></listitem>
+<listitem
+><para
+>DAY_SECOND</para
+></listitem>
+<listitem
+><para
+>DEALLOCATE</para
+></listitem>
+<listitem
+><para
+>DEC</para
+></listitem>
+<listitem
+><para
+>DECIMAL</para
+></listitem>
+<listitem
+><para
+>DELAYED</para
+></listitem>
+<listitem
+><para
+>DELAY_KEY_WRITE</para
+></listitem>
+<listitem
+><para
+>DESCRIBE</para
+></listitem>
+<listitem
+><para
+>DES_KEY_FILE</para
+></listitem>
+<listitem
+><para
+>DIRECTORY</para
+></listitem>
+<listitem
+><para
+>DISABLE</para
+></listitem>
+<listitem
+><para
+>DISCARD</para
+></listitem>
+<listitem
+><para
+>DISTINCTROW</para
+></listitem>
+<listitem
+><para
+>DIV</para
+></listitem>
+<listitem
+><para
+>DO</para
+></listitem>
+<listitem
+><para
+>DOUBLE</para
+></listitem>
+<listitem
+><para
+>DUAL</para
+></listitem>
+<listitem
+><para
+>DUMPFILE</para
+></listitem>
+<listitem
+><para
+>DUPLICATE</para
+></listitem>
+<listitem
+><para
+>DYNAMIC</para
+></listitem>
+<listitem
+><para
+>ENABLE</para
+></listitem>
+<listitem
+><para
+>ENCLOSED</para
+></listitem>
+<listitem
+><para
+>ENGINE</para
+></listitem>
+<listitem
+><para
+>ENGINES</para
+></listitem>
+<listitem
+><para
+>ENUM</para
+></listitem>
+<listitem
+><para
+>ERRORS</para
+></listitem>
+<listitem
+><para
+>ESCAPE</para
+></listitem>
+<listitem
+><para
+>ESCAPED</para
+></listitem>
+<listitem
+><para
+>EVENTS</para
+></listitem>
+<listitem
+><para
+>EXECUTE</para
+></listitem>
+<listitem
+><para
+>EXISTS</para
+></listitem>
+<listitem
+><para
+>EXPANSION</para
+></listitem>
+<listitem
+><para
+>EXTENDED</para
+></listitem>
+<listitem
+><para
+>FALSE</para
+></listitem>
+<listitem
+><para
+>FAST</para
+></listitem>
+<listitem
+><para
+>FIELDS</para
+></listitem>
+<listitem
+><para
+>FILE</para
+></listitem>
+<listitem
+><para
+>FIRST</para
+></listitem>
+<listitem
+><para
+>FIXED</para
+></listitem>
+<listitem
+><para
+>FLOAT</para
+></listitem>
+<listitem
+><para
+>FLOAT4</para
+></listitem>
+<listitem
+><para
+>FLOAT8</para
+></listitem>
+<listitem
+><para
+>FLUSH</para
+></listitem>
+<listitem
+><para
+>FORCE</para
+></listitem>
+<listitem
+><para
+>FULLTEXT</para
+></listitem>
+<listitem
+><para
+>FUNCTION</para
+></listitem>
+<listitem
+><para
+>GEOMETRY</para
+></listitem>
+<listitem
+><para
+>GEOMETRYCOLLECTION</para
+></listitem>
+<listitem
+><para
+>GET_FORMAT</para
+></listitem>
+<listitem
+><para
+>GLOBAL</para
+></listitem>
+<listitem
+><para
+>GRANT</para
+></listitem>
+<listitem
+><para
+>GRANTS</para
+></listitem>
+<listitem
+><para
+>HANDLER</para
+></listitem>
+<listitem
+><para
+>HASH</para
+></listitem>
+<listitem
+><para
+>HELP</para
+></listitem>
+<listitem
+><para
+>HIGH_PRIORITY</para
+></listitem>
+<listitem
+><para
+>HOSTS</para
+></listitem>
+<listitem
+><para
+>HOUR</para
+></listitem>
+<listitem
+><para
+>HOUR_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>HOUR_MINUTE</para
+></listitem>
+<listitem
+><para
+>HOUR_SECOND</para
+></listitem>
+<listitem
+><para
+>IDENTIFIED</para
+></listitem>
+<listitem
+><para
+>IF</para
+></listitem>
+<listitem
+><para
+>IMPORT</para
+></listitem>
+<listitem
+><para
+>INDEXES</para
+></listitem>
+<listitem
+><para
+>INFILE</para
+></listitem>
+<listitem
+><para
+>INNOBASE</para
+></listitem>
+<listitem
+><para
+>INNODB</para
+></listitem>
+<listitem
+><para
+>INSERT_METHOD</para
+></listitem>
+<listitem
+><para
+>INT</para
+></listitem>
+<listitem
+><para
+>INT1</para
+></listitem>
+<listitem
+><para
+>INT2</para
+></listitem>
+<listitem
+><para
+>INT3</para
+></listitem>
+<listitem
+><para
+>INT4</para
+></listitem>
+<listitem
+><para
+>INT8</para
+></listitem>
+<listitem
+><para
+>INTERVAL</para
+></listitem>
+<listitem
+><para
+>IO_THREAD</para
+></listitem>
+<listitem
+><para
+>ISOLATION</para
+></listitem>
+<listitem
+><para
+>ISSUER</para
+></listitem>
+<listitem
+><para
+>KEYS</para
+></listitem>
+<listitem
+><para
+>KILL</para
+></listitem>
+<listitem
+><para
+>LAST</para
+></listitem>
+<listitem
+><para
+>LEADING</para
+></listitem>
+<listitem
+><para
+>LEAVES</para
+></listitem>
+<listitem
+><para
+>LEVEL</para
+></listitem>
+<listitem
+><para
+>LINES</para
+></listitem>
+<listitem
+><para
+>LINESTRING</para
+></listitem>
+<listitem
+><para
+>LOAD</para
+></listitem>
+<listitem
+><para
+>LOCAL</para
+></listitem>
+<listitem
+><para
+>LOCALTIME</para
+></listitem>
+<listitem
+><para
+>LOCALTIMESTAMP</para
+></listitem>
+<listitem
+><para
+>LOCK</para
+></listitem>
+<listitem
+><para
+>LOCKS</para
+></listitem>
+<listitem
+><para
+>LOGS</para
+></listitem>
+<listitem
+><para
+>LONG</para
+></listitem>
+<listitem
+><para
+>LONGBLOB</para
+></listitem>
+<listitem
+><para
+>LONGTEXT</para
+></listitem>
+<listitem
+><para
+>LOW_PRIORITY</para
+></listitem>
+<listitem
+><para
+>MASTER</para
+></listitem>
+<listitem
+><para
+>MASTER_CONNECT_RETRY</para
+></listitem>
+<listitem
+><para
+>MASTER_HOST</para
+></listitem>
+<listitem
+><para
+>MASTER_LOG_FILE</para
+></listitem>
+<listitem
+><para
+>MASTER_LOG_POS</para
+></listitem>
+<listitem
+><para
+>MASTER_PASSWORD</para
+></listitem>
+<listitem
+><para
+>MASTER_PORT</para
+></listitem>
+<listitem
+><para
+>MASTER_SERVER_ID</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CA</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CAPATH</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CERT</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CIPHER</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_KEY</para
+></listitem>
+<listitem
+><para
+>MASTER_USER</para
+></listitem>
+<listitem
+><para
+>MAX_CONNECTIONS_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MAX_QUERIES_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MAX_ROWS</para
+></listitem>
+<listitem
+><para
+>MAX_UPDATES_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MEDIUM</para
+></listitem>
+<listitem
+><para
+>MEDIUMBLOB</para
+></listitem>
+<listitem
+><para
+>MEDIUMINT</para
+></listitem>
+<listitem
+><para
+>MEDIUMTEXT</para
+></listitem>
+<listitem
+><para
+>MICROSECOND</para
+></listitem>
+<listitem
+><para
+>MIDDLEINT</para
+></listitem>
+<listitem
+><para
+>MINUTE</para
+></listitem>
+<listitem
+><para
+>MINUTE_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>MINUTE_SECOND</para
+></listitem>
+<listitem
+><para
+>MIN_ROWS</para
+></listitem>
+<listitem
+><para
+>MOD</para
+></listitem>
+<listitem
+><para
+>MODE</para
+></listitem>
+<listitem
+><para
+>MODIFY</para
+></listitem>
+<listitem
+><para
+>MONTH</para
+></listitem>
+<listitem
+><para
+>MULTILINESTRING</para
+></listitem>
+<listitem
+><para
+>MULTIPOINT</para
+></listitem>
+<listitem
+><para
+>MULTIPOLYGON</para
+></listitem>
+<listitem
+><para
+>NAMES</para
+></listitem>
+<listitem
+><para
+>NATIONAL</para
+></listitem>
+<listitem
+><para
+>NDB</para
+></listitem>
+<listitem
+><para
+>NDBCLUSTER</para
+></listitem>
+<listitem
+><para
+>NCHAR</para
+></listitem>
+<listitem
+><para
+>NEW</para
+></listitem>
+<listitem
+><para
+>NEXT</para
+></listitem>
+<listitem
+><para
+>NO</para
+></listitem>
+<listitem
+><para
+>NONE</para
+></listitem>
+<listitem
+><para
+>NO_WRITE_TO_BINLOG</para
+></listitem>
+<listitem
+><para
+>NUMERIC</para
+></listitem>
+<listitem
+><para
+>NVARCHAR</para
+></listitem>
+<listitem
+><para
+>OLD_PASSWORD</para
+></listitem>
+<listitem
+><para
+>ONE_SHOT</para
+></listitem>
+<listitem
+><para
+>OPEN</para
+></listitem>
+<listitem
+><para
+>OPTIMIZE</para
+></listitem>
+<listitem
+><para
+>OPTION</para
+></listitem>
+<listitem
+><para
+>OPTIONALLY</para
+></listitem>
+<listitem
+><para
+>OUTFILE</para
+></listitem>
+<listitem
+><para
+>PACK_KEYS</para
+></listitem>
+<listitem
+><para
+>PARTIAL</para
+></listitem>
+<listitem
+><para
+>PASSWORD</para
+></listitem>
+<listitem
+><para
+>POINT</para
+></listitem>
+<listitem
+><para
+>POLYGON</para
+></listitem>
+<listitem
+><para
+>PRECISION</para
+></listitem>
+<listitem
+><para
+>PREPARE</para
+></listitem>
+<listitem
+><para
+>PREV</para
+></listitem>
+<listitem
+><para
+>PRIVILEGES</para
+></listitem>
+<listitem
+><para
+>PROCEDURE</para
+></listitem>
+<listitem
+><para
+>PROCESS</para
+></listitem>
+<listitem
+><para
+>PROCESSLIST</para
+></listitem>
+<listitem
+><para
+>PURGE</para
+></listitem>
+<listitem
+><para
+>QUERY</para
+></listitem>
+<listitem
+><para
+>QUICK</para
+></listitem>
+<listitem
+><para
+>RAID0</para
+></listitem>
+<listitem
+><para
+>RAID_CHUNKS</para
+></listitem>
+<listitem
+><para
+>RAID_CHUNKSIZE</para
+></listitem>
+<listitem
+><para
+>RAID_TYPE</para
+></listitem>
+<listitem
+><para
+>READ</para
+></listitem>
+<listitem
+><para
+>REAL</para
+></listitem>
+<listitem
+><para
+>REGEXP</para
+></listitem>
+<listitem
+><para
+>RELAY_LOG_FILE</para
+></listitem>
+<listitem
+><para
+>RELAY_LOG_POS</para
+></listitem>
+<listitem
+><para
+>RELAY_THREAD</para
+></listitem>
+<listitem
+><para
+>RELOAD</para
+></listitem>
+<listitem
+><para
+>RENAME</para
+></listitem>
+<listitem
+><para
+>REPAIR</para
+></listitem>
+<listitem
+><para
+>REPEATABLE</para
+></listitem>
+<listitem
+><para
+>REPLICATION</para
+></listitem>
+<listitem
+><para
+>REQUIRE</para
+></listitem>
+<listitem
+><para
+>RESET</para
+></listitem>
+<listitem
+><para
+>RESTORE</para
+></listitem>
+<listitem
+><para
+>RETURNS</para
+></listitem>
+<listitem
+><para
+>REVOKE</para
+></listitem>
+<listitem
+><para
+>RLIKE</para
+></listitem>
+<listitem
+><para
+>ROLLUP</para
+></listitem>
+<listitem
+><para
+>ROWS</para
+></listitem>
+<listitem
+><para
+>ROW_FORMAT</para
+></listitem>
+<listitem
+><para
+>RTREE</para
+></listitem>
+<listitem
+><para
+>SAVEPOINT</para
+></listitem>
+<listitem
+><para
+>SECOND</para
+></listitem>
+<listitem
+><para
+>SECOND_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>SEPARATOR</para
+></listitem>
+<listitem
+><para
+>SERIAL</para
+></listitem>
+<listitem
+><para
+>SERIALIZABLE</para
+></listitem>
+<listitem
+><para
+>SESSION</para
+></listitem>
+<listitem
+><para
+>SHARE</para
+></listitem>
+<listitem
+><para
+>SHOW</para
+></listitem>
+<listitem
+><para
+>SHUTDOWN</para
+></listitem>
+<listitem
+><para
+>SIGNED</para
+></listitem>
+<listitem
+><para
+>SIMPLE</para
+></listitem>
+<listitem
+><para
+>SLAVE</para
+></listitem>
+<listitem
+><para
+>SMALLINT</para
+></listitem>
+<listitem
+><para
+>SOME</para
+></listitem>
+<listitem
+><para
+>SONAME</para
+></listitem>
+<listitem
+><para
+>SOUNDS</para
+></listitem>
+<listitem
+><para
+>SPATIAL</para
+></listitem>
+<listitem
+><para
+>SQL_BIG_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_BUFFER_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_CACHE</para
+></listitem>
+<listitem
+><para
+>SQL_CALC_FOUND_ROWS</para
+></listitem>
+<listitem
+><para
+>SQL_NO_CACHE</para
+></listitem>
+<listitem
+><para
+>SQL_SMALL_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_THREAD</para
+></listitem>
+<listitem
+><para
+>SSL</para
+></listitem>
+<listitem
+><para
+>START</para
+></listitem>
+<listitem
+><para
+>STARTING</para
+></listitem>
+<listitem
+><para
+>STATUS</para
+></listitem>
+<listitem
+><para
+>STOP</para
+></listitem>
+<listitem
+><para
+>STORAGE</para
+></listitem>
+<listitem
+><para
+>STRAIGHT_JOIN</para
+></listitem>
+<listitem
+><para
+>STRING</para
+></listitem>
+<listitem
+><para
+>STRIPED</para
+></listitem>
+<listitem
+><para
+>SUBJECT</para
+></listitem>
+<listitem
+><para
+>SUPER</para
+></listitem>
+<listitem
+><para
+>TABLES</para
+></listitem>
+<listitem
+><para
+>TABLESPACE</para
+></listitem>
+<listitem
+><para
+>TERMINATED</para
+></listitem>
+<listitem
+><para
+>TEXT</para
+></listitem>
+<listitem
+><para
+>TIME</para
+></listitem>
+<listitem
+><para
+>TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>TINYBLOB</para
+></listitem>
+<listitem
+><para
+>TINYINT</para
+></listitem>
+<listitem
+><para
+>TINYTEXT</para
+></listitem>
+<listitem
+><para
+>TRAILING</para
+></listitem>
+<listitem
+><para
+>TRUE</para
+></listitem>
+<listitem
+><para
+>TRUNCATE</para
+></listitem>
+<listitem
+><para
+>TYPE</para
+></listitem>
+<listitem
+><para
+>TYPES</para
+></listitem>
+<listitem
+><para
+>UNCOMMITTED</para
+></listitem>
+<listitem
+><para
+>UNICODE</para
+></listitem>
+<listitem
+><para
+>UNLOCK</para
+></listitem>
+<listitem
+><para
+>UNSIGNED</para
+></listitem>
+<listitem
+><para
+>UNTIL</para
+></listitem>
+<listitem
+><para
+>USAGE</para
+></listitem>
+<listitem
+><para
+>USE</para
+></listitem>
+<listitem
+><para
+>USER</para
+></listitem>
+<listitem
+><para
+>USER_RESOURCES</para
+></listitem>
+<listitem
+><para
+>USE_FRM</para
+></listitem>
+<listitem
+><para
+>UTC_DATE</para
+></listitem>
+<listitem
+><para
+>UTC_TIME</para
+></listitem>
+<listitem
+><para
+>UTC_TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>VALUE</para
+></listitem>
+<listitem
+><para
+>VARBINARY</para
+></listitem>
+<listitem
+><para
+>VARCHAR</para
+></listitem>
+<listitem
+><para
+>VARCHARACTER</para
+></listitem>
+<listitem
+><para
+>VARIABLES</para
+></listitem>
+<listitem
+><para
+>VARYING</para
+></listitem>
+<listitem
+><para
+>WARNINGS</para
+></listitem>
+<listitem
+><para
+>WITH</para
+></listitem>
+<listitem
+><para
+>WORK</para
+></listitem>
+<listitem
+><para
+>WRITE</para
+></listitem>
+<listitem
+><para
+>X509</para
+></listitem>
+<listitem
+><para
+>YEAR</para
+></listitem>
+<listitem
+><para
+>YEAR_MONTH</para
+></listitem>
+<listitem
+><para
+>ZEROFILL</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-xbase-driver-reserved-words"
+><title
+>Kexi xBase'i draiveri reserveeritud sõnad</title
+> 
+<para
+>See nimekiri sisaldab võtmesõnu, mis on reserveeritud Kexi xBase'i draiveri tarbeks. </para>
+<itemizedlist>
+<listitem
+><para
+>ABORT</para
+></listitem>
+<listitem
+><para
+>ATTACH</para
+></listitem>
+<listitem
+><para
+>CLUSTER</para
+></listitem>
+<listitem
+><para
+>CONFLICT</para
+></listitem>
+<listitem
+><para
+>DEFERRED</para
+></listitem>
+<listitem
+><para
+>DEFERRABLE</para
+></listitem>
+<listitem
+><para
+>DETACH</para
+></listitem>
+<listitem
+><para
+>EACH</para
+></listitem>
+<listitem
+><para
+>EXCEPT</para
+></listitem>
+<listitem
+><para
+>FAIL</para
+></listitem>
+<listitem
+><para
+>GLOB</para
+></listitem>
+<listitem
+><para
+>IMMEDIATE</para
+></listitem>
+<listitem
+><para
+>INITIALLY</para
+></listitem>
+<listitem
+><para
+>INSTEAD</para
+></listitem>
+<listitem
+><para
+>INTERSECT</para
+></listitem>
+<listitem
+><para
+>ISNULL</para
+></listitem>
+<listitem
+><para
+>NOTNULL</para
+></listitem>
+<listitem
+><para
+>OF</para
+></listitem>
+<listitem
+><para
+>PRAGMA</para
+></listitem>
+<listitem
+><para
+>RAISE</para
+></listitem>
+<listitem
+><para
+>STATEMENT</para
+></listitem>
+<listitem
+><para
+>TEMP</para
+></listitem>
+<listitem
+><para
+>TRIGGER</para
+></listitem>
+<listitem
+><para
+>VACUUM</para
+></listitem>
+<listitem
+><para
+>VIEW</para
+></listitem>
+</itemizedlist>
+<para
+><note
+><para
+>Reserveeritud sõnad on ära toodud iga draiveri jaoks eraldi, et neid saaks kasutada ka viitematerjalina.</para
+></note>
+</para>
+</sect1>
+</chapter>
+<chapter id="supported-file-formats"
+><title
+>Lisa D. Toetatud failivormingud</title
+> 
+<sect1 id="comma-separated-values-format-csv"
+><title
+>Komaga eraldatud väärtuste vorming (CSV)</title
+> 
+<para
+>&kexi; suudab importida ja eksportida andmeid mitmesugustesse ja mitmesugustest komaga eraldatud väärtuste (CSV) vormingutesse ja vormingutest. Enamik tabelarvutuse- ja andmebaasirakendusi suudab seda vormingut importida ja eksportida, mistõttu see sobib kenasti tekstiandmete vahetamiseks rakenduste vahel. </para>
+<para
+>Samuti toetab &kexi; mitmeid võimalusi, mida saab enne importimist seadistada: </para>
+<itemizedlist>
+<listitem
+><para
+>iga veeru andmete tüüp,</para
+></listitem>
+<listitem
+><para
+>muud väljade eraldajad, näiteks tabeldusmärgid,</para
+></listitem>
+<listitem
+><para
+>mitmesugused teksti-jutumärgid,</para
+></listitem>
+<listitem
+><para
+>vajaduse korral määratud arvu kirjete vahelejätmine,</para
+></listitem>
+<listitem
+><para
+>topelteraldajate vahelejätmine,</para
+></listitem>
+<listitem
+><para
+>esimese rea väärtusi saab kasutada veerunimede määramiseks,</para
+></listitem>
+<listitem
+><para
+>teksti kodeering (vaikimisi on see UTF-8),</para
+></listitem>
+<listitem
+><para
+>kuupäevavorming (vaikimisi on see operatsioonisüsteemi määratud),</para
+></listitem>
+<listitem
+><para
+>tekstiväärtuste ees ja järel olevate tühikute eemaldamine.</para
+></listitem>
+</itemizedlist>
+<para
+>Importimisel näitab &kexi; imporditavate andmete eelvaatlust. &kexi; tuvastab CSV-faili põhjal automaatselt kõige sobivama valikute koosluse. </para>
+</sect1>
+<sect1 id="microsoft-access-mdb-file-format"
+><title
+>Microsoft Accessi (MDB) failivorming</title
+> 
+<sect2 id="overview"
+><title
+>Ülevaade</title
+> 
+<para
+><guilabel
+>Microsoft Access</guilabel
+>i andmebaaside (2003 või vanemad) importimise toetus on &kexi;sse sisse ehitatud. <guilabel
+>Access</guilabel
+>i andmebaase saab ainult <emphasis
+>importida</emphasis
+> &kexi; andmebaasi. Seda ei saa kasutada andmebaasi muutmiseks, samuti ei saa eksportida <guilabel
+>Access</guilabel
+>i andmebaasi. Siiski peaks see olema võimeline importima teiste rakenduste loodud andmebaase, mis kasutavad JET andmebaasimootorit. <filename
+>.accdb</filename
+>-andmebaaside importimine, mida hakkas pakkuma MS <guilabel
+>Access</guilabel
+> 2997, ei ole veel toetatud. </para>
+<para
+>Andmebaasi importimine: </para>
+<orderedlist>
+<listitem
+><para
+>Vali &kexi; menüüst käsk <guilabel
+>Import, eksport või saatmine...</guilabel
+></para
+></listitem>
+<listitem
+><para
+>Klõpsa nupule <guilabel
+>Impordi andmebaas</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Vajaliku .mdb-faili saab valida impordinõustaja abil.</para
+></listitem>
+</orderedlist>
+</sect2>
+<sect2 id="capabilities"
+><title
+>Omadused</title
+> 
+<para
+>Importimisfunktsiooni on edukalt kasutatud importimaks <emphasis
+>Northwindi</emphasis
+> andmebaasi, mis on MS <guilabel
+>Access</guilabel
+>i kasutajatele hästi teada. Importida saab ka paljusid teisi <guilabel
+>Access</guilabel
+>i mallandmebaase. </para>
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_northwind.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+</sect2>
+<sect2 id="supported-features"
+><title
+>Toetatud omadused</title
+> 
+<para
+>Järgmiste väljade importimine on testitud ja toimib üldiselt edukalt: </para>
+<itemizedlist>
+<listitem
+><para
+>Tekstiväljad</para
+></listitem>
+<listitem
+><para
+>Memoväljad</para
+></listitem>
+<listitem
+><para
+>Kuupäevaväljad</para
+></listitem>
+<listitem
+><para
+>Arvväärtused</para
+></listitem>
+</itemizedlist>
+</sect2>
+<sect2 id="unsupported-features"
+><title
+>Toetamata võimalused</title
+> 
+<para
+>Praegu imporditakse ainult tabelid. Importimisel jätab &kexi; vahele järgmised objektid: </para>
+<itemizedlist>
+<listitem
+><para
+>Päringud</para
+></listitem>
+<listitem
+><para
+>Vormid</para
+></listitem>
+<listitem
+><para
+>Skriptid</para
+></listitem>
+<listitem
+><para
+>Aruanded</para
+></listitem>
+</itemizedlist>
+<para
+>Järgmised omadused on testimata: </para>
+<itemizedlist>
+<listitem
+><para
+>Binaarobjektide import</para
+></listitem>
+</itemizedlist>
+</sect2>
+</sect1>
+</chapter>
+<chapter id="credits-and-license"
+><title
+>Autorid ja litsents</title
+> 
+<para
+>&kexi; autoriõigus 2002-2012: Kexi meeskond </para>
+<para
+>Kexi arendajad: </para>
+<itemizedlist>
+<listitem
+><para
+>Jaroslaw Staniek (staniek kde.org)</para
+></listitem>
+<listitem
+><para
+>OpenOffice Polska, LLC (info openoffice.com.pl)</para
+></listitem>
+<listitem
+><para
+>Lucijan Busch (lucijan kde.org)</para
+></listitem>
+<listitem
+><para
+>Cedric Pasteur (cedric.pasteur free.fr)</para
+></listitem>
+<listitem
+><para
+>Adam Pigg (adam piggz.fsnet.co.uk)</para
+></listitem>
+<listitem
+><para
+>Martin Ellis (martin.ellis kdemail.net)</para
+></listitem>
+<listitem
+><para
+>Sebastian Sauer (mail dipe.org)</para
+></listitem>
+<listitem
+><para
+>Christian Nitschkowski (segfault_ii web.de)</para
+></listitem>
+<listitem
+><para
+>Peter Simonsson (psn linux.se)</para
+></listitem>
+<listitem
+><para
+>Joseph Wenninger (jowenn kde.org)</para
+></listitem>
+<listitem
+><para
+>Seth Kurzenberg (seth cql.com)</para
+></listitem>
+<listitem
+><para
+>Laurent Montel (montel kde.org)</para
+></listitem>
+<listitem
+><para
+>Till Busch (till bux.at)</para
+></listitem>
+</itemizedlist>
+<para
+>Dokumentatsioon: Martin A. Ellis (martin.ellis kdemail.net) ja Jaroslaw Staniek (staniek kde.org) Anne-Marie Mahfoufi, Raphael Langerhorsti, Michal Kubicki ja Aron Stansviki kaasabiga. </para>
+<para
+>Käesolevat programmi levitatakse vastavalt <ulink url="http://docs.kde.org/stable/common/lgpl-license.html"
+>GNU Lesser General Public License'i</ulink
+> tingimustele. </para>
+
+<!--userbase-content-->
+<para
+>Tõlge eesti keelde: Marek Laane <email
+>bald@smail.ee</email
+></para
+>  &underFDL; </chapter>
+&documentation.index;
+</book>

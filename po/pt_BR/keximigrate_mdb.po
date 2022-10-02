@@ -1,0 +1,43 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:41+0200\n"
+"PO-Revision-Date: 2016-08-31 19:24-0300\n"
+"Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
+"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: src/keximdb/mdbmigrate.cpp:51
+#, kde-kuit-format
+msgid "Character Encoding of Source Database Is Not of Unicode Standard"
+msgstr ""
+"A codificação de caracteres do bando de dados fonte não é no padrão Unicode"
+
+#: src/keximdb/mdbmigrate.cpp:53
+#, kde-kuit-format
+msgid "Source Database Non-Unicode Character Encoding"
+msgstr "Codificação de caracteres não Unicode no banco de dados fonte"
+
+#, fuzzy
+#~| msgid "Character Encoding of Source Database Is Not of Unicode Standard"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Character Encoding of Source Database Is Not of Unicode Standard"
+#~ msgstr ""
+#~ "A codificação de caracteres do bando de dados fonte não é no padrão "
+#~ "Unicode"
+
+#, fuzzy
+#~| msgid "Source Database Non-Unicode Character Encoding"
+#~ msgctxt "(qtundo-format)"
+#~ msgid "Source Database Non-Unicode Character Encoding"
+#~ msgstr "Codificação de caracteres não Unicode no banco de dados fonte"

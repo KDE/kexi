@@ -1,0 +1,63 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Volkan Gezer <volkangezer@gmail.com>, 2013, 2015.
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: calligra-kde4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:41+0200\n"
+"PO-Revision-Date: 2022-09-14 20:43+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 22.08.0\n"
+
+#: MapBrowserFactory.cpp:48
+#, kde-kuit-format
+msgid "Map Browser"
+msgstr "Harita Tarayıcı"
+
+#: MapBrowserFactory.cpp:57
+#, kde-format
+msgctxt ""
+"A prefix for identifiers of map browser widgets. Based on that, identifiers "
+"such as mapBrowser1, mapBrowser2 are generated. This string can be used to "
+"refer the widget object as variables in programming languages or macros so "
+"it must _not_ contain white spaces and non latin1 characters, should start "
+"with lower case letter and if there are subsequent words, these should start "
+"with upper case letter. Example: smallCamelCase. Moreover, try to make this "
+"prefix as short as possible."
+msgid "mapBrowser"
+msgstr "haritaTarayici"
+
+#: MapBrowserFactory.cpp:58
+#, kde-kuit-format
+msgid "Displays an interactive map."
+msgstr "Interaktif bir harita görüntüler."
+
+#: MapBrowserFactory.cpp:118 MapBrowserFactory.cpp:119
+#, kde-kuit-format
+msgid "Latitude"
+msgstr "Enlem"
+
+#: MapBrowserFactory.cpp:129 MapBrowserFactory.cpp:130
+#, kde-kuit-format
+msgid "Longitude"
+msgstr "Boylam"
+
+#: MapBrowserFactory.cpp:143 MapBrowserFactory.cpp:144
+#, kde-kuit-format
+msgid "Theme"
+msgstr "Tema"
+
+#: MapBrowserFactory.cpp:151 MapBrowserFactory.cpp:152
+#, kde-kuit-format
+msgid "Zoom"
+msgstr "Yakınlaştır"

@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kdeorg\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:41+0200\n"
+"PO-Revision-Date: 2022-09-20 01:55\n"
+"Last-Translator: \n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: kdeorg\n"
+"X-Crowdin-Project-ID: 269464\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: /kf5-trunk/messages/kexi/keximigrate_mdb.pot\n"
+"X-Crowdin-File-ID: 5478\n"
+
+#: src/keximdb/mdbmigrate.cpp:51
+#, kde-kuit-format
+msgid "Character Encoding of Source Database Is Not of Unicode Standard"
+msgstr "源数据库的字符编码不符合 Unicode 标准"
+
+#: src/keximdb/mdbmigrate.cpp:53
+#, kde-kuit-format
+msgid "Source Database Non-Unicode Character Encoding"
+msgstr "源数据库非 Unicode 字符编码"

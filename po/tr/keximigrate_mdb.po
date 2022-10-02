@@ -1,0 +1,29 @@
+# POT_PART_NORMAL only
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: keximigrate_mdb\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:41+0200\n"
+"PO-Revision-Date: 2022-09-14 20:43+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 22.08.0\n"
+
+#: src/keximdb/mdbmigrate.cpp:51
+#, kde-kuit-format
+msgid "Character Encoding of Source Database Is Not of Unicode Standard"
+msgstr "Kaynak Veritabanının Karakter Kodlaması Unicode Standardında Değil"
+
+#: src/keximdb/mdbmigrate.cpp:53
+#, kde-kuit-format
+msgid "Source Database Non-Unicode Character Encoding"
+msgstr "Kaynak Veritabanı Unicode Olmayan Karakter Kodlaması"
