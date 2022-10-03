@@ -555,7 +555,7 @@ msgstr ""
 msgctxt "'design-mode' command line option"
 msgid "Start project in Design Mode, regardless of the project settings."
 msgstr ""
-"Inicia projecte en mode disseny, malgrat el que hi haja a la configuració "
+"Inicia projecte en mode disseny, malgrat el que hi haja en la configuració "
 "del projecte."
 
 #: core/KexiCommandLineOptions.cpp:88
@@ -1084,8 +1084,8 @@ msgid ""
 "Could not delete this project. Database connection for this project has been "
 "opened as read only."
 msgstr ""
-"No s'ha pogut suprimir este projecte. La connexió a la base de dades d'este "
-"projecte s'ha obert només per a lectura."
+"No s'ha pogut suprimir este projecte. La connexió amb la base de dades "
+"d'este projecte s'ha obert només per a lectura."
 
 #: core/kexiproject.cpp:1526
 #, kde-kuit-format
@@ -3816,7 +3816,7 @@ msgstr "Espereu mentre es crea el projecte."
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Database Connection"
-msgstr "Connexió a la base de dades"
+msgstr "Connexió amb la base de dades"
 
 #: main/startup/KexiNewProjectAssistant.cpp:336
 #, kde-kuit-format
@@ -4970,7 +4970,7 @@ msgstr ""
 #: migration/keximigrate.cpp:403
 #, kde-kuit-format
 msgid "No tables have been found in database %1."
-msgstr "No s'han trobat taules a la base de dades %1."
+msgstr "No s'han trobat taules en la base de dades %1."
 
 #: migration/keximigrate.cpp:463
 #, kde-kuit-format
@@ -6676,7 +6676,7 @@ msgstr "Des del porta-retalls"
 #, kde-kuit-format
 msgctxt "@label Importing CSV data to table:"
 msgid "To table:"
-msgstr "A la taula:"
+msgstr "En la taula:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:810
 #, kde-kuit-format
@@ -7523,7 +7523,7 @@ msgid ""
 "page or use HTML tables?</para><para><note>CSS give output closer to the "
 "original.</note></para>"
 msgstr ""
-"<para>Preferiu utilitzar fulls d'estil en cascada (CSS) a la pàgina web "
+"<para>Preferiu utilitzar fulls d'estil en cascada (CSS) en la pàgina web "
 "exportada o utilitzar taules HTML?</para><para><note>Els CSS proporcionen "
 "una eixida més fidel amb l'original.</note></para>"
 
@@ -8371,7 +8371,7 @@ msgstr "Afig una connexió nova a una base de dades"
 #: widget/KexiConnectionSelectorWidget.cpp:63
 #, kde-kuit-format
 msgid "Edit selected database connection"
-msgstr "Edita la connexió a la base de dades seleccionada"
+msgstr "Edita la connexió amb la base de dades seleccionada"
 
 #: widget/KexiConnectionSelectorWidget.cpp:64
 #, kde-kuit-format
@@ -8430,8 +8430,8 @@ msgid ""
 "Do you want to delete database connection <resource>%1</resource> from the "
 "list of available connections?"
 msgstr ""
-"Voleu suprimir la connexió a la base de dades <resource>%1</resource> de la "
-"llista de connexions disponibles?"
+"Voleu suprimir la connexió amb la base de dades <resource>%1</resource> de "
+"la llista de connexions disponibles?"
 
 #: widget/KexiDataSourceComboBox.cpp:125
 #, kde-kuit-format
@@ -8494,7 +8494,7 @@ msgstr "&Prova de connexió"
 #: widget/kexidbconnectionwidget.cpp:117
 #, kde-kuit-format
 msgid "Test database connection"
-msgstr "Prova de la connexió a la base de dades"
+msgstr "Prova de la connexió amb la base de dades"
 
 #: widget/kexidbconnectionwidget.cpp:118
 #, kde-kuit-format
@@ -9000,7 +9000,7 @@ msgstr "Objecte de disseny en vista de text"
 #: widget/navigator/KexiProjectNavigator.cpp:195
 #, kde-kuit-format
 msgid "Starts designing of the object in the list in text view."
-msgstr "Inicia el disseny de l'objecte a la llista en vista de text."
+msgstr "Inicia el disseny de l'objecte en la llista en vista de text."
 
 #: widget/navigator/KexiProjectNavigator.cpp:209
 #, kde-kuit-format
