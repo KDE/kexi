@@ -28,6 +28,7 @@
 #include <KDbUtils>
 
 #include <KActionCollection>
+#include <KDirOperator>
 #include <KFile>
 #include <KFileFilterCombo>
 #include <KLocalizedString>
@@ -74,7 +75,7 @@ KexiFileWidget::KexiFileWidget(const QUrl &startDirOrVariable, KexiFileFilters::
     , d(new Private)
 {
     setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-    QAction *previewAction = actionCollection()->action("preview");
+    QAction *previewAction = dirOperator()->actionCollection()->action("preview");
     if (previewAction) {
         previewAction->setChecked(false);
     }
