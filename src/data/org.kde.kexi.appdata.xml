@@ -18,6 +18,7 @@
   <name xml:lang="ia">KEXI</name>
   <name xml:lang="id">KEXI</name>
   <name xml:lang="it">KEXI</name>
+  <name xml:lang="ka">KEXI</name>
   <name xml:lang="ko">KEXI</name>
   <name xml:lang="nl">KEXI</name>
   <name xml:lang="pl">KEXI</name>
@@ -106,6 +107,7 @@
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="ja">機能:</p>
+    <p xml:lang="ka">თვისებები:</p>
     <p xml:lang="ko">기능:</p>
     <p xml:lang="nb">Funksjoner:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
@@ -397,6 +399,7 @@
       <caption xml:lang="ia">Vista a tabellas</caption>
       <caption xml:lang="id">Tampilan tabular</caption>
       <caption xml:lang="it">Vista tabellare</caption>
+      <caption xml:lang="ka">ჩანართებიანი ხედი</caption>
       <caption xml:lang="ko">표 형식 보기</caption>
       <caption xml:lang="nl">Tabelweergave</caption>
       <caption xml:lang="pl">Widok tabeli</caption>
@@ -427,6 +430,7 @@
       <caption xml:lang="ia">Designator de Query</caption>
       <caption xml:lang="id">Pendesain Queri</caption>
       <caption xml:lang="it">Strumento di progettazione delle query</caption>
+      <caption xml:lang="ka">მოთხოვნის დიზაინერ</caption>
       <caption xml:lang="ko">질의 디자이너</caption>
       <caption xml:lang="nl">Ontwerper van query</caption>
       <caption xml:lang="pl">Opracowywanie zapytań</caption>
@@ -457,6 +461,7 @@
       <caption xml:lang="ia">Editor SQL</caption>
       <caption xml:lang="id">Pengedit SQL</caption>
       <caption xml:lang="it">Editor SQL</caption>
+      <caption xml:lang="ka">SQL რედაქტორი</caption>
       <caption xml:lang="ko">SQL 편집기</caption>
       <caption xml:lang="nl">SQL-bewerker</caption>
       <caption xml:lang="pl">Edytor SQL</caption>
@@ -489,6 +494,7 @@
       <caption xml:lang="id">Pendesain Formulir</caption>
       <caption xml:lang="it">Progettazione moduli</caption>
       <caption xml:lang="ja">フォームデザイナー</caption>
+      <caption xml:lang="ka">ფორმის დიზაინერი</caption>
       <caption xml:lang="ko">양식 디자이너</caption>
       <caption xml:lang="nb">Skjemautformer</caption>
       <caption xml:lang="nl">Ontwerper van formulieren</caption>
@@ -520,6 +526,7 @@
       <caption xml:lang="ia">Designator de Reporto</caption>
       <caption xml:lang="id">Pendesain Laporan</caption>
       <caption xml:lang="it">Strumento di progettazione di report</caption>
+      <caption xml:lang="ka">ანგარიშის დიზაინერი</caption>
       <caption xml:lang="ko">보고서 디자이너</caption>
       <caption xml:lang="nl">Ontwerper van rapporten</caption>
       <caption xml:lang="pl">Opracowywanie sprawozdań</caption>
@@ -550,6 +557,7 @@
       <caption xml:lang="ia">Importation de base de datos MS Access</caption>
       <caption xml:lang="id">Impor database MS Access</caption>
       <caption xml:lang="it">Importazione banca dati MS Access</caption>
+      <caption xml:lang="ka">ბაზის შემოტანა MS Access-დან</caption>
       <caption xml:lang="ko">MS Access 데이터베이스 가져오기</caption>
       <caption xml:lang="nl">Importeren van MS Access database</caption>
       <caption xml:lang="pl">Importowanie bazy danych MS Access</caption>
