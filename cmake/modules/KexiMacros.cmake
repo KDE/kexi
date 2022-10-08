@@ -227,7 +227,11 @@ endfunction()
 # - sets it read-only in the source directory
 # - installs to ${KEXI_EXAMPLES_INSTALL_DIR} as read-only for everyone
 macro(kexi_add_example_project _path)
-    kexi_set_file_read_only(${_path})
+    #DISABLED - source code should not be modified even regarding the read-only flag
+    #TODO: port the shell scripts from src/examples to cmake to generate .kexi file(s)
+    #      into build dirs and remove the .kexi example files from git. Keep .kexi.sql only in git.
+    #kexi_set_file_read_only(${_path})
+
     install(FILES ${_path} DESTINATION ${KEXI_EXAMPLES_INSTALL_DIR}
             PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
 endmacro()
