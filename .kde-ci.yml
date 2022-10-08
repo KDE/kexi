@@ -21,6 +21,7 @@ Dependencies:
     'frameworks/kcrash': '@stable'
     'frameworks/kdoctools': '@stable'
     'frameworks/breeze-icons': '@stable'
+    'plasma/breeze': '@stable'
     'libraries/kdb': '@same'
     'libraries/kreport': '@same'
     'libraries/kproperty': '@same'
