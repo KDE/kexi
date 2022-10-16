@@ -7,13 +7,13 @@
 # Ilpo Kantonen <ilpo@iki.fi>, 2005, 2006.
 # Mikko Piippo <piippo@cc.helsinki.fi>, 2007.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2011, 2012, 2013, 2014, 2015, 2016.
-# Tommi Nieminen <translator@legisign.org>, 2012, 2014, 2018, 2020, 2021.
+# Tommi Nieminen <translator@legisign.org>, 2012, 2014, 2018, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-09-30 00:45+0000\n"
-"PO-Revision-Date: 2021-01-04 19:11+0200\n"
+"PO-Revision-Date: 2022-08-19 14:21+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-POT-Import-Date: 2013-01-13 22:09:41+0000\n"
-"X-Generator: Lokalize 20.04.2\n"
+"X-Generator: Lokalize 20.12.0\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -202,7 +202,7 @@ msgstr "Lorenzo Villani"
 #: core/kexiaboutdata.cpp:68
 #, kde-kuit-format
 msgid "Web Forms module"
-msgstr "Web-lomakkeiden moduuli"
+msgstr "Verkkolomakemoduuli"
 
 #: core/kexiaboutdata.cpp:70
 #, kde-kuit-format
@@ -216,7 +216,7 @@ msgid ""
 "improvements for KexiDB"
 msgstr ""
 "Sybase/MS SQL Server/ODBC-tietokanta-ajurit, xBase-siirrosliitännäinen, "
-"parannukset KexiDB:hen"
+"KexiDB-parannukset"
 
 #: core/kexiaboutdata.cpp:72
 #, kde-kuit-format
@@ -347,7 +347,7 @@ msgstr "Lukuisa määrä vikailmoituksia ja testejä"
 #: core/kexiaboutdata.cpp:97
 #, kde-kuit-format
 msgid "AppImage packages for Linux"
-msgstr "AppImage-paketit Linuxiin"
+msgstr "Linuxin AppImage-paketit"
 
 #: core/kexiaboutdata.cpp:97
 #, kde-kuit-format
@@ -576,20 +576,7 @@ msgstr ""
 "tilassa."
 
 #: core/KexiCommandLineOptions.cpp:97
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "\n"
-#| "Open object of type 'object_type'\n"
-#| "and name 'object_name' from specified project\n"
-#| "on application start.\n"
-#| "'object_type' is optional, if omitted - table\n"
-#| "type is assumed.\n"
-#| "Other object types can be query, report, form,\n"
-#| "script (may be more or less, depending on your\n"
-#| "plugins installed).\n"
-#| "Use \"\" chars to specify names containing spaces.\n"
-#| "Examples: --open MyTable,\n"
-#| " --open query:\"My very big query\""
+#, kde-kuit-format
 msgctxt "'open' command line option"
 msgid ""
 "Open object of type 'object_type' and name 'object_name' from specified "
@@ -599,18 +586,12 @@ msgid ""
 "Use \"\" characters to specify names containing spaces.\n"
 "Examples: --open MyTable, --open %2:\"My very big query\""
 msgstr ""
-"\n"
-"Avaa oliot, joiden tyyppi on ”olion_tyyppi”\n"
-"ja nimi ”olion_nimi”, määritetystä projektista\n"
-"sovellusta käynnistettäessä.\n"
-"”olion_tyyppi” on valinnainen. Ellei sitä anneta\n"
-"oletetaan taulukkotyyppi.\n"
-"Muut oliotyypit ovat kysely, raportti, lomake,\n"
-"komentojono (voi olla useampiakin asennetuista\n"
-"liitännäisistä riippuen).\n"
+"Avaa sovellusta käynnistettäessä annetusta projektista oliot, joiden tyyppi "
+"on ”olion_tyyppi” ja nimi ”olion_nimi”. ”olion_tyyppi” on valinnainen; ellei "
+"sitä anneta, oletus on %1. Muut oliotyypit ovat %2, %3, %4, %5 sekä "
+"asennettujen KEXI-liitännäisten mukaan muitakin.\n"
 "Ympäröi välilyöntejä sisältävät nimet lainausmerkein.\n"
-"Esimerkki: --open MinunTaulukkoni,\n"
-" --open query:\"Oma hyvin suuri kyselyni\""
+"Esimerkki: --open MinunTaulukkoni, --open %2:\"Hyvin suuri kysely\""
 
 #: core/KexiCommandLineOptions.cpp:108
 #, kde-kuit-format
@@ -1137,15 +1118,13 @@ msgstr ""
 "ryhmässä <resource>%2</resource>."
 
 #: core/kexiprojectdata.cpp:241
-#, fuzzy, kde-kuit-format
-#| msgctxt "(qtundo-format)"
-#| msgid ""
-#| "Set <resource>%1</resource> property for field <resource>%2</resource>"
+#, kde-kuit-format
 msgid ""
 "No valid \"engine\" field specified in group <resource>%1</resource> of file "
 "<filename>%2</filename>."
 msgstr ""
-"Aseta ominaisuus <resource>%1</resource> kentälle <resource>%2</resource>"
+"Tiedoston <filename>%2</filename> ryhmä <resource>%1</resource> ei määritä "
+"kelvollista ”moottori”-kenttää."
 
 #: core/KexiRecentProjects.cpp:79
 #, kde-kuit-format
@@ -1249,7 +1228,7 @@ msgstr "Peruu tehdyt muutokset nykyiseen rakenteeseen"
 #, kde-kuit-format
 msgctxt "@action:button Visual Design"
 msgid "Visual"
-msgstr ""
+msgstr "Visuaalinen"
 
 #: core/KexiWindow.cpp:90
 #, kde-kuit-format
