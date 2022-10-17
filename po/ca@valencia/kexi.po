@@ -2130,16 +2130,16 @@ msgstr "Tanca la vista"
 msgid ""
 "&Select action to be executed after clicking <resource>%1</resource> button:"
 msgstr ""
-"&Selecciona l'acció a executar després de clicar el botó <resource>%1</"
-"resource>:"
+"&Selecciona l'acció que s'ha d'executar després de clicar el botó <resource>"
+"%1</resource>:"
 
 #: formeditor/kexiactionselectiondialog.cpp:379
 #, kde-kuit-format
 msgid ""
 "&Select macro to be executed after clicking <resource>%1</resource> button:"
 msgstr ""
-"&Selecciona la macro a executar després de clicar el botó <resource>%1</"
-"resource>:"
+"&Selecciona la macro que s'ha d'executar després de clicar el botó <resource>"
+"%1</resource>:"
 
 #: formeditor/kexiactionselectiondialog.cpp:382
 #, kde-kuit-format
@@ -2154,8 +2154,8 @@ msgstr ""
 msgid ""
 "&Select object to be opened after clicking <resource>%1</resource> button:"
 msgstr ""
-"&Selecciona l'objecte a obrir després de clicar el botó <resource>%1</"
-"resource>:"
+"&Selecciona l'objecte que s'ha d'obrir després de clicar el botó <resource>"
+"%1</resource>:"
 
 #: formeditor/kexiactionselectiondialog.cpp:439
 #, kde-kuit-format
@@ -2171,7 +2171,7 @@ msgstr "Categoria d'acció:"
 #: formeditor/kexiactionselectiondialog.cpp:522
 #, kde-kuit-format
 msgid "Action to execute:"
-msgstr "Acció a executar:"
+msgstr "Acció que s'ha d'executar:"
 
 #: formeditor/kexiactionselectiondialog.cpp:533
 #, kde-kuit-format
@@ -3879,7 +3879,8 @@ msgstr "Suprimix i crea una nova"
 #: main/startup/KexiOpenExistingFile.ui:31
 #, kde-format
 msgid "<b>Select existing KEXI project file to open:</b>\n"
-msgstr "<b>Seleccioneu un fitxer de projecte KEXI existent a obrir:</b>\n"
+msgstr ""
+"<b>Seleccioneu un fitxer de projecte KEXI existent que s'ha d'obrir:</b>\n"
 
 #. i18n: ectx: property (text), widget (QPushButton, btn_advanced)
 #: main/startup/KexiOpenExistingFile.ui:89
@@ -3911,8 +3912,8 @@ msgid ""
 "Select project to open. You can choose project stored in file or on database "
 "server."
 msgstr ""
-"Seleccioneu un projecte a obrir. Podeu seleccionar un projecte emmagatzemat "
-"en un fitxer o en un servidor de bases de dades."
+"Seleccioneu un projecte que s'obrirà. Podeu seleccionar un projecte "
+"emmagatzemat en un fitxer o en un servidor de bases de dades."
 
 #: main/startup/KexiOpenProjectAssistant.cpp:57
 #, kde-kuit-format
@@ -3950,7 +3951,7 @@ msgctxt "@info"
 msgid "Select project on database server <resource>%1 (%2)</resource> to open."
 msgstr ""
 "Seleccioneu un projecte en el servidor de bases de dades <resource>%1 (%2)</"
-"resource> a obrir."
+"resource> que s'obrirà."
 
 #: main/startup/KexiPasswordPage.cpp:44
 #, kde-kuit-format
@@ -4586,7 +4587,7 @@ msgstr "Seleccioneu la base de dades d'origen"
 #: migration/importtablewizard.cpp:227
 #, kde-kuit-format
 msgid "Select the Table to Import"
-msgstr "Seleccioneu la taula que s'importarà"
+msgstr "Seleccioneu la taula que s'ha d'importar"
 
 #: migration/importtablewizard.cpp:255 migration/importwizard.cpp:473
 #, kde-kuit-format
@@ -4695,7 +4696,7 @@ msgstr "No hi ha cap projecte disponible."
 #: migration/importtablewizard.cpp:708
 #, kde-kuit-format
 msgid "No table was selected to import."
-msgstr "No s'ha seleccionat cap taula a importar."
+msgstr "No s'ha seleccionat cap taula per a importar."
 
 #: migration/importtablewizard.cpp:725
 #, kde-kuit-format
@@ -6560,7 +6561,7 @@ msgstr "S'estan carregant les dades CSV"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:583
 #, kde-kuit-format
 msgid "Select Import Filename"
-msgstr "Seleccioneu el nom de fitxer per a importar"
+msgstr "Seleccioneu el nom de fitxer que s'ha d'importar"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:593
 #, kde-kuit-format
