@@ -68,7 +68,8 @@ private:
 class FormPrivate
 {
 public:
-    FormPrivate(Form *form, WidgetLibrary* _library);
+    FormPrivate(Form *form, WidgetLibrary *library, Form::Mode mode, KActionCollection &col,
+                KFormDesigner::ActionGroup &group);
     ~FormPrivate();
 
     void enableAction(const char* name, bool enable);
@@ -113,13 +114,10 @@ public:
     KUndo2Stack undoStack;
     KActionCollection internalCollection;
     KActionCollection *collection;
-    KFormDesigner::ActionGroup* widgetActionGroup;
+    QPointer<KFormDesigner::ActionGroup> widgetActionGroup;
 
     ObjectTreeList  tabstops;
     bool autoTabstops;
-#ifdef KFD_SIGSLOTS
-    ConnectionBuffer  *connBuffer;
-#endif
 
 #ifdef KEXI_PIXMAP_COLLECTIONS_SUPPORT
     PixmapCollection  *pixcollection;
@@ -128,10 +126,7 @@ public:
     //! This map is used to store cursor shapes before inserting (so we can restore them later)
     QHash<QObject*, QCursor> cursors;
 
-    //! This string list is used to store the widgets which hasMouseTracking() == true (eg lineedits)
-    QStringList *mouseTrackers;
-
-    FormWidget  *formWidget;
+    FormWidget *formWidget;
 
     //! A set of head properties to be stored in a .ui file.
     //! This includes KFD format version.
@@ -143,6 +138,11 @@ public:
     QString originalFormatVersion;
 
 #ifdef KFD_SIGSLOTS
+    ConnectionBuffer  *connBuffer;
+
+    //! This string list is used to store the widgets which hasMouseTracking() == true (eg lineedits)
+    QStringList *mouseTrackers;
+
     //! true if slot connection is curently being painted
     Connection *connection;
 #endif

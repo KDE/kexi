@@ -71,7 +71,7 @@ class KexiRecordNavigatorRecordNumberEditor : public QLineEdit
     Q_OBJECT
 
 public:
-    KexiRecordNavigatorRecordNumberEditor(QWidget *parent)
+    explicit KexiRecordNavigatorRecordNumberEditor(QWidget *parent)
         : QLineEdit(parent)
     {
         // Set transparent base, actual base will be custom-painted in paintEvent()

@@ -47,7 +47,7 @@ KexiObjectInfoLabel::KexiObjectInfoLabel(QWidget* parent)
     hlyr->setSpacing(2);
     d->objectIconLabel = new QLabel(this);
     d->objectIconLabel->setMargin(2);
-    setMinimumHeight(IconSize(KIconLoader::Small) + 2 + 2);
+    setMinimumHeight(KIconLoader::global()->currentSize(KIconLoader::Small) + 2 + 2);
     hlyr->addWidget(d->objectIconLabel);
     d->objectNameLabel = new QLabel(this);
     d->objectNameLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
@@ -71,11 +71,11 @@ void KexiObjectInfoLabel::setObjectClassIconName(const QString &iconName)
         d->objectIconLabel->setFixedWidth(0);
     }
     else {
-        d->objectIconLabel->setFixedWidth(IconSize(KIconLoader::Small) + 2 + 2);
+        d->objectIconLabel->setFixedWidth(KIconLoader::global()->currentSize(KIconLoader::Small) + 2 + 2);
     }
     const QIcon icon(QIcon::fromTheme(iconName));
     d->objectIconLabel->setPixmap(
-        icon.pixmap(IconSize(KIconLoader::Small)));
+        icon.pixmap(KIconLoader::global()->currentSize(KIconLoader::Small)));
 }
 
 QString KexiObjectInfoLabel::objectClassName() const

@@ -136,7 +136,7 @@ KexiLookupColumnPage::KexiLookupColumnPage(QWidget *parent)
     d->mainLyr->addLayout(hlyr);
     d->rowSourceLabel = new QLabel(xi18n("Record source:"));
     d->rowSourceLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
-    d->rowSourceLabel->setMinimumHeight(IconSize(KIconLoader::Small) + 4);
+    d->rowSourceLabel->setMinimumHeight(KIconLoader::global()->currentSize(KIconLoader::Small) + 4);
     d->rowSourceLabel->setAlignment(Qt::AlignLeft | Qt::AlignBottom);
     hlyr->addWidget(d->rowSourceLabel);
     hlyr->addStretch();
@@ -157,7 +157,7 @@ KexiLookupColumnPage::KexiLookupColumnPage(QWidget *parent)
     //- Bound Column
     d->boundColumnLabel = new QLabel(xi18n("Bound column:"));
     d->boundColumnLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
-    d->boundColumnLabel->setMinimumHeight(IconSize(KIconLoader::Small) + 4);
+    d->boundColumnLabel->setMinimumHeight(KIconLoader::global()->currentSize(KIconLoader::Small) + 4);
     d->boundColumnLabel->setAlignment(Qt::AlignLeft | Qt::AlignBottom);
     d->mainLyr->addWidget(d->boundColumnLabel);
 
@@ -171,7 +171,7 @@ KexiLookupColumnPage::KexiLookupColumnPage(QWidget *parent)
     //- Visible Column
     d->visibleColumnLabel = new QLabel(xi18n("Visible column:"));
     d->visibleColumnLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
-    d->visibleColumnLabel->setMinimumHeight(IconSize(KIconLoader::Small) + 4);
+    d->visibleColumnLabel->setMinimumHeight(KIconLoader::global()->currentSize(KIconLoader::Small) + 4);
     d->visibleColumnLabel->setAlignment(Qt::AlignLeft | Qt::AlignBottom);
     d->mainLyr->addWidget(d->visibleColumnLabel);
 

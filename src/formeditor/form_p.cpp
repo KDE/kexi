@@ -139,11 +139,25 @@ QStyleOption* DesignModeStyle::alterOption(ControlElement element, const QStyleO
 
 //--------------
 
-FormPrivate::FormPrivate(Form *form, WidgetLibrary* _library)
- : state(Form::WidgetSelecting)
- , internalCollection(static_cast<QObject*>(0))
- , library(_library)
- , q(form)
+FormPrivate::FormPrivate(Form *form, WidgetLibrary *_library, Form::Mode _mode,
+                         KActionCollection &col, KFormDesigner::ActionGroup &group)
+    : mode(_mode)
+    , state(Form::WidgetSelecting)
+    , internalCollection(static_cast<QObject *>(nullptr))
+    , collection(&col)
+    , widgetActionGroup(&group)
+#ifdef KEXI_PIXMAP_COLLECTIONS_SUPPORT
+    , pixcollection(nullptr)
+#endif
+    , formWidget(nullptr)
+    , formatVersion(KFormDesigner::version())
+    , originalFormatVersion(KFormDesigner::version())
+#ifdef KFD_SIGSLOTS
+    , mouseTrackers(nullptr)
+    , connection(nullptr)
+#endif
+    , library(_library)
+    , q(form)
 {
     toplevel = 0;
     topTree = 0;
@@ -158,8 +172,6 @@ FormPrivate::FormPrivate(Form *form, WidgetLibrary* _library)
 #ifdef KFD_SIGSLOTS
     connBuffer = new ConnectionBuffer();
 #endif
-    formatVersion = KFormDesigner::version();
-    originalFormatVersion = KFormDesigner::version();
     lastCommand = 0;
     lastCommandGroup = 0;
     isUndoing = false;
@@ -171,6 +183,10 @@ FormPrivate::FormPrivate(Form *form, WidgetLibrary* _library)
     idOfPropertyCommand = 0;
     selectWidgetEnabled = true;
     pixmapsStoredInline = false;
+    QObject::connect(&propertySet, SIGNAL(propertyChanged(KPropertySet &, KProperty &)), q,
+                     SLOT(slotPropertyChanged(KPropertySet &, KProperty &)));
+    QObject::connect(&propertySet, SIGNAL(propertyReset(KPropertySet &, KProperty &)), q,
+                     SLOT(slotPropertyReset(KPropertySet &, KProperty &)));
 }
 
 FormPrivate::~FormPrivate()

@@ -28,7 +28,7 @@
 #include <QLineEdit>
 
 #include <KIconLoader>
-#include <KIO/PixmapLoader>
+#include <KIO/Global>
 #include <KLocalizedString>
 
 #include <kexi_global.h>
@@ -210,8 +210,7 @@ void KexiCSVCommentWidget::slotcommentSymbolChanged(int index)
 
 void KexiCSVCommentWidget::slotcommentSymbolChangedInternal(int index)
 {
-    bool changed = false;
-    changed = d->commentSymbol != d->availablecommentSymbols[index];
+    bool changed = d->commentSymbol != d->availablecommentSymbols[index];
     d->commentSymbol = d->availablecommentSymbols[index];
     if (changed)
       emit commentSymbolChanged(d->commentSymbol);
@@ -327,8 +326,8 @@ void KexiCSVInfoLabel::setFileName(const QString& fileName)
         return;
     d->fnameLbl->setText(QDir::toNativeSeparators(fileName));
     if (!fileName.isEmpty()) {
-        d->iconLbl->setPixmap(
-            KIO::pixmapForUrl(QUrl::fromLocalFile(fileName), 0, KIconLoader::Desktop));
+        d->iconLbl->setPixmap(KIconLoader::global()->loadMimeTypeIcon(
+            KIO::iconNameForUrl(QUrl::fromLocalFile(fileName)), KIconLoader::Desktop));
     }
 }
 

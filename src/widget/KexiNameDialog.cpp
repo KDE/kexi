@@ -213,7 +213,8 @@ void KexiNameDialog::accept()
 
 void KexiNameDialog::setDialogIcon(const QString &iconName)
 {
-    d->icon->setPixmap(DesktopIcon(iconName, KIconLoader::SizeMedium));
+    d->icon->setPixmap(
+        KIconLoader::global()->loadIcon(iconName, KIconLoader::Desktop, KIconLoader::SizeMedium));
 }
 
 void KexiNameDialog::showEvent(QShowEvent * event)

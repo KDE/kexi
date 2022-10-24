@@ -573,7 +573,7 @@ void KexiRelationsScrollArea::slotTableViewGotFocus()
         return;
     //qDebug() << "GOT FOCUS!";
     clearSelection();
-    d->focusedTableContainer = (KexiRelationsTableContainer*)sender();
+    d->focusedTableContainer = dynamic_cast<KexiRelationsTableContainer*>(sender());
     emit tableViewGotFocus();
 }
 

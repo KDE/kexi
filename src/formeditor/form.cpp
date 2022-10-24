@@ -60,38 +60,22 @@
 
 using namespace KFormDesigner;
 
-Form::Form(WidgetLibrary* library, Mode mode, KActionCollection &col, ActionGroup& group)
-        : QObject(library)
-        , d( new FormPrivate(this, library) )
+Form::Form(WidgetLibrary *library, Mode mode, KActionCollection &col, ActionGroup &group)
+    : QObject(library), d(new FormPrivate(this, library, mode, col, group))
 {
-    init(mode, col, group);
 }
 
 Form::Form(Form *parent)
-        : QObject(parent->library())
-        , d( new FormPrivate(this, parent->library()) )
+    : QObject(parent->library())
+    , d(new FormPrivate(this, parent->library(), parent->mode(), *parent->actionCollection(),
+                        *parent->widgetActionGroup()))
 {
-    init(parent->mode(), *parent->actionCollection(), *parent->widgetActionGroup());
 }
 
 Form::~Form()
 {
     emit destroying();
     delete d;
-}
-
-void Form::init(Mode mode, KActionCollection &col, KFormDesigner::ActionGroup &group)
-{
-    d->mode = mode;
-    d->features = 0;
-    d->widgetActionGroup = &group;
-
-    connect(&d->propertySet, SIGNAL(propertyChanged(KPropertySet&,KProperty&)),
-            this, SLOT(slotPropertyChanged(KPropertySet&,KProperty&)));
-    connect(&d->propertySet, SIGNAL(propertyReset(KPropertySet&,KProperty&)),
-            this, SLOT(slotPropertyReset(KPropertySet&,KProperty&)));
-
-    d->collection = &col;
 }
 
 WidgetLibrary* Form::library() const
@@ -2244,7 +2228,7 @@ void Form::saveAlignProperty(const QString &property)
     WidgetWithSubpropertiesInterface* subpropIface
         = dynamic_cast<WidgetWithSubpropertiesInterface*>(d->selected.first());
     QWidget *subwidget = (subpropIface && subpropIface->subwidget())
-                         ? subpropIface->subwidget() : (QWidget*)d->selected.first();
+                         ? subpropIface->subwidget() : static_cast<QWidget*>(d->selected.first());
     int count = subwidget->metaObject()->indexOfProperty("alignment");
     const QMetaProperty meta( subwidget->metaObject()->property(count) );
     const int valueForKeys = meta.enumerator().keysToValue(list.join("|").toLatin1());

@@ -200,7 +200,6 @@ KexiBlobTableEdit::setupContents(QPainter *p, bool focused, const QVariant& val,
     Q_UNUSED(txt);
     Q_UNUSED(align);
 
-    PixmapAndPos *pp = 0;
     x = 0;
     w -= 1; //a place for border
     h -= 1; //a place for border
@@ -210,8 +209,8 @@ KexiBlobTableEdit::setupContents(QPainter *p, bool focused, const QVariant& val,
 //! @todo optimize: for now 100 items are cached; set proper cache size, e.g. based on the number of blob items visible on screen
         // the key is unique for this tuple: (checksum, w, h)
         qulonglong sum((((qulonglong(qChecksum(array.constData(), array.length())) << 32) + w) << 16) + h);
-        pp = d->cachedPixmaps.object(sum);
         bool insertToCache = false;
+        PixmapAndPos *pp = d->cachedPixmaps.object(sum);
         if (!pp) {
             QPixmap pixmap;
             if (val.canConvert(QVariant::ByteArray) && KexiUtils::loadPixmapFromData(&pixmap, val.toByteArray())) {
@@ -582,7 +581,7 @@ void KexiKIconTableEdit::setupContents(QPainter *p, bool /*focused*/, const QVar
             pm = *cached;
         if (pm.isNull()) {
             //cache pixmap
-            pm = QIcon::fromTheme(key).pixmap(IconSize(KIconLoader::Small));
+            pm = QIcon::fromTheme(key).pixmap(KIconLoader::global()->currentSize(KIconLoader::Small));
             if (!pm.isNull())
                 d->pixmapCache.insert(key, new QPixmap(pm));
         }

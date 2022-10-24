@@ -96,7 +96,7 @@ class KexiCSVImportDialogItemDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
 public:
-    KexiCSVImportDialogItemDelegate(QObject *parent = 0);
+    explicit KexiCSVImportDialogItemDelegate(QObject *parent = 0);
 
     virtual QWidget* createEditor(QWidget *parent, const QStyleOptionViewItem &option,
                                   const QModelIndex &index) const override;

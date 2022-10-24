@@ -84,7 +84,7 @@ protected:
     virtual void setValueInternal(const QVariant& add, bool removeOld) override;
 
 private:
-    bool m_invalidState;
+    bool m_invalidState = false;
 };
 
 #endif

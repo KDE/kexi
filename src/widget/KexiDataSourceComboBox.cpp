@@ -93,7 +93,7 @@ KexiProject* KexiDataSourceComboBox::project() const
 
 void KexiDataSourceComboBox::setProject(KexiProject *prj, bool showTables, bool showQueries)
 {
-    if ((KexiProject*)d->prj == prj)
+    if (static_cast<KexiProject *>(d->prj) == prj)
         return;
 
     if (d->prj) {

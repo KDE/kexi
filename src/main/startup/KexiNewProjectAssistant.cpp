@@ -160,7 +160,7 @@ KexiProjectStorageTypeSelectionPage::KexiProjectStorageTypeSelectionPage(QWidget
     setBackButtonVisible(true);
     QWidget* contents = new QWidget;
     setupUi(contents);
-    const int dsize = IconSize(KIconLoader::Desktop);
+    const int dsize = KIconLoader::global()->currentSize(KIconLoader::Desktop);
     btn_file->setIcon(Kexi::defaultFileBasedDriverIcon());
     btn_file->setIconSize(QSize(dsize, dsize));
     connect(btn_file, SIGNAL(clicked()), this, SLOT(buttonClicked()));

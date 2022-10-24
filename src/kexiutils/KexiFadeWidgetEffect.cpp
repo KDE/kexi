@@ -28,7 +28,7 @@
 #include <QStyle>
 
 KexiFadeWidgetEffectPrivate::KexiFadeWidgetEffectPrivate(QWidget *_destWidget)
-    : destWidget(_destWidget), disabled(false)
+    : destWidget(_destWidget), disabled(false), defaultDuration(0)
 {
 }
 

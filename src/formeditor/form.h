@@ -735,8 +735,6 @@ protected:
     virtual bool eventFilter(QObject *obj, QEvent *ev) override;
 
 private:
-    void init(Mode mode, KActionCollection &col, KFormDesigner::ActionGroup &group);
-
     void selectWidgetInternal(QWidget *w, WidgetSelectionFlags flags);
 
     FormPrivate * const d;
