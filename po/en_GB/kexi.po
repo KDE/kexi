@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-30 00:45+0000\n"
+"POT-Creation-Date: 2022-10-25 00:47+0000\n"
 "PO-Revision-Date: 2020-06-06 13:53+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -911,7 +911,7 @@ msgctxt "@info"
 msgid "No plugin for ID <resource>%1</resource>"
 msgstr "No plugin for ID <resource>%1</resource>"
 
-#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3640
+#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3639
 #, kde-kuit-format
 msgid "Could not set empty name for this object."
 msgstr "Could not set empty name for this object."
@@ -946,8 +946,8 @@ msgstr ""
 "exist."
 
 #: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
-#: main/startup/KexiStartup.cpp:811 main/startup/KexiStartup.cpp:820
-#: main/startup/KexiStartup.cpp:831
+#: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
+#: main/startup/KexiStartup.cpp:828
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Could Not Open File"
@@ -1261,7 +1261,7 @@ msgid ""
 msgstr ""
 "Design has been changed. You must save it before switching to another view."
 
-#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2833
+#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2832
 #, kde-kuit-format
 msgid "Switching to other view failed (%1)."
 msgstr "Switching to other view failed (%1)."
@@ -1356,18 +1356,18 @@ msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "Resize Widgets to Tallest"
 
-#: formeditor/commands.cpp:909
+#: formeditor/commands.cpp:908
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "Insert widget <resource>%1</resource>"
 
-#: formeditor/commands.cpp:912
+#: formeditor/commands.cpp:911
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "Insert widget"
 
-#: formeditor/commands.cpp:958
+#: formeditor/commands.cpp:957
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1377,37 +1377,37 @@ msgstr ""
 "Could not insert widget of type <resource>%1</resource>. A problem with "
 "widget's creation encountered."
 
-#: formeditor/commands.cpp:1127
+#: formeditor/commands.cpp:1126
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "Paste"
 
-#: formeditor/commands.cpp:1413
+#: formeditor/commands.cpp:1412
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "Delete widget"
 
-#: formeditor/commands.cpp:1521
+#: formeditor/commands.cpp:1520
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "Duplicate widget"
 
-#: formeditor/commands.cpp:1580
+#: formeditor/commands.cpp:1579
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "Cut"
 
-#: formeditor/commands.cpp:1813
+#: formeditor/commands.cpp:1812
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "Add Page"
 
-#: formeditor/commands.cpp:1860 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
 #, kde-kuit-format
 msgid "Page %1"
 msgstr "Page %1"
 
-#: formeditor/commands.cpp:1968
+#: formeditor/commands.cpp:1967
 msgctxt "(qtundo-format)"
 msgid "Delete Page"
 msgstr "Delete Page"
@@ -1530,7 +1530,7 @@ msgstr "Move Item &Down"
 msgid "Contents"
 msgstr "Contents"
 
-#: formeditor/editlistviewdialog.cpp:116 formeditor/form_p.cpp:256
+#: formeditor/editlistviewdialog.cpp:116 formeditor/form_p.cpp:272
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1858
 #: plugins/tables/kexitabledesignerview.cpp:358
 #, kde-kuit-format
@@ -1572,12 +1572,12 @@ msgstr "New Item"
 msgid "Sub Item"
 msgstr "Sub Item"
 
-#: formeditor/form.cpp:284
+#: formeditor/form.cpp:268
 #, kde-kuit-format
 msgid "Form"
 msgstr "Form"
 
-#: formeditor/form.cpp:771
+#: formeditor/form.cpp:755
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1585,12 +1585,12 @@ msgid ""
 msgstr ""
 "Renaming widget <resource>%1</resource> to <resource>%2</resource> failed."
 
-#: formeditor/form.cpp:1329
+#: formeditor/form.cpp:1313
 #, kde-kuit-format
 msgid "Widget name could not be empty."
 msgstr "Widget name could not be empty."
 
-#: formeditor/form.cpp:1337
+#: formeditor/form.cpp:1321
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1602,7 +1602,7 @@ msgstr ""
 "because <resource>%3</resource> is not a valid name (identifier) for a "
 "widget."
 
-#: formeditor/form.cpp:1348
+#: formeditor/form.cpp:1332
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1612,416 +1612,416 @@ msgstr ""
 "Could not rename widget <resource>%1</resource> to <resource>%2</resource> "
 "because a widget with the name <resource>%3</resource> already exists."
 
-#: formeditor/form.cpp:1465 formeditor/form.cpp:1734
+#: formeditor/form.cpp:1449 formeditor/form.cpp:1718
 #, kde-kuit-format
 msgid "Multiple Widgets (%1)"
 msgstr "Multiple Widgets (%1)"
 
-#: formeditor/form.cpp:1724
+#: formeditor/form.cpp:1708
 #, kde-kuit-format
 msgid "%1 : Form"
 msgstr "%1 : Form"
 
-#: formeditor/form.cpp:1783
+#: formeditor/form.cpp:1767
 #, kde-kuit-format
 msgid "No Buddy"
 msgstr "No Buddy"
 
-#: formeditor/form.cpp:2195
+#: formeditor/form.cpp:2179
 #, kde-kuit-format
 msgctxt "Translators: please keep this string short (less than 20 chars)"
 msgid "Hor. Alignment"
 msgstr "Hor. Alignment"
 
-#: formeditor/form.cpp:2196
+#: formeditor/form.cpp:2180
 #, kde-kuit-format
 msgid "Horizontal Alignment"
 msgstr "Horizontal Alignment"
 
-#: formeditor/form.cpp:2226
+#: formeditor/form.cpp:2210
 #, kde-kuit-format
 msgctxt "Translators: please keep this string short (less than 20 chars)"
 msgid "Ver. Alignment"
 msgstr "Ver. Alignment"
 
-#: formeditor/form.cpp:2227
+#: formeditor/form.cpp:2211
 #, kde-kuit-format
 msgid "Vertical Alignment"
 msgstr "Vertical Alignment"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: formeditor/form_p.cpp:254 formeditor/form_p.cpp:255
+#: formeditor/form_p.cpp:270 formeditor/form_p.cpp:271
 #: plugins/tables/kexitabledesignerview.cpp:323
 #: widget/KexiConnectionSelector.ui:94
 #, kde-format, kde-kuit-format
 msgid "Name"
 msgstr "Name"
 
-#: formeditor/form_p.cpp:257
+#: formeditor/form_p.cpp:273
 #, kde-kuit-format
 msgid "Window title"
 msgstr "Window title"
 
-#: formeditor/form_p.cpp:258
+#: formeditor/form_p.cpp:274
 #, kde-kuit-format
 msgid "Text"
 msgstr "Text"
 
-#: formeditor/form_p.cpp:259
+#: formeditor/form_p.cpp:275
 #, kde-kuit-format
 msgid "Background Pixmap"
 msgstr "Background Pixmap"
 
-#: formeditor/form_p.cpp:260
+#: formeditor/form_p.cpp:276
 #, kde-kuit-format
 msgctxt "Property: enabled widget"
 msgid "Enabled"
 msgstr "Enabled"
 
-#: formeditor/form_p.cpp:261
+#: formeditor/form_p.cpp:277
 #, kde-kuit-format
 msgid "Geometry"
 msgstr "Geometry"
 
-#: formeditor/form_p.cpp:262
+#: formeditor/form_p.cpp:278
 #, kde-kuit-format
 msgid "Size Policy"
 msgstr "Size Policy"
 
-#: formeditor/form_p.cpp:263
+#: formeditor/form_p.cpp:279
 #, kde-kuit-format
 msgid "Minimum Size"
 msgstr "Minimum Size"
 
-#: formeditor/form_p.cpp:264
+#: formeditor/form_p.cpp:280
 #, kde-kuit-format
 msgid "Maximum Size"
 msgstr "Maximum Size"
 
-#: formeditor/form_p.cpp:265
+#: formeditor/form_p.cpp:281
 #, kde-kuit-format
 msgid "Font"
 msgstr "Font"
 
-#: formeditor/form_p.cpp:266
+#: formeditor/form_p.cpp:282
 #, kde-kuit-format
 msgid "Cursor"
 msgstr "Cursor"
 
-#: formeditor/form_p.cpp:267
+#: formeditor/form_p.cpp:283
 #, kde-kuit-format
 msgid "Foreground Color"
 msgstr "Foreground Colour"
 
-#: formeditor/form_p.cpp:268
+#: formeditor/form_p.cpp:284
 #, kde-kuit-format
 msgid "Background Color"
 msgstr "Background Colour"
 
-#: formeditor/form_p.cpp:269
+#: formeditor/form_p.cpp:285
 #, kde-kuit-format
 msgid "Fill Background"
 msgstr "Fill Background"
 
-#: formeditor/form_p.cpp:270
+#: formeditor/form_p.cpp:286
 #, kde-kuit-format
 msgid "Focus Policy"
 msgstr "Focus Policy"
 
-#: formeditor/form_p.cpp:271
+#: formeditor/form_p.cpp:287
 #, kde-kuit-format
 msgid "Margin"
 msgstr "Margin"
 
-#: formeditor/form_p.cpp:272 plugins/forms/kexidbfactorybase.cpp:54
+#: formeditor/form_p.cpp:288 plugins/forms/kexidbfactorybase.cpp:54
 #, kde-kuit-format
 msgid "Read Only"
 msgstr "Read Only"
 
-#: formeditor/form_p.cpp:273
+#: formeditor/form_p.cpp:289
 #, kde-kuit-format
 msgid "Style Sheet"
 msgstr "Style Sheet"
 
-#: formeditor/form_p.cpp:274
+#: formeditor/form_p.cpp:290
 #, kde-kuit-format
 msgctxt "Widget's Tooltip"
 msgid "Tooltip"
 msgstr "Tooltip"
 
-#: formeditor/form_p.cpp:275
+#: formeditor/form_p.cpp:291
 #, kde-kuit-format
 msgctxt "Widget's Whats This"
 msgid "What's This"
 msgstr "What's This"
 
-#: formeditor/form_p.cpp:276
+#: formeditor/form_p.cpp:292
 #, kde-kuit-format
 msgid "Icon Size"
 msgstr "Icon Size"
 
-#: formeditor/form_p.cpp:279
+#: formeditor/form_p.cpp:295
 #, kde-kuit-format
 msgid "Frame"
 msgstr "Frame"
 
-#: formeditor/form_p.cpp:280
+#: formeditor/form_p.cpp:296
 #, kde-kuit-format
 msgid "Frame Width"
 msgstr "Frame Width"
 
-#: formeditor/form_p.cpp:281
+#: formeditor/form_p.cpp:297
 #, kde-kuit-format
 msgid "Mid Frame Width"
 msgstr "Mid Frame Width"
 
-#: formeditor/form_p.cpp:282
+#: formeditor/form_p.cpp:298
 #, kde-kuit-format
 msgid "Frame Shape"
 msgstr "Frame Shape"
 
-#: formeditor/form_p.cpp:283
+#: formeditor/form_p.cpp:299
 #, kde-kuit-format
 msgid "Frame Shadow"
 msgstr "Frame Shadow"
 
-#: formeditor/form_p.cpp:285
+#: formeditor/form_p.cpp:301
 #, kde-kuit-format
 msgid "Vertical Scrollbar"
 msgstr "Vertical Scrollbar"
 
-#: formeditor/form_p.cpp:286
+#: formeditor/form_p.cpp:302
 #, kde-kuit-format
 msgid "Horizontal Scrollbar"
 msgstr "Horizontal Scrollbar"
 
-#: formeditor/form_p.cpp:288
+#: formeditor/form_p.cpp:304
 #, kde-kuit-format
 msgid "No Background"
 msgstr "No Background"
 
-#: formeditor/form_p.cpp:289
+#: formeditor/form_p.cpp:305
 #, kde-kuit-format
 msgid "Palette Foreground"
 msgstr "Palette Foreground"
 
-#: formeditor/form_p.cpp:290
+#: formeditor/form_p.cpp:306
 #, kde-kuit-format
 msgctxt "Auto (HINT: for AutoText)"
 msgid "Auto"
 msgstr "Auto"
 
-#: formeditor/form_p.cpp:292
+#: formeditor/form_p.cpp:308
 #, kde-kuit-format
 msgctxt "Auto (HINT: for Align)"
 msgid "Auto"
 msgstr "Auto"
 
-#: formeditor/form_p.cpp:293
+#: formeditor/form_p.cpp:309
 #, kde-kuit-format
 msgctxt "Baseline (HINT: for Align)"
 msgid "Baseline"
 msgstr "Baseline"
 
-#: formeditor/form_p.cpp:294 formeditor/form_p.cpp:295
+#: formeditor/form_p.cpp:310 formeditor/form_p.cpp:311
 #, kde-kuit-format
 msgctxt "Left (HINT: for Align)"
 msgid "Left"
 msgstr "Left"
 
-#: formeditor/form_p.cpp:296 formeditor/form_p.cpp:297
+#: formeditor/form_p.cpp:312 formeditor/form_p.cpp:313
 #, kde-kuit-format
 msgctxt "Right (HINT: for Align)"
 msgid "Right"
 msgstr "Right"
 
-#: formeditor/form_p.cpp:298 formeditor/form_p.cpp:300
+#: formeditor/form_p.cpp:314 formeditor/form_p.cpp:316
 #, kde-kuit-format
 msgctxt "Center (HINT: for Align)"
 msgid "Center"
 msgstr "Centre"
 
-#: formeditor/form_p.cpp:299
+#: formeditor/form_p.cpp:315
 #, kde-kuit-format
 msgctxt "Justify (HINT: for Align)"
 msgid "Justify"
 msgstr "Justify"
 
-#: formeditor/form_p.cpp:301
+#: formeditor/form_p.cpp:317
 #, kde-kuit-format
 msgctxt "Top (HINT: for Align)"
 msgid "Top"
 msgstr "Top"
 
-#: formeditor/form_p.cpp:302
+#: formeditor/form_p.cpp:318
 #, kde-kuit-format
 msgctxt "Bottom (HINT: for Align)"
 msgid "Bottom"
 msgstr "Bottom"
 
-#: formeditor/form_p.cpp:304
+#: formeditor/form_p.cpp:320
 #, kde-kuit-format
 msgctxt "No Frame (HINT: for Frame Shape)"
 msgid "No Frame"
 msgstr "No Frame"
 
-#: formeditor/form_p.cpp:305
+#: formeditor/form_p.cpp:321
 #, kde-kuit-format
 msgctxt "Box (HINT: for Frame Shape)"
 msgid "Box"
 msgstr "Box"
 
-#: formeditor/form_p.cpp:306
+#: formeditor/form_p.cpp:322
 #, kde-kuit-format
 msgctxt "Panel (HINT: for Frame Shape)"
 msgid "Panel"
 msgstr "Panel"
 
-#: formeditor/form_p.cpp:307
+#: formeditor/form_p.cpp:323
 #, kde-kuit-format
 msgctxt "Windows Panel (HINT: for Frame Shape)"
 msgid "Windows Panel"
 msgstr "Windows Panel"
 
-#: formeditor/form_p.cpp:308
+#: formeditor/form_p.cpp:324
 #, kde-kuit-format
 msgctxt "Horiz. Line (HINT: for Frame Shape)"
 msgid "Horiz. Line"
 msgstr "Horiz. Line"
 
-#: formeditor/form_p.cpp:309
+#: formeditor/form_p.cpp:325
 #, kde-kuit-format
 msgctxt "Vertical Line (HINT: for Frame Shape)"
 msgid "Vertical Line"
 msgstr "Vertical Line"
 
-#: formeditor/form_p.cpp:310
+#: formeditor/form_p.cpp:326
 #, kde-kuit-format
 msgctxt "Styled (HINT: for Frame Shape)"
 msgid "Styled"
 msgstr "Styled"
 
-#: formeditor/form_p.cpp:311
+#: formeditor/form_p.cpp:327
 #, kde-kuit-format
 msgctxt "Popup (HINT: for Frame Shape)"
 msgid "Popup"
 msgstr "Popup"
 
-#: formeditor/form_p.cpp:312
+#: formeditor/form_p.cpp:328
 #, kde-kuit-format
 msgctxt "Menu Bar (HINT: for Frame Shape)"
 msgid "Menu Bar"
 msgstr "Menu Bar"
 
-#: formeditor/form_p.cpp:313
+#: formeditor/form_p.cpp:329
 #, kde-kuit-format
 msgctxt "Toolbar (HINT: for Frame Shape)"
 msgid "Toolbar"
 msgstr "Toolbar"
 
-#: formeditor/form_p.cpp:314
+#: formeditor/form_p.cpp:330
 #, kde-kuit-format
 msgctxt "Text Box (HINT: for Frame Shape)"
 msgid "Text Box"
 msgstr "Text Box"
 
-#: formeditor/form_p.cpp:315
+#: formeditor/form_p.cpp:331
 #, kde-kuit-format
 msgctxt "Tab Widget (HINT: for Frame Shape)"
 msgid "Tab Widget"
 msgstr "Tab Widget"
 
-#: formeditor/form_p.cpp:316
+#: formeditor/form_p.cpp:332
 #, kde-kuit-format
 msgctxt "Group Box (HINT: for Frame Shape)"
 msgid "Group Box"
 msgstr "Group Box"
 
-#: formeditor/form_p.cpp:318
+#: formeditor/form_p.cpp:334
 #, kde-kuit-format
 msgctxt "Plain (HINT: for Frame Shadow)"
 msgid "Plain"
 msgstr "Plain"
 
-#: formeditor/form_p.cpp:319
+#: formeditor/form_p.cpp:335
 #, kde-kuit-format
 msgctxt "Raised (HINT: for Frame Shadow)"
 msgid "Raised"
 msgstr "Raised"
 
-#: formeditor/form_p.cpp:320
+#: formeditor/form_p.cpp:336
 #, kde-kuit-format
 msgctxt "Sunken (HINT: for Frame Shadow)"
 msgid "Sunken"
 msgstr "Sunken"
 
-#: formeditor/form_p.cpp:321
+#: formeditor/form_p.cpp:337
 #, kde-kuit-format
 msgctxt "for Frame Shadow"
 msgid "Internal"
 msgstr "Internal"
 
-#: formeditor/form_p.cpp:323
+#: formeditor/form_p.cpp:339
 #, kde-kuit-format
 msgctxt "No Focus (HINT: for Focus)"
 msgid "No Focus"
 msgstr "No Focus"
 
-#: formeditor/form_p.cpp:324
+#: formeditor/form_p.cpp:340
 #, kde-kuit-format
 msgctxt "Tab (HINT: for Focus)"
 msgid "Tab"
 msgstr "Tab"
 
-#: formeditor/form_p.cpp:325
+#: formeditor/form_p.cpp:341
 #, kde-kuit-format
 msgctxt "Click (HINT: for Focus)"
 msgid "Click"
 msgstr "Click"
 
-#: formeditor/form_p.cpp:326
+#: formeditor/form_p.cpp:342
 #, kde-kuit-format
 msgctxt "Tab/Click (HINT: for Focus)"
 msgid "Tab/Click"
 msgstr "Tab/Click"
 
-#: formeditor/form_p.cpp:327
+#: formeditor/form_p.cpp:343
 #, kde-kuit-format
 msgctxt "Tab/Click/MouseWheel (HINT: for Focus)"
 msgid "Tab/Click/Mouse Wheel"
 msgstr "Tab/Click/Mouse Wheel"
 
-#: formeditor/form_p.cpp:329
+#: formeditor/form_p.cpp:345
 #, kde-kuit-format
 msgid "Auto"
 msgstr "Auto"
 
-#: formeditor/form_p.cpp:330
+#: formeditor/form_p.cpp:346
 #, kde-kuit-format
 msgid "Always Off"
 msgstr "Always Off"
 
-#: formeditor/form_p.cpp:331
+#: formeditor/form_p.cpp:347
 #, kde-kuit-format
 msgid "Always On"
 msgstr "Always On"
 
-#: formeditor/form_p.cpp:334
+#: formeditor/form_p.cpp:350
 #, kde-kuit-format
 msgid "Horizontal"
 msgstr "Horizontal"
 
-#: formeditor/form_p.cpp:335
+#: formeditor/form_p.cpp:351
 #, kde-kuit-format
 msgid "Vertical"
 msgstr "Vertical"
 
-#: formeditor/form_p.cpp:338
+#: formeditor/form_p.cpp:354
 #, kde-kuit-format
 msgid "Left to Right"
 msgstr "Left to Right"
 
-#: formeditor/form_p.cpp:339
+#: formeditor/form_p.cpp:355
 #, kde-kuit-format
 msgid "Right to Left"
 msgstr "Right to Left"
@@ -2332,17 +2332,17 @@ msgstr ""
 "para><para><application>Kexi</application> will not start. Please check if "
 "<application>Kexi</application> is properly installed.</para>"
 
-#: kexiutils/utils.cpp:303 main/startup/KexiOpenProjectAssistant.cpp:154
+#: kexiutils/utils.cpp:305 main/startup/KexiOpenProjectAssistant.cpp:154
 #, kde-format, kde-kuit-format
 msgid "Open"
 msgstr "Open"
 
-#: kexiutils/utils.cpp:317
+#: kexiutils/utils.cpp:319
 #, kde-format
 msgid "Save"
 msgstr "Save"
 
-#: kexiutils/utils.cpp:362
+#: kexiutils/utils.cpp:364
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2352,31 +2352,31 @@ msgstr ""
 "<para>The file <filename>%1</filename> already exists.</para><para>Do you "
 "want to overwrite it?</para>"
 
-#: kexiutils/utils.cpp:758
+#: kexiutils/utils.cpp:761
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The file or directory <filename>%1</filename> does not exist."
 msgstr "The file or directory <filename>%1</filename> does not exist."
 
-#: kexiutils/utils.cpp:764
+#: kexiutils/utils.cpp:767
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Invalid hyperlink <link>%1</link>."
 msgstr "Invalid hyperlink <link>%1</link>."
 
-#: kexiutils/utils.cpp:773
+#: kexiutils/utils.cpp:776
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Executable <link>%1</link> not allowed."
 msgstr "Executable <link>%1</link> not allowed."
 
-#: kexiutils/utils.cpp:779
+#: kexiutils/utils.cpp:782
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Remote hyperlink <link>%1</link> not allowed."
 msgstr "Remote hyperlink <link>%1</link> not allowed."
 
-#: kexiutils/utils.cpp:786
+#: kexiutils/utils.cpp:789
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2386,30 +2386,30 @@ msgstr ""
 "Do you want to run this file?<warning>Running executables can be dangerous.</"
 "warning>"
 
-#: kexiutils/utils.cpp:789
+#: kexiutils/utils.cpp:792
 #, kde-kuit-format
 msgctxt "@action:button Run script file"
 msgid "Run"
 msgstr "Run"
 
-#: kexiutils/utils.cpp:850
+#: kexiutils/utils.cpp:861
 #, kde-kuit-format
 msgctxt "'Dirty (modified) object' flag"
 msgid "%1*"
 msgstr "%1*"
 
-#: kexiutils/utils.cpp:1137
+#: kexiutils/utils.cpp:1148
 #, kde-kuit-format
 msgid "modified"
 msgstr "modified"
 
-#: kexiutils/utils.cpp:1148
+#: kexiutils/utils.cpp:1159
 #, kde-kuit-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr " – "
 
-#: kexiutils/utils.cpp:1194
+#: kexiutils/utils.cpp:1205
 #, kde-kuit-format
 msgctxt "@info/plain Concatenated sentence1 sentence2 ..."
 msgid "<html>%1%2%3%4%5%6</html>"
@@ -2620,63 +2620,63 @@ msgctxt "Help global view mode (noun)"
 msgid "Help"
 msgstr "Help"
 
-#: main/KexiMainWindow.cpp:428
+#: main/KexiMainWindow.cpp:427
 #, kde-kuit-format
 msgctxt "Action name with three dots..."
 msgid "%1..."
 msgstr "%1..."
 
-#: main/KexiMainWindow.cpp:459
+#: main/KexiMainWindow.cpp:458
 #, kde-kuit-format
 msgid "&New Project..."
 msgstr "&New Project..."
 
-#: main/KexiMainWindow.cpp:461
+#: main/KexiMainWindow.cpp:460
 #, kde-kuit-format
 msgid "Create a new project"
 msgstr "Create a new project"
 
-#: main/KexiMainWindow.cpp:463
+#: main/KexiMainWindow.cpp:462
 #, kde-kuit-format
 msgid "Creates a new project. Currently opened project is not affected."
 msgstr "Creates a new project. Currently opened project is not affected."
 
-#: main/KexiMainWindow.cpp:469
+#: main/KexiMainWindow.cpp:468
 #, kde-kuit-format
 msgid "&Open Project..."
 msgstr "&Open Project..."
 
-#: main/KexiMainWindow.cpp:471
+#: main/KexiMainWindow.cpp:470
 #, kde-kuit-format
 msgid "Open an existing project"
 msgstr "Open an existing project"
 
-#: main/KexiMainWindow.cpp:473
+#: main/KexiMainWindow.cpp:472
 #, kde-kuit-format
 msgid "Opens an existing project. Currently opened project is not affected."
 msgstr "Opens an existing project. Currently opened project is not affected."
 
-#: main/KexiMainWindow.cpp:479
+#: main/KexiMainWindow.cpp:478
 #, kde-kuit-format
 msgid "Open a project that was recently opened."
 msgstr "Open a project that was recently opened."
 
-#: main/KexiMainWindow.cpp:480
+#: main/KexiMainWindow.cpp:479
 #, kde-kuit-format
 msgid "Opens a project that was recently opened."
 msgstr "Opens a project that was recently opened."
 
-#: main/KexiMainWindow.cpp:485
+#: main/KexiMainWindow.cpp:484
 #, kde-kuit-format
 msgid "Welcome"
 msgstr "Welcome"
 
-#: main/KexiMainWindow.cpp:489
+#: main/KexiMainWindow.cpp:488
 #, kde-kuit-format
 msgid "Show Welcome page"
 msgstr "Show Welcome page"
 
-#: main/KexiMainWindow.cpp:491
+#: main/KexiMainWindow.cpp:490
 #, kde-kuit-format
 msgid ""
 "Shows Welcome page with list of recently opened projects and other "
@@ -2685,27 +2685,27 @@ msgstr ""
 "Shows Welcome page with list of recently opened projects and other "
 "information. "
 
-#: main/KexiMainWindow.cpp:496
+#: main/KexiMainWindow.cpp:495
 #, kde-kuit-format
 msgid "Save object changes"
 msgstr "Save object changes"
 
-#: main/KexiMainWindow.cpp:497
+#: main/KexiMainWindow.cpp:496
 #, kde-kuit-format
 msgid "Saves object changes from currently selected window."
 msgstr "Saves object changes from currently selected window."
 
-#: main/KexiMainWindow.cpp:501
+#: main/KexiMainWindow.cpp:500
 #, kde-kuit-format
 msgid "Save &As..."
 msgstr "Save &As..."
 
-#: main/KexiMainWindow.cpp:502
+#: main/KexiMainWindow.cpp:501
 #, kde-kuit-format
 msgid "Save object as"
 msgstr "Save object as"
 
-#: main/KexiMainWindow.cpp:504
+#: main/KexiMainWindow.cpp:503
 #, kde-kuit-format
 msgid ""
 "Saves object from currently selected window under a new name (within the "
@@ -2714,83 +2714,83 @@ msgstr ""
 "Saves object from currently selected window under a new name (within the "
 "same project)."
 
-#: main/KexiMainWindow.cpp:520
+#: main/KexiMainWindow.cpp:519
 #, kde-kuit-format
 msgid "&Import, Export or Send..."
 msgstr "&Import, Export or Send..."
 
-#: main/KexiMainWindow.cpp:521
+#: main/KexiMainWindow.cpp:520
 #, kde-kuit-format
 msgid "Import, export or send project"
 msgstr "Import, export or send project"
 
-#: main/KexiMainWindow.cpp:523
+#: main/KexiMainWindow.cpp:522
 #, kde-kuit-format
 msgid "Imports, exports or sends project."
 msgstr "Imports, exports or sends project."
 
-#: main/KexiMainWindow.cpp:529
+#: main/KexiMainWindow.cpp:528
 #, kde-kuit-format
 msgid "&Close Project"
 msgstr "&Close Project"
 
-#: main/KexiMainWindow.cpp:530
+#: main/KexiMainWindow.cpp:529
 #, kde-kuit-format
 msgid "Close the current project"
 msgstr "Close the current project"
 
-#: main/KexiMainWindow.cpp:531
+#: main/KexiMainWindow.cpp:530
 #, kde-kuit-format
 msgid "Closes the current project."
 msgstr "Closes the current project."
 
-#: main/KexiMainWindow.cpp:538
+#: main/KexiMainWindow.cpp:537
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Quits <application>%1</application> application."
 msgstr "Quits <application>%1</application> application."
 
-#: main/KexiMainWindow.cpp:554
+#: main/KexiMainWindow.cpp:553
 #, kde-kuit-format
 msgid "&Import Database..."
 msgstr "&Import Database..."
 
-#: main/KexiMainWindow.cpp:555
+#: main/KexiMainWindow.cpp:554
 #, kde-kuit-format
 msgid "Import entire database as a KEXI project"
 msgstr "Import entire database as a KEXI project"
 
-#: main/KexiMainWindow.cpp:557
+#: main/KexiMainWindow.cpp:556
 #, kde-kuit-format
 msgid "Imports entire database as a KEXI project."
 msgstr "Imports entire database as a KEXI project."
 
-#: main/KexiMainWindow.cpp:562
+#: main/KexiMainWindow.cpp:561
 #, kde-kuit-format
 msgid "Import Tables..."
 msgstr "Import Tables..."
 
-#: main/KexiMainWindow.cpp:563
+#: main/KexiMainWindow.cpp:562
 #, kde-kuit-format
 msgid "Import data from an external source into this project"
 msgstr "Import data from an external source into this project"
 
-#: main/KexiMainWindow.cpp:564
+#: main/KexiMainWindow.cpp:563
 #, kde-kuit-format
 msgid "Imports data from an external source into this project."
 msgstr "Imports data from an external source into this project."
 
-#: main/KexiMainWindow.cpp:570
+#: main/KexiMainWindow.cpp:569
 #, kde-kuit-format
 msgid "&Compact Database..."
 msgstr "&Compact Database..."
 
-#: main/KexiMainWindow.cpp:571
+#: main/KexiMainWindow.cpp:570
 #, kde-kuit-format
 msgid "Compact the current database project"
 msgstr "Compact the current database project"
 
-#: main/KexiMainWindow.cpp:573
+#: main/KexiMainWindow.cpp:572
 #, kde-kuit-format
 msgid ""
 "Compacts the current database project, so it will take less space and work "
@@ -2799,432 +2799,432 @@ msgstr ""
 "Compacts the current database project, so it will take less space and work "
 "faster."
 
-#: main/KexiMainWindow.cpp:583
+#: main/KexiMainWindow.cpp:582
 #, kde-kuit-format
 msgctxt "Import->Table Data From File..."
 msgid "Import Data From &File..."
 msgstr "Import Data From &File..."
 
-#: main/KexiMainWindow.cpp:584
+#: main/KexiMainWindow.cpp:583
 #, kde-kuit-format
 msgid "Import table data from a file"
 msgstr "Import table data from a file"
 
-#: main/KexiMainWindow.cpp:585
+#: main/KexiMainWindow.cpp:584
 #, kde-kuit-format
 msgid "Imports table data from a file."
 msgstr "Imports table data from a file."
 
-#: main/KexiMainWindow.cpp:593
+#: main/KexiMainWindow.cpp:592
 #, kde-kuit-format
 msgctxt "Export->Table or Query Data to File..."
 msgid "Export Data to &File..."
 msgstr "Export Data to &File..."
 
-#: main/KexiMainWindow.cpp:595
+#: main/KexiMainWindow.cpp:594
 #, kde-kuit-format
 msgid "Export data from the active table or query to a file"
 msgstr "Export data from the active table or query to a file"
 
-#: main/KexiMainWindow.cpp:597
+#: main/KexiMainWindow.cpp:596
 #, kde-kuit-format
 msgid "Exports data from the active table or query to a file."
 msgstr "Exports data from the active table or query to a file."
 
-#: main/KexiMainWindow.cpp:644
+#: main/KexiMainWindow.cpp:643
 #, kde-kuit-format
 msgctxt "Paste Special->As Data &Table..."
 msgid "Paste Special..."
 msgstr "Paste Special..."
 
-#: main/KexiMainWindow.cpp:646
+#: main/KexiMainWindow.cpp:645
 #, kde-kuit-format
 msgid "Paste clipboard data as a table"
 msgstr "Paste clipboard data as a table"
 
-#: main/KexiMainWindow.cpp:648
+#: main/KexiMainWindow.cpp:647
 #, kde-kuit-format
 msgid "Pastes clipboard data as a table."
 msgstr "Pastes clipboard data as a table."
 
-#: main/KexiMainWindow.cpp:655
+#: main/KexiMainWindow.cpp:654
 #, kde-kuit-format
 msgctxt "Copy Special->Table or Query Data..."
 msgid "Copy Special..."
 msgstr "Copy Special..."
 
-#: main/KexiMainWindow.cpp:657
+#: main/KexiMainWindow.cpp:656
 #, kde-kuit-format
 msgid "Copy selected table or query data to clipboard"
 msgstr "Copy selected table or query data to clipboard"
 
-#: main/KexiMainWindow.cpp:659
+#: main/KexiMainWindow.cpp:658
 #, kde-kuit-format
 msgid "Copies selected table or query data to clipboard."
 msgstr "Copies selected table or query data to clipboard."
 
-#: main/KexiMainWindow.cpp:664
+#: main/KexiMainWindow.cpp:663
 #, kde-kuit-format
 msgid "Reverts the most recent editing action."
 msgstr "Reverts the most recent editing action."
 
-#: main/KexiMainWindow.cpp:666
+#: main/KexiMainWindow.cpp:665
 #, kde-kuit-format
 msgid "Reverts the most recent undo action."
 msgstr "Reverts the most recent undo action."
 
-#: main/KexiMainWindow.cpp:671
+#: main/KexiMainWindow.cpp:670
 #, kde-kuit-format
 msgid "Find text"
 msgstr "Find text"
 
-#: main/KexiMainWindow.cpp:672
+#: main/KexiMainWindow.cpp:671
 #, kde-kuit-format
 msgid "Looks up the first occurrence of a piece of text."
 msgstr "Looks up the first occurrence of a piece of text."
 
-#: main/KexiMainWindow.cpp:682
+#: main/KexiMainWindow.cpp:681
 #, kde-kuit-format
 msgid "Replace All"
 msgstr "Replace All"
 
-#: main/KexiMainWindow.cpp:686
+#: main/KexiMainWindow.cpp:685
 #, kde-kuit-format
 msgid "&Delete"
 msgstr "&Delete"
 
-#: main/KexiMainWindow.cpp:688
+#: main/KexiMainWindow.cpp:687
 #, kde-kuit-format
 msgid "Delete selected object"
 msgstr "Delete selected object"
 
-#: main/KexiMainWindow.cpp:689
+#: main/KexiMainWindow.cpp:688
 #, kde-kuit-format
 msgid "Deletes currently selected object."
 msgstr "Deletes currently selected object."
 
-#: main/KexiMainWindow.cpp:691
+#: main/KexiMainWindow.cpp:690
 #, kde-kuit-format
 msgid "Delete Record"
 msgstr "Delete Record"
 
-#: main/KexiMainWindow.cpp:693
+#: main/KexiMainWindow.cpp:692
 #, kde-kuit-format
 msgid "Delete the current record"
 msgstr "Delete the current record"
 
-#: main/KexiMainWindow.cpp:694
+#: main/KexiMainWindow.cpp:693
 #, kde-kuit-format
 msgid "Deletes the current record."
 msgstr "Deletes the current record."
 
-#: main/KexiMainWindow.cpp:696
+#: main/KexiMainWindow.cpp:695
 #, kde-kuit-format
 msgid "Clear Table Contents..."
 msgstr "Clear Table Contents..."
 
-#: main/KexiMainWindow.cpp:698
+#: main/KexiMainWindow.cpp:697
 #, kde-kuit-format
 msgid "Clear table contents"
 msgstr "Clear table contents"
 
-#: main/KexiMainWindow.cpp:699
+#: main/KexiMainWindow.cpp:698
 #, kde-kuit-format
 msgid "Clears table contents."
 msgstr "Clears table contents."
 
-#: main/KexiMainWindow.cpp:702
+#: main/KexiMainWindow.cpp:701
 #, kde-kuit-format
 msgid "Edit Item"
 msgstr "Edit Item"
 
-#: main/KexiMainWindow.cpp:705
+#: main/KexiMainWindow.cpp:704
 #, kde-kuit-format
 msgid "Edit currently selected item"
 msgstr "Edit currently selected item"
 
-#: main/KexiMainWindow.cpp:706
+#: main/KexiMainWindow.cpp:705
 #, kde-kuit-format
 msgid "Edits currently selected item."
 msgstr "Edits currently selected item."
 
-#: main/KexiMainWindow.cpp:708
+#: main/KexiMainWindow.cpp:707
 #, kde-kuit-format
 msgid "&Insert Empty Row"
 msgstr "&Insert Empty Row"
 
-#: main/KexiMainWindow.cpp:712
+#: main/KexiMainWindow.cpp:711
 #, kde-kuit-format
 msgid "Insert one empty row above"
 msgstr "Insert one empty row above"
 
-#: main/KexiMainWindow.cpp:714
+#: main/KexiMainWindow.cpp:713
 #, kde-kuit-format
 msgid "Inserts one empty row above currently selected table row."
 msgstr "Inserts one empty row above currently selected table row."
 
-#: main/KexiMainWindow.cpp:771
+#: main/KexiMainWindow.cpp:770
 #, kde-kuit-format
 msgid "Show Project Navigator"
 msgstr "Show Project Navigator"
 
-#: main/KexiMainWindow.cpp:774
+#: main/KexiMainWindow.cpp:773
 #, kde-kuit-format
 msgid "Show the Project Navigator pane"
 msgstr "Show the Project Navigator pane"
 
-#: main/KexiMainWindow.cpp:775
+#: main/KexiMainWindow.cpp:774
 #, kde-kuit-format
 msgid "Shows the Project Navigator pane."
 msgstr "Shows the Project Navigator pane."
 
-#: main/KexiMainWindow.cpp:785
+#: main/KexiMainWindow.cpp:784
 #, kde-kuit-format
 msgid "Activate Project Navigator"
 msgstr "Activate Project Navigator"
 
-#: main/KexiMainWindow.cpp:787
+#: main/KexiMainWindow.cpp:786
 #, kde-kuit-format
 msgid "Activate the Project Navigator pane"
 msgstr "Activate the Project Navigator pane"
 
-#: main/KexiMainWindow.cpp:788
+#: main/KexiMainWindow.cpp:787
 #, kde-kuit-format
 msgid "Activates the Project Navigator pane. If it is hidden, shows it first."
 msgstr "Activates the Project Navigator pane. If it is hidden, shows it first."
 
-#: main/KexiMainWindow.cpp:796
+#: main/KexiMainWindow.cpp:795
 #, kde-kuit-format
 msgid "Activate main area"
 msgstr "Activate main area"
 
-#: main/KexiMainWindow.cpp:800
+#: main/KexiMainWindow.cpp:799
 #, kde-kuit-format
 msgid "Activate the main area"
 msgstr "Activate the main area"
 
-#: main/KexiMainWindow.cpp:801
+#: main/KexiMainWindow.cpp:800
 #, kde-kuit-format
 msgid "Activates the main area."
 msgstr "Activates the main area."
 
-#: main/KexiMainWindow.cpp:808
+#: main/KexiMainWindow.cpp:807
 #, kde-kuit-format
 msgid "Show Property Pane"
 msgstr "Show Property Pane"
 
-#: main/KexiMainWindow.cpp:810
+#: main/KexiMainWindow.cpp:809
 #, kde-kuit-format
 msgid "Show the Property pane"
 msgstr "Show the Property pane"
 
-#: main/KexiMainWindow.cpp:811
+#: main/KexiMainWindow.cpp:810
 #, kde-kuit-format
 msgid "Shows the Property pane."
 msgstr "Shows the Property pane."
 
-#: main/KexiMainWindow.cpp:820
+#: main/KexiMainWindow.cpp:819
 #, kde-kuit-format
 msgid "Activate Property Pane"
 msgstr "Activate Property Pane"
 
-#: main/KexiMainWindow.cpp:821
+#: main/KexiMainWindow.cpp:820
 #, kde-kuit-format
 msgid "Activate the Property pane"
 msgstr "Activate the Property pane"
 
-#: main/KexiMainWindow.cpp:822
+#: main/KexiMainWindow.cpp:821
 #, kde-kuit-format
 msgid "Activates the Property pane. If it is hidden, shows it first."
 msgstr "Activates the Property pane. If it is hidden, shows it first."
 
-#: main/KexiMainWindow.cpp:830
+#: main/KexiMainWindow.cpp:829
 #, kde-kuit-format
 msgid "Locate..."
 msgstr "Locate..."
 
-#: main/KexiMainWindow.cpp:831
+#: main/KexiMainWindow.cpp:830
 #, kde-kuit-format
 msgid "Switch to Global Locate box"
 msgstr "Switch to Global Locate box"
 
-#: main/KexiMainWindow.cpp:832
+#: main/KexiMainWindow.cpp:831
 #, kde-kuit-format
 msgid "Switches to Global Locate box."
 msgstr "Switches to Global Locate box."
 
-#: main/KexiMainWindow.cpp:836
+#: main/KexiMainWindow.cpp:835
 #, kde-kuit-format
 msgid "&Accept"
 msgstr "&Accept"
 
-#: main/KexiMainWindow.cpp:838
+#: main/KexiMainWindow.cpp:837
 #, kde-kuit-format
 msgid "Accept changes made to the current record"
 msgstr "Accept changes made to the current record"
 
-#: main/KexiMainWindow.cpp:839
+#: main/KexiMainWindow.cpp:838
 #, kde-kuit-format
 msgid "Accepts changes made to the current record."
 msgstr "Accepts changes made to the current record."
 
-#: main/KexiMainWindow.cpp:842
+#: main/KexiMainWindow.cpp:841
 #, kde-kuit-format
 msgid "&Cancel"
 msgstr "&Cancel"
 
-#: main/KexiMainWindow.cpp:845
+#: main/KexiMainWindow.cpp:844
 #, kde-kuit-format
 msgid "Cancel changes made to the current record"
 msgstr "Cancel changes made to the current record"
 
-#: main/KexiMainWindow.cpp:847
+#: main/KexiMainWindow.cpp:846
 #, kde-kuit-format
 msgid "Cancels changes made to the current record."
 msgstr "Cancels changes made to the current record."
 
-#: main/KexiMainWindow.cpp:851
+#: main/KexiMainWindow.cpp:850
 #, kde-kuit-format
 msgid "&Execute"
 msgstr "&Execute"
 
-#: main/KexiMainWindow.cpp:871
+#: main/KexiMainWindow.cpp:870
 #, kde-kuit-format
 msgid "&Font..."
 msgstr "&Font..."
 
-#: main/KexiMainWindow.cpp:873
+#: main/KexiMainWindow.cpp:872
 #, kde-kuit-format
 msgid "Change font for selected object"
 msgstr "Change font for selected object"
 
-#: main/KexiMainWindow.cpp:874
+#: main/KexiMainWindow.cpp:873
 #, kde-kuit-format
 msgid "Changes font for selected object."
 msgstr "Changes font for selected object."
 
-#: main/KexiMainWindow.cpp:883
+#: main/KexiMainWindow.cpp:882
 #, kde-kuit-format
 msgid "&Next Window"
 msgstr "&Next Window"
 
-#: main/KexiMainWindow.cpp:884
+#: main/KexiMainWindow.cpp:883
 #, kde-kuit-format
 msgid "Next window"
 msgstr "Next window"
 
-#: main/KexiMainWindow.cpp:885
+#: main/KexiMainWindow.cpp:884
 #, kde-kuit-format
 msgid "Switches to the next window."
 msgstr "Switches to the next window."
 
-#: main/KexiMainWindow.cpp:888
+#: main/KexiMainWindow.cpp:887
 #, kde-kuit-format
 msgid "&Previous Window"
 msgstr "&Previous Window"
 
-#: main/KexiMainWindow.cpp:889
+#: main/KexiMainWindow.cpp:888
 #, kde-kuit-format
 msgid "Previous window"
 msgstr "Previous window"
 
-#: main/KexiMainWindow.cpp:890
+#: main/KexiMainWindow.cpp:889
 #, kde-kuit-format
 msgid "Switches to the previous window."
 msgstr "Switches to the previous window."
 
-#: main/KexiMainWindow.cpp:893
+#: main/KexiMainWindow.cpp:892
 #, kde-kuit-format
 msgid "&Close Tab"
 msgstr "&Close Tab"
 
-#: main/KexiMainWindow.cpp:894
+#: main/KexiMainWindow.cpp:893
 #, kde-kuit-format
 msgid "Close the current tab"
 msgstr "Close the current tab"
 
-#: main/KexiMainWindow.cpp:895
+#: main/KexiMainWindow.cpp:894
 #, kde-kuit-format
 msgid "Closes the current tab."
 msgstr "Closes the current tab."
 
-#: main/KexiMainWindow.cpp:898
+#: main/KexiMainWindow.cpp:897
 #, kde-kuit-format
 msgid "Cl&ose All Tabs"
 msgstr "Cl&ose All Tabs"
 
-#: main/KexiMainWindow.cpp:899
+#: main/KexiMainWindow.cpp:898
 #, kde-kuit-format
 msgid "Close all tabs"
 msgstr "Close all tabs"
 
-#: main/KexiMainWindow.cpp:900
+#: main/KexiMainWindow.cpp:899
 #, kde-kuit-format
 msgid "Closes all tabs."
 msgstr "Closes all tabs."
 
-#: main/KexiMainWindow.cpp:955
+#: main/KexiMainWindow.cpp:954
 #, kde-kuit-format
 msgid "This shows useful tips on the use of this application."
 msgstr "This shows useful tips on the use of this application."
 
-#: main/KexiMainWindow.cpp:1141
+#: main/KexiMainWindow.cpp:1140
 #, kde-kuit-format
 msgid "&File"
 msgstr "&File"
 
-#: main/KexiMainWindow.cpp:1177
+#: main/KexiMainWindow.cpp:1176
 #, kde-kuit-format
 msgid "&Edit"
 msgstr "&Edit"
 
-#: main/KexiMainWindow.cpp:1192
+#: main/KexiMainWindow.cpp:1191
 #, kde-kuit-format
 msgid "&Find/Replace"
 msgstr "&Find/Replace"
 
-#: main/KexiMainWindow.cpp:1216
+#: main/KexiMainWindow.cpp:1215
 #, kde-kuit-format
 msgid "F&ormat"
 msgstr "F&ormat"
 
-#: main/KexiMainWindow.cpp:1221
+#: main/KexiMainWindow.cpp:1220
 #, kde-kuit-format
 msgid "&Data"
 msgstr "&Data"
 
-#: main/KexiMainWindow.cpp:1230
+#: main/KexiMainWindow.cpp:1229
 #, kde-kuit-format
 msgid "&Tools"
 msgstr "&Tools"
 
-#: main/KexiMainWindow.cpp:1239
+#: main/KexiMainWindow.cpp:1238
 #, kde-kuit-format
 msgid "&Settings"
 msgstr "&Settings"
 
-#: main/KexiMainWindow.cpp:1247
+#: main/KexiMainWindow.cpp:1246
 #, kde-kuit-format
 msgid "&Window"
 msgstr "&Window"
 
-#: main/KexiMainWindow.cpp:1262
+#: main/KexiMainWindow.cpp:1261
 #, kde-kuit-format
 msgctxt "Report a bug or wish for KEXI application"
 msgid "Report a &Bug or Wish..."
 msgstr "Report a &Bug or Wish..."
 
-#: main/KexiMainWindow.cpp:1264
+#: main/KexiMainWindow.cpp:1263
 #, kde-kuit-format
 msgid "Files a bug or wish for KEXI application."
 msgstr "Files a bug or wish for KEXI application."
 
-#: main/KexiMainWindow.cpp:1267
+#: main/KexiMainWindow.cpp:1266
 #, kde-kuit-format
 msgid "Activates a \"What's This?\" tool."
 msgstr "Activates a \"What's This?\" tool."
 
-#: main/KexiMainWindow.cpp:1270 migration/importwizard.cpp:1111
+#: main/KexiMainWindow.cpp:1269 migration/importwizard.cpp:1111
 #: migration/importwizard.cpp:1114 migration/importwizard.cpp:1116
 #: migration/importwizard.cpp:1118 migration/importwizard.cpp:1120
 #: migration/importwizard.cpp:1122
@@ -3232,27 +3232,27 @@ msgstr "Activates a \"What's This?\" tool."
 msgid "Help"
 msgstr "Help"
 
-#: main/KexiMainWindow.cpp:1271
+#: main/KexiMainWindow.cpp:1270
 #, kde-kuit-format
 msgid "Shows KEXI Handbook."
 msgstr "Shows KEXI Handbook."
 
-#: main/KexiMainWindow.cpp:1274
+#: main/KexiMainWindow.cpp:1273
 #, kde-kuit-format
 msgid "Shows information about KEXI application."
 msgstr "Shows information about KEXI application."
 
-#: main/KexiMainWindow.cpp:1277
+#: main/KexiMainWindow.cpp:1276
 #, kde-kuit-format
 msgid "Shows information about KDE."
 msgstr "Shows information about KDE."
 
-#: main/KexiMainWindow.cpp:1431
+#: main/KexiMainWindow.cpp:1430
 #, kde-kuit-format
 msgid "<br/>(reason: <i>%1</i>)"
 msgstr "<br/>(reason: <i>%1</i>)"
 
-#: main/KexiMainWindow.cpp:1457
+#: main/KexiMainWindow.cpp:1456
 #, kde-kuit-format
 msgctxt "@info (don't add tags around %1, it's done already)"
 msgid ""
@@ -3262,80 +3262,80 @@ msgstr ""
 "Database project %1 does not appear to have been created using <application>"
 "%2</application>.<nl/>Do you want to import it as a new KEXI project?"
 
-#: main/KexiMainWindow.cpp:1461
+#: main/KexiMainWindow.cpp:1460
 #, kde-kuit-format
 msgctxt "@action:button Import Database"
 msgid "&Import..."
 msgstr "&Import..."
 
-#: main/KexiMainWindow.cpp:1524
+#: main/KexiMainWindow.cpp:1523
 #, kde-kuit-format
 msgctxt "@window:title"
 msgid "Select New Project's Location"
 msgstr "Select New Project's Location"
 
-#: main/KexiMainWindow.cpp:1603
+#: main/KexiMainWindow.cpp:1602
 #, kde-kuit-format
 msgid "cannot create object - unknown object type \"%1\""
 msgstr "unable to create object - unknown object type \"%1\""
 
-#: main/KexiMainWindow.cpp:1606
+#: main/KexiMainWindow.cpp:1605
 #, kde-kuit-format
 msgid "unknown object type \"%1\""
 msgstr "unknown object type \"%1\""
 
-#: main/KexiMainWindow.cpp:1616
+#: main/KexiMainWindow.cpp:1615
 #, kde-kuit-format
 msgid "cannot create object of type \"%1\""
 msgstr "unable to create object of type \"%1\""
 
-#: main/KexiMainWindow.cpp:1628
+#: main/KexiMainWindow.cpp:1627
 #, kde-kuit-format
 msgctxt "\"executing object\" action"
 msgid "executing"
 msgstr "executing"
 
-#: main/KexiMainWindow.cpp:1636
+#: main/KexiMainWindow.cpp:1635
 #, kde-kuit-format
 msgid "opening"
 msgstr "Opening"
 
-#: main/KexiMainWindow.cpp:1641
+#: main/KexiMainWindow.cpp:1640
 #, kde-kuit-format
 msgid "table not found"
 msgstr "Table not found"
 
-#: main/KexiMainWindow.cpp:1643
+#: main/KexiMainWindow.cpp:1642
 #, kde-kuit-format
 msgid "query not found"
 msgstr "Query not found"
 
-#: main/KexiMainWindow.cpp:1645
+#: main/KexiMainWindow.cpp:1644
 #, kde-kuit-format
 msgid "macro not found"
 msgstr "macro not found"
 
-#: main/KexiMainWindow.cpp:1647
+#: main/KexiMainWindow.cpp:1646
 #, kde-kuit-format
 msgid "script not found"
 msgstr "script not found"
 
-#: main/KexiMainWindow.cpp:1649
+#: main/KexiMainWindow.cpp:1648
 #, kde-kuit-format
 msgid "object not found"
 msgstr "Object not found"
 
-#: main/KexiMainWindow.cpp:1659
+#: main/KexiMainWindow.cpp:1658
 #, kde-kuit-format
 msgid "cannot execute object"
 msgstr "cannot execute object"
 
-#: main/KexiMainWindow.cpp:1700
+#: main/KexiMainWindow.cpp:1699
 #, kde-kuit-format
 msgid "cannot open object"
 msgstr "cannot open object"
 
-#: main/KexiMainWindow.cpp:1714
+#: main/KexiMainWindow.cpp:1713
 #, kde-kuit-format
 msgid ""
 "You have requested selected objects to be automatically opened or processed "
@@ -3344,99 +3344,99 @@ msgstr ""
 "You have requested selected objects to be automatically opened or processed "
 "on startup. Several objects cannot be opened or processed."
 
-#: main/KexiMainWindow.cpp:2095
+#: main/KexiMainWindow.cpp:2094
 #, kde-kuit-format
 msgctxt "<project-name> (read only)"
 msgid "%1 (read only)"
 msgstr "%1 (read only)"
 
-#: main/KexiMainWindow.cpp:2748
+#: main/KexiMainWindow.cpp:2747
 #, kde-kuit-format
 msgid "From File..."
 msgstr "From File..."
 
-#: main/KexiMainWindow.cpp:2753
+#: main/KexiMainWindow.cpp:2752
 #, kde-kuit-format
 msgid "From Server..."
 msgstr "From Server..."
 
-#: main/KexiMainWindow.cpp:2818
+#: main/KexiMainWindow.cpp:2817
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Selected view is not supported for <resource>%1</resource> object."
 msgstr "Selected view is not supported for <resource>%1</resource> object."
 
-#: main/KexiMainWindow.cpp:2821
+#: main/KexiMainWindow.cpp:2820
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Selected view (%1) is not supported by this object type (%2)."
 msgstr "Selected view (%1) is not supported by this object type (%2)."
 
-#: main/KexiMainWindow.cpp:2895
+#: main/KexiMainWindow.cpp:2894
 #, kde-kuit-format
 msgctxt "Could not save object under the original name."
 msgid "Could not save under the original name."
 msgstr "Could not save under the original name."
 
-#: main/KexiMainWindow.cpp:2916
+#: main/KexiMainWindow.cpp:2915
 #, kde-kuit-format
 msgctxt "@action:button Save object"
 msgid "Save"
 msgstr "Save"
 
-#: main/KexiMainWindow.cpp:2922
+#: main/KexiMainWindow.cpp:2921
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Save Object As"
 msgstr "Save Object As"
 
-#: main/KexiMainWindow.cpp:2972
+#: main/KexiMainWindow.cpp:2971
 #, kde-kuit-format
 msgctxt "@info Saving object failed"
 msgid "Saving <resource>%1</resource> object failed."
 msgstr "Saving <resource>%1</resource> object failed."
 
-#: main/KexiMainWindow.cpp:3114
+#: main/KexiMainWindow.cpp:3113
 #, kde-kuit-format
 msgid "Save changes"
 msgstr "Save changes"
 
-#: main/KexiMainWindow.cpp:3116
+#: main/KexiMainWindow.cpp:3115
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Saves all recent changes made in <resource>%1</resource> object."
 msgstr "Saves all recent changes made in <resource>%1</resource> object."
 
-#: main/KexiMainWindow.cpp:3120
+#: main/KexiMainWindow.cpp:3119
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Discards all recent changes made in <resource>%1</resource> object."
 msgstr "Discards all recent changes made in <resource>%1</resource> object."
 
-#: main/KexiMainWindow.cpp:3142
+#: main/KexiMainWindow.cpp:3141
 #, kde-kuit-format
 msgid "Do you want to save changes?"
 msgstr "Do you want to save changes?"
 
-#: main/KexiMainWindow.cpp:3336
+#: main/KexiMainWindow.cpp:3335
 #, kde-kuit-format
 msgctxt "opening is not allowed in \"data view/design view/text view\" mode"
 msgid "opening is not allowed in \"%1\" mode"
 msgstr "opening is not allowed in \"%1\" mode"
 
-#: main/KexiMainWindow.cpp:3389
+#: main/KexiMainWindow.cpp:3388
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Tab for <resource>%1</resource> (%2)."
 msgstr "Tab for <resource>%1</resource> (%2)."
 
-#: main/KexiMainWindow.cpp:3394
+#: main/KexiMainWindow.cpp:3393
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Tab for <resource>%1</resource>."
 msgstr "Tab for <resource>%1</resource>."
 
-#: main/KexiMainWindow.cpp:3566
+#: main/KexiMainWindow.cpp:3565
 #, kde-kuit-format
 msgctxt "@info Delete <objecttype> <objectname>?"
 msgid ""
@@ -3448,18 +3448,18 @@ msgstr ""
 "<resource>%2</resource></para><para><note>If you click <interface>Delete</"
 "interface>, you will not be able to undo the deletion.</note></para>"
 
-#: main/KexiMainWindow.cpp:3572
+#: main/KexiMainWindow.cpp:3571
 #, kde-kuit-format
 msgctxt "@title:window Delete Object %1."
 msgid "Delete <resource>%1</resource>?"
 msgstr "Delete <resource>%1</resource>?"
 
-#: main/KexiMainWindow.cpp:3625
+#: main/KexiMainWindow.cpp:3624
 #, kde-kuit-format
 msgid "Could not delete object."
 msgstr "Could not delete object."
 
-#: main/KexiMainWindow.cpp:3648
+#: main/KexiMainWindow.cpp:3647
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3469,35 +3469,35 @@ msgstr ""
 "<para>Before renaming object <resource>%1</resource> it should be closed.</"
 "para><para>Do you want to close it?</para>"
 
-#: main/KexiMainWindow.cpp:3652
+#: main/KexiMainWindow.cpp:3651
 #, kde-kuit-format
 msgid "Close Window and Rename"
 msgstr "Close Window and Rename"
 
-#: main/KexiMainWindow.cpp:3669
+#: main/KexiMainWindow.cpp:3668
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Renaming object <resource>%1</resource> failed."
 msgstr "Renaming object <resource>%1</resource> failed."
 
-#: main/KexiMainWindow.cpp:3690
+#: main/KexiMainWindow.cpp:3689
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Setting caption for object <resource>%1</resource> failed."
 msgstr "Setting caption for object <resource>%1</resource> failed."
 
-#: main/KexiMainWindow.cpp:3862
+#: main/KexiMainWindow.cpp:3861
 #, kde-kuit-format
 msgid "Compacting database file <filename>%1</filename> is not supported."
 msgstr "Compacting database file <filename>%1</filename> is not supported."
 
-#: main/KexiMainWindow.cpp:3875
+#: main/KexiMainWindow.cpp:3874
 #, kde-kuit-format
 msgctxt "@action:button Compact database"
 msgid "Compact"
 msgstr "Compact"
 
-#: main/KexiMainWindow.cpp:3877
+#: main/KexiMainWindow.cpp:3876
 #, kde-kuit-format
 msgid ""
 "The current project has to be closed before compacting the database. It will "
@@ -3510,7 +3510,7 @@ msgstr ""
 "\n"
 "Do you want to continue?"
 
-#: main/KexiMainWindow.cpp:4012
+#: main/KexiMainWindow.cpp:4011
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3522,13 +3522,13 @@ msgstr ""
 "changed and has not yet been saved. Do you want to use data from the changed "
 "query for exporting or from its original (saved) version?"
 
-#: main/KexiMainWindow.cpp:4017
+#: main/KexiMainWindow.cpp:4016
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Changed Query"
 msgstr "Use the Changed Query"
 
-#: main/KexiMainWindow.cpp:4018
+#: main/KexiMainWindow.cpp:4017
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Original Query"
@@ -4083,23 +4083,23 @@ msgstr ""
 "option. Possible value can be <icode>%2</icode>, <icode>%3</icode> or <icode>"
 "%4</icode>"
 
-#: main/startup/KexiStartup.cpp:396
+#: main/startup/KexiStartup.cpp:394
 #, kde-kuit-format
 msgid "Invalid port number <icode>%1</icode> specified."
 msgstr "Invalid port number <icode>%1</icode> specified."
 
-#: main/startup/KexiStartup.cpp:401
+#: main/startup/KexiStartup.cpp:399
 #, kde-kuit-format
 msgid "Could not open database. No database driver specified."
 msgstr "Could not open database. No database driver specified."
 
-#: main/startup/KexiStartup.cpp:414
+#: main/startup/KexiStartup.cpp:412
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not start <application>%1</application> application this way."
 msgstr "Could not start <application>%1</application> application this way."
 
-#: main/startup/KexiStartup.cpp:420
+#: main/startup/KexiStartup.cpp:418
 #, kde-kuit-format
 msgctxt ""
 "Please don't translate the \"createdb\" and \"dropdb\" words, these are "
@@ -4111,12 +4111,12 @@ msgstr ""
 "Both <icode>createdb</icode> and <icode>dropdb</icode> used in startup "
 "options."
 
-#: main/startup/KexiStartup.cpp:426
+#: main/startup/KexiStartup.cpp:424
 #, kde-kuit-format
 msgid "No project name specified."
 msgstr "No project name specified."
 
-#: main/startup/KexiStartup.cpp:465
+#: main/startup/KexiStartup.cpp:463
 #, kde-kuit-format
 msgctxt ""
 "Please don't translate the <icode>user-mode</icode> and <icode>design-mode</"
@@ -4128,7 +4128,7 @@ msgstr ""
 "Both <icode>user-mode</icode> and <icode>design-mode</icode> used in startup "
 "options."
 
-#: main/startup/KexiStartup.cpp:488
+#: main/startup/KexiStartup.cpp:485
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4136,19 +4136,19 @@ msgid ""
 msgstr ""
 "Could not delete project. The file <filename>%1</filename> does not exist."
 
-#: main/startup/KexiStartup.cpp:539
+#: main/startup/KexiStartup.cpp:536
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not open shortcut file <filename>%1</filename>."
 msgstr "Could not open shortcut file <filename>%1</filename>."
 
-#: main/startup/KexiStartup.cpp:571
+#: main/startup/KexiStartup.cpp:568
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not open connection data file <filename>%1</filename>."
 msgstr "Could not open connection data file <filename>%1</filename>."
 
-#: main/startup/KexiStartup.cpp:662
+#: main/startup/KexiStartup.cpp:659
 #, kde-kuit-format
 msgid ""
 "You have specified a few database objects to be opened automatically, using "
@@ -4161,31 +4161,31 @@ msgstr ""
 "These options will be ignored because they are not available while creating "
 "or dropping projects."
 
-#: main/startup/KexiStartup.cpp:679
+#: main/startup/KexiStartup.cpp:676
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Project <resource>%1</resource> created successfully."
 msgstr "Project <resource>%1</resource> created successfully."
 
-#: main/startup/KexiStartup.cpp:688
+#: main/startup/KexiStartup.cpp:685
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Project <resource>%1</resource> dropped successfully."
 msgstr "Project <resource>%1</resource> dropped successfully."
 
-#: main/startup/KexiStartup.cpp:810
+#: main/startup/KexiStartup.cpp:807
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not open file. Missing filename."
 msgstr "Could not open file. Missing filename."
 
-#: main/startup/KexiStartup.cpp:817
+#: main/startup/KexiStartup.cpp:814
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not open file. The file <filename>%1</filename> does not exist."
 msgstr "Could not open file. The file <filename>%1</filename> does not exist."
 
-#: main/startup/KexiStartup.cpp:827
+#: main/startup/KexiStartup.cpp:824
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4197,7 +4197,7 @@ msgstr ""
 "para><para><note>Check the file's permissions and whether it is already "
 "opened and locked by another application.</note></para>"
 
-#: main/startup/KexiStartup.cpp:870
+#: main/startup/KexiStartup.cpp:867
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4208,31 +4208,31 @@ msgstr ""
 "<para>Could not open project.</para><para>The file <filename>%1</filename> "
 "is not readable. Check the file's permissions and whether it is already "
 "opened and locked by another application.</para>"
+
+#: main/startup/KexiStartup.cpp:891
+#, kde-kuit-format
+msgctxt "@info"
+msgid ""
+"<para><filename>%1</filename> is an external file of type <resource>%2</"
+"resource>.</para><para>Do you want to import the file as a KEXI project?</"
+"para>"
+msgstr ""
+"<para><filename>%1</filename> is an external file of type <resource>%2</"
+"resource>.</para><para>Do you want to import the file as a KEXI project?</"
+"para>"
 
 #: main/startup/KexiStartup.cpp:894
-#, kde-kuit-format
-msgctxt "@info"
-msgid ""
-"<para><filename>%1</filename> is an external file of type <resource>%2</"
-"resource>.</para><para>Do you want to import the file as a KEXI project?</"
-"para>"
-msgstr ""
-"<para><filename>%1</filename> is an external file of type <resource>%2</"
-"resource>.</para><para>Do you want to import the file as a KEXI project?</"
-"para>"
-
-#: main/startup/KexiStartup.cpp:897
 #, kde-kuit-format
 msgid "Open External File"
 msgstr "Open External File"
 
-#: main/startup/KexiStartup.cpp:898
+#: main/startup/KexiStartup.cpp:895
 #, kde-kuit-format
 msgctxt "@action:button Import File"
 msgid "Import..."
 msgstr "Import..."
 
-#: main/startup/KexiStartup.cpp:930
+#: main/startup/KexiStartup.cpp:927
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4246,12 +4246,12 @@ msgstr ""
 "%3</resource> database driver to be used.\n"
 "Do you want to use <resource>%4</resource> database driver?"
 
-#: main/startup/KexiStartup.cpp:951
+#: main/startup/KexiStartup.cpp:948
 #, kde-kuit-format
 msgid "Possible problems: %1"
 msgstr "Possible problems: %1"
 
-#: main/startup/KexiStartup.cpp:957
+#: main/startup/KexiStartup.cpp:954
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4261,7 +4261,7 @@ msgstr ""
 "The file <filename>%1</filename> is not recognised as being supported by "
 "<application>%2</application>."
 
-#: main/startup/KexiStartup.cpp:962
+#: main/startup/KexiStartup.cpp:959
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4271,7 +4271,7 @@ msgstr ""
 "<para>Could not find plugin supporting for this file type.</"
 "para><para>Detected MIME type is <resource>%1</resource>%2.</para>"
 
-#: main/startup/KexiStartup.cpp:966
+#: main/startup/KexiStartup.cpp:963
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4283,7 +4283,7 @@ msgstr ""
 "para><para>Detected MIME type is <resource>%1</resource>%2.</para><para>%3</"
 "para>"
 
-#: main/startup/KexiStartup.cpp:998
+#: main/startup/KexiStartup.cpp:995
 #, kde-kuit-format
 msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
@@ -4292,7 +4292,7 @@ msgstr ""
 "Could not load list of available projects for <resource>%1</resource> "
 "database server."
 
-#: main/startup/KexiStartup.cpp:1039
+#: main/startup/KexiStartup.cpp:1036
 #, kde-kuit-format
 msgid "Failed saving connection data to <filename>%1</filename> file."
 msgstr "Failed saving connection data to <filename>%1</filename> file."
@@ -5001,48 +5001,48 @@ msgstr "Data Source"
 msgid "Frame Color"
 msgstr "Frame Colour"
 
-#: plugins/forms/kexiformmanager.cpp:166
+#: plugins/forms/kexiformmanager.cpp:160
 #, kde-kuit-format
 msgid "Pointer"
 msgstr "Pointer"
 
-#: plugins/forms/kexiformmanager.cpp:174
+#: plugins/forms/kexiformmanager.cpp:168
 #, kde-kuit-format
 msgid "Snap to Grid"
 msgstr "Snap to Grid"
 
-#: plugins/forms/kexiformmanager.cpp:181
+#: plugins/forms/kexiformmanager.cpp:175
 #, kde-kuit-format
 msgid "Style"
 msgstr "Style"
 
-#: plugins/forms/kexiformmanager.cpp:200
+#: plugins/forms/kexiformmanager.cpp:194
 #, kde-kuit-format
 msgid "Set the current view style."
 msgstr "Set the current view style."
 
-#: plugins/forms/kexiformmanager.cpp:209
+#: plugins/forms/kexiformmanager.cpp:203
 #, kde-kuit-format
 msgid "Show Form UI Code"
 msgstr "Show Form UI Code"
 
-#: plugins/forms/kexiformmanager.cpp:394
+#: plugins/forms/kexiformmanager.cpp:388
 #, kde-kuit-format
 msgid "Set form's data source to <resource>%1</resource>"
 msgstr "Set form's data source to <resource>%1</resource>"
 
-#: plugins/forms/kexiformmanager.cpp:478
+#: plugins/forms/kexiformmanager.cpp:472
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Form's UI Code"
 msgstr "Form's UI Code"
 
-#: plugins/forms/kexiformmanager.cpp:481
+#: plugins/forms/kexiformmanager.cpp:475
 #, kde-kuit-format
 msgid "Current"
 msgstr "Current"
 
-#: plugins/forms/kexiformmanager.cpp:488
+#: plugins/forms/kexiformmanager.cpp:482
 #, kde-kuit-format
 msgid "Original"
 msgstr "Original"
@@ -6220,7 +6220,7 @@ msgstr "&Image"
 msgid "&Assign Action..."
 msgstr "&Assign Action..."
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1386
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1393
 #, kde-kuit-format
 msgctxt "default indent value"
 msgid "default"
@@ -6632,8 +6632,8 @@ msgstr "An error occurred during insert record."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1713
 #: plugins/importexport/csv/kexicsvwidgets.cpp:190
-#: plugins/importexport/csv/kexicsvwidgets.cpp:240
-#: plugins/importexport/csv/kexicsvwidgets.cpp:252
+#: plugins/importexport/csv/kexicsvwidgets.cpp:239
+#: plugins/importexport/csv/kexicsvwidgets.cpp:251
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1875
 #: plugins/tables/kexitabledesignerview.cpp:395
 #, kde-kuit-format

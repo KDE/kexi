@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-30 00:45+0000\n"
+"POT-Creation-Date: 2022-10-25 00:47+0000\n"
 "PO-Revision-Date: 2015-02-25 12:30+0800\n"
 "Last-Translator: Franklin Weng <franklin@goodhorse.idv.tw>\n"
 "Language-Team: Chinese Traditional <zh-l10n@lists.linux.org.tw>\n"
@@ -1042,7 +1042,7 @@ msgctxt "@info"
 msgid "No plugin for ID <resource>%1</resource>"
 msgstr "儲存物件 %1 失敗。"
 
-#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3640
+#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3639
 #, kde-kuit-format
 msgid "Could not set empty name for this object."
 msgstr "無法對此物件設定空名稱。"
@@ -1080,8 +1080,8 @@ msgid ""
 msgstr "無法移除專案。檔案 %1 不存在。"
 
 #: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
-#: main/startup/KexiStartup.cpp:811 main/startup/KexiStartup.cpp:820
-#: main/startup/KexiStartup.cpp:831
+#: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
+#: main/startup/KexiStartup.cpp:828
 #, fuzzy, kde-kuit-format
 #| msgid "Could not open \"%1\" project file."
 msgctxt "@title:window"
@@ -1422,7 +1422,7 @@ msgid ""
 "Design has been changed. You must save it before switching to other view."
 msgstr "設計已改變。您在切換到其他檢視前必須先儲存。"
 
-#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2833
+#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2832
 #, kde-kuit-format
 msgid "Switching to other view failed (%1)."
 msgstr "切換到其他檢視失敗（%1）。"
@@ -1521,19 +1521,19 @@ msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "改變元件大小到最高"
 
-#: formeditor/commands.cpp:909
+#: formeditor/commands.cpp:908
 #, fuzzy, kde-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "儲存物件 %1 失敗。"
 
-#: formeditor/commands.cpp:912
+#: formeditor/commands.cpp:911
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "插入元件"
 
-#: formeditor/commands.cpp:958
+#: formeditor/commands.cpp:957
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not insert widget of type \"%1\". A problem with widget's creation "
@@ -1544,37 +1544,37 @@ msgid ""
 "widget's creation encountered."
 msgstr "無法插入型態 %1 的元件。建立元件時遇到問題。"
 
-#: formeditor/commands.cpp:1127
+#: formeditor/commands.cpp:1126
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "貼上"
 
-#: formeditor/commands.cpp:1413
+#: formeditor/commands.cpp:1412
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "刪除元件"
 
-#: formeditor/commands.cpp:1521
+#: formeditor/commands.cpp:1520
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "複製元件"
 
-#: formeditor/commands.cpp:1580
+#: formeditor/commands.cpp:1579
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "剪下"
 
-#: formeditor/commands.cpp:1813
+#: formeditor/commands.cpp:1812
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "加入頁面"
 
-#: formeditor/commands.cpp:1860 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
 #, kde-kuit-format
 msgid "Page %1"
 msgstr "第 %1 頁"
 
-#: formeditor/commands.cpp:1968
+#: formeditor/commands.cpp:1967
 #, fuzzy
 #| msgctxt "(qtundo-format)"
 #| msgid "Delete widget"
@@ -1704,7 +1704,7 @@ msgstr "項目下移(&D)"
 msgid "Contents"
 msgstr "內容"
 
-#: formeditor/editlistviewdialog.cpp:116 formeditor/form_p.cpp:256
+#: formeditor/editlistviewdialog.cpp:116 formeditor/form_p.cpp:272
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1858
 #: plugins/tables/kexitabledesignerview.cpp:358
 #, kde-kuit-format
@@ -1746,12 +1746,12 @@ msgstr "新增項目"
 msgid "Sub Item"
 msgstr "子項目"
 
-#: formeditor/form.cpp:284
+#: formeditor/form.cpp:268
 #, kde-kuit-format
 msgid "Form"
 msgstr "表單"
 
-#: formeditor/form.cpp:771
+#: formeditor/form.cpp:755
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info"
@@ -1759,13 +1759,13 @@ msgid ""
 "Renaming widget <resource>%1</resource> to <resource>%2</resource> failed."
 msgstr "儲存物件 %1 失敗。"
 
-#: formeditor/form.cpp:1329
+#: formeditor/form.cpp:1313
 #, fuzzy, kde-kuit-format
 #| msgid "Specified document could not be opened."
 msgid "Widget name could not be empty."
 msgstr "無法開啟指定的文件。"
 
-#: formeditor/form.cpp:1337
+#: formeditor/form.cpp:1321
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not rename widget \"%1\" to \"%2\" because \"%3\" is not a valid "
@@ -1777,7 +1777,7 @@ msgid ""
 "widget."
 msgstr "無法將元件 %1 重新命名為 %2。因為 %3 不是一個元件的合法名稱。\n"
 
-#: formeditor/form.cpp:1348
+#: formeditor/form.cpp:1332
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not rename widget \"%1\" to \"%2\" because a widget with the name "
@@ -1788,213 +1788,213 @@ msgid ""
 "because a widget with the name <resource>%3</resource> already exists."
 msgstr "無法將元件 %1 重新命名為 %2，因為名為 %3 的元件已存在。\n"
 
-#: formeditor/form.cpp:1465 formeditor/form.cpp:1734
+#: formeditor/form.cpp:1449 formeditor/form.cpp:1718
 #, kde-kuit-format
 msgid "Multiple Widgets (%1)"
 msgstr "多重元件（%1）"
 
-#: formeditor/form.cpp:1724
+#: formeditor/form.cpp:1708
 #, kde-kuit-format
 msgid "%1 : Form"
 msgstr "%1：表單"
 
-#: formeditor/form.cpp:1783
+#: formeditor/form.cpp:1767
 #, kde-kuit-format
 msgid "No Buddy"
 msgstr "沒有 Buddy"
 
-#: formeditor/form.cpp:2195
+#: formeditor/form.cpp:2179
 #, kde-kuit-format
 msgctxt "Translators: please keep this string short (less than 20 chars)"
 msgid "Hor. Alignment"
 msgstr "水平對齊"
 
-#: formeditor/form.cpp:2196
+#: formeditor/form.cpp:2180
 #, kde-kuit-format
 msgid "Horizontal Alignment"
 msgstr "水平對齊"
 
-#: formeditor/form.cpp:2226
+#: formeditor/form.cpp:2210
 #, kde-kuit-format
 msgctxt "Translators: please keep this string short (less than 20 chars)"
 msgid "Ver. Alignment"
 msgstr "垂直對齊"
 
-#: formeditor/form.cpp:2227
+#: formeditor/form.cpp:2211
 #, kde-kuit-format
 msgid "Vertical Alignment"
 msgstr "垂直對齊"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: formeditor/form_p.cpp:254 formeditor/form_p.cpp:255
+#: formeditor/form_p.cpp:270 formeditor/form_p.cpp:271
 #: plugins/tables/kexitabledesignerview.cpp:323
 #: widget/KexiConnectionSelector.ui:94
 #, kde-format, kde-kuit-format
 msgid "Name"
 msgstr "名稱"
 
-#: formeditor/form_p.cpp:257
+#: formeditor/form_p.cpp:273
 #, kde-kuit-format
 msgid "Window title"
 msgstr "視窗標題"
 
-#: formeditor/form_p.cpp:258
+#: formeditor/form_p.cpp:274
 #, kde-kuit-format
 msgid "Text"
 msgstr "文字"
 
-#: formeditor/form_p.cpp:259
+#: formeditor/form_p.cpp:275
 #, kde-kuit-format
 msgid "Background Pixmap"
 msgstr "背景圖案"
 
-#: formeditor/form_p.cpp:260
+#: formeditor/form_p.cpp:276
 #, kde-kuit-format
 msgctxt "Property: enabled widget"
 msgid "Enabled"
 msgstr "已啟用"
 
-#: formeditor/form_p.cpp:261
+#: formeditor/form_p.cpp:277
 #, kde-kuit-format
 msgid "Geometry"
 msgstr "位置"
 
-#: formeditor/form_p.cpp:262
+#: formeditor/form_p.cpp:278
 #, kde-kuit-format
 msgid "Size Policy"
 msgstr "大小政策"
 
-#: formeditor/form_p.cpp:263
+#: formeditor/form_p.cpp:279
 #, kde-kuit-format
 msgid "Minimum Size"
 msgstr "最小大小"
 
-#: formeditor/form_p.cpp:264
+#: formeditor/form_p.cpp:280
 #, kde-kuit-format
 msgid "Maximum Size"
 msgstr "最大大小"
 
-#: formeditor/form_p.cpp:265
+#: formeditor/form_p.cpp:281
 #, kde-kuit-format
 msgid "Font"
 msgstr "字型F)..."
 
-#: formeditor/form_p.cpp:266
+#: formeditor/form_p.cpp:282
 #, kde-kuit-format
 msgid "Cursor"
 msgstr "游標"
 
-#: formeditor/form_p.cpp:267
+#: formeditor/form_p.cpp:283
 #, kde-kuit-format
 msgid "Foreground Color"
 msgstr "前景色"
 
-#: formeditor/form_p.cpp:268
+#: formeditor/form_p.cpp:284
 #, kde-kuit-format
 msgid "Background Color"
 msgstr "背景顏色"
 
-#: formeditor/form_p.cpp:269
+#: formeditor/form_p.cpp:285
 #, fuzzy, kde-kuit-format
 #| msgid "No Background"
 msgid "Fill Background"
 msgstr "沒有背景"
 
-#: formeditor/form_p.cpp:270
+#: formeditor/form_p.cpp:286
 #, kde-kuit-format
 msgid "Focus Policy"
 msgstr "焦點政策"
 
-#: formeditor/form_p.cpp:271
+#: formeditor/form_p.cpp:287
 #, kde-kuit-format
 msgid "Margin"
 msgstr "邊界"
 
-#: formeditor/form_p.cpp:272 plugins/forms/kexidbfactorybase.cpp:54
+#: formeditor/form_p.cpp:288 plugins/forms/kexidbfactorybase.cpp:54
 #, kde-kuit-format
 msgid "Read Only"
 msgstr "唯讀"
 
-#: formeditor/form_p.cpp:273
+#: formeditor/form_p.cpp:289
 #, kde-kuit-format
 msgid "Style Sheet"
 msgstr "樣式表"
 
-#: formeditor/form_p.cpp:274
+#: formeditor/form_p.cpp:290
 #, kde-kuit-format
 msgctxt "Widget's Tooltip"
 msgid "Tooltip"
 msgstr "工具提示"
 
-#: formeditor/form_p.cpp:275
+#: formeditor/form_p.cpp:291
 #, kde-kuit-format
 msgctxt "Widget's Whats This"
 msgid "What's This"
 msgstr "這是什麼"
 
-#: formeditor/form_p.cpp:276
+#: formeditor/form_p.cpp:292
 #, kde-kuit-format
 msgid "Icon Size"
 msgstr "圖示大小"
 
-#: formeditor/form_p.cpp:279
+#: formeditor/form_p.cpp:295
 #, kde-kuit-format
 msgid "Frame"
 msgstr "框架"
 
-#: formeditor/form_p.cpp:280
+#: formeditor/form_p.cpp:296
 #, kde-kuit-format
 msgid "Frame Width"
 msgstr "框架寬度"
 
-#: formeditor/form_p.cpp:281
+#: formeditor/form_p.cpp:297
 #, kde-kuit-format
 msgid "Mid Frame Width"
 msgstr "中間框架寬度"
 
-#: formeditor/form_p.cpp:282
+#: formeditor/form_p.cpp:298
 #, kde-kuit-format
 msgid "Frame Shape"
 msgstr "框架元件"
 
-#: formeditor/form_p.cpp:283
+#: formeditor/form_p.cpp:299
 #, kde-kuit-format
 msgid "Frame Shadow"
 msgstr "框架陰影"
 
-#: formeditor/form_p.cpp:285
+#: formeditor/form_p.cpp:301
 #, kde-kuit-format
 msgid "Vertical Scrollbar"
 msgstr "垂直捲軸列"
 
-#: formeditor/form_p.cpp:286
+#: formeditor/form_p.cpp:302
 #, kde-kuit-format
 msgid "Horizontal Scrollbar"
 msgstr "水平捲軸列"
 
-#: formeditor/form_p.cpp:288
+#: formeditor/form_p.cpp:304
 #, kde-kuit-format
 msgid "No Background"
 msgstr "沒有背景"
 
-#: formeditor/form_p.cpp:289
+#: formeditor/form_p.cpp:305
 #, kde-kuit-format
 msgid "Palette Foreground"
 msgstr "調色盤前景"
 
-#: formeditor/form_p.cpp:290
+#: formeditor/form_p.cpp:306
 #, kde-kuit-format
 msgctxt "Auto (HINT: for AutoText)"
 msgid "Auto"
 msgstr "自動"
 
-#: formeditor/form_p.cpp:292
+#: formeditor/form_p.cpp:308
 #, kde-kuit-format
 msgctxt "Auto (HINT: for Align)"
 msgid "Auto"
 msgstr "自動"
 
-#: formeditor/form_p.cpp:293
+#: formeditor/form_p.cpp:309
 #, fuzzy, kde-kuit-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -2004,169 +2004,169 @@ msgctxt "Baseline (HINT: for Align)"
 msgid "Baseline"
 msgstr "直線"
 
-#: formeditor/form_p.cpp:294 formeditor/form_p.cpp:295
+#: formeditor/form_p.cpp:310 formeditor/form_p.cpp:311
 #, kde-kuit-format
 msgctxt "Left (HINT: for Align)"
 msgid "Left"
 msgstr "左"
 
-#: formeditor/form_p.cpp:296 formeditor/form_p.cpp:297
+#: formeditor/form_p.cpp:312 formeditor/form_p.cpp:313
 #, kde-kuit-format
 msgctxt "Right (HINT: for Align)"
 msgid "Right"
 msgstr "右"
 
-#: formeditor/form_p.cpp:298 formeditor/form_p.cpp:300
+#: formeditor/form_p.cpp:314 formeditor/form_p.cpp:316
 #, kde-kuit-format
 msgctxt "Center (HINT: for Align)"
 msgid "Center"
 msgstr "中"
 
-#: formeditor/form_p.cpp:299
+#: formeditor/form_p.cpp:315
 #, kde-kuit-format
 msgctxt "Justify (HINT: for Align)"
 msgid "Justify"
 msgstr "兩邊對齊"
 
-#: formeditor/form_p.cpp:301
+#: formeditor/form_p.cpp:317
 #, kde-kuit-format
 msgctxt "Top (HINT: for Align)"
 msgid "Top"
 msgstr "頂端"
 
-#: formeditor/form_p.cpp:302
+#: formeditor/form_p.cpp:318
 #, kde-kuit-format
 msgctxt "Bottom (HINT: for Align)"
 msgid "Bottom"
 msgstr "底端"
 
-#: formeditor/form_p.cpp:304
+#: formeditor/form_p.cpp:320
 #, kde-kuit-format
 msgctxt "No Frame (HINT: for Frame Shape)"
 msgid "No Frame"
 msgstr "沒有框架"
 
-#: formeditor/form_p.cpp:305
+#: formeditor/form_p.cpp:321
 #, kde-kuit-format
 msgctxt "Box (HINT: for Frame Shape)"
 msgid "Box"
 msgstr "盒式"
 
-#: formeditor/form_p.cpp:306
+#: formeditor/form_p.cpp:322
 #, kde-kuit-format
 msgctxt "Panel (HINT: for Frame Shape)"
 msgid "Panel"
 msgstr "面板"
 
-#: formeditor/form_p.cpp:307
+#: formeditor/form_p.cpp:323
 #, kde-kuit-format
 msgctxt "Windows Panel (HINT: for Frame Shape)"
 msgid "Windows Panel"
 msgstr "視窗面板"
 
-#: formeditor/form_p.cpp:308
+#: formeditor/form_p.cpp:324
 #, kde-kuit-format
 msgctxt "Horiz. Line (HINT: for Frame Shape)"
 msgid "Horiz. Line"
 msgstr "水平線"
 
-#: formeditor/form_p.cpp:309
+#: formeditor/form_p.cpp:325
 #, kde-kuit-format
 msgctxt "Vertical Line (HINT: for Frame Shape)"
 msgid "Vertical Line"
 msgstr "垂直線"
 
-#: formeditor/form_p.cpp:310
+#: formeditor/form_p.cpp:326
 #, kde-kuit-format
 msgctxt "Styled (HINT: for Frame Shape)"
 msgid "Styled"
 msgstr "已安排樣式"
 
-#: formeditor/form_p.cpp:311
+#: formeditor/form_p.cpp:327
 #, kde-kuit-format
 msgctxt "Popup (HINT: for Frame Shape)"
 msgid "Popup"
 msgstr "彈出式"
 
-#: formeditor/form_p.cpp:312
+#: formeditor/form_p.cpp:328
 #, kde-kuit-format
 msgctxt "Menu Bar (HINT: for Frame Shape)"
 msgid "Menu Bar"
 msgstr "選單列式"
 
-#: formeditor/form_p.cpp:313
+#: formeditor/form_p.cpp:329
 #, kde-kuit-format
 msgctxt "Toolbar (HINT: for Frame Shape)"
 msgid "Toolbar"
 msgstr "工具列"
 
-#: formeditor/form_p.cpp:314
+#: formeditor/form_p.cpp:330
 #, kde-kuit-format
 msgctxt "Text Box (HINT: for Frame Shape)"
 msgid "Text Box"
 msgstr "文字盒"
 
-#: formeditor/form_p.cpp:315
+#: formeditor/form_p.cpp:331
 #, kde-kuit-format
 msgctxt "Tab Widget (HINT: for Frame Shape)"
 msgid "Tab Widget"
 msgstr "分頁元件"
 
-#: formeditor/form_p.cpp:316
+#: formeditor/form_p.cpp:332
 #, kde-kuit-format
 msgctxt "Group Box (HINT: for Frame Shape)"
 msgid "Group Box"
 msgstr "群組盒"
 
-#: formeditor/form_p.cpp:318
+#: formeditor/form_p.cpp:334
 #, kde-kuit-format
 msgctxt "Plain (HINT: for Frame Shadow)"
 msgid "Plain"
 msgstr "普通"
 
-#: formeditor/form_p.cpp:319
+#: formeditor/form_p.cpp:335
 #, kde-kuit-format
 msgctxt "Raised (HINT: for Frame Shadow)"
 msgid "Raised"
 msgstr "抬升"
 
-#: formeditor/form_p.cpp:320
+#: formeditor/form_p.cpp:336
 #, kde-kuit-format
 msgctxt "Sunken (HINT: for Frame Shadow)"
 msgid "Sunken"
 msgstr "下凹式"
 
-#: formeditor/form_p.cpp:321
+#: formeditor/form_p.cpp:337
 #, kde-kuit-format
 msgctxt "for Frame Shadow"
 msgid "Internal"
 msgstr "內部"
 
-#: formeditor/form_p.cpp:323
+#: formeditor/form_p.cpp:339
 #, kde-kuit-format
 msgctxt "No Focus (HINT: for Focus)"
 msgid "No Focus"
 msgstr "沒有焦點"
 
-#: formeditor/form_p.cpp:324
+#: formeditor/form_p.cpp:340
 #, kde-kuit-format
 msgctxt "Tab (HINT: for Focus)"
 msgid "Tab"
 msgstr "Tab 鍵"
 
-#: formeditor/form_p.cpp:325
+#: formeditor/form_p.cpp:341
 #, kde-kuit-format
 msgctxt "Click (HINT: for Focus)"
 msgid "Click"
 msgstr "點選時"
 
-#: formeditor/form_p.cpp:326
+#: formeditor/form_p.cpp:342
 #, kde-kuit-format
 msgctxt "Tab/Click (HINT: for Focus)"
 msgid "Tab/Click"
 msgstr "Tab/點擊"
 
-#: formeditor/form_p.cpp:327
+#: formeditor/form_p.cpp:343
 #, fuzzy, kde-kuit-format
 #| msgctxt "Tab/Click/MouseWheel (HINT: for Focus)"
 #| msgid "Tab/Click/MouseWheel"
@@ -2174,37 +2174,37 @@ msgctxt "Tab/Click/MouseWheel (HINT: for Focus)"
 msgid "Tab/Click/Mouse Wheel"
 msgstr "Tab/點選/滑鼠滾輪"
 
-#: formeditor/form_p.cpp:329
+#: formeditor/form_p.cpp:345
 #, kde-kuit-format
 msgid "Auto"
 msgstr "自動"
 
-#: formeditor/form_p.cpp:330
+#: formeditor/form_p.cpp:346
 #, kde-kuit-format
 msgid "Always Off"
 msgstr "永遠關閉"
 
-#: formeditor/form_p.cpp:331
+#: formeditor/form_p.cpp:347
 #, kde-kuit-format
 msgid "Always On"
 msgstr "永遠開啟"
 
-#: formeditor/form_p.cpp:334
+#: formeditor/form_p.cpp:350
 #, kde-kuit-format
 msgid "Horizontal"
 msgstr "水平"
 
-#: formeditor/form_p.cpp:335
+#: formeditor/form_p.cpp:351
 #, kde-kuit-format
 msgid "Vertical"
 msgstr "垂直"
 
-#: formeditor/form_p.cpp:338
+#: formeditor/form_p.cpp:354
 #, kde-kuit-format
 msgid "Left to Right"
 msgstr "左到右"
 
-#: formeditor/form_p.cpp:339
+#: formeditor/form_p.cpp:355
 #, kde-kuit-format
 msgid "Right to Left"
 msgstr "右到左"
@@ -2514,17 +2514,17 @@ msgid ""
 "<application>Kexi</application> is properly installed.</para>"
 msgstr "無法移除專案。檔案 %1 不存在。"
 
-#: kexiutils/utils.cpp:303 main/startup/KexiOpenProjectAssistant.cpp:154
+#: kexiutils/utils.cpp:305 main/startup/KexiOpenProjectAssistant.cpp:154
 #, kde-format, kde-kuit-format
 msgid "Open"
 msgstr "開啟"
 
-#: kexiutils/utils.cpp:317
+#: kexiutils/utils.cpp:319
 #, kde-format
 msgid "Save"
 msgstr "儲存"
 
-#: kexiutils/utils.cpp:362
+#: kexiutils/utils.cpp:364
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "File \"%1\" already exists.<p>Do you want to replace it with a new one?"
@@ -2534,7 +2534,7 @@ msgid ""
 "want to overwrite it?</para>"
 msgstr "檔案 %1 已存在。<p>您要取代它嗎？"
 
-#: kexiutils/utils.cpp:758
+#: kexiutils/utils.cpp:761
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not remove project.\n"
@@ -2543,26 +2543,26 @@ msgctxt "@info"
 msgid "The file or directory <filename>%1</filename> does not exist."
 msgstr "無法移除專案。檔案 %1 不存在。"
 
-#: kexiutils/utils.cpp:764
+#: kexiutils/utils.cpp:767
 #, fuzzy, kde-kuit-format
 #| msgid "Invalid expression \"%1\""
 msgctxt "@info"
 msgid "Invalid hyperlink <link>%1</link>."
 msgstr "不合法的敘述 %1"
 
-#: kexiutils/utils.cpp:773
+#: kexiutils/utils.cpp:776
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Executable <link>%1</link> not allowed."
 msgstr ""
 
-#: kexiutils/utils.cpp:779
+#: kexiutils/utils.cpp:782
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Remote hyperlink <link>%1</link> not allowed."
 msgstr ""
 
-#: kexiutils/utils.cpp:786
+#: kexiutils/utils.cpp:789
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2570,13 +2570,13 @@ msgid ""
 "warning>"
 msgstr ""
 
-#: kexiutils/utils.cpp:789
+#: kexiutils/utils.cpp:792
 #, kde-kuit-format
 msgctxt "@action:button Run script file"
 msgid "Run"
 msgstr ""
 
-#: kexiutils/utils.cpp:850
+#: kexiutils/utils.cpp:861
 #, fuzzy, kde-kuit-format
 #| msgctxt "Identifier%1"
 #| msgid "Id%1"
@@ -2584,18 +2584,18 @@ msgctxt "'Dirty (modified) object' flag"
 msgid "%1*"
 msgstr "代碼 %1"
 
-#: kexiutils/utils.cpp:1137
+#: kexiutils/utils.cpp:1148
 #, kde-kuit-format
 msgid "modified"
 msgstr ""
 
-#: kexiutils/utils.cpp:1148
+#: kexiutils/utils.cpp:1159
 #, kde-kuit-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr ""
 
-#: kexiutils/utils.cpp:1194
+#: kexiutils/utils.cpp:1205
 #, kde-kuit-format
 msgctxt "@info/plain Concatenated sentence1 sentence2 ..."
 msgid "<html>%1%2%3%4%5%6</html>"
@@ -2810,92 +2810,92 @@ msgctxt "Help global view mode (noun)"
 msgid "Help"
 msgstr "說明"
 
-#: main/KexiMainWindow.cpp:428
+#: main/KexiMainWindow.cpp:427
 #, kde-kuit-format
 msgctxt "Action name with three dots..."
 msgid "%1..."
 msgstr "%1..."
 
-#: main/KexiMainWindow.cpp:459
+#: main/KexiMainWindow.cpp:458
 #, fuzzy, kde-kuit-format
 #| msgid "New Project"
 msgid "&New Project..."
 msgstr "新增專案"
 
-#: main/KexiMainWindow.cpp:461
+#: main/KexiMainWindow.cpp:460
 #, kde-kuit-format
 msgid "Create a new project"
 msgstr "建立新專案"
 
-#: main/KexiMainWindow.cpp:463
+#: main/KexiMainWindow.cpp:462
 #, kde-kuit-format
 msgid "Creates a new project. Currently opened project is not affected."
 msgstr "建立新的專案。目前開啟中的專案將不受影響。"
 
-#: main/KexiMainWindow.cpp:469
+#: main/KexiMainWindow.cpp:468
 #, fuzzy, kde-kuit-format
 #| msgid "Open Project"
 msgid "&Open Project..."
 msgstr "開啟專案"
 
-#: main/KexiMainWindow.cpp:471
+#: main/KexiMainWindow.cpp:470
 #, kde-kuit-format
 msgid "Open an existing project"
 msgstr "開啟現有的專案"
 
-#: main/KexiMainWindow.cpp:473
+#: main/KexiMainWindow.cpp:472
 #, kde-kuit-format
 msgid "Opens an existing project. Currently opened project is not affected."
 msgstr "開啟現有的專案。目前開啟中的專案將不受影響。"
 
-#: main/KexiMainWindow.cpp:479
+#: main/KexiMainWindow.cpp:478
 #, kde-kuit-format
 msgid "Open a project that was recently opened."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:480
+#: main/KexiMainWindow.cpp:479
 #, kde-kuit-format
 msgid "Opens a project that was recently opened."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:485
+#: main/KexiMainWindow.cpp:484
 #, kde-kuit-format
 msgid "Welcome"
 msgstr "歡迎"
 
-#: main/KexiMainWindow.cpp:489
+#: main/KexiMainWindow.cpp:488
 #, kde-kuit-format
 msgid "Show Welcome page"
 msgstr "顯示歡迎頁面"
 
-#: main/KexiMainWindow.cpp:491
+#: main/KexiMainWindow.cpp:490
 #, kde-kuit-format
 msgid ""
 "Shows Welcome page with list of recently opened projects and other "
 "information. "
 msgstr "顯示歡迎頁面，上面有最近開啟的專案清單與其他資訊。"
 
-#: main/KexiMainWindow.cpp:496
+#: main/KexiMainWindow.cpp:495
 #, kde-kuit-format
 msgid "Save object changes"
 msgstr "儲存物件變更"
 
-#: main/KexiMainWindow.cpp:497
+#: main/KexiMainWindow.cpp:496
 #, kde-kuit-format
 msgid "Saves object changes from currently selected window."
 msgstr "儲存物件變更。"
 
-#: main/KexiMainWindow.cpp:501
+#: main/KexiMainWindow.cpp:500
 #, kde-kuit-format
 msgid "Save &As..."
 msgstr "另存為(&A)..."
 
-#: main/KexiMainWindow.cpp:502
+#: main/KexiMainWindow.cpp:501
 #, kde-kuit-format
 msgid "Save object as"
 msgstr "另存物件為"
 
-#: main/KexiMainWindow.cpp:504
+#: main/KexiMainWindow.cpp:503
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Saves object changes from currently selected window under a new name "
@@ -2905,552 +2905,552 @@ msgid ""
 "same project)."
 msgstr "以新名稱儲存物件變更（但還是在同樣的專案下）。"
 
-#: main/KexiMainWindow.cpp:520
+#: main/KexiMainWindow.cpp:519
 #, kde-kuit-format
 msgid "&Import, Export or Send..."
 msgstr "匯入，匯出或傳送(&I)..."
 
-#: main/KexiMainWindow.cpp:521
+#: main/KexiMainWindow.cpp:520
 #, kde-kuit-format
 msgid "Import, export or send project"
 msgstr "匯入，匯出或傳送專案"
 
-#: main/KexiMainWindow.cpp:523
+#: main/KexiMainWindow.cpp:522
 #, kde-kuit-format
 msgid "Imports, exports or sends project."
 msgstr "匯入，匯出或傳送專案。"
 
-#: main/KexiMainWindow.cpp:529
+#: main/KexiMainWindow.cpp:528
 #, kde-kuit-format
 msgid "&Close Project"
 msgstr "關閉專案(&C)..."
 
-#: main/KexiMainWindow.cpp:530
+#: main/KexiMainWindow.cpp:529
 #, kde-kuit-format
 msgid "Close the current project"
 msgstr "關閉目前的專案"
 
-#: main/KexiMainWindow.cpp:531
+#: main/KexiMainWindow.cpp:530
 #, kde-kuit-format
 msgid "Closes the current project."
 msgstr "關閉目前的專案。"
 
-#: main/KexiMainWindow.cpp:538
+#: main/KexiMainWindow.cpp:537
 #, fuzzy, kde-kuit-format
 #| msgid "Could not start %1 application."
 msgctxt "@info:whatsthis"
 msgid "Quits <application>%1</application> application."
 msgstr "無法啟動應用程式 %1。"
 
-#: main/KexiMainWindow.cpp:554
+#: main/KexiMainWindow.cpp:553
 #, kde-kuit-format
 msgid "&Import Database..."
 msgstr "匯入資料庫(&I)..."
 
-#: main/KexiMainWindow.cpp:555
+#: main/KexiMainWindow.cpp:554
 #, fuzzy, kde-kuit-format
 #| msgid "Import entire database as a Kexi project"
 msgid "Import entire database as a KEXI project"
 msgstr "匯入整個資料庫做為 Kexi 專案"
 
-#: main/KexiMainWindow.cpp:557
+#: main/KexiMainWindow.cpp:556
 #, fuzzy, kde-kuit-format
 #| msgid "Imports entire database as a Kexi project."
 msgid "Imports entire database as a KEXI project."
 msgstr "匯入整個資料庫做為 Kexi 專案。"
 
-#: main/KexiMainWindow.cpp:562
+#: main/KexiMainWindow.cpp:561
 #, fuzzy, kde-kuit-format
 #| msgid "Import Tables"
 msgid "Import Tables..."
 msgstr "匯入表格"
 
-#: main/KexiMainWindow.cpp:563
+#: main/KexiMainWindow.cpp:562
 #, fuzzy, kde-kuit-format
 #| msgid "Import data from an external source into this database"
 msgid "Import data from an external source into this project"
 msgstr "從外部來源匯入資料到此資料庫"
 
-#: main/KexiMainWindow.cpp:564
+#: main/KexiMainWindow.cpp:563
 #, fuzzy, kde-kuit-format
 #| msgid "Import data from an external source into this database"
 msgid "Imports data from an external source into this project."
 msgstr "從外部來源匯入資料到此資料庫"
 
-#: main/KexiMainWindow.cpp:570
+#: main/KexiMainWindow.cpp:569
 #, kde-kuit-format
 msgid "&Compact Database..."
 msgstr "壓實資料庫(&C)..."
 
-#: main/KexiMainWindow.cpp:571
+#: main/KexiMainWindow.cpp:570
 #, kde-kuit-format
 msgid "Compact the current database project"
 msgstr "壓實目前的資料庫專案"
 
-#: main/KexiMainWindow.cpp:573
+#: main/KexiMainWindow.cpp:572
 #, kde-kuit-format
 msgid ""
 "Compacts the current database project, so it will take less space and work "
 "faster."
 msgstr "壓實目前的資料庫專案，讓它佔用較少的空間並且加快速度。"
 
-#: main/KexiMainWindow.cpp:583
+#: main/KexiMainWindow.cpp:582
 #, kde-kuit-format
 msgctxt "Import->Table Data From File..."
 msgid "Import Data From &File..."
 msgstr "從檔案匯入資料(&F)..."
 
-#: main/KexiMainWindow.cpp:584
+#: main/KexiMainWindow.cpp:583
 #, kde-kuit-format
 msgid "Import table data from a file"
 msgstr "從檔案匯入表格資料"
 
-#: main/KexiMainWindow.cpp:585
+#: main/KexiMainWindow.cpp:584
 #, kde-kuit-format
 msgid "Imports table data from a file."
 msgstr "從檔案匯入表格資料。"
 
-#: main/KexiMainWindow.cpp:593
+#: main/KexiMainWindow.cpp:592
 #, kde-kuit-format
 msgctxt "Export->Table or Query Data to File..."
 msgid "Export Data to &File..."
 msgstr "將資料匯出到檔案(&F)..."
 
-#: main/KexiMainWindow.cpp:595
+#: main/KexiMainWindow.cpp:594
 #, kde-kuit-format
 msgid "Export data from the active table or query to a file"
 msgstr "將目前表格或查詢的資料匯出到檔案"
 
-#: main/KexiMainWindow.cpp:597
+#: main/KexiMainWindow.cpp:596
 #, kde-kuit-format
 msgid "Exports data from the active table or query to a file."
 msgstr "將目前表格或查詢的資料匯出到檔案"
 
-#: main/KexiMainWindow.cpp:644
+#: main/KexiMainWindow.cpp:643
 #, kde-kuit-format
 msgctxt "Paste Special->As Data &Table..."
 msgid "Paste Special..."
 msgstr "特殊貼上..."
 
-#: main/KexiMainWindow.cpp:646
+#: main/KexiMainWindow.cpp:645
 #, kde-kuit-format
 msgid "Paste clipboard data as a table"
 msgstr "將剪貼簿中的資料貼上成新表格"
 
-#: main/KexiMainWindow.cpp:648
+#: main/KexiMainWindow.cpp:647
 #, fuzzy, kde-kuit-format
 #| msgid "Paste clipboard data as a table"
 msgid "Pastes clipboard data as a table."
 msgstr "將剪貼簿中的資料貼上成新表格"
 
-#: main/KexiMainWindow.cpp:655
+#: main/KexiMainWindow.cpp:654
 #, kde-kuit-format
 msgctxt "Copy Special->Table or Query Data..."
 msgid "Copy Special..."
 msgstr "特殊複製..."
 
-#: main/KexiMainWindow.cpp:657
+#: main/KexiMainWindow.cpp:656
 #, kde-kuit-format
 msgid "Copy selected table or query data to clipboard"
 msgstr "複製所選取的表格或查詢資料到剪貼簿"
 
-#: main/KexiMainWindow.cpp:659
+#: main/KexiMainWindow.cpp:658
 #, kde-kuit-format
 msgid "Copies selected table or query data to clipboard."
 msgstr "複製所選的表格或查詢資料到剪貼簿。"
 
-#: main/KexiMainWindow.cpp:664
+#: main/KexiMainWindow.cpp:663
 #, kde-kuit-format
 msgid "Reverts the most recent editing action."
 msgstr "回復上一次的編輯動作。"
 
-#: main/KexiMainWindow.cpp:666
+#: main/KexiMainWindow.cpp:665
 #, kde-kuit-format
 msgid "Reverts the most recent undo action."
 msgstr "回復上一次的復原動作。"
 
-#: main/KexiMainWindow.cpp:671
+#: main/KexiMainWindow.cpp:670
 #, kde-kuit-format
 msgid "Find text"
 msgstr "尋找文字"
 
-#: main/KexiMainWindow.cpp:672
+#: main/KexiMainWindow.cpp:671
 #, kde-kuit-format
 msgid "Looks up the first occurrence of a piece of text."
 msgstr "找到某段文字第一次出現的地方。"
 
-#: main/KexiMainWindow.cpp:682
+#: main/KexiMainWindow.cpp:681
 #, kde-kuit-format
 msgid "Replace All"
 msgstr "全部取代"
 
-#: main/KexiMainWindow.cpp:686
+#: main/KexiMainWindow.cpp:685
 #, kde-kuit-format
 msgid "&Delete"
 msgstr "刪除(&D)"
 
-#: main/KexiMainWindow.cpp:688
+#: main/KexiMainWindow.cpp:687
 #, kde-kuit-format
 msgid "Delete selected object"
 msgstr "刪除選取的物件"
 
-#: main/KexiMainWindow.cpp:689
+#: main/KexiMainWindow.cpp:688
 #, kde-kuit-format
 msgid "Deletes currently selected object."
 msgstr "刪除目前選取的物件。"
 
-#: main/KexiMainWindow.cpp:691
+#: main/KexiMainWindow.cpp:690
 #, kde-kuit-format
 msgid "Delete Record"
 msgstr "刪除紀錄"
 
-#: main/KexiMainWindow.cpp:693
+#: main/KexiMainWindow.cpp:692
 #, fuzzy, kde-kuit-format
 #| msgid "Delete currently selected record"
 msgid "Delete the current record"
 msgstr "刪除目前選取的紀錄"
 
-#: main/KexiMainWindow.cpp:694
+#: main/KexiMainWindow.cpp:693
 #, fuzzy, kde-kuit-format
 #| msgid "Prints the current report."
 msgid "Deletes the current record."
 msgstr "列印目前的報告。"
 
-#: main/KexiMainWindow.cpp:696
+#: main/KexiMainWindow.cpp:695
 #, fuzzy, kde-kuit-format
 #| msgid "Clear Table Contents"
 msgid "Clear Table Contents..."
 msgstr "清除表格內容"
 
-#: main/KexiMainWindow.cpp:698
+#: main/KexiMainWindow.cpp:697
 #, kde-kuit-format
 msgid "Clear table contents"
 msgstr "清除表格內容"
 
-#: main/KexiMainWindow.cpp:699
+#: main/KexiMainWindow.cpp:698
 #, kde-kuit-format
 msgid "Clears table contents."
 msgstr "清除表格內容"
 
-#: main/KexiMainWindow.cpp:702
+#: main/KexiMainWindow.cpp:701
 #, kde-kuit-format
 msgid "Edit Item"
 msgstr "編輯項目"
 
-#: main/KexiMainWindow.cpp:705
+#: main/KexiMainWindow.cpp:704
 #, kde-kuit-format
 msgid "Edit currently selected item"
 msgstr "編輯目前選取的項目"
 
-#: main/KexiMainWindow.cpp:706
+#: main/KexiMainWindow.cpp:705
 #, kde-kuit-format
 msgid "Edits currently selected item."
 msgstr "編輯目前選取的項目"
 
-#: main/KexiMainWindow.cpp:708
+#: main/KexiMainWindow.cpp:707
 #, kde-kuit-format
 msgid "&Insert Empty Row"
 msgstr "插入空列(&I)"
 
-#: main/KexiMainWindow.cpp:712
+#: main/KexiMainWindow.cpp:711
 #, kde-kuit-format
 msgid "Insert one empty row above"
 msgstr "在上方插入一個空的列"
 
-#: main/KexiMainWindow.cpp:714
+#: main/KexiMainWindow.cpp:713
 #, kde-kuit-format
 msgid "Inserts one empty row above currently selected table row."
 msgstr "在選取的表格列上方插入一個空的列。"
 
-#: main/KexiMainWindow.cpp:771
+#: main/KexiMainWindow.cpp:770
 #, fuzzy, kde-kuit-format
 #| msgid "Project Navigator"
 msgid "Show Project Navigator"
 msgstr "專案導覽"
 
-#: main/KexiMainWindow.cpp:774
+#: main/KexiMainWindow.cpp:773
 #, fuzzy, kde-kuit-format
 #| msgid "Switch to Project Navigator panel"
 msgid "Show the Project Navigator pane"
 msgstr "切換到專案導覽面板"
 
-#: main/KexiMainWindow.cpp:775
+#: main/KexiMainWindow.cpp:774
 #, fuzzy, kde-kuit-format
 #| msgid "Switches to Project Navigator panel."
 msgid "Shows the Project Navigator pane."
 msgstr "切換到專案導覽面板。"
 
-#: main/KexiMainWindow.cpp:785
+#: main/KexiMainWindow.cpp:784
 #, fuzzy, kde-kuit-format
 #| msgid "Project Navigator"
 msgid "Activate Project Navigator"
 msgstr "專案導覽"
 
-#: main/KexiMainWindow.cpp:787
+#: main/KexiMainWindow.cpp:786
 #, fuzzy, kde-kuit-format
 #| msgid "Switch to Project Navigator panel"
 msgid "Activate the Project Navigator pane"
 msgstr "切換到專案導覽面板"
 
-#: main/KexiMainWindow.cpp:788
+#: main/KexiMainWindow.cpp:787
 #, fuzzy, kde-kuit-format
 #| msgid "Switch to Project Navigator panel"
 msgid "Activates the Project Navigator pane. If it is hidden, shows it first."
 msgstr "切換到專案導覽面板"
 
-#: main/KexiMainWindow.cpp:796
+#: main/KexiMainWindow.cpp:795
 #, fuzzy, kde-kuit-format
 #| msgid "Switches to main area."
 msgid "Activate main area"
 msgstr "切換到主要區域。"
 
-#: main/KexiMainWindow.cpp:800
+#: main/KexiMainWindow.cpp:799
 #, fuzzy, kde-kuit-format
 #| msgid "Switch to main area"
 msgid "Activate the main area"
 msgstr "切換到主要區域"
 
-#: main/KexiMainWindow.cpp:801
+#: main/KexiMainWindow.cpp:800
 #, fuzzy, kde-kuit-format
 #| msgid "Switches to main area."
 msgid "Activates the main area."
 msgstr "切換到主要區域。"
 
-#: main/KexiMainWindow.cpp:808
+#: main/KexiMainWindow.cpp:807
 #, fuzzy, kde-kuit-format
 #| msgid "Property Editor"
 msgid "Show Property Pane"
 msgstr "屬性編輯器"
 
-#: main/KexiMainWindow.cpp:810
+#: main/KexiMainWindow.cpp:809
 #, fuzzy, kde-kuit-format
 #| msgid "Switch to Property Editor panel"
 msgid "Show the Property pane"
 msgstr "切換到屬性編輯器面板"
 
-#: main/KexiMainWindow.cpp:811
+#: main/KexiMainWindow.cpp:810
 #, fuzzy, kde-kuit-format
 #| msgid "Switches to Property Editor panel."
 msgid "Shows the Property pane."
 msgstr "切換到屬性編輯器面板。"
 
-#: main/KexiMainWindow.cpp:820
+#: main/KexiMainWindow.cpp:819
 #, fuzzy, kde-kuit-format
 #| msgid "Property Editor"
 msgid "Activate Property Pane"
 msgstr "屬性編輯器"
 
-#: main/KexiMainWindow.cpp:821
+#: main/KexiMainWindow.cpp:820
 #, fuzzy, kde-kuit-format
 #| msgid "Switch to Property Editor panel"
 msgid "Activate the Property pane"
 msgstr "切換到屬性編輯器面板"
 
-#: main/KexiMainWindow.cpp:822
+#: main/KexiMainWindow.cpp:821
 #, kde-kuit-format
 msgid "Activates the Property pane. If it is hidden, shows it first."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:830
+#: main/KexiMainWindow.cpp:829
 #, kde-kuit-format
 msgid "Locate..."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:831
+#: main/KexiMainWindow.cpp:830
 #, fuzzy, kde-kuit-format
 #| msgid "Switch to Global Search box"
 msgid "Switch to Global Locate box"
 msgstr "切換到全域搜尋盒"
 
-#: main/KexiMainWindow.cpp:832
+#: main/KexiMainWindow.cpp:831
 #, fuzzy, kde-kuit-format
 #| msgid "Switches to Global Search box."
 msgid "Switches to Global Locate box."
 msgstr "切換到全域搜尋盒。"
 
-#: main/KexiMainWindow.cpp:836
+#: main/KexiMainWindow.cpp:835
 #, kde-kuit-format
 msgid "&Accept"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:838
+#: main/KexiMainWindow.cpp:837
 #, fuzzy, kde-kuit-format
 #| msgid "Cancel changes made to the current record"
 msgid "Accept changes made to the current record"
 msgstr "取消對目前紀錄所做的改變"
 
-#: main/KexiMainWindow.cpp:839
+#: main/KexiMainWindow.cpp:838
 #, fuzzy, kde-kuit-format
 #| msgid "Cancels changes made to the current record."
 msgid "Accepts changes made to the current record."
 msgstr "取消對目前紀錄所做的改變。"
 
-#: main/KexiMainWindow.cpp:842
+#: main/KexiMainWindow.cpp:841
 #, kde-kuit-format
 msgid "&Cancel"
 msgstr "取消(&C)"
 
-#: main/KexiMainWindow.cpp:845
+#: main/KexiMainWindow.cpp:844
 #, kde-kuit-format
 msgid "Cancel changes made to the current record"
 msgstr "取消對目前紀錄所做的改變"
 
-#: main/KexiMainWindow.cpp:847
+#: main/KexiMainWindow.cpp:846
 #, kde-kuit-format
 msgid "Cancels changes made to the current record."
 msgstr "取消對目前紀錄所做的改變。"
 
-#: main/KexiMainWindow.cpp:851
+#: main/KexiMainWindow.cpp:850
 #, kde-kuit-format
 msgid "&Execute"
 msgstr "執行(&E)"
 
-#: main/KexiMainWindow.cpp:871
+#: main/KexiMainWindow.cpp:870
 #, kde-kuit-format
 msgid "&Font..."
 msgstr "字型(&F)..."
 
-#: main/KexiMainWindow.cpp:873
+#: main/KexiMainWindow.cpp:872
 #, kde-kuit-format
 msgid "Change font for selected object"
 msgstr "改變所選取物件的字型"
 
-#: main/KexiMainWindow.cpp:874
+#: main/KexiMainWindow.cpp:873
 #, kde-kuit-format
 msgid "Changes font for selected object."
 msgstr "改變所選取物件的字型。"
 
-#: main/KexiMainWindow.cpp:883
+#: main/KexiMainWindow.cpp:882
 #, kde-kuit-format
 msgid "&Next Window"
 msgstr "下一個視窗(&N)"
 
-#: main/KexiMainWindow.cpp:884
+#: main/KexiMainWindow.cpp:883
 #, kde-kuit-format
 msgid "Next window"
 msgstr "下一個視窗"
 
-#: main/KexiMainWindow.cpp:885
+#: main/KexiMainWindow.cpp:884
 #, kde-kuit-format
 msgid "Switches to the next window."
 msgstr "切換到下一個視窗。"
 
-#: main/KexiMainWindow.cpp:888
+#: main/KexiMainWindow.cpp:887
 #, kde-kuit-format
 msgid "&Previous Window"
 msgstr "上一個視窗(&P)"
 
-#: main/KexiMainWindow.cpp:889
+#: main/KexiMainWindow.cpp:888
 #, kde-kuit-format
 msgid "Previous window"
 msgstr "上一個視窗"
 
-#: main/KexiMainWindow.cpp:890
+#: main/KexiMainWindow.cpp:889
 #, kde-kuit-format
 msgid "Switches to the previous window."
 msgstr "切換到上一個視窗。"
 
-#: main/KexiMainWindow.cpp:893
+#: main/KexiMainWindow.cpp:892
 #, kde-kuit-format
 msgid "&Close Tab"
 msgstr "關閉分頁(&C)"
 
-#: main/KexiMainWindow.cpp:894
+#: main/KexiMainWindow.cpp:893
 #, kde-kuit-format
 msgid "Close the current tab"
 msgstr "關閉目前的分頁"
 
-#: main/KexiMainWindow.cpp:895
+#: main/KexiMainWindow.cpp:894
 #, kde-kuit-format
 msgid "Closes the current tab."
 msgstr "關閉目前的分頁。"
 
-#: main/KexiMainWindow.cpp:898
+#: main/KexiMainWindow.cpp:897
 #, fuzzy, kde-kuit-format
 #| msgid "&Close Tab"
 msgid "Cl&ose All Tabs"
 msgstr "關閉分頁(&C)"
 
-#: main/KexiMainWindow.cpp:899
+#: main/KexiMainWindow.cpp:898
 #, fuzzy, kde-kuit-format
 #| msgid "Closable Tabs"
 msgid "Close all tabs"
 msgstr "可關閉分頁"
 
-#: main/KexiMainWindow.cpp:900
+#: main/KexiMainWindow.cpp:899
 #, fuzzy, kde-kuit-format
 #| msgid "Closable Tabs"
 msgid "Closes all tabs."
 msgstr "可關閉分頁"
 
-#: main/KexiMainWindow.cpp:955
+#: main/KexiMainWindow.cpp:954
 #, kde-kuit-format
 msgid "This shows useful tips on the use of this application."
 msgstr "這會顯示對使用這個應用程式很有幫助的祕訣。"
 
-#: main/KexiMainWindow.cpp:1141
+#: main/KexiMainWindow.cpp:1140
 #, kde-kuit-format
 msgid "&File"
 msgstr "檔案(&F)"
 
-#: main/KexiMainWindow.cpp:1177
+#: main/KexiMainWindow.cpp:1176
 #, fuzzy, kde-kuit-format
 #| msgid "Edit"
 msgid "&Edit"
 msgstr "編輯"
 
-#: main/KexiMainWindow.cpp:1192
+#: main/KexiMainWindow.cpp:1191
 #, fuzzy, kde-kuit-format
 #| msgid "&Replace"
 msgid "&Find/Replace"
 msgstr "取代(&R)"
 
-#: main/KexiMainWindow.cpp:1216
+#: main/KexiMainWindow.cpp:1215
 #, fuzzy, kde-kuit-format
 #| msgid "Format"
 msgid "F&ormat"
 msgstr "格式"
 
-#: main/KexiMainWindow.cpp:1221
+#: main/KexiMainWindow.cpp:1220
 #, kde-kuit-format
 msgid "&Data"
 msgstr "資料(&D)"
 
-#: main/KexiMainWindow.cpp:1230
+#: main/KexiMainWindow.cpp:1229
 #, kde-kuit-format
 msgid "&Tools"
 msgstr "工具(&T)"
 
-#: main/KexiMainWindow.cpp:1239
+#: main/KexiMainWindow.cpp:1238
 #, fuzzy, kde-kuit-format
 #| msgid "Settings..."
 msgid "&Settings"
 msgstr "設定..."
 
-#: main/KexiMainWindow.cpp:1247
+#: main/KexiMainWindow.cpp:1246
 #, kde-kuit-format
 msgid "&Window"
 msgstr "視窗(&W)"
 
-#: main/KexiMainWindow.cpp:1262
+#: main/KexiMainWindow.cpp:1261
 #, kde-kuit-format
 msgctxt "Report a bug or wish for KEXI application"
 msgid "Report a &Bug or Wish..."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:1264
+#: main/KexiMainWindow.cpp:1263
 #, fuzzy, kde-kuit-format
 #| msgid "Shows bug reporting tool for Kexi application."
 msgid "Files a bug or wish for KEXI application."
 msgstr "顯示 Kexi 的錯誤回報工具。"
 
-#: main/KexiMainWindow.cpp:1267
+#: main/KexiMainWindow.cpp:1266
 #, fuzzy, kde-kuit-format
 #| msgid "Activates \"What's This\" tool."
 msgid "Activates a \"What's This?\" tool."
 msgstr "顯示「這是什麼？」工具。"
 
-#: main/KexiMainWindow.cpp:1270 migration/importwizard.cpp:1111
+#: main/KexiMainWindow.cpp:1269 migration/importwizard.cpp:1111
 #: migration/importwizard.cpp:1114 migration/importwizard.cpp:1116
 #: migration/importwizard.cpp:1118 migration/importwizard.cpp:1120
 #: migration/importwizard.cpp:1122
@@ -3458,30 +3458,30 @@ msgstr "顯示「這是什麼？」工具。"
 msgid "Help"
 msgstr "說明"
 
-#: main/KexiMainWindow.cpp:1271
+#: main/KexiMainWindow.cpp:1270
 #, fuzzy, kde-kuit-format
 #| msgid "Shows Kexi Handbook."
 msgid "Shows KEXI Handbook."
 msgstr "顯示 Kexi 手冊。"
 
-#: main/KexiMainWindow.cpp:1274
+#: main/KexiMainWindow.cpp:1273
 #, fuzzy, kde-kuit-format
 #| msgid "Shows information about Kexi application."
 msgid "Shows information about KEXI application."
 msgstr "顯示 Kexi 應用程式的資訊。"
 
-#: main/KexiMainWindow.cpp:1277
+#: main/KexiMainWindow.cpp:1276
 #, fuzzy, kde-kuit-format
 #| msgid "Shows information about K Desktop Environment."
 msgid "Shows information about KDE."
 msgstr "顯示 KDE 資訊。"
 
-#: main/KexiMainWindow.cpp:1431
+#: main/KexiMainWindow.cpp:1430
 #, kde-kuit-format
 msgid "<br/>(reason: <i>%1</i>)"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:1457
+#: main/KexiMainWindow.cpp:1456
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database project %1 does not appear to have been created using Kexi.<p>Do "
@@ -3492,148 +3492,148 @@ msgid ""
 "%2</application>.<nl/>Do you want to import it as a new KEXI project?"
 msgstr "資料庫專案 %1 似乎不是由 Kexi 建立的。<p>您要匯入成新的 Kexi 專案嗎？"
 
-#: main/KexiMainWindow.cpp:1461
+#: main/KexiMainWindow.cpp:1460
 #, kde-kuit-format
 msgctxt "@action:button Import Database"
 msgid "&Import..."
 msgstr "匯入(&I)..."
 
-#: main/KexiMainWindow.cpp:1524
+#: main/KexiMainWindow.cpp:1523
 #, kde-kuit-format
 msgctxt "@window:title"
 msgid "Select New Project's Location"
 msgstr "選擇新專案位置"
 
-#: main/KexiMainWindow.cpp:1603
+#: main/KexiMainWindow.cpp:1602
 #, kde-kuit-format
 msgid "cannot create object - unknown object type \"%1\""
 msgstr "無法建立物件─未知的物件型態 %1"
 
-#: main/KexiMainWindow.cpp:1606
+#: main/KexiMainWindow.cpp:1605
 #, kde-kuit-format
 msgid "unknown object type \"%1\""
 msgstr "未知的物件型態 %1"
 
-#: main/KexiMainWindow.cpp:1616
+#: main/KexiMainWindow.cpp:1615
 #, kde-kuit-format
 msgid "cannot create object of type \"%1\""
 msgstr "無法建立型態為 %1 的物件"
 
-#: main/KexiMainWindow.cpp:1628
+#: main/KexiMainWindow.cpp:1627
 #, kde-kuit-format
 msgctxt "\"executing object\" action"
 msgid "executing"
 msgstr "執行中"
 
-#: main/KexiMainWindow.cpp:1636
+#: main/KexiMainWindow.cpp:1635
 #, kde-kuit-format
 msgid "opening"
 msgstr "開啟"
 
-#: main/KexiMainWindow.cpp:1641
+#: main/KexiMainWindow.cpp:1640
 #, kde-kuit-format
 msgid "table not found"
 msgstr "找不到表格"
 
-#: main/KexiMainWindow.cpp:1643
+#: main/KexiMainWindow.cpp:1642
 #, kde-kuit-format
 msgid "query not found"
 msgstr "找不到查詢"
 
-#: main/KexiMainWindow.cpp:1645
+#: main/KexiMainWindow.cpp:1644
 #, kde-kuit-format
 msgid "macro not found"
 msgstr "找不到巨集"
 
-#: main/KexiMainWindow.cpp:1647
+#: main/KexiMainWindow.cpp:1646
 #, kde-kuit-format
 msgid "script not found"
 msgstr "找不到文稿"
 
-#: main/KexiMainWindow.cpp:1649
+#: main/KexiMainWindow.cpp:1648
 #, kde-kuit-format
 msgid "object not found"
 msgstr "找不到物件"
 
-#: main/KexiMainWindow.cpp:1659
+#: main/KexiMainWindow.cpp:1658
 #, kde-kuit-format
 msgid "cannot execute object"
 msgstr "無法執行物件"
 
-#: main/KexiMainWindow.cpp:1700
+#: main/KexiMainWindow.cpp:1699
 #, kde-kuit-format
 msgid "cannot open object"
 msgstr "無法開啟物件"
 
-#: main/KexiMainWindow.cpp:1714
+#: main/KexiMainWindow.cpp:1713
 #, kde-kuit-format
 msgid ""
 "You have requested selected objects to be automatically opened or processed "
 "on startup. Several objects cannot be opened or processed."
 msgstr "您已要求自動開啟或於啟動時處理所選取的物件。有些物件無法被開啟或處理。"
 
-#: main/KexiMainWindow.cpp:2095
+#: main/KexiMainWindow.cpp:2094
 #, fuzzy, kde-kuit-format
 #| msgid "Read only"
 msgctxt "<project-name> (read only)"
 msgid "%1 (read only)"
 msgstr "唯讀"
 
-#: main/KexiMainWindow.cpp:2748
+#: main/KexiMainWindow.cpp:2747
 #, kde-kuit-format
 msgid "From File..."
 msgstr "從檔案..."
 
-#: main/KexiMainWindow.cpp:2753
+#: main/KexiMainWindow.cpp:2752
 #, kde-kuit-format
 msgid "From Server..."
 msgstr "從伺服器..."
 
-#: main/KexiMainWindow.cpp:2818
+#: main/KexiMainWindow.cpp:2817
 #, fuzzy, kde-kuit-format
 #| msgid "Selected view is not supported for \"%1\" object."
 msgctxt "@info"
 msgid "Selected view is not supported for <resource>%1</resource> object."
 msgstr "物件 %1 不支援所選取的檢視模式。"
 
-#: main/KexiMainWindow.cpp:2821
+#: main/KexiMainWindow.cpp:2820
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Selected view (%1) is not supported by this object type (%2)."
 msgstr "物件型態 %2 不支援所選取的檢視模式（%1）。"
 
-#: main/KexiMainWindow.cpp:2895
+#: main/KexiMainWindow.cpp:2894
 #, fuzzy, kde-kuit-format
 #| msgid "Could not access the table directly using its name"
 msgctxt "Could not save object under the original name."
 msgid "Could not save under the original name."
 msgstr "無法直接使用名稱來存取表格"
 
-#: main/KexiMainWindow.cpp:2916
+#: main/KexiMainWindow.cpp:2915
 #, kde-kuit-format
 msgctxt "@action:button Save object"
 msgid "Save"
 msgstr "儲存"
 
-#: main/KexiMainWindow.cpp:2922
+#: main/KexiMainWindow.cpp:2921
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Save Object As"
 msgstr "儲存物件為"
 
-#: main/KexiMainWindow.cpp:2972
+#: main/KexiMainWindow.cpp:2971
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info Saving object failed"
 msgid "Saving <resource>%1</resource> object failed."
 msgstr "儲存物件 %1 失敗。"
 
-#: main/KexiMainWindow.cpp:3114
+#: main/KexiMainWindow.cpp:3113
 #, kde-kuit-format
 msgid "Save changes"
 msgstr "儲存變更"
 
-#: main/KexiMainWindow.cpp:3116
+#: main/KexiMainWindow.cpp:3115
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Pressing this button will save all recent changes made in \"%1\" object."
@@ -3641,7 +3641,7 @@ msgctxt "@info"
 msgid "Saves all recent changes made in <resource>%1</resource> object."
 msgstr "按下此鍵會儲存所有對物件 %1 所做的變更。"
 
-#: main/KexiMainWindow.cpp:3120
+#: main/KexiMainWindow.cpp:3119
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Pressing this button will discard all recent changes made in \"%1\" "
@@ -3650,32 +3650,32 @@ msgctxt "@info"
 msgid "Discards all recent changes made in <resource>%1</resource> object."
 msgstr "按下此鍵會丟棄所有對物件 %1 所做的變更。"
 
-#: main/KexiMainWindow.cpp:3142
+#: main/KexiMainWindow.cpp:3141
 #, kde-kuit-format
 msgid "Do you want to save changes?"
 msgstr "您要儲存變更嗎？"
 
-#: main/KexiMainWindow.cpp:3336
+#: main/KexiMainWindow.cpp:3335
 #, kde-kuit-format
 msgctxt "opening is not allowed in \"data view/design view/text view\" mode"
 msgid "opening is not allowed in \"%1\" mode"
 msgstr "在 %1 模式下不允許開啟"
 
-#: main/KexiMainWindow.cpp:3389
+#: main/KexiMainWindow.cpp:3388
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info"
 msgid "Tab for <resource>%1</resource> (%2)."
 msgstr "儲存物件 %1 失敗。"
 
-#: main/KexiMainWindow.cpp:3394
+#: main/KexiMainWindow.cpp:3393
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info"
 msgid "Tab for <resource>%1</resource>."
 msgstr "儲存物件 %1 失敗。"
 
-#: main/KexiMainWindow.cpp:3566
+#: main/KexiMainWindow.cpp:3565
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Do you want to permanently delete:\n"
@@ -3690,20 +3690,20 @@ msgstr ""
 "您要永久刪除 %1 嗎？\n"
 "注意，若選擇刪除，您將無法復原。"
 
-#: main/KexiMainWindow.cpp:3572
+#: main/KexiMainWindow.cpp:3571
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@title:window Delete Object %1."
 msgid "Delete <resource>%1</resource>?"
 msgstr "儲存物件 %1 失敗。"
 
-#: main/KexiMainWindow.cpp:3625
+#: main/KexiMainWindow.cpp:3624
 #, fuzzy, kde-kuit-format
 #| msgid "Could not remove object."
 msgid "Could not delete object."
 msgstr "無法移除物件。"
 
-#: main/KexiMainWindow.cpp:3648
+#: main/KexiMainWindow.cpp:3647
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "There are unsaved changes in object \"%1\". Do you want to save these "
@@ -3714,39 +3714,39 @@ msgid ""
 "para><para>Do you want to close it?</para>"
 msgstr "物件 %1 有未儲存的變更。您要在切換到其他檢視前先儲存變更嗎？"
 
-#: main/KexiMainWindow.cpp:3652
+#: main/KexiMainWindow.cpp:3651
 #, fuzzy, kde-kuit-format
 #| msgid "Close windows"
 msgid "Close Window and Rename"
 msgstr "關閉視窗"
 
-#: main/KexiMainWindow.cpp:3669
+#: main/KexiMainWindow.cpp:3668
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info"
 msgid "Renaming object <resource>%1</resource> failed."
 msgstr "儲存物件 %1 失敗。"
 
-#: main/KexiMainWindow.cpp:3690
+#: main/KexiMainWindow.cpp:3689
 #, fuzzy, kde-kuit-format
 #| msgid "Renaming object \"%1\" failed."
 msgctxt "@info"
 msgid "Setting caption for object <resource>%1</resource> failed."
 msgstr "重新命名物件 %1 失敗。"
 
-#: main/KexiMainWindow.cpp:3862
+#: main/KexiMainWindow.cpp:3861
 #, fuzzy, kde-kuit-format
 #| msgid "Compacting database file <nobr>\"%1\"</nobr> is not supported."
 msgid "Compacting database file <filename>%1</filename> is not supported."
 msgstr "不支援壓實資料庫檔案 <nobr>%1</nobr>。"
 
-#: main/KexiMainWindow.cpp:3875
+#: main/KexiMainWindow.cpp:3874
 #, kde-kuit-format
 msgctxt "@action:button Compact database"
 msgid "Compact"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3877
+#: main/KexiMainWindow.cpp:3876
 #, kde-kuit-format
 msgid ""
 "The current project has to be closed before compacting the database. It will "
@@ -3758,7 +3758,7 @@ msgstr ""
 "\n"
 "您要繼續嗎？"
 
-#: main/KexiMainWindow.cpp:4012
+#: main/KexiMainWindow.cpp:4011
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3767,13 +3767,13 @@ msgid ""
 "query for exporting or from its original (saved) version?"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:4017
+#: main/KexiMainWindow.cpp:4016
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Changed Query"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:4018
+#: main/KexiMainWindow.cpp:4017
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Original Query"
@@ -4347,26 +4347,26 @@ msgid ""
 "%4</icode>"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:396
+#: main/startup/KexiStartup.cpp:394
 #, fuzzy, kde-kuit-format
 #| msgid "Invalid criteria \"%1\""
 msgid "Invalid port number <icode>%1</icode> specified."
 msgstr "不合法的準則 %1"
 
-#: main/startup/KexiStartup.cpp:401
+#: main/startup/KexiStartup.cpp:399
 #, fuzzy, kde-kuit-format
 #| msgid "Could not find any database drivers."
 msgid "Could not open database. No database driver specified."
 msgstr "找不到任何資料庫驅動程式。"
 
-#: main/startup/KexiStartup.cpp:414
+#: main/startup/KexiStartup.cpp:412
 #, fuzzy, kde-kuit-format
 #| msgid "Could not start %1 application."
 msgctxt "@info"
 msgid "Could not start <application>%1</application> application this way."
 msgstr "無法啟動應用程式 %1。"
 
-#: main/startup/KexiStartup.cpp:420
+#: main/startup/KexiStartup.cpp:418
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "You have used both \"user-mode\" and \"design-mode\" startup options."
@@ -4378,12 +4378,12 @@ msgid ""
 "options."
 msgstr "您同時使用了「使用者模式」與「設計模式」兩個啟動選項。"
 
-#: main/startup/KexiStartup.cpp:426
+#: main/startup/KexiStartup.cpp:424
 #, kde-kuit-format
 msgid "No project name specified."
 msgstr "沒有指定專案名稱。"
 
-#: main/startup/KexiStartup.cpp:465
+#: main/startup/KexiStartup.cpp:463
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "You have used both \"user-mode\" and \"design-mode\" startup options."
@@ -4395,7 +4395,7 @@ msgid ""
 "options."
 msgstr "您同時使用了「使用者模式」與「設計模式」兩個啟動選項。"
 
-#: main/startup/KexiStartup.cpp:488
+#: main/startup/KexiStartup.cpp:485
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not remove project.\n"
@@ -4405,21 +4405,21 @@ msgid ""
 "Could not delete project. The file <filename>%1</filename> does not exist."
 msgstr "無法移除專案。檔案 %1 不存在。"
 
-#: main/startup/KexiStartup.cpp:539
+#: main/startup/KexiStartup.cpp:536
 #, fuzzy, kde-kuit-format
 #| msgid "Cannot open input file <nobr>\"%1\"</nobr>."
 msgctxt "@info"
 msgid "Could not open shortcut file <filename>%1</filename>."
 msgstr "無法開啟輸入檔案 <nobr>%1</nobr>。"
 
-#: main/startup/KexiStartup.cpp:571
+#: main/startup/KexiStartup.cpp:568
 #, fuzzy, kde-kuit-format
 #| msgid "Could not remove file \"%1\"."
 msgctxt "@info"
 msgid "Could not open connection data file <filename>%1</filename>."
 msgstr "無法移除檔案 %1。"
 
-#: main/startup/KexiStartup.cpp:662
+#: main/startup/KexiStartup.cpp:659
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "You have specified a few database objects to be opened automatically, "
@@ -4435,28 +4435,28 @@ msgstr ""
 "您用啟動選項指定了一些要自動開啟的資料庫物件。\n"
 "這些選項會被忽略，因為不能用於建立或丟棄專案。"
 
-#: main/startup/KexiStartup.cpp:679
+#: main/startup/KexiStartup.cpp:676
 #, fuzzy, kde-kuit-format
 #| msgid "Project \"%1\" created successfully."
 msgctxt "@info"
 msgid "Project <resource>%1</resource> created successfully."
 msgstr "已成功建立專案 %1。"
 
-#: main/startup/KexiStartup.cpp:688
+#: main/startup/KexiStartup.cpp:685
 #, fuzzy, kde-kuit-format
 #| msgid "Project \"%1\" dropped successfully."
 msgctxt "@info"
 msgid "Project <resource>%1</resource> dropped successfully."
 msgstr "已成功丟棄專案 %1。"
 
-#: main/startup/KexiStartup.cpp:810
+#: main/startup/KexiStartup.cpp:807
 #, fuzzy, kde-kuit-format
 #| msgid "Could not remove file \"%1\"."
 msgctxt "@info"
 msgid "Could not open file. Missing filename."
 msgstr "無法移除檔案 %1。"
 
-#: main/startup/KexiStartup.cpp:817
+#: main/startup/KexiStartup.cpp:814
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not remove project.\n"
@@ -4465,7 +4465,7 @@ msgctxt "@info"
 msgid "Could not open file. The file <filename>%1</filename> does not exist."
 msgstr "無法移除專案。檔案 %1 不存在。"
 
-#: main/startup/KexiStartup.cpp:827
+#: main/startup/KexiStartup.cpp:824
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Check the file's permissions and whether it is already opened and locked "
@@ -4477,7 +4477,7 @@ msgid ""
 "opened and locked by another application.</note></para>"
 msgstr "請檢查檔案的權限以及是否已經被其他應用程式開啟並鎖定。"
 
-#: main/startup/KexiStartup.cpp:870
+#: main/startup/KexiStartup.cpp:867
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Check the file's permissions and whether it is already opened and locked "
@@ -4489,7 +4489,7 @@ msgid ""
 "opened and locked by another application.</para>"
 msgstr "請檢查檔案的權限以及是否已經被其他應用程式開啟並鎖定。"
 
-#: main/startup/KexiStartup.cpp:894
+#: main/startup/KexiStartup.cpp:891
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "\"%1\" is an external file of type:\n"
@@ -4504,18 +4504,18 @@ msgstr ""
 "%1 是一個型態為 %2 的外部檔案。\n"
 "您要將它匯入為 Kexi 專案嗎？"
 
-#: main/startup/KexiStartup.cpp:897
+#: main/startup/KexiStartup.cpp:894
 #, kde-kuit-format
 msgid "Open External File"
 msgstr "開啟外部檔案"
 
-#: main/startup/KexiStartup.cpp:898
+#: main/startup/KexiStartup.cpp:895
 #, kde-kuit-format
 msgctxt "@action:button Import File"
 msgid "Import..."
 msgstr "匯入..."
 
-#: main/startup/KexiStartup.cpp:930
+#: main/startup/KexiStartup.cpp:927
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "The project file \"%1\" is recognized as compatible with \"%2\" database "
@@ -4531,13 +4531,13 @@ msgstr ""
 "專案檔 %1 已被辨識為與資料庫驅動程式 %2 相容，而您要求使用驅動程式 %3。\n"
 "您要使用資料庫驅動程式 %4 嗎？"
 
-#: main/startup/KexiStartup.cpp:951
+#: main/startup/KexiStartup.cpp:948
 #, fuzzy, kde-kuit-format
 #| msgid "Possible problems:"
 msgid "Possible problems: %1"
 msgstr "可能的問題有："
 
-#: main/startup/KexiStartup.cpp:957
+#: main/startup/KexiStartup.cpp:954
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" is not recognized as being supported by Kexi."
 msgctxt "@info"
@@ -4546,7 +4546,7 @@ msgid ""
 "<application>%2</application>."
 msgstr "檔案 %1 可能不被 Kexi 所支援。"
 
-#: main/startup/KexiStartup.cpp:962
+#: main/startup/KexiStartup.cpp:959
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4559,7 +4559,7 @@ msgstr ""
 "找不到這個檔案型態使用的資料庫驅動程式。\n"
 "偵側到的 MIME 型態為：%1"
 
-#: main/startup/KexiStartup.cpp:966
+#: main/startup/KexiStartup.cpp:963
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4573,7 +4573,7 @@ msgstr ""
 "找不到這個檔案型態使用的資料庫驅動程式。\n"
 "偵側到的 MIME 型態為：%1"
 
-#: main/startup/KexiStartup.cpp:998
+#: main/startup/KexiStartup.cpp:995
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not load list of available projects for <b>%1</b> database server."
@@ -4582,7 +4582,7 @@ msgid ""
 "database server."
 msgstr "無法載入資料庫伺服器 <b>%1</b> 可使用的專案清單。"
 
-#: main/startup/KexiStartup.cpp:1039
+#: main/startup/KexiStartup.cpp:1036
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Failed saving connection data to\n"
@@ -5328,49 +5328,49 @@ msgstr "資料來源"
 msgid "Frame Color"
 msgstr "框架顏色"
 
-#: plugins/forms/kexiformmanager.cpp:166
+#: plugins/forms/kexiformmanager.cpp:160
 #, kde-kuit-format
 msgid "Pointer"
 msgstr "指標"
 
-#: plugins/forms/kexiformmanager.cpp:174
+#: plugins/forms/kexiformmanager.cpp:168
 #, kde-kuit-format
 msgid "Snap to Grid"
 msgstr "貼齊格線"
 
-#: plugins/forms/kexiformmanager.cpp:181
+#: plugins/forms/kexiformmanager.cpp:175
 #, kde-kuit-format
 msgid "Style"
 msgstr "樣式"
 
-#: plugins/forms/kexiformmanager.cpp:200
+#: plugins/forms/kexiformmanager.cpp:194
 #, kde-kuit-format
 msgid "Set the current view style."
 msgstr "設定目前的檢視樣式。"
 
-#: plugins/forms/kexiformmanager.cpp:209
+#: plugins/forms/kexiformmanager.cpp:203
 #, kde-kuit-format
 msgid "Show Form UI Code"
 msgstr "顯示表單介面的代碼"
 
-#: plugins/forms/kexiformmanager.cpp:394
+#: plugins/forms/kexiformmanager.cpp:388
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgid "Set form's data source to <resource>%1</resource>"
 msgstr "儲存物件 %1 失敗。"
 
-#: plugins/forms/kexiformmanager.cpp:478
+#: plugins/forms/kexiformmanager.cpp:472
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Form's UI Code"
 msgstr "表單介面的源碼"
 
-#: plugins/forms/kexiformmanager.cpp:481
+#: plugins/forms/kexiformmanager.cpp:475
 #, kde-kuit-format
 msgid "Current"
 msgstr "目前"
 
-#: plugins/forms/kexiformmanager.cpp:488
+#: plugins/forms/kexiformmanager.cpp:482
 #, kde-kuit-format
 msgid "Original"
 msgstr "原始"
@@ -6585,7 +6585,7 @@ msgstr "圖片(&I)"
 msgid "&Assign Action..."
 msgstr "指定動作(&A)..."
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1386
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1393
 #, kde-kuit-format
 msgctxt "default indent value"
 msgid "default"
@@ -7019,8 +7019,8 @@ msgstr ""
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1713
 #: plugins/importexport/csv/kexicsvwidgets.cpp:190
-#: plugins/importexport/csv/kexicsvwidgets.cpp:240
-#: plugins/importexport/csv/kexicsvwidgets.cpp:252
+#: plugins/importexport/csv/kexicsvwidgets.cpp:239
+#: plugins/importexport/csv/kexicsvwidgets.cpp:251
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1875
 #: plugins/tables/kexitabledesignerview.cpp:395
 #, kde-kuit-format

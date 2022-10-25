@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KOffice 1.4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-30 00:45+0000\n"
+"POT-Creation-Date: 2022-10-25 00:47+0000\n"
 "PO-Revision-Date: 2014-05-04 15:46+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1035,7 +1035,7 @@ msgctxt "@info"
 msgid "No plugin for ID <resource>%1</resource>"
 msgstr "<resource>%1</resource> oszlop."
 
-#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3640
+#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3639
 #, kde-kuit-format
 msgid "Could not set empty name for this object."
 msgstr "Nem sikerült üres nevet beállítani az objektumhoz."
@@ -1078,8 +1078,8 @@ msgstr ""
 "létezik."
 
 #: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
-#: main/startup/KexiStartup.cpp:811 main/startup/KexiStartup.cpp:820
-#: main/startup/KexiStartup.cpp:831
+#: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
+#: main/startup/KexiStartup.cpp:828
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Could Not Open File"
@@ -1432,7 +1432,7 @@ msgid ""
 msgstr ""
 "Az elrendezés megváltozott, más nézetre való átváltás előtt el kell menteni."
 
-#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2833
+#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2832
 #, kde-kuit-format
 msgid "Switching to other view failed (%1)."
 msgstr "Nem sikerült átváltani más nézetre (%1)."
@@ -1532,7 +1532,7 @@ msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "Felületi elemek átméretezése a legmagasabbhoz"
 
-#: formeditor/commands.cpp:909
+#: formeditor/commands.cpp:908
 #, fuzzy, kde-format
 #| msgctxt "@title:window Rename Object %1."
 #| msgid "Rename <resource>%1</resource>"
@@ -1540,12 +1540,12 @@ msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "<resource>%1</resource> átnevezése"
 
-#: formeditor/commands.cpp:912
+#: formeditor/commands.cpp:911
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "Felületi elem beszúrása"
 
-#: formeditor/commands.cpp:958
+#: formeditor/commands.cpp:957
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not insert widget of type \"%1\". A problem with widget's creation "
@@ -1558,37 +1558,37 @@ msgstr ""
 "Nem sikerült beszúrni egy „%1” típusú felületi elemet. Hiba történt a "
 "felületi elem létrehozásakor."
 
-#: formeditor/commands.cpp:1127
+#: formeditor/commands.cpp:1126
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "Beillesztés"
 
-#: formeditor/commands.cpp:1413
+#: formeditor/commands.cpp:1412
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "Felületi elem törlése"
 
-#: formeditor/commands.cpp:1521
+#: formeditor/commands.cpp:1520
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "Felületi elem megkettőzése"
 
-#: formeditor/commands.cpp:1580
+#: formeditor/commands.cpp:1579
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "Kivágás"
 
-#: formeditor/commands.cpp:1813
+#: formeditor/commands.cpp:1812
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "Oldal hozzáadása"
 
-#: formeditor/commands.cpp:1860 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
 #, kde-kuit-format
 msgid "Page %1"
 msgstr "%1. oldal"
 
-#: formeditor/commands.cpp:1968
+#: formeditor/commands.cpp:1967
 #, fuzzy
 #| msgctxt "(qtundo-format)"
 #| msgid "Delete widget"
@@ -1722,7 +1722,7 @@ msgstr "Elem m&ozgatása le"
 msgid "Contents"
 msgstr "Tartalom"
 
-#: formeditor/editlistviewdialog.cpp:116 formeditor/form_p.cpp:256
+#: formeditor/editlistviewdialog.cpp:116 formeditor/form_p.cpp:272
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1858
 #: plugins/tables/kexitabledesignerview.cpp:358
 #, kde-kuit-format
@@ -1764,12 +1764,12 @@ msgstr "Új elem"
 msgid "Sub Item"
 msgstr "Rész elem"
 
-#: formeditor/form.cpp:284
+#: formeditor/form.cpp:268
 #, kde-kuit-format
 msgid "Form"
 msgstr "Űrlap"
 
-#: formeditor/form.cpp:771
+#: formeditor/form.cpp:755
 #, fuzzy, kde-kuit-format
 #| msgctxt "@title:window Rename Object %1."
 #| msgid "Rename <resource>%1</resource>"
@@ -1778,13 +1778,13 @@ msgid ""
 "Renaming widget <resource>%1</resource> to <resource>%2</resource> failed."
 msgstr "<resource>%1</resource> átnevezése"
 
-#: formeditor/form.cpp:1329
+#: formeditor/form.cpp:1313
 #, fuzzy, kde-kuit-format
 #| msgid "Specified document could not be opened."
 msgid "Widget name could not be empty."
 msgstr "A megadott dokumentumot nem sikerült megnyitni."
 
-#: formeditor/form.cpp:1337
+#: formeditor/form.cpp:1321
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not rename widget \"%1\" to \"%2\" because \"%3\" is not a valid "
@@ -1798,7 +1798,7 @@ msgstr ""
 "Nem sikerült átnevezni a(z) „%1” felületi elemet erre: „%2”, mert „%3” nem "
 "érvényes felületi elem név (azonosító).\n"
 
-#: formeditor/form.cpp:1348
+#: formeditor/form.cpp:1332
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not rename widget \"%1\" to \"%2\" because a widget with the name "
@@ -1811,213 +1811,213 @@ msgstr ""
 "Nem sikerült átnevezni a(z) „%1” felületi elemet erre: „%2”, mert már "
 "létezik „%3” nevű felületi elem.\n"
 
-#: formeditor/form.cpp:1465 formeditor/form.cpp:1734
+#: formeditor/form.cpp:1449 formeditor/form.cpp:1718
 #, kde-kuit-format
 msgid "Multiple Widgets (%1)"
 msgstr "Több felületi elem (%1)"
 
-#: formeditor/form.cpp:1724
+#: formeditor/form.cpp:1708
 #, kde-kuit-format
 msgid "%1 : Form"
 msgstr "%1: Űrlap"
 
-#: formeditor/form.cpp:1783
+#: formeditor/form.cpp:1767
 #, kde-kuit-format
 msgid "No Buddy"
 msgstr "Nincs társ"
 
-#: formeditor/form.cpp:2195
+#: formeditor/form.cpp:2179
 #, kde-kuit-format
 msgctxt "Translators: please keep this string short (less than 20 chars)"
 msgid "Hor. Alignment"
 msgstr "Vízsz. igazítás"
 
-#: formeditor/form.cpp:2196
+#: formeditor/form.cpp:2180
 #, kde-kuit-format
 msgid "Horizontal Alignment"
 msgstr "Vízszintes igazítás"
 
-#: formeditor/form.cpp:2226
+#: formeditor/form.cpp:2210
 #, kde-kuit-format
 msgctxt "Translators: please keep this string short (less than 20 chars)"
 msgid "Ver. Alignment"
 msgstr "Függ. igazítás"
 
-#: formeditor/form.cpp:2227
+#: formeditor/form.cpp:2211
 #, kde-kuit-format
 msgid "Vertical Alignment"
 msgstr "Függőleges igazítás"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: formeditor/form_p.cpp:254 formeditor/form_p.cpp:255
+#: formeditor/form_p.cpp:270 formeditor/form_p.cpp:271
 #: plugins/tables/kexitabledesignerview.cpp:323
 #: widget/KexiConnectionSelector.ui:94
 #, kde-format, kde-kuit-format
 msgid "Name"
 msgstr "Név"
 
-#: formeditor/form_p.cpp:257
+#: formeditor/form_p.cpp:273
 #, kde-kuit-format
 msgid "Window title"
 msgstr "Ablakcím"
 
-#: formeditor/form_p.cpp:258
+#: formeditor/form_p.cpp:274
 #, kde-kuit-format
 msgid "Text"
 msgstr "Szöveg"
 
-#: formeditor/form_p.cpp:259
+#: formeditor/form_p.cpp:275
 #, kde-kuit-format
 msgid "Background Pixmap"
 msgstr "Háttérkép"
 
-#: formeditor/form_p.cpp:260
+#: formeditor/form_p.cpp:276
 #, fuzzy, kde-kuit-format
 #| msgid "Enabled"
 msgctxt "Property: enabled widget"
 msgid "Enabled"
 msgstr "Engedélyezve"
 
-#: formeditor/form_p.cpp:261
+#: formeditor/form_p.cpp:277
 #, kde-kuit-format
 msgid "Geometry"
 msgstr "Geometria"
 
-#: formeditor/form_p.cpp:262
+#: formeditor/form_p.cpp:278
 #, kde-kuit-format
 msgid "Size Policy"
 msgstr "Méret szabály"
 
-#: formeditor/form_p.cpp:263
+#: formeditor/form_p.cpp:279
 #, kde-kuit-format
 msgid "Minimum Size"
 msgstr "Minimális méret"
 
-#: formeditor/form_p.cpp:264
+#: formeditor/form_p.cpp:280
 #, kde-kuit-format
 msgid "Maximum Size"
 msgstr "Maximális méret"
 
-#: formeditor/form_p.cpp:265
+#: formeditor/form_p.cpp:281
 #, kde-kuit-format
 msgid "Font"
 msgstr "Betűkészlet"
 
-#: formeditor/form_p.cpp:266
+#: formeditor/form_p.cpp:282
 #, kde-kuit-format
 msgid "Cursor"
 msgstr "Kurzor"
 
-#: formeditor/form_p.cpp:267
+#: formeditor/form_p.cpp:283
 #, kde-kuit-format
 msgid "Foreground Color"
 msgstr "Előtérszín"
 
-#: formeditor/form_p.cpp:268
+#: formeditor/form_p.cpp:284
 #, kde-kuit-format
 msgid "Background Color"
 msgstr "Háttérszín"
 
-#: formeditor/form_p.cpp:269
+#: formeditor/form_p.cpp:285
 #, kde-kuit-format
 msgid "Fill Background"
 msgstr "Háttér kitöltése"
 
-#: formeditor/form_p.cpp:270
+#: formeditor/form_p.cpp:286
 #, kde-kuit-format
 msgid "Focus Policy"
 msgstr "Fókuszálási szabály"
 
-#: formeditor/form_p.cpp:271
+#: formeditor/form_p.cpp:287
 #, kde-kuit-format
 msgid "Margin"
 msgstr "Margó"
 
-#: formeditor/form_p.cpp:272 plugins/forms/kexidbfactorybase.cpp:54
+#: formeditor/form_p.cpp:288 plugins/forms/kexidbfactorybase.cpp:54
 #, kde-kuit-format
 msgid "Read Only"
 msgstr "Csak olvasható"
 
-#: formeditor/form_p.cpp:273
+#: formeditor/form_p.cpp:289
 #, kde-kuit-format
 msgid "Style Sheet"
 msgstr "Stíluslap"
 
-#: formeditor/form_p.cpp:274
+#: formeditor/form_p.cpp:290
 #, kde-kuit-format
 msgctxt "Widget's Tooltip"
 msgid "Tooltip"
 msgstr "Buboréksúgó"
 
-#: formeditor/form_p.cpp:275
+#: formeditor/form_p.cpp:291
 #, kde-kuit-format
 msgctxt "Widget's Whats This"
 msgid "What's This"
 msgstr "Mi ez?"
 
-#: formeditor/form_p.cpp:276
+#: formeditor/form_p.cpp:292
 #, kde-kuit-format
 msgid "Icon Size"
 msgstr "Ikonméret"
 
-#: formeditor/form_p.cpp:279
+#: formeditor/form_p.cpp:295
 #, kde-kuit-format
 msgid "Frame"
 msgstr "Keret"
 
-#: formeditor/form_p.cpp:280
+#: formeditor/form_p.cpp:296
 #, kde-kuit-format
 msgid "Frame Width"
 msgstr "Keretszélesség"
 
-#: formeditor/form_p.cpp:281
+#: formeditor/form_p.cpp:297
 #, kde-kuit-format
 msgid "Mid Frame Width"
 msgstr "Közepes keretszélesség"
 
-#: formeditor/form_p.cpp:282
+#: formeditor/form_p.cpp:298
 #, kde-kuit-format
 msgid "Frame Shape"
 msgstr "Keret alakzat"
 
-#: formeditor/form_p.cpp:283
+#: formeditor/form_p.cpp:299
 #, kde-kuit-format
 msgid "Frame Shadow"
 msgstr "Keret árnyék"
 
-#: formeditor/form_p.cpp:285
+#: formeditor/form_p.cpp:301
 #, kde-kuit-format
 msgid "Vertical Scrollbar"
 msgstr "Függőleges görgetősáv"
 
-#: formeditor/form_p.cpp:286
+#: formeditor/form_p.cpp:302
 #, kde-kuit-format
 msgid "Horizontal Scrollbar"
 msgstr "Vízszintes görgetősáv"
 
-#: formeditor/form_p.cpp:288
+#: formeditor/form_p.cpp:304
 #, kde-kuit-format
 msgid "No Background"
 msgstr "Nincs háttér"
 
-#: formeditor/form_p.cpp:289
+#: formeditor/form_p.cpp:305
 #, kde-kuit-format
 msgid "Palette Foreground"
 msgstr "Paletta előtér"
 
-#: formeditor/form_p.cpp:290
+#: formeditor/form_p.cpp:306
 #, kde-kuit-format
 msgctxt "Auto (HINT: for AutoText)"
 msgid "Auto"
 msgstr "Automatikus"
 
-#: formeditor/form_p.cpp:292
+#: formeditor/form_p.cpp:308
 #, kde-kuit-format
 msgctxt "Auto (HINT: for Align)"
 msgid "Auto"
 msgstr "Automatikus"
 
-#: formeditor/form_p.cpp:293
+#: formeditor/form_p.cpp:309
 #, fuzzy, kde-kuit-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -2027,169 +2027,169 @@ msgctxt "Baseline (HINT: for Align)"
 msgid "Baseline"
 msgstr "vonal"
 
-#: formeditor/form_p.cpp:294 formeditor/form_p.cpp:295
+#: formeditor/form_p.cpp:310 formeditor/form_p.cpp:311
 #, kde-kuit-format
 msgctxt "Left (HINT: for Align)"
 msgid "Left"
 msgstr "Balra"
 
-#: formeditor/form_p.cpp:296 formeditor/form_p.cpp:297
+#: formeditor/form_p.cpp:312 formeditor/form_p.cpp:313
 #, kde-kuit-format
 msgctxt "Right (HINT: for Align)"
 msgid "Right"
 msgstr "Jobbra"
 
-#: formeditor/form_p.cpp:298 formeditor/form_p.cpp:300
+#: formeditor/form_p.cpp:314 formeditor/form_p.cpp:316
 #, kde-kuit-format
 msgctxt "Center (HINT: for Align)"
 msgid "Center"
 msgstr "Középre"
 
-#: formeditor/form_p.cpp:299
+#: formeditor/form_p.cpp:315
 #, kde-kuit-format
 msgctxt "Justify (HINT: for Align)"
 msgid "Justify"
 msgstr "Sorkizárt"
 
-#: formeditor/form_p.cpp:301
+#: formeditor/form_p.cpp:317
 #, kde-kuit-format
 msgctxt "Top (HINT: for Align)"
 msgid "Top"
 msgstr "Felülre"
 
-#: formeditor/form_p.cpp:302
+#: formeditor/form_p.cpp:318
 #, kde-kuit-format
 msgctxt "Bottom (HINT: for Align)"
 msgid "Bottom"
 msgstr "Alulra"
 
-#: formeditor/form_p.cpp:304
+#: formeditor/form_p.cpp:320
 #, kde-kuit-format
 msgctxt "No Frame (HINT: for Frame Shape)"
 msgid "No Frame"
 msgstr "Nincs keret"
 
-#: formeditor/form_p.cpp:305
+#: formeditor/form_p.cpp:321
 #, kde-kuit-format
 msgctxt "Box (HINT: for Frame Shape)"
 msgid "Box"
 msgstr "Doboz"
 
-#: formeditor/form_p.cpp:306
+#: formeditor/form_p.cpp:322
 #, kde-kuit-format
 msgctxt "Panel (HINT: for Frame Shape)"
 msgid "Panel"
 msgstr "Panel"
 
-#: formeditor/form_p.cpp:307
+#: formeditor/form_p.cpp:323
 #, kde-kuit-format
 msgctxt "Windows Panel (HINT: for Frame Shape)"
 msgid "Windows Panel"
 msgstr "Ablakok panel"
 
-#: formeditor/form_p.cpp:308
+#: formeditor/form_p.cpp:324
 #, kde-kuit-format
 msgctxt "Horiz. Line (HINT: for Frame Shape)"
 msgid "Horiz. Line"
 msgstr "Vízszintes vonal"
 
-#: formeditor/form_p.cpp:309
+#: formeditor/form_p.cpp:325
 #, kde-kuit-format
 msgctxt "Vertical Line (HINT: for Frame Shape)"
 msgid "Vertical Line"
 msgstr "Függőleges vonal"
 
-#: formeditor/form_p.cpp:310
+#: formeditor/form_p.cpp:326
 #, kde-kuit-format
 msgctxt "Styled (HINT: for Frame Shape)"
 msgid "Styled"
 msgstr "Stílusos"
 
-#: formeditor/form_p.cpp:311
+#: formeditor/form_p.cpp:327
 #, kde-kuit-format
 msgctxt "Popup (HINT: for Frame Shape)"
 msgid "Popup"
 msgstr "Felugró"
 
-#: formeditor/form_p.cpp:312
+#: formeditor/form_p.cpp:328
 #, kde-kuit-format
 msgctxt "Menu Bar (HINT: for Frame Shape)"
 msgid "Menu Bar"
 msgstr "Menüsor"
 
-#: formeditor/form_p.cpp:313
+#: formeditor/form_p.cpp:329
 #, kde-kuit-format
 msgctxt "Toolbar (HINT: for Frame Shape)"
 msgid "Toolbar"
 msgstr "Eszköztár"
 
-#: formeditor/form_p.cpp:314
+#: formeditor/form_p.cpp:330
 #, kde-kuit-format
 msgctxt "Text Box (HINT: for Frame Shape)"
 msgid "Text Box"
 msgstr "Szövegdoboz"
 
-#: formeditor/form_p.cpp:315
+#: formeditor/form_p.cpp:331
 #, kde-kuit-format
 msgctxt "Tab Widget (HINT: for Frame Shape)"
 msgid "Tab Widget"
 msgstr "Lap felületi elem"
 
-#: formeditor/form_p.cpp:316
+#: formeditor/form_p.cpp:332
 #, kde-kuit-format
 msgctxt "Group Box (HINT: for Frame Shape)"
 msgid "Group Box"
 msgstr "Csoport doboz"
 
-#: formeditor/form_p.cpp:318
+#: formeditor/form_p.cpp:334
 #, kde-kuit-format
 msgctxt "Plain (HINT: for Frame Shadow)"
 msgid "Plain"
 msgstr "Egyszerű"
 
-#: formeditor/form_p.cpp:319
+#: formeditor/form_p.cpp:335
 #, kde-kuit-format
 msgctxt "Raised (HINT: for Frame Shadow)"
 msgid "Raised"
 msgstr "Kiemelt"
 
-#: formeditor/form_p.cpp:320
+#: formeditor/form_p.cpp:336
 #, kde-kuit-format
 msgctxt "Sunken (HINT: for Frame Shadow)"
 msgid "Sunken"
 msgstr "Süllyesztett"
 
-#: formeditor/form_p.cpp:321
+#: formeditor/form_p.cpp:337
 #, kde-kuit-format
 msgctxt "for Frame Shadow"
 msgid "Internal"
 msgstr "Belső"
 
-#: formeditor/form_p.cpp:323
+#: formeditor/form_p.cpp:339
 #, kde-kuit-format
 msgctxt "No Focus (HINT: for Focus)"
 msgid "No Focus"
 msgstr "Fókusz nélkül"
 
-#: formeditor/form_p.cpp:324
+#: formeditor/form_p.cpp:340
 #, kde-kuit-format
 msgctxt "Tab (HINT: for Focus)"
 msgid "Tab"
 msgstr "Tab"
 
-#: formeditor/form_p.cpp:325
+#: formeditor/form_p.cpp:341
 #, kde-kuit-format
 msgctxt "Click (HINT: for Focus)"
 msgid "Click"
 msgstr "Kattintás"
 
-#: formeditor/form_p.cpp:326
+#: formeditor/form_p.cpp:342
 #, kde-kuit-format
 msgctxt "Tab/Click (HINT: for Focus)"
 msgid "Tab/Click"
 msgstr "Tabulátorral/kattintásra"
 
-#: formeditor/form_p.cpp:327
+#: formeditor/form_p.cpp:343
 #, fuzzy, kde-kuit-format
 #| msgctxt "Tab/Click/MouseWheel (HINT: for Focus)"
 #| msgid "Tab/Click/MouseWheel"
@@ -2197,37 +2197,37 @@ msgctxt "Tab/Click/MouseWheel (HINT: for Focus)"
 msgid "Tab/Click/Mouse Wheel"
 msgstr "Tabulátorral/kattintásra/egérgörgővel"
 
-#: formeditor/form_p.cpp:329
+#: formeditor/form_p.cpp:345
 #, kde-kuit-format
 msgid "Auto"
 msgstr "Automatikus"
 
-#: formeditor/form_p.cpp:330
+#: formeditor/form_p.cpp:346
 #, kde-kuit-format
 msgid "Always Off"
 msgstr "Mindig ki"
 
-#: formeditor/form_p.cpp:331
+#: formeditor/form_p.cpp:347
 #, kde-kuit-format
 msgid "Always On"
 msgstr "Mindig be"
 
-#: formeditor/form_p.cpp:334
+#: formeditor/form_p.cpp:350
 #, kde-kuit-format
 msgid "Horizontal"
 msgstr "Vízszintes"
 
-#: formeditor/form_p.cpp:335
+#: formeditor/form_p.cpp:351
 #, kde-kuit-format
 msgid "Vertical"
 msgstr "Függőleges"
 
-#: formeditor/form_p.cpp:338
+#: formeditor/form_p.cpp:354
 #, kde-kuit-format
 msgid "Left to Right"
 msgstr "Balról jobbra"
 
-#: formeditor/form_p.cpp:339
+#: formeditor/form_p.cpp:355
 #, kde-kuit-format
 msgid "Right to Left"
 msgstr "Jobbról balra"
@@ -2557,17 +2557,17 @@ msgstr ""
 "Nem sikerült megnyitni a fájlt. A(z) <filename>%1</filename> fájl nem "
 "létezik."
 
-#: kexiutils/utils.cpp:303 main/startup/KexiOpenProjectAssistant.cpp:154
+#: kexiutils/utils.cpp:305 main/startup/KexiOpenProjectAssistant.cpp:154
 #, kde-format, kde-kuit-format
 msgid "Open"
 msgstr "Megnyitás"
 
-#: kexiutils/utils.cpp:317
+#: kexiutils/utils.cpp:319
 #, kde-format
 msgid "Save"
 msgstr "Mentés"
 
-#: kexiutils/utils.cpp:362
+#: kexiutils/utils.cpp:364
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "File \"%1\" already exists.<p>Do you want to replace it with a new one?"
@@ -2577,31 +2577,31 @@ msgid ""
 "want to overwrite it?</para>"
 msgstr "Már létezik „%1” nevű fájl.<p>Szeretné lecserélné egy újra?"
 
-#: kexiutils/utils.cpp:758
+#: kexiutils/utils.cpp:761
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The file or directory <filename>%1</filename> does not exist."
 msgstr "A(z) <filename>%1</filename> fájl vagy könyvtár nem létezik."
 
-#: kexiutils/utils.cpp:764
+#: kexiutils/utils.cpp:767
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Invalid hyperlink <link>%1</link>."
 msgstr "Érvénytelen hiperhivatkozás: <link>%1</link>."
 
-#: kexiutils/utils.cpp:773
+#: kexiutils/utils.cpp:776
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Executable <link>%1</link> not allowed."
 msgstr "A végrehajtható <link>%1</link> nem engedélyezett."
 
-#: kexiutils/utils.cpp:779
+#: kexiutils/utils.cpp:782
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Remote hyperlink <link>%1</link> not allowed."
 msgstr "A(z) <link>%1</link> távoli hiperhivatkozás nem engedélyezett."
 
-#: kexiutils/utils.cpp:786
+#: kexiutils/utils.cpp:789
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2611,13 +2611,13 @@ msgstr ""
 "Szeretné futtatni ezt a fájlt?<warning>A végrehajthatók futtatása veszélyes "
 "lehet.</warning>"
 
-#: kexiutils/utils.cpp:789
+#: kexiutils/utils.cpp:792
 #, kde-kuit-format
 msgctxt "@action:button Run script file"
 msgid "Run"
 msgstr ""
 
-#: kexiutils/utils.cpp:850
+#: kexiutils/utils.cpp:861
 #, fuzzy, kde-kuit-format
 #| msgctxt "Identifier%1"
 #| msgid "Id%1"
@@ -2625,18 +2625,18 @@ msgctxt "'Dirty (modified) object' flag"
 msgid "%1*"
 msgstr "Azonosító%1"
 
-#: kexiutils/utils.cpp:1137
+#: kexiutils/utils.cpp:1148
 #, kde-kuit-format
 msgid "modified"
 msgstr ""
 
-#: kexiutils/utils.cpp:1148
+#: kexiutils/utils.cpp:1159
 #, kde-kuit-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr ""
 
-#: kexiutils/utils.cpp:1194
+#: kexiutils/utils.cpp:1205
 #, kde-kuit-format
 msgctxt "@info/plain Concatenated sentence1 sentence2 ..."
 msgid "<html>%1%2%3%4%5%6</html>"
@@ -2871,68 +2871,68 @@ msgctxt "Help global view mode (noun)"
 msgid "Help"
 msgstr "Súgó"
 
-#: main/KexiMainWindow.cpp:428
+#: main/KexiMainWindow.cpp:427
 #, kde-kuit-format
 msgctxt "Action name with three dots..."
 msgid "%1..."
 msgstr "%1…"
 
-#: main/KexiMainWindow.cpp:459
+#: main/KexiMainWindow.cpp:458
 #, fuzzy, kde-kuit-format
 #| msgid "New Project"
 msgid "&New Project..."
 msgstr "Új projekt"
 
-#: main/KexiMainWindow.cpp:461
+#: main/KexiMainWindow.cpp:460
 #, kde-kuit-format
 msgid "Create a new project"
 msgstr "Új projekt létrehozása"
 
-#: main/KexiMainWindow.cpp:463
+#: main/KexiMainWindow.cpp:462
 #, kde-kuit-format
 msgid "Creates a new project. Currently opened project is not affected."
 msgstr ""
 "Létrehoz egy új projektet. A jelenleg megnyitott projektet nem befolyásolja."
 
-#: main/KexiMainWindow.cpp:469
+#: main/KexiMainWindow.cpp:468
 #, fuzzy, kde-kuit-format
 #| msgid "Open Project"
 msgid "&Open Project..."
 msgstr "Projekt megnyitása"
 
-#: main/KexiMainWindow.cpp:471
+#: main/KexiMainWindow.cpp:470
 #, kde-kuit-format
 msgid "Open an existing project"
 msgstr "Létező projekt m&egnyitása"
 
-#: main/KexiMainWindow.cpp:473
+#: main/KexiMainWindow.cpp:472
 #, kde-kuit-format
 msgid "Opens an existing project. Currently opened project is not affected."
 msgstr ""
 "Megnyit egy már létező projektet. A jelenleg megnyitott projektet nem "
 "befolyásolja."
 
-#: main/KexiMainWindow.cpp:479
+#: main/KexiMainWindow.cpp:478
 #, kde-kuit-format
 msgid "Open a project that was recently opened."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:480
+#: main/KexiMainWindow.cpp:479
 #, kde-kuit-format
 msgid "Opens a project that was recently opened."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:485
+#: main/KexiMainWindow.cpp:484
 #, kde-kuit-format
 msgid "Welcome"
 msgstr "Üdvözöljük"
 
-#: main/KexiMainWindow.cpp:489
+#: main/KexiMainWindow.cpp:488
 #, kde-kuit-format
 msgid "Show Welcome page"
 msgstr "Üdvözlőoldal megjelenítése"
 
-#: main/KexiMainWindow.cpp:491
+#: main/KexiMainWindow.cpp:490
 #, kde-kuit-format
 msgid ""
 "Shows Welcome page with list of recently opened projects and other "
@@ -2941,27 +2941,27 @@ msgstr ""
 "Megjeleníti az üdvözlőoldalt a legutóbb megnyitott projektek listájával és "
 "egyéb információkkal."
 
-#: main/KexiMainWindow.cpp:496
+#: main/KexiMainWindow.cpp:495
 #, kde-kuit-format
 msgid "Save object changes"
 msgstr "Az objektum változásainak mentése"
 
-#: main/KexiMainWindow.cpp:497
+#: main/KexiMainWindow.cpp:496
 #, kde-kuit-format
 msgid "Saves object changes from currently selected window."
 msgstr "Elmenti az objektumok változásait a jelenleg kijelölt ablakban."
 
-#: main/KexiMainWindow.cpp:501
+#: main/KexiMainWindow.cpp:500
 #, kde-kuit-format
 msgid "Save &As..."
 msgstr "Men&tés másként…"
 
-#: main/KexiMainWindow.cpp:502
+#: main/KexiMainWindow.cpp:501
 #, kde-kuit-format
 msgid "Save object as"
 msgstr "Objektum mentése másként"
 
-#: main/KexiMainWindow.cpp:504
+#: main/KexiMainWindow.cpp:503
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Saves object changes from currently selected window under a new name "
@@ -2973,89 +2973,89 @@ msgstr ""
 "Elmenti az aktuális ablakban módosított objektumokat új néven (a projekten "
 "belül)."
 
-#: main/KexiMainWindow.cpp:520
+#: main/KexiMainWindow.cpp:519
 #, kde-kuit-format
 msgid "&Import, Export or Send..."
 msgstr "&Importálás, exportálás vagy küldés…"
 
-#: main/KexiMainWindow.cpp:521
+#: main/KexiMainWindow.cpp:520
 #, kde-kuit-format
 msgid "Import, export or send project"
 msgstr "Projekt importálása, exportálása vagy küldése"
 
-#: main/KexiMainWindow.cpp:523
+#: main/KexiMainWindow.cpp:522
 #, kde-kuit-format
 msgid "Imports, exports or sends project."
 msgstr "Importálja, exportálja vagy elküldi a projektet."
 
-#: main/KexiMainWindow.cpp:529
+#: main/KexiMainWindow.cpp:528
 #, kde-kuit-format
 msgid "&Close Project"
 msgstr "A projekt be&zárása"
 
-#: main/KexiMainWindow.cpp:530
+#: main/KexiMainWindow.cpp:529
 #, kde-kuit-format
 msgid "Close the current project"
 msgstr "A jelenlegi projekt bezárása"
 
-#: main/KexiMainWindow.cpp:531
+#: main/KexiMainWindow.cpp:530
 #, kde-kuit-format
 msgid "Closes the current project."
 msgstr "Bezárja a jelenlegi projektet."
 
-#: main/KexiMainWindow.cpp:538
+#: main/KexiMainWindow.cpp:537
 #, fuzzy, kde-kuit-format
 #| msgid "Could not start %1 application."
 msgctxt "@info:whatsthis"
 msgid "Quits <application>%1</application> application."
 msgstr "Nem sikerült elindítani a(z) %1 alkalmazást."
 
-#: main/KexiMainWindow.cpp:554
+#: main/KexiMainWindow.cpp:553
 #, kde-kuit-format
 msgid "&Import Database..."
 msgstr "Adatbázis &importálása…"
 
-#: main/KexiMainWindow.cpp:555
+#: main/KexiMainWindow.cpp:554
 #, fuzzy, kde-kuit-format
 #| msgid "Import entire database as a Kexi project"
 msgid "Import entire database as a KEXI project"
 msgstr "Az egész adatbázis importálása Kexi projektként"
 
-#: main/KexiMainWindow.cpp:557
+#: main/KexiMainWindow.cpp:556
 #, fuzzy, kde-kuit-format
 #| msgid "Imports entire database as a Kexi project."
 msgid "Imports entire database as a KEXI project."
 msgstr "Importálja az egész adatbázist Kexi projektként."
 
-#: main/KexiMainWindow.cpp:562
+#: main/KexiMainWindow.cpp:561
 #, fuzzy, kde-kuit-format
 #| msgid "Import Tables"
 msgid "Import Tables..."
 msgstr "Táblák importálása"
 
-#: main/KexiMainWindow.cpp:563
+#: main/KexiMainWindow.cpp:562
 #, fuzzy, kde-kuit-format
 #| msgid "Import data from an external source into this database"
 msgid "Import data from an external source into this project"
 msgstr "Adatok importálása egy külső forrásból ebbe az adatbázisba"
 
-#: main/KexiMainWindow.cpp:564
+#: main/KexiMainWindow.cpp:563
 #, fuzzy, kde-kuit-format
 #| msgid "Import data from an external source into this database"
 msgid "Imports data from an external source into this project."
 msgstr "Adatok importálása egy külső forrásból ebbe az adatbázisba"
 
-#: main/KexiMainWindow.cpp:570
+#: main/KexiMainWindow.cpp:569
 #, kde-kuit-format
 msgid "&Compact Database..."
 msgstr "Adatbázis &tömörítése…"
 
-#: main/KexiMainWindow.cpp:571
+#: main/KexiMainWindow.cpp:570
 #, kde-kuit-format
 msgid "Compact the current database project"
 msgstr "A jelenlegi adatbázis-projekt tömörítése"
 
-#: main/KexiMainWindow.cpp:573
+#: main/KexiMainWindow.cpp:572
 #, kde-kuit-format
 msgid ""
 "Compacts the current database project, so it will take less space and work "
@@ -3064,463 +3064,463 @@ msgstr ""
 "Tömöríti a jelenlegi adatbázis-projektet, így kevesebb helyet fog foglalni "
 "és gyorsabban működik."
 
-#: main/KexiMainWindow.cpp:583
+#: main/KexiMainWindow.cpp:582
 #, kde-kuit-format
 msgctxt "Import->Table Data From File..."
 msgid "Import Data From &File..."
 msgstr "Adatok importálása &fájlból…"
 
-#: main/KexiMainWindow.cpp:584
+#: main/KexiMainWindow.cpp:583
 #, kde-kuit-format
 msgid "Import table data from a file"
 msgstr "Táblaadatok importálása fájlból"
 
-#: main/KexiMainWindow.cpp:585
+#: main/KexiMainWindow.cpp:584
 #, kde-kuit-format
 msgid "Imports table data from a file."
 msgstr "Táblaadatokat importál egy fájlból."
 
-#: main/KexiMainWindow.cpp:593
+#: main/KexiMainWindow.cpp:592
 #, kde-kuit-format
 msgctxt "Export->Table or Query Data to File..."
 msgid "Export Data to &File..."
 msgstr "Adatok exportálása &fájlba…"
 
-#: main/KexiMainWindow.cpp:595
+#: main/KexiMainWindow.cpp:594
 #, kde-kuit-format
 msgid "Export data from the active table or query to a file"
 msgstr "Adatok exportálása fájlba az aktív táblából vagy lekérdezésből"
 
-#: main/KexiMainWindow.cpp:597
+#: main/KexiMainWindow.cpp:596
 #, kde-kuit-format
 msgid "Exports data from the active table or query to a file."
 msgstr "Fájlba exportálja az adatokat az aktív táblából vagy lekérdezésből."
 
-#: main/KexiMainWindow.cpp:644
+#: main/KexiMainWindow.cpp:643
 #, kde-kuit-format
 msgctxt "Paste Special->As Data &Table..."
 msgid "Paste Special..."
 msgstr "Speciális beillesztés…"
 
-#: main/KexiMainWindow.cpp:646
+#: main/KexiMainWindow.cpp:645
 #, kde-kuit-format
 msgid "Paste clipboard data as a table"
 msgstr "Vágólapadatok beillesztése táblaként"
 
-#: main/KexiMainWindow.cpp:648
+#: main/KexiMainWindow.cpp:647
 #, fuzzy, kde-kuit-format
 #| msgid "Paste clipboard data as a table"
 msgid "Pastes clipboard data as a table."
 msgstr "Vágólapadatok beillesztése táblaként"
 
-#: main/KexiMainWindow.cpp:655
+#: main/KexiMainWindow.cpp:654
 #, kde-kuit-format
 msgctxt "Copy Special->Table or Query Data..."
 msgid "Copy Special..."
 msgstr "Speciális másolás…"
 
-#: main/KexiMainWindow.cpp:657
+#: main/KexiMainWindow.cpp:656
 #, kde-kuit-format
 msgid "Copy selected table or query data to clipboard"
 msgstr "A kijelölt tábla vagy lekérdezés adatainak másolása a vágólapra"
 
-#: main/KexiMainWindow.cpp:659
+#: main/KexiMainWindow.cpp:658
 #, kde-kuit-format
 msgid "Copies selected table or query data to clipboard."
 msgstr "A kijelölt tábla vagy lekérdezés adatait másolja a vágólapra."
 
-#: main/KexiMainWindow.cpp:664
+#: main/KexiMainWindow.cpp:663
 #, kde-kuit-format
 msgid "Reverts the most recent editing action."
 msgstr "Visszaállítja a legutóbbi szerkesztő műveletet."
 
-#: main/KexiMainWindow.cpp:666
+#: main/KexiMainWindow.cpp:665
 #, kde-kuit-format
 msgid "Reverts the most recent undo action."
 msgstr "Visszaállítja a legutóbbi visszavonás műveletet."
 
-#: main/KexiMainWindow.cpp:671
+#: main/KexiMainWindow.cpp:670
 #, kde-kuit-format
 msgid "Find text"
 msgstr "Szöveg keresése"
 
-#: main/KexiMainWindow.cpp:672
+#: main/KexiMainWindow.cpp:671
 #, kde-kuit-format
 msgid "Looks up the first occurrence of a piece of text."
 msgstr "Egy szöveg első előfordulását keresi meg."
 
-#: main/KexiMainWindow.cpp:682
+#: main/KexiMainWindow.cpp:681
 #, fuzzy, kde-kuit-format
 #| msgid "Replace All"
 msgid "Replace All"
 msgstr "Összes cseréje"
 
-#: main/KexiMainWindow.cpp:686
+#: main/KexiMainWindow.cpp:685
 #, kde-kuit-format
 msgid "&Delete"
 msgstr "&Törlés"
 
-#: main/KexiMainWindow.cpp:688
+#: main/KexiMainWindow.cpp:687
 #, kde-kuit-format
 msgid "Delete selected object"
 msgstr "A kijelölt objektum törlése"
 
-#: main/KexiMainWindow.cpp:689
+#: main/KexiMainWindow.cpp:688
 #, kde-kuit-format
 msgid "Deletes currently selected object."
 msgstr "Törli a jelenleg kijelölt objektumot."
 
-#: main/KexiMainWindow.cpp:691
+#: main/KexiMainWindow.cpp:690
 #, kde-kuit-format
 msgid "Delete Record"
 msgstr "Rekord törlése"
 
-#: main/KexiMainWindow.cpp:693
+#: main/KexiMainWindow.cpp:692
 #, fuzzy, kde-kuit-format
 #| msgid "Delete currently selected record"
 msgid "Delete the current record"
 msgstr "A jelenleg kijelölt rekord törlése"
 
-#: main/KexiMainWindow.cpp:694
+#: main/KexiMainWindow.cpp:693
 #, fuzzy, kde-kuit-format
 #| msgid "Prints the current report."
 msgid "Deletes the current record."
 msgstr "Kinyomtatja a jelenlegi jelentést."
 
-#: main/KexiMainWindow.cpp:696
+#: main/KexiMainWindow.cpp:695
 #, fuzzy, kde-kuit-format
 #| msgid "Clear Table Contents"
 msgid "Clear Table Contents..."
 msgstr "A tábla tartalmának törlése"
 
-#: main/KexiMainWindow.cpp:698
+#: main/KexiMainWindow.cpp:697
 #, kde-kuit-format
 msgid "Clear table contents"
 msgstr "A tábla tartalmának törlése"
 
-#: main/KexiMainWindow.cpp:699
+#: main/KexiMainWindow.cpp:698
 #, kde-kuit-format
 msgid "Clears table contents."
 msgstr "Törli a tábla tartalmát."
 
-#: main/KexiMainWindow.cpp:702
+#: main/KexiMainWindow.cpp:701
 #, kde-kuit-format
 msgid "Edit Item"
 msgstr "Elem szerkesztése"
 
-#: main/KexiMainWindow.cpp:705
+#: main/KexiMainWindow.cpp:704
 #, kde-kuit-format
 msgid "Edit currently selected item"
 msgstr "A jelenleg kijelölt elem szerkesztése"
 
-#: main/KexiMainWindow.cpp:706
+#: main/KexiMainWindow.cpp:705
 #, kde-kuit-format
 msgid "Edits currently selected item."
 msgstr "Szerkeszti a jelenleg kijelölt elemet."
 
-#: main/KexiMainWindow.cpp:708
+#: main/KexiMainWindow.cpp:707
 #, kde-kuit-format
 msgid "&Insert Empty Row"
 msgstr "Üres sor &beszúrása"
 
-#: main/KexiMainWindow.cpp:712
+#: main/KexiMainWindow.cpp:711
 #, kde-kuit-format
 msgid "Insert one empty row above"
 msgstr "Egy üres sor beszúrása elé"
 
-#: main/KexiMainWindow.cpp:714
+#: main/KexiMainWindow.cpp:713
 #, kde-kuit-format
 msgid "Inserts one empty row above currently selected table row."
 msgstr "Beszúr egy üres sort a jelenleg kijelölt táblasor elé."
 
-#: main/KexiMainWindow.cpp:771
+#: main/KexiMainWindow.cpp:770
 #, fuzzy, kde-kuit-format
 #| msgid "Project Navigator"
 msgid "Show Project Navigator"
 msgstr "Projektnavigátor"
 
-#: main/KexiMainWindow.cpp:774
+#: main/KexiMainWindow.cpp:773
 #, fuzzy, kde-kuit-format
 #| msgid "Switch to Project Navigator panel"
 msgid "Show the Project Navigator pane"
 msgstr "Váltás a projektnavigátor panelra"
 
-#: main/KexiMainWindow.cpp:775
+#: main/KexiMainWindow.cpp:774
 #, fuzzy, kde-kuit-format
 #| msgid "Switches to Project Navigator panel."
 msgid "Shows the Project Navigator pane."
 msgstr "Átvált a projektnavigátor panelra."
 
-#: main/KexiMainWindow.cpp:785
+#: main/KexiMainWindow.cpp:784
 #, fuzzy, kde-kuit-format
 #| msgid "Project Navigator"
 msgid "Activate Project Navigator"
 msgstr "Projektnavigátor"
 
-#: main/KexiMainWindow.cpp:787
+#: main/KexiMainWindow.cpp:786
 #, fuzzy, kde-kuit-format
 #| msgid "Switch to Project Navigator panel"
 msgid "Activate the Project Navigator pane"
 msgstr "Váltás a projektnavigátor panelra"
 
-#: main/KexiMainWindow.cpp:788
+#: main/KexiMainWindow.cpp:787
 #, fuzzy, kde-kuit-format
 #| msgid "Switch to Project Navigator panel"
 msgid "Activates the Project Navigator pane. If it is hidden, shows it first."
 msgstr "Váltás a projektnavigátor panelra"
 
-#: main/KexiMainWindow.cpp:796
+#: main/KexiMainWindow.cpp:795
 #, fuzzy, kde-kuit-format
 #| msgid "Switches to main area."
 msgid "Activate main area"
 msgstr "Átvált a fő területre."
 
-#: main/KexiMainWindow.cpp:800
+#: main/KexiMainWindow.cpp:799
 #, fuzzy, kde-kuit-format
 #| msgid "Switch to main area"
 msgid "Activate the main area"
 msgstr "Váltás a fő területre"
 
-#: main/KexiMainWindow.cpp:801
+#: main/KexiMainWindow.cpp:800
 #, fuzzy, kde-kuit-format
 #| msgid "Switches to main area."
 msgid "Activates the main area."
 msgstr "Átvált a fő területre."
 
-#: main/KexiMainWindow.cpp:808
+#: main/KexiMainWindow.cpp:807
 #, fuzzy, kde-kuit-format
 #| msgid "Property Editor"
 msgid "Show Property Pane"
 msgstr "Tulajdonságszerkesztő"
 
-#: main/KexiMainWindow.cpp:810
+#: main/KexiMainWindow.cpp:809
 #, fuzzy, kde-kuit-format
 #| msgid "Switch to Property Editor panel"
 msgid "Show the Property pane"
 msgstr "Váltás a tulajdonságszerkesztő panelre"
 
-#: main/KexiMainWindow.cpp:811
+#: main/KexiMainWindow.cpp:810
 #, fuzzy, kde-kuit-format
 #| msgid "Switches to Property Editor panel."
 msgid "Shows the Property pane."
 msgstr "Átvált a tulajdonságszerkesztő panelre."
 
-#: main/KexiMainWindow.cpp:820
+#: main/KexiMainWindow.cpp:819
 #, fuzzy, kde-kuit-format
 #| msgid "Property Editor"
 msgid "Activate Property Pane"
 msgstr "Tulajdonságszerkesztő"
 
-#: main/KexiMainWindow.cpp:821
+#: main/KexiMainWindow.cpp:820
 #, fuzzy, kde-kuit-format
 #| msgid "Switch to Property Editor panel"
 msgid "Activate the Property pane"
 msgstr "Váltás a tulajdonságszerkesztő panelre"
 
-#: main/KexiMainWindow.cpp:822
+#: main/KexiMainWindow.cpp:821
 #, kde-kuit-format
 msgid "Activates the Property pane. If it is hidden, shows it first."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:830
+#: main/KexiMainWindow.cpp:829
 #, kde-kuit-format
 msgid "Locate..."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:831
+#: main/KexiMainWindow.cpp:830
 #, fuzzy, kde-kuit-format
 #| msgid "Switch to Global Search box"
 msgid "Switch to Global Locate box"
 msgstr "Váltás a globális keresés dobozra"
 
-#: main/KexiMainWindow.cpp:832
+#: main/KexiMainWindow.cpp:831
 #, fuzzy, kde-kuit-format
 #| msgid "Switches to Global Search box."
 msgid "Switches to Global Locate box."
 msgstr "Átvált a globális keresés dobozra."
 
-#: main/KexiMainWindow.cpp:836
+#: main/KexiMainWindow.cpp:835
 #, kde-kuit-format
 msgid "&Accept"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:838
+#: main/KexiMainWindow.cpp:837
 #, fuzzy, kde-kuit-format
 #| msgid "Cancel changes made to the current record"
 msgid "Accept changes made to the current record"
 msgstr "A jelenlegi rekordon végzett változtatások megszakítása"
 
-#: main/KexiMainWindow.cpp:839
+#: main/KexiMainWindow.cpp:838
 #, fuzzy, kde-kuit-format
 #| msgid "Cancels changes made to the current record."
 msgid "Accepts changes made to the current record."
 msgstr "Megszakítja a jelenlegi rekordon végzett változtatásokat."
 
-#: main/KexiMainWindow.cpp:842
+#: main/KexiMainWindow.cpp:841
 #, fuzzy, kde-kuit-format
 #| msgid "Cancel"
 msgid "&Cancel"
 msgstr "Mégse"
 
-#: main/KexiMainWindow.cpp:845
+#: main/KexiMainWindow.cpp:844
 #, kde-kuit-format
 msgid "Cancel changes made to the current record"
 msgstr "A jelenlegi rekordon végzett változtatások megszakítása"
 
-#: main/KexiMainWindow.cpp:847
+#: main/KexiMainWindow.cpp:846
 #, kde-kuit-format
 msgid "Cancels changes made to the current record."
 msgstr "Megszakítja a jelenlegi rekordon végzett változtatásokat."
 
-#: main/KexiMainWindow.cpp:851
+#: main/KexiMainWindow.cpp:850
 #, kde-kuit-format
 msgid "&Execute"
 msgstr "&Végrehajtás"
 
-#: main/KexiMainWindow.cpp:871
+#: main/KexiMainWindow.cpp:870
 #, kde-kuit-format
 msgid "&Font..."
 msgstr "&Betűkészlet…"
 
-#: main/KexiMainWindow.cpp:873
+#: main/KexiMainWindow.cpp:872
 #, kde-kuit-format
 msgid "Change font for selected object"
 msgstr "A kijelölt objektum betűkészletének módosítása"
 
-#: main/KexiMainWindow.cpp:874
+#: main/KexiMainWindow.cpp:873
 #, kde-kuit-format
 msgid "Changes font for selected object."
 msgstr "Módosítja a kijelölt objektum betűkészletét."
 
-#: main/KexiMainWindow.cpp:883
+#: main/KexiMainWindow.cpp:882
 #, kde-kuit-format
 msgid "&Next Window"
 msgstr "&Következő ablak"
 
-#: main/KexiMainWindow.cpp:884
+#: main/KexiMainWindow.cpp:883
 #, kde-kuit-format
 msgid "Next window"
 msgstr "Következő ablak"
 
-#: main/KexiMainWindow.cpp:885
+#: main/KexiMainWindow.cpp:884
 #, kde-kuit-format
 msgid "Switches to the next window."
 msgstr "Átvált a következő ablakra."
 
-#: main/KexiMainWindow.cpp:888
+#: main/KexiMainWindow.cpp:887
 #, kde-kuit-format
 msgid "&Previous Window"
 msgstr "&Előző ablak"
 
-#: main/KexiMainWindow.cpp:889
+#: main/KexiMainWindow.cpp:888
 #, kde-kuit-format
 msgid "Previous window"
 msgstr "Előző ablak"
 
-#: main/KexiMainWindow.cpp:890
+#: main/KexiMainWindow.cpp:889
 #, kde-kuit-format
 msgid "Switches to the previous window."
 msgstr "Átvált az előző ablakra."
 
-#: main/KexiMainWindow.cpp:893
+#: main/KexiMainWindow.cpp:892
 #, kde-kuit-format
 msgid "&Close Tab"
 msgstr "Lap &bezárása"
 
-#: main/KexiMainWindow.cpp:894
+#: main/KexiMainWindow.cpp:893
 #, kde-kuit-format
 msgid "Close the current tab"
 msgstr "Az aktuális lap bezárása"
 
-#: main/KexiMainWindow.cpp:895
+#: main/KexiMainWindow.cpp:894
 #, kde-kuit-format
 msgid "Closes the current tab."
 msgstr "Bezárja az aktuális lapot."
 
-#: main/KexiMainWindow.cpp:898
+#: main/KexiMainWindow.cpp:897
 #, kde-kuit-format
 msgid "Cl&ose All Tabs"
 msgstr "Az összes lap be&zárása"
 
-#: main/KexiMainWindow.cpp:899
+#: main/KexiMainWindow.cpp:898
 #, kde-kuit-format
 msgid "Close all tabs"
 msgstr "Az összes lap bezárása"
 
-#: main/KexiMainWindow.cpp:900
+#: main/KexiMainWindow.cpp:899
 #, kde-kuit-format
 msgid "Closes all tabs."
 msgstr "Bezárja az összes lapot."
 
-#: main/KexiMainWindow.cpp:955
+#: main/KexiMainWindow.cpp:954
 #, kde-kuit-format
 msgid "This shows useful tips on the use of this application."
 msgstr "Az alkalmazás használatához nyújt hasznos tippeket."
 
-#: main/KexiMainWindow.cpp:1141
+#: main/KexiMainWindow.cpp:1140
 #, fuzzy, kde-kuit-format
 #| msgctxt "File menu"
 #| msgid "&File"
 msgid "&File"
 msgstr "&Fájl"
 
-#: main/KexiMainWindow.cpp:1177
+#: main/KexiMainWindow.cpp:1176
 #, fuzzy, kde-kuit-format
 #| msgid "Edit"
 msgid "&Edit"
 msgstr "Szerkesztés"
 
-#: main/KexiMainWindow.cpp:1192
+#: main/KexiMainWindow.cpp:1191
 #, fuzzy, kde-kuit-format
 #| msgid "&Replace"
 msgid "&Find/Replace"
 msgstr "Cse&re"
 
-#: main/KexiMainWindow.cpp:1216
+#: main/KexiMainWindow.cpp:1215
 #, fuzzy, kde-kuit-format
 #| msgid "Format"
 msgid "F&ormat"
 msgstr "Formátum"
 
-#: main/KexiMainWindow.cpp:1221
+#: main/KexiMainWindow.cpp:1220
 #, kde-kuit-format
 msgid "&Data"
 msgstr "&Adatok"
 
-#: main/KexiMainWindow.cpp:1230
+#: main/KexiMainWindow.cpp:1229
 #, fuzzy, kde-kuit-format
 msgid "&Tools"
 msgstr "Összegzési mód"
 
-#: main/KexiMainWindow.cpp:1239
+#: main/KexiMainWindow.cpp:1238
 #, fuzzy, kde-kuit-format
 msgid "&Settings"
 msgstr "Rendezés"
 
-#: main/KexiMainWindow.cpp:1247
+#: main/KexiMainWindow.cpp:1246
 #, kde-kuit-format
 msgid "&Window"
 msgstr "&Ablak"
 
-#: main/KexiMainWindow.cpp:1262
+#: main/KexiMainWindow.cpp:1261
 #, kde-kuit-format
 msgctxt "Report a bug or wish for KEXI application"
 msgid "Report a &Bug or Wish..."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:1264
+#: main/KexiMainWindow.cpp:1263
 #, fuzzy, kde-kuit-format
 #| msgid "Shows bug reporting tool for Kexi application."
 msgid "Files a bug or wish for KEXI application."
 msgstr "Megjeleníti a Kexi alkalmazás hibajelentő eszközét."
 
-#: main/KexiMainWindow.cpp:1267
+#: main/KexiMainWindow.cpp:1266
 #, fuzzy, kde-kuit-format
 #| msgid "Activates \"What's This\" tool."
 msgid "Activates a \"What's This?\" tool."
 msgstr "Aktiválja a „Mi ez?” eszközt."
 
-#: main/KexiMainWindow.cpp:1270 migration/importwizard.cpp:1111
+#: main/KexiMainWindow.cpp:1269 migration/importwizard.cpp:1111
 #: migration/importwizard.cpp:1114 migration/importwizard.cpp:1116
 #: migration/importwizard.cpp:1118 migration/importwizard.cpp:1120
 #: migration/importwizard.cpp:1122
@@ -3528,30 +3528,30 @@ msgstr "Aktiválja a „Mi ez?” eszközt."
 msgid "Help"
 msgstr "Súgó"
 
-#: main/KexiMainWindow.cpp:1271
+#: main/KexiMainWindow.cpp:1270
 #, fuzzy, kde-kuit-format
 #| msgid "Shows Kexi Handbook."
 msgid "Shows KEXI Handbook."
 msgstr "Megjeleníti a Kexi kézikönyvét."
 
-#: main/KexiMainWindow.cpp:1274
+#: main/KexiMainWindow.cpp:1273
 #, fuzzy, kde-kuit-format
 #| msgid "Shows information about Kexi application."
 msgid "Shows information about KEXI application."
 msgstr "Információkat jelenít meg a Kexi alkalmazásról."
 
-#: main/KexiMainWindow.cpp:1277
+#: main/KexiMainWindow.cpp:1276
 #, fuzzy, kde-kuit-format
 #| msgid "Shows information about K Desktop Environment."
 msgid "Shows information about KDE."
 msgstr "Információkat jelenít meg a K asztali környezetről."
 
-#: main/KexiMainWindow.cpp:1431
+#: main/KexiMainWindow.cpp:1430
 #, kde-kuit-format
 msgid "<br/>(reason: <i>%1</i>)"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:1457
+#: main/KexiMainWindow.cpp:1456
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database project %1 does not appear to have been created using Kexi.<p>Do "
@@ -3564,82 +3564,82 @@ msgstr ""
 "Úgy látszik, hogy a(z) %1 adatbázis-projekt nem a Kexi használatával készült."
 "<p>Szeretné importálni új Kexi projektként?"
 
-#: main/KexiMainWindow.cpp:1461
+#: main/KexiMainWindow.cpp:1460
 #, fuzzy, kde-kuit-format
 #| msgid "&Import..."
 msgctxt "@action:button Import Database"
 msgid "&Import..."
 msgstr "&Importálás…"
 
-#: main/KexiMainWindow.cpp:1524
+#: main/KexiMainWindow.cpp:1523
 #, fuzzy, kde-kuit-format
 #| msgid "Select New Project's Location"
 msgctxt "@window:title"
 msgid "Select New Project's Location"
 msgstr "A projekt új helyének kiválasztása"
 
-#: main/KexiMainWindow.cpp:1603
+#: main/KexiMainWindow.cpp:1602
 #, kde-kuit-format
 msgid "cannot create object - unknown object type \"%1\""
 msgstr "nem lehet objektumot létrehozni - ismeretlen objektumtípus: „%1”"
 
-#: main/KexiMainWindow.cpp:1606
+#: main/KexiMainWindow.cpp:1605
 #, kde-kuit-format
 msgid "unknown object type \"%1\""
 msgstr "ismeretlen objektumtípus: „%1”"
 
-#: main/KexiMainWindow.cpp:1616
+#: main/KexiMainWindow.cpp:1615
 #, kde-kuit-format
 msgid "cannot create object of type \"%1\""
 msgstr "nem lehet „%1” típusú objektumot létrehozni"
 
-#: main/KexiMainWindow.cpp:1628
+#: main/KexiMainWindow.cpp:1627
 #, kde-kuit-format
 msgctxt "\"executing object\" action"
 msgid "executing"
 msgstr "végrehajtás"
 
-#: main/KexiMainWindow.cpp:1636
+#: main/KexiMainWindow.cpp:1635
 #, kde-kuit-format
 msgid "opening"
 msgstr "megnyitás"
 
-#: main/KexiMainWindow.cpp:1641
+#: main/KexiMainWindow.cpp:1640
 #, kde-kuit-format
 msgid "table not found"
 msgstr "a tábla nem található"
 
-#: main/KexiMainWindow.cpp:1643
+#: main/KexiMainWindow.cpp:1642
 #, kde-kuit-format
 msgid "query not found"
 msgstr "a lekérdezés nem található"
 
-#: main/KexiMainWindow.cpp:1645
+#: main/KexiMainWindow.cpp:1644
 #, kde-kuit-format
 msgid "macro not found"
 msgstr "a makró nem található"
 
-#: main/KexiMainWindow.cpp:1647
+#: main/KexiMainWindow.cpp:1646
 #, kde-kuit-format
 msgid "script not found"
 msgstr "a parancsfájl nem található"
 
-#: main/KexiMainWindow.cpp:1649
+#: main/KexiMainWindow.cpp:1648
 #, kde-kuit-format
 msgid "object not found"
 msgstr "az objektum nem található"
 
-#: main/KexiMainWindow.cpp:1659
+#: main/KexiMainWindow.cpp:1658
 #, kde-kuit-format
 msgid "cannot execute object"
 msgstr "nem lehet végrehajtani az objektumot"
 
-#: main/KexiMainWindow.cpp:1700
+#: main/KexiMainWindow.cpp:1699
 #, kde-kuit-format
 msgid "cannot open object"
 msgstr "az objektum nem nyitható meg"
 
-#: main/KexiMainWindow.cpp:1714
+#: main/KexiMainWindow.cpp:1713
 #, kde-kuit-format
 msgid ""
 "You have requested selected objects to be automatically opened or processed "
@@ -3649,68 +3649,68 @@ msgstr ""
 "vagy feldolgozva induláskor. Néhány objektumot nem sikerült megnyitni vagy "
 "feldolgozni."
 
-#: main/KexiMainWindow.cpp:2095
+#: main/KexiMainWindow.cpp:2094
 #, kde-kuit-format
 msgctxt "<project-name> (read only)"
 msgid "%1 (read only)"
 msgstr "%1 (csak olvasható)"
 
-#: main/KexiMainWindow.cpp:2748
+#: main/KexiMainWindow.cpp:2747
 #, kde-kuit-format
 msgid "From File..."
 msgstr "Fájlból…"
 
-#: main/KexiMainWindow.cpp:2753
+#: main/KexiMainWindow.cpp:2752
 #, kde-kuit-format
 msgid "From Server..."
 msgstr "Kiszolgálóról…"
 
-#: main/KexiMainWindow.cpp:2818
+#: main/KexiMainWindow.cpp:2817
 #, fuzzy, kde-kuit-format
 #| msgid "Selected view is not supported for \"%1\" object."
 msgctxt "@info"
 msgid "Selected view is not supported for <resource>%1</resource> object."
 msgstr "A kiválasztott nézet nem támogatott a(z) „%1” objektumnál."
 
-#: main/KexiMainWindow.cpp:2821
+#: main/KexiMainWindow.cpp:2820
 #, fuzzy, kde-kuit-format
 #| msgid "Selected view (%1) is not supported by this object type (%2)."
 msgctxt "@info"
 msgid "Selected view (%1) is not supported by this object type (%2)."
 msgstr "A kiválasztott nézetet (%1) nem támogatja ez az objektumtípus (%2)."
 
-#: main/KexiMainWindow.cpp:2895
+#: main/KexiMainWindow.cpp:2894
 #, kde-kuit-format
 msgctxt "Could not save object under the original name."
 msgid "Could not save under the original name."
 msgstr "Nem sikerült az eredeti név alatt menteni."
 
-#: main/KexiMainWindow.cpp:2916
+#: main/KexiMainWindow.cpp:2915
 #, fuzzy, kde-kuit-format
 #| msgid "Save"
 msgctxt "@action:button Save object"
 msgid "Save"
 msgstr "Mentés"
 
-#: main/KexiMainWindow.cpp:2922
+#: main/KexiMainWindow.cpp:2921
 #, fuzzy, kde-kuit-format
 #| msgid "Save Object As"
 msgctxt "@title:window"
 msgid "Save Object As"
 msgstr "Objektum mentése másként"
 
-#: main/KexiMainWindow.cpp:2972
+#: main/KexiMainWindow.cpp:2971
 #, kde-kuit-format
 msgctxt "@info Saving object failed"
 msgid "Saving <resource>%1</resource> object failed."
 msgstr "Nem sikerült elmenteni a(z) <resource>%1</resource> objektumot."
 
-#: main/KexiMainWindow.cpp:3114
+#: main/KexiMainWindow.cpp:3113
 #, kde-kuit-format
 msgid "Save changes"
 msgstr "Változtatások mentése"
 
-#: main/KexiMainWindow.cpp:3116
+#: main/KexiMainWindow.cpp:3115
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Pressing this button will save all recent changes made in \"%1\" object."
@@ -3720,7 +3720,7 @@ msgstr ""
 "A gomb megnyomásával el lesz mentve a(z) „%1” objektumon végzett minden "
 "legutóbbi módosítás."
 
-#: main/KexiMainWindow.cpp:3120
+#: main/KexiMainWindow.cpp:3119
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Pressing this button will discard all recent changes made in \"%1\" "
@@ -3731,18 +3731,18 @@ msgstr ""
 "A gomb megnyomásával el lesz dobva a(z) „%1” objektumon végzett minden "
 "legutóbbi módosítás."
 
-#: main/KexiMainWindow.cpp:3142
+#: main/KexiMainWindow.cpp:3141
 #, kde-kuit-format
 msgid "Do you want to save changes?"
 msgstr "Szeretné elmenteni a változtatásokat?"
 
-#: main/KexiMainWindow.cpp:3336
+#: main/KexiMainWindow.cpp:3335
 #, kde-kuit-format
 msgctxt "opening is not allowed in \"data view/design view/text view\" mode"
 msgid "opening is not allowed in \"%1\" mode"
 msgstr "a megnyitás nem engedélyezett „%1” módban"
 
-#: main/KexiMainWindow.cpp:3389
+#: main/KexiMainWindow.cpp:3388
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info Object \"objectname\""
 #| msgid "%1 <resource>%2</resource>"
@@ -3750,7 +3750,7 @@ msgctxt "@info"
 msgid "Tab for <resource>%1</resource> (%2)."
 msgstr "%1 <resource>%2</resource>"
 
-#: main/KexiMainWindow.cpp:3394
+#: main/KexiMainWindow.cpp:3393
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info Object \"objectname\""
 #| msgid "%1 <resource>%2</resource>"
@@ -3758,7 +3758,7 @@ msgctxt "@info"
 msgid "Tab for <resource>%1</resource>."
 msgstr "%1 <resource>%2</resource>"
 
-#: main/KexiMainWindow.cpp:3566
+#: main/KexiMainWindow.cpp:3565
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Do you want to permanently delete:\n"
@@ -3774,7 +3774,7 @@ msgstr ""
 "%1\n"
 "Ha a „Törlés” gombra kattint, nem lesz lehetősége visszavonni a törlést."
 
-#: main/KexiMainWindow.cpp:3572
+#: main/KexiMainWindow.cpp:3571
 #, fuzzy, kde-kuit-format
 #| msgctxt "@title:window Rename Object %1."
 #| msgid "Rename <resource>%1</resource>"
@@ -3782,13 +3782,13 @@ msgctxt "@title:window Delete Object %1."
 msgid "Delete <resource>%1</resource>?"
 msgstr "<resource>%1</resource> átnevezése"
 
-#: main/KexiMainWindow.cpp:3625
+#: main/KexiMainWindow.cpp:3624
 #, fuzzy, kde-kuit-format
 #| msgid "Could not remove object."
 msgid "Could not delete object."
 msgstr "Nem sikerült eltávolítani az objektumot."
 
-#: main/KexiMainWindow.cpp:3648
+#: main/KexiMainWindow.cpp:3647
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "<para>Before renaming object <resource>%1</resource> it should be closed."
@@ -3801,13 +3801,13 @@ msgstr ""
 "<para>A(z) <resource>%1</resource> objektum átnevezése előtt be kell zárni "
 "azt.</para><para>Szeretné bezárni?</para>"
 
-#: main/KexiMainWindow.cpp:3652
+#: main/KexiMainWindow.cpp:3651
 #, fuzzy, kde-kuit-format
 #| msgid "Close window"
 msgid "Close Window and Rename"
 msgstr "Ablak bezárása"
 
-#: main/KexiMainWindow.cpp:3669
+#: main/KexiMainWindow.cpp:3668
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info Saving object failed"
 #| msgid "Saving <resource>%1</resource> object failed."
@@ -3815,26 +3815,26 @@ msgctxt "@info"
 msgid "Renaming object <resource>%1</resource> failed."
 msgstr "Nem sikerült elmenteni a(z) <resource>%1</resource> objektumot."
 
-#: main/KexiMainWindow.cpp:3690
+#: main/KexiMainWindow.cpp:3689
 #, fuzzy, kde-kuit-format
 #| msgid "Setting caption for object \"%1\" failed."
 msgctxt "@info"
 msgid "Setting caption for object <resource>%1</resource> failed."
 msgstr "Nem sikerült a felirat beállítása a(z) „%1” objektumhoz."
 
-#: main/KexiMainWindow.cpp:3862
+#: main/KexiMainWindow.cpp:3861
 #, fuzzy, kde-kuit-format
 #| msgid "Compacting database file <nobr>\"%1\"</nobr> is not supported."
 msgid "Compacting database file <filename>%1</filename> is not supported."
 msgstr "A(z) <nobr>„%1”</nobr> adatbázisfájl tömörítése nem támogatott."
 
-#: main/KexiMainWindow.cpp:3875
+#: main/KexiMainWindow.cpp:3874
 #, kde-kuit-format
 msgctxt "@action:button Compact database"
 msgid "Compact"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3877
+#: main/KexiMainWindow.cpp:3876
 #, kde-kuit-format
 msgid ""
 "The current project has to be closed before compacting the database. It will "
@@ -3847,7 +3847,7 @@ msgstr ""
 "\n"
 "Szeretné folytatni?"
 
-#: main/KexiMainWindow.cpp:4012
+#: main/KexiMainWindow.cpp:4011
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3856,13 +3856,13 @@ msgid ""
 "query for exporting or from its original (saved) version?"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:4017
+#: main/KexiMainWindow.cpp:4016
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Changed Query"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:4018
+#: main/KexiMainWindow.cpp:4017
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Original Query"
@@ -4488,26 +4488,26 @@ msgid ""
 "%4</icode>"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:396
+#: main/startup/KexiStartup.cpp:394
 #, fuzzy, kde-kuit-format
 #| msgid "Invalid criteria \"%1\""
 msgid "Invalid port number <icode>%1</icode> specified."
 msgstr "Érvénytelen feltétel: „%1”"
 
-#: main/startup/KexiStartup.cpp:401
+#: main/startup/KexiStartup.cpp:399
 #, kde-kuit-format
 msgid "Could not open database. No database driver specified."
 msgstr ""
 "Nem sikerült megnyitni az adatbázist. Nincs megadva adatbázis-meghajtó."
 
-#: main/startup/KexiStartup.cpp:414
+#: main/startup/KexiStartup.cpp:412
 #, fuzzy, kde-kuit-format
 #| msgid "Could not start %1 application."
 msgctxt "@info"
 msgid "Could not start <application>%1</application> application this way."
 msgstr "Nem sikerült elindítani a(z) %1 alkalmazást."
 
-#: main/startup/KexiStartup.cpp:420
+#: main/startup/KexiStartup.cpp:418
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "You have used both \"user-mode\" and \"design-mode\" startup options."
@@ -4519,12 +4519,12 @@ msgid ""
 "options."
 msgstr "Egyszerre használta a „user-mode” és a „design-mode” indítási opciót."
 
-#: main/startup/KexiStartup.cpp:426
+#: main/startup/KexiStartup.cpp:424
 #, kde-kuit-format
 msgid "No project name specified."
 msgstr "Nincs megadva a projektnév."
 
-#: main/startup/KexiStartup.cpp:465
+#: main/startup/KexiStartup.cpp:463
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "You have used both \"user-mode\" and \"design-mode\" startup options."
@@ -4536,7 +4536,7 @@ msgid ""
 "options."
 msgstr "Egyszerre használta a „user-mode” és a „design-mode” indítási opciót."
 
-#: main/startup/KexiStartup.cpp:488
+#: main/startup/KexiStartup.cpp:485
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -4548,7 +4548,7 @@ msgstr ""
 "Nem sikerült megnyitni a fájlt. A(z) <filename>%1</filename> fájl nem "
 "létezik."
 
-#: main/startup/KexiStartup.cpp:539
+#: main/startup/KexiStartup.cpp:536
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Could not write <filename>%1</filename>."
@@ -4556,7 +4556,7 @@ msgctxt "@info"
 msgid "Could not open shortcut file <filename>%1</filename>."
 msgstr "Nem sikerült írni a(z) <filename>%1</filename> fájlt."
 
-#: main/startup/KexiStartup.cpp:571
+#: main/startup/KexiStartup.cpp:568
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Could not write <filename>%1</filename>."
@@ -4564,7 +4564,7 @@ msgctxt "@info"
 msgid "Could not open connection data file <filename>%1</filename>."
 msgstr "Nem sikerült írni a(z) <filename>%1</filename> fájlt."
 
-#: main/startup/KexiStartup.cpp:662
+#: main/startup/KexiStartup.cpp:659
 #, kde-kuit-format
 msgid ""
 "You have specified a few database objects to be opened automatically, using "
@@ -4577,27 +4577,27 @@ msgstr ""
 "Ezek az opciók figyelmen kívül lesznek hagyva, mert nem érhetők el projektek "
 "létrehozásakor vagy eldobásakor."
 
-#: main/startup/KexiStartup.cpp:679
+#: main/startup/KexiStartup.cpp:676
 #, fuzzy, kde-kuit-format
 #| msgid "Project \"%1\" created successfully."
 msgctxt "@info"
 msgid "Project <resource>%1</resource> created successfully."
 msgstr "A(z) „%1” projekt sikeresen létrejött."
 
-#: main/startup/KexiStartup.cpp:688
+#: main/startup/KexiStartup.cpp:685
 #, fuzzy, kde-kuit-format
 #| msgid "Project \"%1\" dropped successfully."
 msgctxt "@info"
 msgid "Project <resource>%1</resource> dropped successfully."
 msgstr "A(z) „%1” projekt eldobása sikeresen befejeződött."
 
-#: main/startup/KexiStartup.cpp:810
+#: main/startup/KexiStartup.cpp:807
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not open file. Missing filename."
 msgstr "Nem sikerült megnyitni a fájlt. Hiányzó fájlnév."
 
-#: main/startup/KexiStartup.cpp:817
+#: main/startup/KexiStartup.cpp:814
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not open file. The file <filename>%1</filename> does not exist."
@@ -4605,7 +4605,7 @@ msgstr ""
 "Nem sikerült megnyitni a fájlt. A(z) <filename>%1</filename> fájl nem "
 "létezik."
 
-#: main/startup/KexiStartup.cpp:827
+#: main/startup/KexiStartup.cpp:824
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -4622,7 +4622,7 @@ msgstr ""
 "<note>Ellenőrizze a fájl jogosultságait és hogy egy másik alkalmazás nem "
 "nyitotta-e már meg és nem zárolta-e.</note>"
 
-#: main/startup/KexiStartup.cpp:870
+#: main/startup/KexiStartup.cpp:867
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -4639,7 +4639,7 @@ msgstr ""
 "<note>Ellenőrizze a fájl jogosultságait és hogy egy másik alkalmazás nem "
 "nyitotta-e már meg és nem zárolta-e.</note>"
 
-#: main/startup/KexiStartup.cpp:894
+#: main/startup/KexiStartup.cpp:891
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "\"%1\" is an external file of type:\n"
@@ -4655,19 +4655,19 @@ msgstr ""
 "„%2”.\n"
 "Szeretné a fájlt importálni Kexi projektként?"
 
-#: main/startup/KexiStartup.cpp:897
+#: main/startup/KexiStartup.cpp:894
 #, kde-kuit-format
 msgid "Open External File"
 msgstr "Külső fájl megnyitása"
 
-#: main/startup/KexiStartup.cpp:898
+#: main/startup/KexiStartup.cpp:895
 #, fuzzy, kde-kuit-format
 #| msgid "Import..."
 msgctxt "@action:button Import File"
 msgid "Import..."
 msgstr "Importálás…"
 
-#: main/startup/KexiStartup.cpp:930
+#: main/startup/KexiStartup.cpp:927
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "The project file \"%1\" is recognized as compatible with \"%2\" database "
@@ -4684,13 +4684,13 @@ msgstr ""
 "„%3” meghajtó használatát kérte.\n"
 "Biztosan a(z) „%4” adatbázis-meghajtót szeretné használni?"
 
-#: main/startup/KexiStartup.cpp:951
+#: main/startup/KexiStartup.cpp:948
 #, fuzzy, kde-kuit-format
 #| msgid "Possible problems:"
 msgid "Possible problems: %1"
 msgstr "Lehetséges problémák:"
 
-#: main/startup/KexiStartup.cpp:957
+#: main/startup/KexiStartup.cpp:954
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" is not recognized as being supported by Kexi."
 msgctxt "@info"
@@ -4699,7 +4699,7 @@ msgid ""
 "<application>%2</application>."
 msgstr "A(z) „%1” fájlt nem támogatja a Kexi."
 
-#: main/startup/KexiStartup.cpp:962
+#: main/startup/KexiStartup.cpp:959
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4712,7 +4712,7 @@ msgstr ""
 "Nem található adatbázis-meghajtó ehhez a fájltípushoz.\n"
 "Az észlelt MIME-típus: %1"
 
-#: main/startup/KexiStartup.cpp:966
+#: main/startup/KexiStartup.cpp:963
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4726,7 +4726,7 @@ msgstr ""
 "Nem található adatbázis-meghajtó ehhez a fájltípushoz.\n"
 "Az észlelt MIME-típus: %1"
 
-#: main/startup/KexiStartup.cpp:998
+#: main/startup/KexiStartup.cpp:995
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not load list of available projects for <b>%1</b> database server."
@@ -4737,7 +4737,7 @@ msgstr ""
 "Nem sikerült betölteni az elérhető projektek listáját ehhez az adatbázis-"
 "kapcsolathoz: <b>%1</b>."
 
-#: main/startup/KexiStartup.cpp:1039
+#: main/startup/KexiStartup.cpp:1036
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Failed saving connection data to\n"
@@ -5515,51 +5515,51 @@ msgstr "Adatforrás"
 msgid "Frame Color"
 msgstr "Keretszín"
 
-#: plugins/forms/kexiformmanager.cpp:166
+#: plugins/forms/kexiformmanager.cpp:160
 #, kde-kuit-format
 msgid "Pointer"
 msgstr "Mutató"
 
-#: plugins/forms/kexiformmanager.cpp:174
+#: plugins/forms/kexiformmanager.cpp:168
 #, kde-kuit-format
 msgid "Snap to Grid"
 msgstr "Rácshoz illesztés"
 
-#: plugins/forms/kexiformmanager.cpp:181
+#: plugins/forms/kexiformmanager.cpp:175
 #, kde-kuit-format
 msgid "Style"
 msgstr "Stílus"
 
-#: plugins/forms/kexiformmanager.cpp:200
+#: plugins/forms/kexiformmanager.cpp:194
 #, kde-kuit-format
 msgid "Set the current view style."
 msgstr "A jelenlegi nézetstílus beállítása."
 
-#: plugins/forms/kexiformmanager.cpp:209
+#: plugins/forms/kexiformmanager.cpp:203
 #, kde-kuit-format
 msgid "Show Form UI Code"
 msgstr "Az űrlap felhasználói felület kódjának megjelenítése"
 
-#: plugins/forms/kexiformmanager.cpp:394
+#: plugins/forms/kexiformmanager.cpp:388
 #, fuzzy, kde-kuit-format
 #| msgctxt "@title:window Rename Object %1."
 #| msgid "Rename <resource>%1</resource>"
 msgid "Set form's data source to <resource>%1</resource>"
 msgstr "<resource>%1</resource> átnevezése"
 
-#: plugins/forms/kexiformmanager.cpp:478
+#: plugins/forms/kexiformmanager.cpp:472
 #, fuzzy, kde-kuit-format
 #| msgid "Form's UI Code"
 msgctxt "@title:window"
 msgid "Form's UI Code"
 msgstr "Az űrlap felhasználói felületének kódja"
 
-#: plugins/forms/kexiformmanager.cpp:481
+#: plugins/forms/kexiformmanager.cpp:475
 #, kde-kuit-format
 msgid "Current"
 msgstr "Jelenlegi"
 
-#: plugins/forms/kexiformmanager.cpp:488
+#: plugins/forms/kexiformmanager.cpp:482
 #, kde-kuit-format
 msgid "Original"
 msgstr "Eredeti"
@@ -6893,7 +6893,7 @@ msgstr "&Kép"
 msgid "&Assign Action..."
 msgstr "Műv&elet hozzárendelése…"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1386
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1393
 #, kde-kuit-format
 msgctxt "default indent value"
 msgid "default"
@@ -7334,8 +7334,8 @@ msgstr "Hiba történt a rekord beszúrása során."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1713
 #: plugins/importexport/csv/kexicsvwidgets.cpp:190
-#: plugins/importexport/csv/kexicsvwidgets.cpp:240
-#: plugins/importexport/csv/kexicsvwidgets.cpp:252
+#: plugins/importexport/csv/kexicsvwidgets.cpp:239
+#: plugins/importexport/csv/kexicsvwidgets.cpp:251
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1875
 #: plugins/tables/kexitabledesignerview.cpp:395
 #, kde-kuit-format

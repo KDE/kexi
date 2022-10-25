@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-30 00:45+0000\n"
+"POT-Creation-Date: 2022-10-25 00:47+0000\n"
 "PO-Revision-Date: 2009-03-02 23:07+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -890,7 +890,7 @@ msgctxt "@info"
 msgid "No plugin for ID <resource>%1</resource>"
 msgstr "चीज \"%1\" सहेजे मं फेल."
 
-#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3640
+#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3639
 #, kde-kuit-format
 msgid "Could not set empty name for this object."
 msgstr "ये चीज बर खाली नाम सेट नइ कर सकिस."
@@ -930,8 +930,8 @@ msgstr ""
 "फाइल \"%1\" मौजूद नइ हे."
 
 #: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
-#: main/startup/KexiStartup.cpp:811 main/startup/KexiStartup.cpp:820
-#: main/startup/KexiStartup.cpp:831
+#: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
+#: main/startup/KexiStartup.cpp:828
 #, fuzzy, kde-kuit-format
 #| msgid "Could not open \"%1\" project file."
 msgctxt "@title:window"
@@ -1265,7 +1265,7 @@ msgid ""
 "Design has been changed. You must save it before switching to other view."
 msgstr "डिजाइन बदल गे हे. अउ दृस्य मं स्विच करे से पहिली आप मन ल एला सहेज ले चाही."
 
-#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2833
+#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2832
 #, kde-kuit-format
 msgid "Switching to other view failed (%1)."
 msgstr "अऊ दूसर दृस्य मं स्विच करना फेल (%1)."
@@ -1387,21 +1387,21 @@ msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "विजेट मन ल सबसे लम्बे मं नवा आकार देव"
 
-#: formeditor/commands.cpp:909
+#: formeditor/commands.cpp:908
 #, fuzzy, kde-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "चीज \"%1\" सहेजे मं फेल."
 
-#: formeditor/commands.cpp:912
+#: formeditor/commands.cpp:911
 #, fuzzy
 #| msgid "Insert AutoField widget"
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "अपन आपछेत्र विजेट भरव"
 
-#: formeditor/commands.cpp:958
+#: formeditor/commands.cpp:957
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not insert widget of type \"%1\". A problem with widget's creation "
@@ -1412,46 +1412,46 @@ msgid ""
 "widget's creation encountered."
 msgstr "विजेट किसिम \"%1\" भरव नइ कर सकिस. विजेट के बनाए मं एक समस्या होइस."
 
-#: formeditor/commands.cpp:1127
+#: formeditor/commands.cpp:1126
 #, fuzzy
 #| msgid "Paste"
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "चिपकाव"
 
-#: formeditor/commands.cpp:1413
+#: formeditor/commands.cpp:1412
 #, fuzzy
 #| msgid "Delete Row"
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "लकीर मेटाव"
 
-#: formeditor/commands.cpp:1521
+#: formeditor/commands.cpp:1520
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "विजेट मेटाव"
 
-#: formeditor/commands.cpp:1580
+#: formeditor/commands.cpp:1579
 #, fuzzy
 #| msgid "Cut"
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "काटव"
 
-#: formeditor/commands.cpp:1813
+#: formeditor/commands.cpp:1812
 #, fuzzy
 #| msgid "Odd Page(s)"
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "विसम पेज"
 
-#: formeditor/commands.cpp:1860 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
 #, kde-kuit-format
 msgid "Page %1"
 msgstr "पेज %1"
 
-#: formeditor/commands.cpp:1968
+#: formeditor/commands.cpp:1967
 #, fuzzy
 #| msgid "Delete Row"
 msgctxt "(qtundo-format)"
@@ -1595,7 +1595,7 @@ msgstr "नीचे जाव (&D)"
 msgid "Contents"
 msgstr "टिप्पनियाँ"
 
-#: formeditor/editlistviewdialog.cpp:116 formeditor/form_p.cpp:256
+#: formeditor/editlistviewdialog.cpp:116 formeditor/form_p.cpp:272
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1858
 #: plugins/tables/kexitabledesignerview.cpp:358
 #, kde-kuit-format
@@ -1642,12 +1642,12 @@ msgstr "चीज के नाम बदलव"
 msgid "Sub Item"
 msgstr "उपकिसिम"
 
-#: formeditor/form.cpp:284
+#: formeditor/form.cpp:268
 #, kde-kuit-format
 msgid "Form"
 msgstr "फार्म"
 
-#: formeditor/form.cpp:771
+#: formeditor/form.cpp:755
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info"
@@ -1655,13 +1655,13 @@ msgid ""
 "Renaming widget <resource>%1</resource> to <resource>%2</resource> failed."
 msgstr "चीज \"%1\" सहेजे मं फेल."
 
-#: formeditor/form.cpp:1329
+#: formeditor/form.cpp:1313
 #, fuzzy, kde-kuit-format
 #| msgid "Specified document could not be opened."
 msgid "Widget name could not be empty."
 msgstr "निरधारित कागद  खोले नइ जा सके."
 
-#: formeditor/form.cpp:1337
+#: formeditor/form.cpp:1321
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not rename table \"%1\" to \"%2\". Table \"%3\" already exists."
@@ -1672,7 +1672,7 @@ msgid ""
 "widget."
 msgstr "टेबल नाम \"%1\" ल \"%2\" मं बदले नइ जा सके. टेबल \"%3\" पहिली ही मौजूद हे."
 
-#: formeditor/form.cpp:1348
+#: formeditor/form.cpp:1332
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not rename table \"%1\" to \"%2\". Table \"%3\" already exists."
@@ -1682,120 +1682,120 @@ msgid ""
 "because a widget with the name <resource>%3</resource> already exists."
 msgstr "टेबल नाम \"%1\" ल \"%2\" मं बदले नइ जा सके. टेबल \"%3\" पहिली ही मौजूद हे."
 
-#: formeditor/form.cpp:1465 formeditor/form.cpp:1734
+#: formeditor/form.cpp:1449 formeditor/form.cpp:1718
 #, fuzzy, kde-kuit-format
 msgid "Multiple Widgets (%1)"
 msgstr "बहुत से विजेट"
 
-#: formeditor/form.cpp:1724
+#: formeditor/form.cpp:1708
 #, fuzzy, kde-kuit-format
 #| msgctxt "Object name : Object type"
 #| msgid "%1 : %2"
 msgid "%1 : Form"
 msgstr "%1 : %2"
 
-#: formeditor/form.cpp:1783
+#: formeditor/form.cpp:1767
 #, kde-kuit-format
 msgid "No Buddy"
 msgstr "कोई बड्डी नइ"
 
-#: formeditor/form.cpp:2195
+#: formeditor/form.cpp:2179
 #, kde-kuit-format
 msgctxt "Translators: please keep this string short (less than 20 chars)"
 msgid "Hor. Alignment"
 msgstr "आड़ी जमावट"
 
-#: formeditor/form.cpp:2196
+#: formeditor/form.cpp:2180
 #, fuzzy, kde-kuit-format
 msgid "Horizontal Alignment"
 msgstr "आड़ा (&H)"
 
-#: formeditor/form.cpp:2226
+#: formeditor/form.cpp:2210
 #, kde-kuit-format
 msgctxt "Translators: please keep this string short (less than 20 chars)"
 msgid "Ver. Alignment"
 msgstr "खड़ी जमावट"
 
-#: formeditor/form.cpp:2227
+#: formeditor/form.cpp:2211
 #, fuzzy, kde-kuit-format
 msgid "Vertical Alignment"
 msgstr "खड़ा (&V)"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: formeditor/form_p.cpp:254 formeditor/form_p.cpp:255
+#: formeditor/form_p.cpp:270 formeditor/form_p.cpp:271
 #: plugins/tables/kexitabledesignerview.cpp:323
 #: widget/KexiConnectionSelector.ui:94
 #, kde-format, kde-kuit-format
 msgid "Name"
 msgstr "नाम"
 
-#: formeditor/form_p.cpp:257
+#: formeditor/form_p.cpp:273
 #, fuzzy, kde-kuit-format
 #| msgid "&Window"
 msgid "Window title"
 msgstr "विंडो (&W)"
 
-#: formeditor/form_p.cpp:258
+#: formeditor/form_p.cpp:274
 #, kde-kuit-format
 msgid "Text"
 msgstr "पाठ"
 
-#: formeditor/form_p.cpp:259
+#: formeditor/form_p.cpp:275
 #, kde-kuit-format
 msgid "Background Pixmap"
 msgstr "पिछोत अंगना पिक्समेप"
 
-#: formeditor/form_p.cpp:260
+#: formeditor/form_p.cpp:276
 #, fuzzy, kde-kuit-format
 #| msgid "Table"
 msgctxt "Property: enabled widget"
 msgid "Enabled"
 msgstr "टेबल"
 
-#: formeditor/form_p.cpp:261
+#: formeditor/form_p.cpp:277
 #, kde-kuit-format
 msgid "Geometry"
 msgstr "ज्यामिति"
 
-#: formeditor/form_p.cpp:262
+#: formeditor/form_p.cpp:278
 #, kde-kuit-format
 msgid "Size Policy"
 msgstr "आकार पालिसी"
 
-#: formeditor/form_p.cpp:263
+#: formeditor/form_p.cpp:279
 #, fuzzy, kde-kuit-format
 #| msgctxt "Size Policy"
 #| msgid "Minimum"
 msgid "Minimum Size"
 msgstr "सबसे कम"
 
-#: formeditor/form_p.cpp:264
+#: formeditor/form_p.cpp:280
 #, fuzzy, kde-kuit-format
 #| msgctxt "Size Policy"
 #| msgid "Maximum"
 msgid "Maximum Size"
 msgstr "मध्यम"
 
-#: formeditor/form_p.cpp:265
+#: formeditor/form_p.cpp:281
 #, fuzzy, kde-kuit-format
 #| msgid "&Font..."
 msgid "Font"
 msgstr "फोंट... (&F)"
 
-#: formeditor/form_p.cpp:266
+#: formeditor/form_p.cpp:282
 #, fuzzy, kde-kuit-format
 #| msgctxt "Mouse Cursor Shape"
 #| msgid "No cursor"
 msgid "Cursor"
 msgstr "कोई संकेतक नइ"
 
-#: formeditor/form_p.cpp:267
+#: formeditor/form_p.cpp:283
 #, fuzzy, kde-kuit-format
 #| msgid "Frame Color"
 msgid "Foreground Color"
 msgstr "फ्रेम रंग"
 
-#: formeditor/form_p.cpp:268
+#: formeditor/form_p.cpp:284
 #, fuzzy, kde-kuit-format
 #| msgctxt "(a property name, keep the text narrow!)"
 #| msgid ""
@@ -1806,42 +1806,42 @@ msgstr ""
 "लेबल पिछोत अंगना\n"
 " रंग"
 
-#: formeditor/form_p.cpp:269
+#: formeditor/form_p.cpp:285
 #, fuzzy, kde-kuit-format
 #| msgid "No action"
 msgid "Fill Background"
 msgstr "कोई काम नइ"
 
-#: formeditor/form_p.cpp:270
+#: formeditor/form_p.cpp:286
 #, fuzzy, kde-kuit-format
 msgid "Focus Policy"
 msgstr "आकार पालिसी"
 
-#: formeditor/form_p.cpp:271
+#: formeditor/form_p.cpp:287
 #, fuzzy, kde-kuit-format
 #| msgid "margins:"
 msgid "Margin"
 msgstr "हासिए:"
 
-#: formeditor/form_p.cpp:272 plugins/forms/kexidbfactorybase.cpp:54
+#: formeditor/form_p.cpp:288 plugins/forms/kexidbfactorybase.cpp:54
 #, fuzzy, kde-kuit-format
 #| msgid "Read only"
 msgid "Read Only"
 msgstr "सिरिफ पढ़े बर"
 
-#: formeditor/form_p.cpp:273
+#: formeditor/form_p.cpp:289
 #, fuzzy, kde-kuit-format
 msgid "Style Sheet"
 msgstr "उपकिसिम"
 
-#: formeditor/form_p.cpp:274
+#: formeditor/form_p.cpp:290
 #, fuzzy, kde-kuit-format
 #| msgid "Tools"
 msgctxt "Widget's Tooltip"
 msgid "Tooltip"
 msgstr "औजार"
 
-#: formeditor/form_p.cpp:275
+#: formeditor/form_p.cpp:291
 #, fuzzy, kde-kuit-format
 #| msgctxt "Mouse Cursor Shape"
 #| msgid "What's This?"
@@ -1849,62 +1849,62 @@ msgctxt "Widget's Whats This"
 msgid "What's This"
 msgstr "ये का हे?"
 
-#: formeditor/form_p.cpp:276
+#: formeditor/form_p.cpp:292
 #, fuzzy, kde-kuit-format
 #| msgid "Size"
 msgid "Icon Size"
 msgstr "आकार"
 
-#: formeditor/form_p.cpp:279
+#: formeditor/form_p.cpp:295
 #, kde-kuit-format
 msgid "Frame"
 msgstr "ढांचा"
 
-#: formeditor/form_p.cpp:280
+#: formeditor/form_p.cpp:296
 #, fuzzy, kde-kuit-format
 #| msgid "Width"
 msgid "Frame Width"
 msgstr "चौड़ाई"
 
-#: formeditor/form_p.cpp:281
+#: formeditor/form_p.cpp:297
 #, kde-kuit-format
 msgid "Mid Frame Width"
 msgstr "मध्य फरमा चौड़ाई"
 
-#: formeditor/form_p.cpp:282
+#: formeditor/form_p.cpp:298
 #, fuzzy, kde-kuit-format
 #| msgid "Frame"
 msgid "Frame Shape"
 msgstr "ढांचा"
 
-#: formeditor/form_p.cpp:283
+#: formeditor/form_p.cpp:299
 #, fuzzy, kde-kuit-format
 #| msgid "Frame Color"
 msgid "Frame Shadow"
 msgstr "फ्रेम रंग"
 
-#: formeditor/form_p.cpp:285
+#: formeditor/form_p.cpp:301
 #, fuzzy, kde-kuit-format
 msgid "Vertical Scrollbar"
 msgstr "खड़ा (&V)"
 
-#: formeditor/form_p.cpp:286
+#: formeditor/form_p.cpp:302
 #, fuzzy, kde-kuit-format
 msgid "Horizontal Scrollbar"
 msgstr "आड़ा (&H)"
 
-#: formeditor/form_p.cpp:288
+#: formeditor/form_p.cpp:304
 #, fuzzy, kde-kuit-format
 #| msgid "No action"
 msgid "No Background"
 msgstr "कोई काम नइ"
 
-#: formeditor/form_p.cpp:289
+#: formeditor/form_p.cpp:305
 #, kde-kuit-format
 msgid "Palette Foreground"
 msgstr "पैलेट आगू तरफ"
 
-#: formeditor/form_p.cpp:290
+#: formeditor/form_p.cpp:306
 #, fuzzy, kde-kuit-format
 #| msgctxt "AutoField editor's type"
 #| msgid "Auto"
@@ -1912,7 +1912,7 @@ msgctxt "Auto (HINT: for AutoText)"
 msgid "Auto"
 msgstr "अपन आप"
 
-#: formeditor/form_p.cpp:292
+#: formeditor/form_p.cpp:308
 #, fuzzy, kde-kuit-format
 #| msgctxt "AutoField editor's type"
 #| msgid "Auto"
@@ -1920,161 +1920,161 @@ msgctxt "Auto (HINT: for Align)"
 msgid "Auto"
 msgstr "अपन आप"
 
-#: formeditor/form_p.cpp:293
+#: formeditor/form_p.cpp:309
 #, fuzzy, kde-kuit-format
 #| msgid "Line"
 msgctxt "Baseline (HINT: for Align)"
 msgid "Baseline"
 msgstr "पंक्ति"
 
-#: formeditor/form_p.cpp:294 formeditor/form_p.cpp:295
+#: formeditor/form_p.cpp:310 formeditor/form_p.cpp:311
 #, fuzzy, kde-kuit-format
 #| msgid "Left"
 msgctxt "Left (HINT: for Align)"
 msgid "Left"
 msgstr "डेरी"
 
-#: formeditor/form_p.cpp:296 formeditor/form_p.cpp:297
+#: formeditor/form_p.cpp:312 formeditor/form_p.cpp:313
 #, fuzzy, kde-kuit-format
 #| msgid "Right"
 msgctxt "Right (HINT: for Align)"
 msgid "Right"
 msgstr "जेवनी"
 
-#: formeditor/form_p.cpp:298 formeditor/form_p.cpp:300
+#: formeditor/form_p.cpp:314 formeditor/form_p.cpp:316
 #, fuzzy, kde-kuit-format
 #| msgid "Center"
 msgctxt "Center (HINT: for Align)"
 msgid "Center"
 msgstr "बीच में"
 
-#: formeditor/form_p.cpp:299
+#: formeditor/form_p.cpp:315
 #, kde-kuit-format
 msgctxt "Justify (HINT: for Align)"
 msgid "Justify"
 msgstr "समान रुप से जेवनी-डेरी"
 
-#: formeditor/form_p.cpp:301
+#: formeditor/form_p.cpp:317
 #, fuzzy, kde-kuit-format
 #| msgid "Top"
 msgctxt "Top (HINT: for Align)"
 msgid "Top"
 msgstr "ऊपर"
 
-#: formeditor/form_p.cpp:302
+#: formeditor/form_p.cpp:318
 #, fuzzy, kde-kuit-format
 #| msgid "Bottom"
 msgctxt "Bottom (HINT: for Align)"
 msgid "Bottom"
 msgstr "नीचे"
 
-#: formeditor/form_p.cpp:304
+#: formeditor/form_p.cpp:320
 #, fuzzy, kde-kuit-format
 #| msgid "Frame"
 msgctxt "No Frame (HINT: for Frame Shape)"
 msgid "No Frame"
 msgstr "ढांचा"
 
-#: formeditor/form_p.cpp:305
+#: formeditor/form_p.cpp:321
 #, kde-kuit-format
 msgctxt "Box (HINT: for Frame Shape)"
 msgid "Box"
 msgstr "डब्बा"
 
-#: formeditor/form_p.cpp:306
+#: formeditor/form_p.cpp:322
 #, fuzzy, kde-kuit-format
 #| msgid "Cancel"
 msgctxt "Panel (HINT: for Frame Shape)"
 msgid "Panel"
 msgstr "खारिज करव"
 
-#: formeditor/form_p.cpp:307
+#: formeditor/form_p.cpp:323
 #, fuzzy, kde-kuit-format
 #| msgid "&Window"
 msgctxt "Windows Panel (HINT: for Frame Shape)"
 msgid "Windows Panel"
 msgstr "विंडो (&W)"
 
-#: formeditor/form_p.cpp:308
+#: formeditor/form_p.cpp:324
 #, fuzzy, kde-kuit-format
 #| msgid "Horz. Size Type"
 msgctxt "Horiz. Line (HINT: for Frame Shape)"
 msgid "Horiz. Line"
 msgstr "आड़ा आकार किसिम"
 
-#: formeditor/form_p.cpp:309
+#: formeditor/form_p.cpp:325
 #, fuzzy, kde-kuit-format
 msgctxt "Vertical Line (HINT: for Frame Shape)"
 msgid "Vertical Line"
 msgstr "खड़ा (&V)"
 
-#: formeditor/form_p.cpp:310
+#: formeditor/form_p.cpp:326
 #, fuzzy, kde-kuit-format
 msgctxt "Styled (HINT: for Frame Shape)"
 msgid "Styled"
 msgstr "उपकिसिम"
 
-#: formeditor/form_p.cpp:311
+#: formeditor/form_p.cpp:327
 #, kde-kuit-format
 msgctxt "Popup (HINT: for Frame Shape)"
 msgid "Popup"
 msgstr "पाप अप"
 
-#: formeditor/form_p.cpp:312
+#: formeditor/form_p.cpp:328
 #, kde-kuit-format
 msgctxt "Menu Bar (HINT: for Frame Shape)"
 msgid "Menu Bar"
 msgstr "मेन्यूपट्टी"
 
-#: formeditor/form_p.cpp:313
+#: formeditor/form_p.cpp:329
 #, fuzzy, kde-kuit-format
 #| msgid "Main Toolbar"
 msgctxt "Toolbar (HINT: for Frame Shape)"
 msgid "Toolbar"
 msgstr "मुख्य औजार पट्टी"
 
-#: formeditor/form_p.cpp:314
+#: formeditor/form_p.cpp:330
 #, fuzzy, kde-kuit-format
 #| msgid "Text Box"
 msgctxt "Text Box (HINT: for Frame Shape)"
 msgid "Text Box"
 msgstr "पाठ डब्बा"
 
-#: formeditor/form_p.cpp:315
+#: formeditor/form_p.cpp:331
 #, fuzzy, kde-kuit-format
 #| msgid "To Widest"
 msgctxt "Tab Widget (HINT: for Frame Shape)"
 msgid "Tab Widget"
 msgstr "सबसे चौड़े में"
 
-#: formeditor/form_p.cpp:316
+#: formeditor/form_p.cpp:332
 #, fuzzy, kde-kuit-format
 #| msgid "Group by"
 msgctxt "Group Box (HINT: for Frame Shape)"
 msgid "Group Box"
 msgstr "के आधार मं समूहबद्ध करव"
 
-#: formeditor/form_p.cpp:318
+#: formeditor/form_p.cpp:334
 #, fuzzy, kde-kuit-format
 #| msgid "Print"
 msgctxt "Plain (HINT: for Frame Shadow)"
 msgid "Plain"
 msgstr "छापव"
 
-#: formeditor/form_p.cpp:319
+#: formeditor/form_p.cpp:335
 #, fuzzy, kde-kuit-format
 #| msgid "Raise"
 msgctxt "Raised (HINT: for Frame Shadow)"
 msgid "Raised"
 msgstr "ऊपर उठाव"
 
-#: formeditor/form_p.cpp:320
+#: formeditor/form_p.cpp:336
 #, kde-kuit-format
 msgctxt "Sunken (HINT: for Frame Shadow)"
 msgid "Sunken"
 msgstr "संकन"
 
-#: formeditor/form_p.cpp:321
+#: formeditor/form_p.cpp:337
 #, fuzzy, kde-kuit-format
 #| msgctxt "General properties"
 #| msgid "General"
@@ -2082,7 +2082,7 @@ msgctxt "for Frame Shadow"
 msgid "Internal"
 msgstr "सामान्य"
 
-#: formeditor/form_p.cpp:323
+#: formeditor/form_p.cpp:339
 #, fuzzy, kde-kuit-format
 #| msgctxt "Mouse Cursor Shape"
 #| msgid "No cursor"
@@ -2090,28 +2090,28 @@ msgctxt "No Focus (HINT: for Focus)"
 msgid "No Focus"
 msgstr "कोई संकेतक नइ"
 
-#: formeditor/form_p.cpp:324
+#: formeditor/form_p.cpp:340
 #, fuzzy, kde-kuit-format
 #| msgid "Table"
 msgctxt "Tab (HINT: for Focus)"
 msgid "Tab"
 msgstr "टेबल"
 
-#: formeditor/form_p.cpp:325
+#: formeditor/form_p.cpp:341
 #, fuzzy, kde-kuit-format
 #| msgid "On Click"
 msgctxt "Click (HINT: for Focus)"
 msgid "Click"
 msgstr "किलिक करे पर"
 
-#: formeditor/form_p.cpp:326
+#: formeditor/form_p.cpp:342
 #, fuzzy, kde-kuit-format
 #| msgid "Tick"
 msgctxt "Tab/Click (HINT: for Focus)"
 msgid "Tab/Click"
 msgstr "टिक"
 
-#: formeditor/form_p.cpp:327
+#: formeditor/form_p.cpp:343
 #, fuzzy, kde-kuit-format
 #| msgctxt "Tab/Click/MouseWheel (HINT: for Focus)"
 #| msgid "Tab/Click/MouseWheel"
@@ -2119,42 +2119,42 @@ msgctxt "Tab/Click/MouseWheel (HINT: for Focus)"
 msgid "Tab/Click/Mouse Wheel"
 msgstr "टैब/किलिक/मुसुवाव्हील"
 
-#: formeditor/form_p.cpp:329
+#: formeditor/form_p.cpp:345
 #, fuzzy, kde-kuit-format
 #| msgctxt "AutoField editor's type"
 #| msgid "Auto"
 msgid "Auto"
 msgstr "अपन आप"
 
-#: formeditor/form_p.cpp:330
+#: formeditor/form_p.cpp:346
 #, kde-kuit-format
 msgid "Always Off"
 msgstr "हमेसा बंद"
 
-#: formeditor/form_p.cpp:331
+#: formeditor/form_p.cpp:347
 #, kde-kuit-format
 msgid "Always On"
 msgstr "हमेसा चालू"
 
-#: formeditor/form_p.cpp:334
+#: formeditor/form_p.cpp:350
 #, fuzzy, kde-kuit-format
 #| msgid "&Horizontally"
 msgid "Horizontal"
 msgstr "आड़ा (&H)"
 
-#: formeditor/form_p.cpp:335
+#: formeditor/form_p.cpp:351
 #, fuzzy, kde-kuit-format
 #| msgid "&Vertically"
 msgid "Vertical"
 msgstr "खड़ा (&V)"
 
-#: formeditor/form_p.cpp:338
+#: formeditor/form_p.cpp:354
 #, fuzzy, kde-kuit-format
 #| msgid "To Right"
 msgid "Left to Right"
 msgstr "जेवनी के तरफ"
 
-#: formeditor/form_p.cpp:339
+#: formeditor/form_p.cpp:355
 #, fuzzy, kde-kuit-format
 #| msgid "To Left"
 msgid "Right to Left"
@@ -2495,18 +2495,18 @@ msgstr ""
 "परियोजना मिटाय नइ जा सकी.\n"
 "फाइल \"%1\" मौजूद नइ हे."
 
-#: kexiutils/utils.cpp:303 main/startup/KexiOpenProjectAssistant.cpp:154
+#: kexiutils/utils.cpp:305 main/startup/KexiOpenProjectAssistant.cpp:154
 #, fuzzy, kde-format, kde-kuit-format
 #| msgid "&Open"
 msgid "Open"
 msgstr "खोलव (&O)"
 
-#: kexiutils/utils.cpp:317
+#: kexiutils/utils.cpp:319
 #, kde-format
 msgid "Save"
 msgstr "सहेजव"
 
-#: kexiutils/utils.cpp:362
+#: kexiutils/utils.cpp:364
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "File \"%1\" already exists.<p>Do you want to replace it with a new one?"
@@ -2516,7 +2516,7 @@ msgid ""
 "want to overwrite it?</para>"
 msgstr "फाइल \"%1\" पहिली ही मौजूद हे.<p>का आप मन एला कोनो नवा से बदलना चाहू?"
 
-#: kexiutils/utils.cpp:758
+#: kexiutils/utils.cpp:761
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not remove project.\n"
@@ -2527,26 +2527,26 @@ msgstr ""
 "परियोजना मिटाय नइ जा सकी.\n"
 "फाइल \"%1\" मौजूद नइ हे."
 
-#: kexiutils/utils.cpp:764
+#: kexiutils/utils.cpp:767
 #, fuzzy, kde-kuit-format
 #| msgid "Invalid expression \"%1\""
 msgctxt "@info"
 msgid "Invalid hyperlink <link>%1</link>."
 msgstr "अवैध एक्सप्रेसन \"%1\""
 
-#: kexiutils/utils.cpp:773
+#: kexiutils/utils.cpp:776
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Executable <link>%1</link> not allowed."
 msgstr ""
 
-#: kexiutils/utils.cpp:779
+#: kexiutils/utils.cpp:782
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Remote hyperlink <link>%1</link> not allowed."
 msgstr ""
 
-#: kexiutils/utils.cpp:786
+#: kexiutils/utils.cpp:789
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2554,13 +2554,13 @@ msgid ""
 "warning>"
 msgstr ""
 
-#: kexiutils/utils.cpp:789
+#: kexiutils/utils.cpp:792
 #, kde-kuit-format
 msgctxt "@action:button Run script file"
 msgid "Run"
 msgstr ""
 
-#: kexiutils/utils.cpp:850
+#: kexiutils/utils.cpp:861
 #, fuzzy, kde-kuit-format
 #| msgctxt "Identifier%1"
 #| msgid "Id%1"
@@ -2568,18 +2568,18 @@ msgctxt "'Dirty (modified) object' flag"
 msgid "%1*"
 msgstr "आईडी%1"
 
-#: kexiutils/utils.cpp:1137
+#: kexiutils/utils.cpp:1148
 #, kde-kuit-format
 msgid "modified"
 msgstr ""
 
-#: kexiutils/utils.cpp:1148
+#: kexiutils/utils.cpp:1159
 #, kde-kuit-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
 msgstr ""
 
-#: kexiutils/utils.cpp:1194
+#: kexiutils/utils.cpp:1205
 #, kde-kuit-format
 msgctxt "@info/plain Concatenated sentence1 sentence2 ..."
 msgid "<html>%1%2%3%4%5%6</html>"
@@ -2811,93 +2811,93 @@ msgctxt "Help global view mode (noun)"
 msgid "Help"
 msgstr "मदद"
 
-#: main/KexiMainWindow.cpp:428
+#: main/KexiMainWindow.cpp:427
 #, kde-kuit-format
 msgctxt "Action name with three dots..."
 msgid "%1..."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:459
+#: main/KexiMainWindow.cpp:458
 #, fuzzy, kde-kuit-format
 #| msgid "Open Project"
 msgid "&New Project..."
 msgstr "परियोजना खोलव"
 
-#: main/KexiMainWindow.cpp:461
+#: main/KexiMainWindow.cpp:460
 #, kde-kuit-format
 msgid "Create a new project"
 msgstr "नवा प्रोजेक्ट बनाइसं"
 
-#: main/KexiMainWindow.cpp:463
+#: main/KexiMainWindow.cpp:462
 #, kde-kuit-format
 msgid "Creates a new project. Currently opened project is not affected."
 msgstr "नवा परियोजना बनाथे . अभी हाल के मं खुले परियोजना प्रभावित नइ होती."
 
-#: main/KexiMainWindow.cpp:469
+#: main/KexiMainWindow.cpp:468
 #, fuzzy, kde-kuit-format
 #| msgid "Open Project"
 msgid "&Open Project..."
 msgstr "परियोजना खोलव"
 
-#: main/KexiMainWindow.cpp:471
+#: main/KexiMainWindow.cpp:470
 #, kde-kuit-format
 msgid "Open an existing project"
 msgstr "अभी हाल के परियोजना खोलथे "
 
-#: main/KexiMainWindow.cpp:473
+#: main/KexiMainWindow.cpp:472
 #, kde-kuit-format
 msgid "Opens an existing project. Currently opened project is not affected."
 msgstr "अभी हाल के परियोजना खोलथे . अभी हाल के मं खुले परियोजना प्रभावित नइ होती."
 
-#: main/KexiMainWindow.cpp:479
+#: main/KexiMainWindow.cpp:478
 #, kde-kuit-format
 msgid "Open a project that was recently opened."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:480
+#: main/KexiMainWindow.cpp:479
 #, kde-kuit-format
 msgid "Opens a project that was recently opened."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:485
+#: main/KexiMainWindow.cpp:484
 #, kde-kuit-format
 msgid "Welcome"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:489
+#: main/KexiMainWindow.cpp:488
 #, fuzzy, kde-kuit-format
 #| msgid "Go to property editor panel"
 msgid "Show Welcome page"
 msgstr "गुन संपातक पेनल मं जाव"
 
-#: main/KexiMainWindow.cpp:491
+#: main/KexiMainWindow.cpp:490
 #, kde-kuit-format
 msgid ""
 "Shows Welcome page with list of recently opened projects and other "
 "information. "
 msgstr ""
 
-#: main/KexiMainWindow.cpp:496
+#: main/KexiMainWindow.cpp:495
 #, kde-kuit-format
 msgid "Save object changes"
 msgstr "चीज मं करे बदलाव मन ल सहेजव"
 
-#: main/KexiMainWindow.cpp:497
+#: main/KexiMainWindow.cpp:496
 #, kde-kuit-format
 msgid "Saves object changes from currently selected window."
 msgstr "अभी हाल के मं चुने गे विंडो मं से चीज बदलाव मन ल सहेजथे ."
 
-#: main/KexiMainWindow.cpp:501
+#: main/KexiMainWindow.cpp:500
 #, kde-kuit-format
 msgid "Save &As..."
 msgstr "अइसन सहेजव (&A)"
 
-#: main/KexiMainWindow.cpp:502
+#: main/KexiMainWindow.cpp:501
 #, kde-kuit-format
 msgid "Save object as"
 msgstr "चीज अइसन सहेजव"
 
-#: main/KexiMainWindow.cpp:504
+#: main/KexiMainWindow.cpp:503
 #, fuzzy, kde-kuit-format
 #| msgid "Saves object changes from currently selected window."
 msgid ""
@@ -2905,90 +2905,90 @@ msgid ""
 "same project)."
 msgstr "अभी हाल के मं चुने गे विंडो मं से चीज बदलाव मन ल सहेजथे ."
 
-#: main/KexiMainWindow.cpp:520
+#: main/KexiMainWindow.cpp:519
 #, fuzzy, kde-kuit-format
 #| msgid "Importing in progress..."
 msgid "&Import, Export or Send..."
 msgstr "आयात प्रगति में..."
 
-#: main/KexiMainWindow.cpp:521
+#: main/KexiMainWindow.cpp:520
 #, fuzzy, kde-kuit-format
 #| msgid "Open imported project"
 msgid "Import, export or send project"
 msgstr "आयातित परियोजना खोलव"
 
-#: main/KexiMainWindow.cpp:523
+#: main/KexiMainWindow.cpp:522
 #, fuzzy, kde-kuit-format
 #| msgid "Imports entire database as a Kexi project."
 msgid "Imports, exports or sends project."
 msgstr "पूरा डाटाबेस केएक्जाई परियोजना के रूप मं आयात करथे ."
 
-#: main/KexiMainWindow.cpp:529
+#: main/KexiMainWindow.cpp:528
 #, kde-kuit-format
 msgid "&Close Project"
 msgstr "परियोजना बन्द करव (&C)"
 
-#: main/KexiMainWindow.cpp:530
+#: main/KexiMainWindow.cpp:529
 #, kde-kuit-format
 msgid "Close the current project"
 msgstr "अभी हाल के परियोजना बन्द करव"
 
-#: main/KexiMainWindow.cpp:531
+#: main/KexiMainWindow.cpp:530
 #, kde-kuit-format
 msgid "Closes the current project."
 msgstr "अभी हाल के परियोजना बन्द करथे ."
 
-#: main/KexiMainWindow.cpp:538
+#: main/KexiMainWindow.cpp:537
 #, fuzzy, kde-kuit-format
 #| msgid "Could not start %1 application."
 msgctxt "@info:whatsthis"
 msgid "Quits <application>%1</application> application."
 msgstr "अनुपरयोग %1 चला नइ सकिस."
 
-#: main/KexiMainWindow.cpp:554
+#: main/KexiMainWindow.cpp:553
 #, kde-kuit-format
 msgid "&Import Database..."
 msgstr "डाटाबेस आयात करव... (&I)"
 
-#: main/KexiMainWindow.cpp:555
+#: main/KexiMainWindow.cpp:554
 #, fuzzy, kde-kuit-format
 #| msgid "Import entire database as a Kexi project"
 msgid "Import entire database as a KEXI project"
 msgstr "पूरा डाटाबेस केएक्जाई परियोजना के रूप मं आयात करव"
 
-#: main/KexiMainWindow.cpp:557
+#: main/KexiMainWindow.cpp:556
 #, fuzzy, kde-kuit-format
 #| msgid "Imports entire database as a Kexi project."
 msgid "Imports entire database as a KEXI project."
 msgstr "पूरा डाटाबेस केएक्जाई परियोजना के रूप मं आयात करथे ."
 
-#: main/KexiMainWindow.cpp:562
+#: main/KexiMainWindow.cpp:561
 #, fuzzy, kde-kuit-format
 #| msgid "Import Database"
 msgid "Import Tables..."
 msgstr "डाटाबेस आयात करव"
 
-#: main/KexiMainWindow.cpp:563
+#: main/KexiMainWindow.cpp:562
 #, kde-kuit-format
 msgid "Import data from an external source into this project"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:564
+#: main/KexiMainWindow.cpp:563
 #, kde-kuit-format
 msgid "Imports data from an external source into this project."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:570
+#: main/KexiMainWindow.cpp:569
 #, kde-kuit-format
 msgid "&Compact Database..."
 msgstr "डाटाबेस सघन (काम्पैक्ट) करव... (&C)"
 
-#: main/KexiMainWindow.cpp:571
+#: main/KexiMainWindow.cpp:570
 #, kde-kuit-format
 msgid "Compact the current database project"
 msgstr "अभी हाल के डाटाबेस परियोजना ल सघन (काम्पैक्ट) करथे "
 
-#: main/KexiMainWindow.cpp:573
+#: main/KexiMainWindow.cpp:572
 #, fuzzy, kde-kuit-format
 #| msgid "Compact the current database project"
 msgid ""
@@ -2996,477 +2996,477 @@ msgid ""
 "faster."
 msgstr "अभी हाल के डाटाबेस परियोजना ल सघन (काम्पैक्ट) करथे "
 
-#: main/KexiMainWindow.cpp:583
+#: main/KexiMainWindow.cpp:582
 #, fuzzy, kde-kuit-format
 #| msgid "Import CSV Data File"
 msgctxt "Import->Table Data From File..."
 msgid "Import Data From &File..."
 msgstr "सीएसवी डाटा फाइल आयात करव"
 
-#: main/KexiMainWindow.cpp:584
+#: main/KexiMainWindow.cpp:583
 #, kde-kuit-format
 msgid "Import table data from a file"
 msgstr "कोनो फाइल से टेबल डाटा आयात करव"
 
-#: main/KexiMainWindow.cpp:585
+#: main/KexiMainWindow.cpp:584
 #, kde-kuit-format
 msgid "Imports table data from a file."
 msgstr "फाइल से टेबल डाटा आयात करथे ."
 
-#: main/KexiMainWindow.cpp:593
+#: main/KexiMainWindow.cpp:592
 #, fuzzy, kde-kuit-format
 #| msgid "Export data to a file"
 msgctxt "Export->Table or Query Data to File..."
 msgid "Export Data to &File..."
 msgstr "डाटा ल एक फाइल मं निर्यात करव"
 
-#: main/KexiMainWindow.cpp:595
+#: main/KexiMainWindow.cpp:594
 #, fuzzy, kde-kuit-format
 #| msgid "Export data from the active table or query data to a file"
 msgid "Export data from the active table or query to a file"
 msgstr "सक्रिय टेबल या क्वैरी डाटा मं से डाटा ल कोनो फाइल मं निर्यात करव"
 
-#: main/KexiMainWindow.cpp:597
+#: main/KexiMainWindow.cpp:596
 #, fuzzy, kde-kuit-format
 #| msgid "Exports data from the active table or query data to a file."
 msgid "Exports data from the active table or query to a file."
 msgstr "सक्रिय टेबल या क्वैरी डाटा मं से डाटा ल कोनो फाइल मं निर्यात करथे ."
 
-#: main/KexiMainWindow.cpp:644
+#: main/KexiMainWindow.cpp:643
 #, fuzzy, kde-kuit-format
 #| msgid "Paste &Special"
 msgctxt "Paste Special->As Data &Table..."
 msgid "Paste Special..."
 msgstr "विसेस चिपकाव (&S)"
 
-#: main/KexiMainWindow.cpp:646
+#: main/KexiMainWindow.cpp:645
 #, kde-kuit-format
 msgid "Paste clipboard data as a table"
 msgstr "टेबल के रूप मं क्लिपबोर्ड डाटा चिपकाव"
 
-#: main/KexiMainWindow.cpp:648
+#: main/KexiMainWindow.cpp:647
 #, fuzzy, kde-kuit-format
 #| msgid "Paste clipboard data as a table"
 msgid "Pastes clipboard data as a table."
 msgstr "टेबल के रूप मं क्लिपबोर्ड डाटा चिपकाव"
 
-#: main/KexiMainWindow.cpp:655
+#: main/KexiMainWindow.cpp:654
 #, fuzzy, kde-kuit-format
 #| msgid "Copy &Special"
 msgctxt "Copy Special->Table or Query Data..."
 msgid "Copy Special..."
 msgstr "ये रूप मं नकल बनाव (&S)"
 
-#: main/KexiMainWindow.cpp:657
+#: main/KexiMainWindow.cpp:656
 #, kde-kuit-format
 msgid "Copy selected table or query data to clipboard"
 msgstr "चुने गे टेबल या क्वैरी डाटा ल क्लिपबोर्ड मं नकल करव"
 
-#: main/KexiMainWindow.cpp:659
+#: main/KexiMainWindow.cpp:658
 #, kde-kuit-format
 msgid "Copies selected table or query data to clipboard."
 msgstr "चुने गे टेबल या क्वैरी डाटा ल क्लिपबोर्ड मं नकल करथे ."
 
-#: main/KexiMainWindow.cpp:664
+#: main/KexiMainWindow.cpp:663
 #, kde-kuit-format
 msgid "Reverts the most recent editing action."
 msgstr "अति अभी हाल के संपादन काम ल उलटथे ."
 
-#: main/KexiMainWindow.cpp:666
+#: main/KexiMainWindow.cpp:665
 #, kde-kuit-format
 msgid "Reverts the most recent undo action."
 msgstr "अति अभी हाल के पहिली जइसन (अनडू) काम ल उलटथे ."
 
-#: main/KexiMainWindow.cpp:671
+#: main/KexiMainWindow.cpp:670
 #, fuzzy, kde-kuit-format
 #| msgid "Find"
 msgid "Find text"
 msgstr "खोजव"
 
-#: main/KexiMainWindow.cpp:672
+#: main/KexiMainWindow.cpp:671
 #, kde-kuit-format
 msgid "Looks up the first occurrence of a piece of text."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:682
+#: main/KexiMainWindow.cpp:681
 #, fuzzy, kde-kuit-format
 #| msgid "Replace All"
 msgid "Replace All"
 msgstr "सब्बो बदलव"
 
-#: main/KexiMainWindow.cpp:686
+#: main/KexiMainWindow.cpp:685
 #, kde-kuit-format
 msgid "&Delete"
 msgstr "मेटाव (&D)"
 
-#: main/KexiMainWindow.cpp:688
+#: main/KexiMainWindow.cpp:687
 #, kde-kuit-format
 msgid "Delete selected object"
 msgstr "चुने गे चीज ल मेटाव"
 
-#: main/KexiMainWindow.cpp:689
+#: main/KexiMainWindow.cpp:688
 #, kde-kuit-format
 msgid "Deletes currently selected object."
 msgstr "अभी हाल के चुने गे चीज ल मिटाथे ."
 
-#: main/KexiMainWindow.cpp:691
+#: main/KexiMainWindow.cpp:690
 #, fuzzy, kde-kuit-format
 #| msgid "Delete Row"
 msgid "Delete Record"
 msgstr "लकीर मेटाव"
 
-#: main/KexiMainWindow.cpp:693
+#: main/KexiMainWindow.cpp:692
 #, fuzzy, kde-kuit-format
 #| msgid "Delete currently selected row"
 msgid "Delete the current record"
 msgstr "अभी हाल के चुने गे लकीर मेटाव"
 
-#: main/KexiMainWindow.cpp:694
+#: main/KexiMainWindow.cpp:693
 #, fuzzy, kde-kuit-format
 #| msgid "Prints the current report."
 msgid "Deletes the current record."
 msgstr "अभी हाल के रपट छापथे."
 
-#: main/KexiMainWindow.cpp:696
+#: main/KexiMainWindow.cpp:695
 #, fuzzy, kde-kuit-format
 #| msgid "Clear Table Contents"
 msgid "Clear Table Contents..."
 msgstr "टेबल सामान साफ करव"
 
-#: main/KexiMainWindow.cpp:698
+#: main/KexiMainWindow.cpp:697
 #, kde-kuit-format
 msgid "Clear table contents"
 msgstr "टेबल सामान साफ करव"
 
-#: main/KexiMainWindow.cpp:699
+#: main/KexiMainWindow.cpp:698
 #, kde-kuit-format
 msgid "Clears table contents."
 msgstr "टेबल सामग्रियाँ साफ करथे ."
 
-#: main/KexiMainWindow.cpp:702
+#: main/KexiMainWindow.cpp:701
 #, kde-kuit-format
 msgid "Edit Item"
 msgstr "चीज के संपादन करव"
 
-#: main/KexiMainWindow.cpp:705
+#: main/KexiMainWindow.cpp:704
 #, kde-kuit-format
 msgid "Edit currently selected item"
 msgstr "अभी हाल के चुने गे चीज ल संपादित करव"
 
-#: main/KexiMainWindow.cpp:706
+#: main/KexiMainWindow.cpp:705
 #, kde-kuit-format
 msgid "Edits currently selected item."
 msgstr "अभी हाल के चुने गे चीज ल संपादित करथे ."
 
-#: main/KexiMainWindow.cpp:708
+#: main/KexiMainWindow.cpp:707
 #, kde-kuit-format
 msgid "&Insert Empty Row"
 msgstr "खाली लकीर भरव (&I)"
 
-#: main/KexiMainWindow.cpp:712
+#: main/KexiMainWindow.cpp:711
 #, kde-kuit-format
 msgid "Insert one empty row above"
 msgstr "ऊपर एक नवा लकीर भरव"
 
-#: main/KexiMainWindow.cpp:714
+#: main/KexiMainWindow.cpp:713
 #, kde-kuit-format
 msgid "Inserts one empty row above currently selected table row."
 msgstr "अभी हाल के चुने गे टेबल लकीर के ऊपर एक खाली लकीर भरव करथे ."
 
-#: main/KexiMainWindow.cpp:771
+#: main/KexiMainWindow.cpp:770
 #, fuzzy, kde-kuit-format
 #| msgid "Project Navigator"
 msgid "Show Project Navigator"
 msgstr "परियोजना नेविगेटर"
 
-#: main/KexiMainWindow.cpp:774
+#: main/KexiMainWindow.cpp:773
 #, fuzzy, kde-kuit-format
 #| msgid "Go to project navigator panel"
 msgid "Show the Project Navigator pane"
 msgstr "परियोजना नेविगेटर पेनल मं जाव"
 
-#: main/KexiMainWindow.cpp:775
+#: main/KexiMainWindow.cpp:774
 #, fuzzy, kde-kuit-format
 #| msgid "Goes to project navigator panel."
 msgid "Shows the Project Navigator pane."
 msgstr "परियोजना नेविगेटर पेनल मं जाथे ."
 
-#: main/KexiMainWindow.cpp:785
+#: main/KexiMainWindow.cpp:784
 #, fuzzy, kde-kuit-format
 #| msgid "Project Navigator"
 msgid "Activate Project Navigator"
 msgstr "परियोजना नेविगेटर"
 
-#: main/KexiMainWindow.cpp:787
+#: main/KexiMainWindow.cpp:786
 #, fuzzy, kde-kuit-format
 #| msgid "Go to project navigator panel"
 msgid "Activate the Project Navigator pane"
 msgstr "परियोजना नेविगेटर पेनल मं जाव"
 
-#: main/KexiMainWindow.cpp:788
+#: main/KexiMainWindow.cpp:787
 #, fuzzy, kde-kuit-format
 #| msgid "Go to project navigator panel"
 msgid "Activates the Project Navigator pane. If it is hidden, shows it first."
 msgstr "परियोजना नेविगेटर पेनल मं जाव"
 
-#: main/KexiMainWindow.cpp:796
+#: main/KexiMainWindow.cpp:795
 #, fuzzy, kde-kuit-format
 #| msgid "Goes to main area."
 msgid "Activate main area"
 msgstr "मुख्य छेत्र मं जाथे ."
 
-#: main/KexiMainWindow.cpp:800
+#: main/KexiMainWindow.cpp:799
 #, fuzzy, kde-kuit-format
 #| msgid "Go to main area"
 msgid "Activate the main area"
 msgstr "मुख्य छेत्र मं जाव"
 
-#: main/KexiMainWindow.cpp:801
+#: main/KexiMainWindow.cpp:800
 #, fuzzy, kde-kuit-format
 #| msgid "Goes to main area."
 msgid "Activates the main area."
 msgstr "मुख्य छेत्र मं जाथे ."
 
-#: main/KexiMainWindow.cpp:808
+#: main/KexiMainWindow.cpp:807
 #, fuzzy, kde-kuit-format
 #| msgid "Property Editor"
 msgid "Show Property Pane"
 msgstr "गुन संपादक"
 
-#: main/KexiMainWindow.cpp:810
+#: main/KexiMainWindow.cpp:809
 #, fuzzy, kde-kuit-format
 #| msgid "Go to property editor panel"
 msgid "Show the Property pane"
 msgstr "गुन संपातक पेनल मं जाव"
 
-#: main/KexiMainWindow.cpp:811
+#: main/KexiMainWindow.cpp:810
 #, fuzzy, kde-kuit-format
 #| msgid "Goes to property editor panel."
 msgid "Shows the Property pane."
 msgstr "गुन संपादक पेनल मं जाथे ."
 
-#: main/KexiMainWindow.cpp:820
+#: main/KexiMainWindow.cpp:819
 #, fuzzy, kde-kuit-format
 #| msgid "Property Editor"
 msgid "Activate Property Pane"
 msgstr "गुन संपादक"
 
-#: main/KexiMainWindow.cpp:821
+#: main/KexiMainWindow.cpp:820
 #, fuzzy, kde-kuit-format
 #| msgid "Go to property editor panel"
 msgid "Activate the Property pane"
 msgstr "गुन संपातक पेनल मं जाव"
 
-#: main/KexiMainWindow.cpp:822
+#: main/KexiMainWindow.cpp:821
 #, kde-kuit-format
 msgid "Activates the Property pane. If it is hidden, shows it first."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:830
+#: main/KexiMainWindow.cpp:829
 #, kde-kuit-format
 msgid "Locate..."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:831
+#: main/KexiMainWindow.cpp:830
 #, fuzzy, kde-kuit-format
 #| msgid "Switches to data view."
 msgid "Switch to Global Locate box"
 msgstr "डाटा दृस्य मं स्विच करथे ."
 
-#: main/KexiMainWindow.cpp:832
+#: main/KexiMainWindow.cpp:831
 #, fuzzy, kde-kuit-format
 #| msgid "Switches to data view."
 msgid "Switches to Global Locate box."
 msgstr "डाटा दृस्य मं स्विच करथे ."
 
-#: main/KexiMainWindow.cpp:836
+#: main/KexiMainWindow.cpp:835
 #, kde-kuit-format
 msgid "&Accept"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:838
+#: main/KexiMainWindow.cpp:837
 #, fuzzy, kde-kuit-format
 #| msgid "Cancel changes made to the current row"
 msgid "Accept changes made to the current record"
 msgstr "अभी हाल के लकीर मं करे बदलाव मन को खारिज करव"
 
-#: main/KexiMainWindow.cpp:839
+#: main/KexiMainWindow.cpp:838
 #, fuzzy, kde-kuit-format
 #| msgid "Cancels changes made to the current row."
 msgid "Accepts changes made to the current record."
 msgstr "अभी हाल के लकीर मं करे बदलाव मन को खारिज करथे "
 
-#: main/KexiMainWindow.cpp:842
+#: main/KexiMainWindow.cpp:841
 #, kde-kuit-format
 msgid "&Cancel"
 msgstr "खारिज करव (&C)"
 
-#: main/KexiMainWindow.cpp:845
+#: main/KexiMainWindow.cpp:844
 #, fuzzy, kde-kuit-format
 #| msgid "Cancel changes made to the current row"
 msgid "Cancel changes made to the current record"
 msgstr "अभी हाल के लकीर मं करे बदलाव मन को खारिज करव"
 
-#: main/KexiMainWindow.cpp:847
+#: main/KexiMainWindow.cpp:846
 #, fuzzy, kde-kuit-format
 #| msgid "Cancels changes made to the current row."
 msgid "Cancels changes made to the current record."
 msgstr "अभी हाल के लकीर मं करे बदलाव मन को खारिज करथे "
 
-#: main/KexiMainWindow.cpp:851
+#: main/KexiMainWindow.cpp:850
 #, kde-kuit-format
 msgid "&Execute"
 msgstr "चलाव (&E)"
 
-#: main/KexiMainWindow.cpp:871
+#: main/KexiMainWindow.cpp:870
 #, kde-kuit-format
 msgid "&Font..."
 msgstr "फोंट... (&F)"
 
-#: main/KexiMainWindow.cpp:873
+#: main/KexiMainWindow.cpp:872
 #, kde-kuit-format
 msgid "Change font for selected object"
 msgstr "चुने गे चीज के फोंट ल बदलव"
 
-#: main/KexiMainWindow.cpp:874
+#: main/KexiMainWindow.cpp:873
 #, kde-kuit-format
 msgid "Changes font for selected object."
 msgstr "चुने गे चीज के फोंट ल बदलथे ."
 
-#: main/KexiMainWindow.cpp:883
+#: main/KexiMainWindow.cpp:882
 #, kde-kuit-format
 msgid "&Next Window"
 msgstr "अगला विंडो (&N)"
 
-#: main/KexiMainWindow.cpp:884
+#: main/KexiMainWindow.cpp:883
 #, kde-kuit-format
 msgid "Next window"
 msgstr "अगला विंडो"
 
-#: main/KexiMainWindow.cpp:885
+#: main/KexiMainWindow.cpp:884
 #, kde-kuit-format
 msgid "Switches to the next window."
 msgstr "अगले विंडो मं स्विच करथे ."
 
-#: main/KexiMainWindow.cpp:888
+#: main/KexiMainWindow.cpp:887
 #, kde-kuit-format
 msgid "&Previous Window"
 msgstr "पिछला विंडो (&P)"
 
-#: main/KexiMainWindow.cpp:889
+#: main/KexiMainWindow.cpp:888
 #, kde-kuit-format
 msgid "Previous window"
 msgstr "पिछला विंडो"
 
-#: main/KexiMainWindow.cpp:890
+#: main/KexiMainWindow.cpp:889
 #, kde-kuit-format
 msgid "Switches to the previous window."
 msgstr "पिछले विंडो मं स्विच करथे ."
 
-#: main/KexiMainWindow.cpp:893
+#: main/KexiMainWindow.cpp:892
 #, fuzzy, kde-kuit-format
 #| msgid "&Close"
 msgid "&Close Tab"
 msgstr "बंद करव (&C)"
 
-#: main/KexiMainWindow.cpp:894
+#: main/KexiMainWindow.cpp:893
 #, kde-kuit-format
 msgid "Close the current tab"
 msgstr "अभी हाल के टैब बंद करव"
 
-#: main/KexiMainWindow.cpp:895
+#: main/KexiMainWindow.cpp:894
 #, fuzzy, kde-kuit-format
 #| msgid "Close the current tab"
 msgid "Closes the current tab."
 msgstr "अभी हाल के टैब बंद करव"
 
-#: main/KexiMainWindow.cpp:898
+#: main/KexiMainWindow.cpp:897
 #, fuzzy, kde-kuit-format
 #| msgid "&Close"
 msgid "Cl&ose All Tabs"
 msgstr "बंद करव (&C)"
 
-#: main/KexiMainWindow.cpp:899
+#: main/KexiMainWindow.cpp:898
 #, fuzzy, kde-kuit-format
 #| msgid "&Close"
 msgid "Close all tabs"
 msgstr "बंद करव (&C)"
 
-#: main/KexiMainWindow.cpp:900
+#: main/KexiMainWindow.cpp:899
 #, fuzzy, kde-kuit-format
 #| msgid "&Close"
 msgid "Closes all tabs."
 msgstr "बंद करव (&C)"
 
-#: main/KexiMainWindow.cpp:955
+#: main/KexiMainWindow.cpp:954
 #, kde-kuit-format
 msgid "This shows useful tips on the use of this application."
 msgstr "ये अनुपरयोग बर उपयोगी नुस्खों ल देखाथे ."
 
-#: main/KexiMainWindow.cpp:1141
+#: main/KexiMainWindow.cpp:1140
 #, fuzzy, kde-kuit-format
 #| msgid "File"
 msgid "&File"
 msgstr "फाइल"
 
-#: main/KexiMainWindow.cpp:1177
+#: main/KexiMainWindow.cpp:1176
 #, fuzzy, kde-kuit-format
 #| msgid "&Edit"
 msgid "&Edit"
 msgstr "संपादन (&E)"
 
-#: main/KexiMainWindow.cpp:1192
+#: main/KexiMainWindow.cpp:1191
 #, fuzzy, kde-kuit-format
 #| msgid "&Replace"
 msgid "&Find/Replace"
 msgstr "बदलव (&R)"
 
-#: main/KexiMainWindow.cpp:1216
+#: main/KexiMainWindow.cpp:1215
 #, fuzzy, kde-kuit-format
 #| msgid "Format"
 msgid "F&ormat"
 msgstr "फार्मेट"
 
-#: main/KexiMainWindow.cpp:1221
+#: main/KexiMainWindow.cpp:1220
 #, kde-kuit-format
 msgid "&Data"
 msgstr "डाटा (&D)"
 
-#: main/KexiMainWindow.cpp:1230
+#: main/KexiMainWindow.cpp:1229
 #, kde-kuit-format
 msgid "&Tools"
 msgstr "औजार (&T)"
 
-#: main/KexiMainWindow.cpp:1239
+#: main/KexiMainWindow.cpp:1238
 #, fuzzy, kde-kuit-format
 #| msgid "&Settings"
 msgid "&Settings"
 msgstr "सेटिंग (&S)"
 
-#: main/KexiMainWindow.cpp:1247
+#: main/KexiMainWindow.cpp:1246
 #, kde-kuit-format
 msgid "&Window"
 msgstr "विंडो (&W)"
 
-#: main/KexiMainWindow.cpp:1262
+#: main/KexiMainWindow.cpp:1261
 #, kde-kuit-format
 msgctxt "Report a bug or wish for KEXI application"
 msgid "Report a &Bug or Wish..."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:1264
+#: main/KexiMainWindow.cpp:1263
 #, fuzzy, kde-kuit-format
 #| msgid "Shows bug reporting tool for Kexi application."
 msgid "Files a bug or wish for KEXI application."
 msgstr "केएक्जाई अनुपरयोग बर बग रपट औजार देखाथे ."
 
-#: main/KexiMainWindow.cpp:1267
+#: main/KexiMainWindow.cpp:1266
 #, fuzzy, kde-kuit-format
 #| msgid "Shows \"What's This\" tool."
 msgid "Activates a \"What's This?\" tool."
 msgstr "\"ये का हे\" औजार देखाथे ."
 
-#: main/KexiMainWindow.cpp:1270 migration/importwizard.cpp:1111
+#: main/KexiMainWindow.cpp:1269 migration/importwizard.cpp:1111
 #: migration/importwizard.cpp:1114 migration/importwizard.cpp:1116
 #: migration/importwizard.cpp:1118 migration/importwizard.cpp:1120
 #: migration/importwizard.cpp:1122
@@ -3474,30 +3474,30 @@ msgstr "\"ये का हे\" औजार देखाथे ."
 msgid "Help"
 msgstr "मदद"
 
-#: main/KexiMainWindow.cpp:1271
+#: main/KexiMainWindow.cpp:1270
 #, fuzzy, kde-kuit-format
 #| msgid "Shows Kexi Handbook."
 msgid "Shows KEXI Handbook."
 msgstr "केएक्जाई हेन्डबुक देखाथे ."
 
-#: main/KexiMainWindow.cpp:1274
+#: main/KexiMainWindow.cpp:1273
 #, fuzzy, kde-kuit-format
 #| msgid "Shows information about Kexi application."
 msgid "Shows information about KEXI application."
 msgstr "केएक्जाई अनुपरयोग परिचय जानकारी देखाथे ."
 
-#: main/KexiMainWindow.cpp:1277
+#: main/KexiMainWindow.cpp:1276
 #, fuzzy, kde-kuit-format
 #| msgid "Shows information about K Desktop Environment."
 msgid "Shows information about KDE."
 msgstr "के डेस्कटाप वातावरन परिचय जानकारी देखाथे ."
 
-#: main/KexiMainWindow.cpp:1431
+#: main/KexiMainWindow.cpp:1430
 #, kde-kuit-format
 msgid "<br/>(reason: <i>%1</i>)"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:1457
+#: main/KexiMainWindow.cpp:1456
 #, kde-kuit-format
 msgctxt "@info (don't add tags around %1, it's done already)"
 msgid ""
@@ -3505,153 +3505,153 @@ msgid ""
 "%2</application>.<nl/>Do you want to import it as a new KEXI project?"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:1461
+#: main/KexiMainWindow.cpp:1460
 #, fuzzy, kde-kuit-format
 #| msgid "&Import..."
 msgctxt "@action:button Import Database"
 msgid "&Import..."
 msgstr "आयात... (&I)"
 
-#: main/KexiMainWindow.cpp:1524
+#: main/KexiMainWindow.cpp:1523
 #, fuzzy, kde-kuit-format
 #| msgid "Select New Project's Location"
 msgctxt "@window:title"
 msgid "Select New Project's Location"
 msgstr "नवा परियोजना के जगह चुनव"
 
-#: main/KexiMainWindow.cpp:1603
+#: main/KexiMainWindow.cpp:1602
 #, kde-kuit-format
 msgid "cannot create object - unknown object type \"%1\""
 msgstr "चीज बना नइ सकिस - अग्यात चीज किसिम \"%1\""
 
-#: main/KexiMainWindow.cpp:1606
+#: main/KexiMainWindow.cpp:1605
 #, kde-kuit-format
 msgid "unknown object type \"%1\""
 msgstr "अग्यात चीज किसिम \"%1\""
 
-#: main/KexiMainWindow.cpp:1616
+#: main/KexiMainWindow.cpp:1615
 #, kde-kuit-format
 msgid "cannot create object of type \"%1\""
 msgstr "स्तु \"%1\" किसिम तैयार नइ कर सके"
 
-#: main/KexiMainWindow.cpp:1628
+#: main/KexiMainWindow.cpp:1627
 #, kde-kuit-format
 msgctxt "\"executing object\" action"
 msgid "executing"
 msgstr "चलावत हे"
 
-#: main/KexiMainWindow.cpp:1636
+#: main/KexiMainWindow.cpp:1635
 #, kde-kuit-format
 msgid "opening"
 msgstr " खोलत हे"
 
-#: main/KexiMainWindow.cpp:1641
+#: main/KexiMainWindow.cpp:1640
 #, kde-kuit-format
 msgid "table not found"
 msgstr "टेबल नइ मिलिस"
 
-#: main/KexiMainWindow.cpp:1643
+#: main/KexiMainWindow.cpp:1642
 #, kde-kuit-format
 msgid "query not found"
 msgstr "क्वैरी नइ मिलिस"
 
-#: main/KexiMainWindow.cpp:1645
+#: main/KexiMainWindow.cpp:1644
 #, kde-kuit-format
 msgid "macro not found"
 msgstr "मैक्रो नइ मिलिस"
 
-#: main/KexiMainWindow.cpp:1647
+#: main/KexiMainWindow.cpp:1646
 #, kde-kuit-format
 msgid "script not found"
 msgstr "स्क्रिप्ट नइ मिलिस"
 
-#: main/KexiMainWindow.cpp:1649
+#: main/KexiMainWindow.cpp:1648
 #, kde-kuit-format
 msgid "object not found"
 msgstr "आब्जेक्ट नइ मिलिस"
 
-#: main/KexiMainWindow.cpp:1659
+#: main/KexiMainWindow.cpp:1658
 #, kde-kuit-format
 msgid "cannot execute object"
 msgstr "चीज ल चला नइ सकिस"
 
-#: main/KexiMainWindow.cpp:1700
+#: main/KexiMainWindow.cpp:1699
 #, kde-kuit-format
 msgid "cannot open object"
 msgstr "चीज खोल नइ सकिस"
 
-#: main/KexiMainWindow.cpp:1714
+#: main/KexiMainWindow.cpp:1713
 #, kde-kuit-format
 msgid ""
 "You have requested selected objects to be automatically opened or processed "
 "on startup. Several objects cannot be opened or processed."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:2095
+#: main/KexiMainWindow.cpp:2094
 #, fuzzy, kde-kuit-format
 #| msgid "Read only"
 msgctxt "<project-name> (read only)"
 msgid "%1 (read only)"
 msgstr "सिरिफ पढ़े बर"
 
-#: main/KexiMainWindow.cpp:2748
+#: main/KexiMainWindow.cpp:2747
 #, kde-kuit-format
 msgid "From File..."
 msgstr "फाइल से..."
 
-#: main/KexiMainWindow.cpp:2753
+#: main/KexiMainWindow.cpp:2752
 #, kde-kuit-format
 msgid "From Server..."
 msgstr "सर्वर से..."
 
-#: main/KexiMainWindow.cpp:2818
+#: main/KexiMainWindow.cpp:2817
 #, fuzzy, kde-kuit-format
 #| msgid "Selected view is not supported for \"%1\" object."
 msgctxt "@info"
 msgid "Selected view is not supported for <resource>%1</resource> object."
 msgstr "चीज \"%1\" बर चुने गे दृस्य समर्थित नइ हे."
 
-#: main/KexiMainWindow.cpp:2821
+#: main/KexiMainWindow.cpp:2820
 #, fuzzy, kde-kuit-format
 #| msgid "Selected view (%1) is not supported by this object type (%2)."
 msgctxt "@info"
 msgid "Selected view (%1) is not supported by this object type (%2)."
 msgstr "चुने गे दृस्य (%1) एखर चीज किसिम (%2) से समर्थित नइ हे."
 
-#: main/KexiMainWindow.cpp:2895
+#: main/KexiMainWindow.cpp:2894
 #, fuzzy, kde-kuit-format
 #| msgid "Could not access the table directly using its name"
 msgctxt "Could not save object under the original name."
 msgid "Could not save under the original name."
 msgstr "एखर नाम के परयोग से टेबल मं सीधे पहुंचा नइ जा सकिस"
 
-#: main/KexiMainWindow.cpp:2916
+#: main/KexiMainWindow.cpp:2915
 #, fuzzy, kde-kuit-format
 #| msgid "Save"
 msgctxt "@action:button Save object"
 msgid "Save"
 msgstr "सहेजव"
 
-#: main/KexiMainWindow.cpp:2922
+#: main/KexiMainWindow.cpp:2921
 #, fuzzy, kde-kuit-format
 #| msgid "Save Object As"
 msgctxt "@title:window"
 msgid "Save Object As"
 msgstr "चीज अइसन सहेजव"
 
-#: main/KexiMainWindow.cpp:2972
+#: main/KexiMainWindow.cpp:2971
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info Saving object failed"
 msgid "Saving <resource>%1</resource> object failed."
 msgstr "चीज \"%1\" सहेजे मं फेल."
 
-#: main/KexiMainWindow.cpp:3114
+#: main/KexiMainWindow.cpp:3113
 #, kde-kuit-format
 msgid "Save changes"
 msgstr "बदलाव सहेजव"
 
-#: main/KexiMainWindow.cpp:3116
+#: main/KexiMainWindow.cpp:3115
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Pressing this button will save all recent changes made in \"%1\" object."
@@ -3659,7 +3659,7 @@ msgctxt "@info"
 msgid "Saves all recent changes made in <resource>%1</resource> object."
 msgstr "ये बटन ल दबाय मं चीज \"%1\" मं करे सब्बो वाले बदलाव सहेजे जाही."
 
-#: main/KexiMainWindow.cpp:3120
+#: main/KexiMainWindow.cpp:3119
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Pressing this button will discard all recent changes made in \"%1\" "
@@ -3668,32 +3668,32 @@ msgctxt "@info"
 msgid "Discards all recent changes made in <resource>%1</resource> object."
 msgstr "ये बटन ल दबाय मं चीज \"%1\" मं करे सब्बो वाले बदलाव खारिज हो जाही"
 
-#: main/KexiMainWindow.cpp:3142
+#: main/KexiMainWindow.cpp:3141
 #, kde-kuit-format
 msgid "Do you want to save changes?"
 msgstr "का आप मन बदलाव मन ल सहेजना चाहथो ?"
 
-#: main/KexiMainWindow.cpp:3336
+#: main/KexiMainWindow.cpp:3335
 #, kde-kuit-format
 msgctxt "opening is not allowed in \"data view/design view/text view\" mode"
 msgid "opening is not allowed in \"%1\" mode"
 msgstr "\"%1\" मोड मं खोलना स्वीकार नइ हे"
 
-#: main/KexiMainWindow.cpp:3389
+#: main/KexiMainWindow.cpp:3388
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info"
 msgid "Tab for <resource>%1</resource> (%2)."
 msgstr "चीज \"%1\" सहेजे मं फेल."
 
-#: main/KexiMainWindow.cpp:3394
+#: main/KexiMainWindow.cpp:3393
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info"
 msgid "Tab for <resource>%1</resource>."
 msgstr "चीज \"%1\" सहेजे मं फेल."
 
-#: main/KexiMainWindow.cpp:3566
+#: main/KexiMainWindow.cpp:3565
 #, kde-kuit-format
 msgctxt "@info Delete <objecttype> <objectname>?"
 msgid ""
@@ -3702,20 +3702,20 @@ msgid ""
 "interface>, you will not be able to undo the deletion.</note></para>"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3572
+#: main/KexiMainWindow.cpp:3571
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@title:window Delete Object %1."
 msgid "Delete <resource>%1</resource>?"
 msgstr "चीज \"%1\" सहेजे मं फेल."
 
-#: main/KexiMainWindow.cpp:3625
+#: main/KexiMainWindow.cpp:3624
 #, fuzzy, kde-kuit-format
 #| msgid "Could not remove object."
 msgid "Could not delete object."
 msgstr "चीज के बदल नइ सकिस."
 
-#: main/KexiMainWindow.cpp:3648
+#: main/KexiMainWindow.cpp:3647
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Design has been changed. You must save it before switching to other view."
@@ -3725,39 +3725,39 @@ msgid ""
 "para><para>Do you want to close it?</para>"
 msgstr "डिजाइन बदल गे हे. अउ दृस्य मं स्विच करे से पहिली आप मन ल एला सहेज ले चाही."
 
-#: main/KexiMainWindow.cpp:3652
+#: main/KexiMainWindow.cpp:3651
 #, fuzzy, kde-kuit-format
 #| msgid "Close windows"
 msgid "Close Window and Rename"
 msgstr "विंडो बन्द करव"
 
-#: main/KexiMainWindow.cpp:3669
+#: main/KexiMainWindow.cpp:3668
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info"
 msgid "Renaming object <resource>%1</resource> failed."
 msgstr "चीज \"%1\" सहेजे मं फेल."
 
-#: main/KexiMainWindow.cpp:3690
+#: main/KexiMainWindow.cpp:3689
 #, fuzzy, kde-kuit-format
 #| msgid "Renaming object \"%1\" failed."
 msgctxt "@info"
 msgid "Setting caption for object <resource>%1</resource> failed."
 msgstr "चीज \"%1\" नाम बदलना फेल."
 
-#: main/KexiMainWindow.cpp:3862
+#: main/KexiMainWindow.cpp:3861
 #, fuzzy, kde-kuit-format
 #| msgid "Compacting database file <nobr>\"%1\"</nobr> is not supported."
 msgid "Compacting database file <filename>%1</filename> is not supported."
 msgstr "डाटाबेस फाइल <nobr>\"%1\"</nobr> सघन (काम्पेक्ट) करना समर्थित नइ हे."
 
-#: main/KexiMainWindow.cpp:3875
+#: main/KexiMainWindow.cpp:3874
 #, kde-kuit-format
 msgctxt "@action:button Compact database"
 msgid "Compact"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3877
+#: main/KexiMainWindow.cpp:3876
 #, kde-kuit-format
 msgid ""
 "The current project has to be closed before compacting the database. It will "
@@ -3766,7 +3766,7 @@ msgid ""
 "Do you want to continue?"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:4012
+#: main/KexiMainWindow.cpp:4011
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3775,13 +3775,13 @@ msgid ""
 "query for exporting or from its original (saved) version?"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:4017
+#: main/KexiMainWindow.cpp:4016
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Changed Query"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:4018
+#: main/KexiMainWindow.cpp:4017
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Original Query"
@@ -4362,26 +4362,26 @@ msgid ""
 "%4</icode>"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:396
+#: main/startup/KexiStartup.cpp:394
 #, fuzzy, kde-kuit-format
 #| msgid "Invalid criteria \"%1\""
 msgid "Invalid port number <icode>%1</icode> specified."
 msgstr "अवैध मापदन्ड \"%1\""
 
-#: main/startup/KexiStartup.cpp:401
+#: main/startup/KexiStartup.cpp:399
 #, fuzzy, kde-kuit-format
 #| msgid "Could not find any database drivers."
 msgid "Could not open database. No database driver specified."
 msgstr "कोई डाटाबेस ड्राइवर नइ मिलिस."
 
-#: main/startup/KexiStartup.cpp:414
+#: main/startup/KexiStartup.cpp:412
 #, fuzzy, kde-kuit-format
 #| msgid "Could not start %1 application."
 msgctxt "@info"
 msgid "Could not start <application>%1</application> application this way."
 msgstr "अनुपरयोग %1 चला नइ सकिस."
 
-#: main/startup/KexiStartup.cpp:420
+#: main/startup/KexiStartup.cpp:418
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "You have used both \"user-mode\" and \"design-mode\" startup options."
@@ -4394,12 +4394,12 @@ msgid ""
 msgstr ""
 "आप मन दुनों ही \"user-mode\" अउ \"design-mode\" स्टार्टअप विकल्प के परयोग करे हे."
 
-#: main/startup/KexiStartup.cpp:426
+#: main/startup/KexiStartup.cpp:424
 #, kde-kuit-format
 msgid "No project name specified."
 msgstr "कोई परियोजना नाम निरधारित नइ हे."
 
-#: main/startup/KexiStartup.cpp:465
+#: main/startup/KexiStartup.cpp:463
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "You have used both \"user-mode\" and \"design-mode\" startup options."
@@ -4412,7 +4412,7 @@ msgid ""
 msgstr ""
 "आप मन दुनों ही \"user-mode\" अउ \"design-mode\" स्टार्टअप विकल्प के परयोग करे हे."
 
-#: main/startup/KexiStartup.cpp:488
+#: main/startup/KexiStartup.cpp:485
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not remove project.\n"
@@ -4424,21 +4424,21 @@ msgstr ""
 "परियोजना मिटाय नइ जा सकी.\n"
 "फाइल \"%1\" मौजूद नइ हे."
 
-#: main/startup/KexiStartup.cpp:539
+#: main/startup/KexiStartup.cpp:536
 #, fuzzy, kde-kuit-format
 #| msgid "Cannot open input file <nobr>\"%1\"</nobr>."
 msgctxt "@info"
 msgid "Could not open shortcut file <filename>%1</filename>."
 msgstr "इनपुट फाइल <nobr>\"%1\"</nobr> खोल नइ सकिस."
 
-#: main/startup/KexiStartup.cpp:571
+#: main/startup/KexiStartup.cpp:568
 #, fuzzy, kde-kuit-format
 #| msgid "Could not remove file \"%1\"."
 msgctxt "@info"
 msgid "Could not open connection data file <filename>%1</filename>."
 msgstr "फाइल \"%1\" ल मिटा नइ सकिस."
 
-#: main/startup/KexiStartup.cpp:662
+#: main/startup/KexiStartup.cpp:659
 #, kde-kuit-format
 msgid ""
 "You have specified a few database objects to be opened automatically, using "
@@ -4447,28 +4447,28 @@ msgid ""
 "or dropping projects."
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:679
+#: main/startup/KexiStartup.cpp:676
 #, fuzzy, kde-kuit-format
 #| msgid "Project \"%1\" created successfully."
 msgctxt "@info"
 msgid "Project <resource>%1</resource> created successfully."
 msgstr "परियोजना \"%1\" सफलतापूर्वक बनाइस."
 
-#: main/startup/KexiStartup.cpp:688
+#: main/startup/KexiStartup.cpp:685
 #, fuzzy, kde-kuit-format
 #| msgid "Project \"%1\" dropped successfully."
 msgctxt "@info"
 msgid "Project <resource>%1</resource> dropped successfully."
 msgstr "परियोजना \"%1\" सफलतापूर्वक छोड़ दे गिस."
 
-#: main/startup/KexiStartup.cpp:810
+#: main/startup/KexiStartup.cpp:807
 #, fuzzy, kde-kuit-format
 #| msgid "Could not remove file \"%1\"."
 msgctxt "@info"
 msgid "Could not open file. Missing filename."
 msgstr "फाइल \"%1\" ल मिटा नइ सकिस."
 
-#: main/startup/KexiStartup.cpp:817
+#: main/startup/KexiStartup.cpp:814
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not remove project.\n"
@@ -4479,7 +4479,7 @@ msgstr ""
 "परियोजना मिटाय नइ जा सकी.\n"
 "फाइल \"%1\" मौजूद नइ हे."
 
-#: main/startup/KexiStartup.cpp:827
+#: main/startup/KexiStartup.cpp:824
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4488,7 +4488,7 @@ msgid ""
 "opened and locked by another application.</note></para>"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:870
+#: main/startup/KexiStartup.cpp:867
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4497,7 +4497,7 @@ msgid ""
 "opened and locked by another application.</para>"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:894
+#: main/startup/KexiStartup.cpp:891
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "\"%1\" is an external file of type:\n"
@@ -4513,19 +4513,19 @@ msgstr ""
 "\"%2\" हे.\n"
 "का आप मन एला केएक्जाई परियोजना के रूप मं आयात करना चाहथो ?"
 
-#: main/startup/KexiStartup.cpp:897
+#: main/startup/KexiStartup.cpp:894
 #, kde-kuit-format
 msgid "Open External File"
 msgstr "बाहिरी फाइल खोलें"
 
-#: main/startup/KexiStartup.cpp:898
+#: main/startup/KexiStartup.cpp:895
 #, fuzzy, kde-kuit-format
 #| msgid "Import..."
 msgctxt "@action:button Import File"
 msgid "Import..."
 msgstr "आयात..."
 
-#: main/startup/KexiStartup.cpp:930
+#: main/startup/KexiStartup.cpp:927
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4535,13 +4535,13 @@ msgid ""
 "Do you want to use <resource>%4</resource> database driver?"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:951
+#: main/startup/KexiStartup.cpp:948
 #, fuzzy, kde-kuit-format
 #| msgid "Possible problems:"
 msgid "Possible problems: %1"
 msgstr "संभावित समस्या:"
 
-#: main/startup/KexiStartup.cpp:957
+#: main/startup/KexiStartup.cpp:954
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" is not recognized as being supported by Kexi."
 msgctxt "@info"
@@ -4550,7 +4550,7 @@ msgid ""
 "<application>%2</application>."
 msgstr "फाइल \"%1\" केएक्जाई से समर्थित के रूप मं पहिचाना नइ गे हे."
 
-#: main/startup/KexiStartup.cpp:962
+#: main/startup/KexiStartup.cpp:959
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4563,7 +4563,7 @@ msgstr ""
 "ए फाइल किसिम बर डाटाबेस ड्राइवर नइ मिलिस.\n"
 "माइम किसिम के पता चलिस: %1"
 
-#: main/startup/KexiStartup.cpp:966
+#: main/startup/KexiStartup.cpp:963
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4577,7 +4577,7 @@ msgstr ""
 "ए फाइल किसिम बर डाटाबेस ड्राइवर नइ मिलिस.\n"
 "माइम किसिम के पता चलिस: %1"
 
-#: main/startup/KexiStartup.cpp:998
+#: main/startup/KexiStartup.cpp:995
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not load list of available projects for <b>%1</b> database server."
@@ -4586,7 +4586,7 @@ msgid ""
 "database server."
 msgstr "डाटाबेस सर्वर <b>%1</b> बर मिलत परियोजनाओं के सूची लोड नइ कर सकिस."
 
-#: main/startup/KexiStartup.cpp:1039
+#: main/startup/KexiStartup.cpp:1036
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Failed saving connection data to\n"
@@ -5325,49 +5325,49 @@ msgstr "डाटा स्रोत"
 msgid "Frame Color"
 msgstr "फ्रेम रंग"
 
-#: plugins/forms/kexiformmanager.cpp:166
+#: plugins/forms/kexiformmanager.cpp:160
 #, fuzzy, kde-kuit-format
 msgid "Pointer"
 msgstr "छापव"
 
-#: plugins/forms/kexiformmanager.cpp:174
+#: plugins/forms/kexiformmanager.cpp:168
 #, fuzzy, kde-kuit-format
 msgid "Snap to Grid"
 msgstr "ग्रिड में"
 
-#: plugins/forms/kexiformmanager.cpp:181
+#: plugins/forms/kexiformmanager.cpp:175
 #, fuzzy, kde-kuit-format
 msgid "Style"
 msgstr "उपकिसिम"
 
-#: plugins/forms/kexiformmanager.cpp:200
+#: plugins/forms/kexiformmanager.cpp:194
 #, fuzzy, kde-kuit-format
 msgid "Set the current view style."
 msgstr "अभी हाल के रपट छापथे."
 
-#: plugins/forms/kexiformmanager.cpp:209
+#: plugins/forms/kexiformmanager.cpp:203
 #, kde-kuit-format
 msgid "Show Form UI Code"
 msgstr "यूआई कोड से देखाव"
 
-#: plugins/forms/kexiformmanager.cpp:394
+#: plugins/forms/kexiformmanager.cpp:388
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgid "Set form's data source to <resource>%1</resource>"
 msgstr "चीज \"%1\" सहेजे मं फेल."
 
-#: plugins/forms/kexiformmanager.cpp:478
+#: plugins/forms/kexiformmanager.cpp:472
 #, fuzzy, kde-kuit-format
 msgctxt "@title:window"
 msgid "Form's UI Code"
 msgstr "यूआई कोड से देखाव"
 
-#: plugins/forms/kexiformmanager.cpp:481
+#: plugins/forms/kexiformmanager.cpp:475
 #, fuzzy, kde-kuit-format
 msgid "Current"
 msgstr "अभी हाल के"
 
-#: plugins/forms/kexiformmanager.cpp:488
+#: plugins/forms/kexiformmanager.cpp:482
 #, kde-kuit-format
 msgid "Original"
 msgstr "असली"
@@ -6709,7 +6709,7 @@ msgstr "फोटू (&I)"
 msgid "&Assign Action..."
 msgstr "काम आबंटित करव... (&A)"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1386
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1393
 #, fuzzy, kde-kuit-format
 #| msgid "Default"
 msgctxt "default indent value"
@@ -7171,8 +7171,8 @@ msgstr ""
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1713
 #: plugins/importexport/csv/kexicsvwidgets.cpp:190
-#: plugins/importexport/csv/kexicsvwidgets.cpp:240
-#: plugins/importexport/csv/kexicsvwidgets.cpp:252
+#: plugins/importexport/csv/kexicsvwidgets.cpp:239
+#: plugins/importexport/csv/kexicsvwidgets.cpp:251
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1875
 #: plugins/tables/kexitabledesignerview.cpp:395
 #, kde-kuit-format
