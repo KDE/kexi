@@ -4384,7 +4384,7 @@ msgstr "No mostres este diàleg una altra vegada"
 #: main/startup/KexiStartupDialog.cpp:268
 #, kde-kuit-format
 msgid "Click <interface>OK</interface> button to proceed."
-msgstr "Cliqueu el botó <interface>Bé</interface> per a continuar."
+msgstr "Cliqueu en el botó <interface>Bé</interface> per a continuar."
 
 #: main/startup/KexiStartupDialog.cpp:271
 #, kde-kuit-format
@@ -4565,8 +4565,8 @@ msgid ""
 "interface> button to exit this assistant.</para>"
 msgstr ""
 "<para>L'assistent d'importació de taules us permet importar una taula d'una "
-"base de dades existent en el projecte actual de KEXI.</para><para>Cliqueu el "
-"botó <interface>Següent</interface> per a continuar o el botó "
+"base de dades existent en el projecte actual de KEXI.</para><para>Cliqueu en "
+"el botó <interface>Següent</interface> per a continuar o el botó "
 "<interface>Cancel·la</interface> per a eixir d'este assistent.</para>"
 
 #: migration/importtablewizard.cpp:175
@@ -4654,7 +4654,7 @@ msgid ""
 "para><para><note>Depending on size of the table this may take some time.</"
 "note></para>"
 msgstr ""
-"<para>S'ha arreplegat tota la informació necessària. Cliqueu el botó "
+"<para>S'ha arreplegat tota la informació necessària. Cliqueu en el botó "
 "<interface>Següent</interface> per a començar la importació de la taula "
 "<resource>%1</resource>.</para><para><note>Depenent de la mida de la base de "
 "dades, pot tardar algun temps.</note></para>"
@@ -4841,8 +4841,8 @@ msgid ""
 "issues.</para>"
 msgstr ""
 "<para>S'han trobat els problemes següents amb les dades introduïdes:</para>"
-"%1<para>Per favor, cliqueu el botó <interface>Arrere</interface> i corregiu "
-"estos problemes.</para>"
+"%1<para>Per favor, cliqueu en el botó <interface>Arrere</interface> i "
+"corregiu estos problemes.</para>"
 
 #: migration/importwizard.cpp:629
 #, kde-kuit-format
@@ -4852,7 +4852,7 @@ msgid ""
 "interface> button to start importing.</para><para><note>Depending on size of "
 "the database this may take some time.</note></para>"
 msgstr ""
-"<para>S'ha arreplegat tota la informació necessària. Cliqueu el botó "
+"<para>S'ha arreplegat tota la informació necessària. Cliqueu en el botó "
 "<interface>Següent</interface> per a començar la importació.</"
 "para><para><note>Depenent de la mida de la base de dades, pot tardar algun "
 "temps.</note></para>"
@@ -6324,7 +6324,7 @@ msgstr "Suprimix la pàgina"
 #, kde-kuit-format
 msgctxt "Rename tab widget's page"
 msgid "Rename Page..."
-msgstr "Canvia el nom la pàgina..."
+msgstr "Canvia el nom de la pàgina..."
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:301
 #, kde-kuit-format
@@ -8970,12 +8970,12 @@ msgstr "Ca&nvia el nom..."
 #: widget/navigator/KexiProjectNavigator.cpp:178
 #, kde-kuit-format
 msgid "Rename object"
-msgstr "Canvia el nom l'objecte"
+msgstr "Canvia el nom de l'objecte"
 
 #: widget/navigator/KexiProjectNavigator.cpp:179
 #, kde-kuit-format
 msgid "Renames the object selected in the list."
-msgstr "Canvia el nom l'objecte seleccionat de la llista."
+msgstr "Canvia el nom de l'objecte seleccionat de la llista."
 
 #: widget/navigator/KexiProjectNavigator.cpp:188
 #, kde-kuit-format
@@ -9050,7 +9050,7 @@ msgstr "&Crea un objecte..."
 #, kde-kuit-format
 msgctxt "@info Rename object %1:"
 msgid "Rename <resource>%1</resource>:"
-msgstr "Canvia el nom <resource>%1</resource>:"
+msgstr "Canvia el nom de <resource>%1</resource>:"
 
 #: widget/navigator/KexiProjectNavigator.cpp:473
 #, kde-kuit-format
