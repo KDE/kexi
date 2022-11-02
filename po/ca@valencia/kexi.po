@@ -138,7 +138,7 @@ msgstr "Radosław Wicik"
 #: core/kexiaboutdata.cpp:56 core/kexiaboutdata.cpp:58
 #, kde-kuit-format
 msgid "Features and bug fixes"
-msgstr "Funcionalitats i correcció d'errors"
+msgstr "Característiques i correcció d'errors"
 
 #: core/kexiaboutdata.cpp:56
 #, kde-kuit-format
@@ -4458,14 +4458,14 @@ msgstr ""
 "Tothom, sense tindre en compte el seu grau de compromís, pot fer-ho.</"
 "para><para>Què rebeu per la vostra donació? KEXI esdevindrà més funcional i "
 "estable, ja que els col·laboradors podran dedicar més temps a KEXI. No només "
-"es poden esperar noves funcionalitats, també podeu tindre influència en "
-"quines funcionalitats s'afigen!</para><para>Actualment s'accepten donacions "
-"a través de <emphasis>BountySource</emphasis> (una plataforma de mecenatge "
-"per a programari de codi font obert) utilitzant transferències segures de "
-"PayPal, Bitcoin i Google Wallet.</para><para>Contacteu amb nosaltres a <link "
-"url='https://community.kde.org/Kexi/Contact'>http://community.kde.org/Kexi/"
-"Contact</link> per a més informació.</para><para>Gràcies per la vostra ajuda!"
-"</para>"
+"es poden esperar noves característiques, també podeu tindre influència en "
+"quines característiques s'afigen!</para><para>Actualment s'accepten "
+"donacions a través de <emphasis>BountySource</emphasis> (una plataforma de "
+"mecenatge per a programari de codi font obert) utilitzant transferències "
+"segures de PayPal, Bitcoin i Google Wallet.</para><para>Contacteu amb "
+"nosaltres a <link url='https://community.kde.org/Kexi/Contact'>http://"
+"community.kde.org/Kexi/Contact</link> per a més informació.</"
+"para><para>Gràcies per la vostra ajuda!</para>"
 
 #: main/startup/KexiWelcomeStatusBar.cpp:763
 #, kde-kuit-format

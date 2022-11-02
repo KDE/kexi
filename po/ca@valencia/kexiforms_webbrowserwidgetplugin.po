@@ -41,7 +41,7 @@ msgstr "navegadorWeb"
 #: WebBrowserFactory.cpp:54
 #, kde-kuit-format
 msgid "Web widget with browsing features."
-msgstr "Un giny web amb funcionalitats de navegació."
+msgstr "Un giny web amb característiques de navegació."
 
 #: WebBrowserFactory.cpp:58
 #, kde-kuit-format
