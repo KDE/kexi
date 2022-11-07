@@ -9354,7 +9354,7 @@ msgstr "Mou el cursor al registre següent."
 #: widget/utils/kexirecordnavigator.cpp:633
 #, kde-kuit-format
 msgid "Moves cursor to last record."
-msgstr "Mou el cursor a l'últim registre."
+msgstr "Mou el cursor fins a l'últim registre."
 
 #: widget/utils/kexirecordnavigator.cpp:634
 #, kde-kuit-format
