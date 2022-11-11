@@ -524,7 +524,7 @@ msgid ""
 "Note: Options like --user, --host have precedence over settings defined in "
 "the shortcut file."
 msgstr ""
-"Especifiqueu una drecera a un fitxer de connexió a una base de dades «."
+"Especifiqueu una drecera cap a un fitxer de connexió amb una base de dades «."
 "kexic» que continga dades de connexió. Es pot utilitzar amb --createdb o --"
 "create-opendb per comoditat, en lloc d'opcions com --user --host o --port.\n"
 "Nota: opcions com ara --user i --host tenen preferència sobre configuracions "
@@ -8377,7 +8377,7 @@ msgstr "Edita la connexió amb la base de dades seleccionada"
 #: widget/KexiConnectionSelectorWidget.cpp:64
 #, kde-kuit-format
 msgid "Delete selected database connections"
-msgstr "Suprimix les connexions a les bases de dades seleccionades"
+msgstr "Suprimix les connexions amb les bases de dades seleccionades"
 
 #: widget/KexiConnectionSelectorWidget.cpp:89
 #, kde-kuit-format
@@ -8399,7 +8399,7 @@ msgstr "Afi&g"
 #: widget/KexiConnectionSelectorWidget.cpp:387
 #, kde-kuit-format
 msgid "Add database connection"
-msgstr "Afig connexió a una base de dades"
+msgstr "Afig connexió amb una base de dades"
 
 #: widget/KexiConnectionSelectorWidget.cpp:388
 #, kde-kuit-format
@@ -8422,7 +8422,7 @@ msgstr "Guarda els canvis fets a esta connexió de base de dades"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Edit Database Connection"
-msgstr "Edita la connexió a una base de dades"
+msgstr "Edita la connexió amb una base de dades"
 
 #: widget/KexiConnectionSelectorWidget.cpp:447
 #, kde-kuit-format
@@ -8508,7 +8508,7 @@ msgstr ""
 #: widget/kexidbconnectionwidget.cpp:152
 #, kde-kuit-format
 msgid "Database Connection"
-msgstr "Connexió a una base de dades"
+msgstr "Connexió amb una base de dades"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)

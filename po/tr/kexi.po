@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-25 00:47+0000\n"
-"PO-Revision-Date: 2022-09-15 21:31+0300\n"
+"PO-Revision-Date: 2022-11-10 21:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -1794,12 +1794,12 @@ msgstr "Çerçeve Gölgesi"
 #: formeditor/form_p.cpp:301
 #, kde-kuit-format
 msgid "Vertical Scrollbar"
-msgstr "Dikey Kaydırma Çubuğu"
+msgstr "Dikey Sarma Çubuğu"
 
 #: formeditor/form_p.cpp:302
 #, kde-kuit-format
 msgid "Horizontal Scrollbar"
-msgstr "Yatay Kaydırma Çubuğu"
+msgstr "Yatay Sarma Çubuğu"
 
 #: formeditor/form_p.cpp:304
 #, kde-kuit-format
@@ -6042,18 +6042,18 @@ msgstr "Bağlantıların Altı Çizili"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:546
 #, kde-kuit-format
 msgid "Horizontal Scroll Bar"
-msgstr "Yatay Kaydırma Çubuğu"
+msgstr "Yatay Sarma Çubuğu"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:547
 #, kde-kuit-format
 msgid "Vertical Scroll Bar"
-msgstr "Dikey Kaydırma Çubuğu"
+msgstr "Dikey Sarma Çubuğu"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:549
 #, kde-kuit-format
 msgctxt "Property: Show Scroll Bar As Needed"
 msgid "As Needed"
-msgstr "Gerektiği Gibi"
+msgstr "Gerektiğinde"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:550
 #, kde-kuit-format
@@ -6192,7 +6192,7 @@ msgstr "Yutma Kipi"
 #, kde-kuit-format
 msgctxt "Tab Widget's property: true if can use scroll buttons"
 msgid "Scroll Buttons"
-msgstr "Kaydırma Düğmeleri"
+msgstr "Sarma Düğmeleri"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:637
 #, kde-kuit-format
