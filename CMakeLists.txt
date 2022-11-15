@@ -262,6 +262,7 @@ add_subdirectory(src)
 if(SHOULD_BUILD_DOC)
     find_package(KF5 ${KF5_DEP_VERSION} REQUIRED COMPONENTS DocTools)
     add_subdirectory(doc)
+    kdoctools_install(po)
 endif()
 
 # non-app directories are moved here because they can depend on SHOULD_BUILD_{appname} variables set above
