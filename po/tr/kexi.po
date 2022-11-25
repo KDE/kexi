@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-25 00:47+0000\n"
-"PO-Revision-Date: 2022-11-22 16:54+0300\n"
+"PO-Revision-Date: 2022-11-24 17:34+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -7415,12 +7415,12 @@ msgstr "Dışa aktarılan belgeyi açmak istiyor musunuz?"
 #: plugins/reports/kexireportview.cpp:263
 #, kde-kuit-format
 msgid "Export Report as Spreadsheet"
-msgstr "Raporu Çalışma Sayfası Olarak Dışa Aktar"
+msgstr "Raporu Hesap Tablosu Olarak Dışa Aktar"
 
 #: plugins/reports/kexireportview.cpp:272
 #, kde-kuit-format
 msgid "Failed to export the report as spreadsheet to %1."
-msgstr "Rapor, %1 çalışma sayfası olarak dışa aktarılamadı."
+msgstr "Rapor, %1 hesap tablosu olarak dışa aktarılamadı."
 
 #: plugins/reports/kexireportview.cpp:288
 #, kde-kuit-format
