@@ -237,7 +237,7 @@ KexiProjectModelItem* KexiProjectModelItem::modelItemFromName(const QString& nam
 
 void KexiProjectModelItem::sortChildren()
 {
-    qSort(d->childItems.begin(), d->childItems.end(), itemLessThan);
+    std::sort(d->childItems.begin(), d->childItems.end(), itemLessThan);
 }
 
 bool itemLessThan(const KexiProjectModelItem *a, const KexiProjectModelItem *b)

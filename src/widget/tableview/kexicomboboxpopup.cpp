@@ -254,7 +254,7 @@ void KexiComboBoxPopup::setData(KDbConnection *conn, KDbTableViewColumn *column,
                 d->privateQuery = new KDbQuerySchema(*lookupQuery, conn);
             } else {
                 d->visibleColumnsToShow = visibleColumns;
-                qSort(d->visibleColumnsToShow); // because we will depend on a sorted list
+                std::sort(d->visibleColumnsToShow.begin(), d->visibleColumnsToShow.end()); // because we will depend on a sorted list
                 cursor = conn->prepareQuery(lookupQuery);
             }
             break;

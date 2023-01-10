@@ -73,5 +73,5 @@ bool lessThan(KexiPart::Item* item1, KexiPart::Item* item2)
 
 void ItemList::sort()
 {
-    qSort(begin(), end(), lessThan);
+    std::sort(begin(), end(), lessThan);
 }

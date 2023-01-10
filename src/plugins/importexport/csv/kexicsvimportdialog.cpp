@@ -1358,7 +1358,7 @@ bool KexiCSVImportDialog::isPrimaryKeyAllowed(int col)
         expectedRowCount--;
     }
     if (list->count() == expectedRowCount) {
-        qSort(*list);
+        std::sort(list->begin(), list->end());
         QList<int>::ConstIterator it = list->constBegin();
         int prevValue = *it;
         ++it;
