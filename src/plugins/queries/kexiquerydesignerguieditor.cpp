@@ -138,7 +138,7 @@ public:
     {
         int maxw = -1;
         for (int i=0; i < items.size(); ++i) {
-            maxw = qMax(maxw, q->fontMetrics().width(items[i] + QLatin1String(" ")));
+            maxw = qMax(maxw, q->fontMetrics().horizontalAdvance(items[i] + QLatin1String(" ")));
         }
         sortColumnPreferredWidth = maxw + KexiUtils::comboBoxArrowSize(q->style()).width();
     }
@@ -311,7 +311,7 @@ void KexiQueryDesignerGuiEditor::updateColumnsData()
     foreach(KexiRelationsTableContainer* cont, *d->relations->tables()) {
         sortedTableNames += cont->schema()->name();
     }
-    qSort(sortedTableNames);
+    sortedTableNames.sort();
 
     //several tables can be hidden now, so remove rows for these tables
     QList<int> recordsToDelete;
@@ -323,7 +323,7 @@ void KexiQueryDesignerGuiEditor::updateColumnsData()
             const bool allTablesAsterisk = tableName == "*" && d->relations->tables()->isEmpty();
             const bool fieldNotFound = tableName != "*"
                                        && !(*set)["isExpression"].value().toBool()
-                                       && sortedTableNames.end() == qFind(sortedTableNames.begin(), sortedTableNames.end(), tableName);
+                                       && sortedTableNames.end() == std::find(sortedTableNames.begin(), sortedTableNames.end(), tableName);
 
             if (allTablesAsterisk || fieldNotFound) {
                 //table not found: mark this line for later removal

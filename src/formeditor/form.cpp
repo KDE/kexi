@@ -1746,7 +1746,7 @@ void Form::createContextMenu(QWidget *w, Container *container, const QPoint& men
     // We create the buddy menu
     QAction *noBuddyAction = 0;
     QLabel *buddyLabelWidget = 0;
-    QList<QString> sortedItemNames;
+    QStringList sortedItemNames;
     if (!multiple) {
         buddyLabelWidget = qobject_cast<QLabel*>(w);
         if (buddyLabelWidget) {
@@ -1776,7 +1776,7 @@ void Form::createContextMenu(QWidget *w, Container *container, const QPoint& men
             items.insert(item->name().toLatin1(), item);
         }
         sortedItemNames = items.keys();
-        qSort(sortedItemNames);
+        sortedItemNames.sort();
         foreach (const QString& name, sortedItemNames) {
             ObjectTreeItem *item = items.value(name);
             QAction* action = sub->addAction(

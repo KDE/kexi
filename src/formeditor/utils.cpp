@@ -123,7 +123,7 @@ HorizontalWidgetList::~HorizontalWidgetList()
 
 void HorizontalWidgetList::sort()
 {
-    qSort(begin(), end(), *m_lessThan);
+    std::sort(begin(), end(), *m_lessThan);
 }
 
 // -----------------
@@ -189,7 +189,7 @@ VerticalWidgetList::~VerticalWidgetList()
 
 void VerticalWidgetList::sort()
 {
-    qSort(begin(), end(), *m_lessThan);
+    std::sort(begin(), end(), *m_lessThan);
 }
 
 // ----

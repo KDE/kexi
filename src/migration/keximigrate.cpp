@@ -752,7 +752,7 @@ void KexiMigrate::setPropertyCaption(const QByteArray& propertyName, const QStri
 QList<QByteArray> KexiMigrate::propertyNames() const
 {
     QList<QByteArray> names = d->properties.keys();
-    qSort(names);
+    std::sort(names.begin(), names.end());
     return names;
 }
 

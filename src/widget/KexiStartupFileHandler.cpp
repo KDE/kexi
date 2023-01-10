@@ -277,7 +277,7 @@ void KexiStartupFileHandler::updateFilters()
 
     //remove duplicates made because upper- and lower-case extenstions are used:
     QStringList allfiltersUnique = allfilters.toSet().toList();
-    qSort(allfiltersUnique);
+    allfiltersUnique.sort();
 
     if (allfiltersUnique.count() > 1) {//prepend "all supoported files" entry
         if (!filter.isEmpty()) {

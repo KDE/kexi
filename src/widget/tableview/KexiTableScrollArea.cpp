@@ -1997,7 +1997,7 @@ void KexiTableScrollArea::maximizeColumnsWidth(const QList<int> &columnList)
         return;
     //sort the list and make it unique
     QList<int> cl, sortedList(columnList);
-    qSort(sortedList);
+    std::sort(sortedList.begin(), sortedList.end());
     int i = -999;
     QList<int>::ConstIterator it(sortedList.constBegin()), end(sortedList.constEnd());
     for (; it != end; ++it) {
