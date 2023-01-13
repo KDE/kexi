@@ -8231,7 +8231,7 @@ msgstr "La restricció de columna s'ha declarat com a NO NUL·LA (requerit)."
 msgid ""
 "The column's constraint is declared as NOT EMPTY (text should be filled)."
 msgstr ""
-"La restricció de columna s'ha declarat com a NO BUIDA (s'ha d'omplir un "
+"La restricció de columna s'ha declarat com a NO BUIDA (s'ha d'emplenar un "
 "text)."
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:888
