@@ -2033,11 +2033,13 @@ void KexiMainWindow::setupObjectView()
     }
 
     if (navigator) {
-        connect(d->prj, SIGNAL(newItemStored(KexiPart::Item*)),
-                navigator->model(), SLOT(slotAddItem(KexiPart::Item*)));
-        connect(d->prj, SIGNAL(itemRemoved(KexiPart::Item)),
-                navigator->model(), SLOT(slotRemoveItem(KexiPart::Item)));
-        navigator->setFocus();
+        if (d->prj) {
+            connect(d->prj, SIGNAL(newItemStored(KexiPart::Item*)),
+                    navigator->model(), SLOT(slotAddItem(KexiPart::Item*)));
+            connect(d->prj, SIGNAL(itemRemoved(KexiPart::Item)),
+                    navigator->model(), SLOT(slotRemoveItem(KexiPart::Item)));
+            navigator->setFocus();
+        }
 
         /*if (d->forceShowProjectNavigatorOnCreation) {
             slotShowNavigator();
