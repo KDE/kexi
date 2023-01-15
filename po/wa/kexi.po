@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:47+0000\n"
+"POT-Creation-Date: 2023-01-15 00:56+0000\n"
 "PO-Revision-Date: 2011-01-17 22:02+0100\n"
 "Last-Translator: Jean Cayron <jean.cayron@gmail.com>\n"
 "Language-Team: Walloon <linux@walon.org>\n"
@@ -908,7 +908,7 @@ msgctxt "@info"
 msgid "No plugin for ID <resource>%1</resource>"
 msgstr "Li schapaedje di l' objet « %1 » a fwait berwete."
 
-#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3639
+#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3641
 #, kde-kuit-format
 msgid "Could not set empty name for this object."
 msgstr "Dji n' a savou mete on vude no po cist objet."
@@ -1306,7 +1306,7 @@ msgid ""
 msgstr ""
 "L' atuzlaedje a candjî. Vos l' divoz schaper divant d' passer a l' ôte vuwe."
 
-#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2832
+#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2834
 #, kde-kuit-format
 msgid "Switching to other view failed (%1)."
 msgstr "Li passaedje a l' ôte vuwe a fwait berwete (%1)."
@@ -3631,31 +3631,31 @@ msgstr ""
 "Vos avoz dmandé k' les objets tchoezis soeyexhe drovous otomaticmint ou "
 "traitî a l' enondaedje. Dji n' sai drovi ou traitî sacwants objets."
 
-#: main/KexiMainWindow.cpp:2094
+#: main/KexiMainWindow.cpp:2096
 #, fuzzy, kde-kuit-format
 #| msgid "Read only"
 msgctxt "<project-name> (read only)"
 msgid "%1 (read only)"
 msgstr "Lére seulmint"
 
-#: main/KexiMainWindow.cpp:2747
+#: main/KexiMainWindow.cpp:2749
 #, kde-kuit-format
 msgid "From File..."
 msgstr "D' on fitchî..."
 
-#: main/KexiMainWindow.cpp:2752
+#: main/KexiMainWindow.cpp:2754
 #, kde-kuit-format
 msgid "From Server..."
 msgstr "D' on sierveu..."
 
-#: main/KexiMainWindow.cpp:2817
+#: main/KexiMainWindow.cpp:2819
 #, fuzzy, kde-kuit-format
 #| msgid "Selected view is not supported for \"%1\" object."
 msgctxt "@info"
 msgid "Selected view is not supported for <resource>%1</resource> object."
 msgstr "Li vuwe di tchoezeye n' est nén sopoirtêye pa l' objet « %1 »."
 
-#: main/KexiMainWindow.cpp:2820
+#: main/KexiMainWindow.cpp:2822
 #, fuzzy, kde-kuit-format
 #| msgid "Selected view (%1) is not supported by this object type (%2)."
 msgctxt "@info"
@@ -3663,7 +3663,7 @@ msgid "Selected view (%1) is not supported by this object type (%2)."
 msgstr ""
 "Li vuwe di tchoezeye (%1) n' est nén sopoirtêye pa cisse sôre d' objet (%2)."
 
-#: main/KexiMainWindow.cpp:2894
+#: main/KexiMainWindow.cpp:2896
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not open shortcut file\n"
@@ -3674,33 +3674,33 @@ msgstr ""
 "Dji n' a savou drovi l' fitchî d' rascourti\n"
 "« %1 »."
 
-#: main/KexiMainWindow.cpp:2915
+#: main/KexiMainWindow.cpp:2917
 #, fuzzy, kde-kuit-format
 #| msgid "Save"
 msgctxt "@action:button Save object"
 msgid "Save"
 msgstr "Schaper"
 
-#: main/KexiMainWindow.cpp:2921
+#: main/KexiMainWindow.cpp:2923
 #, fuzzy, kde-kuit-format
 #| msgid "Save Object As"
 msgctxt "@title:window"
 msgid "Save Object As"
 msgstr "Schaper l' objet eyet l' rilomer"
 
-#: main/KexiMainWindow.cpp:2971
+#: main/KexiMainWindow.cpp:2973
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info Saving object failed"
 msgid "Saving <resource>%1</resource> object failed."
 msgstr "Li schapaedje di l' objet « %1 » a fwait berwete."
 
-#: main/KexiMainWindow.cpp:3113
+#: main/KexiMainWindow.cpp:3115
 #, kde-kuit-format
 msgid "Save changes"
 msgstr "Schaper candjmints"
 
-#: main/KexiMainWindow.cpp:3115
+#: main/KexiMainWindow.cpp:3117
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Pressing this button will save all recent changes made in \"%1\" object."
@@ -3710,7 +3710,7 @@ msgstr ""
 "Si vs clitchîz so ç' boton ci, vos schapez tos les candjmints k' vos avoz "
 "fwaits dierinmint dins l' objet « %1 »."
 
-#: main/KexiMainWindow.cpp:3119
+#: main/KexiMainWindow.cpp:3121
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Pressing this button will discard all recent changes made in \"%1\" "
@@ -3721,32 +3721,32 @@ msgstr ""
 "Si vs clitchîz so ç' boton ci, vos rnoncî a tos les candjmints k' vos avoz "
 "fwaits dierinmint dins l' objet « %1 »."
 
-#: main/KexiMainWindow.cpp:3141
+#: main/KexiMainWindow.cpp:3143
 #, kde-kuit-format
 msgid "Do you want to save changes?"
 msgstr "Voloz vs schaper les candjmints ?"
 
-#: main/KexiMainWindow.cpp:3335
+#: main/KexiMainWindow.cpp:3337
 #, kde-kuit-format
 msgctxt "opening is not allowed in \"data view/design view/text view\" mode"
 msgid "opening is not allowed in \"%1\" mode"
 msgstr "li drovaedje n' est nén permetou e môde « %1 »"
 
-#: main/KexiMainWindow.cpp:3388
+#: main/KexiMainWindow.cpp:3390
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info"
 msgid "Tab for <resource>%1</resource> (%2)."
 msgstr "Li schapaedje di l' objet « %1 » a fwait berwete."
 
-#: main/KexiMainWindow.cpp:3393
+#: main/KexiMainWindow.cpp:3395
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info"
 msgid "Tab for <resource>%1</resource>."
 msgstr "Li schapaedje di l' objet « %1 » a fwait berwete."
 
-#: main/KexiMainWindow.cpp:3565
+#: main/KexiMainWindow.cpp:3567
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Do you want to permanently delete:\n"
@@ -3762,20 +3762,20 @@ msgstr ""
 "%1\n"
 "Si vs clitchîz so « Disfacer », vos n' sårîz nén disfé l' disfaçaedje."
 
-#: main/KexiMainWindow.cpp:3571
+#: main/KexiMainWindow.cpp:3573
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@title:window Delete Object %1."
 msgid "Delete <resource>%1</resource>?"
 msgstr "Li schapaedje di l' objet « %1 » a fwait berwete."
 
-#: main/KexiMainWindow.cpp:3624
+#: main/KexiMainWindow.cpp:3626
 #, fuzzy, kde-kuit-format
 #| msgid "Could not remove object."
 msgid "Could not delete object."
 msgstr "Dji n' a savou oister l' objet."
 
-#: main/KexiMainWindow.cpp:3647
+#: main/KexiMainWindow.cpp:3649
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Design has been changed. You must save it before switching to other view."
@@ -3786,27 +3786,27 @@ msgid ""
 msgstr ""
 "L' atuzlaedje a candjî. Vos l' divoz schaper divant d' passer a l' ôte vuwe."
 
-#: main/KexiMainWindow.cpp:3651
+#: main/KexiMainWindow.cpp:3653
 #, fuzzy, kde-kuit-format
 #| msgid "Close windows"
 msgid "Close Window and Rename"
 msgstr "Clôre finiesses"
 
-#: main/KexiMainWindow.cpp:3668
+#: main/KexiMainWindow.cpp:3670
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info"
 msgid "Renaming object <resource>%1</resource> failed."
 msgstr "Li schapaedje di l' objet « %1 » a fwait berwete."
 
-#: main/KexiMainWindow.cpp:3689
+#: main/KexiMainWindow.cpp:3691
 #, fuzzy, kde-kuit-format
 #| msgid "Renaming object \"%1\" failed."
 msgctxt "@info"
 msgid "Setting caption for object <resource>%1</resource> failed."
 msgstr "Li rlomaedje di l' objet « %1 » a fwait berwete."
 
-#: main/KexiMainWindow.cpp:3861
+#: main/KexiMainWindow.cpp:3863
 #, fuzzy, kde-kuit-format
 #| msgid "Compacting database file <nobr>\"%1\"</nobr> is not supported."
 msgid "Compacting database file <filename>%1</filename> is not supported."
@@ -3814,13 +3814,13 @@ msgstr ""
 "Li rastrindaedje do fitchî d' båze di dnêyes <nobr>\"%1\"</nobr> n' est nén "
 "sopoirté."
 
-#: main/KexiMainWindow.cpp:3874
+#: main/KexiMainWindow.cpp:3876
 #, kde-kuit-format
 msgctxt "@action:button Compact database"
 msgid "Compact"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3876
+#: main/KexiMainWindow.cpp:3878
 #, kde-kuit-format
 msgid ""
 "The current project has to be closed before compacting the database. It will "
@@ -3833,7 +3833,7 @@ msgstr ""
 "\n"
 "Voloz vs tcheryî pus lon ?"
 
-#: main/KexiMainWindow.cpp:4011
+#: main/KexiMainWindow.cpp:4013
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3842,13 +3842,13 @@ msgid ""
 "query for exporting or from its original (saved) version?"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:4016
+#: main/KexiMainWindow.cpp:4018
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Changed Query"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:4017
+#: main/KexiMainWindow.cpp:4019
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Original Query"

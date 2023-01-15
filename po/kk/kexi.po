@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:47+0000\n"
+"POT-Creation-Date: 2023-01-15 00:56+0000\n"
 "PO-Revision-Date: 2013-11-08 01:29+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -1114,7 +1114,7 @@ msgctxt "@info"
 msgid "No plugin for ID <resource>%1</resource>"
 msgstr "<resource>%1</resource> дегенді қайта атау"
 
-#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3639
+#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3641
 #, kde-kuit-format
 msgid "Could not set empty name for this object."
 msgstr "Бұл нысанның атауын бос қалдыруға болмайды."
@@ -1506,7 +1506,7 @@ msgid ""
 "Design has been changed. You must save it before switching to other view."
 msgstr "Құрылымы өзгертілген. Басқа көрінісіне ауысу алдында оны сақтау керек."
 
-#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2832
+#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2834
 #, kde-kuit-format
 msgid "Switching to other view failed (%1)."
 msgstr "Басқа көрінісіне ауысу болмады (%1)."
@@ -3713,68 +3713,68 @@ msgstr ""
 "Тандалған нысандар бастағанда автоматты түрде ашылсын не әрекет етсін деп "
 "талап етілген. Кейбір нысандар ашылмады не сұралған әрекет етпеді."
 
-#: main/KexiMainWindow.cpp:2094
+#: main/KexiMainWindow.cpp:2096
 #, kde-kuit-format
 msgctxt "<project-name> (read only)"
 msgid "%1 (read only)"
 msgstr "%1 (тек оқу үшін)"
 
-#: main/KexiMainWindow.cpp:2747
+#: main/KexiMainWindow.cpp:2749
 #, kde-kuit-format
 msgid "From File..."
 msgstr "Мынау файлдан..."
 
-#: main/KexiMainWindow.cpp:2752
+#: main/KexiMainWindow.cpp:2754
 #, kde-kuit-format
 msgid "From Server..."
 msgstr "Мынау серверден..."
 
-#: main/KexiMainWindow.cpp:2817
+#: main/KexiMainWindow.cpp:2819
 #, fuzzy, kde-kuit-format
 #| msgid "Selected view is not supported for \"%1\" object."
 msgctxt "@info"
 msgid "Selected view is not supported for <resource>%1</resource> object."
 msgstr "Таңдалған көрініс \"%1\" нысанына жарамайды."
 
-#: main/KexiMainWindow.cpp:2820
+#: main/KexiMainWindow.cpp:2822
 #, fuzzy, kde-kuit-format
 #| msgid "Selected view (%1) is not supported by this object type (%2)."
 msgctxt "@info"
 msgid "Selected view (%1) is not supported by this object type (%2)."
 msgstr "Таңдалған көрініс (%1) нысанның бұл түріне (%2) жарамайды."
 
-#: main/KexiMainWindow.cpp:2894
+#: main/KexiMainWindow.cpp:2896
 #, kde-kuit-format
 msgctxt "Could not save object under the original name."
 msgid "Could not save under the original name."
 msgstr "Бастапқы атауымен сақталмайды."
 
-#: main/KexiMainWindow.cpp:2915
+#: main/KexiMainWindow.cpp:2917
 #, fuzzy, kde-kuit-format
 #| msgid "Save"
 msgctxt "@action:button Save object"
 msgid "Save"
 msgstr "Сақтау"
 
-#: main/KexiMainWindow.cpp:2921
+#: main/KexiMainWindow.cpp:2923
 #, fuzzy, kde-kuit-format
 #| msgid "Save Object As"
 msgctxt "@title:window"
 msgid "Save Object As"
 msgstr "Нысанды былай сақтау"
 
-#: main/KexiMainWindow.cpp:2971
+#: main/KexiMainWindow.cpp:2973
 #, kde-kuit-format
 msgctxt "@info Saving object failed"
 msgid "Saving <resource>%1</resource> object failed."
 msgstr "<resource>%1</resource> нысанын сақтау жаңылысы."
 
-#: main/KexiMainWindow.cpp:3113
+#: main/KexiMainWindow.cpp:3115
 #, kde-kuit-format
 msgid "Save changes"
 msgstr "Өзгерістерін сақтау"
 
-#: main/KexiMainWindow.cpp:3115
+#: main/KexiMainWindow.cpp:3117
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Pressing this button will save all recent changes made in \"%1\" object."
@@ -3782,7 +3782,7 @@ msgctxt "@info"
 msgid "Saves all recent changes made in <resource>%1</resource> object."
 msgstr "Бұл батырманы басқанда \"%1\" нысанның барлық өзгерстері сақталады."
 
-#: main/KexiMainWindow.cpp:3119
+#: main/KexiMainWindow.cpp:3121
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Pressing this button will discard all recent changes made in \"%1\" "
@@ -3792,18 +3792,18 @@ msgid "Discards all recent changes made in <resource>%1</resource> object."
 msgstr ""
 "Бұл батырманы басқанда \"%1\" нысанның барлық өзгерістері ысырып тасталады."
 
-#: main/KexiMainWindow.cpp:3141
+#: main/KexiMainWindow.cpp:3143
 #, kde-kuit-format
 msgid "Do you want to save changes?"
 msgstr "Өзгерістерін сақтауды қалайсыз ба?"
 
-#: main/KexiMainWindow.cpp:3335
+#: main/KexiMainWindow.cpp:3337
 #, kde-kuit-format
 msgctxt "opening is not allowed in \"data view/design view/text view\" mode"
 msgid "opening is not allowed in \"%1\" mode"
 msgstr "\"%1\" режімінде ашуы рұқсат етілмеген"
 
-#: main/KexiMainWindow.cpp:3388
+#: main/KexiMainWindow.cpp:3390
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info Object \"objectname\""
 #| msgid "%1 <resource>%2</resource>"
@@ -3811,7 +3811,7 @@ msgctxt "@info"
 msgid "Tab for <resource>%1</resource> (%2)."
 msgstr "<resource>%2</resource> деген %1"
 
-#: main/KexiMainWindow.cpp:3393
+#: main/KexiMainWindow.cpp:3395
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info Object \"objectname\""
 #| msgid "%1 <resource>%2</resource>"
@@ -3819,7 +3819,7 @@ msgctxt "@info"
 msgid "Tab for <resource>%1</resource>."
 msgstr "<resource>%2</resource> деген %1"
 
-#: main/KexiMainWindow.cpp:3565
+#: main/KexiMainWindow.cpp:3567
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Do you want to permanently delete:\n"
@@ -3836,7 +3836,7 @@ msgstr ""
 "дегенді мүлдем жоюды қалайсыз ба?\n"
 "\"Жою\" дегенді басқан соң қайтуға болмайды."
 
-#: main/KexiMainWindow.cpp:3571
+#: main/KexiMainWindow.cpp:3573
 #, fuzzy, kde-kuit-format
 #| msgctxt "@title:window Rename Object %1."
 #| msgid "Rename <resource>%1</resource>"
@@ -3844,13 +3844,13 @@ msgctxt "@title:window Delete Object %1."
 msgid "Delete <resource>%1</resource>?"
 msgstr "<resource>%1</resource> дегенді қайта атау"
 
-#: main/KexiMainWindow.cpp:3624
+#: main/KexiMainWindow.cpp:3626
 #, fuzzy, kde-kuit-format
 #| msgid "Could not remove object."
 msgid "Could not delete object."
 msgstr "Нысан жойылмады."
 
-#: main/KexiMainWindow.cpp:3647
+#: main/KexiMainWindow.cpp:3649
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "<para>Before renaming object <resource>%1</resource> it should be closed."
@@ -3863,13 +3863,13 @@ msgstr ""
 "<para><resource>%1</resource> нысанның атауын өзгерту алдында оны жабу керек."
 "</para><para>Жаппақсыз ба?</para>"
 
-#: main/KexiMainWindow.cpp:3651
+#: main/KexiMainWindow.cpp:3653
 #, fuzzy, kde-kuit-format
 #| msgid "Close window"
 msgid "Close Window and Rename"
 msgstr "Терезені жабу"
 
-#: main/KexiMainWindow.cpp:3668
+#: main/KexiMainWindow.cpp:3670
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info Saving object failed"
 #| msgid "Saving <resource>%1</resource> object failed."
@@ -3877,26 +3877,26 @@ msgctxt "@info"
 msgid "Renaming object <resource>%1</resource> failed."
 msgstr "<resource>%1</resource> нысанын сақтау жаңылысы."
 
-#: main/KexiMainWindow.cpp:3689
+#: main/KexiMainWindow.cpp:3691
 #, fuzzy, kde-kuit-format
 #| msgid "Setting caption for object \"%1\" failed."
 msgctxt "@info"
 msgid "Setting caption for object <resource>%1</resource> failed."
 msgstr "\"%1\" нысанның атауы орнатылмады."
 
-#: main/KexiMainWindow.cpp:3861
+#: main/KexiMainWindow.cpp:3863
 #, fuzzy, kde-kuit-format
 #| msgid "Compacting database file <nobr>\"%1\"</nobr> is not supported."
 msgid "Compacting database file <filename>%1</filename> is not supported."
 msgstr "Деректер қорының <nobr>\"%1\"</nobr> файлы ықшамдауға келмейді."
 
-#: main/KexiMainWindow.cpp:3874
+#: main/KexiMainWindow.cpp:3876
 #, kde-kuit-format
 msgctxt "@action:button Compact database"
 msgid "Compact"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3876
+#: main/KexiMainWindow.cpp:3878
 #, kde-kuit-format
 msgid ""
 "The current project has to be closed before compacting the database. It will "
@@ -3909,7 +3909,7 @@ msgstr ""
 "\n"
 "Жалғастыра берейік пе?"
 
-#: main/KexiMainWindow.cpp:4011
+#: main/KexiMainWindow.cpp:4013
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3918,13 +3918,13 @@ msgid ""
 "query for exporting or from its original (saved) version?"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:4016
+#: main/KexiMainWindow.cpp:4018
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Changed Query"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:4017
+#: main/KexiMainWindow.cpp:4019
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Original Query"

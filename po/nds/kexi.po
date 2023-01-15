@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:47+0000\n"
+"POT-Creation-Date: 2023-01-15 00:56+0000\n"
 "PO-Revision-Date: 2014-02-26 23:04+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -1089,7 +1089,7 @@ msgctxt "@info"
 msgid "No plugin for ID <resource>%1</resource>"
 msgstr "Sekern vun Objekt \"%1\" fehlslaan."
 
-#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3639
+#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3641
 #, kde-kuit-format
 msgid "Could not set empty name for this object."
 msgstr "För dit Objekt lett sik keen leddig Naam fastleggen."
@@ -1488,7 +1488,7 @@ msgstr ""
 "De Plaan wöör ännert. Du muttst em sekern, ehr Du na en anner Ansicht "
 "wesselst."
 
-#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2832
+#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2834
 #, kde-kuit-format
 msgid "Switching to other view failed (%1)."
 msgstr "Dat Wesseln na en anner Ansicht is fehlslaan (%1)."
@@ -3703,31 +3703,31 @@ msgstr ""
 "Du wullt wielt den Programmstart Objekten automaatsch opmaken oder utföhren. "
 "En Reeg Objekten laat sik nich opmaken oder utföhren."
 
-#: main/KexiMainWindow.cpp:2094
+#: main/KexiMainWindow.cpp:2096
 #, fuzzy, kde-kuit-format
 #| msgid "Read only"
 msgctxt "<project-name> (read only)"
 msgid "%1 (read only)"
 msgstr "Bloots lesen"
 
-#: main/KexiMainWindow.cpp:2747
+#: main/KexiMainWindow.cpp:2749
 #, kde-kuit-format
 msgid "From File..."
 msgstr "Ut Datei..."
 
-#: main/KexiMainWindow.cpp:2752
+#: main/KexiMainWindow.cpp:2754
 #, kde-kuit-format
 msgid "From Server..."
 msgstr "Vun Server..."
 
-#: main/KexiMainWindow.cpp:2817
+#: main/KexiMainWindow.cpp:2819
 #, fuzzy, kde-kuit-format
 #| msgid "Selected view is not supported for \"%1\" object."
 msgctxt "@info"
 msgid "Selected view is not supported for <resource>%1</resource> object."
 msgstr "De utsöchte Ansicht för Objekt \"%1\" warrt nich ünnerstütt."
 
-#: main/KexiMainWindow.cpp:2820
+#: main/KexiMainWindow.cpp:2822
 #, fuzzy, kde-kuit-format
 #| msgid "Selected view (%1) is not supported by this object type (%2)."
 msgctxt "@info"
@@ -3735,40 +3735,40 @@ msgid "Selected view (%1) is not supported by this object type (%2)."
 msgstr ""
 "De utsöchte Ansicht (%1) warrt vun dissen Objekttyp (%2) nich ünnerstütt."
 
-#: main/KexiMainWindow.cpp:2894
+#: main/KexiMainWindow.cpp:2896
 #, fuzzy, kde-kuit-format
 #| msgid "Could not access the table directly using its name"
 msgctxt "Could not save object under the original name."
 msgid "Could not save under the original name."
 msgstr "Op de Tabell lett sik nich direktemang mit ehr Naam togriepen"
 
-#: main/KexiMainWindow.cpp:2915
+#: main/KexiMainWindow.cpp:2917
 #, fuzzy, kde-kuit-format
 #| msgid "Save"
 msgctxt "@action:button Save object"
 msgid "Save"
 msgstr "Sekern"
 
-#: main/KexiMainWindow.cpp:2921
+#: main/KexiMainWindow.cpp:2923
 #, fuzzy, kde-kuit-format
 #| msgid "Save Object As"
 msgctxt "@title:window"
 msgid "Save Object As"
 msgstr "Objekt sekern as"
 
-#: main/KexiMainWindow.cpp:2971
+#: main/KexiMainWindow.cpp:2973
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info Saving object failed"
 msgid "Saving <resource>%1</resource> object failed."
 msgstr "Sekern vun Objekt \"%1\" fehlslaan."
 
-#: main/KexiMainWindow.cpp:3113
+#: main/KexiMainWindow.cpp:3115
 #, kde-kuit-format
 msgid "Save changes"
 msgstr "Ännern sekern"
 
-#: main/KexiMainWindow.cpp:3115
+#: main/KexiMainWindow.cpp:3117
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Pressing this button will save all recent changes made in \"%1\" object."
@@ -3778,7 +3778,7 @@ msgstr ""
 "Mit dissen Knoop laat sik all tolest binnen Objekt \"%1\" maakte Ännern "
 "sekern."
 
-#: main/KexiMainWindow.cpp:3119
+#: main/KexiMainWindow.cpp:3121
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Pressing this button will discard all recent changes made in \"%1\" "
@@ -3789,32 +3789,32 @@ msgstr ""
 "Mit dissen Knoop laat sik all tolest binnen Objekt \"%1\" maakte Ännern "
 "wegsmieten."
 
-#: main/KexiMainWindow.cpp:3141
+#: main/KexiMainWindow.cpp:3143
 #, kde-kuit-format
 msgid "Do you want to save changes?"
 msgstr "Wullt Du de Ännern sekern?"
 
-#: main/KexiMainWindow.cpp:3335
+#: main/KexiMainWindow.cpp:3337
 #, kde-kuit-format
 msgctxt "opening is not allowed in \"data view/design view/text view\" mode"
 msgid "opening is not allowed in \"%1\" mode"
 msgstr "Opmaken is in Bedrief \"%1\" nich tolaten"
 
-#: main/KexiMainWindow.cpp:3388
+#: main/KexiMainWindow.cpp:3390
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info"
 msgid "Tab for <resource>%1</resource> (%2)."
 msgstr "Sekern vun Objekt \"%1\" fehlslaan."
 
-#: main/KexiMainWindow.cpp:3393
+#: main/KexiMainWindow.cpp:3395
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info"
 msgid "Tab for <resource>%1</resource>."
 msgstr "Sekern vun Objekt \"%1\" fehlslaan."
 
-#: main/KexiMainWindow.cpp:3565
+#: main/KexiMainWindow.cpp:3567
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Do you want to permanently delete:\n"
@@ -3830,20 +3830,20 @@ msgstr ""
 "duerhaftig wegdoon? Wenn Du op \"Wegdoon\" klickst, lett sik dat Wegdoon "
 "nich torüchnehmen."
 
-#: main/KexiMainWindow.cpp:3571
+#: main/KexiMainWindow.cpp:3573
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@title:window Delete Object %1."
 msgid "Delete <resource>%1</resource>?"
 msgstr "Sekern vun Objekt \"%1\" fehlslaan."
 
-#: main/KexiMainWindow.cpp:3624
+#: main/KexiMainWindow.cpp:3626
 #, fuzzy, kde-kuit-format
 #| msgid "Could not remove object."
 msgid "Could not delete object."
 msgstr "Objekt lett sik nich wegdoon."
 
-#: main/KexiMainWindow.cpp:3647
+#: main/KexiMainWindow.cpp:3649
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "There are unsaved changes in object \"%1\". Do you want to save these "
@@ -3856,39 +3856,39 @@ msgstr ""
 "Dat Dokment \"%1\" bargt nich sekerte Ännern. Wullt Du de Ännern sekern, ehr "
 "Du na en anner Ansicht wesseln deist?"
 
-#: main/KexiMainWindow.cpp:3651
+#: main/KexiMainWindow.cpp:3653
 #, fuzzy, kde-kuit-format
 #| msgid "Close windows"
 msgid "Close Window and Rename"
 msgstr "Finstern tomaken"
 
-#: main/KexiMainWindow.cpp:3668
+#: main/KexiMainWindow.cpp:3670
 #, fuzzy, kde-kuit-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "@info"
 msgid "Renaming object <resource>%1</resource> failed."
 msgstr "Sekern vun Objekt \"%1\" fehlslaan."
 
-#: main/KexiMainWindow.cpp:3689
+#: main/KexiMainWindow.cpp:3691
 #, fuzzy, kde-kuit-format
 #| msgid "Renaming object \"%1\" failed."
 msgctxt "@info"
 msgid "Setting caption for object <resource>%1</resource> failed."
 msgstr "Ümnömen vun Objekt \"%1\" is fehlslaan."
 
-#: main/KexiMainWindow.cpp:3861
+#: main/KexiMainWindow.cpp:3863
 #, fuzzy, kde-kuit-format
 #| msgid "Compacting database file <nobr>\"%1\"</nobr> is not supported."
 msgid "Compacting database file <filename>%1</filename> is not supported."
 msgstr "Komprimeren vun Datenbankdatei <nobr>\"%1\"</nobr> nich ünnerstütt."
 
-#: main/KexiMainWindow.cpp:3874
+#: main/KexiMainWindow.cpp:3876
 #, kde-kuit-format
 msgctxt "@action:button Compact database"
 msgid "Compact"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3876
+#: main/KexiMainWindow.cpp:3878
 #, kde-kuit-format
 msgid ""
 "The current project has to be closed before compacting the database. It will "
@@ -3901,7 +3901,7 @@ msgstr ""
 "\n"
 "Wullt Du wiedermaken?"
 
-#: main/KexiMainWindow.cpp:4011
+#: main/KexiMainWindow.cpp:4013
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3910,13 +3910,13 @@ msgid ""
 "query for exporting or from its original (saved) version?"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:4016
+#: main/KexiMainWindow.cpp:4018
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Changed Query"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:4017
+#: main/KexiMainWindow.cpp:4019
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Original Query"

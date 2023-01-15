@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:47+0000\n"
+"POT-Creation-Date: 2023-01-15 00:56+0000\n"
 "PO-Revision-Date: 2022-07-31 10:05+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -928,7 +928,7 @@ msgctxt "@info"
 msgid "No plugin for ID <resource>%1</resource>"
 msgstr "Brak wtyczki dla ID <resource>%1</resource>"
 
-#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3639
+#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3641
 #, kde-kuit-format
 msgid "Could not set empty name for this object."
 msgstr "Temu obiektowi nie można nadać pustej nazwy."
@@ -1279,7 +1279,7 @@ msgstr ""
 "Projekt został zmieniony. Należy go zapisać przed przełączeniem się do "
 "innego widoku."
 
-#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2832
+#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2834
 #, kde-kuit-format
 msgid "Switching to other view failed (%1)."
 msgstr "Nieudane przełączenie do innego widoku (%1)."
@@ -3372,65 +3372,65 @@ msgstr ""
 "przetworzone przy starcie programu. Niektóre z tych obiektów nie mogą być "
 "otwarte lub przetworzone."
 
-#: main/KexiMainWindow.cpp:2094
+#: main/KexiMainWindow.cpp:2096
 #, kde-kuit-format
 msgctxt "<project-name> (read only)"
 msgid "%1 (read only)"
 msgstr "%1 (tylko do odczytu)"
 
-#: main/KexiMainWindow.cpp:2747
+#: main/KexiMainWindow.cpp:2749
 #, kde-kuit-format
 msgid "From File..."
 msgstr "Z pliku..."
 
-#: main/KexiMainWindow.cpp:2752
+#: main/KexiMainWindow.cpp:2754
 #, kde-kuit-format
 msgid "From Server..."
 msgstr "Z serwera..."
 
-#: main/KexiMainWindow.cpp:2817
+#: main/KexiMainWindow.cpp:2819
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Selected view is not supported for <resource>%1</resource> object."
 msgstr ""
 "Wybrany widok nie jest obsługiwany dla obiektu <resource>%1</resource>."
 
-#: main/KexiMainWindow.cpp:2820
+#: main/KexiMainWindow.cpp:2822
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Selected view (%1) is not supported by this object type (%2)."
 msgstr "Wybrany widok (%1) nie jest obsługiwany przez ten typ obiektu (%2)."
 
-#: main/KexiMainWindow.cpp:2894
+#: main/KexiMainWindow.cpp:2896
 #, kde-kuit-format
 msgctxt "Could not save object under the original name."
 msgid "Could not save under the original name."
 msgstr "Nie można zapisać pod oryginalną nazwą."
 
-#: main/KexiMainWindow.cpp:2915
+#: main/KexiMainWindow.cpp:2917
 #, kde-kuit-format
 msgctxt "@action:button Save object"
 msgid "Save"
 msgstr "Zapisz"
 
-#: main/KexiMainWindow.cpp:2921
+#: main/KexiMainWindow.cpp:2923
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Save Object As"
 msgstr "Zapisz obiekt jako"
 
-#: main/KexiMainWindow.cpp:2971
+#: main/KexiMainWindow.cpp:2973
 #, kde-kuit-format
 msgctxt "@info Saving object failed"
 msgid "Saving <resource>%1</resource> object failed."
 msgstr "Nieudane zapisywanie obiektu <resource>%1</resource>."
 
-#: main/KexiMainWindow.cpp:3113
+#: main/KexiMainWindow.cpp:3115
 #, kde-kuit-format
 msgid "Save changes"
 msgstr "Zapisz zmiany"
 
-#: main/KexiMainWindow.cpp:3115
+#: main/KexiMainWindow.cpp:3117
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Saves all recent changes made in <resource>%1</resource> object."
@@ -3438,7 +3438,7 @@ msgstr ""
 "Zapisuje wszystkie zmiany dokonane ostatnio w obiekcie <resource>%1</"
 "resource>."
 
-#: main/KexiMainWindow.cpp:3119
+#: main/KexiMainWindow.cpp:3121
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Discards all recent changes made in <resource>%1</resource> object."
@@ -3446,30 +3446,30 @@ msgstr ""
 "Porzuca wszystkie zmiany dokonane ostatnio w obiekcie <resource>%1</"
 "resource>."
 
-#: main/KexiMainWindow.cpp:3141
+#: main/KexiMainWindow.cpp:3143
 #, kde-kuit-format
 msgid "Do you want to save changes?"
 msgstr "Czy chcesz zapisać zmiany?"
 
-#: main/KexiMainWindow.cpp:3335
+#: main/KexiMainWindow.cpp:3337
 #, kde-kuit-format
 msgctxt "opening is not allowed in \"data view/design view/text view\" mode"
 msgid "opening is not allowed in \"%1\" mode"
 msgstr "otwieranie jest niedozwolone w trybie \"%1\""
 
-#: main/KexiMainWindow.cpp:3388
+#: main/KexiMainWindow.cpp:3390
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Tab for <resource>%1</resource> (%2)."
 msgstr "Karta dla <resource>%1</resource> (%2)."
 
-#: main/KexiMainWindow.cpp:3393
+#: main/KexiMainWindow.cpp:3395
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Tab for <resource>%1</resource>."
 msgstr "Karta dla <resource>%1</resource>."
 
-#: main/KexiMainWindow.cpp:3565
+#: main/KexiMainWindow.cpp:3567
 #, kde-kuit-format
 msgctxt "@info Delete <objecttype> <objectname>?"
 msgid ""
@@ -3481,18 +3481,18 @@ msgstr ""
 "resource></para><para><note>Jeśli klikniesz <interface>Delete</interface>, "
 "nie będziesz mieć możliwości wycofania usunięcia obiektu.</note></para>"
 
-#: main/KexiMainWindow.cpp:3571
+#: main/KexiMainWindow.cpp:3573
 #, kde-kuit-format
 msgctxt "@title:window Delete Object %1."
 msgid "Delete <resource>%1</resource>?"
 msgstr "Usunąć <resource>%1</resource>?"
 
-#: main/KexiMainWindow.cpp:3624
+#: main/KexiMainWindow.cpp:3626
 #, kde-kuit-format
 msgid "Could not delete object."
 msgstr "Nie można usunąć obiektu."
 
-#: main/KexiMainWindow.cpp:3647
+#: main/KexiMainWindow.cpp:3649
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3502,35 +3502,35 @@ msgstr ""
 "<para>Przed zmianą nazwy obiektu <resource>%1</resource> należy go zamknąć.</"
 "para><para>Czy chcesz go teraz zamknąć?</para>"
 
-#: main/KexiMainWindow.cpp:3651
+#: main/KexiMainWindow.cpp:3653
 #, kde-kuit-format
 msgid "Close Window and Rename"
 msgstr "Zamknij okno i zmień nazwę"
 
-#: main/KexiMainWindow.cpp:3668
+#: main/KexiMainWindow.cpp:3670
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Renaming object <resource>%1</resource> failed."
 msgstr "Nieudana zmiana nazwy obiektu <resource>%1</resource>."
 
-#: main/KexiMainWindow.cpp:3689
+#: main/KexiMainWindow.cpp:3691
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Setting caption for object <resource>%1</resource> failed."
 msgstr "Nieudane ustawienie nagłówka dla obiektu <resource>%1</resource>."
 
-#: main/KexiMainWindow.cpp:3861
+#: main/KexiMainWindow.cpp:3863
 #, kde-kuit-format
 msgid "Compacting database file <filename>%1</filename> is not supported."
 msgstr "Defragmentacja pliku <filename>%1</filename> nie jest obsługiwana."
 
-#: main/KexiMainWindow.cpp:3874
+#: main/KexiMainWindow.cpp:3876
 #, kde-kuit-format
 msgctxt "@action:button Compact database"
 msgid "Compact"
 msgstr "Defragmentuj"
 
-#: main/KexiMainWindow.cpp:3876
+#: main/KexiMainWindow.cpp:3878
 #, kde-kuit-format
 msgid ""
 "The current project has to be closed before compacting the database. It will "
@@ -3543,7 +3543,7 @@ msgstr ""
 "\n"
 "Czy chcesz kontynuować?"
 
-#: main/KexiMainWindow.cpp:4011
+#: main/KexiMainWindow.cpp:4013
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3555,13 +3555,13 @@ msgstr ""
 "dane, uległ zmianie i nie został jeszcze zapisany. Użyć danych ze "
 "zmienionego zapytania, czy może z pierwotnej (zapisanej) wersji?"
 
-#: main/KexiMainWindow.cpp:4016
+#: main/KexiMainWindow.cpp:4018
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Changed Query"
 msgstr "Użyj zmienionego zapytania"
 
-#: main/KexiMainWindow.cpp:4017
+#: main/KexiMainWindow.cpp:4019
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Original Query"
