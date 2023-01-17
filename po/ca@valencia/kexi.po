@@ -2239,7 +2239,7 @@ msgstr "Justifica"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Edit Tab Order"
-msgstr "Edició d'ordre de tabulació"
+msgstr "Editeu l'ordre de tabulació"
 
 #: formeditor/tabstopdialog.cpp:90
 #, kde-kuit-format
@@ -3804,7 +3804,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Creating Project"
-msgstr "Creació del projecte"
+msgstr "Creeu el projecte"
 
 #: main/startup/KexiNewProjectAssistant.cpp:312
 #, kde-kuit-format
