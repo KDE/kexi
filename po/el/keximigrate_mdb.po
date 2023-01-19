@@ -1,0 +1,31 @@
+# POT_PART_NORMAL only
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stelios <sstavra@gmail.com>, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-08-30 07:37+0200\n"
+"PO-Revision-Date: 2017-04-28 23:25+0200\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: src/keximdb/mdbmigrate.cpp:51
+#, kde-kuit-format
+msgid "Character Encoding of Source Database Is Not of Unicode Standard"
+msgstr ""
+"Η κωδικοποίηση χαρακτήρων της βάσης δεδεομένων πηγής δεν είναι σε πρότυπο "
+"Unicode"
+
+#: src/keximdb/mdbmigrate.cpp:53
+#, kde-kuit-format
+msgid "Source Database Non-Unicode Character Encoding"
+msgstr "Βάση δεδομένων πηγής χωρίς Unicode κωδικοποίηση χαρακτήρων"
