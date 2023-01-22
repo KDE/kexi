@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-25 00:47+0000\n"
+"POT-Creation-Date: 2023-01-15 00:56+0000\n"
 "PO-Revision-Date: 2015-06-01 10:32+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -832,7 +832,7 @@ msgctxt "@info"
 msgid "No plugin for ID <resource>%1</resource>"
 msgstr ""
 
-#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3639
+#: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3641
 #, kde-kuit-format
 msgid "Could not set empty name for this object."
 msgstr "Kan ikke sette tomt navn for dette objektet."
@@ -1157,7 +1157,7 @@ msgid ""
 msgstr ""
 "Utformingen er endret. Du må lagre før du kan bytte til en annen visning."
 
-#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2832
+#: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2834
 #, kde-kuit-format
 msgid "Switching to other view failed (%1)."
 msgstr "Klarte ikke å bytte visning (til %1)."
@@ -2138,8 +2138,8 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"Could not open Form Widgets plugin <filename>%1</filename> for <application>"
-"%2</application>."
+"Could not open Form Widgets plugin <filename>%1</filename> for "
+"<application>%2</application>."
 msgstr ""
 
 #: formeditor/widgetlibrary.cpp:743
@@ -3134,8 +3134,9 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info (don't add tags around %1, it's done already)"
 msgid ""
-"Database project %1 does not appear to have been created using <application>"
-"%2</application>.<nl/>Do you want to import it as a new KEXI project?"
+"Database project %1 does not appear to have been created using "
+"<application>%2</application>.<nl/>Do you want to import it as a new KEXI "
+"project?"
 msgstr ""
 
 #: main/KexiMainWindow.cpp:1460
@@ -3220,99 +3221,99 @@ msgstr ""
 "Du har bedt om at valgte objekter skal åpnes eller behandles automatisk ved "
 "oppstart. Flere av objektene kan ikke åpnes."
 
-#: main/KexiMainWindow.cpp:2094
+#: main/KexiMainWindow.cpp:2096
 #, kde-kuit-format
 msgctxt "<project-name> (read only)"
 msgid "%1 (read only)"
 msgstr "%1 [skrivebeskyttet]"
 
-#: main/KexiMainWindow.cpp:2747
+#: main/KexiMainWindow.cpp:2749
 #, kde-kuit-format
 msgid "From File..."
 msgstr "Fra fil …"
 
-#: main/KexiMainWindow.cpp:2752
+#: main/KexiMainWindow.cpp:2754
 #, kde-kuit-format
 msgid "From Server..."
 msgstr "Fra tjener …"
 
-#: main/KexiMainWindow.cpp:2817
+#: main/KexiMainWindow.cpp:2819
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Selected view is not supported for <resource>%1</resource> object."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:2820
+#: main/KexiMainWindow.cpp:2822
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Selected view (%1) is not supported by this object type (%2)."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:2894
+#: main/KexiMainWindow.cpp:2896
 #, kde-kuit-format
 msgctxt "Could not save object under the original name."
 msgid "Could not save under the original name."
 msgstr "Klarte ikke å lagre med det opprinnelige navnet."
 
-#: main/KexiMainWindow.cpp:2915
+#: main/KexiMainWindow.cpp:2917
 #, kde-kuit-format
 msgctxt "@action:button Save object"
 msgid "Save"
 msgstr "Lagre"
 
-#: main/KexiMainWindow.cpp:2921
+#: main/KexiMainWindow.cpp:2923
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Save Object As"
 msgstr "Lagre objekt som"
 
-#: main/KexiMainWindow.cpp:2971
+#: main/KexiMainWindow.cpp:2973
 #, kde-kuit-format
 msgctxt "@info Saving object failed"
 msgid "Saving <resource>%1</resource> object failed."
 msgstr "Klarte ikke å lagre objektet <resource>%1</resource>."
 
-#: main/KexiMainWindow.cpp:3113
+#: main/KexiMainWindow.cpp:3115
 #, kde-kuit-format
 msgid "Save changes"
 msgstr "Lagre endringer"
 
-#: main/KexiMainWindow.cpp:3115
+#: main/KexiMainWindow.cpp:3117
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Saves all recent changes made in <resource>%1</resource> object."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3119
+#: main/KexiMainWindow.cpp:3121
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Discards all recent changes made in <resource>%1</resource> object."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3141
+#: main/KexiMainWindow.cpp:3143
 #, kde-kuit-format
 msgid "Do you want to save changes?"
 msgstr "Vil du lagre endringer nå?"
 
-#: main/KexiMainWindow.cpp:3335
+#: main/KexiMainWindow.cpp:3337
 #, kde-kuit-format
 msgctxt "opening is not allowed in \"data view/design view/text view\" mode"
 msgid "opening is not allowed in \"%1\" mode"
 msgstr "åpning er ike tillatt i «%1»-modus"
 
-#: main/KexiMainWindow.cpp:3388
+#: main/KexiMainWindow.cpp:3390
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Tab for <resource>%1</resource> (%2)."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3393
+#: main/KexiMainWindow.cpp:3395
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Tab for <resource>%1</resource>."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3565
+#: main/KexiMainWindow.cpp:3567
 #, kde-kuit-format
 msgctxt "@info Delete <objecttype> <objectname>?"
 msgid ""
@@ -3321,18 +3322,18 @@ msgid ""
 "interface>, you will not be able to undo the deletion.</note></para>"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3571
+#: main/KexiMainWindow.cpp:3573
 #, kde-kuit-format
 msgctxt "@title:window Delete Object %1."
 msgid "Delete <resource>%1</resource>?"
 msgstr "Slett <resource>%1</resource>?"
 
-#: main/KexiMainWindow.cpp:3624
+#: main/KexiMainWindow.cpp:3626
 #, kde-kuit-format
 msgid "Could not delete object."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3647
+#: main/KexiMainWindow.cpp:3649
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3342,35 +3343,35 @@ msgstr ""
 "<para>Før objektet <resource>%1</resource> får nytt navn bør det lukkes.</"
 "para><para>Vil du lukke det?</para>"
 
-#: main/KexiMainWindow.cpp:3651
+#: main/KexiMainWindow.cpp:3653
 #, kde-kuit-format
 msgid "Close Window and Rename"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3668
+#: main/KexiMainWindow.cpp:3670
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Renaming object <resource>%1</resource> failed."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3689
+#: main/KexiMainWindow.cpp:3691
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Setting caption for object <resource>%1</resource> failed."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3861
+#: main/KexiMainWindow.cpp:3863
 #, kde-kuit-format
 msgid "Compacting database file <filename>%1</filename> is not supported."
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3874
+#: main/KexiMainWindow.cpp:3876
 #, kde-kuit-format
 msgctxt "@action:button Compact database"
 msgid "Compact"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:3876
+#: main/KexiMainWindow.cpp:3878
 #, kde-kuit-format
 msgid ""
 "The current project has to be closed before compacting the database. It will "
@@ -3383,7 +3384,7 @@ msgstr ""
 "\n"
 "Vil du fortsette?"
 
-#: main/KexiMainWindow.cpp:4011
+#: main/KexiMainWindow.cpp:4013
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3396,13 +3397,13 @@ msgstr ""
 "data fra den endrede forespørselen til eksport, eller fra den opprinnelige "
 "(lagrede) versjonen?"
 
-#: main/KexiMainWindow.cpp:4016
+#: main/KexiMainWindow.cpp:4018
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Changed Query"
 msgstr ""
 
-#: main/KexiMainWindow.cpp:4017
+#: main/KexiMainWindow.cpp:4019
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Original Query"
@@ -3928,8 +3929,8 @@ msgstr ""
 msgctxt "Please don't translate the \"type\" word, it's constant."
 msgid ""
 "<icode>%1</icode> is not valid value for <icode>--type</icode> command-line "
-"option. Possible value can be <icode>%2</icode>, <icode>%3</icode> or <icode>"
-"%4</icode>"
+"option. Possible value can be <icode>%2</icode>, <icode>%3</icode> or "
+"<icode>%4</icode>"
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:394
@@ -4076,8 +4077,8 @@ msgstr ""
 msgctxt "@info"
 msgid ""
 "The project file <filename>%1</filename> is recognized as compatible with "
-"<resource>%2</resource> database driver, while you have asked for <resource>"
-"%3</resource> database driver to be used.\n"
+"<resource>%2</resource> database driver, while you have asked for "
+"<resource>%3</resource> database driver to be used.\n"
 "Do you want to use <resource>%4</resource> database driver?"
 msgstr ""
 
@@ -4552,9 +4553,9 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Following issues were found with the data you entered:</para>"
-"%1<para>Please click <interface>Back</interface> button and correct these "
-"issues.</para>"
+"<para>Following issues were found with the data you entered:</"
+"para>%1<para>Please click <interface>Back</interface> button and correct "
+"these issues.</para>"
 msgstr ""
 
 #: migration/importwizard.cpp:629
