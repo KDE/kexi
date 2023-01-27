@@ -1,24 +1,26 @@
-# Translation of kexi.po to Euskara/Basque (eu).
-# Copyright (c) 2005-2014, Free Software Foundation, Inc.
+# Translation for kexi.po to Euskara/Basque (eu).
+# Copyright (c) 2005-2023 This file is copyright:
 # This file is distributed under the same license as the calligra package.
+# KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>.
 #
+# Translators:
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 # Marcos  <marcos@euskalgnu.org>, 2005.
-# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2010, 2013, 2014.
+# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2010, 2013, 2014, 2023.
 # Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-15 00:56+0000\n"
-"PO-Revision-Date: 2014-03-16 10:54+0100\n"
-"Last-Translator: Iñigo Salvador Azurmendi <xalba@euskalnet.net>\n"
+"PO-Revision-Date: 2023-01-26 23:45+0100\n"
+"Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 22.12.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: core/kexi.cpp:142
@@ -52,13 +54,14 @@ msgid "This function is not available for version %1 of %2 application."
 msgstr "Funtzio hau ez dago erabilgarri %2 aplikazioaren %1 bertsioan."
 
 #: core/kexi.cpp:352
-#, fuzzy, kde-kuit-format
-#| msgid "\"%1\" function is not available for version %2 of %3 application."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "<resource>%1</resource> function is not available for version %2 of %3 "
 "application."
-msgstr "\"%1\" funtzioa ez dago erabilgarri %3 aplikazioaren %2 bertsioan."
+msgstr ""
+"<resource>%1</resource> funtzioa ez dago erabilgarri %3 aplikazioaren %2 "
+"bertsioan."
 
 #: core/kexi.cpp:405
 #, kde-kuit-format
@@ -67,29 +70,27 @@ msgid ""
 "<application>%1</application> could have been incorrectly installed or "
 "started. The application will be closed."
 msgstr ""
+"Baliteke <application>%1</application> gaizki instalatu edo abiatu izana. "
+"Aplikazioa itxi egingo da."
 
 #: core/kexiaboutdata.cpp:28
-#, fuzzy, kde-format
+#, kde-format
 msgid "Visual database applications creator"
-msgstr "Ireki datu-basearen konexioa"
+msgstr "Datu-base bisualen aplikazioen sortzailea"
 
 #: core/kexiaboutdata.cpp:37
-#, fuzzy, kde-kuit-format
-#| msgid "© 2002-2013, The Kexi Team"
+#, kde-kuit-format
 msgid "© 2002-%1, The KEXI Team"
-msgstr "© 2002-2013, Kexi taldea"
+msgstr "© 2002-%1, KEXI taldea"
 
 #: core/kexiaboutdata.cpp:38
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "This software is developed by Kexi Team - an international group\n"
-#| "of independent developers."
+#, kde-kuit-format
 msgid ""
 "This software is developed by KEXI Team - an international group of "
 "independent developers. They form a part of the Calligra Project."
 msgstr ""
-"Nazioarteko garatzaile independentez osatutako Kexi taldeak\n"
-"garatu du software hau."
+"Software hau KEXI Taldeak garatu du - nazioarteko garatzaile independenteen "
+"talde batek. Calligra Proiektuaren zati bat dira."
 
 #: core/kexiaboutdata.cpp:48
 #, kde-kuit-format
@@ -97,10 +98,9 @@ msgid "Jarosław Staniek"
 msgstr "Jarosław Staniek"
 
 #: core/kexiaboutdata.cpp:48
-#, fuzzy, kde-kuit-format
-#| msgid "Former project maintainer & developer"
+#, kde-kuit-format
 msgid "Project maintainer & developer, overall design"
-msgstr "Aurreko proiektu-arduraduna eta -garatzailea"
+msgstr "Proiektu-arduraduna eta -garatzailea, diseinu orokorra"
 
 #: core/kexiaboutdata.cpp:50
 #, kde-kuit-format
@@ -118,13 +118,13 @@ msgid "Adam Pigg"
 msgstr "Adam Pigg"
 
 #: core/kexiaboutdata.cpp:52
-#, fuzzy, kde-kuit-format
-#| msgid "PostgreSQL database driver, Migration and Reporting modules"
+#, kde-kuit-format
 msgid ""
 "PostgreSQL database driver, Migration and Reporting modules, numerous bug "
 "fixes"
 msgstr ""
-"PostgreSQL datu-base kontrolatzailea eta migrazio- eta txosten-moduluak "
+"PostgreSQL datu-baseen gidaria, migrazioa eta txosten-moduluak, akats "
+"konponketa ugari"
 
 #: core/kexiaboutdata.cpp:54
 #, kde-kuit-format
@@ -139,17 +139,17 @@ msgstr "Radosław Wicik"
 #: core/kexiaboutdata.cpp:56 core/kexiaboutdata.cpp:58
 #, kde-kuit-format
 msgid "Features and bug fixes"
-msgstr ""
+msgstr "Ezaugarriak eta akats konponketak"
 
 #: core/kexiaboutdata.cpp:56
 #, kde-kuit-format
 msgid "Wojciech Kosowicz"
-msgstr ""
+msgstr "Wojciech Kosowicz"
 
 #: core/kexiaboutdata.cpp:58
 #, kde-kuit-format
 msgid "Roman Shtemberko"
-msgstr ""
+msgstr "Roman Shtemberko"
 
 #: core/kexiaboutdata.cpp:60
 #, kde-kuit-format
@@ -157,13 +157,10 @@ msgid "Dimitrios T. Tanis"
 msgstr "Dimitrios T. Tanis"
 
 #: core/kexiaboutdata.cpp:60
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Users Manual for Kexi 2, main window improvements, numerous bug repors"
+#, kde-kuit-format
 msgid "Users Manual for KEXI 2, main window improvements, numerous bug reports"
 msgstr ""
-"Kexi 2-ri buruzko erabiltzailearen eskuliburua, leiho-hobekuntza nagusiak, "
-"akats-txosten asko"
+"Kexi 2ren eskuliburua, leiho nagusiaren hobekuntzak, akats-txosten ugari"
 
 #: core/kexiaboutdata.cpp:62
 #, kde-kuit-format
@@ -198,12 +195,12 @@ msgstr "Sebastian Sauer"
 #: core/kexiaboutdata.cpp:68
 #, kde-kuit-format
 msgid "Lorenzo Villani"
-msgstr ""
+msgstr "Lorenzo Villani"
 
 #: core/kexiaboutdata.cpp:68
 #, kde-kuit-format
 msgid "Web Forms module"
-msgstr ""
+msgstr "Web inprimakien modulua"
 
 #: core/kexiaboutdata.cpp:70
 #, kde-kuit-format
@@ -211,16 +208,13 @@ msgid "Sharan Rao"
 msgstr "Sharan Rao"
 
 #: core/kexiaboutdata.cpp:70
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Sybase/MS SQL Server database drivers, xBase migration plugin, "
-#| "improvements for KexiDB"
+#, kde-kuit-format
 msgid ""
 "Sybase/MS SQL Server/ODBC database drivers, xBase migration plugin, "
 "improvements for KexiDB"
 msgstr ""
-"Sybase/MS SQL zerbitzariaren datu-base kontrolatzaileak, xBase migrazio-"
-"plugina, KexiDB-rako hobekuntzak"
+"Sybase/MS SQL zerbitzaria/ODBC datu-base gidariak, xBase migrazio- plugina, "
+"«KexiDB»rako hobekuntzak"
 
 #: core/kexiaboutdata.cpp:72
 #, kde-kuit-format
@@ -249,13 +243,12 @@ msgstr "Martin Ellis"
 #: core/kexiaboutdata.cpp:76
 #, kde-kuit-format
 msgid "Julia Sanchez-Simon"
-msgstr ""
+msgstr "Julia Sanchez-Simon"
 
 #: core/kexiaboutdata.cpp:76
-#, fuzzy, kde-kuit-format
-#| msgid "File-based database driver"
+#, kde-kuit-format
 msgid "Oracle database driver"
-msgstr "Fitxategian oinarritutako datu-base kontrolatzailea"
+msgstr "Oracle datu-baseen gidaria"
 
 #: core/kexiaboutdata.cpp:78
 #, kde-kuit-format
@@ -270,12 +263,12 @@ msgstr "Efektu grafikoak, laguntzailearen elkarrizketa-koadroak"
 #: core/kexiaboutdata.cpp:80
 #, kde-kuit-format
 msgid "Matt Rogers"
-msgstr ""
+msgstr "Matt Rogers"
 
 #: core/kexiaboutdata.cpp:80
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "ODBC database driver"
-msgstr "Datu-base zerbitzaria: %1"
+msgstr "ODBC datu-base gidaria"
 
 #: core/kexiaboutdata.cpp:82
 #, kde-kuit-format
@@ -342,64 +335,62 @@ msgstr "Till Busch"
 #: core/kexiaboutdata.cpp:95
 #, kde-kuit-format
 msgid "Ian Whitfield"
-msgstr ""
+msgstr "Ian Whitfield"
 
 #: core/kexiaboutdata.cpp:95 core/kexiaboutdata.cpp:101
-#, fuzzy, kde-kuit-format
-#| msgid "Numerous bug reports, usability tests, technical support"
+#, kde-kuit-format
 msgid "Numerous bug reports and tests"
-msgstr "Akats-txosten asko, erabilgarritasun-probak, laguntza teknikoa"
+msgstr "Akats-txosten eta proba ugari"
 
 #: core/kexiaboutdata.cpp:97
 #, kde-kuit-format
 msgid "AppImage packages for Linux"
-msgstr ""
+msgstr "Linux-erako  «AppImage» paketeak"
 
 #: core/kexiaboutdata.cpp:97
 #, kde-kuit-format
 msgid "Scarlett Gately Clark"
-msgstr ""
+msgstr "Scarlett Gately Clark"
 
 #: core/kexiaboutdata.cpp:99
 #, kde-kuit-format
 msgid "Ian Balchin"
-msgstr ""
+msgstr "Ian Balchin"
 
 #: core/kexiaboutdata.cpp:99
-#, fuzzy, kde-kuit-format
-#| msgid "Numerous bug reports, usability tests, technical support"
+#, kde-kuit-format
 msgid "Numerous bug reports and tests, handbook improvements"
-msgstr "Akats-txosten asko, erabilgarritasun-probak, laguntza teknikoa"
+msgstr "Akats-txosten eta proba ugari, eskuliburuko hobekuntzak"
 
 #: core/kexiaboutdata.cpp:101
 #, kde-kuit-format
 msgid "Robert Leleu"
-msgstr ""
+msgstr "Robert Leleu"
 
 #: core/kexiaboutdata.cpp:103
 #, kde-kuit-format
 msgid "Bug fixes, build system improvements, code cleanups"
-msgstr ""
+msgstr "Akats konponketak, eraikitze sisteman hobekuntzak, kodea txukuntzea"
 
 #: core/kexiaboutdata.cpp:103
 #, kde-kuit-format
 msgid "Friedrich W. H. Kossebau"
-msgstr ""
+msgstr "Friedrich W. H. Kossebau"
 
 #: core/kexiaboutdata.cpp:105
 #, kde-kuit-format
 msgid "Boudewijn Rempt"
-msgstr ""
+msgstr "Boudewijn Rempt"
 
 #: core/kexiaboutdata.cpp:105 core/kexiaboutdata.cpp:107
 #, kde-kuit-format
 msgid "Code cleanups"
-msgstr ""
+msgstr "Kodea txukuntzea"
 
 #: core/kexiaboutdata.cpp:107
 #, kde-kuit-format
 msgid "David Faure"
-msgstr ""
+msgstr "David Faure"
 
 #: core/kexiaboutdata.cpp:109
 #, kde-kuit-format
@@ -454,50 +445,33 @@ msgid "Your names"
 msgstr "Ion Gaztañaga,Hizkuntza Politikarako Sailburuordetza"
 
 #: core/KexiCommandLineOptions.cpp:38
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Create a new, blank project using specified\n"
-#| "database driver and database name\n"
-#| "and exit immediately.\n"
-#| "You will be asked for confirmation\n"
-#| "if overwriting is needed."
+#, kde-kuit-format
 msgctxt "'createdb' command line option"
 msgid ""
 "Create a new, blank project using specified database driver and database "
 "name and exit immediately. You will be asked for confirmation if overwriting "
 "is needed."
 msgstr ""
-"Sortu proiektu berri huts bat zehaztutako\n"
-"datu-base kontrolatzailea eta izena\n"
-"erabiliz, eta irten segituan.\n"
-"Berrespena eskatuko zaizu,\n"
-"gainidaztea beharrezkoa bada."
+"Sortu proiektu berri, huts bat zehaztutako datu-base gidaria eta izena "
+"erabiliz, eta irten berehala. Berrestea eskatuko zaizu, gainidaztea "
+"beharrezkoa bada."
 
 #: core/KexiCommandLineOptions.cpp:43
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Like --createdb, but also open newly\n"
-#| "created database.\n"
+#, kde-kuit-format
 msgctxt "'create-opendb' command line option"
 msgid "Like --createdb, but also open newly created database."
 msgstr ""
-"--createdb bezala, baina ireki\n"
-"datu-base sortu berria ere.\n"
+"«--createdb» antzeko, baina gainera datu-base sortu berria irekitzen du."
 
 #: core/KexiCommandLineOptions.cpp:46
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Drop (remove) a project using specified\n"
-#| "database driver and database name.\n"
-#| "You will be asked for confirmation."
+#, kde-kuit-format
 msgctxt "'dropdb' command line option"
 msgid ""
 "Drop (remove) a project using specified database driver and database name. "
 "You will be asked for confirmation."
 msgstr ""
-"Ezabatu proiektu bat zehaztutako datu-base\n"
-"kontrolatzailea eta datu-base izena erabiliz.\n"
-"Berrespena eskatuko zaizu."
+"Bota (kendu) proiektu bat, zehaztutako datu-base gidaria eta datu-base izen "
+"erabiliz. Berrestea eskatuko zaizu."
 
 #: core/KexiCommandLineOptions.cpp:50
 #, kde-kuit-format
@@ -914,6 +888,8 @@ msgid ""
 "Displays list of plugins available for KEXI with their name, description, "
 "version and filenames."
 msgstr ""
+"«KEXI»rako erabilgarri dauden pluginen zerrenda azaltzen du haien izen, "
+"deskribapen, bertsio eta fitxategi-izenekin."
 
 #: core/kexidbconnectionset.cpp:76
 #, fuzzy, kde-kuit-format
@@ -1476,7 +1452,7 @@ msgstr "Uneko diseinuari egindako aldaketak gordetzen ditu."
 #, kde-kuit-format
 msgctxt "@action:button Visual Design"
 msgid "Visual"
-msgstr ""
+msgstr "Bisuala"
 
 #: core/KexiWindow.cpp:90
 #, kde-kuit-format
@@ -2701,7 +2677,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@action:button Run script file"
 msgid "Run"
-msgstr ""
+msgstr "Exekutatu"
 
 #: kexiutils/utils.cpp:861
 #, fuzzy, kde-kuit-format
@@ -2714,30 +2690,30 @@ msgstr "%1 IDa"
 #: kexiutils/utils.cpp:1148
 #, kde-kuit-format
 msgid "modified"
-msgstr ""
+msgstr "aldatuta"
 
 #: kexiutils/utils.cpp:1159
 #, kde-kuit-format
 msgctxt "Document/application separator in titlebar"
 msgid " – "
-msgstr ""
+msgstr " – "
 
 #: kexiutils/utils.cpp:1205
 #, kde-kuit-format
 msgctxt "@info/plain Concatenated sentence1 sentence2 ..."
 msgid "<html>%1%2%3%4%5%6</html>"
-msgstr ""
+msgstr "<html>%1%2%3%4%5%6</html>"
 
 #: main/KexiBugReportDialog.cpp:50
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Report a Bug or Wish"
-msgstr ""
+msgstr "Eman akats baten edo nahi baten berri"
 
 #: main/KexiBugReportDialog.cpp:72
 #, kde-kuit-format
 msgid "Operating system & platform:"
-msgstr ""
+msgstr "Sistema eragilea eta plataforma:"
 
 #: main/KexiBugReportDialog.cpp:79
 #, fuzzy, kde-kuit-format
@@ -2757,7 +2733,7 @@ msgstr "Bestelakoak"
 #, kde-kuit-format
 msgctxt "<operating system>, <platform>"
 msgid "%1, %2"
-msgstr ""
+msgstr "%1, %2"
 
 #: main/kexifinddialog.cpp:189
 #, kde-kuit-format
@@ -3002,12 +2978,12 @@ msgstr ""
 #: main/KexiMainWindow.cpp:478
 #, kde-kuit-format
 msgid "Open a project that was recently opened."
-msgstr ""
+msgstr "Ireki berriki irekitako proiektu bat."
 
 #: main/KexiMainWindow.cpp:479
 #, kde-kuit-format
 msgid "Opens a project that was recently opened."
-msgstr ""
+msgstr "Berriki ireki den proiektu bat irekitzen du."
 
 #: main/KexiMainWindow.cpp:484
 #, kde-kuit-format
@@ -3410,11 +3386,13 @@ msgstr "Aldatu propietate-editorearen panelera"
 #, kde-kuit-format
 msgid "Activates the Property pane. If it is hidden, shows it first."
 msgstr ""
+"Propietate beiratea aktibatzen du. Ezkutuan badago, aurrena, erakutsi egiten "
+"du."
 
 #: main/KexiMainWindow.cpp:829
-#, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgid "Locate..."
-msgstr ""
+msgstr "Kokatu..."
 
 #: main/KexiMainWindow.cpp:830
 #, fuzzy, kde-kuit-format
@@ -3431,7 +3409,7 @@ msgstr "Bilaketa orokorraren koadrora aldatzen da."
 #: main/KexiMainWindow.cpp:835
 #, kde-kuit-format
 msgid "&Accept"
-msgstr ""
+msgstr "On&artu"
 
 #: main/KexiMainWindow.cpp:837
 #, fuzzy, kde-kuit-format
@@ -3598,7 +3576,7 @@ msgstr "&Lehioa"
 #, kde-kuit-format
 msgctxt "Report a bug or wish for KEXI application"
 msgid "Report a &Bug or Wish..."
-msgstr ""
+msgstr "Eman a&kats baten edo nahi baten berri..."
 
 #: main/KexiMainWindow.cpp:1263
 #, fuzzy, kde-kuit-format
@@ -3641,7 +3619,7 @@ msgstr "K mahaigaineko inguruneari buruzko informazioa erakusten du."
 #: main/KexiMainWindow.cpp:1430
 #, kde-kuit-format
 msgid "<br/>(reason: <i>%1</i>)"
-msgstr ""
+msgstr "<br/>(arrazoia: <i>%1</i>)"
 
 #: main/KexiMainWindow.cpp:1456
 #, fuzzy, kde-kuit-format
@@ -3923,7 +3901,7 @@ msgstr "<nobr>\"%1\"</nobr> datu-base fitxategia trinkotzea ez da onartzen."
 #, kde-kuit-format
 msgctxt "@action:button Compact database"
 msgid "Compact"
-msgstr ""
+msgstr "Trinkoa"
 
 #: main/KexiMainWindow.cpp:3878
 #, kde-kuit-format
@@ -3951,13 +3929,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Changed Query"
-msgstr ""
+msgstr "Erabili aldatutako kontsulta"
 
 #: main/KexiMainWindow.cpp:4019
 #, kde-kuit-format
 msgctxt "@action:button Export query data"
 msgid "Use the Original Query"
-msgstr ""
+msgstr "Erabili jatorrizko kontsulta"
 
 #: main/KexiMainWindow_p.cpp:640
 #, fuzzy, kde-kuit-format
@@ -4000,7 +3978,7 @@ msgstr "\"%1\" aginduak huts egin du."
 #: main/KexiMenuWidget.cpp:473
 #, kde-kuit-format
 msgid "Join us on:"
-msgstr ""
+msgstr "Elkartu gurekin hemen:"
 
 #: main/KexiMenuWidget.cpp:483
 #, fuzzy, kde-kuit-format
@@ -4037,7 +4015,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info Tried to find files in <dir list>"
 msgid "Tried to find in %1."
-msgstr ""
+msgstr "%1(e)an aurkitze saiatu da."
 
 #: main/KexiRegisterResource_p.h:210
 #, fuzzy, kde-kuit-format
@@ -4485,9 +4463,7 @@ msgid "database"
 msgstr "Datu-basea"
 
 #: main/startup/KexiRecentProjectsModel.cpp:140
-#, fuzzy, kde-kuit-format
-#| msgctxt "<type> database"
-#| msgid "%1 database"
+#, kde-kuit-format
 msgctxt "<type> database, e.g. PostgreSQL database, MySQL database"
 msgid "%1 database"
 msgstr "%1 datu-basea"
@@ -4495,7 +4471,7 @@ msgstr "%1 datu-basea"
 #: main/startup/KexiRecentProjectsModel.cpp:145
 #, kde-kuit-format
 msgid "Last opened on %1"
-msgstr ""
+msgstr "Azkenekoz irekia, %1(e)an"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: main/startup/KexiServerDBNamePage.ui:31
@@ -4532,21 +4508,20 @@ msgid "Version:"
 msgstr "KexiDB kontrolatzailearen bertsioa"
 
 #: main/startup/KexiStartup.cpp:251
-#, fuzzy, kde-format
-#| msgid "File"
+#, kde-format
 msgctxt "Plugin fileName"
 msgid "File:"
-msgstr "Fitxategia"
+msgstr "Fitxategia:"
 
 #: main/startup/KexiStartup.cpp:259
 #, kde-format
 msgid "No KEXI plugins found."
-msgstr ""
+msgstr "Ez da KEXI pluginik aurkitu."
 
 #: main/startup/KexiStartup.cpp:262
 #, kde-format
 msgid "KEXI plugins (%1):"
-msgstr ""
+msgstr "KEXI pluginak (%1):"
 
 #: main/startup/KexiStartup.cpp:271
 #, fuzzy, kde-format
@@ -4943,13 +4918,13 @@ msgstr "Proiektu osoekin lotutako aukerak:"
 #, kde-kuit-format
 msgctxt "@action:button Go to Donation"
 msgid "Proceed to the Donation Web Page"
-msgstr ""
+msgstr "Jarraitu dohaintzen web-orrira"
 
 #: main/startup/KexiWelcomeStatusBar.cpp:765
 #, kde-kuit-format
 msgctxt "Do not donate now"
 msgid "Not Now"
-msgstr ""
+msgstr "Orain Ez"
 
 #: migration/AlterSchemaWidget.cpp:51 migration/AlterSchemaWidget.cpp:112
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1342
@@ -5020,11 +4995,13 @@ msgid ""
 "<resource>%1</resource> name is already used by an existing table. Enter "
 "different table name to continue."
 msgstr ""
+"<resource>%1</resource> izena taula batek erabiltzen du dagoeneko. Sartu "
+"taula-izen ezberdina jarraitzeko."
 
 #: migration/importtablewizard.cpp:128
 #, kde-kuit-format
 msgid "Name Already Used"
-msgstr ""
+msgstr "Izena erabilita dagoeneko"
 
 #: migration/importtablewizard.cpp:168
 #, fuzzy, kde-kuit-format
@@ -6340,7 +6317,7 @@ msgstr "Tabulazio-ordena automatikoa"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:434
 #, kde-kuit-format
 msgid "Spell Checking"
-msgstr ""
+msgstr "Ortografia zuzentzea"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:435
 #, fuzzy, kde-kuit-format
@@ -6353,17 +6330,17 @@ msgstr "HTML"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:436
 #, kde-kuit-format
 msgid "Line Wrap At"
-msgstr ""
+msgstr "Lerro itzulbiratzea hemen"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:437
 #, kde-kuit-format
 msgid "Line Wrap Mode"
-msgstr ""
+msgstr "Lerro itzulbiratze modua"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:438
 #, kde-kuit-format
 msgid "Spell Checking Language"
-msgstr ""
+msgstr "Ortografia zuzentzeko hizkuntza"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:440
 #, kde-kuit-format
@@ -6505,8 +6482,7 @@ msgid "Yes"
 msgstr "Bai/Ez"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:490
-#, fuzzy, kde-kuit-format
-#| msgid "No"
+#, kde-kuit-format
 msgctxt "Value of \"Tristate\" property in checkbox: no"
 msgid "No"
 msgstr "Ez"
@@ -6521,36 +6497,30 @@ msgstr "Editagarria"
 #, kde-kuit-format
 msgctxt "Property: Button is checkable"
 msgid "On/Off"
-msgstr ""
+msgstr "Piztu/Itzali"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:497
-#, fuzzy, kde-kuit-format
-#| msgid "Auto Repeat"
+#, kde-kuit-format
 msgctxt "Property: Button"
 msgid "Auto Repeat"
-msgstr "Errepikatu automatikoki"
+msgstr "Errepikapen automatikoa"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:498
-#, fuzzy, kde-kuit-format
-#| msgctxt "Auto Repeat Button's Delay"
-#| msgid "Auto Rep. Delay"
+#, kde-kuit-format
 msgctxt "Property: Auto Repeat Button's Delay"
 msgid "Auto Rep. Delay"
-msgstr "Errepikapen automatikoaren atzerapena"
+msgstr "Errep. automatikoaren atzerapena"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:499
-#, fuzzy, kde-kuit-format
-#| msgctxt "Auto Repeat Button's Interval"
-#| msgid "Auto Rep. Interval"
+#, kde-kuit-format
 msgctxt "Property: Auto Repeat Button's Interval"
 msgid "Auto Rep. Interval"
-msgstr "Errepikapen automatikoaren denbora-tartea"
+msgstr "Errep. automatikoaren denbora-tartea"
 
 #. i18n("Auto Default"));
 #. unused (too advanced) setPropertyDescription("default", xi18nc("Property: Button is default", "Default"));
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:502
-#, fuzzy, kde-kuit-format
-#| msgid "Flat"
+#, kde-kuit-format
 msgctxt "Property: Button is flat"
 msgid "Flat"
 msgstr "Laua"
@@ -6660,7 +6630,7 @@ msgstr "Ireki kanpo-estekak"
 #, kde-kuit-format
 msgctxt "Property: line edit's placeholder text"
 msgid "Placeholder Text"
-msgstr ""
+msgstr "Leku-markako testua"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:527
 #, fuzzy, kde-kuit-format
@@ -6671,9 +6641,7 @@ msgid "Clear Button"
 msgstr "Garbitzeko botoia"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:529
-#, fuzzy, kde-kuit-format
-#| msgctxt "Password Mode for line edit"
-#| msgid "Password Mode"
+#, kde-kuit-format
 msgctxt "Property: Password Mode for line edit"
 msgid "Password Mode"
 msgstr "Pasahitz modua"
@@ -6710,9 +6678,7 @@ msgid "At Word Boundary"
 msgstr "Hitz-mugan"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:537
-#, fuzzy, kde-kuit-format
-#| msgctxt "For Word Wrap Policy"
-#| msgid "Anywhere"
+#, kde-kuit-format
 msgctxt "Property: For Word Wrap Policy"
 msgid "Anywhere"
 msgstr "Edonon"
@@ -6736,32 +6702,25 @@ msgid "Word Wrap Position"
 msgstr "Ertzean egokitzeko kokalekua"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:541
-#, fuzzy, kde-kuit-format
-#| msgid "None"
+#, kde-kuit-format
 msgctxt "Property: For Word Wrap Position"
 msgid "None"
 msgstr "Bat ere ez"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:542
-#, fuzzy, kde-kuit-format
-#| msgctxt "For Word Wrap Position"
-#| msgid "Widget's Width"
+#, kde-kuit-format
 msgctxt "Property: For Word Wrap Position"
 msgid "Widget's Width"
 msgstr "Trepetaren zabalera"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:543
-#, fuzzy, kde-kuit-format
-#| msgctxt "For Word Wrap Position"
-#| msgid "In Pixels"
+#, kde-kuit-format
 msgctxt "Property: For Word Wrap Position"
 msgid "In Pixels"
 msgstr "Pixeletan"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:544
-#, fuzzy, kde-kuit-format
-#| msgctxt "For Word Wrap Position"
-#| msgid "In Columns"
+#, kde-kuit-format
 msgctxt "Property: For Word Wrap Position"
 msgid "In Columns"
 msgstr "Zutabetan"
@@ -6843,18 +6802,13 @@ msgid "A widget to display multiple pages using tabs"
 msgstr "Hainbat orri fitxatan bistaratzeko trepeta"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:592
-#, fuzzy, kde-kuit-format
-#| msgid "Frame"
+#, kde-kuit-format
 msgctxt "Frame widget"
 msgid "Frame"
 msgstr "Markoa"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:601
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Widget name. This string will be used to name widgets of this class. It "
-#| "must _not_ contain white spaces and non latin1 characters."
-#| msgid "frame"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of frame widgets. Based on that, identifiers such "
 "as frame1, frame2 are generated. This string can be used to refer the widget "
@@ -6867,10 +6821,9 @@ msgid "frame"
 msgstr "markoa"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:602
-#, fuzzy, kde-kuit-format
-#| msgid "A simple frame widget"
+#, kde-kuit-format
 msgid "A frame widget"
-msgstr "Marko-trepeta sinplea"
+msgstr "Marko-trepeta bat"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:610
 #, kde-kuit-format
@@ -6900,15 +6853,13 @@ msgid "A container to group some widgets"
 msgstr "Zenbait trepeta taldekatzeko edukitzailea"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:625
-#, fuzzy, kde-kuit-format
-#| msgid "Title"
+#, kde-kuit-format
 msgctxt "'Title' property for group box"
 msgid "Title"
 msgstr "Titulua"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:626
-#, fuzzy, kde-kuit-format
-#| msgid "Flat"
+#, kde-kuit-format
 msgctxt "'Flat' property for group box"
 msgid "Flat"
 msgstr "Laua"
@@ -6916,7 +6867,7 @@ msgstr "Laua"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:629
 #, kde-kuit-format
 msgid "Auto-hide Tabs"
-msgstr ""
+msgstr "Fitxak automatikoki ezkutatu"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:630
 #, kde-kuit-format
@@ -6924,8 +6875,7 @@ msgid "Tab Position"
 msgstr "Fitxa-kokalekua"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:631
-#, fuzzy, kde-kuit-format
-#| msgid "Current Page"
+#, kde-kuit-format
 msgctxt "'Current page' property for tab widget"
 msgid "Current Page"
 msgstr "Uneko orria"
@@ -6936,20 +6886,16 @@ msgid "Tab Shape"
 msgstr "Fitxa-forma"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:633
-#, fuzzy, kde-kuit-format
-#| msgctxt "Tab Widget's Elide Mode"
-#| msgid "Elide Mode"
+#, kde-kuit-format
 msgctxt "Tab Widget's Elide Mode property"
 msgid "Elide Mode"
 msgstr "Elisio modua"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:635
-#, fuzzy, kde-kuit-format
-#| msgctxt "Tab Widget uses scroll buttons"
-#| msgid "Scroll Buttons"
+#, kde-kuit-format
 msgctxt "Tab Widget's property: true if can use scroll buttons"
 msgid "Scroll Buttons"
-msgstr "Korritze-botoiak"
+msgstr "Kiribiltzeko botoiak"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:637
 #, kde-kuit-format
@@ -6967,17 +6913,13 @@ msgid "Document Mode"
 msgstr "Dokumentu modua"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:641
-#, fuzzy, kde-kuit-format
-#| msgctxt "for Tab Shape"
-#| msgid "Rounded"
+#, kde-kuit-format
 msgctxt "Property value for Tab Shape"
 msgid "Rounded"
 msgstr "Biribildua"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:642
-#, fuzzy, kde-kuit-format
-#| msgctxt "for Tab Shape"
-#| msgid "Triangular"
+#, kde-kuit-format
 msgctxt "Property value for Tab Shape"
 msgid "Triangular"
 msgstr "Triangeluarra"
@@ -7005,12 +6947,10 @@ msgid "Add Page"
 msgstr "Gehitu orria"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:266
-#, fuzzy, kde-kuit-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete widget"
+#, kde-kuit-format
 msgctxt "Delete tab widget's page"
 msgid "Delete Page"
-msgstr "Ezabatu trepeta"
+msgstr "Ezabatu orria"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:287
 #, kde-kuit-format
@@ -7019,8 +6959,7 @@ msgid "Rename Page..."
 msgstr "Orriaren izena aldatu..."
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:301
-#, fuzzy, kde-kuit-format
-#| msgid "New Page Title"
+#, kde-kuit-format
 msgctxt "@window:title"
 msgid "New Page Title"
 msgstr "Orriaren titulu berria"
@@ -7037,12 +6976,10 @@ msgid "Add Page..."
 msgstr "Orria gehitu..."
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:338
-#, fuzzy, kde-kuit-format
-#| msgctxt "(qtundo-format)"
-#| msgid "Delete widget"
+#, kde-kuit-format
 msgctxt "Delete page from a stacked widget"
 msgid "Delete Page"
-msgstr "Ezabatu trepeta"
+msgstr "Ezabatu orria"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:385
 #, kde-kuit-format
@@ -7074,8 +7011,7 @@ msgid "Export"
 msgstr "Esportatu"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:96
-#, fuzzy, kde-kuit-format
-#| msgid "Copy Data From Table to Clipboard"
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Copy Data From Table to Clipboard"
 msgstr "Kopiatu datuak taulatik arbelera"
@@ -7087,8 +7023,7 @@ msgid "Copying data from table:"
 msgstr "Datuak taula honetatik kopiatzen:"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:99
-#, fuzzy, kde-kuit-format
-#| msgid "Export Data From Table to CSV File"
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Export Data From Table to CSV File"
 msgstr "Esportatu datuak taulatik CSV fitxategira"
@@ -7099,15 +7034,13 @@ msgid "Exporting data from table:"
 msgstr "Datuak taula honetatik esportatzen:"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:104
-#, fuzzy, kde-kuit-format
-#| msgid "Copy Data From Query to Clipboard"
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Copy Data From Query to Clipboard"
 msgstr "Kopiatu datuak kontsultatik arbelera"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:107
-#, fuzzy, kde-kuit-format
-#| msgid "Export Data From Query to CSV File"
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Export Data From Query to CSV File"
 msgstr "Esportatu datuak kontsultatik CSV fitxategira"
@@ -7149,10 +7082,9 @@ msgstr "Arbelera."
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:182
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:379
-#, fuzzy, kde-kuit-format
-#| msgid "Show Options >>"
+#, kde-kuit-format
 msgid "Show Options &gt;&gt;"
-msgstr "Erakutsi aukerak >>"
+msgstr "Erakutsi aukerak &gt;&gt;"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:199
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:607
@@ -7197,10 +7129,9 @@ msgid "Exporting"
 msgstr "Esportatzen"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:384
-#, fuzzy, kde-kuit-format
-#| msgid "Hide Options <<"
+#, kde-kuit-format
 msgid "Hide Options &lt;&lt;"
-msgstr "Ezkutatu aukerak <<"
+msgstr "Ezkutatu aukerak &lt;&lt;"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:262
 #, kde-kuit-format
@@ -7213,22 +7144,19 @@ msgid "false"
 msgstr "faltsua"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:271
-#, fuzzy, kde-kuit-format
-#| msgid "Import CSV Data From File"
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Import CSV Data From File"
 msgstr "Inportatu CSV datuak fitxategitik"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:272
-#, fuzzy, kde-kuit-format
-#| msgid "Paste CSV Data From Clipboard"
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Paste CSV Data From Clipboard"
 msgstr "Itsatsi CSV datuak arbeletik"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:281
-#, fuzzy, kde-kuit-format
-#| msgid "&Import..."
+#, kde-kuit-format
 msgctxt "@action:button Import CSV"
 msgid "&Import..."
 msgstr "&Inportatu..."
@@ -7263,11 +7191,9 @@ msgid "Loading CSV Data"
 msgstr "CSV datuak kargatzen"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:583
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Select source filename."
+#, kde-kuit-format
 msgid "Select Import Filename"
-msgstr "Hautatu iturburu fitxategi-izena."
+msgstr "Hautatu inportatzeko fitxategi-izena"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:593
 #, kde-kuit-format
@@ -7280,10 +7206,9 @@ msgid "Preview of data from clipboard"
 msgstr "Arbeleko datuen aurrebista"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:615
-#, fuzzy, kde-kuit-format
-#| msgid "Comments"
+#, kde-kuit-format
 msgid "Comment symbol:"
-msgstr "Iruzkinak"
+msgstr "Iruzkin ikurra:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:636
 #, kde-kuit-format
@@ -7306,41 +7231,33 @@ msgid "Import Options"
 msgstr "Inportatzeko aukerak"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:703
-#, fuzzy, kde-kuit-format
-#| msgctxt "@action:button"
-#| msgid "New table"
+#, kde-kuit-format
 msgctxt "@option:check CSV import: data will be appended to a new table"
 msgid "&New table"
-msgstr "Taula berria"
+msgstr "Taula &berria"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:706
-#, fuzzy, kde-kuit-format
-#| msgctxt "@action:button"
-#| msgid "Existing table"
+#, kde-kuit-format
 msgctxt "@option:check CSV import: data will be appended to existing table"
 msgid "&Existing table"
-msgstr "Existitzen den taula"
+msgstr "&Existitzen den taula"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:716
-#, fuzzy, kde-kuit-format
-#| msgid "Choose Method of Saving Imported Data"
+#, kde-kuit-format
 msgid "Choose Destination for Imported Data"
-msgstr "Hautatu inportatutako datuak gordetzeko metodoa"
+msgstr "Hautatu inportatutako datuen jomuga"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:738
-#, fuzzy, kde-kuit-format
-#| msgctxt "@action:button"
-#| msgid "Existing table"
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Select existing table:"
-msgstr "Existitzen den taula"
+msgstr "Hautatu existitzen den taula:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:759
-#, fuzzy, kde-kuit-format
-#| msgid "Table field"
+#, kde-kuit-format
 msgctxt "@label Preview of selected table"
 msgid "Table preview:"
-msgstr "Taula-eremua"
+msgstr "Taularen aurreikuspegia:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:760
 #, kde-kuit-format
@@ -7367,10 +7284,10 @@ msgid "Column count:"
 msgstr "Zutabe kopurua:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:776
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Fields:"
-msgstr "Eremuak"
+msgstr "Eremuak:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:782
 #, kde-kuit-format
@@ -7389,8 +7306,7 @@ msgid "From Clipboard"
 msgstr "arbeletik"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:795
-#, fuzzy, kde-kuit-format
-#| msgid "To table:"
+#, kde-kuit-format
 msgctxt "@label Importing CSV data to table:"
 msgid "To table:"
 msgstr "Taulara:"
@@ -7398,14 +7314,12 @@ msgstr "Taulara:"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:810
 #, kde-kuit-format
 msgid "Ready to Import"
-msgstr ""
+msgstr "Inportatzeko prest"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:852
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Could not write <filename>%1</filename>."
+#, kde-kuit-format
 msgid "Cannot open input file <filename>%1</filename>."
-msgstr "Ezin da idatzi <filename>%1</filename>."
+msgstr "Ezin da ireki sarrerako <filename>%1</filename> fitxategia."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:930
 #, kde-kuit-format
@@ -7468,50 +7382,45 @@ msgstr ""
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1846
 #: plugins/tables/kexitabledesignerview.cpp:1197
-#, fuzzy, kde-kuit-format
-#| msgid "&Add Primary Key"
+#, kde-kuit-format
 msgctxt "@action:button Add Database Primary Key to a Table"
 msgid "&Add Primary Key"
 msgstr "&Gehitu lehen mailako gakoa"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1847
 #: plugins/tables/kexitabledesignerview.cpp:1198
-#, fuzzy, kde-kuit-format
-#| msgctxt "Do Not Add Database Primary Key to a Table"
-#| msgid "Do Not Add"
+#, kde-kuit-format
 msgctxt "@action:button Do Not Add Database Primary Key to a Table"
 msgid "Do &Not Add"
-msgstr "Ez gehitu"
+msgstr "E&z gehitu"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1883
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1941
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Cannot add column."
-msgstr "Kontsultaren zutabeak"
+msgstr "Ezin du zutabea gehitu."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1897
 #: plugins/importexport/csv/KexiCSVImportDialogModel.cpp:114
-#, fuzzy, kde-kuit-format
-#| msgid "Column %1"
+#, kde-kuit-format
 msgctxt "@title:column Column 1, Column 2, etc."
 msgid "Column %1"
 msgstr "%1 zutabea"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1957
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "<p>Fields count does not match!</p><p>Please choose another table.</p>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "<para>Field count does not match.</para><para>Please choose another table.</"
 "para>"
-msgstr "<p>Eremuen kopurua ez dator bat!</p><p>Hautatu beste taula bat.</p>"
+msgstr ""
+"<para>Eremuen kopurua ez dator bat!</para><para>Mesedez, hautatu beste taula "
+"bat.</para>"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1999
-#, fuzzy, kde-kuit-format
-#| msgid "Importing..."
+#, kde-kuit-format
 msgid "Importing data..."
-msgstr "Inportatzen..."
+msgstr "Datuak inportatzen..."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2014
 #, kde-kuit-format
@@ -7524,11 +7433,10 @@ msgid "Error occurred during import."
 msgstr "Errorea gertatu da inportatzerakoan."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2051
-#, fuzzy, kde-kuit-format
-#| msgid "Data has been successfully imported to table \"%1\"."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Data has been successfully imported to table <resource>%1</resource>."
-msgstr "Datuak behar bezala inportatu dira \"%1\" taulara."
+msgstr "Datuak behar bezala inportatu dira <resource>%1</resource> taulara."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2078
 #, kde-kuit-format
@@ -7566,19 +7474,16 @@ msgid "Not all rows are visible on this preview"
 msgstr "Errenkada guztiak ez daude ikusgai aurrebista honetan"
 
 #: plugins/importexport/csv/KexiCSVImportDialogModel.cpp:77
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:row"
-#| msgid "Column name"
+#, kde-kuit-format
 msgctxt "@title:row (with two spaces at the end)"
 msgid "Column name  "
-msgstr "Zutabe-izena"
+msgstr "Zutabearen izena"
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:103
-#, fuzzy, kde-kuit-format
-#| msgid "CSV Import Options"
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "CSV Import Options"
-msgstr "CSV inportazio-aukerak"
+msgstr "CSV inportatze aukerak"
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:111
 #, kde-kuit-format
@@ -7662,7 +7567,7 @@ msgstr "Bestelakoak"
 #: plugins/importexport/csv/kexicsvwidgets.cpp:191
 #, kde-kuit-format
 msgid "Hash \"#\""
-msgstr ""
+msgstr "Traola \"#\""
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:184
 #, kde-kuit-format
@@ -7670,11 +7575,10 @@ msgid "Query Columns"
 msgstr "Kontsulta-zutabeak"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:192
-#, fuzzy, kde-kuit-format
-#| msgid "No field selected"
+#, kde-kuit-format
 msgctxt "No query column selected in the Query Designer"
 msgid "No column selected"
-msgstr "Ez da eremurik hautatu"
+msgstr "Ez da zutaberik hautatu"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:244
 #, kde-kuit-format
@@ -7972,7 +7876,7 @@ msgstr "<resource>%1</resource> objektua gordetzeak huts egin du."
 #, kde-format
 msgctxt "@info/plain Sentence1 Sentence2 Sentence3"
 msgid "%1%2%3"
-msgstr ""
+msgstr "%1%2%3"
 
 #: plugins/queries/kexiquerypart.cpp:263 plugins/tables/kexitablepart.cpp:211
 #, fuzzy, kde-kuit-format
@@ -8174,7 +8078,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Portable Document Format..."
 msgid "PDF..."
-msgstr ""
+msgstr "PDF..."
 
 #: plugins/reports/kexireportview.cpp:121
 #, fuzzy, kde-kuit-format
@@ -8476,6 +8380,8 @@ msgid ""
 "Error executing script at line %1:\n"
 "%2"
 msgstr ""
+"Errorea gidoia exekutatzean, %1 lerroan:\n"
+"%2"
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:107
 #, fuzzy, kde-kuit-format
@@ -8738,7 +8644,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Save Design and Delete Table Data"
-msgstr ""
+msgstr "Gorde diseinua eta taulako datuak ezabatu"
 
 #: plugins/tables/kexitabledesignerview.cpp:580
 #, fuzzy, kde-kuit-format
@@ -8836,6 +8742,8 @@ msgctxt "(qtundo-format)"
 msgid ""
 "Change type for field <resource>%1</resource> to <resource>%2</resource>"
 msgstr ""
+"Aldatu eremuaren mota <resource>%1</resource>(e)tik <resource>%2</"
+"resource>(e)ra"
 
 #: plugins/tables/kexitabledesignerview.cpp:1014
 #, fuzzy, kde-format
@@ -9210,7 +9118,7 @@ msgstr "Fitxategia"
 #, kde-kuit-format
 msgctxt "file (driver name)"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: widget/KexiConnectionSelectorWidget.cpp:387
 #, fuzzy, kde-kuit-format
@@ -9550,7 +9458,7 @@ msgstr "Onartutako fitxategi guztiak (%1)"
 #: widget/KexiFileRequester.cpp:216
 #, kde-kuit-format
 msgid "Computer"
-msgstr ""
+msgstr "Ordenagailua"
 
 #: widget/KexiFileRequester.cpp:389
 #, fuzzy, kde-kuit-format
@@ -9922,6 +9830,8 @@ msgid ""
 "<nl/><nl/><img src=\"%1\" width=\"48\"/><nl/>Your project is empty...<nl/"
 ">Why not <b>create</b> something?"
 msgstr ""
+"<nl/><nl/><img src=\"%1\" width=\"48\"/><nl/>Zure proiektua hutsik dago..."
+"<nl/>Zergati ez zerbait <b>sortu</b>?"
 
 #: widget/properties/KexiPropertyEditorView.cpp:106
 #, kde-kuit-format
@@ -10004,56 +9914,53 @@ msgid "Contains a pointer to the currently selected record."
 msgstr "Unean hautatutako erregistroa adierazten duen erakuslea du"
 
 #: widget/tableview/KexiTableScrollArea.cpp:2442
-#, fuzzy, kde-kuit-format
-#| msgid "Record navigator"
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Record navigator."
-msgstr "Erregistro-nabigatzailea"
+msgstr "Erregistro-nabigatzailea."
 
 #: widget/tableview/KexiTableScrollArea.cpp:2449
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:window Rename Object %1."
-#| msgid "Rename <resource>%1</resource>"
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Column <resource>%1</resource>."
-msgstr "Berrizendatu <resource>%1</resource>"
+msgstr "<resource>%1</resource> zutabea."
 
 #: widget/undo/kundo2group.cpp:358 widget/undo/kundo2stack.cpp:1079
 #, kde-format
 msgctxt "Default text for undo action"
 msgid "Undo"
-msgstr ""
+msgstr "Desegin"
 
 #: widget/undo/kundo2group.cpp:358 widget/undo/kundo2stack.cpp:1079
 #, kde-format
 msgid "Undo %1"
-msgstr ""
+msgstr "Desegin %1"
 
 #: widget/undo/kundo2group.cpp:385 widget/undo/kundo2stack.cpp:1105
 #, kde-format
 msgctxt "Default text for redo action"
 msgid "Redo"
-msgstr ""
+msgstr "Berregin"
 
 #: widget/undo/kundo2group.cpp:385 widget/undo/kundo2stack.cpp:1105
 #, kde-format
 msgid "Redo %1"
-msgstr ""
+msgstr "Berregin %1"
 
 #: widget/undo/kundo2model.cpp:67
 #, kde-format
 msgid "<empty>"
-msgstr ""
+msgstr "<hutsik>"
 
 #: widget/undo/kundo2stack.cpp:1346
 #, kde-format
 msgid "Redo"
-msgstr ""
+msgstr "Berregin"
 
 #: widget/undo/kundo2stack.cpp:1365
 #, kde-format
 msgid "Undo"
-msgstr ""
+msgstr "Desegin"
 
 #: widget/utils/kexicontextmenuutils.cpp:61
 #, kde-kuit-format
@@ -10071,36 +9978,32 @@ msgid "Properties"
 msgstr "Propietateak"
 
 #: widget/utils/kexicontextmenuutils.cpp:104
-#, fuzzy, kde-kuit-format
-#| msgid "Insert Image From File"
+#, kde-kuit-format
 msgctxt "@title"
 msgid "Insert Image From File"
 msgstr "Txertatu irudia fitxategitik"
 
 #: widget/utils/kexicontextmenuutils.cpp:148
-#, fuzzy, kde-kuit-format
-#| msgid "Save Image to File"
+#, kde-kuit-format
 msgctxt "@title"
 msgid "Save Image to File"
 msgstr "Gorde irudia fitxategian"
 
 #: widget/utils/kexicontextmenuutils.cpp:161
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "File \"%1\" already exists.<p>Do you want to replace it with a new one?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "<para>File <filename>%1</filename> already exists.</para><para>Do you want "
 "to replace it with a new one?</para>"
 msgstr ""
-"Lehendik badago %1 fitxategia.<p>Beste fitxategi batekin ordeztu nahi duzu?"
+"<para><filename>%1</filename> fitxategia lehendik ere badago.</"
+"para><para>Berri batekin ordeztu nahi duzu?</para>"
 
 #: widget/utils/kexicontextmenuutils.cpp:164
-#, fuzzy, kde-kuit-format
-#| msgid "&Replace"
+#, kde-kuit-format
 msgctxt "@action:button"
 msgid "&Replace"
-msgstr "&Ordeztu"
+msgstr "O&rdeztu"
 
 #: widget/utils/kexicontextmenuutils.cpp:165
 #, kde-kuit-format
@@ -10114,11 +10017,10 @@ msgid "%1 : %2"
 msgstr "%1 : %2"
 
 #: widget/utils/kexidisplayutils.cpp:61
-#, fuzzy, kde-kuit-format
-#| msgid "(autonumber)"
+#, kde-kuit-format
 msgctxt "Autonumber, make it as short as possible"
 msgid "(auto)"
-msgstr "(zenbaketa automatikoa)"
+msgstr "(automatikoa)"
 
 #: widget/utils/kexirecordnavigator.cpp:170
 #, kde-kuit-format
