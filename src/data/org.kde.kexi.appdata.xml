@@ -181,7 +181,7 @@
       <li xml:lang="uk">Виконання запитів, підтримка параметризованих запитів.</li>
       <li xml:lang="x-test">xxRunning queries, support for parametrized queriesxx</li>
       <li xml:lang="zh-CN">执行查询，支持参数化查询</li>
-      <li>Supports SQLite, MySQL, PostgreSQL, xBase, and Sybase/MS SQL Server databases</li>
+      <li>Direct support for SQLite, MySQL, and PostgreSQL databases</li>
       <li xml:lang="ca">Permet bases de dades SQLite, MySQL, PostgreSQL, xBase i Sybase/MS SQL Server</li>
       <li xml:lang="ca-valencia">Permet bases de dades SQLite, MySQL, PostgreSQL, xBase i Sybase/MS SQL Server</li>
       <li xml:lang="de">Unterstützt Datenbanken wie SQLite, MySQL, PostgreSQL, xBase und Sybase/MS SQL Server</li>
@@ -317,7 +317,7 @@
       <li xml:lang="uk">Безпосереднє введення даних або імпортування даних у форматі CSV.</li>
       <li xml:lang="x-test">xxDirect data entry or import using CSV formatxx</li>
       <li xml:lang="zh-CN">使用 CSV 格式直接输入或导入数据</li>
-      <li>Locked down User Mode, allowing you to switch off all commands related to editing your project's design</li>
+      <li>Locked down User Mode, allowing to switch off all design features</li>
       <li xml:lang="bs">Zatvoreni  korisnički režim, omogućavajući vam da isključite sve naredbe koje se odnose na uređivanje dizajna vašeg projekta</li>
       <li xml:lang="ca">Mode reduït d'usuari, que permet inhabilitar totes les ordres relacionades amb l'edició del disseny del projecte</li>
       <li xml:lang="ca-valencia">Mode reduït d'usuari, que permet inhabilitar totes les ordres relacionades amb l'edició del disseny del projecte</li>
@@ -346,35 +346,6 @@
       <li xml:lang="uk">Заблокований режим користувача, у якому можна вимкнути усі пов’язані з командами редагування компонування вашого проєкту команди.</li>
       <li xml:lang="x-test">xxLocked down User Mode, allowing you to switch off all commands related to editing your project's designxx</li>
       <li xml:lang="zh-CN">锁定用户模式，可以关闭所有与编辑项目设计相关的命令</li>
-      <li>Scripting using JavaScript, Python or Ruby programming languages (experimental)</li>
-      <li xml:lang="bs">Scripting koristeći JavaScript, Python ili Ruby programskim jezicima (eksperimentalno)</li>
-      <li xml:lang="ca">Crear scripts usant els llenguatges de programació JavaScript, Python o Ruby (experimental)</li>
-      <li xml:lang="ca-valencia">Crear scripts utilitzant els llenguatges de programació JavaScript, Python o Ruby (experimental)</li>
-      <li xml:lang="de">Unterstützung für Skripte in den Programmsprachen JavaScript, Python oder Ruby (experimentell)</li>
-      <li xml:lang="el">Συγγραφή σεναρίων με τη χρήση γλωσσών JavaScript, Python ή Ruby (πειραματικό)</li>
-      <li xml:lang="en-GB">Scripting using JavaScript, Python or Ruby programming languages (experimental)</li>
-      <li xml:lang="es">Programación de scripts escritos en los lenguajes de programación JavaScript, Python o Ruby (experimental)</li>
-      <li xml:lang="et">Skriptimisvõimalused JavaScripti, Pythoni või Ruby programmeerimiskeeles (eksperimentaalne)</li>
-      <li xml:lang="fi">Skriptaus JavaScript-, Python- tai Ruby-ohjelmointikielillä (kokeellinen)</li>
-      <li xml:lang="fr">Pilotage par scripts utilisant les langages de programmation JavaScript, Python ou Ruby (expérimental)</li>
-      <li xml:lang="gl">Uso de scripts nas linguaxes de programación JavaScript, Python e Ruby (experimental).</li>
-      <li xml:lang="ia">Scripting usante linguages de programmation JavaScript, Python o Ruby (experimental)</li>
-      <li xml:lang="id">Penskripan menggunakan bahasa pemrograman JavaScript, Python atau Ruby</li>
-      <li xml:lang="it">Creazione script utilizzando i linguaggi di programmazione JavaScript, Python o Ruby (sperimentale)</li>
-      <li xml:lang="ja">JavaScript, Python や Ruby を使用してのスクリプティング(実験的)</li>
-      <li xml:lang="ko">자바스크립트, Python 또는 루비 프로그래밍 언어를 사용한 스크립팅(실험적)</li>
-      <li xml:lang="nb">Skripting ved bruk av JavaScript, Python eller Ruby programmeringsspråk (eksperimentelt)</li>
-      <li xml:lang="nl">Scripting met de programmeertalen JavaScript, Python of Ruby (experimenteel)</li>
-      <li xml:lang="pl">Skrypty wykorzystujące języki programowania JavaScript, Python lub Ruby (eksperymentalnie)</li>
-      <li xml:lang="pt">Programável através das linguagens JavaScript, Python ou Ruby (experimental)</li>
-      <li xml:lang="pt-BR">Criação de scripts usando as linguagens de programação JavaScript, Python ou Ruby (experimental)</li>
-      <li xml:lang="sk">Skriptovanie pomocou programovacích jazykov JavaScript, Python alebo Ruby (experimentálne)</li>
-      <li xml:lang="sl">Raba skriptov v programskih jezikih JavaScript, Python ali Ruby (poskusno)</li>
-      <li xml:lang="sv">Skript med användning av programspråken Javascript, Python eller Ruby (experimentellt)</li>
-      <li xml:lang="tr">JavaScript, Python veya Ruby programlama dillerini kullanarak betik yazımı desteği (deneysel)</li>
-      <li xml:lang="uk">Керування за допомогою скриптів мовами JavaScript, Python та Ruby (експериментальна можливість).</li>
-      <li xml:lang="x-test">xxScripting using JavaScript, Python or Ruby programming languages (experimental)xx</li>
-      <li xml:lang="zh-CN">使用 JavaScript、Python 或 Ruby 编程语言编写脚本 (实验性)</li>
     </ul>
   </description>
   <url type="homepage">http://www.kexi-project.org</url>
