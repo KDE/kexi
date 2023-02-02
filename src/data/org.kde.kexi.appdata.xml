@@ -182,31 +182,6 @@
       <li xml:lang="x-test">xxRunning queries, support for parametrized queriesxx</li>
       <li xml:lang="zh-CN">执行查询，支持参数化查询</li>
       <li>Direct support for SQLite, MySQL, and PostgreSQL databases</li>
-      <li xml:lang="ca">Permet bases de dades SQLite, MySQL, PostgreSQL, xBase i Sybase/MS SQL Server</li>
-      <li xml:lang="ca-valencia">Permet bases de dades SQLite, MySQL, PostgreSQL, xBase i Sybase/MS SQL Server</li>
-      <li xml:lang="de">Unterstützt Datenbanken wie SQLite, MySQL, PostgreSQL, xBase und Sybase/MS SQL Server</li>
-      <li xml:lang="el">Υποστηρίζει βάσεις δεδομένων SQLite, MySQL, PostgreSQL, xBase, και Sybase/MS SQL Server</li>
-      <li xml:lang="en-GB">Supports SQLite, MySQL, PostgreSQL, xBase, and Sybase/MS SQL Server databases</li>
-      <li xml:lang="es">Permite usar servidores de bases de datos SQLite, MySQL, PostgreSQL, xBase y Sybase/MS SQL</li>
-      <li xml:lang="et">SQLite'i, MySQL'i, PostgreSQL-i, xBase'i ja Sybase/MS SQL Serveri andmebaaside toetamine</li>
-      <li xml:lang="fi">SQLite-, MySQL-, PostgreSQL-, xBase- ja Sybase/MS SQL Server -tietokantojen tuki</li>
-      <li xml:lang="fr">Prend en charge les bases de données SQLite, MySQL, PostgreSQL, xBase et Sybase/MS SQL Server</li>
-      <li xml:lang="gl">Compatíbel con bases de datos SQLite, MySQL, PostgreSQL, xBase, Sybase SQL Server e MS SQL Server.</li>
-      <li xml:lang="ia">Supporta base de datos SQLite, MySQL, PostgreSQL, xBase, e Sybase/MS SQL Server</li>
-      <li xml:lang="id">Dukungan database SQLite, MySQL, PostgreSQL, xBase, dan Sybase/MS SQL Server</li>
-      <li xml:lang="it">Supporta SQLite, MySQL, PostgreSQL, xBase e banche dati Sybase/MS SQL Server</li>
-      <li xml:lang="ko">SQLite, MySQL, PostgreSQL, xBase 및 Sybase/MS SQL Server 데이터베이스 지원</li>
-      <li xml:lang="nl">Ondersteunt databases SQLite, MySQL, PostgreSQL, xBase en Sybase/MS SQL Server</li>
-      <li xml:lang="pl">Obsługa SQLite, MySQL, PostgreSQL, xBase oraz baz danych Sybase/MS SQL Server</li>
-      <li xml:lang="pt">Suporta bases de dados SQLite, MySQL, PostgreSQL, xBase e Sybase/MS SQL Server</li>
-      <li xml:lang="pt-BR">Suporte aos banco de dados SQLite, MySQL, PostgreSQL, xBase e Sybase/MS SQL Server</li>
-      <li xml:lang="sk">Podporuje serverové databázy SQLite, MySQL, PostgreSQL, xBase a Sybase/MS SQL</li>
-      <li xml:lang="sl">Podpira baze podatkov SQLite, MySQL, PostgreSQL, xBase in Sybase/MS SQL Server</li>
-      <li xml:lang="sv">Stöder databaserna SQLite, MySQL, PostgreSQL, xBase och Sybase/MS SQL Server</li>
-      <li xml:lang="tr">SQLite, MySQL, PostgreSQL, xBase ve Sybase/MS SQL sunucusuu veritabanlarını destekler</li>
-      <li xml:lang="uk">Підтримка баз даних SQLite, MySQL, PostgreSQL, xBase та Sybase/MS SQL.</li>
-      <li xml:lang="x-test">xxSupports SQLite, MySQL, PostgreSQL, xBase, and Sybase/MS SQL Server databasesxx</li>
-      <li xml:lang="zh-CN">支持 SQLite、MySQL、PostgreSQL、xBase 和 Sybase/MS SQL Server 等数据库</li>
       <li>The only multiplatform visual tool that can easily import data from MS Access databases</li>
       <li xml:lang="ca">L'única eina visual multiplataforma que pot importar fàcilment dades des de les bases de dades MS Access</li>
       <li xml:lang="ca-valencia">L'única eina visual multiplataforma que pot importar amb facilitat dades des de les bases de dades MS Access</li>
@@ -318,34 +293,6 @@
       <li xml:lang="x-test">xxDirect data entry or import using CSV formatxx</li>
       <li xml:lang="zh-CN">使用 CSV 格式直接输入或导入数据</li>
       <li>Locked down User Mode, allowing to switch off all design features</li>
-      <li xml:lang="bs">Zatvoreni  korisnički režim, omogućavajući vam da isključite sve naredbe koje se odnose na uređivanje dizajna vašeg projekta</li>
-      <li xml:lang="ca">Mode reduït d'usuari, que permet inhabilitar totes les ordres relacionades amb l'edició del disseny del projecte</li>
-      <li xml:lang="ca-valencia">Mode reduït d'usuari, que permet inhabilitar totes les ordres relacionades amb l'edició del disseny del projecte</li>
-      <li xml:lang="de">Gesperrter Benutzermodus, der es Ihnen ermöglicht, alle Befehle für die Bearbeitung des Entwurfs Ihres Projekts auszuschalten.</li>
-      <li xml:lang="el">Κλειδωμένη λειτουργία χρήστη, που σας επιτρέπει να απενεργοποιήσετε όλες τις εντολές που σχετίζονται με την επεξεργασία της σχεδίασης του έργου σας</li>
-      <li xml:lang="en-GB">Locked down User Mode, allowing you to switch off all commands related to editing your project's design</li>
-      <li xml:lang="es">Modo de usuario limitado, que permite desactivar todas las ordenes relacionadas con la edición del diseño de su proyecto</li>
-      <li xml:lang="et">Piiratud õigustega kasutajarežiim, mis võimaldab lülitada välja kõik projekti kujunduse muutmisega seotud käsud</li>
-      <li xml:lang="fi">Lukittu käyttäjätila, jossa voit poistaa käytöstä projektin suunnitteluun liittyvät komennot</li>
-      <li xml:lang="fr">Mode utilisateur verrouillé, vous permettant de désactiver toutes les commandes liées à la modification de la conception de votre projet</li>
-      <li xml:lang="gl">Modo de usuario bloqueado, que permite desactivar todas as ordes de edición do deseño do proxecto.</li>
-      <li xml:lang="ia">Modo de usator confinate, que te permitte commutar omne commandos referite al modificar tu designo de projecto</li>
-      <li xml:lang="id">Mode User terkunci, memungkinkan Anda untuk mematikankan semua perintah yang berhubungan untuk pengeditan desain projek Anda</li>
-      <li xml:lang="it">Modalità utente bloccata, che ti consente di disattivare tutti i comandi in grado di modificare la struttura del tuo progetto.</li>
-      <li xml:lang="ja">プロジェクトデザインの編集スイッチをオフにする事でユーザモードへのロックダウンが可能</li>
-      <li xml:lang="ko">잠긴 사용자 모드를 사용하여 프로젝트 디자인 편집과 관련된 모든 명령을 끌 수 있습니다</li>
-      <li xml:lang="nb">Låst brukermodus, slik at du kan slå av alle kommandoer som gjelder endring av prosjektets utforming</li>
-      <li xml:lang="nl">Vergrendelde gebruikersodus, waarmee u alle commando's uitschakelt die zijn gerelateerd aan bewerken en ontwerpen van uw project</li>
-      <li xml:lang="pl">Zamknięty tryb użytkownika, umożliwiający wyłączenie wszystkich poleceń związanych z edytowaniem twojego projektu</li>
-      <li xml:lang="pt">Modo reduzido de utilizador, permitindo-lhe desligar todos os comandos relacionados com a edição do desenho do seu projecto</li>
-      <li xml:lang="pt-BR">Modo de usuário reduzido, permitindo-lhe desligar todos os comandos relacionados à edição do visual do seu projeto</li>
-      <li xml:lang="sk">Uzamknutý používateľský režim, umožňujúci vám vypnúť všetky príkazy súvisiace s úpravou dizajnu vášho projektu</li>
-      <li xml:lang="sl">Zaklenjen uporabniški način, vam omogoča izklop vseh ukazov v zvezi urejanja zasnove vašega projekta</li>
-      <li xml:lang="sv">Låsbart användarläge, som låter dig stänga av alla kommandon relaterade till redigering av projektets konstruktion</li>
-      <li xml:lang="tr">Projenizin tasarımını değiştirmeyi kapatan, sınırlandırılmış Kullanıcı Kipi</li>
-      <li xml:lang="uk">Заблокований режим користувача, у якому можна вимкнути усі пов’язані з командами редагування компонування вашого проєкту команди.</li>
-      <li xml:lang="x-test">xxLocked down User Mode, allowing you to switch off all commands related to editing your project's designxx</li>
-      <li xml:lang="zh-CN">锁定用户模式，可以关闭所有与编辑项目设计相关的命令</li>
     </ul>
   </description>
   <url type="homepage">http://www.kexi-project.org</url>
