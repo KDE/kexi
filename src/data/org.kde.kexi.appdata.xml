@@ -45,6 +45,7 @@
   <summary xml:lang="ia">Constructor visual de apps per base de datos</summary>
   <summary xml:lang="id">Pembangun apps database visual</summary>
   <summary xml:lang="it">Generatore visuale di applicazioni di banche dati</summary>
+  <summary xml:lang="ka">ვიზუალური ბაზის აპის ამგები</summary>
   <summary xml:lang="ko">비주얼 데이터베이스 앱 빌더</summary>
   <summary xml:lang="nl">Visuele database van bouwer van apps</summary>
   <summary xml:lang="pl">Tworzenie wizualnych aplikacji baz danych</summary>
@@ -182,6 +183,13 @@
       <li xml:lang="x-test">xxRunning queries, support for parametrized queriesxx</li>
       <li xml:lang="zh-CN">执行查询，支持参数化查询</li>
       <li>Direct support for SQLite, MySQL, and PostgreSQL databases</li>
+      <li xml:lang="ca">Suport directe de les bases de dades SQLite, MySQL i PostgreSQL</li>
+      <li xml:lang="ca-valencia">Suport directe de les bases de dades SQLite, MySQL i PostgreSQL</li>
+      <li xml:lang="ka">SQLite, MySQL და PostgreSQL-ის პირდაპირი მხარდაჭერა</li>
+      <li xml:lang="nl">Directe ondersteuning voor de databases SQLite, MySQL en PostgreSQLServer</li>
+      <li xml:lang="tr">SQLite, MySQL, ve PostgreSQL veritabanlarını doğrudan destekler</li>
+      <li xml:lang="uk">Безпосередня підтримка баз даних SQLite, MySQL та PostgreSQL</li>
+      <li xml:lang="x-test">xxDirect support for SQLite, MySQL, and PostgreSQL databasesxx</li>
       <li>The only multiplatform visual tool that can easily import data from MS Access databases</li>
       <li xml:lang="ca">L'única eina visual multiplataforma que pot importar fàcilment dades des de les bases de dades MS Access</li>
       <li xml:lang="ca-valencia">L'única eina visual multiplataforma que pot importar amb facilitat dades des de les bases de dades MS Access</li>
@@ -279,6 +287,7 @@
       <li xml:lang="id">Entri data langsung atau impor menggunakan format CSV</li>
       <li xml:lang="it">Inserimento diretto dei dati o importazione utilizzando il formato CSV</li>
       <li xml:lang="ja">CSV を使用したダイレクトデータの入力もしくはインポート</li>
+      <li xml:lang="ka">მონაცემების პირდაპირი შეტანა/გამოტანა CSV ფორმატით</li>
       <li xml:lang="ko">CSV 형식을 사용하여 직접 데이터 입력 또는 가져오기</li>
       <li xml:lang="nb">Direkte datainnskriving eller import med CSV-format</li>
       <li xml:lang="nl">Directe invoer van gegevens of importeren met het CSV-format</li>
@@ -293,6 +302,12 @@
       <li xml:lang="x-test">xxDirect data entry or import using CSV formatxx</li>
       <li xml:lang="zh-CN">使用 CSV 格式直接输入或导入数据</li>
       <li>Locked down User Mode, allowing to switch off all design features</li>
+      <li xml:lang="ca">Mode reduït d'usuari, que permet inhabilitar totes les característiques de disseny</li>
+      <li xml:lang="ca-valencia">Mode reduït d'usuari, que permet inhabilitar totes les característiques de disseny</li>
+      <li xml:lang="nl">Vergrendelde gebruikersmodus, waarmee alle ontwerpkenmerken zijn uitgeschakeld</li>
+      <li xml:lang="tr">Tüm tasarım özelliklerini kapatmaya izin veren Sınırlandırılmış Kullanıcı Kipi</li>
+      <li xml:lang="uk">Заблокований режим користувача, у якому можна вимкнути усі пов’язані з дизайном можливості</li>
+      <li xml:lang="x-test">xxLocked down User Mode, allowing to switch off all design featuresxx</li>
     </ul>
   </description>
   <url type="homepage">http://www.kexi-project.org</url>
