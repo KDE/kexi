@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-15 00:56+0000\n"
-"PO-Revision-Date: 2023-02-02 08:17+0100\n"
+"PO-Revision-Date: 2023-02-03 16:01+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -365,7 +365,7 @@ msgstr "Boudewijn Rempt"
 #: core/kexiaboutdata.cpp:105 core/kexiaboutdata.cpp:107
 #, kde-kuit-format
 msgid "Code cleanups"
-msgstr ""
+msgstr "კოდის მოსუფთავება"
 
 #: core/kexiaboutdata.cpp:107
 #, kde-kuit-format
@@ -400,7 +400,7 @@ msgstr ""
 #: core/kexiaboutdata.cpp:113
 #, kde-kuit-format
 msgid "Tomas Krassnig"
-msgstr ""
+msgstr "Tomas Krassnig"
 
 #: core/kexiaboutdata.cpp:115
 #, kde-kuit-format
@@ -410,7 +410,7 @@ msgstr ""
 #: core/kexiaboutdata.cpp:115
 #, kde-kuit-format
 msgid "Paweł Wirecki / OpenOffice Polska"
-msgstr ""
+msgstr "Paweł Wirecki / OpenOffice Polska"
 
 #: core/kexiaboutdata.cpp:118
 #, kde-format, kde-kuit-format
@@ -822,18 +822,19 @@ msgstr ""
 msgctxt "@info"
 msgid "Could not use this name. Object <resource>%1</resource> already exists."
 msgstr ""
+"ამ სახელს ვერ გამოვიყენებ. ობიექტი <resource>%1</resource> უკვე არსებობს."
 
 #: core/kexiproject.cpp:148
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not rename object <resource>%1</resource>."
-msgstr ""
+msgstr "პროექტის: <resource>%1</resource> სახელის გადარქმევის შეცდომა."
 
 #: core/kexiproject.cpp:300
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not open project <resource>%1</resource>."
-msgstr ""
+msgstr "პროექტის: <resource>%1</resource> გახსნის შეცდომა."
 
 #: core/kexiproject.cpp:306
 #, kde-kuit-format
@@ -849,7 +850,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Could Not Open File"
-msgstr ""
+msgstr "ფაილის გახსნის შეცდომა"
 
 #: core/kexiproject.cpp:345
 #, kde-kuit-format
@@ -863,7 +864,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not create project <resource>%1</resource>."
-msgstr ""
+msgstr "პროექტის: <resource>%1</resource> შექმნის შეცდომა."
 
 #: core/kexiproject.cpp:416 core/kexiproject.cpp:487
 #, kde-kuit-format
@@ -888,7 +889,7 @@ msgstr "პროექტის აღწერა"
 #: core/kexiproject.cpp:824
 #, kde-kuit-format
 msgid "Could not load list of tables."
-msgstr ""
+msgstr "ცხრილების სიის ჩატვირთვის შეცდომა."
 
 #: core/kexiproject.cpp:1016
 #, kde-kuit-format
@@ -1475,7 +1476,7 @@ msgstr ""
 #: formeditor/form.cpp:1449 formeditor/form.cpp:1718
 #, kde-kuit-format
 msgid "Multiple Widgets (%1)"
-msgstr ""
+msgstr "ბევრი ვიჯეტი (%1)"
 
 #: formeditor/form.cpp:1708
 #, kde-kuit-format
@@ -1571,7 +1572,7 @@ msgstr "კურსორი"
 #: formeditor/form_p.cpp:283
 #, kde-kuit-format
 msgid "Foreground Color"
-msgstr ""
+msgstr "წინა პლანის ფერი"
 
 #: formeditor/form_p.cpp:284
 #, kde-kuit-format
@@ -1596,7 +1597,7 @@ msgstr "ზღვარი"
 #: formeditor/form_p.cpp:288 plugins/forms/kexidbfactorybase.cpp:54
 #, kde-kuit-format
 msgid "Read Only"
-msgstr ""
+msgstr "მხოლოდ კითხვისთვის"
 
 #: formeditor/form_p.cpp:289
 #, kde-kuit-format
@@ -2057,7 +2058,7 @@ msgstr "გასწორებული"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Edit Tab Order"
-msgstr ""
+msgstr "ჩანართების მიმდევრობის მორგება"
 
 #: formeditor/tabstopdialog.cpp:90
 #, kde-kuit-format
@@ -2131,19 +2132,19 @@ msgstr "ვიჯეტის ჩასმა: %1"
 #: formeditor/widgetlibrary.cpp:757
 #, kde-kuit-format
 msgid "Cancel"
-msgstr "_გაუქმება"
+msgstr "გაუქმება"
 
 #: formeditor/WidgetTreeWidget.cpp:126
 #, kde-kuit-format
 msgctxt "Tab widget's page"
 msgid "Tab Page"
-msgstr ""
+msgstr "ჩანართი გვერდი"
 
 #: formeditor/WidgetTreeWidget.cpp:225
 #, kde-kuit-format
 msgctxt "Widget's type"
 msgid "Type"
-msgstr ""
+msgstr "ტიპი"
 
 #: formeditor/WidgetTreeWidget.cpp:225
 #, kde-kuit-format
@@ -2490,7 +2491,7 @@ msgstr "&პროექტის გახსნა..."
 #: main/KexiMainWindow.cpp:470
 #, kde-kuit-format
 msgid "Open an existing project"
-msgstr ""
+msgstr "არსებული პროექტის გახსნა"
 
 #: main/KexiMainWindow.cpp:472
 #, kde-kuit-format
@@ -2515,7 +2516,7 @@ msgstr "კეთილი იყოს თქვენი მობრძან
 #: main/KexiMainWindow.cpp:488
 #, kde-kuit-format
 msgid "Show Welcome page"
-msgstr ""
+msgstr "საწყისი გვერდის ჩვენება"
 
 #: main/KexiMainWindow.cpp:490
 #, kde-kuit-format
@@ -2527,7 +2528,7 @@ msgstr ""
 #: main/KexiMainWindow.cpp:495
 #, kde-kuit-format
 msgid "Save object changes"
-msgstr ""
+msgstr "ობიექტის ცვლილებების შენახვა"
 
 #: main/KexiMainWindow.cpp:496
 #, kde-kuit-format
@@ -2542,7 +2543,7 @@ msgstr "შეინახვა &როგორც..."
 #: main/KexiMainWindow.cpp:501
 #, kde-kuit-format
 msgid "Save object as"
-msgstr ""
+msgstr "ობიექტის შენახვა, როგორც"
 
 #: main/KexiMainWindow.cpp:503
 #, kde-kuit-format
@@ -2590,7 +2591,7 @@ msgstr ""
 #: main/KexiMainWindow.cpp:553
 #, kde-kuit-format
 msgid "&Import Database..."
-msgstr ""
+msgstr "&ბაზის შემოტანა..."
 
 #: main/KexiMainWindow.cpp:554
 #, kde-kuit-format
@@ -3126,7 +3127,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "\"executing object\" action"
 msgid "executing"
-msgstr ""
+msgstr "შესრულება"
 
 #: main/KexiMainWindow.cpp:1635
 #, kde-kuit-format
@@ -3219,7 +3220,7 @@ msgstr "შენახვა"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Save Object As"
-msgstr ""
+msgstr "ობიექტის შენახვა, როგორც"
 
 #: main/KexiMainWindow.cpp:2973
 #, kde-kuit-format
@@ -3247,7 +3248,7 @@ msgstr ""
 #: main/KexiMainWindow.cpp:3143
 #, kde-kuit-format
 msgid "Do you want to save changes?"
-msgstr ""
+msgstr "გნებავთ ცვლილებების შენახვა?"
 
 #: main/KexiMainWindow.cpp:3337
 #, kde-kuit-format
@@ -3567,7 +3568,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Database Connection"
-msgstr ""
+msgstr "ბაზასთან მიერთება"
 
 #: main/startup/KexiNewProjectAssistant.cpp:336
 #, kde-kuit-format
@@ -3655,7 +3656,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Projects Stored in File"
-msgstr ""
+msgstr "ფაილში დამახსოვრებული პროექტები"
 
 #: main/startup/KexiOpenProjectAssistant.cpp:71
 #, kde-kuit-format
@@ -3833,7 +3834,7 @@ msgstr ""
 #: main/startup/KexiStartup.cpp:262
 #, kde-format
 msgid "KEXI plugins (%1):"
-msgstr ""
+msgstr "KEXI-ის დამატებები (%1):"
 
 #: main/startup/KexiStartup.cpp:271
 #, kde-format
@@ -4064,7 +4065,7 @@ msgstr "აირჩიეთ პროექტი"
 #: main/startup/KexiStartupDialog.cpp:258
 #, kde-kuit-format
 msgid "Do not show me this dialog again"
-msgstr ""
+msgstr "ეს ფანჯარა აღარ მაჩვენო"
 
 #: main/startup/KexiStartupDialog.cpp:268
 #, kde-kuit-format
@@ -4074,7 +4075,7 @@ msgstr ""
 #: main/startup/KexiStartupDialog.cpp:271
 #, kde-kuit-format
 msgid "Blank Database"
-msgstr ""
+msgstr "ცარიელი ბაზა"
 
 #: main/startup/KexiStartupDialog.cpp:272
 #, kde-kuit-format
@@ -4089,7 +4090,7 @@ msgstr ""
 #: main/startup/KexiStartupDialog.cpp:287
 #, kde-kuit-format
 msgid "Import Existing Database"
-msgstr ""
+msgstr "არსებული ბაზის შემოტანა"
 
 #: main/startup/KexiStartupDialog.cpp:289
 #, kde-kuit-format
@@ -4107,7 +4108,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Welcome to KEXI"
-msgstr ""
+msgstr "მოგესალმებათ KEXI"
 
 #: main/startup/KexiWelcomeAssistant.cpp:48
 #, kde-kuit-format
@@ -4625,7 +4626,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Field Type"
-msgstr ""
+msgstr "ველის ტიპი"
 
 #: migration/keximigrate.cpp:706
 #, kde-kuit-format
@@ -4686,7 +4687,7 @@ msgstr "მონაცემების წყარო"
 #: plugins/forms/kexidbfactorybase.cpp:52
 #, kde-kuit-format
 msgid "Frame Color"
-msgstr ""
+msgstr "ჩარჩოს ფერი"
 
 #: plugins/forms/kexiformmanager.cpp:160
 #, kde-kuit-format
@@ -4748,18 +4749,18 @@ msgstr "ფორმა"
 #, kde-kuit-format
 msgctxt "tooltip"
 msgid "Create new form"
-msgstr ""
+msgstr "ახალი ფორმის შექმნა"
 
 #: plugins/forms/kexiformpart.cpp:76
 #, kde-kuit-format
 msgctxt "what's this"
 msgid "Creates new form."
-msgstr ""
+msgstr "ახალი ფორმის შექმნა."
 
 #: plugins/forms/kexiformpart.cpp:100
 #, kde-kuit-format
 msgid "Clear Widget Contents"
-msgstr ""
+msgstr "ვიჯეტის შემცველობის გასუფთავება"
 
 #: plugins/forms/kexiformpart.cpp:102
 #, kde-kuit-format
@@ -5852,7 +5853,7 @@ msgstr "მიმდინარე გვერდი"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:632
 #, kde-kuit-format
 msgid "Tab Shape"
-msgstr ""
+msgstr "ჩანართის ფორმა"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:633
 #, kde-kuit-format
@@ -5869,17 +5870,17 @@ msgstr ""
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:637
 #, kde-kuit-format
 msgid "Closable Tabs"
-msgstr ""
+msgstr "დახურვადი ჩანართები"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:638
 #, kde-kuit-format
 msgid "Movable Tabs"
-msgstr ""
+msgstr "გადატანადი ჩანართები"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:639
 #, kde-kuit-format
 msgid "Document Mode"
-msgstr ""
+msgstr "დოკუმენტის რეჟიმი"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:641
 #, kde-kuit-format
@@ -5901,7 +5902,7 @@ msgstr "&გამოსახულება"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:821
 #, kde-kuit-format
 msgid "&Assign Action..."
-msgstr ""
+msgstr "&ქმედების მინიჭება..."
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1393
 #, kde-kuit-format
@@ -6027,12 +6028,12 @@ msgstr ""
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:122
 #, kde-kuit-format
 msgid "(rows: %1, columns: %2)"
-msgstr ""
+msgstr "(მწკრივები: %1, სვეტები: %2)"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:124
 #, kde-kuit-format
 msgid "(columns: %1)"
-msgstr ""
+msgstr "(სვეტები: %1)"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:141
 #, kde-kuit-format
@@ -6203,13 +6204,13 @@ msgstr "პარამეტრების შემოტანა"
 #, kde-kuit-format
 msgctxt "@option:check CSV import: data will be appended to a new table"
 msgid "&New table"
-msgstr ""
+msgstr "&ახალი ცხრილი"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:706
 #, kde-kuit-format
 msgctxt "@option:check CSV import: data will be appended to existing table"
 msgid "&Existing table"
-msgstr ""
+msgstr "&არსებული ცხრილი"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:716
 #, kde-kuit-format
@@ -6356,7 +6357,7 @@ msgstr ""
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1941
 #, kde-kuit-format
 msgid "Cannot add column."
-msgstr ""
+msgstr "სვეტის დამატების შეცდომა."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1897
 #: plugins/importexport/csv/KexiCSVImportDialogModel.cpp:114
@@ -6381,12 +6382,12 @@ msgstr "მონაცემების შემოტანა..."
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2014
 #, kde-kuit-format
 msgid "Import has been canceled."
-msgstr ""
+msgstr "შემოტანა გაუქმდა."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2016
 #, kde-kuit-format
 msgid "Error occurred during import."
-msgstr ""
+msgstr "შეცდომა შემოტანისას."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2051
 #, kde-kuit-format
@@ -6416,13 +6417,13 @@ msgstr "ფული"
 #, kde-kuit-format
 msgctxt "row count"
 msgid "(rows: %1)"
-msgstr ""
+msgstr "(მწკრივები: %1)"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2166
 #, kde-kuit-format
 msgctxt "row count"
 msgid "(rows: more than %1)"
-msgstr ""
+msgstr "(მწკრივები: მეტი, ვიდრე %1)"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2167
 #, kde-kuit-format
@@ -6555,7 +6556,7 @@ msgstr ""
 #: plugins/queries/kexiquerydesignerguieditor.cpp:257
 #, kde-kuit-format
 msgid "Visible"
-msgstr "_ხილული"
+msgstr "ხილული"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:258
 #, kde-kuit-format
@@ -6823,7 +6824,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Query <resource>%1</resource>"
-msgstr ""
+msgstr "<resource>%1</resource>-ის გამოთხოვა"
 
 #: plugins/queries/kexiqueryview.cpp:97
 #, kde-kuit-format
@@ -7664,7 +7665,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Empty table row"
 msgid "Empty Row"
-msgstr ""
+msgstr "ცარიელი მწკრივი"
 
 #: plugins/tables/kexitabledesignerview_p.cpp:227
 #, kde-kuit-format
@@ -7686,13 +7687,13 @@ msgstr "ცხრილი"
 #, kde-kuit-format
 msgctxt "tooltip"
 msgid "Create new table"
-msgstr ""
+msgstr "ახალი ცხრილის შექმნა"
 
 #: plugins/tables/kexitablepart.cpp:64
 #, kde-kuit-format
 msgctxt "what's this"
 msgid "Creates new table."
-msgstr ""
+msgstr "ახალი ცხრილის შექმნა."
 
 #: plugins/tables/kexitablepart.cpp:137
 #, kde-kuit-format
@@ -7745,7 +7746,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Question"
 msgid "Error: %1?"
-msgstr ""
+msgstr "შეცდომა: %1?"
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:865
 #, kde-kuit-format
@@ -7799,7 +7800,7 @@ msgstr "სწორია"
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1635
 #, kde-kuit-format
 msgid "Correct changes"
-msgstr ""
+msgstr "ცვლილებების ჩასწორება"
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1636
 #, kde-kuit-format
@@ -8268,7 +8269,7 @@ msgstr ""
 #: widget/KexiNameDialog.cpp:183
 #, kde-kuit-format
 msgid "Replace object"
-msgstr ""
+msgstr "ობიექტის ჩანაცვლება"
 
 #: widget/KexiNameDialog.cpp:186
 #, kde-kuit-format
@@ -8529,7 +8530,7 @@ msgstr ""
 #: widget/navigator/KexiProjectNavigator.cpp:377
 #, kde-kuit-format
 msgid "&Create Object..."
-msgstr ""
+msgstr "&ობიექტის შექმნა..."
 
 #: widget/navigator/KexiProjectNavigator.cpp:471
 #, kde-kuit-format
@@ -8560,7 +8561,7 @@ msgstr ""
 #: widget/properties/KexiPropertyEditorView.cpp:106
 #, kde-kuit-format
 msgid "No field selected"
-msgstr ""
+msgstr "ველი არჩეული არაა"
 
 #: widget/properties/KexiPropertyPaneWidget.cpp:150
 #, kde-kuit-format
