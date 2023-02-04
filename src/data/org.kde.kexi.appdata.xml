@@ -185,8 +185,11 @@
       <li>Direct support for SQLite, MySQL, and PostgreSQL databases</li>
       <li xml:lang="ca">Suport directe de les bases de dades SQLite, MySQL i PostgreSQL</li>
       <li xml:lang="ca-valencia">Suport directe de les bases de dades SQLite, MySQL i PostgreSQL</li>
+      <li xml:lang="cs">Přímá podpora pro databáze SQLite, MySQL a PostgreSQL</li>
+      <li xml:lang="es">Uso directo de bases de datos SQLite, MySQL y PostgreSQL</li>
       <li xml:lang="ka">SQLite, MySQL და PostgreSQL-ის პირდაპირი მხარდაჭერა</li>
       <li xml:lang="nl">Directe ondersteuning voor de databases SQLite, MySQL en PostgreSQLServer</li>
+      <li xml:lang="sl">Naposredno podpira baze podatkov SQLite, MySQL in PostgreSQL</li>
       <li xml:lang="tr">SQLite, MySQL, ve PostgreSQL veritabanlarını doğrudan destekler</li>
       <li xml:lang="uk">Безпосередня підтримка баз даних SQLite, MySQL та PostgreSQL</li>
       <li xml:lang="x-test">xxDirect support for SQLite, MySQL, and PostgreSQL databasesxx</li>
@@ -304,7 +307,9 @@
       <li>Locked down User Mode, allowing to switch off all design features</li>
       <li xml:lang="ca">Mode reduït d'usuari, que permet inhabilitar totes les característiques de disseny</li>
       <li xml:lang="ca-valencia">Mode reduït d'usuari, que permet inhabilitar totes les característiques de disseny</li>
+      <li xml:lang="es">Modo de usuario limitado, que permite desconectar todas las funciones de diseño</li>
       <li xml:lang="nl">Vergrendelde gebruikersmodus, waarmee alle ontwerpkenmerken zijn uitgeschakeld</li>
+      <li xml:lang="sl">Zaklenjen uporabniški način, vam omogoča izklop vseh ukazov v zvezi urejanja zasnove</li>
       <li xml:lang="tr">Tüm tasarım özelliklerini kapatmaya izin veren Sınırlandırılmış Kullanıcı Kipi</li>
       <li xml:lang="uk">Заблокований режим користувача, у якому можна вимкнути усі пов’язані з дизайном можливості</li>
       <li xml:lang="x-test">xxLocked down User Mode, allowing to switch off all design featuresxx</li>
