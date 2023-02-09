@@ -6,13 +6,13 @@
 # Özer Kavak <ozerkavak@gmail.com>, 2008.
 # obsoleteman <tulliana@gmail.com>, 2008-2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014, 2015, 2017.
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-24 02:33+0000\n"
-"PO-Revision-Date: 2022-12-03 19:58+0300\n"
+"PO-Revision-Date: 2023-02-08 14:27+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: core/kexi.cpp:141
 #, kde-kuit-format
@@ -683,8 +683,7 @@ msgid ""
 msgstr ""
 "Projeye bağlanırken kullanılacak veritabanı sunucusunun kullanıcı adı. Eğer "
 "proje kısayol dosyası kullanılarak açılırsa yok sayılır. Öntanımlı kullanıcı "
-"adı, geçerli giriş yapmış kullanıcı adı (<resource>%1</resource>) ile "
-"aynıdır."
+"adı, geçerli oturumun kullanıcı adı (<resource>%1</resource>) ile aynıdır."
 
 #: core/KexiCommandLineOptions.cpp:154
 #, kde-kuit-format
