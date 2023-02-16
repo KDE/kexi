@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-24 02:33+0000\n"
-"PO-Revision-Date: 2023-02-07 11:06\n"
+"PO-Revision-Date: 2023-02-15 11:08\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -998,8 +998,8 @@ msgid ""
 "<para>Could not open file <filename>%1</filename> for reading and writing.</"
 "para><para>Do you want to open the file as read only?</para>"
 msgstr ""
-"<para>无法以读写模式打开文件 <filename>%1</filename>。</para><para>是否要以只"
-"读的状态打开文件？</para>"
+"<para>无法打开文件 <filename>%1</filename> 进行读取和写入。</para><para>您想"
+"要以只读方式打开文件吗？</para>"
 
 #: core/kexiprojectdata.cpp:169
 #, kde-kuit-format
@@ -3990,8 +3990,8 @@ msgid ""
 "para><para><note>Check the file's permissions and whether it is already "
 "opened and locked by another application.</note></para>"
 msgstr ""
-"<para>无法以读取方式 <filename>%1</filename> 打开文件。</para><para><note>检"
-"查文件的权限，或是否该文件已被另一应用程序打开并锁定。</note></para>"
+"<para>无法打开文件 <filename>%1</filename> 进行读取。</para><para><note>请检"
+"查文件的权限，或者检查该文件是否已被另一个应用程序打开并锁定。</note></para>"
 
 #: main/startup/KexiStartup.cpp:866
 #, kde-kuit-format
