@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-15 00:56+0000\n"
-"PO-Revision-Date: 2023-02-16 19:23+0100\n"
+"PO-Revision-Date: 2023-02-17 07:20+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -5682,24 +5682,24 @@ msgstr "Linifalda Reĝimo"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:438
 #, kde-kuit-format
 msgid "Spell Checking Language"
-msgstr ""
+msgstr "Literumkontrola Lingvo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:440
 #, kde-kuit-format
 msgid "Editor Type"
-msgstr ""
+msgstr "Redaktora Tipo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:451
 #, kde-kuit-format
 msgctxt "AutoField editor's type"
 msgid "Multiline Text"
-msgstr ""
+msgstr "Plurlinia Teksto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:452
 #, kde-kuit-format
 msgctxt "AutoField editor's type"
 msgid "Drop-Down List"
-msgstr ""
+msgstr "Fala Listo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:453
 #, kde-kuit-format
@@ -5711,25 +5711,25 @@ msgstr "Bildo"
 #, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "No Ticks"
-msgstr ""
+msgstr "Neniuj Marketoj"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:457
 #, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Above"
-msgstr ""
+msgstr "Supra"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:458
 #, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Left"
-msgstr "Maldekstre"
+msgstr "Maldekstra"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:459
 #, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Below"
-msgstr ""
+msgstr "Malsupra"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:460
 #, kde-kuit-format
@@ -5741,7 +5741,7 @@ msgstr "Dekstra"
 #, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Both Sides"
-msgstr ""
+msgstr "Ambaŭflanka"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:474
 #, kde-kuit-format
@@ -5757,7 +5757,7 @@ msgstr "Bildo"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:476
 #, kde-kuit-format
 msgid "Scaled Contents"
-msgstr ""
+msgstr "Skalita Enhavo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:477
 #, kde-kuit-format
@@ -5769,7 +5769,7 @@ msgstr "Glatigo"
 #, kde-kuit-format
 msgctxt "Property: Keep Aspect Ratio (keep short)"
 msgid "Keep Ratio"
-msgstr ""
+msgstr "Konservi Proporcion"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:483
 #, kde-kuit-format
@@ -5780,18 +5780,20 @@ msgid ""
 "Drop-Down\n"
 "Button Visible"
 msgstr ""
+"Falbutono\n"
+"Videbla"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:486
 #, kde-kuit-format
 msgctxt "Property: Checked checkbox"
 msgid "Checked"
-msgstr ""
+msgstr "Markita"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:487
 #, kde-kuit-format
 msgctxt "Property: Tristate checkbox"
 msgid "Tristate"
-msgstr ""
+msgstr "Tristata"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:488
 #, kde-kuit-format
@@ -5815,31 +5817,31 @@ msgstr "Ne"
 #, kde-kuit-format
 msgctxt "Editable combobox"
 msgid "Editable"
-msgstr ""
+msgstr "Redaktebla"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:496
 #, kde-kuit-format
 msgctxt "Property: Button is checkable"
 msgid "On/Off"
-msgstr ""
+msgstr "Enŝaltita/Malŝaltita"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:497
 #, kde-kuit-format
 msgctxt "Property: Button"
 msgid "Auto Repeat"
-msgstr ""
+msgstr "Aŭtomata Ripeto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:498
 #, kde-kuit-format
 msgctxt "Property: Auto Repeat Button's Delay"
 msgid "Auto Rep. Delay"
-msgstr ""
+msgstr "Prokrasto de Aŭtomata Rip."
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:499
 #, kde-kuit-format
 msgctxt "Property: Auto Repeat Button's Interval"
 msgid "Auto Rep. Interval"
-msgstr ""
+msgstr "Intervalo de Aŭtomata Rip."
 
 #. i18n("Auto Default"));
 #. unused (too advanced) setPropertyDescription("default", xi18nc("Property: Button is default", "Default"));
@@ -5853,49 +5855,49 @@ msgstr "Plata"
 #, kde-kuit-format
 msgctxt "Hyperlink address"
 msgid "Hyperlink"
-msgstr ""
+msgstr "Hiperligo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:504
 #, kde-kuit-format
 msgctxt "Type of hyperlink"
 msgid "Hyperlink Type"
-msgstr ""
+msgstr "Hiperliga Tipo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:505
 #, kde-kuit-format
 msgctxt "Tool used for opening a hyperlink"
 msgid "Hyperlink Tool"
-msgstr ""
+msgstr "Hiperliga Ilo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:506
 #, kde-kuit-format
 msgctxt "Allow to open remote hyperlinks"
 msgid "Remote Hyperlink"
-msgstr ""
+msgstr "Fora Hiperligo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:507
 #, kde-kuit-format
 msgctxt "Allow to open executables"
 msgid "Executable Hyperlink"
-msgstr ""
+msgstr "Efektivigebla Hiperligo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:509
 #, kde-kuit-format
 msgctxt "Hyperlink type, NoHyperlink"
 msgid "No Hyperlink"
-msgstr ""
+msgstr "Neniu Hiperligo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:510
 #, kde-kuit-format
 msgctxt "Hyperlink type, StaticHyperlink"
 msgid "Static"
-msgstr ""
+msgstr "Senmova"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:511
 #, kde-kuit-format
 msgctxt "Hyperlink type, DynamicHyperlink"
 msgid "Dynamic"
-msgstr ""
+msgstr "Dinamika"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:513
 #, kde-kuit-format
@@ -5913,7 +5915,7 @@ msgstr "Retumilo"
 #, kde-kuit-format
 msgctxt "Hyperlink tool, MailerTool"
 msgid "Mailer"
-msgstr ""
+msgstr "Poŝtisto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:518
 #, kde-kuit-format
@@ -5930,13 +5932,13 @@ msgstr "Simpla"
 #, kde-kuit-format
 msgctxt "For Text Format"
 msgid "Hypertext"
-msgstr ""
+msgstr "Hiperteksto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:521
 #, kde-kuit-format
 msgctxt "For Text Format"
 msgid "Auto"
-msgstr "Aŭtomate"
+msgstr "Aŭtomata"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:522
 #, kde-kuit-format
@@ -5948,74 +5950,74 @@ msgstr "Protokolo"
 #, kde-kuit-format
 msgctxt "property: Can open external links in label"
 msgid "Open Ext. Links"
-msgstr ""
+msgstr "Malfermi Ekst. Ligilojn"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:526
 #, kde-kuit-format
 msgctxt "Property: line edit's placeholder text"
 msgid "Placeholder Text"
-msgstr ""
+msgstr "Lokokupa Teksto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:527
 #, kde-kuit-format
 msgctxt "Property: Clear Button Enabled"
 msgid "Clear Button"
-msgstr ""
+msgstr "Viŝbutono"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:529
 #, kde-kuit-format
 msgctxt "Property: Password Mode for line edit"
 msgid "Password Mode"
-msgstr ""
+msgstr "Pasvorta Reĝimo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:530
 #, kde-kuit-format
 msgctxt "Property: Squeezed Text Mode for line edit"
 msgid "Squeezed Text"
-msgstr ""
+msgstr "Kunpremita Teksto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:533
 #, kde-kuit-format
 msgid "Tab Stop Width"
-msgstr ""
+msgstr "Tab-intervala Larĝo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:534
 #, kde-kuit-format
 msgid "Tab Changes Focus"
-msgstr ""
+msgstr "Fokuso de Tab-ŝanĝoj "
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:535
 #, kde-kuit-format
 msgid "Word Wrap Policy"
-msgstr ""
+msgstr "Politiko de Linifaldo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:536
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Policy"
 msgid "At Word Boundary"
-msgstr ""
+msgstr "Ĉe Vortlimo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:537
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Policy"
 msgid "Anywhere"
-msgstr ""
+msgstr "Ie ajn"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:538
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Policy"
 msgid "At Word Boundary If Possible"
-msgstr ""
+msgstr "Ĉe Vortlimo Se Eble"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:539
 #, kde-kuit-format
 msgid "Word Wrapping"
-msgstr ""
+msgstr "Vortfaldado"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:540
 #, kde-kuit-format
 msgid "Word Wrap Position"
-msgstr ""
+msgstr "Vortfalda Pozicio"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:541
 #, kde-kuit-format
@@ -6027,58 +6029,58 @@ msgstr "Neniu"
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Position"
 msgid "Widget's Width"
-msgstr ""
+msgstr "Larĝo de Fenestraĵo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:543
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Position"
 msgid "In Pixels"
-msgstr ""
+msgstr "En Rastrumeroj"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:544
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Position"
 msgid "In Columns"
-msgstr ""
+msgstr "En Kolumnoj"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:545
 #, kde-kuit-format
 msgid "Links Underlined"
-msgstr ""
+msgstr "Ligiloj Substrekitaj"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:546
 #, kde-kuit-format
 msgid "Horizontal Scroll Bar"
-msgstr ""
+msgstr "Horizontala Rulumbreto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:547
 #, kde-kuit-format
 msgid "Vertical Scroll Bar"
-msgstr ""
+msgstr "Vertikala Rulumbreto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:549
 #, kde-kuit-format
 msgctxt "Property: Show Scroll Bar As Needed"
 msgid "As Needed"
-msgstr ""
+msgstr "Laŭ bezono"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:550
 #, kde-kuit-format
 msgctxt "Property: Scroll Bar Always Off"
 msgid "Always Off"
-msgstr ""
+msgstr "Ĉiam Malŝaltita"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:551
 #, kde-kuit-format
 msgctxt "Property: Scroll Bar Always On"
 msgid "Always On"
-msgstr "Ĉiam"
+msgstr "Ĉiam Ŝaltita"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:552
 #, kde-kuit-format
 msgctxt "Property: Text Edit accepts rich text"
 msgid "Rich Text"
-msgstr ""
+msgstr "Riĉa Teksto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:553
 #, kde-kuit-format
@@ -6089,7 +6091,7 @@ msgstr "HTML"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:563
 #, kde-kuit-format
 msgid "Tab Widget"
-msgstr ""
+msgstr "Langeta Fenestraĵo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:572
 #, kde-format
@@ -6102,12 +6104,12 @@ msgctxt ""
 "letter. Example: smallCamelCase. Moreover, try to make this prefix as short "
 "as possible."
 msgid "tabWidget"
-msgstr ""
+msgstr "tabWidget"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:573
 #, kde-kuit-format
 msgid "A widget to display multiple pages using tabs"
-msgstr ""
+msgstr "Fenestraĵo por montri plurajn paĝojn per langetoj"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:592
 #, kde-kuit-format
@@ -6126,17 +6128,17 @@ msgctxt ""
 "letter. Example: smallCamelCase. Moreover, try to make this prefix as short "
 "as possible."
 msgid "frame"
-msgstr ""
+msgstr "kadro"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:602
 #, kde-kuit-format
 msgid "A frame widget"
-msgstr ""
+msgstr "Kadra fenestraĵo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:610
 #, kde-kuit-format
 msgid "Group Box"
-msgstr "Grupazono"
+msgstr "Grupkesto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:619
 #, kde-format
@@ -6149,12 +6151,12 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "groupBox"
-msgstr ""
+msgstr "grupKest"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:620
 #, kde-kuit-format
 msgid "A container to group some widgets"
-msgstr ""
+msgstr "Ujo por grupigi kelkajn fenestraĵojn"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:625
 #, kde-kuit-format
@@ -6171,62 +6173,62 @@ msgstr "Plata"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:629
 #, kde-kuit-format
 msgid "Auto-hide Tabs"
-msgstr ""
+msgstr "Aŭtomate kaŝi langetojn"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:630
 #, kde-kuit-format
 msgid "Tab Position"
-msgstr ""
+msgstr "Langetpozicio"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:631
 #, kde-kuit-format
 msgctxt "'Current page' property for tab widget"
 msgid "Current Page"
-msgstr ""
+msgstr "Nuna Paĝo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:632
 #, kde-kuit-format
 msgid "Tab Shape"
-msgstr ""
+msgstr "Langetformo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:633
 #, kde-kuit-format
 msgctxt "Tab Widget's Elide Mode property"
 msgid "Elide Mode"
-msgstr ""
+msgstr "Elide Mode"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:635
 #, kde-kuit-format
 msgctxt "Tab Widget's property: true if can use scroll buttons"
 msgid "Scroll Buttons"
-msgstr ""
+msgstr "Rulumbutonoj"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:637
 #, kde-kuit-format
 msgid "Closable Tabs"
-msgstr ""
+msgstr "Fermeblaj langetoj"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:638
 #, kde-kuit-format
 msgid "Movable Tabs"
-msgstr ""
+msgstr "Moveblaj langetoj"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:639
 #, kde-kuit-format
 msgid "Document Mode"
-msgstr ""
+msgstr "Dokumenta Reĝimo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:641
 #, kde-kuit-format
 msgctxt "Property value for Tab Shape"
 msgid "Rounded"
-msgstr ""
+msgstr "Rondigita"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:642
 #, kde-kuit-format
 msgctxt "Property value for Tab Shape"
 msgid "Triangular"
-msgstr ""
+msgstr "Triangula"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:774
 #, kde-kuit-format
@@ -6236,7 +6238,7 @@ msgstr "&Bildo"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:821
 #, kde-kuit-format
 msgid "&Assign Action..."
-msgstr ""
+msgstr "&Atribui Agon..."
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1393
 #, kde-kuit-format
@@ -6248,60 +6250,60 @@ msgstr "norma"
 #, kde-kuit-format
 msgctxt "Add page to tab widget"
 msgid "Add Page"
-msgstr ""
+msgstr "Aldoni Paĝon"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:266
 #, kde-kuit-format
 msgctxt "Delete tab widget's page"
 msgid "Delete Page"
-msgstr ""
+msgstr "Forigi Paĝon"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:287
 #, kde-kuit-format
 msgctxt "Rename tab widget's page"
 msgid "Rename Page..."
-msgstr ""
+msgstr "Alinomi paĝon..."
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:301
 #, kde-kuit-format
 msgctxt "@window:title"
 msgid "New Page Title"
-msgstr ""
+msgstr "Nova Paĝa Titolo"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:302
 #, kde-kuit-format
 msgid "Enter a new title for the current page:"
-msgstr ""
+msgstr "Enigu novan titolon por la nuna paĝo:"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:311
 #, kde-kuit-format
 msgctxt "Add page to a stacked widget"
 msgid "Add Page..."
-msgstr ""
+msgstr "Aldoni paĝon..."
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:338
 #, kde-kuit-format
 msgctxt "Delete page from a stacked widget"
 msgid "Delete Page"
-msgstr ""
+msgstr "Forigi Paĝon"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:385
 #, kde-kuit-format
 msgctxt "Go to Previous Page of a Stacked Widget"
 msgid "Go to Previous Page"
-msgstr ""
+msgstr "Iri al Antaŭa Paĝo"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:386
 #, kde-kuit-format
 msgctxt "Go to Next Page of a Stacked Widget"
 msgid "Go to Next Page"
-msgstr ""
+msgstr "Iri al Sekva Paĝo"
 
 #: plugins/forms/widgets/main/KexiStandardFormWidgets.cpp:67
 #, kde-kuit-format
 msgctxt "Edit rich text for a widget"
 msgid "Edit Rich Text"
-msgstr ""
+msgstr "Redakti Riĉan Tekston"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:78
 #, kde-kuit-format
@@ -6318,94 +6320,94 @@ msgstr "Eksporti"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Copy Data From Table to Clipboard"
-msgstr ""
+msgstr "Kopii Datumojn De Tabelo al Tondujo"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:97
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:105
 #, kde-kuit-format
 msgid "Copying data from table:"
-msgstr ""
+msgstr "Kopiante datumojn de tabelo:"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:99
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Export Data From Table to CSV File"
-msgstr ""
+msgstr "EksportuiDatumojn De Tabelo al CSV-Dosiero"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:100
 #, kde-kuit-format
 msgid "Exporting data from table:"
-msgstr ""
+msgstr "Eksportante datumojn de tabelo:"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:104
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Copy Data From Query to Clipboard"
-msgstr ""
+msgstr "Kopii Datumojn el Informpeto al Tondujo"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:107
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Export Data From Query to CSV File"
-msgstr ""
+msgstr "Eksporti Datumojn el Informpeto al CSV-Dosiero"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:108
 #, kde-kuit-format
 msgid "Exporting data from query:"
-msgstr ""
+msgstr "Eksportante datumojn de informpeto:"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:112
 #, kde-kuit-format
 msgid "Could not open data for exporting."
-msgstr ""
+msgstr "Ne eblis malfermi datumojn por eksporti."
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:122
 #, kde-kuit-format
 msgid "(rows: %1, columns: %2)"
-msgstr ""
+msgstr "(vicoj: %1, kolumnoj: %2)"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:124
 #, kde-kuit-format
 msgid "(columns: %1)"
-msgstr ""
+msgstr "(kolumnoj: %1)"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:141
 #, kde-kuit-format
 msgid "Enter Name of File You Want to Save Data To"
-msgstr ""
+msgstr "Enigu la Nomon de Dosiero Al Vi Deziras Konservi Datumojn"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:173
 #, kde-kuit-format
 msgid "To CSV file:"
-msgstr ""
+msgstr "Al CSV-dosiero:"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:173
 #, kde-kuit-format
 msgid "To clipboard."
-msgstr ""
+msgstr "Al tondujo."
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:182
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:379
 #, kde-kuit-format
 msgid "Show Options &gt;&gt;"
-msgstr ""
+msgstr "Montri Opciojn >>"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:199
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:607
 #, kde-kuit-format
 msgid "Delimiter:"
-msgstr ""
+msgstr "Limigilo:"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:208
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:644
 #, kde-kuit-format
 msgid "Text quote:"
-msgstr ""
+msgstr "Teksta citaĵo:"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:232
 #, kde-kuit-format
 msgid "Add column names as the first row"
-msgstr ""
+msgstr "Aldoni kolumnonomojn kiel la unuan vicon"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:236
 #, kde-kuit-format
@@ -6415,12 +6417,12 @@ msgstr "Aprioraĵoj"
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:242
 #, kde-kuit-format
 msgid "Always use above options for copying"
-msgstr ""
+msgstr "Ĉiam uzi ĉi-suprajn opciojn por kopii"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:243
 #, kde-kuit-format
 msgid "Always use above options for exporting"
-msgstr ""
+msgstr "Ĉiam uzi ĉi-suprajn opciojn por eksporti"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:251
 #, kde-kuit-format
@@ -6430,12 +6432,12 @@ msgstr "Kopiante"
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:251
 #, kde-kuit-format
 msgid "Exporting"
-msgstr ""
+msgstr "Eksportante"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:384
 #, kde-kuit-format
 msgid "Hide Options &lt;&lt;"
-msgstr ""
+msgstr "Kaŝi Opciojn &lt;&lt;"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:262
 #, kde-kuit-format
@@ -6451,117 +6453,118 @@ msgstr "falsa"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Import CSV Data From File"
-msgstr ""
+msgstr "Importi CSV-datumojn de dosiero"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:272
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Paste CSV Data From Clipboard"
-msgstr ""
+msgstr "Alglui CSV-datumojn el tondujo"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:281
 #, kde-kuit-format
 msgctxt "@action:button Import CSV"
 msgid "&Import..."
-msgstr "&Importu..."
+msgstr "&Importi..."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
 #, kde-kuit-format
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr ""
+"Datenaro enhavas neniujn vicojn. Ĉu vi volas importi malplenan tabelon?"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
 #, kde-kuit-format
 msgid "No database connection available."
-msgstr ""
+msgstr "Neniu datumbaza konekto havebla."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:448
 #: widget/KexiNameDialog.cpp:173
 #, kde-kuit-format
 msgid "Please choose other name."
-msgstr ""
+msgstr "Bonvolu elekti alian nomon."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:502
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Loading CSV Data from <filename>%1</filename>..."
-msgstr ""
+msgstr "Ŝargante CSV-datumojn de <filename>%1</filename>..."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:504
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Loading CSV Data"
-msgstr ""
+msgstr "Ŝargante CSV-datumojn"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:583
 #, kde-kuit-format
 msgid "Select Import Filename"
-msgstr ""
+msgstr "Elekti Import-Dosiernomon"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:593
 #, kde-kuit-format
 msgid "Preview of data from file:"
-msgstr ""
+msgstr "Antaŭrigardo de datumoj el dosiero:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:594
 #, kde-kuit-format
 msgid "Preview of data from clipboard"
-msgstr ""
+msgstr "Antaŭrigardo de datumoj el tondujo"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:615
 #, kde-kuit-format
 msgid "Comment symbol:"
-msgstr ""
+msgstr "Simbolo de komento:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:636
 #, kde-kuit-format
 msgid "Primary key"
-msgstr ""
+msgstr "Primara ŝlosilo"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:668
 #, kde-kuit-format
 msgid "Ignore duplicated delimiters"
-msgstr ""
+msgstr "Ignori duobligitajn limigilojn"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:673
 #, kde-kuit-format
 msgid "First row contains column names"
-msgstr ""
+msgstr "La unua vico enhavas kolumnomojn"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:693
 #, kde-kuit-format
 msgid "Import Options"
-msgstr ""
+msgstr "Import Opcioj"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:703
 #, kde-kuit-format
 msgctxt "@option:check CSV import: data will be appended to a new table"
 msgid "&New table"
-msgstr ""
+msgstr "&Nova tabelo"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:706
 #, kde-kuit-format
 msgctxt "@option:check CSV import: data will be appended to existing table"
 msgid "&Existing table"
-msgstr ""
+msgstr "&Ekzistanta tabelo"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:716
 #, kde-kuit-format
 msgid "Choose Destination for Imported Data"
-msgstr ""
+msgstr "Elekti Celon por Importitaj Datumoj"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:738
 #, kde-kuit-format
 msgctxt "@label"
 msgid "Select existing table:"
-msgstr ""
+msgstr "Elekti ekzistantan tabelon:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:759
 #, kde-kuit-format
 msgctxt "@label Preview of selected table"
 msgid "Table preview:"
-msgstr ""
+msgstr "Antaŭrigardo de tabelo:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:760
 #, kde-kuit-format
@@ -6573,68 +6576,68 @@ msgstr "Nomo:"
 #, kde-kuit-format
 msgctxt "@label"
 msgid "Caption:"
-msgstr ""
+msgstr "Titolo:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:764
 #, kde-kuit-format
 msgctxt "@label"
 msgid "Row count:"
-msgstr ""
+msgstr "Nombro de vicoj:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:766
 #, kde-kuit-format
 msgctxt "@label"
 msgid "Column count:"
-msgstr ""
+msgstr "Nombro de kolumnoj:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:776
 #, kde-kuit-format
 msgctxt "@label"
 msgid "Fields:"
-msgstr ""
+msgstr "Kampoj:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:782
 #, kde-kuit-format
 msgctxt "@label"
 msgid "Choose Name of Destination Table"
-msgstr ""
+msgstr "Elekti Nomon de Celotabelo"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:790
 #, kde-kuit-format
 msgid "From CSV file:"
-msgstr ""
+msgstr "El CSV-dosiero:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:790
 #, kde-kuit-format
 msgid "From Clipboard"
-msgstr ""
+msgstr "El Clipboard"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:795
 #, kde-kuit-format
 msgctxt "@label Importing CSV data to table:"
 msgid "To table:"
-msgstr ""
+msgstr "Al tabelo:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:810
 #, kde-kuit-format
 msgid "Ready to Import"
-msgstr ""
+msgstr "Preta por Importi"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:852
 #, kde-kuit-format
 msgid "Cannot open input file <filename>%1</filename>."
-msgstr ""
+msgstr "Ne povas malfermi enigdosieron <filename>%1</filename>."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:930
 #, kde-kuit-format
 msgid "Start at line (1-%1):"
-msgstr ""
+msgstr "Komenci ĉe linio (1-%1):"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:931
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:939
 #, kde-kuit-format
 msgid "Start at line:"
-msgstr ""
+msgstr "Komenci ĉe linio:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1638
 #: plugins/queries/kexiquerydesignerguieditor.cpp:243
@@ -6646,7 +6649,7 @@ msgstr "Kolumno"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "An error occurred during insert record."
-msgstr ""
+msgstr "Okazis eraro dum enmeto de rikordo."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1713
 #: plugins/importexport/csv/kexicsvwidgets.cpp:190
@@ -6661,7 +6664,7 @@ msgstr "Neniu"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1762
 #, kde-kuit-format
 msgid "Format for column %1:"
-msgstr ""
+msgstr "Formato por kolumno %1:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1841
 #, kde-kuit-format
@@ -6672,26 +6675,30 @@ msgid ""
 "table without a primary key may not be editable (depending on database type)."
 "</note></para>"
 msgstr ""
+"<para >Neniu ĉefa ŝlosilo (aŭtomata numero) estas difinita.</para><para >Ĉu "
+"ĝi estu aŭtomate difinita ĉe importo (rekomendita)?</para><para><note > "
+"Importita tabelo sen ĉefa ŝlosilo eble ne estu redaktebla (depende de la "
+"datumbazo).</note></para>"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1846
 #: plugins/tables/kexitabledesignerview.cpp:1197
 #, kde-kuit-format
 msgctxt "@action:button Add Database Primary Key to a Table"
 msgid "&Add Primary Key"
-msgstr ""
+msgstr "&Aldoni Ĉefŝlosilon"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1847
 #: plugins/tables/kexitabledesignerview.cpp:1198
 #, kde-kuit-format
 msgctxt "@action:button Do Not Add Database Primary Key to a Table"
 msgid "Do &Not Add"
-msgstr "&Ne aldonu"
+msgstr "&Ne aldoni"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1883
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1941
 #, kde-kuit-format
 msgid "Cannot add column."
-msgstr ""
+msgstr "Ne povas aldoni kolumnon."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1897
 #: plugins/importexport/csv/KexiCSVImportDialogModel.cpp:114
@@ -6707,27 +6714,29 @@ msgid ""
 "<para>Field count does not match.</para><para>Please choose another table.</"
 "para>"
 msgstr ""
+"<para >Kampkalkulo ne kongruas.</para><para >Bonvolu elekti alian tabelon.</"
+"para >"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1999
 #, kde-kuit-format
 msgid "Importing data..."
-msgstr ""
+msgstr "Importado de datumoj..."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2014
 #, kde-kuit-format
 msgid "Import has been canceled."
-msgstr ""
+msgstr "Importo estas nuligita."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2016
 #, kde-kuit-format
 msgid "Error occurred during import."
-msgstr ""
+msgstr "Eraro okazis dum importo."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2051
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Data has been successfully imported to table <resource>%1</resource>."
-msgstr ""
+msgstr "Datumoj estis sukcese importitaj al tabelo <resource>%1</resource>."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2078
 #, kde-kuit-format
@@ -6762,29 +6771,29 @@ msgstr "(linioj: pli ol %1)"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2167
 #, kde-kuit-format
 msgid "Not all rows are visible on this preview"
-msgstr ""
+msgstr "Ne ĉiuj vicoj estas videblaj en ĉi tiu antaŭvido"
 
 #: plugins/importexport/csv/KexiCSVImportDialogModel.cpp:77
 #, kde-kuit-format
 msgctxt "@title:row (with two spaces at the end)"
 msgid "Column name  "
-msgstr ""
+msgstr "Nomo de kolumno"
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:103
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "CSV Import Options"
-msgstr ""
+msgstr "CSV Import Opcioj"
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:111
 #, kde-kuit-format
 msgid "Text encoding"
-msgstr ""
+msgstr "Tekstokodado"
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:125
 #, kde-kuit-format
 msgid "Always use this encoding when importing CSV data files"
-msgstr ""
+msgstr "Ĉiam uzu ĉi tiun kodigon dum importado de CSV-datumdosieroj"
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:130
 #, kde-kuit-format
@@ -6800,7 +6809,7 @@ msgstr "tago"
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:131
 #, kde-kuit-format
 msgid "month"
-msgstr ""
+msgstr "monato"
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:131
 #, kde-kuit-format
@@ -6813,7 +6822,7 @@ msgctxt ""
 "do not reorder placeholders, just translate e.g. and - to the separator used "
 "by dates in your language"
 msgid "%1, %2, %3 (e.g. %4-%5-%6)"
-msgstr ""
+msgstr "%1, %2, %3 (ekz. %4-%5-%6)"
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:143
 #, kde-kuit-format
@@ -6823,22 +6832,22 @@ msgstr "Formo de dato:"
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:148
 #, kde-kuit-format
 msgid "Strip leading and trailing blanks off of text values"
-msgstr ""
+msgstr "Forigi antaŭajn kaj finajn spacetojn de tekstovaloroj"
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:152
 #, kde-kuit-format
 msgid "Import missing text values as empty texts"
-msgstr ""
+msgstr "Importi mankantajn tekstovalorojn kiel malplenajn tekstojn"
 
 #: plugins/importexport/csv/kexicsvwidgets.cpp:88
 #, kde-kuit-format
 msgid "Comma \",\""
-msgstr ""
+msgstr "Komo \",\""
 
 #: plugins/importexport/csv/kexicsvwidgets.cpp:89
 #, kde-kuit-format
 msgid "Semicolon \";\""
-msgstr ""
+msgstr "Punktokomo \";\""
 
 #: plugins/importexport/csv/kexicsvwidgets.cpp:90
 #, kde-kuit-format
@@ -6848,7 +6857,7 @@ msgstr "Tabelilo"
 #: plugins/importexport/csv/kexicsvwidgets.cpp:91
 #, kde-kuit-format
 msgid "Space \" \""
-msgstr ""
+msgstr "Spaco \" \""
 
 #: plugins/importexport/csv/kexicsvwidgets.cpp:92
 #, kde-kuit-format
@@ -6858,23 +6867,23 @@ msgstr "Alia"
 #: plugins/importexport/csv/kexicsvwidgets.cpp:191
 #, kde-kuit-format
 msgid "Hash \"#\""
-msgstr ""
+msgstr "Hash \"#\""
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:184
 #, kde-kuit-format
 msgid "Query Columns"
-msgstr ""
+msgstr "Kolumnoj de Informpeto"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:192
 #, kde-kuit-format
 msgctxt "No query column selected in the Query Designer"
 msgid "No column selected"
-msgstr ""
+msgstr "Neniu kolumno elektita"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:244
 #, kde-kuit-format
 msgid "Describes field name or expression for the designed query."
-msgstr ""
+msgstr "Priskribas kamponomon aŭ esprimon por la dezajnita informpeto."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:251
 #: widget/relations/KexiRelationsView.cpp:374
@@ -6885,7 +6894,7 @@ msgstr "Tabelo"
 #: plugins/queries/kexiquerydesignerguieditor.cpp:252
 #, kde-kuit-format
 msgid "Describes table for a given field. Can be empty."
-msgstr ""
+msgstr "Priskribas tabelon por donita kampo. Povas esti malplena."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:257
 #, kde-kuit-format
@@ -6895,7 +6904,7 @@ msgstr "Videbla"
 #: plugins/queries/kexiquerydesignerguieditor.cpp:258
 #, kde-kuit-format
 msgid "Describes visibility for a given field or expression."
-msgstr ""
+msgstr "Priskribas videblecon por donita kampo aŭ esprimo."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:277
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1877
@@ -6906,7 +6915,7 @@ msgstr "Ordigado"
 #: plugins/queries/kexiquerydesignerguieditor.cpp:278
 #, kde-kuit-format
 msgid "Describes a way of sorting for a given field."
-msgstr ""
+msgstr "Priskribas manieron ordigi por donita kampo."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:281
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1875
@@ -6928,7 +6937,7 @@ msgstr "Kriterio"
 #: plugins/queries/kexiquerydesignerguieditor.cpp:288
 #, kde-kuit-format
 msgid "Describes the criteria for a given field or expression."
-msgstr ""
+msgstr "Priskribas la kriteriojn por donita kampo aŭ esprimo."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:387
 #, kde-kuit-format
@@ -6936,19 +6945,21 @@ msgid ""
 "Cannot switch to data view, because query design is empty.\n"
 "First, please create your design."
 msgstr ""
+"Ne povas ŝanĝi al datumvido, ĉar demanda dezajno estas malplena.\n"
+"Unue, bonvolu krei vian dezajnon."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:427
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Select column for table <resource>%1</resource>"
-msgstr ""
+msgstr "Elektu kolumnon por tabelo <resource>%1</resource>"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:450
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1768
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Invalid criteria <icode>%1</icode>"
-msgstr ""
+msgstr "Nevalidaj kriterioj <icode>%1</icode>"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:472
 #: plugins/queries/kexiquerydesignerguieditor.cpp:479
@@ -6957,7 +6968,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Invalid expression <icode>%1</icode>"
-msgstr ""
+msgstr "Nevalida esprimo <icode>%1</icode>"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:707
 #: plugins/queries/kexiquerydesignerguieditor.cpp:721
@@ -6965,7 +6976,7 @@ msgstr ""
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1147
 #, kde-kuit-format
 msgid "Query definition loading failed."
-msgstr ""
+msgstr "Demanda difino-ŝarĝado malsukcesis."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:708
 #, kde-kuit-format
@@ -6973,39 +6984,43 @@ msgid ""
 "Query design may be corrupted so it could not be opened even in text view.\n"
 "You can delete the query and create it again."
 msgstr ""
+"Demandodezajno povas esti koruptita do ĝi ne povus esti malfermita eĉ en "
+"tekstvido.\n"
+"Vi povas forigi la demandon kaj krei ĝin denove."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1338
 #, kde-kuit-format
 msgctxt "short for 'expression' word (only latin letters, please)"
 msgid "expr"
-msgstr ""
+msgstr "ekspr"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1544
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Entered column alias <resource>%1</resource> is not a valid identifier."
 msgstr ""
+"Enigita kolumnonomo <resource>%1</resource> ne estas valida identigilo."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1546
 #, kde-kuit-format
 msgid "Identifiers should start with a letter or '_' character"
-msgstr ""
+msgstr "Identigiloj devas komenci per litero aŭ '_' signo"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1716
 #, kde-kuit-format
 msgid "Could not set sorting for multiple columns (%1)"
-msgstr ""
+msgstr "Ne eblis agordi ordigon por pluraj kolumnoj (%1)"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1741
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not set criteria for <resource>%1</resource>"
-msgstr ""
+msgstr "Ne eblis agordi kriteriojn por <resource>%1</resource>"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1744
 #, kde-kuit-format
 msgid "Could not set criteria for empty record"
-msgstr ""
+msgstr "Ne eblis agordi kriteriojn por malplena registro"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1838
 #, kde-kuit-format
@@ -7021,34 +7036,36 @@ msgstr "Alinomo"
 #: plugins/queries/kexiquerydesignersql.cpp:102
 #, kde-kuit-format
 msgid "SQL Query Text"
-msgstr ""
+msgstr "SQL Demanda Teksto"
 
 #: plugins/queries/kexiquerydesignersql.cpp:155
 #: plugins/queries/kexiquerydesignersql.cpp:158
 #, kde-kuit-format
 msgid "Check Query"
-msgstr ""
+msgstr "Kontroli Informpeton"
 
 #: plugins/queries/kexiquerydesignersql.cpp:159
 #, kde-kuit-format
 msgid "Checks query for validity."
-msgstr ""
+msgstr "Kontrolas informpeton pri valideco."
 
 #: plugins/queries/kexiquerydesignersql.cpp:182
 #, kde-kuit-format
 msgid "The query is correct"
-msgstr ""
+msgstr "La aldemando estas ĝusta"
 
 #: plugins/queries/kexiquerydesignersql.cpp:188
 #, kde-kuit-format
 msgid "The query is incorrect"
-msgstr ""
+msgstr "La aldemando estas malĝusta"
 
 #: plugins/queries/kexiquerydesignersql.cpp:195
 #, kde-kuit-format
 msgid ""
 "Please enter your query and execute \"Check query\" function to verify it."
 msgstr ""
+"Bonvolu enigi vian aldemandon kaj lanĉi funkcion \"Kontroli informpeton\" "
+"por kontroli ĝin."
 
 #: plugins/queries/kexiquerydesignersql.cpp:233
 #, kde-kuit-format
@@ -7057,22 +7074,27 @@ msgid ""
 "<para>The query you entered is incorrect.</para><para>Do you want discard "
 "changes made to this SQL text and switch to the other view?</para>"
 msgstr ""
+"<para >La demando, kiun vi enigis estas malĝusta.</para><para >Ĉu vi volas "
+"forĵeti ŝanĝojn faritajn al ĉi tiu SQL-teksto kaj ŝanĝi al la alia vido?</"
+"para>"
 
 #: plugins/queries/kexiquerydesignersql.cpp:236
 #, kde-kuit-format
 msgid "Discard Changes and Switch"
-msgstr ""
+msgstr "Forĵeti Ŝanĝojn kaj Ŝaltilon"
 
 #: plugins/queries/kexiquerydesignersql.cpp:238
 #, kde-kuit-format
 msgid "Don't Switch"
-msgstr ""
+msgstr "Ne Ŝalti"
 
 #: plugins/queries/kexiquerydesignersql.cpp:413
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<para>This query is invalid.</para><para>Do you want to save it?</para>"
 msgstr ""
+"<para >Ĉi tiu demando estas malvalida.</para><para >Ĉu vi volas konservi ĝin?"
+"</para>"
 
 #: plugins/queries/kexiquerypart.cpp:57
 #, kde-kuit-format
@@ -7082,19 +7104,19 @@ msgctxt ""
 "character. If you cannot use latin characters in your language, use english "
 "word."
 msgid "query"
-msgstr ""
+msgstr "demando"
 
 #: plugins/queries/kexiquerypart.cpp:58
 #, kde-kuit-format
 msgctxt "tooltip"
 msgid "Create new query"
-msgstr ""
+msgstr "Krei novan informpeton"
 
 #: plugins/queries/kexiquerypart.cpp:59
 #, kde-kuit-format
 msgctxt "what's this"
 msgid "Creates new query."
-msgstr ""
+msgstr "Kreas novan informpeton."
 
 #: plugins/queries/kexiquerypart.cpp:63
 #, kde-kuit-format
@@ -7106,7 +7128,7 @@ msgstr "SQL"
 #, kde-kuit-format
 msgctxt "@info:tooltip SQL query design view"
 msgid "Switch to SQL design view"
-msgstr ""
+msgstr "Ŝanĝi al SQL-dezajna vido"
 
 #: plugins/queries/kexiquerypart.cpp:121
 #, kde-kuit-format
@@ -7115,24 +7137,26 @@ msgid ""
 "<para>You are about to delete query <resource>%1</resource> but it is used "
 "by following opened windows:</para>"
 msgstr ""
+"<para>Vi estas forigonta demandon <resource>%1</resource> sed ĝi estas uzata "
+"per sekvaj malfermitaj fenestroj:</para>"
 
 #: plugins/queries/kexiquerypart.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Design of query <resource>%1</resource> has been modified."
-msgstr ""
+msgstr "Dezajno de la informpeto <resource>%1</resource> estas modifita."
 
 #: plugins/queries/kexiquerypart.cpp:202
 #, kde-format
 msgctxt "@info"
 msgid "Query <resource>%1</resource> already exists."
-msgstr ""
+msgstr "Informpeto <resource>%1</resource> jam ekzistas."
 
 #: plugins/queries/kexiquerypart.cpp:260 plugins/tables/kexitablepart.cpp:208
 #, kde-format
 msgctxt "@info/plain Sentence1 Sentence2 Sentence3"
 msgid "%1%2%3"
-msgstr ""
+msgstr "%1%2%3"
 
 #: plugins/queries/kexiquerypart.cpp:263 plugins/tables/kexitablepart.cpp:211
 #, kde-kuit-format
@@ -7141,34 +7165,36 @@ msgid ""
 "<para>Do you want to close these windows and save the design or cancel "
 "saving?</para>"
 msgstr ""
+"<para>Ĉu vi volas fermi ĉi tiujn fenestrojn kaj konservi la dezajnon aŭ "
+"nuligi konservadon?</para>"
 
 #: plugins/queries/kexiquerypart.cpp:268 plugins/tables/kexitablepart.cpp:216
 #, kde-kuit-format
 msgctxt "@action:button Close all windows and save"
 msgid "Close Windows and Save"
-msgstr ""
+msgstr "Fermi Fenestrojn kaj Konservi"
 
 #: plugins/queries/kexiquerypart.cpp:270 plugins/tables/kexitablepart.cpp:218
 #, kde-kuit-format
 msgctxt "@info:tooltip Close all windows and save design"
 msgid "Close all windows and save design"
-msgstr ""
+msgstr "Fermi ĉiujn fenestrojn kaj konservi la dezajnon"
 
 #: plugins/queries/kexiquerypart.cpp:297
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Query <resource>%1</resource>"
-msgstr ""
+msgstr "Aldemando <resource>%1</resource>"
 
 #: plugins/queries/kexiqueryview.cpp:97
 #, kde-kuit-format
 msgid "Query executing failed."
-msgstr ""
+msgstr "Rulado de informpeto malsukcesis."
 
 #: plugins/reports/kexireportdesignview.cpp:58
 #, kde-kuit-format
 msgid "Edit Sections"
-msgstr ""
+msgstr "Redakti Sekciojn"
 
 #: plugins/reports/kexireportdesignview.cpp:61
 #, kde-kuit-format
@@ -7188,93 +7214,93 @@ msgctxt ""
 "character. If you cannot use latin characters in your language, use english "
 "word."
 msgid "report"
-msgstr ""
+msgstr "raporto"
 
 #: plugins/reports/kexireportpart.cpp:66
 #, kde-kuit-format
 msgctxt "tooltip"
 msgid "Create new report"
-msgstr ""
+msgstr "Krei novan raporton"
 
 #: plugins/reports/kexireportpart.cpp:67
 #, kde-kuit-format
 msgctxt "what's this"
 msgid "Creates new report."
-msgstr ""
+msgstr "Kreas novan raporton."
 
 #: plugins/reports/kexireportpart.cpp:86
 #, kde-format
 msgctxt "@info"
 msgid "Design of report <resource>%1</resource> has been modified."
-msgstr ""
+msgstr "Dezajno de raporto <resource>%1</resource> estas modifita."
 
 #: plugins/reports/kexireportpart.cpp:88
 #, kde-format
 msgctxt "@info"
 msgid "Report <resource>%1</resource> already exists."
-msgstr ""
+msgstr "Raporto <resource>%1</resource> jam ekzistas."
 
 #: plugins/reports/kexireportpart.cpp:184
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Report <resource>%1</resource>"
-msgstr ""
+msgstr "Raporto <resource>%1</resource>"
 
 #: plugins/reports/kexireportview.cpp:67
 #, kde-kuit-format
 msgctxt "Page selector label"
 msgid "Page:"
-msgstr ""
+msgstr "Paĝo:"
 
 #: plugins/reports/kexireportview.cpp:68
 #, kde-kuit-format
 msgid "Go to first page"
-msgstr ""
+msgstr "Iru al la unua paĝo"
 
 #: plugins/reports/kexireportview.cpp:69
 #, kde-kuit-format
 msgid "Goes to first page"
-msgstr ""
+msgstr "Iras al la unua paĝo"
 
 #: plugins/reports/kexireportview.cpp:70
 #, kde-kuit-format
 msgid "Go to previous page"
-msgstr ""
+msgstr "Iru al la antaŭa paĝo"
 
 #: plugins/reports/kexireportview.cpp:71
 #, kde-kuit-format
 msgid "Goes to previous page"
-msgstr ""
+msgstr "Iras al la antaŭa paĝo"
 
 #: plugins/reports/kexireportview.cpp:72
 #, kde-kuit-format
 msgid "Go to next page"
-msgstr ""
+msgstr "Iri al la sekva paĝo"
 
 #: plugins/reports/kexireportview.cpp:73
 #, kde-kuit-format
 msgid "Goes to next page"
-msgstr ""
+msgstr "Iras al la sekva paĝo"
 
 #: plugins/reports/kexireportview.cpp:74
 #, kde-kuit-format
 msgid "Go to last page"
-msgstr ""
+msgstr "Iri al la lasta paĝo"
 
 #: plugins/reports/kexireportview.cpp:75
 #, kde-kuit-format
 msgid "Goes to last page"
-msgstr ""
+msgstr "Iras al la lasta paĝo"
 
 #: plugins/reports/kexireportview.cpp:76
 #, kde-kuit-format
 msgid "Current page number"
-msgstr ""
+msgstr "Nuna paĝnumero"
 
 #: plugins/reports/kexireportview.cpp:76
 #, kde-kuit-format
 msgid "Number of pages"
-msgstr ""
+msgstr "Nombro da paĝoj"
 
 #: plugins/reports/kexireportview.cpp:85
 #, kde-kuit-format
@@ -7284,18 +7310,18 @@ msgstr "Presi"
 #: plugins/reports/kexireportview.cpp:87
 #, kde-kuit-format
 msgid "Print report"
-msgstr ""
+msgstr "Presi raporton"
 
 #: plugins/reports/kexireportview.cpp:88
 #, kde-kuit-format
 msgid "Prints the current report."
-msgstr ""
+msgstr "Presas la aktualan raporton."
 
 #: plugins/reports/kexireportview.cpp:91
 #, kde-kuit-format
 msgctxt "@title:menu"
 msgid "E&xport As"
-msgstr ""
+msgstr "Eksportu kiel"
 
 #: plugins/reports/kexireportview.cpp:98
 #, kde-kuit-format
@@ -7306,86 +7332,91 @@ msgstr "Eksporti:"
 #, kde-kuit-format
 msgctxt "open dialog to export as text document"
 msgid "Text Document..."
-msgstr ""
+msgstr "Teksta Dokumento..."
 
 #: plugins/reports/kexireportview.cpp:108
 #, kde-kuit-format
 msgid "Export the report as a text document (in OpenDocument Text format)"
 msgstr ""
+"Eksporti la raporton kiel tekstan dokumenton (en OpenDocument Text-formato)"
 
 #: plugins/reports/kexireportview.cpp:109
 #, kde-kuit-format
 msgid "Exports the report as a text document (in OpenDocument Text format)."
 msgstr ""
+"Eksportas la raporton kiel tekstdokumenton (en OpenDocument Text-formato)."
 
 #: plugins/reports/kexireportview.cpp:118
 #, kde-kuit-format
 msgctxt "Portable Document Format..."
 msgid "PDF..."
-msgstr ""
+msgstr "PDF..."
 
 #: plugins/reports/kexireportview.cpp:121
 #, kde-kuit-format
 msgid "Export as PDF"
-msgstr ""
+msgstr "Eksporti kiel PDF"
 
 #: plugins/reports/kexireportview.cpp:122
 #, kde-kuit-format
 msgid "Exports the current report as PDF."
-msgstr ""
+msgstr "Eksportas la nunan raporton kiel PDF."
 
 #: plugins/reports/kexireportview.cpp:131
 #, kde-kuit-format
 msgctxt "open dialog to export as spreadsheet"
 msgid "Spreadsheet..."
-msgstr ""
+msgstr "Tabelfolio..."
 
 #: plugins/reports/kexireportview.cpp:134
 #, kde-kuit-format
 msgid "Export the report as a spreadsheet (in OpenDocument Spreadsheet format)"
 msgstr ""
+"Eksporti la raporton kiel kalkultabelon (en OpenDocument Spreadsheet-formato)"
 
 #: plugins/reports/kexireportview.cpp:135
 #, kde-kuit-format
 msgid ""
 "Exports the report as a spreadsheet (in OpenDocument Spreadsheet format)."
 msgstr ""
+"Eksportas la raporton kiel kalkultabelon (en OpenDocument Spreadsheet-"
+"formato)."
 
 #: plugins/reports/kexireportview.cpp:145
 #, kde-kuit-format
 msgctxt "open dialog to export as web page"
 msgid "Web Page..."
-msgstr ""
+msgstr "Retpaĝo..."
 
 #: plugins/reports/kexireportview.cpp:148
 #, kde-kuit-format
 msgid "Export the report as a web page (in HTML format)"
-msgstr ""
+msgstr "Eksporti la raporton kiel retpaĝon (en HTML-formato)"
 
 #: plugins/reports/kexireportview.cpp:149
 #, kde-kuit-format
 msgid "Exports the report as a web page (in HTML format)."
-msgstr ""
+msgstr "Eksportas la raporton kiel retpaĝon (en HTML-formato)."
 
 #: plugins/reports/kexireportview.cpp:184
 #, kde-kuit-format
 msgid "Printing the report failed."
-msgstr ""
+msgstr "Presi la raporton malsukcesis."
 
 #: plugins/reports/kexireportview.cpp:185
 #, kde-kuit-format
 msgid "Print Failed"
-msgstr ""
+msgstr "Presi Malsukcesis"
 
 #: plugins/reports/kexireportview.cpp:197
 #, kde-kuit-format
 msgid "Export Report as PDF"
-msgstr ""
+msgstr "Eksporti Raporton kiel PDF"
 
 #: plugins/reports/kexireportview.cpp:216
 #, kde-kuit-format
 msgid "Exporting the report as PDF to %1 failed."
-msgstr ""
+msgstr "Eksporti la raporton kiel PDF al %1 malsukcesis."
 
 #: plugins/reports/kexireportview.cpp:217
 #: plugins/reports/kexireportview.cpp:273
@@ -7393,37 +7424,37 @@ msgstr ""
 #: plugins/reports/kexireportview.cpp:338
 #, kde-kuit-format
 msgid "Export Failed"
-msgstr ""
+msgstr "Eksporto Malsukcesis"
 
 #: plugins/reports/kexireportview.cpp:245
 #, kde-kuit-format
 msgid "Do you want to open exported document?"
-msgstr ""
+msgstr "Ĉu vi volas malfermi eksportitan dokumenton?"
 
 #: plugins/reports/kexireportview.cpp:263
 #, kde-kuit-format
 msgid "Export Report as Spreadsheet"
-msgstr ""
+msgstr "Eksporti Raporton kiel kalkultabelon"
 
 #: plugins/reports/kexireportview.cpp:272
 #, kde-kuit-format
 msgid "Failed to export the report as spreadsheet to %1."
-msgstr ""
+msgstr "Malsukcesis eksporti la raporton kiel kalkultabelon al %1."
 
 #: plugins/reports/kexireportview.cpp:288
 #, kde-kuit-format
 msgid "Export Report as Text Document"
-msgstr ""
+msgstr "Eksporti Raporton kiel Teksta Dokumento"
 
 #: plugins/reports/kexireportview.cpp:297
 #, kde-kuit-format
 msgid "Exporting the report as text document to %1 failed."
-msgstr ""
+msgstr "Eksporto de la raporto kiel tekstdokumento al %1 malsukcesis."
 
 #: plugins/reports/kexireportview.cpp:308
 #, kde-kuit-format
 msgid "Export Report as Web Page"
-msgstr ""
+msgstr "Eksporti Raporton kiel TTT-paĝon"
 
 #: plugins/reports/kexireportview.cpp:322
 #, kde-kuit-format
@@ -7433,154 +7464,157 @@ msgid ""
 "page or use HTML tables?</para><para><note>CSS give output closer to the "
 "original.</note></para>"
 msgstr ""
+"<para >Ĉu vi ŝatus uzi Kaskadajn stilfoliojn (CSS) en la eksportita retpaĝo "
+"aŭ uzi HTML-tabelojn?</para><para><note>CSS donas eligon pli proksime al la "
+"originalo.</note></para>"
 
 #: plugins/reports/kexireportview.cpp:326
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Use CSS"
-msgstr ""
+msgstr "Uzi CSS"
 
 #: plugins/reports/kexireportview.cpp:327
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Use Table"
-msgstr ""
+msgstr "Uzu Tabelon"
 
 #: plugins/reports/kexireportview.cpp:337
 #, kde-kuit-format
 msgid "Exporting the report as web page to %1 failed."
-msgstr ""
+msgstr "Eksporto de la raporto kiel retpaĝo al %1 malsukcesis."
 
 #: plugins/reports/kexireportview.cpp:400
 #, kde-kuit-format
 msgid "Opening failed"
-msgstr ""
+msgstr "Malfermo malsukcesis"
 
 #: plugins/reports/kexireportview.cpp:400
 #, kde-kuit-format
 msgid "Report schema appears to be invalid or corrupt"
-msgstr ""
+msgstr "Raportskemo ŝajnas nevalida aŭ korupta"
 
 #: plugins/reports/kexisourceselector.cpp:59
 #, kde-kuit-format
 msgid "Report's data source:"
-msgstr ""
+msgstr "La datumfonto de la raporto:"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:134
 #, kde-kuit-format
 msgid "Execute the scripting code"
-msgstr ""
+msgstr "Efektivigi la skriptokodon"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:135
 #, kde-kuit-format
 msgid "Executes the scripting code."
-msgstr ""
+msgstr "Efektivigas la skriptkodon."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:144
 #, kde-kuit-format
 msgid "Edit"
-msgstr ""
+msgstr "Redakti"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:146
 #, kde-kuit-format
 msgid "Edit actions"
-msgstr ""
+msgstr "Redakti agojn"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:147
 #, kde-kuit-format
 msgid "Provides Edit menu."
-msgstr ""
+msgstr "Provizas Redaktan menuon."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:154
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:136
 #, kde-kuit-format
 msgid "Configure Editor..."
-msgstr ""
+msgstr "Agordi redaktilon..."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:156
 #, kde-kuit-format
 msgid "Configure the scripting editor"
-msgstr ""
+msgstr "Agordi la skriptredaktilon"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:157
 #, kde-kuit-format
 msgid "Configures the scripting editor."
-msgstr ""
+msgstr "Agordas la skriptredaktilon."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:166
 #, kde-kuit-format
 msgid "&Import..."
-msgstr "&Importu..."
+msgstr "&Importi..."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:168
 #, kde-kuit-format
 msgid "Import script"
-msgstr ""
+msgstr "Importi skripton"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:169
 #, kde-kuit-format
 msgid "Imports script from a file."
-msgstr ""
+msgstr "Importas skripton el dosiero."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:182
 #, kde-kuit-format
 msgid "&Export..."
-msgstr ""
+msgstr "&Eksporti..."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:184
 #, kde-kuit-format
 msgid "Export script"
-msgstr ""
+msgstr "Eksporti skripton"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:185
 #, kde-kuit-format
 msgid "Exports script to a file."
-msgstr ""
+msgstr "Eksportas skripton al dosiero."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:224
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Import Script"
-msgstr ""
+msgstr "Importi Skripton"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:233
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not read <filename>%1</filename>."
-msgstr ""
+msgstr "Ne eblis legi <filename>%1</filename>."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:242
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Export Script"
-msgstr ""
+msgstr "Eksporti Skripton"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:249
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not write <filename>%1</filename>."
-msgstr ""
+msgstr "Ne eblis skribi <filename>%1</filename>."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:271
 #, kde-kuit-format
 msgid "Script Type"
-msgstr ""
+msgstr "Skripto-Tipo"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:272
 #, kde-kuit-format
 msgid "The type of script"
-msgstr ""
+msgstr "La tipo de skripto"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:309
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Execution of the script <resource>%1</resource> started."
-msgstr ""
+msgstr "Plenumigo de la skripto <resource>%1</resource> komenciĝis."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:330
 #, no-c-format, kde-kuit-format
 msgid "Successfully executed. Time elapsed: %1ms"
-msgstr ""
+msgstr "Sukcese efektivigita. Tempo pasita: %1ms"
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:70
 #, kde-kuit-format
@@ -7590,19 +7624,19 @@ msgctxt ""
 "character. If you cannot use latin characters in your language, use english "
 "word."
 msgid "script"
-msgstr ""
+msgstr "skripto"
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:71
 #, kde-kuit-format
 msgctxt "tooltip"
 msgid "Create new script"
-msgstr ""
+msgstr "Krei novan skripton"
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:72
 #, kde-kuit-format
 msgctxt "what's this"
 msgid "Creates new script."
-msgstr ""
+msgstr "Kreas novan skripton."
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:107
 #, kde-kuit-format
@@ -7610,43 +7644,45 @@ msgid ""
 "Error executing script at line %1:\n"
 "%2"
 msgstr ""
+"Eraro dum plenumo de skripto ĉe linio %1:\n"
+"%2"
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:107
 #, kde-kuit-format
 msgid "KEXI Script"
-msgstr ""
+msgstr "KEXI Skripto"
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:163
 #, kde-format
 msgctxt "@info"
 msgid "Design of script <resource>%1</resource> has been modified."
-msgstr ""
+msgstr "Dezajno de skripto <resource>%1</resource> estas modifita."
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:165
 #, kde-format
 msgctxt "@info"
 msgid "Script <resource>%1</resource> already exists."
-msgstr ""
+msgstr "Skripto <resource>%1</resource> jam ekzistas."
 
 #: plugins/tables/kexilookupcolumnpage.cpp:137
 #, kde-kuit-format
 msgid "Record source:"
-msgstr ""
+msgstr "Rikordfonto:"
 
 #: plugins/tables/kexilookupcolumnpage.cpp:147
 #, kde-kuit-format
 msgid "Go to selected record source"
-msgstr ""
+msgstr "Iri al elektita rikordfonto"
 
 #: plugins/tables/kexilookupcolumnpage.cpp:158
 #, kde-kuit-format
 msgid "Bound column:"
-msgstr ""
+msgstr "Bindita kolumno:"
 
 #: plugins/tables/kexilookupcolumnpage.cpp:172
 #, kde-kuit-format
 msgid "Visible column:"
-msgstr ""
+msgstr "Videbla kolumno:"
 
 #: plugins/tables/kexitabledesignercommands.cpp:94
 #, kde-format
@@ -7655,45 +7691,47 @@ msgid ""
 "Change <resource>%1</resource> property for table field from <resource>%2</"
 "resource> to <resource>%3</resource>"
 msgstr ""
+"Ŝanĝi <resource>%1</resource> propraĵon por tabelkampo de <resource>%2</"
+"resource> al <resource>%3</resource>"
 
 #: plugins/tables/kexitabledesignercommands.cpp:160
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Delete table field <resource>%1</resource>"
-msgstr ""
+msgstr "Forigi tabelkampon <resource>%1</resource>"
 
 #: plugins/tables/kexitabledesignercommands.cpp:162
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Delete empty row at position %1"
-msgstr ""
+msgstr "Forigi malplenan vicon ĉe pozicio %1"
 
 #: plugins/tables/kexitabledesignercommands.cpp:212
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Insert table field \"%1\""
-msgstr ""
+msgstr "Enigi tabelkampon \"%1\""
 
 #: plugins/tables/kexitabledesignerview.cpp:109
 #, kde-kuit-format
 msgctxt "No table field selected in the Table Designer"
 msgid "No field selected"
-msgstr ""
+msgstr "Neniu kampo elektita"
 
 #: plugins/tables/kexitabledesignerview.cpp:120
 #, kde-kuit-format
 msgid "Additional information about the field"
-msgstr ""
+msgstr "Pliaj informoj pri la kampo"
 
 #: plugins/tables/kexitabledesignerview.cpp:127
 #, kde-kuit-format
 msgid "Field Caption"
-msgstr ""
+msgstr "Kampa Titolo"
 
 #: plugins/tables/kexitabledesignerview.cpp:128
 #, kde-kuit-format
 msgid "Describes caption for the field"
-msgstr ""
+msgstr "Priskribas bildotekston por la kampo"
 
 #: plugins/tables/kexitabledesignerview.cpp:131
 #: widget/fields/KexiFieldListModel.cpp:147
@@ -7704,7 +7742,7 @@ msgstr "Datumtipo"
 #: plugins/tables/kexitabledesignerview.cpp:132
 #, kde-kuit-format
 msgid "Describes data type for the field"
-msgstr ""
+msgstr "Priskribas datumtipo por la kampo"
 
 #: plugins/tables/kexitabledesignerview.cpp:150
 #, kde-kuit-format
@@ -7714,17 +7752,17 @@ msgstr "Komentoj"
 #: plugins/tables/kexitabledesignerview.cpp:150
 #, kde-kuit-format
 msgid "Describes additional comments for the field"
-msgstr ""
+msgstr "Priskribas pliajn komentojn por la kampo"
 
 #: plugins/tables/kexitabledesignerview.cpp:177
 #, kde-kuit-format
 msgid "Sets or deletes primary key"
-msgstr ""
+msgstr "Agordas aŭ forigas ĉefan ŝlosilon"
 
 #: plugins/tables/kexitabledesignerview.cpp:178
 #, kde-kuit-format
 msgid "Sets or deletes primary key for currently selected field."
-msgstr ""
+msgstr "Agordas aŭ forigas ĉefan ŝlosilon por nuntempe elektita kampo."
 
 #: plugins/tables/kexitabledesignerview.cpp:311
 #, kde-kuit-format
@@ -7747,12 +7785,12 @@ msgstr "Bildo"
 #: plugins/tables/kexitabledesignerview.cpp:365
 #, kde-kuit-format
 msgid "Unsigned Number"
-msgstr ""
+msgstr "Nesubskribita Numero"
 
 #: plugins/tables/kexitabledesignerview.cpp:368
 #, kde-kuit-format
 msgid "Max Length"
-msgstr ""
+msgstr "Maksimuma Longo"
 
 #: plugins/tables/kexitabledesignerview.cpp:375
 #, kde-kuit-format
@@ -7762,7 +7800,7 @@ msgstr "Precizeco"
 #: plugins/tables/kexitabledesignerview.cpp:380
 #, kde-kuit-format
 msgid "Visible Decimal Places"
-msgstr ""
+msgstr "Videblaj Decimalaj Lokoj"
 
 #: plugins/tables/kexitabledesignerview.cpp:382
 #, kde-kuit-format
@@ -7773,17 +7811,17 @@ msgstr "Aŭtomate"
 #: plugins/tables/kexitabledesignerview.cpp:386
 #, kde-kuit-format
 msgid "Default Width"
-msgstr ""
+msgstr "Defaŭlta Larĝo"
 
 #: plugins/tables/kexitabledesignerview.cpp:392
 #, kde-kuit-format
 msgid "Default Value"
-msgstr ""
+msgstr "Defaŭlta Valoro"
 
 #: plugins/tables/kexitabledesignerview.cpp:402
 #, kde-kuit-format
 msgid "Unique"
-msgstr ""
+msgstr "Unika"
 
 #: plugins/tables/kexitabledesignerview.cpp:405
 #, kde-kuit-format
@@ -7796,21 +7834,23 @@ msgid ""
 "Allow Zero\n"
 "Size"
 msgstr ""
+"Permesi Nulan\n"
+"Grandecon"
 
 #: plugins/tables/kexitabledesignerview.cpp:411
 #, kde-kuit-format
 msgid "Autonumber"
-msgstr ""
+msgstr "Aŭtonombro"
 
 #: plugins/tables/kexitabledesignerview.cpp:415
 #, kde-kuit-format
 msgid "Indexed"
-msgstr ""
+msgstr "Indeksita"
 
 #: plugins/tables/kexitabledesignerview.cpp:422
 #, kde-kuit-format
 msgid "Record Source"
-msgstr ""
+msgstr "Rikorda Fonto"
 
 #: plugins/tables/kexitabledesignerview.cpp:427
 #, kde-kuit-format
@@ -7819,16 +7859,18 @@ msgid ""
 "Record Source\n"
 "Type"
 msgstr ""
+"Rikordfonta\n"
+"Tipo"
 
 #: plugins/tables/kexitabledesignerview.cpp:431
 #, kde-kuit-format
 msgid "Bound Column"
-msgstr ""
+msgstr "Ligita Kolumno"
 
 #: plugins/tables/kexitabledesignerview.cpp:441
 #, kde-kuit-format
 msgid "Visible Column"
-msgstr ""
+msgstr "Videbla Kolumno"
 
 #: plugins/tables/kexitabledesignerview.cpp:558
 #, kde-kuit-format
@@ -7836,6 +7878,8 @@ msgid ""
 "Cannot switch to data view, because table design is empty.\n"
 "First, please create your design."
 msgstr ""
+"Ne povas ŝanĝi al datumvido, ĉar tabeldezajno estas malplena.\n"
+"Unue, bonvolu krei vian dezajnon."
 
 #: plugins/tables/kexitabledesignerview.cpp:569
 #, kde-kuit-format
@@ -7843,18 +7887,20 @@ msgctxt "@info"
 msgid ""
 "<para>Saving changes for existing table design is now required.</para>%1"
 msgstr ""
+"<para>Konservi ŝanĝojn por ekzistanta tabeldezajno nun estas bezonata.</para>"
+"%1"
 
 #: plugins/tables/kexitabledesignerview.cpp:579
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Save Design and Delete Table Data"
-msgstr ""
+msgstr "Konservi Dezajnon kaj Forigi Tabelajn Datumojn"
 
 #: plugins/tables/kexitabledesignerview.cpp:580
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Discard Design"
-msgstr ""
+msgstr "Forĵeti Dezajnon"
 
 #: plugins/tables/kexitabledesignerview.cpp:643
 #, kde-format
@@ -7863,6 +7909,8 @@ msgid ""
 "Change <resource>%1</resource> field name to <resource>%2</resource> and "
 "caption from <resource>%3</resource> to <resource>%4</resource>"
 msgstr ""
+"Ŝanĝi <resource>%1</resource> kamponomon al <resource>%2</resource> kaj "
+"bildotekston de <resource>%3</resource> al <resource>%4</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:721
 #, kde-format
@@ -7870,6 +7918,7 @@ msgctxt "(qtundo-format)"
 msgid ""
 "Change data type for field <resource>%1</resource> to <resource>%2</resource>"
 msgstr ""
+"Ŝanĝi datumtipon por kampo <resource>%1</resource> al <resource>%2</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:893
 #, kde-kuit-format
@@ -7878,12 +7927,14 @@ msgid ""
 "<para>Setting autonumber requires primary key to be set for current field.</"
 "para>"
 msgstr ""
+"<para>Agordo de aŭtomata numero postulas ĉefa ŝlosilo esti agordita por nuna "
+"kampo.</para>"
 
 #: plugins/tables/kexitabledesignerview.cpp:896
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<para>Previous primary key will be deleted.</para>"
-msgstr ""
+msgstr "<para>Antaŭa ĉefŝlosilo estos forigita.</para>"
 
 #: plugins/tables/kexitabledesignerview.cpp:898
 #, kde-kuit-format
@@ -7892,35 +7943,39 @@ msgid ""
 "<para>Do you want to create primary key for current field? Click "
 "<interface>Cancel</interface> to cancel setting autonumber.</para>"
 msgstr ""
+"<para>Ĉu vi volas krei ĉefan ŝlosilon por nuna kampo? Klaku "
+"<interface>Nuligi</interface> por nuligi la agordon de aŭtomata numero.</"
+"para>"
 
 #: plugins/tables/kexitabledesignerview.cpp:902
 #, kde-kuit-format
 msgid "Setting Autonumber Field"
-msgstr ""
+msgstr "Agordo de Aŭtonumera Kampo"
 
 #: plugins/tables/kexitabledesignerview.cpp:903
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Create &Primary Key"
-msgstr ""
+msgstr "Krei &Primaran Ŝlosilon"
 
 #: plugins/tables/kexitabledesignerview.cpp:910
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Set autonumber for field <resource>%1</resource>"
-msgstr ""
+msgstr "Agordi aŭtomatan numeron por kampo <resource>%1</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:915
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Delete autonumber from field <resource>%1</resource>"
-msgstr ""
+msgstr "Forigi aŭtomatan numeron el kampo <resource>%1</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:933
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Set <resource>%1</resource> property for field <resource>%2</resource>"
 msgstr ""
+"Agordi <resource>%1</resource> trajton por kampo <resource>%2</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:974
 #, kde-format
@@ -7928,23 +7983,24 @@ msgctxt "(qtundo-format)"
 msgid ""
 "Change type for field <resource>%1</resource> to <resource>%2</resource>"
 msgstr ""
+"Ŝanĝi tipon por kampo <resource>%1</resource> al <resource>%2</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:1014
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Set primary key for field <resource>%1</resource>"
-msgstr ""
+msgstr "Agordi ĉefan ŝlosilon por kampo <resource>%1</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:1038
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Unset primary key for field <resource>%1</resource>"
-msgstr ""
+msgstr "Malŝalti ĉefŝlosilon por kampo <resource>%1</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:1143
 #, kde-kuit-format
 msgid "You should enter field caption."
-msgstr ""
+msgstr "Vi devus enigi kampotekston."
 
 #: plugins/tables/kexitabledesignerview.cpp:1160
 #, kde-kuit-format
@@ -7952,6 +8008,8 @@ msgid ""
 "You have added no fields.\n"
 "Every table should have at least one field."
 msgstr ""
+"Vi aldonis neniujn kampojn.\n"
+"Ĉiu tabelo havu almenaŭ unu kampon."
 
 #: plugins/tables/kexitabledesignerview.cpp:1176
 #, kde-kuit-format
@@ -7960,6 +8018,8 @@ msgid ""
 "<para>You have added <resource>%1</resource> field name twice.</"
 "para><para>Field names cannot be repeated. Correct name of the field.</para>"
 msgstr ""
+"<para >Vi aldonis <resource>%1</resource> kampan nomon dufoje.</para><para "
+">Kamponomoj ne povas esti ripetitaj. Ĝusta nomo de la kampo.</para>"
 
 #: plugins/tables/kexitabledesignerview.cpp:1190
 #, kde-kuit-format
@@ -7972,6 +8032,12 @@ msgid ""
 "by hand, press <interface>Cancel</interface> to cancel saving table design.</"
 "para>"
 msgstr ""
+"Tabelo <resource>%1</resource> havas neniun ĉefan ŝlosilon difinita."
+"<para><note>Kvankam ĉefa ŝlosilo ne estas bezonata, ĝi estas bezonata por "
+"krei rilatojn inter datumbazaj tabeloj. Ĉu vi volas ke ĉefa ŝlosilo estu "
+"aŭtomate aldonita nun?</note></para><para>Se vi volas aldoni ĉefan ŝlosilon "
+"mane, premu <interface>Nuligi</interface> por nuligi konservadon de "
+"tabeldezajno.</para>"
 
 #: plugins/tables/kexitabledesignerview.cpp:1209
 #, kde-kuit-format
@@ -7986,24 +8052,26 @@ msgid ""
 "<para>You are about to change the design of table <resource>%1</resource> "
 "but following objects using this table are open:</para>"
 msgstr ""
+"<para>Vi estas ŝanĝonta la dezajnon de tabelo <resource>%1</resource> sed "
+"sekvaj objektoj uzantaj ĉi tiun tabelon estas malfermitaj:</para>"
 
 #: plugins/tables/kexitabledesignerview.cpp:1628
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Table field <resource>%1</resource>"
-msgstr ""
+msgstr "Tabelkampo <resource>%1</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:1630
 #, kde-kuit-format
 msgctxt "Empty table row"
 msgid "Empty Row"
-msgstr ""
+msgstr "Malplena Vico"
 
 #: plugins/tables/kexitabledesignerview_p.cpp:227
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<para>Do you want to save the design now?</para>%1"
-msgstr ""
+msgstr "<para>Ĉu vi volas konservi la dezajnon nun?</para>%1"
 
 #: plugins/tables/kexitablepart.cpp:62
 #, kde-kuit-format
@@ -8013,19 +8081,19 @@ msgctxt ""
 "character. If you cannot use latin characters in your language, use english "
 "word."
 msgid "table"
-msgstr ""
+msgstr "tabelo"
 
 #: plugins/tables/kexitablepart.cpp:63
 #, kde-kuit-format
 msgctxt "tooltip"
 msgid "Create new table"
-msgstr ""
+msgstr "Krei novan tabelon"
 
 #: plugins/tables/kexitablepart.cpp:64
 #, kde-kuit-format
 msgctxt "what's this"
 msgid "Creates new table."
-msgstr ""
+msgstr "Kreas novan tabelon."
 
 #: plugins/tables/kexitablepart.cpp:137
 #, kde-kuit-format
@@ -8034,6 +8102,8 @@ msgid ""
 "<para>You are about to delete table <resource>%1</resource> but it is used "
 "by following opened windows:</para>"
 msgstr ""
+"<para>Vi estas forigonta tabelon <resource>%1</resource> sed ĝi estas uzata "
+"per sekvaj malfermitaj fenestroj:</para>"
 
 #: plugins/tables/kexitablepart.cpp:159
 #, kde-kuit-format
@@ -8042,18 +8112,20 @@ msgid ""
 "<para>You are about to rename table <resource>%1</resource> but it is used "
 "by following opened windows:</para>"
 msgstr ""
+"<para>Vi estas renomonta tabelo <resource>%1</resource> sed ĝi estas uzata "
+"per sekvaj malfermitaj fenestroj:</para>"
 
 #: plugins/tables/kexitablepart.cpp:240
 #, kde-format
 msgctxt "@info"
 msgid "Design of table <resource>%1</resource> has been modified."
-msgstr ""
+msgstr "Dezajno de tabelo <resource>%1</resource> estas modifita."
 
 #: plugins/tables/kexitablepart.cpp:243
 #, kde-format
 msgctxt "@info"
 msgid "Table <resource>%1</resource> already exists."
-msgstr ""
+msgstr "Tabelo <resource>%1</resource> jam ekzistas."
 
 #: plugins/tables/kexitablepart.cpp:247
 #, kde-format
@@ -8062,17 +8134,19 @@ msgid ""
 "<warning>Any data in this table will be deleted upon design's saving!</"
 "warning>"
 msgstr ""
+"<warning>Ajnaj datumoj en ĉi tiu tabelo estos forigita post konservado de "
+"dezajno!</warning>"
 
 #: plugins/tables/kexitablepart.cpp:275
 #, kde-kuit-format
 msgid "Lookup column"
-msgstr ""
+msgstr "Serĉa kolumno"
 
 #: plugins/tables/kexitablepart.cpp:304
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Table <resource>%1</resource>"
-msgstr ""
+msgstr "Tabelo <resource>%1</resource>"
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:855
 #, kde-kuit-format
@@ -8083,62 +8157,64 @@ msgstr "Eraro: %1?"
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:865
 #, kde-kuit-format
 msgid "The column's constraint is declared as NOT NULL (required)."
-msgstr ""
+msgstr "La limo de la kolumno estas deklarita kiel NOT NULL (postulata)."
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:878
 #, kde-kuit-format
 msgid ""
 "The column's constraint is declared as NOT EMPTY (text should be filled)."
 msgstr ""
+"La limo de la kolumno estas deklarita kiel NE MALIKA (teksto devas esti "
+"plenigita)."
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:888
 #, kde-kuit-format
 msgid "The column's constraint is declared as NOT EMPTY and NOT NULL."
-msgstr ""
+msgstr "La limo de la kolumno estas deklarita kiel NE MALKA kaj NE NULA."
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1083
 #, kde-kuit-format
 msgid "Do you want to delete selected record?"
-msgstr ""
+msgstr "Ĉu vi volas forigi elektitan rikordon?"
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1084
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "&Delete Record"
-msgstr ""
+msgstr "&Forigi Rikordon"
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1183
 #, kde-kuit-format
 msgid "Do you want to clear the contents of table %1?"
-msgstr ""
+msgstr "Ĉu vi volas forigi la enhavon de tabelo %1?"
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1184
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "&Clear Contents"
-msgstr ""
+msgstr "&Malplenigi Enhavon"
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1586
 #, kde-kuit-format
 msgid "Record: %1"
-msgstr ""
+msgstr "Rikordo: %1"
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1633
 #, kde-kuit-format
 msgctxt "@action:button Correct Changes"
 msgid "Correct"
-msgstr ""
+msgstr "Korekti"
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1635
 #, kde-kuit-format
 msgid "Correct changes"
-msgstr ""
+msgstr "Korekti ŝanĝojn"
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1636
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Discard Changes"
-msgstr "Forĵetu ŝanĝojn"
+msgstr "Forĵeti ŝanĝojn"
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1950
 #, kde-kuit-format
@@ -8156,23 +8232,23 @@ msgstr[1] ""
 #: widget/dataviewcommon/kexidataprovider.cpp:216
 #, kde-kuit-format
 msgid "NAME"
-msgstr ""
+msgstr "NOMO"
 
 #: widget/fields/KexiFieldListModel.cpp:145
 #, kde-kuit-format
 msgid "Field Name"
-msgstr ""
+msgstr "Kampa Nomo"
 
 #: widget/fields/KexiFieldListModelItem.cpp:64
 #, kde-kuit-format
 msgid "* (All Columns)"
-msgstr ""
+msgstr "* (Ĉiuj Kolumnoj)"
 
 #: widget/kexicharencodingcombobox.cpp:74
 #, kde-kuit-format
 msgctxt "Text encoding: Default"
 msgid "Default: %1"
-msgstr ""
+msgstr "Defaŭlta: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widget/KexiConnectionSelector.ui:50
@@ -8184,6 +8260,11 @@ msgid ""
 "connection. Here you may also add, edit or delete connections from the list."
 "</para>\n"
 msgstr ""
+"<title>Elektu la Konekton de Ekzistanta Datumbaza Servilo El la Suba Listo</"
+"title>\n"
+"<para>Vi vidos ekzistantajn KEXI-projektojn disponeblaj por la elektita "
+"konekto. Ĉi tie vi ankaŭ povas aldoni, redakti aŭ forigi konektojn el la "
+"listo.</para>\n"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: widget/KexiConnectionSelector.ui:104
@@ -8195,35 +8276,35 @@ msgstr "Servila informo"
 #: widget/KexiConnectionSelector.ui:155
 #, kde-format
 msgid "&Add..."
-msgstr "&Aldonu"
+msgstr "&Aldoni..."
 
 #. i18n: ectx: property (text), widget (QPushButton, btn_edit)
 #: widget/KexiConnectionSelector.ui:168
 #, kde-format
 msgid "&Edit..."
-msgstr "&Redakto"
+msgstr "R&edakti..."
 
 #. i18n: ectx: property (text), widget (QPushButton, btn_remove)
 #: widget/KexiConnectionSelector.ui:181
 #: widget/navigator/KexiProjectNavigator.cpp:172
 #, kde-format, kde-kuit-format
 msgid "&Delete..."
-msgstr "&Forigu..."
+msgstr "&Forigi..."
 
 #: widget/KexiConnectionSelectorWidget.cpp:62
 #, kde-kuit-format
 msgid "Add a new database connection"
-msgstr ""
+msgstr "Aldoni novan datumbazan konekton"
 
 #: widget/KexiConnectionSelectorWidget.cpp:63
 #, kde-kuit-format
 msgid "Edit selected database connection"
-msgstr ""
+msgstr "Redakti elektitan datumbazan konekton"
 
 #: widget/KexiConnectionSelectorWidget.cpp:64
 #, kde-kuit-format
 msgid "Delete selected database connections"
-msgstr ""
+msgstr "Forigi elektitajn datumbazajn konektojn"
 
 #: widget/KexiConnectionSelectorWidget.cpp:89
 #, kde-kuit-format
@@ -8245,30 +8326,30 @@ msgstr "&Aldoni"
 #: widget/KexiConnectionSelectorWidget.cpp:387
 #, kde-kuit-format
 msgid "Add database connection"
-msgstr ""
+msgstr "Aldoni datumbazan konekton"
 
 #: widget/KexiConnectionSelectorWidget.cpp:388
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Add a New Database Connection"
-msgstr ""
+msgstr "Aldoni Novan Datumbazan Konekton"
 
 #: widget/KexiConnectionSelectorWidget.cpp:419
 #, kde-kuit-format
 msgctxt "@action:button Save Database Connection"
 msgid "&Save"
-msgstr "&Konservi"
+msgstr "Kon&servi"
 
 #: widget/KexiConnectionSelectorWidget.cpp:420
 #, kde-kuit-format
 msgid "Save changes made to this database connection"
-msgstr ""
+msgstr "Konservi ŝanĝojn faritajn al ĉi tiu datumbaza konekto"
 
 #: widget/KexiConnectionSelectorWidget.cpp:421
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Edit Database Connection"
-msgstr ""
+msgstr "Redakti datumbazan konekton"
 
 #: widget/KexiConnectionSelectorWidget.cpp:447
 #, kde-kuit-format
@@ -8277,28 +8358,30 @@ msgid ""
 "Do you want to delete database connection <resource>%1</resource> from the "
 "list of available connections?"
 msgstr ""
+"Ĉu vi volas forigi datumbazan konekton <resource>%1</resource> el la listo "
+"de disponeblaj konektoj?"
 
 #: widget/KexiDataSourceComboBox.cpp:125
 #, kde-kuit-format
 msgid "Define Query..."
-msgstr ""
+msgstr "Difini Demandon..."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widget/KexiDBCaptionPage.ui:31
 #, kde-format
 msgid "Pro&ject caption: "
-msgstr ""
+msgstr "Subtitolo de la pro&jekto:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_requester)
 #: widget/KexiDBCaptionPage.ui:63
 #, kde-format
 msgid "Project file&name:"
-msgstr ""
+msgstr "Projektdosiero&nomo:"
 
 #: widget/kexidbconnectionwidget.cpp:90
 #, kde-kuit-format
 msgid "Load database list from the server"
-msgstr ""
+msgstr "Ŝarĝi datumbazan liston de la servilo"
 
 #: widget/kexidbconnectionwidget.cpp:92
 #, kde-kuit-format
@@ -8306,17 +8389,19 @@ msgid ""
 "Loads database list from the server, so you can select one using the "
 "<interface>Name</interface> combo box."
 msgstr ""
+"Ŝarĝas datumbazan liston el la servilo, do vi povas elekti unu per la "
+"kombinujo <interface>Nomo</interface>."
 
 #: widget/kexidbconnectionwidget.cpp:103
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Save Changes"
-msgstr ""
+msgstr "Konservi Ŝanĝojn"
 
 #: widget/kexidbconnectionwidget.cpp:104
 #, kde-kuit-format
 msgid "Save all changes made to this connection information"
-msgstr ""
+msgstr "Konservi ĉiujn ŝanĝojn faritajn al ĉi tiu koneksa informo"
 
 #: widget/kexidbconnectionwidget.cpp:105
 #, kde-kuit-format
@@ -8324,28 +8409,32 @@ msgid ""
 "Save all changes made to this connection information. You can later reuse "
 "this information."
 msgstr ""
+"Konservu ĉiujn ŝanĝojn faritajn al ĉi tiu koneksa informo. Vi povas poste "
+"reuzi ĉi tiun informon."
 
 #: widget/kexidbconnectionwidget.cpp:116
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "&Test Connection"
-msgstr ""
+msgstr "&Testi Konekton"
 
 #: widget/kexidbconnectionwidget.cpp:117
 #, kde-kuit-format
 msgid "Test database connection"
-msgstr ""
+msgstr "Testi datumbazan konekton"
 
 #: widget/kexidbconnectionwidget.cpp:118
 #, kde-kuit-format
 msgid ""
 "Tests database connection. You can check validity of connection information."
 msgstr ""
+"Testas datumbazan konekton. Vi povas kontroli validecon de informoj pri "
+"konekto."
 
 #: widget/kexidbconnectionwidget.cpp:152
 #, kde-kuit-format
 msgid "Database Connection"
-msgstr ""
+msgstr "Datumbaza Konekto"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)
@@ -8369,26 +8458,26 @@ msgstr "Detaloj"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Open Database"
-msgstr ""
+msgstr "Malfermu datumbazon"
 
 #: widget/kexidbconnectionwidget.cpp:404
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Connect to a Database Server"
-msgstr ""
+msgstr "Konekti al datumbaza servilo"
 
 #: widget/kexidbconnectionwidget.cpp:444
 #: widget/KexiProjectSelectorWidget.cpp:309
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "&Open"
-msgstr "&Malfermu"
+msgstr "&Malfermi"
 
 #: widget/kexidbconnectionwidget.cpp:444
 #: widget/KexiProjectSelectorWidget.cpp:310
 #, kde-kuit-format
 msgid "Open Database Connection"
-msgstr ""
+msgstr "Malferma Datumbaza Konekto"
 
 #. i18n: ectx: property (title), widget (QGroupBox, authenticationGBox)
 #: widget/kexidbconnectionwidget.ui:90
@@ -8419,12 +8508,17 @@ msgid ""
 "read, so generally it is not safe to make such files publicly accessible.</"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p>Konservas pasvorton en <span style=\" font-style:"
+"italic;\">.kexic</span> aŭ <span style=\" font-style:italic; ;\">.kexis</"
+"span> koneksa ŝparvoja dosiero uzante simplan ĉifradon similan al ROT-47. Ĝi "
+"ne garantias sekurecon, sed simple malfaciligas al iu ajn legi, do ĝenerale "
+"ne estas sekure fari tiajn dosierojn publike alireblaj.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkSavePassword)
 #: widget/kexidbconnectionwidget.ui:140
 #, kde-format
 msgid "Save password"
-msgstr ""
+msgstr "Konservi pasvorton"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
 #: widget/kexidbconnectionwidget.ui:174
@@ -8436,31 +8530,31 @@ msgstr "&Nomo:"
 #: widget/kexidbconnectionwidget.ui:193
 #, kde-format
 msgid "&Caption (optional):"
-msgstr ""
+msgstr "&Subtitolo (laŭvola):"
 
 #. i18n: ectx: property (title), widget (QGroupBox, locationBGrp)
 #: widget/kexidbconnectionwidget.ui:289
 #, kde-format
 msgid "Database Server"
-msgstr ""
+msgstr "Datumbaza Servilo"
 
 #. i18n: ectx: property (text), widget (QLabel, lblEngine)
 #: widget/kexidbconnectionwidget.ui:298
 #, kde-format
 msgid "&Engine:"
-msgstr ""
+msgstr "&Motoro:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, localhostRBtn)
 #: widget/kexidbconnectionwidget.ui:335
 #, kde-format
 msgid "Local server"
-msgstr ""
+msgstr "Loka servilo"
 
 #. i18n: ectx: property (text), widget (QRadioButton, remotehostRBtn)
 #: widget/kexidbconnectionwidget.ui:348
 #, kde-format
 msgid "Remote server"
-msgstr ""
+msgstr "Fora servilo"
 
 #. i18n: ectx: property (text), widget (QLabel, hostLbl)
 #: widget/kexidbconnectionwidget.ui:357
@@ -8485,7 +8579,7 @@ msgstr "Defaŭlta"
 #: widget/kexidbconnectionwidgetdetails.ui:34
 #, kde-format
 msgid "Use socket &file instead of TCP/IP port:"
-msgstr ""
+msgstr "Uzi konektingan &dosieron anstataŭ TCP/IP-haveno:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkSocketDefault)
 #: widget/kexidbconnectionwidgetdetails.ui:80
@@ -8504,13 +8598,13 @@ msgstr "&Priskribo:"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Opening Database"
-msgstr ""
+msgstr "Malferma Datumbazo"
 
 #: widget/KexiDBPasswordDialog.cpp:59
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Supply a password below."
-msgstr ""
+msgstr "Provizu pasvorton sube."
 
 #: widget/KexiDBPasswordDialog.cpp:68
 #, kde-kuit-format
@@ -8521,44 +8615,44 @@ msgstr "&Detaloj >>"
 #: widget/KexiDBPasswordDialog.cpp:81 widget/KexiPasswordWidget.ui:138
 #, kde-format, kde-kuit-format
 msgid "Database server:"
-msgstr ""
+msgstr "Datumbaza servilo:"
 
 #: widget/KexiDBPasswordDialog.cpp:87
 #, kde-kuit-format
 msgctxt "unspecified user"
 msgid "(unspecified)"
-msgstr ""
+msgstr "(nespecifita)"
 
 #: widget/KexiDBPasswordDialog.cpp:94
 #: widget/navigator/KexiProjectNavigator.cpp:160
 #, kde-kuit-format
 msgid "&Open"
-msgstr "&Malfermu"
+msgstr "&Malfermi"
 
 #: widget/KexiFileDialog.cpp:480
 #, kde-format
 msgid "All supported formats"
-msgstr ""
+msgstr "Ĉiuj subtenataj formatoj"
 
 #: widget/KexiFileRequester.cpp:216
 #, kde-kuit-format
 msgid "Computer"
-msgstr ""
+msgstr "Komputilo"
 
 #: widget/KexiFileRequester.cpp:389
 #, kde-kuit-format
 msgid "Could not enter directory <filename>%1</filename>."
-msgstr ""
+msgstr "Ne eblis enigi dosierujon <filename>%1</filename>."
 
 #: widget/KexiFileRequester.cpp:465
 #, kde-kuit-format
 msgid "Go to parent directory"
-msgstr ""
+msgstr "Iri al gepatra dosierujo"
 
 #: widget/KexiFileRequester.cpp:482
 #, kde-kuit-format
 msgid "Select directory"
-msgstr ""
+msgstr "Elekti dosierujon"
 
 #: widget/KexiFileRequester.cpp:507 widget/KexiNameWidget.cpp:98
 #, kde-kuit-format
@@ -8568,73 +8662,73 @@ msgstr "Nomo:"
 #: widget/KexiFileRequester.cpp:528
 #, kde-kuit-format
 msgid "Filter:"
-msgstr ""
+msgstr "Filtrilo:"
 
 #: widget/KexiFileWidgetInterface.cpp:235 widget/KexiStartupFileHandler.cpp:380
 #, kde-kuit-format
 msgid "Enter a filename."
-msgstr ""
+msgstr "Enigu dosiernomon."
 
 #: widget/KexiFileWidgetInterface.cpp:271 widget/KexiStartupFileHandler.cpp:425
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The file <filename>%1</filename> does not exist."
-msgstr ""
+msgstr "La dosiero <filename>%1</filename> ne ekzistas."
 
 #: widget/KexiFileWidgetInterface.cpp:276 widget/KexiStartupFileHandler.cpp:431
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Enter a filename."
-msgstr ""
+msgstr "Enigu dosiernomon."
 
 #: widget/KexiFileWidgetInterface.cpp:281 widget/KexiStartupFileHandler.cpp:435
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The file <filename>%1</filename> is not readable."
-msgstr ""
+msgstr "La dosiero <filename>%1</filename> ne estas legebla."
 
 #: widget/KexiNameDialog.cpp:180
 #, kde-kuit-format
 msgid "Do you want to replace it?"
-msgstr ""
+msgstr "Ĉu vi volas anstataŭigi ĝin?"
 
 #: widget/KexiNameDialog.cpp:183
 #, kde-kuit-format
 msgid "Replace object"
-msgstr ""
+msgstr "Anstataŭigi objekton"
 
 #: widget/KexiNameDialog.cpp:186
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "&Choose Other Name..."
-msgstr ""
+msgstr "&Elekti Alian Nomon..."
 
 #: widget/KexiNameWidget.cpp:93
 #, kde-kuit-format
 msgid "Caption:"
-msgstr ""
+msgstr "Titolo:"
 
 #: widget/KexiNameWidget.cpp:124
 #, kde-kuit-format
 msgid "Please enter the name."
-msgstr ""
+msgstr "Bonvolu enigi la nomon."
 
 #: widget/KexiNameWidget.cpp:125
 #, kde-kuit-format
 msgid "Please enter the caption."
-msgstr ""
+msgstr "Bonvolu enigi la bildotekston."
 
 #: widget/KexiObjectInfoLabel.cpp:110
 #, kde-kuit-format
 msgctxt "Object class \"objectName\", e.g. Text editor \"text\""
 msgid "%1 <resource>%2</resource>"
-msgstr ""
+msgstr "%1 <resource>%2</resource>"
 
 #. i18n: ectx: property (text), widget (QLabel, prompt)
 #: widget/KexiPasswordWidget.ui:49
 #, kde-format
 msgid "Supply a password below."
-msgstr ""
+msgstr "Provizu pasvorton sube."
 
 #. i18n: ectx: property (text), widget (QLabel, userNameLabel)
 #: widget/KexiPasswordWidget.ui:87
@@ -8646,7 +8740,7 @@ msgstr "Uzantnomo:"
 #: widget/KexiPasswordWidget.ui:104
 #, kde-format
 msgid "Anonymous:"
-msgstr ""
+msgstr "Anonima:"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
 #: widget/KexiPasswordWidget.ui:121
@@ -8664,19 +8758,19 @@ msgstr "Pasvorto:"
 #: widget/KexiPasswordWidget.ui:185
 #, kde-format
 msgid "Remember password:"
-msgstr ""
+msgstr "Memoru pasvorton:"
 
 #. i18n: ectx: property (text), widget (QRadioButton, option_file)
 #: widget/kexiprjtypeselector.ui:51
 #, kde-format
 msgid "Projects stored in a file"
-msgstr ""
+msgstr "Projektoj konservitaj en dosiero"
 
 #. i18n: ectx: property (text), widget (QRadioButton, option_server)
 #: widget/kexiprjtypeselector.ui:86
 #, kde-format
 msgid "Projects stored on a database server"
-msgstr ""
+msgstr "Projektoj stokitaj sur datumbaza servilo"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widget/KexiProjectSelector.ui:33
@@ -8685,12 +8779,14 @@ msgid ""
 "<b>There are KEXI projects you have recently opened.</b> Select one you wish "
 "to open:\n"
 msgstr ""
+"<b>Estas KEXI-projektoj, kiujn vi lastatempe malfermis.</b> Elektu tiun, "
+"kiun vi volas malfermi:\n"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: widget/KexiProjectSelector.ui:74
 #, kde-format
 msgid "Project Name"
-msgstr ""
+msgstr "Nomo de Projekto"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: widget/KexiProjectSelector.ui:107
@@ -8701,7 +8797,7 @@ msgstr "Konekto"
 #: widget/KexiProjectSelectorWidget.cpp:94
 #, kde-kuit-format
 msgid "File (%1)"
-msgstr ""
+msgstr "Dosiero (%1)"
 
 #: widget/KexiProjectSelectorWidget.cpp:103
 #, kde-kuit-format
@@ -8713,12 +8809,13 @@ msgstr "%1: %2"
 #, kde-kuit-format
 msgid "Select a project on <resource>%1</resource> database server to open:"
 msgstr ""
+"Elektu projekton sur <resource>%1</resource> datumbaza servilo por malfermi:"
 
 #: widget/kexiqueryparameters.cpp:42
 #, kde-kuit-format
 msgctxt "@title:window Enter Query Parameter Value"
 msgid "Enter Parameter Value"
-msgstr ""
+msgstr "Enigi Parametran Valoron"
 
 #: widget/kexiqueryparameters.cpp:62
 #, kde-kuit-format
@@ -8744,42 +8841,49 @@ msgid ""
 "filename>. Please note that your package names could vary slightly depending "
 "on the operating system you use.</para>"
 msgstr ""
+"<title>Neniu datumbaza servilo ŝoforoj trovitaj</title><para>Konekto al "
+"datumbaza servilo postulas taŭgan pelilon, kiun vi ne havas instalitan.</"
+"para><subtitle>Detaloj</subtitle><para>Por akiri datumbazajn ŝoforojn "
+"bonvolu uzi vian Pakaĵadministrilon por serĉi kaj instali pakaĵojn kun tiel "
+"nomataj <emphasis>KDb-peliloj</emphasis> nomitaj <filename>kdb-****-driver</"
+"filename>. Bonvolu noti, ke viaj pakaĵnomoj povus iomete varii depende de la "
+"operaciumo kiun vi uzas.</para>"
 
 #: widget/KexiStartupFileHandler.cpp:483
 #, kde-kuit-format
 msgid "This file already exists. Do you want to overwrite it?"
-msgstr ""
+msgstr "Ĉi tiu dosiero jam ekzistas. Ĉu vi volas anstataŭigi ĝin?"
 
 #: widget/KexiStartupFileHandler.cpp:484
 #, kde-kuit-format
 msgid "Overwrite"
-msgstr "Anstataŭigu"
+msgstr "Anstataŭigi"
 
 #: widget/navigator/KexiProjectNavigator.cpp:119
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Project Navigator"
-msgstr ""
+msgstr "Projekta Navigilo"
 
 #: widget/navigator/KexiProjectNavigator.cpp:161
 #, kde-kuit-format
 msgid "Open object"
-msgstr ""
+msgstr "Malferma objekto"
 
 #: widget/navigator/KexiProjectNavigator.cpp:161
 #, kde-kuit-format
 msgid "Opens object selected in the list."
-msgstr ""
+msgstr "Malfermas objekton elektitan en la listo."
 
 #: widget/navigator/KexiProjectNavigator.cpp:173
 #, kde-kuit-format
 msgid "Delete object"
-msgstr ""
+msgstr "Forigi objekton"
 
 #: widget/navigator/KexiProjectNavigator.cpp:174
 #, kde-kuit-format
 msgid "Deletes the object selected in the list."
-msgstr ""
+msgstr "Forigas la objekton elektitan en la listo."
 
 #: widget/navigator/KexiProjectNavigator.cpp:177
 #, kde-kuit-format
@@ -8794,81 +8898,83 @@ msgstr "Alinomi objekton"
 #: widget/navigator/KexiProjectNavigator.cpp:179
 #, kde-kuit-format
 msgid "Renames the object selected in the list."
-msgstr ""
+msgstr "Renomas la objekton elektitan en la listo."
 
 #: widget/navigator/KexiProjectNavigator.cpp:188
 #, kde-kuit-format
 msgid "&Design"
-msgstr ""
+msgstr "&Dezajno"
 
 #: widget/navigator/KexiProjectNavigator.cpp:189
 #, kde-kuit-format
 msgid "Design object"
-msgstr ""
+msgstr "Dezajnobjekto"
 
 #: widget/navigator/KexiProjectNavigator.cpp:190
 #, kde-kuit-format
 msgid "Starts designing of the object selected in the list."
-msgstr ""
+msgstr "Komencas desegnadon de la objekto elektita en la listo."
 
 #. i18n, will be updated before use
 #: widget/navigator/KexiProjectNavigator.cpp:194
 #, kde-kuit-format
 msgid "Design object in text view"
-msgstr ""
+msgstr "Dezajnobjekto en tekstvido"
 
 #: widget/navigator/KexiProjectNavigator.cpp:195
 #, kde-kuit-format
 msgid "Starts designing of the object in the list in text view."
-msgstr ""
+msgstr "Komencas desegnadon de la objekto en la listo en tekstvido."
 
 #: widget/navigator/KexiProjectNavigator.cpp:209
 #, kde-kuit-format
 msgctxt "Export->To Clipboard as Data... "
 msgid "To &Clipboard..."
-msgstr ""
+msgstr "Al &Tondujo..."
 
 #: widget/navigator/KexiProjectNavigator.cpp:210
 #, kde-kuit-format
 msgid "Export data to clipboard"
-msgstr ""
+msgstr "Eksporti datumojn al tondujo"
 
 #: widget/navigator/KexiProjectNavigator.cpp:211
 #, kde-kuit-format
 msgid "Exports data from the currently selected table or query to clipboard."
 msgstr ""
+"Eksportas datumojn de la nuntempe elektita tabelo aŭ demando al tondujo."
 
 #: widget/navigator/KexiProjectNavigator.cpp:216
 #, kde-kuit-format
 msgctxt "Export->To File As Data &Table... "
 msgid "To &File As Data Table..."
-msgstr ""
+msgstr "Al &Dosiero Kiel Datuma Tabelo..."
 
 #: widget/navigator/KexiProjectNavigator.cpp:217
 #, kde-kuit-format
 msgid "Export data to a file"
-msgstr ""
+msgstr "Eksporti datumojn al dosiero"
 
 #: widget/navigator/KexiProjectNavigator.cpp:218
 #, kde-kuit-format
 msgid "Exports data from the currently selected table or query to a file."
 msgstr ""
+"Eksportas datumojn de la nuntempe elektita tabelo aŭ demando al dosiero."
 
 #: widget/navigator/KexiProjectNavigator.cpp:371
 #, kde-kuit-format
 msgid "&Create Object: %1..."
-msgstr ""
+msgstr "&Krei Objekton: %1..."
 
 #: widget/navigator/KexiProjectNavigator.cpp:377
 #, kde-kuit-format
 msgid "&Create Object..."
-msgstr ""
+msgstr "&Krei Objekton..."
 
 #: widget/navigator/KexiProjectNavigator.cpp:471
 #, kde-kuit-format
 msgctxt "@info Rename object %1:"
 msgid "Rename <resource>%1</resource>:"
-msgstr ""
+msgstr "Alinomi <resource>%1</resource>:"
 
 #: widget/navigator/KexiProjectNavigator.cpp:473
 #, kde-kuit-format
@@ -8880,7 +8986,7 @@ msgstr "Renomi"
 #, kde-kuit-format
 msgctxt "@title:window Rename Object %1."
 msgid "Rename <resource>%1</resource>"
-msgstr ""
+msgstr "Alinomi <resource>%1</resource>"
 
 #: widget/navigator/KexiProjectNavigator.cpp:639
 #, kde-kuit-format
@@ -8889,31 +8995,33 @@ msgid ""
 "<nl/><nl/><img src=\"%1\" width=\"48\"/><nl/>Your project is empty...<nl/"
 ">Why not <b>create</b> something?"
 msgstr ""
+"<nl/><nl/><img src=\"%1\" width=\"48\"/><nl/>Via projekto estas malplena..."
+"<nl/>Kial ne <b>krei</b> ion?"
 
 #: widget/properties/KexiPropertyEditorView.cpp:106
 #, kde-kuit-format
 msgid "No field selected"
-msgstr ""
+msgstr "Neniu kampo elektita"
 
 #: widget/properties/KexiPropertyPaneWidget.cpp:150
 #, kde-kuit-format
 msgid "No object selected"
-msgstr ""
+msgstr "Neniu objekto elektita"
 
 #: widget/relations/KexiRelationsScrollArea.cpp:120
 #, kde-kuit-format
 msgid "&Hide Selected Table/Query"
-msgstr ""
+msgstr "&Kaŝi Elektitan Tabelon/Demandon"
 
 #: widget/relations/KexiRelationsScrollArea.cpp:122
 #, kde-kuit-format
 msgid "&Delete Selected Relationship"
-msgstr ""
+msgstr "&Forigi Elektitan Rilaton"
 
 #: widget/relations/KexiRelationsScrollArea.cpp:124
 #, kde-kuit-format
 msgid "&Open Selected Table/Query"
-msgstr ""
+msgstr "&Malfermi Elektitan Tabelon/Demandon"
 
 #: widget/relations/KexiRelationsView.cpp:86
 #, kde-kuit-format
@@ -8924,32 +9032,32 @@ msgstr "Tabelo:"
 #, kde-kuit-format
 msgctxt "Insert table/query into relations view"
 msgid "&Insert"
-msgstr "Enŝov&i"
+msgstr "Enmet&i"
 
 #: widget/relations/KexiRelationsView.cpp:109
 #, kde-kuit-format
 msgid "&Hide Table"
-msgstr ""
+msgstr "&Kaŝi Tabelon"
 
 #: widget/relations/KexiRelationsView.cpp:121
 #, kde-kuit-format
 msgid "&Append Field"
-msgstr ""
+msgstr "&Aldoni Kampon"
 
 #: widget/relations/KexiRelationsView.cpp:126
 #, kde-kuit-format
 msgid "&Append Fields"
-msgstr ""
+msgstr "&Aldoni Kampojn"
 
 #: widget/relations/KexiRelationsView.cpp:131
 #, kde-kuit-format
 msgid "&Open Table"
-msgstr ""
+msgstr "&Malfermi Tabelon"
 
 #: widget/relations/KexiRelationsView.cpp:136
 #, kde-kuit-format
 msgid "&Design Table"
-msgstr ""
+msgstr "&Dezajna Tabelo"
 
 #: widget/relations/KexiRelationsView.cpp:391
 #, kde-kuit-format
@@ -8959,67 +9067,67 @@ msgstr "Rilato"
 #: widget/tableview/kexiblobtableedit.cpp:83
 #, kde-kuit-format
 msgid "Click to show available actions for this cell"
-msgstr ""
+msgstr "Klaku por montri disponeblajn agojn por ĉi tiu ĉelo"
 
 #: widget/tableview/KexiTableScrollArea.cpp:2439
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Contains a pointer to the currently selected record."
-msgstr ""
+msgstr "Enhavas montrilon al la nuntempe elektita rikordo."
 
 #: widget/tableview/KexiTableScrollArea.cpp:2442
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Record navigator."
-msgstr ""
+msgstr "Rikorda navigilo."
 
 #: widget/tableview/KexiTableScrollArea.cpp:2449
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Column <resource>%1</resource>."
-msgstr ""
+msgstr "Kolumno <resource>%1</resource>."
 
 #: widget/undo/kundo2group.cpp:358 widget/undo/kundo2stack.cpp:1079
 #, kde-format
 msgctxt "Default text for undo action"
 msgid "Undo"
-msgstr ""
+msgstr "Malfari"
 
 #: widget/undo/kundo2group.cpp:358 widget/undo/kundo2stack.cpp:1079
 #, kde-format
 msgid "Undo %1"
-msgstr ""
+msgstr "Malfari %1"
 
 #: widget/undo/kundo2group.cpp:385 widget/undo/kundo2stack.cpp:1105
 #, kde-format
 msgctxt "Default text for redo action"
 msgid "Redo"
-msgstr ""
+msgstr "Refari"
 
 #: widget/undo/kundo2group.cpp:385 widget/undo/kundo2stack.cpp:1105
 #, kde-format
 msgid "Redo %1"
-msgstr ""
+msgstr "Refari %1"
 
 #: widget/undo/kundo2model.cpp:67
 #, kde-format
 msgid "<empty>"
-msgstr ""
+msgstr "<malplena>"
 
 #: widget/undo/kundo2stack.cpp:1346
 #, kde-format
 msgid "Redo"
-msgstr ""
+msgstr "Refari"
 
 #: widget/undo/kundo2stack.cpp:1365
 #, kde-format
 msgid "Undo"
-msgstr ""
+msgstr "Malfari"
 
 #: widget/utils/kexicontextmenuutils.cpp:61
 #, kde-kuit-format
 msgid "Insert From &File..."
-msgstr ""
+msgstr "Enigi el &Dosiero..."
 
 #: widget/utils/kexicontextmenuutils.cpp:76
 #, kde-kuit-format
@@ -9029,19 +9137,19 @@ msgstr "&Forigi"
 #: widget/utils/kexicontextmenuutils.cpp:85
 #, kde-kuit-format
 msgid "Properties"
-msgstr "Ecoj"
+msgstr "Trajtoj"
 
 #: widget/utils/kexicontextmenuutils.cpp:104
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Insert Image From File"
-msgstr ""
+msgstr "Enigi Bildon El Dosiero"
 
 #: widget/utils/kexicontextmenuutils.cpp:148
 #, kde-kuit-format
 msgctxt "@title"
 msgid "Save Image to File"
-msgstr ""
+msgstr "Konservi Bildon al Dosiero"
 
 #: widget/utils/kexicontextmenuutils.cpp:161
 #, kde-kuit-format
@@ -9050,6 +9158,8 @@ msgid ""
 "<para>File <filename>%1</filename> already exists.</para><para>Do you want "
 "to replace it with a new one?</para>"
 msgstr ""
+"<para >Dosiero <filename>%1</filename> jam ekzistas.</para><para >Ĉu vi "
+"volas anstataŭigi ĝin per nova?</para>"
 
 #: widget/utils/kexicontextmenuutils.cpp:164
 #, kde-kuit-format
@@ -9060,7 +9170,7 @@ msgstr "&Anstataŭigi"
 #: widget/utils/kexicontextmenuutils.cpp:165
 #, kde-kuit-format
 msgid "&Don't Replace"
-msgstr ""
+msgstr "&Ne Anstataŭigi"
 
 #: widget/utils/kexicontextmenuutils.cpp:249
 #, kde-kuit-format
@@ -9072,17 +9182,17 @@ msgstr "%1 : %2"
 #, kde-kuit-format
 msgctxt "Autonumber, make it as short as possible"
 msgid "(auto)"
-msgstr ""
+msgstr "(aŭtomate)"
 
 #: widget/utils/kexirecordnavigator.cpp:170
 #, kde-kuit-format
 msgid "Record:"
-msgstr ""
+msgstr "Rikordo:"
 
 #: widget/utils/kexirecordnavigator.cpp:201
 #, kde-kuit-format
 msgid "Current record number"
-msgstr ""
+msgstr "Nuna rikorda nombro"
 
 #: widget/utils/kexirecordnavigator.cpp:203
 #, kde-kuit-format
@@ -9093,84 +9203,84 @@ msgstr "el"
 #: widget/utils/kexirecordnavigator.cpp:227
 #, kde-kuit-format
 msgid "Number of records"
-msgstr ""
+msgstr "Nombro de rikordoj"
 
 #: widget/utils/kexirecordnavigator.cpp:598
 #, kde-kuit-format
 msgid "Editing indicator"
-msgstr ""
+msgstr "Redakta indikilo"
 
 #: widget/utils/kexirecordnavigator.cpp:625
 #, kde-kuit-format
 msgid "First record"
-msgstr ""
+msgstr "Unua disko"
 
 #: widget/utils/kexirecordnavigator.cpp:625
 #, kde-kuit-format
 msgid "Go to first record"
-msgstr ""
+msgstr "Iri al la unua disko"
 
 #: widget/utils/kexirecordnavigator.cpp:626
 #, kde-kuit-format
 msgid "Go to previous record"
-msgstr ""
+msgstr "Iru al antaŭa rikordo"
 
 #: widget/utils/kexirecordnavigator.cpp:626
 #, kde-kuit-format
 msgid "Previous record"
-msgstr ""
+msgstr "Antaŭa rikordo"
 
 #: widget/utils/kexirecordnavigator.cpp:627
 #, kde-kuit-format
 msgid "Go to next record"
-msgstr ""
+msgstr "Iri al la sekva rikordo"
 
 #: widget/utils/kexirecordnavigator.cpp:627
 #, kde-kuit-format
 msgid "Next record"
-msgstr ""
+msgstr "Sekva rikordo"
 
 #: widget/utils/kexirecordnavigator.cpp:628
 #, kde-kuit-format
 msgid "Go to last record"
-msgstr ""
+msgstr "Iri al lasta rikordo"
 
 #: widget/utils/kexirecordnavigator.cpp:628
 #, kde-kuit-format
 msgid "Last record"
-msgstr ""
+msgstr "Lasta rikordo"
 
 #: widget/utils/kexirecordnavigator.cpp:629
 #, kde-kuit-format
 msgid "Go to new record"
-msgstr ""
+msgstr "Iri al nova rikordo"
 
 #: widget/utils/kexirecordnavigator.cpp:629
 #, kde-kuit-format
 msgid "New record"
-msgstr ""
+msgstr "Nova rikordo"
 
 #: widget/utils/kexirecordnavigator.cpp:630
 #, kde-kuit-format
 msgid "Moves cursor to first record."
-msgstr ""
+msgstr "Movas kursoron al la unua registro."
 
 #: widget/utils/kexirecordnavigator.cpp:631
 #, kde-kuit-format
 msgid "Moves cursor to previous record."
-msgstr ""
+msgstr "Movas kursoron al antaŭa rikordo."
 
 #: widget/utils/kexirecordnavigator.cpp:632
 #, kde-kuit-format
 msgid "Moves cursor to next record."
-msgstr ""
+msgstr "Movas kursoron al sekva registro."
 
 #: widget/utils/kexirecordnavigator.cpp:633
 #, kde-kuit-format
 msgid "Moves cursor to last record."
-msgstr ""
+msgstr "Movas kursoron al lasta rikordo."
 
 #: widget/utils/kexirecordnavigator.cpp:634
 #, kde-kuit-format
 msgid "Moves cursor to new record and allows inserting."
-msgstr ""
+msgstr "Movas kursoron al nova registro kaj permesas enmeti."
