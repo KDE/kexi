@@ -15,6 +15,7 @@
   <name xml:lang="en-GB">Kexi</name>
   <name xml:lang="es">Kexi</name>
   <name xml:lang="et">Kexi</name>
+  <name xml:lang="eu">Kexi</name>
   <name xml:lang="fi">Kexi</name>
   <name xml:lang="fr">Kexi</name>
   <name xml:lang="gl">Kexi</name>
@@ -44,6 +45,7 @@
   <summary xml:lang="en-GB">Visual database apps builder</summary>
   <summary xml:lang="es">Constructor visual de aplicaciones de base de datos</summary>
   <summary xml:lang="et">Visuaalne andmebaasirakenduste looja</summary>
+  <summary xml:lang="eu">Datu-base aplikazioetarako ikusizko eraikitzailea</summary>
   <summary xml:lang="fi">Visuaalinen tietokantasovellusten luonti</summary>
   <summary xml:lang="fr">Constructeur d'applications de bases de données visuel</summary>
   <summary xml:lang="gl">Construtor visual de aplicativos de base de datos</summary>
@@ -77,6 +79,7 @@
     <p xml:lang="el">Το Kexi είναι ένα πρόγραμμα κατασκευής εφαρμογών με οπτική βάση δεδομένων. Χρησιμεύει για τη σχεδίαση εφαρμογών βάσεων δεδομένων, την εισαγωγή και διόρθωση δεδομένων, την εκτέλεση ερωτήσεων και την επεξεργασία δεδομένων. Οι φόρμες κατασκευάζονται για να παρέχουν ένα προσαρμοσμένο περιβάλλον χρήσης για τα δεδομένα σας. Όλα τα αντικείμενα της βάσης - πίνακες, ερωτήσεις, φόρμες, αναφορές, κλπ. - αποθηκεύονται στη βάση δεδομένων, διευκολύνοντας το διαμοιρασμό δεδομένων και σχεδίασης.</p>
     <p xml:lang="en-GB">Kexi is a visual database applications builder. It can be used for designing database applications, inserting and editing data, performing queries, and processing data. Forms can be created to provide a custom interface to your data. All database objects - tables, queries, forms, reports, etc. - are stored in the database, making it easy to share data and design.</p>
     <p xml:lang="es">Kexi es un creador visual de aplicaciones de bases de datos. Se puede usar para diseñar aplicaciones de bases de datos, insertar y editar datos, realizar consultas y procesar datos. Se pueden crear formularios para proporcionar una interfaz personalizada para sus datos. Todos los objetos de la base de datos (tablas, consultas, formularios, informes, etc.) se almacenan en la base de datos, facilitando el intercambio de datos y diseños.</p>
+    <p xml:lang="eu">KEXI datu-base aplikazioen ikusizko eraikitzaile bat da. Datu-base aplikazioak diseinatzeko, datuak txertatu eta editatzeko, itaunak gauzatzeko, eta datuak prozesatzeko erabil daiteke. Zure datuei neurrira egindako interfaze bat emateko inprimakiak sor daitezke. Datu-baseko objektu guztiak - taulak, itaunak, inprimakiak, txostenak, etab. - datu-basean bertan gordetzen dira, datuak eta diseinua partekatzea erraztuz.</p>
     <p xml:lang="fi">Kexi on ohjelma tietokantasovellusten luomiseen visuaalisesti. Se on osa Calligra-ohjelmistoa. Sen avulla voi suunnitella tietokantasovelluksia, lisätä ja muokata tietoja, suorittaa kyselyjä ja käsitellä tietoja. Voit luoda lomakkeita mukauttaaksesi tietojesi käyttöliittymää. Kaikki tietokantaoliot – taulukot, kyselyt, lomakkeet, raportit jne. – tallennetaan tietokantaan, joten tiedon jako ja suunnittelu on helppoa.</p>
     <p xml:lang="fr">Kexi est un constructeur d'applications de bases de données visuel. Il peut être utilisé pour concevoir des applications de base de données, insérer et éditer des données, effectuer des requêtes, et traiter des données. Des formulaires peuvent être créés pour fournir une interface personnalisée pour vos données. Tous les objets de bases de données (tables, requêtes, formulaires, rapports, etc.) sont stockés dans la base de données, simplifiant le partage de données et de design.</p>
     <p xml:lang="gl">Kexi é un construtor visual de aplicacións de base de datos. Pode usarse para deseñar aplicacións de base de datos, inserindo e editando datos, realizando consultas, e procesando datos. Poden crearse formularios para fornecer unha interface personalizada para os datos. Todos os obxectos de base de datos (táboas, consultas, formularios, informes, etc.) almacénanse na base de datos, facendo fácil compartir os datos e o deseño.</p>
@@ -104,6 +107,7 @@
     <p xml:lang="en-GB">Features:</p>
     <p xml:lang="es">Características:</p>
     <p xml:lang="et">Omadused:</p>
+    <p xml:lang="eu">Ezaugarriak:</p>
     <p xml:lang="fi">Ominaisuuksia:</p>
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
@@ -136,6 +140,7 @@
       <li xml:lang="en-GB">Full visual designers for tables, queries, forms and reports</li>
       <li xml:lang="es">Herramientas de diseño completamente visuales para las tablas, consultas, formularios e informes.</li>
       <li xml:lang="et">Tabelite, päringute, vormide ja aruannete täielikult visuaalne kujundamine</li>
+      <li xml:lang="eu">Taulak, itaunak, inprimakiak eta txostenetarako ikusizko diseinatzaile osoak</li>
       <li xml:lang="fi">Täysin visuaalinen taulukoiden, kyselyjen, lomakkeiden ja raporttien suunnittelu</li>
       <li xml:lang="fr">Conception complètement visuelle pour les tables, requêtes, formulaires et rapports</li>
       <li xml:lang="gl">Deseñadores completamente visuais para táboas, consultas, formularios e informes.</li>
@@ -165,6 +170,7 @@
       <li xml:lang="en-GB">Running queries, support for parametrised queries</li>
       <li xml:lang="es">Ejecución de consultas, soporte de consultas parametrizadas</li>
       <li xml:lang="et">Päringute sooritamine, parameetritega päringute toetamine</li>
+      <li xml:lang="eu">Itaunak exekutatzea, itaun parametrizatutarako euskarria du</li>
       <li xml:lang="fi">Kyselyjen suoritus ja parametroitavien kyselyjen tuki</li>
       <li xml:lang="fr">Exécution de requêtes, prise en charge des requêtes paramétrées</li>
       <li xml:lang="gl">Execución de consultas, e funcionalidade de consultas parametrizadas.</li>
@@ -193,6 +199,7 @@
       <li xml:lang="en-GB">Supports SQLite, MySQL, PostgreSQL, xBase, and Sybase/MS SQL Server databases</li>
       <li xml:lang="es">Permite usar servidores de bases de datos SQLite, MySQL, PostgreSQL, xBase y Sybase/MS SQL</li>
       <li xml:lang="et">SQLite'i, MySQL'i, PostgreSQL-i, xBase'i ja Sybase/MS SQL Serveri andmebaaside toetamine</li>
+      <li xml:lang="eu">SQLite, MySQL, PostgreSQL, xBase, eta Sybase/«MS SQL Server» datu-baseetarako euskarria</li>
       <li xml:lang="fi">SQLite-, MySQL-, PostgreSQL-, xBase- ja Sybase/MS SQL Server -tietokantojen tuki</li>
       <li xml:lang="fr">Prend en charge les bases de données SQLite, MySQL, PostgreSQL, xBase et Sybase/MS SQL Server</li>
       <li xml:lang="gl">Compatíbel con bases de datos SQLite, MySQL, PostgreSQL, xBase, Sybase SQL Server e MS SQL Server.</li>
@@ -219,6 +226,7 @@
       <li xml:lang="en-GB">The only multiplatform visual tool that can easily import data from MS Access databases</li>
       <li xml:lang="es">La única herramienta gráfica multiplataforma que puede importar con facilidad datos de las bases de datos de MS Access</li>
       <li xml:lang="et">Ainuke mitmel platvormil töötav visuaalne töörist MS Accessi andmebaaside andmete importimiseks</li>
+      <li xml:lang="eu">MS Access datu-baseetatik datuak erraz inportatu ditzakeen ikusizko tresna plataforma-anitz bakarra</li>
       <li xml:lang="fi">Ainoa useampialustainen visuaalinen työkalu, jolla voi helposti tuoda tietoja MS Access -tietokannoista</li>
       <li xml:lang="fr">Le seul outil visuel multi plates-formes qui importe les bases de données de MS Access</li>
       <li xml:lang="gl">A única ferramenta visual multiplataforma que pode importar facilmente datos de bases de datos de MS Access.</li>
@@ -245,6 +253,7 @@
       <li xml:lang="en-GB">Support for query design in dedicated SQL view</li>
       <li xml:lang="es">Permite el diseño de consultas en vista SQL dedicada</li>
       <li xml:lang="et">Päringute kujundamise toetamine SQL-vaates</li>
+      <li xml:lang="eu">Itaun-diseinurako euskarria SQL ikuspegi dedikatuan</li>
       <li xml:lang="fi">Kyselyn suunnittelun tuki SQL-näkymässä</li>
       <li xml:lang="fr">Prend en charge la conception de requêtes SQL dans une vue dédiée</li>
       <li xml:lang="gl">Funcionalidade de deseño de consultas nunha vista de SQL dedicada.</li>
@@ -272,6 +281,7 @@
       <li xml:lang="en-GB">Designing and displaying relational data using combo boxes (lookup columns)</li>
       <li xml:lang="es">Diseño y presentación de datos relacionales utilizando listas desplegables (columnas de búsqueda)</li>
       <li xml:lang="et">Relatsiooniliste andmete kujundamine ja kuvamine liitkastide abil (päringuveerud)</li>
+      <li xml:lang="eu">Erlazio-datuak konbinazio-koadroak erabiliz diseinatzea eta azaltzea (bilaketa-zutabeak)</li>
       <li xml:lang="fi">Relaatiotiedon suunnittelu ja näyttö yhdistelmäkenttiä käyttäen (hakusarakkeet)</li>
       <li xml:lang="fr">Conception et affichage des données relationnelles à l'aide de listes déroulantes (colonnes de consultation)</li>
       <li xml:lang="gl">Deseño e mostra de datos relacionais mediante caixas despregábeis (columnas de busca).</li>
@@ -301,6 +311,7 @@
       <li xml:lang="en-GB">Direct data entry or import using CSV format</li>
       <li xml:lang="es">Entrada directa de datos o importación utilizando el formato CSV</li>
       <li xml:lang="et">Otsene andmete sisestamine või importimine CSV-vormingus</li>
+      <li xml:lang="eu">Datu-sarrera edo inportatze zuzena CSV formatua erabiliz</li>
       <li xml:lang="fi">Suora tiedon syöttö tai tuonti CSV-muodossa</li>
       <li xml:lang="fr">Saisie directe de données ou import utilisant le format CSV</li>
       <li xml:lang="gl">Introdución directa de datos ou importación en formato CSV.</li>
@@ -330,6 +341,7 @@
       <li xml:lang="en-GB">Locked down User Mode, allowing you to switch off all commands related to editing your project's design</li>
       <li xml:lang="es">Modo de usuario limitado, que permite desactivar todas las ordenes relacionadas con la edición del diseño de su proyecto</li>
       <li xml:lang="et">Piiratud õigustega kasutajarežiim, mis võimaldab lülitada välja kõik projekti kujunduse muutmisega seotud käsud</li>
+      <li xml:lang="eu">Erabiltzaile-modu itxia, diseinuko ezaugarri guztiak desagerrarazteko gaitasuna duena</li>
       <li xml:lang="fi">Lukittu käyttäjätila, jossa voit poistaa käytöstä projektin suunnitteluun liittyvät komennot</li>
       <li xml:lang="fr">Mode utilisateur verrouillé, vous permettant de désactiver toutes les commandes liées à la modification de la conception de votre projet</li>
       <li xml:lang="gl">Modo de usuario bloqueado, que permite desactivar todas as ordes de edición do deseño do proxecto.</li>
@@ -359,6 +371,7 @@
       <li xml:lang="en-GB">Scripting using JavaScript, Python or Ruby programming languages (experimental)</li>
       <li xml:lang="es">Programación de scripts escritos en los lenguajes de programación JavaScript, Python o Ruby (experimental)</li>
       <li xml:lang="et">Skriptimisvõimalused JavaScripti, Pythoni või Ruby programmeerimiskeeles (eksperimentaalne)</li>
+      <li xml:lang="eu">JavaScript, Python edo Ruby programatzeko lengoaiak erabiliz gidoiak egitea (esperimentala)</li>
       <li xml:lang="fi">Skriptaus JavaScript-, Python- tai Ruby-ohjelmointikielillä (kokeellinen)</li>
       <li xml:lang="fr">Pilotage par scripts utilisant les langages de programmation JavaScript, Python ou Ruby (expérimental)</li>
       <li xml:lang="gl">Uso de scripts nas linguaxes de programación JavaScript, Python e Ruby (experimental).</li>
@@ -397,6 +410,7 @@
       <caption xml:lang="en-GB">Tabular view</caption>
       <caption xml:lang="es">Vista tabular</caption>
       <caption xml:lang="et">Tabelivaade</caption>
+      <caption xml:lang="eu">Taula ikuspegia</caption>
       <caption xml:lang="fi">Taulukkonäkymä</caption>
       <caption xml:lang="fr">Vue tabulaire</caption>
       <caption xml:lang="gl">Vista de táboa</caption>
@@ -428,6 +442,7 @@
       <caption xml:lang="en-GB">Query Designer</caption>
       <caption xml:lang="es">Diseñador de consultas</caption>
       <caption xml:lang="et">Päringukujundaja</caption>
+      <caption xml:lang="eu">Itaun diseinatzailea</caption>
       <caption xml:lang="fi">Kyselyjen suunnittelu</caption>
       <caption xml:lang="fr">Concepteur de requêtes</caption>
       <caption xml:lang="gl">Deseñador de consultas</caption>
@@ -459,6 +474,7 @@
       <caption xml:lang="en-GB">SQL Editor</caption>
       <caption xml:lang="es">Editor SQL</caption>
       <caption xml:lang="et">SQL-redaktor</caption>
+      <caption xml:lang="eu">SQL editorea</caption>
       <caption xml:lang="fi">SQL-muokkain</caption>
       <caption xml:lang="fr">Éditeur SQL</caption>
       <caption xml:lang="gl">Editor de SQL</caption>
@@ -491,6 +507,7 @@
       <caption xml:lang="en-GB">Form Designer</caption>
       <caption xml:lang="es">Diseñador de formularios</caption>
       <caption xml:lang="et">Vormikujundaja</caption>
+      <caption xml:lang="eu">Inprimaki diseinatzailea</caption>
       <caption xml:lang="fi">Lomakkeiden suunnittelu</caption>
       <caption xml:lang="fr">Concepteur de formulaires</caption>
       <caption xml:lang="gl">Deseñador de formularios</caption>
@@ -524,6 +541,7 @@
       <caption xml:lang="en-GB">Report Designer</caption>
       <caption xml:lang="es">Diseñador de informes</caption>
       <caption xml:lang="et">Aruandekujundaja</caption>
+      <caption xml:lang="eu">Txosten diseinatzailea</caption>
       <caption xml:lang="fi">Raporttien suunnittelu</caption>
       <caption xml:lang="fr">Concepteur de rapports</caption>
       <caption xml:lang="gl">Deseñador de informes</caption>
@@ -555,6 +573,7 @@
       <caption xml:lang="en-GB">MS Access database import</caption>
       <caption xml:lang="es">Importación de bases de datos de MS Access</caption>
       <caption xml:lang="et">MS Accessi andmebaasi import</caption>
+      <caption xml:lang="eu">MS Access datu-base inportatzailea</caption>
       <caption xml:lang="fi">MS Access -tietokannan tuonti</caption>
       <caption xml:lang="fr">Importation de base de données MS Access</caption>
       <caption xml:lang="gl">Importación da base de datos de MS Access</caption>
