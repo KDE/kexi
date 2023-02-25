@@ -95,7 +95,7 @@
 <para
 >O &kexi; é parte do pacote de produtividade &calligra; do KDE. </para>
 <para
->Além do &kexi; armazenar os seus bancos de dados em arquivos, ele também poderá guardar os seus dados num servidor de bancos de dados. Usando um servidor de bancos de dados, você poderá compartilhar a sua base de dados com outras pessoas, permitindo também a mais de uma pessoa usar o banco de dados ao mesmo tempo. São suportados os seguintes servidores de bancos de dados pelo &kexi;: </para>
+>Além do &kexi; armazenar os seus bancos de dados em arquivos, ele também poderá guardar os seus dados num servidor de bancos de dados. Usando um servidor de bancos de dados, você poderá compartilhar o seu banco de dados com outras pessoas, permitindo também a mais de uma pessoa usar o banco de dados ao mesmo tempo. São suportados os seguintes servidores de bancos de dados pelo &kexi;: </para>
 <itemizedlist>
 <listitem
 ><para
@@ -112,9 +112,9 @@
 </itemizedlist>
 <para
 >Mais informações sobre o &kexi; podem ser encontradas na página do &kexi; no <ulink url="http://www.calligra-suite.org/kexi/"
->Website do Calligra</ulink
+>Site do Calligra</ulink
 >, e na página do <ulink url="http://www.kexi-project.org/about.html"
->Website do Kexi</ulink
+>Site do Kexi</ulink
 > em si. </para>
 <para
 >Se você tiver algumas dúvida sobre o &kexi;, existem duas listas de discussão que poderá usar. A lista de discussão dos usuários do &kexi; poderá ser usada para fazer perguntas sobre a utilização do &kexi; ou sobre o projeto do &kexi;. A lista de discussão de desenvolvimento do &kexi; poderá ser usada para fazer perguntas sobre o desenvolvimento do &kexi;. Mais informações sobre a inscrição nessas listas, além de algumas formas de entrar em contato com os desenvolvedores do &kexi;, poderão ser encontradas <ulink url="http://www.kexi-project.org/support.html"
@@ -1475,7 +1475,7 @@
 ></term>
     <listitem>
     <para
->Uma tabela ou pesquisa na base de dados que fornece os dados apresentados no formulário. A fonte de dados é necessária porque os formulários em si são apenas ferramentas para mostrar e inserir dados, enquanto as tabelas e pesquisas são as fontes dos dados. Os formulários novos e vazios não possuem fonte de dados atribuída e, por isso, não apresentam nenhuma informação do seu banco de dados, a menos que lhes atribua uma fonte de dados.</para>
+>Uma tabela ou pesquisa no banco de dados que fornece os dados apresentados no formulário. A fonte de dados é necessária porque os formulários em si são apenas ferramentas para mostrar e inserir dados, enquanto as tabelas e pesquisas são as fontes dos dados. Os formulários novos e vazios não possuem fonte de dados atribuída e, por isso, não apresentam nenhuma informação do seu banco de dados, a menos que lhes atribua uma fonte de dados.</para>
      </listitem>
   </varlistentry>
   <varlistentry
@@ -3291,7 +3291,7 @@
     <para
 >Um <guilabel
 >Navegador Web</guilabel
-> é um elemento que lhe permite mostrar uma página Web dentro do formulário.</para>
+> é um elemento que lhe permite mostrar um site dentro do formulário.</para>
      </listitem>
      <!--FIXME missing Map Browser + Slider + Progress Bar + Link Button + Date Picker-->
   </varlistentry>
@@ -3454,7 +3454,7 @@
     <para
 >Um elemento <guilabel
 >Web</guilabel
-> é usado para fornecer um componente mínimo de navegação Web e imprimir informações de uma página Web local ou remota num relatório.</para>
+> é usado para fornecer um componente mínimo de navegação Web e imprimir informações de um site local ou remoto num relatório.</para>
      </listitem>
      <!--FIXME missing Map-->
   </varlistentry>
@@ -3493,7 +3493,7 @@
 <listitem
 ><para
 ><link linkend="database-design"
->Desenho de Bancos de Dados</link
+>Desenho do banco de dados</link
 >&nbsp;</para
 ></listitem>
 <listitem
@@ -3744,7 +3744,7 @@
 </table>
 </para>
 <para
->Uma tabela como esta tanto pode ser feita numa planilha como numa base de dados. Usar uma planilha é muito simples, claro. Quais são os problemas que nós encontraremos neste estágio? </para>
+>Uma tabela como esta tanto pode ser feita numa planilha como num banco de dados. Usar uma planilha é muito simples, claro. Quais são os problemas que nós encontraremos neste estágio? </para>
 </sect2>
 <sect2 id="referential-data-integrity"
 ><title
@@ -4179,10 +4179,10 @@
 </sect1>
 <sect1 id="database-design"
 ><title
->Desenho de Banco de Dados</title
+>Desenho do banco de dados</title
 > 
 <para
->O desenho de bancos de dados requer um planeamento cuidadoso. Lembre-se de que a reorganização da tabela <replaceable
+>O desenho do bancos de dados requer um planeamento cuidadoso. Lembre-se de que a reorganização da tabela <replaceable
 >Pessoas</replaceable
 >, proposta na seção de <link linkend="data-integrity-and-validity"
 >Integridade e validade dos dado</link
@@ -4321,7 +4321,7 @@
 <table>
   <title
 ><emphasis
->Comparação dos tipos de dados usados no Kexi e nas outras aplicações de bases de dados</emphasis
+>Comparação dos tipos de dados usados no Kexi e nas outros aplicativos de bancos de dados</emphasis
 ></title>
   <tgroup cols="4">
   <thead>
