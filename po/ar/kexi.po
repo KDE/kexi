@@ -10523,7 +10523,7 @@ msgstr "الحركات مؤشر إلى جديد صف و."
 
 #, fuzzy
 #~ msgid "Load KDE Icon by Name"
-#~ msgstr "تحميل كدي أيقونة أداء الاسم"
+#~ msgstr "تحميل كِيدِي أيقونة أداء الاسم"
 
 #, fuzzy
 #~ msgid "&Size:"
