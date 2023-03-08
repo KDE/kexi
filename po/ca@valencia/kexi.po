@@ -2097,7 +2097,7 @@ msgid ""
 "Export to File\n"
 "As Data Table"
 msgstr ""
-"Exporta a un fitxer\n"
+"Exporta cap a un fitxer\n"
 "Com a taula de dades"
 
 #: formeditor/kexiactionselectiondialog.cpp:319
