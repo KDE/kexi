@@ -11,7 +11,7 @@ Dependencies:
     'frameworks/ki18n': '@stable'
     'frameworks/kiconthemes': '@stable'
     'frameworks/kitemviews': '@stable'
-    'frameworks/widgetsaddons': '@stable'
+    'frameworks/kwidgetsaddons': '@stable'
     'frameworks/ktextwidgets': '@stable'
     'frameworks/kxmlgui': '@stable'
     'frameworks/kcompletion': '@stable'
