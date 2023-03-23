@@ -51,7 +51,7 @@ msgstr "Latitud"
 #: MapBrowserFactory.cpp:129 MapBrowserFactory.cpp:130
 #, kde-kuit-format
 msgid "Longitude"
-msgstr "Llargària"
+msgstr "Longitud"
 
 #: MapBrowserFactory.cpp:143 MapBrowserFactory.cpp:144
 #, kde-kuit-format
