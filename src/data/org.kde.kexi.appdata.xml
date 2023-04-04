@@ -202,6 +202,7 @@
       <li xml:lang="eo">Rekta subteno por datumbazoj SQLite, MySQL kaj PostgreSQL</li>
       <li xml:lang="es">Uso directo de bases de datos SQLite, MySQL y PostgreSQL</li>
       <li xml:lang="eu">SQLite, MySQL, eta PostgreSQL datu-baseetarako zuzeneko euskarria</li>
+      <li xml:lang="fi">Suora SQLite-, MySQL- ja PostgreSQL-tietokantojen tuki</li>
       <li xml:lang="fr">Prise en charge native des bases de données SQLite, MySQL et PostgreSQL</li>
       <li xml:lang="it">Supporto diretto per banche dati SQLite, MySQL e PostgreSQL</li>
       <li xml:lang="ka">SQLite, MySQL და PostgreSQL-ის პირდაპირი მხარდაჭერა</li>
@@ -339,6 +340,7 @@
       <li xml:lang="eo">Ŝlosita Uzanta Reĝimo, permesante malŝalti ĉiujn dezajnajn funkciojn</li>
       <li xml:lang="es">Modo de usuario limitado, que permite desconectar todas las funciones de diseño</li>
       <li xml:lang="eu">Erabiltzaile-modu itxia, diseinuko ezaugarri guztiak desagerrarazteko gaitasuna duena</li>
+      <li xml:lang="fi">Lukittu käyttäjätila, jossa projektinsuunnitteluominaisuudet eivät ole käytettävissä</li>
       <li xml:lang="fr">Mode utilisateur verrouillé, vous permettant de désactiver toutes les fonctionnalités de conception</li>
       <li xml:lang="it">Modalità utente bloccata, che consente di disattivare tutte le funzionalità di progettazione</li>
       <li xml:lang="nl">Vergrendelde gebruikersmodus, waarmee alle ontwerpkenmerken zijn uitgeschakeld</li>
