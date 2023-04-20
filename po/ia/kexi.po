@@ -6348,7 +6348,7 @@ msgstr ""
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:594
 #, kde-kuit-format
 msgid "Preview of data from clipboard"
-msgstr "Vista preliminari de datos ex area de transferentia"
+msgstr "Vista preliminar de datos ex area de transferentia"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:615
 #, kde-kuit-format
