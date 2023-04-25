@@ -3,14 +3,14 @@
 # Marce Villarino <mvillarino@kde-espana.es>, 2009, 2013, 2014.
 # Miguel Branco <mgl.branco@gmail.com>, 2009, 2012, 2013.
 # Adrian Chaves Fernandez <adriyetichaves@gmail.com>, 2013, 2015, 2016, 2017.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-24 02:33+0000\n"
-"PO-Revision-Date: 2020-01-12 12:49+0100\n"
+"PO-Revision-Date: 2023-04-24 08:00+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.08.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: core/kexi.cpp:141
 #, kde-kuit-format
@@ -86,7 +86,7 @@ msgid ""
 "This software is developed by Kexi Team - an international group of "
 "independent developers. They form a part of the Calligra Project."
 msgstr ""
-"Este programa desenvóveo o equipo de Kexi, un grupo internacional de "
+"Este programa desenvólveo o equipo de Kexi, un grupo internacional de "
 "desenvolvedores independentes que forma parte do proxecto Calligra."
 
 #: core/kexiaboutdata.cpp:48
@@ -477,8 +477,8 @@ msgid ""
 "Drop (remove) a project using specified database driver and database name. "
 "You will be asked for confirmation."
 msgstr ""
-"Retirar o proxecto que estea a empregaro controlador de bases de datos e o "
-"nomeda base de datos indicados. Pediráselle confirmación."
+"Retirar o proxecto que estea a empregar o controlador de bases de datos e o "
+"nome da base de datos indicados. Pediráselle confirmación."
 
 #: core/KexiCommandLineOptions.cpp:50
 #, kde-kuit-format
@@ -516,7 +516,7 @@ msgstr ""
 "Tipos de ficheiro dispoñíbeis:\n"
 "- «project», para un ficheiro de proxecto (predeterminado).\n"
 "- «shortcut» para un ficheiro de atallo que apunta a un proxecto.\n"
-"- «connection» para os datos dunha coneción a unha base de datos."
+"- «connection» para os datos dunha conexión a unha base de datos."
 
 #: core/KexiCommandLineOptions.cpp:69
 #, kde-kuit-format
@@ -717,7 +717,7 @@ msgid ""
 "project. Ignored if the project is opened using a shortcut file. Defaults "
 "depend on the used server type (e.g. %1, %2)."
 msgstr ""
-"Nome do ficheiro de sócket do computador local para usar ao conectarse a un "
+"Nome do ficheiro de socket do computador local para usar ao conectarse a un "
 "proxecto de base de datos. Ignórase en caso de fornecerse a ruta a un "
 "ficheiro de atallo. O valor predeterminado depende do tipo de servidor(por "
 "exemplo, para %1 sería %2)."
@@ -997,7 +997,7 @@ msgid ""
 "Opening object <resource>%1</resource> failed.\n"
 "%2 %3"
 msgstr ""
-"A apartura do obxecto <resource>%1</resource> fallou.\n"
+"A apertura do obxecto <resource>%1</resource> fallou.\n"
 "%2 %3"
 
 #: core/kexiproject.cpp:1037
@@ -1490,7 +1490,7 @@ msgstr "Non seleccionou o elemento: <resource>%1</resource>."
 #: formeditor/connectiondialog.cpp:372
 #, kde-kuit-format
 msgid "The signal/slot arguments are not compatible."
-msgstr "Os argumentos de sinal e espazo non son compatibeis."
+msgstr "Os argumentos de sinal e espazo non son compatíbeis."
 
 #: formeditor/connectiondialog.cpp:432
 #, kde-kuit-format
@@ -1597,7 +1597,7 @@ msgctxt "@info"
 msgid ""
 "Renaming widget <resource>%1</resource> to <resource>%2</resource> failed."
 msgstr ""
-"O renomeamento do trebello de <resource>%1</resource> a <resource>%2</"
+"O cambio de nome do trebello de <resource>%1</resource> a <resource>%2</"
 "resource> fallou."
 
 #: formeditor/form.cpp:1302
@@ -3367,7 +3367,7 @@ msgstr "Pechar a xanela e renomear"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Renaming object <resource>%1</resource> failed."
-msgstr "O renomeamento do obxecto <resource>%1</resource> fallou."
+msgstr "O cambio de nome do obxecto <resource>%1</resource> fallou."
 
 #: main/KexiMainWindow.cpp:3586
 #, kde-kuit-format
@@ -4188,7 +4188,7 @@ msgstr ""
 #: main/startup/KexiStartup.cpp:947
 #, kde-kuit-format
 msgid "Possible problems: %1"
-msgstr "Posibeis problemas: %1"
+msgstr "Posíbeis problemas: %1"
 
 #: main/startup/KexiStartup.cpp:953
 #, kde-kuit-format
@@ -4227,7 +4227,7 @@ msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
 "database server."
 msgstr ""
-"Non se puido cargar a lista de proxectos dispoñibeis para o servidor de "
+"Non se puido cargar a lista de proxectos dispoñíbeis para o servidor de "
 "bases de datos <resource>%1</resource>."
 
 #: main/startup/KexiStartup.cpp:1034
@@ -5307,7 +5307,7 @@ msgstr "Un botón de ligazón para executar accións"
 #, kde-kuit-format
 msgctxt "Slider widget"
 msgid "Slider"
-msgstr "Barra deslizante"
+msgstr "Desprazador"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:316
 #, kde-format
@@ -5325,7 +5325,7 @@ msgstr "barra de desprazamento"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:317
 #, kde-kuit-format
 msgid "A Slider widget"
-msgstr "Un trebello de control desprazábel."
+msgstr "Un trebello de desprazador."
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:325
 #, kde-kuit-format
@@ -5333,6 +5333,7 @@ msgctxt "Progress Bar widget"
 msgid "Progress Bar"
 msgstr "Barra de progreso"
 
+# well-spelled: barraDeProgreso
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:334
 #, kde-format
 msgctxt ""
@@ -5390,6 +5391,7 @@ msgctxt "Date Picker widget"
 msgid "Date Picker"
 msgstr "Selector de data"
 
+# well-spelled: selectorDeData
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:377
 #, kde-format
 msgctxt ""
@@ -5965,6 +5967,7 @@ msgstr "HTML"
 msgid "Tab Widget"
 msgstr "Trebello de separador"
 
+# well-spelled: trebelloDeLapela
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:572
 #, kde-format
 msgctxt ""
@@ -6204,7 +6207,7 @@ msgstr "Copiando os datos da táboa:"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Export Data From Table to CSV File"
-msgstr "Esportar os datos da táboa a un ficheiro CSV"
+msgstr "Exportar os datos da táboa a un ficheiro CSV"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:100
 #, kde-kuit-format
@@ -6221,7 +6224,7 @@ msgstr "Copiar os datos da consulta ao portapapeis"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Export Data From Query to CSV File"
-msgstr "Esportar os datos da consulta a un ficheiro CSV"
+msgstr "Exportar os datos da consulta a un ficheiro CSV"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:108
 #, kde-kuit-format
@@ -7654,7 +7657,7 @@ msgstr "Precisión"
 #: plugins/tables/kexitabledesignerview.cpp:380
 #, kde-kuit-format
 msgid "Visible Decimal Places"
-msgstr "Posicións decimais visibeis"
+msgstr "Posicións decimais visíbeis"
 
 #: plugins/tables/kexitabledesignerview.cpp:382
 #, kde-kuit-format
@@ -8116,7 +8119,7 @@ msgid ""
 msgstr ""
 "<title>Escolla a conexión ao servidor de bases de datos da seguinte lista</"
 "title>\n"
-"<para>Verá proxectos de Kexi dispoñibeis para a conexión seleccionada. Desde "
+"<para>Verá proxectos de Kexi dispoñíbeis para a conexión seleccionada. Desde "
 "aquí poderá engadir, modificar e eliminar conexións da lista.</para>\n"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
@@ -8212,7 +8215,7 @@ msgid ""
 "list of available connections?"
 msgstr ""
 "Quere eliminar a conexión <resource>%1</resource> a unha base de datos da "
-"lista de conexións dispoñibeis?"
+"lista de conexións dispoñíbeis?"
 
 #: widget/KexiDataSourceComboBox.cpp:125
 #, kde-kuit-format

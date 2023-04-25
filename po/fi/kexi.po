@@ -7,13 +7,13 @@
 # Ilpo Kantonen <ilpo@iki.fi>, 2005, 2006.
 # Mikko Piippo <piippo@cc.helsinki.fi>, 2007.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2011, 2012, 2013, 2014, 2015, 2016.
-# Tommi Nieminen <translator@legisign.org>, 2012, 2014, 2018, 2020, 2021, 2022.
+# Tommi Nieminen <translator@legisign.org>, 2012, 2014, 2018, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-24 02:33+0000\n"
-"PO-Revision-Date: 2022-08-19 14:21+0300\n"
+"PO-Revision-Date: 2023-04-20 11:36+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-POT-Import-Date: 2013-01-13 22:09:41+0000\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: core/kexi.cpp:141
 #, kde-kuit-format
@@ -1448,7 +1448,7 @@ msgstr "Vastaanottaja"
 #: formeditor/connectiondialog.cpp:161
 #, kde-kuit-format
 msgid "Slot"
-msgstr "Slot"
+msgstr "Aukko"
 
 #: formeditor/connectiondialog.cpp:249
 #, kde-kuit-format
@@ -1466,9 +1466,9 @@ msgid "You have not selected item: <resource>%1</resource>."
 msgstr "Et ole valinnut kohdetta: <resource>%1</resource>."
 
 #: formeditor/connectiondialog.cpp:372
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "The signal/slot arguments are not compatible."
-msgstr "Viestin/kohteen argumentit eivät ole yhteensopivia."
+msgstr "Signaali- ja aukkoparametrit eivät sovi yhteen."
 
 #: formeditor/connectiondialog.cpp:432
 #, kde-kuit-format
