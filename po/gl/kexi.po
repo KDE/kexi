@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-15 00:56+0000\n"
-"PO-Revision-Date: 2023-04-24 08:00+0200\n"
+"PO-Revision-Date: 2023-04-30 11:36+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -580,6 +580,7 @@ msgstr ""
 "Algunhas das ordes do menú principal seguen sendo visíbeis. Esta opción "
 "resulta útil no modo de usuario."
 
+# well-spelled: TaboaDeTraballo
 #: core/KexiCommandLineOptions.cpp:97
 #, kde-kuit-format
 msgctxt "'open' command line option"
@@ -5287,6 +5288,7 @@ msgctxt "Text Box widget"
 msgid "Text Box"
 msgstr "Caixa de texto"
 
+# well-spelled: caixaDeTexto
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:116
 #, kde-format
 msgctxt ""
@@ -5311,6 +5313,7 @@ msgctxt "Text Editor widget"
 msgid "Text Editor"
 msgstr "Editor de texto"
 
+# well-spelled: editorDeTexto
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:137
 #, kde-format
 msgctxt ""
@@ -5383,6 +5386,7 @@ msgctxt "Combo Box widget"
 msgid "Combo Box"
 msgstr "Lista despregábel"
 
+# well-spelled: listaDespregabel
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:205
 #, kde-format
 msgctxt ""
@@ -5408,6 +5412,7 @@ msgid "Check Box"
 msgstr "Caixa para marcar"
 
 # skip-rule: trasno-check
+# well-spelled: caixaParaMarcar
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:223
 #, kde-format
 msgctxt ""
@@ -5433,6 +5438,7 @@ msgid "Button"
 msgstr "Botón"
 
 # skip-rule: PT-2013_button
+# well-spelled: boton
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:259
 #, kde-format
 msgctxt ""
@@ -5457,6 +5463,7 @@ msgctxt "Link Button widget"
 msgid "Link Button"
 msgstr "Botón de ligazón"
 
+# well-spelled: botonDeLigazon
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:276
 #, kde-format
 msgctxt ""

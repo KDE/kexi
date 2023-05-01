@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-15 00:56+0000\n"
-"PO-Revision-Date: 2023-03-30 12:12+0200\n"
+"PO-Revision-Date: 2023-04-30 21:25+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -5278,10 +5278,10 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Slider widget"
 msgid "Slider"
-msgstr ""
+msgstr "Glissator"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:316
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "A prefix for identifiers of slider widgets. Based on that, identifiers such "
 "as slider1, slider2 are generated. This string can be used to refer the "
@@ -5291,7 +5291,7 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "slider"
-msgstr ""
+msgstr "Glissator"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:317
 #, kde-kuit-format
