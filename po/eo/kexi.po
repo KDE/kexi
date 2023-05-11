@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-15 00:56+0000\n"
-"PO-Revision-Date: 2023-02-17 07:20+0100\n"
+"PO-Revision-Date: 2023-05-10 20:14+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -1916,7 +1916,7 @@ msgstr "Ŝpruco"
 #, kde-kuit-format
 msgctxt "Menu Bar (HINT: for Frame Shape)"
 msgid "Menu Bar"
-msgstr "Menua Trinkejo"
+msgstr "Menubreto"
 
 #: formeditor/form_p.cpp:329
 #, kde-kuit-format
@@ -5464,7 +5464,7 @@ msgstr "Slider-fenestraĵo"
 #, kde-kuit-format
 msgctxt "Progress Bar widget"
 msgid "Progress Bar"
-msgstr "Progresa Trinkejo"
+msgstr "Progresbreto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:334
 #, kde-format
