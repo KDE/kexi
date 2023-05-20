@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-15 00:56+0000\n"
-"PO-Revision-Date: 2023-04-30 21:25+0200\n"
+"PO-Revision-Date: 2023-05-19 22:59+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -4129,17 +4129,14 @@ msgid "Possible problems: %1"
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:954
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "The file <filename>%1</filename> is not recognized as being supported by "
-#| "Kexi."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The file <filename>%1</filename> is not recognized as being supported by "
 "<application>%2</application>."
 msgstr ""
-"Le file  <filename>%1</filename> non es recognoscite como supportate per "
-"Kexi."
+"Le file  <filename>%1</filename> non es recognoscite como esser supportate "
+"per <application>%2</application>."
 
 #: main/startup/KexiStartup.cpp:959
 #, kde-kuit-format
@@ -4159,14 +4156,13 @@ msgid ""
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:995
-#, fuzzy, kde-kuit-format
-#| msgid "Select a project on <resource>%1</resource> database server to open:"
+#, kde-kuit-format
 msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
 "database server."
 msgstr ""
-"Designo un projecto sur <resource>%1</resource> servitor de base de datos de "
-"aperir:"
+"Non potev cargar lista de projectos disponibile per <resource>%1</resource> "
+"servitor de base de datos"
 
 #: main/startup/KexiStartup.cpp:1036
 #, kde-kuit-format
@@ -4180,18 +4176,14 @@ msgid "Create Project"
 msgstr "Crea Projecto"
 
 #: main/startup/KexiStartupDialog.cpp:98 main/startup/KexiStartupDialog.cpp:361
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:window"
-#| msgid "New Project"
+#, kde-kuit-format
 msgid "Open Existing Project"
-msgstr "Nove projecto"
+msgstr "Aperi projecto existente"
 
 #: main/startup/KexiStartupDialog.cpp:100
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:window"
-#| msgid "New Project"
+#, kde-kuit-format
 msgid "Choose Project"
-msgstr "Nove projecto"
+msgstr "Selige projecto"
 
 #: main/startup/KexiStartupDialog.cpp:258
 #, fuzzy, kde-kuit-format
@@ -4578,11 +4570,9 @@ msgid "Destination project's name:"
 msgstr ""
 
 #: migration/importwizard.cpp:371
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:window"
-#| msgid "Add a New Database Connection"
+#, kde-kuit-format
 msgid "Enter Destination Database Project's Caption"
-msgstr "Adde un nove connexion de base de datos"
+msgstr "Inserta le Legenda de Projecto de Base de Datos de Destination"
 
 #: migration/importwizard.cpp:407
 #, kde-kuit-format
@@ -4851,10 +4841,9 @@ msgid "Data Source"
 msgstr "Fonte de datos"
 
 #: plugins/forms/kexidbfactorybase.cpp:52
-#, fuzzy, kde-kuit-format
-#| msgid "Foreground Color"
+#, kde-kuit-format
 msgid "Frame Color"
-msgstr "Color de Prime Plano"
+msgstr "Color de Quadro"
 
 #: plugins/forms/kexiformmanager.cpp:160
 #, kde-kuit-format
@@ -4927,11 +4916,9 @@ msgid "Creates new form."
 msgstr ""
 
 #: plugins/forms/kexiformpart.cpp:100
-#, fuzzy, kde-kuit-format
-#| msgctxt "@action:button"
-#| msgid "&Clear Contents"
+#, kde-kuit-format
 msgid "Clear Widget Contents"
-msgstr "&Clara Contentos"
+msgstr "Clara Contentos de Widget"
 
 #: plugins/forms/kexiformpart.cpp:102
 #, kde-kuit-format
@@ -5281,7 +5268,7 @@ msgid "Slider"
 msgstr "Glissator"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:316
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of slider widgets. Based on that, identifiers such "
 "as slider1, slider2 are generated. This string can be used to refer the "
@@ -5291,7 +5278,7 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "slider"
-msgstr "Glissator"
+msgstr "glissator"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:317
 #, kde-kuit-format
@@ -5813,16 +5800,14 @@ msgid "Squeezed Text"
 msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:533
-#, fuzzy, kde-kuit-format
-#| msgid "Tab Widget"
+#, kde-kuit-format
 msgid "Tab Stop Width"
-msgstr "Widget de Tabulation"
+msgstr "Largessa de Stop  de Tabulation"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:534
-#, fuzzy, kde-kuit-format
-#| msgid "Save Changes"
+#, kde-kuit-format
 msgid "Tab Changes Focus"
-msgstr "Salveguarda modificationes"
+msgstr "Foco de modificationes de Tabulation"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:535
 #, kde-kuit-format
@@ -5853,10 +5838,9 @@ msgid "Word Wrapping"
 msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:540
-#, fuzzy, kde-kuit-format
-#| msgid "Tab Position"
+#, kde-kuit-format
 msgid "Word Wrap Position"
-msgstr "Position de tabulation"
+msgstr "Position de Torno de Parolas"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:541
 #, kde-kuit-format
