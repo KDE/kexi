@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-15 00:56+0000\n"
-"PO-Revision-Date: 2023-05-10 20:14+0100\n"
+"PO-Revision-Date: 2023-06-06 22:02+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -3959,36 +3959,36 @@ msgstr "Malfermita antaŭ malpli ol minuto"
 #, kde-kuit-format
 msgid "Opened 1 minute ago"
 msgid_plural "Opened %1 minutes ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Malfermita antaŭ 1 minuto"
+msgstr[1] "Malfermita antaŭ %1 minutoj"
 
 #: main/startup/KexiRecentProjectsModel.cpp:74
 #, kde-kuit-format
 msgid "Opened 1 hour ago"
 msgid_plural "Opened %1 hours ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Malfermita antaŭ 1 horo"
+msgstr[1] "Malfermita antaŭ %1 horoj"
 
 #: main/startup/KexiRecentProjectsModel.cpp:77
 #, kde-kuit-format
 msgid "Opened yesterday"
 msgid_plural "Opened %1 days ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Malfermita hieraŭ"
+msgstr[1] "Malfermita antaŭ %1 tagoj"
 
 #: main/startup/KexiRecentProjectsModel.cpp:80
 #, kde-kuit-format
 msgid "Opened over a month ago"
 msgid_plural "Opened %1 months ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Malfermita antaŭ pli ol monato"
+msgstr[1] "Malfermita antaŭ %1 monatoj"
 
 #: main/startup/KexiRecentProjectsModel.cpp:82
 #, kde-kuit-format
 msgid "Opened one year ago"
 msgid_plural "Opened %1 years ago"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Malfermita antaŭ unu jaro"
+msgstr[1] "Malfermita antaŭ %1 jaroj"
 
 #: main/startup/KexiRecentProjectsModel.cpp:116
 #, kde-kuit-format
@@ -8227,7 +8227,13 @@ msgid_plural ""
 "by %1 characters.\n"
 "Fix the text or it will be truncated upon saving changes."
 msgstr[0] ""
+"Limo de %2 signoj por kampo <resource>%3</resource> estis superita je %1 "
+"signo.\n"
+"Riparu la tekston aŭ ĝi estos detranĉita je konservado de ŝanĝoj."
 msgstr[1] ""
+"Limo de %2 signoj por kampo <resource>%3</resource> estis superita je %1 "
+"signoj.\n"
+"Riparu la tekston aŭ ĝi estos detranĉita je konservado de ŝanĝoj."
 
 #: widget/dataviewcommon/kexidataprovider.cpp:216
 #, kde-kuit-format
