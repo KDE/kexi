@@ -2244,7 +2244,7 @@ msgstr "Editeu l'ordre de tabulació"
 #: formeditor/tabstopdialog.cpp:90
 #, kde-kuit-format
 msgid "Move Up"
-msgstr "Mou amunt"
+msgstr "Mou cap amunt"
 
 #: formeditor/tabstopdialog.cpp:91
 #, kde-kuit-format
@@ -2254,7 +2254,7 @@ msgstr "Mou el giny amunt"
 #: formeditor/tabstopdialog.cpp:95
 #, kde-kuit-format
 msgid "Move Down"
-msgstr "Mou avall"
+msgstr "Mou cap avall"
 
 #: formeditor/tabstopdialog.cpp:96
 #, kde-kuit-format
