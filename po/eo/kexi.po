@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-15 00:56+0000\n"
-"PO-Revision-Date: 2023-06-06 22:02+0100\n"
+"PO-Revision-Date: 2023-06-15 21:48+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -208,7 +208,7 @@ msgid ""
 "Sybase/MS SQL Server/ODBC database drivers, xBase migration plugin, "
 "improvements for KexiDB"
 msgstr ""
-"Sybase/MS SQL Server/ODBC datumbazŝoforoj, xBase-migrada kromaĵo, plibonigoj "
+"Sybase/MS SQL Server/ODBC datumbazpeliloj, xBase-migrada kromaĵo, plibonigoj "
 "por KexiDB"
 
 #: core/kexiaboutdata.cpp:72
@@ -4072,12 +4072,12 @@ msgstr "KEXI-aldonaĵoj (%1):"
 #: main/startup/KexiStartup.cpp:271
 #, kde-format
 msgid "No KDb database driver plugins found."
-msgstr "Neniuj KDb datumbaza ŝoforaldonaĵoj trovitaj."
+msgstr "Neniuj KDb-datumbazpelilaj kromaĵoj trovitaj."
 
 #: main/startup/KexiStartup.cpp:274
 #, kde-format
 msgid "KDb database driver plugins (%1):"
-msgstr "KDb datumbaza ŝoforaldonaĵoj (%1):"
+msgstr "KDb datumbazpelilaj kromaĵoj (%1):"
 
 #: main/startup/KexiStartup.cpp:326
 #, kde-kuit-format
@@ -8847,9 +8847,9 @@ msgid ""
 "filename>. Please note that your package names could vary slightly depending "
 "on the operating system you use.</para>"
 msgstr ""
-"<title>Neniu datumbaza servilo ŝoforoj trovitaj</title><para>Konekto al "
+"<title>Neniu datumbaza servilo peliloj trovitaj</title><para>Konekto al "
 "datumbaza servilo postulas taŭgan pelilon, kiun vi ne havas instalitan.</"
-"para><subtitle>Detaloj</subtitle><para>Por akiri datumbazajn ŝoforojn "
+"para><subtitle>Detaloj</subtitle><para>Por akiri datumbazajn pelilojn "
 "bonvolu uzi vian Pakaĵadministrilon por serĉi kaj instali pakaĵojn kun tiel "
 "nomataj <emphasis>KDb-peliloj</emphasis> nomitaj <filename>kdb-****-driver</"
 "filename>. Bonvolu noti, ke viaj pakaĵnomoj povus iomete varii depende de la "
