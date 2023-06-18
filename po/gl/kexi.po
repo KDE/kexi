@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-15 00:56+0000\n"
-"PO-Revision-Date: 2023-04-30 11:36+0200\n"
+"PO-Revision-Date: 2023-06-17 16:29+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -594,9 +594,9 @@ msgid ""
 msgstr ""
 "Abrir un obxecto de tipo «object_type» e nome «object_name» do proxecto "
 "indicado ao iniciar a aplicación. O «object_type» é opcional, sendo "
-"«%1» (táboa) o valor predeterminado. Outros posíbeis tipos son «%2», «%3», "
-"«%4» e «%5». A cantidade de tipos dispoñíbeis variará segundo os "
-"complementos que teña instalados.\n"
+"«%1» (táboa) o valor predeterminado. Tamén admite os tipos «%2», «%3», «%4» "
+"e «%5». A cantidade de tipos dispoñíbeis variará segundo os complementos que "
+"teña instalados.\n"
 "Empregue as comiñas dobres estándar, «\"», para delimitar os nomes que "
 "conteñan espazos.\n"
 "Velaquí algúns exemplos: «--open TaboaDeTraballo», «--open %2:\"Unha gran "
@@ -3817,7 +3817,7 @@ msgid ""
 msgstr ""
 "<para>Seleccione a conexión a un servidor de bases de datos que queira "
 "empregar para crear un novo proxecto de KEXI.</para> <para>Desde aquí pode "
-"engadir, modificar e eliminar conexións da lista.</para>"
+"engadir, editar e eliminar conexións da lista.</para>"
 
 #: main/startup/KexiNewProjectAssistant.cpp:379
 #, kde-kuit-format
@@ -3922,7 +3922,7 @@ msgid ""
 "para>"
 msgstr ""
 "<para>Seleccione a conexión a un servidor de bases de datos que conteña co "
-"proxecto que queira abrir.</para> <para>Desde aquí pode engadir, modificar e "
+"proxecto que queira abrir.</para> <para>Desde aquí pode engadir, editar e "
 "eliminar conexións da lista.</para>"
 
 #: main/startup/KexiOpenProjectAssistant.cpp:148
@@ -4122,8 +4122,8 @@ msgid ""
 "%4</icode>"
 msgstr ""
 "<icode>%1</icode> non é un valor correcto para a opción <icode>--type</"
-"icode> da liña de ordes. Os valores correctos son <icode>%2</icode>, <icode>"
-"%3</icode> e <icode>%4</icode>."
+"icode> da liña de ordes. Valores admitidos: <icode>%2</icode>, <icode>%3</"
+"icode> e <icode>%4</icode>."
 
 #: main/startup/KexiStartup.cpp:394
 #, kde-kuit-format
@@ -5314,6 +5314,7 @@ msgid "Text Editor"
 msgstr "Editor de texto"
 
 # well-spelled: editorDeTexto
+# skip-rule: PT-2011-dual_edit
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:137
 #, kde-format
 msgctxt ""
@@ -6731,9 +6732,8 @@ msgid ""
 msgstr ""
 "<para>Non se definiu ningunha clave primaria (campo numérico automático).</"
 "para> <para>Recoméndase que se defina de maneira automática ao importar. "
-"Quere facelo?</para> <para><note>Pode que sexa imposíbel editar unha táboa "
-"sen clave primaria, segundo o tipo de base de datos de que se trate.</note></"
-"para>"
+"Quere facelo?</para> <para><note>Unha táboa sen clave primaria podería non "
+"ser editábel segundo o tipo de base de datos de que se trate.</note></para>"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1846
 #: plugins/tables/kexitabledesignerview.cpp:1197
@@ -6888,7 +6888,7 @@ msgstr "Formato da data:"
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:148
 #, kde-kuit-format
 msgid "Strip leading and trailing blanks off of text values"
-msgstr "Eliminar os espazos antes e despois dos valores de texto."
+msgstr "Retirar os espazos antes e despois dos valores de texto."
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:152
 #, kde-kuit-format
@@ -8322,7 +8322,7 @@ msgstr ""
 "<title>Escolla a conexión ao servidor de bases de datos da seguinte lista</"
 "title>\n"
 "<para>Verá proxectos de KEXI dispoñíbeis para a conexión seleccionada. Desde "
-"aquí poderá engadir, modificar e eliminar conexións da lista.</para>\n"
+"aquí poderá engadir, editar e eliminar conexións da lista.</para>\n"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: widget/KexiConnectionSelector.ui:104
