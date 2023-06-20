@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2019-08-30 07:37+0200\n"
-"PO-Revision-Date: 2019-02-24 07:24+0100\n"
+"PO-Revision-Date: 2019-02-23 17:27+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <kde-i18n-doc@kde.org>\n"
 "Language: gl\n"
@@ -39,7 +39,7 @@ msgstr "mapa interactivo"
 #: MapBrowserFactory.cpp:58
 #, kde-kuit-format
 msgid "Displays an interactive map."
-msgstr "Mostrar un mapa interactivo."
+msgstr "Amosar un mapa interactivo."
 
 #: MapBrowserFactory.cpp:118 MapBrowserFactory.cpp:119
 #, kde-kuit-format
