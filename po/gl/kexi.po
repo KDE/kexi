@@ -477,8 +477,8 @@ msgid ""
 "Drop (remove) a project using specified database driver and database name. "
 "You will be asked for confirmation."
 msgstr ""
-"Retirar o proxecto que estea a empregar o controlador de bases de datos e o "
-"nome da base de datos indicados. Pediráselle confirmación."
+"Retirar o proxecto que estea a usar o controlador de bases de datos e o nome "
+"da base de datos indicados. Pediráselle confirmación."
 
 #: core/KexiCommandLineOptions.cpp:50
 #, kde-kuit-format
@@ -529,9 +529,9 @@ msgid ""
 "the shortcut file."
 msgstr ""
 "Indicar un ficheiro .kexic de atallo para a conexión a unha base de datos "
-"coa información para realizar a conexión. Pode empregarse xunto con «--"
-"createdb» ou «--create-opendb» para non ter que pasar parámetros como «--"
-"user», «--host» ou «--port».\n"
+"coa información para realizar a conexión. Pode usarse xunto con «--createdb» "
+"ou «--create-opendb» para non ter que pasar parámetros como «--user», «--"
+"host» ou «--port».\n"
 "Nota: as opcións como «--user» e «--host» teñen prioridade sobre as "
 "definidas no ficheiro de atallo."
 
@@ -544,7 +544,7 @@ msgid ""
 "otherwise the database could not be created."
 msgstr ""
 "Indicar que calquera conexión a unha base de datos se estabelecerá sen "
-"posibilidades de escritura. Esta opción ha ser ignorada ao empregar tamén "
+"posibilidades de escritura. Esta opción ha ser ignorada ao usar tamén "
 "«createdb», senón non se podería crear a base de datos."
 
 #: core/KexiCommandLineOptions.cpp:82
@@ -566,7 +566,7 @@ msgstr ""
 msgctxt "'show-navigator' command line option"
 msgid "Show the Project Navigator side pane even if KEXI runs in User Mode."
 msgstr ""
-"Mostrar o panel lateral de navegación de proxectos aínda que KEXI estea "
+"Amosar o panel lateral de navegación de proxectos aínda que KEXI estea "
 "executándose no modo de usuario."
 
 #: core/KexiCommandLineOptions.cpp:91
@@ -597,8 +597,8 @@ msgstr ""
 "«%1» (táboa) o valor predeterminado. Tamén admite os tipos «%2», «%3», «%4» "
 "e «%5». A cantidade de tipos dispoñíbeis variará segundo os complementos que "
 "teña instalados.\n"
-"Empregue as comiñas dobres estándar, «\"», para delimitar os nomes que "
-"conteñan espazos.\n"
+"Use as comiñas dobres estándar, «\"», para delimitar os nomes que conteñan "
+"espazos.\n"
 "Velaquí algúns exemplos: «--open TaboaDeTraballo», «--open %2:\"Unha gran "
 "consulta\"»."
 
@@ -730,7 +730,7 @@ msgid ""
 "Skip displaying connection dialog window and connect directly. Available "
 "when opening .kexic or .kexis shortcut files."
 msgstr ""
-"Non mostrar a xanela de diálogo da conexión, e conectarse directamente. "
+"Non amosar a xanela de diálogo da conexión, e conectarse directamente. "
 "Dispoñíbel ao abrir ficheiros de atallo «.kexic» ou «.kexis»."
 
 #: core/KexiCommandLineOptions.cpp:180
@@ -930,7 +930,7 @@ msgid ""
 msgstr ""
 "<para><note>Non se atopou ningún cartafol <filename>%1</filename> así que é "
 "posíbel que se solicitase unha configuración de complemento personalizada "
-"pero non estea ben preparada. Configure a variábel de ambiente "
+"pero non estea ben preparada. Configure a variábel de contorno "
 "<envar>QT_PLUGIN_PATH</envar> correctamente antes de executar <application>"
 "%2</application>.</note></para>"
 
@@ -2706,7 +2706,7 @@ msgstr "Benvida"
 #: main/KexiMainWindow.cpp:488
 #, kde-kuit-format
 msgid "Show Welcome page"
-msgstr "Mostrar a páxina de benvida"
+msgstr "Amosar a páxina de benvida"
 
 #: main/KexiMainWindow.cpp:490
 #, kde-kuit-format
@@ -2998,12 +2998,12 @@ msgstr "Insire unha fila baleira sobre a fila seleccionada."
 #: main/KexiMainWindow.cpp:770
 #, kde-kuit-format
 msgid "Show Project Navigator"
-msgstr "Mostrar o navegador de proxectos"
+msgstr "Amosar o navegador de proxectos"
 
 #: main/KexiMainWindow.cpp:773
 #, kde-kuit-format
 msgid "Show the Project Navigator pane"
-msgstr "Mostrar o panel do navegador de proxectos"
+msgstr "Amosar o panel do navegador de proxectos"
 
 #: main/KexiMainWindow.cpp:774
 #, kde-kuit-format
@@ -3024,7 +3024,7 @@ msgstr "Activar o panel do navegador de proxectos"
 #, kde-kuit-format
 msgid "Activates the Project Navigator pane. If it is hidden, shows it first."
 msgstr ""
-"Activa o panel do navegador de proxectos. Se está agochado, primeiro móstrao."
+"Activa o panel do navegador de proxectos. Se está agochado, primeiro amósao."
 
 #: main/KexiMainWindow.cpp:795
 #, kde-kuit-format
@@ -3044,12 +3044,12 @@ msgstr "Activa a área principal."
 #: main/KexiMainWindow.cpp:807
 #, kde-kuit-format
 msgid "Show Property Pane"
-msgstr "Mostrar o panel de propiedades"
+msgstr "Amosar o panel de propiedades"
 
 #: main/KexiMainWindow.cpp:809
 #, kde-kuit-format
 msgid "Show the Property pane"
-msgstr "Mostrar o panel de propiedades"
+msgstr "Amosar o panel de propiedades"
 
 #: main/KexiMainWindow.cpp:810
 #, kde-kuit-format
@@ -3069,7 +3069,7 @@ msgstr "Activar o panel de propiedades"
 #: main/KexiMainWindow.cpp:821
 #, kde-kuit-format
 msgid "Activates the Property pane. If it is hidden, shows it first."
-msgstr "Activa o panel de propiedades. Se está agochado, primeiro móstrao."
+msgstr "Activa o panel de propiedades. Se está agochado, primeiro amósao."
 
 #: main/KexiMainWindow.cpp:829
 #, kde-kuit-format
@@ -3815,9 +3815,9 @@ msgid ""
 "KEXI project.</para><para>Here you may also add, edit or delete connections "
 "from the list.</para>"
 msgstr ""
-"<para>Seleccione a conexión a un servidor de bases de datos que queira "
-"empregar para crear un novo proxecto de KEXI.</para> <para>Desde aquí pode "
-"engadir, editar e eliminar conexións da lista.</para>"
+"<para>Seleccione a conexión a un servidor de bases de datos que queira usar "
+"para crear un novo proxecto de KEXI.</para> <para>Desde aquí pode engadir, "
+"editar e eliminar conexións da lista.</para>"
 
 #: main/startup/KexiNewProjectAssistant.cpp:379
 #, kde-kuit-format
@@ -4287,7 +4287,7 @@ msgid ""
 msgstr ""
 "O ficheiro de proxecto <filename>%1</filename> parece ser compatíbel co "
 "controlador de bases de datos <resource>%2</resource>, pero vostede pediu "
-"empregar o controlador <resource>%3</resource>. Quere empregar o controlador "
+"usar o controlador <resource>%3</resource>. Quere usar o controlador "
 "<resource>%4</resource>?"
 
 #: main/startup/KexiStartup.cpp:948
@@ -4361,7 +4361,7 @@ msgstr "Escoller o proxecto"
 #: main/startup/KexiStartupDialog.cpp:258
 #, kde-kuit-format
 msgid "Do not show me this dialog again"
-msgstr "Non volver mostrar este diálogo."
+msgstr "Non volver amosar este diálogo."
 
 #: main/startup/KexiStartupDialog.cpp:268
 #, kde-kuit-format
@@ -4520,7 +4520,7 @@ msgstr "Codificación de caracteres:"
 #: migration/importoptionsdlg.cpp:79
 #, kde-kuit-format
 msgid "Always use this encoding in similar situations"
-msgstr "Empregar sempre esta codificación en situacións similares."
+msgstr "Usar sempre esta codificación en situacións similares."
 
 #: migration/importtablewizard.cpp:125
 #, kde-kuit-format
@@ -5080,13 +5080,12 @@ msgstr "Definir o estilo da vista actual."
 #: plugins/forms/kexiformmanager.cpp:203
 #, kde-kuit-format
 msgid "Show Form UI Code"
-msgstr "Mostrar o código da interface do formulario"
+msgstr "Amosar o código da interface do formulario"
 
 #: plugins/forms/kexiformmanager.cpp:388
 #, kde-kuit-format
 msgid "Set form's data source to <resource>%1</resource>"
-msgstr ""
-"Estabelecer <resource>%1</resource> como a fonte de datos do formulario"
+msgstr "Definir <resource>%1</resource> como a fonte de datos do formulario"
 
 #: plugins/forms/kexiformmanager.cpp:472
 #, kde-kuit-format
@@ -5234,13 +5233,13 @@ msgstr "Formulario <resource>%1</resource>"
 #: plugins/forms/widgets/kexidbimagebox.cpp:511
 #, kde-kuit-format
 msgid "Click to show actions for this image box"
-msgstr "Prema para mostrar as acción da caixa de imaxe."
+msgstr "Prema para amosar as acción da caixa de imaxe."
 
 #: plugins/forms/widgets/kexidbimagebox.cpp:523
 #, kde-kuit-format
 msgid "Click to show actions for <interface>%1</interface> image box"
 msgstr ""
-"Prema para mostrar as acción da caixa de imaxe <interface>%1</interface>."
+"Prema para amosar as acción da caixa de imaxe <interface>%1</interface>."
 
 #: plugins/forms/widgets/kexidbimagebox.cpp:649
 #, kde-kuit-format
@@ -5305,7 +5304,7 @@ msgstr "caixaDeTexto"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:117
 #, kde-kuit-format
 msgid "A widget for entering and displaying line of text text"
-msgstr "Un trebello para inserir e mostrar unha liña de texto."
+msgstr "Un trebello para inserir e amosar unha liña de texto."
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:128
 #, kde-kuit-format
@@ -5355,7 +5354,7 @@ msgstr "etiqueta"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:159
 #, kde-kuit-format
 msgid "A widget for displaying text"
-msgstr "Un trebello para mostrar texto."
+msgstr "Un trebello para amosar texto."
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:170
 #, kde-kuit-format
@@ -5379,7 +5378,7 @@ msgstr "imaxe"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:180
 #, kde-kuit-format
 msgid "A widget for displaying images"
-msgstr "Un trebello para mostrar imaxes."
+msgstr "Un trebello para amosar imaxes."
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:196
 #, kde-kuit-format
@@ -5685,7 +5684,7 @@ msgstr "Posición do paso"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:429
 #, kde-kuit-format
 msgid "Show Editor"
-msgstr "Mostrar o editor"
+msgstr "Amosar o editor"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:430
 #, kde-kuit-format
@@ -6164,7 +6163,7 @@ msgstr "trebelloDeLapela"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:573
 #, kde-kuit-format
 msgid "A widget to display multiple pages using tabs"
-msgstr "Un trebello para mostrar varias páxinas mediante separadores"
+msgstr "Un trebello para amosar varias páxinas mediante separadores"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:592
 #, kde-kuit-format
@@ -6445,7 +6444,7 @@ msgstr "Ao portapapeis."
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:379
 #, kde-kuit-format
 msgid "Show Options &gt;&gt;"
-msgstr "Mostrar as opcións →"
+msgstr "Amosar as opcións →"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:199
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:607
@@ -6472,12 +6471,12 @@ msgstr "Valores predeterminados"
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:242
 #, kde-kuit-format
 msgid "Always use above options for copying"
-msgstr "Empregar sempre estas opcións ao copiar."
+msgstr "Usar sempre estas opcións ao copiar."
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:243
 #, kde-kuit-format
 msgid "Always use above options for exporting"
-msgstr "Empregar sempre estas opcións ao exportar."
+msgstr "Usar sempre estas opcións ao exportar."
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:251
 #, kde-kuit-format
@@ -6848,8 +6847,7 @@ msgstr "Codificación de caracteres"
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:125
 #, kde-kuit-format
 msgid "Always use this encoding when importing CSV data files"
-msgstr ""
-"Empregar sempre esta codificación de caracteres ao importar ficheiros CSV."
+msgstr "Usar sempre esta codificación de caracteres ao importar ficheiros CSV."
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:130
 #, kde-kuit-format
@@ -7526,13 +7524,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Use CSS"
-msgstr "Empregar CSS"
+msgstr "Usar CSS"
 
 #: plugins/reports/kexireportview.cpp:327
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Use Table"
-msgstr "Empregar unha táboa"
+msgstr "Usar unha táboa"
 
 #: plugins/reports/kexireportview.cpp:337
 #, kde-kuit-format
@@ -8107,7 +8105,7 @@ msgid ""
 "but following objects using this table are open:</para>"
 msgstr ""
 "<para>Está a piques de cambiar o deseño da táboa <resource>%1</resource>, "
-"pero os seguintes obxectos, que empregan a táboa, están abertos:</para>"
+"pero os seguintes obxectos, que usan a táboa, están abertos:</para>"
 
 #: plugins/tables/kexitabledesignerview.cpp:1628
 #, kde-kuit-format
@@ -8569,7 +8567,7 @@ msgstr ""
 "<html><head/><body><p>Garda o contrasinal nun ficheiro de atallo de conexión "
 "<span style=\" font-style:italic;\">.kexic</span> ou <span style=\" font-"
 "style:italic;\">.kexis</span> usando un cifrado sinxelo similar a ROT-47. "
-"Non é garantía de seguranza, simplemente dificulta ler o contrasinal, así "
+"Non é garantía de seguridade, simplemente dificulta ler o contrasinal, así "
 "que non é seguro permitir que calquera teña acceso a eses ficheiros.</p></"
 "body></html>"
 
@@ -8638,7 +8636,7 @@ msgstr "Predeterminado"
 #: widget/kexidbconnectionwidgetdetails.ui:34
 #, kde-format
 msgid "Use socket &file instead of TCP/IP port:"
-msgstr "Empregar un &ficheiro de socket en vez dun porto TCP/IP:"
+msgstr "Usar un &ficheiro de socket en vez dun porto TCP/IP:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkSocketDefault)
 #: widget/kexidbconnectionwidgetdetails.ui:80
@@ -9127,7 +9125,7 @@ msgstr "Relación"
 #: widget/tableview/kexiblobtableedit.cpp:83
 #, kde-kuit-format
 msgid "Click to show available actions for this cell"
-msgstr "Prema para mostrar as accións dispoñíbeis para a cela."
+msgstr "Prema para amosar as accións dispoñíbeis para a cela."
 
 #: widget/tableview/KexiTableScrollArea.cpp:2439
 #, kde-kuit-format
