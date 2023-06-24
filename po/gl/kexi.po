@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-15 00:56+0000\n"
-"PO-Revision-Date: 2023-06-17 16:29+0200\n"
+"PO-Revision-Date: 2023-06-23 22:52+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -188,7 +188,7 @@ msgstr "Elementos web para os formularios e informes."
 #: core/kexiaboutdata.cpp:66
 #, kde-kuit-format
 msgid "Scripting module (KROSS), Python language bindings, design"
-msgstr "Módulo de scripts (KROSS), compatibilidade con Python, deseño."
+msgstr "Módulo de guionización (KROSS), compatibilidade con Python, deseño."
 
 #: core/kexiaboutdata.cpp:66
 #, kde-kuit-format
@@ -272,7 +272,7 @@ msgstr "Matt Rogers"
 #: core/kexiaboutdata.cpp:80
 #, kde-kuit-format
 msgid "ODBC database driver"
-msgstr "Controlador para ODBC."
+msgstr "Controlador de bases de datos ODBC."
 
 #: core/kexiaboutdata.cpp:82
 #, kde-kuit-format
@@ -576,9 +576,9 @@ msgid ""
 "Hide the main menu (the tabbed toolbar) completely. A number of commands "
 "from the main menu is still visible. This option is useful in User Mode."
 msgstr ""
-"Agochar completamente o menú principal (a barra de ferramentas con lapelas). "
-"Algunhas das ordes do menú principal seguen sendo visíbeis. Esta opción "
-"resulta útil no modo de usuario."
+"Agochar completamente o menú principal (a barra de ferramentas con "
+"separadores). Algunhas das ordes do menú principal seguen sendo visíbeis. "
+"Esta opción resulta útil no modo de usuario."
 
 # well-spelled: TaboaDeTraballo
 #: core/KexiCommandLineOptions.cpp:97
@@ -750,7 +750,7 @@ msgid ""
 "Displays list of plugins available for KEXI with their name, description, "
 "version and filenames."
 msgstr ""
-"Mostra unha lista de complementos para KEXI dispoñíbeis, co seu nome, "
+"Amosa unha lista de complementos para KEXI dispoñíbeis, co seu nome, "
 "descrición, versión e nome de ficheiro."
 
 #: core/kexidbconnectionset.cpp:76
@@ -930,7 +930,7 @@ msgid ""
 msgstr ""
 "<para><note>Non se atopou ningún cartafol <filename>%1</filename> así que é "
 "posíbel que se solicitase unha configuración de complemento personalizada "
-"pero non estea ben preparada. Configure a variábel de contorno "
+"pero non estea ben preparada. Defina a variábel de contorno "
 "<envar>QT_PLUGIN_PATH</envar> correctamente antes de executar <application>"
 "%2</application>.</note></para>"
 
@@ -944,7 +944,7 @@ msgstr ""
 #: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3641
 #, kde-kuit-format
 msgid "Could not set empty name for this object."
-msgstr "Non se puido deixar o nome baleiro."
+msgstr "Non se puido definir un nome baleiro para o obxecto."
 
 #: core/kexiproject.cpp:136
 #, kde-kuit-format
@@ -1175,7 +1175,7 @@ msgid ""
 "selected column is used for sorting."
 msgstr ""
 "Ordenar os datos de maneira ascendente (do «a» ao «z» e do 0 ao 9). Para a "
-"orde empregaranse os datos das columnas seleccionadas."
+"orde usaranse os datos das columnas seleccionadas."
 
 #: core/KexiStandardAction.cpp:51
 #, kde-format
@@ -1194,7 +1194,7 @@ msgid ""
 "column is used for sorting."
 msgstr ""
 "Ordenar os datos de maneira descendente (do «z» ao «a» e do 9 ao 0). Para a "
-"orde empregaranse os datos das columnas seleccionadas."
+"orde usaranse os datos das columnas seleccionadas."
 
 #: core/kexistartupdata.cpp:232
 #, kde-kuit-format
@@ -1236,7 +1236,7 @@ msgstr "Menú de <resource>%1</resource>."
 #: core/KexiView.cpp:118
 #, kde-kuit-format
 msgid "Shows context menu for the current view."
-msgstr "Mostra o menú de contexto da vista actual."
+msgstr "Amosa o menú de contexto da vista actual."
 
 #: core/KexiView.cpp:270
 #, kde-kuit-format
@@ -1614,7 +1614,7 @@ msgctxt "@info"
 msgid ""
 "Renaming widget <resource>%1</resource> to <resource>%2</resource> failed."
 msgstr ""
-"O cambio de nome do trebello de <resource>%1</resource> a <resource>%2</"
+"O renomeamento do trebello de <resource>%1</resource> a <resource>%2</"
 "resource> fallou."
 
 #: formeditor/form.cpp:1313
@@ -1775,6 +1775,7 @@ msgstr "Só lectura"
 msgid "Style Sheet"
 msgstr "Folla de estilo"
 
+# skip-rule: gl-punto-final
 #: formeditor/form_p.cpp:290
 #, kde-kuit-format
 msgctxt "Widget's Tooltip"
@@ -2146,7 +2147,7 @@ msgstr ""
 msgid ""
 "&Select script to be executed after clicking <resource>%1</resource> button:"
 msgstr ""
-"E&scoller o script para executar tras premer o botón <resource>%1</resource>:"
+"E&scoller o guión para executar tras premer o botón <resource>%1</resource>:"
 
 #: formeditor/kexiactionselectiondialog.cpp:385
 #, kde-kuit-format
@@ -2388,7 +2389,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The file or directory <filename>%1</filename> does not exist."
-msgstr "O ficheiro ou directorio <filename>%1</filename> non existe."
+msgstr "O ficheiro ou cartafol <filename>%1</filename> non existe."
 
 #: kexiutils/utils.cpp:767
 #, kde-kuit-format
@@ -2714,7 +2715,7 @@ msgid ""
 "Shows Welcome page with list of recently opened projects and other "
 "information. "
 msgstr ""
-"Mostra a páxina de benvida, cunha lista dos últimos proxectos nos que se "
+"Amosa a páxina de benvida, cunha lista dos últimos proxectos nos que se "
 "traballou e outra información de interese."
 
 #: main/KexiMainWindow.cpp:495
@@ -3008,7 +3009,7 @@ msgstr "Amosar o panel do navegador de proxectos"
 #: main/KexiMainWindow.cpp:774
 #, kde-kuit-format
 msgid "Shows the Project Navigator pane."
-msgstr "Mostra o panel do navegador de proxectos."
+msgstr "Amosa o panel do navegador de proxectos."
 
 #: main/KexiMainWindow.cpp:784
 #, kde-kuit-format
@@ -3054,7 +3055,7 @@ msgstr "Amosar o panel de propiedades"
 #: main/KexiMainWindow.cpp:810
 #, kde-kuit-format
 msgid "Shows the Property pane."
-msgstr "Mostra o panel de propiedades."
+msgstr "Amosa o panel de propiedades."
 
 #: main/KexiMainWindow.cpp:819
 #, kde-kuit-format
@@ -3199,7 +3200,7 @@ msgstr "Pechar todos os separadores."
 #: main/KexiMainWindow.cpp:954
 #, kde-kuit-format
 msgid "This shows useful tips on the use of this application."
-msgstr "Isto mostra consellos útiles sobre o uso desta aplicación."
+msgstr "Isto amosa consellos útiles sobre o uso desta aplicación."
 
 #: main/KexiMainWindow.cpp:1140
 #, kde-kuit-format
@@ -3273,12 +3274,12 @@ msgstr "Abre o manual de KEXI."
 #: main/KexiMainWindow.cpp:1273
 #, kde-kuit-format
 msgid "Shows information about KEXI application."
-msgstr "Mostra información sobre a aplicación KEXI."
+msgstr "Amosa información sobre a aplicación KEXI."
 
 #: main/KexiMainWindow.cpp:1276
 #, kde-kuit-format
 msgid "Shows information about KDE."
-msgstr "Mostra información sobre KDE."
+msgstr "Amosa información sobre KDE."
 
 #: main/KexiMainWindow.cpp:1430
 #, kde-kuit-format
@@ -3351,7 +3352,7 @@ msgstr "Non se atopou o macro."
 #: main/KexiMainWindow.cpp:1646
 #, kde-kuit-format
 msgid "script not found"
-msgstr "Non se atopou o script."
+msgstr "Non se atopou o guión."
 
 #: main/KexiMainWindow.cpp:1648
 #, kde-kuit-format
@@ -3512,7 +3513,7 @@ msgstr "Pechar a xanela e renomear"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Renaming object <resource>%1</resource> failed."
-msgstr "O cambio de nome do obxecto <resource>%1</resource> fallou."
+msgstr "O renomeamento do obxecto <resource>%1</resource> fallou."
 
 #: main/KexiMainWindow.cpp:3691
 #, kde-kuit-format
@@ -4133,8 +4134,7 @@ msgstr "O número de porto indicado (<icode>%1</icode>) é incorrecto."
 #: main/startup/KexiStartup.cpp:399
 #, kde-kuit-format
 msgid "Could not open database. No database driver specified."
-msgstr ""
-"Non se puido abrir a base de datos. Non se especificou ningún controlador."
+msgstr "Non se puido abrir a base de datos. Non se indicou ningún controlador."
 
 #: main/startup/KexiStartup.cpp:412
 #, kde-kuit-format
@@ -5117,7 +5117,7 @@ msgstr "Formulario"
 #, kde-kuit-format
 msgctxt "tooltip"
 msgid "Create new form"
-msgstr "Crear un novo formulario"
+msgstr "Crear un novo formulario."
 
 #: plugins/forms/kexiformpart.cpp:76
 #, kde-kuit-format
@@ -5486,8 +5486,10 @@ msgstr "Un botón de ligazón para executar accións"
 #, kde-kuit-format
 msgctxt "Slider widget"
 msgid "Slider"
-msgstr "Desprazador"
+msgstr "Control esvaradío"
 
+# well-spelled: controlEsvaradio
+# skip-rule: en-slider
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:316
 #, kde-format
 msgctxt ""
@@ -5499,12 +5501,12 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "slider"
-msgstr "barra de desprazamento"
+msgstr "controlEsvaradio"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:317
 #, kde-kuit-format
 msgid "A Slider widget"
-msgstr "Un trebello de desprazador."
+msgstr "Un control esvaradío."
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:325
 #, kde-kuit-format
@@ -5552,7 +5554,7 @@ msgstr "liña"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:353
 #, kde-kuit-format
 msgid "A line to be used as a separator"
-msgstr "Unha liña para usar como separador."
+msgstr "Unha liña para usar como divisoria."
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:358
 #, kde-kuit-format
@@ -6595,13 +6597,13 @@ msgstr "Opcións da importación"
 #, kde-kuit-format
 msgctxt "@option:check CSV import: data will be appended to a new table"
 msgid "&New table"
-msgstr "&Nova táboa"
+msgstr "&Nova táboa."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:706
 #, kde-kuit-format
 msgctxt "@option:check CSV import: data will be appended to existing table"
 msgid "&Existing table"
-msgstr "Táboa &existente"
+msgstr "Táboa &existente."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:716
 #, kde-kuit-format
@@ -7066,18 +7068,18 @@ msgstr ""
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1716
 #, kde-kuit-format
 msgid "Could not set sorting for multiple columns (%1)"
-msgstr "Non puido estabelecerse a orde para varias columnas (%1)."
+msgstr "Non puido definirse a orde de varias columnas (%1)."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1741
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not set criteria for <resource>%1</resource>"
-msgstr "Non puido establecerse o criterio para <resource>%1</resource>."
+msgstr "Non puido definirse o criterio para <resource>%1</resource>."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1744
 #, kde-kuit-format
 msgid "Could not set criteria for empty record"
-msgstr "Non puido estabelecerse o criterio para un rexistro baleiro."
+msgstr "Non puido definirse o criterio para un rexistro baleiro."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1838
 #, kde-kuit-format
@@ -7164,7 +7166,7 @@ msgstr "consulta"
 #, kde-kuit-format
 msgctxt "tooltip"
 msgid "Create new query"
-msgstr "Crear unha nova consulta"
+msgstr "Crear unha nova consulta."
 
 #: plugins/queries/kexiquerypart.cpp:59
 #, kde-kuit-format
@@ -7182,7 +7184,7 @@ msgstr "SQL"
 #, kde-kuit-format
 msgctxt "@info:tooltip SQL query design view"
 msgid "Switch to SQL design view"
-msgstr "Ir á vista de deseño de SQL"
+msgstr "Ir á vista de deseño de SQL."
 
 #: plugins/queries/kexiquerypart.cpp:121
 #, kde-kuit-format
@@ -7273,7 +7275,7 @@ msgstr "informe"
 #, kde-kuit-format
 msgctxt "tooltip"
 msgid "Create new report"
-msgstr "Crear un novo informe"
+msgstr "Crear un novo informe."
 
 #: plugins/reports/kexireportpart.cpp:67
 #, kde-kuit-format
@@ -7555,12 +7557,12 @@ msgstr "Fonte de datos do informe:"
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:134
 #, kde-kuit-format
 msgid "Execute the scripting code"
-msgstr "Executar o código do script"
+msgstr "Executar o código de guionización"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:135
 #, kde-kuit-format
 msgid "Executes the scripting code."
-msgstr "Executa o código do script."
+msgstr "Executa o código de guionización."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:144
 #, kde-kuit-format
@@ -7586,12 +7588,12 @@ msgstr "Configurar o editor…"
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:156
 #, kde-kuit-format
 msgid "Configure the scripting editor"
-msgstr "Configurar o editor de scripts"
+msgstr "Configurar o editor de guionización"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:157
 #, kde-kuit-format
 msgid "Configures the scripting editor."
-msgstr "Configura o editor para scripts."
+msgstr "Configura o editor de guionización."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:166
 #, kde-kuit-format
@@ -7601,12 +7603,12 @@ msgstr "&Importar…"
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:168
 #, kde-kuit-format
 msgid "Import script"
-msgstr "Importar un script"
+msgstr "Importar un guión"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:169
 #, kde-kuit-format
 msgid "Imports script from a file."
-msgstr "Importa un script dun ficheiro."
+msgstr "Importa un guión dun ficheiro."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:182
 #, kde-kuit-format
@@ -7616,18 +7618,18 @@ msgstr "&Exportar…"
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:184
 #, kde-kuit-format
 msgid "Export script"
-msgstr "Exportar o script"
+msgstr "Exportar o guión"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:185
 #, kde-kuit-format
 msgid "Exports script to a file."
-msgstr "Exporta o script a un ficheiro."
+msgstr "Exporta o guión a un ficheiro."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:224
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Import Script"
-msgstr "Importar un script"
+msgstr "Importar un guión"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:233
 #, kde-kuit-format
@@ -7639,7 +7641,7 @@ msgstr "Non se puido ler <filename>%1</filename>."
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Export Script"
-msgstr "Exportar o script"
+msgstr "Exportar o guión"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:249
 #, kde-kuit-format
@@ -7650,18 +7652,18 @@ msgstr "Non se puido escribir <filename>%1</filename>."
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:271
 #, kde-kuit-format
 msgid "Script Type"
-msgstr "Tipo de script"
+msgstr "Tipo de guión"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:272
 #, kde-kuit-format
 msgid "The type of script"
-msgstr "O tipo de script."
+msgstr "O tipo de guión."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:309
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Execution of the script <resource>%1</resource> started."
-msgstr "Iniciouse a execución do script <resource>%1</resource>."
+msgstr "Iniciouse a execución do guión <resource>%1</resource>."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:330
 #, no-c-format, kde-kuit-format
@@ -7676,19 +7678,19 @@ msgctxt ""
 "character. If you cannot use latin characters in your language, use english "
 "word."
 msgid "script"
-msgstr "script"
+msgstr "guión"
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:71
 #, kde-kuit-format
 msgctxt "tooltip"
 msgid "Create new script"
-msgstr "Crear un novo script"
+msgstr "Crear un novo guión."
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:72
 #, kde-kuit-format
 msgctxt "what's this"
 msgid "Creates new script."
-msgstr "Crea un novo script."
+msgstr "Crea un novo guión."
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:107
 #, kde-kuit-format
@@ -7696,25 +7698,25 @@ msgid ""
 "Error executing script at line %1:\n"
 "%2"
 msgstr ""
-"Erro ao executar o script na liña %1:\n"
+"Erro ao executar o guión na liña %1:\n"
 "%2"
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:107
 #, kde-kuit-format
 msgid "KEXI Script"
-msgstr "Script de KEXI"
+msgstr "Guión de KEXI"
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:163
 #, kde-format
 msgctxt "@info"
 msgid "Design of script <resource>%1</resource> has been modified."
-msgstr "Modificouse o deseño do script <resource>%1</resource>."
+msgstr "Modificouse o deseño do guión <resource>%1</resource>."
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:165
 #, kde-format
 msgctxt "@info"
 msgid "Script <resource>%1</resource> already exists."
-msgstr "O script <resource>%1</resource> xa existe."
+msgstr "O guión <resource>%1</resource> xa existe."
 
 #: plugins/tables/kexilookupcolumnpage.cpp:137
 #, kde-kuit-format
@@ -7960,8 +7962,8 @@ msgid ""
 "Change <resource>%1</resource> field name to <resource>%2</resource> and "
 "caption from <resource>%3</resource> to <resource>%4</resource>"
 msgstr ""
-"Cambiar o nome do campo <resource>%1</resource> a <resource>%2</resource> e "
-"a lenda de <resource>%3</resource> a <resource>%4</resource>"
+"Renomear o campo <resource>%1</resource> a <resource>%2</resource> e a lenda "
+"de <resource>%3</resource> a <resource>%4</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:721
 #, kde-format
@@ -7979,8 +7981,8 @@ msgid ""
 "<para>Setting autonumber requires primary key to be set for current field.</"
 "para>"
 msgstr ""
-"<para>Para escoller o tipo «numeración automática» fai falla que o campo "
-"actual sexa clave primaria.</para>"
+"<para>Para escoller o tipo «numeración automática» fai falla definir a clave "
+"primaria do campo actual.</para>"
 
 #: plugins/tables/kexitabledesignerview.cpp:896
 #, kde-kuit-format
@@ -8014,7 +8016,7 @@ msgstr "Crear unha clave &primaria"
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Set autonumber for field <resource>%1</resource>"
-msgstr "Converter o campo <resource>%1</resource> en numeración automática"
+msgstr "Definir numeración automática para o campo <resource>%1</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:915
 #, kde-format
@@ -8041,7 +8043,7 @@ msgstr ""
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Set primary key for field <resource>%1</resource>"
-msgstr "Converter o campo <resource>%1</resource> en clave primaria"
+msgstr "Definir a clave primaria do campo <resource>%1</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:1038
 #, kde-format
@@ -8139,7 +8141,7 @@ msgstr "táboa"
 #, kde-kuit-format
 msgctxt "tooltip"
 msgid "Create new table"
-msgstr "Crear unha nova táboa"
+msgstr "Crear unha nova táboa."
 
 #: plugins/tables/kexitablepart.cpp:64
 #, kde-kuit-format
@@ -8699,17 +8701,17 @@ msgstr "Computador"
 #: widget/KexiFileRequester.cpp:389
 #, kde-kuit-format
 msgid "Could not enter directory <filename>%1</filename>."
-msgstr "Non se puido entrar no directorio <filename>%1</filename>."
+msgstr "Non se puido entrar no cartafol <filename>%1</filename>."
 
 #: widget/KexiFileRequester.cpp:465
 #, kde-kuit-format
 msgid "Go to parent directory"
-msgstr "Ir ao directorio superior"
+msgstr "Ir ao cartafol superior"
 
 #: widget/KexiFileRequester.cpp:482
 #, kde-kuit-format
 msgid "Select directory"
-msgstr "Seleccionar un directorio"
+msgstr "Seleccionar un cartafol"
 
 #: widget/KexiFileRequester.cpp:507 widget/KexiNameWidget.cpp:98
 #, kde-kuit-format
