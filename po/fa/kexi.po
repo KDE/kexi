@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: core/kexi.cpp:141
 #, kde-kuit-format
@@ -4326,30 +4326,35 @@ msgstr ""
 msgid "Opened 1 minute ago"
 msgid_plural "Opened %1 minutes ago"
 msgstr[0] ""
+msgstr[1] ""
 
 #: main/startup/KexiRecentProjectsModel.cpp:74
 #, kde-kuit-format
 msgid "Opened 1 hour ago"
 msgid_plural "Opened %1 hours ago"
 msgstr[0] ""
+msgstr[1] ""
 
 #: main/startup/KexiRecentProjectsModel.cpp:77
 #, kde-kuit-format
 msgid "Opened yesterday"
 msgid_plural "Opened %1 days ago"
 msgstr[0] ""
+msgstr[1] ""
 
 #: main/startup/KexiRecentProjectsModel.cpp:80
 #, kde-kuit-format
 msgid "Opened over a month ago"
 msgid_plural "Opened %1 months ago"
 msgstr[0] ""
+msgstr[1] ""
 
 #: main/startup/KexiRecentProjectsModel.cpp:82
 #, kde-kuit-format
 msgid "Opened one year ago"
 msgid_plural "Opened %1 years ago"
 msgstr[0] ""
+msgstr[1] ""
 
 #: main/startup/KexiRecentProjectsModel.cpp:116
 #, fuzzy, kde-kuit-format
@@ -8966,6 +8971,7 @@ msgid_plural ""
 "by %1 characters.\n"
 "Fix the text or it will be truncated upon saving changes."
 msgstr[0] ""
+msgstr[1] ""
 
 #: widget/dataviewcommon/kexidataprovider.cpp:216
 #, kde-kuit-format
