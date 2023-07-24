@@ -85,7 +85,7 @@
     <p xml:lang="ia">KEXI es un constructor de applicationes de base de datos visual. Illo pote esser usate per designar applicationes de base de dato, insertar e modificar datos, executar queries, e processar datos. Formularios pote esser create per fornir un interfacie personalisate per tu datos. Omne objectos de datos - tabellas, queries, formularios, reportos, etc. - es immagazinate  in le base de datos, facente facile le compartir datos e designo.</p>
     <p xml:lang="id">KEXI adalah pembangun aplikasi database visual. Dapat digunakan untuk merancang aplikasi basis data, memasukkan dan mengedit data, melakukan queri, dan memproses data. Formulir dapat dibuat untuk memberikan antarmuka khusus ke data Anda. Semua objek basis data - tabel, queri, formulir, laporan, dll. - disimpan dalam basis data, sehingga mudah untuk berbagi data dan desain.</p>
     <p xml:lang="it">KEXI è uno strumento visuale per la creazione di banche dati. Può essere utilizzato per progettare applicazioni che usano banche dati, inserire e modificare dati, eseguire query ed elaborare dati. Puoi creare moduli per fornire un'interfaccia personalizzata ai tuoi dati. Tutti gli oggetti di una banca dati - tabelle, query, moduli, report - sono memorizzati nella banca dati stessa, semplificando la condivisione dei dati e la progettazione.</p>
-    <p xml:lang="ko">KEXI는 시각적 데이터베이스 애플리케이션 빌더입니다. 데이터베이스 응용 프로그램 설계, 데이터 삽입 및 편집, 질의 수행 및 데이터 처리에 사용할 수 있습니다. 데이터에 사용자 정의 인터페이스를 제공하려면 양식을 생성할 수 있습니다. 모든 데이터베이스 개체(테이블, 질의, 양식, 보고서 등)가 데이터베이스에 저장되므로 데이터와 설계를 쉽게 공유할 수 있습니다.</p>
+    <p xml:lang="ko">KEXI는 시각적 데이터베이스 애플리케이션 빌더입니다. 데이터베이스 앱 설계, 데이터 삽입 및 편집, 질의 수행 및 데이터 처리에 사용할 수 있습니다. 데이터에 사용자 정의 인터페이스를 제공하려면 양식을 생성할 수 있습니다. 모든 데이터베이스 개체(테이블, 질의, 양식, 보고서 등)가 데이터베이스에 저장되므로 데이터와 설계를 쉽게 공유할 수 있습니다.</p>
     <p xml:lang="nl">KEXI is een bouwer van toepassingen met een database op een visuele manier. Het kan gebruikt worden voor het ontwerpen van toepassingen met een database, gegevens invoeren en bewerken, zoekopdrachten uitvoeren en gegevens verwerken. Formulieren kunnen gemaakt worden om een aangepast interface naar uw gegevens te bieden. Alle database-objecten - tabellen, zoekopdrachten, formulieren, rapporten, etc. - worden opgeslagen in de database, waarmee het gemakkelijk wordt gegevens en ontwerp te delen.</p>
     <p xml:lang="pl">KEXI to aplikacja do graficznego tworzenia baz danych. Można jej używać do opracowywania programów bazodanowych,wstawiania, edycji i przetwarzania danych, a także do wykonywania zapytań.Dostęp do danych można zapewniać przy pomocy formularzy. Wszystkie obiekty bazy danych, tabele, zapytania, formularze i raporty, itp. są przechowywane w bazie danych, co czyni je łatwymi do współdzielenia i opracowywania.</p>
     <p xml:lang="pt">O Kexi é um criador de bases de dados visuais, que pode ser usado para desenhar aplicações de bases de dados, inserir e editar dados, executar pesquisas e processar os dados. Poderá criar formulários para oferecer uma interface personalizada para os seus dados. Todos os objectos da base de dados - tabelas, pesquisas, formulários, relatórios, etc. - são guardados na base de dados, tornando simples a partilha e o desenho dos dados.</p>
@@ -208,6 +208,7 @@
       <li xml:lang="ia">Supporta directe per base de datos SQLite, MySQL e PostgreSQL</li>
       <li xml:lang="it">Supporto diretto per banche dati SQLite, MySQL e PostgreSQL</li>
       <li xml:lang="ka">SQLite, MySQL და PostgreSQL-ის პირდაპირი მხარდაჭერა</li>
+      <li xml:lang="ko">SQLite, MySQL, PostgreSQL 데이터베이스 직접 지원</li>
       <li xml:lang="nl">Directe ondersteuning voor de databases SQLite, MySQL en PostgreSQLServer</li>
       <li xml:lang="pl">Bezpośrednia obsługa baz danych SQLite, MySQL oraz PostgreSQL</li>
       <li xml:lang="pt">Suporte directo para as bases de dados SQLite, MySQL e PostgreSQL</li>
@@ -347,6 +348,7 @@
       <li xml:lang="gl">Modo de usuario bloqueado, que permite desactivar todas as funcionalidades de deseño.</li>
       <li xml:lang="ia">Modo de usator confinate, que te permitte commutar omne characteristicasde designo</li>
       <li xml:lang="it">Modalità utente bloccata, che consente di disattivare tutte le funzionalità di progettazione</li>
+      <li xml:lang="ko">모든 디자인 기능을 끌 수 있는 잠긴 사용자 모드</li>
       <li xml:lang="nl">Vergrendelde gebruikersmodus, waarmee alle ontwerpkenmerken zijn uitgeschakeld</li>
       <li xml:lang="pl">Zamknięty tryb użytkownika, umożliwiający wyłączenie wszystkich poleceń związanych z edytowaniem twojego projektu</li>
       <li xml:lang="pt">Modo reduzido de utilizador, permitindo-lhe desligar todas as funcionalidades de desenho</li>
