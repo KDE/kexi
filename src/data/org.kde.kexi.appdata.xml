@@ -28,7 +28,6 @@
   <name xml:lang="pt-BR">KEXI</name>
   <name xml:lang="sk">KEXI</name>
   <name xml:lang="sl">KEXI</name>
-  <name xml:lang="sv">KEXI</name>
   <name xml:lang="tr">KEXI</name>
   <name xml:lang="uk">KEXI</name>
   <name xml:lang="x-test">xxKEXIxx</name>
@@ -92,7 +91,6 @@
     <p xml:lang="pt-BR">KEXI é um construtor de aplicativos visuais de banco de dados. Pode ser usado para desenhar aplicativos de banco de dados, inserir e editar dados, executar pesquisas e processar dados. Podem ser criados formulários para oferecer uma interface personalizada para seus dados. Todos os objetos do banco de dados - tabelas, pesquisas, formulários, relatórios, etc. - são armazenados no próprio banco de dados, tornando simples o compartilhamento de dados e o visual.</p>
     <p xml:lang="sk">Kexi je vizuálny tvorca databáz, súčasť Calligra Suite. Dá sa použiť na návrh databázových aplikácií, vkladanie a úpravu údajov, vykonávanie dotazov a spracúvanie údajov. Formuláre sa dajú vytvoriť na poskytnutie vlastného rozhrania pre vaše údaje. Všetky databázové objekty - tabuľky, dotazy, formuláre, správy - sú uložené v databáze, čo uľahčuje zdieľanie dát a dizajn.</p>
     <p xml:lang="sl">KEXI je ustvarjalec vizualnih aplikacij za baze podatkov. Lahko se uporablja za oblikovanje aplikacije za baze podatkov, vstavljanje in urejanje podatkov, izvajanje poizvedb in obdelavo podatkov. Ustvarite lahko obrazce, da svojim podatkom omogočite vmesnik po meri. Vsi predmeti baze podatkov - tabele, poizvedbe, obrazci, poročila itd. - so shranjene v bazi podatkov, kar omogoča enostavno izmenjavo podatkov in oblikovanje.</p>
-    <p xml:lang="sv">KEXI är ett visuell byggverktyg för databasprogram, en del av Calligra-sviten. Den kan användas för att skapa databasprogram, infoga och redigera data, ställa frågor och behandla data. Formulär kan skapas för att tillhandahålla ett anpassat gränssnitt för data. Alla databasobjekt (tabeller, frågor, formulär, rapporter, etc.) lagras i databasen, vilket gör det enkelt att dela data och konstruktion.</p>
     <p xml:lang="tr">KEXI, görsel bir veritabanı uygulaması yapıcısıdır. Veritabanı uygulamaları tasarlamak, veri eklemek ve düzenlemek, sorgular gerçekleştirmek ve veri işlemek için kullanılabilir. Verinize özel bir arayüz sağlamak için formlar kullanılabilir. Tüm veritabanı nesneleri (tablolar, sorgular, formlar, raporlar vb.) veritabanında depolanır; böylece kolaylıkla tasarlanıp paylaşılabilir.</p>
     <p xml:lang="uk">KEXI — програма для створення обробників баз даних у візуальному режимі. Цією програмою можна скористатися для створень мініпрограм для роботи з базами даних, додавання та редагування даних, виконання запитів та обробки даних. За допомогою створених програмою форм ви можете отримати потрібний вам режим доступу до ваших даних. Всі об’єкти баз даних — таблиці, запити, форми, звіти тощо, — зберігаються у самій базі даних, що спрощує поширення даних та представлення даних.</p>
     <p xml:lang="x-test">xxKEXI is a visual database applications builder. It can be used for designing database applications, inserting and editing data, performing queries, and processing data. Forms can be created to provide a custom interface to your data. All database objects - tables, queries, forms, reports, etc. - are stored in the database, making it easy to share data and design.xx</p>
@@ -559,7 +557,7 @@
       <caption xml:lang="pt-BR">Importação de bancos de dados MS Access</caption>
       <caption xml:lang="sk">Import databázy MS Access</caption>
       <caption xml:lang="sl">Uvoz podatkov iz podatkovne baze MS Access</caption>
-      <caption xml:lang="sv">Databasimport från MS Access</caption>
+      <caption xml:lang="sv">MS Access-databasimport</caption>
       <caption xml:lang="tr">MS Access veritabanı içe aktarma</caption>
       <caption xml:lang="uk">Імпортування баз даних MS Access</caption>
       <caption xml:lang="x-test">xxMS Access database importxx</caption>
