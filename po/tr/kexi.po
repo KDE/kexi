@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-24 02:33+0000\n"
-"PO-Revision-Date: 2023-05-03 12:26+0300\n"
+"PO-Revision-Date: 2023-08-02 01:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 23.11.70\n"
 
 #: core/kexi.cpp:141
 #, kde-kuit-format
@@ -229,7 +229,7 @@ msgstr "Cédric Pasteur"
 #: core/kexiaboutdata.cpp:72
 #, kde-kuit-format
 msgid "First version of Property Editor and Form Designer"
-msgstr "Özellik Düzenleyici ve Form tasarımcısının ilk sürümü"
+msgstr "Özellik Düzenleyicisi'nin ve Form Tasarımcısı'nın ilk sürümü"
 
 #: core/kexiaboutdata.cpp:74
 #, kde-kuit-format
@@ -5246,7 +5246,7 @@ msgstr "Metin girmek ve göstermek için bir araç takımı"
 #, kde-kuit-format
 msgctxt "Text Editor widget"
 msgid "Text Editor"
-msgstr "Metin Düzenleyici"
+msgstr "Metin Düzenleyicisi"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:137
 #, kde-format
@@ -5495,7 +5495,7 @@ msgstr "&Dikey Çizgi Ekle"
 #, kde-kuit-format
 msgctxt "Date Picker widget"
 msgid "Date Picker"
-msgstr "Tarih Seçici"
+msgstr "Tarih Seçicisi"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:377
 #, kde-format
@@ -5508,7 +5508,7 @@ msgctxt ""
 "with upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "datePicker"
-msgstr "tarihSeçici"
+msgstr "tarihSeçicisi"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:378
 #, kde-kuit-format
