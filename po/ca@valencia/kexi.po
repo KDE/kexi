@@ -1,5 +1,5 @@
 # Translation of kexi.po to Catalan (Valencian)
-# Copyright (C) 2003-2022 This_file_is_part_of_KDE
+# Copyright (C) 2003-2023 This_file_is_part_of_KDE
 #
 # Albert Astals Cid <aacid@kde.org>, 2003, 2004, 2005, 2006.
 # Rafael Carreras <rcarreras@caliu.cat>, 2006, 2007, 2008, 2010.
@@ -8686,8 +8686,8 @@ msgstr "%1: %2"
 #, kde-kuit-format
 msgid "Select a project on <resource>%1</resource> database server to open:"
 msgstr ""
-"Seleccioneu un projecte per a obrir al servidor de bases de dades <resource>"
-"%1</resource>:"
+"Seleccioneu un projecte per a obrir en el servidor de bases de dades "
+"<resource>%1</resource>:"
 
 #: widget/kexiqueryparameters.cpp:42
 #, kde-kuit-format
