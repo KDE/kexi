@@ -1,0 +1,53 @@
+{
+    "id": "org.kde.kexi",
+    "branch": "master",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "5.15-22.08",
+    "sdk": "org.kde.Sdk",
+    "command": "kexi-3.3",
+    "tags": ["nightly"],
+    "rename-desktop-file": "org.kde.kexi-3.3.desktop",
+    "desktop-file-name-suffix": " (Nightly)",
+    "finish-args": ["--share=ipc", "--socket=x11", "--socket=wayland" ],
+
+    "modules": [
+        {
+            "name": "breeze-icons",
+            "config-opts": [ "-DSKIP_INSTALL_ICONS=ON" ],
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/frameworks/breeze-icons.git",
+                    "tag": "v5.105.0",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^v([\\d.]+)$"
+                    },
+                    "commit": "cf1647176626f87d1ec5bc25db3661bd27936adc"
+                }
+            ]
+        },
+        {
+            "name": "kdb",
+            "buildsystem": "cmake-ninja",
+            "sources": [ { "type": "git", "url": "https://invent.kde.org/kde/kdb.git" } ]
+        },
+        {
+            "name": "kproperty",
+            "buildsystem": "cmake-ninja",
+            "sources": [ { "type": "git", "url": "https://invent.kde.org/kde/kproperty.git" } ]
+        },
+        {
+            "name": "kreport",
+            "buildsystem": "cmake-ninja",
+            "sources": [ { "type": "git", "url": "https://invent.kde.org/kde/kreport.git" } ]
+        },
+        {
+            "name": "kexi",
+            "buildsystem": "cmake-ninja",
+            "sources": [ { "type": "dir", "path": "." } ]
+        }
+    ]
+}
