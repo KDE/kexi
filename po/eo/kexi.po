@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-15 00:56+0000\n"
-"PO-Revision-Date: 2023-06-15 21:48+0100\n"
+"PO-Revision-Date: 2023-09-04 20:29+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -4742,12 +4742,12 @@ msgstr "Nomo de la celprojekto:"
 #: migration/importwizard.cpp:371
 #, kde-kuit-format
 msgid "Enter Destination Database Project's Caption"
-msgstr "Enigu la Subtitolon de la Projekto-Datumbaza Destinita"
+msgstr "Enigu la Subtitolon de la Cela Datumbazrojekto"
 
 #: migration/importwizard.cpp:407
 #, kde-kuit-format
 msgid "Select Location for Destination Database Project"
-msgstr "Elektu Lokon por Destina Datumbaza Projekto"
+msgstr "Elektu Lokon por Cela Datumbazprojekto"
 
 #: migration/importwizard.cpp:425
 #, kde-kuit-format
