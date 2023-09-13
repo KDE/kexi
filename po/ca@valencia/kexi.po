@@ -487,8 +487,8 @@ msgstr ""
 "Nom del controlador de la base de dades que s'utilitzarà per a connectar amb "
 "un projecte de base de dades («sqlite» de manera predeterminada). S'ignorarà "
 "si es proporciona un nom de fitxer de drecera. Es pot utilitzar un "
-"identificador únic globalment específic del KDb, p. ex. «org.kde.kdb.sqlite» "
-"per a especificar el venedor exacte del controlador."
+"identificador únic globalment específic del KDb, p. ex., «org.kde.kdb."
+"sqlite» per a especificar el venedor exacte del controlador."
 
 #: core/KexiCommandLineOptions.cpp:57
 #, kde-kuit-format
@@ -700,8 +700,8 @@ msgid ""
 msgstr ""
 "Número de port del servidor que es farà servir per a connectar amb un "
 "projecte de base de dades. S'ignora si s'hi posa una drecera a un nom de "
-"fitxer. De manera predeterminada, depén del tipus de servidor emprat (p. ex. "
-"%1, %2)."
+"fitxer. De manera predeterminada, depén del tipus de servidor emprat (p. "
+"ex., %1, %2)."
 
 #: core/KexiCommandLineOptions.cpp:167
 #, kde-kuit-format
@@ -714,7 +714,7 @@ msgstr ""
 "Nom del fitxer del sòcol de l'ordinador local que es farà servir per a "
 "connectar amb un projecte de base de dades. S'ignora si el projecte s'obri "
 "utilitzant un fitxer de drecera. De manera predeterminada, depén del tipus "
-"de servidor emprat (p. ex. %1, %2)."
+"de servidor emprat (p. ex., %1, %2)."
 
 #: core/KexiCommandLineOptions.cpp:176
 #, kde-kuit-format
@@ -911,7 +911,7 @@ msgid ""
 "is properly installed.</note></para>"
 msgstr ""
 "<para>No s'ha trobat cap connector per a <application>%1</application>, p. "
-"ex. per a taules o formularis. <application>%1</application> no serà "
+"ex., per a taules o formularis. <application>%1</application> no serà "
 "funcional, així que acabarà.</para><para><note>Verifiqueu que <application>"
 "%1</application> estiga instal·lat adequadament.</note></para>"
 
@@ -6886,7 +6886,7 @@ msgctxt ""
 "do not reorder placeholders, just translate e.g. and - to the separator used "
 "by dates in your language"
 msgid "%1, %2, %3 (e.g. %4-%5-%6)"
-msgstr "%1, %2, %3 (p. ex. %4-%5-%6)"
+msgstr "%1, %2, %3 (p. ex., %4-%5-%6)"
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:143
 #, kde-kuit-format
