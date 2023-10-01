@@ -757,20 +757,21 @@ msgstr ""
 #, kde-kuit-format
 msgid "Could not find location to save connection data file."
 msgstr ""
-"Non se puido atopar a ruta na que gardar o ficheiro cos datos de conexión."
+"Non foi posíbel atopar a ruta na que gardar o ficheiro cos datos de conexión."
 
 #: core/kexidbconnectionset.cpp:88
 #, kde-kuit-format
 msgid ""
 "Could not create folder <filename>%1</filename> for connection data file."
 msgstr ""
-"Non se puido crear o cartafol <filename>%1</filename> para o ficheiro cos "
+"Non foi posíbel crear o cartafol <filename>%1</filename> para o ficheiro cos "
 "datos de conexión."
 
 #: core/kexidbconnectionset.cpp:157
 #, kde-kuit-format
 msgid "Could not remove connection file <filename>%1</filename>."
-msgstr "Non se puido retirar o ficheiro de conexión <filename>%1</filename>."
+msgstr ""
+"Non foi posíbel retirar o ficheiro de conexión <filename>%1</filename>."
 
 #: core/KexiFileFilters.cpp:242 widget/KexiStartupFileHandler.cpp:287
 #, kde-kuit-format
@@ -804,12 +805,12 @@ msgstr "Detalles:"
 msgctxt "@info"
 msgid "Object <resource>%1</resource> could not be opened in Design View."
 msgstr ""
-"Non se puido abrir o obxecto <resource>%1</resource> na vista de deseño."
+"Non foi posíbel abrir o obxecto <resource>%1</resource> na vista de deseño."
 
 #: core/kexipart.cpp:76
 #, kde-kuit-format
 msgid "Object could not be opened in Data View."
-msgstr "Non se puido abrir o obxecto na vista dos datos."
+msgstr "Non foi posíbel abrir o obxecto na vista dos datos."
 
 #: core/kexipart.cpp:77
 #, kde-kuit-format
@@ -829,7 +830,7 @@ msgstr "obxecto"
 #: core/kexipart.cpp:253
 #, kde-kuit-format
 msgid "Could not create object's window."
-msgstr "Non se puido crear a xanela do obxecto."
+msgstr "Non foi posíbel crear a xanela do obxecto."
 
 #: core/kexipart.cpp:253
 #, kde-kuit-format
@@ -839,7 +840,7 @@ msgstr "Pode que a definición do complemento ou obxecto estea danada."
 #: core/kexipart.cpp:275
 #, kde-kuit-format
 msgid "Could not load object's definition."
-msgstr "Non se puido cargar a definición do obxecto."
+msgstr "Non foi posíbel cargar a definición do obxecto."
 
 #: core/kexipart.cpp:275
 #, kde-kuit-format
@@ -855,7 +856,7 @@ msgstr "Pode eliminar o obxecto <resource>%1</resource> e volvelo crear."
 #: core/kexipart.cpp:359
 #, kde-kuit-format
 msgid "Could not load object's data."
-msgstr "Non se puideron cargar os datos do obxecto."
+msgstr "Non foi posíbel cargar os datos do obxecto."
 
 #: core/kexipart.cpp:361
 #, kde-kuit-format
@@ -892,8 +893,8 @@ msgid ""
 "Could not load plugin file <filename>%1</filename> for <application>%2</"
 "application>."
 msgstr ""
-"Non se puido cargar o ficheiro de complemento <filename>%1</filename> para "
-"<application>%2</application>."
+"Non foi posíbel cargar o ficheiro de complemento <filename>%1</filename> "
+"para <application>%2</application>."
 
 #: core/kexipartmanager.cpp:128
 #, kde-kuit-format
@@ -902,8 +903,8 @@ msgid ""
 "Could not open plugin <filename>%1</filename> for <application>%2</"
 "application>."
 msgstr ""
-"Non se puido abrir o complemento <filename>%1</filename> para <application>"
-"%2</application>."
+"Non foi posíbel abrir o complemento <filename>%1</filename> para "
+"<application>%2</application>."
 
 #: core/kexipartmanager.cpp:231
 #, kde-kuit-format
@@ -944,26 +945,26 @@ msgstr ""
 #: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3641
 #, kde-kuit-format
 msgid "Could not set empty name for this object."
-msgstr "Non se puido definir un nome baleiro para o obxecto."
+msgstr "Non foi posíbel definir un nome baleiro para o obxecto."
 
 #: core/kexiproject.cpp:136
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not use this name. Object <resource>%1</resource> already exists."
 msgstr ""
-"Non se puido utilizar este nome. Xa existe o obxecto <resource>%1</resource>."
+"Non foi posíbel usar este nome. Xa existe o obxecto <resource>%1</resource>."
 
 #: core/kexiproject.cpp:148
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not rename object <resource>%1</resource>."
-msgstr "Non se puido renomear o obxecto <resource>%1</resource>."
+msgstr "Non foi posíbel renomear o obxecto <resource>%1</resource>."
 
 #: core/kexiproject.cpp:300
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not open project <resource>%1</resource>."
-msgstr "Non se puido abrir o proxecto <resource>%1</resource>."
+msgstr "Non foi posíbel abrir o proxecto <resource>%1</resource>."
 
 #: core/kexiproject.cpp:306
 #, kde-kuit-format
@@ -972,7 +973,7 @@ msgid ""
 "Could not open project. The project file <filename>%1</filename> does not "
 "exist."
 msgstr ""
-"Non se puido abrir o proxecto. O ficheiro de proxecto <filename>%1</"
+"Non foi posíbel abrir o proxecto. O ficheiro de proxecto <filename>%1</"
 "filename> non existe."
 
 #: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
@@ -981,7 +982,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Could Not Open File"
-msgstr "Non se puido abrir o ficheiro"
+msgstr "Non foi posíbel abrir o ficheiro"
 
 #: core/kexiproject.cpp:345
 #, kde-kuit-format
@@ -997,7 +998,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not create project <resource>%1</resource>."
-msgstr "Non se puido crear o proxecto <resource>%1</resource>."
+msgstr "Non foi posíbel crear o proxecto <resource>%1</resource>."
 
 #: core/kexiproject.cpp:416 core/kexiproject.cpp:487
 #, kde-kuit-format
@@ -1022,7 +1023,7 @@ msgstr "Descrición do proxecto"
 #: core/kexiproject.cpp:824
 #, kde-kuit-format
 msgid "Could not load list of tables."
-msgstr "Non se puido cargar a lista de táboas."
+msgstr "Non foi posíbel cargar a lista de táboas."
 
 #: core/kexiproject.cpp:1016
 #, kde-kuit-format
@@ -1042,7 +1043,7 @@ msgstr "Este proxecto foi aberto só para lectura."
 #: core/kexiproject.cpp:1069
 #, kde-kuit-format
 msgid "Could not delete object's user data."
-msgstr "Non se puido eliminar os datos do usuario do obxecto."
+msgstr "Non foi posíbel eliminar os datos do usuario do obxecto."
 
 #: core/kexiproject.cpp:1197
 #, kde-format
@@ -1088,8 +1089,8 @@ msgid ""
 "Could not delete this project. Database connection for this project has been "
 "opened as read only."
 msgstr ""
-"Non se puido eliminar o proxecto. A conexión coa base de datos do proxecto "
-"foi aberta só para lectura."
+"Non foi posíbel eliminar o proxecto. A conexión coa base de datos do "
+"proxecto foi aberta só para lectura."
 
 #: core/kexiproject.cpp:1526
 #, kde-kuit-format
@@ -1155,7 +1156,7 @@ msgid ""
 "Could not create folder <filename>%1</filename> for storing recent projects "
 "information."
 msgstr ""
-"Non se puido crear o cartafol <filename>%1</filename> para almacenar "
+"Non foi posíbel crear o cartafol <filename>%1</filename> para almacenar "
 "información sobre proxectos recentes."
 
 #: core/KexiStandardAction.cpp:47
@@ -1257,7 +1258,7 @@ msgstr "Visual"
 #: core/KexiWindow.cpp:90
 #, kde-kuit-format
 msgid "Could not create new object."
-msgstr "Non se puido crear o novo obxecto."
+msgstr "Non foi posíbel crear o novo obxecto."
 
 #: core/KexiWindow.cpp:446
 #, kde-kuit-format
@@ -1405,8 +1406,8 @@ msgid ""
 "Could not insert widget of type <resource>%1</resource>. A problem with "
 "widget's creation encountered."
 msgstr ""
-"Non se puido inserir o trebello de tipo <resource>%1</resource>. Atopouse un "
-"problema coa súa creación."
+"Non foi posíbel inserir o trebello de tipo <resource>%1</resource>. Atopouse "
+"un problema coa súa creación."
 
 #: formeditor/commands.cpp:1126
 msgctxt "(qtundo-format)"
@@ -1630,7 +1631,7 @@ msgid ""
 "because <resource>%3</resource> is not a valid name (identifier) for a "
 "widget."
 msgstr ""
-"Non se puido renomear o trebello <resource>%1</resource> a <resource>%2</"
+"Non foi posíbel renomear o trebello <resource>%1</resource> a <resource>%2</"
 "resource> porque <resource>%3</resource> non é un nome (identificador) "
 "correcto para un trebello."
 
@@ -1641,7 +1642,7 @@ msgid ""
 "Could not rename widget <resource>%1</resource> to <resource>%2</resource> "
 "because a widget with the name <resource>%3</resource> already exists."
 msgstr ""
-"Non se puido renomear o trebello <resource>%1</resource> a <resource>%2</"
+"Non foi posíbel renomear o trebello <resource>%1</resource> a <resource>%2</"
 "resource> porque xa existe un trebello chamado <resource>%3</resource>."
 
 #: formeditor/form.cpp:1449 formeditor/form.cpp:1718
@@ -2274,7 +2275,7 @@ msgstr "Editar o contido de %1"
 #: formeditor/widgetlibrary.cpp:194
 #, kde-format
 msgid "Could not find any form widget plugins."
-msgstr "Non se puideron atopar complementos de trebellos de formulario."
+msgstr "Non foi posíbel atopar complementos de trebellos de formulario."
 
 #: formeditor/widgetlibrary.cpp:253
 #, kde-kuit-format
@@ -2283,7 +2284,7 @@ msgid ""
 "Could not load Form Widgets plugin file <filename>%1</filename> for "
 "<application>%2</application>."
 msgstr ""
-"Non se puido cargar o ficheiro de complemento <filename>%1</filename> de "
+"Non foi posíbel cargar o ficheiro de complemento <filename>%1</filename> de "
 "trebellos de formulario para <application>%2</application>."
 
 #: formeditor/widgetlibrary.cpp:264
@@ -2293,7 +2294,7 @@ msgid ""
 "Could not open Form Widgets plugin <filename>%1</filename> for <application>"
 "%2</application>."
 msgstr ""
-"Non se puido abrir o complemento <filename>%1</filename> de trebellos de "
+"Non foi posíbel abrir o complemento <filename>%1</filename> de trebellos de "
 "formulario para <application>%2</application>."
 
 #: formeditor/widgetlibrary.cpp:743
@@ -3311,7 +3312,7 @@ msgstr "Escoller a ruta do novo proxecto"
 #: main/KexiMainWindow.cpp:1602
 #, kde-kuit-format
 msgid "cannot create object - unknown object type \"%1\""
-msgstr "Non se pode crear o obxecto: «%1» non é un tipo de obxecto coñecido."
+msgstr "Non é posíbel crear o obxecto: «%1» non é un tipo de obxecto coñecido."
 
 #: main/KexiMainWindow.cpp:1605
 #, kde-kuit-format
@@ -3321,7 +3322,7 @@ msgstr "«%1» é un tipo de obxecto descoñecido."
 #: main/KexiMainWindow.cpp:1615
 #, kde-kuit-format
 msgid "cannot create object of type \"%1\""
-msgstr "Non se pode crear un obxecto de tipo «%1»."
+msgstr "Non é posíbel crear un obxecto de tipo «%1»."
 
 #: main/KexiMainWindow.cpp:1627
 #, kde-kuit-format
@@ -3362,12 +3363,12 @@ msgstr "Non se atopou o obxecto."
 #: main/KexiMainWindow.cpp:1658
 #, kde-kuit-format
 msgid "cannot execute object"
-msgstr "Non se pode executar o obxecto."
+msgstr "Non é posíbel executar o obxecto."
 
 #: main/KexiMainWindow.cpp:1699
 #, kde-kuit-format
 msgid "cannot open object"
-msgstr "Non se pode abrir o obxecto."
+msgstr "Non é posíbel abrir o obxecto."
 
 #: main/KexiMainWindow.cpp:1713
 #, kde-kuit-format
@@ -3411,7 +3412,7 @@ msgstr "A vista seleccionada (%1) é incompatíbel co tipo de obxecto (%2)."
 #, kde-kuit-format
 msgctxt "Could not save object under the original name."
 msgid "Could not save under the original name."
-msgstr "Non se puido gardar co nome orixinal."
+msgstr "Non foi posíbel gardar co nome orixinal."
 
 #: main/KexiMainWindow.cpp:2917
 #, kde-kuit-format
@@ -3492,7 +3493,7 @@ msgstr "Eliminar <resource>%1</resource>?"
 #: main/KexiMainWindow.cpp:3626
 #, kde-kuit-format
 msgid "Could not delete object."
-msgstr "Non se puido eliminar o obxecto."
+msgstr "Non foi posíbel eliminar o obxecto."
 
 #: main/KexiMainWindow.cpp:3649
 #, kde-kuit-format
@@ -3596,7 +3597,7 @@ msgstr "Deseño de informes"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not start <application>%1</application> application."
-msgstr "Non se puido iniciar a aplicación <application>%1</application>."
+msgstr "Non foi posíbel iniciar a aplicación <application>%1</application>."
 
 #: main/KexiMainWindow_p.cpp:1238
 #, kde-kuit-format
@@ -3649,8 +3650,8 @@ msgid ""
 "Could not open icon resource file <filename>%1</filename>. Please check if "
 "<application>%2</application> is properly installed."
 msgstr ""
-"Non se puido abrir o ficheiro de recurso de icona <filename>%1</filename>. "
-"Comprobe se <application>%2</application> está ben instalado."
+"Non foi posíbel abrir o ficheiro de recurso de icona <filename>%1</"
+"filename>. Comprobe se <application>%2</application> está ben instalado."
 
 #: main/KexiSearchLineEdit.cpp:440
 #, kde-kuit-format
@@ -4134,13 +4135,15 @@ msgstr "O número de porto indicado (<icode>%1</icode>) é incorrecto."
 #: main/startup/KexiStartup.cpp:399
 #, kde-kuit-format
 msgid "Could not open database. No database driver specified."
-msgstr "Non se puido abrir a base de datos. Non se indicou ningún controlador."
+msgstr ""
+"Non foi posíbel abrir a base de datos. Non se indicou ningún controlador."
 
 #: main/startup/KexiStartup.cpp:412
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not start <application>%1</application> application this way."
-msgstr "Non se puido iniciar a aplicación <application>%1</application> así."
+msgstr ""
+"Non foi posíbel iniciar a aplicación <application>%1</application> así."
 
 #: main/startup/KexiStartup.cpp:418
 #, kde-kuit-format
@@ -4177,21 +4180,22 @@ msgctxt "@info"
 msgid ""
 "Could not delete project. The file <filename>%1</filename> does not exist."
 msgstr ""
-"Non se puido eliminar o proxecto.O ficheiro <filename>%1</filename> non "
+"Non foi posíbel eliminar o proxecto.O ficheiro <filename>%1</filename> non "
 "existe."
 
 #: main/startup/KexiStartup.cpp:536
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not open shortcut file <filename>%1</filename>."
-msgstr "Non se puido abrir o ficheiro de atallo <filename>%1</filename>."
+msgstr "Non foi posíbel abrir o ficheiro de atallo <filename>%1</filename>."
 
 #: main/startup/KexiStartup.cpp:568
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not open connection data file <filename>%1</filename>."
 msgstr ""
-"Non se puido abrir o ficheiro cos datos de conexión <filename>%1</filename>."
+"Non foi posíbel abrir o ficheiro cos datos de conexión <filename>%1</"
+"filename>."
 
 #: main/startup/KexiStartup.cpp:659
 #, kde-kuit-format
@@ -4222,13 +4226,13 @@ msgstr "O proxecto <resource>%1</resource> eliminouse correctamente."
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not open file. Missing filename."
-msgstr "Non se puido abrir o ficheiro, falta a súa ruta."
+msgstr "Non foi posíbel abrir o ficheiro, falta a súa ruta."
 
 #: main/startup/KexiStartup.cpp:814
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not open file. The file <filename>%1</filename> does not exist."
-msgstr "Non se puido abrir o ficheiro <filename>%1</filename>, non existe."
+msgstr "Non foi posíbel abrir o ficheiro <filename>%1</filename>, non existe."
 
 #: main/startup/KexiStartup.cpp:824
 #, kde-kuit-format
@@ -4334,7 +4338,7 @@ msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
 "database server."
 msgstr ""
-"Non se puido cargar a lista de proxectos dispoñíbeis para o servidor de "
+"Non foi posíbel cargar a lista de proxectos dispoñíbeis para o servidor de "
 "bases de datos <resource>%1</resource>."
 
 #: main/startup/KexiStartup.cpp:1036
@@ -4614,7 +4618,7 @@ msgid ""
 "Could not import table <resource>%1</resource>. Select different table or "
 "cancel importing."
 msgstr ""
-"Non se puido importar a táboa <resource>%1</resource>. Seleccione outra "
+"Non foi posíbel importar a táboa <resource>%1</resource>. Seleccione outra "
 "táboa ou cancele a importación."
 
 #: migration/importtablewizard.cpp:497
@@ -4684,7 +4688,7 @@ msgstr "Non se seleccionou ningunha táboa a importar."
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Unable to create table <resource>%1</resource>."
-msgstr "Non se pode crear a táboa <resource>%1</resource>."
+msgstr "Non é posíbel crear a táboa <resource>%1</resource>."
 
 #: migration/importwizard.cpp:141
 #, kde-kuit-format
@@ -4879,7 +4883,7 @@ msgstr "Escolla a base de datos de orixe."
 #, kde-kuit-format
 msgid "Could not import database. This type is not supported."
 msgstr ""
-"Non se puido importar a base de datos. O tipo de base de datos non é "
+"Non foi posíbel importar a base de datos. O tipo de base de datos non é "
 "compatíbel con Kexi."
 
 #: migration/importwizard.cpp:973
@@ -4889,7 +4893,7 @@ msgid ""
 "Could not import database <resource>%1</resource>. This type is not "
 "supported."
 msgstr ""
-"Non se puido importar a base de datos <resource>%1</resource>. O tipo de "
+"Non foi posíbel importar a base de datos <resource>%1</resource>. O tipo de "
 "base de datos non é compatíbel con Kexi."
 
 #: migration/importwizard.cpp:1032
@@ -4937,17 +4941,17 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not create database <resource>%1</resource>."
-msgstr "Non se puido crear a base de datos <resource>%1</resource>."
+msgstr "Non foi posíbel crear a base de datos <resource>%1</resource>."
 
 #: migration/keximigrate.cpp:217
 #, kde-kuit-format
 msgid "Could not connect to database %1."
-msgstr "Non se puido conectar á base de datos %1."
+msgstr "Non foi posíbel conectar á base de datos %1."
 
 #: migration/keximigrate.cpp:393
 #, kde-kuit-format
 msgid "Could not get a list of table names for database %1."
-msgstr "Non se puido obter unha lista de táboas da base de datos %1."
+msgstr "Non foi posíbel obter unha lista de táboas da base de datos %1."
 
 #: migration/keximigrate.cpp:403
 #, kde-kuit-format
@@ -4961,32 +4965,32 @@ msgid ""
 "Could not import project from database %1. Error reading table <resource>%2</"
 "resource>."
 msgstr ""
-"Non se puido importar o proxecto da base de datos %1. Produciuse un erro ao "
-"ler a táboa <resource>%2</resource>."
+"Non foi posíbel importar o proxecto da base de datos %1. Produciuse un erro "
+"ao ler a táboa <resource>%2</resource>."
 
 #: migration/keximigrate.cpp:513
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not import table <resource>%1</resource>."
-msgstr "Non se puido importar a táboa <resource>%1</resource>."
+msgstr "Non foi posíbel importar a táboa <resource>%1</resource>."
 
 #: migration/keximigrate.cpp:556
 #, kde-kuit-format
 msgid "Could not import project from data source %1."
-msgstr "Non se puido importar o proxecto da fonte de datos %1."
+msgstr "Non foi posíbel importar o proxecto da fonte de datos %1."
 
 #: migration/keximigrate.cpp:605
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not copy table <resource>%1</resource> to destination database."
 msgstr ""
-"Non se puido copiar a táboa <resource>%1</resource> na base de datos de "
+"Non foi posíbel copiar a táboa <resource>%1</resource> na base de datos de "
 "destino."
 
 #: migration/keximigrate.cpp:626
 #, kde-kuit-format
 msgid "Could not import data from data source %1."
-msgstr "Non se puideron importar os datos da fonte de datos %1."
+msgstr "Non foi posíbel importar os datos da fonte de datos %1."
 
 #: migration/keximigrate.cpp:704
 #, kde-kuit-format
@@ -5001,13 +5005,14 @@ msgid ""
 "The data type for field <resource>%1</resource> could not be determined. "
 "Please select one of the following data types."
 msgstr ""
-"Non se puido determinar o tipo de dato do campo <resource>%1</resource>. "
+"Non foi posíbel determinar o tipo de dato do campo <resource>%1</resource>. "
 "Escolla un dos seguintes tipos."
 
 #: migration/migratemanager.cpp:132
 #, kde-kuit-format
 msgid "Could not find any migration database drivers."
-msgstr "Non se puido atopar ningún controlador de migración de bases de datos."
+msgstr ""
+"Non foi posíbel atopar ningún controlador de migración de bases de datos."
 
 #: plugins/forms/kexidatasourcepage.cpp:49
 #, kde-kuit-format
@@ -6415,7 +6420,7 @@ msgstr "Exportando os datos da consulta:"
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:112
 #, kde-kuit-format
 msgid "Could not open data for exporting."
-msgstr "Non se puideron abrir os datos para a exportación."
+msgstr "Non foi posíbel abrir os datos para a exportación."
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:122
 #, kde-kuit-format
@@ -6682,7 +6687,7 @@ msgstr "Listo para importar"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:852
 #, kde-kuit-format
 msgid "Cannot open input file <filename>%1</filename>."
-msgstr "Non se pode abrir o ficheiro de entrada <filename>%1</filename>."
+msgstr "Non é posíbel abrir o ficheiro de entrada <filename>%1</filename>."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:930
 #, kde-kuit-format
@@ -6754,7 +6759,7 @@ msgstr "&Non engadir"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1941
 #, kde-kuit-format
 msgid "Cannot add column."
-msgstr "Non se pode engadir unha columna."
+msgstr "Non é posíbel engadir unha columna."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1897
 #: plugins/importexport/csv/KexiCSVImportDialogModel.cpp:114
@@ -7001,7 +7006,7 @@ msgid ""
 "Cannot switch to data view, because query design is empty.\n"
 "First, please create your design."
 msgstr ""
-"Non se pode cambiar á vista dos datos, xa que o deseño da consulta está "
+"Non é posíbel cambiar á vista dos datos, xa que o deseño da consulta está "
 "baleiro.\n"
 "Cree primeiro o deseño."
 
@@ -7493,7 +7498,7 @@ msgstr "Exportar o informe como unha folla de cálculo"
 #: plugins/reports/kexireportview.cpp:272
 #, kde-kuit-format
 msgid "Failed to export the report as spreadsheet to %1."
-msgstr "Non se puido exportar o informe como unha folla de cálculo a %1."
+msgstr "Non foi posíbel exportar o informe como unha folla de cálculo a %1."
 
 #: plugins/reports/kexireportview.cpp:288
 #, kde-kuit-format
@@ -7635,7 +7640,7 @@ msgstr "Importar un guión"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not read <filename>%1</filename>."
-msgstr "Non se puido ler <filename>%1</filename>."
+msgstr "Non foi posíbel ler <filename>%1</filename>."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:242
 #, kde-kuit-format
@@ -7647,7 +7652,7 @@ msgstr "Exportar o guión"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not write <filename>%1</filename>."
-msgstr "Non se puido escribir <filename>%1</filename>."
+msgstr "Non foi posíbel escribir <filename>%1</filename>."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:271
 #, kde-kuit-format
@@ -7932,7 +7937,7 @@ msgid ""
 "Cannot switch to data view, because table design is empty.\n"
 "First, please create your design."
 msgstr ""
-"Non se pode cambiar á vista dos datos, xa que o deseño da táboa está "
+"Non é posíbel cambiar á vista dos datos, xa que o deseño da táboa está "
 "baleiro.\n"
 "Cree primeiro o deseño."
 
@@ -8701,7 +8706,7 @@ msgstr "Computador"
 #: widget/KexiFileRequester.cpp:389
 #, kde-kuit-format
 msgid "Could not enter directory <filename>%1</filename>."
-msgstr "Non se puido entrar no cartafol <filename>%1</filename>."
+msgstr "Non foi posíbel entrar no cartafol <filename>%1</filename>."
 
 #: widget/KexiFileRequester.cpp:465
 #, kde-kuit-format
