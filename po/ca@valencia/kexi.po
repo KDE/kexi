@@ -8730,7 +8730,7 @@ msgstr "Ves al directori superior"
 #: widget/KexiFileRequester.cpp:482
 #, kde-kuit-format
 msgid "Select directory"
-msgstr "Seleccioneu el directori"
+msgstr "Seleccioneu un directori"
 
 #: widget/KexiFileRequester.cpp:507 widget/KexiNameWidget.cpp:98
 #, kde-kuit-format
