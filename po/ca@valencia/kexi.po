@@ -4398,7 +4398,7 @@ msgid ""
 msgstr ""
 "<para>L'assistent d'importació de taules us permet importar una taula d'una "
 "base de dades existent en el projecte actual de Kexi.</para><para>Cliqueu en "
-"el botó <interface>Següent</interface> per continuar o el botó "
+"el botó <interface>Següent</interface> per a continuar o el botó "
 "<interface>Cancel·la</interface> per eixir d'este assistent.</para>"
 
 #: migration/importtablewizard.cpp:175
@@ -8530,7 +8530,7 @@ msgstr "Ves al directori superior"
 #: widget/KexiFileRequester.cpp:482
 #, kde-kuit-format
 msgid "Select directory"
-msgstr "Seleccioneu el directori"
+msgstr "Seleccioneu un directori"
 
 #: widget/KexiFileRequester.cpp:507 widget/KexiNameWidget.cpp:98
 #, kde-kuit-format
