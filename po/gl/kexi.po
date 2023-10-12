@@ -683,7 +683,7 @@ msgid ""
 msgstr ""
 "Nome do servidor a ser usado para conectarse a un proxecto de base de datos. "
 "Ignórase en caso de fornecerse a ruta a un ficheiro de atallo. O nome de "
-"usuario predeterminado é o seu nome de usuario (<resource>%1</resource>)."
+"usuaria predeterminado é o seu nome de usuaria (<resource>%1</resource>)."
 
 #: core/KexiCommandLineOptions.cpp:154
 #, kde-kuit-format
@@ -8602,7 +8602,7 @@ msgstr "Indique en baixo o contrasinal."
 #: widget/KexiPasswordWidget.ui:87
 #, kde-format
 msgid "Username:"
-msgstr "Nome de usuario:"
+msgstr "Nome de usuaria:"
 
 #. i18n: ectx: property (text), widget (QLabel, anonymousLabel)
 #: widget/KexiPasswordWidget.ui:104
