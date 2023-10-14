@@ -510,7 +510,7 @@ msgstr ""
 "esta opció si no s'especifica cap fitxer com a argument.\n"
 "Els tipus disponibles són:\n"
 "- «project» per a un fitxer de projecte (el valor predeterminat)\n"
-"- «shortcut» per a una drecera apuntant a\n"
+"- «shortcut» per a una drecera apuntant cap a\n"
 " un projecte.\n"
 "- «connection» per a les dades de connexió amb una base de dades."
 
@@ -673,7 +673,7 @@ msgid ""
 "the current login (<resource>%1</resource>)."
 msgstr ""
 "Nom del servidor que es farà servir per a connectar amb un projecte de base "
-"de dades. S'ignora si s'hi posa una drecera a un nom de fitxer. El nom "
+"de dades. S'ignora si s'hi posa una drecera cap a un nom de fitxer. El nom "
 "d'usuari predeterminat és el mateix que l'inici de sessió actual (<resource>"
 "%1</resource>)."
 
@@ -686,8 +686,8 @@ msgid ""
 "host is the local computer."
 msgstr ""
 "Nom del servidor que es farà servir per a connectar amb un projecte de base "
-"de dades. S'ignora si s'hi posa una drecera a un nom de fitxer. El servidor "
-"predeterminat és l'ordinador local."
+"de dades. S'ignora si s'hi posa una drecera cap a un nom de fitxer. El "
+"servidor predeterminat és l'ordinador local."
 
 #: core/KexiCommandLineOptions.cpp:160
 #, kde-kuit-format
@@ -698,7 +698,7 @@ msgid ""
 "depend on the used server type (e.g. %1, %2)."
 msgstr ""
 "Número de port del servidor que es farà servir per a connectar amb un "
-"projecte de base de dades. S'ignora si s'hi posa una drecera a un nom de "
+"projecte de base de dades. S'ignora si s'hi posa una drecera cap a un nom de "
 "fitxer. De manera predeterminada, depén del tipus de servidor emprat (p. "
 "ex., %1, %2)."
 
@@ -2085,7 +2085,7 @@ msgid ""
 "Copy to Clipboard\n"
 "As Data Table"
 msgstr ""
-"Copia al porta-retalls\n"
+"Copia a dins del porta-retalls\n"
 "Com a taula de dades"
 
 #: formeditor/kexiactionselectiondialog.cpp:324
@@ -4884,12 +4884,12 @@ msgstr "Font de dades del formulari:"
 #: plugins/forms/kexidatasourcepage.cpp:112
 #, kde-kuit-format
 msgid "Go to selected form's data source"
-msgstr "Ves a la font de dades del formulari seleccionat"
+msgstr "Ves fins a la font de dades del formulari seleccionat"
 
 #: plugins/forms/kexidatasourcepage.cpp:113
 #, kde-kuit-format
 msgid "Goes to selected form's data source"
-msgstr "Ves a la font de dades del formulari seleccionat"
+msgstr "Ves fins a la font de dades del formulari seleccionat"
 
 #: plugins/forms/kexidbfactorybase.cpp:49 plugins/forms/kexiformpart.cpp:366
 #: plugins/reports/kexireportpart.cpp:211
@@ -6179,13 +6179,13 @@ msgstr "Suprimix la pàgina"
 #, kde-kuit-format
 msgctxt "Go to Previous Page of a Stacked Widget"
 msgid "Go to Previous Page"
-msgstr "Ves a la pàgina anterior"
+msgstr "Ves fins a la pàgina anterior"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:386
 #, kde-kuit-format
 msgctxt "Go to Next Page of a Stacked Widget"
 msgid "Go to Next Page"
-msgstr "Ves a la pàgina següent"
+msgstr "Ves fins a la pàgina següent"
 
 #: plugins/forms/widgets/main/KexiStandardFormWidgets.cpp:67
 #, kde-kuit-format
@@ -7122,7 +7122,7 @@ msgstr "Pàgina:"
 #: plugins/reports/kexireportview.cpp:65
 #, kde-kuit-format
 msgid "Go to first page"
-msgstr "Ves a la primera pàgina"
+msgstr "Ves fins a la primera pàgina"
 
 #: plugins/reports/kexireportview.cpp:66
 #, kde-kuit-format
@@ -7132,7 +7132,7 @@ msgstr "Va a la primera pàgina"
 #: plugins/reports/kexireportview.cpp:67
 #, kde-kuit-format
 msgid "Go to previous page"
-msgstr "Ves a la pàgina prèvia"
+msgstr "Ves fins a la pàgina prèvia"
 
 #: plugins/reports/kexireportview.cpp:68
 #, kde-kuit-format
@@ -7142,7 +7142,7 @@ msgstr "Va a la pàgina anterior"
 #: plugins/reports/kexireportview.cpp:69
 #, kde-kuit-format
 msgid "Go to next page"
-msgstr "Ves a la pàgina següent"
+msgstr "Ves fins a la pàgina següent"
 
 #: plugins/reports/kexireportview.cpp:70
 #, kde-kuit-format
@@ -7152,7 +7152,7 @@ msgstr "Va a la pàgina següent"
 #: plugins/reports/kexireportview.cpp:71
 #, kde-kuit-format
 msgid "Go to last page"
-msgstr "Ves a l'última pàgina"
+msgstr "Ves fins a l'última pàgina"
 
 #: plugins/reports/kexireportview.cpp:72
 #, kde-kuit-format
@@ -7544,7 +7544,7 @@ msgstr "Font del registre:"
 #: plugins/tables/kexilookupcolumnpage.cpp:149
 #, kde-kuit-format
 msgid "Go to selected record source"
-msgstr "Ves a la font del registre seleccionat"
+msgstr "Ves fins a la font del registre seleccionat"
 
 #: plugins/tables/kexilookupcolumnpage.cpp:160
 #, kde-kuit-format
@@ -8525,7 +8525,7 @@ msgstr "No s'ha pogut introduir el directori <filename>%1</filename>."
 #: widget/KexiFileRequester.cpp:465
 #, kde-kuit-format
 msgid "Go to parent directory"
-msgstr "Ves al directori superior"
+msgstr "Ves fins al directori superior"
 
 #: widget/KexiFileRequester.cpp:482
 #, kde-kuit-format
@@ -9091,12 +9091,12 @@ msgstr "Primer registre"
 #: widget/utils/kexirecordnavigator.cpp:625
 #, kde-kuit-format
 msgid "Go to first record"
-msgstr "Ves al primer registre"
+msgstr "Ves fins al primer registre"
 
 #: widget/utils/kexirecordnavigator.cpp:626
 #, kde-kuit-format
 msgid "Go to previous record"
-msgstr "Ves al registre anterior"
+msgstr "Ves fins al registre anterior"
 
 #: widget/utils/kexirecordnavigator.cpp:626
 #, kde-kuit-format
@@ -9106,7 +9106,7 @@ msgstr "Registre anterior"
 #: widget/utils/kexirecordnavigator.cpp:627
 #, kde-kuit-format
 msgid "Go to next record"
-msgstr "Ves al registre següent"
+msgstr "Ves fins al registre següent"
 
 #: widget/utils/kexirecordnavigator.cpp:627
 #, kde-kuit-format
@@ -9116,7 +9116,7 @@ msgstr "Registre següent"
 #: widget/utils/kexirecordnavigator.cpp:628
 #, kde-kuit-format
 msgid "Go to last record"
-msgstr "Ves a l'últim registre"
+msgstr "Ves fins a l'últim registre"
 
 #: widget/utils/kexirecordnavigator.cpp:628
 #, kde-kuit-format
@@ -9126,7 +9126,7 @@ msgstr "Últim registre"
 #: widget/utils/kexirecordnavigator.cpp:629
 #, kde-kuit-format
 msgid "Go to new record"
-msgstr "Ves a un registre nou"
+msgstr "Ves fins a un registre nou"
 
 #: widget/utils/kexirecordnavigator.cpp:629
 #, kde-kuit-format
