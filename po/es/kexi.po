@@ -5,7 +5,7 @@
 # Juan Manuel García Molina <juanma@superiodico.net>, 2006.
 # Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007, 2010.
 # Jaime Robles <jaime@kde.org>, 2007, 2008.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2008, 2010, 2011, 2015, 2016, 2017, 2018, 2019.
+# SPDX-FileCopyrightText: 2008, 2010, 2011, 2015, 2016, 2017, 2018, 2019, 2023 Eloy Cuadra <ecuadra@eloihr.net>
 # Raul Gonzalez <raulgf83@gmail.com>, 2011, 2012, 2013, 2014, 2015.
 # Sofia Priego <spriego@darksylvania.net>, 2015, 2016, 2017, %Y.
 msgid ""
@@ -13,14 +13,14 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-24 02:33+0000\n"
-"PO-Revision-Date: 2019-02-01 22:26+0100\n"
+"PO-Revision-Date: 2023-10-17 22:24+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 18.12.1\n"
+"X-Generator: Lokalize 23.08.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: core/kexi.cpp:141
@@ -4320,31 +4320,30 @@ msgid ""
 msgstr ""
 "<title>Kexi puede ser completamente gratuito, pero su desarrollo es costoso."
 "</title><para>Electricidad, herramientas, oficinas, conexión a internet, "
-"viajes para reuniones... todo cuesta.</para><para>Las donaciones directas "
-"son la forma más fácil y rápida de apoyar eficientemente el proyecto de "
-"Kexi. Cualquiera, independientemente del grado de participación, puede "
-"hacerlo.</para><para>¿Qué recibe usted a cambio de su donación? Kexi se "
-"volverá más completo y estable ya que, de esta forma, los colaboradores "
-"podrán dedicar más tiempo a Kexi. No solo tiene que esperar nuevas "
-"funciones, sino que también puede influir en las funciones que se añadan.</"
-"para><para>En la actualidad aceptamos donaciones a través de "
-"<emphasis>BountySource</emphasis> (una plataforma de financiación para "
-"programas de código abierto) que usa el pago seguro de Paypal, Bitcoin y "
-"transferencias de la cartera de Google.</para><para>Contacte con nosotros en "
-"<link url='https://community.kde.org/Kexi/Contact'>https://community.kde.org/"
-"Kexi/Contact</link> para más información.</para><para>¡Gracias por su ayuda!"
-"</para>"
+"viajes para reuniones... todo cuesta.</para><para>Los donativos directos son "
+"la forma más fácil y rápida de apoyar eficientemente el proyecto de Kexi. "
+"Cualquiera, independientemente del grado de participación, puede hacerlo.</"
+"para><para>¿Qué recibe usted a cambio de su donativo? Kexi se volverá más "
+"completo y estable ya que, de esta forma, los colaboradores podrán dedicar "
+"más tiempo a Kexi. No solo tiene que esperar nuevas funciones, sino que "
+"también puede influir en las funciones que se añadan.</para><para>En la "
+"actualidad aceptamos donativos a través de <emphasis>BountySource</emphasis> "
+"(una plataforma de financiación para programas de código abierto) que usa el "
+"pago seguro de PayPal, Bitcoin y transferencias de la cartera de Google.</"
+"para><para>Contacte con nosotros en <link url='https://community.kde.org/"
+"Kexi/Contact'>https://community.kde.org/Kexi/Contact</link> para más "
+"información.</para><para>¡Gracias por su ayuda!</para>"
 
 #: main/startup/KexiWelcomeStatusBar.cpp:763
 #, kde-kuit-format
 msgid "Donate to the Project"
-msgstr "Donar al proyecto"
+msgstr "Hacer un donativo al proyecto"
 
 #: main/startup/KexiWelcomeStatusBar.cpp:764
 #, kde-kuit-format
 msgctxt "@action:button Go to Donation"
 msgid "Proceed to the Donation Web Page"
-msgstr "Ir a la página web de donaciones"
+msgstr "Ir a la página web de donativos"
 
 #: main/startup/KexiWelcomeStatusBar.cpp:765
 #, kde-kuit-format
