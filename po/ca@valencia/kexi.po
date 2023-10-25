@@ -4479,7 +4479,7 @@ msgstr "Feu una donació al projecte"
 #, kde-kuit-format
 msgctxt "@action:button Go to Donation"
 msgid "Proceed to the Donation Web Page"
-msgstr "Aneu a la pàgina web de donació"
+msgstr "Aneu fins a la pàgina web de donació"
 
 #: main/startup/KexiWelcomeStatusBar.cpp:765
 #, kde-kuit-format
@@ -5024,7 +5024,7 @@ msgid ""
 "Please select one of the following data types."
 msgstr ""
 "No s'ha pogut determinar el tipus de dades per al camp <resource>%1</"
-"resource>. Seleccioneu un dels següents tipus de dades."
+"resource>. Seleccioneu un dels tipus següents de dades."
 
 #: migration/migratemanager.cpp:132
 #, kde-kuit-format
@@ -7321,7 +7321,7 @@ msgstr "Ves fins a la primera pàgina"
 #: plugins/reports/kexireportview.cpp:69
 #, kde-kuit-format
 msgid "Goes to first page"
-msgstr "Va a la primera pàgina"
+msgstr "Va fins a la primera pàgina"
 
 #: plugins/reports/kexireportview.cpp:70
 #, kde-kuit-format
@@ -7331,7 +7331,7 @@ msgstr "Ves fins a la pàgina prèvia"
 #: plugins/reports/kexireportview.cpp:71
 #, kde-kuit-format
 msgid "Goes to previous page"
-msgstr "Va a la pàgina anterior"
+msgstr "Va fins a la pàgina anterior"
 
 #: plugins/reports/kexireportview.cpp:72
 #, kde-kuit-format
@@ -7341,7 +7341,7 @@ msgstr "Ves fins a la pàgina següent"
 #: plugins/reports/kexireportview.cpp:73
 #, kde-kuit-format
 msgid "Goes to next page"
-msgstr "Va a la pàgina següent"
+msgstr "Va fins a la pàgina següent"
 
 #: plugins/reports/kexireportview.cpp:74
 #, kde-kuit-format
@@ -7351,7 +7351,7 @@ msgstr "Ves fins a l'última pàgina"
 #: plugins/reports/kexireportview.cpp:75
 #, kde-kuit-format
 msgid "Goes to last page"
-msgstr "Va a l'última pàgina"
+msgstr "Va fins a l'última pàgina"
 
 #: plugins/reports/kexireportview.cpp:76
 #, kde-kuit-format
