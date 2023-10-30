@@ -14,7 +14,7 @@
 # Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2008.
 # Mickael Sibelle <kimael@gmail.com>, 2009.
 # Alain Portal <alain.portal@free.fr>, 2010.
-# xavier <xavier.besnard@neuf.fr>, 2012, 2013, 2020, 2021.
+# SPDX-FileCopyrightText: 2012, 2013, 2020, 2021, 2023 xavier <xavier.besnard@neuf.fr>
 # Sebastien Renard <renard@kde.org>, 2013, 2014.
 # Vincent PINON <vpinon@kde.org>, 2013, 2014, 2015.
 # Eric Girard <ericgirard78@gmail.com>, 2018.
@@ -27,15 +27,15 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-01-15 00:56+0000\n"
-"PO-Revision-Date: 2021-01-12 07:36+0100\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2023-10-28 22:51+0200\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.08.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -99,7 +99,7 @@ msgstr "Créateur graphique d'applications de bases de données"
 #: core/kexiaboutdata.cpp:37
 #, kde-kuit-format
 msgid "© 2002-%1, The KEXI Team"
-msgstr "(c) 2002-%1, L'équipe KEXI"
+msgstr "(c) 2002-%1, L'équipe de Kexi"
 
 #: core/kexiaboutdata.cpp:38
 #, kde-kuit-format
@@ -107,7 +107,7 @@ msgid ""
 "This software is developed by KEXI Team - an international group of "
 "independent developers. They form a part of the Calligra Project."
 msgstr ""
-"Ce logiciel est développé par l'équipe KEXI - un groupe international de "
+"Ce logiciel est développé par l'équipe de Kexi - un groupe international de "
 "développeurs indépendants. Ils forment une partie du projet Calligra."
 
 #: core/kexiaboutdata.cpp:48
@@ -155,7 +155,7 @@ msgstr ""
 #: core/kexiaboutdata.cpp:54
 #, kde-kuit-format
 msgid "Radosław Wicik"
-msgstr "Radosław Wicik"
+msgstr "Radoslaw Wicik"
 
 #: core/kexiaboutdata.cpp:56 core/kexiaboutdata.cpp:58
 #, kde-kuit-format
@@ -181,7 +181,7 @@ msgstr "Dimitrios T. Tanis"
 #, kde-kuit-format
 msgid "Users Manual for KEXI 2, main window improvements, numerous bug reports"
 msgstr ""
-"Manuel utilisateur pour KEXI 2, améliorations de la fenêtre principale, "
+"Manuel utilisateur pour Kexi 2, améliorations de la fenêtre principale, "
 "nombreux rapports de bogues"
 
 #: core/kexiaboutdata.cpp:62
@@ -209,7 +209,7 @@ msgstr "Éléments Web pour les formulaires et les rapports"
 #, kde-kuit-format
 msgid "Scripting module (KROSS), Python language bindings, design"
 msgstr ""
-"Module d'écriture de scripts (KROSS), liaison du langage Python, conception"
+"Module d'écriture de scripts (KRoss), liaison du langage Python, conception"
 
 #: core/kexiaboutdata.cpp:66
 #, kde-kuit-format
@@ -595,8 +595,8 @@ msgstr ""
 msgctxt "'show-navigator' command line option"
 msgid "Show the Project Navigator side pane even if KEXI runs in User Mode."
 msgstr ""
-"Afficher le panneau latéral du navigateur de projet, même si KEXI tourne en "
-"mode utilisateur."
+"Afficher le panneau latéral du navigateur de projet, même si Kexi s'exécute "
+"en mode utilisateur."
 
 #: core/KexiCommandLineOptions.cpp:91
 #, kde-kuit-format
@@ -624,7 +624,7 @@ msgstr ""
 "dans le projet indiqué au démarrage de l'application. « object_type »est "
 "optionnel. S'il est omis, le type « %1 »est utilisé. Les autres types "
 "possibles sont « %2 », « %3 », « %4 », « %5 ». Il peut y en avoir plus ou "
-"moins, selon les modules externes de KEXI que vous avez installés.\n"
+"moins, selon les modules externes de Kexi que vous avez installés.\n"
 "Utilisez des guillemets «  » pour indiquer des noms contenant des espaces.\n"
 "Exemples : --open Ma_table, --open %2 : « Ma très longue requête »"
 
@@ -661,7 +661,7 @@ msgstr ""
 "« object_name » au démarrage de l'application. « object_type »est optionnel. "
 "S'il est omis le type %1 est utilisé. Le type objet peut aussi être %2. Il "
 "peut potentiellement y avoir plus ou moins de types, en fonction des modules "
-"externes KEXI installés.\n"
+"externes Kexi installés.\n"
 "Utilisez des guillemets «  » pour indiquer des noms contenant des espaces."
 
 #: core/KexiCommandLineOptions.cpp:125
@@ -767,7 +767,7 @@ msgid ""
 "Start KEXI in full screen mode to occupy the whole screen area by hiding "
 "window decorations such as title bars."
 msgstr ""
-"Démarrer KEXI en mode plein écran pour occuper la totalité de l'espace de "
+"Démarrer Kexi en mode plein écran pour occuper la totalité de l'espace de "
 "l'écran en cachant les décorations, telles que les barres de titre."
 
 #: core/KexiCommandLineOptions.cpp:188
@@ -777,7 +777,7 @@ msgid ""
 "Displays list of plugins available for KEXI with their name, description, "
 "version and filenames."
 msgstr ""
-"Affiche la liste des modules externes disponibles pour KEXI avec leur nom, "
+"Affiche la liste des modules externes disponibles pour Kexi avec leur nom, "
 "description, version et noms de fichiers."
 
 #: core/kexidbconnectionset.cpp:76
@@ -2839,12 +2839,12 @@ msgstr "&Importer une base de données..."
 #: main/KexiMainWindow.cpp:554
 #, kde-kuit-format
 msgid "Import entire database as a KEXI project"
-msgstr "Importer une base de données entière en tant que projet KEXI"
+msgstr "Importer une base de données entière en tant que projet Kexi"
 
 #: main/KexiMainWindow.cpp:556
 #, kde-kuit-format
 msgid "Imports entire database as a KEXI project."
-msgstr "Importe une base de données entière en tant que projet KEXI."
+msgstr "Importe une base de données entière en tant que projet Kexi."
 
 #: main/KexiMainWindow.cpp:561
 #, kde-kuit-format
@@ -3304,7 +3304,7 @@ msgstr "Soumettre un &bogue ou un souhait…"
 #: main/KexiMainWindow.cpp:1263
 #, kde-kuit-format
 msgid "Files a bug or wish for KEXI application."
-msgstr "Soumettre un bogue ou un souhait pour l'application KEXI."
+msgstr "Soumettre un bogue ou un souhait pour l'application Kexi."
 
 #: main/KexiMainWindow.cpp:1266
 #, kde-kuit-format
@@ -3322,12 +3322,12 @@ msgstr "Aide"
 #: main/KexiMainWindow.cpp:1270
 #, kde-kuit-format
 msgid "Shows KEXI Handbook."
-msgstr "Affiche le manuel de KEXI."
+msgstr "Affiche le manuel de Kexi."
 
 #: main/KexiMainWindow.cpp:1273
 #, kde-kuit-format
 msgid "Shows information about KEXI application."
-msgstr "Affiche des informations à propos de l'application KEXI."
+msgstr "Affiche des informations à propos de l'application Kexi."
 
 #: main/KexiMainWindow.cpp:1276
 #, kde-kuit-format
@@ -3348,7 +3348,7 @@ msgid ""
 msgstr ""
 "Le projet de base de données « %1 » ne semble pas avoir été créé avec "
 "<application>%2</application>.<nl/>Voulez-vous l'importer en tant que "
-"nouveau projet KEXI ?"
+"nouveau projet Kexi ?"
 
 #: main/KexiMainWindow.cpp:1460
 #, kde-kuit-format
@@ -3673,12 +3673,12 @@ msgstr "Rejoignez-nous sur :"
 #: main/KexiMenuWidget.cpp:483
 #, kde-kuit-format
 msgid "Visit KEXI Facebook page at %1"
-msgstr "Visitez la page Facebook de KEXI sur %1"
+msgstr "Visitez la page Facebook de Kexi sur %1"
 
 #: main/KexiMenuWidget.cpp:492
 #, kde-kuit-format
 msgid "Visit KEXI Twitter page at %1"
-msgstr "Visitez la page Twitter de KEXI sur %1"
+msgstr "Visitez la page Twitter de Kexi sur %1"
 
 #: main/KexiMenuWidget.cpp:2216
 #, kde-kuit-format
@@ -3883,7 +3883,7 @@ msgid ""
 "from the list.</para>"
 msgstr ""
 "<para>Choisissez une connexion existante au serveur de base de données pour "
-"créer un nouveau projet KEXI.</para><para>Vous pouvez également ajouter, "
+"créer un nouveau projet Kexi.</para><para>Vous pouvez également ajouter, "
 "modifier ou enlever des connexions de la liste.</para>"
 
 #: main/startup/KexiNewProjectAssistant.cpp:379
@@ -3935,7 +3935,7 @@ msgstr "Supprimer et créer"
 #: main/startup/KexiOpenExistingFile.ui:31
 #, kde-format
 msgid "<b>Select existing KEXI project file to open:</b>\n"
-msgstr "<b>Sélectionnez le fichier de projet KEXI à ouvrir :</b>\n"
+msgstr "<b>Sélectionnez le fichier de projet Kexi à ouvrir :</b>\n"
 
 #. i18n: ectx: property (text), widget (QPushButton, btn_advanced)
 #: main/startup/KexiOpenExistingFile.ui:89
@@ -4151,12 +4151,12 @@ msgstr "Fichier :"
 #: main/startup/KexiStartup.cpp:259
 #, kde-format
 msgid "No KEXI plugins found."
-msgstr "Aucun module externe KEXI trouvé."
+msgstr "Aucun module externe Kexi trouvé."
 
 #: main/startup/KexiStartup.cpp:262
 #, kde-format
 msgid "KEXI plugins (%1):"
-msgstr "Modules externes KEXI (%1) :"
+msgstr "Modules externes Kexi (%1) :"
 
 #: main/startup/KexiStartup.cpp:271
 #, kde-format
@@ -4337,7 +4337,7 @@ msgid ""
 msgstr ""
 "<para><filename>%1</filename> est un fichier externe du type <resource>%2</"
 "resource>.</para><para>Voulez-vous importer le fichier en tant que projet "
-"KEXI ?</para>"
+"Kexi ?</para>"
 
 #: main/startup/KexiStartup.cpp:894
 #, kde-kuit-format
@@ -4483,7 +4483,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Welcome to KEXI"
-msgstr "Bienvenue dans KEXI"
+msgstr "Bienvenue dans Kexi"
 
 #: main/startup/KexiWelcomeAssistant.cpp:48
 #, kde-kuit-format
@@ -4510,13 +4510,13 @@ msgid ""
 "Contact'>https://community.kde.org/Kexi/Contact</link> for more information."
 "</para><para>Thanks for your support!</para>"
 msgstr ""
-"<title>KEXI peut être totalement gratuit, mais son développement est coûteux."
+"<title>Kexi peut être totalement gratuit, mais son développement est coûteux."
 "</title><para>L'électricité, le matériel, l'espace de bureau, l'accès "
 "internet, les voyages pour les réunions - tout a un coût.</para><para>Les "
 "dons directs sont la façon la plus simple et la plus rapide de soutenir "
-"efficacement le projet KEXI. Tout le monde peut le faire, indépendamment "
+"efficacement le projet Kexi. Tout le monde peut le faire, indépendamment "
 "d'un quelconque degré d'implication.</para><para>Que recevez-vous en retour "
-"de votre don ? KEXI deviendra plus stable et plus riche en fonctionnalités, "
+"de votre don ? Kexi deviendra plus stable et plus riche en fonctionnalités, "
 "car ses contributeurs pourront y accorder plus de temps. Non seulement vous "
 "pourrez attendre de nouvelles fonctionnalités, mais en plus vous pourrez "
 "influer sur lesquelles seront ajoutées ! </para><para>Actuellement nous "
@@ -4625,7 +4625,7 @@ msgid ""
 "interface> button to exit this assistant.</para>"
 msgstr ""
 "<para>L'assistant d'importation de tables vous permet d'importer une table "
-"d'une base existante dans le projet KEXI courant.</para><para>Cliquez sur le "
+"d'une base existante dans le projet Kexi courant.</para><para>Cliquez sur le "
 "bouton <interface>Suivant</interface> pour continuer ou le bouton "
 "<interface>Annuler</interface> pour quitter cet assistant.</para>"
 
@@ -4779,7 +4779,7 @@ msgid ""
 msgstr ""
 "L'assistant d'importation de bases de données est sur le point d'importer la "
 "base <resource>%1</resource> (connexion <resource>%2</resource>) dans un "
-"projet KEXI."
+"projet Kexi."
 
 #: migration/importwizard.cpp:257
 #, kde-kuit-format
@@ -4790,7 +4790,7 @@ msgid ""
 msgstr ""
 "L'assistant d'importation de bases de données est sur le point d'importer le "
 "fichier <filename>%1</filename> de type <resource>%2</resource> dans un "
-"projet KEXI."
+"projet Kexi."
 
 #: migration/importwizard.cpp:263
 #, kde-kuit-format
@@ -4800,7 +4800,7 @@ msgid ""
 "a KEXI project."
 msgstr ""
 "L'assistant d'importation de bases de données vous permet d'importer une "
-"base existante dans un projet KEXI."
+"base existante dans un projet Kexi."
 
 #: migration/importwizard.cpp:269
 #, kde-kuit-format
@@ -4980,7 +4980,7 @@ msgstr "Importation en cours..."
 msgctxt "@info"
 msgid "Database has been imported into KEXI project <resource>%1</resource>."
 msgstr ""
-"La base de données a été importée dans le projet KEXI <resource>%1</"
+"La base de données a été importée dans le projet Kexi <resource>%1</"
 "resource>."
 
 #: migration/importwizard.cpp:1111 migration/importwizard.cpp:1122
@@ -5477,7 +5477,7 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "comboBox"
-msgstr "boiteCombinee"
+msgstr "boiteCombinée"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:206
 #, kde-kuit-format
@@ -7785,7 +7785,7 @@ msgstr ""
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:107
 #, kde-kuit-format
 msgid "KEXI Script"
-msgstr "Script KEXI"
+msgstr "Script pour Kexi"
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:163
 #, kde-format
@@ -8411,7 +8411,7 @@ msgid ""
 msgstr ""
 "<title>Choisissez une connexion existante au serveur de base de données dans "
 "la liste ci-dessous</title> \n"
-"<para>Vous verrez alors tous les projets KEXI disponibles pour cette "
+"<para>Vous verrez alors tous les projets Kexi disponibles pour cette "
 "connexion. Vous pouvez également ajouter, modifier ou enlever des connexions "
 "de la liste.</para>\n"
 
@@ -8932,7 +8932,7 @@ msgid ""
 "<b>There are KEXI projects you have recently opened.</b> Select one you wish "
 "to open:\n"
 msgstr ""
-"<b>Voici la liste des projets KEXI récemment ouverts.</b> Sélectionnez celui "
+"<b>Voici la liste des projets Kexi récemment ouverts.</b> Sélectionnez celui "
 "que vous souhaitez ouvrir :\n"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
