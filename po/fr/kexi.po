@@ -14,7 +14,7 @@
 # Sébastien Renard <Sebastien.Renard@digitalfox.org>, 2008.
 # Mickael Sibelle <kimael@gmail.com>, 2009.
 # Alain Portal <alain.portal@free.fr>, 2010.
-# xavier <xavier.besnard@neuf.fr>, 2012, 2013, 2020, 2021.
+# SPDX-FileCopyrightText: 2012, 2013, 2020, 2021, 2023 xavier <xavier.besnard@neuf.fr>
 # Sebastien Renard <renard@kde.org>, 2013, 2014.
 # Vincent PINON <vpinon@kde.org>, 2013, 2014, 2015.
 # Eric Girard <ericgirard78@gmail.com>, 2018.
@@ -27,15 +27,15 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-24 02:33+0000\n"
-"PO-Revision-Date: 2021-01-12 07:36+0100\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2023-10-28 22:51+0200\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.08.1\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -99,7 +99,7 @@ msgstr "Créateur graphique d'applications de bases de données"
 #: core/kexiaboutdata.cpp:37
 #, kde-kuit-format
 msgid "© 2002-%1, The Kexi Team"
-msgstr "(c) 2002-%1, L'équipe Kexi"
+msgstr "(c) 2002-%1, L'équipe de Kexi"
 
 #: core/kexiaboutdata.cpp:38
 #, kde-kuit-format
@@ -107,7 +107,7 @@ msgid ""
 "This software is developed by Kexi Team - an international group of "
 "independent developers. They form a part of the Calligra Project."
 msgstr ""
-"Ce logiciel est développé par l'équipe Kexi - un groupe international de "
+"Ce logiciel est développé par l'équipe de Kexi - un groupe international de "
 "développeurs indépendants. Ils forment une partie du projet Calligra."
 
 #: core/kexiaboutdata.cpp:48
@@ -155,7 +155,7 @@ msgstr ""
 #: core/kexiaboutdata.cpp:54
 #, kde-kuit-format
 msgid "Radosław Wicik"
-msgstr "Radosław Wicik"
+msgstr "Radoslaw Wicik"
 
 #: core/kexiaboutdata.cpp:56 core/kexiaboutdata.cpp:58
 #, kde-kuit-format
@@ -209,7 +209,7 @@ msgstr "Éléments Web pour les formulaires et les rapports"
 #, kde-kuit-format
 msgid "Scripting module (KROSS), Python language bindings, design"
 msgstr ""
-"Module d'écriture de scripts (KROSS), liaison du langage Python, conception"
+"Module d'écriture de scripts (KRoss), liaison du langage Python, conception"
 
 #: core/kexiaboutdata.cpp:66
 #, kde-kuit-format
@@ -3572,12 +3572,12 @@ msgstr "Échec de la commande <command>%1</command>."
 #: main/KexiMenuWidget.cpp:479
 #, kde-kuit-format
 msgid "Visit KEXI Facebook page at %1"
-msgstr "Visitez la page Facebook de KEXI sur %1"
+msgstr "Visitez la page Facebook de Kexi sur %1"
 
 #: main/KexiMenuWidget.cpp:488
 #, kde-kuit-format
 msgid "Visit KEXI Twitter page at %1"
-msgstr "Visitez la page Twitter de KEXI sur %1"
+msgstr "Visitez la page Twitter de Kexi sur %1"
 
 #: main/KexiMenuWidget.cpp:2212
 #, kde-kuit-format
@@ -4611,7 +4611,7 @@ msgid ""
 msgstr ""
 "L'assistant d'importation de bases de données est sur le point d'importer la "
 "base <resource>%1</resource> (connexion <resource>%2</resource>) dans un "
-"projet KEXI."
+"projet Kexi."
 
 #: migration/importwizard.cpp:257
 #, kde-kuit-format
@@ -4622,7 +4622,7 @@ msgid ""
 msgstr ""
 "L'assistant d'importation de bases de données est sur le point d'importer le "
 "fichier <filename>%1</filename> de type <resource>%2</resource> dans un "
-"projet KEXI."
+"projet Kexi."
 
 #: migration/importwizard.cpp:263
 #, kde-kuit-format
@@ -4632,7 +4632,7 @@ msgid ""
 "a KEXI project."
 msgstr ""
 "L'assistant d'importation de bases de données vous permet d'importer une "
-"base existante dans un projet KEXI."
+"base existante dans un projet Kexi."
 
 #: migration/importwizard.cpp:269
 #, kde-kuit-format
@@ -5306,7 +5306,7 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "comboBox"
-msgstr "boiteCombinee"
+msgstr "boiteCombinée"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:206
 #, kde-kuit-format
