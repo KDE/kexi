@@ -30,7 +30,6 @@ GenericName[sl]=Skripti
 GenericName[sv]=Skript
 GenericName[tr]=Betikler
 GenericName[uk]=Скрипти
-GenericName[x-test]=xxScriptsxx
 GenericName[zh_CN]=脚本
 
 Name=Script
@@ -63,7 +62,6 @@ Name[sl]=Skript
 Name[sv]=Skript
 Name[tr]=Betik
 Name[uk]=Скрипт
-Name[x-test]=xxScriptxx
 Name[zh_CN]=脚本
 
 Type=Service

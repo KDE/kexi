@@ -31,7 +31,6 @@ Comment[sl]=Osnova razvoja gradnikov
 Comment[sv]=Bas för att skapa grafiska komponenter
 Comment[tr]=Araç Takımı Fabrikası Temeli
 Comment[uk]=База фабрики віджетів
-Comment[x-test]=xxWidget Factory Basexx
 Comment[zh_CN]=窗口部件工厂基础
 
 [PropertyDef::X-KFormDesigner-FactoryGroup]

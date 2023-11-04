@@ -31,7 +31,6 @@
                 "Name[sv]": "Kexi-gruppen",
                 "Name[tr]": "KEXI Takımı",
                 "Name[uk]": "Команда KEXI",
-                "Name[x-test]": "xxKEXI Teamxx",
                 "Name[zh_CN]": "KEXI 团队"
             }
         ],
@@ -65,7 +64,6 @@
         "Description[sv]": "KEXI-insticksprogram som tillhandahåller formulärkomponent med webbläsare",
         "Description[tr]": "Web tarayıcısı araç takımı sağlayan KEXI eklentisi",
         "Description[uk]": "Додаток до KEXI, що забезпечує роботу форми віджета навігатора інтернетом",
-        "Description[x-test]": "xxKEXI plugin providing web browser form widgetxx",
         "Description[zh_CN]": "KEXI 浏览器表单部件插件",
         "EnabledByDefault": true,
         "Icon": "kexiform-web-browser",
@@ -99,7 +97,6 @@
         "Name[sv]": "Webbläsarkomponent",
         "Name[tr]": "Web tarayıcısı araç takımı",
         "Name[uk]": "Віджет перегляду інтернету",
-        "Name[x-test]": "xxWeb browser widgetxx",
         "Name[zh_CN]": "网页浏览器部件",
         "ServiceTypes": [
             "Kexi/FormWidget"
