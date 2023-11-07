@@ -31,6 +31,7 @@
                 "Name[sv]": "Kexi-gruppen",
                 "Name[tr]": "KEXI Takımı",
                 "Name[uk]": "Команда KEXI",
+                "Name[x-test]": "xxKEXI Teamxx",
                 "Name[zh_CN]": "KEXI 团队"
             }
         ],
@@ -66,6 +67,7 @@
         "Description[sv]": "Importinsticksprogram av MySQL-databaser för KEXI",
         "Description[tr]": "KEXI için MySQL veritabanı içe aktarma eklentisi",
         "Description[uk]": "Додаток імпортування баз даних з MySQL для KEXI",
+        "Description[x-test]": "xxMySQL database import plugin for KEXIxx",
         "Description[zh_CN]": "KEXI MySQL 数据库导入插件",
         "EnabledByDefault": true,
         "Icon": "",
@@ -101,6 +103,7 @@
         "Name[sv]": "MySQL",
         "Name[tr]": "MySQL",
         "Name[uk]": "MySQL",
+        "Name[x-test]": "xxMySQLxx",
         "Name[zh_CN]": "MySQL",
         "ServiceTypes": [
             "Kexi/MigrationDriver"
