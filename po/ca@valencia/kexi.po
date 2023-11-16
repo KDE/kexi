@@ -672,10 +672,10 @@ msgid ""
 "project is opened using a shortcut file. Default user name is the same as "
 "the current login (<resource>%1</resource>)."
 msgstr ""
-"Nom del servidor que es farà servir per a connectar amb un projecte de base "
-"de dades. S'ignora si s'hi posa una drecera cap a un nom de fitxer. El nom "
-"d'usuari predeterminat és el mateix que l'inici de sessió actual (<resource>"
-"%1</resource>)."
+"Nom del servidor (amfitrió) que es farà servir per a connectar amb un "
+"projecte de base de dades. S'ignora si s'hi posa una drecera cap a un nom de "
+"fitxer. El nom d'usuari predeterminat és el mateix que l'inici de sessió "
+"actual (<resource>%1</resource>)."
 
 #: core/KexiCommandLineOptions.cpp:154
 #, kde-kuit-format
@@ -685,9 +685,9 @@ msgid ""
 "project. Ignored if the project is opened using a shortcut file. Default "
 "host is the local computer."
 msgstr ""
-"Nom del servidor que es farà servir per a connectar amb un projecte de base "
-"de dades. S'ignora si s'hi posa una drecera cap a un nom de fitxer. El "
-"servidor predeterminat és l'ordinador local."
+"Nom del servidor (amfitrió) que es farà servir per a connectar amb un "
+"projecte de base de dades. S'ignora si s'hi posa una drecera cap a un nom de "
+"fitxer. L'amfitrió predeterminat és l'ordinador local."
 
 #: core/KexiCommandLineOptions.cpp:160
 #, kde-kuit-format
@@ -1535,7 +1535,7 @@ msgstr "Mo&u l'element amunt"
 #: formeditor/editlistviewdialog.cpp:85 formeditor/editlistviewdialog.cpp:154
 #, kde-kuit-format
 msgid "Move Item &Down"
-msgstr "Mou l'element a&vall"
+msgstr "Mou l'element cap a&vall"
 
 #: formeditor/editlistviewdialog.cpp:108
 #, kde-kuit-format
@@ -5711,7 +5711,7 @@ msgstr "Editable"
 #, kde-kuit-format
 msgctxt "Property: Button is checkable"
 msgid "On/Off"
-msgstr "Activa/desactiva"
+msgstr "Activa o desactiva"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:497
 #, kde-kuit-format
@@ -7865,7 +7865,8 @@ msgstr "Assigna la clau primària per al camp <resource>%1</resource>"
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Unset primary key for field <resource>%1</resource>"
-msgstr "Desselecciona la clau primària per al camp <resource>%1</resource>"
+msgstr ""
+"Trau l'assignació de la clau primària per al camp <resource>%1</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:1142
 #, kde-kuit-format
@@ -8438,7 +8439,7 @@ msgstr "Servidor remot"
 #: widget/kexidbconnectionwidget.ui:357
 #, kde-format
 msgid "&Hostname:"
-msgstr "Nom de la &màquina:"
+msgstr "Nom de l'amfitrió:"
 
 #. i18n: ectx: property (text), widget (QLabel, portLbl)
 #: widget/kexidbconnectionwidget.ui:383
