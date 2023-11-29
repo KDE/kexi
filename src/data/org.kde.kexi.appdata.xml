@@ -43,6 +43,7 @@
   <summary xml:lang="de">Visuelle Erstellung von Datenbankanwendungen</summary>
   <summary xml:lang="el">Πρόγραμμα κατασκευής εφαρμογών με οπτική βάση δεδομένων</summary>
   <summary xml:lang="en-GB">Visual database apps builder</summary>
+  <summary xml:lang="eo">Konstruisto de aplikaĵoj por vida datumbazo</summary>
   <summary xml:lang="es">Constructor visual de aplicaciones de base de datos</summary>
   <summary xml:lang="et">Visuaalne andmebaasirakenduste looja</summary>
   <summary xml:lang="eu">Datu-base aplikazioetarako ikusizko eraikitzailea</summary>
@@ -105,6 +106,7 @@
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="el">Χαρακτηριστικά:</p>
     <p xml:lang="en-GB">Features:</p>
+    <p xml:lang="eo">Trajtoj:</p>
     <p xml:lang="es">Características:</p>
     <p xml:lang="et">Omadused:</p>
     <p xml:lang="eu">Ezaugarriak:</p>
@@ -138,6 +140,7 @@
       <li xml:lang="de">Vollständiger visuelle Entwurf für Tabellen, Abfragen, Formulare und Berichte</li>
       <li xml:lang="el">Πλήρης οπτική σχεδίαση για πίνακες, ερωτήσεις, φόρμες και αναφορές</li>
       <li xml:lang="en-GB">Full visual designers for tables, queries, forms and reports</li>
+      <li xml:lang="eo">Plenaj vidaj dezajnistoj por tabeloj, informpetoj, formoj kaj raportoj</li>
       <li xml:lang="es">Herramientas de diseño completamente visuales para las tablas, consultas, formularios e informes.</li>
       <li xml:lang="et">Tabelite, päringute, vormide ja aruannete täielikult visuaalne kujundamine</li>
       <li xml:lang="eu">Taulak, itaunak, inprimakiak eta txostenetarako ikusizko diseinatzaile osoak</li>
@@ -168,6 +171,7 @@
       <li xml:lang="de">Ausführung von Abfragen, Unterstützung für parametrisierte Abfragen</li>
       <li xml:lang="el">Εκτέλεση ερωτήσεων, υποστήριξη για παραμετροποιηνένες ερωτήσεις</li>
       <li xml:lang="en-GB">Running queries, support for parametrised queries</li>
+      <li xml:lang="eo">Lanĉo de informpetoj, subteno por parametrigitaj informpetoj</li>
       <li xml:lang="es">Ejecución de consultas, soporte de consultas parametrizadas</li>
       <li xml:lang="et">Päringute sooritamine, parameetritega päringute toetamine</li>
       <li xml:lang="eu">Itaunak exekutatzea, itaun parametrizatutarako euskarria du</li>
@@ -251,6 +255,7 @@
       <li xml:lang="de">Unterstützt Abfrageentwürfe in einer eigenen SQL-Ansicht</li>
       <li xml:lang="el">Υποστήριξη για σχεδίαση ερωτήσεων σε αφιερωμένη προβολή SQL</li>
       <li xml:lang="en-GB">Support for query design in dedicated SQL view</li>
+      <li xml:lang="eo">Subteno por informpeta dezajno en dediĉita SQL-vido</li>
       <li xml:lang="es">Permite el diseño de consultas en vista SQL dedicada</li>
       <li xml:lang="et">Päringute kujundamise toetamine SQL-vaates</li>
       <li xml:lang="eu">Itaun-diseinurako euskarria SQL ikuspegi dedikatuan</li>
@@ -279,6 +284,7 @@
       <li xml:lang="de">Entwurf und Anzeige von relationalen Daten mit Hilfe von Kombinationsfeldern (Nachschlagspalten)</li>
       <li xml:lang="el">Σχεδιασμός και εμφάνιση σχεσιακών δεδομένων με χρήση συνδυαστικών πλαισίων (στήλες αναζήτησης)</li>
       <li xml:lang="en-GB">Designing and displaying relational data using combo boxes (lookup columns)</li>
+      <li xml:lang="eo">Projekti kaj montri interrilatajn datumojn per kombinujoj (serĉkolumnoj)</li>
       <li xml:lang="es">Diseño y presentación de datos relacionales utilizando listas desplegables (columnas de búsqueda)</li>
       <li xml:lang="et">Relatsiooniliste andmete kujundamine ja kuvamine liitkastide abil (päringuveerud)</li>
       <li xml:lang="eu">Erlazio-datuak konbinazio-koadroak erabiliz diseinatzea eta azaltzea (bilaketa-zutabeak)</li>
@@ -309,6 +315,7 @@
       <li xml:lang="de">Direkte Dateneingabe oder Import aus dem CSV-Format</li>
       <li xml:lang="el">Άμεση εγγραφή δεδομένων ή εισαγωγή με χρήση τύπου αποθήκευσης CSV</li>
       <li xml:lang="en-GB">Direct data entry or import using CSV format</li>
+      <li xml:lang="eo">Rekta enigo aŭ importo de datumoj per CSV-formato</li>
       <li xml:lang="es">Entrada directa de datos o importación utilizando el formato CSV</li>
       <li xml:lang="et">Otsene andmete sisestamine või importimine CSV-vormingus</li>
       <li xml:lang="eu">Datu-sarrera edo inportatze zuzena CSV formatua erabiliz</li>
@@ -408,6 +415,7 @@
       <caption xml:lang="de">Tabellarische Ansicht</caption>
       <caption xml:lang="el">Προβολή σε στήλες</caption>
       <caption xml:lang="en-GB">Tabular view</caption>
+      <caption xml:lang="eo">Tabula vido</caption>
       <caption xml:lang="es">Vista tabular</caption>
       <caption xml:lang="et">Tabelivaade</caption>
       <caption xml:lang="eu">Taula ikuspegia</caption>
@@ -440,6 +448,7 @@
       <caption xml:lang="de">Abfrage-Designer</caption>
       <caption xml:lang="el">Πρόγραμμα σχεδίασης ερωτήσεων</caption>
       <caption xml:lang="en-GB">Query Designer</caption>
+      <caption xml:lang="eo">Informpeto-Dezajnisto</caption>
       <caption xml:lang="es">Diseñador de consultas</caption>
       <caption xml:lang="et">Päringukujundaja</caption>
       <caption xml:lang="eu">Itaun diseinatzailea</caption>
@@ -472,6 +481,7 @@
       <caption xml:lang="de">SQL-Editor</caption>
       <caption xml:lang="el">επεξεργαστής SQL</caption>
       <caption xml:lang="en-GB">SQL Editor</caption>
+      <caption xml:lang="eo">SQL-redaktilo</caption>
       <caption xml:lang="es">Editor SQL</caption>
       <caption xml:lang="et">SQL-redaktor</caption>
       <caption xml:lang="eu">SQL editorea</caption>
@@ -505,6 +515,7 @@
       <caption xml:lang="de">Formular-Designer</caption>
       <caption xml:lang="el">Πρόγραμμα σχεδίασης φορμών</caption>
       <caption xml:lang="en-GB">Form Designer</caption>
+      <caption xml:lang="eo">Formo-Dezajnisto</caption>
       <caption xml:lang="es">Diseñador de formularios</caption>
       <caption xml:lang="et">Vormikujundaja</caption>
       <caption xml:lang="eu">Inprimaki diseinatzailea</caption>
@@ -539,6 +550,7 @@
       <caption xml:lang="de">Berichts-Designer</caption>
       <caption xml:lang="el">Πρόγραμμα σχεδίασης αναφορών</caption>
       <caption xml:lang="en-GB">Report Designer</caption>
+      <caption xml:lang="eo">Raporta Dizajnisto</caption>
       <caption xml:lang="es">Diseñador de informes</caption>
       <caption xml:lang="et">Aruandekujundaja</caption>
       <caption xml:lang="eu">Txosten diseinatzailea</caption>
@@ -571,6 +583,7 @@
       <caption xml:lang="de">Import von MS Access Datenbank</caption>
       <caption xml:lang="el">Εισαγωγή βάσης δεδομένων MS Access</caption>
       <caption xml:lang="en-GB">MS Access database import</caption>
+      <caption xml:lang="eo">Importo de datumbazo MS Access</caption>
       <caption xml:lang="es">Importación de bases de datos de MS Access</caption>
       <caption xml:lang="et">MS Accessi andmebaasi import</caption>
       <caption xml:lang="eu">MS Access datu-base inportatzailea</caption>
