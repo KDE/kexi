@@ -771,13 +771,7 @@ msgid "Do you want to open it in Text View?"
 msgstr "Ĉu vi volas malfermi ĝin en Teksta Vido?"
 
 #: core/kexipart.cpp:115
-#, fuzzy, kde-kuit-format
-#| msgctxt ""
-#| "Translate this word using only lowercase alphanumeric characters (a..z, "
-#| "¦0..9). Use '_' character instead of spaces. First character should be a.."
-#| "z ¦character. If you cannot use latin characters in your language, use "
-#| "english ¦word."
-#| msgid "object"
+#, kde-kuit-format
 msgctxt ""
 "Translate this word using only lowercase alphanumeric characters (a..z, "
 "0..9). Use '_' character instead of spaces. First character should be a..z "
@@ -3981,13 +3975,7 @@ msgid "Could not start Kexi application this way."
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:417
-#, fuzzy, kde-kuit-format
-#| msgctxt ""
-#| "Please don't translate the \"createdb\" and \"dropdb\" words, these are "
-#| "¦constants."
-#| msgid ""
-#| "Both <icode>createdb</icode> and <icode>dropdb</icode> used in startup "
-#| "options."
+#, kde-kuit-format
 msgctxt ""
 "Please don't translate the \"createdb\" and \"dropdb\" words, these are "
 "constants."
@@ -4003,13 +3991,7 @@ msgid "No project name specified."
 msgstr "Neniu projektonomo specifita."
 
 #: main/startup/KexiStartup.cpp:462
-#, fuzzy, kde-kuit-format
-#| msgctxt ""
-#| "Please don't translate the <icode>user-mode</icode> and <icode>design-"
-#| "mode</¦icode> words, these are constants."
-#| msgid ""
-#| "Both <icode>user-mode</icode> and <icode>design-mode</icode> used in "
-#| "startup options."
+#, kde-kuit-format
 msgctxt ""
 "Please don't translate the <icode>user-mode</icode> and <icode>design-mode</"
 "icode> words, these are constants."
@@ -4853,13 +4835,7 @@ msgid "Original"
 msgstr "Originala"
 
 #: plugins/forms/kexiformpart.cpp:74
-#, fuzzy, kde-kuit-format
-#| msgctxt ""
-#| "Translate this word using only lowercase alphanumeric characters (a..z, "
-#| "¦0..9). Use '_' character instead of spaces. First character should be a.."
-#| "z ¦character. If you cannot use latin characters in your language, use "
-#| "english ¦word."
-#| msgid "form"
+#, kde-kuit-format
 msgctxt ""
 "Translate this word using only lowercase alphanumeric characters (a..z, "
 "0..9). Use '_' character instead of spaces. First character should be a..z "
@@ -5018,13 +4994,7 @@ msgid "Form"
 msgstr "Formo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:86
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Translate this word using only lowercase alphanumeric characters (a..z, "
-#| "¦0..9). Use '_' character instead of spaces. First character should be a.."
-#| "z ¦character. If you cannot use latin characters in your language, use "
-#| "english ¦word."
-#| msgid "form"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of forms. Based on that, identifiers such as form1, "
 "form2 are generated. This string can be used to refer the widget object as "
@@ -5048,16 +5018,7 @@ msgid "Text Box"
 msgstr "Tekstujo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:116
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "A prefix for identifiers of text box widgets. Based on that, identifiers "
-#| "¦such as textBox1, textBox2 are generated. This string can be used to "
-#| "refer ¦the widget object as variables in programming languages or macros "
-#| "so it must ¦_not_ contain white spaces and non latin1 characters, should "
-#| "start with ¦lower case letter and if there are subsequent words, these "
-#| "should start with ¦upper case letter. Example: smallCamelCase. Moreover, "
-#| "try to make this ¦prefix as short as possible."
-#| msgid "textBox"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of text box widgets. Based on that, identifiers "
 "such as textBox1, textBox2 are generated. This string can be used to refer "
@@ -5081,16 +5042,7 @@ msgid "Text Editor"
 msgstr "Teksta redaktilo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:137
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "A prefix for identifiers of text editor widgets. Based on that, "
-#| "identifiers ¦such as textEditor1, textEditor2 are generated. This string "
-#| "can be used to ¦refer the widget object as variables in programming "
-#| "languages or macros so ¦it must _not_ contain white spaces and non latin1 "
-#| "characters, should start ¦with lower case letter and if there are "
-#| "subsequent words, these should start ¦with upper case letter. Example: "
-#| "smallCamelCase. Moreover, try to make this ¦prefix as short as possible."
-#| msgid "textEditor"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of text editor widgets. Based on that, identifiers "
 "such as textEditor1, textEditor2 are generated. This string can be used to "
@@ -5114,16 +5066,7 @@ msgid "Label"
 msgstr "Etikedo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:158
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "A prefix for identifiers of label widgets. Based on that, identifiers "
-#| "such ¦as label1, label2 are generated. This string can be used to refer "
-#| "the widget ¦object as variables in programming languages or macros so it "
-#| "must _not_ ¦contain white spaces and non latin1 characters, should start "
-#| "with lower case ¦letter and if there are subsequent words, these should "
-#| "start with upper case ¦letter. Example: smallCamelCase. Moreover, try to "
-#| "make this prefix as short ¦as possible."
-#| msgid "label"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of label widgets. Based on that, identifiers such "
 "as label1, label2 are generated. This string can be used to refer the widget "
@@ -5147,16 +5090,7 @@ msgid "Image Box"
 msgstr "Bilda Skatolo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:179
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "A prefix for identifiers of image box widgets. Based on that, identifiers "
-#| "¦such as image1, image2 are generated. This string can be used to refer "
-#| "the ¦widget object as variables in programming languages or macros so it "
-#| "must ¦_not_ contain white spaces and non latin1 characters, should start "
-#| "with ¦lower case letter and if there are subsequent words, these should "
-#| "start with ¦upper case letter. Example: smallCamelCase. Moreover, try to "
-#| "make this ¦prefix as short as possible."
-#| msgid "image"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of image box widgets. Based on that, identifiers "
 "such as image1, image2 are generated. This string can be used to refer the "
@@ -5180,16 +5114,7 @@ msgid "Combo Box"
 msgstr "Kombinskatolo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:205
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "A prefix for identifiers of combo box widgets. Based on that, identifiers "
-#| "¦such as comboBox1, comboBox2 are generated. This string can be used to "
-#| "refer ¦the widget object as variables in programming languages or macros "
-#| "so it must ¦_not_ contain white spaces and non latin1 characters, should "
-#| "start with ¦lower case letter and if there are subsequent words, these "
-#| "should start with ¦upper case letter. Example: smallCamelCase. Moreover, "
-#| "try to make this ¦prefix as short as possible."
-#| msgid "comboBox"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of combo box widgets. Based on that, identifiers "
 "such as comboBox1, comboBox2 are generated. This string can be used to refer "
@@ -5213,16 +5138,7 @@ msgid "Check Box"
 msgstr "Markobutono"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:223
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "A prefix for identifiers of combo box widgets. Based on that, identifiers "
-#| "¦such as checkBox1, checkBox2 are generated. This string can be used to "
-#| "refer ¦the widget object as variables in programming languages or macros "
-#| "so it must ¦_not_ contain white spaces and non latin1 characters, should "
-#| "start with ¦lower case letter and if there are subsequent words, these "
-#| "should start with ¦upper case letter. Example: smallCamelCase. Moreover, "
-#| "try to make this ¦prefix as short as possible."
-#| msgid "checkBox"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of combo box widgets. Based on that, identifiers "
 "such as checkBox1, checkBox2 are generated. This string can be used to refer "
@@ -5246,16 +5162,7 @@ msgid "Button"
 msgstr "Butono"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:259
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "A prefix for identifiers of button widgets. Based on that, identifiers "
-#| "such ¦as button1, button2 are generated. This string can be used to refer "
-#| "the ¦widget object as variables in programming languages or macros so it "
-#| "must ¦_not_ contain white spaces and non latin1 characters, should start "
-#| "with ¦lower case letter and if there are subsequent words, these should "
-#| "start with ¦upper case letter. Example: smallCamelCase. Moreover, try to "
-#| "make this ¦prefix as short as possible."
-#| msgid "button"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of button widgets. Based on that, identifiers such "
 "as button1, button2 are generated. This string can be used to refer the "
@@ -5279,16 +5186,7 @@ msgid "Link Button"
 msgstr "Ligo-Butono"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:276
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "A prefix for identifiers of link button widgets. Based on that, "
-#| "identifiers ¦such as linkButton1, linkButton2 are generated. This string "
-#| "can be used to ¦refer the widget object as variables in programming "
-#| "languages or macros so ¦it must _not_ contain white spaces and non latin1 "
-#| "characters, should start ¦with lower case letter and if there are "
-#| "subsequent words, these should start ¦with upper case letter. Example: "
-#| "smallCamelCase. Moreover, try to make this ¦prefix as short as possible."
-#| msgid "linkButton"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of link button widgets. Based on that, identifiers "
 "such as linkButton1, linkButton2 are generated. This string can be used to "
@@ -5312,16 +5210,7 @@ msgid "Slider"
 msgstr "Ŝovilo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:316
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "A prefix for identifiers of slider widgets. Based on that, identifiers "
-#| "such ¦as slider1, slider2 are generated. This string can be used to refer "
-#| "the ¦widget object as variables in programming languages or macros so it "
-#| "must ¦_not_ contain white spaces and non latin1 characters, should start "
-#| "with ¦lower case letter and if there are subsequent words, these should "
-#| "start with ¦upper case letter. Example: smallCamelCase. Moreover, try to "
-#| "make this ¦prefix as short as possible."
-#| msgid "slider"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of slider widgets. Based on that, identifiers such "
 "as slider1, slider2 are generated. This string can be used to refer the "
@@ -5345,17 +5234,7 @@ msgid "Progress Bar"
 msgstr "Progresbreto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:334
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "A prefix for identifiers of progress bar widgets. Based on that, "
-#| "identifiers ¦such as progressBar1, progressBar2 are generated. This "
-#| "string can be used to ¦refer the widget object as variables in "
-#| "programming languages or macros so ¦it must _not_ contain white spaces "
-#| "and non latin1 characters, should start ¦with lower case letter and if "
-#| "there are subsequent words, these should start ¦with upper case letter. "
-#| "Example: smallCamelCase. Moreover, try to make this ¦prefix as short as "
-#| "possible."
-#| msgid "progressBar"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of progress bar widgets. Based on that, identifiers "
 "such as progressBar1, progressBar2 are generated. This string can be used to "
@@ -5378,16 +5257,7 @@ msgid "Line"
 msgstr "Linio"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:352
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "A prefix for identifiers of line widgets. Based on that, identifiers such "
-#| "as ¦line1, line2 are generated. This string can be used to refer the "
-#| "widget ¦object as variables in programming languages or macros so it must "
-#| "_not_ ¦contain white spaces and non latin1 characters, should start with "
-#| "lower case ¦letter and if there are subsequent words, these should start "
-#| "with upper case ¦letter. Example: smallCamelCase. Moreover, try to make "
-#| "this prefix as short ¦as possible."
-#| msgid "line"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of line widgets. Based on that, identifiers such as "
 "line1, line2 are generated. This string can be used to refer the widget "
@@ -5421,16 +5291,7 @@ msgid "Date Picker"
 msgstr "Dat-elektilo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:377
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "A prefix for identifiers of date picker widgets. Based on that, "
-#| "identifiers ¦such as datePicker1, datePicker2 are generated. This string "
-#| "can be used to ¦refer the widget object as variables in programming "
-#| "languages or macros so ¦it must _not_ contain white spaces and non latin1 "
-#| "characters, should start ¦with lower case letter and if there are "
-#| "subsequent words, these should start ¦with upper case letter. Example: "
-#| "smallCamelCase. Moreover, try to make this ¦prefix as short as possible."
-#| msgid "datePicker"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of date picker widgets. Based on that, identifiers "
 "such as datePicker1, datePicker2 are generated. This string can be used to "
@@ -5678,13 +5539,7 @@ msgid "Keep Ratio"
 msgstr "Konservi Proporcion"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt ""
-#| "Drop-Down Button for Image Box Visible (a property name, keep the text "
-#| "¦narrow!)"
-#| msgid ""
-#| "Drop-Down\n"
-#| "Button Visible"
+#, kde-kuit-format
 msgctxt ""
 "Drop-Down Button for Image Box Visible (a property name, keep the text "
 "narrow!)"
@@ -6006,16 +5861,7 @@ msgid "Tab Widget"
 msgstr "Tab Fenestraĵo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:572
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "A prefix for identifiers of tab widgets. Based on that, identifiers such "
-#| "as ¦tab1, tab2 are generated. This string can be used to refer the widget "
-#| "object ¦as variables in programming languages or macros so it must _not_ "
-#| "contain ¦white spaces and non latin1 characters, should start with lower "
-#| "case letter ¦and if there are subsequent words, these should start with "
-#| "upper case ¦letter. Example: smallCamelCase. Moreover, try to make this "
-#| "prefix as short ¦as possible."
-#| msgid "tabWidget"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of tab widgets. Based on that, identifiers such as "
 "tab1, tab2 are generated. This string can be used to refer the widget object "
@@ -6039,16 +5885,7 @@ msgid "Frame"
 msgstr "Framo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:601
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "A prefix for identifiers of frame widgets. Based on that, identifiers "
-#| "such ¦as frame1, frame2 are generated. This string can be used to refer "
-#| "the widget ¦object as variables in programming languages or macros so it "
-#| "must _not_ ¦contain white spaces and non latin1 characters, should start "
-#| "with lower case ¦letter and if there are subsequent words, these should "
-#| "start with upper case ¦letter. Example: smallCamelCase. Moreover, try to "
-#| "make this prefix as short ¦as possible."
-#| msgid "frame"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of frame widgets. Based on that, identifiers such "
 "as frame1, frame2 are generated. This string can be used to refer the widget "
@@ -6071,16 +5908,7 @@ msgid "Group Box"
 msgstr "Grupazono"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:619
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "A prefix for identifiers of group box widgets. Based on that, identifiers "
-#| "¦such as groupBox1, groupBox2 are generated. This string can be used to "
-#| "refer ¦the widget object as variables in programming languages or macros "
-#| "so it must ¦_not_ contain white spaces and non latin1 characters, should "
-#| "start with ¦lower case letter and if there are subsequent words, these "
-#| "should start with ¦upper case letter. Example: smallCamelCase. Moreover, "
-#| "try to make this ¦prefix as short as possible."
-#| msgid "groupBox"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of group box widgets. Based on that, identifiers "
 "such as groupBox1, groupBox2 are generated. This string can be used to refer "
@@ -6755,11 +6583,7 @@ msgid "year"
 msgstr "jaro"
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:134
-#, fuzzy, kde-kuit-format
-#| msgctxt ""
-#| "do not reorder placeholders, just translate e.g. and - to the separator "
-#| "used ¦by dates in your language"
-#| msgid "%1, %2, %3 (e.g. %4-%5-%6)"
+#, kde-kuit-format
 msgctxt ""
 "do not reorder placeholders, just translate e.g. and - to the separator used "
 "by dates in your language"
@@ -7031,13 +6855,7 @@ msgstr ""
 "</para>"
 
 #: plugins/queries/kexiquerypart.cpp:48
-#, fuzzy, kde-kuit-format
-#| msgctxt ""
-#| "Translate this word using only lowercase alphanumeric characters (a..z, "
-#| "¦0..9). Use '_' character instead of spaces. First character should be a.."
-#| "z ¦character. If you cannot use latin characters in your language, use "
-#| "english ¦word."
-#| msgid "query"
+#, kde-kuit-format
 msgctxt ""
 "Translate this word using only lowercase alphanumeric characters (a..z, "
 "0..9). Use '_' character instead of spaces. First character should be a..z "
@@ -7139,13 +6957,7 @@ msgid "Lower"
 msgstr "Fonigi"
 
 #: plugins/reports/kexireportpart.cpp:65
-#, fuzzy, kde-kuit-format
-#| msgctxt ""
-#| "Translate this word using only lowercase alphanumeric characters (a..z, "
-#| "¦0..9). Use '_' character instead of spaces. First character should be a.."
-#| "z ¦character. If you cannot use latin characters in your language, use "
-#| "english ¦word."
-#| msgid "report"
+#, kde-kuit-format
 msgctxt ""
 "Translate this word using only lowercase alphanumeric characters (a..z, "
 "0..9). Use '_' character instead of spaces. First character should be a..z "
@@ -7555,13 +7367,7 @@ msgid "Successfully executed. Time elapsed: %1ms"
 msgstr "Sukcese efektivigita. Tempo pasita: %1ms"
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:70
-#, fuzzy, kde-kuit-format
-#| msgctxt ""
-#| "Translate this word using only lowercase alphanumeric characters (a..z, "
-#| "¦0..9). Use '_' character instead of spaces. First character should be a.."
-#| "z ¦character. If you cannot use latin characters in your language, use "
-#| "english ¦word."
-#| msgid "script"
+#, kde-kuit-format
 msgctxt ""
 "Translate this word using only lowercase alphanumeric characters (a..z, "
 "0..9). Use '_' character instead of spaces. First character should be a..z "
@@ -8014,13 +7820,7 @@ msgid "<para>Do you want to save the design now?</para>%1"
 msgstr "<para>Ĉu vi volas konservi la dezajnon nun?</para>%1"
 
 #: plugins/tables/kexitablepart.cpp:62
-#, fuzzy, kde-kuit-format
-#| msgctxt ""
-#| "Translate this word using only lowercase alphanumeric characters (a..z, "
-#| "¦0..9). Use '_' character instead of spaces. First character should be a.."
-#| "z ¦character. If you cannot use latin characters in your language, use "
-#| "english ¦word."
-#| msgid "table"
+#, kde-kuit-format
 msgctxt ""
 "Translate this word using only lowercase alphanumeric characters (a..z, "
 "0..9). Use '_' character instead of spaces. First character should be a..z "

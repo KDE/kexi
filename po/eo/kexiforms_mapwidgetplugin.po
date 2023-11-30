@@ -23,16 +23,7 @@ msgid "Map Browser"
 msgstr "Mapfoliumilo"
 
 #: MapBrowserFactory.cpp:57
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "A prefix for identifiers of map browser widgets. Based on that, "
-#| "identifiers ¦such as mapBrowser1, mapBrowser2 are generated. This string "
-#| "can be used to ¦refer the widget object as variables in programming "
-#| "languages or macros so ¦it must _not_ contain white spaces and non latin1 "
-#| "characters, should start ¦with lower case letter and if there are "
-#| "subsequent words, these should start ¦with upper case letter. Example: "
-#| "smallCamelCase. Moreover, try to make this ¦prefix as short as possible."
-#| msgid "mapBrowser"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of map browser widgets. Based on that, identifiers "
 "such as mapBrowser1, mapBrowser2 are generated. This string can be used to "
