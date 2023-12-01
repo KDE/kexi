@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-24 02:33+0000\n"
+"POT-Creation-Date: 2023-12-01 02:28+0000\n"
 "PO-Revision-Date: 2023-08-04 00:02+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -5590,14 +5590,14 @@ msgstr "testukoadroa"
 msgid "A widget for entering and displaying line of text text"
 msgstr "Testua idazteko eta bistaratzeko trepeta"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:128
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:129
 #, fuzzy, kde-kuit-format
 #| msgid "Text Editor"
 msgctxt "Text Editor widget"
 msgid "Text Editor"
 msgstr "Testu-editorea"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:137
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:138
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5614,19 +5614,19 @@ msgctxt ""
 msgid "textEditor"
 msgstr "testueditorea"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:138
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:139
 #, kde-kuit-format
 msgid "A multiline text editor"
 msgstr "Lerro anitzeko testu-editorea"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:149
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:151
 #, fuzzy, kde-kuit-format
 #| msgid "Label"
 msgctxt "Text Label widget"
 msgid "Label"
 msgstr "Etiketa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:158
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:160
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5643,19 +5643,19 @@ msgctxt ""
 msgid "label"
 msgstr "etiketa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:159
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:161
 #, kde-kuit-format
 msgid "A widget for displaying text"
 msgstr "Testua bistaratzeko trepeta"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:170
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:173
 #, fuzzy, kde-kuit-format
 #| msgid "Image Box"
 msgctxt "Image Box widget"
 msgid "Image Box"
 msgstr "Irudi Koadroa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:179
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:182
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5672,19 +5672,19 @@ msgctxt ""
 msgid "image"
 msgstr "irudia"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:180
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:183
 #, kde-kuit-format
 msgid "A widget for displaying images"
 msgstr "Irudiak bistaratzeko trepeta"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:196
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:199
 #, fuzzy, kde-kuit-format
 #| msgid "Combo Box"
 msgctxt "Combo Box widget"
 msgid "Combo Box"
 msgstr "Konbinazio-koadroa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:205
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:208
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5701,19 +5701,19 @@ msgctxt ""
 msgid "comboBox"
 msgstr "konbinaziokoadroa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:206
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:209
 #, kde-kuit-format
 msgid "A combo box widget"
 msgstr "Konbinazio-koadroaren trepeta"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:214
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:218
 #, fuzzy, kde-kuit-format
 #| msgid "Check Box"
 msgctxt "Check Box widget"
 msgid "Check Box"
 msgstr "Kontrol-laukia"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:223
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:227
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5730,19 +5730,19 @@ msgctxt ""
 msgid "checkBox"
 msgstr "kontrollaukia"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:224
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:228
 #, kde-kuit-format
 msgid "A check box with text label"
 msgstr "Testu-etiketa duen kontrol-laukia"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:250
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:255
 #, fuzzy, kde-kuit-format
 #| msgid "Button"
 msgctxt "Button widget"
 msgid "Button"
 msgstr "Botoia"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:259
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:264
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5759,19 +5759,19 @@ msgctxt ""
 msgid "button"
 msgstr "botoia"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:260
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:265
 #, kde-kuit-format
 msgid "A button for executing actions"
 msgstr "Ekintzak exekutatzeko botoia"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:267
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:273
 #, fuzzy, kde-kuit-format
 #| msgid "Link Button"
 msgctxt "Link Button widget"
 msgid "Link Button"
 msgstr "Esteka-botoia"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:276
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:282
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5788,19 +5788,19 @@ msgctxt ""
 msgid "linkButton"
 msgstr "estekabotoia"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:277
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:283
 #, kde-kuit-format
 msgid "A Link button for executing actions"
 msgstr "Ekintzak exekutatzeko esteka-botoia"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:307
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:313
 #, fuzzy, kde-kuit-format
 #| msgid "Slider"
 msgctxt "Slider widget"
 msgid "Slider"
 msgstr "Graduatzailea"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:316
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:322
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5817,19 +5817,19 @@ msgctxt ""
 msgid "slider"
 msgstr "graduatzailea"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:317
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:323
 #, kde-kuit-format
 msgid "A Slider widget"
 msgstr "Graduatzaile-trepeta"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:325
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:331
 #, fuzzy, kde-kuit-format
 #| msgid "Progress Bar"
 msgctxt "Progress Bar widget"
 msgid "Progress Bar"
 msgstr "Aurrerapen-barra"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:334
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:340
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5846,17 +5846,17 @@ msgctxt ""
 msgid "progressBar"
 msgstr "aurrerapenbarra"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:335
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:341
 #, kde-kuit-format
 msgid "A Progress Bar widget"
 msgstr "Aurrerapen-barra duen trepeta"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:343
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:349
 #, kde-kuit-format
 msgid "Line"
 msgstr "Lerroa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:352
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:358
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5873,29 +5873,29 @@ msgctxt ""
 msgid "line"
 msgstr "lerroa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:353
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:359
 #, kde-kuit-format
 msgid "A line to be used as a separator"
 msgstr "Bereizle gisa erabiltzeko lerroa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:358
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:364
 #, kde-kuit-format
 msgid "Insert &Horizontal Line"
 msgstr "Txertatu lerro &horizontala"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:359
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:365
 #, kde-kuit-format
 msgid "Insert &Vertical Line"
 msgstr "Txertatu lerro &bertikala"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:368
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:374
 #, fuzzy, kde-kuit-format
 #| msgid "Date Picker"
 msgctxt "Date Picker widget"
 msgid "Date Picker"
 msgstr "Data-hautatzailea"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:377
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:383
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5912,12 +5912,12 @@ msgctxt ""
 msgid "datePicker"
 msgstr "datahautatzailea"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:378
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:384
 #, kde-kuit-format
 msgid "A Date Picker widget"
 msgstr "Data hautatzeko trepeta"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:411
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:418
 #, fuzzy, kde-kuit-format
 #| msgctxt "Echo mode for Line Edit widget eg. Normal, NoEcho, Password"
 #| msgid "Echo Mode"
@@ -5925,127 +5925,127 @@ msgctxt "Property: Echo mode for Line Edit widget eg. Normal, NoEcho, Password"
 msgid "Echo Mode"
 msgstr "Oihartzun modua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:412
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:419
 #, kde-kuit-format
 msgid "Indent"
 msgstr "Koska"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:414
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:421
 #, kde-kuit-format
 msgid "Inverted"
 msgstr "Alderantzikatuta"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:415
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:422
 #, kde-kuit-format
 msgid "Minimum"
 msgstr "Gutxienekoa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:416
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:423
 #, kde-kuit-format
 msgid "Maximum"
 msgstr "Gehienekoa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:417
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:424
 #, kde-kuit-format
 msgid "Format"
 msgstr "Formatua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:418
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:425
 #, kde-kuit-format
 msgid "Orientation"
 msgstr "Orientazioa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:419
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:426
 #, kde-kuit-format
 msgid "Text Direction"
 msgstr "Testuaren noranzkoa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:420
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:427
 #, kde-kuit-format
 msgid "Text Visible"
 msgstr "Testua ikusgai"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:421
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:428
 #, kde-kuit-format
 msgid "Value"
 msgstr "Balioa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:422
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:429
 #, kde-kuit-format
 msgid "Date"
 msgstr "Data"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:423
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:430
 #, kde-kuit-format
 msgid "Arrow Visible"
 msgstr "Gezia ikusgai"
 
 #. i18n: ectx: property (title), widget (QGroupBox, descGroupBox)
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:424
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
 #: widget/KexiConnectionSelector.ui:118
 #, kde-format, kde-kuit-format
 msgid "Description"
 msgstr "Deskribapena"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:425
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:432
 #, fuzzy, kde-kuit-format
 #| msgid "Page Step"
 msgctxt "Property of slider widgets"
 msgid "Page Step"
 msgstr "Orri-urratsa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:426
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:433
 #, fuzzy, kde-kuit-format
 #| msgid "Single Step"
 msgctxt "Property of slider widgets"
 msgid "Single Step"
 msgstr "Urrats bakarra"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:427
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:434
 #, fuzzy, kde-kuit-format
 #| msgid "Tick Interval"
 msgctxt "Property of slider widgets"
 msgid "Tick Interval"
 msgstr "Marka-tartea"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:428
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:435
 #, fuzzy, kde-kuit-format
 #| msgid "Tick Position"
 msgctxt "Property of slider widgets"
 msgid "Tick Position"
 msgstr "Marka-posizioa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:429
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:436
 #, kde-kuit-format
 msgid "Show Editor"
 msgstr "Erakutsi editorea"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:430
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:437
 #, kde-kuit-format
 msgid "Form Name"
 msgstr "Inprimaki-izena"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:438
 #, kde-kuit-format
 msgid "On Click"
 msgstr "Klik egitean"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:432
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:439
 #, kde-kuit-format
 msgid "On Click Option"
 msgstr "Klik egitean aukera"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:433
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:440
 #, kde-kuit-format
 msgid "Auto Tab Order"
 msgstr "Tabulazio-ordena automatikoa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:434
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:441
 #, kde-kuit-format
 msgid "Spell Checking"
 msgstr "Ortografia zuzentzea"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:435
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:442
 #, fuzzy, kde-kuit-format
 #| msgctxt "Property: HTML value of text edit"
 #| msgid "HTML"
@@ -6053,103 +6053,103 @@ msgctxt "Widget Property"
 msgid "HTML"
 msgstr "HTML"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:436
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:443
 #, kde-kuit-format
 msgid "Line Wrap At"
 msgstr "Lerro itzulbiratzea hemen"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:437
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:444
 #, kde-kuit-format
 msgid "Line Wrap Mode"
 msgstr "Lerro itzulbiratze modua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:438
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:445
 #, kde-kuit-format
 msgid "Spell Checking Language"
 msgstr "Ortografia zuzentzeko hizkuntza"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:440
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:447
 #, kde-kuit-format
 msgid "Editor Type"
 msgstr "Editore mota"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:451
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:458
 #, kde-kuit-format
 msgctxt "AutoField editor's type"
 msgid "Multiline Text"
 msgstr "Lerro anitzeko testua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:452
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:459
 #, kde-kuit-format
 msgctxt "AutoField editor's type"
 msgid "Drop-Down List"
 msgstr "Goitibeherako zerrenda"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:453
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:460
 #, kde-kuit-format
 msgctxt "AutoField editor's type"
 msgid "Image"
 msgstr "Irudia"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:456
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:463
 #, fuzzy, kde-kuit-format
 #| msgid "No Ticks"
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "No Ticks"
 msgstr "Markarik ez"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:457
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:464
 #, fuzzy, kde-kuit-format
 #| msgid "Above"
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Above"
 msgstr "Goian"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:458
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:465
 #, fuzzy, kde-kuit-format
 #| msgid "Left"
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Left"
 msgstr "Ezkerrean"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:459
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:466
 #, fuzzy, kde-kuit-format
 #| msgid "Below"
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Below"
 msgstr "Behean"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:460
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:467
 #, fuzzy, kde-kuit-format
 #| msgid "Right"
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Right"
 msgstr "Eskuinean"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:461
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:468
 #, fuzzy, kde-kuit-format
 #| msgid "Both Sides"
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Both Sides"
 msgstr "Bi aldeetan"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:474
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:481
 #, kde-kuit-format
 msgid "Size"
 msgstr "Tamaina"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:475
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:482
 #: widget/utils/kexicontextmenuutils.cpp:221
 #, kde-kuit-format
 msgid "Image"
 msgstr "Irudia"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:476
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:483
 #, kde-kuit-format
 msgid "Scaled Contents"
 msgstr "Eduki eskalatua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:477
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:484
 #, fuzzy, kde-kuit-format
 #| msgctxt "Smoothing when contents are scaled"
 #| msgid "Smoothing"
@@ -6157,7 +6157,7 @@ msgctxt "Property: Smoothing when contents are scaled"
 msgid "Smoothing"
 msgstr "Leuntzea"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:478
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:485
 #, fuzzy, kde-kuit-format
 #| msgctxt "Keep Aspect Ratio (short)"
 #| msgid "Keep Ratio"
@@ -6165,7 +6165,7 @@ msgctxt "Property: Keep Aspect Ratio (keep short)"
 msgid "Keep Ratio"
 msgstr "Mantendu erlazioa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:483
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:490
 #, kde-kuit-format
 msgctxt ""
 "Drop-Down Button for Image Box Visible (a property name, keep the text "
@@ -6177,7 +6177,7 @@ msgstr ""
 "Goitibeherako\n"
 "botoia ikusgai"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:486
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:493
 #, fuzzy, kde-kuit-format
 #| msgctxt "Checked checkbox"
 #| msgid "Checked"
@@ -6185,7 +6185,7 @@ msgctxt "Property: Checked checkbox"
 msgid "Checked"
 msgstr "Hautatuta"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:487
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:494
 #, fuzzy, kde-kuit-format
 #| msgctxt "Tristate checkbox"
 #| msgid "Tristate"
@@ -6193,51 +6193,51 @@ msgctxt "Property: Tristate checkbox"
 msgid "Tristate"
 msgstr "Hiru egoerakoa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:488
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:495
 #, fuzzy, kde-kuit-format
 #| msgid "Default"
 msgctxt "Value of \"Tristate\" property in checkbox: default"
 msgid "Default"
 msgstr "Lehenetsia"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:489
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:496
 #, fuzzy, kde-kuit-format
 #| msgid "Yes/No"
 msgctxt "Value of \"Tristate\" property in checkbox: yes"
 msgid "Yes"
 msgstr "Bai/Ez"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:490
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:497
 #, kde-kuit-format
 msgctxt "Value of \"Tristate\" property in checkbox: no"
 msgid "No"
 msgstr "Ez"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:493
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:500
 #, kde-kuit-format
 msgctxt "Editable combobox"
 msgid "Editable"
 msgstr "Editagarria"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:496
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:503
 #, kde-kuit-format
 msgctxt "Property: Button is checkable"
 msgid "On/Off"
 msgstr "Piztu/Itzali"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:497
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:504
 #, kde-kuit-format
 msgctxt "Property: Button"
 msgid "Auto Repeat"
 msgstr "Errepikapen automatikoa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:498
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:505
 #, kde-kuit-format
 msgctxt "Property: Auto Repeat Button's Delay"
 msgid "Auto Rep. Delay"
 msgstr "Errep. automatikoaren atzerapena"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:499
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:506
 #, kde-kuit-format
 msgctxt "Property: Auto Repeat Button's Interval"
 msgid "Auto Rep. Interval"
@@ -6245,120 +6245,120 @@ msgstr "Errep. automatikoaren denbora-tartea"
 
 #. i18n("Auto Default"));
 #. unused (too advanced) setPropertyDescription("default", xi18nc("Property: Button is default", "Default"));
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:502
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:509
 #, kde-kuit-format
 msgctxt "Property: Button is flat"
 msgid "Flat"
 msgstr "Laua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:503
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:510
 #, kde-kuit-format
 msgctxt "Hyperlink address"
 msgid "Hyperlink"
 msgstr "Hiperesteka"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:504
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:511
 #, kde-kuit-format
 msgctxt "Type of hyperlink"
 msgid "Hyperlink Type"
 msgstr "Hiperesteka mota"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:505
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:512
 #, kde-kuit-format
 msgctxt "Tool used for opening a hyperlink"
 msgid "Hyperlink Tool"
 msgstr "Hiperesteka tresna"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:506
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:513
 #, kde-kuit-format
 msgctxt "Allow to open remote hyperlinks"
 msgid "Remote Hyperlink"
 msgstr "Urruneko hiperesteka"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:507
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:514
 #, kde-kuit-format
 msgctxt "Allow to open executables"
 msgid "Executable Hyperlink"
 msgstr "Hiperesteka exekutagarria"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:509
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:516
 #, kde-kuit-format
 msgctxt "Hyperlink type, NoHyperlink"
 msgid "No Hyperlink"
 msgstr "Hiperestekarik ez"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:510
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:517
 #, kde-kuit-format
 msgctxt "Hyperlink type, StaticHyperlink"
 msgid "Static"
 msgstr "Estatikoa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:511
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:518
 #, kde-kuit-format
 msgctxt "Hyperlink type, DynamicHyperlink"
 msgid "Dynamic"
 msgstr "Dinamikoa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:513
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:520
 #, kde-kuit-format
 msgctxt "Hyperlink tool, DefaultTool"
 msgid "Default"
 msgstr "Lehenetsia"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:514
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:521
 #, kde-kuit-format
 msgctxt "Hyperlink tool, BrowserTool"
 msgid "Browser"
 msgstr "Arakatzailea"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:515
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:522
 #, kde-kuit-format
 msgctxt "Hyperlink tool, MailerTool"
 msgid "Mailer"
 msgstr "Posta-elektronikoaren programa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:518
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:525
 #, kde-kuit-format
 msgid "Text Format"
 msgstr "Testu-formatua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:519
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:526
 #, kde-kuit-format
 msgctxt "For Text Format"
 msgid "Plain"
 msgstr "Arrunta"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:520
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:527
 #, kde-kuit-format
 msgctxt "For Text Format"
 msgid "Hypertext"
 msgstr "Hipertestua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:521
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:528
 #, kde-kuit-format
 msgctxt "For Text Format"
 msgid "Auto"
 msgstr "Automatikoa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:522
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:529
 #, kde-kuit-format
 msgctxt "For Text Format"
 msgid "Log"
 msgstr "Loga"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:523
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:530
 #, kde-kuit-format
 msgctxt "property: Can open external links in label"
 msgid "Open Ext. Links"
 msgstr "Ireki kanpo-estekak"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:526
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:533
 #, kde-kuit-format
 msgctxt "Property: line edit's placeholder text"
 msgid "Placeholder Text"
 msgstr "Leku-markako testua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:527
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:534
 #, fuzzy, kde-kuit-format
 #| msgctxt "Property: Show Clear Button"
 #| msgid "Clear Button"
@@ -6366,13 +6366,13 @@ msgctxt "Property: Clear Button Enabled"
 msgid "Clear Button"
 msgstr "Garbitzeko botoia"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:529
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:536
 #, kde-kuit-format
 msgctxt "Property: Password Mode for line edit"
 msgid "Password Mode"
 msgstr "Pasahitz modua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:530
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:537
 #, fuzzy, kde-kuit-format
 #| msgctxt "Squeezed Text Mode for line edit"
 #| msgid "Squeezed Text"
@@ -6380,22 +6380,22 @@ msgctxt "Property: Squeezed Text Mode for line edit"
 msgid "Squeezed Text"
 msgstr "Testu estutua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:533
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:540
 #, kde-kuit-format
 msgid "Tab Stop Width"
 msgstr "Tabulazioen zabalera"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:534
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:541
 #, kde-kuit-format
 msgid "Tab Changes Focus"
 msgstr "Tabulazioak fokua aldatzen du"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:535
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:542
 #, kde-kuit-format
 msgid "Word Wrap Policy"
 msgstr "Ertzean egokitzeko politika"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:536
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:543
 #, fuzzy, kde-kuit-format
 #| msgctxt "For Word Wrap Policy"
 #| msgid "At Word Boundary"
@@ -6403,13 +6403,13 @@ msgctxt "Property: For Word Wrap Policy"
 msgid "At Word Boundary"
 msgstr "Hitz-mugan"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:537
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:544
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Policy"
 msgid "Anywhere"
 msgstr "Edonon"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:538
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:545
 #, fuzzy, kde-kuit-format
 #| msgctxt "For Word Wrap Policy"
 #| msgid "At Word Boundary If Possible"
@@ -6417,56 +6417,56 @@ msgctxt "Property: For Word Wrap Policy"
 msgid "At Word Boundary If Possible"
 msgstr "Hitz-mugan, ahal bada"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:539
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:546
 #, kde-kuit-format
 msgid "Word Wrapping"
 msgstr "Ertzean egokitzea"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:540
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:547
 #, kde-kuit-format
 msgid "Word Wrap Position"
 msgstr "Ertzean egokitzeko kokalekua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:541
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:548
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Position"
 msgid "None"
 msgstr "Bat ere ez"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:542
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:549
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Position"
 msgid "Widget's Width"
 msgstr "Trepetaren zabalera"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:543
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:550
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Position"
 msgid "In Pixels"
 msgstr "Pixeletan"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:544
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:551
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Position"
 msgid "In Columns"
 msgstr "Zutabetan"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:545
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:552
 #, kde-kuit-format
 msgid "Links Underlined"
 msgstr "Estekak azpimarratuta"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:546
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:553
 #, kde-kuit-format
 msgid "Horizontal Scroll Bar"
 msgstr "Korritze-barra horizontala"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:547
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:554
 #, kde-kuit-format
 msgid "Vertical Scroll Bar"
 msgstr "Korritze-barra bertikala"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:549
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:556
 #, fuzzy, kde-kuit-format
 #| msgctxt "Show Scroll Bar As Needed"
 #| msgid "As Needed"
@@ -6474,38 +6474,38 @@ msgctxt "Property: Show Scroll Bar As Needed"
 msgid "As Needed"
 msgstr "Behar izanez gero"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:550
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:557
 #, fuzzy, kde-kuit-format
 #| msgid "Always Off"
 msgctxt "Property: Scroll Bar Always Off"
 msgid "Always Off"
 msgstr "Beti desaktibatuta"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:551
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:558
 #, fuzzy, kde-kuit-format
 #| msgid "Always On"
 msgctxt "Property: Scroll Bar Always On"
 msgid "Always On"
 msgstr "Beti aktibatuta"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:552
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:559
 #, kde-kuit-format
 msgctxt "Property: Text Edit accepts rich text"
 msgid "Rich Text"
 msgstr "Testu aberastua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:553
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:560
 #, kde-kuit-format
 msgctxt "Property: HTML value of text edit"
 msgid "HTML"
 msgstr "HTML"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:563
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:570
 #, kde-kuit-format
 msgid "Tab Widget"
 msgstr "Fitxa-trepeta"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:572
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:579
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -6522,18 +6522,18 @@ msgctxt ""
 msgid "tabWidget"
 msgstr "fitxatrepeta"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:573
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:580
 #, kde-kuit-format
 msgid "A widget to display multiple pages using tabs"
 msgstr "Hainbat orri fitxatan bistaratzeko trepeta"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:592
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:599
 #, kde-kuit-format
 msgctxt "Frame widget"
 msgid "Frame"
 msgstr "Markoa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:601
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:608
 #, kde-format
 msgctxt ""
 "A prefix for identifiers of frame widgets. Based on that, identifiers such "
@@ -6546,17 +6546,17 @@ msgctxt ""
 msgid "frame"
 msgstr "markoa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:602
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:609
 #, kde-kuit-format
 msgid "A frame widget"
 msgstr "Marko-trepeta bat"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:610
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:617
 #, kde-kuit-format
 msgid "Group Box"
 msgstr "Talde-koadroa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:619
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:626
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -6573,94 +6573,94 @@ msgctxt ""
 msgid "groupBox"
 msgstr "taldekoadroa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:620
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:627
 #, kde-kuit-format
 msgid "A container to group some widgets"
 msgstr "Zenbait trepeta taldekatzeko edukitzailea"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:625
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:632
 #, kde-kuit-format
 msgctxt "'Title' property for group box"
 msgid "Title"
 msgstr "Titulua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:626
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:633
 #, kde-kuit-format
 msgctxt "'Flat' property for group box"
 msgid "Flat"
 msgstr "Laua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:629
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:636
 #, kde-kuit-format
 msgid "Auto-hide Tabs"
 msgstr "Fitxak automatikoki ezkutatu"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:630
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:637
 #, kde-kuit-format
 msgid "Tab Position"
 msgstr "Fitxa-kokalekua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:631
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:638
 #, kde-kuit-format
 msgctxt "'Current page' property for tab widget"
 msgid "Current Page"
 msgstr "Uneko orria"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:632
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:639
 #, kde-kuit-format
 msgid "Tab Shape"
 msgstr "Fitxa-forma"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:633
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:640
 #, kde-kuit-format
 msgctxt "Tab Widget's Elide Mode property"
 msgid "Elide Mode"
 msgstr "Elisio modua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:635
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:642
 #, kde-kuit-format
 msgctxt "Tab Widget's property: true if can use scroll buttons"
 msgid "Scroll Buttons"
 msgstr "Kiribiltzeko botoiak"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:637
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:644
 #, kde-kuit-format
 msgid "Closable Tabs"
 msgstr "Fitxa itxigarriak"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:638
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:645
 #, kde-kuit-format
 msgid "Movable Tabs"
 msgstr "Fitxa mugigarriak"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:639
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:646
 #, kde-kuit-format
 msgid "Document Mode"
 msgstr "Dokumentu modua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:641
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:648
 #, kde-kuit-format
 msgctxt "Property value for Tab Shape"
 msgid "Rounded"
 msgstr "Biribildua"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:642
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:649
 #, kde-kuit-format
 msgctxt "Property value for Tab Shape"
 msgid "Triangular"
 msgstr "Triangeluarra"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:774
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:781
 #, kde-kuit-format
 msgid "&Image"
 msgstr "&Irudia"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:821
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:828
 #, kde-kuit-format
 msgid "&Assign Action..."
 msgstr "&Ekintza esleitu..."
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1393
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1400
 #, kde-kuit-format
 msgctxt "default indent value"
 msgid "default"

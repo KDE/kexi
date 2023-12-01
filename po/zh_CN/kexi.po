@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-24 02:33+0000\n"
+"POT-Creation-Date: 2023-12-01 02:28+0000\n"
 "PO-Revision-Date: 2023-11-25 02:33\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -4938,13 +4938,13 @@ msgstr "textBox"
 msgid "A widget for entering and displaying line of text text"
 msgstr "输入和显示文本行的部件"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:128
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:129
 #, kde-kuit-format
 msgctxt "Text Editor widget"
 msgid "Text Editor"
 msgstr "文本编辑器"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:137
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:138
 #, kde-format
 msgctxt ""
 "A prefix for identifiers of text editor widgets. Based on that, identifiers "
@@ -4957,18 +4957,18 @@ msgctxt ""
 msgid "textEditor"
 msgstr "textEditor"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:138
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:139
 #, kde-kuit-format
 msgid "A multiline text editor"
 msgstr "多行文本编辑器"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:149
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:151
 #, kde-kuit-format
 msgctxt "Text Label widget"
 msgid "Label"
 msgstr "标签"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:158
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:160
 #, kde-format
 msgctxt ""
 "A prefix for identifiers of label widgets. Based on that, identifiers such "
@@ -4981,18 +4981,18 @@ msgctxt ""
 msgid "label"
 msgstr "label"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:159
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:161
 #, kde-kuit-format
 msgid "A widget for displaying text"
 msgstr "显示文本的部件"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:170
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:173
 #, kde-kuit-format
 msgctxt "Image Box widget"
 msgid "Image Box"
 msgstr "图像框"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:179
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:182
 #, kde-format
 msgctxt ""
 "A prefix for identifiers of image box widgets. Based on that, identifiers "
@@ -5005,18 +5005,18 @@ msgctxt ""
 msgid "image"
 msgstr "image"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:180
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:183
 #, kde-kuit-format
 msgid "A widget for displaying images"
 msgstr "显示图像的部件"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:196
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:199
 #, kde-kuit-format
 msgctxt "Combo Box widget"
 msgid "Combo Box"
 msgstr "组合框"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:205
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:208
 #, kde-format
 msgctxt ""
 "A prefix for identifiers of combo box widgets. Based on that, identifiers "
@@ -5029,18 +5029,18 @@ msgctxt ""
 msgid "comboBox"
 msgstr "comboBox"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:206
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:209
 #, kde-kuit-format
 msgid "A combo box widget"
 msgstr "组合框部件"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:214
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:218
 #, kde-kuit-format
 msgctxt "Check Box widget"
 msgid "Check Box"
 msgstr "复选框"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:223
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:227
 #, kde-format
 msgctxt ""
 "A prefix for identifiers of combo box widgets. Based on that, identifiers "
@@ -5053,18 +5053,18 @@ msgctxt ""
 msgid "checkBox"
 msgstr "checkBox"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:224
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:228
 #, kde-kuit-format
 msgid "A check box with text label"
 msgstr "带文本标签的复选框"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:250
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:255
 #, kde-kuit-format
 msgctxt "Button widget"
 msgid "Button"
 msgstr "按钮"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:259
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:264
 #, kde-format
 msgctxt ""
 "A prefix for identifiers of button widgets. Based on that, identifiers such "
@@ -5077,18 +5077,18 @@ msgctxt ""
 msgid "button"
 msgstr "button"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:260
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:265
 #, kde-kuit-format
 msgid "A button for executing actions"
 msgstr "执行操作的按钮"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:267
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:273
 #, kde-kuit-format
 msgctxt "Link Button widget"
 msgid "Link Button"
 msgstr "链接按钮"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:276
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:282
 #, kde-format
 msgctxt ""
 "A prefix for identifiers of link button widgets. Based on that, identifiers "
@@ -5101,18 +5101,18 @@ msgctxt ""
 msgid "linkButton"
 msgstr "链接按钮"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:277
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:283
 #, kde-kuit-format
 msgid "A Link button for executing actions"
 msgstr "执行操作的链接按钮"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:307
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:313
 #, kde-kuit-format
 msgctxt "Slider widget"
 msgid "Slider"
 msgstr "滑块"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:316
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:322
 #, kde-format
 msgctxt ""
 "A prefix for identifiers of slider widgets. Based on that, identifiers such "
@@ -5125,18 +5125,18 @@ msgctxt ""
 msgid "slider"
 msgstr "slider"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:317
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:323
 #, kde-kuit-format
 msgid "A Slider widget"
 msgstr "滑块部件"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:325
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:331
 #, kde-kuit-format
 msgctxt "Progress Bar widget"
 msgid "Progress Bar"
 msgstr "进度条"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:334
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:340
 #, kde-format
 msgctxt ""
 "A prefix for identifiers of progress bar widgets. Based on that, identifiers "
@@ -5149,17 +5149,17 @@ msgctxt ""
 msgid "progressBar"
 msgstr "progressBar"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:335
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:341
 #, kde-kuit-format
 msgid "A Progress Bar widget"
 msgstr "进度条部件"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:343
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:349
 #, kde-kuit-format
 msgid "Line"
 msgstr "行"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:352
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:358
 #, kde-format
 msgctxt ""
 "A prefix for identifiers of line widgets. Based on that, identifiers such as "
@@ -5172,28 +5172,28 @@ msgctxt ""
 msgid "line"
 msgstr "line"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:353
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:359
 #, kde-kuit-format
 msgid "A line to be used as a separator"
 msgstr "作为分隔符的直线"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:358
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:364
 #, kde-kuit-format
 msgid "Insert &Horizontal Line"
 msgstr "插入水平线(&H)"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:359
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:365
 #, kde-kuit-format
 msgid "Insert &Vertical Line"
 msgstr "插入垂直线(&V)"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:368
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:374
 #, kde-kuit-format
 msgctxt "Date Picker widget"
 msgid "Date Picker"
 msgstr "日期选择器"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:377
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:383
 #, kde-format
 msgctxt ""
 "A prefix for identifiers of date picker widgets. Based on that, identifiers "
@@ -5206,242 +5206,242 @@ msgctxt ""
 msgid "datePicker"
 msgstr "日期选择器"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:378
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:384
 #, kde-kuit-format
 msgid "A Date Picker widget"
 msgstr "日期选择器部件"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:411
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:418
 #, kde-kuit-format
 msgctxt "Property: Echo mode for Line Edit widget eg. Normal, NoEcho, Password"
 msgid "Echo Mode"
 msgstr "回应模式"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:412
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:419
 #, kde-kuit-format
 msgid "Indent"
 msgstr "缩进"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:414
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:421
 #, kde-kuit-format
 msgid "Inverted"
 msgstr "反转"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:415
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:422
 #, kde-kuit-format
 msgid "Minimum"
 msgstr "最小"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:416
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:423
 #, kde-kuit-format
 msgid "Maximum"
 msgstr "最大"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:417
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:424
 #, kde-kuit-format
 msgid "Format"
 msgstr "格式"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:418
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:425
 #, kde-kuit-format
 msgid "Orientation"
 msgstr "方向"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:419
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:426
 #, kde-kuit-format
 msgid "Text Direction"
 msgstr "文字方向"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:420
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:427
 #, kde-kuit-format
 msgid "Text Visible"
 msgstr "文本可见"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:421
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:428
 #, kde-kuit-format
 msgid "Value"
 msgstr "值"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:422
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:429
 #, kde-kuit-format
 msgid "Date"
 msgstr "日期"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:423
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:430
 #, kde-kuit-format
 msgid "Arrow Visible"
 msgstr "箭头可见"
 
 #. i18n: ectx: property (title), widget (QGroupBox, descGroupBox)
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:424
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
 #: widget/KexiConnectionSelector.ui:118
 #, kde-format, kde-kuit-format
 msgid "Description"
 msgstr "描述"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:425
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:432
 #, kde-kuit-format
 msgctxt "Property of slider widgets"
 msgid "Page Step"
 msgstr "页面步骤"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:426
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:433
 #, kde-kuit-format
 msgctxt "Property of slider widgets"
 msgid "Single Step"
 msgstr "单步执行"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:427
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:434
 #, kde-kuit-format
 msgctxt "Property of slider widgets"
 msgid "Tick Interval"
 msgstr "间隔刻度"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:428
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:435
 #, kde-kuit-format
 msgctxt "Property of slider widgets"
 msgid "Tick Position"
 msgstr "位置刻度"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:429
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:436
 #, kde-kuit-format
 msgid "Show Editor"
 msgstr "显示编辑器"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:430
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:437
 #, kde-kuit-format
 msgid "Form Name"
 msgstr "表单名称"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:438
 #, kde-kuit-format
 msgid "On Click"
 msgstr "单击时"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:432
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:439
 #, kde-kuit-format
 msgid "On Click Option"
 msgstr "单击选项"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:433
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:440
 #, kde-kuit-format
 msgid "Auto Tab Order"
 msgstr "自动编排 Tab 顺序"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:434
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:441
 #, kde-kuit-format
 msgid "Spell Checking"
 msgstr "拼写检查"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:435
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:442
 #, kde-kuit-format
 msgctxt "Widget Property"
 msgid "HTML"
 msgstr "HTML"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:436
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:443
 #, kde-kuit-format
 msgid "Line Wrap At"
 msgstr "行换于"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:437
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:444
 #, kde-kuit-format
 msgid "Line Wrap Mode"
 msgstr "行换模式"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:438
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:445
 #, kde-kuit-format
 msgid "Spell Checking Language"
 msgstr "拼写检查语言"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:440
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:447
 #, kde-kuit-format
 msgid "Editor Type"
 msgstr "编辑器类型"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:451
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:458
 #, kde-kuit-format
 msgctxt "AutoField editor's type"
 msgid "Multiline Text"
 msgstr "多行文本"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:452
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:459
 #, kde-kuit-format
 msgctxt "AutoField editor's type"
 msgid "Drop-Down List"
 msgstr "下拉列表"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:453
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:460
 #, kde-kuit-format
 msgctxt "AutoField editor's type"
 msgid "Image"
 msgstr "图像"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:456
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:463
 #, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "No Ticks"
 msgstr "无刻度"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:457
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:464
 #, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Above"
 msgstr "高于"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:458
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:465
 #, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Left"
 msgstr "左侧"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:459
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:466
 #, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Below"
 msgstr "下方"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:460
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:467
 #, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Right"
 msgstr "右侧"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:461
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:468
 #, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Both Sides"
 msgstr "两侧"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:474
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:481
 #, kde-kuit-format
 msgid "Size"
 msgstr "大小"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:475
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:482
 #: widget/utils/kexicontextmenuutils.cpp:221
 #, kde-kuit-format
 msgid "Image"
 msgstr "图像"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:476
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:483
 #, kde-kuit-format
 msgid "Scaled Contents"
 msgstr "缩放内容"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:477
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:484
 #, kde-kuit-format
 msgctxt "Property: Smoothing when contents are scaled"
 msgid "Smoothing"
 msgstr "平滑"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:478
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:485
 #, kde-kuit-format
 msgctxt "Property: Keep Aspect Ratio (keep short)"
 msgid "Keep Ratio"
 msgstr "保持比例"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:483
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:490
 #, kde-kuit-format
 msgctxt ""
 "Drop-Down Button for Image Box Visible (a property name, keep the text "
@@ -5453,61 +5453,61 @@ msgstr ""
 "下拉按钮\n"
 "可见"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:486
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:493
 #, kde-kuit-format
 msgctxt "Property: Checked checkbox"
 msgid "Checked"
 msgstr "已选中"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:487
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:494
 #, kde-kuit-format
 msgctxt "Property: Tristate checkbox"
 msgid "Tristate"
 msgstr "三角"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:488
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:495
 #, kde-kuit-format
 msgctxt "Value of \"Tristate\" property in checkbox: default"
 msgid "Default"
 msgstr "默认"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:489
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:496
 #, kde-kuit-format
 msgctxt "Value of \"Tristate\" property in checkbox: yes"
 msgid "Yes"
 msgstr "是"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:490
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:497
 #, kde-kuit-format
 msgctxt "Value of \"Tristate\" property in checkbox: no"
 msgid "No"
 msgstr "否"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:493
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:500
 #, kde-kuit-format
 msgctxt "Editable combobox"
 msgid "Editable"
 msgstr "可编辑"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:496
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:503
 #, kde-kuit-format
 msgctxt "Property: Button is checkable"
 msgid "On/Off"
 msgstr "开/关"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:497
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:504
 #, kde-kuit-format
 msgctxt "Property: Button"
 msgid "Auto Repeat"
 msgstr "自动重复"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:498
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:505
 #, kde-kuit-format
 msgctxt "Property: Auto Repeat Button's Delay"
 msgid "Auto Rep. Delay"
 msgstr "自动重复延迟"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:499
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:506
 #, kde-kuit-format
 msgctxt "Property: Auto Repeat Button's Interval"
 msgid "Auto Rep. Interval"
@@ -5515,255 +5515,255 @@ msgstr "自动重复间隔"
 
 #. i18n("Auto Default"));
 #. unused (too advanced) setPropertyDescription("default", xi18nc("Property: Button is default", "Default"));
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:502
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:509
 #, kde-kuit-format
 msgctxt "Property: Button is flat"
 msgid "Flat"
 msgstr "平场"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:503
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:510
 #, kde-kuit-format
 msgctxt "Hyperlink address"
 msgid "Hyperlink"
 msgstr "超链接"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:504
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:511
 #, kde-kuit-format
 msgctxt "Type of hyperlink"
 msgid "Hyperlink Type"
 msgstr "超链接类型"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:505
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:512
 #, kde-kuit-format
 msgctxt "Tool used for opening a hyperlink"
 msgid "Hyperlink Tool"
 msgstr "超链接工具"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:506
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:513
 #, kde-kuit-format
 msgctxt "Allow to open remote hyperlinks"
 msgid "Remote Hyperlink"
 msgstr "远程超链接"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:507
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:514
 #, kde-kuit-format
 msgctxt "Allow to open executables"
 msgid "Executable Hyperlink"
 msgstr "可执行的超链接"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:509
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:516
 #, kde-kuit-format
 msgctxt "Hyperlink type, NoHyperlink"
 msgid "No Hyperlink"
 msgstr "无超链接"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:510
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:517
 #, kde-kuit-format
 msgctxt "Hyperlink type, StaticHyperlink"
 msgid "Static"
 msgstr "静态"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:511
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:518
 #, kde-kuit-format
 msgctxt "Hyperlink type, DynamicHyperlink"
 msgid "Dynamic"
 msgstr "动态"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:513
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:520
 #, kde-kuit-format
 msgctxt "Hyperlink tool, DefaultTool"
 msgid "Default"
 msgstr "默认"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:514
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:521
 #, kde-kuit-format
 msgctxt "Hyperlink tool, BrowserTool"
 msgid "Browser"
 msgstr "浏览器"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:515
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:522
 #, kde-kuit-format
 msgctxt "Hyperlink tool, MailerTool"
 msgid "Mailer"
 msgstr "发送者"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:518
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:525
 #, kde-kuit-format
 msgid "Text Format"
 msgstr "文本格式"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:519
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:526
 #, kde-kuit-format
 msgctxt "For Text Format"
 msgid "Plain"
 msgstr "纯文本"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:520
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:527
 #, kde-kuit-format
 msgctxt "For Text Format"
 msgid "Hypertext"
 msgstr "超文本"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:521
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:528
 #, kde-kuit-format
 msgctxt "For Text Format"
 msgid "Auto"
 msgstr "自动"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:522
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:529
 #, kde-kuit-format
 msgctxt "For Text Format"
 msgid "Log"
 msgstr "日志"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:523
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:530
 #, kde-kuit-format
 msgctxt "property: Can open external links in label"
 msgid "Open Ext. Links"
 msgstr "打开外部链接"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:526
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:533
 #, kde-kuit-format
 msgctxt "Property: line edit's placeholder text"
 msgid "Placeholder Text"
 msgstr "占位符文本"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:527
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:534
 #, kde-kuit-format
 msgctxt "Property: Clear Button Enabled"
 msgid "Clear Button"
 msgstr "清除按钮"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:529
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:536
 #, kde-kuit-format
 msgctxt "Property: Password Mode for line edit"
 msgid "Password Mode"
 msgstr "密码模式"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:530
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:537
 #, kde-kuit-format
 msgctxt "Property: Squeezed Text Mode for line edit"
 msgid "Squeezed Text"
 msgstr "压缩文本"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:533
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:540
 #, kde-kuit-format
 msgid "Tab Stop Width"
 msgstr "Tab 停留宽度"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:534
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:541
 #, kde-kuit-format
 msgid "Tab Changes Focus"
 msgstr "Tab 更改焦点"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:535
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:542
 #, kde-kuit-format
 msgid "Word Wrap Policy"
 msgstr "自动换行策略"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:536
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:543
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Policy"
 msgid "At Word Boundary"
 msgstr "在单词边界"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:537
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:544
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Policy"
 msgid "Anywhere"
 msgstr "任何地方"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:538
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:545
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Policy"
 msgid "At Word Boundary If Possible"
 msgstr "如可能，在单词边界"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:539
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:546
 #, kde-kuit-format
 msgid "Word Wrapping"
 msgstr "自动换行"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:540
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:547
 #, kde-kuit-format
 msgid "Word Wrap Position"
 msgstr "自动换行位置"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:541
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:548
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Position"
 msgid "None"
 msgstr "未分组"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:542
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:549
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Position"
 msgid "Widget's Width"
 msgstr "部件宽度"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:543
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:550
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Position"
 msgid "In Pixels"
 msgstr "按像素"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:544
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:551
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Position"
 msgid "In Columns"
 msgstr "按列"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:545
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:552
 #, kde-kuit-format
 msgid "Links Underlined"
 msgstr "链接下划线"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:546
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:553
 #, kde-kuit-format
 msgid "Horizontal Scroll Bar"
 msgstr "水平滚动条"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:547
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:554
 #, kde-kuit-format
 msgid "Vertical Scroll Bar"
 msgstr "垂直滚动条"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:549
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:556
 #, kde-kuit-format
 msgctxt "Property: Show Scroll Bar As Needed"
 msgid "As Needed"
 msgstr "按需"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:550
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:557
 #, kde-kuit-format
 msgctxt "Property: Scroll Bar Always Off"
 msgid "Always Off"
 msgstr "总是关"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:551
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:558
 #, kde-kuit-format
 msgctxt "Property: Scroll Bar Always On"
 msgid "Always On"
 msgstr "总是开"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:552
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:559
 #, kde-kuit-format
 msgctxt "Property: Text Edit accepts rich text"
 msgid "Rich Text"
 msgstr "富文本"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:553
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:560
 #, kde-kuit-format
 msgctxt "Property: HTML value of text edit"
 msgid "HTML"
 msgstr "HTML"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:563
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:570
 #, kde-kuit-format
 msgid "Tab Widget"
 msgstr "标签页部件"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:572
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:579
 #, kde-format
 msgctxt ""
 "A prefix for identifiers of tab widgets. Based on that, identifiers such as "
@@ -5776,18 +5776,18 @@ msgctxt ""
 msgid "tabWidget"
 msgstr "tabWidget"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:573
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:580
 #, kde-kuit-format
 msgid "A widget to display multiple pages using tabs"
 msgstr "使用标签页显示多页内容的部件"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:592
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:599
 #, kde-kuit-format
 msgctxt "Frame widget"
 msgid "Frame"
 msgstr "帧"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:601
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:608
 #, kde-format
 msgctxt ""
 "A prefix for identifiers of frame widgets. Based on that, identifiers such "
@@ -5800,17 +5800,17 @@ msgctxt ""
 msgid "frame"
 msgstr "frame"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:602
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:609
 #, kde-kuit-format
 msgid "A frame widget"
 msgstr "框架部件"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:610
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:617
 #, kde-kuit-format
 msgid "Group Box"
 msgstr "分组框"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:619
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:626
 #, kde-format
 msgctxt ""
 "A prefix for identifiers of group box widgets. Based on that, identifiers "
@@ -5823,94 +5823,94 @@ msgctxt ""
 msgid "groupBox"
 msgstr "groupBox"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:620
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:627
 #, kde-kuit-format
 msgid "A container to group some widgets"
 msgstr "将部件分组的容器"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:625
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:632
 #, kde-kuit-format
 msgctxt "'Title' property for group box"
 msgid "Title"
 msgstr "名称"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:626
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:633
 #, kde-kuit-format
 msgctxt "'Flat' property for group box"
 msgid "Flat"
 msgstr "平场"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:629
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:636
 #, kde-kuit-format
 msgid "Auto-hide Tabs"
 msgstr "自动隐藏标签"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:630
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:637
 #, kde-kuit-format
 msgid "Tab Position"
 msgstr "标签位置"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:631
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:638
 #, kde-kuit-format
 msgctxt "'Current page' property for tab widget"
 msgid "Current Page"
 msgstr "当前页面"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:632
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:639
 #, kde-kuit-format
 msgid "Tab Shape"
 msgstr "标签形状"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:633
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:640
 #, kde-kuit-format
 msgctxt "Tab Widget's Elide Mode property"
 msgid "Elide Mode"
 msgstr "省略模式"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:635
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:642
 #, kde-kuit-format
 msgctxt "Tab Widget's property: true if can use scroll buttons"
 msgid "Scroll Buttons"
 msgstr "滚动按钮"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:637
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:644
 #, kde-kuit-format
 msgid "Closable Tabs"
 msgstr "可关闭标签"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:638
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:645
 #, kde-kuit-format
 msgid "Movable Tabs"
 msgstr "可移动标签"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:639
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:646
 #, kde-kuit-format
 msgid "Document Mode"
 msgstr "文档模式"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:641
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:648
 #, kde-kuit-format
 msgctxt "Property value for Tab Shape"
 msgid "Rounded"
 msgstr "圆角"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:642
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:649
 #, kde-kuit-format
 msgctxt "Property value for Tab Shape"
 msgid "Triangular"
 msgstr "三角形"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:774
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:781
 #, kde-kuit-format
 msgid "&Image"
 msgstr "图像(&I)"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:821
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:828
 #, kde-kuit-format
 msgid "&Assign Action..."
 msgstr "分配操作(&A)..."
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1393
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1400
 #, kde-kuit-format
 msgctxt "default indent value"
 msgid "default"
