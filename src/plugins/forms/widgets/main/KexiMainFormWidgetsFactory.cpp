@@ -117,6 +117,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->setDescription(xi18n("A widget for entering and displaying line of text text"));
         wi->setInternalProperty("dontStartEditingOnInserting", true); // because we are most probably assign data source to this widget
         wi->setInlineEditingEnabledWhenDataSourceSet(false);
+        wi->setAutoSaveProperties({ "text" });
         addClass(wi);
     }
     {
@@ -138,6 +139,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
         wi->setDescription(xi18n("A multiline text editor"));
         wi->setInternalProperty("dontStartEditingOnInserting", true); // because we are most probably assign data source to this widget
         wi->setInlineEditingEnabledWhenDataSourceSet(false);
+        wi->setAutoSaveProperties({ "text" });
         addClass(wi);
     }
     {
@@ -158,6 +160,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
                 "label"));
         wi->setDescription(xi18n("A widget for displaying text"));
         wi->setInlineEditingEnabledWhenDataSourceSet(false);
+        wi->setAutoSaveProperties({ "text" });
         addClass(wi);
     }
 
@@ -204,6 +207,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
                 "Moreover, try to make this prefix as short as possible.",
                 "comboBox"));
         wi->setDescription(xi18n("A combo box widget"));
+        wi->setAutoSaveProperties({ "list_items" });
         addClass(wi);
     }
     {
@@ -222,6 +226,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
                 "Moreover, try to make this prefix as short as possible.",
                 "checkBox"));
         wi->setDescription(xi18n("A check box with text label"));
+        wi->setAutoSaveProperties({ "text" });
         addClass(wi);
     }
 #ifdef KEXI_AUTOFIELD_FORM_WIDGET_SUPPORT
@@ -258,6 +263,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
                 "Moreover, try to make this prefix as short as possible.",
                 "button"));
         wi->setDescription(xi18n("A button for executing actions"));
+        wi->setAutoSaveProperties({ "text" });
         addClass(wi);
     }
     {
@@ -376,6 +382,7 @@ KexiMainFormWidgetsFactory::KexiMainFormWidgetsFactory(QObject *parent, const QV
                 "Moreover, try to make this prefix as short as possible.",
                 "datePicker"));
         wi->setDescription(xi18n("A Date Picker widget"));
+        wi->setAutoSaveProperties({ "date" });
         addClass(wi);
     }
     //! @todo time edit
