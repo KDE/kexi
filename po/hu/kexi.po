@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KOffice 1.4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:34+0000\n"
+"POT-Creation-Date: 2023-12-01 00:42+0000\n"
 "PO-Revision-Date: 2014-05-04 15:46+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -5786,14 +5786,14 @@ msgstr "szovegDoboz"
 msgid "A widget for entering and displaying line of text text"
 msgstr "Egy felületi elem szöveg magadására és megjelenítésére"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:128
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:129
 #, fuzzy, kde-kuit-format
 #| msgid "Text Editor"
 msgctxt "Text Editor widget"
 msgid "Text Editor"
 msgstr "Szövegszerkesztő"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:137
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:138
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5810,19 +5810,19 @@ msgctxt ""
 msgid "textEditor"
 msgstr "szovegszerkeszto"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:138
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:139
 #, kde-kuit-format
 msgid "A multiline text editor"
 msgstr "Egy többsoros szövegszerkesztő"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:149
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:151
 #, fuzzy, kde-kuit-format
 #| msgid "Label"
 msgctxt "Text Label widget"
 msgid "Label"
 msgstr "Felirat"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:158
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:160
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5839,19 +5839,19 @@ msgctxt ""
 msgid "label"
 msgstr "cimke"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:159
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:161
 #, kde-kuit-format
 msgid "A widget for displaying text"
 msgstr "Egy felületi elem szöveg megjelenítésére"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:170
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:173
 #, fuzzy, kde-kuit-format
 #| msgid "Image Box"
 msgctxt "Image Box widget"
 msgid "Image Box"
 msgstr "Képdoboz"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:179
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:182
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5868,19 +5868,19 @@ msgctxt ""
 msgid "image"
 msgstr "kep"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:180
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:183
 #, kde-kuit-format
 msgid "A widget for displaying images"
 msgstr "Egy felületi elem képek megjelenítésére"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:196
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:199
 #, fuzzy, kde-kuit-format
 #| msgid "Combo Box"
 msgctxt "Combo Box widget"
 msgid "Combo Box"
 msgstr "Lenyíló menü"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:205
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:208
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5897,19 +5897,19 @@ msgctxt ""
 msgid "comboBox"
 msgstr "lenyiloMenu"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:206
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:209
 #, kde-kuit-format
 msgid "A combo box widget"
 msgstr "Egy lenyíló menü felületi elem"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:214
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:218
 #, fuzzy, kde-kuit-format
 #| msgid "Check Box"
 msgctxt "Check Box widget"
 msgid "Check Box"
 msgstr "Jelölőnégyzet"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:223
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:227
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5926,19 +5926,19 @@ msgctxt ""
 msgid "checkBox"
 msgstr "jelolonegyzet"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:224
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:228
 #, kde-kuit-format
 msgid "A check box with text label"
 msgstr "Egy jelölőnégyzet szövegcímkével"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:250
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:255
 #, fuzzy, kde-kuit-format
 #| msgid "Button"
 msgctxt "Button widget"
 msgid "Button"
 msgstr "Gomb"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:259
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:264
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5955,19 +5955,19 @@ msgctxt ""
 msgid "button"
 msgstr "gomb"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:260
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:265
 #, kde-kuit-format
 msgid "A button for executing actions"
 msgstr "Egy gomb műveletek végrehajtásához"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:267
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:273
 #, fuzzy, kde-kuit-format
 #| msgid "Link Button"
 msgctxt "Link Button widget"
 msgid "Link Button"
 msgstr "Hivatkozás gomb"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:276
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:282
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -5984,19 +5984,19 @@ msgctxt ""
 msgid "linkButton"
 msgstr "hivatkozasGomb"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:277
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:283
 #, kde-kuit-format
 msgid "A Link button for executing actions"
 msgstr "Egy hivatkozás gomb műveletek végrehajtásához"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:307
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:313
 #, fuzzy, kde-kuit-format
 #| msgid "Slider"
 msgctxt "Slider widget"
 msgid "Slider"
 msgstr "Csúszka"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:316
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:322
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -6013,19 +6013,19 @@ msgctxt ""
 msgid "slider"
 msgstr "csuszka"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:317
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:323
 #, kde-kuit-format
 msgid "A Slider widget"
 msgstr "Egy csúszka felületi elem"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:325
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:331
 #, fuzzy, kde-kuit-format
 #| msgid "Progress Bar"
 msgctxt "Progress Bar widget"
 msgid "Progress Bar"
 msgstr "Folyamatjelző"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:334
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:340
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -6042,17 +6042,17 @@ msgctxt ""
 msgid "progressBar"
 msgstr "folyamatjelzo"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:335
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:341
 #, kde-kuit-format
 msgid "A Progress Bar widget"
 msgstr "Egy folyamatsáv felületi elem"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:343
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:349
 #, kde-kuit-format
 msgid "Line"
 msgstr "Vonal"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:352
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:358
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -6069,29 +6069,29 @@ msgctxt ""
 msgid "line"
 msgstr "vonal"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:353
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:359
 #, kde-kuit-format
 msgid "A line to be used as a separator"
 msgstr "Egy elválasztóként használható vonal"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:358
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:364
 #, kde-kuit-format
 msgid "Insert &Horizontal Line"
 msgstr "&Vízszintes vonal beszúrása"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:359
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:365
 #, kde-kuit-format
 msgid "Insert &Vertical Line"
 msgstr "&Függőleges vonal beszúrása"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:368
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:374
 #, fuzzy, kde-kuit-format
 #| msgid "Date Picker"
 msgctxt "Date Picker widget"
 msgid "Date Picker"
 msgstr "Dátumválasztó"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:377
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:383
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -6108,12 +6108,12 @@ msgctxt ""
 msgid "datePicker"
 msgstr "datumValaszto"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:378
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:384
 #, kde-kuit-format
 msgid "A Date Picker widget"
 msgstr "Egy dátumválasztó felületi elem"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:411
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:418
 #, fuzzy, kde-kuit-format
 #| msgctxt "Echo mode for Line Edit widget eg. Normal, NoEcho, Password"
 #| msgid "Echo Mode"
@@ -6121,127 +6121,127 @@ msgctxt "Property: Echo mode for Line Edit widget eg. Normal, NoEcho, Password"
 msgid "Echo Mode"
 msgstr "Kiírási mód"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:412
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:419
 #, kde-kuit-format
 msgid "Indent"
 msgstr "Behúzás"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:414
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:421
 #, kde-kuit-format
 msgid "Inverted"
 msgstr "Fordított"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:415
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:422
 #, kde-kuit-format
 msgid "Minimum"
 msgstr "Minimum"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:416
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:423
 #, kde-kuit-format
 msgid "Maximum"
 msgstr "Maximum"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:417
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:424
 #, kde-kuit-format
 msgid "Format"
 msgstr "Formátum"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:418
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:425
 #, kde-kuit-format
 msgid "Orientation"
 msgstr "Tájolás"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:419
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:426
 #, kde-kuit-format
 msgid "Text Direction"
 msgstr "Szövegirány"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:420
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:427
 #, kde-kuit-format
 msgid "Text Visible"
 msgstr "Látható szöveg"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:421
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:428
 #, kde-kuit-format
 msgid "Value"
 msgstr "Érték"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:422
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:429
 #, kde-kuit-format
 msgid "Date"
 msgstr "Dátum"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:423
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:430
 #, kde-kuit-format
 msgid "Arrow Visible"
 msgstr "Látható nyíl"
 
 #. i18n: ectx: property (title), widget (QGroupBox, descGroupBox)
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:424
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
 #: widget/KexiConnectionSelector.ui:118
 #, kde-format, kde-kuit-format
 msgid "Description"
 msgstr "Leírás"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:425
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:432
 #, fuzzy, kde-kuit-format
 #| msgid "Page Step"
 msgctxt "Property of slider widgets"
 msgid "Page Step"
 msgstr "Oldal lépés"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:426
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:433
 #, fuzzy, kde-kuit-format
 #| msgid "Single Step"
 msgctxt "Property of slider widgets"
 msgid "Single Step"
 msgstr "Egyszeres lépés"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:427
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:434
 #, fuzzy, kde-kuit-format
 #| msgid "Tick Interval"
 msgctxt "Property of slider widgets"
 msgid "Tick Interval"
 msgstr "Beosztás időköze"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:428
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:435
 #, fuzzy, kde-kuit-format
 #| msgid "Tick Position"
 msgctxt "Property of slider widgets"
 msgid "Tick Position"
 msgstr "Beosztás pozíciója"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:429
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:436
 #, kde-kuit-format
 msgid "Show Editor"
 msgstr "Szerkesztő megjelenítése"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:430
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:437
 #, kde-kuit-format
 msgid "Form Name"
 msgstr "Űrlapnév"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:438
 #, kde-kuit-format
 msgid "On Click"
 msgstr "Kattintásra"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:432
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:439
 #, kde-kuit-format
 msgid "On Click Option"
 msgstr "Kattintásra beállítás"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:433
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:440
 #, kde-kuit-format
 msgid "Auto Tab Order"
 msgstr "Automatikus bejárási sorrend"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:434
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:441
 #, kde-kuit-format
 msgid "Spell Checking"
 msgstr ""
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:435
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:442
 #, fuzzy, kde-kuit-format
 #| msgctxt "Property: HTML value of text edit"
 #| msgid "HTML"
@@ -6249,103 +6249,103 @@ msgctxt "Widget Property"
 msgid "HTML"
 msgstr "HTML"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:436
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:443
 #, kde-kuit-format
 msgid "Line Wrap At"
 msgstr ""
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:437
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:444
 #, kde-kuit-format
 msgid "Line Wrap Mode"
 msgstr ""
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:438
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:445
 #, kde-kuit-format
 msgid "Spell Checking Language"
 msgstr ""
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:440
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:447
 #, kde-kuit-format
 msgid "Editor Type"
 msgstr "Szerkesztő típusa"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:451
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:458
 #, kde-kuit-format
 msgctxt "AutoField editor's type"
 msgid "Multiline Text"
 msgstr "Többsoros szöveg"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:452
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:459
 #, kde-kuit-format
 msgctxt "AutoField editor's type"
 msgid "Drop-Down List"
 msgstr "Legördülő lista"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:453
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:460
 #, kde-kuit-format
 msgctxt "AutoField editor's type"
 msgid "Image"
 msgstr "Kép"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:456
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:463
 #, fuzzy, kde-kuit-format
 #| msgid "No Ticks"
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "No Ticks"
 msgstr "Nincsenek beosztások"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:457
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:464
 #, fuzzy, kde-kuit-format
 #| msgid "Above"
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Above"
 msgstr "Felül"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:458
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:465
 #, fuzzy, kde-kuit-format
 #| msgid "Left"
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Left"
 msgstr "Balra"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:459
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:466
 #, fuzzy, kde-kuit-format
 #| msgid "Below"
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Below"
 msgstr "Alul"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:460
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:467
 #, fuzzy, kde-kuit-format
 #| msgid "Right"
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Right"
 msgstr "Jobbra"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:461
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:468
 #, fuzzy, kde-kuit-format
 #| msgid "Both Sides"
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Both Sides"
 msgstr "Mindkét oldalon"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:474
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:481
 #, kde-kuit-format
 msgid "Size"
 msgstr "Méret"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:475
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:482
 #: widget/utils/kexicontextmenuutils.cpp:224
 #, kde-kuit-format
 msgid "Image"
 msgstr "Kép"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:476
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:483
 #, kde-kuit-format
 msgid "Scaled Contents"
 msgstr "Átméretezett tartalom"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:477
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:484
 #, fuzzy, kde-kuit-format
 #| msgctxt "Smoothing when contents are scaled"
 #| msgid "Smoothing"
@@ -6353,7 +6353,7 @@ msgctxt "Property: Smoothing when contents are scaled"
 msgid "Smoothing"
 msgstr "Simítás"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:478
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:485
 #, fuzzy, kde-kuit-format
 #| msgctxt "Keep Aspect Ratio (short)"
 #| msgid "Keep Ratio"
@@ -6361,7 +6361,7 @@ msgctxt "Property: Keep Aspect Ratio (keep short)"
 msgid "Keep Ratio"
 msgstr "Arány megtartása"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:483
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:490
 #, kde-kuit-format
 msgctxt ""
 "Drop-Down Button for Image Box Visible (a property name, keep the text "
@@ -6373,7 +6373,7 @@ msgstr ""
 "Látható\n"
 "legördülő gomb"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:486
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:493
 #, fuzzy, kde-kuit-format
 #| msgctxt "Checked checkbox"
 #| msgid "Checked"
@@ -6381,7 +6381,7 @@ msgctxt "Property: Checked checkbox"
 msgid "Checked"
 msgstr "Bejelölt"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:487
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:494
 #, fuzzy, kde-kuit-format
 #| msgctxt "Tristate checkbox"
 #| msgid "Tristate"
@@ -6389,47 +6389,47 @@ msgctxt "Property: Tristate checkbox"
 msgid "Tristate"
 msgstr "Három állapotú"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:488
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:495
 #, fuzzy, kde-kuit-format
 #| msgid "Default"
 msgctxt "Value of \"Tristate\" property in checkbox: default"
 msgid "Default"
 msgstr "Alapértelmezett"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:489
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:496
 #, fuzzy, kde-kuit-format
 #| msgid "Yes/No"
 msgctxt "Value of \"Tristate\" property in checkbox: yes"
 msgid "Yes"
 msgstr "Igen/nem"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:490
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:497
 #, fuzzy, kde-kuit-format
 #| msgid "No"
 msgctxt "Value of \"Tristate\" property in checkbox: no"
 msgid "No"
 msgstr "Nem"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:493
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:500
 #, kde-kuit-format
 msgctxt "Editable combobox"
 msgid "Editable"
 msgstr "Szerkeszthető"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:496
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:503
 #, kde-kuit-format
 msgctxt "Property: Button is checkable"
 msgid "On/Off"
 msgstr ""
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:497
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:504
 #, fuzzy, kde-kuit-format
 #| msgid "Auto Repeat"
 msgctxt "Property: Button"
 msgid "Auto Repeat"
 msgstr "Automatikus ismétlés"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:498
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:505
 #, fuzzy, kde-kuit-format
 #| msgctxt "Auto Repeat Button's Delay"
 #| msgid "Auto Rep. Delay"
@@ -6437,7 +6437,7 @@ msgctxt "Property: Auto Repeat Button's Delay"
 msgid "Auto Rep. Delay"
 msgstr "Automatikus ismétlés késleltetés"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:499
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:506
 #, fuzzy, kde-kuit-format
 #| msgctxt "Auto Repeat Button's Interval"
 #| msgid "Auto Rep. Interval"
@@ -6447,121 +6447,121 @@ msgstr "Automatikus ismétlés időköz"
 
 #. i18n("Auto Default"));
 #. unused (too advanced) setPropertyDescription("default", xi18nc("Property: Button is default", "Default"));
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:502
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:509
 #, fuzzy, kde-kuit-format
 #| msgid "Flat"
 msgctxt "Property: Button is flat"
 msgid "Flat"
 msgstr "Lapos"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:503
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:510
 #, kde-kuit-format
 msgctxt "Hyperlink address"
 msgid "Hyperlink"
 msgstr "Hiperhivatkozás"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:504
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:511
 #, kde-kuit-format
 msgctxt "Type of hyperlink"
 msgid "Hyperlink Type"
 msgstr "Hiperhivatkozás típus"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:505
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:512
 #, kde-kuit-format
 msgctxt "Tool used for opening a hyperlink"
 msgid "Hyperlink Tool"
 msgstr "Hiperhivatkozás eszköz"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:506
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:513
 #, kde-kuit-format
 msgctxt "Allow to open remote hyperlinks"
 msgid "Remote Hyperlink"
 msgstr "Hiperhivatkozás eltávolítása"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:507
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:514
 #, kde-kuit-format
 msgctxt "Allow to open executables"
 msgid "Executable Hyperlink"
 msgstr "Végrehajtható hiperhivatkozás"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:509
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:516
 #, kde-kuit-format
 msgctxt "Hyperlink type, NoHyperlink"
 msgid "No Hyperlink"
 msgstr "Nincs hiperhivatkozás"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:510
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:517
 #, kde-kuit-format
 msgctxt "Hyperlink type, StaticHyperlink"
 msgid "Static"
 msgstr "Statikus"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:511
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:518
 #, kde-kuit-format
 msgctxt "Hyperlink type, DynamicHyperlink"
 msgid "Dynamic"
 msgstr "Dinamikus"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:513
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:520
 #, kde-kuit-format
 msgctxt "Hyperlink tool, DefaultTool"
 msgid "Default"
 msgstr "Alapértelmezett"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:514
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:521
 #, kde-kuit-format
 msgctxt "Hyperlink tool, BrowserTool"
 msgid "Browser"
 msgstr "Böngésző"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:515
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:522
 #, kde-kuit-format
 msgctxt "Hyperlink tool, MailerTool"
 msgid "Mailer"
 msgstr "Levelező"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:518
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:525
 #, kde-kuit-format
 msgid "Text Format"
 msgstr "Szövegformátum"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:519
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:526
 #, kde-kuit-format
 msgctxt "For Text Format"
 msgid "Plain"
 msgstr "Egyszerű"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:520
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:527
 #, kde-kuit-format
 msgctxt "For Text Format"
 msgid "Hypertext"
 msgstr "Hiperszöveg"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:521
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:528
 #, kde-kuit-format
 msgctxt "For Text Format"
 msgid "Auto"
 msgstr "Automatikus"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:522
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:529
 #, kde-kuit-format
 msgctxt "For Text Format"
 msgid "Log"
 msgstr "Napló"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:523
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:530
 #, kde-kuit-format
 msgctxt "property: Can open external links in label"
 msgid "Open Ext. Links"
 msgstr "Külső hivatkozások megnyitása"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:526
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:533
 #, kde-kuit-format
 msgctxt "Property: line edit's placeholder text"
 msgid "Placeholder Text"
 msgstr ""
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:527
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:534
 #, fuzzy, kde-kuit-format
 #| msgctxt "Property: Show Clear Button"
 #| msgid "Clear Button"
@@ -6569,7 +6569,7 @@ msgctxt "Property: Clear Button Enabled"
 msgid "Clear Button"
 msgstr "Törlés gomb"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:529
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:536
 #, fuzzy, kde-kuit-format
 #| msgctxt "Password Mode for line edit"
 #| msgid "Password Mode"
@@ -6577,7 +6577,7 @@ msgctxt "Property: Password Mode for line edit"
 msgid "Password Mode"
 msgstr "Jelszó mód"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:530
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:537
 #, fuzzy, kde-kuit-format
 #| msgctxt "Squeezed Text Mode for line edit"
 #| msgid "Squeezed Text"
@@ -6585,24 +6585,24 @@ msgctxt "Property: Squeezed Text Mode for line edit"
 msgid "Squeezed Text"
 msgstr "Összenyomott szöveg"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:533
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:540
 #, fuzzy, kde-kuit-format
 #| msgid "Tab Widget"
 msgid "Tab Stop Width"
 msgstr "Lap felületi elem"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:534
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:541
 #, fuzzy, kde-kuit-format
 #| msgid "Save Changes"
 msgid "Tab Changes Focus"
 msgstr "A módosítások mentése"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:535
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:542
 #, kde-kuit-format
 msgid "Word Wrap Policy"
 msgstr "Szótördelés szabály"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:536
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:543
 #, fuzzy, kde-kuit-format
 #| msgctxt "For Word Wrap Policy"
 #| msgid "At Word Boundary"
@@ -6610,7 +6610,7 @@ msgctxt "Property: For Word Wrap Policy"
 msgid "At Word Boundary"
 msgstr "Szóhatárnál"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:537
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:544
 #, fuzzy, kde-kuit-format
 #| msgctxt "For Word Wrap Policy"
 #| msgid "Anywhere"
@@ -6618,7 +6618,7 @@ msgctxt "Property: For Word Wrap Policy"
 msgid "Anywhere"
 msgstr "Bárhol"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:538
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:545
 #, fuzzy, kde-kuit-format
 #| msgctxt "For Word Wrap Policy"
 #| msgid "At Word Boundary If Possible"
@@ -6626,24 +6626,24 @@ msgctxt "Property: For Word Wrap Policy"
 msgid "At Word Boundary If Possible"
 msgstr "Szóhatárnál, ha lehet"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:539
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:546
 #, kde-kuit-format
 msgid "Word Wrapping"
 msgstr "Szótördelés"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:540
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:547
 #, kde-kuit-format
 msgid "Word Wrap Position"
 msgstr "Szótördelési pozíció"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:541
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:548
 #, fuzzy, kde-kuit-format
 #| msgid "None"
 msgctxt "Property: For Word Wrap Position"
 msgid "None"
 msgstr "Nincs"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:542
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:549
 #, fuzzy, kde-kuit-format
 #| msgctxt "For Word Wrap Position"
 #| msgid "Widget's Width"
@@ -6651,7 +6651,7 @@ msgctxt "Property: For Word Wrap Position"
 msgid "Widget's Width"
 msgstr "Felületi elem szélessége"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:543
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:550
 #, fuzzy, kde-kuit-format
 #| msgctxt "For Word Wrap Position"
 #| msgid "In Pixels"
@@ -6659,7 +6659,7 @@ msgctxt "Property: For Word Wrap Position"
 msgid "In Pixels"
 msgstr "Képpontban"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:544
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:551
 #, fuzzy, kde-kuit-format
 #| msgctxt "For Word Wrap Position"
 #| msgid "In Columns"
@@ -6667,22 +6667,22 @@ msgctxt "Property: For Word Wrap Position"
 msgid "In Columns"
 msgstr "Oszlopokban"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:545
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:552
 #, kde-kuit-format
 msgid "Links Underlined"
 msgstr "Aláhúzott linkek"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:546
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:553
 #, kde-kuit-format
 msgid "Horizontal Scroll Bar"
 msgstr "Vízszintes görgetősáv"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:547
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:554
 #, kde-kuit-format
 msgid "Vertical Scroll Bar"
 msgstr "Függőleges görgetősáv"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:549
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:556
 #, fuzzy, kde-kuit-format
 #| msgctxt "Show Scroll Bar As Needed"
 #| msgid "As Needed"
@@ -6690,38 +6690,38 @@ msgctxt "Property: Show Scroll Bar As Needed"
 msgid "As Needed"
 msgstr "Ha szükséges"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:550
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:557
 #, fuzzy, kde-kuit-format
 #| msgid "Always Off"
 msgctxt "Property: Scroll Bar Always Off"
 msgid "Always Off"
 msgstr "Mindig ki"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:551
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:558
 #, fuzzy, kde-kuit-format
 #| msgid "Always On"
 msgctxt "Property: Scroll Bar Always On"
 msgid "Always On"
 msgstr "Mindig be"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:552
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:559
 #, kde-kuit-format
 msgctxt "Property: Text Edit accepts rich text"
 msgid "Rich Text"
 msgstr "Rich Text"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:553
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:560
 #, kde-kuit-format
 msgctxt "Property: HTML value of text edit"
 msgid "HTML"
 msgstr "HTML"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:563
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:570
 #, kde-kuit-format
 msgid "Tab Widget"
 msgstr "Lap felületi elem"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:572
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:579
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -6738,19 +6738,19 @@ msgctxt ""
 msgid "tabWidget"
 msgstr "lapFeluletiElem"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:573
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:580
 #, kde-kuit-format
 msgid "A widget to display multiple pages using tabs"
 msgstr "Egy több oldalt megjelenítő felületi elem lapok használatával"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:592
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:599
 #, fuzzy, kde-kuit-format
 #| msgid "Frame"
 msgctxt "Frame widget"
 msgid "Frame"
 msgstr "Keret"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:601
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:608
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -6767,18 +6767,18 @@ msgctxt ""
 msgid "frame"
 msgstr "keret"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:602
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:609
 #, fuzzy, kde-kuit-format
 #| msgid "A simple frame widget"
 msgid "A frame widget"
 msgstr "Egy egyszerű keret felületi elem"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:610
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:617
 #, kde-kuit-format
 msgid "Group Box"
 msgstr "Csoport doboz"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:619
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:626
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "Widget name. This string will be used to name widgets of this class. It "
@@ -6795,48 +6795,48 @@ msgctxt ""
 msgid "groupBox"
 msgstr "csoportDoboz"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:620
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:627
 #, kde-kuit-format
 msgid "A container to group some widgets"
 msgstr "Egy tárolóelem néhány felületi elem csoportosításához"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:625
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:632
 #, fuzzy, kde-kuit-format
 #| msgid "Title"
 msgctxt "'Title' property for group box"
 msgid "Title"
 msgstr "Cím"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:626
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:633
 #, fuzzy, kde-kuit-format
 #| msgid "Flat"
 msgctxt "'Flat' property for group box"
 msgid "Flat"
 msgstr "Lapos"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:629
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:636
 #, kde-kuit-format
 msgid "Auto-hide Tabs"
 msgstr ""
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:630
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:637
 #, kde-kuit-format
 msgid "Tab Position"
 msgstr "Lap pozíció"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:631
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:638
 #, fuzzy, kde-kuit-format
 #| msgid "Current Page"
 msgctxt "'Current page' property for tab widget"
 msgid "Current Page"
 msgstr "Jelenlegi oldal"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:632
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:639
 #, kde-kuit-format
 msgid "Tab Shape"
 msgstr "Lap alakzat"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:633
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:640
 #, fuzzy, kde-kuit-format
 #| msgctxt "Echo mode for Line Edit widget eg. Normal, NoEcho, Password"
 #| msgid "Echo Mode"
@@ -6844,7 +6844,7 @@ msgctxt "Tab Widget's Elide Mode property"
 msgid "Elide Mode"
 msgstr "Kiírási mód"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:635
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:642
 #, fuzzy, kde-kuit-format
 #| msgctxt "Tab Widget uses scroll buttons"
 #| msgid "Scroll Buttons"
@@ -6852,22 +6852,22 @@ msgctxt "Tab Widget's property: true if can use scroll buttons"
 msgid "Scroll Buttons"
 msgstr "Görgető gombok"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:637
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:644
 #, kde-kuit-format
 msgid "Closable Tabs"
 msgstr "Bezárható lapok"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:638
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:645
 #, kde-kuit-format
 msgid "Movable Tabs"
 msgstr "Mozgatható lapok"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:639
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:646
 #, kde-kuit-format
 msgid "Document Mode"
 msgstr "Dokumentum mód"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:641
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:648
 #, fuzzy, kde-kuit-format
 #| msgctxt "for Tab Shape"
 #| msgid "Rounded"
@@ -6875,7 +6875,7 @@ msgctxt "Property value for Tab Shape"
 msgid "Rounded"
 msgstr "Kerekített"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:642
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:649
 #, fuzzy, kde-kuit-format
 #| msgctxt "for Tab Shape"
 #| msgid "Triangular"
@@ -6883,17 +6883,17 @@ msgctxt "Property value for Tab Shape"
 msgid "Triangular"
 msgstr "Háromszög alakú"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:774
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:781
 #, kde-kuit-format
 msgid "&Image"
 msgstr "&Kép"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:821
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:828
 #, kde-kuit-format
 msgid "&Assign Action..."
 msgstr "Műv&elet hozzárendelése…"
 
-#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1393
+#: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1400
 #, kde-kuit-format
 msgctxt "default indent value"
 msgid "default"
