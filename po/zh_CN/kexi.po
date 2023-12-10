@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-01 00:42+0000\n"
-"PO-Revision-Date: 2023-11-25 02:29\n"
+"PO-Revision-Date: 2023-12-09 09:27\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -2166,7 +2166,7 @@ msgstr "部件下移"
 #: formeditor/tabstopdialog.cpp:101
 #, kde-kuit-format
 msgid "Handle tab order automatically"
-msgstr "自动处理标签顺序"
+msgstr "自动处理标签页顺序"
 
 #: formeditor/widgetfactory.cpp:157
 #, kde-kuit-format
@@ -3065,17 +3065,17 @@ msgstr "切换到上个窗口。"
 #: main/KexiMainWindow.cpp:892
 #, kde-kuit-format
 msgid "&Close Tab"
-msgstr "关闭标签(&C)"
+msgstr "关闭标签页(&C)"
 
 #: main/KexiMainWindow.cpp:893
 #, kde-kuit-format
 msgid "Close the current tab"
-msgstr "关闭当前标签"
+msgstr "关闭当前标签页"
 
 #: main/KexiMainWindow.cpp:894
 #, kde-kuit-format
 msgid "Closes the current tab."
-msgstr "关闭当前标签。"
+msgstr "关闭当前标签页。"
 
 #: main/KexiMainWindow.cpp:897
 #, kde-kuit-format
@@ -3085,12 +3085,12 @@ msgstr "关闭所有标签页(&O)"
 #: main/KexiMainWindow.cpp:898
 #, kde-kuit-format
 msgid "Close all tabs"
-msgstr "关闭所有标签"
+msgstr "关闭所有标签页"
 
 #: main/KexiMainWindow.cpp:899
 #, kde-kuit-format
 msgid "Closes all tabs."
-msgstr "关闭所有标签。"
+msgstr "关闭所有标签页。"
 
 #: main/KexiMainWindow.cpp:954
 #, kde-kuit-format
@@ -3356,13 +3356,13 @@ msgstr "在“%1”模式中不允许打开"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Tab for <resource>%1</resource> (%2)."
-msgstr "<resource>%1</resource>(%2) 标签。"
+msgstr "<resource>%1</resource>(%2) 的标签页。"
 
 #: main/KexiMainWindow.cpp:3395
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Tab for <resource>%1</resource>."
-msgstr "<resource>%1</resource>标签。"
+msgstr "<resource>%1</resource> 的标签页。"
 
 #: main/KexiMainWindow.cpp:3567
 #, kde-kuit-format
@@ -3463,7 +3463,7 @@ msgstr "使用原始查询"
 #: main/KexiMainWindow_p.cpp:640
 #, kde-kuit-format
 msgid "Task-oriented toolbar. Groups commands using tabs."
-msgstr "基于任务的标签式工具栏将应用程序命令用标签分组。"
+msgstr "面向任务的工具栏。使用标签页对命令进行分组。"
 
 #: main/KexiMainWindow_p.cpp:671 main/startup/KexiNewProjectAssistant.cpp:392
 #, kde-kuit-format
@@ -6009,12 +6009,12 @@ msgstr "平场"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:636
 #, kde-kuit-format
 msgid "Auto-hide Tabs"
-msgstr "自动隐藏标签"
+msgstr "自动隐藏标签页"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:637
 #, kde-kuit-format
 msgid "Tab Position"
-msgstr "标签位置"
+msgstr "标签页位置"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:638
 #, kde-kuit-format
@@ -6025,7 +6025,7 @@ msgstr "当前页面"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:639
 #, kde-kuit-format
 msgid "Tab Shape"
-msgstr "标签形状"
+msgstr "标签页形状"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:640
 #, kde-kuit-format
@@ -6042,12 +6042,12 @@ msgstr "滚动按钮"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:644
 #, kde-kuit-format
 msgid "Closable Tabs"
-msgstr "可关闭标签"
+msgstr "可关闭的标签页"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:645
 #, kde-kuit-format
 msgid "Movable Tabs"
-msgstr "可移动标签"
+msgstr "可移动的标签页"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:646
 #, kde-kuit-format
