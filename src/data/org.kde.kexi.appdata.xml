@@ -214,6 +214,7 @@
       <li xml:lang="pl">Bezpośrednia obsługa baz danych SQLite, MySQL oraz PostgreSQL</li>
       <li xml:lang="pt">Suporte directo para as bases de dados SQLite, MySQL e PostgreSQL</li>
       <li xml:lang="pt-BR">Suporte direto aos banco de dados SQLite, MySQL e PostgreSQL</li>
+      <li xml:lang="sk">Podporuje serverové databázy SQLite, MySQL, PostgreSQL</li>
       <li xml:lang="sl">Naposredno podpira baze podatkov SQLite, MySQL in PostgreSQL</li>
       <li xml:lang="sv">Direkt stöd för databaserna SQLite, MySQL och PostgreSQL</li>
       <li xml:lang="tr">SQLite, MySQL, ve PostgreSQL veritabanlarını doğrudan destekler</li>
@@ -356,6 +357,7 @@
       <li xml:lang="pl">Zamknięty tryb użytkownika, umożliwiający wyłączenie wszystkich poleceń związanych z edytowaniem twojego projektu</li>
       <li xml:lang="pt">Modo reduzido de utilizador, permitindo-lhe desligar todas as funcionalidades de desenho</li>
       <li xml:lang="pt-BR">Modo de usuário reduzido, permitindo desligar todos os recursos de edição visual</li>
+      <li xml:lang="sk">Uzamknutý používateľský režim, umožňujúci vám vypnúť všetky príkazy súvisiace s úpravou dizajnu vášho projektu</li>
       <li xml:lang="sl">Zaklenjen uporabniški način, vam omogoča izklop vseh ukazov v zvezi urejanja zasnove</li>
       <li xml:lang="sv">Låsbart användarläge, som gör det möjligt att stänga av alla konstruktionsfunktioner</li>
       <li xml:lang="tr">Tüm tasarım özelliklerini kapatmaya izin veren Sınırlandırılmış Kullanıcı Kipi</li>
