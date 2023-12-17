@@ -1785,7 +1785,7 @@ msgstr "Bazlinio"
 #, kde-kuit-format
 msgctxt "Left (HINT: for Align)"
 msgid "Left"
-msgstr "Maldekstre"
+msgstr "Maldekstra"
 
 #: formeditor/form_p.cpp:312 formeditor/form_p.cpp:313
 #, kde-kuit-format
@@ -1887,13 +1887,13 @@ msgstr "Tekstujo"
 #, kde-kuit-format
 msgctxt "Tab Widget (HINT: for Frame Shape)"
 msgid "Tab Widget"
-msgstr "Tab Fenestraĵo"
+msgstr "Langeta Fenestraĵo"
 
 #: formeditor/form_p.cpp:332
 #, kde-kuit-format
 msgctxt "Group Box (HINT: for Frame Shape)"
 msgid "Group Box"
-msgstr "Grupazono"
+msgstr "Grupkesto"
 
 #: formeditor/form_p.cpp:334
 #, kde-kuit-format
@@ -1962,7 +1962,7 @@ msgstr "Ĉiam Malŝaltita"
 #: formeditor/form_p.cpp:347
 #, kde-kuit-format
 msgid "Always On"
-msgstr "Ĉiam Enŝaltita"
+msgstr "Ĉiam Ŝaltita"
 
 #: formeditor/form_p.cpp:350
 #, kde-kuit-format
@@ -4842,7 +4842,7 @@ msgctxt ""
 "character. If you cannot use latin characters in your language, use english "
 "word."
 msgid "form"
-msgstr "formo"
+msgstr "form"
 
 #: plugins/forms/kexiformpart.cpp:75
 #, kde-kuit-format
@@ -5004,7 +5004,7 @@ msgctxt ""
 "Example: smallCamelCase. Moreover, try to make this prefix as short as "
 "possible."
 msgid "form"
-msgstr "formo"
+msgstr "form"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:87
 #, kde-kuit-format
@@ -5490,7 +5490,7 @@ msgstr "Supra"
 #, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Left"
-msgstr "Maldekstre"
+msgstr "Maldekstra"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:466
 #, kde-kuit-format
@@ -5841,7 +5841,7 @@ msgstr "Ĉiam Malŝaltita"
 #, kde-kuit-format
 msgctxt "Property: Scroll Bar Always On"
 msgid "Always On"
-msgstr "Ĉiam Enŝaltita"
+msgstr "Ĉiam Ŝaltita"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:559
 #, kde-kuit-format
@@ -5858,7 +5858,7 @@ msgstr "HTML"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:570
 #, kde-kuit-format
 msgid "Tab Widget"
-msgstr "Tab Fenestraĵo"
+msgstr "Langeta Fenestraĵo"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:579
 #, kde-format
@@ -5905,7 +5905,7 @@ msgstr "Kadra fenestraĵo"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:617
 #, kde-kuit-format
 msgid "Group Box"
-msgstr "Grupazono"
+msgstr "Grupkesto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:626
 #, kde-format
@@ -9021,14 +9021,3 @@ msgstr "Movas kursoron al lasta rikordo."
 #, kde-kuit-format
 msgid "Moves cursor to new record and allows inserting."
 msgstr "Movas kursoron al nova registro kaj permesas enmeti."
-
-#~ msgctxt ""
-#~ "A prefix for identifiers of forms. Based on that, identifiers such as "
-#~ "form1, ¦form2 are generated. This string can be used to refer the widget "
-#~ "object as ¦variables in programming languages or macros so it must _not_ "
-#~ "contain white ¦spaces and non latin1 characters, should start with lower "
-#~ "case letter and if ¦there are subsequent words, these should start with "
-#~ "upper case letter. ¦Example: smallCamelCase. Moreover, try to make this "
-#~ "prefix as short as ¦possible."
-#~ msgid "form"
-#~ msgstr "formo"
