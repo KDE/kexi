@@ -1,6 +1,6 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# SPDX-FileCopyrightText: 2012, 2023 xavier <xavier.besnard@neuf.fr>
+# SPDX-FileCopyrightText: 2012, 2023 Xavier Besnard <xavier.besnard@kde.org>
 # Vincent Pinon <vpinon@kde.org>, 2016.
 # Eric Girard <ericgirard78@gmail.com>, 2018.
 #
