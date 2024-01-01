@@ -2894,12 +2894,12 @@ msgstr "Copia especial..."
 #: main/KexiMainWindow.cpp:656
 #, kde-kuit-format
 msgid "Copy selected table or query data to clipboard"
-msgstr "Copia la taula o la consulta seleccionada al porta-retalls"
+msgstr "Copia la taula o la consulta seleccionada a dins del porta-retalls"
 
 #: main/KexiMainWindow.cpp:658
 #, kde-kuit-format
 msgid "Copies selected table or query data to clipboard."
-msgstr "Copia les taules o consultes seleccionades al porta-retalls."
+msgstr "Copia les taules o consultes seleccionades a dins del porta-retalls."
 
 #: main/KexiMainWindow.cpp:663
 #, kde-kuit-format
@@ -6385,7 +6385,7 @@ msgstr "Exporta"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Copy Data From Table to Clipboard"
-msgstr "Copia les dades de la taula al porta-retalls"
+msgstr "Copia les dades de la taula a dins del porta-retalls"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:97
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:105
@@ -6408,7 +6408,7 @@ msgstr "S'estan exportant les dades de la taula:"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Copy Data From Query to Clipboard"
-msgstr "Copia les dades de la consulta al porta-retalls"
+msgstr "Copia les dades de la consulta a dins del porta-retalls"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:107
 #, kde-kuit-format
@@ -6449,7 +6449,7 @@ msgstr "A un fitxer CSV:"
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:173
 #, kde-kuit-format
 msgid "To clipboard."
-msgstr "Al porta-retalls."
+msgstr "A dins del porta-retalls."
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:182
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:379
@@ -9011,18 +9011,19 @@ msgstr "Inicia el disseny de l'objecte en la llista en vista de text."
 #, kde-kuit-format
 msgctxt "Export->To Clipboard as Data... "
 msgid "To &Clipboard..."
-msgstr "Al &porta-retalls..."
+msgstr "A dins del &porta-retalls..."
 
 #: widget/navigator/KexiProjectNavigator.cpp:210
 #, kde-kuit-format
 msgid "Export data to clipboard"
-msgstr "Exporta les dades al porta-retalls"
+msgstr "Exporta les dades cap a dins del porta-retalls"
 
 #: widget/navigator/KexiProjectNavigator.cpp:211
 #, kde-kuit-format
 msgid "Exports data from the currently selected table or query to clipboard."
 msgstr ""
-"Exporta les dades de la taula seleccionada o consulta al porta-retalls."
+"Exporta les dades de la taula seleccionada o consulta cap a dins del porta-"
+"retalls."
 
 #: widget/navigator/KexiProjectNavigator.cpp:216
 #, kde-kuit-format
