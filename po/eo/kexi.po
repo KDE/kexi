@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-01 00:42+0000\n"
-"PO-Revision-Date: 2023-11-26 20:12+0100\n"
+"PO-Revision-Date: 2024-01-03 12:30+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -5477,12 +5477,12 @@ msgctxt ""
 "with upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "progressBar"
-msgstr "progresBaro"
+msgstr "progresBreto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:341
 #, kde-kuit-format
 msgid "A Progress Bar widget"
-msgstr "Fenestraĵo de Progressbaro"
+msgstr "Fenestraĵo de Progresbreto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:349
 #, kde-kuit-format
