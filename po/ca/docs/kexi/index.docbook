@@ -66,7 +66,7 @@
 >2.5</releaseinfo>
 <abstract>
   <para
->El &kexi; és l'aplicació per crear bases de dades i per a la gestió de dades de la suite de productivitat &calligra;. </para>
+>El &kexi; és l'aplicació per a crear bases de dades i per a la gestió de dades de la suite de productivitat &calligra;. </para>
 </abstract>
 
 <!-- Keywords -->
@@ -91,7 +91,7 @@
 >Introducció</title
 > 
 <para
->El &kexi; és una aplicació de gestió de bases de dades. Es pot usar per crear bases de dades, inserir dades, realitzar consultes i processar dades. Es poden crear formularis per proveir una interfície personalitzada a les vostres dades, fent fàcil de compartir dades i disseny. </para>
+>El &kexi; és una aplicació de gestió de bases de dades. Es pot usar per crear bases de dades, inserir dades, realitzar consultes i processar dades. Es poden crear formularis per a proveir una interfície personalitzada a les vostres dades, fent fàcil de compartir dades i disseny. </para>
 <para
 >El &kexi; forma part de &calligra; la suite de productivitat creada per la comunitat KDE. </para>
 <para
@@ -294,7 +294,7 @@
 ><para
 >Cliqueu <guilabel
 >Següent</guilabel
-> per crear el projecte.</para
+> per a crear el projecte.</para
 ></listitem>
 </orderedlist>
 <para
@@ -306,7 +306,7 @@
 ></listitem>
 <listitem
 ><para
->Podeu usar el navegador de fitxers per escollir una carpeta on voldríeu desar el vostre fitxer de base de dades.</para
+>Podeu usar el navegador de fitxers per a escollir una carpeta on voldríeu desar el vostre fitxer de base de dades.</para
 ></listitem>
 </itemizedlist>
 </note
@@ -340,7 +340,7 @@
 >Navegador de projectes</guilabel
 > i l'<guilabel
 >Editor de propietats</guilabel
-> es mostren en subfinestres a ambdós costats de la finestra filla. Aquestes es poden redimensionar o amagar segons convingui. Es pot amagar una subfinestra clicant la petita creu a la part de dalt de la subfinestra (just a sota de la barra d'eines). </para>
+> es mostren en subfinestres als dos costats de la finestra filla. Aquestes es poden redimensionar o amagar segons convingui. Es pot amagar una subfinestra clicant la petita creu a la part de dalt de la subfinestra (just a sota de la barra d'eines). </para>
 <para
 >Els objectes de base de dades (taules, consultes, &etc;) llistades al <guilabel
 >Navegador de projectes</guilabel
@@ -490,7 +490,7 @@
 <para
 ><note
 ><para
->Encara que el vostre sistema operatiu o gestor de finestres pugui estar arranjat per usar els clics simples en comptes dels dobles clics, el &kexi; usa els dobles clics al <guilabel
+>Encara que el vostre sistema operatiu o gestor de finestres pugui estar arranjat per a usar els clics simples en comptes dels dobles clics, el &kexi; usa els dobles clics al <guilabel
 >Navegador de projectes</guilabel
 > per a evitar obrir accidentalment conjunts grans de dades o executar consultes.</para
 ></note>
@@ -528,7 +528,7 @@
 <para
 ><note
 ><para
->En algun moment futur, hi haurà una opció per separar les pestanyes, creant alguna cosa similar a una interfície MDI. Això pot ser útil per a solucions personalitzades o disposicions múltiples.</para
+>En algun moment futur, hi haurà una opció per a separar les pestanyes, creant alguna cosa similar a una interfície MDI. Això pot ser útil per a solucions personalitzades o disposicions múltiples.</para
 ></note>
 </para>
 </sect2>
@@ -558,7 +558,7 @@
 >Propietats</guilabel
 >, conté la llista de propietats disponibles. </para>
 <para
->Regles per usar l'<guilabel
+>Regles per a usar l'<guilabel
 >Editor de propietats</guilabel
 >: </para>
 <itemizedlist>
@@ -648,7 +648,7 @@
 ><para
 >Inicieu el &kexi;. Heu de poder veure el diàleg d'inici <guilabel
 >Us donem la benvinguda al Kexi</guilabel
->, el qual permet seleccionar un dels projectes emprats recentment per obrir-lo.</para
+>, el qual permet seleccionar un dels projectes emprats recentment per a obrir-lo.</para
 ></listitem>
 <listitem
 ><para
@@ -912,9 +912,9 @@
 <para
 >Per a aprendre el més bàsic del &kexi;, podeu construir una base de dades simple utilitzant la majoria de característiques elementals del &kexi;. Per a fer les coses més fàcils, no es cobriran aquí les qüestions de disseny avançat de bases de dades. </para>
 <para
->Comenceu creant una nova agenda telefònica buida. </para>
+>Comenceu creant una agenda telefònica nova buida. </para>
 <para
->Tenint un nou projecte buit de base de dades, seguiu els passos següents: </para>
+>Tenint un projecte nou buit de base de dades, seguiu els passos següents: </para>
 <orderedlist>
 <listitem
 ><para
@@ -942,7 +942,7 @@
 ></listitem>
 <listitem
 ><para
->Usar formularis per introduir dades. Llegiu la secció anomenada <link linkend="entering-data-using-forms"
+>Usar formularis per a introduir dades. Llegiu la secció anomenada <link linkend="entering-data-using-forms"
 >Introduint dades mitjançant formularis</link
 >.</para
 ></listitem>
@@ -1107,7 +1107,7 @@
 >numero_de_casa</replaceable
 >, són del tipus text. Canvieu el tipus del camp <replaceable
 >numero_de_casa</replaceable
-> a nombre enter. Per fer això, feu clic en una cel·la de la columna <guilabel
+> a nombre enter. Per a fer això, feu clic en una cel·la de la columna <guilabel
 >Tipus de dada</guilabel
 >, fila <replaceable
 >numero_de_casa</replaceable
@@ -1117,7 +1117,7 @@
 >Fletxa amunt</keysym
 > i <keysym
 >Fletxa avall</keysym
-> per seleccionar un altre tipus. Seleccioneu el tipus <guilabel
+> per a seleccionar un altre tipus. Seleccioneu el tipus <guilabel
 >Nombre enter</guilabel
 >. </para>
 <para
@@ -1127,7 +1127,7 @@
 <para
 >El disseny de la taula Persones està llest. Cliqueu el botó <guilabel
 >Dades</guilabel
-> de la barra d'eines per finalitzar el disseny i canviar a la <guilabel
+> de la barra d'eines per a finalitzar el disseny i canviar a la <guilabel
 >Vista de dades</guilabel
 > de la taula. Això permet introduir dades a la taula. </para>
 <para
@@ -1151,7 +1151,7 @@
 >Llegenda</guilabel
 > automàticament omple el camp <guilabel
 >Nom</guilabel
->. Per a la vostra comoditat, la regla per usar només lletres, nombres i el caràcter <quote
+>. Per a la vostra comoditat, la regla per a usar només lletres, nombres i el caràcter <quote
 >_</quote
 > es manté. Podeu modificar el contingut del camp <guilabel
 >Nom</guilabel
@@ -1273,7 +1273,7 @@
 ><para
 >Premeu les tecles <keycombo
 >&Maj;&Intro;</keycombo
-> per acceptar els canvies efectuats a totes les cel·les a la fila editada actual.</para
+> per a acceptar els canvis efectuats a totes les cel·les a la fila editada actual.</para
 ></listitem>
 </itemizedlist>
 <para
@@ -1297,7 +1297,7 @@
 <para
 >Amb les consultes de base de dades, podeu limitar les dades que venen de la taula a un conjunt predefinit de files i columnes així com la unió dinàmica de dades que venen de múltiples taules. </para>
 <para
->Per veure com funcionen els consultes a la pràctica, creareu una consulta de contactes unint les dades de dues taules: <replaceable
+>Per a veure com funcionen els consultes a la pràctica, creareu una consulta de contactes unint les dades de dues taules: <replaceable
 >Persones</replaceable
 > i <replaceable
 >Telèfons</replaceable
@@ -1323,7 +1323,7 @@
 >Insereix</guilabel
 >. Apareixerà una representació gràfica de la taula a l'àrea de relacions. Feu el mateix per la taula <replaceable
 >Telèfons</replaceable
-> per inserir-la també.</para
+> per a inserir-la també.</para
 ></listitem>
 <listitem
 ><para
@@ -1343,7 +1343,7 @@
 >nom</replaceable
 > de la taula <replaceable
 >Persones</replaceable
->, per afegir el camp com una columna de consulta. De manera similar, afegiu els camps <replaceable
+>, per a afegir el camp com una columna de consulta. De manera similar, afegiu els camps <replaceable
 >cognom</replaceable
 >, <replaceable
 >carrer</replaceable
@@ -1363,7 +1363,7 @@
 ><para
 >El disseny de la consulta està preparat per les proves. Feu clic al botó <guilabel
 >Dades</guilabel
-> de la barra d'eines, per canviar des del disseny a la visualització de les dades proporcionades com a resultat de la consulta.</para
+> de la barra d'eines, per a canviar des del disseny a la visualització de les dades proporcionades com a resultat de la consulta.</para
 ></listitem>
 <listitem
 ><para
@@ -1569,7 +1569,7 @@
 <orderedlist>
 <listitem
 ><para
->Per crear un formulari buit nou, seleccioneu <guilabel
+>Per a crear un formulari buit nou, seleccioneu <guilabel
 >Formulari</guilabel
 > des de la barra d'eines. Opcionalment, podeu usar l'ordre <guilabel
 >Crea un objecte: Formulari</guilabel
@@ -1585,7 +1585,7 @@
 <para
 >Com el disseny de taules, el Dissenyador de formularis proporciona una subfinestra <guilabel
 >Editor de propietats</guilabel
->. Per estalviar espai a la pantalla, la subfinestra té tres pestanyes relacionades amb el formulari actualment seleccionat: </para>
+>. Per a estalviar espai a la pantalla, la subfinestra té tres pestanyes relacionades amb el formulari actualment seleccionat: </para>
 <variablelist>
   <varlistentry
 ><term
@@ -1635,7 +1635,7 @@
 ><para
 >La barra d'eines <guilabel
 >Ginys</guilabel
-> usada per inserir ginys nous al formulari. Seleccioneu el <guibutton
+> usada per a inserir ginys nous al formulari. Seleccioneu el <guibutton
 >Disseny de formulari</guibutton
 > per mostrar-lo.</para
 ></listitem>
@@ -1757,7 +1757,7 @@
 >Copia</guilabel
 > i <guilabel
 >Enganxa</guilabel
-> per duplicar un giny al mateix formulari, podeu prémer la tecla &Ctrl; mentre moveu el giny. Després d'alliberar el botó, el giny arrossegat no es mourà i es copiarà a la ubicació nova.</para
+> per a duplicar un giny al mateix formulari, podeu prémer la tecla &Ctrl; mentre moveu el giny. Després d'alliberar el botó, el giny arrossegat no es mourà i es copiarà a la ubicació nova.</para
 ></listitem>
 </itemizedlist>
 </note
@@ -1768,7 +1768,7 @@
 >Assignar fonts de dades</title
 > 
 <para
->Els camps que heu inserit encara no tenen cap font de dades assignada, i per tant, no poden mostrar informació de la base de dades. Per assignar una fons de dades, useu la <inlinemediaobject
+>Els camps que heu inserit encara no tenen cap font de dades assignada, i per tant, no poden mostrar informació de la base de dades. Per a assignar una font de dades, useu la <inlinemediaobject
 > <imageobject
 > <imagedata fileref="Icon-server-database.png" format="PNG"/> </imageobject
 > </inlinemediaobject
@@ -1776,7 +1776,7 @@
 >Editor de propietats</guilabel
 >. </para>
 <para
->El primer pas per especificar la font de dades del formulari, &ead;, el lloc d'on es recolliran les dades mostrades.Com s'ha mencionat més amunt, usareu la taula <replaceable
+>El primer pas per a especificar la font de dades del formulari, &ead;, el lloc d'on es recolliran les dades mostrades.Com s'ha mencionat més amunt, usareu la taula <replaceable
 >Persones</replaceable
 > com a font de dades pel formulari nou. </para>
 <orderedlist>
@@ -1828,7 +1828,7 @@
 ></listitem>
 </orderedlist>
 <para
->Ara podeu desar el disseny del formulari (això no és obligatori per provar el formulari en acció). Per desar, feu clic al botó <guilabel
+>Ara podeu desar el disseny del formulari (això no és obligatori per a provar el formulari en acció). Per a desar, feu clic al botó <guilabel
 >Desa</guilabel
 > de la barra d'eines. En desar, se us demanarà el nom del formulari. Introduïu <replaceable
 >Persones</replaceable
@@ -1836,7 +1836,7 @@
 >D'acord</guilabel
 >. El nom del formulari s'omplirà automàticament. </para>
 <para
->Aquest és el moment apropiat per provar el formulari. Feu clic al botó <guilabel
+>Aquest és el moment apropiat per a provar el formulari. Feu clic al botó <guilabel
 >Dades</guilabel
 > de la barra d'eines. A menys que hàgiu fet un error en introduir les fonts de dades, hauríeu de veure els camps dels formularis omplerts amb dades de la taula <replaceable
 >Persones</replaceable
@@ -1860,7 +1860,7 @@
 > <imageobject
 > <imagedata fileref="Icon-go-jump.png" format="PNG"/> </imageobject
 > </inlinemediaobject
-> (Ves a la font de dades seleccionada) per seleccionar la taula o consulta apropiada al <guilabel
+> (Ves a la font de dades seleccionada) per a seleccionar la taula o consulta apropiada al <guilabel
 >Navegador de projectes</guilabel
 >, de manera que podeu obrir ràpidament una taula o consulta, sent la font de dades del formulari.</para
 ></listitem>
@@ -1873,7 +1873,7 @@
 >Inserint etiquetes de text</title
 > 
 <para
->Per a fer més a l'usuari del formulari la identificació del significat de cada giny de camp, aquests han de tenir etiquetes afegides amb els títols apropiats. Per crear etiquetes de text, s'usa el giny <guilabel
+>Per a fer més a l'usuari del formulari la identificació del significat de cada giny de camp, aquests han de tenir etiquetes afegides amb els títols apropiats. Per a crear etiquetes de text, s'usa el giny <guilabel
 >Etiqueta</guilabel
 >. </para>
 <para
@@ -1920,7 +1920,7 @@
 ></listitem>
 <listitem
 ><para
->Feu clic al giny de botó amb el botó dret del ratolí per mostrar el menú contextual.</para
+>Feu clic al giny de botó amb el botó dret del ratolí per a mostrar el menú contextual.</para
 ></listitem>
 <listitem
 ><para
@@ -1961,7 +1961,7 @@
 <itemizedlist>
 <listitem
 ><para
->Per eliminar una assignació d'acció, seleccioneu l'element <guilabel
+>Per a eliminar una assignació d'acció, seleccioneu l'element <guilabel
 >Sense acció</guilabel
 > de la llista <guilabel
 >Categoria d'accions</guilabel
@@ -2117,9 +2117,9 @@
 >Polítiques de mida per a ginys dins d'un format</title
 > 
 <para
->En lloc d'arranjar una mida fixa per als vostres ginys, en el &kexi; podeu escollir entre diferents polítiques de mida de giny. Una política de mides és una estratègia flexible per controlar com s'estira (o arronsa) un giny depenent dels ginys veïns i de l'espai disponible al formulari. </para>
+>En lloc d'arranjar una mida fixa per als vostres ginys, en el &kexi; podeu escollir entre diferents polítiques de mida de giny. Una política de mides és una estratègia flexible per a controlar com s'estira (o arronsa) un giny depenent dels ginys veïns i de l'espai disponible al formulari. </para>
 <para
->Després de situar ginys en una línia, es redimensionarà per ajustar-se al text visible. </para>
+>Després de situar ginys en una línia, es redimensionarà per a ajustar-se al text visible. </para>
 <para
 >Per a cada giny inserit al formulari, hi ha disponibles arranjaments per a la política de mides a l'<guilabel
 >Editor de propietats</guilabel
@@ -2525,15 +2525,15 @@
 <para
 >Introduir dades i editar-les és normalment la tasca de l'usuari de l'aplicació de bases de dades. El dissenyador de la base de dades ha de comprovar el formulari en termes de validesa d'entrada de dades, i mirar si el formulari funciona com s'espera que ho faci. </para>
 <para
->Per provar el formulari canvieu a la seva vista de dades. Es mostrarà una única fila de dades de la base de dades (registre). Us podeu moure entre els camps usant el botó esquerre del ratolí o les tecles &Tab; i <keycombo
+>Per a provar el formulari canvieu a la seva vista de dades. Es mostrarà una única fila de dades de la base de dades (registre). Us podeu moure entre els camps usant el botó esquerre del ratolí o les tecles &Tab; i <keycombo
 >&Maj;&Tab;</keycombo
 >. En editar, hi haurà visible una icona de llapis propera al navegador de registres. Després d'introduir les dades de la fila (registre) podeu prémer les tecles <keycombo
 >&Maj;&Intro;</keycombo
 > o fer clic al botó <guilabel
 >Desa el registre</guilabel
-> de la barra d'eines per acceptar els canvies efectuats a la fila actual. Fent clic al botó <guilabel
+> de la barra d'eines per a acceptar els canvies efectuats a la fila actual. Fent clic al botó <guilabel
 >Cancel·la els canvis del registre</guilabel
-> de la barra d'eines es descartaran els canvis efectuats a la fila actual i restaurarà el contingut dels camps de dades. Podeu usar el botó del navegador de registres per moure's a la fila següent. Totes les funcions del navegador també són disponibles de manera similar com a la vista de la taula de dades. </para>
+> de la barra d'eines es descartaran els canvis efectuats a la fila actual i restaurarà el contingut dels camps de dades. Podeu usar el botó del navegador de registres per a moure's a la fila següent. Totes les funcions del navegador també són disponibles de manera similar com a la vista de la taula de dades. </para>
 </sect1>
 </chapter>
 <chapter id="configuring-kexi"
@@ -2707,7 +2707,7 @@
 ></term>
     <listitem>
     <para
->Aquí podeu seguir l'assistent per crear un projecte nou del &kexi;.</para>
+>Aquí podeu seguir l'assistent per a crear un projecte nou del &kexi;.</para>
      </listitem>
   </varlistentry>
   <varlistentry
@@ -2719,7 +2719,7 @@
 ></term>
     <listitem>
     <para
->Aquí podeu seguir l'assistent per importar dades existents al projecte &kexi; actualment obert.</para>
+>Aquí podeu seguir l'assistent per a importar dades existents al projecte &kexi; actualment obert.</para>
      </listitem>
   </varlistentry>
   <varlistentry
@@ -2771,7 +2771,7 @@
     <para
 >Seleccionant <guilabel
 >Taula</guilabel
-> s'anirà al dissenyador de taules de la vista de disseny per permetre afegir definicions de camps a la taula.</para>
+> s'anirà al dissenyador de taules de la vista de disseny per a permetre afegir definicions de camps a la taula.</para>
      </listitem>
   </varlistentry>
   <varlistentry
@@ -2785,7 +2785,7 @@
     <para
 >Seleccionant <guilabel
 >Consulta</guilabel
-> s'anirà al dissenyador de consultes de la vista de disseny per permetre dissenyar una consulta per obtenir resultats personalitzats a partir de les taules del projecte.</para>
+> s'anirà al dissenyador de consultes de la vista de disseny per a permetre dissenyar una consulta per obtenir resultats personalitzats a partir de les taules del projecte.</para>
      </listitem>
   </varlistentry>
   <varlistentry
@@ -2799,7 +2799,7 @@
     <para
 >Seleccionant <guilabel
 >Formulari</guilabel
-> s'anirà al dissenyador de formularis de la vista de disseny per permetre afegir ginys al formulari.</para>
+> s'anirà al dissenyador de formularis de la vista de disseny per a permetre afegir ginys al formulari.</para>
      </listitem>
   </varlistentry>
   <varlistentry
@@ -2813,7 +2813,7 @@
     <para
 >Seleccionant <guilabel
 >Informe</guilabel
-> s'anirà al dissenyador d'informes de la vista de disseny per permetre afegir ginys a l'informe.</para>
+> s'anirà al dissenyador d'informes de la vista de disseny per a permetre afegir ginys a l'informe.</para>
      </listitem>
   </varlistentry>
   <varlistentry
@@ -2909,7 +2909,7 @@
     <para
 ><guilabel
 >Enganxament especial</guilabel
->, s'usa per situar arbitràriament dades trobades al porta-retalls a una taula, d'una manera previsible per tal que s'afegeixin correctament d'acord amb la definició de la taula.</para>
+>, s'usa per a situar arbitràriament dades trobades al porta-retalls a una taula, d'una manera previsible per tal que s'afegeixin correctament d'acord amb la definició de la taula.</para>
      </listitem>
   </varlistentry>
   <varlistentry
@@ -2925,7 +2925,7 @@
 >Cerca</guilabel
 >, obre el diàleg de <guilabel
 >Cerca</guilabel
-> per cercar un text específic a les dades de la base de dades.</para>
+> per a cercar un text específic a les dades de la base de dades.</para>
      </listitem>
   </varlistentry>
 </variablelist>
@@ -3100,7 +3100,7 @@
 <para
 >A la pestanya <guilabel
 >Disseny de formulari</guilabel
-> es poden seleccionar ginys per afegir al formulari. </para>
+> es poden seleccionar ginys per a afegir al formulari. </para>
 <variablelist>
   <varlistentry
 ><term
@@ -3120,7 +3120,7 @@
 <para
 ><note
 ><para
->En seleccionar qualsevol giny, es commutarà al mode d'afegir giny. Llavors es podrà fer clic en qualsevol lloc del formulari per situar el giny.</para
+>En seleccionar qualsevol giny, es commutarà al mode d'afegir giny. Llavors es podrà fer clic en qualsevol lloc del formulari per a situar el giny.</para
 ></note>
 </para>
 <variablelist>
@@ -3247,7 +3247,7 @@
     <para
 >Un <guilabel
 >Grup de caselles</guilabel
-> s'usa per agrupar altres ginys i controlar el seu estat.</para>
+> s'usa per a agrupar altres ginys i controlar el seu estat.</para>
      </listitem>
   </varlistentry>
   <varlistentry
@@ -3304,7 +3304,7 @@
     <para
 ><guilabel
 >Assigna acció</guilabel
-> s'usa per assignar una acció a executar quan es produeix un esdeveniment (&pex; en fer clic a un botó).</para>
+> s'usa per a assignar una acció a executar quan es produeix un esdeveniment (&pex; en fer clic a un botó).</para>
      </listitem>
   </varlistentry>
 </variablelist>
@@ -3331,7 +3331,7 @@
 <para
 >A la pestanya <guilabel
 >Disseny d'informe</guilabel
-> es poden seleccionar ginys per afegir a l'informe. </para>
+> es poden seleccionar ginys per a afegir a l'informe. </para>
 <variablelist>
   <varlistentry
 ><term
@@ -3440,7 +3440,7 @@
     <para
 >Un giny <guilabel
 >Diagrama</guilabel
-> s'usa per afegir una representació visual de les dades presentades en un gràfic.</para>
+> s'usa per a afegir una representació visual de les dades presentades en un gràfic.</para>
      </listitem>
   </varlistentry>
   <varlistentry
@@ -3452,7 +3452,7 @@
     <para
 >Un giny <guilabel
 >Web</guilabel
-> s'usa per proporcionar un component de navegador web mínim i mostra informació d'un lloc web o local a un informe.</para>
+> s'usa per a proporcionar un component de navegador web mínim i mostra informació d'un lloc web o local a un informe.</para>
      </listitem>
      <!--FIXME missing Map-->
   </varlistentry>
@@ -3465,7 +3465,7 @@
     <para
 >Un giny <guilabel
 >Codi de barres</guilabel
-> s'usa per crear un codi de barres per a ser imprès a un informe, a partir de dades contingudes en un camp.</para>
+> s'usa per a crear un codi de barres per a ser imprès a un informe, a partir de dades contingudes en un camp.</para>
      </listitem>
   </varlistentry>
 </variablelist>
@@ -3751,7 +3751,7 @@
 >Integritat de dades referencial</title
 > 
 <para
->Suposeu que feu servir un full de càlcul i que us cal canviar l'adreça d'almenys una persona. Teniu un petit problema: sovint heu de canviar l'adreça en moltes línies. Per exemple, Joana agafa tres línies. Tindreu un bon problema si oblideu de canviar alguna de les línies -l'adreça assignada a aquella persona serà ambigua, per tant les vostres dades perden integritat. </para>
+>Suposeu que feu servir un full de càlcul i que us cal canviar l'adreça d'almenys una persona. Teniu un petit problema: sovint heu de canviar l'adreça en moltes línies. Per exemple, Joana agafa tres línies. Tindreu un bon problema si oblideu de canviar alguna de les línies -l'adreça assignada a aquella persona serà ambigua, per tant, les vostres dades perden integritat. </para>
 <para
 >A més, no hi ha cap manera simple d'esborrar una persona escollida de la taula en tant que heu de recordar de suprimir totes les línies relacionades amb ell o ella. </para>
 </sect2>
@@ -3994,7 +3994,7 @@
 <para
 >Si voleu treballar amb un conjunt petit de dades, &pex; enviar-lo a altres per a editar, podeu copiar i enganxar-lo en un altre full de càlcul i, després d'editar-lo, enganxar el resultat al full de càlcul principal. Aquesta edició «manual» pot causar pèrdues de dades o càlculs incorrectes. </para>
 <para
->Per limitar la vista de dades les aplicacions de bases de dades ofereixen consultes, formularis i informes. </para>
+>Per a limitar la vista de dades les aplicacions de bases de dades ofereixen consultes, formularis i informes. </para>
 <para
 >Una manera pràctica de limitar és la següent versió ampliada de la taula <replaceable
 >Persones</replaceable
@@ -4300,7 +4300,7 @@
 >Text llarg</guilabel
 > és un subtipus del tipus <guilabel
 >Text</guilabel
->. Per usar un subtipus al &kexi;, cal seleccionar el tipus bàsic corresponent (en aquest cas, <guilabel
+>. Per a usar un subtipus al &kexi;, cal seleccionar el tipus bàsic corresponent (en aquest cas, <guilabel
 >Text</guilabel
 >) al dissenyador de taules, i després seleccionar el subtipus usant el paràmetre <guilabel
 >Subtipus</guilabel
@@ -9170,7 +9170,7 @@
 >Valors separats per comes (CSV)</title
 > 
 <para
->El &kexi; és capaç d'importar i exportar dades des de/a diversos formats de valors separats per comes (fitxers CSV). La majoria d'aplicacions de full de càlcul i base de dades poden importar i exportar en aquest format, fent que sigui un format apropiat per migrar dades de text entre aplicacions diferents. </para>
+>El &kexi; és capaç d'importar i exportar dades des de/a diversos formats de valors separats per comes (fitxers CSV). La majoria d'aplicacions de full de càlcul i base de dades poden importar i exportar en aquest format, fent que sigui un format apropiat per a migrar dades de text entre aplicacions diferents. </para>
 <para
 >El &kexi; també admet diverses opcions que es poden configurar abans de portar a terme la importació: </para>
 <itemizedlist>
@@ -9196,7 +9196,7 @@
 ></listitem>
 <listitem
 ><para
->els valors de la primera fila es poden usar per definir com a nom de columnes,</para
+>els valors de la primera fila es poden usar per a definir com a nom de columnes,</para
 ></listitem>
 <listitem
 ><para
@@ -9223,13 +9223,13 @@
 >Vista general</title
 > 
 <para
->La implementació per importar bases de dades (2003 o més antigues) de <guilabel
+>La implementació per a importar bases de dades (2003 o més antigues) de <guilabel
 >Microsoft Access</guilabel
 > està integrat al &kexi;. Les bases de dades <guilabel
 >Access</guilabel
 > es poden <emphasis
 >importar</emphasis
-> només a una base de dades del &kexi;. No es pot usar per editar la base de dades, ni per exportar a una base de dades <guilabel
+> només a una base de dades del &kexi;. No es pot usar per a editar la base de dades, ni per a exportar a una base de dades <guilabel
 >Access</guilabel
 >. Tanmateix, hauria de poder importar bases de dades creades per altres aplicacions que usin el motor de base de dades JET. Actualment no s'admet la importació de bases de dades <filename
 >.accdb</filename
@@ -9237,7 +9237,7 @@
 >Access</guilabel
 > 2007. </para>
 <para
->Per importar una base de dades: </para>
+>Per a importar una base de dades: </para>
 <orderedlist>
 <listitem
 ><para
@@ -9262,7 +9262,7 @@
 >Funcionalitats</title
 > 
 <para
->La funció d'importació s'ha usat satisfactòriament per importar la base de dades <emphasis
+>La funció d'importació s'ha usat satisfactòriament per a importar la base de dades <emphasis
 >Northwind</emphasis
 >, molt coneguda pels usuaris del MS <guilabel
 >Access</guilabel
