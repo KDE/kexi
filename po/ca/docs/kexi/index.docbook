@@ -91,7 +91,7 @@
 >Introducció</title
 > 
 <para
->El &kexi; és una aplicació de gestió de bases de dades. Es pot usar per crear bases de dades, inserir dades, realitzar consultes i processar dades. Es poden crear formularis per a proveir una interfície personalitzada a les vostres dades, fent fàcil de compartir dades i disseny. </para>
+>El &kexi; és una aplicació de gestió de bases de dades. Es pot usar per a crear bases de dades, inserir dades, realitzar consultes i processar dades. Es poden crear formularis per a proveir una interfície personalitzada a les vostres dades, fent fàcil de compartir dades i disseny. </para>
 <para
 >El &kexi; forma part de &calligra; la suite de productivitat creada per la comunitat KDE. </para>
 <para
@@ -1137,7 +1137,7 @@
 <para
 >El &kexi; ofereix un nom genèric com <guilabel
 >Taula1</guilabel
->. Per canviar el nom, introduïu <replaceable
+>. Per a canviar el nom, introduïu <replaceable
 >Persones</replaceable
 > al camp <guilabel
 >Llegenda</guilabel
@@ -1145,7 +1145,7 @@
 >D'acord</keycap
 >. El camp <guilabel
 >Llegenda</guilabel
-> s'usarà per mostrar la taula als usuaris finals de la base de dades, &pex; com a un formulari. Contràriament al nom, la llegenda podrà contenir qualsevol caràcter incloent-hi espais i caràcters especials. </para>
+> s'usarà per a mostrar la taula als usuaris finals de la base de dades, &pex; com a un formulari. Contràriament al nom, la llegenda podrà contenir qualsevol caràcter incloent-hi espais i caràcters especials. </para>
 <para
 >Tingueu en compte que omplir el camp <guilabel
 >Llegenda</guilabel
@@ -1242,7 +1242,7 @@
 >nom</replaceable
 > i introduïu-hi un nom de persona. Introduïu-hi també cognom, carrer, número de casa i ciutat. Quan estigui fet, moveu el cursor de cel·la a l'última fila buida usant la tecla <keycap
 >Fletxa avall</keycap
-> o clicant l'última fila per afegir-hi una fila nova. </para>
+> o clicant l'última fila per a afegir-hi una fila nova. </para>
 <sect2 id="details-about-actions-available-while-entering-data-into-tables"
 ><title
 >Detalls sobre accions disponibles quan s'introdueixen les dades a les taules</title
@@ -1637,7 +1637,7 @@
 >Ginys</guilabel
 > usada per a inserir ginys nous al formulari. Seleccioneu el <guibutton
 >Disseny de formulari</guibutton
-> per mostrar-lo.</para
+> per a mostrar-lo.</para
 ></listitem>
 <!--FIXME no Format toolbar and Format menu in master/2.4
 <listitem
@@ -2827,7 +2827,7 @@
     <para
 >En seleccionar <guilabel
 >Script</guilabel
-> s'anirà a l'editor de scripts per permetre afegir codi personalitzat al projecte i/o als objectes.</para>
+> s'anirà a l'editor de scripts per a permetre afegir codi personalitzat al projecte i/o als objectes.</para>
      </listitem>
   </varlistentry>
 </variablelist>
@@ -3074,7 +3074,7 @@
 <para
 ><note
 ><para
->Caldria compactar regularment la base de dades per mantenir-la en forma, especialment després d'operacions intensives amb registres (addicions i supressions massives)</para
+>Caldria compactar regularment la base de dades per a mantenir-la en forma, especialment després d'operacions intensives amb registres (addicions i supressions massives)</para
 ></note>
 </para>
 </sect1>
@@ -3177,7 +3177,7 @@
     <para
 >Un <guilabel
 >Quadre combinat</guilabel
-> mostra una llista d'opcions per triar.</para>
+> mostra una llista d'opcions per a triar.</para>
      </listitem>
   </varlistentry>
   <varlistentry
