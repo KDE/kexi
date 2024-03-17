@@ -29,7 +29,7 @@
 ><firstname
 >Cette documentation a été produite à partir du <ulink url=" http://userbase.kde.org/Kexi/Handbook/Introduction"
 >des pages du manuel de Kexi</ulink
-> disponibles sur KDE USerBase à la date du 14 Septembre 2012</firstname
+> disponibles sur KDE UserBase à la date du 14 Septembre 2012</firstname
 > <surname
 ></surname
 > </personname>
@@ -997,7 +997,7 @@
 >La fenêtre du concepteur de tables apparaîtra. En regardant en haut de celle-ci, vous remarquerez que &kexi; vous propose un nom générique comme <guilabel
 >Table1</guilabel
 > pour la nouvelle table. La conception de la table n'est pas encore enregistrée, ainsi, vous pouvez lui donner un nom adapté plus tard. De plus, et pour la même raison, le nom de la table n'est pas encore visible dans le <guilabel
->Navigateur de projets Navigator</guilabel
+>Navigateur de projets</guilabel
 >.</para
 ></listitem>
 </orderedlist>
@@ -1239,13 +1239,13 @@
 >. La cellule actuelle est marquée par une fine bordure (en général noire), un curseur de cellule. La ligne actuelle, &cad; celle dans laquelle vous avez placé votre curseur rectangulaire, est marquée sur le coté gauche par un symbole de flèche. </para>
 <para
 >Vous pouvez naviguer entre les cellules d'un table grâce aux touches de direction, <keycap
->Page Up</keycap
+>Page vers le haut</keycap
 >, <keycap
->Page Down</keycap
+>Page vers le bas</keycap
 >, <keycap
->Home</keycap
+>Accueil</keycap
 >, <keycap
->End</keycap
+>Fin</keycap
 >. Vous pouvez aussi cliquer avec la souris sur une cellule pour la sélectionner. </para>
 <para
 >Au départ, après l'ouverture de la table <replaceable
@@ -2191,9 +2191,9 @@
 > 
 <para
 >Les valeurs suivantes sont disponibles dans la liste déroulante pour <guilabel
->Stratégie Hor.</guilabel
+>Stratégie Horizontale.</guilabel
 > et <guilabel
->Stratégie Vert.</guilabel
+>Stratégie Verticale</guilabel
 >, visible dans l'<guilabel
 >Éditeur de Propriétés</guilabel
 > :  </para>
@@ -3692,7 +3692,7 @@
     </entry>
     <entry>
     <para
->Western Gate 1, Warsaw</para>
+>Porte Ouest 1, Varsovie</para>
     </entry>
   </row>
   <row>
@@ -3706,7 +3706,7 @@
     </entry>
     <entry>
     <para
->London, Frogs Drive 5</para>
+>Londres, Allées de France 5</para>
     </entry>
   </row>
   <row>
@@ -3734,7 +3734,7 @@
     </entry>
     <entry>
     <para
->Warsaw, Western Gate 1</para>
+>Varsovie, Porte Ouest 1</para>
     </entry>
   </row>
   <row>
@@ -3748,7 +3748,7 @@
     </entry>
     <entry>
     <para
->Frogs Drive 5, London</para
+>Allée de France 5, Londres</para
 ></entry>
   </row>
   </tbody>
@@ -3808,7 +3808,7 @@
     </entry>
     <entry>
     <para
->Western Gate 1, Warsaw</para>
+>Porte Ouest 1, Varsovie</para>
     </entry>
   </row>
   <row>
@@ -3818,7 +3818,7 @@
     </entry>
     <entry>
     <para
->Frogs Drive 5, London</para
+>Allée de France 5, Londres</para
 ></entry>
   </row>
   </tbody>
@@ -3941,7 +3941,7 @@
     </entry>
     <entry>
     <para
->Warsaw</para>
+>Varsovie</para>
     </entry>
   </row>
   <row>
@@ -3955,7 +3955,7 @@
     </entry>
     <entry>
     <para
->Frogs Drive</para>
+>Allée de France</para>
     </entry>
     <entry>
     <para
@@ -4074,7 +4074,7 @@
     </entry>
     <entry>
     <para
->Warsaw</para>
+>Varsovie</para>
     </entry>
     <entry>
     <para
@@ -4092,7 +4092,7 @@
     </entry>
     <entry>
     <para
->Frogs Drive</para>
+>Allée de France</para>
     </entry>
     <entry>
     <para
@@ -4254,7 +4254,7 @@
 <para
 >Pour l'instant, vous avez appris les caractéristiques générales des bases de données sans rentrer dans le détail concernant les applications pour les concevoir. </para>
 <para
->Les premières bases de données ont été construites en même temps que les énormes ordinateurs « mainframes » IBM System/360, dans les années 1960. Ce n'était pas encore l'époque des PC, donc ces bases de données demandaient un personnel hautement spécialisé. Bien que le matériel de ces anciens ordinateurs soit peu fiable, qu'ils étaient bien plus lent et avaient moins de capacité de stockage, une possibilité offerte par les bases de données est encore maintenant très intéressante : l'accès aux données par de nombreux utilisateurs en passant par un réseau. </para>
+>Les premières bases de données ont été construites en même temps que les énormes ordinateurs « mainframe » IBM System / 360, dans les années 1960. Ce n'était pas encore l'époque des PC, donc ces bases de données demandaient un personnel hautement spécialisé. Bien que le matériel de ces anciens ordinateurs soit peu fiable, qu'ils étaient bien plus lent et avaient moins de capacité de stockage, une possibilité offerte par les bases de données est encore maintenant très intéressante : l'accès aux données par de nombreux utilisateurs en passant par un réseau. </para>
 <para
 >Dans les années 70, les scientifiques, formés à la théorie des bases de données relationnelles (des termes tels que : table, enregistrement, colonne (champ) et relation et bien d'autres). Cette théorie a permis la création des bases de données IBM DB2 et Oracle, qui ont été développées et qui sont encore utilisées aujourd'hui. A la fin des années 70, les premiers ordinateurs personnels (PC) ont été construits. Leurs utilisateurs ont pu (graduellement) utiliser de nombreux types d'applications, dont celles concernant le développement de bases de données. </para>
 <para
@@ -4268,7 +4268,7 @@
 ><para
 ><ulink url="http://www.dbase.com"
 >DBase</ulink
-> - un outil pour mettre en œuvre des bases de données pour DOS et populaire dans les années 80. Les fichiers au format DBase sont encore utilisés dans des cas spécifiques en raison de leurs simplicités.</para
+> - un outil pour mettre en œuvre des bases de données pour DOS et populaire dans les années 80. Les fichiers au format « DBase » sont encore utilisés dans des cas spécifiques en raison de leurs simplicités.</para
 ></listitem>
 <listitem
 ><para
@@ -4292,7 +4292,7 @@
 ><para
 ><ulink url="http://www.calligra-suite.org/kexi"
 >Kexi</ulink
-> - une application multi-plate forme (&UNIX; / &Linux;, Windows, &MacOS; X) conçue en 2003, développée suivant les principes Open Source, faisant partie du projet K Desktop Environment, &cad; un environnement graphique pour les systèmes &UNIX;/&Linux;.</para
+> - une application multi-plate forme (&UNIX; / &Linux;, Windows, &MacOS; X) conçue en 2003, développée suivant les principes Open Source, faisant partie du projet « K Desktop Environment », &cad; un environnement graphique pour les systèmes &UNIX;/&Linux;.</para
 ></listitem>
 </itemizedlist>
 </sect1>
@@ -9253,7 +9253,7 @@
 >importées</emphasis
 > dans une base de données &kexi;. Elles ne peuvent être modifiées, ni même exporter vers une base de données <guilabel
 >Access</guilabel
->. Cependant, il devrait aussi possible d'importer des bases de données créées par d'autres applications utilisant le moteur de base de données JET. L'importation de bases de données <filename
+>. Cependant, il devrait aussi possible d'importer des bases de données créées par d'autres applications utilisant le moteur de base de données « JET ». L'importation de bases de données <filename
 >.accdb</filename
 > qui ont été introduites dans MS <guilabel
 >Access</guilabel
