@@ -198,6 +198,7 @@
       <li xml:lang="ca">Suport directe de les bases de dades SQLite, MySQL i PostgreSQL</li>
       <li xml:lang="ca-valencia">Suport directe de les bases de dades SQLite, MySQL i PostgreSQL</li>
       <li xml:lang="cs">Přímá podpora pro databáze SQLite, MySQL a PostgreSQL</li>
+      <li xml:lang="de">Direkte Unterstützung von SQLite-, MySQL- und PostgreSQL-Datenbanken</li>
       <li xml:lang="el">Υποστηρίζει βάσεις δεδομένων SQLite, MySQL, PostgreSQL</li>
       <li xml:lang="en-GB">Direct support for SQLite, MySQL, and PostgreSQL databases</li>
       <li xml:lang="eo">Rekta subteno por datumbazoj SQLite, MySQL kaj PostgreSQL</li>
@@ -342,6 +343,7 @@
       <li>Locked down User Mode, allowing to switch off all design features</li>
       <li xml:lang="ca">Mode reduït d'usuari, que permet inhabilitar totes les característiques de disseny</li>
       <li xml:lang="ca-valencia">Mode reduït d'usuari, que permet inhabilitar totes les característiques de disseny</li>
+      <li xml:lang="de">Gesperrter Benutzermodus, der das Ausschalten aller Entwurfsfunktionen ermöglicht</li>
       <li xml:lang="el">Κλειδωμένη λειτουργία χρήστη, που επιτρέπει την απενεργοποίηση όλων των λειτουργιών σχεδιασμού</li>
       <li xml:lang="en-GB">Locked down User Mode, allowing to switch off all design features</li>
       <li xml:lang="eo">Ŝlosita Uzanta Reĝimo, permesante malŝalti ĉiujn dezajnajn funkciojn</li>
