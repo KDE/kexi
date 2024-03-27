@@ -9138,17 +9138,17 @@ msgstr "Registre nou"
 #: widget/utils/kexirecordnavigator.cpp:630
 #, kde-kuit-format
 msgid "Moves cursor to first record."
-msgstr "Mou el cursor al primer registre."
+msgstr "Mou el cursor fins el primer registre."
 
 #: widget/utils/kexirecordnavigator.cpp:631
 #, kde-kuit-format
 msgid "Moves cursor to previous record."
-msgstr "Mou el cursor al registre anterior."
+msgstr "Mou el cursor fins el registre anterior."
 
 #: widget/utils/kexirecordnavigator.cpp:632
 #, kde-kuit-format
 msgid "Moves cursor to next record."
-msgstr "Mou el cursor al registre següent."
+msgstr "Mou el cursor fins el registre següent."
 
 #: widget/utils/kexirecordnavigator.cpp:633
 #, kde-kuit-format
@@ -9158,4 +9158,4 @@ msgstr "Mou el cursor fins a l'últim registre."
 #: widget/utils/kexirecordnavigator.cpp:634
 #, kde-kuit-format
 msgid "Moves cursor to new record and allows inserting."
-msgstr "Mou el cursor a un registre nou i permet inserir-hi."
+msgstr "Mou el cursor fins a un registre nou i permet inserir-hi."
