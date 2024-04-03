@@ -1067,7 +1067,7 @@
 ></listitem>
 <listitem
 ><para
->Le nom de champ est un mot utilisé dans la base de données, en général, non visible par les utilisateurs de l'application de base de données. Il ne doit pas contenir de caractères spéciaux (nationaux) comme ±, ¶, Ü ou de caractères d'espaces. Il ne doit contenir que des lettres romaines, des nombres et un signe de tiret bas <quote
+>Le nom de champ est un mot utilisé dans la base de données, en général, non visible par les utilisateurs de l'application de base de données. Il ne doit pas contenir de caractères spéciaux (nationaux) comme « ± », « ¶ », « Ü » ou de caractères d'espaces. Il ne doit contenir que des lettres romaines, des nombres et un signe de tiret bas <quote
 >_</quote
 >. Utilisez ce dernier à la places des espaces ou des tirets.</para
 ></listitem>
