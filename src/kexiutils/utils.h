@@ -154,7 +154,7 @@ template <typename SourceType, typename DestinationType,
 QList<DestinationType> convertTypesUsingFunction(const QList<SourceType> &list)
 {
     QList<DestinationType> result;
-    foreach(const SourceType &element, list) {
+    for(const SourceType &element : list) {
         result.append(ConvertFunction(element));
     }
     return result;
@@ -173,7 +173,7 @@ template <typename SourceType, typename DestinationType,
 QList<DestinationType> convertTypesUsingMethod(const QList<SourceType> &list)
 {
     QList<DestinationType> result;
-    foreach(const SourceType &element, list) {
+    for(const SourceType &element : list) {
         result.append((element.*ConvertMethod)());
     }
     return result;

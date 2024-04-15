@@ -163,11 +163,11 @@ void PropertyCommand::init()
 {
     if (d->oldValues.count() > 1) {
         setText(kundo2_i18n("Change <resource>%1</resource> property for multiple widgets",
-                             QString(d->propertyName)));
+                             QString::fromUtf8(d->propertyName)));
     }
     else {
         setText(kundo2_i18n("Change <resource>%1</resource> property for widget <resource>%2</resource>",
-                            QString(d->propertyName), QString(d->oldValues.constBegin().key())));
+                            QString::fromUtf8(d->propertyName), QString::fromUtf8(d->oldValues.constBegin().key())));
     }
 }
 
@@ -219,13 +219,13 @@ void PropertyCommand::execute()
     for (QHash<QByteArray, QVariant>::ConstIterator oldValuesIt( d->oldValues.constBegin() );
          oldValuesIt != d->oldValues.constEnd(); ++oldValuesIt)
     {
-        ObjectTreeItem* item = d->form->objectTree()->lookup(oldValuesIt.key());
+        ObjectTreeItem* item = d->form->objectTree()->lookup(QString::fromUtf8(oldValuesIt.key()));
         if (item) { //we're checking for item!=0 because the name could be of a form widget
             QWidget *widget = item->widget();
             WidgetWithSubpropertiesInterface* subpropIface = dynamic_cast<WidgetWithSubpropertiesInterface*>(widget);
             QWidget *subWidget = (subpropIface && subpropIface->subwidget()) ? subpropIface->subwidget() : widget;
-            if (subWidget && -1 != subWidget->metaObject()->indexOfProperty(d->propertyName)) {
-                item->widget()->setProperty(d->propertyName, d->value);
+            if (subWidget && -1 != subWidget->metaObject()->indexOfProperty(d->propertyName.data())) {
+                item->widget()->setProperty(d->propertyName.data(), d->value);
             }
         }
     }
@@ -244,7 +244,7 @@ void PropertyCommand::undo()
 
     QHash<QByteArray, QVariant>::ConstIterator endIt = d->oldValues.constEnd();
     for (QHash<QByteArray, QVariant>::ConstIterator it = d->oldValues.constBegin(); it != endIt; ++it) {
-        ObjectTreeItem* item = d->form->objectTree()->lookup(it.key());
+        ObjectTreeItem* item = d->form->objectTree()->lookup(QString::fromUtf8(it.key()));
         if (!item)
             continue; //better this than a crash
         QWidget *widget = item->widget();
@@ -254,10 +254,10 @@ void PropertyCommand::undo()
 
         WidgetWithSubpropertiesInterface* subpropIface = dynamic_cast<WidgetWithSubpropertiesInterface*>(widget);
         QWidget *subWidget = (subpropIface && subpropIface->subwidget()) ? subpropIface->subwidget() : widget;
-        if (subWidget && -1 != subWidget->metaObject()->indexOfProperty(d->propertyName)) {
+        if (subWidget && -1 != subWidget->metaObject()->indexOfProperty(d->propertyName.data())) {
             //qDebug() << "OLD" << d->propertyName << subWidget->property(d->propertyName);
             //qDebug() << "NEW" << d->propertyName << it.value();
-            subWidget->setProperty(d->propertyName, it.value());
+            subWidget->setProperty(d->propertyName.data(), it.value());
         }
     }
 
@@ -362,7 +362,7 @@ void GeometryPropertyCommand::execute()
     int dy = d->pos.y() - d->oldPos.y();
 
     // We move every widget in our list by (dx, dy)
-    foreach (const QString& widgetName, d->names) {
+    for (const QString& widgetName : std::as_const(d->names)) {
         ObjectTreeItem* item = d->form->objectTree()->lookup(widgetName);
         if (!item)
             continue; //better this than a crash
@@ -379,7 +379,7 @@ void GeometryPropertyCommand::undo()
     int dy = d->pos.y() - d->oldPos.y();
 
     // We move every widget in our list by (-dx, -dy) to undo the move
-    foreach (const QString& widgetName, d->names) {
+    for (const QString& widgetName : std::as_const(d->names)) {
         ObjectTreeItem* item = d->form->objectTree()->lookup(widgetName);
         if (!item)
             continue; //better this than a crash
@@ -434,7 +434,7 @@ AlignWidgetsCommand::AlignWidgetsCommand(Form &form, Form::WidgetAlignment align
 {
     d->form = &form;
     d->alignment = alignment;
-    foreach (QWidget *w, list) {
+    for (const QWidget *w : list) {
         d->pos.insert(qPrintable(w->objectName()), w->pos());
     }
 
@@ -479,8 +479,9 @@ void AlignWidgetsCommand::execute()
     d->form->selectFormWidget();
 
     QWidgetList list;
-    foreach (const QByteArray& name, d->pos.keys()) {
-        ObjectTreeItem *item = d->form->objectTree()->lookup(name);
+    const auto keys = d->pos.keys();
+    for (const QByteArray& name : keys) {
+        ObjectTreeItem *item = d->form->objectTree()->lookup(QString::fromUtf8(name));
         if (item && item->widget())
             list.append(item->widget());
     }
@@ -491,7 +492,7 @@ void AlignWidgetsCommand::execute()
 
     switch (d->alignment) {
     case Form::AlignToGrid: {
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             const int tmpx = alignValueToGrid(w->x(), gridX);
             const int tmpy = alignValueToGrid(w->y(), gridY);
             if ((tmpx != w->x()) || (tmpy != w->y()))
@@ -501,44 +502,45 @@ void AlignWidgetsCommand::execute()
     }
     case Form::AlignToLeft: {
         int tmpx = parentWidget->width();
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             if (w->x() < tmpx)
                 tmpx = w->x();
         }
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
+            if (w->x() < tmpx)
             w->move(tmpx, w->y());
         }
         break;
     }
     case Form::AlignToRight: {
         int tmpx = 0;
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             if (w->x() + w->width() > tmpx)
                 tmpx = w->x() + w->width();
         }
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             w->move(tmpx - w->width(), w->y());
         }
         break;
     }
     case Form::AlignToTop: {
         int tmpy = parentWidget->height();
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             if (w->y() < tmpy)
                 tmpy = w->y();
         }
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             w->move(w->x(), tmpy);
         }
         break;
     }
     case Form::AlignToBottom: {
         int tmpy = 0;
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             if (w->y() + w->height() > tmpy)
                 tmpy = w->y() + w->height();
         }
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             w->move(w->x(), tmpy - w->height());
         }
         break;
@@ -548,7 +550,7 @@ void AlignWidgetsCommand::execute()
     }
 
     // We restore selection
-    foreach (QWidget *w, list) {
+    for (QWidget *w : std::as_const(list)) {
         d->form->selectWidget(w, Form::AddToPreviousSelection | Form::LastSelection | Form::Raise);
     }
 }
@@ -560,7 +562,7 @@ void AlignWidgetsCommand::undo()
     // We move widgets to their original pos
     QHash<QByteArray, QPoint>::ConstIterator endIt = d->pos.constEnd();
     for (QHash<QByteArray, QPoint>::ConstIterator it = d->pos.constBegin(); it != endIt; ++it) {
-        ObjectTreeItem *item = d->form->objectTree()->lookup(it.key());
+        ObjectTreeItem *item = d->form->objectTree()->lookup(QString::fromUtf8(it.key()));
         if (item && item->widget())
         {
             item->widget()->move(d->pos.value(qPrintable(item->widget()->objectName())));
@@ -601,7 +603,7 @@ AdjustSizeCommand::AdjustSizeCommand(Form& form, Adjustment type, const QWidgetL
 {
     d->form = &form;
     d->type = type;
-    foreach (QWidget *w, list) {
+    for (QWidget *w : list) {
         if (w->parentWidget() && KexiUtils::objectIsA(w->parentWidget(), "QStackedWidget")) {
             w = w->parentWidget(); // widget is WidgetStack page
             if (w->parentWidget() && w->parentWidget()->inherits("QTabWidget")) // widget is tabwidget page
@@ -663,7 +665,7 @@ void AdjustSizeCommand::execute()
     QWidgetList list;
     QHash<QByteArray, QSize>::ConstIterator endIt = d->sizes.constEnd();
     for (QHash<QByteArray, QSize>::ConstIterator it = d->sizes.constBegin(); it != endIt; ++it) {
-        ObjectTreeItem *item = d->form->objectTree()->lookup(it.key());
+        ObjectTreeItem *item = d->form->objectTree()->lookup(QString::fromUtf8(it.key()));
         if (item && item->widget())
             list.append(item->widget());
     }
@@ -671,7 +673,7 @@ void AdjustSizeCommand::execute()
     switch (d->type) {
     case SizeToGrid: {
         // same as in 'Align to Grid' + for the size
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             int tmpx = alignValueToGrid(w->x(), gridX);
             int tmpy = alignValueToGrid(w->y(), gridY);
             tmpw = alignValueToGrid(w->width(), gridX);
@@ -685,7 +687,7 @@ void AdjustSizeCommand::execute()
     }
 
     case SizeToFit: {
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             ObjectTreeItem *item = d->form->objectTree()->lookup(w->objectName());
             if (item && !item->children()->isEmpty()) { // container
                 QSize s;
@@ -720,12 +722,12 @@ void AdjustSizeCommand::execute()
     }
 
     case SizeToSmallWidth: {
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             if ((tmpw == 0) || (w->width() < tmpw))
                 tmpw = w->width();
         }
 
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             if (tmpw != w->width())
                 w->resize(tmpw, w->height());
         }
@@ -733,12 +735,12 @@ void AdjustSizeCommand::execute()
     }
 
     case SizeToBigWidth: {
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             if (w->width() > tmpw)
                 tmpw = w->width();
         }
 
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             if (tmpw != w->width())
                 w->resize(tmpw, w->height());
         }
@@ -746,12 +748,12 @@ void AdjustSizeCommand::execute()
     }
 
     case SizeToSmallHeight: {
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             if ((tmph == 0) || (w->height() < tmph))
                 tmph = w->height();
         }
 
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             if (tmph != w->height())
                 w->resize(w->width(), tmph);
         }
@@ -759,12 +761,12 @@ void AdjustSizeCommand::execute()
     }
 
     case SizeToBigHeight: {
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             if (w->height() > tmph)
                 tmph = w->height();
         }
 
-        foreach (QWidget *w, list) {
+        for (QWidget *w : std::as_const(list)) {
             if (tmph != w->height())
                 w->resize(w->width(), tmph);
         }
@@ -776,7 +778,7 @@ void AdjustSizeCommand::execute()
     }
 
     // We restore selection
-    foreach (QWidget *w, list) {
+    for (QWidget *w : std::as_const(list)) {
         d->form->selectWidget(w, Form::AddToPreviousSelection | Form::LastSelection | Form::Raise);
     }
 }
@@ -786,14 +788,16 @@ QSize AdjustSizeCommand::getSizeFromChildren(ObjectTreeItem *item)
     if (!item->container()) { // multi pages containers (eg tabwidget)
         QSize s;
         // get size for each container, and keep the biggest one
-        foreach (ObjectTreeItem *titem, *item->children()) {
+        const auto titems = *item->children();
+        for (ObjectTreeItem *titem : titems) {
             s = s.expandedTo(getSizeFromChildren(titem));
         }
         return s;
     }
 
     int tmpw = 0, tmph = 0;
-    foreach (ObjectTreeItem *titem, *item->children()) {
+    const auto titems = *item->children();
+    for (ObjectTreeItem *titem : titems) {
         if (!titem->widget())
             continue;
         tmpw = qMax(tmpw, titem->widget()->geometry().right());
@@ -810,7 +814,7 @@ void AdjustSizeCommand::undo()
     // We resize widgets to their original size
     QHash<QByteArray, QSize>::ConstIterator endIt = d->sizes.constEnd();
     for (QHash<QByteArray, QSize>::ConstIterator it = d->sizes.constBegin(); it != endIt; ++it) {
-        ObjectTreeItem *item = d->form->objectTree()->lookup(it.key());
+        ObjectTreeItem *item = d->form->objectTree()->lookup(QString::fromUtf8(it.key()));
         if (item && item->widget()) {
             item->widget()->resize(d->sizes[qPrintable(item->widget()->objectName())]);
             if (d->type == SizeToGrid)
@@ -905,7 +909,7 @@ void InsertWidgetCommand::debug() const
 void InsertWidgetCommand::init()
 {
     if (!d->widgetName.isEmpty()) {
-        setText( kundo2_i18n("Insert widget <resource>%1</resource>", QString(d->widgetName)) );
+        setText( kundo2_i18n("Insert widget <resource>%1</resource>", QString::fromUtf8(d->widgetName)) );
     }
     else {
         setText( kundo2_i18n("Insert widget") );
@@ -946,13 +950,13 @@ void InsertWidgetCommand::execute()
     } else
         options |= WidgetFactory::AnyOrientation;
 
-    QWidget *w = d->form->library()->createWidget(d->_class, container->widget(), d->widgetName,
+    QWidget *w = d->form->library()->createWidget(d->_class, container->widget(), d->widgetName.data(),
                                                   container, options);
 
     if (!w) {
         d->form->abortWidgetInserting();
-        WidgetInfo *winfo = d->form->library()->widgetInfoForClassName(d->_class);
-        KMessageBox::error(d->form ? d->form->widget() : 0,
+        WidgetInfo *winfo = d->form->library()->widgetInfoForClassName(d->_class.data());
+        KMessageBox::error(d->form ? d->form->widget() : nullptr,
                            xi18nc("@info",
                                   "Could not insert widget of type <resource>%1</resource>. "
                                   "A problem with widget's creation encountered.",
@@ -1006,10 +1010,10 @@ void InsertWidgetCommand::execute()
 
     // ObjectTreeItem object already exists for widgets which corresponds to a Container
     // it's already created in Container's constructor
-    ObjectTreeItem *item = d->form->objectTree()->lookup(d->widgetName);
+    ObjectTreeItem *item = d->form->objectTree()->lookup(QString::fromUtf8(d->widgetName));
     if (!item) { //not yet created...
         //qDebug() << "Creating ObjectTreeItem:";
-        item = new ObjectTreeItem(d->form->library()->displayName(d->_class), d->widgetName, w, container);
+        item = new ObjectTreeItem(d->form->library()->displayName(d->_class), QString::fromUtf8(d->widgetName), w, container);
         d->form->objectTree()->addItem(container->objectTree(), item);
     }
     //assign item for its widget if it supports DesignTimeDynamicChildWidgetHandler interface
@@ -1024,9 +1028,9 @@ void InsertWidgetCommand::execute()
         d->form->library()->autoSaveProperties(
            w->metaObject()->className())
     );
-    foreach (const QByteArray& name, list) {
-        if (-1 != w->metaObject()->indexOfProperty(name))
-            item->addModifiedProperty(name, w->property(name));
+    for (const QByteArray& name : std::as_const(list)) {
+        if (-1 != w->metaObject()->indexOfProperty(name.data()))
+            item->addModifiedProperty(name, w->property(name.data()));
     }
 
     container->reloadLayout(); // reload the layout to take the new wigdet into account
@@ -1045,7 +1049,7 @@ void InsertWidgetCommand::execute()
 
 void InsertWidgetCommand::undo()
 {
-    ObjectTreeItem* titem = d->form->objectTree()->lookup(d->widgetName);
+    ObjectTreeItem* titem = d->form->objectTree()->lookup(QString::fromUtf8(d->widgetName));
     if (!titem)
         return; //better this than a crash
     QWidget *widget = titem->widget();
@@ -1095,26 +1099,26 @@ PasteWidgetCommand::PasteWidgetCommand(const QDomDocument &domDoc, const Contain
     d->containerName = container.widget()->objectName();
     d->pos = p;
 
-    if (domDoc.firstChildElement("UI").firstChildElement("widget").isNull())
+    if (domDoc.firstChildElement(QStringLiteral("UI")).firstChildElement(QStringLiteral("widget")).isNull())
         return;
 
     QRect boundingRect;
-    for (QDomNode n = domDoc.firstChildElement("UI").firstChild(); !n.isNull();
+    for (QDomNode n = domDoc.firstChildElement(QStringLiteral("UI")).firstChild(); !n.isNull();
          n = n.nextSibling())
     { // more than one widget
         const QDomElement el = n.toElement();
-        if (el.tagName() != "widget")
+        if (el.tagName() != QStringLiteral("widget"))
             continue;
 
         QDomElement rect;
         for (QDomNode n = el.firstChild(); !n.isNull(); n = n.nextSibling()) {
-            if ((n.toElement().tagName() == "property") && (n.toElement().attribute("name") == "geometry"))
+            if ((n.toElement().tagName() == QStringLiteral("property")) && (n.toElement().attribute(QStringLiteral("name")) == QStringLiteral("geometry")))
                 rect = n.firstChild().toElement();
         }
-        QDomElement x = rect.firstChildElement("x");
-        QDomElement y = rect.firstChildElement("y");
-        QDomElement w = rect.firstChildElement("width");
-        QDomElement h = rect.firstChildElement("height");
+        QDomElement x = rect.firstChildElement(QStringLiteral("x"));
+        QDomElement y = rect.firstChildElement(QStringLiteral("y"));
+        QDomElement w = rect.firstChildElement(QStringLiteral("width"));
+        QDomElement h = rect.firstChildElement(QStringLiteral("height"));
 
         int rx = x.text().toInt();
         int ry = y.text().toInt();
@@ -1151,7 +1155,7 @@ void PasteWidgetCommand::execute()
     QString errMsg;
     int errLine;
     int errCol;
-    QDomDocument domDoc("UI");
+    QDomDocument domDoc(QStringLiteral("UI"));
     bool parsed = domDoc.setContent(d->data, false, &errMsg, &errLine, &errCol);
 
     if (!parsed) {
@@ -1161,18 +1165,18 @@ void PasteWidgetCommand::execute()
     }
 
     //qDebug() << domDoc.toString();
-    if (!domDoc.firstChildElement("UI").hasChildNodes()) // nothing in the doc
+    if (!domDoc.firstChildElement(QStringLiteral("UI")).hasChildNodes()) // nothing in the doc
         return;
 
-    QDomElement el = domDoc.firstChildElement("UI").firstChildElement("widget");
+    QDomElement el = domDoc.firstChildElement(QStringLiteral("UI")).firstChildElement(QStringLiteral("widget"));
     if (el.isNull())
         return;
     QDomNode n;
-    for (n = el.nextSibling(); !n.isNull() && n.toElement().tagName() != "widget"; n = n.nextSibling()) {
+    for (n = el.nextSibling(); !n.isNull() && n.toElement().tagName() != QStringLiteral("widget"); n = n.nextSibling()) {
     }
     if (n.isNull()) {
         // only one "widget" child tag, so we can paste it at cursor pos
-        QDomElement el = domDoc.firstChildElement("UI").firstChildElement("widget").toElement();
+        QDomElement el = domDoc.firstChildElement(QStringLiteral("UI")).firstChildElement(QStringLiteral("widget")).toElement();
         fixNames(el);
         if (d->pos.isNull())
             fixPos(el, container);
@@ -1180,37 +1184,37 @@ void PasteWidgetCommand::execute()
             changePos(el, d->pos);
 
         d->form->setInteractiveMode(false);
-        FormIO::loadWidget(container, el, 0, 0);
+        FormIO::loadWidget(container, el, nullptr, nullptr);
         d->form->setInteractiveMode(true);
     }
     else {
         int minX = INT_MAX, minY = INT_MAX;
         if (!d->pos.isNull()) {
             // compute top-left point for the united rectangles
-            for (n = domDoc.firstChildElement("UI").firstChild(); !n.isNull(); n = n.nextSibling()) {
-                // more than one "widget" child tag
-                if (n.toElement().tagName() != "widget") {
+            for (n = domDoc.firstChildElement(QStringLiteral("UI")).firstChild(); !n.isNull(); n = n.nextSibling()) {
+                // more than one QStringLiteral("widget") child tag
+                if (n.toElement().tagName() != QStringLiteral("widget")) {
                     continue;
                 }
                 QDomElement el = n.toElement();
                 QDomElement rectEl;
                 for (QDomNode n2 = el.firstChild(); !n2.isNull(); n2 = n2.nextSibling()) {
-                    if ((n2.toElement().tagName() == "property") && (n2.toElement().attribute("name") == "geometry")) {
+                    if ((n2.toElement().tagName() == QStringLiteral("property")) && (n2.toElement().attribute(QStringLiteral("name")) == QStringLiteral("geometry"))) {
                         rectEl = n2.firstChild().toElement();
                         break;
                     }
                 }
-                int x = rectEl.firstChildElement("x").text().toInt();
+                int x = rectEl.firstChildElement(QStringLiteral("x")).text().toInt();
                 if (x < minX)
                     minX = x;
-                int y = rectEl.firstChildElement("y").text().toInt();
+                int y = rectEl.firstChildElement(QStringLiteral("y")).text().toInt();
                 if (y < minY)
                     minY = y;
             }
         }
-        for (n = domDoc.firstChildElement("UI").firstChild(); !n.isNull(); n = n.nextSibling()) {
-            // more than one "widget" child tag
-            if (n.toElement().tagName() != "widget") {
+        for (n = domDoc.firstChildElement(QStringLiteral("UI")).firstChild(); !n.isNull(); n = n.nextSibling()) {
+            // more than one QStringLiteral("widget") child tag
+            if (n.toElement().tagName() != QStringLiteral("widget")) {
                 continue;
             }
             QDomElement el = n.toElement();
@@ -1227,19 +1231,19 @@ void PasteWidgetCommand::execute()
             }
 
             d->form->setInteractiveMode(false);
-            FormIO::loadWidget(container, el, 0, 0);
+            FormIO::loadWidget(container, el, nullptr, nullptr);
             d->form->setInteractiveMode(true);
         }
     }
 
     d->names.clear();
     // We store the names of all the created widgets, to delete them later
-    for (n = domDoc.firstChildElement("UI").firstChild(); !n.isNull(); n = n.nextSibling()) {
-        if (n.toElement().tagName() != "widget") {
+    for (n = domDoc.firstChildElement(QStringLiteral("UI")).firstChild(); !n.isNull(); n = n.nextSibling()) {
+        if (n.toElement().tagName() != QStringLiteral("widget")) {
             continue;
         }
         for (QDomNode m = n.firstChild(); !m.isNull(); m = m.nextSibling()) {
-            if ((m.toElement().tagName() == "property") && (m.toElement().attribute("name") == "name")) {
+            if ((m.toElement().tagName() == QStringLiteral("property")) && (m.toElement().attribute(QStringLiteral("name")) == QStringLiteral("name"))) {
                 d->names.append(m.toElement().text());
                 break;
             }
@@ -1247,7 +1251,7 @@ void PasteWidgetCommand::execute()
     }
 
     container->form()->selectFormWidget();
-    foreach (const QString& widgetName, d->names) { // We select all the pasted widgets
+    for (const QString& widgetName : std::as_const(d->names)) { // We select all the pasted widgets
         ObjectTreeItem *item = d->form->objectTree()->lookup(widgetName);
         if (item) {
             container->selectWidget(item->widget(),
@@ -1263,7 +1267,7 @@ void PasteWidgetCommand::undo()
         return; //better this than a crash
     Container *container = titem->container();
     // We just delete all the widgets we have created
-    foreach (const QString& widgetName, d->names) {
+    for (const QString& widgetName : std::as_const(d->names)) {
         ObjectTreeItem* titem = container->form()->objectTree()->lookup(widgetName);
         if (!titem) {
             continue; //better this than a crash
@@ -1278,18 +1282,18 @@ void PasteWidgetCommand::changePos(QDomElement &el, const QPoint &newPos)
     QDomElement rect;
     // Find the widget geometry if there is one
     for (QDomNode n = el.firstChild(); !n.isNull(); n = n.nextSibling()) {
-        if ((n.toElement().tagName() == "property") && (n.toElement().attribute("name") == "geometry")) {
+        if ((n.toElement().tagName() == QStringLiteral("property")) && (n.toElement().attribute(QStringLiteral("name")) == QStringLiteral("geometry"))) {
             rect = n.firstChild().toElement();
             break;
         }
     }
 
-    QDomElement x = rect.firstChildElement("x");
+    QDomElement x = rect.firstChildElement(QStringLiteral("x"));
     x.removeChild(x.firstChild());
     QDomText valueX = el.ownerDocument().createTextNode(QString::number(newPos.x()));
     x.appendChild(valueX);
 
-    QDomElement y = rect.firstChildElement("y");
+    QDomElement y = rect.firstChildElement(QStringLiteral("y"));
     y.removeChild(y.firstChild());
     QDomText valueY = el.ownerDocument().createTextNode(QString::number(newPos.y()));
     y.appendChild(valueY);
@@ -1304,16 +1308,16 @@ void PasteWidgetCommand::moveWidgetBy(QDomElement &el, Container *container, con
 {
     QDomElement rect;
     for (QDomNode n = el.firstChild(); !n.isNull(); n = n.nextSibling()) {
-        if ((n.toElement().tagName() == "property") && (n.toElement().attribute("name") == "geometry")) {
+        if ((n.toElement().tagName() == QStringLiteral("property")) && (n.toElement().attribute(QStringLiteral("name")) == QStringLiteral("geometry"))) {
             rect = n.firstChild().toElement();
             break;
         }
     }
 
-    QDomElement x = rect.firstChildElement("x");
-    QDomElement y = rect.firstChildElement("y");
-    QDomElement wi = rect.firstChildElement("width");
-    QDomElement h = rect.firstChildElement("height");
+    QDomElement x = rect.firstChildElement(QStringLiteral("x"));
+    QDomElement y = rect.firstChildElement(QStringLiteral("y"));
+    QDomElement wi = rect.firstChildElement(QStringLiteral("width"));
+    QDomElement h = rect.firstChildElement(QStringLiteral("height"));
 
     int rx = x.text().toInt();
     int ry = y.text().toInt();
@@ -1350,7 +1354,7 @@ PasteWidgetCommand::fixNames(QDomElement &el)
 {
     QString wname;
     for (QDomNode n = el.firstChild(); !n.isNull(); n = n.nextSibling()) {
-        if ((n.toElement().tagName() == "property") && (n.toElement().attribute("name") == "name")) {
+        if ((n.toElement().tagName() == QStringLiteral("property")) && (n.toElement().attribute(QStringLiteral("name")) == QStringLiteral("name"))) {
             wname = n.toElement().text();
             while (d->form->objectTree()->lookup(wname)) { // name already exists
                 bool ok;
@@ -1358,18 +1362,18 @@ PasteWidgetCommand::fixNames(QDomElement &el)
                 if (ok)
                     wname = wname.left(wname.length() - 1) + QString::number(num + 1);
                 else
-                    wname += "2";
+                    wname += u'2';
             }
             if (wname != n.toElement().text()) { // we change the name, so we recreate the element
                 n.removeChild(n.firstChild());
-                QDomElement type = el.ownerDocument().createElement("string");
+                QDomElement type = el.ownerDocument().createElement(QStringLiteral("string"));
                 QDomText valueE = el.ownerDocument().createTextNode(wname);
                 type.appendChild(valueE);
                 n.toElement().appendChild(type);
             }
 
         }
-        if (n.toElement().tagName() == "widget") { // fix child widgets names
+        if (n.toElement().tagName() == QStringLiteral("widget")) { // fix child widgets names
             QDomElement child = n.toElement();
             fixNames(child);
         }
@@ -1431,7 +1435,7 @@ void DeleteWidgetCommand::execute()
 {
     QHash<QByteArray, QByteArray>::ConstIterator endIt = d->containers.constEnd();
     for (QHash<QByteArray, QByteArray>::ConstIterator it = d->containers.constBegin(); it != endIt; ++it) {
-        ObjectTreeItem *item = d->form->objectTree()->lookup(it.key());
+        ObjectTreeItem *item = d->form->objectTree()->lookup(QString::fromUtf8(it.key()));
         if (!item || !item->widget())
             continue;
 
@@ -1444,31 +1448,31 @@ void DeleteWidgetCommand::undo()
 {
     QByteArray wname;
     d->form->setInteractiveMode(false);
-    for (QDomNode n = d->domDoc.firstChildElement("UI").firstChild(); !n.isNull(); n = n.nextSibling()) {
+    for (QDomNode n = d->domDoc.firstChildElement(QStringLiteral("UI")).firstChild(); !n.isNull(); n = n.nextSibling()) {
 #ifdef KFD_SIGSLOTS
-        if (n.toElement().tagName() == "connections") // restore the widget connections
+        if (n.toElement().tagName() == QStringLiteral("connections")) // restore the widget connections
             d->form->connectionBuffer()->load(n);
 #endif
-        if (n.toElement().tagName() != "widget")
+        if (n.toElement().tagName() != QStringLiteral("widget"))
             continue;
         // We need first to know the name of the widget
         for (QDomNode m = n.firstChild(); !m.isNull(); n = m.nextSibling()) {
-            if ((m.toElement().tagName() == "property") && (m.toElement().attribute("name") == "name")) {
+            if ((m.toElement().tagName() == QStringLiteral("property")) && (m.toElement().attribute(QStringLiteral("name")) == QStringLiteral("name"))) {
                 wname = m.toElement().text().toLatin1();
                 break;
             }
         }
 
-        ObjectTreeItem* titem = d->form->objectTree()->lookup(d->containers.value(wname));
+        ObjectTreeItem* titem = d->form->objectTree()->lookup(QString::fromUtf8(d->containers.value(wname)));
         if (!titem)
             return; //better this than a crash
         Container *cont = titem->container();
-        ObjectTreeItem *parent = d->form->objectTree()->lookup(d->parents.value(wname));
+        ObjectTreeItem *parent = d->form->objectTree()->lookup(QString::fromUtf8(d->parents.value(wname)));
         QDomElement widg = n.toElement();
         if (parent)
-            FormIO::loadWidget(cont, widg, parent->widget(), 0);
+            FormIO::loadWidget(cont, widg, parent->widget(), nullptr);
         else
-            FormIO::loadWidget(cont, widg, 0, 0);
+            FormIO::loadWidget(cont, widg, nullptr, nullptr);
     }
     d->form->setInteractiveMode(true);
 }
@@ -1488,7 +1492,7 @@ class Q_DECL_HIDDEN DuplicateWidgetCommand::Private
 {
 public:
     Private()
-     : pasteCommand(0)
+     : pasteCommand(nullptr)
     {
     }
     ~Private()
@@ -1560,7 +1564,7 @@ class Q_DECL_HIDDEN CutWidgetCommand::Private
 {
 public:
     Private()
-     : data(0)
+     : data(nullptr)
     {
     }
 
@@ -1715,7 +1719,7 @@ void InlineTextEditingCommand::debug() const
 
 void InlineTextEditingCommand::execute()
 {
-    WidgetInfo *wi = d->form->library()->widgetInfoForClassName(d->editedWidgetClass);
+    WidgetInfo *wi = d->form->library()->widgetInfoForClassName(d->editedWidgetClass.data());
     if (!wi)
         return;
 
@@ -1736,7 +1740,7 @@ void InlineTextEditingCommand::execute()
 
 void InlineTextEditingCommand::undo()
 {
-    WidgetInfo *wi = d->form->library()->widgetInfoForClassName(d->editedWidgetClass);
+    WidgetInfo *wi = d->form->library()->widgetInfoForClassName(d->editedWidgetClass.data());
     if (!wi)
         return;
 
@@ -1838,9 +1842,9 @@ void InsertPageCommand::execute(const QString& pageWidgetName, const QString& pa
     QWidget *parent = d->form->objectTree()->lookup(d->parentname)->widget();
     if (d->name.isEmpty()) {
         if (pageWidgetName.isEmpty()) {
-            d->name = container->form()->objectTree()->generateUniqueName(
+            d->name = QString::fromUtf8(container->form()->objectTree()->generateUniqueName(
                          container->form()->library()->displayName("QWidget").toLatin1(),
-                         /*!numberSuffixRequired*/false);
+                         /*!numberSuffixRequired*/false));
         }
         else {
             d->name = pageWidgetName;
@@ -1848,7 +1852,7 @@ void InsertPageCommand::execute(const QString& pageWidgetName, const QString& pa
     }
 
     QWidget *page = container->form()->library()->createWidget(
-        "QWidget", parent, d->name.toLatin1(), container);
+        "QWidget", parent, d->name.toLatin1().data(), container);
     page->setAutoFillBackground(true);
     ObjectTreeItem *item = container->form()->objectTree()->lookup(d->name);
 

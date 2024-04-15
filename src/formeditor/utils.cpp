@@ -39,9 +39,9 @@ void
 KFormDesigner::removeChildrenFromList(QWidgetList &list)
 {
     QSet<QWidget*> toRemove;
-    foreach (QWidget *w, list) {
+    for (QWidget *w : std::as_const(list)) {
         // If any widget in the list is a child of this widget, we remove it from the list
-        foreach (QWidget *widg, list) {
+        for (QWidget *widg : std::as_const(list)) {
             if ((w != widg) && (w->findChild<QWidget*>(widg->objectName()))) {
                 //qDebug() << "Removing the widget" << widg->objectName()
                 //    << "which is a child of" << w->objectName();
@@ -49,16 +49,16 @@ KFormDesigner::removeChildrenFromList(QWidgetList &list)
             }
         }
     }
-    QSet<QWidget*> all(list.toSet());
+    QSet<QWidget*> all(list.begin(), list.end());
     all.subtract(toRemove);
-    list = all.toList();
+    list = all.values();
 }
 
 void
 KFormDesigner::setRecursiveCursor(QWidget *w, Form *form)
 {
     ObjectTreeItem *tree = form->objectTree()->lookup(w->objectName());
-    if (tree && ((tree->modifiedProperties()->contains("cursor")) || !tree->children()->isEmpty())
+    if (tree && ((tree->modifiedProperties()->contains(QStringLiteral("cursor"))) || !tree->children()->isEmpty())
             && !w->inherits("QLineEdit") && !w->inherits("QTextEdit"))
     {
         //fix weird behaviour
@@ -68,7 +68,7 @@ KFormDesigner::setRecursiveCursor(QWidget *w, Form *form)
     w->setCursor(Qt::ArrowCursor);
 
     const QList<QWidget*> list(w->findChildren<QWidget*>());
-    foreach(QWidget *widget, list) {
+    for(QWidget *widget : list) {
         widget->setCursor(Qt::ArrowCursor);
     }
 }
@@ -78,7 +78,7 @@ KFormDesigner::getSizeFromChildren(QWidget *w, const char *inheritClass)
 {
     int tmpw = 0, tmph = 0;
     const QList<QWidget*> list(w->findChildren<QWidget*>());
-    foreach(QWidget *widget, list) {
+    for(QWidget *widget : list) {
         if (widget->inherits(inheritClass)) {
             tmpw = qMax(tmpw, widget->geometry().right());
             tmph = qMax(tmph, widget->geometry().bottom());
@@ -138,7 +138,7 @@ public:
     bool operator()(QWidget *w1, QWidget *w2)
     {
         int y1, y2;
-        QObject *page1 = 0;
+        QObject *page1 = nullptr;
         TabWidget *tw1 = KFormDesigner::findParent<KFormDesigner::TabWidget>(
             w1, "KFormDesigner::TabWidget", page1);
         if (tw1) // special case
@@ -146,7 +146,7 @@ public:
         else
             y1 = w1->mapTo(m_topLevelWidget, QPoint(0, 0)).y();
 
-        QObject *page2 = 0;
+        QObject *page2 = nullptr;
         TabWidget *tw2 = KFormDesigner::findParent<KFormDesigner::TabWidget>(
             w2, "KFormDesigner::TabWidget", page2);
         if (tw1 && tw2 && tw1 == tw2 && page1 != page2) {
@@ -197,7 +197,8 @@ void VerticalWidgetList::sort()
 QMimeData *KFormDesigner::deepCopyOfMimeData(const QMimeData *data)
 {
     QMimeData *newData = new QMimeData();
-    foreach(const QString& format, data->formats()) {
+    const auto formats = data->formats();
+    for(const QString& format : formats) {
         newData->setData(format, data->data(format));
     }
     return newData;
@@ -220,14 +221,14 @@ void KFormDesigner::widgetsToXML(QDomDocument& doc,
 {
     containers.clear();
     parents.clear();
-    doc = QDomDocument("UI");
-    doc.appendChild(doc.createElement("UI"));
-    QDomElement parent = doc.firstChildElement("UI");
+    doc = QDomDocument(QStringLiteral("UI"));
+    doc.appendChild(doc.createElement(QStringLiteral("UI")));
+    QDomElement parent = doc.firstChildElement(QStringLiteral("UI"));
 
     QWidgetList topLevelList(list);
     KFormDesigner::removeChildrenFromList(topLevelList);
 
-    foreach (QWidget *w, topLevelList) {
+    for (QWidget *w : std::as_const(topLevelList)) {
         ObjectTreeItem *item = form.objectTree()->lookup(w->objectName());
         if (!item)
             return;
