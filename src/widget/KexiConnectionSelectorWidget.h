@@ -78,7 +78,7 @@ public:
     KexiConnectionSelectorWidget(KexiDBConnectionSet *conn_set,
                                  const QUrl& startDirOrVariable,
                                  OperationMode mode,
-                                 QWidget* parent = 0);
+                                 QWidget* parent = nullptr);
 
     virtual ~KexiConnectionSelectorWidget();
 

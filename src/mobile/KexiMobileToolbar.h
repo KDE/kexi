@@ -29,7 +29,7 @@ class KexiMobileToolbar : public QToolBar
 {
     Q_OBJECT
 public:
-    explicit KexiMobileToolbar(QWidget* parent = 0);
+    explicit KexiMobileToolbar(QWidget* parent = nullptr);
     virtual ~KexiMobileToolbar();
 
     void setRecordHandler(KexiRecordNavigatorHandler *handler);

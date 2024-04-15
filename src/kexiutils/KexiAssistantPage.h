@@ -32,7 +32,7 @@ class KEXIUTILS_EXPORT KexiAssistantPage : public QWidget
     Q_OBJECT
 public:
     KexiAssistantPage(const QString& title, const QString& description,
-                      QWidget* parent = 0);
+                      QWidget* parent = nullptr);
     virtual ~KexiAssistantPage();
     void setContents(QWidget* widget);
     void setContents(QLayout* layout);

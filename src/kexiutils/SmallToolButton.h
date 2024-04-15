@@ -31,15 +31,15 @@ class KEXIUTILS_EXPORT KexiSmallToolButton : public QToolButton
 {
     Q_OBJECT
 public:
-    explicit KexiSmallToolButton(QWidget* parent = 0);
+    explicit KexiSmallToolButton(QWidget* parent = nullptr);
 
-    explicit KexiSmallToolButton(const QString& text, QWidget* parent = 0);
+    explicit KexiSmallToolButton(const QString& text, QWidget* parent = nullptr);
 
-    KexiSmallToolButton(const QIcon& icon, const QString& text, QWidget* parent = 0);
+    KexiSmallToolButton(const QIcon& icon, const QString& text, QWidget* parent = nullptr);
 
-    explicit KexiSmallToolButton(const QIcon& icon, QWidget* parent = 0);
+    explicit KexiSmallToolButton(const QIcon& icon, QWidget* parent = nullptr);
 
-    explicit KexiSmallToolButton(QAction *action, QWidget* parent = 0);
+    explicit KexiSmallToolButton(QAction *action, QWidget* parent = nullptr);
 
     virtual ~KexiSmallToolButton();
 

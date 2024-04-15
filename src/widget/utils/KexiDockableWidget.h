@@ -35,7 +35,7 @@ class KEXIGUIUTILS_EXPORT KexiDockableWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit KexiDockableWidget(QWidget* parent = 0);
+    explicit KexiDockableWidget(QWidget* parent = nullptr);
     virtual ~KexiDockableWidget();
 
     //! Sets child widget @a widget.

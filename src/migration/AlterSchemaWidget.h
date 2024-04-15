@@ -37,7 +37,7 @@ class AlterSchemaWidget : public QWidget
 {
     Q_OBJECT
     public:
-        explicit AlterSchemaWidget(QWidget* parent = 0);
+        explicit AlterSchemaWidget(QWidget* parent = nullptr);
         ~AlterSchemaWidget();
 
         void setTableSchema(KDbTableSchema *schema);

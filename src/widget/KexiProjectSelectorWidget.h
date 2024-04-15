@@ -41,7 +41,7 @@ public:
     information about database driver and connection columns are added.
     \a prj_set may be NULL - you can assign a set later with setProjectSet().
     */
-    explicit KexiProjectSelectorWidget(QWidget* parent = 0,
+    explicit KexiProjectSelectorWidget(QWidget* parent = nullptr,
                                        KexiProjectSet* prj_set = 0, bool showProjectNameColumn = true,
                                        bool showConnectionColumns = true);
 

@@ -31,7 +31,7 @@ class KEXIGUIUTILS_EXPORT KexiToolTip : public QWidget
 {
     Q_OBJECT
 public:
-    explicit KexiToolTip(const QVariant& value, QWidget* parent = 0);
+    explicit KexiToolTip(const QVariant& value, QWidget* parent = nullptr);
     virtual ~KexiToolTip();
 
     virtual QSize sizeHint() const override;

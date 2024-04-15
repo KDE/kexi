@@ -40,7 +40,7 @@ class KEXIEXTWIDGETS_EXPORT KexiObjectInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit KexiObjectInfoWidget(QWidget* parent = 0);
+    explicit KexiObjectInfoWidget(QWidget* parent = nullptr);
     virtual ~KexiObjectInfoWidget();
 
     void setObjectClassIconName(const QString &name);

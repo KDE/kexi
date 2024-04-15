@@ -32,7 +32,7 @@ class KEXIEXTWIDGETS_EXPORT KexiPrjTypeSelector
     Q_OBJECT
 
 public:
-    explicit KexiPrjTypeSelector(QWidget* parent = 0);
+    explicit KexiPrjTypeSelector(QWidget* parent = nullptr);
     ~KexiPrjTypeSelector();
 
 public Q_SLOTS:

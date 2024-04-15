@@ -51,7 +51,7 @@ class KEXIMIGRATE_EXPORT ImportTableWizard : public KAssistantDialog
 {
 Q_OBJECT
     public:
-        explicit ImportTableWizard(KDbConnection* curDB, QWidget* parent = 0, QMap<QString, QString>* args = 0, Qt::WindowFlags flags = 0);
+        explicit ImportTableWizard(KDbConnection* curDB, QWidget* parent = nullptr, QMap<QString, QString>* args = 0, Qt::WindowFlags flags = 0);
         virtual ~ImportTableWizard( );
 
         virtual void back() override;

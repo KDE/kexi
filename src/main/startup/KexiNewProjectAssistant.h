@@ -44,7 +44,7 @@ class KexiTemplateSelectionPage : public KexiAssistantPage
 {
     Q_OBJECT
 public:
-    explicit KexiTemplateSelectionPage(QWidget* parent = 0);
+    explicit KexiTemplateSelectionPage(QWidget* parent = nullptr);
 
     QString selectedTemplate;
     QString selectedCategory;
@@ -60,7 +60,7 @@ class KexiProjectStorageTypeSelectionPage : public KexiAssistantPage,
 {
     Q_OBJECT
 public:
-    explicit KexiProjectStorageTypeSelectionPage(QWidget* parent = 0);
+    explicit KexiProjectStorageTypeSelectionPage(QWidget* parent = nullptr);
     virtual ~KexiProjectStorageTypeSelectionPage();
 
     enum class Type {
@@ -108,7 +108,7 @@ class KexiProjectCreationPage : public KexiAssistantPage
 {
     Q_OBJECT
 public:
-    explicit KexiProjectCreationPage(QWidget* parent = 0);
+    explicit KexiProjectCreationPage(QWidget* parent = nullptr);
     virtual ~KexiProjectCreationPage();
 
     QProgressBar* m_progressBar;
@@ -118,7 +118,7 @@ class KexiProjectConnectionSelectionPage : public KexiAssistantPage
 {
     Q_OBJECT
 public:
-    explicit KexiProjectConnectionSelectionPage(QWidget* parent = 0);
+    explicit KexiProjectConnectionSelectionPage(QWidget* parent = nullptr);
     virtual ~KexiProjectConnectionSelectionPage();
 
     KexiConnectionSelectorWidget* connSelector;
@@ -174,7 +174,7 @@ class KexiNewProjectAssistant : public KexiAssistantWidget,
 {
     Q_OBJECT
 public:
-    explicit KexiNewProjectAssistant(QWidget* parent = 0);
+    explicit KexiNewProjectAssistant(QWidget* parent = nullptr);
     ~KexiNewProjectAssistant();
 
 public Q_SLOTS:

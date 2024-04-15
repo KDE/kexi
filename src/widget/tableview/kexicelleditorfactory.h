@@ -55,7 +55,7 @@ public:
 
     /*! Creates a new editor for \a column. If \a parent is of QScrollArea, the new editor
      will be created inside parent->viewport() instead. */
-    static KexiTableEdit* createEditor(KDbTableViewColumn *column, QWidget* parent = 0);
+    static KexiTableEdit* createEditor(KDbTableViewColumn *column, QWidget* parent = nullptr);
 
 protected:
     static void init();
@@ -72,7 +72,7 @@ public:
     }
 
 protected:
-    virtual KexiTableEdit* createEditor(KDbTableViewColumn *column, QWidget* parent = 0) = 0;
+    virtual KexiTableEdit* createEditor(KDbTableViewColumn *column, QWidget* parent = nullptr) = 0;
 
     QString m_className;
     friend class KexiCellEditorFactory;

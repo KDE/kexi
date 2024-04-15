@@ -34,7 +34,7 @@ class KexiMainImportExportPage : public KexiAssistantPage,
     Q_OBJECT
 public:
     explicit KexiMainImportExportPage(KexiImportExportAssistant *assistant,
-                                      QWidget* parent = 0);
+                                      QWidget* parent = nullptr);
     ~KexiMainImportExportPage();
 };
 
@@ -45,7 +45,7 @@ public:
     KexiImportExportAssistant(
         const QAction *action_project_import_export_send_,
         const QAction *action_import_project_,
-        QWidget* parent = 0);
+        QWidget* parent = nullptr);
     virtual ~KexiImportExportAssistant();
 
     const QAction *action_project_import_export_send;

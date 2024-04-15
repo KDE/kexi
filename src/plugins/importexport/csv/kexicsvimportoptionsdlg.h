@@ -56,7 +56,7 @@ class KexiCSVImportOptionsDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit KexiCSVImportOptionsDialog(const KexiCSVImportOptions& options, QWidget* parent = 0);
+    explicit KexiCSVImportOptionsDialog(const KexiCSVImportOptions& options, QWidget* parent = nullptr);
     virtual ~KexiCSVImportOptionsDialog();
 
     KexiCSVImportOptions options() const;

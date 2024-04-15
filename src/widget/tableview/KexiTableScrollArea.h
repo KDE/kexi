@@ -153,7 +153,7 @@ public:
         QColor recordMouseOverAlternateHighlightingColor;
     };
 
-    explicit KexiTableScrollArea(KDbTableViewData* data = 0, QWidget* parent = 0);
+    explicit KexiTableScrollArea(KDbTableViewData* data = 0, QWidget* parent = nullptr);
 
     virtual ~KexiTableScrollArea();
 

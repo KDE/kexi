@@ -42,7 +42,7 @@ class KexiMainOpenProjectPage : public KexiAssistantPage
 {
     Q_OBJECT
 public:
-    explicit KexiMainOpenProjectPage(QWidget* parent = 0);
+    explicit KexiMainOpenProjectPage(QWidget* parent = nullptr);
     ~KexiMainOpenProjectPage();
 
     QTabWidget* tabWidget;
@@ -80,7 +80,7 @@ class KexiOpenProjectAssistant : public KexiAssistantWidget,
 {
     Q_OBJECT
 public:
-    explicit KexiOpenProjectAssistant(QWidget* parent = 0);
+    explicit KexiOpenProjectAssistant(QWidget* parent = nullptr);
     ~KexiOpenProjectAssistant();
 
 public Q_SLOTS:

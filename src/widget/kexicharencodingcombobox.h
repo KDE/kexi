@@ -34,7 +34,7 @@ class KEXIEXTWIDGETS_EXPORT KexiCharacterEncodingComboBox : public KComboBox
 public:
     //! Constructs a new combobox. \a selectedEncoding can be provided to preselect encoding.
     //! If it is not provided, default encoding is selected for current system settings.
-    explicit KexiCharacterEncodingComboBox(QWidget* parent = 0,
+    explicit KexiCharacterEncodingComboBox(QWidget* parent = nullptr,
                                            const QString& selectedEncoding = QString());
     ~KexiCharacterEncodingComboBox();
 

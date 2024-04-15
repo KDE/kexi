@@ -44,7 +44,7 @@ class KexiDBModule : public QObject
 {
     Q_OBJECT
 public:
-    Q_INVOKABLE explicit KexiDBModule(QObject* parent = 0);
+    Q_INVOKABLE explicit KexiDBModule(QObject* parent = nullptr);
     virtual ~KexiDBModule();
 
     /** Returns the version number the KexiDB module defines. */

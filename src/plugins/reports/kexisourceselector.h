@@ -38,7 +38,7 @@ class KexiSourceSelector : public QWidget
 {
     Q_OBJECT
 public:
-    explicit KexiSourceSelector(KexiProject* project, QWidget* parent = 0);
+    explicit KexiSourceSelector(KexiProject* project, QWidget* parent = nullptr);
     ~KexiSourceSelector();
 
     Q_REQUIRED_RESULT KReportDataSource *createDataSource() const;

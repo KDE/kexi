@@ -31,13 +31,13 @@ class KEXIUTILS_EXPORT KexiLinkButton : public QPushButton
 {
     Q_OBJECT
 public:
-    explicit KexiLinkButton(QWidget* parent = 0);
+    explicit KexiLinkButton(QWidget* parent = nullptr);
 
-    explicit KexiLinkButton(const QIcon &icon, QWidget* parent = 0);
+    explicit KexiLinkButton(const QIcon &icon, QWidget* parent = nullptr);
 
     explicit KexiLinkButton(const KGuiItem &item, QWidget *parent = 0);
 
-    explicit KexiLinkButton(const QPixmap &pixmap, QWidget* parent = 0);
+    explicit KexiLinkButton(const QPixmap &pixmap, QWidget* parent = nullptr);
 
     virtual ~KexiLinkButton();
 

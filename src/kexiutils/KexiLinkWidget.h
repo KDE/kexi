@@ -34,9 +34,9 @@ class KEXIUTILS_EXPORT KexiLinkWidget : public QLabel
     Q_PROPERTY(QString linkText READ linkText WRITE setLinkText)
     Q_PROPERTY(QString format READ format WRITE setFormat)
 public:
-    explicit KexiLinkWidget(QWidget* parent = 0);
+    explicit KexiLinkWidget(QWidget* parent = nullptr);
 
-    KexiLinkWidget(const QString& link, const QString& linkText, QWidget* parent = 0);
+    KexiLinkWidget(const QString& link, const QString& linkText, QWidget* parent = nullptr);
 
     virtual ~KexiLinkWidget();
 

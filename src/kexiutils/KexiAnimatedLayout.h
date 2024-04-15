@@ -32,7 +32,7 @@ class KEXIUTILS_EXPORT KexiAnimatedLayout : public QStackedLayout
 {
     Q_OBJECT
 public:
-    explicit KexiAnimatedLayout(QWidget* parent = 0);
+    explicit KexiAnimatedLayout(QWidget* parent = nullptr);
 
     ~KexiAnimatedLayout();
 

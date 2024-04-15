@@ -41,7 +41,7 @@ class KEXIDATATABLE_EXPORT KexiTableEdit : public QWidget, public KexiDataItemIn
     Q_OBJECT
 
 public:
-    explicit KexiTableEdit(KDbTableViewColumn *column, QWidget* parent = 0);
+    explicit KexiTableEdit(KDbTableViewColumn *column, QWidget* parent = nullptr);
 
     virtual ~KexiTableEdit();
 
@@ -209,7 +209,7 @@ private:
         virtual ~factoryclassname(); \
         \
     protected: \
-        virtual KexiTableEdit* createEditor(KDbTableViewColumn *column, QWidget* parent = 0) override; \
+        virtual KexiTableEdit* createEditor(KDbTableViewColumn *column, QWidget* parent = nullptr) override; \
     };
 
 //! Implementation of cell editor factory

@@ -42,7 +42,7 @@ class KEXIEXTWIDGETS_EXPORT KexiDBConnectionWidget
     Q_OBJECT
 
 public:
-    explicit KexiDBConnectionWidget(QWidget* parent = 0);
+    explicit KexiDBConnectionWidget(QWidget* parent = nullptr);
     virtual ~KexiDBConnectionWidget();
 
     /*! Sets project data \a data.
@@ -97,7 +97,7 @@ class KEXIEXTWIDGETS_EXPORT KexiDBConnectionWidgetDetails
 {
     Q_OBJECT
 public:
-    explicit KexiDBConnectionWidgetDetails(QWidget* parent = 0);
+    explicit KexiDBConnectionWidgetDetails(QWidget* parent = nullptr);
     ~KexiDBConnectionWidgetDetails();
 };
 
@@ -105,7 +105,7 @@ class KEXIEXTWIDGETS_EXPORT KexiDBConnectionTabWidget : public QTabWidget
 {
     Q_OBJECT
 public:
-    explicit KexiDBConnectionTabWidget(QWidget* parent = 0);
+    explicit KexiDBConnectionTabWidget(QWidget* parent = nullptr);
     virtual ~KexiDBConnectionTabWidget();
 
     /*! Sets connection data \a data.

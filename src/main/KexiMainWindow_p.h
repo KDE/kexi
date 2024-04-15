@@ -153,7 +153,7 @@ class EmptyMenuContentWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit EmptyMenuContentWidget(QWidget* parent = 0);
+    explicit EmptyMenuContentWidget(QWidget* parent = nullptr);
 
     void alterBackground();
 
@@ -180,7 +180,7 @@ class KexiMainMenu : public QWidget
 {
     Q_OBJECT
 public:
-    explicit KexiMainMenu(KexiTabbedToolBar *toolBar, QWidget* parent = 0);
+    explicit KexiMainMenu(KexiTabbedToolBar *toolBar, QWidget* parent = nullptr);
 
     ~KexiMainMenu();
 

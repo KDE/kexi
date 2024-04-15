@@ -28,7 +28,7 @@ class KexiWelcomeStatusBar : public QWidget
 {
     Q_OBJECT
 public:
-    explicit KexiWelcomeStatusBar(QWidget* parent = 0);
+    explicit KexiWelcomeStatusBar(QWidget* parent = nullptr);
     ~KexiWelcomeStatusBar();
 
     QPixmap userProgressPixmap();

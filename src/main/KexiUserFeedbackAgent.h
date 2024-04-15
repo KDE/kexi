@@ -30,7 +30,7 @@ class KexiUserFeedbackAgent : public QObject
     Q_OBJECT
 
 public:
-    explicit KexiUserFeedbackAgent(QObject* parent = 0);
+    explicit KexiUserFeedbackAgent(QObject* parent = nullptr);
 
     ~KexiUserFeedbackAgent();
 

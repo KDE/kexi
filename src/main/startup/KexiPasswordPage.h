@@ -29,8 +29,8 @@ class KexiPasswordPage : public KexiAssistantPage
 {
     Q_OBJECT
 public:
-    explicit KexiPasswordPage(const QString &title, QWidget* parent = 0);
-    explicit KexiPasswordPage(QWidget* parent = 0);
+    explicit KexiPasswordPage(const QString &title, QWidget* parent = nullptr);
+    explicit KexiPasswordPage(QWidget* parent = nullptr);
     virtual ~KexiPasswordPage();
 
     /**

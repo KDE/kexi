@@ -51,12 +51,12 @@ public:
     };
     Q_ENUM(GroupPosition)
 
-    explicit KexiGroupButton(GroupPosition position, QWidget* parent = 0);
+    explicit KexiGroupButton(GroupPosition position, QWidget* parent = nullptr);
 
     /**
      * Creates button with no NoGroup position.
      */
-    explicit KexiGroupButton(QWidget* parent = 0);
+    explicit KexiGroupButton(QWidget* parent = nullptr);
 
     virtual ~KexiGroupButton();
 

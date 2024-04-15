@@ -34,7 +34,7 @@ class KEXIEXTWIDGETS_EXPORT KexiSectionHeader : public QWidget
     Q_OBJECT
 public:
     KexiSectionHeader(const QString &caption, Qt::Orientation o,
-                      QWidget* parent = 0);
+                      QWidget* parent = nullptr);
 
     virtual ~KexiSectionHeader();
 

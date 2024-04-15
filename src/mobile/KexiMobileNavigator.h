@@ -34,7 +34,7 @@ class KexiMobileNavigator : public QWidget
 {
     Q_OBJECT
 public:
-    explicit KexiMobileNavigator(QWidget* parent = 0, Qt::WindowFlags f = {});
+    explicit KexiMobileNavigator(QWidget* parent = nullptr, Qt::WindowFlags f = {});
     virtual ~KexiMobileNavigator();
 
     void setProject(KexiProject*);

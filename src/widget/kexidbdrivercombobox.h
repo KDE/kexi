@@ -44,7 +44,7 @@ public:
         If @a options include ShowFileDrivers, file-based drivers are included.
         If @a options include ShowServerDrivers, setver-based drivers are included.
     */
-    explicit KexiDBDriverComboBox(QWidget* parent = 0,
+    explicit KexiDBDriverComboBox(QWidget* parent = nullptr,
                                   Options options = ShowAllDrivers);
 
     ~KexiDBDriverComboBox();

@@ -31,7 +31,7 @@ class KEXIUTILS_EXPORT KexiAssistantWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit KexiAssistantWidget(QWidget* parent = 0);
+    explicit KexiAssistantWidget(QWidget* parent = nullptr);
     ~KexiAssistantWidget();
 
     void addPage(KexiAssistantPage* page);

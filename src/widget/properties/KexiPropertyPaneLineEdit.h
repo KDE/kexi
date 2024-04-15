@@ -30,7 +30,7 @@ class KEXIEXTWIDGETS_EXPORT KexiPropertyPaneLineEdit : public QLineEdit
 {
     Q_OBJECT
 public:
-    explicit KexiPropertyPaneLineEdit(QWidget* parent = 0);
+    explicit KexiPropertyPaneLineEdit(QWidget* parent = nullptr);
     virtual ~KexiPropertyPaneLineEdit();
 
     void setReadOnly(bool set);

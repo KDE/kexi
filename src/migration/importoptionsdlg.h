@@ -36,7 +36,7 @@ class OptionsDialog : public QDialog
     Q_OBJECT
 public:
     OptionsDialog(const QString& databaseFile, const QString& selectedEncoding,
-                  QWidget* parent = 0);
+                  QWidget* parent = nullptr);
     virtual ~OptionsDialog();
 
     KexiCharacterEncodingComboBox* encodingComboBox() const;

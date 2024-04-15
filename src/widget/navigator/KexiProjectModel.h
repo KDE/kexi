@@ -35,7 +35,7 @@ class KEXIEXTWIDGETS_EXPORT KexiProjectModel : public QAbstractItemModel, public
 {
     Q_OBJECT
 public:
-    explicit KexiProjectModel(QObject* parent = 0);
+    explicit KexiProjectModel(QObject* parent = nullptr);
     virtual ~KexiProjectModel();
 
     enum ExtraRoles {
