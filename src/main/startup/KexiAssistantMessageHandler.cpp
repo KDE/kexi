@@ -75,7 +75,7 @@ void KexiAssistantMessageHandler::showErrorMessage(KDbMessageHandler::MessageTyp
                          dynamic_cast<QWidget*>(this), SLOT(tryAgainActionTriggered()));
     }
     if (!d->messageWidgetActionNo) {
-        d->messageWidgetActionNo = new QAction(KStandardGuiItem::no().text(), dynamic_cast<QWidget*>(this));
+        d->messageWidgetActionNo = new QAction(KStandardGuiItem::cancel().text(), dynamic_cast<QWidget*>(this));
         QObject::connect(d->messageWidgetActionNo, SIGNAL(triggered()),
                          dynamic_cast<QWidget*>(this), SLOT(cancelActionTriggered()));
     }

@@ -447,7 +447,7 @@ tristate KexiWindow::switchToViewMode(
             KGuiItem dontSaveItem(KStandardGuiItem::dontSave());
             KGuiItem cancelItem(KStandardGuiItem::cancel());
             cancelItem.setText(xi18n("Do Not Switch"));
-            const int res = KMessageBox::questionYesNoCancel(
+            const int res = KMessageBox::questionTwoActionsCancel(
                 selectedView(),
                 xi18nc("@info",
                        "<para>There are unsaved changes in object <resource>%1</resource>.</para>"
@@ -456,7 +456,7 @@ tristate KexiWindow::switchToViewMode(
                        partItem()->captionOrName()),
                 xi18n("Confirm Saving Changes"), saveItem, dontSaveItem, cancelItem, QString(),
                 KMessageBox::Notify | KMessageBox::Dangerous);
-            if (res == KMessageBox::Yes) {
+            if (res == KMessageBox::PrimaryAction) {
                 if (true != view->saveDataChanges())
                     return cancelled;
             }
@@ -482,7 +482,7 @@ tristate KexiWindow::switchToViewMode(
                     "You must save it before switching to other view."));
             if (~res || !res)
                 return res;
-//   KMessageBox::questionYesNo(0, xi18n("Design has been changed. You must save it before switching to other view."))
+//   KMessageBox::questionTwoActions(0, xi18n("Design has been changed. You must save it before switching to other view."))
 //    ==KMessageBox::No
         }
     }

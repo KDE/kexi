@@ -362,7 +362,7 @@ void KEXI_UNFINISHED(const QString& feature_name, const QString& extra_text)
     KEXI_UNFINISHED_INTERNAL(feature_name, extra_text, &line1, &line2);
     if (!line2.isEmpty())
         line2.prepend("\n");
-    KMessageBox::sorry(0, line1 + line2);
+    KMessageBox::error(0, line1 + line2);
 }
 
 QLabel *KEXI_UNFINISHED_LABEL(const QString& feature_name, const QString& extra_text)

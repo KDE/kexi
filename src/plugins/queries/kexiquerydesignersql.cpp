@@ -234,7 +234,7 @@ tristate KexiQueryDesignerSqlView::beforeSwitchTo(Kexi::ViewMode mode, bool *don
                                            "<para>Do you want discard changes made to this SQL "
                                            "text and switch to the other view?</para>"),
                                QString(), KGuiItem(xi18n("Discard Changes and Switch"),
-                                                   KStandardGuiItem::yes().iconName()),
+                                                   KStandardGuiItem::ok().iconName()),
                                KGuiItem(xi18n("Don't Switch"),
                                         KStandardGuiItem::cancel().iconName())))
                     {
@@ -408,8 +408,8 @@ KDbObject* KexiQueryDesignerSqlView::storeNewData(const KDbObject& object,
             query = new KDbObject(); //just empty
         }
     } else { // the query is not ok
-        if (KMessageBox::Yes
-            != KMessageBox::questionYesNo(
+        if (KMessageBox::PrimaryAction
+            != KMessageBox::questionTwoActions(
                    this, xi18nc("@info", "<para>This query is invalid.</para>"
                                "<para>Do you want to save it?</para>"),
                    0, KStandardGuiItem::save(),

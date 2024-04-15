@@ -156,8 +156,8 @@ void KexiImageContextMenu::saveAs()
     //qDebug() << url;
     QFile f(url.toLocalFile());
     if (f.exists()
-        && KMessageBox::Yes
-            != KMessageBox::warningYesNo(
+        && KMessageBox::PrimaryAction
+            != KMessageBox::warningTwoActions(
                    this, xi18nc("@info", "<para>File <filename>%1</filename> already exists.</para>"
                                          "<para>Do you want to replace it with a new one?</para>",
                                 QDir::toNativeSeparators(url.toString())),

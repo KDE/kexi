@@ -428,11 +428,11 @@ ConnectionDialog::removeItem()
     if (d->table->currentRow() == -1 || d->table->currentRow() >= d->table->rows())
         return;
 
-    if (KMessageBox::Yes != KMessageBox::questionYesNo(parentWidget(),
+    if (KMessageBox::PrimaryAction != KMessageBox::questionTwoActions(parentWidget(),
               xi18n("Do you want to delete this connection?"),
               QString(),
               KGuiItem(xi18nc("@action:button", "&Delete Connection")),
-              KStandardGuiItem::no(),
+              KStandardGuiItem::cancel(),
               "AskBeforeDeleteConnection"/*config entry*/,
               KMessageBox::Notify | KMessageBox::Dangerous))
     {

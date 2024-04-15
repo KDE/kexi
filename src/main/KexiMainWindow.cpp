@@ -1451,7 +1451,7 @@ tristate KexiMainWindow::openProject(const KexiProjectData& projectData)
     }
     else if (!res) {
         if (incompatibleWithKexi) {
-            if (KMessageBox::Yes == KMessageBox::questionYesNo(this,
+            if (KMessageBox::PrimaryAction == KMessageBox::questionTwoActions(this,
                     xi18nc("@info (don't add tags around %1, it's done already)",
                            "Database project %1 does not appear to have been created using "
                            "<application>%2</application>.<nl/>"
@@ -3136,7 +3136,7 @@ tristate KexiMainWindow::closeWindow(KexiWindow *window, bool layoutTaskBar, boo
         if (!additionalMessageString.isEmpty())
             additionalMessageString = "<p>" + additionalMessageString + "</p>";
 
-        const KMessageBox::ButtonCode questionRes = KMessageBox::warningYesNoCancel(this,
+        const KMessageBox::ButtonCode questionRes = KMessageBox::warningTwoActionsCancel(this,
                                 "<p>"
                                 + window->part()->i18nMessage("Design of object <resource>%1</resource> has been modified.", window)
                                 .subs(window->partItem()->name()).toString()
@@ -3153,7 +3153,7 @@ tristate KexiMainWindow::closeWindow(KexiWindow *window, bool layoutTaskBar, boo
             d->windowsToClose.clear(); //give up with 'close all'
             return cancelled;
         }
-        if (questionRes == KMessageBox::Yes) {
+        if (questionRes == KMessageBox::PrimaryAction) {
             //save it
             tristate res = saveObject(window, QString(), DoNotAsk);
             if (!res || ~res) {
@@ -3562,7 +3562,7 @@ tristate KexiMainWindow::removeObject(KexiPart::Item *item, bool dontAsk)
         return false;
 
     if (!dontAsk) {
-        if (KMessageBox::No == KMessageBox::questionYesNo(this,
+        if (KMessageBox::SecondaryAction == KMessageBox::questionTwoActions(this,
                 xi18nc("@info Delete <objecttype> <objectname>?",
                       "<para>Do you want to permanently delete the following object?<nl/>"
                       "<nl/>%1 <resource>%2</resource></para>"
@@ -3572,7 +3572,7 @@ tristate KexiMainWindow::removeObject(KexiPart::Item *item, bool dontAsk)
                 xi18nc("@title:window Delete Object %1.",
                       "Delete <resource>%1</resource>?", item->name()),
                 KStandardGuiItem::del(),
-                KStandardGuiItem::no(), QString(), KMessageBox::Notify | KMessageBox::Dangerous))
+                KStandardGuiItem::cancel(), QString(), KMessageBox::Notify | KMessageBox::Dangerous))
         {
             return cancelled;
         }
@@ -3651,9 +3651,9 @@ void KexiMainWindow::renameObject(KexiPart::Item *item, const QString& _newName,
                             item->name());
         KGuiItem closeAndRenameItem(KStandardGuiItem::closeWindow());
         closeAndRenameItem.setText(xi18n("Close Window and Rename"));
-        const int r = KMessageBox::questionYesNo(this, msg, QString(), closeAndRenameItem,
+        const int r = KMessageBox::questionTwoActions(this, msg, QString(), closeAndRenameItem,
                                            KStandardGuiItem::cancel());
-        if (r != KMessageBox::Yes) {
+        if (r != KMessageBox::PrimaryAction) {
             *success = false;
             return;
         }
@@ -3874,7 +3874,7 @@ void KexiMainWindow::slotToolsCompactDatabase()
 
         KGuiItem yesItem(KStandardGuiItem::cont());
         yesItem.setText(xi18nc("@action:button Compact database", "Compact"));
-        if (KMessageBox::Yes != KMessageBox::questionYesNo(this,
+        if (KMessageBox::PrimaryAction != KMessageBox::questionTwoActions(this,
                 xi18n("The current project has to be closed before compacting the database. "
                      "It will be open again after compacting.\n\nDo you want to continue?"),
                 QString(), yesItem, KStandardGuiItem::cancel()))
@@ -4009,7 +4009,7 @@ bool KexiMainWindow::checkForDirtyFlagOnExport(KexiPart::Item *item, QMap<QStrin
 
 tristate KexiMainWindow::askOnExportingChangedQuery(KexiPart::Item *item) const
 {
-    const KMessageBox::ButtonCode result = KMessageBox::warningYesNoCancel(const_cast<KexiMainWindow*>(this),
+    const KMessageBox::ButtonCode result = KMessageBox::warningTwoActionsCancel(const_cast<KexiMainWindow*>(this),
         xi18nc("@info", "Design of query <resource>%1</resource> that you want to export data"
                                          " from is changed and has not yet been saved. Do you want to use data"
                                          " from the changed query for exporting or from its original (saved)"
@@ -4020,7 +4020,7 @@ tristate KexiMainWindow::askOnExportingChangedQuery(KexiPart::Item *item) const
         KStandardGuiItem::cancel(),
         QString(),
         KMessageBox::Notify | KMessageBox::Dangerous);
-    if (result == KMessageBox::Yes) {
+    if (result == KMessageBox::PrimaryAction) {
         return true;
     } else if (result == KMessageBox::No) {
         return false;
@@ -4141,7 +4141,7 @@ tristate KexiMainWindow::printActionForItem(KexiPart::Item* item, PrintActionTyp
             saveChanges.setWhatsThis(
                 futureI18n("Pressing this button will save all recent changes made in \"%1\" object.",
                      item->name()));
-            KGuiItem doNotSave(KStandardGuiItem::no());
+            KGuiItem doNotSave(KStandardGuiItem::cancel());
             doNotSave.setWhatsThis(
                 futureI18n("Pressing this button will ignore all unsaved changes made in \"%1\" object.",
                      window->partItem()->name()));
@@ -4156,7 +4156,7 @@ tristate KexiMainWindow::printActionForItem(KexiPart::Item* item, PrintActionTyp
             else
                 return false;
 
-            const KMessageBox::ButtonCode questionRes = KMessageBox::warningYesNoCancel(this,
+            const KMessageBox::ButtonCode questionRes = KMessageBox::warningTwoActionsCancel(this,
                                     "<p>"
                                     + window->part()->i18nMessage("Design of object <resource>%1</resource> has been modified.", window)
                                     .subs(item->name())
@@ -4166,7 +4166,7 @@ tristate KexiMainWindow::printActionForItem(KexiPart::Item* item, PrintActionTyp
                                     doNotSave);
             if (KMessageBox::Cancel == questionRes)
                 return cancelled;
-            if (KMessageBox::Yes == questionRes) {
+            if (KMessageBox::PrimaryAction == questionRes) {
                 tristate savingRes = saveObject(window, QString(), DoNotAsk);
                 if (true != savingRes)
                     return savingRes;

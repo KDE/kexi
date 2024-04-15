@@ -872,13 +872,13 @@ tristate ImportWizard::import()
 
     if (sourceDriver && !result.error() && acceptingNeeded) {
         // ok, the destination-db already exists...
-        if (KMessageBox::Yes != KMessageBox::warningYesNo(this,
+        if (KMessageBox::PrimaryAction != KMessageBox::warningTwoActions(this,
                         xi18nc("@info (don't add tags around %1, it's done already)",
                                "<para>Database %1 already exists.</para>"
                                "<para>Do you want to replace it with a new one?</para>",
                                KexiUtils::localizedStringToHtmlSubstring(
                                    sourceDriver->data()->destinationProjectData()->infoString())),
-                0, KGuiItem(xi18nc("@action:button Replace Database", "&Replace")), KStandardGuiItem::no()))
+                0, KGuiItem(xi18nc("@action:button Replace Database", "&Replace")), KStandardGuiItem::discard()))
         {
             return cancelled;
         }
@@ -948,13 +948,13 @@ void ImportWizard::next()
         if (fileBasedSrcSelected()
                 && /*! @todo use QUrl? */!QFileInfo(selectedSourceFileName()).isFile()) {
 
-            KMessageBox::sorry(this, xi18n("Select source database filename."));
+            KMessageBox::error(this, xi18n("Select source database filename."));
             return;
         }
 
         KDbConnectionData* conndata = d->srcConn->selectedConnectionData();
         if (!fileBasedSrcSelected() && !conndata) {
-            KMessageBox::sorry(this, xi18n("Select source database."));
+            KMessageBox::error(this, xi18n("Select source database."));
             return;
         }
 

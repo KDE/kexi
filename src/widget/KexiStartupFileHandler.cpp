@@ -485,7 +485,7 @@ bool KexiStartupFileHandler::askForOverwriting(const QString& filePath)
     connect(messageWidgetActionYes.data(), SIGNAL(triggered()),
             this, SLOT(messageWidgetActionYesTriggered()));
     message.addAction(messageWidgetActionYes.data());
-    QScopedPointer<QAction> messageWidgetActionNo(new QAction(KStandardGuiItem::no().text(), 0));
+    QScopedPointer<QAction> messageWidgetActionNo(new QAction(KStandardGuiItem::cancel().text(), 0));
     connect(messageWidgetActionNo.data(), SIGNAL(triggered()),
             this, SLOT(messageWidgetActionNoTriggered()));
     message.addAction(messageWidgetActionNo.data());

@@ -386,7 +386,7 @@ KexiProjectDatabaseNameSelectionPage::KexiProjectDatabaseNameSelectionPage(
 {
     m_projectDataToOverwrite = 0;
     m_messageWidgetActionYes = 0;
-    m_messageWidgetActionNo = new QAction(KStandardGuiItem::no().text(), this);
+    m_messageWidgetActionNo = new QAction(KStandardGuiItem::cancel().text(), this);
     setBackButtonVisible(true);
     setNextButtonVisible(true);
     nextButton()->setLinkText(xi18n("Create"));
@@ -512,7 +512,7 @@ bool KexiProjectDatabaseNameSelectionPage::isAcceptable()
                 connect(m_messageWidgetActionYes, SIGNAL(triggered()),
                         this, SLOT(overwriteActionTriggered()));
             }
-            m_messageWidgetActionNo->setText(KStandardGuiItem::no().text());
+            m_messageWidgetActionNo->setText(KStandardGuiItem::cancel().text());
             message.addAction(m_messageWidgetActionYes);
             message.setDefaultAction(m_messageWidgetActionNo);
             message.addAction(m_messageWidgetActionNo);

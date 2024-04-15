@@ -303,7 +303,7 @@ KexiProject::openInternal(bool *incompatibleWithKexi)
     if (!d->data->connectionData()->databaseName().isEmpty()) {
         QFileInfo finfo(d->data->connectionData()->databaseName());
         if (!finfo.exists()) {
-            KMessageBox::sorry(0, xi18nc("@info", "Could not open project. "
+            KMessageBox::error(nullptr, xi18nc("@info", "Could not open project. "
                                          "The project file <filename>%1</filename> does not exist.",
                                          QDir::toNativeSeparators(finfo.absoluteFilePath())),
                                          xi18nc("@title:window", "Could Not Open File"));
@@ -1208,7 +1208,7 @@ KexiProject::createBlankProject(bool *cancelled, const KexiProjectData& data,
     tristate res = prj->create(false);
     if (~res) {
 //! @todo move to KexiMessageHandler
-        if (KMessageBox::Yes != KMessageBox::warningYesNo(0,
+        if (KMessageBox::PrimaryAction != KMessageBox::warningTwoActions(nullptr,
             xi18nc("@info (don't add tags around %1, it's done already)",
                    "<para>The project %1 already exists.</para>"
                    "<para>Do you want to replace it with a new, blank one?</para>"
@@ -1238,14 +1238,14 @@ KexiProject::createBlankProject(bool *cancelled, const KexiProjectData& data,
 tristate KexiProject::dropProject(const KexiProjectData& data,
                                   KDbMessageHandler* handler, bool dontAsk)
 {
-    if (!dontAsk && KMessageBox::Yes != KMessageBox::questionYesNo(0,
+    if (!dontAsk && KMessageBox::PrimaryAction != KMessageBox::questionTwoActions(nullptr,
             xi18nc("@info",
                    "<para>Do you want to delete the project <resource>%1</resource>?</para>"
                    "<para><warning>%2</warning></para>",
                    static_cast<const KDbObject*>(&data)->name(),
                    i18n(warningNoUndo)),
                  QString(), KGuiItem(xi18nc("@action:button", "Delete Project"), koIconName("edit-delete")),
-                 KStandardGuiItem::no(), QString(),
+                 KStandardGuiItem::cancel(), QString(),
                  KMessageBox::Notify | KMessageBox::Dangerous))
     {
         return cancelled;
@@ -1505,9 +1505,7 @@ bool KexiProject::removeUserDataBlock(int objectID, const QString& dataID)
         {
             m_result = d->connection->result();
             return false;
-        }
-    else
-        if (!KDb::deleteRecords(d->connection, "kexi__userdata",
+        } else if (!KDb::deleteRecords(d->connection, "kexi__userdata",
                                "o_id", KDbField::Integer, objectID,
                                "d_user", KDbField::Text, d->userName(),
                                "d_sub_id", KDbField::Text, dataID))
@@ -1524,7 +1522,7 @@ bool KexiProject::askForOpeningNonWritableFileAsReadOnly(QWidget *parent, const 
 {
     KGuiItem openItem(KStandardGuiItem::open());
     openItem.setText(xi18n("Open As Read Only"));
-    return KMessageBox::Yes == KMessageBox::questionYesNo(
+    return KMessageBox::PrimaryAction == KMessageBox::questionTwoActions(
             parent, xi18nc("@info",
                           "<para>Could not open file <filename>%1</filename> for reading and writing.</para>"
                           "<para>Do you want to open the file as read only?</para>",

@@ -554,14 +554,14 @@ tristate KexiTableDesignerView::beforeSwitchTo(Kexi::ViewMode mode, bool *dontSt
     tristate res = true;
     if (mode == Kexi::DataViewMode) {
         if (!isDirty() && window()->neverSaved()) {
-            KMessageBox::sorry(this,
+            KMessageBox::error(this,
                                xi18n("Cannot switch to data view, because table design is empty.\n"
                                     "First, please create your design."));
             return cancelled;
         }
 //<temporary>
         else if (isDirty() && !window()->neverSaved()) {
-//   cancelled = (KMessageBox::No == KMessageBox::questionYesNo(this, xi18n("Saving changes for existing table design is not yet supported.\nDo you want to discard your changes now?")));
+//   cancelled = (KMessageBox::No == KMessageBox::questionTwoActions(this, xi18n("Saving changes for existing table design is not yet supported.\nDo you want to discard your changes now?")));
 //   KDbConnection *conn = KexiMainWindowIface::global()->project()->dbConnection();
             bool emptyTable;
             bool isPhysicalAlteringNeeded = this->isPhysicalAlteringNeeded();
@@ -579,7 +579,7 @@ tristate KexiTableDesignerView::beforeSwitchTo(Kexi::ViewMode mode, bool *dontSt
                 saveItem.setText(xi18nc("@action:button", "Save Design and Delete Table Data"));
                 discardItem.setText(xi18nc("@action:button", "Discard Design"));
             }
-            const KMessageBox::ButtonCode r = KMessageBox::warningYesNoCancel(this,
+            const KMessageBox::ButtonCode r = KMessageBox::warningTwoActionsCancel(this,
                 message.toString(),
                 QString(),
                 saveItem, discardItem, KStandardGuiItem::cancel(),
@@ -589,7 +589,7 @@ tristate KexiTableDesignerView::beforeSwitchTo(Kexi::ViewMode mode, bool *dontSt
                 res = cancelled;
             else
                 res = true;
-            *dontStore = (r != KMessageBox::Yes);
+            *dontStore = (r != KMessageBox::PrimaryAction);
             if (!*dontStore)
                 d->dontAskOnStoreData = true;
         }
@@ -898,7 +898,7 @@ void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& pr
             msg += xi18nc("@info", "<para>Do you want to create primary key for current field? "
                         "Click <interface>Cancel</interface> to cancel setting autonumber.</para>");
 
-            if (KMessageBox::Yes == KMessageBox::questionYesNo(this, msg,
+            if (KMessageBox::PrimaryAction == KMessageBox::questionTwoActions(this, msg,
                 xi18n("Setting Autonumber Field"),
                 KGuiItem(xi18nc("@action:button", "Create &Primary Key"), KexiIconName("database-key")), KStandardGuiItem::cancel()))
             {
@@ -950,7 +950,7 @@ void KexiTableDesignerView::slotPropertyChanged(KPropertySet& set, KProperty& pr
                 && property.value().toString() != KDbField::typeString(KDbField::BigInteger))
         {
             qDebug() << "INVALID" << property.value().toString();
-//   if (KMessageBox::Yes == KMessageBox::questionYesNo(this, msg,
+//   if (KMessageBox::PrimaryAction == KMessageBox::questionTwoActions(this, msg,
 //    xi18n("This field has primary key assigned. Setting autonumber field"),
 //    KGuiItem(xi18nc("@action:button", "Create &Primary Key"), KexiIconName("database-key")), KStandardGuiItem::cancel() ))
         }
@@ -1156,7 +1156,7 @@ tristate KexiTableDesignerView::buildSchema(KDbTableSchema &schema, bool beSilen
         if (beSilent) {
             qWarning() << "no field defined...";
         } else {
-            KMessageBox::sorry(this,
+            KMessageBox::error(this,
                 xi18n("You have added no fields.\nEvery table should have at least one field."));
         }
         return cancelled;
@@ -1171,7 +1171,7 @@ tristate KexiTableDesignerView::buildSchema(KDbTableSchema &schema, bool beSilen
             d->view->setCursorPosition(i, COLUMN_ID_CAPTION);
             d->view->startEditCurrentCell();
 //! @todo for "names hidden" mode we won't get this error because user is unable to change names
-            KMessageBox::sorry(this,
+            KMessageBox::error(this,
             xi18nc("@info",
                "<para>You have added <resource>%1</resource> field name twice.</para>"
                "<para>Field names cannot be repeated. Correct name of the field.</para>",
@@ -1185,7 +1185,7 @@ tristate KexiTableDesignerView::buildSchema(KDbTableSchema &schema, bool beSilen
         if (beSilent) {
             //qDebug() << "no primay key defined...";
         } else {
-            const int questionRes = KMessageBox::questionYesNoCancel(this,
+            const int questionRes = KMessageBox::questionTwoActionsCancel(this,
                 xi18nc("@info",
                      "Table <resource>%1</resource> has no primary key defined."
                      "<para><note>Although a primary key is not required, it is needed "
@@ -1195,13 +1195,13 @@ tristate KexiTableDesignerView::buildSchema(KDbTableSchema &schema, bool beSilen
                      "to cancel saving table design.</para>", schema.name()),
                 QString(),
                 KGuiItem(xi18nc("@action:button Add Database Primary Key to a Table", "&Add Primary Key"), KexiIconName("database-key")),
-                KGuiItem(xi18nc("@action:button Do Not Add Database Primary Key to a Table", "Do &Not Add"), KStandardGuiItem::no().icon()),
+                KGuiItem(xi18nc("@action:button Do Not Add Database Primary Key to a Table", "Do &Not Add"), KStandardGuiItem::cancel().icon()),
                 KStandardGuiItem::cancel(),
                 "autogeneratePrimaryKeysOnTableDesignSaving");
             if (questionRes == KMessageBox::Cancel) {
                 return cancelled;
             }
-            else if (questionRes == KMessageBox::Yes) {
+            else if (questionRes == KMessageBox::PrimaryAction) {
                 //-find unique name, starting with, "id", "id2", ....
                 int i = 0;
                 int idIndex = 1; //means "id"
@@ -1442,7 +1442,7 @@ tristate KexiTableDesignerView::storeData(bool dontAsk)
                 bool emptyTable;
                 const QString msg = d->messageForSavingChanges(&emptyTable).toString();
                 if (!emptyTable) {
-                    if (KMessageBox::No == KMessageBox::questionYesNo(
+                    if (KMessageBox::SecondaryAction == KMessageBox::questionTwoActions(
                                                this, msg, QString(), KStandardGuiItem::save(),
                                                KStandardGuiItem::dontSave(), QString(),
                                                KMessageBox::Notify | KMessageBox::Dangerous))

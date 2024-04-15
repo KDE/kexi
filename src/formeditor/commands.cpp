@@ -952,7 +952,7 @@ void InsertWidgetCommand::execute()
     if (!w) {
         d->form->abortWidgetInserting();
         WidgetInfo *winfo = d->form->library()->widgetInfoForClassName(d->_class);
-        KMessageBox::sorry(d->form ? d->form->widget() : 0,
+        KMessageBox::error(d->form ? d->form->widget() : 0,
                            xi18nc("@info",
                                   "Could not insert widget of type <resource>%1</resource>. "
                                   "A problem with widget's creation encountered.",

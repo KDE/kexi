@@ -276,12 +276,12 @@ QString KexiNameWidget::originalNameText() const
 bool KexiNameWidget::checkValidity()
 {
     if (isNameRequired() && d->le_name->text().trimmed().isEmpty()) {
-        KMessageBox::sorry(0, d->nameWarning);
+        KMessageBox::error(0, d->nameWarning);
         d->le_name->setFocus();
         return false;
     }
     if (isCaptionRequired() && d->le_caption->text().trimmed().isEmpty()) {
-        KMessageBox::sorry(0, d->captionWarning);
+        KMessageBox::error(0, d->captionWarning);
         d->le_caption->setFocus();
         return false;
     }
@@ -289,7 +289,7 @@ bool KexiNameWidget::checkValidity()
     if (d->validator->check(dummy, d->le_name->text(), &message, &details)
             == KDbValidator::Error)
     {
-        KMessageBox::detailedSorry(0, message, details);
+        KMessageBox::detailedError(0, message, details);
         d->le_name->setFocus();
         return false;
     }

@@ -750,7 +750,7 @@ void Form::changeName(const QByteArray &oldname, const QByteArray &newname)
         d->resizeHandles.insert(newname, temp);
     }
     else { // rename failed
-        KMessageBox::sorry(widget()->topLevelWidget(),
+        KMessageBox::error(widget()->topLevelWidget(),
                            xi18nc("@info",
                                   "Renaming widget <resource>%1</resource> to <resource>%2</resource> failed.",
                                   QString::fromLatin1(oldname), QString::fromLatin1(newname)));
@@ -1310,13 +1310,13 @@ bool Form::checkNameValidity(const QString &name, CheckValidityMode mode) const
 
     if (name.isEmpty()) {
         if (mode == CheckValidityShowMessages) {
-            KMessageBox::sorry(widget(), xi18n("Widget name could not be empty."));
+            KMessageBox::error(widget(), xi18n("Widget name could not be empty."));
         }
         return false;
     }
     if (!KDb::isIdentifier(name)) {
         if (mode == CheckValidityShowMessages) {
-            KMessageBox::sorry(widget(),
+            KMessageBox::error(widget(),
                                xi18nc("@info",
                                       "Could not rename widget <resource>%1</resource> to "
                                       "<resource>%2</resource> because "
@@ -1327,7 +1327,7 @@ bool Form::checkNameValidity(const QString &name, CheckValidityMode mode) const
     }
     if (name != w->objectName() && objectTree()->lookup(name)) {
         if (mode == CheckValidityShowMessages) {
-            KMessageBox::sorry(widget(),
+            KMessageBox::error(widget(),
                                xi18nc("@info",
                                       "Could not rename widget <resource>%1</resource> to <resource>%2</resource> "
                                       "because a widget with the name <resource>%3</resource> already exists.",

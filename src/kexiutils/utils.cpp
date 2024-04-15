@@ -360,13 +360,13 @@ bool KexiUtils::askForFileOverwriting(const QString& filePath, QWidget *parent)
     if (!fi.exists()) {
         return true;
     }
-    const KMessageBox::ButtonCode res = KMessageBox::warningYesNo(parent,
+    const KMessageBox::ButtonCode res = KMessageBox::warningTwoActions(parent,
                     xi18nc("@info", "<para>The file <filename>%1</filename> already exists.</para>"
                            "<para>Do you want to overwrite it?</para>",
                            QDir::toNativeSeparators(filePath)),
                     QString(),
-                    KStandardGuiItem::overwrite(), KStandardGuiItem::no());
-    return res == KMessageBox::Yes;
+                    KStandardGuiItem::overwrite(), KStandardGuiItem::cancel());
+    return res == KMessageBox::PrimaryAction;
 }
 
 QColor KexiUtils::blendedColors(const QColor& c1, const QColor& c2, int factor1, int factor2)
@@ -758,13 +758,13 @@ tristate KexiUtils::openHyperLink(const QUrl &url, QWidget *parent, const OpenHy
     if (url.isLocalFile()) {
         QFileInfo fileInfo(url.toLocalFile());
         if (!fileInfo.exists()) {
-            KMessageBox::sorry(parent, xi18nc("@info", "The file or directory <filename>%1</filename> does not exist.", fileInfo.absoluteFilePath()));
+            KMessageBox::error(parent, xi18nc("@info", "The file or directory <filename>%1</filename> does not exist.", fileInfo.absoluteFilePath()));
             return false;
         }
     }
 
     if (!url.isValid()) {
-        KMessageBox::sorry(parent, xi18nc("@info", "Invalid hyperlink <link>%1</link>.",
+        KMessageBox::error(parent, xi18nc("@info", "Invalid hyperlink <link>%1</link>.",
                                           url.url(QUrl::PreferLocalFile)));
         return false;
     }
@@ -773,27 +773,27 @@ tristate KexiUtils::openHyperLink(const QUrl &url, QWidget *parent, const OpenHy
     QString type = db.mimeTypeForUrl(url).name();
 
     if (!options.allowExecutable && KRun::isExecutableFile(url, type)) {
-        KMessageBox::sorry(parent, xi18nc("@info", "Executable <link>%1</link> not allowed.",
+        KMessageBox::error(parent, xi18nc("@info", "Executable <link>%1</link> not allowed.",
                                           url.url(QUrl::PreferLocalFile)));
         return false;
     }
 
     if (!options.allowRemote && !url.isLocalFile()) {
-        KMessageBox::sorry(parent, xi18nc("@info", "Remote hyperlink <link>%1</link> not allowed.",
+        KMessageBox::error(parent, xi18nc("@info", "Remote hyperlink <link>%1</link> not allowed.",
                                           url.url(QUrl::PreferLocalFile)));
         return false;
     }
 
     if (KRun::isExecutableFile(url, type)) {
-        int ret = KMessageBox::questionYesNo(parent
+        int ret = KMessageBox::questionTwoActions(parent
                     , xi18nc("@info", "Do you want to run this file?"
                             "<warning>Running executables can be dangerous.</warning>")
                     , QString()
                     , KGuiItem(xi18nc("@action:button Run script file", "Run"), koIconName("system-run"))
-                    , KStandardGuiItem::no()
+                    , KStandardGuiItem::cancel()
                     , "AllowRunExecutable", KMessageBox::Notify | KMessageBox::Dangerous);
 
-        if (ret != KMessageBox::Yes) {
+        if (ret != KMessageBox::PrimaryAction) {
             return cancelled;
         }
     }

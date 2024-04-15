@@ -442,7 +442,7 @@ void KexiConnectionSelectorWidget::slotRemoteRemoveBtnClicked()
     ConnectionDataLVItem* item = static_cast<ConnectionDataLVItem*>(items.first());
     if (!item)
         return;
-    if (KMessageBox::Yes != KMessageBox::questionYesNo(this,
+    if (KMessageBox::PrimaryAction != KMessageBox::questionTwoActions(this,
             xi18nc("@info",
                 "Do you want to delete database connection <resource>%1</resource> from "
                 "the list of available connections?",

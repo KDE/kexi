@@ -229,7 +229,7 @@ void KexiScriptDesignView::slotImport()
     //! @todo support remote files?
     QFile f(result.toLocalFile());
     if (!f.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        KMessageBox::sorry(this,
+        KMessageBox::error(this,
             xi18nc("@info", "Could not read <filename>%1</filename>.", result.toLocalFile()));
         return;
     }
@@ -245,7 +245,7 @@ void KexiScriptDesignView::slotExport()
         return;
     QFile f(result.toLocalFile());
     if (! f.open(QIODevice::WriteOnly | QIODevice::Text)) {
-        KMessageBox::sorry(this,
+        KMessageBox::error(this,
             xi18nc("@info", "Could not write <filename>%1</filename>.", result.toLocalFile()));
         return;
     }

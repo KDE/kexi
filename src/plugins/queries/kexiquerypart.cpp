@@ -268,10 +268,10 @@ tristate KexiQueryPart::askForClosingObjectsUsingQuerySchema(KexiWindow *window,
             xi18nc("@action:button Close all windows and save", "Close Windows and Save"));
         closeAndSaveItem.setToolTip(xi18nc("@info:tooltip Close all windows and save design",
                                            "Close all windows and save design"));
-        const int r = KMessageBox::questionYesNo(window, message, QString(), closeAndSaveItem,
+        const int r = KMessageBox::questionTwoActions(window, message, QString(), closeAndSaveItem,
                                                  KStandardGuiItem::cancel(), QString(),
                                                  KMessageBox::Notify | KMessageBox::Dangerous);
-        if (r != KMessageBox::Yes) {
+        if (r != KMessageBox::PrimaryAction) {
             return cancelled;
         }
     }

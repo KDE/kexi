@@ -736,7 +736,7 @@ bool KexiDataAwareObjectInterface::acceptRecordEditing()
         }
 
         const int button = showErrorMessageForResult(m_data->result());
-        if (KMessageBox::No == button) {
+        if (KMessageBox::SecondaryAction == button) {
             //discard changes
             cancelRecordEditing();
         } else {
@@ -945,13 +945,13 @@ bool KexiDataAwareObjectInterface::acceptEditor()
     if (res == KDbValidator::Error) {
         if (!msg.isEmpty()) {
             if (desc.isEmpty())
-                KMessageBox::sorry(dynamic_cast<QWidget*>(this), msg);
+                KMessageBox::error(dynamic_cast<QWidget*>(this), msg);
             else
-                KMessageBox::detailedSorry(dynamic_cast<QWidget*>(this), msg, desc);
+                KMessageBox::detailedError(dynamic_cast<QWidget*>(this), msg, desc);
         }
     } else if (res == KDbValidator::Warning) {
         //! @todo: message
-        KMessageBox::messageBox(dynamic_cast<QWidget*>(this), KMessageBox::Sorry, msg + "\n" + desc);
+        KMessageBox::messageBox(dynamic_cast<QWidget*>(this), KMessageBox::Error, msg + "\n" + desc);
     }
 
     if (res == KDbValidator::Ok) {
@@ -982,7 +982,7 @@ bool KexiDataAwareObjectInterface::acceptEditor()
             }
             if (!m_data->result().message.isEmpty()) {
                 const int button = showErrorMessageForResult(m_data->result());
-                if (KMessageBox::No == button) {
+                if (KMessageBox::SecondaryAction == button) {
                     //discard changes
                     cancelEditor();
                     if (m_acceptsRecordEditAfterCellAccepting)
@@ -1078,7 +1078,7 @@ void KexiDataAwareObjectInterface::deleteCurrentRecord()
     case ImmediateDelete:
         break;
     case AskDelete:
-        if (KMessageBox::Yes != KMessageBox::questionYesNo(
+        if (KMessageBox::PrimaryAction != KMessageBox::questionTwoActions(
                     dynamic_cast<QWidget*>(this),
                     xi18n("Do you want to delete selected record?"), QString(),
                     KGuiItem(xi18nc("@action:button", "&Delete Record"), KexiIconName("edit-table-delete-row")), KStandardGuiItem::cancel(),
@@ -1627,7 +1627,7 @@ int KexiDataAwareObjectInterface::showErrorMessageForResult(const KDbResultInfo&
 {
     QWidget *thisWidget = dynamic_cast<QWidget*>(this);
     if (resultInfo.allowToDiscardChanges) {
-        return KMessageBox::questionYesNo(thisWidget, resultInfo.message
+        return KMessageBox::questionTwoActions(thisWidget, resultInfo.message
                                           + (resultInfo.description.isEmpty() ? QString() : ("\n" + resultInfo.description)),
                                           QString(),
                                           KGuiItem(xi18nc("@action:button Correct Changes", "Correct"),
@@ -1637,9 +1637,9 @@ int KexiDataAwareObjectInterface::showErrorMessageForResult(const KDbResultInfo&
     }
 
     if (resultInfo.description.isEmpty()) {
-        KMessageBox::sorry(thisWidget, resultInfo.message);
+        KMessageBox::error(thisWidget, resultInfo.message);
     } else {
-        KMessageBox::detailedSorry(thisWidget, resultInfo.message, resultInfo.description);
+        KMessageBox::detailedError(thisWidget, resultInfo.message, resultInfo.description);
     }
 
     return KMessageBox::Ok;

@@ -240,14 +240,14 @@ QUrl KexiReportView::getExportUrl(const QString &mimetype, const QString &captio
 void KexiReportView::openExportedDocument(const QUrl &destination)
 {
     const int answer =
-        KMessageBox::questionYesNo(
+        KMessageBox::questionTwoActions(
             this,
             xi18n("Do you want to open exported document?"),
             QString(),
             KStandardGuiItem::open(),
             KStandardGuiItem::close());
 
-    if (answer == KMessageBox::Yes) {
+    if (answer == KMessageBox::PrimaryAction) {
         (void)new KRun(destination, this->topLevelWidget());
     }
 }
@@ -316,7 +316,7 @@ void KexiReportView::slotExportAsWebPage()
     }
 
     const int answer =
-        KMessageBox::questionYesNo(
+        KMessageBox::questionTwoActions(
             this,
             xi18nc("@info",
                    "<para>Would you like to use Cascading Style Sheets (CSS) in the exported "
@@ -327,7 +327,7 @@ void KexiReportView::slotExportAsWebPage()
             KGuiItem(xi18nc("@action:button", "Use Table")));
 
     QScopedPointer<KReportRendererBase> renderer(
-         m_factory.createInstance(answer == KMessageBox::Yes ? "htmlcss" : "htmltable"));
+         m_factory.createInstance(answer == KMessageBox::PrimaryAction ? "htmlcss" : "htmltable"));
     if (!renderer) {
         return;
     }

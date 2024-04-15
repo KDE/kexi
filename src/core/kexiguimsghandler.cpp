@@ -186,7 +186,7 @@ KexiGUIMessageHandler::showMessage(MessageType type,
             showWarningContinueMessage(title, details, dontShowAgainName);
             break;
         default: //Sorry
-            KMessageBox::detailedSorry(parentWidget(), msg, details);
+            KMessageBox::detailedError(parentWidget(), msg, details);
         }
     } else {
         KMessageBox::DialogType msgType;
@@ -196,7 +196,7 @@ KexiGUIMessageHandler::showMessage(MessageType type,
         case Error: msgType = KMessageBox::Error;
             break;
         default:
-            msgType = KMessageBox::Sorry;
+            msgType = KMessageBox::Error;
         }
         KMessageBox::messageBox(parentWidget(), msgType, msg);
     }

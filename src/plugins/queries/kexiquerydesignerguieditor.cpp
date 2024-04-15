@@ -664,7 +664,7 @@ KexiQueryDesignerGuiEditor::beforeSwitchTo(Kexi::ViewMode mode, bool *dontStore)
             QString errMsg;
             //build schema; problems are not allowed
             if (!buildSchema(&errMsg)) {
-                KMessageBox::sorry(this, errMsg);
+                KMessageBox::error(this, errMsg);
                 return cancelled;
             }
         }
@@ -786,7 +786,7 @@ KexiQueryDesignerGuiEditor::storeNewData(const KDbObject& object,
     if (!temp->query() || !(viewMode() == Kexi::DesignViewMode && temp->queryChangedInView() == Kexi::NoViewMode)) {
         //only rebuild schema if it has not been rebuilt previously
         if (!buildSchema(&errMsg)) {
-            KMessageBox::sorry(this, errMsg);
+            KMessageBox::error(this, errMsg);
             *cancel = true;
             return 0;
         }
@@ -1902,7 +1902,7 @@ void KexiQueryDesignerGuiEditor::slotPropertyChanged(KPropertySet& set, KPropert
     if (pname == "alias" || pname == "name") {
         const QVariant& v = property.value();
         if (!v.toString().trimmed().isEmpty() && !KDb::isIdentifier(v.toString())) {
-            KMessageBox::sorry(this,
+            KMessageBox::error(this,
                 KDb::identifierExpectedMessage(property.caption(), v.toString()));
             property.resetValue();
         }

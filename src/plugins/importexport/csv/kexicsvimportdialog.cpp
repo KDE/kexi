@@ -404,8 +404,8 @@ void KexiCSVImportDialog::next()
             return; //impossible
 
         if (numRows == 1) {
-            if (KMessageBox::No == KMessageBox::questionYesNo(this,
-                xi18n("Data set contains no rows. Do you want to import empty table?")))
+            if (KMessageBox::SecondaryAction == KMessageBox::questionTwoActions(this,
+                xi18n("Data set contains no rows. Do you want to import empty table?"), QString{}, KGuiItem(i18nc("@action:button", "Import"), QIcon::fromTheme(QStringLiteral("document-import"))), KGuiItem(i18nc("@action:button", "Do not Import"))))
             return;
         }
     } else if (curPage == m_saveMethodPage) {
@@ -849,7 +849,7 @@ bool KexiCSVImportDialog::openData()
         m_file->close();
         delete m_file;
         m_file = 0;
-        KMessageBox::sorry(this, xi18n("Cannot open input file <filename>%1</filename>.",
+        KMessageBox::error(this, xi18n("Cannot open input file <filename>%1</filename>.",
                                       QDir::toNativeSeparators(m_fname)));
         nextButton()->setEnabled(false);
         m_canceled = true;
@@ -1836,7 +1836,7 @@ void KexiCSVImportDialog::import()
         //add PK if user wanted it
         int msgboxResult;
         if (   m_primaryKeyColumn == -1
-           && KMessageBox::No != (msgboxResult = KMessageBox::questionYesNoCancel(this,
+           && KMessageBox::SecondaryAction != (msgboxResult = KMessageBox::questionTwoActionsCancel(this,
                   xi18nc("@info",
                         "<para>No primary key (autonumber) has been defined.</para>"
                         "<para>Should it be automatically defined on import (recommended)?</para>"
@@ -1844,7 +1844,7 @@ void KexiCSVImportDialog::import()
                         "editable (depending on database type).</note></para>"),
                    QString(),
                    KGuiItem(xi18nc("@action:button Add Database Primary Key to a Table", "&Add Primary Key"), KexiIconName("database-key")),
-                   KGuiItem(xi18nc("@action:button Do Not Add Database Primary Key to a Table", "Do &Not Add"), KStandardGuiItem::no().icon()))))
+                   KGuiItem(xi18nc("@action:button Do Not Add Database Primary Key to a Table", "Do &Not Add"), KStandardGuiItem::cancel().icon()))))
         {
             if (msgboxResult == KMessageBox::Cancel) {
                 raiseErrorInAccept(project, m_partItemForSavedTable);

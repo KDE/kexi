@@ -178,18 +178,18 @@ bool KexiNameDialog::canOverwrite()
         "<p>" + d->part->i18nMessage("Object <resource>%1</resource> already exists.", 0)
                     .subs(widget()->nameText()).toString()
         + "</p><p>" + xi18n("Do you want to replace it?") + "</p>";
-    KGuiItem yesItem(KStandardGuiItem::yes());
+    KGuiItem yesItem(KStandardGuiItem::ok());
     yesItem.setText(xi18n("&Replace"));
     yesItem.setToolTip(xi18n("Replace object"));
-    const KMessageBox::ButtonCode res = KMessageBox::warningYesNo(
+    const KMessageBox::ButtonCode res = KMessageBox::warningTwoActions(
                   this, msg, QString(),
                   yesItem, KGuiItem(xi18nc("@action:button", "&Choose Other Name...")),
                   QString(),
                   KMessageBox::Notify | KMessageBox::Dangerous);
-    if (res == KMessageBox::Yes) {
+    if (res == KMessageBox::PrimaryAction) {
         d->overwriteNeeded = true;
     }
-    return res == KMessageBox::Yes;
+    return res == KMessageBox::PrimaryAction;
 }
 
 void KexiNameDialog::accept()
