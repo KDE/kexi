@@ -37,7 +37,7 @@ class KEXIFORMUTILS_EXPORT KexiFrame : public QFrame,
 //! @todo Q_PROPERTY( Shadow frameShadow READ frameShadow WRITE setFrameShadow )
 
 public:
-    explicit KexiFrame(QWidget * parent, Qt::WindowFlags f = 0);
+    explicit KexiFrame(QWidget * parent, Qt::WindowFlags f = {});
     virtual ~KexiFrame();
 
     virtual QColor frameColor() const;

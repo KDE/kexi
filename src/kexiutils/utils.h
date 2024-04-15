@@ -418,7 +418,7 @@ class KEXIUTILS_EXPORT KTextEditorFrame : public QFrame
 {
     Q_OBJECT
 public:
-    explicit KTextEditorFrame(QWidget * parent = 0, Qt::WindowFlags f = 0);
+    explicit KTextEditorFrame(QWidget * parent = 0, Qt::WindowFlags f = {});
 protected:
     virtual void changeEvent(QEvent *event) override;
 };

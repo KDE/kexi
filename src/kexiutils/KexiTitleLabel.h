@@ -28,8 +28,8 @@ class KEXIUTILS_EXPORT KexiTitleLabel : public QLabel
 {
     Q_OBJECT
 public:
-    explicit KexiTitleLabel(QWidget * parent = 0, Qt::WindowFlags f = 0);
-    explicit KexiTitleLabel(const QString & text, QWidget * parent = 0, Qt::WindowFlags f = 0);
+    explicit KexiTitleLabel(QWidget * parent = 0, Qt::WindowFlags f = {});
+    explicit KexiTitleLabel(const QString & text, QWidget * parent = 0, Qt::WindowFlags f = {});
     ~KexiTitleLabel();
 protected:
     void changeEvent(QEvent* event) override;

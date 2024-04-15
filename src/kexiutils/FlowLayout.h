@@ -53,7 +53,7 @@ public:
 
     virtual void addItem(QLayoutItem *item) override;
     virtual void addSpacing(int size);
-    void insertWidget(int index, QWidget* widget, int stretch = 0, Qt::Alignment alignment = 0);
+    void insertWidget(int index, QWidget* widget, int stretch = 0, Qt::Alignment alignment = {});
     virtual void invalidate() override;
 
     virtual bool hasHeightForWidth() const override;
