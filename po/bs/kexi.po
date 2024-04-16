@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: calligra\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:42+0000\n"
+"POT-Creation-Date: 2024-04-16 01:49+0000\n"
 "PO-Revision-Date: 2015-02-26 22:24+0100\n"
 "Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -1142,7 +1142,7 @@ msgid ""
 msgstr ""
 "Ne mogu otvoriti datoteku. Datoteka <filename>%1</filename> ne postoji."
 
-#: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
+#: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
 #: main/startup/KexiStartup.cpp:828
 #, kde-kuit-format
@@ -1276,12 +1276,12 @@ msgstr ""
 "Nisam mogao da bacim projekat. Veza sa bazom podataka za ovaj projekat "
 "otvorena je samo-za-čitanje."
 
-#: core/kexiproject.cpp:1526
+#: core/kexiproject.cpp:1524
 #, kde-kuit-format
 msgid "Open As Read Only"
 msgstr "Otvori Samo za čitanje"
 
-#: core/kexiproject.cpp:1529
+#: core/kexiproject.cpp:1527
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1581,37 +1581,37 @@ msgctxt "(qtundo-format)"
 msgid "Align Widgets to Bottom"
 msgstr "Poravnaj kontrole prema dnu"
 
-#: formeditor/commands.cpp:618
+#: formeditor/commands.cpp:620
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Grid"
 msgstr "Promjeni veličinu kontrola uz mrežu"
 
-#: formeditor/commands.cpp:621
+#: formeditor/commands.cpp:623
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Fit Contents"
 msgstr "Promijeni veličinu kontrola da se uklopi sadržaj"
 
-#: formeditor/commands.cpp:624
+#: formeditor/commands.cpp:626
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Narrowest"
 msgstr "Promijeni veličinu kontrola na najuže"
 
-#: formeditor/commands.cpp:627
+#: formeditor/commands.cpp:629
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Widest"
 msgstr "Promijeni veličinu kontrola na najšire"
 
-#: formeditor/commands.cpp:630
+#: formeditor/commands.cpp:632
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Shortest"
 msgstr "Promijeni veličinu kontrola na najniže"
 
-#: formeditor/commands.cpp:633
+#: formeditor/commands.cpp:635
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "Promijeni veličinu kontrola na najviše"
 
-#: formeditor/commands.cpp:908
+#: formeditor/commands.cpp:912
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Find in <resource>%1</resource>"
@@ -1619,12 +1619,12 @@ msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "Pronađi <resource>%1</resource>"
 
-#: formeditor/commands.cpp:911
+#: formeditor/commands.cpp:915
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "Ubaci kontrolu"
 
-#: formeditor/commands.cpp:957
+#: formeditor/commands.cpp:961
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not insert widget of type \"%1\". A problem with widget's creation "
@@ -1637,37 +1637,37 @@ msgstr ""
 "Nije moguće ubacivanje kontrole tipa \"%1\". Došlo je do problema pri "
 "stvaranju kontrole."
 
-#: formeditor/commands.cpp:1126
+#: formeditor/commands.cpp:1130
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "Umetni"
 
-#: formeditor/commands.cpp:1412
+#: formeditor/commands.cpp:1416
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "Izbriši grafičku kontrolu"
 
-#: formeditor/commands.cpp:1520
+#: formeditor/commands.cpp:1524
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "Kopiraj Dodatak"
 
-#: formeditor/commands.cpp:1579
+#: formeditor/commands.cpp:1583
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "Isijeci"
 
-#: formeditor/commands.cpp:1812
+#: formeditor/commands.cpp:1816
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "Dodaj Stranicu"
 
-#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1863 formeditor/WidgetTreeWidget.cpp:118
 #, kde-kuit-format
 msgid "Page %1"
 msgstr "Strana %1"
 
-#: formeditor/commands.cpp:1967
+#: formeditor/commands.cpp:1971
 #, fuzzy
 #| msgctxt "(qtundo-format)"
 #| msgid "Delete widget"
@@ -4749,13 +4749,13 @@ msgstr ""
 "\"%2\", dok ste vi tražili da se koristi drajver \"%3\".\n"
 "Želite li da koristite drajver \"%4\"?"
 
-#: main/startup/KexiStartup.cpp:948
+#: main/startup/KexiStartup.cpp:949
 #, fuzzy, kde-kuit-format
 #| msgid "Possible problems:"
 msgid "Possible problems: %1"
 msgstr "Mogući problemi:"
 
-#: main/startup/KexiStartup.cpp:954
+#: main/startup/KexiStartup.cpp:955
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" is not recognized as being supported by Kexi."
 msgctxt "@info"
@@ -4764,7 +4764,7 @@ msgid ""
 "<application>%2</application>."
 msgstr "Datoteka \"%1\" nije prepoznata kao podržana od strane Kexi-ja."
 
-#: main/startup/KexiStartup.cpp:959
+#: main/startup/KexiStartup.cpp:960
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4777,7 +4777,7 @@ msgstr ""
 "Drajver Baze podataka za ovu datoteku tipa nije pronađen.\n"
 "Otkrivene MIME tip je %1."
 
-#: main/startup/KexiStartup.cpp:963
+#: main/startup/KexiStartup.cpp:964
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4791,7 +4791,7 @@ msgstr ""
 "Drajver Baze podataka za ovu datoteku tipa nije pronađen.\n"
 "Otkrivene MIME tip je %1."
 
-#: main/startup/KexiStartup.cpp:995
+#: main/startup/KexiStartup.cpp:996
 #, kde-kuit-format
 msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
@@ -4800,7 +4800,7 @@ msgstr ""
 "Ne mogu učitati popis dostupnih projekata za <resource>%1</resource> "
 "poslužitelja baze podataka."
 
-#: main/startup/KexiStartup.cpp:1036
+#: main/startup/KexiStartup.cpp:1037
 #, kde-kuit-format
 msgid "Failed saving connection data to <filename>%1</filename> file."
 msgstr "Neuspjelo čuvanje podataka vezu sa <filename>%1 </filename>."
@@ -7074,6 +7074,20 @@ msgstr "&Uvezi..."
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr ""
 "Skup podataka ne sadrži nijednu vrstu. Želite li da uvezete praznu tabelu?"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Print report"
+msgctxt "@action:button"
+msgid "Do not Import"
+msgstr "Izvještaj ispisa"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Importing"
+msgctxt "@action:button"
+msgid "Import"
+msgstr "Uvoženje"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825

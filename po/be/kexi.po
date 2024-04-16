@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:42+0000\n"
+"POT-Creation-Date: 2024-04-16 01:49+0000\n"
 "PO-Revision-Date: 2007-10-28 14:04+0200\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -942,7 +942,7 @@ msgstr ""
 "Немагчыма выдаліць праект.\n"
 "Файл \"%1\" не існуе."
 
-#: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
+#: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
 #: main/startup/KexiStartup.cpp:828
 #, fuzzy, kde-kuit-format
@@ -1056,12 +1056,12 @@ msgstr ""
 "Немагчыма выдаліць праект на серверы: база дадзеных адчыненая толькі для "
 "чытання."
 
-#: core/kexiproject.cpp:1526
+#: core/kexiproject.cpp:1524
 #, fuzzy, kde-kuit-format
 msgid "Open As Read Only"
 msgstr "Адкрыць толькі для чытання"
 
-#: core/kexiproject.cpp:1529
+#: core/kexiproject.cpp:1527
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1319,58 +1319,58 @@ msgctxt "(qtundo-format)"
 msgid "Align Widgets to Bottom"
 msgstr "Выраўнаваць віджэты"
 
-#: formeditor/commands.cpp:618
+#: formeditor/commands.cpp:620
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Grid"
 msgstr "Перамясціць віджэт на пярэдні план"
 
-#: formeditor/commands.cpp:621
+#: formeditor/commands.cpp:623
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Fit Contents"
 msgstr "Ачысціць змесціва віджэта"
 
-#: formeditor/commands.cpp:624
+#: formeditor/commands.cpp:626
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Narrowest"
 msgstr "Перамясціць віджэт на пярэдні план"
 
-#: formeditor/commands.cpp:627
+#: formeditor/commands.cpp:629
 #, fuzzy
 #| msgid "Resize Widgets to Widest"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Widest"
 msgstr "Выраўнаваць памер віджэтаў па самаму шырокаму"
 
-#: formeditor/commands.cpp:630
+#: formeditor/commands.cpp:632
 #, fuzzy
 #| msgid "Resize Widgets to Shortest"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Shortest"
 msgstr "Выраўнаваць памер віджэтаў па самаму нізкаму"
 
-#: formeditor/commands.cpp:633
+#: formeditor/commands.cpp:635
 #, fuzzy
 #| msgid "Resize Widgets to Tallest"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "Выраўнаваць памер віджэтаў па самаму высокаму"
 
-#: formeditor/commands.cpp:908
+#: formeditor/commands.cpp:912
 #, fuzzy, kde-format
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "Немагчыма захаваць аб'ект \"%1\"."
 
-#: formeditor/commands.cpp:911
+#: formeditor/commands.cpp:915
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "Уставіць автополе"
 
-#: formeditor/commands.cpp:957
+#: formeditor/commands.cpp:961
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not insert widget of type \"%1\". A problem with widget's creation "
@@ -1382,43 +1382,43 @@ msgid ""
 msgstr ""
 "Не атрымоўваецца ўставіць віджэт тыпу \"%1\": немагчыма стварыць віджэт."
 
-#: formeditor/commands.cpp:1126
+#: formeditor/commands.cpp:1130
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "Дата"
 
-#: formeditor/commands.cpp:1412
+#: formeditor/commands.cpp:1416
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "Выдаліць запіс"
 
-#: formeditor/commands.cpp:1520
+#: formeditor/commands.cpp:1524
 #, fuzzy
 #| msgid "Delete widget"
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "Выдаліць віджэт"
 
-#: formeditor/commands.cpp:1579
+#: formeditor/commands.cpp:1583
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "Бягучая форма"
 
-#: formeditor/commands.cpp:1812
+#: formeditor/commands.cpp:1816
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "Дадаць параметр"
 
-#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1863 formeditor/WidgetTreeWidget.cpp:118
 #, fuzzy, kde-kuit-format
 msgid "Page %1"
 msgstr "Старонка %1"
 
-#: formeditor/commands.cpp:1967
+#: formeditor/commands.cpp:1971
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Delete Page"
@@ -4221,12 +4221,12 @@ msgstr ""
 "\"%3\".\n"
 "Выкарыстаць \"%4\"?"
 
-#: main/startup/KexiStartup.cpp:948
+#: main/startup/KexiStartup.cpp:949
 #, fuzzy, kde-kuit-format
 msgid "Possible problems: %1"
 msgstr "Магчымыя праблемы:"
 
-#: main/startup/KexiStartup.cpp:954
+#: main/startup/KexiStartup.cpp:955
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4234,7 +4234,7 @@ msgid ""
 "<application>%2</application>."
 msgstr "Файл \"%1\" не можа быць адчынены. Няслушны фармат."
 
-#: main/startup/KexiStartup.cpp:959
+#: main/startup/KexiStartup.cpp:960
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4244,7 +4244,7 @@ msgstr ""
 "Драйвер базы дадзеных для файла паказанага тыпу не знойдзены.\n"
 "Вызначаны тып MIME: %1"
 
-#: main/startup/KexiStartup.cpp:963
+#: main/startup/KexiStartup.cpp:964
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4255,7 +4255,7 @@ msgstr ""
 "Драйвер базы дадзеных для файла паказанага тыпу не знойдзены.\n"
 "Вызначаны тып MIME: %1"
 
-#: main/startup/KexiStartup.cpp:995
+#: main/startup/KexiStartup.cpp:996
 #, fuzzy, kde-kuit-format
 msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
@@ -4264,7 +4264,7 @@ msgstr ""
 "Немагчыма загрузіць спіс даступных праектаў для сервера баз дадзеных <b>%1</"
 "b>."
 
-#: main/startup/KexiStartup.cpp:1036
+#: main/startup/KexiStartup.cpp:1037
 #, fuzzy, kde-kuit-format
 msgid "Failed saving connection data to <filename>%1</filename> file."
 msgstr ""
@@ -6412,6 +6412,18 @@ msgstr "Імпарт..."
 #, fuzzy, kde-kuit-format
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr "Не знойдзена ні аднаго запісу. Вы жадаеце імпартаваць пустую табліцу?"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "Do not Import"
+msgstr "Справаздача"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "Import"
+msgstr "Імпарт"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
@@ -11837,10 +11849,6 @@ msgstr "Наступны запіс"
 #, fuzzy
 #~ msgid "Database creation for everyone"
 #~ msgstr "Стварэнне баз дадзеных для кожнага"
-
-#, fuzzy
-#~ msgid "&Import"
-#~ msgstr "Імпарт"
 
 #, fuzzy
 #~ msgid "Paste &Special"

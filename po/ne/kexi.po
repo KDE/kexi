@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:42+0000\n"
+"POT-Creation-Date: 2024-04-16 01:49+0000\n"
 "PO-Revision-Date: 2007-08-23 19:47+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -1134,7 +1134,7 @@ msgstr ""
 "परियोजना हटाउन सकेन ।\n"
 "फाइल \"%1\" अवस्थित छैन ।"
 
-#: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
+#: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
 #: main/startup/KexiStartup.cpp:828
 #, fuzzy, kde-kuit-format
@@ -1268,13 +1268,13 @@ msgstr ""
 "यो परियोजना छोड्न सकेन । यो परियोजनाका लागि डाटाबेस जडान पढ्नका लागि मात्र "
 "खोलिएको हो ।"
 
-#: core/kexiproject.cpp:1526
+#: core/kexiproject.cpp:1524
 #, fuzzy, kde-kuit-format
 #| msgid "Open As Read-Only"
 msgid "Open As Read Only"
 msgstr "पढ्ने मात्रको रूपमा खोल्नुहोस्"
 
-#: core/kexiproject.cpp:1529
+#: core/kexiproject.cpp:1527
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "File \"%1\" already exists.<p>Do you want to replace it with a new one?"
@@ -1576,63 +1576,63 @@ msgctxt "(qtundo-format)"
 msgid "Align Widgets to Bottom"
 msgstr "विजेटको स्थान पङ्क्तिबद्व गर्नुहोस्"
 
-#: formeditor/commands.cpp:618
+#: formeditor/commands.cpp:620
 #, fuzzy
 #| msgid "Bring Widget to Front"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Grid"
 msgstr "विजेटलाई अगाडि ल्याउनुहोस्"
 
-#: formeditor/commands.cpp:621
+#: formeditor/commands.cpp:623
 #, fuzzy
 #| msgid "Clear Widget Contents"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Fit Contents"
 msgstr "विजेट सामग्री खाली गर्नुहोस्"
 
-#: formeditor/commands.cpp:624
+#: formeditor/commands.cpp:626
 #, fuzzy
 #| msgid "Bring Widget to Front"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Narrowest"
 msgstr "विजेटलाई अगाडि ल्याउनुहोस्"
 
-#: formeditor/commands.cpp:627
+#: formeditor/commands.cpp:629
 #, fuzzy
 #| msgid "Resize Widgets to Widest"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Widest"
 msgstr "फराकिलोमा विजेट रिसाइज गर्नुहोस्।"
 
-#: formeditor/commands.cpp:630
+#: formeditor/commands.cpp:632
 #, fuzzy
 #| msgid "Resize Widgets to Shortest"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Shortest"
 msgstr "नजिकका लागि विजेटहरू रिसाइज गर्नुहोस्।"
 
-#: formeditor/commands.cpp:633
+#: formeditor/commands.cpp:635
 #, fuzzy
 #| msgid "Resize Widgets to Tallest"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "अग्लोका लागि विजेट रिसाइज गर्नुहोस्।"
 
-#: formeditor/commands.cpp:908
+#: formeditor/commands.cpp:912
 #, fuzzy, kde-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "\"%1\" वस्तु बचत गर्दा असफल ।"
 
-#: formeditor/commands.cpp:911
+#: formeditor/commands.cpp:915
 #, fuzzy
 #| msgid "Insert AutoField widget"
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "स्वत: फिल्ड विजेट घुसाउनुहोस्"
 
-#: formeditor/commands.cpp:957
+#: formeditor/commands.cpp:961
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not insert widget of type \"%1\". A problem with widget's creation "
@@ -1643,47 +1643,47 @@ msgid ""
 "widget's creation encountered."
 msgstr "\"%1\" प्रकारको विजेट घुसाउन सकिँदैन । विजेटका सिर्जनामा एउटा समस्या भेटियो ।"
 
-#: formeditor/commands.cpp:1126
+#: formeditor/commands.cpp:1130
 #, fuzzy
 #| msgid "Date"
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "मिति"
 
-#: formeditor/commands.cpp:1412
+#: formeditor/commands.cpp:1416
 #, fuzzy
 #| msgid "Delete Row"
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "पङ्क्ति मेट्नुहोस्।"
 
-#: formeditor/commands.cpp:1520
+#: formeditor/commands.cpp:1524
 #, fuzzy
 #| msgid "Delete widget"
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "विजेट मेट्नुहोस्"
 
-#: formeditor/commands.cpp:1579
+#: formeditor/commands.cpp:1583
 #, fuzzy
 #| msgid "Cut"
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "काट्नुहोस्"
 
-#: formeditor/commands.cpp:1812
+#: formeditor/commands.cpp:1816
 #, fuzzy
 #| msgid "Add Parameter"
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "परिमिति थप्नुहोस्"
 
-#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1863 formeditor/WidgetTreeWidget.cpp:118
 #, kde-kuit-format
 msgid "Page %1"
 msgstr "%1 पृष्ठ"
 
-#: formeditor/commands.cpp:1967
+#: formeditor/commands.cpp:1971
 #, fuzzy
 #| msgid "Delete Row"
 msgctxt "(qtundo-format)"
@@ -4849,13 +4849,13 @@ msgstr ""
 "फाइललाई \"%2\" डाटाबेस ड्राइभरसँग अनुकूल भएको पहिचान गरिन्छ । \n"
 "के तपाईँले \"%4\" डाटाबेस ड्राइभर प्रयोग गर्न चाहनुहुन्छ ?"
 
-#: main/startup/KexiStartup.cpp:948
+#: main/startup/KexiStartup.cpp:949
 #, fuzzy, kde-kuit-format
 #| msgid "Possible problems:"
 msgid "Possible problems: %1"
 msgstr "सम्भावित समस्याहरु:"
 
-#: main/startup/KexiStartup.cpp:954
+#: main/startup/KexiStartup.cpp:955
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" is not recognized as being supported by Kexi."
 msgctxt "@info"
@@ -4864,7 +4864,7 @@ msgid ""
 "<application>%2</application>."
 msgstr "फाइल \"%1\" केक्सीद्वारा समर्थितको रूपमा पहिचान गर्दैन ।"
 
-#: main/startup/KexiStartup.cpp:959
+#: main/startup/KexiStartup.cpp:960
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4877,7 +4877,7 @@ msgstr ""
 "यो फाइल प्रकारका लागि डाटाबेस ड्राइभर फेला परेन ।\n"
 "पत्ता लगाइएको MIME प्रकार: %1"
 
-#: main/startup/KexiStartup.cpp:963
+#: main/startup/KexiStartup.cpp:964
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4891,7 +4891,7 @@ msgstr ""
 "यो फाइल प्रकारका लागि डाटाबेस ड्राइभर फेला परेन ।\n"
 "पत्ता लगाइएको MIME प्रकार: %1"
 
-#: main/startup/KexiStartup.cpp:995
+#: main/startup/KexiStartup.cpp:996
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not load list of available projects for <b>%1</b> database server."
@@ -4900,7 +4900,7 @@ msgid ""
 "database server."
 msgstr "<b>%1</b> डाटाबेस सर्भरका लागि उपलब्ध परियोजनाको सूचीको लोड गर्न सकिँदैन ।"
 
-#: main/startup/KexiStartup.cpp:1036
+#: main/startup/KexiStartup.cpp:1037
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Failed saving connection data to\n"
@@ -7335,6 +7335,20 @@ msgstr "आयात गर्नुहोस्..."
 #, kde-kuit-format
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr "डेटा सेटले कुनै पङ्क्तिहरू समावेश गर्दैन । के तपाईँ खाली तालिका आयात गर्न चाहनुहुन्छ?"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Report"
+msgctxt "@action:button"
+msgid "Do not Import"
+msgstr "प्रतिवेदन"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "&Import"
+msgctxt "@action:button"
+msgid "Import"
+msgstr "आयात गर्नुहोस्"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
@@ -13125,9 +13139,6 @@ msgstr "पछिल्लो पङ्क्तिमा जानुहोस�
 
 #~ msgid "&Insert"
 #~ msgstr "घुसाउनुहोस्"
-
-#~ msgid "&Import"
-#~ msgstr "आयात गर्नुहोस्"
 
 #~ msgid "Paste &Special"
 #~ msgstr "विशेष टाँस्नुहोस्"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:42+0000\n"
+"POT-Creation-Date: 2024-04-16 01:49+0000\n"
 "PO-Revision-Date: 2020-09-17 13:15+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -970,7 +970,7 @@ msgstr ""
 "Αδυναμία ανοίγματος έργου. Το αρχείο έργου <filename>%1</filename> δεν "
 "υπάρχει."
 
-#: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
+#: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
 #: main/startup/KexiStartup.cpp:828
 #, kde-kuit-format
@@ -1086,12 +1086,12 @@ msgstr ""
 "Αδυναμία διαγραφής αυτού του έργου. Η σύνδεση με τη βάση για το έργο αυτό "
 "ανοίχτηκε μόνο για ανάγνωση."
 
-#: core/kexiproject.cpp:1526
+#: core/kexiproject.cpp:1524
 #, kde-kuit-format
 msgid "Open As Read Only"
 msgstr "Άνοιγμα για ανάγνωση μόνο"
 
-#: core/kexiproject.cpp:1529
+#: core/kexiproject.cpp:1527
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1356,48 +1356,48 @@ msgctxt "(qtundo-format)"
 msgid "Align Widgets to Bottom"
 msgstr "Στοίχιση γραφικών συστατικών στη βάση"
 
-#: formeditor/commands.cpp:618
+#: formeditor/commands.cpp:620
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Grid"
 msgstr "Αλλαγή μεγέθους γραφικών συστατικών στον κάνναβο"
 
-#: formeditor/commands.cpp:621
+#: formeditor/commands.cpp:623
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Fit Contents"
 msgstr "Αλλαγή μεγέθους γραφικών συστατικών για προσαρμογή στο περιεχόμενο"
 
-#: formeditor/commands.cpp:624
+#: formeditor/commands.cpp:626
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Narrowest"
 msgstr "Αλλαγή μεγέθους γραφικών συστατικών προς το στενότερο"
 
-#: formeditor/commands.cpp:627
+#: formeditor/commands.cpp:629
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Widest"
 msgstr "Αλλαγή μεγέθους γραφικών συστατικών προς το φαρδύτερο"
 
-#: formeditor/commands.cpp:630
+#: formeditor/commands.cpp:632
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Shortest"
 msgstr "Αλλαγή μεγέθους γραφικών συστατικών στο κοντύτερο"
 
-#: formeditor/commands.cpp:633
+#: formeditor/commands.cpp:635
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "Αλλαγή μεγέθους γραφικών συστατικών προς το μακρύτερο"
 
-#: formeditor/commands.cpp:908
+#: formeditor/commands.cpp:912
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "Εισαγωγή γραφικού συστατικού <resource>%1</resource>"
 
-#: formeditor/commands.cpp:911
+#: formeditor/commands.cpp:915
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "Εισαγωγή γραφικού συστατικού"
 
-#: formeditor/commands.cpp:957
+#: formeditor/commands.cpp:961
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1407,37 +1407,37 @@ msgstr ""
 "Αδυναμία εισαγωγής γραφικού συστατικού τύπου <resource>%1</resource>. "
 "Παρουσιάστηκε πρόβλημα με τη δημιουργία του."
 
-#: formeditor/commands.cpp:1126
+#: formeditor/commands.cpp:1130
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "Επικόλληση"
 
-#: formeditor/commands.cpp:1412
+#: formeditor/commands.cpp:1416
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "Διαγραφή γραφικού συστατικού"
 
-#: formeditor/commands.cpp:1520
+#: formeditor/commands.cpp:1524
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "Αντιγραφή γραφικού συστατικού"
 
-#: formeditor/commands.cpp:1579
+#: formeditor/commands.cpp:1583
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "Αποκοπή"
 
-#: formeditor/commands.cpp:1812
+#: formeditor/commands.cpp:1816
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "Προσθήκη σελίδας"
 
-#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1863 formeditor/WidgetTreeWidget.cpp:118
 #, kde-kuit-format
 msgid "Page %1"
 msgstr "Σελίδα %1"
 
-#: formeditor/commands.cpp:1967
+#: formeditor/commands.cpp:1971
 msgctxt "(qtundo-format)"
 msgid "Delete Page"
 msgstr "Διαγραφή σελίδας"
@@ -4311,12 +4311,12 @@ msgstr ""
 "του οδηγού <resource>%3</resource>.\n"
 "Επιθυμείτε τη χρήση του οδηγού βάσης δεδομένων <resource>%4</resource>;"
 
-#: main/startup/KexiStartup.cpp:948
+#: main/startup/KexiStartup.cpp:949
 #, kde-kuit-format
 msgid "Possible problems: %1"
 msgstr "Πιθανά προβλήματα: %1"
 
-#: main/startup/KexiStartup.cpp:954
+#: main/startup/KexiStartup.cpp:955
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4326,7 +4326,7 @@ msgstr ""
 "Το αρχείο <filename>%1</filename> δεν αναγνωρίζεται ως υποστηριζόμενο από το "
 "<application>%2</application>."
 
-#: main/startup/KexiStartup.cpp:959
+#: main/startup/KexiStartup.cpp:960
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4336,7 +4336,7 @@ msgstr ""
 "<para>Το πρόσθετο για αυτόν τον τύπο αρχείου δε βρέθηκε.</para><para>Ο τύπος "
 "MIME που ανιχνεύτηκε είναι <resource>%1</resource>%2.</para>"
 
-#: main/startup/KexiStartup.cpp:963
+#: main/startup/KexiStartup.cpp:964
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4347,7 +4347,7 @@ msgstr ""
 "<para>Το πρόσθετο για αυτόν τον τύπο αρχείου δε βρέθηκε.</para><para>Ο τύπος "
 "MIME που ανιχνεύτηκε είναι <resource>%1</resource>%2.</para><para>%3</para>"
 
-#: main/startup/KexiStartup.cpp:995
+#: main/startup/KexiStartup.cpp:996
 #, kde-kuit-format
 msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
@@ -4356,7 +4356,7 @@ msgstr ""
 "Αδυναμία φόρτωσης της λίστας των διαθέσιμων έργων για τη σύνδεση στον "
 "εξυπηρετητή βάσης δεδομένων <resource>%1</resource>."
 
-#: main/startup/KexiStartup.cpp:1036
+#: main/startup/KexiStartup.cpp:1037
 #, kde-kuit-format
 msgid "Failed saving connection data to <filename>%1</filename> file."
 msgstr ""
@@ -6531,6 +6531,20 @@ msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr ""
 "Το σύνολο δεδομένων δεν περιέχει γραμμές. Επιθυμείτε την εισαγωγή κενού "
 "πίνακα;"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Ready to Import"
+msgctxt "@action:button"
+msgid "Do not Import"
+msgstr "Έτοιμο για εισαγωγή"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "&Import"
+msgctxt "@action:button"
+msgid "Import"
+msgstr "Ε&ισαγωγή"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
@@ -11839,9 +11853,6 @@ msgstr "Μετακινεί το δρομέα σε νέα εγγραφή για �
 #~ msgstr "Δημιουργία βάσεων δεδομένων για όλους"
 
 #~ msgid "&Insert"
-#~ msgstr "Ε&ισαγωγή"
-
-#~ msgid "&Import"
 #~ msgstr "Ε&ισαγωγή"
 
 #~ msgid "Paste &Special"

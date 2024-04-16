@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:42+0000\n"
+"POT-Creation-Date: 2024-04-16 01:49+0000\n"
 "PO-Revision-Date: 2022-04-10 14:38+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -950,7 +950,7 @@ msgid ""
 msgstr ""
 "Nemôžem otvoriť súbor. Súbor projektu <filename>%1</filename> neexistuje."
 
-#: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
+#: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
 #: main/startup/KexiStartup.cpp:828
 #, kde-kuit-format
@@ -1066,12 +1066,12 @@ msgstr ""
 "Nie je možné zahodiť projekt. Databázové spojenie projektu bolo otvorené iba "
 "pre čítanie."
 
-#: core/kexiproject.cpp:1526
+#: core/kexiproject.cpp:1524
 #, kde-kuit-format
 msgid "Open As Read Only"
 msgstr "Otvoriť len pre čítanie"
 
-#: core/kexiproject.cpp:1529
+#: core/kexiproject.cpp:1527
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1330,48 +1330,48 @@ msgctxt "(qtundo-format)"
 msgid "Align Widgets to Bottom"
 msgstr "Zarovnať komponenty dole"
 
-#: formeditor/commands.cpp:618
+#: formeditor/commands.cpp:620
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Grid"
 msgstr "Zmeniť veľkosť komponentov podľa mriežky"
 
-#: formeditor/commands.cpp:621
+#: formeditor/commands.cpp:623
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Fit Contents"
 msgstr "Zmeniť veľkosť komponentov podľa obsahu"
 
-#: formeditor/commands.cpp:624
+#: formeditor/commands.cpp:626
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Narrowest"
 msgstr "Zmeniť veľkosť komponentov na najužšiu"
 
-#: formeditor/commands.cpp:627
+#: formeditor/commands.cpp:629
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Widest"
 msgstr "Zmeniť veľkosť komponentov na najširšiu"
 
-#: formeditor/commands.cpp:630
+#: formeditor/commands.cpp:632
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Shortest"
 msgstr "Zmeniť veľkosť komponentov na najnižšiu"
 
-#: formeditor/commands.cpp:633
+#: formeditor/commands.cpp:635
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "Zmeniť veľkosť komponentov na najvyššiu"
 
-#: formeditor/commands.cpp:908
+#: formeditor/commands.cpp:912
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "Vložiť widget <resource>%1</resource>."
 
-#: formeditor/commands.cpp:911
+#: formeditor/commands.cpp:915
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "Vložiť komponent"
 
-#: formeditor/commands.cpp:957
+#: formeditor/commands.cpp:961
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1381,37 +1381,37 @@ msgstr ""
 "Nemožno vložiť komponent typu <resource>%1</resource>. Nastal problém s "
 "vytvorením komponentu."
 
-#: formeditor/commands.cpp:1126
+#: formeditor/commands.cpp:1130
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "Vložiť"
 
-#: formeditor/commands.cpp:1412
+#: formeditor/commands.cpp:1416
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "Vymazať komponent"
 
-#: formeditor/commands.cpp:1520
+#: formeditor/commands.cpp:1524
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "Duplikovať komponent"
 
-#: formeditor/commands.cpp:1579
+#: formeditor/commands.cpp:1583
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "Vystrihnúť"
 
-#: formeditor/commands.cpp:1812
+#: formeditor/commands.cpp:1816
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "Pridať stránku"
 
-#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1863 formeditor/WidgetTreeWidget.cpp:118
 #, kde-kuit-format
 msgid "Page %1"
 msgstr "Stránka %1"
 
-#: formeditor/commands.cpp:1967
+#: formeditor/commands.cpp:1971
 msgctxt "(qtundo-format)"
 msgid "Delete Page"
 msgstr "Odstrániť stranu"
@@ -4263,12 +4263,12 @@ msgstr ""
 "<filename>%3</filename>.\n"
 "Chcete použiť ovládač <filename>%4</filename>?"
 
-#: main/startup/KexiStartup.cpp:948
+#: main/startup/KexiStartup.cpp:949
 #, kde-kuit-format
 msgid "Possible problems: %1"
 msgstr "Možné problémy: %1"
 
-#: main/startup/KexiStartup.cpp:954
+#: main/startup/KexiStartup.cpp:955
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4278,7 +4278,7 @@ msgstr ""
 "Súbor <filename>%1</filename> nie je rozpoznaný ako súbor podporovaný "
 "<application>%2</application>."
 
-#: main/startup/KexiStartup.cpp:959
+#: main/startup/KexiStartup.cpp:960
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4288,7 +4288,7 @@ msgstr ""
 "<para>Databázový ovládač pre tento typ súboru nebol nájdený.</para> "
 "<para>Detekovaný MIME typ je <resource>%1</resource>%2.</para>"
 
-#: main/startup/KexiStartup.cpp:963
+#: main/startup/KexiStartup.cpp:964
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4299,7 +4299,7 @@ msgstr ""
 "<para>Databázový ovládač pre tento typ súboru nebol nájdený.</para> "
 "<para>Detekovaný MIME typ je<resource>%1</resource>%2.</para><para>%3</para>"
 
-#: main/startup/KexiStartup.cpp:995
+#: main/startup/KexiStartup.cpp:996
 #, kde-kuit-format
 msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
@@ -4308,7 +4308,7 @@ msgstr ""
 "Nie je možné načítať zoznam projektov pre databázový server <resource>%1</"
 "resource>."
 
-#: main/startup/KexiStartup.cpp:1036
+#: main/startup/KexiStartup.cpp:1037
 #, kde-kuit-format
 msgid "Failed saving connection data to <filename>%1</filename> file."
 msgstr ""
@@ -6468,6 +6468,20 @@ msgstr "Importovať..."
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr ""
 "Súbor dát neobsahuje žiadne riadky. Želáte si naimportovať prázdnu tabuľku?"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Ready to Import"
+msgctxt "@action:button"
+msgid "Do not Import"
+msgstr "Pripravený na import"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Importing"
+msgctxt "@action:button"
+msgid "Import"
+msgstr "Importuje sa"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825

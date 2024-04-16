@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:42+0000\n"
+"POT-Creation-Date: 2024-04-16 01:49+0000\n"
 "PO-Revision-Date: 2023-02-03 08:40+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -960,7 +960,7 @@ msgstr ""
 "Ni moč odpreti projekta. Projektna datoteka <filename>%1</filename> ne "
 "obstaja."
 
-#: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
+#: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
 #: main/startup/KexiStartup.cpp:828
 #, kde-kuit-format
@@ -1076,12 +1076,12 @@ msgstr ""
 "Projekta ni mogoče izbrisati. Za ta projekt je bila vzpostavljena povezava z "
 "bazo podatkov odprto samo za branje."
 
-#: core/kexiproject.cpp:1526
+#: core/kexiproject.cpp:1524
 #, kde-kuit-format
 msgid "Open As Read Only"
 msgstr "Odpri samo za branje"
 
-#: core/kexiproject.cpp:1529
+#: core/kexiproject.cpp:1527
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1342,48 +1342,48 @@ msgctxt "(qtundo-format)"
 msgid "Align Widgets to Bottom"
 msgstr "Poravnaj gradnike na dno"
 
-#: formeditor/commands.cpp:618
+#: formeditor/commands.cpp:620
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Grid"
 msgstr "Spremenite velikost gradnikov glede na mrežo"
 
-#: formeditor/commands.cpp:621
+#: formeditor/commands.cpp:623
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Fit Contents"
 msgstr "Prilagodi velikost gradnikov vsebini"
 
-#: formeditor/commands.cpp:624
+#: formeditor/commands.cpp:626
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Narrowest"
 msgstr "Spremenite velikost gradnikov po najožjem"
 
-#: formeditor/commands.cpp:627
+#: formeditor/commands.cpp:629
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Widest"
 msgstr "Spremenite velikost gradnikov po najširšem"
 
-#: formeditor/commands.cpp:630
+#: formeditor/commands.cpp:632
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Shortest"
 msgstr "Spremenite velikost gradnikov po najkrajšem"
 
-#: formeditor/commands.cpp:633
+#: formeditor/commands.cpp:635
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "Spremenite velikost gradnikov po najdaljšem"
 
-#: formeditor/commands.cpp:908
+#: formeditor/commands.cpp:912
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "Vstavi gradnik <resource>%1</resource>"
 
-#: formeditor/commands.cpp:911
+#: formeditor/commands.cpp:915
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "Vstavi gradnik"
 
-#: formeditor/commands.cpp:957
+#: formeditor/commands.cpp:961
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1393,37 +1393,37 @@ msgstr ""
 "Ni bilo mogoče vstaviti gradnika vrste <resource>%1</resource>. Bila je "
 "težava z ustvarjanjem gradnika."
 
-#: formeditor/commands.cpp:1126
+#: formeditor/commands.cpp:1130
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "Prilepi"
 
-#: formeditor/commands.cpp:1412
+#: formeditor/commands.cpp:1416
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "Zbriši gradnik"
 
-#: formeditor/commands.cpp:1520
+#: formeditor/commands.cpp:1524
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "Podvoji gradnik"
 
-#: formeditor/commands.cpp:1579
+#: formeditor/commands.cpp:1583
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "Izreži"
 
-#: formeditor/commands.cpp:1812
+#: formeditor/commands.cpp:1816
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "Dodaj stran"
 
-#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1863 formeditor/WidgetTreeWidget.cpp:118
 #, kde-kuit-format
 msgid "Page %1"
 msgstr "Stran %1"
 
-#: formeditor/commands.cpp:1967
+#: formeditor/commands.cpp:1971
 msgctxt "(qtundo-format)"
 msgid "Delete Page"
 msgstr "Zbriši stran"
@@ -4282,12 +4282,12 @@ msgstr ""
 "uporabo gonilnika <resource>%3</resource>.\n"
 "Ali želite uporabiti gonilnik za baze podatkov <resource>%4</resource>?"
 
-#: main/startup/KexiStartup.cpp:948
+#: main/startup/KexiStartup.cpp:949
 #, kde-kuit-format
 msgid "Possible problems: %1"
 msgstr "Možne težave: %1"
 
-#: main/startup/KexiStartup.cpp:954
+#: main/startup/KexiStartup.cpp:955
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4297,7 +4297,7 @@ msgstr ""
 "Datoteka <filename>%1</filename> ni prepoznana kot podprta za <application>"
 "%2</application>."
 
-#: main/startup/KexiStartup.cpp:959
+#: main/startup/KexiStartup.cpp:960
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4307,7 +4307,7 @@ msgstr ""
 "<para>Vtičnika, ki podpira to vrsto datoteke, ni bilo mogoče najti.</"
 "para><para>Zaznana vrsta MIME je <resource>%1</resource>%2.</para>"
 
-#: main/startup/KexiStartup.cpp:963
+#: main/startup/KexiStartup.cpp:964
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4319,7 +4319,7 @@ msgstr ""
 "para><para>Zaznana vrsta MIME je <resource>%1</resource>%2.</para> <para>%3</"
 "para>"
 
-#: main/startup/KexiStartup.cpp:995
+#: main/startup/KexiStartup.cpp:996
 #, kde-kuit-format
 msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
@@ -4328,7 +4328,7 @@ msgstr ""
 "Ni moč naložiti seznama razpoložljivih projektov za podatkovni strežnik "
 "<resource>%1</resource>."
 
-#: main/startup/KexiStartup.cpp:1036
+#: main/startup/KexiStartup.cpp:1037
 #, kde-kuit-format
 msgid "Failed saving connection data to <filename>%1</filename> file."
 msgstr ""
@@ -6494,6 +6494,20 @@ msgstr "Uvoz&i..."
 #, kde-kuit-format
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr "Množica podatkov ne vsebuje vrstic. Ali želite uvoziti prazno tabelo?"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Ready to Import"
+msgctxt "@action:button"
+msgid "Do not Import"
+msgstr "Pripravljeno za uvoz"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Importing"
+msgctxt "@action:button"
+msgid "Import"
+msgstr "Uvažanje"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825

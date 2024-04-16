@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:42+0000\n"
+"POT-Creation-Date: 2024-04-16 01:49+0000\n"
 "PO-Revision-Date: 2015-02-28 20:53+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -1147,7 +1147,7 @@ msgid ""
 "exist."
 msgstr "Kunne ikke åbne filen. Filen <filename>%1</filename> findes ikke."
 
-#: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
+#: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
 #: main/startup/KexiStartup.cpp:828
 #, kde-kuit-format
@@ -1283,12 +1283,12 @@ msgstr ""
 "Kunne ikke droppe dette projekt. Databaseforbindelsen for projektet blev "
 "åbnet som skrivebeskyttet."
 
-#: core/kexiproject.cpp:1526
+#: core/kexiproject.cpp:1524
 #, kde-kuit-format
 msgid "Open As Read Only"
 msgstr "Åbn som skrivebeskyttet"
 
-#: core/kexiproject.cpp:1529
+#: core/kexiproject.cpp:1527
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1573,37 +1573,37 @@ msgctxt "(qtundo-format)"
 msgid "Align Widgets to Bottom"
 msgstr "Justér kontroller til bund"
 
-#: formeditor/commands.cpp:618
+#: formeditor/commands.cpp:620
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Grid"
 msgstr "Tilpas kontroller til gitter"
 
-#: formeditor/commands.cpp:621
+#: formeditor/commands.cpp:623
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Fit Contents"
 msgstr "Tilpas kontroller til indhold"
 
-#: formeditor/commands.cpp:624
+#: formeditor/commands.cpp:626
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Narrowest"
 msgstr "Tilpas kontroller til smalleste"
 
-#: formeditor/commands.cpp:627
+#: formeditor/commands.cpp:629
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Widest"
 msgstr "Tilpas kontroller til bredeste"
 
-#: formeditor/commands.cpp:630
+#: formeditor/commands.cpp:632
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Shortest"
 msgstr "Tilpas kontroller til korteste"
 
-#: formeditor/commands.cpp:633
+#: formeditor/commands.cpp:635
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "Tilpas kontroller til højeste"
 
-#: formeditor/commands.cpp:908
+#: formeditor/commands.cpp:912
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Find in <resource>%1</resource>"
@@ -1611,12 +1611,12 @@ msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "Find i <resource>%1</resource>"
 
-#: formeditor/commands.cpp:911
+#: formeditor/commands.cpp:915
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "Indsæt kontrol"
 
-#: formeditor/commands.cpp:957
+#: formeditor/commands.cpp:961
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not insert widget of type \"%1\". A problem with widget's creation "
@@ -1629,37 +1629,37 @@ msgstr ""
 "Kunne ikke indsætte en kontrol af typen \"%1\". Et problem opstod med at "
 "oprette kontrollen."
 
-#: formeditor/commands.cpp:1126
+#: formeditor/commands.cpp:1130
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "Indsæt"
 
-#: formeditor/commands.cpp:1412
+#: formeditor/commands.cpp:1416
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "Slet kontrol"
 
-#: formeditor/commands.cpp:1520
+#: formeditor/commands.cpp:1524
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "Duplikér kontrol"
 
-#: formeditor/commands.cpp:1579
+#: formeditor/commands.cpp:1583
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "Klip"
 
-#: formeditor/commands.cpp:1812
+#: formeditor/commands.cpp:1816
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "Tilføj side"
 
-#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1863 formeditor/WidgetTreeWidget.cpp:118
 #, kde-kuit-format
 msgid "Page %1"
 msgstr "Side %1"
 
-#: formeditor/commands.cpp:1967
+#: formeditor/commands.cpp:1971
 #, fuzzy
 #| msgctxt "(qtundo-format)"
 #| msgid "Delete widget"
@@ -4693,13 +4693,13 @@ msgstr ""
 "men du har bedt om at databasedriveren \"%3\" skal bruges.\n"
 "Vil du bruge databasedriveren \"%4\"?"
 
-#: main/startup/KexiStartup.cpp:948
+#: main/startup/KexiStartup.cpp:949
 #, fuzzy, kde-kuit-format
 #| msgid "Possible problems:"
 msgid "Possible problems: %1"
 msgstr "Mulige problemer:"
 
-#: main/startup/KexiStartup.cpp:954
+#: main/startup/KexiStartup.cpp:955
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" is not recognized as being supported by Kexi."
 msgctxt "@info"
@@ -4708,7 +4708,7 @@ msgid ""
 "<application>%2</application>."
 msgstr "Filen \"%1\" bliver ikke genkendt som understøttet af Kexi."
 
-#: main/startup/KexiStartup.cpp:959
+#: main/startup/KexiStartup.cpp:960
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4721,7 +4721,7 @@ msgstr ""
 "Databasedriver for denne filtype ikke fundet.\n"
 "Detekterede MIME-type: %1"
 
-#: main/startup/KexiStartup.cpp:963
+#: main/startup/KexiStartup.cpp:964
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4735,7 +4735,7 @@ msgstr ""
 "Databasedriver for denne filtype ikke fundet.\n"
 "Detekterede MIME-type: %1"
 
-#: main/startup/KexiStartup.cpp:995
+#: main/startup/KexiStartup.cpp:996
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not load list of available projects for <b>%1</b> database server."
@@ -4746,7 +4746,7 @@ msgstr ""
 "Kunne ikke indlæse liste med tilgængelige projekter for databaseserveren <b>"
 "%1</b>."
 
-#: main/startup/KexiStartup.cpp:1036
+#: main/startup/KexiStartup.cpp:1037
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Failed saving connection data to\n"
@@ -7051,6 +7051,20 @@ msgstr "&Importér..."
 #, kde-kuit-format
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr "Datasættet indeholder ingen rækker. Vil du importere en tom tabel?"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Print report"
+msgctxt "@action:button"
+msgid "Do not Import"
+msgstr "Udskriv rapport"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "&Import"
+msgctxt "@action:button"
+msgid "Import"
+msgstr "&Importér"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
@@ -12498,9 +12512,6 @@ msgstr "Flytter markøren til ny post og tillader indsætning."
 
 #~ msgid "&Insert"
 #~ msgstr "&Indsæt"
-
-#~ msgid "&Import"
-#~ msgstr "&Importér"
 
 #~ msgid "Paste &Special"
 #~ msgstr "Indsæt &special"

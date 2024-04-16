@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:42+0000\n"
+"POT-Creation-Date: 2024-04-16 01:49+0000\n"
 "PO-Revision-Date: 2008-05-07 16:49+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -1143,7 +1143,7 @@ msgstr ""
 "Kin projekt net wiskje.\n"
 "De triem \"%1\" bestiet net."
 
-#: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
+#: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
 #: main/startup/KexiStartup.cpp:828
 #, fuzzy, kde-kuit-format
@@ -1277,13 +1277,13 @@ msgstr ""
 "Dit projekt koe net wiske wurde. De databankferbining foar dit projekt is as "
 "allinnich-lêze iepene."
 
-#: core/kexiproject.cpp:1526
+#: core/kexiproject.cpp:1524
 #, fuzzy, kde-kuit-format
 #| msgid "Open As Read-Only"
 msgid "Open As Read Only"
 msgstr "As allinnich-lêze iepenje"
 
-#: core/kexiproject.cpp:1529
+#: core/kexiproject.cpp:1527
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "File \"%1\" already exists.<p>Do you want to replace it with a new one?"
@@ -1582,63 +1582,63 @@ msgctxt "(qtundo-format)"
 msgid "Align Widgets to Bottom"
 msgstr "Eleminten útlynje"
 
-#: formeditor/commands.cpp:618
+#: formeditor/commands.cpp:620
 #, fuzzy
 #| msgid "Bring Widget to Front"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Grid"
 msgstr "Element nei foargrûn ferpleatse"
 
-#: formeditor/commands.cpp:621
+#: formeditor/commands.cpp:623
 #, fuzzy
 #| msgid "Clear Widget Contents"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Fit Contents"
 msgstr "Elemint-ynhâld wiskje"
 
-#: formeditor/commands.cpp:624
+#: formeditor/commands.cpp:626
 #, fuzzy
 #| msgid "Bring Widget to Front"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Narrowest"
 msgstr "Element nei foargrûn ferpleatse"
 
-#: formeditor/commands.cpp:627
+#: formeditor/commands.cpp:629
 #, fuzzy
 #| msgid "Resize Widgets to Widest"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Widest"
 msgstr "Komponintgrutte oanpasse oan breedste"
 
-#: formeditor/commands.cpp:630
+#: formeditor/commands.cpp:632
 #, fuzzy
 #| msgid "Resize Widgets to Shortest"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Shortest"
 msgstr "Komponintgrutte oanpasse oan koartste"
 
-#: formeditor/commands.cpp:633
+#: formeditor/commands.cpp:635
 #, fuzzy
 #| msgid "Resize Widgets to Tallest"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "Componenten oanpasse oan langste"
 
-#: formeditor/commands.cpp:908
+#: formeditor/commands.cpp:912
 #, fuzzy, kde-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "\"%1\"-objekt bewarjen mislearre."
 
-#: formeditor/commands.cpp:911
+#: formeditor/commands.cpp:915
 #, fuzzy
 #| msgid "Insert AutoField widget"
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "Autofjild-elemint ynfoegje"
 
-#: formeditor/commands.cpp:957
+#: formeditor/commands.cpp:961
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not insert widget of type \"%1\". A problem with widget's creation "
@@ -1651,47 +1651,47 @@ msgstr ""
 "Ynfoegjen fan komponint fan type \"%1\" mislearre. Der is swierrigens mei it "
 "oanmeitsjen fan de komponint."
 
-#: formeditor/commands.cpp:1126
+#: formeditor/commands.cpp:1130
 #, fuzzy
 #| msgid "Paste"
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "Plakke"
 
-#: formeditor/commands.cpp:1412
+#: formeditor/commands.cpp:1416
 #, fuzzy
 #| msgid "Delete Row"
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "Rige wiskje"
 
-#: formeditor/commands.cpp:1520
+#: formeditor/commands.cpp:1524
 #, fuzzy
 #| msgid "Delete widget"
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "Komponint wiskje"
 
-#: formeditor/commands.cpp:1579
+#: formeditor/commands.cpp:1583
 #, fuzzy
 #| msgid "Cut"
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "Knippe"
 
-#: formeditor/commands.cpp:1812
+#: formeditor/commands.cpp:1816
 #, fuzzy
 #| msgid "Odd Page(s)"
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "Uneven side(n)"
 
-#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1863 formeditor/WidgetTreeWidget.cpp:118
 #, kde-kuit-format
 msgid "Page %1"
 msgstr "Side %1"
 
-#: formeditor/commands.cpp:1967
+#: formeditor/commands.cpp:1971
 #, fuzzy
 #| msgid "Delete Row"
 msgctxt "(qtundo-format)"
@@ -4872,13 +4872,13 @@ msgstr ""
 "\"%3\" te brûken.\n"
 "Wolle jo databank stjoerprogramma \"%4\" brûke?"
 
-#: main/startup/KexiStartup.cpp:948
+#: main/startup/KexiStartup.cpp:949
 #, fuzzy, kde-kuit-format
 #| msgid "Possible problems:"
 msgid "Possible problems: %1"
 msgstr "Mooglike problemen:"
 
-#: main/startup/KexiStartup.cpp:954
+#: main/startup/KexiStartup.cpp:955
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" is not recognized as being supported by Kexi."
 msgctxt "@info"
@@ -4887,7 +4887,7 @@ msgid ""
 "<application>%2</application>."
 msgstr "De triem \"%1\" wurdt net werkend as in troch Kexi stipe triemtype."
 
-#: main/startup/KexiStartup.cpp:959
+#: main/startup/KexiStartup.cpp:960
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4900,7 +4900,7 @@ msgstr ""
 "It databank-stjoerprogramma foar dit triemstype is net fûn.\n"
 "Detektearre MIME-triemtype: %1"
 
-#: main/startup/KexiStartup.cpp:963
+#: main/startup/KexiStartup.cpp:964
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4914,7 +4914,7 @@ msgstr ""
 "It databank-stjoerprogramma foar dit triemstype is net fûn.\n"
 "Detektearre MIME-triemtype: %1"
 
-#: main/startup/KexiStartup.cpp:995
+#: main/startup/KexiStartup.cpp:996
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not load list of available projects for <b>%1</b> database server."
@@ -4925,7 +4925,7 @@ msgstr ""
 "It laden fan de list fan beskikbere projekten foar ferbining \"%1\" is "
 "mislearre."
 
-#: main/startup/KexiStartup.cpp:1036
+#: main/startup/KexiStartup.cpp:1037
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Failed saving connection data to\n"
@@ -7363,6 +7363,20 @@ msgstr "&Ymportearje..."
 #, kde-kuit-format
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr "Gegevensboarne befet gjin rigen. Wolle jo in lege tabel ymportearje?"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Print Report"
+msgctxt "@action:button"
+msgid "Do not Import"
+msgstr "printrapport"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "&Import"
+msgctxt "@action:button"
+msgid "Import"
+msgstr "&Ymportearje"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
@@ -13174,9 +13188,6 @@ msgstr "Set rinnerke op de nije rige en stean ynfoegjen ta."
 
 #~ msgid "&Insert"
 #~ msgstr "&Ynfoegje"
-
-#~ msgid "&Import"
-#~ msgstr "&Ymportearje"
 
 #~ msgid "Paste &Special"
 #~ msgstr "&Spesjaal plakke"

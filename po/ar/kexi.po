@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:42+0000\n"
+"POT-Creation-Date: 2024-04-16 01:49+0000\n"
 "PO-Revision-Date: 2022-01-21 13:34+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -887,7 +887,7 @@ msgid ""
 "exist."
 msgstr "يمكن أن ليس أزِل مشروع ملفّ ليس."
 
-#: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
+#: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
 #: main/startup/KexiStartup.cpp:828
 #, kde-kuit-format
@@ -998,12 +998,12 @@ msgid ""
 "opened as read only."
 msgstr "يمكن أن ليس مشروع قاعدة بيانات اتصال لـ مشروع قراءة."
 
-#: core/kexiproject.cpp:1526
+#: core/kexiproject.cpp:1524
 #, fuzzy, kde-kuit-format
 msgid "Open As Read Only"
 msgstr "افتح بوضع القراءة فقط"
 
-#: core/kexiproject.cpp:1529
+#: core/kexiproject.cpp:1527
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1255,55 +1255,55 @@ msgctxt "(qtundo-format)"
 msgid "Align Widgets to Bottom"
 msgstr "حاذي المتحكمات الموضع"
 
-#: formeditor/commands.cpp:618
+#: formeditor/commands.cpp:620
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Grid"
 msgstr "احضار المتحكم إلى الأمام"
 
-#: formeditor/commands.cpp:621
+#: formeditor/commands.cpp:623
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Fit Contents"
 msgstr "ازالة محتويات المتحكم"
 
-#: formeditor/commands.cpp:624
+#: formeditor/commands.cpp:626
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Narrowest"
 msgstr "احضار المتحكم إلى الأمام"
 
-#: formeditor/commands.cpp:627
+#: formeditor/commands.cpp:629
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Widest"
 msgstr "تحجيم المتحكمات إلى الأعرض"
 
-#: formeditor/commands.cpp:630
+#: formeditor/commands.cpp:632
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Shortest"
 msgstr "تحجيم المتحكمات إلى الاقصر"
 
-#: formeditor/commands.cpp:633
+#: formeditor/commands.cpp:635
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "تحجيم المتحكمات إلى الأطول"
 
-#: formeditor/commands.cpp:908
+#: formeditor/commands.cpp:912
 #, fuzzy, kde-format
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "جاري الحفظ كائن failed."
 
-#: formeditor/commands.cpp:911
+#: formeditor/commands.cpp:915
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "إدراج"
 
-#: formeditor/commands.cpp:957
+#: formeditor/commands.cpp:961
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not insert widget of type \"%1\". A problem with widget's creation "
@@ -1314,42 +1314,42 @@ msgid ""
 "widget's creation encountered."
 msgstr "لا يمكن إدارج متحكم من نوع \"%1\". مشكلة حدثت في إنشاء المتحكم."
 
-#: formeditor/commands.cpp:1126
+#: formeditor/commands.cpp:1130
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "اللصق"
 
-#: formeditor/commands.cpp:1412
+#: formeditor/commands.cpp:1416
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "حذف صف"
 
-#: formeditor/commands.cpp:1520
+#: formeditor/commands.cpp:1524
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "حذف متحكم"
 
-#: formeditor/commands.cpp:1579
+#: formeditor/commands.cpp:1583
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "القصّ"
 
-#: formeditor/commands.cpp:1812
+#: formeditor/commands.cpp:1816
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "إضافة معاملات"
 
-#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1863 formeditor/WidgetTreeWidget.cpp:118
 #, fuzzy, kde-kuit-format
 msgid "Page %1"
 msgstr "الصفحة %1"
 
-#: formeditor/commands.cpp:1967
+#: formeditor/commands.cpp:1971
 msgctxt "(qtundo-format)"
 msgid "Delete Page"
 msgstr "احذف الصفحة"
@@ -4140,12 +4140,12 @@ msgstr ""
 "الـ مشروع ملفّ هو متوافق مع قاعدة بيانات سوّاق بينما لـ قاعدة بيانات سوّاق إلى "
 "مُستخدَم إلى استخدام قاعدة بيانات سوّاق?"
 
-#: main/startup/KexiStartup.cpp:948
+#: main/startup/KexiStartup.cpp:949
 #, fuzzy, kde-kuit-format
 msgid "Possible problems: %1"
 msgstr "محتمل:"
 
-#: main/startup/KexiStartup.cpp:954
+#: main/startup/KexiStartup.cpp:955
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4153,7 +4153,7 @@ msgid ""
 "<application>%2</application>."
 msgstr "الـ ملفّ هو ليس مدعوم أداء."
 
-#: main/startup/KexiStartup.cpp:959
+#: main/startup/KexiStartup.cpp:960
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4161,7 +4161,7 @@ msgid ""
 "para><para>Detected MIME type is <resource>%1</resource>%2.</para>"
 msgstr "قاعدة بيانات سوّاق لـ ملفّ نوع ليس موجود نوع 1"
 
-#: main/startup/KexiStartup.cpp:963
+#: main/startup/KexiStartup.cpp:964
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4170,14 +4170,14 @@ msgid ""
 "para>"
 msgstr "قاعدة بيانات سوّاق لـ ملفّ نوع ليس موجود نوع 1"
 
-#: main/startup/KexiStartup.cpp:995
+#: main/startup/KexiStartup.cpp:996
 #, fuzzy, kde-kuit-format
 msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
 "database server."
 msgstr "يمكن أن ليس التحميل قائمة من متوفّر مشاريع لـ<b></b> قاعدة بيانات خادم."
 
-#: main/startup/KexiStartup.cpp:1036
+#: main/startup/KexiStartup.cpp:1037
 #, fuzzy, kde-kuit-format
 msgid "Failed saving connection data to <filename>%1</filename> file."
 msgstr "فشل اتصال البيانات إلى n ملفّ."
@@ -6304,6 +6304,18 @@ msgstr "ا&ستورد..."
 #, fuzzy, kde-kuit-format
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr "البيانات set يحتوي لا سطور تنفيذ إلى استيراد فارغ جدول?"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "Do not Import"
+msgstr "تقرير"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "Import"
+msgstr "&إستورد"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
@@ -11802,10 +11814,6 @@ msgstr "الحركات مؤشر إلى جديد صف و."
 #, fuzzy
 #~ msgid "&Insert"
 #~ msgstr "أ&درج"
-
-#, fuzzy
-#~ msgid "&Import"
-#~ msgstr "&إستورد"
 
 #, fuzzy
 #~ msgid "Paste &Special"

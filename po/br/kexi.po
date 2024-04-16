@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: koffice/kexi.pot\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:42+0000\n"
+"POT-Creation-Date: 2024-04-16 01:49+0000\n"
 "PO-Revision-Date: 2004-11-09 13:46+0100\n"
 "Last-Translator: Thierry Vignaud <tvignaud@mandriva.com>\n"
 "Language-Team: br <LL@li.org>\n"
@@ -881,7 +881,7 @@ msgstr ""
 "Ne m'eus ket gallet dilemel ar raktres.\n"
 "N'eus ket ur restr « %1 »."
 
-#: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
+#: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
 #: main/startup/KexiStartup.cpp:828
 #, fuzzy, kde-kuit-format
@@ -1002,13 +1002,13 @@ msgid ""
 "opened as read only."
 msgstr ""
 
-#: core/kexiproject.cpp:1526
+#: core/kexiproject.cpp:1524
 #, fuzzy, kde-kuit-format
 #| msgid "Read only"
 msgid "Open As Read Only"
 msgstr "Lenn-hepken"
 
-#: core/kexiproject.cpp:1529
+#: core/kexiproject.cpp:1527
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1285,61 +1285,61 @@ msgctxt "(qtundo-format)"
 msgid "Align Widgets to Bottom"
 msgstr "Steudañ ar widgetoù d'a-gleiz"
 
-#: formeditor/commands.cpp:618
+#: formeditor/commands.cpp:620
 #, fuzzy
 #| msgid "Align Widgets to Right"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Grid"
 msgstr "Steudañ ar widgetoù d'a-zehou"
 
-#: formeditor/commands.cpp:621
+#: formeditor/commands.cpp:623
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Fit Contents"
 msgstr "Ur widget evit diskouez skrid"
 
-#: formeditor/commands.cpp:624
+#: formeditor/commands.cpp:626
 #, fuzzy
 #| msgid "Align Widgets to Left"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Narrowest"
 msgstr "Steudañ ar widgetoù d'a-gleiz"
 
-#: formeditor/commands.cpp:627
+#: formeditor/commands.cpp:629
 #, fuzzy
 #| msgid "Align Widgets to Left"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Widest"
 msgstr "Steudañ ar widgetoù d'a-gleiz"
 
-#: formeditor/commands.cpp:630
+#: formeditor/commands.cpp:632
 #, fuzzy
 #| msgid "Align Widgets to Left"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Shortest"
 msgstr "Steudañ ar widgetoù d'a-gleiz"
 
-#: formeditor/commands.cpp:633
+#: formeditor/commands.cpp:635
 #, fuzzy
 #| msgid "Align Widgets to Left"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "Steudañ ar widgetoù d'a-gleiz"
 
-#: formeditor/commands.cpp:908
+#: formeditor/commands.cpp:912
 #, fuzzy, kde-format
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "N'em eus ket gallet krouiñ ar stlennvon « %1 »."
 
-#: formeditor/commands.cpp:911
+#: formeditor/commands.cpp:915
 #, fuzzy
 #| msgid "&Insert"
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "&Enlakaat"
 
-#: formeditor/commands.cpp:957
+#: formeditor/commands.cpp:961
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1347,47 +1347,47 @@ msgid ""
 "widget's creation encountered."
 msgstr "Ne m'eus ket gallet lenn ar restr « %1 »."
 
-#: formeditor/commands.cpp:1126
+#: formeditor/commands.cpp:1130
 #, fuzzy
 #| msgid "Date"
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "Deiziad"
 
-#: formeditor/commands.cpp:1412
+#: formeditor/commands.cpp:1416
 #, fuzzy
 #| msgid "Delete Row"
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "Lemel ul linenn"
 
-#: formeditor/commands.cpp:1520
+#: formeditor/commands.cpp:1524
 #, fuzzy
 #| msgid "Delete widget"
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "Lemel ar widget"
 
-#: formeditor/commands.cpp:1579
+#: formeditor/commands.cpp:1583
 #, fuzzy
 #| msgid "Cut"
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "Troc'hañ"
 
-#: formeditor/commands.cpp:1812
+#: formeditor/commands.cpp:1816
 #, fuzzy
 #| msgid "Add Parameter"
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "Ouzhpennañ un dibarzh"
 
-#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1863 formeditor/WidgetTreeWidget.cpp:118
 #, kde-kuit-format
 msgid "Page %1"
 msgstr "Pajenn %1"
 
-#: formeditor/commands.cpp:1967
+#: formeditor/commands.cpp:1971
 #, fuzzy
 #| msgid "Delete Row"
 msgctxt "(qtundo-format)"
@@ -4384,12 +4384,12 @@ msgid ""
 "Do you want to use <resource>%4</resource> database driver?"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:948
+#: main/startup/KexiStartup.cpp:949
 #, kde-kuit-format
 msgid "Possible problems: %1"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:954
+#: main/startup/KexiStartup.cpp:955
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not remove project.\n"
@@ -4402,7 +4402,7 @@ msgstr ""
 "Ne m'eus ket gallet dilemel ar raktres.\n"
 "N'eus ket ur restr « %1 »."
 
-#: main/startup/KexiStartup.cpp:959
+#: main/startup/KexiStartup.cpp:960
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4410,7 +4410,7 @@ msgid ""
 "para><para>Detected MIME type is <resource>%1</resource>%2.</para>"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:963
+#: main/startup/KexiStartup.cpp:964
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4419,14 +4419,14 @@ msgid ""
 "para>"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:995
+#: main/startup/KexiStartup.cpp:996
 #, fuzzy, kde-kuit-format
 msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
 "database server."
 msgstr "N'hellan ket kevreañ ouzh ar servijer stlennvon %1."
 
-#: main/startup/KexiStartup.cpp:1036
+#: main/startup/KexiStartup.cpp:1037
 #, fuzzy, kde-kuit-format
 #| msgid "Importing CSV Data from <nobr>\"%1\"</nobr> into \"%2\" table..."
 msgid "Failed saving connection data to <filename>%1</filename> file."
@@ -6707,6 +6707,20 @@ msgstr "&Enporzh ..."
 #, kde-kuit-format
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr ""
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Report"
+msgctxt "@action:button"
+msgid "Do not Import"
+msgstr "Dezrevell"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "&Import"
+msgctxt "@action:button"
+msgid "Import"
+msgstr "&Enporzh"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
@@ -11270,9 +11284,6 @@ msgstr "Linenn a heul"
 
 #~ msgid "&Insert"
 #~ msgstr "&Enlakaat"
-
-#~ msgid "&Import"
-#~ msgstr "&Enporzh"
 
 #, fuzzy
 #~| msgid "Close the current project"

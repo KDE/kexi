@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:42+0000\n"
+"POT-Creation-Date: 2024-04-16 01:49+0000\n"
 "PO-Revision-Date: 2020-04-29 08:33+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -959,7 +959,7 @@ msgid ""
 "exist."
 msgstr "Не вдалося відкрити проєкт. Файла <filename>%1</filename> не існує."
 
-#: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
+#: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
 #: main/startup/KexiStartup.cpp:828
 #, kde-kuit-format
@@ -1076,12 +1076,12 @@ msgstr ""
 "Не вдалося вилучити цей проєкт. З'єднання з базою даних для цього проєкту "
 "було відкрито лише для читання."
 
-#: core/kexiproject.cpp:1526
+#: core/kexiproject.cpp:1524
 #, kde-kuit-format
 msgid "Open As Read Only"
 msgstr "Відкрити тільки для читання"
 
-#: core/kexiproject.cpp:1529
+#: core/kexiproject.cpp:1527
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1357,49 +1357,49 @@ msgstr ""
 "Вирівняти віджети донизу\n"
 "вирівнювання віджетів донизу"
 
-#: formeditor/commands.cpp:618
+#: formeditor/commands.cpp:620
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Grid"
 msgstr ""
 "Змінити розміри віджетів за ґраткою\n"
 "зміну розміру віджетів за ґраткою"
 
-#: formeditor/commands.cpp:621
+#: formeditor/commands.cpp:623
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Fit Contents"
 msgstr ""
 "Змінити розміри віджетів за вмістом\n"
 "зміну розмірів віджетів за вмістом"
 
-#: formeditor/commands.cpp:624
+#: formeditor/commands.cpp:626
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Narrowest"
 msgstr ""
 "Змінити розміри віджетів за найвужчим\n"
 "зміну розмірів віджетів за найвужчим"
 
-#: formeditor/commands.cpp:627
+#: formeditor/commands.cpp:629
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Widest"
 msgstr ""
 "Змінити розміри віджетів за найширшим\n"
 "зміну розмірів віджетів за найширшим"
 
-#: formeditor/commands.cpp:630
+#: formeditor/commands.cpp:632
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Shortest"
 msgstr ""
 "Змінити розміри віджетів за найкоротшим\n"
 "зміну розмірів віджетів за найкоротшим"
 
-#: formeditor/commands.cpp:633
+#: formeditor/commands.cpp:635
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr ""
 "Змінити розміри віджетів за найвищим\n"
 "зміну розмірів віджетів за найвищим"
 
-#: formeditor/commands.cpp:908
+#: formeditor/commands.cpp:912
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
@@ -1407,14 +1407,14 @@ msgstr ""
 "Вставити віджет <resource>%1</resource>\n"
 "вставлення віджета <resource>%1</resource>"
 
-#: formeditor/commands.cpp:911
+#: formeditor/commands.cpp:915
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr ""
 "Вставити віджет\n"
 "вставлення віджета"
 
-#: formeditor/commands.cpp:957
+#: formeditor/commands.cpp:961
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1424,47 +1424,47 @@ msgstr ""
 "Не вдалося вставити віджет типу <resource>%1</resource>. Проблема зі "
 "створенням віджета."
 
-#: formeditor/commands.cpp:1126
+#: formeditor/commands.cpp:1130
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr ""
 "Вставити\n"
 "вставлення"
 
-#: formeditor/commands.cpp:1412
+#: formeditor/commands.cpp:1416
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr ""
 "Вилучити віджет\n"
 "вилучення віджета"
 
-#: formeditor/commands.cpp:1520
+#: formeditor/commands.cpp:1524
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr ""
 "Дублювати віджет\n"
 "дублювання віджета"
 
-#: formeditor/commands.cpp:1579
+#: formeditor/commands.cpp:1583
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr ""
 "Вирізати\n"
 "вирізання"
 
-#: formeditor/commands.cpp:1812
+#: formeditor/commands.cpp:1816
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr ""
 "Додати сторінку\n"
 "додавання сторінки"
 
-#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1863 formeditor/WidgetTreeWidget.cpp:118
 #, kde-kuit-format
 msgid "Page %1"
 msgstr "Сторінка %1"
 
-#: formeditor/commands.cpp:1967
+#: formeditor/commands.cpp:1971
 msgctxt "(qtundo-format)"
 msgid "Delete Page"
 msgstr ""
@@ -4331,12 +4331,12 @@ msgstr ""
 "%3</resource>.\n"
 "Хочете використовувати драйвер бази даних <resource>%4</resource>?"
 
-#: main/startup/KexiStartup.cpp:948
+#: main/startup/KexiStartup.cpp:949
 #, kde-kuit-format
 msgid "Possible problems: %1"
 msgstr "Ймовірні проблеми: %1"
 
-#: main/startup/KexiStartup.cpp:954
+#: main/startup/KexiStartup.cpp:955
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4346,7 +4346,7 @@ msgstr ""
 "Файл <filename>%1</filename> не розпізнано як такий, що підтримується "
 "<application>%2</application>."
 
-#: main/startup/KexiStartup.cpp:959
+#: main/startup/KexiStartup.cpp:960
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4356,7 +4356,7 @@ msgstr ""
 "<para>Драйвер бази даних для цього типу файлів не знайдено.</"
 "para><para>Виявлений тип MIME: <resource>%1</resource>%2.</para>"
 
-#: main/startup/KexiStartup.cpp:963
+#: main/startup/KexiStartup.cpp:964
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4368,7 +4368,7 @@ msgstr ""
 "para><para>Виявлений тип MIME: <resource>%1</resource>%2.</para><para>%3</"
 "para>"
 
-#: main/startup/KexiStartup.cpp:995
+#: main/startup/KexiStartup.cpp:996
 #, kde-kuit-format
 msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
@@ -4377,7 +4377,7 @@ msgstr ""
 "Не вдалося завантажити список наявних проєктів для сервера баз даних "
 "<resource>%1</resource>."
 
-#: main/startup/KexiStartup.cpp:1036
+#: main/startup/KexiStartup.cpp:1037
 #, kde-kuit-format
 msgid "Failed saving connection data to <filename>%1</filename> file."
 msgstr "Помилка збереження даних з'єднання до файла <filename>%1</filename>."
@@ -6542,6 +6542,20 @@ msgstr "&Імпортувати…"
 #, kde-kuit-format
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr "Набір даних не має рядків. Хочете імпортувати порожню таблицю?"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Ready to Import"
+msgctxt "@action:button"
+msgid "Do not Import"
+msgstr "Готова до імпортування"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Importing"
+msgctxt "@action:button"
+msgid "Import"
+msgstr "Імпортування"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825

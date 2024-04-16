@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: koffice/kexi.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:42+0000\n"
+"POT-Creation-Date: 2024-04-16 01:49+0000\n"
 "PO-Revision-Date: 2004-12-03 14:52-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -883,7 +883,7 @@ msgstr ""
 "Níorbh fhéidir an tionscadal a bhaint.\n"
 "Níl an comhad \"%1\" ann."
 
-#: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
+#: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
 #: main/startup/KexiStartup.cpp:828
 #, fuzzy, kde-kuit-format
@@ -1006,13 +1006,13 @@ msgid ""
 "opened as read only."
 msgstr ""
 
-#: core/kexiproject.cpp:1526
+#: core/kexiproject.cpp:1524
 #, fuzzy, kde-kuit-format
 #| msgid "Read Only"
 msgid "Open As Read Only"
 msgstr "Inléite Amháin"
 
-#: core/kexiproject.cpp:1529
+#: core/kexiproject.cpp:1527
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "File \"%1\" already exists.<p>Do you want to replace it with a new one?"
@@ -1291,54 +1291,54 @@ msgctxt "(qtundo-format)"
 msgid "Align Widgets to Bottom"
 msgstr "Tabhair Giuirléid chun Tosaigh"
 
-#: formeditor/commands.cpp:618
+#: formeditor/commands.cpp:620
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Grid"
 msgstr "Tabhair Giuirléid chun Tosaigh"
 
-#: formeditor/commands.cpp:621
+#: formeditor/commands.cpp:623
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Fit Contents"
 msgstr "Tabhair Giuirléid chun Tosaigh"
 
-#: formeditor/commands.cpp:624
+#: formeditor/commands.cpp:626
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Narrowest"
 msgstr "Tabhair Giuirléid chun Tosaigh"
 
-#: formeditor/commands.cpp:627
+#: formeditor/commands.cpp:629
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Widest"
 msgstr "Leithead na Giuirléide"
 
-#: formeditor/commands.cpp:630
+#: formeditor/commands.cpp:632
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Shortest"
 msgstr ""
 
-#: formeditor/commands.cpp:633
+#: formeditor/commands.cpp:635
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr ""
 
-#: formeditor/commands.cpp:908
+#: formeditor/commands.cpp:912
 #, fuzzy, kde-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "Theip ar shábháil réad \"%1\"."
 
-#: formeditor/commands.cpp:911
+#: formeditor/commands.cpp:915
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "Ionsáigh giuirléid"
 
-#: formeditor/commands.cpp:957
+#: formeditor/commands.cpp:961
 #, fuzzy, kde-kuit-format
 #| msgid "Design of table \"%1\" has been modified."
 msgctxt "@info"
@@ -1347,42 +1347,42 @@ msgid ""
 "widget's creation encountered."
 msgstr "Athraíodh dearadh tábla \"%1\"."
 
-#: formeditor/commands.cpp:1126
+#: formeditor/commands.cpp:1130
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "Greamaigh"
 
-#: formeditor/commands.cpp:1412
+#: formeditor/commands.cpp:1416
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "Scrios giuirléid"
 
-#: formeditor/commands.cpp:1520
+#: formeditor/commands.cpp:1524
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "Cóipeáil giuirléid"
 
-#: formeditor/commands.cpp:1579
+#: formeditor/commands.cpp:1583
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "Gearr"
 
-#: formeditor/commands.cpp:1812
+#: formeditor/commands.cpp:1816
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "Cuir Leathanach Leis"
 
-#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1863 formeditor/WidgetTreeWidget.cpp:118
 #, kde-kuit-format
 msgid "Page %1"
 msgstr "Leathanach %1"
 
-#: formeditor/commands.cpp:1967
+#: formeditor/commands.cpp:1971
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Delete Page"
@@ -4323,12 +4323,12 @@ msgid ""
 "Do you want to use <resource>%4</resource> database driver?"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:948
+#: main/startup/KexiStartup.cpp:949
 #, kde-kuit-format
 msgid "Possible problems: %1"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:954
+#: main/startup/KexiStartup.cpp:955
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not remove project.\n"
@@ -4341,7 +4341,7 @@ msgstr ""
 "Níorbh fhéidir an tionscadal a bhaint.\n"
 "Níl an comhad \"%1\" ann."
 
-#: main/startup/KexiStartup.cpp:959
+#: main/startup/KexiStartup.cpp:960
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4349,7 +4349,7 @@ msgid ""
 "para><para>Detected MIME type is <resource>%1</resource>%2.</para>"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:963
+#: main/startup/KexiStartup.cpp:964
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4358,14 +4358,14 @@ msgid ""
 "para>"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:995
+#: main/startup/KexiStartup.cpp:996
 #, fuzzy, kde-kuit-format
 msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
 "database server."
 msgstr "Mionathraíodh dearadh na tuairisce \"%1\"."
 
-#: main/startup/KexiStartup.cpp:1036
+#: main/startup/KexiStartup.cpp:1037
 #, fuzzy, kde-kuit-format
 #| msgid "Loading CSV Data from \"%1\"..."
 msgid "Failed saving connection data to <filename>%1</filename> file."
@@ -6669,6 +6669,19 @@ msgstr "&Iompórtáil..."
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr ""
 "Níl aon ró sa tacar sonraí. An bhfuil fonn ort tábla folamh a iompórtáil?"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "Do not Import"
+msgstr "Priontáil an Tuairisc"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "&Import"
+msgctxt "@action:button"
+msgid "Import"
+msgstr "&Iompórtáil"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
@@ -10886,9 +10899,6 @@ msgstr "Bog an cúrsóir go ró nua agus ceadaítear duit ionsá."
 
 #~ msgid "&Insert"
 #~ msgstr "&Ionsáigh"
-
-#~ msgid "&Import"
-#~ msgstr "&Iompórtáil"
 
 #~ msgid "Paste &Special"
 #~ msgstr "Greamú &Speisialta"

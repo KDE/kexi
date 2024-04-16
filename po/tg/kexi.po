@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:42+0000\n"
+"POT-Creation-Date: 2024-04-16 01:49+0000\n"
 "PO-Revision-Date: 2019-09-29 12:43+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -895,7 +895,7 @@ msgid ""
 "exist."
 msgstr "<qt>Файли\"%1\"вуҷуд надорад."
 
-#: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
+#: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
 #: main/startup/KexiStartup.cpp:828
 #, fuzzy, kde-kuit-format
@@ -1010,12 +1010,12 @@ msgid ""
 "opened as read only."
 msgstr ""
 
-#: core/kexiproject.cpp:1526
+#: core/kexiproject.cpp:1524
 #, kde-kuit-format
 msgid "Open As Read Only"
 msgstr ""
 
-#: core/kexiproject.cpp:1529
+#: core/kexiproject.cpp:1527
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1275,58 +1275,58 @@ msgctxt "(qtundo-format)"
 msgid "Align Widgets to Bottom"
 msgstr "Баробар созии Widget's ҷойҳо"
 
-#: formeditor/commands.cpp:618
+#: formeditor/commands.cpp:620
 #, fuzzy
 #| msgid "Bring Widget to Front"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Grid"
 msgstr "Овардани тарҳбандиҳо  аз пеш "
 
-#: formeditor/commands.cpp:621
+#: formeditor/commands.cpp:623
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Fit Contents"
 msgstr "Мазмунҳои асосӣ маълумоти нодуруст. "
 
-#: formeditor/commands.cpp:624
+#: formeditor/commands.cpp:626
 #, fuzzy
 #| msgid "Bring Widget to Front"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Narrowest"
 msgstr "Овардани тарҳбандиҳо  аз пеш "
 
-#: formeditor/commands.cpp:627
+#: formeditor/commands.cpp:629
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Widest"
 msgstr "Таъғир додани Паҳмиҳоро ба Фарохиҳо"
 
-#: formeditor/commands.cpp:630
+#: formeditor/commands.cpp:632
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Shortest"
 msgstr "Таъғир додани Паҳмиҳоро ба Хурди"
 
-#: formeditor/commands.cpp:633
+#: formeditor/commands.cpp:635
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "Таъғир додани Паҳмиҳоро ба Дарози"
 
-#: formeditor/commands.cpp:908
+#: formeditor/commands.cpp:912
 #, fuzzy, kde-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "Нигоҳ доред \"%1\" мавзӯъ нодуруст."
 
-#: formeditor/commands.cpp:911
+#: formeditor/commands.cpp:915
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "Мондани қатор нодуруст."
 
-#: formeditor/commands.cpp:957
+#: formeditor/commands.cpp:961
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1334,46 +1334,46 @@ msgid ""
 "widget's creation encountered."
 msgstr "Файли \"%1\" хондан намешавад."
 
-#: formeditor/commands.cpp:1126
+#: formeditor/commands.cpp:1130
 #, fuzzy
 #| msgid "Date"
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "Таърих"
 
-#: formeditor/commands.cpp:1412
+#: formeditor/commands.cpp:1416
 #, fuzzy
 #| msgid "Delete Row"
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "Хориҷ кардан қатор"
 
-#: formeditor/commands.cpp:1520
+#: formeditor/commands.cpp:1524
 #, fuzzy
 #| msgid "Delete widget"
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "Нобуд кардани васеъкунӣ"
 
-#: formeditor/commands.cpp:1579
+#: formeditor/commands.cpp:1583
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "Курсор"
 
-#: formeditor/commands.cpp:1812
+#: formeditor/commands.cpp:1816
 #, fuzzy
 #| msgid "Add Parameter"
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "Иловаи Параметр"
 
-#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1863 formeditor/WidgetTreeWidget.cpp:118
 #, fuzzy, kde-kuit-format
 msgid "Page %1"
 msgstr "Саҳифа:"
 
-#: formeditor/commands.cpp:1967
+#: formeditor/commands.cpp:1971
 #, fuzzy
 #| msgid "Delete Row"
 msgctxt "(qtundo-format)"
@@ -4283,12 +4283,12 @@ msgid ""
 "Do you want to use <resource>%4</resource> database driver?"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:948
+#: main/startup/KexiStartup.cpp:949
 #, kde-kuit-format
 msgid "Possible problems: %1"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:954
+#: main/startup/KexiStartup.cpp:955
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" is not recognized as being supported by Kexi."
 msgctxt "@info"
@@ -4297,7 +4297,7 @@ msgid ""
 "<application>%2</application>."
 msgstr "Файли \"%1\"аз тарафи Kexi.тасдиқ нашудааст."
 
-#: main/startup/KexiStartup.cpp:959
+#: main/startup/KexiStartup.cpp:960
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4307,7 +4307,7 @@ msgstr ""
 "<qt>Драйвери асоси маълумот барои ин намуди файл ёфт нашудааст.<p> Навъи "
 "MIME : %1 маълум шудааст"
 
-#: main/startup/KexiStartup.cpp:963
+#: main/startup/KexiStartup.cpp:964
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4318,14 +4318,14 @@ msgstr ""
 "<qt>Драйвери асоси маълумот барои ин намуди файл ёфт нашудааст.<p> Навъи "
 "MIME : %1 маълум шудааст"
 
-#: main/startup/KexiStartup.cpp:995
+#: main/startup/KexiStartup.cpp:996
 #, fuzzy, kde-kuit-format
 msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
 "database server."
 msgstr "Рӯйхати нақшаҳои нақд барои алоқа бор карда намешаванд \"%1\""
 
-#: main/startup/KexiStartup.cpp:1036
+#: main/startup/KexiStartup.cpp:1037
 #, fuzzy, kde-kuit-format
 msgid "Failed saving connection data to <filename>%1</filename> file."
 msgstr "Бор кардани маълумоти мавзӯъи нодуруст."
@@ -6505,6 +6505,20 @@ msgstr "&Воридот"
 #, kde-kuit-format
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr ""
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Report"
+msgctxt "@action:button"
+msgid "Do not Import"
+msgstr "Гузориш"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "&Import"
+msgctxt "@action:button"
+msgid "Import"
+msgstr "&Воридот"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
@@ -11499,9 +11513,6 @@ msgstr "Қатори оянда"
 
 #~ msgid "Database creation for everyone"
 #~ msgstr "Асоси маълумот муҳайёкуни барои ҳама"
-
-#~ msgid "&Import"
-#~ msgstr "&Воридот"
 
 #, fuzzy
 #~| msgid "Close the current project"

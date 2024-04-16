@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:42+0000\n"
+"POT-Creation-Date: 2024-04-16 01:49+0000\n"
 "PO-Revision-Date: 2012-07-09 10:12+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -1058,7 +1058,7 @@ msgstr ""
 "មិនអាច​យក​គម្រោង​ចេញ​បានទេ ។\n"
 "មិន​ទាន់មាន​ឯកសារ \"%1\" ទេ ។"
 
-#: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
+#: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
 #: main/startup/KexiStartup.cpp:828
 #, fuzzy, kde-kuit-format
@@ -1193,13 +1193,13 @@ msgstr ""
 "មិនអាច​ទម្លាក់​គម្រោង​នេះ​បានទេ ។ ការ​តភ្ជាប់​មូលដ្ឋាន​ទិន្នន័យ​សម្រាប់​គម្រោង​នេះ​ត្រូវ​បាន​បើក​បាន​​តែ​អាន​"
 "ប៉ុណ្ណោះ ។"
 
-#: core/kexiproject.cpp:1526
+#: core/kexiproject.cpp:1524
 #, fuzzy, kde-kuit-format
 #| msgid "Open As Read-Only"
 msgid "Open As Read Only"
 msgstr "បើក​​បាន​តែ​អាន"
 
-#: core/kexiproject.cpp:1529
+#: core/kexiproject.cpp:1527
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "File \"%1\" already exists.<p>Do you want to replace it with a new one?"
@@ -1494,63 +1494,63 @@ msgctxt "(qtundo-format)"
 msgid "Align Widgets to Bottom"
 msgstr "តម្រឹម​​ធាតុក្រាហ្វិកទៅ​បាត"
 
-#: formeditor/commands.cpp:618
+#: formeditor/commands.cpp:620
 #, fuzzy
 #| msgid "Resize Widgets to Grid"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Grid"
 msgstr "ប្ដូរ​ទំហំ​ធាតុក្រាហ្វិក​ទៅ​ក្រឡា​ចត្រង្គ"
 
-#: formeditor/commands.cpp:621
+#: formeditor/commands.cpp:623
 #, fuzzy
 #| msgid "Resize Widgets to Fit Contents"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Fit Contents"
 msgstr "ប្តូរទំហំ​​​​ធាតុក្រាហ្វិក​ឲ្យ​​សមនឹង​​មាតិកា"
 
-#: formeditor/commands.cpp:624
+#: formeditor/commands.cpp:626
 #, fuzzy
 #| msgid "Resize Widgets to Narrowest"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Narrowest"
 msgstr "ប្តូរ​ទំហំ​ធាតុក្រាហ្វិកឲ្យ​តូច​បំផុត"
 
-#: formeditor/commands.cpp:627
+#: formeditor/commands.cpp:629
 #, fuzzy
 #| msgid "Resize Widgets to Widest"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Widest"
 msgstr "ប្តូរ​ទំហំធាតុ​ក្រាហ្វិកឲ្យ​ធំ​បំផុត"
 
-#: formeditor/commands.cpp:630
+#: formeditor/commands.cpp:632
 #, fuzzy
 #| msgid "Resize Widgets to Shortest"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Shortest"
 msgstr "ប្តូរទំហំ​​ធាតុ​ក្រាហ្វិក​​ឲ្យ​ខ្លី​បំផុត"
 
-#: formeditor/commands.cpp:633
+#: formeditor/commands.cpp:635
 #, fuzzy
 #| msgid "Resize Widgets to Tallest"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "ប្តូរទំហំ​ធាតុ​ក្រាហ្វិក​ឲ្យ​វែង​​បំផុត"
 
-#: formeditor/commands.cpp:908
+#: formeditor/commands.cpp:912
 #, fuzzy, kde-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "បាន​​បរាជ័យ​ក្នុងការ​រក្សាទុក​វត្ថុ \"%1\" ។"
 
-#: formeditor/commands.cpp:911
+#: formeditor/commands.cpp:915
 #, fuzzy
 #| msgid "Insert widget"
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "បញ្ចូល​ធាតុ​ក្រាហ្វិក​"
 
-#: formeditor/commands.cpp:957
+#: formeditor/commands.cpp:961
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not insert widget of type \"%1\". A problem with widget's creation "
@@ -1563,47 +1563,47 @@ msgstr ""
 "មិន​អាច​បញ្ចូល​ធាតុ​ក្រាហ្វិក​ប្រភេទ​ \"%1\"  បាន​ទេ ។ បាន​ជួប​ប្រទះ​បញ្ហា​ជា​មួយ​ការ​បង្កើត​របស់​"
 "ធាតុក្រាហ្វិក ។"
 
-#: formeditor/commands.cpp:1126
+#: formeditor/commands.cpp:1130
 #, fuzzy
 #| msgid "Paste"
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "បិទ​ភ្ជាប់"
 
-#: formeditor/commands.cpp:1412
+#: formeditor/commands.cpp:1416
 #, fuzzy
 #| msgid "Delete widget"
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "លុប​ធាតុ​ក្រាហ្វិក"
 
-#: formeditor/commands.cpp:1520
+#: formeditor/commands.cpp:1524
 #, fuzzy
 #| msgid "Duplicate widget"
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "ស្ទួន​ធាតុ​ក្រាហ្វិក"
 
-#: formeditor/commands.cpp:1579
+#: formeditor/commands.cpp:1583
 #, fuzzy
 #| msgid "Cut"
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "កាត់"
 
-#: formeditor/commands.cpp:1812
+#: formeditor/commands.cpp:1816
 #, fuzzy
 #| msgid "Add Page"
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "បន្ថែម​ទំព័រ"
 
-#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1863 formeditor/WidgetTreeWidget.cpp:118
 #, kde-kuit-format
 msgid "Page %1"
 msgstr "ទំព័រ​ទី %1"
 
-#: formeditor/commands.cpp:1967
+#: formeditor/commands.cpp:1971
 #, fuzzy
 #| msgid "Delete widget"
 msgctxt "(qtundo-format)"
@@ -4655,13 +4655,13 @@ msgstr ""
 "ដែលអ្នក​បាន​សួរ​រក​កម្មវិធី​បញ្ជា​មូលដ្ឋាន​ទិន្នន័យ \"%3\" ត្រូវ​បាន​ប្រើ ។\n"
 "តើ​អ្នក​ចង់​ប្រើ​កម្មវិធី​បញ្ជា​មូលដ្ឋាន​ទិន្នន័យ \"%4\" ឬ ?"
 
-#: main/startup/KexiStartup.cpp:948
+#: main/startup/KexiStartup.cpp:949
 #, fuzzy, kde-kuit-format
 #| msgid "Possible problems:"
 msgid "Possible problems: %1"
 msgstr "បញ្ហា​ដែល​អាច​កើត​មាន ៖"
 
-#: main/startup/KexiStartup.cpp:954
+#: main/startup/KexiStartup.cpp:955
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" is not recognized as being supported by Kexi."
 msgctxt "@info"
@@ -4670,7 +4670,7 @@ msgid ""
 "<application>%2</application>."
 msgstr "ឯកសារ \"%1\" មិនត្រូវ​បាន​ទទួលស្គាល់​​ថា​កំពុង​ត្រូវ​បានគាំទ្រ​ដោយ Kexi ទេ ។"
 
-#: main/startup/KexiStartup.cpp:959
+#: main/startup/KexiStartup.cpp:960
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4683,7 +4683,7 @@ msgstr ""
 "រក​មិន​ឃើញ​​កម្មវិធី​បញ្ជា​មូលដ្ឋាន​ទិន្នន័យ​សម្រាប់​​ប្រភេទ​ឯកសារ​នេះ​ទេ ។\n"
 "បាន​រកឃើញ​ប្រភេទ MIME ៖ %1"
 
-#: main/startup/KexiStartup.cpp:963
+#: main/startup/KexiStartup.cpp:964
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4697,7 +4697,7 @@ msgstr ""
 "រក​មិន​ឃើញ​​កម្មវិធី​បញ្ជា​មូលដ្ឋាន​ទិន្នន័យ​សម្រាប់​​ប្រភេទ​ឯកសារ​នេះ​ទេ ។\n"
 "បាន​រកឃើញ​ប្រភេទ MIME ៖ %1"
 
-#: main/startup/KexiStartup.cpp:995
+#: main/startup/KexiStartup.cpp:996
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Could not load list of available projects for <b>%1</b> database server."
@@ -4706,7 +4706,7 @@ msgid ""
 "database server."
 msgstr "មិន​អាច​ផ្ទុក​បញ្ជី​គម្រោង​ដែលអាច​ប្រើ​បាន​សម្រាប់​ម៉ាស៊ីនបម្រើ​មូលដ្ឋាន​ទិន្នន័យ <b>%1</b> បាន​ទេ ។"
 
-#: main/startup/KexiStartup.cpp:1036
+#: main/startup/KexiStartup.cpp:1037
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Failed saving connection data to\n"
@@ -7106,6 +7106,20 @@ msgstr "នាំចូល..."
 #, kde-kuit-format
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr "គ្មាន​ជួរ​ដេក​ក្នុង​សំណុំ​ទិន្នន័យ ។ តើ​អ្នក​ចង់​នាំចូល​តារាង​ទទេដែរឬទេ ?"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Export"
+msgctxt "@action:button"
+msgid "Do not Import"
+msgstr "នាំចេញ"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Importing"
+msgctxt "@action:button"
+msgid "Import"
+msgstr "នាំចូល"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825

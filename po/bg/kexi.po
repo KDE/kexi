@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:42+0000\n"
+"POT-Creation-Date: 2024-04-16 01:49+0000\n"
 "PO-Revision-Date: 2022-07-08 10:59+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -969,7 +969,7 @@ msgstr ""
 "Грешка при премахване на проект.\n"
 "Файлът \"%1\" не съществува."
 
-#: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
+#: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
 #: main/startup/KexiStartup.cpp:828
 #, fuzzy, kde-kuit-format
@@ -1081,12 +1081,12 @@ msgid ""
 "opened as read only."
 msgstr "Проектът не беше пропуснат. БД за него беше отворена само за четене."
 
-#: core/kexiproject.cpp:1526
+#: core/kexiproject.cpp:1524
 #, fuzzy, kde-kuit-format
 msgid "Open As Read Only"
 msgstr "Отваряне само за четене"
 
-#: core/kexiproject.cpp:1529
+#: core/kexiproject.cpp:1527
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1348,55 +1348,55 @@ msgctxt "(qtundo-format)"
 msgid "Align Widgets to Bottom"
 msgstr "Подравняване на управляващи елементи"
 
-#: formeditor/commands.cpp:618
+#: formeditor/commands.cpp:620
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Grid"
 msgstr "Поставяне управляващ елемент на преден план"
 
-#: formeditor/commands.cpp:621
+#: formeditor/commands.cpp:623
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Fit Contents"
 msgstr "Изчистване на съдържанието на управляващ елемент"
 
-#: formeditor/commands.cpp:624
+#: formeditor/commands.cpp:626
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Narrowest"
 msgstr "Поставяне управляващ елемент на преден план"
 
-#: formeditor/commands.cpp:627
+#: formeditor/commands.cpp:629
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Widest"
 msgstr "Оразмеряване спрямо най-широкият"
 
-#: formeditor/commands.cpp:630
+#: formeditor/commands.cpp:632
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Shortest"
 msgstr "Оразмеряване спрямо най-ниският"
 
-#: formeditor/commands.cpp:633
+#: formeditor/commands.cpp:635
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "Оразмеряване спрямо най-високият"
 
-#: formeditor/commands.cpp:908
+#: formeditor/commands.cpp:912
 #, fuzzy, kde-format
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "Неуспешен запис на обект \"%1\" ."
 
-#: formeditor/commands.cpp:911
+#: formeditor/commands.cpp:915
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "Вмъкване на управляващ елемент АвтоПоле"
 
-#: formeditor/commands.cpp:957
+#: formeditor/commands.cpp:961
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1406,42 +1406,42 @@ msgstr ""
 "Грешка при вмъкване на управляващ елемент от тип \"%1\". Възникна проблем "
 "при създаването му."
 
-#: formeditor/commands.cpp:1126
+#: formeditor/commands.cpp:1130
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "Дата"
 
-#: formeditor/commands.cpp:1412
+#: formeditor/commands.cpp:1416
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "Изтриване на ред"
 
-#: formeditor/commands.cpp:1520
+#: formeditor/commands.cpp:1524
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "Изтриване на управляващ елемент"
 
-#: formeditor/commands.cpp:1579
+#: formeditor/commands.cpp:1583
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "Текущ"
 
-#: formeditor/commands.cpp:1812
+#: formeditor/commands.cpp:1816
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "Добавяне на параметър"
 
-#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1863 formeditor/WidgetTreeWidget.cpp:118
 #, kde-kuit-format
 msgid "Page %1"
 msgstr "Страница %1"
 
-#: formeditor/commands.cpp:1967
+#: formeditor/commands.cpp:1971
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Delete Page"
@@ -4244,12 +4244,12 @@ msgstr ""
 "вие поискахте да бъде използван \"%3\" драйвера за БД.\n"
 "Искате ли да използвате \"%4\" драйвера за БД?"
 
-#: main/startup/KexiStartup.cpp:948
+#: main/startup/KexiStartup.cpp:949
 #, fuzzy, kde-kuit-format
 msgid "Possible problems: %1"
 msgstr "Възможни проблеми:"
 
-#: main/startup/KexiStartup.cpp:954
+#: main/startup/KexiStartup.cpp:955
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4257,7 +4257,7 @@ msgid ""
 "<application>%2</application>."
 msgstr "Файлът \"%1\" не е разпознат като поддържан от Kexi."
 
-#: main/startup/KexiStartup.cpp:959
+#: main/startup/KexiStartup.cpp:960
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4267,7 +4267,7 @@ msgstr ""
 "Не е открит драйвер за БД за този тип файл.\n"
 "Открит MIME тип: %1"
 
-#: main/startup/KexiStartup.cpp:963
+#: main/startup/KexiStartup.cpp:964
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4278,7 +4278,7 @@ msgstr ""
 "Не е открит драйвер за БД за този тип файл.\n"
 "Открит MIME тип: %1"
 
-#: main/startup/KexiStartup.cpp:995
+#: main/startup/KexiStartup.cpp:996
 #, fuzzy, kde-kuit-format
 msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
@@ -4286,7 +4286,7 @@ msgid ""
 msgstr ""
 "Грешка при зареждане списъка с налични проекти за <b>%1</b> сървъра за БД."
 
-#: main/startup/KexiStartup.cpp:1036
+#: main/startup/KexiStartup.cpp:1037
 #, fuzzy, kde-kuit-format
 msgid "Failed saving connection data to <filename>%1</filename> file."
 msgstr ""
@@ -6419,6 +6419,19 @@ msgstr "&Импортиране..."
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr ""
 "Набора данни не съдържа редове. Искате ли да импортирате празна таблица?"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "Do not Import"
+msgstr "Отчет"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "Importing"
+msgctxt "@action:button"
+msgid "Import"
+msgstr "Импортиране"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825

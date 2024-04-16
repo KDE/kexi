@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 00:42+0000\n"
+"POT-Creation-Date: 2024-04-16 01:49+0000\n"
 "PO-Revision-Date: 2004-11-22 01:23-0800\n"
 "Last-Translator: Tamil PC <tamilpc@ambalam.com>\n"
 "Language-Team:  <ta@li.org>\n"
@@ -895,7 +895,7 @@ msgstr ""
 "திட்டத்தை நீக்க முடியவில்லை. \n"
 "கோப்பு \"%1\" இல்லை."
 
-#: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
+#: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
 #: main/startup/KexiStartup.cpp:828
 #, fuzzy, kde-kuit-format
@@ -1011,12 +1011,12 @@ msgid ""
 "opened as read only."
 msgstr ""
 
-#: core/kexiproject.cpp:1526
+#: core/kexiproject.cpp:1524
 #, kde-kuit-format
 msgid "Open As Read Only"
 msgstr ""
 
-#: core/kexiproject.cpp:1529
+#: core/kexiproject.cpp:1527
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1307,59 +1307,59 @@ msgctxt "(qtundo-format)"
 msgid "Align Widgets to Bottom"
 msgstr "சாளர உருக்களின் நிலையை சரிப்படுத்து"
 
-#: formeditor/commands.cpp:618
+#: formeditor/commands.cpp:620
 #, fuzzy
 #| msgid "Bring Widget to Front"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Grid"
 msgstr "சாளரத்தை முன்னுக்கு கொண்டு வா"
 
-#: formeditor/commands.cpp:621
+#: formeditor/commands.cpp:623
 #, fuzzy
 #| msgid "Clear Widget Contents"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Fit Contents"
 msgstr "சாளர உரு உள்ளடக்கங்களை துடை"
 
-#: formeditor/commands.cpp:624
+#: formeditor/commands.cpp:626
 #, fuzzy
 #| msgid "Bring Widget to Front"
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Narrowest"
 msgstr "சாளரத்தை முன்னுக்கு கொண்டு வா"
 
-#: formeditor/commands.cpp:627
+#: formeditor/commands.cpp:629
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Widest"
 msgstr "மிகவும் அகலத்திற்கு சாளரங்களை அளவு மாற்று"
 
-#: formeditor/commands.cpp:630
+#: formeditor/commands.cpp:632
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Shortest"
 msgstr "மிகவும் அளவில் குறைந்த கட்டத்திற்கு சாளரங்களை அளவு மாற்று"
 
-#: formeditor/commands.cpp:633
+#: formeditor/commands.cpp:635
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Resize Widgets to Tallest"
 msgstr "உயரத்திற்கு சாளரங்களை அளவு மாற்று"
 
-#: formeditor/commands.cpp:908
+#: formeditor/commands.cpp:912
 #, fuzzy, kde-format
 #| msgid "Saving \"%1\" object failed."
 msgctxt "(qtundo-format)"
 msgid "Insert widget <resource>%1</resource>"
 msgstr "\"%1\" பொருளை சேமிக்க முடியவில்லை"
 
-#: formeditor/commands.cpp:911
+#: formeditor/commands.cpp:915
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Insert widget"
 msgstr "கிடக்கை உள்ளிடும் பொழுதுத் தவறு."
 
-#: formeditor/commands.cpp:957
+#: formeditor/commands.cpp:961
 #, fuzzy, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -1367,46 +1367,46 @@ msgid ""
 "widget's creation encountered."
 msgstr "கோப்பு '%1' வாசிக்க முடியாது"
 
-#: formeditor/commands.cpp:1126
+#: formeditor/commands.cpp:1130
 #, fuzzy
 #| msgid "Date"
 msgctxt "(qtundo-format)"
 msgid "Paste"
 msgstr "தேதி"
 
-#: formeditor/commands.cpp:1412
+#: formeditor/commands.cpp:1416
 #, fuzzy
 #| msgid "Delete Row"
 msgctxt "(qtundo-format)"
 msgid "Delete widget"
 msgstr "அறிக்கையை நீக்கு"
 
-#: formeditor/commands.cpp:1520
+#: formeditor/commands.cpp:1524
 #, fuzzy
 #| msgid "Delete widget"
 msgctxt "(qtundo-format)"
 msgid "Duplicate widget"
 msgstr "சாளரத்தை நீக்கு"
 
-#: formeditor/commands.cpp:1579
+#: formeditor/commands.cpp:1583
 #, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Cut"
 msgstr "சுட்டி"
 
-#: formeditor/commands.cpp:1812
+#: formeditor/commands.cpp:1816
 #, fuzzy
 #| msgid "Add Parameter"
 msgctxt "(qtundo-format)"
 msgid "Add Page"
 msgstr "குணங்களை சேர்"
 
-#: formeditor/commands.cpp:1859 formeditor/WidgetTreeWidget.cpp:118
+#: formeditor/commands.cpp:1863 formeditor/WidgetTreeWidget.cpp:118
 #, fuzzy, kde-kuit-format
 msgid "Page %1"
 msgstr "தத்தல் பக்கம்"
 
-#: formeditor/commands.cpp:1967
+#: formeditor/commands.cpp:1971
 #, fuzzy
 #| msgid "Delete Row"
 msgctxt "(qtundo-format)"
@@ -4349,12 +4349,12 @@ msgid ""
 "Do you want to use <resource>%4</resource> database driver?"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:948
+#: main/startup/KexiStartup.cpp:949
 #, kde-kuit-format
 msgid "Possible problems: %1"
 msgstr ""
 
-#: main/startup/KexiStartup.cpp:954
+#: main/startup/KexiStartup.cpp:955
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" is not recognized as being supported by Kexi."
 msgctxt "@info"
@@ -4363,7 +4363,7 @@ msgid ""
 "<application>%2</application>."
 msgstr " '%1'  கோப்புக்கு கிக்ஸ்சி ஆதரவுத் தர அனுமதி இல்லை"
 
-#: main/startup/KexiStartup.cpp:959
+#: main/startup/KexiStartup.cpp:960
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4376,7 +4376,7 @@ msgstr ""
 "இந்தக் கோப்பு வகைக்கான தரவுதள இயக்கி இல்லை.\n"
 "மைம வகை கண்டுப்பிடிக்கப்பட்டது: %1"
 
-#: main/startup/KexiStartup.cpp:963
+#: main/startup/KexiStartup.cpp:964
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Database driver for this file type not found.\n"
@@ -4390,14 +4390,14 @@ msgstr ""
 "இந்தக் கோப்பு வகைக்கான தரவுதள இயக்கி இல்லை.\n"
 "மைம வகை கண்டுப்பிடிக்கப்பட்டது: %1"
 
-#: main/startup/KexiStartup.cpp:995
+#: main/startup/KexiStartup.cpp:996
 #, fuzzy, kde-kuit-format
 msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
 "database server."
 msgstr "கிடைக்கும் திட்டங்கள் அனைத்தையும் உள்வாங்க \"%1\" முடியாது"
 
-#: main/startup/KexiStartup.cpp:1036
+#: main/startup/KexiStartup.cpp:1037
 #, fuzzy, kde-kuit-format
 msgid "Failed saving connection data to <filename>%1</filename> file."
 msgstr "பொருளின் தகவலை ஏற்ற முடியவில்லை"
@@ -6594,6 +6594,19 @@ msgstr "இறக்குமதி"
 #, kde-kuit-format
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr ""
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "Do not Import"
+msgstr "தொலைநிலை"
+
+#: plugins/importexport/csv/kexicsvimportdialog.cpp:408
+#, fuzzy, kde-format
+#| msgid "&Import"
+msgctxt "@action:button"
+msgid "Import"
+msgstr "இறக்குமதி"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
@@ -11657,9 +11670,6 @@ msgstr "அடுத்த வரிசை"
 
 #~ msgid "Database creation for everyone"
 #~ msgstr "நிறுவலுக்கான தரவுதளத்தின் அங்கங்கள்"
-
-#~ msgid "&Import"
-#~ msgstr "இறக்குமதி"
 
 #, fuzzy
 #~| msgid "Close the current project"
