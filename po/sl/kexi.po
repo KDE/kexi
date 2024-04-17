@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 01:49+0000\n"
-"PO-Revision-Date: 2023-02-03 08:40+0100\n"
+"PO-Revision-Date: 2024-04-16 07:16+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -38,17 +38,17 @@ msgstr "Po&datkovni prikaz"
 #: core/kexi.cpp:146
 #, kde-kuit-format
 msgid "D&esign View"
-msgstr "Prikaz &zasnove"
+msgstr "Prikaz zasnove"
 
 #: core/kexi.cpp:148
 #, kde-kuit-format
 msgid "&Text View"
-msgstr "&Besedilni prikaz"
+msgstr "Besedilni prikaz"
 
 #: core/kexi.cpp:150
 #, kde-kuit-format
 msgid "&Unknown"
-msgstr "Ne&znano"
+msgstr "Neznano"
 
 #: core/kexi.cpp:347
 #, kde-kuit-format
@@ -6496,18 +6496,16 @@ msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr "Množica podatkov ne vsebuje vrstic. Ali želite uvoziti prazno tabelo?"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
-#, fuzzy, kde-format
-#| msgid "Ready to Import"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do not Import"
-msgstr "Pripravljeno za uvoz"
+msgstr "Ne uvažaj"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
-#, fuzzy, kde-format
-#| msgid "Importing"
+#, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr "Uvažanje"
+msgstr "Uvoz"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
