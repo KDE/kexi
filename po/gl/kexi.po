@@ -3,22 +3,22 @@
 # Marce Villarino <mvillarino@kde-espana.es>, 2009, 2013, 2014.
 # Miguel Branco <mgl.branco@gmail.com>, 2009, 2012, 2013.
 # Adrian Chaves Fernandez <adriyetichaves@gmail.com>, 2013, 2015, 2016, 2017.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017, 2018, 2019, 2020, 2023.
+# SPDX-FileCopyrightText: 2024 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 01:49+0000\n"
-"PO-Revision-Date: 2023-06-23 22:52+0200\n"
+"PO-Revision-Date: 2024-04-18 18:24+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <proxecto@trasno.gal>\n"
+"Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -6535,17 +6535,16 @@ msgstr ""
 "O conxunto de datos carece de filas. Quere importar unha táboa baleira?"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
-#, fuzzy, kde-format
-#| msgid "Ready to Import"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do not Import"
-msgstr "Listo para importar"
+msgstr "Non importar"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr "Importación"
+msgstr "Importar"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
