@@ -3,14 +3,14 @@
 # Daniele Medri <madrid@linuxmeeting.net>, 2003.
 # Federico Zenith <federico.zenith@member.fsf.org>, 2004, 2005.
 # Andrea Di Menna <a.dimenna@libero.it>, 2006, 2007.
-# Luigi Toscano <luigi.toscano@tiscali.it>, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020.
+# Luigi Toscano <luigi.toscano@tiscali.it>, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 01:49+0000\n"
-"PO-Revision-Date: 2020-11-10 17:07+0100\n"
+"PO-Revision-Date: 2024-04-16 13:12+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.08.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -6530,18 +6530,16 @@ msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr "I dati non contengono righe. Vuoi importare una tabella vuota?"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
-#, fuzzy, kde-format
-#| msgid "Ready to Import"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do not Import"
-msgstr "Pronto per l'importazione"
+msgstr "Non importare"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
-#, fuzzy, kde-format
-#| msgid "&Import"
+#, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr "&Importa"
+msgstr "Importa"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 01:49+0000\n"
-"PO-Revision-Date: 2024-04-08 08:59+0100\n"
+"PO-Revision-Date: 2024-04-23 21:12+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -6474,18 +6474,16 @@ msgstr ""
 "Datenaro enhavas neniujn vicojn. Ĉu vi volas importi malplenan tabelon?"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
-#, fuzzy, kde-format
-#| msgid "Ready to Import"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do not Import"
-msgstr "Preta por Importi"
+msgstr "Ne Importi"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
-#, fuzzy, kde-format
-#| msgid "Importing"
+#, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr "Importado"
+msgstr "Importi"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
