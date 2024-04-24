@@ -3,7 +3,7 @@
 # Daniele Medri <madrid@linuxmeeting.net>, 2003.
 # Federico Zenith <federico.zenith@member.fsf.org>, 2004, 2005.
 # Andrea Di Menna <a.dimenna@libero.it>, 2006, 2007.
-# Luigi Toscano <luigi.toscano@tiscali.it>, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020.
+# Luigi Toscano <luigi.toscano@tiscali.it>, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2024.
 #
 msgid ""
 msgstr ""
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.08.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: core/kexi.cpp:141
 #, kde-kuit-format
