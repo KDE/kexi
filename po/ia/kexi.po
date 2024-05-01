@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 01:49+0000\n"
-"PO-Revision-Date: 2024-01-03 14:51+0100\n"
+"PO-Revision-Date: 2024-04-30 12:28+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -6296,17 +6296,16 @@ msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr ""
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Do not Import"
-msgstr ""
+msgstr "Non Importa"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
-#, fuzzy, kde-format
-#| msgid "Importing"
+#, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr "Importante"
+msgstr "Importa"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
