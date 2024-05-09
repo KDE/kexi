@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-01 02:28+0000\n"
-"PO-Revision-Date: 2024-04-19 04:49+0900\n"
+"PO-Revision-Date: 2024-05-09 06:23+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -159,7 +159,7 @@ msgstr ""
 #: core/kexiaboutdata.cpp:62
 #, kde-kuit-format
 msgid "Oleg Kukharchuk"
-msgstr ""
+msgstr "Oleg Kukharchuk"
 
 #: core/kexiaboutdata.cpp:62
 #, kde-kuit-format
@@ -187,10 +187,9 @@ msgid "Sebastian Sauer"
 msgstr "Sebastian Sauer"
 
 #: core/kexiaboutdata.cpp:68
-#, fuzzy, kde-kuit-format
-#| msgid "(C) Copyright 2008, Lorenzo Villani"
+#, kde-kuit-format
 msgid "Lorenzo Villani"
-msgstr "(C) Copyright 2008, Lorenzo Villani"
+msgstr "Lorenzo Villani"
 
 #: core/kexiaboutdata.cpp:68
 #, fuzzy, kde-kuit-format
@@ -238,7 +237,7 @@ msgstr "Martin Ellis"
 #: core/kexiaboutdata.cpp:76
 #, kde-kuit-format
 msgid "Julia Sanchez-Simon"
-msgstr ""
+msgstr "Julia Sanchez-Simon"
 
 #: core/kexiaboutdata.cpp:76
 #, fuzzy, kde-kuit-format
@@ -259,7 +258,7 @@ msgstr "圖形效果，說明對話框"
 #: core/kexiaboutdata.cpp:80
 #, kde-kuit-format
 msgid "Matt Rogers"
-msgstr ""
+msgstr "Matt Rogers"
 
 #: core/kexiaboutdata.cpp:80
 #, fuzzy, kde-kuit-format
@@ -330,7 +329,7 @@ msgstr "Till Busch"
 #: core/kexiaboutdata.cpp:95
 #, kde-kuit-format
 msgid "Ian Whitfield"
-msgstr ""
+msgstr "Ian Whitfield"
 
 #: core/kexiaboutdata.cpp:95 core/kexiaboutdata.cpp:101
 #, fuzzy, kde-kuit-format
@@ -341,17 +340,17 @@ msgstr "許多錯誤回報，可用性測試，技術支援"
 #: core/kexiaboutdata.cpp:97
 #, kde-kuit-format
 msgid "AppImage packages for Linux"
-msgstr ""
+msgstr "Linux 用的 AppImage 套件"
 
 #: core/kexiaboutdata.cpp:97
 #, kde-kuit-format
 msgid "Scarlett Gately Clark"
-msgstr ""
+msgstr "Scarlett Gately Clark"
 
 #: core/kexiaboutdata.cpp:99
 #, kde-kuit-format
 msgid "Ian Balchin"
-msgstr ""
+msgstr "Ian Balchin"
 
 #: core/kexiaboutdata.cpp:99
 #, fuzzy, kde-kuit-format
@@ -362,32 +361,32 @@ msgstr "許多錯誤回報，可用性測試，技術支援"
 #: core/kexiaboutdata.cpp:101
 #, kde-kuit-format
 msgid "Robert Leleu"
-msgstr ""
+msgstr "Robert Leleu"
 
 #: core/kexiaboutdata.cpp:103
 #, kde-kuit-format
 msgid "Bug fixes, build system improvements, code cleanups"
-msgstr ""
+msgstr "錯誤修正、編譯系統改善、程式碼清理"
 
 #: core/kexiaboutdata.cpp:103
 #, kde-kuit-format
 msgid "Friedrich W. H. Kossebau"
-msgstr ""
+msgstr "Friedrich W. H. Kossebau"
 
 #: core/kexiaboutdata.cpp:105
 #, kde-kuit-format
 msgid "Boudewijn Rempt"
-msgstr ""
+msgstr "Boudewijn Rempt"
 
 #: core/kexiaboutdata.cpp:105 core/kexiaboutdata.cpp:107
 #, kde-kuit-format
 msgid "Code cleanups"
-msgstr ""
+msgstr "程式碼清理"
 
 #: core/kexiaboutdata.cpp:107
 #, kde-kuit-format
 msgid "David Faure"
-msgstr ""
+msgstr "David Faure"
 
 #: core/kexiaboutdata.cpp:109
 #, kde-kuit-format
@@ -871,24 +870,20 @@ msgid "Could not remove connection file <filename>%1</filename>."
 msgstr "無法移除檔案 %1。"
 
 #: core/KexiFileFilters.cpp:242 widget/KexiStartupFileHandler.cpp:287
-#, fuzzy, kde-kuit-format
-#| msgid "All Supported Files (%1)"
+#, kde-kuit-format
 msgid "All Supported Files"
-msgstr "所有支援的檔案（%1）"
+msgstr "所有支援的檔案"
 
 #: core/KexiFileFilters.cpp:246
-#, fuzzy, kde-kuit-format
-#| msgid "(All fields)"
+#, kde-kuit-format
 msgid "All Files"
-msgstr "（所有的欄位）"
+msgstr "所有檔案"
 
 #: core/KexiGroupButton.cpp:143
-#, fuzzy, kde-format
-#| msgctxt "Identifier%1"
-#| msgid "Id%1"
+#, kde-format
 msgctxt "@info:tooltip of custom triple button"
 msgid "%1"
-msgstr "代碼 %1"
+msgstr "%1"
 
 #: core/kexiguimsghandler.cpp:175 core/kexitextmsghandler.cpp:92
 #: migration/importtablewizard.cpp:428
@@ -1606,10 +1601,9 @@ msgid "The connection is OK."
 msgstr "<qt><h2>連線沒問題。</h2></qt>"
 
 #: formeditor/connectiondialog.cpp:268
-#, fuzzy, kde-kuit-format
-#| msgid "<qt><h2>The connection is invalid.</h2></qt>"
+#, kde-kuit-format
 msgid "The connection is invalid."
-msgstr "<qt><h2>連線不合法。</h2></qt>"
+msgstr "連線無效。"
 
 #: formeditor/connectiondialog.cpp:359
 #, fuzzy, kde-kuit-format
@@ -2496,7 +2490,7 @@ msgstr "無法移除專案。檔案 %1 不存在。"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Invalid hyperlink <link>%1</link>."
-msgstr ""
+msgstr "無效的超連結 <link>%1</link>。"
 
 #: kexiutils/utils.cpp:776
 #, kde-kuit-format
@@ -2522,7 +2516,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@action:button Run script file"
 msgid "Run"
-msgstr ""
+msgstr "執行"
 
 #: kexiutils/utils.cpp:861
 #, kde-kuit-format
@@ -2551,12 +2545,12 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Report a Bug or Wish"
-msgstr ""
+msgstr "回報問題或願望"
 
 #: main/KexiBugReportDialog.cpp:72
 #, kde-kuit-format
 msgid "Operating system & platform:"
-msgstr ""
+msgstr "作業系統與平台："
 
 #: main/KexiBugReportDialog.cpp:79
 #, kde-kuit-format
@@ -2884,10 +2878,9 @@ msgid "Imports entire database as a Kexi project."
 msgstr "匯入整個資料庫做為 Kexi 專案。"
 
 #: main/KexiMainWindow.cpp:663
-#, fuzzy, kde-kuit-format
-#| msgid "Import Tables"
+#, kde-kuit-format
 msgid "Import Tables..."
-msgstr "匯入表格"
+msgstr "匯入表格…"
 
 #: main/KexiMainWindow.cpp:664
 #, fuzzy, kde-kuit-format
@@ -3461,13 +3454,10 @@ msgid "Saves all recent changes made in <resource>%1</resource> object."
 msgstr "按下此鍵會儲存所有對物件 %1 所做的變更。"
 
 #: main/KexiMainWindow.cpp:3012
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Pressing this button will discard all recent changes made in \"%1\" "
-#| "object."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Discards all recent changes made in <resource>%1</resource> object."
-msgstr "按下此鍵會丟棄所有對物件 %1 所做的變更。"
+msgstr "捨棄 <resource>%1</resource> 物件內所有最近的變更。"
 
 #: main/KexiMainWindow.cpp:3034
 #, kde-kuit-format
@@ -3606,7 +3596,7 @@ msgstr "使用分頁的應用程式的分頁工具列群組指令。"
 #, kde-kuit-format
 msgctxt "Report a bug or wish for Kexi application"
 msgid "Report a &Bug or Wish..."
-msgstr ""
+msgstr "回報問題或願望(&B)…"
 
 #: main/KexiMainWindow_p.cpp:689
 #, fuzzy, kde-kuit-format
@@ -4014,11 +4004,10 @@ msgid "Select project on database server <resource>%1 (%2)</resource> to open."
 msgstr "選擇資料庫伺服器 <b>%1（%2）</b> 上要開啟的專案："
 
 #: main/startup/KexiPasswordPage.cpp:44
-#, fuzzy, kde-kuit-format
-#| msgid "Database"
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Database Password"
-msgstr "資料庫"
+msgstr "資料庫密碼"
 
 #. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_file)
 #: main/startup/KexiProjectStorageTypeSelectionPage.ui:31
@@ -4101,8 +4090,7 @@ msgid "File database <filename>%1</filename>"
 msgstr "無法移除檔案 %1。"
 
 #: main/startup/KexiRecentProjectsModel.cpp:138
-#, fuzzy, kde-kuit-format
-#| msgid "Database"
+#, kde-kuit-format
 msgid "database"
 msgstr "資料庫"
 
@@ -4115,7 +4103,7 @@ msgstr "%1 資料庫"
 #: main/startup/KexiRecentProjectsModel.cpp:145
 #, kde-kuit-format
 msgid "Last opened on %1"
-msgstr ""
+msgstr "上次開啟於 %1"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: main/startup/KexiServerDBNamePage.ui:31
@@ -4481,13 +4469,13 @@ msgstr "與整個專案相關的選項："
 #, kde-kuit-format
 msgctxt "@action:button Go to Donation"
 msgid "Proceed to the Donation Web Page"
-msgstr ""
+msgstr "前往贊助網頁"
 
 #: main/startup/KexiWelcomeStatusBar.cpp:765
 #, kde-kuit-format
 msgctxt "Do not donate now"
 msgid "Not Now"
-msgstr ""
+msgstr "現在不要"
 
 #: migration/AlterSchemaWidget.cpp:51 migration/AlterSchemaWidget.cpp:112
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1342
@@ -4693,7 +4681,7 @@ msgstr "失敗"
 #: migration/importtablewizard.cpp:579
 #, kde-kuit-format
 msgid "An error occurred."
-msgstr ""
+msgstr "發生錯誤。"
 
 #: migration/importtablewizard.cpp:600 migration/importwizard.cpp:783
 #, kde-kuit-format
@@ -5745,10 +5733,9 @@ msgid "Tick Position"
 msgstr "分頁位置"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:436
-#, fuzzy, kde-kuit-format
-#| msgid "Section Editor"
+#, kde-kuit-format
 msgid "Show Editor"
-msgstr "區段編輯器"
+msgstr "顯示編輯器"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:437
 #, kde-kuit-format
@@ -5773,7 +5760,7 @@ msgstr "自動決定 Tab 順序"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:441
 #, kde-kuit-format
 msgid "Spell Checking"
-msgstr ""
+msgstr "拼字檢查"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:442
 #, kde-kuit-format
@@ -5794,7 +5781,7 @@ msgstr ""
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:445
 #, kde-kuit-format
 msgid "Spell Checking Language"
-msgstr ""
+msgstr "拼字檢查語言"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:447
 #, kde-kuit-format
@@ -5937,7 +5924,7 @@ msgstr "可編輯"
 #, kde-kuit-format
 msgctxt "Property: Button is checkable"
 msgid "On/Off"
-msgstr ""
+msgstr "開/關"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:504
 #, kde-kuit-format
@@ -5975,13 +5962,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Type of hyperlink"
 msgid "Hyperlink Type"
-msgstr ""
+msgstr "超連結類型"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:512
 #, kde-kuit-format
 msgctxt "Tool used for opening a hyperlink"
 msgid "Hyperlink Tool"
-msgstr ""
+msgstr "超連結工具"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:513
 #, fuzzy, kde-kuit-format
@@ -6006,13 +5993,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Hyperlink type, StaticHyperlink"
 msgid "Static"
-msgstr ""
+msgstr "靜態"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:518
 #, kde-kuit-format
 msgctxt "Hyperlink type, DynamicHyperlink"
 msgid "Dynamic"
-msgstr ""
+msgstr "動態"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:520
 #, kde-kuit-format
@@ -6034,7 +6021,7 @@ msgstr "地圖瀏覽器"
 #, kde-kuit-format
 msgctxt "Hyperlink tool, MailerTool"
 msgid "Mailer"
-msgstr ""
+msgstr "郵件程式"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:525
 #, kde-kuit-format
@@ -6075,7 +6062,7 @@ msgstr "開啟外部連結"
 #, kde-kuit-format
 msgctxt "Property: line edit's placeholder text"
 msgid "Placeholder Text"
-msgstr ""
+msgstr "佔位文字"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:534
 #, kde-kuit-format
@@ -6293,7 +6280,7 @@ msgstr "平面"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:636
 #, kde-kuit-format
 msgid "Auto-hide Tabs"
-msgstr ""
+msgstr "自動隱藏分頁"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:637
 #, kde-kuit-format
@@ -6684,7 +6671,7 @@ msgstr "匯入現有資料庫"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:716
 #, kde-kuit-format
 msgid "Choose Destination for Imported Data"
-msgstr ""
+msgstr "選擇匯入資料的目的地"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:738
 #, fuzzy, kde-kuit-format
@@ -6737,7 +6724,7 @@ msgstr "欄位"
 #, kde-kuit-format
 msgctxt "@label"
 msgid "Choose Name of Destination Table"
-msgstr ""
+msgstr "選擇目標表格的名稱"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:790
 #, fuzzy, kde-kuit-format
@@ -6761,7 +6748,7 @@ msgstr "表格："
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:810
 #, kde-kuit-format
 msgid "Ready to Import"
-msgstr ""
+msgstr "匯入已就緒"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:852
 #, fuzzy, kde-kuit-format
@@ -6873,7 +6860,7 @@ msgstr "匯入中"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2014
 #, kde-kuit-format
 msgid "Import has been canceled."
-msgstr ""
+msgstr "匯入已取消。"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2016
 #, kde-kuit-format
@@ -7194,7 +7181,7 @@ msgstr "檢查查詢"
 #: plugins/queries/kexiquerydesignersql.cpp:159
 #, kde-kuit-format
 msgid "Checks query for validity."
-msgstr "檢查查詢的合法性。"
+msgstr "檢查查詢是否有效。"
 
 #: plugins/queries/kexiquerydesignersql.cpp:182
 #, kde-kuit-format
@@ -7213,24 +7200,19 @@ msgid ""
 msgstr "請輸入您的查詢並執行「檢查查詢」功能。"
 
 #: plugins/queries/kexiquerydesignersql.cpp:233
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "There are unsaved changes in object \"%1\". Do you want to save these "
-#| "changes before switching to other view?"
+#, kde-kuit-format
 msgid ""
 "<para>The query you entered is incorrect.</para><para>Do you want discard "
 "changes made to this SQL text and switch to the other view?</para>"
-msgstr "物件 %1 有未儲存的變更。您要在切換到其他檢視前先儲存變更嗎？"
+msgstr ""
 
 #: plugins/queries/kexiquerydesignersql.cpp:236
-#, fuzzy, kde-kuit-format
-#| msgid "Discard Changes"
+#, kde-kuit-format
 msgid "Discard Changes and Switch"
-msgstr "丟棄變更"
+msgstr "捨棄變更並切換"
 
 #: plugins/queries/kexiquerydesignersql.cpp:238
-#, fuzzy, kde-kuit-format
-#| msgid "Do Not Switch"
+#, kde-kuit-format
 msgid "Don't Switch"
 msgstr "不要切換"
 
@@ -7544,12 +7526,10 @@ msgid ""
 msgstr ""
 
 #: plugins/reports/kexireportview.cpp:142
-#, fuzzy, kde-kuit-format
-#| msgctxt "Add page to a stacked widget"
-#| msgid "Add Page..."
+#, kde-kuit-format
 msgctxt "open dialog to export as web page"
 msgid "Web Page..."
-msgstr "加入頁面..."
+msgstr "網頁…"
 
 #: plugins/reports/kexireportview.cpp:145
 #, fuzzy, kde-kuit-format
@@ -7666,7 +7646,7 @@ msgstr "開啟失敗。"
 #: plugins/reports/kexireportview.cpp:396
 #, kde-kuit-format
 msgid "Report schema appears to be invalid or corrupt"
-msgstr "回報的機制似乎不合法或已損毀"
+msgstr "回報的機制似乎無效或已損毀"
 
 #: plugins/reports/kexisourceselector.cpp:59
 #, fuzzy, kde-kuit-format
@@ -7698,7 +7678,7 @@ msgstr "編輯動作"
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:147
 #, kde-kuit-format
 msgid "Provides Edit menu."
-msgstr ""
+msgstr "提供「編輯」選單。"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:154
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:136
@@ -7712,10 +7692,9 @@ msgid "Configure the scripting editor"
 msgstr "設定文稿編輯器"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:157
-#, fuzzy, kde-kuit-format
-#| msgid "Configure the scripting editor"
+#, kde-kuit-format
 msgid "Configures the scripting editor."
-msgstr "設定文稿編輯器"
+msgstr "設定文稿編輯器。"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:166
 #, kde-kuit-format
@@ -8085,11 +8064,10 @@ msgid "Save Design and Delete Table Data"
 msgstr ""
 
 #: plugins/tables/kexitabledesignerview.cpp:580
-#, fuzzy, kde-kuit-format
-#| msgid "Discard Changes"
+#, kde-kuit-format
 msgctxt "@action:button"
 msgid "Discard Design"
-msgstr "丟棄變更"
+msgstr "捨棄設計"
 
 #: plugins/tables/kexitabledesignerview.cpp:643
 #, fuzzy, kde-format
@@ -8413,7 +8391,7 @@ msgstr "修正變更"
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Discard Changes"
-msgstr "丟棄變更"
+msgstr "捨棄變更"
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1950
 #, kde-kuit-format
@@ -8717,10 +8695,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkSavePassword)
 #: widget/kexidbconnectionwidget.ui:140
-#, fuzzy, kde-format
-#| msgid "Prompt for password"
+#, kde-format
 msgid "Save password"
-msgstr "提示輸入密碼"
+msgstr "儲存密碼"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
 #: widget/kexidbconnectionwidget.ui:174
@@ -8798,30 +8775,27 @@ msgid "&Description:"
 msgstr "描述(&D)："
 
 #: widget/KexiDBPasswordDialog.cpp:58
-#, fuzzy, kde-kuit-format
-#| msgid "Opening database"
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Opening Database"
-msgstr "開啟資料庫"
+msgstr "資料庫開啟中"
 
 #: widget/KexiDBPasswordDialog.cpp:59
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Supply a password below."
-msgstr ""
+msgstr "請在底下輸入密碼。"
 
 #: widget/KexiDBPasswordDialog.cpp:68
-#, fuzzy, kde-kuit-format
-#| msgid "&Details"
+#, kde-kuit-format
 msgid "&Details >>"
-msgstr "詳細資料(&D)"
+msgstr "詳細資料(&D) >>"
 
 #. i18n: ectx: property (text), widget (QLabel, domainLabel)
 #: widget/KexiDBPasswordDialog.cpp:81 widget/KexiPasswordWidget.ui:138
-#, fuzzy, kde-format, kde-kuit-format
-#| msgid "Database server: %1"
+#, kde-format, kde-kuit-format
 msgid "Database server:"
-msgstr "資料庫伺服器：%1"
+msgstr "資料庫伺服器："
 
 #: widget/KexiDBPasswordDialog.cpp:87
 #, kde-kuit-format
@@ -8947,27 +8921,25 @@ msgstr "儲存物件 %1 失敗。"
 #: widget/KexiPasswordWidget.ui:49
 #, kde-format
 msgid "Supply a password below."
-msgstr ""
+msgstr "請在底下輸入密碼。"
 
 #. i18n: ectx: property (text), widget (QLabel, userNameLabel)
 #: widget/KexiPasswordWidget.ui:87
-#, fuzzy, kde-format
-#| msgid "&Username:"
+#, kde-format
 msgid "Username:"
-msgstr "使用者名稱(&U)："
+msgstr "使用者名稱："
 
 #. i18n: ectx: property (text), widget (QLabel, anonymousLabel)
 #: widget/KexiPasswordWidget.ui:104
 #, kde-format
 msgid "Anonymous:"
-msgstr ""
+msgstr "匿名："
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
 #: widget/KexiPasswordWidget.ui:121
-#, fuzzy, kde-format
-#| msgid "Database user name"
+#, kde-format
 msgid "Database name:"
-msgstr "資料庫使用者名稱"
+msgstr "資料庫名稱："
 
 #. i18n: ectx: property (text), widget (QLabel, passwordLabel)
 #: widget/KexiPasswordWidget.ui:155
@@ -8979,7 +8951,7 @@ msgstr "密碼："
 #: widget/KexiPasswordWidget.ui:185
 #, kde-format
 msgid "Remember password:"
-msgstr ""
+msgstr "記住密碼："
 
 #. i18n: ectx: property (text), widget (QRadioButton, option_file)
 #: widget/kexiprjtypeselector.ui:51
@@ -9304,38 +9276,38 @@ msgstr "儲存物件 %1 失敗。"
 #, kde-format
 msgctxt "Default text for undo action"
 msgid "Undo"
-msgstr ""
+msgstr "復原"
 
 #: widget/undo/kundo2group.cpp:358 widget/undo/kundo2stack.cpp:1079
 #, kde-format
 msgid "Undo %1"
-msgstr ""
+msgstr "復原 %1"
 
 #: widget/undo/kundo2group.cpp:385 widget/undo/kundo2stack.cpp:1105
 #, kde-format
 msgctxt "Default text for redo action"
 msgid "Redo"
-msgstr ""
+msgstr "重做"
 
 #: widget/undo/kundo2group.cpp:385 widget/undo/kundo2stack.cpp:1105
 #, kde-format
 msgid "Redo %1"
-msgstr ""
+msgstr "重做 %1"
 
 #: widget/undo/kundo2model.cpp:67
 #, kde-format
 msgid "<empty>"
-msgstr ""
+msgstr "<空白>"
 
 #: widget/undo/kundo2stack.cpp:1346
 #, kde-format
 msgid "Redo"
-msgstr ""
+msgstr "重做"
 
 #: widget/undo/kundo2stack.cpp:1365
 #, kde-format
 msgid "Undo"
-msgstr ""
+msgstr "復原"
 
 #: widget/utils/kexicontextmenuutils.cpp:61
 #, kde-kuit-format
