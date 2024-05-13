@@ -123,7 +123,7 @@ msgid ""
 "fixes"
 msgstr ""
 "Controlador de base de dades PostgreSQL, mòduls de migració i informe, "
-"nombroses correccions d'errors"
+"nombroses esmenes d'errors"
 
 #: core/kexiaboutdata.cpp:54
 #, kde-kuit-format
@@ -138,7 +138,7 @@ msgstr "Radosław Wicik"
 #: core/kexiaboutdata.cpp:56 core/kexiaboutdata.cpp:58
 #, kde-kuit-format
 msgid "Features and bug fixes"
-msgstr "Característiques i correcció d'errors"
+msgstr "Característiques i esmena d'errors"
 
 #: core/kexiaboutdata.cpp:56
 #, kde-kuit-format
@@ -328,7 +328,7 @@ msgstr "Neteges del codi originals"
 #: core/kexiaboutdata.cpp:92
 #, kde-kuit-format
 msgid "Bugfixes, original Table Widget"
-msgstr "Correcció d'errors, giny de taula original"
+msgstr "Esmena d'errors, giny de taula original"
 
 #: core/kexiaboutdata.cpp:92
 #, kde-kuit-format
@@ -374,7 +374,7 @@ msgstr "Robert Leleu"
 #, kde-kuit-format
 msgid "Bug fixes, build system improvements, code cleanups"
 msgstr ""
-"Correccions d'errors, millores en el sistema de construcció, neteja de codi"
+"Esmenes d'errors, millores en el sistema de construcció, neteja de codi"
 
 #: core/kexiaboutdata.cpp:103
 #, kde-kuit-format
@@ -2620,7 +2620,7 @@ msgstr "Tanca totes les pestanyes."
 #, kde-kuit-format
 msgctxt "Action name with three dots..."
 msgid "%1..."
-msgstr "%1..."
+msgstr "%1…"
 
 #: main/KexiMainWindow.cpp:570
 #, kde-kuit-format
@@ -2675,7 +2675,7 @@ msgstr "Guarda els canvis en els objectes des de la finestra seleccionada."
 #: main/KexiMainWindow.cpp:603
 #, kde-kuit-format
 msgid "Save &As..."
-msgstr "Anomena i gu&arda..."
+msgstr "Anomena i gu&arda…"
 
 #: main/KexiMainWindow.cpp:604
 #, kde-kuit-format
@@ -2694,7 +2694,7 @@ msgstr ""
 #: main/KexiMainWindow.cpp:622
 #, kde-kuit-format
 msgid "&Import, Export or Send..."
-msgstr "&Importa, exporta o envia..."
+msgstr "&Importa, exporta o envia…"
 
 #: main/KexiMainWindow.cpp:623
 #, kde-kuit-format
@@ -2730,7 +2730,7 @@ msgstr "Ix de l'aplicació Kexi."
 #: main/KexiMainWindow.cpp:655
 #, kde-kuit-format
 msgid "&Import Database..."
-msgstr "&Importa base de dades..."
+msgstr "&Importa base de dades…"
 
 #: main/KexiMainWindow.cpp:656
 #, kde-kuit-format
@@ -2745,7 +2745,7 @@ msgstr "Importa tota la base de dades com a projecte Kexi."
 #: main/KexiMainWindow.cpp:663
 #, kde-kuit-format
 msgid "Import Tables..."
-msgstr "Importa taules..."
+msgstr "Importa taules…"
 
 #: main/KexiMainWindow.cpp:664
 #, kde-kuit-format
@@ -2760,7 +2760,7 @@ msgstr "Importa dades d'una font externa en este projecte."
 #: main/KexiMainWindow.cpp:671
 #, kde-kuit-format
 msgid "&Compact Database..."
-msgstr "&Compacta la base de dades..."
+msgstr "&Compacta la base de dades…"
 
 #: main/KexiMainWindow.cpp:672
 #, kde-kuit-format
@@ -2780,7 +2780,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Import->Table Data From File..."
 msgid "Import Data From &File..."
-msgstr "Importa dades des d'un Fi&txer..."
+msgstr "Importa dades des d'un Fi&txer…"
 
 #: main/KexiMainWindow.cpp:685
 #, kde-kuit-format
@@ -2796,7 +2796,7 @@ msgstr "Importa les dades de la taula des d'un fitxer."
 #, kde-kuit-format
 msgctxt "Export->Table or Query Data to File..."
 msgid "Export Data to &File..."
-msgstr "Exporta dades a un Fi&txer..."
+msgstr "Exporta dades a un Fi&txer…"
 
 #: main/KexiMainWindow.cpp:696
 #, kde-kuit-format
@@ -2812,7 +2812,7 @@ msgstr "Exporta dades des de la taula activa o la consulta a un fitxer."
 #, kde-kuit-format
 msgctxt "Paste Special->As Data &Table..."
 msgid "Paste Special..."
-msgstr "Apega especial..."
+msgstr "Apega especial…"
 
 #: main/KexiMainWindow.cpp:743
 #, kde-kuit-format
@@ -2828,7 +2828,7 @@ msgstr "Apega les dades del porta-retalls com a una taula."
 #, kde-kuit-format
 msgctxt "Copy Special->Table or Query Data..."
 msgid "Copy Special..."
-msgstr "Copia especial..."
+msgstr "Copia especial…"
 
 #: main/KexiMainWindow.cpp:754
 #, kde-kuit-format
@@ -2878,7 +2878,7 @@ msgstr "Suprimix l'objecte seleccionat actualment."
 #: main/KexiMainWindow.cpp:790
 #, kde-kuit-format
 msgid "Delete Record"
-msgstr "Supressió de registre"
+msgstr "Suprimiu el registre"
 
 #: main/KexiMainWindow.cpp:792
 #, kde-kuit-format
@@ -2893,7 +2893,7 @@ msgstr "Suprimix el registre actual."
 #: main/KexiMainWindow.cpp:795
 #, kde-kuit-format
 msgid "Clear Table Contents..."
-msgstr "Neteja el contingut de la taula..."
+msgstr "Neteja el contingut de la taula…"
 
 #: main/KexiMainWindow.cpp:797
 #, kde-kuit-format
@@ -3067,7 +3067,7 @@ msgstr "&Executa"
 #: main/KexiMainWindow.cpp:967
 #, kde-kuit-format
 msgid "&Font..."
-msgstr "&Tipus de lletra..."
+msgstr "&Tipus de lletra…"
 
 #: main/KexiMainWindow.cpp:969
 #, kde-kuit-format
@@ -3149,7 +3149,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@action:button Import Database"
 msgid "&Import..."
-msgstr "&Importa..."
+msgstr "&Importa…"
 
 #: main/KexiMainWindow.cpp:1469
 #, kde-kuit-format
@@ -3246,12 +3246,12 @@ msgstr "%1 (només de lectura)"
 #: main/KexiMainWindow.cpp:2670
 #, kde-kuit-format
 msgid "From File..."
-msgstr "Des de fitxer..."
+msgstr "Des de fitxer…"
 
 #: main/KexiMainWindow.cpp:2675
 #, kde-kuit-format
 msgid "From Server..."
-msgstr "Des de servidor..."
+msgstr "Des de servidor…"
 
 #: main/KexiMainWindow.cpp:2736
 #, kde-kuit-format
@@ -3445,7 +3445,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Report a bug or wish for Kexi application"
 msgid "Report a &Bug or Wish..."
-msgstr "Informe d'&errors o petició..."
+msgstr "Informe d'&errors o petició…"
 
 #: main/KexiMainWindow_p.cpp:689
 #, kde-kuit-format
@@ -4184,7 +4184,7 @@ msgstr "Obri fitxer extern"
 #, kde-kuit-format
 msgctxt "@action:button Import File"
 msgid "Import..."
-msgstr "Importa..."
+msgstr "Importa…"
 
 #: main/startup/KexiStartup.cpp:926
 #, kde-kuit-format
@@ -4744,7 +4744,7 @@ msgstr ""
 #: migration/importwizard.cpp:1032
 #, kde-kuit-format
 msgid "Importing in progress..."
-msgstr "Importació en progrés..."
+msgstr "Importació en progrés…"
 
 #: migration/importwizard.cpp:1037
 #, kde-kuit-format
@@ -4978,7 +4978,7 @@ msgstr "Neteja els continguts de giny"
 #: plugins/forms/kexiformpart.cpp:102
 #, kde-kuit-format
 msgid "Edit Tab Order..."
-msgstr "Edita l'ordre de tabulació..."
+msgstr "Edita l'ordre de tabulació…"
 
 #. i18n("Edit Pixmap Collection"), koIconName("icons"), 0, "formpart_pixmap_collection");
 #. i18n("Edit Form Connections"), koIconName("connections"), 0, "formpart_connections");
@@ -6126,7 +6126,7 @@ msgstr "&Imatge"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:828
 #, kde-kuit-format
 msgid "&Assign Action..."
-msgstr "&Assigna una acció..."
+msgstr "&Assigna una acció…"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1400
 #, kde-kuit-format
@@ -6150,7 +6150,7 @@ msgstr "Suprimix la pàgina"
 #, kde-kuit-format
 msgctxt "Rename tab widget's page"
 msgid "Rename Page..."
-msgstr "Canvia el nom de la pàgina..."
+msgstr "Canvia el nom de la pàgina…"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:301
 #, kde-kuit-format
@@ -6167,7 +6167,7 @@ msgstr "Introduïu un títol nou per a la pàgina actual:"
 #, kde-kuit-format
 msgctxt "Add page to a stacked widget"
 msgid "Add Page..."
-msgstr "Afig pàgina..."
+msgstr "Afig pàgina…"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:338
 #, kde-kuit-format
@@ -6353,7 +6353,7 @@ msgstr "Apega dades CSV des del porta-retalls"
 #, kde-kuit-format
 msgctxt "@action:button Import CSV"
 msgid "&Import..."
-msgstr "&Importa..."
+msgstr "&Importa…"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
 #, kde-kuit-format
@@ -6376,7 +6376,7 @@ msgstr "Escolliu un altre nom."
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Loading CSV Data from <filename>%1</filename>..."
-msgstr "S'estan carregant les dades CSV des de <filename>%1</filename>..."
+msgstr "S'estan carregant les dades CSV des de <filename>%1</filename>…"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:504
 #, kde-kuit-format
@@ -6606,7 +6606,7 @@ msgstr ""
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1999
 #, kde-kuit-format
 msgid "Importing data..."
-msgstr "S'estan important les dades..."
+msgstr "S'estan important les dades…"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2014
 #, kde-kuit-format
@@ -7199,7 +7199,7 @@ msgstr "Exporta:"
 #, kde-kuit-format
 msgctxt "open dialog to export as text document"
 msgid "Text Document..."
-msgstr "Document de text..."
+msgstr "Document de text…"
 
 #: plugins/reports/kexireportview.cpp:105
 #, kde-kuit-format
@@ -7217,7 +7217,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Portable Document Format..."
 msgid "PDF..."
-msgstr "PDF..."
+msgstr "PDF…"
 
 #: plugins/reports/kexireportview.cpp:118
 #, kde-kuit-format
@@ -7233,7 +7233,7 @@ msgstr "Exporta l'informe actual com a PDF."
 #, kde-kuit-format
 msgctxt "open dialog to export as spreadsheet"
 msgid "Spreadsheet..."
-msgstr "Full de càlcul..."
+msgstr "Full de càlcul…"
 
 #: plugins/reports/kexireportview.cpp:131
 #, kde-kuit-format
@@ -7254,7 +7254,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "open dialog to export as web page"
 msgid "Web Page..."
-msgstr "Pàgina web..."
+msgstr "Pàgina web…"
 
 #: plugins/reports/kexireportview.cpp:145
 #, kde-kuit-format
@@ -7399,7 +7399,7 @@ msgstr "Proporciona el menú Edita."
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:136
 #, kde-kuit-format
 msgid "Configure Editor..."
-msgstr "Configura l'editor..."
+msgstr "Configura l'editor…"
 
 # skip-rule: kct-scripting
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:156
@@ -7416,7 +7416,7 @@ msgstr "Configura l'editor de scripts."
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:166
 #, kde-kuit-format
 msgid "&Import..."
-msgstr "&Importa..."
+msgstr "&Importa…"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:168
 #, kde-kuit-format
@@ -7431,7 +7431,7 @@ msgstr "Importa un script des d'un fitxer."
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:182
 #, kde-kuit-format
 msgid "&Export..."
-msgstr "&Exporta..."
+msgstr "&Exporta…"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:184
 #, kde-kuit-format
@@ -8153,20 +8153,20 @@ msgstr "Informació del servidor"
 #: widget/KexiConnectionSelector.ui:155
 #, kde-format
 msgid "&Add..."
-msgstr "Afi&g..."
+msgstr "Afi&g…"
 
 #. i18n: ectx: property (text), widget (QPushButton, btn_edit)
 #: widget/KexiConnectionSelector.ui:168
 #, kde-format
 msgid "&Edit..."
-msgstr "&Edita..."
+msgstr "&Edita…"
 
 #. i18n: ectx: property (text), widget (QPushButton, btn_remove)
 #: widget/KexiConnectionSelector.ui:181
 #: widget/navigator/KexiProjectNavigator.cpp:172
 #, kde-format, kde-kuit-format
 msgid "&Delete..."
-msgstr "Sup&rimix..."
+msgstr "Sup&rimix…"
 
 #: widget/KexiConnectionSelectorWidget.cpp:62
 #, kde-kuit-format
@@ -8241,7 +8241,7 @@ msgstr ""
 #: widget/KexiDataSourceComboBox.cpp:125
 #, kde-kuit-format
 msgid "Define Query..."
-msgstr "Definix la consulta..."
+msgstr "Definix la consulta…"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widget/KexiDBCaptionPage.ui:31
@@ -8580,7 +8580,7 @@ msgstr "Substituïx objecte"
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "&Choose Other Name..."
-msgstr "Es&colliu un altre nom..."
+msgstr "Es&colliu un altre nom…"
 
 #: widget/KexiNameWidget.cpp:93
 #, kde-kuit-format
@@ -8769,7 +8769,7 @@ msgstr "Suprimix l'objecte seleccionat de la llista."
 #: widget/navigator/KexiProjectNavigator.cpp:177
 #, kde-kuit-format
 msgid "&Rename..."
-msgstr "Ca&nvia el nom..."
+msgstr "Ca&nvia el nom…"
 
 #: widget/navigator/KexiProjectNavigator.cpp:178
 #, kde-kuit-format
@@ -8815,7 +8815,7 @@ msgstr "Inicia el disseny de l'objecte en la llista en vista de text."
 #, kde-kuit-format
 msgctxt "Export->To Clipboard as Data... "
 msgid "To &Clipboard..."
-msgstr "A dins del &porta-retalls..."
+msgstr "A dins del &porta-retalls…"
 
 #: widget/navigator/KexiProjectNavigator.cpp:210
 #, kde-kuit-format
@@ -8833,7 +8833,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Export->To File As Data &Table... "
 msgid "To &File As Data Table..."
-msgstr "En el fi&txer com a taula de dades..."
+msgstr "En el fi&txer com a taula de dades…"
 
 #: widget/navigator/KexiProjectNavigator.cpp:217
 #, kde-kuit-format
@@ -8848,12 +8848,12 @@ msgstr "Exporta les dades de la taula o consulta seleccionada a un fitxer."
 #: widget/navigator/KexiProjectNavigator.cpp:371
 #, kde-kuit-format
 msgid "&Create Object: %1..."
-msgstr "&Crea un objecte: %1..."
+msgstr "&Crea un objecte: %1…"
 
 #: widget/navigator/KexiProjectNavigator.cpp:377
 #, kde-kuit-format
 msgid "&Create Object..."
-msgstr "&Crea un objecte..."
+msgstr "&Crea un objecte…"
 
 #: widget/navigator/KexiProjectNavigator.cpp:471
 #, kde-kuit-format
@@ -8880,8 +8880,8 @@ msgid ""
 "<nl/><nl/><img src=\"%1\" width=\"48\"/><nl/>Your project is empty...<nl/"
 ">Why not <b>create</b> something?"
 msgstr ""
-"<nl/><nl/><img src=\"%1\" width=\"48\"/><nl/>El projecte està buit...<nl/"
-">Per què no <b>creeu</b> alguna cosa?"
+"<nl/><nl/><img src=\"%1\" width=\"48\"/><nl/>El projecte està buit…<nl/>Per "
+"què no <b>creeu</b> alguna cosa?"
 
 #: widget/properties/KexiPropertyEditorView.cpp:46
 #, kde-kuit-format
@@ -9008,7 +9008,7 @@ msgstr "Desfés"
 #: widget/utils/kexicontextmenuutils.cpp:61
 #, kde-kuit-format
 msgid "Insert From &File..."
-msgstr "Inserix des de fi&txer..."
+msgstr "Inserix des de fi&txer…"
 
 #: widget/utils/kexicontextmenuutils.cpp:76
 #, kde-kuit-format
