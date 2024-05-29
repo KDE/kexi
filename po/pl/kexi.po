@@ -20,7 +20,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.03.70\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
@@ -4275,7 +4274,7 @@ msgstr "Otwórz zewnętrzny plik"
 #, kde-kuit-format
 msgctxt "@action:button Import File"
 msgid "Import..."
-msgstr "Zaimportuj..."
+msgstr "Importuj..."
 
 #: main/startup/KexiStartup.cpp:927
 #, kde-kuit-format
@@ -4493,7 +4492,7 @@ msgstr "Klucz główny"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Advanced Import Options"
-msgstr "Ustawienia rozszerzone importowania"
+msgstr "Rozszerzone opcje importu"
 
 #: migration/importoptionsdlg.cpp:61
 #, kde-kuit-format
@@ -6332,13 +6331,13 @@ msgstr "Usuń stronę"
 #, kde-kuit-format
 msgctxt "Go to Previous Page of a Stacked Widget"
 msgid "Go to Previous Page"
-msgstr "Przejdź do poprzedniej strony"
+msgstr "Idź do poprzedniej strony"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:386
 #, kde-kuit-format
 msgctxt "Go to Next Page of a Stacked Widget"
 msgid "Go to Next Page"
-msgstr "Przejdź do następnej strony"
+msgstr "Idź do następnej strony"
 
 #: plugins/forms/widgets/main/KexiStandardFormWidgets.cpp:67
 #, kde-kuit-format
@@ -6355,7 +6354,7 @@ msgstr "Skopiuj"
 #: widget/navigator/KexiProjectNavigator.cpp:207
 #, kde-kuit-format
 msgid "Export"
-msgstr "Wyeksportuj"
+msgstr "Eksportuj"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:96
 #, kde-kuit-format
@@ -7310,7 +7309,7 @@ msgstr "Strona:"
 #: plugins/reports/kexireportview.cpp:68
 #, kde-kuit-format
 msgid "Go to first page"
-msgstr "Przejdź do pierwszej strony"
+msgstr "Idź do pierwszej strony"
 
 #: plugins/reports/kexireportview.cpp:69
 #, kde-kuit-format
@@ -7320,7 +7319,7 @@ msgstr "Przechodzi do pierwszej strony"
 #: plugins/reports/kexireportview.cpp:70
 #, kde-kuit-format
 msgid "Go to previous page"
-msgstr "Przejdź do poprzedniej strony"
+msgstr "Idź do poprzedniej strony"
 
 #: plugins/reports/kexireportview.cpp:71
 #, kde-kuit-format
@@ -7330,7 +7329,7 @@ msgstr "Przechodzi do poprzedniej strony"
 #: plugins/reports/kexireportview.cpp:72
 #, kde-kuit-format
 msgid "Go to next page"
-msgstr "Przejdź do następnej strony"
+msgstr "Idź do następnej strony"
 
 #: plugins/reports/kexireportview.cpp:73
 #, kde-kuit-format
@@ -7340,7 +7339,7 @@ msgstr "Przechodzi do następnej strony"
 #: plugins/reports/kexireportview.cpp:74
 #, kde-kuit-format
 msgid "Go to last page"
-msgstr "Przejdź do ostatniej strony"
+msgstr "Idź do ostatniej strony"
 
 #: plugins/reports/kexireportview.cpp:75
 #, kde-kuit-format
