@@ -3,21 +3,21 @@
 # Nuriddin Aminagha <nuriddin@haydarlinux.org>, 2003.
 # Nuriddin Aminagha <nuriddin@eminaga.de>, 2003.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-01 02:28+0000\n"
-"PO-Revision-Date: 2007-10-14 16:04+0000\n"
-"Last-Translator: Youssef Chahibi <chahibi@gmail.com>\n"
-"Language-Team: <en@li.org>\n"
+"PO-Revision-Date: 2022-01-21 13:34+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: KBabel 1.11.4\n"
 
 #: core/kexi.cpp:141
 #, fuzzy, kde-kuit-format
@@ -177,7 +177,7 @@ msgid "Scripting module (KROSS), Python language bindings, design"
 msgstr "الكتابة وحدة Python لغة تصميم"
 
 #: core/kexiaboutdata.cpp:66
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Sebastian Sauer"
 msgstr "Sebastian Sauer"
 
@@ -204,9 +204,9 @@ msgid ""
 msgstr ""
 
 #: core/kexiaboutdata.cpp:72
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Cédric Pasteur"
-msgstr "سيدريك باستير - صيدليّ فرنسيّ"
+msgstr "Cédric Pasteur"
 
 #: core/kexiaboutdata.cpp:72
 #, fuzzy, kde-kuit-format
@@ -248,7 +248,7 @@ msgstr "رسوم"
 #: core/kexiaboutdata.cpp:80
 #, kde-kuit-format
 msgid "Matt Rogers"
-msgstr ""
+msgstr "Matt Rogers"
 
 #: core/kexiaboutdata.cpp:80
 #, fuzzy, kde-kuit-format
@@ -266,9 +266,9 @@ msgid "Lucijan Busch"
 msgstr "بوش"
 
 #: core/kexiaboutdata.cpp:84
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Former developer"
-msgstr "الأول المطور"
+msgstr "مطور سابق"
 
 #: core/kexiaboutdata.cpp:84
 #, fuzzy, kde-kuit-format
@@ -276,7 +276,7 @@ msgid "Peter Simonsson"
 msgstr "بيتر"
 
 #: core/kexiaboutdata.cpp:86
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Joseph Wenninger"
 msgstr "Joseph Wenninger"
 
@@ -358,7 +358,7 @@ msgstr ""
 #: core/kexiaboutdata.cpp:103
 #, kde-kuit-format
 msgid "Friedrich W. H. Kossebau"
-msgstr ""
+msgstr "Friedrich W. H. Kossebau"
 
 #: core/kexiaboutdata.cpp:105
 #, kde-kuit-format
@@ -373,10 +373,10 @@ msgstr ""
 #: core/kexiaboutdata.cpp:107
 #, kde-kuit-format
 msgid "David Faure"
-msgstr ""
+msgstr "David Faure"
 
 #: core/kexiaboutdata.cpp:109
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Daniel Molkentin"
 msgstr "Daniel Molkentin"
 
@@ -391,7 +391,7 @@ msgid "Icons and user interface research"
 msgstr "أيقونات و مستخدم واجهة"
 
 #: core/kexiaboutdata.cpp:111
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Kristof Borrey"
 msgstr "كريستوف بوري (Kristof Borrey)"
 
@@ -864,10 +864,10 @@ msgstr "يمكن أن ليس أزِل مشروع ملفّ ليس."
 #: core/kexiproject.cpp:309 core/kexiproject.cpp:1532
 #: main/startup/KexiStartup.cpp:807 main/startup/KexiStartup.cpp:816
 #: main/startup/KexiStartup.cpp:827
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Could Not Open File"
-msgstr "لم أتمكن من فتح ملف المشروع \"%1\"."
+msgstr "لم يمكن فتح الملف"
 
 #: core/kexiproject.cpp:345
 #, fuzzy, kde-kuit-format
@@ -1153,9 +1153,9 @@ msgid "Save Changes"
 msgstr "احفظ التغييرات"
 
 #: core/KexiWindow.cpp:449
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Do Not Switch"
-msgstr "لا تضف"
+msgstr "لاتغيّر"
 
 #: core/KexiWindow.cpp:452
 #, fuzzy, kde-kuit-format
@@ -1341,10 +1341,9 @@ msgid "Page %1"
 msgstr "صفحة %1"
 
 #: formeditor/commands.cpp:1961
-#, fuzzy
 msgctxt "(qtundo-format)"
 msgid "Delete Page"
-msgstr "حذف صف"
+msgstr "احذف الصفحة"
 
 #: formeditor/connectiondialog.cpp:75
 #, fuzzy, kde-kuit-format
@@ -1446,9 +1445,9 @@ msgid "New &Subitem"
 msgstr "&عنصر جزئي جديد"
 
 #: formeditor/editlistviewdialog.cpp:71 formeditor/editlistviewdialog.cpp:140
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "&Delete Item"
-msgstr "ا&حذف"
+msgstr "ا&حذف العنصر"
 
 #: formeditor/editlistviewdialog.cpp:78 formeditor/editlistviewdialog.cpp:147
 #, fuzzy, kde-kuit-format
@@ -1461,16 +1460,16 @@ msgid "Move Item &Down"
 msgstr "أحذف البند"
 
 #: formeditor/editlistviewdialog.cpp:108
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Contents"
-msgstr "تعليقات"
+msgstr "المحتويات"
 
 #: formeditor/editlistviewdialog.cpp:116 formeditor/form_p.cpp:272
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1855
 #: plugins/tables/kexitabledesignerview.cpp:358
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Caption"
-msgstr "تسمية"
+msgstr "الوصف"
 
 #: formeditor/editlistviewdialog.cpp:118
 #, fuzzy, kde-kuit-format
@@ -1493,14 +1492,14 @@ msgid "Full Width"
 msgstr "المتحكمات"
 
 #: formeditor/editlistviewdialog.cpp:276 formeditor/editlistviewdialog.cpp:277
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "New Column"
-msgstr "عمود"
+msgstr "عمود جديد"
 
 #: formeditor/editlistviewdialog.cpp:417
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "New Item"
-msgstr "إعادة تسمية البند"
+msgstr "عنصر جديد"
 
 #: formeditor/editlistviewdialog.cpp:430
 #, fuzzy, kde-kuit-format
@@ -1508,7 +1507,7 @@ msgid "Sub Item"
 msgstr "النوع الفرعي"
 
 #: formeditor/form.cpp:266
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Form"
 msgstr "استمارة"
 
@@ -1571,9 +1570,9 @@ msgid "Ver. Alignment"
 msgstr "الإصدار المحاذاة"
 
 #: formeditor/form.cpp:2185
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Vertical Alignment"
-msgstr "&رأسي"
+msgstr "محاذاة العموديّة"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: formeditor/form_p.cpp:270 formeditor/form_p.cpp:271
@@ -1584,9 +1583,9 @@ msgid "Name"
 msgstr "الاسم"
 
 #: formeditor/form_p.cpp:273
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Window title"
-msgstr "&نافذة"
+msgstr "عنوان النّافذة"
 
 #: formeditor/form_p.cpp:274
 #, kde-kuit-format
@@ -1615,14 +1614,14 @@ msgid "Size Policy"
 msgstr "سياسة الحجم"
 
 #: formeditor/form_p.cpp:279
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Minimum Size"
-msgstr "متوسط"
+msgstr "الحجم الأدنى:"
 
 #: formeditor/form_p.cpp:280
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Maximum Size"
-msgstr "متوسط"
+msgstr "الحجم الأقصى:"
 
 #: formeditor/form_p.cpp:281
 #, fuzzy, kde-kuit-format
@@ -1630,9 +1629,9 @@ msgid "Font"
 msgstr "&خط"
 
 #: formeditor/form_p.cpp:282
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Cursor"
-msgstr "الحالي"
+msgstr "المؤشر"
 
 #: formeditor/form_p.cpp:283
 #, fuzzy, kde-kuit-format
@@ -1660,7 +1659,7 @@ msgid "Margin"
 msgstr "الحد الأدنى"
 
 #: formeditor/form_p.cpp:288 plugins/forms/kexidbfactorybase.cpp:54
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Read Only"
 msgstr "للقراءة فقط"
 
@@ -1676,10 +1675,10 @@ msgid "Tooltip"
 msgstr "أدوات"
 
 #: formeditor/form_p.cpp:291
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Widget's Whats This"
 msgid "What's This"
-msgstr "المعارض ماذا s هذا أداة."
+msgstr "ما هذا"
 
 #: formeditor/form_p.cpp:292
 #, fuzzy, kde-kuit-format
@@ -1840,22 +1839,22 @@ msgid "Menu Bar"
 msgstr "شريط القائمة"
 
 #: formeditor/form_p.cpp:329
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Toolbar (HINT: for Frame Shape)"
 msgid "Toolbar"
-msgstr "شريط الأدوات الرئيسي"
+msgstr "شريط الأدوات"
 
 #: formeditor/form_p.cpp:330
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Text Box (HINT: for Frame Shape)"
 msgid "Text Box"
-msgstr "حقل نص"
+msgstr "صندوق النص"
 
 #: formeditor/form_p.cpp:331
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Tab Widget (HINT: for Frame Shape)"
 msgid "Tab Widget"
-msgstr "إلى الأعرض"
+msgstr "وِدجَة اللسان"
 
 #: formeditor/form_p.cpp:332
 #, fuzzy, kde-kuit-format
@@ -1900,10 +1899,10 @@ msgid "Tab"
 msgstr "جدول"
 
 #: formeditor/form_p.cpp:341
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Click (HINT: for Focus)"
 msgid "Click"
-msgstr "تشغيل نقر"
+msgstr "نقر"
 
 #: formeditor/form_p.cpp:342
 #, kde-kuit-format
@@ -1961,9 +1960,9 @@ msgid "Qt Designer UI Files"
 msgstr "*.ui|ملفات واجهات مصمم Qt "
 
 #: formeditor/kexiactionselectiondialog.cpp:215
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "No action"
-msgstr "بدون إجراء"
+msgstr "لا إجراء"
 
 #: formeditor/kexiactionselectiondialog.cpp:221
 #, fuzzy, kde-kuit-format
@@ -2021,7 +2020,7 @@ msgid "Open in Text View"
 msgstr "افتح بوصة نص عرض"
 
 #: formeditor/kexiactionselectiondialog.cpp:339
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Close View"
 msgstr "أغلق العرض"
 
@@ -2061,9 +2060,9 @@ msgid "Action category:"
 msgstr "إجراء التصنيف:"
 
 #: formeditor/kexiactionselectiondialog.cpp:522
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Action to execute:"
-msgstr "إجراء إلى نفِّذ:"
+msgstr "الإجراء لتنفيذه:"
 
 #: formeditor/kexiactionselectiondialog.cpp:533
 #, fuzzy, kde-kuit-format
@@ -2239,9 +2238,9 @@ msgid "%L ›"
 msgstr ""
 
 #: kexiutils/utils.cpp:305 main/startup/KexiOpenProjectAssistant.cpp:154
-#, fuzzy, kde-format, kde-kuit-format
+#, kde-format, kde-kuit-format
 msgid "Open"
-msgstr "ا&فتح"
+msgstr "افتح"
 
 #: kexiutils/utils.cpp:364
 #, fuzzy, kde-kuit-format
@@ -2395,7 +2394,7 @@ msgstr "&بحث:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_wholeWords)
 #: main/kexifinddialog.ui:55
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Match: Whole words only"
 msgid "&Whole words only"
 msgstr "ال&كلمات الكاملة فقط"
@@ -2427,7 +2426,7 @@ msgstr "مباراة:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_caseSensitive)
 #: main/kexifinddialog.ui:171
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Match: Case sensitive"
 msgid "C&ase sensitive"
 msgstr "حساس ل&حالة الأحرف"
@@ -2482,10 +2481,10 @@ msgstr "ا&ستبدل"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_btnReplaceAll)
 #: main/kexifinddialog.ui:277
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Replace All Occurrences"
 msgid "Replace All"
-msgstr "استبدّل الكل"
+msgstr "استبدل الكلّ"
 
 #: main/KexiMainWindow.cpp:193
 #, fuzzy, kde-kuit-format
@@ -2498,9 +2497,9 @@ msgid "Close the current tab"
 msgstr "أغلق اللسان الحالي"
 
 #: main/KexiMainWindow.cpp:195
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Closes the current tab."
-msgstr "أغلق اللسان الحالي"
+msgstr "يغلق اللسان الحاليّ."
 
 #: main/KexiMainWindow.cpp:196
 #, fuzzy, kde-kuit-format
@@ -2967,9 +2966,9 @@ msgid "&Execute"
 msgstr "&نفّذ"
 
 #: main/KexiMainWindow.cpp:967
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "&Font..."
-msgstr "&خط"
+msgstr "خط..."
 
 #: main/KexiMainWindow.cpp:969
 #, fuzzy, kde-kuit-format
@@ -3141,10 +3140,10 @@ msgid "Properties"
 msgstr "خصائص"
 
 #: main/KexiMainWindow.cpp:2060
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "<project-name> (read only)"
 msgid "%1 (read only)"
-msgstr "للقراءة فقط"
+msgstr "%1 (للقراءة فقط)"
 
 #: main/KexiMainWindow.cpp:2670
 #, fuzzy, kde-kuit-format
@@ -3449,10 +3448,10 @@ msgid "Try Again"
 msgstr ""
 
 #: main/startup/KexiNewProjectAssistant.cpp:75
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "New Project"
-msgstr "فتح مشروع"
+msgstr "مشروع جديد"
 
 #: main/startup/KexiNewProjectAssistant.cpp:76
 #, fuzzy, kde-kuit-format
@@ -3488,7 +3487,7 @@ msgstr ""
 #: main/startup/KexiNewProjectAssistant.cpp:147
 #, kde-kuit-format
 msgid "Templates"
-msgstr ""
+msgstr "القوالب"
 
 #: main/startup/KexiNewProjectAssistant.cpp:153
 #, fuzzy, kde-kuit-format
@@ -3573,10 +3572,10 @@ msgid "Please wait while the project is created."
 msgstr ""
 
 #: main/startup/KexiNewProjectAssistant.cpp:331
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Database Connection"
-msgstr "قاعدة بيانات الإتصال"
+msgstr "اتّصال قاعدة البيانات"
 
 #: main/startup/KexiNewProjectAssistant.cpp:333
 #, fuzzy, kde-kuit-format
@@ -3651,10 +3650,10 @@ msgstr "نقر متقدم زر IF إلى ابحث موجود مشروع يعمل
 
 #: main/startup/KexiOpenProjectAssistant.cpp:41
 #: widget/KexiProjectSelectorWidget.cpp:304
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Open Project"
-msgstr "فتح مشروع"
+msgstr "افتح مشروعًا"
 
 #: main/startup/KexiOpenProjectAssistant.cpp:42
 #, kde-kuit-format
@@ -3838,8 +3837,7 @@ msgid "Project's database name:"
 msgstr "مشروع s قاعدة بيانات الاسم "
 
 #: main/startup/KexiStartup.cpp:248
-#, fuzzy, kde-format
-#| msgid "Name:"
+#, kde-format
 msgctxt "Plugin name"
 msgid "Name:"
 msgstr "الاسم:"
@@ -4135,13 +4133,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Do not donate now"
 msgid "Not Now"
-msgstr ""
+msgstr "فيما بعد"
 
 #: migration/AlterSchemaWidget.cpp:51 migration/AlterSchemaWidget.cpp:112
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1342
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Column %1"
-msgstr "عمود %1"
+msgstr "العمود %1"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: migration/AlterSchemaWidget.cpp:52
@@ -4183,9 +4181,9 @@ msgstr ""
 
 #: migration/importoptionsdlg.cpp:71
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:223
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Text encoding:"
-msgstr "نص ترميز:"
+msgstr "ترميز النص:"
 
 #: migration/importoptionsdlg.cpp:76
 #, fuzzy, kde-kuit-format
@@ -4241,9 +4239,9 @@ msgid "Advanced Options"
 msgstr "خيارات متقدمة"
 
 #: migration/importtablewizard.cpp:262 migration/importwizard.cpp:485
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Importing"
-msgstr "يجري الاستيراد"
+msgstr "الاستيراد"
 
 #: migration/importtablewizard.cpp:278
 #, kde-kuit-format
@@ -4312,7 +4310,7 @@ msgid "Table <resource>%1</resource> has been imported."
 msgstr "التصميم من جدول معدّل."
 
 #: migration/importtablewizard.cpp:578 migration/importwizard.cpp:920
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Failure"
 msgstr "فشل"
 
@@ -4673,7 +4671,7 @@ msgstr "إذهب إلى مُنتقى استمارة s البيانات مصدر"
 
 #: plugins/forms/kexidbfactorybase.cpp:49 plugins/forms/kexiformpart.cpp:366
 #: plugins/reports/kexireportpart.cpp:211
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Data Source"
 msgstr "مصدر البيانات"
 
@@ -4683,9 +4681,9 @@ msgid "Frame Color"
 msgstr "إطار اللون"
 
 #: plugins/forms/kexiformmanager.cpp:160
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Pointer"
-msgstr "اطبع"
+msgstr "المؤشر"
 
 #: plugins/forms/kexiformmanager.cpp:168
 #, fuzzy, kde-kuit-format
@@ -4729,14 +4727,14 @@ msgid "Original"
 msgstr "الأصلي"
 
 #: plugins/forms/kexiformpart.cpp:74
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt ""
 "Translate this word using only lowercase alphanumeric characters (a..z, "
 "0..9). Use '_' character instead of spaces. First character should be a..z "
 "character. If you cannot use latin characters in your language, use english "
 "word."
 msgid "form"
-msgstr "استمارة"
+msgstr "ستمارة"
 
 #: plugins/forms/kexiformpart.cpp:75
 #, fuzzy, kde-kuit-format
@@ -4880,13 +4878,13 @@ msgid ""
 msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:77
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Form widget"
 msgid "Form"
 msgstr "استمارة"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:86
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of forms. Based on that, identifiers such as form1, "
 "form2 are generated. This string can be used to refer the widget object as "
@@ -4896,7 +4894,7 @@ msgctxt ""
 "Example: smallCamelCase. Moreover, try to make this prefix as short as "
 "possible."
 msgid "form"
-msgstr "استمارة"
+msgstr "ستمارة"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:87
 #, fuzzy, kde-kuit-format
@@ -4904,10 +4902,10 @@ msgid "A form widget"
 msgstr "A بسيط إطار"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:107
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Text Box widget"
 msgid "Text Box"
-msgstr "حقل نص"
+msgstr "صندوق النص"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:116
 #, fuzzy, kde-format
@@ -4928,7 +4926,7 @@ msgid "A widget for entering and displaying line of text text"
 msgstr "A لـ و نص"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:129
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Text Editor widget"
 msgid "Text Editor"
 msgstr "محرّر نصوص"
@@ -5096,10 +5094,10 @@ msgid "A Link button for executing actions"
 msgstr "A أمر زر إلى نفِّذ"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:313
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Slider widget"
 msgid "Slider"
-msgstr "الحجم"
+msgstr "مزلق"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:322
 #, fuzzy, kde-format
@@ -5210,9 +5208,9 @@ msgid "Echo Mode"
 msgstr "وضع الصدى"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:419
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Indent"
-msgstr "إدراج"
+msgstr "الإزاحة"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:421
 #, kde-kuit-format
@@ -5220,9 +5218,9 @@ msgid "Inverted"
 msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:422
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Minimum"
-msgstr "متوسط"
+msgstr "الحد الادنى"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:423
 #, fuzzy, kde-kuit-format
@@ -5306,9 +5304,9 @@ msgid "Form Name"
 msgstr "استمارة الاسم"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:438
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "On Click"
-msgstr "تشغيل نقر"
+msgstr "عند النّقر"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:439
 #, fuzzy, kde-kuit-format
@@ -5323,7 +5321,7 @@ msgstr "تلقائي لسان الترتيب"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:441
 #, kde-kuit-format
 msgid "Spell Checking"
-msgstr ""
+msgstr "التدقيق الإملائي"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:442
 #, kde-kuit-format
@@ -5344,7 +5342,7 @@ msgstr ""
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:445
 #, kde-kuit-format
 msgid "Spell Checking Language"
-msgstr ""
+msgstr "لغة تدقيق الإملاء"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:447
 #, fuzzy, kde-kuit-format
@@ -5379,7 +5377,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Above"
-msgstr ""
+msgstr "أعلى"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:465
 #, fuzzy, kde-kuit-format
@@ -5462,13 +5460,13 @@ msgid "Default"
 msgstr "افتراضي"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:496
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Value of \"Tristate\" property in checkbox: yes"
 msgid "Yes"
 msgstr "نعم"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:497
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Value of \"Tristate\" property in checkbox: no"
 msgid "No"
 msgstr "لا"
@@ -5507,16 +5505,16 @@ msgstr "إعادة تلقائية"
 #. i18n("Auto Default"));
 #. unused (too advanced) setPropertyDescription("default", xi18nc("Property: Button is default", "Default"));
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:509
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Property: Button is flat"
 msgid "Flat"
-msgstr "تنسيق"
+msgstr "مسطح"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:510
 #, kde-kuit-format
 msgctxt "Hyperlink address"
 msgid "Hyperlink"
-msgstr ""
+msgstr "رابط تشعبي"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:511
 #, kde-kuit-format
@@ -5552,7 +5550,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Hyperlink type, StaticHyperlink"
 msgid "Static"
-msgstr ""
+msgstr "ساكن"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:518
 #, kde-kuit-format
@@ -5570,7 +5568,7 @@ msgstr "افتراضي"
 #, kde-kuit-format
 msgctxt "Hyperlink tool, BrowserTool"
 msgid "Browser"
-msgstr ""
+msgstr "المتصفّح"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:522
 #, kde-kuit-format
@@ -5590,10 +5588,10 @@ msgid "Plain"
 msgstr "اطبع"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:527
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "For Text Format"
 msgid "Hypertext"
-msgstr "نص"
+msgstr "نص فائق"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:528
 #, fuzzy, kde-kuit-format
@@ -5661,9 +5659,7 @@ msgid "At Word Boundary"
 msgstr "عند حدود النص"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:544
-#, fuzzy, kde-kuit-format
-#| msgctxt "For Word Wrap Policy"
-#| msgid "Anywhere"
+#, kde-kuit-format
 msgctxt "Property: For Word Wrap Policy"
 msgid "Anywhere"
 msgstr "أي مكان"
@@ -5746,10 +5742,10 @@ msgid "Always On"
 msgstr "دائما يعمل"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:559
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Property: Text Edit accepts rich text"
 msgid "Rich Text"
-msgstr "تحرير نص غني"
+msgstr "النّصّ الغنيّ"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:560
 #, kde-kuit-format
@@ -5758,9 +5754,9 @@ msgid "HTML"
 msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:570
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Tab Widget"
-msgstr "إلى الأعرض"
+msgstr "وِدجَة اللسان"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:579
 #, fuzzy, kde-format
@@ -5787,7 +5783,7 @@ msgid "Frame"
 msgstr "إطار"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:608
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of frame widgets. Based on that, identifiers such "
 "as frame1, frame2 are generated. This string can be used to refer the widget "
@@ -5834,10 +5830,10 @@ msgid "Title"
 msgstr "ملف"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:633
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "'Flat' property for group box"
 msgid "Flat"
-msgstr "تنسيق"
+msgstr "مسطح"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:636
 #, kde-kuit-format
@@ -5850,10 +5846,10 @@ msgid "Tab Position"
 msgstr "تسمية الموضع"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:638
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "'Current page' property for tab widget"
 msgid "Current Page"
-msgstr "الحالي"
+msgstr "الصّفحة الحاليّة"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:639
 #, fuzzy, kde-kuit-format
@@ -5924,10 +5920,10 @@ msgid "Add Page"
 msgstr "إضافة معاملات"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:266
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Delete tab widget's page"
 msgid "Delete Page"
-msgstr "حذف صف"
+msgstr "احذف الصفحة"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:287
 #, fuzzy, kde-kuit-format
@@ -5953,10 +5949,10 @@ msgid "Add Page..."
 msgstr "أ&ضف..."
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:338
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Delete page from a stacked widget"
 msgid "Delete Page"
-msgstr "حذف صف"
+msgstr "احذف الصفحة"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:385
 #, fuzzy, kde-kuit-format
@@ -6074,9 +6070,9 @@ msgstr "حد:"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:208
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:644
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Text quote:"
-msgstr "نص اقتباس:"
+msgstr "اقتباس النّصّ:"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:232
 #, fuzzy, kde-kuit-format
@@ -6104,9 +6100,9 @@ msgid "Copying"
 msgstr "جاري النسخ"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:251
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Exporting"
-msgstr "جاري التصدير"
+msgstr "التّصدير"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:384
 #, fuzzy, kde-kuit-format
@@ -6191,9 +6187,9 @@ msgid "Comment symbol:"
 msgstr "تعليقات"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:636
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Primary key"
-msgstr "أوّلي مفتاح"
+msgstr "مفتاح رئيسي"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:668
 #, fuzzy, kde-kuit-format
@@ -6240,22 +6236,22 @@ msgid "Table preview:"
 msgstr "جدول حقل"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:760
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Name:"
 msgstr "الاسم:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:762
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Caption:"
-msgstr "عنوان:"
+msgstr "الواصفة:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:764
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Row count:"
-msgstr "&فصل التخطيط"
+msgstr "عدد الصفوف:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:766
 #, fuzzy, kde-kuit-format
@@ -6281,9 +6277,9 @@ msgid "From CSV file:"
 msgstr "إلى CVS ملفّ:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:790
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "From Clipboard"
-msgstr "إلى حافظة:"
+msgstr "من الحافظة"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:795
 #, fuzzy, kde-kuit-format
@@ -6360,7 +6356,7 @@ msgstr "إضافة أوّلي مفتاح"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1847
 #: plugins/tables/kexitabledesignerview.cpp:1197
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action:button Do Not Add Database Primary Key to a Table"
 msgid "Do &Not Add"
 msgstr "لا تضف"
@@ -6373,10 +6369,10 @@ msgstr "امسح عمود"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1897
 #: plugins/importexport/csv/KexiCSVImportDialogModel.cpp:114
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:column Column 1, Column 2, etc."
 msgid "Column %1"
-msgstr "عمود %1"
+msgstr "العمود %1"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1957
 #, kde-kuit-format
@@ -6595,7 +6591,7 @@ msgid "Descending"
 msgstr "تنازلي"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:284
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Criteria"
 msgstr "المعايير"
 
@@ -6767,17 +6763,14 @@ msgid "<para>This query is invalid.</para><para>Do you want to save it?</para>"
 msgstr "ملف موجود<p> تنفيذ إلى إستبدال الإيطالية مع a جديد?"
 
 #: plugins/queries/kexiquerypart.cpp:48
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt ""
 "Translate this word using only lowercase alphanumeric characters (a..z, "
 "0..9). Use '_' character instead of spaces. First character should be a..z "
 "character. If you cannot use latin characters in your language, use english "
 "word."
 msgid "query"
-msgstr ""
-"استعلام\n"
-"إستفسار\n"
-"طلب"
+msgstr "الاستعلام"
 
 #: plugins/queries/kexiquerypart.cpp:49
 #, fuzzy, kde-kuit-format
@@ -6867,9 +6860,9 @@ msgid "Edit Sections"
 msgstr "تحرير مجموعة."
 
 #: plugins/reports/kexireportdesignview.cpp:61
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Raise"
-msgstr "مرفوع"
+msgstr "ارفع"
 
 #: plugins/reports/kexireportdesignview.cpp:63
 #, kde-kuit-format
@@ -6917,10 +6910,10 @@ msgid "Report <resource>%1</resource>"
 msgstr "جاري الحفظ كائن failed."
 
 #: plugins/reports/kexireportview.cpp:64
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Page selector label"
 msgid "Page:"
-msgstr "الصفحة:"
+msgstr "الصّفحة:"
 
 #: plugins/reports/kexireportview.cpp:65
 #, fuzzy, kde-kuit-format
@@ -6988,15 +6981,15 @@ msgid "Prints the current report."
 msgstr "يغلق الحالي مشروع."
 
 #: plugins/reports/kexireportview.cpp:88
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:menu"
 msgid "E&xport As"
-msgstr "صدِّر"
+msgstr "&صدِّر إلى"
 
 #: plugins/reports/kexireportview.cpp:95
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Export:"
-msgstr "صدِّر"
+msgstr "صدّر:"
 
 #: plugins/reports/kexireportview.cpp:102
 #, fuzzy, kde-kuit-format
@@ -7392,9 +7385,9 @@ msgstr "يصف عنوان لـ حقل"
 
 #: plugins/tables/kexitabledesignerview.cpp:130
 #: widget/fields/KexiFieldListModel.cpp:147
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Data Type"
-msgstr "نوع البيانات"
+msgstr "أنواع البيانات"
 
 #: plugins/tables/kexitabledesignerview.cpp:131
 #, fuzzy, kde-kuit-format
@@ -7402,7 +7395,7 @@ msgid "Describes data type for the field"
 msgstr "يصف البيانات نوع لـ حقل"
 
 #: plugins/tables/kexitabledesignerview.cpp:149
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Comments"
 msgstr "تعليقات"
 
@@ -7476,12 +7469,12 @@ msgid "Default Value"
 msgstr "القيمة الافتراضية"
 
 #: plugins/tables/kexitabledesignerview.cpp:402
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Unique"
-msgstr "وحيدفريد"
+msgstr "فريد"
 
 #: plugins/tables/kexitabledesignerview.cpp:405
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Required"
 msgstr "مطلوب"
 
@@ -7498,7 +7491,7 @@ msgid "Autonumber"
 msgstr "اسم التقرير:"
 
 #: plugins/tables/kexitabledesignerview.cpp:415
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Indexed"
 msgstr "مفهرس"
 
@@ -7823,7 +7816,7 @@ msgid "Record: %1"
 msgstr "صف "
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1633
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action:button Correct Changes"
 msgid "Correct"
 msgstr "صحيح"
@@ -7892,9 +7885,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: widget/KexiConnectionSelector.ui:104
-#, fuzzy, kde-format
+#, kde-format
 msgid "Server Information"
-msgstr "معلومات الخادم"
+msgstr "معلومات الخادوم"
 
 #. i18n: ectx: property (text), widget (QPushButton, btn_add)
 #: widget/KexiConnectionSelector.ui:155
@@ -7960,7 +7953,7 @@ msgid "Add a New Database Connection"
 msgstr "إضافة جديد قاعدة بيانات الإتصال"
 
 #: widget/KexiConnectionSelectorWidget.cpp:419
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action:button Save Database Connection"
 msgid "&Save"
 msgstr "ا&حفظ"
@@ -8038,9 +8031,9 @@ msgid "&Test Connection"
 msgstr "اختبار الإتصال"
 
 #: widget/kexidbconnectionwidget.cpp:117
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Test database connection"
-msgstr "اختبار قاعدة بيانات اتصال"
+msgstr "اختبر اتّصال قاعدة البيانات"
 
 #: widget/kexidbconnectionwidget.cpp:118
 #, fuzzy, kde-kuit-format
@@ -8049,9 +8042,9 @@ msgid ""
 msgstr "إختبارات قاعدة بيانات اتصال أنت سليم اتصال معلومات هو."
 
 #: widget/kexidbconnectionwidget.cpp:152
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Database Connection"
-msgstr "قاعدة بيانات الإتصال"
+msgstr "اتّصال قاعدة البيانات"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)
@@ -8085,7 +8078,7 @@ msgstr "اتصل إلى a قاعدة بيانات الخادم"
 
 #: widget/kexidbconnectionwidget.cpp:444
 #: widget/KexiProjectSelectorWidget.cpp:309
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "ا&فتح"
@@ -8170,7 +8163,7 @@ msgstr "عن بعد خادم"
 
 #. i18n: ectx: property (text), widget (QLabel, hostLbl)
 #: widget/kexidbconnectionwidget.ui:357
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Hostname:"
 msgstr "ا&سم المضيف:"
 
@@ -8216,7 +8209,7 @@ msgstr "الإفتتاح قاعدة بيانات"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Supply a password below."
-msgstr ""
+msgstr "أدخل كملة السر أدناه."
 
 #: widget/KexiDBPasswordDialog.cpp:68
 #, fuzzy, kde-kuit-format
@@ -8237,14 +8230,14 @@ msgstr "غير محددة"
 
 #: widget/KexiDBPasswordDialog.cpp:94
 #: widget/navigator/KexiProjectNavigator.cpp:160
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "&Open"
 msgstr "ا&فتح"
 
 #: widget/KexiFileDialog.cpp:480
-#, fuzzy, kde-format
+#, kde-format
 msgid "All supported formats"
-msgstr "الكل مدعوم ملفات"
+msgstr "كلّ النُّسق المدعومة"
 
 #: widget/KexiFileRequester.cpp:216
 #, kde-kuit-format
@@ -8316,9 +8309,9 @@ msgid "&Choose Other Name..."
 msgstr "اختر أخرى الاسم."
 
 #: widget/KexiNameWidget.cpp:93
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Caption:"
-msgstr "عنوان:"
+msgstr "الواصفة:"
 
 #: widget/KexiNameWidget.cpp:124
 #, fuzzy, kde-kuit-format
@@ -8340,7 +8333,7 @@ msgstr "جاري الحفظ كائن failed."
 #: widget/KexiPasswordWidget.ui:49
 #, kde-format
 msgid "Supply a password below."
-msgstr ""
+msgstr "أدخل كملة السر أدناه."
 
 #. i18n: ectx: property (text), widget (QLabel, userNameLabel)
 #: widget/KexiPasswordWidget.ui:87
@@ -8356,9 +8349,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
 #: widget/KexiPasswordWidget.ui:121
-#, fuzzy, kde-format
+#, kde-format
 msgid "Database name:"
-msgstr "قاعدة بيانات مستخدم الاسم"
+msgstr "اسم قاعدة البيانات:"
 
 #. i18n: ectx: property (text), widget (QLabel, passwordLabel)
 #: widget/KexiPasswordWidget.ui:155
@@ -8427,13 +8420,13 @@ msgid "Enter Parameter Value"
 msgstr "إدخال ضابطة القيمة"
 
 #: widget/kexiqueryparameters.cpp:62
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Boolean False - No"
 msgid "No"
 msgstr "لا"
 
 #: widget/kexiqueryparameters.cpp:62
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Boolean True - Yes"
 msgid "Yes"
 msgstr "نعم"
@@ -8633,7 +8626,7 @@ msgid "Table:"
 msgstr "الجدول:"
 
 #: widget/relations/KexiRelationsView.cpp:91
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Insert table/query into relations view"
 msgid "&Insert"
 msgstr "أ&درج"
@@ -8700,7 +8693,7 @@ msgstr ""
 #: widget/undo/kundo2group.cpp:358 widget/undo/kundo2stack.cpp:1079
 #, kde-format
 msgid "Undo %1"
-msgstr ""
+msgstr "تراجع عن %1"
 
 #: widget/undo/kundo2group.cpp:385 widget/undo/kundo2stack.cpp:1105
 #, kde-format
@@ -8711,7 +8704,7 @@ msgstr ""
 #: widget/undo/kundo2group.cpp:385 widget/undo/kundo2stack.cpp:1105
 #, kde-format
 msgid "Redo %1"
-msgstr ""
+msgstr "أعِد %1"
 
 #: widget/undo/kundo2model.cpp:67
 #, kde-format
@@ -8781,9 +8774,9 @@ msgid "(auto)"
 msgstr "اسم التقرير:"
 
 #: widget/utils/kexirecordnavigator.cpp:170
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Record:"
-msgstr "إضافة سجل"
+msgstr "التسجّيل:"
 
 #: widget/utils/kexirecordnavigator.cpp:201
 #, fuzzy, kde-kuit-format
@@ -8791,7 +8784,7 @@ msgid "Current record number"
 msgstr "الحالي صف رقم"
 
 #: widget/utils/kexirecordnavigator.cpp:203
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "\"of\" in record number information: N of M"
 msgid "of"
 msgstr "من"
