@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 01:49+0000\n"
-"PO-Revision-Date: 2023-02-03 16:01+0100\n"
+"PO-Revision-Date: 2024-07-07 07:06+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -1796,7 +1796,7 @@ msgstr "ჩანართის ვიჯეტი"
 #, kde-kuit-format
 msgctxt "Group Box (HINT: for Frame Shape)"
 msgid "Group Box"
-msgstr ""
+msgstr "ჯგუფის ველი"
 
 #: formeditor/form_p.cpp:334
 #, kde-kuit-format
@@ -1826,7 +1826,7 @@ msgstr "შიდა"
 #, kde-kuit-format
 msgctxt "No Focus (HINT: for Focus)"
 msgid "No Focus"
-msgstr ""
+msgstr "ფოკუსის გარეშე"
 
 #: formeditor/form_p.cpp:340
 #, kde-kuit-format
@@ -5130,7 +5130,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Progress Bar widget"
 msgid "Progress Bar"
-msgstr ""
+msgstr "მიმდინარეობის მაჩვენებელი"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:340
 #, kde-format
@@ -5221,7 +5221,7 @@ msgstr "შეწევა"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:421
 #, kde-kuit-format
 msgid "Inverted"
-msgstr ""
+msgstr "შებრუნებულია"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:422
 #, kde-kuit-format
@@ -5435,7 +5435,7 @@ msgstr "მოგლუვება"
 #, kde-kuit-format
 msgctxt "Property: Keep Aspect Ratio (keep short)"
 msgid "Keep Ratio"
-msgstr ""
+msgstr "ფარდობის შენარჩუნება"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:490
 #, kde-kuit-format
@@ -5457,7 +5457,7 @@ msgstr "შემოწმებულია"
 #, kde-kuit-format
 msgctxt "Property: Tristate checkbox"
 msgid "Tristate"
-msgstr ""
+msgstr "სამმდგომარეობიანი"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:495
 #, kde-kuit-format
@@ -5626,7 +5626,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Property: Clear Button Enabled"
 msgid "Clear Button"
-msgstr ""
+msgstr "გასუფთავების ღილაკი"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:536
 #, kde-kuit-format
@@ -5715,12 +5715,12 @@ msgstr ""
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:553
 #, kde-kuit-format
 msgid "Horizontal Scroll Bar"
-msgstr ""
+msgstr "ჰორიზონტალური ჩოჩია"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:554
 #, kde-kuit-format
 msgid "Vertical Scroll Bar"
-msgstr ""
+msgstr "ვერტიკალური ჩოჩია"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:556
 #, kde-kuit-format
@@ -5802,7 +5802,7 @@ msgstr ""
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:617
 #, kde-kuit-format
 msgid "Group Box"
-msgstr ""
+msgstr "ჯგუფის ველი"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:626
 #, kde-format
@@ -5926,7 +5926,7 @@ msgstr "გვერდის წაშლა"
 #, kde-kuit-format
 msgctxt "Rename tab widget's page"
 msgid "Rename Page..."
-msgstr ""
+msgstr "გვერდის სახელის გადარქმევა..."
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:301
 #, kde-kuit-format
@@ -5955,13 +5955,13 @@ msgstr "გვერდის წაშლა"
 #, kde-kuit-format
 msgctxt "Go to Previous Page of a Stacked Widget"
 msgid "Go to Previous Page"
-msgstr ""
+msgstr "გადასვლა წინა გვერდზე"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:386
 #, kde-kuit-format
 msgctxt "Go to Next Page of a Stacked Widget"
 msgid "Go to Next Page"
-msgstr ""
+msgstr "გადასვლა შემდეგ გვერდზე"
 
 #: plugins/forms/widgets/main/KexiStandardFormWidgets.cpp:67
 #, kde-kuit-format
@@ -6143,8 +6143,7 @@ msgid "Do not Import"
 msgstr ""
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
-#, fuzzy, kde-format
-#| msgid "Importing"
+#, kde-format
 msgctxt "@action:button"
 msgid "Import"
 msgstr "შემოტანა"
@@ -6364,7 +6363,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@action:button Do Not Add Database Primary Key to a Table"
 msgid "Do &Not Add"
-msgstr ""
+msgstr "არ &დაამატო"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1883
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1941
@@ -6867,7 +6866,7 @@ msgctxt ""
 "character. If you cannot use latin characters in your language, use english "
 "word."
 msgid "report"
-msgstr ""
+msgstr "ანგარიში"
 
 #: plugins/reports/kexireportpart.cpp:66
 #, kde-kuit-format
@@ -7452,7 +7451,7 @@ msgstr "ავტომატური"
 #: plugins/tables/kexitabledesignerview.cpp:386
 #, kde-kuit-format
 msgid "Default Width"
-msgstr ""
+msgstr "ნაგულისხმევი სიგანე"
 
 #: plugins/tables/kexitabledesignerview.cpp:392
 #, kde-kuit-format
@@ -8010,7 +8009,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "&Test Connection"
-msgstr ""
+msgstr "&შეერთების შემოწმება"
 
 #: widget/kexidbconnectionwidget.cpp:117
 #, kde-kuit-format
@@ -8026,7 +8025,7 @@ msgstr ""
 #: widget/kexidbconnectionwidget.cpp:152
 #, kde-kuit-format
 msgid "Database Connection"
-msgstr ""
+msgstr "ბაზასთან მიერთება"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)
