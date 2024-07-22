@@ -6,14 +6,14 @@
 # Jarosław Staniek <staniek@kde.org>, 2005, 2006, 2007, 2014, 2015.
 # Igor Klimer <kigro@vp.pl>, 2006.
 # Michał Smoczyk <msmoczyk@wp.pl>, 2008.
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-01 02:28+0000\n"
-"PO-Revision-Date: 2022-01-08 09:11+0100\n"
+"PO-Revision-Date: 2024-07-21 13:24+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -22,6 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: core/kexi.cpp:141
 #, kde-kuit-format
@@ -6175,7 +6176,7 @@ msgstr "Skopiuj"
 #: widget/navigator/KexiProjectNavigator.cpp:207
 #, kde-kuit-format
 msgid "Export"
-msgstr "Eksportuj"
+msgstr "Wyeksportuj"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:96
 #, kde-kuit-format
