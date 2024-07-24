@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 01:49+0000\n"
-"PO-Revision-Date: 2024-05-09 06:23+0900\n"
+"PO-Revision-Date: 2024-07-23 21:46+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -1611,7 +1611,7 @@ msgstr "寄件者"
 #: formeditor/connectiondialog.cpp:152
 #, kde-kuit-format
 msgid "Signal"
-msgstr "信號"
+msgstr "訊號"
 
 #: formeditor/connectiondialog.cpp:157
 #, kde-kuit-format
@@ -1621,7 +1621,7 @@ msgstr "接收者"
 #: formeditor/connectiondialog.cpp:161
 #, kde-kuit-format
 msgid "Slot"
-msgstr "信號槽"
+msgstr "訊號槽"
 
 #: formeditor/connectiondialog.cpp:249
 #, fuzzy, kde-kuit-format
@@ -6153,19 +6153,19 @@ msgstr "開/關"
 #, kde-kuit-format
 msgctxt "Property: Button"
 msgid "Auto Repeat"
-msgstr "自動重覆"
+msgstr "自動重複"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:505
 #, kde-kuit-format
 msgctxt "Property: Auto Repeat Button's Delay"
 msgid "Auto Rep. Delay"
-msgstr "自動重覆延遲"
+msgstr "自動重複延遲"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:506
 #, kde-kuit-format
 msgctxt "Property: Auto Repeat Button's Interval"
 msgid "Auto Rep. Interval"
-msgstr "自動重覆間隔"
+msgstr "自動重複間隔"
 
 #. i18n("Auto Default"));
 #. unused (too advanced) setPropertyDescription("default", xi18nc("Property: Button is default", "Default"));
@@ -8447,17 +8447,14 @@ msgstr ""
 "每格表格都應該至少有一個欄位。"
 
 #: plugins/tables/kexitabledesignerview.cpp:1176
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "You have added \"%1\" field name twice.\n"
-#| "Field names cannot be repeated. Correct name of the field."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "<para>You have added <resource>%1</resource> field name twice.</"
 "para><para>Field names cannot be repeated. Correct name of the field.</para>"
 msgstr ""
-"您新增了欄位 %1 兩次。\n"
-"欄位名稱不應該重覆。請修正欄位名稱。"
+"<para>您新增了欄位名稱 <resource>%1</resource> 兩次。</para><para>欄位名稱不"
+"應該重複。請修正欄位名稱。</para>"
 
 #: plugins/tables/kexitabledesignerview.cpp:1190
 #, fuzzy, kde-kuit-format
