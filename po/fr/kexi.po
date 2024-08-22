@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 01:49+0000\n"
-"PO-Revision-Date: 2024-04-17 09:27+0200\n"
+"PO-Revision-Date: 2024-08-16 19:57+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -209,7 +209,7 @@ msgstr "Éléments Web pour les formulaires et les rapports"
 #, kde-kuit-format
 msgid "Scripting module (KROSS), Python language bindings, design"
 msgstr ""
-"Module d'écriture de scripts (KRoss), liaison du langage Python, conception"
+"Module d'écriture de scripts (Kross), liaison du langage Python, conception"
 
 #: core/kexiaboutdata.cpp:66
 #, kde-kuit-format
@@ -237,8 +237,8 @@ msgid ""
 "Sybase/MS SQL Server/ODBC database drivers, xBase migration plugin, "
 "improvements for KexiDB"
 msgstr ""
-"Pilotes de base de données Sybase/MS SQL Server/ODBC, module de migration "
-"xBase, améliorations pour KexiDB"
+"Pilotes de base de données SyBase / MS SQL Server / ODBC, module de "
+"migration xBase, améliorations pour KexiDB"
 
 #: core/kexiaboutdata.cpp:72
 #, kde-kuit-format
@@ -968,7 +968,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No plugin for ID <resource>%1</resource>"
-msgstr "Aucun module externe pour l'ID <resource>%1</resource>"
+msgstr "Aucun module externe pour l'identifiant <resource>%1</resource>"
 
 #: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3641
 #, kde-kuit-format
@@ -1703,7 +1703,7 @@ msgstr "Aucun copain"
 #, kde-kuit-format
 msgctxt "Translators: please keep this string short (less than 20 chars)"
 msgid "Hor. Alignment"
-msgstr "Alignement horiz."
+msgstr "Alignement horizontal"
 
 #: formeditor/form.cpp:2180
 #, kde-kuit-format
@@ -1959,7 +1959,7 @@ msgstr "Panneau de fenêtre"
 #, kde-kuit-format
 msgctxt "Horiz. Line (HINT: for Frame Shape)"
 msgid "Horiz. Line"
-msgstr "Ligne horiz."
+msgstr "Ligne horizontale"
 
 #: formeditor/form_p.cpp:325
 #, kde-kuit-format
@@ -4584,7 +4584,7 @@ msgid ""
 msgstr ""
 "<title>Encodage du texte pour les bases de données Microsoft Access</title>\n"
 "<para>Le fichier de base de données <filename>%1</filename> semble avoir été "
-"créé par une version d'Access antérieure à la version 2000.</para> "
+"créé par une version de Access antérieure à la version 2000.</para> "
 "<para>Afin d'importer correctement les caractères locaux, il est possible "
 "que vous ayez à choisir le jeu de caractères du fichier si la base a été "
 "créée sur un ordinateur utilisant un autre jeu.</para>"
@@ -5381,7 +5381,7 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "textBox"
-msgstr "zoneTexte"
+msgstr "zone de texte"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:117
 #, kde-kuit-format
