@@ -1,3 +1,4 @@
+# SPDX-FileCopyrightText: 2024 Johannes Obermayr <johannesobermayr@gmx.de>
 # Thomas Diehl <thd@kde.org>, 2003.
 # Stephan Johach <hunsum@gmx.de>, 2005.
 # Oliver Dörr <digikam-de@doerr-privat.de>, 2006.
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.07.70\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: core/kexi.cpp:141
 #, kde-kuit-format
