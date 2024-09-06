@@ -1,7 +1,7 @@
 # Burkhard Lück <lueck@hube-lueck.de>, 2011, 2012, 2014, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: kformdesigner_webbrowser\n"
+"Project-Id-Version: kexiforms_webbrowserwidgetplugin\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:34+0000\n"
 "PO-Revision-Date: 2015-09-14 17:20+0200\n"
