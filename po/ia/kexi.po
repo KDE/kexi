@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Giovanni Sora <g.sora@tiscali.it>, 2013, 2014, 2015, 2016, 2020, 2021, 2022.
+# SPDX-FileCopyrightText: 2013, 2014, 2015, 2016, 2020, 2021, 2022, 2024 Giovanni Sora <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-01 02:28+0000\n"
-"PO-Revision-Date: 2022-02-19 22:36+0100\n"
+"PO-Revision-Date: 2024-09-09 15:19+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.2\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: core/kexi.cpp:141
 #, kde-kuit-format
@@ -866,7 +866,7 @@ msgstr "Version major de projecto"
 #: core/kexiproject.cpp:418 core/kexiproject.cpp:489
 #, kde-kuit-format
 msgid "Project minor version"
-msgstr "Version inor de projecto"
+msgstr "Version minor de projecto"
 
 #: core/kexiproject.cpp:420
 #, kde-kuit-format
@@ -4007,6 +4007,8 @@ msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
 "database server."
 msgstr ""
+"Non potev cargar lista de projectos disponibile per <resource>%1</resource> "
+"servitor de base de datos"
 
 #: main/startup/KexiStartup.cpp:1034
 #, kde-kuit-format
@@ -4346,7 +4348,7 @@ msgstr ""
 #: migration/importwizard.cpp:371
 #, kde-kuit-format
 msgid "Enter Destination Database Project's Caption"
-msgstr ""
+msgstr "Inserta le Legenda de Projecto de Base de Datos de Destination"
 
 #: migration/importwizard.cpp:407
 #, kde-kuit-format
@@ -4605,7 +4607,7 @@ msgstr "Fonte de datos"
 #: plugins/forms/kexidbfactorybase.cpp:52
 #, kde-kuit-format
 msgid "Frame Color"
-msgstr ""
+msgstr "Color de Quadro"
 
 #: plugins/forms/kexiformmanager.cpp:160
 #, kde-kuit-format
@@ -4678,7 +4680,7 @@ msgstr ""
 #: plugins/forms/kexiformpart.cpp:100
 #, kde-kuit-format
 msgid "Clear Widget Contents"
-msgstr ""
+msgstr "Clara Contentos de Widget"
 
 #: plugins/forms/kexiformpart.cpp:102
 #, kde-kuit-format
@@ -5024,7 +5026,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Slider widget"
 msgid "Slider"
-msgstr ""
+msgstr "Glissator"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:322
 #, kde-format
@@ -5037,7 +5039,7 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "slider"
-msgstr ""
+msgstr "glissator"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:323
 #, kde-kuit-format
@@ -5514,7 +5516,7 @@ msgstr "Plan"
 #, kde-kuit-format
 msgctxt "For Text Format"
 msgid "Hypertext"
-msgstr ""
+msgstr "Hypertexto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:528
 #, kde-kuit-format
@@ -5561,12 +5563,12 @@ msgstr ""
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:540
 #, kde-kuit-format
 msgid "Tab Stop Width"
-msgstr ""
+msgstr "Largessa de Stop  de Tabulation"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:541
 #, kde-kuit-format
 msgid "Tab Changes Focus"
-msgstr ""
+msgstr "Foco de modificationes de Tabulation"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:542
 #, kde-kuit-format
@@ -5599,7 +5601,7 @@ msgstr ""
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:547
 #, kde-kuit-format
 msgid "Word Wrap Position"
-msgstr ""
+msgstr "Position de Torno de Parolas"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:548
 #, kde-kuit-format
@@ -5628,12 +5630,12 @@ msgstr "In columnas"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:552
 #, kde-kuit-format
 msgid "Links Underlined"
-msgstr ""
+msgstr "Ligamines sublineate"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:553
 #, kde-kuit-format
 msgid "Horizontal Scroll Bar"
-msgstr ""
+msgstr "Barra de rolar Horizontal"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:554
 #, kde-kuit-format
@@ -5755,7 +5757,7 @@ msgstr "Plan"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:636
 #, kde-kuit-format
 msgid "Auto-hide Tabs"
-msgstr ""
+msgstr "Auto-Cela schedas"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:637
 #, kde-kuit-format
@@ -5788,7 +5790,7 @@ msgstr "Buttones de rolar"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:644
 #, kde-kuit-format
 msgid "Closable Tabs"
-msgstr ""
+msgstr "Schedas claudibile"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:645
 #, kde-kuit-format
@@ -5902,7 +5904,7 @@ msgstr "Exporta"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Copy Data From Table to Clipboard"
-msgstr ""
+msgstr "Copia datos ex area de transferentia"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:97
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:105
@@ -5925,7 +5927,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Copy Data From Query to Clipboard"
-msgstr ""
+msgstr "Colla datos ex Query a area de transferentia"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:107
 #, kde-kuit-format
@@ -5946,7 +5948,7 @@ msgstr ""
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:122
 #, kde-kuit-format
 msgid "(rows: %1, columns: %2)"
-msgstr ""
+msgstr "(rangos: %1 columnas: %2)"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:124
 #, kde-kuit-format
@@ -6035,7 +6037,7 @@ msgstr "false"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Import CSV Data From File"
-msgstr ""
+msgstr "import datos CSV ex file"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:272
 #, kde-kuit-format
@@ -6058,7 +6060,7 @@ msgstr ""
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
 #, kde-kuit-format
 msgid "No database connection available."
-msgstr ""
+msgstr "Nulle connexion de base de datos disponibile."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:448
 #: widget/KexiNameDialog.cpp:173
@@ -6070,7 +6072,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Loading CSV Data from <filename>%1</filename>..."
-msgstr ""
+msgstr "Cargante Datos CSV ex <filename>%1</filename>."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:504
 #, kde-kuit-format
@@ -6091,7 +6093,7 @@ msgstr ""
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:594
 #, kde-kuit-format
 msgid "Preview of data from clipboard"
-msgstr ""
+msgstr "Vista preliminar de datos ex area de transferentia"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:615
 #, kde-kuit-format
@@ -6128,7 +6130,7 @@ msgstr "&Nove tabella"
 #, kde-kuit-format
 msgctxt "@option:check CSV import: data will be appended to existing table"
 msgid "&Existing table"
-msgstr ""
+msgstr "Tabella &Existente"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:716
 #, kde-kuit-format
@@ -6342,7 +6344,7 @@ msgstr "(rangos: %1)"
 #, kde-kuit-format
 msgctxt "row count"
 msgid "(rows: more than %1)"
-msgstr ""
+msgstr "(rangos: plus que %1)"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2167
 #, kde-kuit-format
@@ -7038,7 +7040,7 @@ msgstr ""
 #: plugins/reports/kexisourceselector.cpp:59
 #, kde-kuit-format
 msgid "Report's data source:"
-msgstr ""
+msgstr "Fonte de datos de reporto:"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:134
 #, kde-kuit-format
@@ -7048,7 +7050,7 @@ msgstr ""
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:135
 #, kde-kuit-format
 msgid "Executes the scripting code."
-msgstr ""
+msgstr "Executa le codice de scripting."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:144
 #, kde-kuit-format
@@ -7215,7 +7217,7 @@ msgstr ""
 #: plugins/tables/kexilookupcolumnpage.cpp:160
 #, kde-kuit-format
 msgid "Bound column:"
-msgstr ""
+msgstr "Columna ligate:"
 
 #: plugins/tables/kexilookupcolumnpage.cpp:174
 #, kde-kuit-format
@@ -7400,7 +7402,7 @@ msgstr ""
 #: plugins/tables/kexitabledesignerview.cpp:431
 #, kde-kuit-format
 msgid "Bound Column"
-msgstr ""
+msgstr "Columna ligate."
 
 #: plugins/tables/kexitabledesignerview.cpp:441
 #, kde-kuit-format
@@ -7480,7 +7482,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Create &Primary Key"
-msgstr ""
+msgstr "Crea clave &Primari"
 
 #: plugins/tables/kexitabledesignerview.cpp:909
 #, kde-format
@@ -7689,7 +7691,7 @@ msgstr "&Dele registro"
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1183
 #, kde-kuit-format
 msgid "Do you want to clear the contents of table %1?"
-msgstr ""
+msgstr "Tu vole nettar le contentos de tabella %1?"
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1184
 #, kde-kuit-format
@@ -7813,7 +7815,7 @@ msgstr "File"
 #, kde-kuit-format
 msgctxt "file (driver name)"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: widget/KexiConnectionSelectorWidget.cpp:387
 #, kde-kuit-format
@@ -8175,7 +8177,7 @@ msgstr "Le file  <filename>%1</filename> non es legibile."
 #: widget/KexiNameDialog.cpp:180
 #, kde-kuit-format
 msgid "Do you want to replace it?"
-msgstr ""
+msgstr "Tu vole reimplaciar lo?"
 
 #: widget/KexiNameDialog.cpp:183
 #, kde-kuit-format
@@ -8329,7 +8331,7 @@ msgstr ""
 #: widget/KexiStartupFileHandler.cpp:483
 #, kde-kuit-format
 msgid "This file already exists. Do you want to overwrite it?"
-msgstr ""
+msgstr "Le file  ja existe. Tu vole super scriber lo?"
 
 #: widget/KexiStartupFileHandler.cpp:484
 #, kde-kuit-format
@@ -8400,7 +8402,7 @@ msgstr "Designo in Vista de &Texto"
 #: widget/navigator/KexiProjectNavigator.cpp:194
 #, kde-kuit-format
 msgid "Design object in text view"
-msgstr ""
+msgstr "Designa objecto in vista de texto"
 
 #: widget/navigator/KexiProjectNavigator.cpp:195
 #, kde-kuit-format
@@ -8416,7 +8418,7 @@ msgstr "&Adde a area de transferentia"
 #: widget/navigator/KexiProjectNavigator.cpp:210
 #, kde-kuit-format
 msgid "Export data to clipboard"
-msgstr ""
+msgstr "Exporta datos a area de transferentia"
 
 #: widget/navigator/KexiProjectNavigator.cpp:211
 #, kde-kuit-format
@@ -8432,7 +8434,7 @@ msgstr ""
 #: widget/navigator/KexiProjectNavigator.cpp:217
 #, kde-kuit-format
 msgid "Export data to a file"
-msgstr ""
+msgstr "Exporta datos a un file"
 
 #: widget/navigator/KexiProjectNavigator.cpp:218
 #, kde-kuit-format
@@ -8489,7 +8491,7 @@ msgstr ""
 #: widget/relations/KexiRelationsScrollArea.cpp:122
 #, kde-kuit-format
 msgid "&Delete Selected Relationship"
-msgstr ""
+msgstr "&Dele Relation seligite"
 
 #: widget/relations/KexiRelationsScrollArea.cpp:124
 #, kde-kuit-format
@@ -8546,7 +8548,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Contains a pointer to the currently selected record."
-msgstr ""
+msgstr "Contine un punctator al record currentemente seligite."
 
 #: widget/tableview/KexiTableScrollArea.cpp:2442
 #, kde-kuit-format
@@ -8625,6 +8627,8 @@ msgid ""
 "<para>File <filename>%1</filename> already exists.</para><para>Do you want "
 "to replace it with a new one?</para>"
 msgstr ""
+"<para>File <filename>%1</filename> ja existe.</para><para>Tu vole  "
+"reimplaciar lo con un nove?</para>"
 
 #: widget/utils/kexicontextmenuutils.cpp:162
 #, kde-kuit-format
