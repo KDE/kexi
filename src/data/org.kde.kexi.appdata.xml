@@ -208,6 +208,7 @@
       <li xml:lang="fr">Prise en charge native des bases de données SQLite, MySQL et PostgreSQL</li>
       <li xml:lang="gl">Compatibilidade directa con bases de datos SQLite, MySQL e PostgreSQL.</li>
       <li xml:lang="ia">Supporta directe per base de datos SQLite, MySQL e PostgreSQL</li>
+      <li xml:lang="id">Dukungan langsung untuk database SQLite, MySQL, dan PostgreSQL</li>
       <li xml:lang="it">Supporto diretto per banche dati SQLite, MySQL e PostgreSQL</li>
       <li xml:lang="ka">SQLite, MySQL და PostgreSQL-ის პირდაპირი მხარდაჭერა</li>
       <li xml:lang="ko">SQLite, MySQL, PostgreSQL 데이터베이스 직접 지원</li>
@@ -353,6 +354,7 @@
       <li xml:lang="fr">Mode utilisateur verrouillé, vous permettant de désactiver toutes les fonctionnalités de conception</li>
       <li xml:lang="gl">Modo de usuario bloqueado, que permite desactivar todas as funcionalidades de deseño.</li>
       <li xml:lang="ia">Modo de usator confinate, que te permitte commutar omne characteristicasde designo</li>
+      <li xml:lang="id">Mode User terkunci, memungkinkan untuk mematikan semua fitur desain</li>
       <li xml:lang="it">Modalità utente bloccata, che consente di disattivare tutte le funzionalità di progettazione</li>
       <li xml:lang="ko">모든 디자인 기능을 끌 수 있는 잠긴 사용자 모드</li>
       <li xml:lang="nl">Vergrendelde gebruikersmodus, waarmee alle ontwerpkenmerken zijn uitgeschakeld</li>
