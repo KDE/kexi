@@ -3,13 +3,13 @@
 # Nuriddin Aminagha <nuriddin@haydarlinux.org>, 2003.
 # Nuriddin Aminagha <nuriddin@eminaga.de>, 2003.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 01:49+0000\n"
-"PO-Revision-Date: 2022-01-21 13:34+0400\n"
+"PO-Revision-Date: 2024-11-28 13:46+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -18,6 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: core/kexi.cpp:142
 #, fuzzy, kde-kuit-format
@@ -2617,9 +2618,9 @@ msgid "Saves object changes from currently selected window."
 msgstr "ينقذ كائن من مُنتقى نافذة."
 
 #: main/KexiMainWindow.cpp:500
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Save &As..."
-msgstr "احفظ &ك‍..."
+msgstr "احفظ با&سم..."
 
 #: main/KexiMainWindow.cpp:501
 #, fuzzy, kde-kuit-format
