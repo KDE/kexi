@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 01:49+0000\n"
-"PO-Revision-Date: 2024-04-16 07:16+0200\n"
+"PO-Revision-Date: 2024-12-15 23:43+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -1687,7 +1687,7 @@ msgstr "Besedilo"
 #: formeditor/form_p.cpp:275
 #, kde-kuit-format
 msgid "Background Pixmap"
-msgstr "Večbitno sličica za ozadje"
+msgstr "Preslikava bitov za ozadje"
 
 #: formeditor/form_p.cpp:276
 #, kde-kuit-format

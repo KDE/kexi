@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 01:49+0000\n"
-"PO-Revision-Date: 2024-12-13 21:49+0100\n"
+"PO-Revision-Date: 2024-12-16 00:35+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -413,10 +413,11 @@ msgstr "Melloras no deseño inicial."
 msgid "Icons and user interface research"
 msgstr "Iconas e investigacións sobre a interface de usuario."
 
+# skip-rule: trasno-erase_reverse
 #: core/kexiaboutdata.cpp:111
 #, kde-kuit-format
 msgid "Kristof Borrey"
-msgstr "Kristof Borrey"
+msgstr "Borrey"
 
 #: core/kexiaboutdata.cpp:113
 #, kde-kuit-format
@@ -5318,7 +5319,7 @@ msgid "Text Editor"
 msgstr "Editor de texto"
 
 # well-spelled: editorDeTexto
-# skip-rule: PT-2011-dual_edit
+# skip-rule: trasno-edit_reverse
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:138
 #, kde-format
 msgctxt ""
@@ -8298,8 +8299,8 @@ msgid_plural ""
 "Fix the text or it will be truncated upon saving changes."
 msgstr[0] ""
 "Superouse nun carácter o límite de %2 para o campo <resource>%3</resource>.\n"
-"Reduza a lonxitude do texto, ou ao gardar os cambios borrarase ese carácter "
-"sobrante."
+"Reduza a lonxitude do texto, ou ao gardar os cambios recortarase ese "
+"carácter sobrante."
 msgstr[1] ""
 "Superouse en %1 caracteres o límite de %2 para o campo <resource>%3</"
 "resource>.\n"
