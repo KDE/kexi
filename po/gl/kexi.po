@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-01 02:28+0000\n"
-"PO-Revision-Date: 2024-12-16 00:35+0100\n"
+"PO-Revision-Date: 2024-12-17 23:01+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -463,7 +463,7 @@ msgid ""
 msgstr ""
 "Crear un proxecto novo, baleiro, co controlador de bases de datos e nome da "
 "base de datos indicados, e saír inmediatamente. Pediráselle confirmación de "
-"ser necesario substituír algún ficheiro existente."
+"ser necesario sobrescribir."
 
 #: core/KexiCommandLineOptions.cpp:43
 #, kde-kuit-format
@@ -683,8 +683,8 @@ msgid ""
 "the current login (<resource>%1</resource>)."
 msgstr ""
 "Nome do servidor a ser usado para conectarse a un proxecto de base de datos. "
-"Ignórase en caso de fornecerse a ruta a un ficheiro de atallo. O nome de "
-"usuaria predeterminado é o seu nome de usuaria (<resource>%1</resource>)."
+"Ignórase se o proxecto se abre cun ficheiro de atallo. O nome de usuaria "
+"predeterminado é o seu nome de usuaria (<resource>%1</resource>)."
 
 #: core/KexiCommandLineOptions.cpp:154
 #, kde-kuit-format
@@ -695,8 +695,8 @@ msgid ""
 "host is the local computer."
 msgstr ""
 "Nome de máquina do servidor da rede para usar ao conectarse a un proxecto de "
-"base de datos. Ignórase en caso de fornecerse a ruta a un ficheiro de "
-"atallo. O nome de máquina predeterminado é o do computador local."
+"base de datos. Ignórase se o proxecto se abre cun ficheiro de atallo. O nome "
+"de máquina predeterminado é o do computador local."
 
 #: core/KexiCommandLineOptions.cpp:160
 #, kde-kuit-format
@@ -707,9 +707,9 @@ msgid ""
 "depend on the used server type (e.g. %1, %2)."
 msgstr ""
 "Número de porto do servidor da rede para usar ao conectarse a un proxecto de "
-"base de datos. Ignórase en caso de fornecerse a ruta a un ficheiro de "
-"atallo. O valor predeterminado depende do tipo de servidor(por exemplo, para "
-"%1 sería %2)."
+"base de datos. Ignórase se o proxecto se abre cun ficheiro de atallo. O "
+"valor predeterminado depende do tipo de servidor(por exemplo, para %1 sería "
+"%2)."
 
 #: core/KexiCommandLineOptions.cpp:167
 #, kde-kuit-format
@@ -719,10 +719,10 @@ msgid ""
 "project. Ignored if the project is opened using a shortcut file. Defaults "
 "depend on the used server type (e.g. %1, %2)."
 msgstr ""
-"Nome do ficheiro de socket do computador local para usar ao conectarse a un "
-"proxecto de base de datos. Ignórase en caso de fornecerse a ruta a un "
-"ficheiro de atallo. O valor predeterminado depende do tipo de servidor(por "
-"exemplo, para %1 sería %2)."
+"Nome do ficheiro de toma do computador local para usar ao conectarse a un "
+"proxecto de base de datos. Ignórase se o proxecto se abre cun ficheiro de "
+"atallo. O valor predeterminado depende do tipo de servidor(por exemplo, para "
+"%1 sería %2)."
 
 #: core/KexiCommandLineOptions.cpp:176
 #, kde-kuit-format
@@ -8096,7 +8096,7 @@ msgstr[0] ""
 msgstr[1] ""
 "Superouse en %1 caracteres o límite de %2 para o campo <resource>%3</"
 "resource>.\n"
-"Reduza a lonxitude do texto, ou ao gardar os cambios borraranse os "
+"Reduza a lonxitude do texto, ou ao gardar os cambios recortaranse os "
 "caracteres sobrantes."
 
 #: widget/dataviewcommon/kexidataprovider.cpp:216
@@ -8679,7 +8679,7 @@ msgstr "%1: %2"
 #, kde-kuit-format
 msgid "Select a project on <resource>%1</resource> database server to open:"
 msgstr ""
-"Escolla un ficheiro para abrir do servidor de bases de datos <resource>%1</"
+"Escolla un proxecto para abrir do servidor de bases de datos <resource>%1</"
 "resource>:"
 
 #: widget/kexiqueryparameters.cpp:42
