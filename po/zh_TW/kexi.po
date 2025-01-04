@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-12-01 02:28+0000\n"
-"PO-Revision-Date: 2024-07-23 21:46+0900\n"
+"PO-Revision-Date: 2025-01-04 00:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -7041,7 +7041,7 @@ msgstr "描述給定欄位或敘述的可見度。"
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1874
 #, kde-kuit-format
 msgid "Sorting"
-msgstr "排序中"
+msgstr "排序"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:275
 #, kde-kuit-format
