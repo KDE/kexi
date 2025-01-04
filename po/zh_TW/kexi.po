@@ -3,13 +3,13 @@
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2006, 2007, 2008, 2009, 2010.
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007, 2008.
 # Franklin Weng <franklin@goodhorse.idv.tw>, 2008, 2010, 2011, 2015.
-# SPDX-FileCopyrightText: 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 01:49+0000\n"
-"PO-Revision-Date: 2024-07-23 21:46+0900\n"
+"PO-Revision-Date: 2025-01-04 00:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -7289,7 +7289,7 @@ msgstr "描述給定欄位或敘述的可見度。"
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1877
 #, kde-kuit-format
 msgid "Sorting"
-msgstr "排序中"
+msgstr "排序"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:278
 #, kde-kuit-format
