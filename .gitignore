@@ -34,3 +34,4 @@ GIT_VERSION
 .clangd
 .cache
 /cmake-build*
+.flatpak-builder
