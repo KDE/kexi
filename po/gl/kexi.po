@@ -445,7 +445,7 @@ msgstr "Paweł Wirecki, OpenOffice Polska"
 #, kde-format, kde-kuit-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "mgl.branco@gmail.com, adrian@chaves.io"
+msgstr "mgl.branco@gmail.com, adrian@chaves.gal"
 
 #: core/kexiaboutdata.cpp:118
 #, kde-format, kde-kuit-format
