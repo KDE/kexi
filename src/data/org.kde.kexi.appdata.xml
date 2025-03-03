@@ -4,11 +4,6 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>LGPL-2.0+</project_license>
   <name>KEXI</name>
-  <launchable type="desktop-id">org.kde.kexi.desktop</launchable>
-  <developer id="kde.org">
-    <name translate="no">KDE</name>
-    <url>https://kde.org</url>
-  </developer>
   <name xml:lang="ca">KEXI</name>
   <name xml:lang="ca-valencia">KEXI</name>
   <name xml:lang="cs">KEXI</name>
@@ -38,6 +33,11 @@
   <name xml:lang="uk">KEXI</name>
   <name xml:lang="x-test">xxKEXIxx</name>
   <name xml:lang="zh-CN">KEXI</name>
+  <launchable type="desktop-id">org.kde.kexi.desktop</launchable>
+  <developer id="kde.org">
+    <name translate="no">KDE</name>
+    <url>https://kde.org</url>
+  </developer>
   <summary>Visual database apps builder</summary>
   <summary xml:lang="ca">Constructor visual d'aplicacions de bases de dades</summary>
   <summary xml:lang="ca-valencia">Constructor visual d'aplicacions de bases de dades</summary>
