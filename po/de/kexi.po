@@ -441,13 +441,13 @@ msgstr "Paweł Wirecki / OpenOffice Polska"
 #, kde-format, kde-kuit-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "hunsum@gmx.de, jannick.kuhr@kdemail.net"
+msgstr "kde-i18n-de@kde.org"
 
 #: core/kexiaboutdata.cpp:118
 #, kde-format, kde-kuit-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Stephan Johach, Jannick Kuhr"
+msgstr "Deutsches KDE-Übersetzungsteam"
 
 #: core/KexiCommandLineOptions.cpp:38
 #, kde-kuit-format
