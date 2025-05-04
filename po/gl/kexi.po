@@ -451,7 +451,7 @@ msgstr "mgl.branco@gmail.com, adrian@chaves.gal"
 #, kde-format, kde-kuit-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Miguel Branco, Adrián Chaves Fernández (Gallaecio)"
+msgstr "Miguel Branco, Adrián Chaves (Gallaecio)"
 
 #: core/KexiCommandLineOptions.cpp:38
 #, kde-kuit-format
