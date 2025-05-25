@@ -1,20 +1,20 @@
-# translation of kexi.po to Spanish
+# Spanish translations for kexi.po package.
+# Copyright (C) 2002-2025 This file is copyright:
+# This file is distributed under the same license as the kexi package.
 #
 # Miguel Revilla Rodríguez <yo@miguelrevilla.com>
-# Juan Manuel Garcia Molina <juanma@superiodico.net>, 2002, 2003, 2004, 2005, 2006, 2007.
-# Juan Manuel García Molina <juanma@superiodico.net>, 2006.
-# Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2007, 2010.
-# Jaime Robles <jaime@kde.org>, 2007, 2008.
-# SPDX-FileCopyrightText: 2008, 2010, 2011, 2015, 2016, 2017, 2018, 2019, 2020, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
-# Raul Gonzalez <raulgf83@gmail.com>, 2011, 2012, 2013, 2014, 2015.
-# Sofia Priego <spriego@darksylvania.net>, 2015, 2016, 2017, %Y.
-# Sofía Priego <spriego@darksylvania.net>, %Y.
+# SPDX-FileCopyrightText: 2002, 2003, 2004, 2005, 2006, 2007 Juan Manuel García Molina <juanma@superiodico.net>
+# SPDX-FileCopyrightText: 2007, 2010 Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>
+# SPDX-FileCopyrightText: 2007, 2008 Jaime Robles <jaime@kde.org>
+# SPDX-FileCopyrightText: 2008, 2010, 2011, 2015 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2011, 2012, 2013, 2014, 2015 Raul Gonzalez <raulgf83@gmail.com>
+# SPDX-FileCopyrightText: 2015, 2016, 2017, 2024, 2025 Sofía Priego <spriego@darksylvania.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 01:49+0000\n"
-"PO-Revision-Date: 2024-04-16 20:37+0100\n"
+"PO-Revision-Date: 2025-05-24 18:36+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -2679,12 +2679,12 @@ msgstr "Ayuda"
 #, kde-kuit-format
 msgctxt "Action name with three dots..."
 msgid "%1..."
-msgstr "%1..."
+msgstr "%1…"
 
 #: main/KexiMainWindow.cpp:458
 #, kde-kuit-format
 msgid "&New Project..."
-msgstr "&Nuevo proyecto..."
+msgstr "&Nuevo proyecto…"
 
 #: main/KexiMainWindow.cpp:460
 #, kde-kuit-format
@@ -2700,7 +2700,7 @@ msgstr ""
 #: main/KexiMainWindow.cpp:468
 #, kde-kuit-format
 msgid "&Open Project..."
-msgstr "&Abrir proyecto..."
+msgstr "&Abrir proyecto…"
 
 #: main/KexiMainWindow.cpp:470
 #, kde-kuit-format
@@ -2756,7 +2756,7 @@ msgstr "Guarda los cambios al objeto de la ventana seleccionada actualmente."
 #: main/KexiMainWindow.cpp:500
 #, kde-kuit-format
 msgid "Save &As..."
-msgstr "Guardar c&omo..."
+msgstr "Guardar c&omo…"
 
 #: main/KexiMainWindow.cpp:501
 #, kde-kuit-format
@@ -2775,7 +2775,7 @@ msgstr ""
 #: main/KexiMainWindow.cpp:519
 #, kde-kuit-format
 msgid "&Import, Export or Send..."
-msgstr "&Importar, exportar o enviar..."
+msgstr "&Importar, exportar o enviar…"
 
 #: main/KexiMainWindow.cpp:520
 #, kde-kuit-format
@@ -2811,7 +2811,7 @@ msgstr "Sale de la aplicación <application>%1</application>."
 #: main/KexiMainWindow.cpp:553
 #, kde-kuit-format
 msgid "&Import Database..."
-msgstr "&Importar base de datos..."
+msgstr "&Importar base de datos…"
 
 #: main/KexiMainWindow.cpp:554
 #, kde-kuit-format
@@ -2826,7 +2826,7 @@ msgstr "Importa la base de datos completa como un proyecto de KEXI."
 #: main/KexiMainWindow.cpp:561
 #, kde-kuit-format
 msgid "Import Tables..."
-msgstr "Importar tablas..."
+msgstr "Importar tablas…"
 
 #: main/KexiMainWindow.cpp:562
 #, kde-kuit-format
@@ -2841,7 +2841,7 @@ msgstr "Importa datos de un origen externo a este proyecto."
 #: main/KexiMainWindow.cpp:569
 #, kde-kuit-format
 msgid "&Compact Database..."
-msgstr "&Compactar base de datos..."
+msgstr "&Compactar base de datos…"
 
 #: main/KexiMainWindow.cpp:570
 #, kde-kuit-format
@@ -2861,7 +2861,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Import->Table Data From File..."
 msgid "Import Data From &File..."
-msgstr "Importar datos de un &archivo..."
+msgstr "Importar datos de un &archivo…"
 
 #: main/KexiMainWindow.cpp:583
 #, kde-kuit-format
@@ -2877,7 +2877,7 @@ msgstr "Importa los datos de la tabla desde un archivo."
 #, kde-kuit-format
 msgctxt "Export->Table or Query Data to File..."
 msgid "Export Data to &File..."
-msgstr "Exportar los datos a un &archivo..."
+msgstr "Exportar los datos a un &archivo…"
 
 #: main/KexiMainWindow.cpp:594
 #, kde-kuit-format
@@ -2893,7 +2893,7 @@ msgstr "Exporta los datos de la tabla o consulta activa a un archivo."
 #, kde-kuit-format
 msgctxt "Paste Special->As Data &Table..."
 msgid "Paste Special..."
-msgstr "Pegado especial..."
+msgstr "Pegado especial…"
 
 #: main/KexiMainWindow.cpp:645
 #, kde-kuit-format
@@ -2909,7 +2909,7 @@ msgstr "Pega los datos del portapapeles como una tabla."
 #, kde-kuit-format
 msgctxt "Copy Special->Table or Query Data..."
 msgid "Copy Special..."
-msgstr "Copia especial..."
+msgstr "Copia especial…"
 
 #: main/KexiMainWindow.cpp:656
 #, kde-kuit-format
@@ -2979,7 +2979,7 @@ msgstr "Borra el registro actual."
 #: main/KexiMainWindow.cpp:695
 #, kde-kuit-format
 msgid "Clear Table Contents..."
-msgstr "Borrar la tabla de contenido..."
+msgstr "Borrar la tabla de contenido…"
 
 #: main/KexiMainWindow.cpp:697
 #, kde-kuit-format
@@ -3101,7 +3101,7 @@ msgstr "Activa el panel de propiedades. Si está oculto, lo muestra antes."
 #: main/KexiMainWindow.cpp:829
 #, kde-kuit-format
 msgid "Locate..."
-msgstr "Localizar..."
+msgstr "Localizar…"
 
 #: main/KexiMainWindow.cpp:830
 #, kde-kuit-format
@@ -3151,7 +3151,7 @@ msgstr "&Ejecutar"
 #: main/KexiMainWindow.cpp:870
 #, kde-kuit-format
 msgid "&Font..."
-msgstr "&Tipo de letra..."
+msgstr "&Tipo de letra…"
 
 #: main/KexiMainWindow.cpp:872
 #, kde-kuit-format
@@ -3272,7 +3272,7 @@ msgstr "&Ventana"
 #, kde-kuit-format
 msgctxt "Report a bug or wish for KEXI application"
 msgid "Report a &Bug or Wish..."
-msgstr "Informar de un &error o petición..."
+msgstr "Informar de un &error o petición…"
 
 #: main/KexiMainWindow.cpp:1263
 #, kde-kuit-format
@@ -3327,7 +3327,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@action:button Import Database"
 msgid "&Import..."
-msgstr "&Importar..."
+msgstr "&Importar…"
 
 #: main/KexiMainWindow.cpp:1523
 #, kde-kuit-format
@@ -3414,12 +3414,12 @@ msgstr "%1 (solo lectura)"
 #: main/KexiMainWindow.cpp:2749
 #, kde-kuit-format
 msgid "From File..."
-msgstr "Desde archivo..."
+msgstr "Desde archivo…"
 
 #: main/KexiMainWindow.cpp:2754
 #, kde-kuit-format
 msgid "From Server..."
-msgstr "Desde servidor..."
+msgstr "Desde servidor…"
 
 #: main/KexiMainWindow.cpp:2819
 #, kde-kuit-format
@@ -4322,7 +4322,7 @@ msgstr "Abrir un archivo externo"
 #, kde-kuit-format
 msgctxt "@action:button Import File"
 msgid "Import..."
-msgstr "Importar..."
+msgstr "Importar…"
 
 #: main/startup/KexiStartup.cpp:927
 #, kde-kuit-format
@@ -4485,7 +4485,7 @@ msgid ""
 msgstr ""
 "<title>KEXI puede ser completamente gratuito, pero su desarrollo es costoso."
 "</title><para>Electricidad, herramientas, oficinas, conexión a internet, "
-"viajes para reuniones... todo cuesta.</para><para>Los donativos directos son "
+"viajes para reuniones… todo cuesta.</para><para>Los donativos directos son "
 "la forma más fácil y rápida de apoyar eficientemente el proyecto de KEXI. "
 "Cualquiera, independientemente del grado de participación, puede hacerlo.</"
 "para><para>¿Qué recibe usted a cambio de su donativo? KEXI se volverá más "
@@ -4948,7 +4948,7 @@ msgstr ""
 #: migration/importwizard.cpp:1032
 #, kde-kuit-format
 msgid "Importing in progress..."
-msgstr "Importación en curso..."
+msgstr "Importación en curso…"
 
 #: migration/importwizard.cpp:1037
 #, kde-kuit-format
@@ -5192,7 +5192,7 @@ msgstr "Borrar el contenido de los elementos gráficos"
 #: plugins/forms/kexiformpart.cpp:102
 #, kde-kuit-format
 msgid "Edit Tab Order..."
-msgstr "Editar el orden de las pestañas..."
+msgstr "Editar el orden de las pestañas…"
 
 #. i18n("Edit Pixmap Collection"), koIconName("icons"), 0, "formpart_pixmap_collection");
 #. i18n("Edit Form Connections"), koIconName("connections"), 0, "formpart_connections");
@@ -6335,7 +6335,7 @@ msgstr "&Imagen"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:828
 #, kde-kuit-format
 msgid "&Assign Action..."
-msgstr "&Asignar acción..."
+msgstr "&Asignar acción…"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:1400
 #, kde-kuit-format
@@ -6359,7 +6359,7 @@ msgstr "Borrar página"
 #, kde-kuit-format
 msgctxt "Rename tab widget's page"
 msgid "Rename Page..."
-msgstr "Renombrar página..."
+msgstr "Renombrar página…"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:301
 #, kde-kuit-format
@@ -6376,7 +6376,7 @@ msgstr "Introduzca un nuevo título para la página actual:"
 #, kde-kuit-format
 msgctxt "Add page to a stacked widget"
 msgid "Add Page..."
-msgstr "Añadir página..."
+msgstr "Añadir página…"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:338
 #, kde-kuit-format
@@ -6562,7 +6562,7 @@ msgstr "Pegar datos CSV desde el portapapeles"
 #, kde-kuit-format
 msgctxt "@action:button Import CSV"
 msgid "&Import..."
-msgstr "&Importar..."
+msgstr "&Importar…"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
 #, kde-kuit-format
@@ -6597,7 +6597,7 @@ msgstr "Elija otro nombre."
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Loading CSV Data from <filename>%1</filename>..."
-msgstr "Cargando datos CSV desde <filename>%1</filename>..."
+msgstr "Cargando datos CSV desde <filename>%1</filename>…"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:504
 #, kde-kuit-format
@@ -6828,7 +6828,7 @@ msgstr ""
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1999
 #, kde-kuit-format
 msgid "Importing data..."
-msgstr "Importando datos..."
+msgstr "Importando datos…"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2014
 #, kde-kuit-format
@@ -7443,7 +7443,7 @@ msgstr "Exportar:"
 #, kde-kuit-format
 msgctxt "open dialog to export as text document"
 msgid "Text Document..."
-msgstr "Documento de texto..."
+msgstr "Documento de texto…"
 
 #: plugins/reports/kexireportview.cpp:108
 #, kde-kuit-format
@@ -7461,7 +7461,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Portable Document Format..."
 msgid "PDF..."
-msgstr "PDF..."
+msgstr "PDF…"
 
 #: plugins/reports/kexireportview.cpp:121
 #, kde-kuit-format
@@ -7477,7 +7477,7 @@ msgstr "Exporta el informe actual como PDF."
 #, kde-kuit-format
 msgctxt "open dialog to export as spreadsheet"
 msgid "Spreadsheet..."
-msgstr "Hoja de cálculo..."
+msgstr "Hoja de cálculo…"
 
 #: plugins/reports/kexireportview.cpp:134
 #, kde-kuit-format
@@ -7498,7 +7498,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "open dialog to export as web page"
 msgid "Web Page..."
-msgstr "Página web..."
+msgstr "Página web…"
 
 #: plugins/reports/kexireportview.cpp:148
 #, kde-kuit-format
@@ -7641,7 +7641,7 @@ msgstr "Proporciona el menú editar."
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:136
 #, kde-kuit-format
 msgid "Configure Editor..."
-msgstr "Configurar el editor..."
+msgstr "Configurar el editor…"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:156
 #, kde-kuit-format
@@ -7656,7 +7656,7 @@ msgstr "Configura el editor de guiones."
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:166
 #, kde-kuit-format
 msgid "&Import..."
-msgstr "&Importar..."
+msgstr "&Importar…"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:168
 #, kde-kuit-format
@@ -7671,7 +7671,7 @@ msgstr "Importa el guion desde un archivo."
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:182
 #, kde-kuit-format
 msgid "&Export..."
-msgstr "&Exportar..."
+msgstr "&Exportar…"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:184
 #, kde-kuit-format
@@ -8397,20 +8397,20 @@ msgstr "Información del servidor"
 #: widget/KexiConnectionSelector.ui:155
 #, kde-format
 msgid "&Add..."
-msgstr "&Añadir..."
+msgstr "&Añadir…"
 
 #. i18n: ectx: property (text), widget (QPushButton, btn_edit)
 #: widget/KexiConnectionSelector.ui:168
 #, kde-format
 msgid "&Edit..."
-msgstr "&Editar..."
+msgstr "&Editar…"
 
 #. i18n: ectx: property (text), widget (QPushButton, btn_remove)
 #: widget/KexiConnectionSelector.ui:181
 #: widget/navigator/KexiProjectNavigator.cpp:172
 #, kde-format, kde-kuit-format
 msgid "&Delete..."
-msgstr "&Borrar..."
+msgstr "&Borrar…"
 
 #: widget/KexiConnectionSelectorWidget.cpp:62
 #, kde-kuit-format
@@ -8485,7 +8485,7 @@ msgstr ""
 #: widget/KexiDataSourceComboBox.cpp:125
 #, kde-kuit-format
 msgid "Define Query..."
-msgstr "Definir consulta..."
+msgstr "Definir consulta…"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widget/KexiDBCaptionPage.ui:31
@@ -8823,7 +8823,7 @@ msgstr "Sustituir objeto"
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "&Choose Other Name..."
-msgstr "Ele&gir otro nombre..."
+msgstr "Ele&gir otro nombre…"
 
 #: widget/KexiNameWidget.cpp:93
 #, kde-kuit-format
@@ -9013,7 +9013,7 @@ msgstr "Borra el objeto seleccionado en la lista."
 #: widget/navigator/KexiProjectNavigator.cpp:177
 #, kde-kuit-format
 msgid "&Rename..."
-msgstr "Cambia&r el nombre..."
+msgstr "Cambia&r el nombre…"
 
 #: widget/navigator/KexiProjectNavigator.cpp:178
 #, kde-kuit-format
@@ -9055,7 +9055,7 @@ msgstr "Inicia el diseño del objeto de la lista en la vista de texto."
 #, kde-kuit-format
 msgctxt "Export->To Clipboard as Data... "
 msgid "To &Clipboard..."
-msgstr "Al &portapapeles..."
+msgstr "Al &portapapeles…"
 
 #: widget/navigator/KexiProjectNavigator.cpp:210
 #, kde-kuit-format
@@ -9071,7 +9071,7 @@ msgstr "Exporta los datos de la tabla o consulta seleccionada al portapapeles."
 #, kde-kuit-format
 msgctxt "Export->To File As Data &Table... "
 msgid "To &File As Data Table..."
-msgstr "A &archivo como tabla de datos..."
+msgstr "A &archivo como tabla de datos…"
 
 #: widget/navigator/KexiProjectNavigator.cpp:217
 #, kde-kuit-format
@@ -9086,12 +9086,12 @@ msgstr "Exporta los datos de la tabla o consulta seleccionada a un archivo."
 #: widget/navigator/KexiProjectNavigator.cpp:371
 #, kde-kuit-format
 msgid "&Create Object: %1..."
-msgstr "&Crear objeto: %1..."
+msgstr "&Crear objeto: %1…"
 
 #: widget/navigator/KexiProjectNavigator.cpp:377
 #, kde-kuit-format
 msgid "&Create Object..."
-msgstr "&Crear objeto..."
+msgstr "&Crear objeto…"
 
 #: widget/navigator/KexiProjectNavigator.cpp:471
 #, kde-kuit-format
@@ -9118,7 +9118,7 @@ msgid ""
 "<nl/><nl/><img src=\"%1\" width=\"48\"/><nl/>Your project is empty...<nl/"
 ">Why not <b>create</b> something?"
 msgstr ""
-"<nl/><nl/><img src=\"%1\" width=\"48\"/><nl/>Su proyecto está vacío...<nl/"
+"<nl/><nl/><img src=\"%1\" width=\"48\"/><nl/>Su proyecto está vacío…<nl/"
 ">¿Por qué no <b>crea</b> algo?"
 
 #: widget/properties/KexiPropertyEditorView.cpp:106
@@ -9250,7 +9250,7 @@ msgstr "Deshacer"
 #: widget/utils/kexicontextmenuutils.cpp:61
 #, kde-kuit-format
 msgid "Insert From &File..."
-msgstr "Insertar desde &archivo..."
+msgstr "Insertar desde &archivo…"
 
 #: widget/utils/kexicontextmenuutils.cpp:76
 #, kde-kuit-format
@@ -9407,2729 +9407,3 @@ msgstr "Mueve el cursor al último registro."
 #, kde-kuit-format
 msgid "Moves cursor to new record and allows inserting."
 msgstr "Mueve el cursor a un registro nuevo y permite insertar."
-
-#~ msgid "Share"
-#~ msgstr "Compartir"
-
-#~ msgctxt "Donation today"
-#~ msgid "today"
-#~ msgstr "hoy"
-
-#~ msgctxt "Recent donation date (xx days)"
-#~ msgid "%1 (1 day)"
-#~ msgid_plural "%1 (%2 days)"
-#~ msgstr[0] "%1 (1 día)"
-#~ msgstr[1] "%1 (%2 días)"
-
-#~ msgctxt "donations count"
-#~ msgid "%1 (thanks!)"
-#~ msgstr "%1 (¡gracias!)"
-
-#~ msgid "Project title: "
-#~ msgstr "Título del proyecto: "
-
-#~ msgid "Switch to data view"
-#~ msgstr "Pasar a vista de datos"
-
-#~ msgid "Switches to data view."
-#~ msgstr "Pasa a vista de datos."
-
-#~ msgid "Menu for the current window"
-#~ msgstr "Menú de la ventana actual"
-
-#~ msgid "Open in Text View"
-#~ msgstr "Abrir en vista de texto"
-
-#~ msgctxt "Close Project"
-#~ msgid "&Close"
-#~ msgstr "&Cerrar"
-
-#~ msgid "Switch to Global Search"
-#~ msgstr "Cambiar a la búsqueda global"
-
-#~ msgid "&Save Record"
-#~ msgstr "&Guardar registro"
-
-#~ msgid "Save changes made to the current record"
-#~ msgstr "Guardar los cambios realizados en el registro actual"
-
-#~ msgid "Saves changes made to the current record."
-#~ msgstr "Guarda los cambios realizados en el registro actual."
-
-#~ msgid "&Cancel Record Changes"
-#~ msgstr "&Cancelar los cambios del registro"
-
-#~ msgid "&Next Tab"
-#~ msgstr "Pestaña siguie&nte"
-
-#~ msgid "Next tab"
-#~ msgstr "Pestaña siguiente"
-
-#~ msgid "Switches to the next tab."
-#~ msgstr "Cambia a la pestaña siguiente."
-
-#~ msgid "&Previous Tab"
-#~ msgstr "&Pestaña anterior"
-
-#~ msgid "Previous tab"
-#~ msgstr "Pestaña anterior"
-
-#~ msgid "Switches to the previous tab."
-#~ msgstr "Cambia a la pestaña anterior."
-
-#~ msgctxt "Help Menu"
-#~ msgid "Help"
-#~ msgstr "Ayuda"
-
-#~ msgid "Show Help menu"
-#~ msgstr "Mostrar el menú Ayuda"
-
-#~ msgid "Shows Help menu."
-#~ msgstr "Muestra el menú Ayuda."
-
-#~ msgid "Property Editor"
-#~ msgstr "Editor de propiedades"
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid "Files a bug or wish for <application>%1</application> application."
-#~ msgstr ""
-#~ "Notifica de un error o de una petición sobre la aplicación <application>"
-#~ "%1</application>."
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid "Shows <application>%1</application> Handbook."
-#~ msgstr "Muestra el manual de <application>%1</application>."
-
-#~ msgctxt "@info:whatsthis"
-#~ msgid "Shows information about <application>%1</application> application."
-#~ msgstr ""
-#~ "Muestra información sobre la aplicación <application>%1</application>."
-
-#~ msgid "External Data"
-#~ msgstr "Datos externos"
-
-#~ msgid "Search"
-#~ msgstr "Buscar"
-
-#~ msgid "No data source could be assigned for this widget."
-#~ msgstr "No se pudo asignar ninguna fuente de datos a este elemento gráfico."
-
-#~ msgid "No data source could be assigned for multiple widgets."
-#~ msgstr ""
-#~ "No se puede asignar ninguna fuente de datos a varios elementos gráficos."
-
-#~ msgctxt "Table Field or Query Field"
-#~ msgid "Widget's data source:"
-#~ msgstr "Fuente de datos del elemento gráfico:"
-
-#~ msgid "Form's data source:"
-#~ msgstr "Fuente de datos del formulario:"
-
-#~ msgctxt "@title:window"
-#~ msgid "Properties"
-#~ msgstr "Propiedades"
-
-#~ msgctxt "@info"
-#~ msgid "Could not open Kexi plugin <filename>%1</filename>."
-#~ msgstr ""
-#~ "No se ha podido abrir el archivo de complemento de Kexi <filename>%1</"
-#~ "filename>."
-
-#~ msgid "Quits Kexi application."
-#~ msgstr "Sale de la aplicación Kexi."
-
-#~ msgid "Could not start Kexi application this way."
-#~ msgstr "No se puede iniciar la aplicación Kexi de esta forma."
-
-#~ msgctxt "@info"
-#~ msgid "<para>%1</para><para>%2</para>"
-#~ msgstr "<para>%1</para><para>%2</para>"
-
-#~ msgid "Do you want to close all windows for these objects?"
-#~ msgstr "¿Quiere cerrar todas las ventanas para esos objetos?"
-
-#~ msgctxt "@action:button Close All Windows"
-#~ msgid "Close Windows"
-#~ msgstr "Cerrar ventanas"
-
-#~ msgid "Set Data"
-#~ msgstr "Establecer datos"
-
-#~ msgid "Internal"
-#~ msgstr "Internos"
-
-#~ msgid "External"
-#~ msgstr "Externos"
-
-#~ msgid "Source type:"
-#~ msgstr "Tipo de fuente:"
-
-#~ msgid "External source:"
-#~ msgstr "Fuente externa:"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Remove Page"
-#~ msgstr "Eliminar página"
-
-#~ msgid "&Remove Connection"
-#~ msgstr "Elimina&r conexión"
-
-#~ msgid "&Remove Item"
-#~ msgstr "Elimina&r elemento"
-
-#~ msgctxt "Remove tab widget's page"
-#~ msgid "Remove Page"
-#~ msgstr "Eliminar página"
-
-#~ msgctxt "Remove page from a stacked widget"
-#~ msgid "Remove Page"
-#~ msgstr "Eliminar página"
-
-#~ msgid "Don't Save"
-#~ msgstr "No guardar"
-
-#~ msgid "&Remove..."
-#~ msgstr "Elimina&r..."
-
-#~ msgctxt "@info Object \"objectname\""
-#~ msgid "%1 <resource>%2</resource>"
-#~ msgstr "%1 <resource>%2</resource>"
-
-#~ msgid "Interpreter"
-#~ msgstr "Intérprete"
-
-#~ msgid "The used scripting interpreter."
-#~ msgstr "El intérprete de scripts usado."
-
-#~ msgctxt "@info"
-#~ msgid "Select source filename."
-#~ msgstr "Seleccione el nombre de archivo del origen."
-
-#~ msgctxt "CSV import: data will be appended to a new table"
-#~ msgid "Data will be appended to a new table"
-#~ msgstr "Los datos se añadirán a una nueva tabla"
-
-#~ msgctxt "CSV import: data will be appended to existing table"
-#~ msgid "Data will be appended to existing table"
-#~ msgstr "Los datos se añadirán a una tabla existente"
-
-#~ msgid "The query you entered is incorrect."
-#~ msgstr "La consulta que introdujo es incorrecta."
-
-#~ msgid "Do you want to cancel any changes made to this SQL text?"
-#~ msgstr "¿Quiere cancelar los cambios realizados a este texto SQL?"
-
-#~ msgid "Answering \"No\" allows you to make corrections."
-#~ msgstr "Responder «No» le permite realizar correcciones."
-
-#~ msgid "Do you want to save invalid query?"
-#~ msgstr "¿Quiere guardar la consulta no válida?"
-
-#~ msgid "Importing..."
-#~ msgstr "Importando..."
-
-#~ msgid "Word Break"
-#~ msgstr "Separación de palabras"
-
-#~ msgctxt "@action:button Delete object"
-#~ msgid "Delete"
-#~ msgstr "Borrar"
-
-#~ msgctxt "@action:button Overwrite File"
-#~ msgid "Overwrite"
-#~ msgstr "Sobrescribir"
-
-#~ msgctxt ""
-#~ "A prefix for identifiers of form widgets. Based on that, identifiers such "
-#~ "as form1, form2 are generated. This string can be used to refer the "
-#~ "widget object as variables in programming languages or macros so it must "
-#~ "_not_ contain white spaces and non latin1 characters, should start with "
-#~ "lower case letter and if there are subsequent words, these should start "
-#~ "with upper case letter. Example: smallCamelCase. Moreover, try to make "
-#~ "this prefix as short as possible."
-#~ msgid "form"
-#~ msgstr "formulario"
-
-#~ msgid "A simple form widget"
-#~ msgstr "Un elemento gráfico de formulario sencillo"
-
-#~ msgid "Edit Contents of List Widget"
-#~ msgstr "Editar contenido del elemento gráfico de lista"
-
-#~ msgctxt "before noon"
-#~ msgid "am"
-#~ msgstr "a.m."
-
-#~ msgctxt "afternoon"
-#~ msgid "pm"
-#~ msgstr "p.m."
-
-#~ msgid "%1, %2"
-#~ msgstr "%1, %2"
-
-#~ msgctxt "@info"
-#~ msgid "The file <filename>%1<filename> is not readable."
-#~ msgstr "El archivo <filename>%1</filename> no se puede leer."
-
-#~ msgid "Data identifier: \"%1\"."
-#~ msgstr "Identificador de los datos: «%1»."
-
-#~ msgctxt "@info"
-#~ msgid "Could not load Kexi plugin file \"%1\"."
-#~ msgstr "No ha sido posible cargar el archivo de complemento de Kexi «%1»."
-
-#~ msgid "Could not open Kexi plugin \"%1\"."
-#~ msgstr "No ha sido posible abrir el complemento de Kexi «%1»."
-
-#~ msgid "Could not rename object \"%1\"."
-#~ msgstr "No se pudo cambiar el nombre al objeto «%1»."
-
-#~ msgid "Could not open project \"%1\"."
-#~ msgstr "No se pudo abrir el proyecto «%1»."
-
-#~ msgid "Could not create project \"%1\"."
-#~ msgstr "No se pudo crear el proyecto «%1»."
-
-#~ msgid ""
-#~ "Opening object \"%1\" failed.\n"
-#~ "%2%3"
-#~ msgstr ""
-#~ "Ha fallado la apertura del objeto «%1».\n"
-#~ "%2%3"
-
-#~ msgid ""
-#~ "Do you want to delete the project \"%1\"?\n"
-#~ "%1"
-#~ msgstr ""
-#~ "¿Quiere borrar el proyecto «%1»?\n"
-#~ "%1"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Change \"%1\" property for widget \"%2\""
-#~ msgstr "Modificar la propiedad «%1» del elemento gráfico «%2»"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Insert widget \"%1\""
-#~ msgstr "Insertar el elemento gráfico «%1»"
-
-#~ msgid "Renaming widget \"%1\" to \"%2\" failed."
-#~ msgstr "Fallo al renombrar el elemento gráfico «%1» como «%2»."
-
-#~ msgid "Tab for \"%1\" (%2)."
-#~ msgstr "Pestaña para «%1» (%2)."
-
-#~ msgid "Tab for \"%1\"."
-#~ msgstr "Pestaña para «%1»."
-
-#~ msgid "Renaming object \"%1\" failed."
-#~ msgstr "Fallo al cambiar el nombre del objeto «%1»."
-
-#~ msgid "on \"%1\" server"
-#~ msgstr "en el servidor «%1»"
-
-#~ msgctxt "File database <file>"
-#~ msgid "File database %1"
-#~ msgstr "Archivo de base de datos %1"
-
-#~ msgid ""
-#~ "Could not remove project.\n"
-#~ "The file \"%1\" does not exist."
-#~ msgstr ""
-#~ "No se pudo eliminar el proyecto.\n"
-#~ "No existe el archivo «%1»."
-
-#~ msgid ""
-#~ "Could not open shortcut file\n"
-#~ "\"%1\"."
-#~ msgstr ""
-#~ "No se pudo abrir el archivo de acceso rápido\n"
-#~ "«%1»."
-
-#~ msgid ""
-#~ "Could not open connection data file\n"
-#~ "\"%1\"."
-#~ msgstr ""
-#~ "No se pudo abrir el archivo con los datos de la conexión\n"
-#~ "«%1»."
-
-#~ msgid "Select column for table \"%1\""
-#~ msgstr "Seleccione columna para la tabla «%1»"
-
-#~ msgid "Invalid criteria \"%1\""
-#~ msgstr "Criterios «%1» no válidos"
-
-#~ msgid "Could not set criteria for \"%1\""
-#~ msgstr "No se pudieron definir los criterios para «%1»"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Change \"%1\" property for table field from \"%2\" to \"%3\""
-#~ msgstr "Modificada la propiedad «%1» del campo de la tabla de «%2» a «%3»"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Remove table field \"%1\""
-#~ msgstr "Eliminar el campo de la tabla «%1»"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid ""
-#~ "Change \"%1\" field's name to \"%2\" and caption from \"%3\" to \"%4\""
-#~ msgstr ""
-#~ "Modificar el nombre del campo «%1» a «%2» y el título de «%3» a «%4»"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Change data type for field \"%1\" to \"%2\""
-#~ msgstr "Modificar el tipo de dato del campo de «%1» a «%2»"
-
-#~ msgid ""
-#~ "You are about to change the design of table \"%1\" but following objects "
-#~ "using this table are opened:"
-#~ msgstr ""
-#~ "Va a cambiar el diseño de la tabla «%1», pero están abiertos los "
-#~ "siguientes objetos que usan esa tabla:"
-
-#~ msgid "Table field \"%1\""
-#~ msgstr "Campo «%1» de la tabla"
-
-#~ msgid "The file \"%1\" does not exist."
-#~ msgstr "El archivo «%1» no existe."
-
-#~ msgid "The file \"%1\" is not readable."
-#~ msgstr "No se puede leer el archivo «%1»."
-
-#~ msgid ""
-#~ "The file \"%1\" already exists.\n"
-#~ "Do you want to overwrite it?"
-#~ msgstr ""
-#~ "El archivo «%1» ya existe.\n"
-#~ "¿Desea sobrescribirlo?"
-
-#~ msgctxt "<basename-filename> <tablename>"
-#~ msgid "%1 %2"
-#~ msgstr "%1 %2"
-
-#~ msgid "Following issues were found with the data you entered:"
-#~ msgstr "Se encontraron los siguientes problemas con los datos que indicó:"
-
-#~ msgctxt "@info (don't add tags around %1, it's done already)"
-#~ msgid ""
-#~ "Database %1 already exists.<nl/>Do you want to replace it with a new one?"
-#~ msgstr ""
-#~ "La base de datos %1 ya existe.<nl/>¿Desea sustituirla por una nueva?"
-
-#~ msgid "Could not create database \"%1\"."
-#~ msgstr "No se pudo crear la base de datos «%1»."
-
-#~ msgid "No tables to import found in data source \"%1\"."
-#~ msgstr ""
-#~ "No se encontraron las tablas para importar en el origen de datos «%1»."
-
-#~ msgid ""
-#~ "Importing CSV Data from <filename>%1</filename> into <resource>%2</"
-#~ "resource> table..."
-#~ msgstr ""
-#~ "Importando datos CSV desde <filename>%1</filename> en la tabla <resource>"
-#~ "%2</resource>..."
-
-#~ msgid "Character Encoding of Source Database Is Not of Unicode Standard"
-#~ msgstr ""
-#~ "La codificación de caracteres de la base de datos de origen no sigue el "
-#~ "estándar Unicode"
-
-#~ msgid "Source Database Non-Unicode Character Encoding"
-#~ msgstr "Codificación de caracteres no Unicode de la base de datos de origen"
-
-#~ msgid "Could not find import/export database driver \"%1\"."
-#~ msgstr ""
-#~ "No se pudo encontrar el controlador de importación/exportación para la "
-#~ "base de datos «%1»."
-
-#~ msgid ""
-#~ "Incompatible migration driver's \"%1\" version: found version %2, "
-#~ "expected version %3."
-#~ msgstr ""
-#~ "Versión «%1» incompatible del controlador de migración: se encontró la "
-#~ "versión %2, se esperaba la versión %3."
-
-#~ msgid "Could not load import/export database driver \"%1\"."
-#~ msgstr ""
-#~ "No se pudo cargar el controlador de importación/exportación de la base de "
-#~ "datos «%1»."
-
-#~ msgid "Kexi Migrate Test"
-#~ msgstr "Prueba de migración de Kexi"
-
-#~ msgid "Switch to Project Navigator"
-#~ msgstr "Cambiar al navegador del proyecto"
-
-#~ msgid "Switch to Main Area"
-#~ msgstr "Cambiar al área principal"
-
-#~ msgid "Switch to Property Editor"
-#~ msgstr "Cambiar al editor de propiedades"
-
-#~ msgid "Hide project navigator"
-#~ msgstr "Ocultar el navegador del proyecto"
-
-#~ msgid "Hide property editor"
-#~ msgstr "Ocultar el editor de propiedades"
-
-#~ msgctxt "View menu"
-#~ msgid "View"
-#~ msgstr "Ver"
-
-#~ msgid "Show view menu"
-#~ msgstr "Mostrar el menú Ver"
-
-#~ msgid "Shows menu with view-related options"
-#~ msgstr "Muestra el menú de opciones relacionadas con la vista"
-
-#~ msgid "Project &Navigator"
-#~ msgstr "&Navegador del proyecto"
-
-#~ msgid "&Property Editor"
-#~ msgstr "Editor de &propiedades"
-
-#~ msgctxt "@label Read-only mode"
-#~ msgid "Read only"
-#~ msgstr "Solo lectura"
-
-#~ msgctxt "Unbound Image Box"
-#~ msgid "(unbound)"
-#~ msgstr "(desligado)"
-
-#~ msgid "Query column"
-#~ msgstr "Columna de consulta"
-
-#~ msgid "Choose Directory Where to Install Example Database"
-#~ msgstr ""
-#~ "Elija el directorio en el que se debe instalar la base de datos de ejemplo"
-
-#~ msgid "Set Form's Data Source to \"%1\""
-#~ msgstr "Definir la fuente de datos del formulario como «%1»"
-
-#~ msgid "Internal Source:"
-#~ msgstr "Origen interno:"
-
-#~ msgid ""
-#~ "The file %1 exists.\n"
-#~ "Do you want to overwrite it?"
-#~ msgstr ""
-#~ "El archivo %1 ya existe.\n"
-#~ "¿Desea sobrescribirlo?"
-
-#~ msgid ""
-#~ "Would you like to export using a Cascading Style Sheet (CSS), which will "
-#~ "give an output closer to the original, or export using a HTML Table, "
-#~ "which outputs a much simpler format?"
-#~ msgstr ""
-#~ "¿Desea exportar utilizando una hoja de estilos en cascada (CSS) que le "
-#~ "ofrecerá un resultado más cercano al original, o exportar utilizando una "
-#~ "tabla HTML que le dará un formato mucho más simple?"
-
-#, fuzzy
-#~| msgid "Save New Project As"
-#~ msgctxt "@window:title"
-#~ msgid "Save New Project As"
-#~ msgstr "Guardar nuevo proyecto como"
-
-#~ msgid "Options related to entire projects:"
-#~ msgstr "Opciones relativas a todos los proyectos:"
-
-#~ msgid ""
-#~ "Database driver to be used\n"
-#~ "for connecting to a database project\n"
-#~ "(SQLite by default).\n"
-#~ "Ignored if a shortcut filename\n"
-#~ "is provided."
-#~ msgstr ""
-#~ "Controlador de bases de datos que se va\n"
-#~ "a usar para conectarse con un proyecto\n"
-#~ "de base de datos (por omisión SQLite).\n"
-#~ "Se ignora si se proporciona un\n"
-#~ "nombre de archivo como acceso rápido."
-
-#~ msgid "Options related to opening objects within a project:"
-#~ msgstr "Opciones relativas a la apertura de objetos en un proyecto:"
-
-#~ msgid ""
-#~ "\n"
-#~ "Open Print Preview window for object\n"
-#~ "of type 'object_type' and name 'object_name'\n"
-#~ "from specified project on application start.\n"
-#~ "See --print for more details."
-#~ msgstr ""
-#~ "\n"
-#~ "Abre la ventana de vista preliminar de impresión para el objeto\n"
-#~ "de tipo «tipo_objeto» y nombre «nombre_objeto» del\n"
-#~ "proyecto especificado al inicio de la aplicación.\n"
-#~ "Para más detalles, consulte --print."
-
-#~ msgid "Options related to database servers:"
-#~ msgstr "Opciones relativas a los servidores de bases de datos:"
-
-#~ msgid ""
-#~ "User name to be used\n"
-#~ "for connecting to a database project.\n"
-#~ "Ignored if a shortcut filename\n"
-#~ "is provided."
-#~ msgstr ""
-#~ "Nombre de usuario que se va a utilizar\n"
-#~ "para conectarse con un proyecto de base\n"
-#~ "de datos. Se ignora si se proporciona un\n"
-#~ "nombre de archivo como acceso rápido."
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Incompatible plugin <resource>%1</resource> version: found version %2, "
-#~ "expected version %3."
-#~ msgstr ""
-#~ "Versión incompatible del complemento <resource>%1</resource>: se encontró "
-#~ "la versión %2, se esperaba la versión %3."
-
-#~ msgctxt "@info"
-#~ msgid "Error while loading plugin <resource>%1</resource>"
-#~ msgstr "Error al cargar el complemento <resource>%1</resource>"
-
-#~ msgctxt "@info"
-#~ msgid "No <resource>%1</resource> service type installed."
-#~ msgstr "El tipo de servicio <resource>%1</resource> no está instalado."
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Missing or invalid default application configuration. No <resource>%1</"
-#~ "resource> key."
-#~ msgstr ""
-#~ "La configuración predeterminada de la aplicación no existe o no es "
-#~ "válida. No hay ninguna clave <resource>%1</resource>"
-
-#~ msgctxt "database connection"
-#~ msgid "(connection %1)"
-#~ msgstr "(conexión %1)"
-
-#~ msgctxt "Property: \"Click Me\",message for line edit"
-#~ msgid "Click Message"
-#~ msgstr "Haga clic en el mensaje"
-
-#~ msgid ""
-#~ "Incompatible database driver's \"%1\" version: found version %2, expected "
-#~ "version %3."
-#~ msgstr ""
-#~ "Versión «%1» del controlador incompatible con la base de datos: se "
-#~ "encontró la versión %2 y se esperaba la versión %3."
-
-#~ msgid "Value of \"%1\" column must be an identifier."
-#~ msgstr "El valor de la columna «%1» debe ser un identificador."
-
-#~ msgid "\"%1\" is not a valid identifier."
-#~ msgstr "«%1» no es un identificador válido."
-
-#~ msgid "reason:"
-#~ msgstr "motivo:"
-
-#~ msgctxt "Import Database"
-#~ msgid "&Import..."
-#~ msgstr "&Importar..."
-
-#~ msgctxt "Please don't translate the \"type\" word, it's constant."
-#~ msgid ""
-#~ "Invalid argument <icode>%1</icode> specified for <icode>type</icode> "
-#~ "command-line option."
-#~ msgstr ""
-#~ "Se ha especificado el argumento inválido <icode>%1</icode> para la opción "
-#~ "de línea de ordenes <icode>type</icode>"
-
-#~ msgid "<p>Could not open project.</p>"
-#~ msgstr "<p>No se pudo abrir el proyecto.</p>"
-
-#~ msgid "<p>The file <nobr>\"%1\"</nobr> is not readable.</p>"
-#~ msgstr "<p>No se puede leer el archivo <nobr>«%1»</nobr>.</p>"
-
-#~ msgid ""
-#~ "Check the file's permissions and whether it is already opened and locked "
-#~ "by another application."
-#~ msgstr ""
-#~ "Compruebe los permisos del archivo y si ya está abierto y bloqueado por "
-#~ "alguna otra aplicación."
-
-#~ msgid ""
-#~ "Previous version of database file format (\"%1\") is detected in the "
-#~ "\"%2\" project file.\n"
-#~ "Do you want to convert the project to a new \"%3\" format (recommended)?"
-#~ msgstr ""
-#~ "Se ha detectado una versión anterior del formato de archivo de base de "
-#~ "datos («%1») en el archivo de proyecto «%2».\n"
-#~ "¿Quiere convertir el proyecto al formato nuevo «%3» (se recomienda)?"
-
-#~ msgid ""
-#~ "Failed to convert project file \"%1\" to a new \"%2\" format.\n"
-#~ "The file format remains unchanged."
-#~ msgstr ""
-#~ "Fallo al convertir el archivo de proyecto «%1» a un formato nuevo «%2».\n"
-#~ "El formato del archivo permanece sin cambios."
-
-#~ msgid "Saving \"%1\" project file to a new \"%2\" database format..."
-#~ msgstr ""
-#~ "Guardando el archivo del proyecto «%1» con el nuevo formato de base de "
-#~ "datos «%2»..."
-
-#~ msgid "No"
-#~ msgstr "No"
-
-#~ msgid "Select file name for import"
-#~ msgstr "Seleccione el nombre de archivo a importar"
-
-#~ msgid "Cannot open input file <nobr>\"%1\"</nobr>."
-#~ msgstr "No se puede abrir el archivo de entrada <nobr>«%1»</nobr>."
-
-#~ msgid "Close windows"
-#~ msgstr "Cerrar las ventanas"
-
-#~ msgid ""
-#~ "You cannot use name \"%1\" for your object.\n"
-#~ "It is reserved for internal Kexi objects. Please choose another name."
-#~ msgstr ""
-#~ "No puede usar el nombre «%1» para el objeto.\n"
-#~ "Está reservado para los objetos internos de Kexi. Elija otro nombre."
-
-#~ msgid "Names of internal Kexi objects are starting with \"kexi__\"."
-#~ msgstr "Los nombres de objetos internos de Kexi comienzan por «kexi__»."
-
-#~ msgid "Kexi Relation Design"
-#~ msgstr "Diseño de relaciones de Kexi"
-
-#~ msgid "A kexi relation design shape"
-#~ msgstr "Una herramienta de diseño de relaciones de kexi"
-
-#~ msgid "Open Database"
-#~ msgstr "Abrir base de datos"
-
-#~ msgid "Relation design tool"
-#~ msgstr "Herramienta de diseño de relaciones"
-
-#~ msgid "Open CSV Data File"
-#~ msgstr "Abrir archivo de datos CSV"
-
-#~ msgid "Find"
-#~ msgstr "Buscar"
-
-#~ msgid "Table Name"
-#~ msgstr "Nombre de la tabla"
-
-#~ msgid ""
-#~ "<para>All required information has now been gathered. Click "
-#~ "<interface>Next</interface> button to start importing.</"
-#~ "para><para>Depending on size of the tables this may take some time.</"
-#~ "para><para>You have chosen to import the following table:</para>"
-#~ msgstr ""
-#~ "<para>Se ha recopilado toda la información necesaria. Pulse el botón  "
-#~ "<interface>Siguiente</interface> para comenzar la importación.</"
-#~ "para><para>Dependiendo del tamaño de las tablas esto puede demorar algo "
-#~ "de tiempo.</para><para>Ha decidido importar la siguiente tabla:</para>"
-
-#~ msgid ""
-#~ "Skip displaying startup dialog window.\n"
-#~ "If there is no project name specified to open,\n"
-#~ "an empty application window will appear."
-#~ msgstr ""
-#~ "Evitar mostrar el cuadro de diálogo de inicio.\n"
-#~ "Si no se indica el nombre del proyecto a abrir,\n"
-#~ "aparecerá la ventana de la aplicación vacía."
-
-#~ msgctxt "Add Database Primary Key to a Table"
-#~ msgid "Add Primary Key"
-#~ msgstr "Añadir clave primaria"
-
-#~ msgid ""
-#~ "Database creation for everyone\n"
-#~ "\n"
-#~ "This application is a part of the Calligra Suite."
-#~ msgstr ""
-#~ "Creación de bases de datos para todo el mundo\n"
-#~ "\n"
-#~ "Esta aplicación es parte de la suite Calligra."
-
-#~ msgid ""
-#~ "Project maintainer & developer, design, KexiDB, commercially supported "
-#~ "version, MS Windows version"
-#~ msgstr ""
-#~ "Responsable y desarrollador del proyecto, diseño, KexiDB, versión con "
-#~ "soporte comercial, versión para MS Windows"
-
-#~ msgid "Bug fixes"
-#~ msgstr "Wojciech Kosowicz"
-
-#~ msgid "Could not start project \"%1\" in Final Mode."
-#~ msgstr "No se pudo iniciar el proyecto «%1» en modo final."
-
-#~ msgid "No Final Mode data found."
-#~ msgstr "No se encontraron los datos del modo final."
-
-#~ msgid "Error reading Final Mode data."
-#~ msgstr "Error al leer los datos del modo final."
-
-#~ msgid "Save password in the shortcut file"
-#~ msgstr "Guardar contraseña en el archivo de acceso rápido"
-
-#~ msgid "Form \"%1\" already exists."
-#~ msgstr "El formulario «%1» ya existe."
-
-#~ msgid "Query \"%1\" already exists."
-#~ msgstr "La consulta «%1» ya existe."
-
-#~ msgid "Report \"%1\" already exists."
-#~ msgstr "El informe «%1» ya existe."
-
-#~ msgid "Script \"%1\" already exists."
-#~ msgstr "El script «%1» ya existe."
-
-#~ msgid "Table \"%1\" already exists."
-#~ msgstr "La tabla «%1» ya existe."
-
-#~ msgctxt "Object class \"objectName\", e.g. Text editor \"text\""
-#~ msgid "%1 \"%2\""
-#~ msgstr "%1 «%2»"
-
-#~ msgid "Supply a username and password below."
-#~ msgstr "Indique debajo un nombre de usuario y una contraseña."
-
-#~ msgid "Anonymous"
-#~ msgstr "Anónimo"
-
-#~ msgid "Domain:"
-#~ msgstr "Dominio:"
-
-#~ msgctxt "Opposite to Back"
-#~ msgid "Next"
-#~ msgstr "Siguiente"
-
-#~ msgid "No plugin for class \"%1\""
-#~ msgstr "No hay ningún complemento para la clase «%1»"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Change layout of widget \"%1\""
-#~ msgstr "Cambiar la disposición del elemento gráfico «%1»"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Group Widgets Horizontally"
-#~ msgstr "Agrupar elementos gráficos horizontalmente"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Group Widgets Vertically"
-#~ msgstr "Agrupar elementos gráficos verticalmente"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Group Widgets in a Grid"
-#~ msgstr "Agrupar los elementos gráficos en una cuadrícula"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Group Widgets Horizontally in a Splitter"
-#~ msgstr "Agrupar elementos gráficos horizontalmente en un divisor"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Group Widgets Vertically in a Splitter"
-#~ msgstr "Agrupar elementos gráficos verticalmente en un divisor"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Group Widgets By Rows"
-#~ msgstr "Agrupar los elementos gráficos por filas"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Group Widgets Vertically By Columns"
-#~ msgstr "Agrupar los elementos gráficos verticalmente por columnas"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Group widgets"
-#~ msgstr "Agrupar elementos gráficos"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Break Layout: \"%1\""
-#~ msgstr "Romper disposición: «%1»"
-
-#~ msgid "Basic container"
-#~ msgstr "Contenedor básico"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "container"
-#~ msgstr "contenedor"
-
-#~ msgid "An empty container with no frame"
-#~ msgstr "Un contenedor vacío sin marcos"
-
-#~ msgid "A simple frame container"
-#~ msgstr "Un contenedor de marco sencillo"
-
-#~ msgid "Widget Stack"
-#~ msgstr "Pila de elementos gráficos"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "widgetStack"
-#~ msgstr "pilaElementos"
-
-#~ msgid "A container with multiple pages"
-#~ msgstr "Un contenedor con varias páginas"
-
-#~ msgid "Horizontal Box"
-#~ msgstr "Caja horizontal"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "horizontalBox"
-#~ msgstr "cajaHorizontal"
-
-#~ msgid "A simple container to group widgets horizontally"
-#~ msgstr ""
-#~ "Un contenedor sencillo para agrupar horizontalmente los elementos gráficos"
-
-#~ msgid "Vertical Box"
-#~ msgstr "Caja vertical"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "verticalBox"
-#~ msgstr "cajaVertical"
-
-#~ msgid "A simple container to group widgets vertically"
-#~ msgstr ""
-#~ "Un contenedor sencillo para agrupar verticalmente los elementos gráficos"
-
-#~ msgid "Grid Box"
-#~ msgstr "Caja de cuadrícula"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "gridBox"
-#~ msgstr "cajaDeCuadricula"
-
-#~ msgid "A simple container to group widgets in a grid"
-#~ msgstr ""
-#~ "Un contenedor sencillo para agrupar elementos gráficos en una cuadrícula"
-
-#~ msgid "Splitter"
-#~ msgstr "Divisor"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "splitter"
-#~ msgstr "divisor"
-
-#~ msgid "A container that enables user to resize its children"
-#~ msgstr "Un contenedor que permite al usuario redimensionar sus hijos"
-
-#~ msgid "Row Layout"
-#~ msgstr "Disposición en filas"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "rowLayout"
-#~ msgstr "disposicionFilas"
-
-#~ msgid "A simple container to group widgets by rows"
-#~ msgstr ""
-#~ "Un contenedor sencillo para agrupar por filas los elementos gráficos"
-
-#~ msgid "Column Layout"
-#~ msgstr "Disposición en columnas"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "columnLayout"
-#~ msgstr "disposicionColumnas"
-
-#~ msgid "A simple container to group widgets by columns"
-#~ msgstr ""
-#~ "Un contenedor sencillo para agrupar por columnas los elementos gráficos"
-
-#~ msgid "Sub Form"
-#~ msgstr "Subformulario"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "subForm"
-#~ msgstr "subformulario"
-
-#~ msgid "A form widget included in another Form"
-#~ msgstr "Un elemento gráfico de formulario incluido en otro formulario"
-
-#~ msgid "Custom Widget"
-#~ msgstr "Elemento gráfico personalizado"
-
-#~ msgctxt ""
-#~ "This string will be used to name widgets of this class. It must _not_ "
-#~ "contain white spaces and non latin1 characters."
-#~ msgid "customWidget"
-#~ msgstr "elementoPersonalizado"
-
-#~ msgid "A custom or non-supported widget"
-#~ msgstr "Un elemento gráfico personalizado o no aceptado"
-
-#~ msgid "Text Label"
-#~ msgstr "Etiqueta de texto"
-
-#~ msgid "A widget to display text"
-#~ msgstr "Un elemento gráfico para mostrar texto"
-
-#~ msgid "Picture Label"
-#~ msgstr "Etiqueta con imagen"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "picture"
-#~ msgstr "imagen"
-
-#~ msgid "A widget to display pictures"
-#~ msgstr "Un elemento gráfico para mostrar imágenes"
-
-#~ msgid "Line Edit"
-#~ msgstr "Editor de línea"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "lineEdit"
-#~ msgstr "editorLinea"
-
-#~ msgid "A widget to input text"
-#~ msgstr "Un elemento gráfico para introducir texto"
-
-#~ msgid "Spring"
-#~ msgstr "Resorte"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "spring"
-#~ msgstr "resorte"
-
-#~ msgid "A spring to place between widgets"
-#~ msgstr "Un resorte para ubicar entre elementos gráficos"
-
-#~ msgid "Insert &Horizontal Spring"
-#~ msgstr "Insertar resorte &horizontal"
-
-#~ msgid "Insert &Vertical Spring"
-#~ msgstr "Insertar resorte &vertical"
-
-#~ msgid "Push Button"
-#~ msgstr "Botón pulsador"
-
-#~ msgid "A simple push button to execute actions"
-#~ msgstr "Un botón de pulsación sencillo para ejecutar acciones"
-
-#~ msgid "Option Button"
-#~ msgstr "Botón de opción"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "optionButton"
-#~ msgstr "botonOpcion"
-
-#~ msgid "An option button with text or pixmap label"
-#~ msgstr "Un botón de opción con una etiqueta de texto o imagen"
-
-#~ msgid "A check box with text or pixmap label"
-#~ msgstr ""
-#~ "Una casilla de selección con una etiqueta de texto o en mapa de bits"
-
-#~ msgid "Spin Box"
-#~ msgstr "Casilla incremental"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "spinBox"
-#~ msgstr "casillaIncremental"
-
-#~ msgid "A spin box widget"
-#~ msgstr "Un elemento gráfico de casilla incremental"
-
-#~ msgid "List Box"
-#~ msgstr "Cuadro de lista"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "listBox"
-#~ msgstr "cuadroLista"
-
-#~ msgid "A simple list widget"
-#~ msgstr "Un elemento gráfico sencillo de lista"
-
-#~ msgid "List Widget"
-#~ msgstr "Elemento gráfico de lista"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "listWidget"
-#~ msgstr "elementoLista"
-
-#~ msgid "A list (or tree) widget"
-#~ msgstr "Un elemento gráfico de lista (o de árbol)"
-
-#~ msgid "A simple single-page rich text editor"
-#~ msgstr "Un editor sencillo de texto rico para una sola página"
-
-#~ msgid "A horizontal slider"
-#~ msgstr "Un deslizador horizontal"
-
-#~ msgid "A progress indicator widget"
-#~ msgstr "Un elemento gráfico indicador de progreso"
-
-#~ msgid "Date Widget"
-#~ msgstr "Elemento gráfico de fecha"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "dateWidget"
-#~ msgstr "elementoFecha"
-
-#~ msgid "A widget to input and display a date"
-#~ msgstr "Un elemento gráfico para introducir y mostrar fechas"
-
-#~ msgid "Time Widget"
-#~ msgstr "Elemento gráfico de hora"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "timeWidget"
-#~ msgstr "elementoHora"
-
-#~ msgid "A widget to input and display a time"
-#~ msgstr "Un elemento gráfico para introducir y mostrar horas"
-
-#~ msgid "Date/Time Widget"
-#~ msgstr "Elemento gráfico de fecha/hora"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "dateTimeWidget"
-#~ msgstr "elementoFechaHora"
-
-#~ msgid "A widget to input and display a time and a date"
-#~ msgstr "Un elemento gráfico para introducir y mostrar una hora y una fecha"
-
-#~ msgid "Toggle"
-#~ msgstr "Conmutar"
-
-#~ msgctxt "Button is checkable"
-#~ msgid "Checkable"
-#~ msgstr "Marcable"
-
-#~ msgid "Auto Default"
-#~ msgstr "Predeterminado automático"
-
-#~ msgid "Size Type"
-#~ msgstr "Tipo de tamaño"
-
-#~ msgctxt "For Word Wrap Position"
-#~ msgid "None"
-#~ msgstr "Ninguna"
-
-#~ msgctxt "Scroll Bar Always Off"
-#~ msgid "Always Off"
-#~ msgstr "Siempre desactivada"
-
-#~ msgctxt "Scroll Bar Always On"
-#~ msgid "Always On"
-#~ msgstr "Siempre activada"
-
-#~ msgid "Column 1"
-#~ msgstr "Columna 1"
-
-#~ msgid "Events"
-#~ msgstr "Eventos"
-
-#~ msgid ""
-#~ "<b>Cannot create the layout.</b>\n"
-#~ "All selected widgets must have the same parent."
-#~ msgstr ""
-#~ "<b>No se puede crear la disposición.</b>\n"
-#~ "Todos los elementos gráficos seleccionados deben tener el mismo padre."
-
-#~ msgid "Container's Layout"
-#~ msgstr "Disposición del contenedor"
-
-#~ msgid "Layout Margin"
-#~ msgstr "Margen de la disposición"
-
-#~ msgid "Layout Spacing"
-#~ msgstr "Espaciado de la disposición"
-
-#~ msgid "Layout Direction"
-#~ msgstr "Dirección de la disposición"
-
-#~ msgid "Show Page Setup"
-#~ msgstr "Mostrar configuración de página"
-
-#~ msgid "The database \"%1\" does not exist."
-#~ msgstr "No existe la base de datos «%1»."
-
-#~ msgid "Unknown error."
-#~ msgstr "Error desconocido."
-
-#~ msgid "No connection for cursor open operation specified"
-#~ msgstr "No hay conexión para abrir el cursor para la operación indicada"
-
-#~ msgid "Data not set for migration"
-#~ msgstr "Los datos no están preparados para la migración"
-
-#~ msgid "Could not export back to destination database"
-#~ msgstr "No fue posible exportar de vuelta a la base de datos de destino"
-
-#~ msgid ""
-#~ "Could not create table in destination \"%1\". Error reading table \"%2\"."
-#~ msgstr ""
-#~ "No se pudo crear la tabla en el destino «%1». Error al leer la tabla «%2»."
-
-#~ msgid "Could not export data to \"%1\"."
-#~ msgstr "No se pudieron exportar los datos a «%1»."
-
-#~ msgid "Replace in \"%1\""
-#~ msgstr "Reemplazar en «%1»"
-
-#~ msgid "Find in \"%1\""
-#~ msgstr "Buscar en «%1»"
-
-#~ msgid "&Download Example Databases..."
-#~ msgstr "&Descargar bases de datos de ejemplo..."
-
-#~ msgid "Download example databases from the Internet"
-#~ msgstr "Descargar bases de datos de ejemplo de Internet"
-
-#~ msgid "Downloads example databases from the Internet."
-#~ msgstr "Descarga bases de datos de ejemplo de Internet."
-
-#~ msgid "Project Properties"
-#~ msgstr "Propiedades del proyecto"
-
-#~ msgid "&Relationships..."
-#~ msgstr "&Relaciones..."
-
-#~ msgid "Project relationships"
-#~ msgstr "Relaciones del proyecto"
-
-#~ msgid "Shows project relationships."
-#~ msgstr "Muestra las relaciones del proyecto."
-
-#~ msgid "Print data from the active table or query"
-#~ msgstr "Imprimir los datos de la tabla o de la consulta activa"
-
-#~ msgid "Prints data from the active table or query."
-#~ msgstr "Imprime los datos de la tabla o de la consulta activa."
-
-#~ msgid "Show print preview for the active table or query"
-#~ msgstr "Mostrar la vista preliminar de la tabla o de la consulta activa"
-
-#~ msgid "Shows print preview for the active table or query."
-#~ msgstr "Muestra la vista preliminar de la tabla o de la consulta activa."
-
-#~ msgid "Page Set&up..."
-#~ msgstr "Config&uración de página..."
-
-#~ msgid "Show page setup for printing the active table or query"
-#~ msgstr ""
-#~ "Muestra la configuración de la página para imprimir la tabla o la "
-#~ "consulta activa"
-
-#~ msgid "Shows page setup for printing the active table or query."
-#~ msgstr ""
-#~ "Muestra la configuración de la página para imprimir la tabla o la "
-#~ "consulta activa."
-
-#~ msgid "Pastes clipboard data to a table."
-#~ msgstr "Pega los datos del portapapeles como una tabla."
-
-#~ msgid "Deletes currently selected record."
-#~ msgstr "Borra el registro seleccionado actualmente."
-
-#~ msgid "Kexi settings"
-#~ msgstr "Preferencias de Kexi"
-
-#~ msgid "Lets you to view and change Kexi settings."
-#~ msgstr "Le permite ver y modificar las preferencias de Kexi."
-
-#~ msgid "Give Feedback..."
-#~ msgstr "Enviar comentarios y sugerencias..."
-
-#~ msgid "Show Help Menu"
-#~ msgstr "Mostrar el menú Ayuda"
-
-#~ msgid "making print preview for"
-#~ msgstr "creando vista preliminar para"
-
-#~ msgid "printing"
-#~ msgstr "imprimiendo"
-
-#~ msgid "cannot print object"
-#~ msgstr "no se puede imprimir el objeto"
-
-#~ msgid "cannot make print preview of object"
-#~ msgstr "no se puede crear la vista preliminar del objeto"
-
-#~ msgid "Specified plugin does not exist."
-#~ msgstr "No existe el complemento indicado."
-
-#~ msgid "Specified object could not be opened."
-#~ msgstr "No se pudo abrir el objeto indicado."
-
-#~ msgid ""
-#~ "Pressing this button will ignore all unsaved changes made in \"%1\" "
-#~ "object."
-#~ msgstr ""
-#~ "Al presionar este botón se ignoran todos los cambios recientes hechos al "
-#~ "objeto «%1» y que no se hayan guardado."
-
-#~ msgid "Do you want to save changes before printing?"
-#~ msgstr "¿Quiere guardar los cambios antes de imprimir?"
-
-#~ msgid "Do you want to save changes before making print preview?"
-#~ msgstr "¿Quiere guardar los cambios antes de mostrar la vista previa?"
-
-#~ msgid "Do you want to save changes before showing page setup?"
-#~ msgstr ""
-#~ "¿Quiere guardar los cambios antes de mostrar la configuración de la "
-#~ "página?"
-
-#~ msgid " Line: %1 Col: %2 "
-#~ msgstr " Línea: %1 Col: %2 "
-
-#~ msgid "Office Templates"
-#~ msgstr "Plantillas de oficina"
-
-#~ msgid "Database for collecting and managing contacts"
-#~ msgstr "Base de datos para almacenar y gestionar contactos"
-
-#~ msgid "Database for collecting movies"
-#~ msgstr "Base de datos para coleccionar películas"
-
-#~ msgid "Project title:"
-#~ msgstr "Título del proyecto:"
-
-#~ msgid ""
-#~ "You have specified invalid argument (\"%1\") for \"type\" command-line "
-#~ "option."
-#~ msgstr ""
-#~ "Ha indicado un argumento no válido («%1») para la opción de la línea de "
-#~ "órdenes «type»."
-
-#~ msgid "You have specified invalid port number \"%1\"."
-#~ msgstr "Ha indicado un número de puerto, «%1», que no es válido."
-
-#~ msgid "You have used both \"createdb\" and \"dropdb\" startup options."
-#~ msgstr "Ha usado «createdb» y «dropdb» como opciones de inicio."
-
-#~ msgid "Open Recent Project"
-#~ msgstr "Abrir proyecto reciente"
-
-#~ msgid ""
-#~ "An object with this name already exists, please change the table name to "
-#~ "continue."
-#~ msgstr ""
-#~ "Un objeto con este nombre ya existe, por favor, cambie el nombre de la "
-#~ "tabla para continuar."
-
-#~ msgid "Object Name Exists"
-#~ msgstr "El nombre del objeto ya existe"
-
-#~ msgid ""
-#~ "Table importing wizard allows you to import a table from an existing "
-#~ "database into the current Kexi database."
-#~ msgstr ""
-#~ "El asistente de importación de tablas le permite importar una tabla de "
-#~ "una base de datos existente a la base de datos actual de Kexi."
-
-#~ msgid "Unable to create table [%1]"
-#~ msgstr "No se pudo crear la tabla [%1]"
-
-#~ msgid "Source Database Has Non-Unicode Encoding"
-#~ msgstr "La base de datos de origen no usa una codificación Unicode"
-
-#~ msgctxt "tooltip"
-#~ msgid "Create new autoform"
-#~ msgstr "Crear un nuevo formulario automático"
-
-#~ msgctxt "what's this"
-#~ msgid "Creates new autoform."
-#~ msgstr "Crea un nuevo formulario automático."
-
-#~ msgid "Record"
-#~ msgstr "Registro"
-
-#~ msgid "Clear widget's data source"
-#~ msgstr "Borrar la fuente de datos del elemento gráfico"
-
-#~ msgid "Clear form's data source"
-#~ msgstr "Borrar el origen de datos del formulario"
-
-#~ msgid ""
-#~ "Select fields from the list below and drag them onto a form or click the "
-#~ "\"Insert\" button"
-#~ msgstr ""
-#~ "Seleccione los campos de la lista de abajo y arrástrelos a un formulario "
-#~ "o Pulse el botón «Insertar»"
-
-#~ msgid "Available fields"
-#~ msgstr "Campos disponibles"
-
-#~ msgctxt "Insert selected field into form"
-#~ msgid "Insert"
-#~ msgstr "Insertar"
-
-#~ msgid "Insert selected fields into form"
-#~ msgstr "Inserta los campos seleccionados en el formulario"
-
-#~ msgid "Inserts selected fields into form"
-#~ msgstr "Inserta los campos seleccionados en el formulario"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "form"
-#~ msgstr "formulario"
-
-#~ msgid "A data-aware form widget"
-#~ msgstr "Un elemento gráfico de formulario para datos"
-
-#~ msgid "Auto Field"
-#~ msgstr "Campo automático"
-
-#~ msgid ""
-#~ "A widget containing an automatically selected editor and a label to edit "
-#~ "the value of a database field of any type."
-#~ msgstr ""
-#~ "Un elemento gráfico que contiene un editor seleccionado automáticamente y "
-#~ "una etiqueta para editar el valor de un campo de la base de datos de "
-#~ "cualquier tipo."
-
-#~ msgid "Shadow Enabled"
-#~ msgstr "Sombra activada"
-
-#~ msgctxt "On: button"
-#~ msgid "On"
-#~ msgstr "Al"
-
-#~ msgctxt "AutoField editor's type"
-#~ msgid "Auto"
-#~ msgstr "Auto"
-
-#~ msgid "Auto Label"
-#~ msgstr "Etiqueta automática"
-
-#~ msgid "Label Text Color"
-#~ msgstr "Color de texto de etiqueta"
-
-#~ msgctxt "(a property name, keep the text narrow!)"
-#~ msgid ""
-#~ "Label Background\n"
-#~ "Color"
-#~ msgstr ""
-#~ "Color de fondo de\n"
-#~ "etiqueta"
-
-#~ msgid "Label Position"
-#~ msgstr "Posición de la etiqueta"
-
-#~ msgctxt "Label Position"
-#~ msgid "Left"
-#~ msgstr "Izquierda"
-
-#~ msgctxt "Label Position"
-#~ msgid "Top"
-#~ msgstr "Arriba"
-
-#~ msgctxt "Label Position"
-#~ msgid "No Label"
-#~ msgstr "Sin etiqueta"
-
-#~ msgctxt "Tristate checkbox, default"
-#~ msgid "Default"
-#~ msgstr "Predeterminado"
-
-#~ msgctxt "Tristate checkbox, no"
-#~ msgid "No"
-#~ msgstr "No"
-
-#~ msgid "Connect Signals/Slots"
-#~ msgstr "Conectar señales/slots"
-
-#~ msgid "Layout Widgets"
-#~ msgstr "Disposición de los elementos gráficos"
-
-#~ msgid "&Horizontally"
-#~ msgstr "&Horizontalmente"
-
-#~ msgid "&Vertically"
-#~ msgstr "&Verticalmente"
-
-#~ msgid "In &Grid"
-#~ msgstr "En la cua&drícula"
-
-#~ msgid "Horizontally in &Splitter"
-#~ msgstr "Horizontalmente en un divi&sor"
-
-#~ msgid "Verti&cally in Splitter"
-#~ msgstr "Verti&calmente en un divisor"
-
-#~ msgid "&Break Layout"
-#~ msgstr "Romper &disposición"
-
-#~ msgid "Other Widgets"
-#~ msgstr "Otros elementos gráficos"
-
-#~ msgid "Insert %1 AutoField widgets"
-#~ msgstr "Insertar %1 elementos gráficos de campos automáticos"
-
-#~ msgid "Insert AutoField widget"
-#~ msgstr "Insertar un elemento gráfico de campo automático"
-
-#~ msgctxt "Unbound Auto Field"
-#~ msgid " (unbound)"
-#~ msgstr " (desligado)"
-
-#~ msgid "Click to show actions for \"%1\" image box"
-#~ msgstr "Pulse para mostrar acciones para la caja de imagen «%1»"
-
-#~ msgid "Totals"
-#~ msgstr "Totales"
-
-#~ msgid "Describes a way of computing totals for a given field or expression."
-#~ msgstr ""
-#~ "Describe una forma de computar los totales para un campo o una expresión "
-#~ "dada."
-
-#~ msgid "Group by"
-#~ msgstr "Agrupar por"
-
-#~ msgid "Sum"
-#~ msgstr "Suma"
-
-#~ msgid "Average"
-#~ msgstr "Promedio"
-
-#~ msgid "Min"
-#~ msgstr "Mín"
-
-#~ msgid "Max"
-#~ msgstr "Máx"
-
-#~ msgid ""
-#~ "This note will appear for a user in the script's source code as a "
-#~ "comment. Keep every row not longer than 60 characters and use '\n"
-#~ ".'"
-#~ msgstr ""
-#~ "Esta nota aparecerá para un usuario en el código fuente del script como "
-#~ "un comentario. Mantenga todas las filas de una longitud no más larga de "
-#~ "60 caracteres y utilice «\n"
-#~ ".»"
-
-#~ msgid ""
-#~ "Do you want to execute the script \"%1\"?\n"
-#~ "\n"
-#~ "Scripts obtained from unknown sources can contain dangerous code."
-#~ msgstr ""
-#~ "¿Desea ejecutar el script «%1»?\n"
-#~ "\n"
-#~ "Los scripts obtenidos de fuentes desconocidas pueden contener código "
-#~ "peligroso."
-
-#~ msgid "Execute Script?"
-#~ msgstr "¿Ejecutar el script?"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Assign autonumber for field \"%1\""
-#~ msgstr "Asignar numeración automática al campo «%1»"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Set \"%1\" property for field \"%2\""
-#~ msgstr "Establecer la propiedad «%1» para el campo «%2»"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Change type for field \"%1\" to \"%2\""
-#~ msgstr "Modificar el tipo del campo de «%1» a «%2»"
-
-#~ msgid "&Print..."
-#~ msgstr "Im&primir..."
-
-#~ msgid "Print data"
-#~ msgstr "Imprimir los datos"
-
-#~ msgid "Prints data from the currently selected table or query."
-#~ msgstr "Imprime los datos de la tabla o consulta seleccionada actualmente."
-
-#~ msgid "Page Setup..."
-#~ msgstr "Configuración de página..."
-
-#~ msgid "Page setup for data"
-#~ msgstr "Configuración de la página de datos"
-
-#~ msgid "Load KDE Icon by Name"
-#~ msgstr "Cargar el icono de KDE por nombre"
-
-#~ msgid "&Size:"
-#~ msgstr "&Tamaño:"
-
-#~ msgid "Huge"
-#~ msgstr "Enorme"
-
-#~ msgid "Large"
-#~ msgstr "Grande"
-
-#~ msgid "Medium"
-#~ msgstr "Medio"
-
-#~ msgid "Small"
-#~ msgstr "Pequeño"
-
-#~ msgid "Edit Pixmap Collection: %1"
-#~ msgstr "Editar colección de pixmaps: %1"
-
-#~ msgid "&Add an Icon"
-#~ msgstr "&Añadir un icono"
-
-#~ msgid "&Remove Selected Item"
-#~ msgstr "Elimina&r elemento seleccionado"
-
-#~ msgid "Do you want to remove item \"%1\" from collection \"%2\"?"
-#~ msgstr "¿Quiere eliminar el elemento «%1» de la colección «%2»?"
-
-#~ msgid "Rename Item"
-#~ msgstr "Cambiar el nombre del elemento"
-
-#~ msgid "Remove Item"
-#~ msgstr "Eliminar elemento"
-
-#~ msgid "Select Pixmap From %1"
-#~ msgstr "Seleccionar un pixmap de %1"
-
-#~ msgid "Edit Collection..."
-#~ msgstr "Editar colección..."
-
-#~ msgid "Button Group"
-#~ msgstr "Grupo de botones"
-
-#~ msgctxt ""
-#~ "Widget name. This string will be used to name widgets of this class. It "
-#~ "must _not_ contain white spaces and non latin1 characters."
-#~ msgid "buttonGroup"
-#~ msgstr "grupoBotones"
-
-#~ msgid "A simple container to group buttons"
-#~ msgstr "Un contenedor sencillo para agrupar botones"
-
-#~ msgid "Adjust Size"
-#~ msgstr "Ajustar el tamaño"
-
-#~ msgid "Add Record"
-#~ msgstr "Añadir registro"
-
-#~ msgid "Remove Record"
-#~ msgstr "Eliminar registro"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "No <resource>%1</resource> service type installed. Check your "
-#~ "<application>%2</application> installation. The application will be "
-#~ "closed."
-#~ msgstr ""
-#~ "El tipo de servicio <resource>%1</resource> no está instalado. Compruebe "
-#~ "la instalación de <application>%2</application>. La aplicación se cerrará."
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "Missing or invalid default <application>%1</application> configuration "
-#~ "(no <resource>%2</resource> key). Check your <application>%1</"
-#~ "application> installation. The application will be closed."
-#~ msgstr ""
-#~ "La configuración predeterminada de <application>%1</application> falta o "
-#~ "no es válida (no existe la clave de <resource>%2</resource>). Compruebe "
-#~ "la instalación de <application>%1</application>. La aplicación se cerrará."
-
-#~ msgid "Warning"
-#~ msgstr "Aviso"
-
-#~ msgid "Do not show this message again"
-#~ msgstr "No volver a mostrar este mensaje"
-
-#~ msgid "Lets you configure shortcut keys."
-#~ msgstr "Le permite configurar las teclas de acceso rápido."
-
-#~ msgid "Create From Template"
-#~ msgstr "Crear a partir de una plantilla"
-
-#~ msgid "New Database Project From Template"
-#~ msgstr "Nuevo proyecto de base de datos a partir de una plantilla"
-
-#~ msgid ""
-#~ "Kexi will create a new database project using selected template.\n"
-#~ "Select template and click \"OK\" button to proceed."
-#~ msgstr ""
-#~ "Kexi creará un nuevo proyecto de base de datos usando la plantilla "
-#~ "seleccionada.\n"
-#~ "Seleccione la plantilla y pulse el botón «Aceptar» para continuar."
-
-#~ msgid "Outer Area"
-#~ msgstr "Área externa"
-
-#~ msgid ""
-#~ "Outer\n"
-#~ "Area"
-#~ msgstr ""
-#~ "Área\n"
-#~ "externa"
-
-#~ msgid "local database server"
-#~ msgstr "servidor de bases de datos local"
-
-#~ msgid "Please enter the password."
-#~ msgstr "Introduzca la contraseña."
-
-#~ msgid "Username: %1"
-#~ msgstr "Nombre de usuario: %1"
-
-#~ msgid ""
-#~ "You can correct data in this record or use \"Cancel record changes\" "
-#~ "function."
-#~ msgstr ""
-#~ "Puede corregir los datos en este registro o utilizar la función «Cancelar "
-#~ "los cambios del registro»."
-
-#~ msgid "\"%1\" value has to be entered."
-#~ msgstr "Se tiene que indicar el valor de «%1»."
-
-#~ msgid "\"%1\" column requires a value to be entered."
-#~ msgstr "La columna «%1» necesita que introduzca un valor."
-
-#~ msgid "Record inserting failed."
-#~ msgstr "La inserción del registro ha fallado."
-
-#~ msgid "Record changing failed."
-#~ msgstr "La modificación del registro ha fallado."
-
-#~ msgid "Record deleting failed."
-#~ msgstr "El borrado del registro ha fallado."
-
-#~ msgid ""
-#~ "<p>The file <nobr>\"%1\"</nobr> does not exist or is not readable.</p>"
-#~ msgstr "<p>El archivo <nobr>«%1»</nobr> no existe o no se puede leer.</p>"
-
-#~ msgid ""
-#~ "No \"%1\" service type installed. Check your Kexi installation. Aborting."
-#~ msgstr ""
-#~ "El tipo de servicio «%1» no está instalado. Compruebe su instalación de "
-#~ "Kexi. Interrumpiendo."
-
-#~ msgid "Show:"
-#~ msgstr "Mostrar:"
-
-#~ msgid "Saving new \"%1\" object failed."
-#~ msgstr "Fallo al guardar el objeto nuevo «%1»."
-
-#~ msgid "Important Information"
-#~ msgstr "Información importante"
-
-#~ msgid "&Options"
-#~ msgstr "&Opciones"
-
-#~ msgid "Importing CSV Data"
-#~ msgstr "Importando datos CSV"
-
-#~ msgid "File actions"
-#~ msgstr "Acciones del archivo"
-
-#~ msgid "New"
-#~ msgstr "Nuevo"
-
-#~ msgid "Open..."
-#~ msgstr "Abrir..."
-
-#~ msgid "Save As..."
-#~ msgstr "Guardar como..."
-
-#~ msgid "Column Width"
-#~ msgstr "Anchura de la columna"
-
-#~ msgid "Show SQL History"
-#~ msgstr "Historial de muestra SQL"
-
-#~ msgid "Shows or hides SQL editor's history."
-#~ msgstr "Muestra u oculta el historial del editor SQL."
-
-#~ msgid "SQL Query History"
-#~ msgstr "Historial de consultas SQL"
-
-#~ msgid "Back to Selected Query"
-#~ msgstr "Volver a la consulta seleccionada"
-
-#~ msgid "Clear History"
-#~ msgstr "Limpiar el historial"
-
-#~ msgid "Copy to Clipboard"
-#~ msgstr "Copiar al portapapeles"
-
-#~ msgid "Error: %1"
-#~ msgstr "Error: %1"
-
-#~ msgid "state_data"
-#~ msgstr "estado_dados"
-
-#~ msgid "state_edit"
-#~ msgstr "estado_editar"
-
-#~ msgid "state_sql"
-#~ msgstr "estado_sql"
-
-#~ msgid "Invalid database contents. "
-#~ msgstr "Contenido no válido en la base de datos. "
-
-#~ msgid "It is a system object."
-#~ msgstr "Es un objeto del sistema."
-
-#~ msgid "Connection already established."
-#~ msgstr "La conexión ya está establecida."
-
-#~ msgid "Could not connect to \"%1\" database server."
-#~ msgstr "No se pudo conectar con el servidor de base de datos «%1»."
-
-#~ msgid "Not connected to the database server."
-#~ msgstr "No está conectado con ningún servidor de bases de datos."
-
-#~ msgid "Currently no database is used."
-#~ msgstr "En este momento no se está usando ninguna base de datos."
-
-#~ msgid "Database file \"%1\" does not exist."
-#~ msgstr "El archivo «%1» de la base de datos no existe."
-
-#~ msgid "Database file \"%1\" is not readable."
-#~ msgstr "No se puede leer el archivo «%1» de la base de datos."
-
-#~ msgid "Database file \"%1\" is not writable."
-#~ msgstr "No se puede escribir el archivo «%1» de la base de datos."
-
-#~ msgid "Database \"%1\" created but could not be closed after creation."
-#~ msgstr ""
-#~ "Se ha creado la base de datos «%1», pero no fue posible cerrarla tras la "
-#~ "creación."
-
-#~ msgid "Database \"%1\" already exists."
-#~ msgstr "La base de datos «%1» ya existe."
-
-#~ msgid ""
-#~ "Cannot create database \"%1\". This name is reserved for system database."
-#~ msgstr ""
-#~ "No se pudo crear la base de datos «%1». Este nombre está reservado para "
-#~ "bases de datos del sistema."
-
-#~ msgid "Error creating database \"%1\" on the server."
-#~ msgstr "Error al crear la base de datos «%1» en el servidor."
-
-#~ msgid "Database \"%1\" created but could not be opened."
-#~ msgstr "Se creó la base de datos «%1», pero no se pudo abrir."
-
-#~ msgid "Opening database \"%1\" failed."
-#~ msgstr "Fallo al abrir la base de datos «%1»."
-
-#~ msgid "Database version (%1) does not match Kexi application's version (%2)"
-#~ msgstr ""
-#~ "La versión (%1) de la base de datos no coincide con la versión de la "
-#~ "aplicación Kexi (%2)"
-
-#~ msgid "Cannot find any database for temporary connection."
-#~ msgstr ""
-#~ "No se puede encontrar ninguna base de datos para una conexión temporal."
-
-#~ msgid ""
-#~ "Error during starting temporary connection using \"%1\" database name."
-#~ msgstr ""
-#~ "Error al comenzar la conexión temporal al usar la base de datos llamada "
-#~ "«%1»."
-
-#~ msgid "Cannot drop database - name not specified."
-#~ msgstr "No se puede eliminar la base de datos - no se especificó el nombre."
-
-#~ msgid "Cannot delete database - name not specified."
-#~ msgstr "No se puede borrar la base de datos - no se especificó el nombre."
-
-#~ msgid "Cannot delete system database \"%1\"."
-#~ msgstr "No se puede borrar la base de datos «%1» del sistema."
-
-#~ msgid "Error while executing SQL statement."
-#~ msgstr "Error al ejecutar la sentencia SQL."
-
-#~ msgid "Creating table failed."
-#~ msgstr "Fallo al crear la tabla."
-
-#~ msgid "Cannot create table without fields."
-#~ msgstr "No se puede crear una tabla sin campos."
-
-#~ msgid "System name \"%1\" cannot be used as table name."
-#~ msgstr "El nombre del sistema, «%1», no se puede usar como nombre de tabla."
-
-#~ msgid "System name \"%1\" cannot be used as one of fields in \"%2\" table."
-#~ msgstr ""
-#~ "El nombre del sistema, «%1», no se puede usar como uno de los campos de "
-#~ "la tabla «%2»."
-
-#~ msgid "Could not create the same table \"%1\" twice."
-#~ msgstr "No se puede crear dos veces la misma tabla «%1»."
-
-#~ msgid "Table \"%1\" cannot be removed.\n"
-#~ msgstr "No se puede eliminar la tabla «%1».\n"
-
-#~ msgid "Unexpected name or identifier."
-#~ msgstr "Nombre o identificador no esperado."
-
-#~ msgid "Table \"%1\" does not exist."
-#~ msgstr "La tabla «%1» no existe."
-
-#~ msgid "Could not alter table \"%1\" using the same table."
-#~ msgstr "No se puede alterar la tabla «%1» usando la misma tabla."
-
-#~ msgid "Unknown table \"%1\""
-#~ msgstr "Tabla «%1» desconocida"
-
-#~ msgid "Invalid table name \"%1\""
-#~ msgstr "Nombre de tabla «%1» no válido"
-
-#~ msgid "Could rename table \"%1\" using the same name."
-#~ msgstr ""
-#~ "No se puede cambiar el nombre de la tabla «%1» usando el mismo nombre."
-
-#~ msgid ""
-#~ "Could not rename table \"%1\" to \"%2\". Table \"%3\" already exists."
-#~ msgstr ""
-#~ "No se pudo cambiar el nombre de la tabla «%1» a «%2». Ya existe la tabla "
-#~ "«%3»."
-
-#~ msgid "Query \"%1\" does not exist."
-#~ msgstr "La consulta «%1» no existe."
-
-#~ msgid "Transactions are not supported for \"%1\" driver."
-#~ msgstr "El controlador «%1» no admite transacciones."
-
-#~ msgid "Begin transaction failed"
-#~ msgstr "El inicio de la transacción falló"
-
-#~ msgid "Transaction already started."
-#~ msgstr "Transacción ya comenzada."
-
-#~ msgid "Transaction not started."
-#~ msgstr "Transacción no comenzada."
-
-#~ msgid "Error on commit transaction"
-#~ msgstr "Error al confirmar (hacer commit) la transacción"
-
-#~ msgid "Error on rollback transaction"
-#~ msgstr "Error al rechazar (hacer rollback) la transacción"
-
-#~ msgid "Invalid object name \"%1\""
-#~ msgstr "Nombre de objeto «%1» no válido"
-
-#~ msgid "Column %1 does not exist for the query."
-#~ msgstr "La columna %1 no existe para la consulta."
-
-#~ msgid "Error while loading extended table schema information."
-#~ msgstr ""
-#~ "Se ha producido un error al cargar información extendida del esquema de "
-#~ "tablas."
-
-#~ msgid "Invalid XML data: "
-#~ msgstr "Datos XML no válidos: "
-
-#~ msgid ""
-#~ "Error in XML data: \"%1\" in line %2, column %3.\n"
-#~ "XML data: "
-#~ msgstr ""
-#~ "Error en los datos XML: «%1» en la línea %2, columna %3.\n"
-#~ "Datos XML: "
-
-#~ msgid "Table has no fields defined."
-#~ msgstr "La tabla no tiene campos definidos."
-
-#~ msgid ""
-#~ "Could not find definition for query \"%1\". Removing this query is "
-#~ "recommended."
-#~ msgstr ""
-#~ "No se pudo encontrar la definición para la consulta «%1». Se recomienda "
-#~ "eliminar esta consulta."
-
-#~ msgid ""
-#~ "<p>Could not load definition for query \"%1\". SQL statement for this "
-#~ "query is invalid:<br><tt>%2</tt></p>\n"
-#~ "<p>You can open this query in Text View and correct it.</p>"
-#~ msgstr ""
-#~ "<p>No se pudo cargar la definición para la consulta «%1». La sentencia "
-#~ "SQL para esta consulta no es válida:<br><tt>%2</tt></p>\n"
-#~ "<p>Puede abrir esta consulta en modo de vista de texto y corregirla.</p>"
-
-#~ msgid "Could not update record because there is no master table defined."
-#~ msgstr ""
-#~ "No se pudo actualizar el registro porque no hay ninguna tabla maestra "
-#~ "definida."
-
-#~ msgid ""
-#~ "Could not update record because master table has no primary key defined."
-#~ msgstr ""
-#~ "No se pudo actualizar el registro porque la tabla maestra no tiene una "
-#~ "clave primaria definida."
-
-#~ msgid ""
-#~ "Could not update record because it does not contain entire master table's "
-#~ "primary key."
-#~ msgstr ""
-#~ "No se pudo actualizar el registro porque no contiene la clave primaria "
-#~ "completa de la tabla maestra."
-
-#~ msgid "Primary key's field \"%1\" cannot be empty."
-#~ msgstr "El campo de clave primario «%1» no puede estar vacío."
-
-#~ msgid "Record updating on the server failed."
-#~ msgstr "La actualización del registro en el servidor ha fallado."
-
-#~ msgid "Could not insert record because there is no master table defined."
-#~ msgstr ""
-#~ "No se pudo insertar el registro porque no hay una tabla maestra definida."
-
-#~ msgid ""
-#~ "Could not insert record because master table has no primary key defined."
-#~ msgstr ""
-#~ "No se pudo insertar el registro porque la tabla maestra no tieneuna clave "
-#~ "primaria definida."
-
-#~ msgid ""
-#~ "Could not insert record because it does not contain entire master table's "
-#~ "primary key."
-#~ msgstr ""
-#~ "No se pudo insertar el registro porque no contiene la clave primaria "
-#~ "completa de la tabla maestra."
-
-#~ msgid "Could not delete record because there is no master table defined."
-#~ msgstr ""
-#~ "No se pudo borrar el registro porque no hay ninguna tabla maestra "
-#~ "definida."
-
-#~ msgid ""
-#~ "Could not delete record because there is no primary key for master table "
-#~ "defined."
-#~ msgstr ""
-#~ "No se pudo borrar el registro porque la tabla maestra no tiene una clave "
-#~ "primaria definida."
-
-#~ msgid ""
-#~ "Could not delete record because it does not contain entire master table's "
-#~ "primary key."
-#~ msgstr ""
-#~ "No se pudo borrar el registro porque no contiene la clave primaria "
-#~ "completa de la tabla maestra."
-
-#~ msgid "Record deletion on the server failed."
-#~ msgstr "El borrado del registro en el servidor ha fallado."
-
-#~ msgid "file"
-#~ msgstr "archivo"
-
-#~ msgid "No query statement or schema defined."
-#~ msgstr "No hay definida ningún esquema ni declaración de consulta."
-
-#~ msgid "Query statement is empty."
-#~ msgstr "La sentencia de la consulta está vacía."
-
-#~ msgid "Error opening database cursor."
-#~ msgstr "Error al abrir el curso r de la base de datos."
-
-#~ msgid "Cannot fetch next record."
-#~ msgstr "No se puede obtener el siguiente registro."
-
-#~ msgid "Could not set value of database property \"%1\"."
-#~ msgstr ""
-#~ "No se pudo definir el valor de la propiedad «%1» de la base de datos."
-
-#~ msgid "Could not set caption for database property \"%1\"."
-#~ msgstr ""
-#~ "No se pudo definir el título de la propiedad «%1» de la base de datos."
-
-#~ msgid "Could not read database property \"%1\"."
-#~ msgstr "No se pudo leer la propiedad «%1» de la base de datos."
-
-#~ msgid "Could not read database properties."
-#~ msgstr "No se pudieron leer las propiedades de la base de datos."
-
-#~ msgid "Invalid database driver's \"%1\" implementation:\n"
-#~ msgstr ""
-#~ "Implementación del controlador «%1» de la base de datos no válida:\n"
-
-#~ msgid "Value of \"%1\" is not initialized for the driver."
-#~ msgstr "Valor de «%1» no iniciado por el controlador."
-
-#~ msgid "File name expected for file-based database driver."
-#~ msgstr ""
-#~ "Se esperaba un nombre de archivo para el controlador de base de datos "
-#~ "basada en archivos."
-
-#~ msgid "Client library version"
-#~ msgstr "Versión de la biblioteca cliente"
-
-#~ msgid "Default character encoding on server"
-#~ msgstr "Codificación de caracteres predeterminada del servidor"
-
-#~ msgid "File-based database's MIME type"
-#~ msgstr "Tipos MIME de base de datos en archivos"
-
-#~ msgid "Single transactions"
-#~ msgstr "Transacciones sencillas"
-
-#~ msgid "Multiple transactions"
-#~ msgstr "Transacciones múltiples"
-
-#~ msgid "Nested transactions"
-#~ msgstr "Transacciones anidadas"
-
-#~ msgid "Ignored"
-#~ msgstr "Ignorado"
-
-#~ msgid "Single transactions support"
-#~ msgstr "Admite transacciones sencillas"
-
-#~ msgid "Multiple transactions support"
-#~ msgstr "Admite transacciones múltiples"
-
-#~ msgid "Nested transactions support"
-#~ msgstr "Admite transacciones anidadas"
-
-#~ msgid "KexiDB driver version"
-#~ msgstr "Versión del controlador KexiDB"
-
-#~ msgid "Could not find database driver \"%1\"."
-#~ msgstr "No se pudo encontrar el controlador «%1» de la base de datos."
-
-#~ msgid "Could not load database driver \"%1\"."
-#~ msgstr "No se pudo cargar el controlador «%1» de la base de datos."
-
-#~ msgid "No such driver service: \"%1\"."
-#~ msgstr "No hay tal servicio en el controlador: «%1»."
-
-#~ msgid "Could not compact database \"%1\"."
-#~ msgstr "No se pudo compactar la base de datos «%1»."
-
-#~ msgid "Do you want to open file \"%1\" as read-only?"
-#~ msgstr "¿Quiere abrir el archivo «%1» como de sólo lectura?"
-
-#~ msgid "The file is probably already open on this or another computer."
-#~ msgstr "El archivo probablemente ya esté abierto en este equipo o en otro."
-
-#~ msgid "Could not gain exclusive access for writing the file."
-#~ msgstr "No se pudo obtener acceso exclusivo para escribir el archivo."
-
-#~ msgid "Could not close busy database."
-#~ msgstr "Las bases de datos en uso no se pueden cerrar."
-
-#~ msgid "Compacting database"
-#~ msgstr "Compactando la base de datos"
-
-#~ msgid "Compacting database \"%1\"..."
-#~ msgstr "Compactando la base de datos «%1»..."
-
-#~ msgid ""
-#~ "The database has been compacted. Current size decreased by %1% to %2."
-#~ msgstr ""
-#~ "Se ha compactado la base de datos. El tamaño ha descendido un %1%, hasta "
-#~ "%2."
-
-#~ msgid "Ambiguous field name"
-#~ msgstr "Nombre de campo ambiguo"
-
-#~ msgid ""
-#~ "Both table \"%1\" and \"%2\" have defined \"%3\" field. Use \"<tableName>."
-#~ "%4\" notation to specify table name."
-#~ msgstr ""
-#~ "Tanto la tabla «%1» como la «%2» tienen definido el campo «%3». Use la "
-#~ "notación «<nombreDeTabla> %4» para especificar el nombre de la tabla."
-
-#~ msgid "Field not found"
-#~ msgstr "Campo no encontrado"
-
-#~ msgid "Table containing \"%1\" field not found"
-#~ msgstr "No se encuentra la tabla que contiene el campo «%1»"
-
-#~ msgid ""
-#~ "Table \"%1\" is covered by aliases. Instead of \"%2\", you can write "
-#~ "\"%3\""
-#~ msgstr ""
-#~ "A la tabla «%1» se le pueden aplicar alias. En lugar de «%2», puede "
-#~ "escribir «%3»"
-
-#~ msgid "Table not found"
-#~ msgstr "Tabla no encontrada"
-
-#~ msgid "Ambiguous \"%1.*\" expression"
-#~ msgstr "Expresión ambigua «%1»"
-
-#~ msgid "More than one \"%1\" table or alias defined"
-#~ msgstr "Se ha definido más de una tabla o alias como «%1»"
-
-#~ msgid "Table \"%1\" has no \"%2\" field"
-#~ msgstr "La tabla «%1» no tiene el campo «%2»"
-
-#~ msgid "Ambiguous \"%1.%2\" expression"
-#~ msgstr "Expresión ambigua «%1.%2»"
-
-#~ msgid "More than one \"%1\" table or alias defined containing \"%2\" field"
-#~ msgstr "Más de una tabla o alias definida como «%1» contiene el campo «%2»"
-
-#~ msgid "Invalid Type"
-#~ msgstr "Tipo no válido"
-
-#~ msgid "Byte"
-#~ msgstr "Byte"
-
-#~ msgid "Short Integer Number"
-#~ msgstr "Número entero corto"
-
-#~ msgid "Integer Number"
-#~ msgstr "Número entero"
-
-#~ msgid "Big Integer Number"
-#~ msgstr "Número entero grande"
-
-#~ msgid "Yes/No Value"
-#~ msgstr "Valor Sí/No"
-
-#~ msgid "Date and Time"
-#~ msgstr "Fecha y hora"
-
-#~ msgid "Time"
-#~ msgstr "Hora"
-
-#~ msgid "Single Precision Number"
-#~ msgstr "Número con precisión sencilla"
-
-#~ msgid "Double Precision Number"
-#~ msgstr "Número con doble precisión"
-
-#~ msgid "Long Text"
-#~ msgstr "Texto largo"
-
-#~ msgid "Object"
-#~ msgstr "Objeto"
-
-#~ msgid "Invalid Group"
-#~ msgstr "Grupo no válido"
-
-#~ msgid "Floating Point Number"
-#~ msgstr "Número en punto flotante"
-
-#~ msgid "Yes/No"
-#~ msgstr "Sí/No"
-
-#~ msgid "Date/Time"
-#~ msgstr "Fecha/Hora"
-
-#~ msgid "Unspecified error encountered"
-#~ msgstr "Ha ocurrido un error no especificado"
-
-#~ msgid "identifier was expected"
-#~ msgstr "se esperaba un identificador"
-
-#~ msgid "Syntax Error"
-#~ msgstr "Error de sintaxis"
-
-#~ msgid "\"%1\" is a reserved keyword"
-#~ msgstr "«%1» es una palabra reservada"
-
-#~ msgid "Syntax Error near \"%1\""
-#~ msgstr "Error de sintaxis cerca de «%1»"
-
-#~ msgid "Error"
-#~ msgstr "Error"
-
-#~ msgid "No query specified"
-#~ msgstr "Ninguna consulta especificada"
-
-#~ msgid "\"*\" could not be used if no tables are specified"
-#~ msgstr "No se puede usar «*» si no se especifican las tablas"
-
-#~ msgid "Table \"%1\" does not exist"
-#~ msgstr "La tabla «%1» no existe"
-
-#~ msgid "Invalid alias definition for column \"%1\""
-#~ msgstr "Definición de alias no válida para la columna «%1»"
-
-#~ msgid "Invalid \"%1\" column definition"
-#~ msgstr "Definición de columna «%1» no válida"
-
-#~ msgid "Could not define sorting - no column at position %1"
-#~ msgstr "No se pudo definir la ordenación. Ninguna columna en la posición %1"
-
-#~ msgid ""
-#~ "Could not define sorting - column name or alias \"%1\" does not exist"
-#~ msgstr ""
-#~ "No se pudo definir la ordenación. Nombre de columna o alias «%1» no "
-#~ "existente"
-
-#~ msgctxt ""
-#~ "short for 'expression' word, e.g. 'expr' (only latin letters, please)"
-#~ msgid "expr"
-#~ msgstr "expr"
-
-#~ msgid "Host (server) name"
-#~ msgstr "Nombre de la máquina (servidor)"
-
-#~ msgid "Server's port number"
-#~ msgstr "Número de puerto del servidor"
-
-#~ msgid "Server's local socket filename"
-#~ msgstr "Nombre del archivo del socket local del servidor"
-
-#~ msgid "Enter password for %1: "
-#~ msgstr "Introducir contraseña para %1: "
-
-#~ msgid "Message from server:"
-#~ msgstr "Mensaje del servidor:"
-
-#~ msgid "SQL statement:"
-#~ msgstr "Sentencia SQL:"
-
-#~ msgid "Server result:"
-#~ msgstr "Resultado del servidor:"
-
-#~ msgid "Test Connection"
-#~ msgstr "Probar la conexión"
-
-#~ msgid "<qt>Testing connection to <b>%1</b> database server...</qt>"
-#~ msgstr ""
-#~ "<qt>Probando la conexión con el servidor de bases de datos <b>%1</b>...</"
-#~ "qt>"
-
-#~ msgid ""
-#~ "<qt>Test connection to <b>%1</b> database server failed. The server is "
-#~ "not responding.</qt>"
-#~ msgstr ""
-#~ "<qt>Fallo en la prueba de conexión con el servidor de bases de datos <b>"
-#~ "%1</b>. El servidor no responde.</qt>"
-
-#~ msgid ""
-#~ "<qt>Test connection to <b>%1</b> database server established successfully."
-#~ "</qt>"
-#~ msgstr ""
-#~ "<qt>La conexión de prueba con el servidor de bases de datos <b>%1</b> se "
-#~ "estableció correctamente.</qt>"
-
-#~ msgid "Number"
-#~ msgstr "Número"
-
-#~ msgid "Invalid integer number"
-#~ msgstr "Número entero no válido"
-
-#~ msgid "This integer number may be too large."
-#~ msgstr "Este número entero puede ser demasiado largo."
-
-#~ msgid "Invalid identifier"
-#~ msgstr "Identificador no válido"
-
-#~ msgid "Open in &Text View"
-#~ msgstr "Abrir en la vista de &texto"
-
-#~ msgid "Open object in text view"
-#~ msgstr "Abrir objeto en vista de texto"
-
-#~ msgid "Opens selected object in the list in text view."
-#~ msgstr "Abre el objeto seleccionado en la lista de la vista de texto."
-
-#~ msgid "Errors encountered during loading plugins:"
-#~ msgstr "Se encontraron errores al cargar los complementos:"
-
-#~ msgctxt "Note: do not translate 'Words'"
-#~ msgid "Save to Words"
-#~ msgstr "Exportar a Words"
-
-#~ msgid "Save the report to a Words application's document"
-#~ msgstr "Guardar el informe en un documento de la aplicación Words"
-
-#~ msgid "Saves the report to a Words application's document."
-#~ msgstr "Guarda el informe en un documento de la aplicación Words."
-
-#~ msgid "Saves the current report to a spreadsheet."
-#~ msgstr "Guarda el informe actual en una hoja de cálculo."
-
-#~ msgid "Save as Web Page"
-#~ msgstr "Exportar como página web"
-
-#~ msgid "Save Report to..."
-#~ msgstr "Guardar informe a..."
-
-#~ msgctxt "Note: do not translate 'Tables'"
-#~ msgid "Failed to open %1 in Tables application."
-#~ msgstr "Fallo al abrir %1 en la aplicación Tables."
-
-#~ msgid "Opening in Tables application failed"
-#~ msgstr "La apertura en la aplicación Tables falló"
-
-#~ msgctxt "Note: do not translate 'Words'"
-#~ msgid "Failed to save %1 to Words applications"
-#~ msgstr "Fallo al exportar %1 a la aplicación Words"
-
-#~ msgid "Saving to Words application failed"
-#~ msgstr "La exportación a la aplicación Words falló"
-
-#~ msgid "Saving report to %1 failed"
-#~ msgstr "La exportación del informe a %1 falló"
-
-#~ msgid "Saving failed"
-#~ msgstr "Exportación fallida"
-
-#~ msgid "Report saved to %1"
-#~ msgstr "Informe exportado a %1"
-
-#~ msgid "Saving succeeded"
-#~ msgstr "Exportado exitoso"
-
-#~ msgid "Documentation for Kexi 2"
-#~ msgstr "Documentación para Kexi 2"
-
-#, fuzzy
-#~| msgid "KexiDB driver version"
-#~ msgid "Kexi version:"
-#~ msgstr "Versión del controlador KexiDB"
-
-#, fuzzy
-#~| msgid "Server Information"
-#~ msgid "Share screen information (+%1%)"
-#~ msgstr "Información del servidor"
-
-#, fuzzy
-#~| msgid "Number of records"
-#~ msgid "Number of screens:"
-#~ msgstr "Número de registros"
-
-#, fuzzy
-#~| msgid "Date format:"
-#~ msgid "Short date format:"
-#~ msgstr "Formato de fecha:"
-
-#, fuzzy
-#~| msgid "Date format:"
-#~ msgid "Time format:"
-#~ msgstr "Formato de fecha:"
-
-#, fuzzy
-#~| msgid "Choose Project"
-#~ msgid "You in Kexi Project"
-#~ msgstr "Elegir proyecto"
-
-#~ msgid "Database creation for everyone"
-#~ msgstr "Creación de bases de datos para todos"
-
-#~ msgid "&Insert"
-#~ msgstr "&Insertar"
-
-#~ msgid "Paste &Special"
-#~ msgstr "Pegado e&special"
-
-#~ msgctxt "Close the current tab page in Kexi tab interface"
-#~ msgid "Close the current tab"
-#~ msgstr "Cerrar la pestaña actual"
-
-#~ msgid ""
-#~ "User interface mode will be switched to IDEAl at next %1 application "
-#~ "startup."
-#~ msgstr ""
-#~ "El modo de la interfaz de usuario será IDEAl en el próximo inicio de la "
-#~ "aplicación %1."
-
-#~ msgid ""
-#~ "User interface mode will be switched to Childframe at next %1 application "
-#~ "startup."
-#~ msgstr ""
-#~ "El modo de la interfaz de usuario será de marco hijo en el próximo inicio "
-#~ "de la aplicación %1."
-
-#~ msgid "Context Help"
-#~ msgstr "Ayuda contextual"
-
-#~ msgid "Here will be shown help according to your actions"
-#~ msgstr "Aquí se mostrará la ayuda relacionada con sus acciones"
-
-#, fuzzy
-#~| msgid "Opening object \"%1\" failed."
-#~ msgid "Opening in KSpread failed"
-#~ msgstr "Fallo al abrir el proyecto «%1»."
-
-#, fuzzy
-#~| msgid "Export"
-#~ msgid "Not Exported"
-#~ msgstr "Exportar"
-
-#~ msgctxt "Help shortcut"
-#~ msgid "Alt+H"
-#~ msgstr "Alt+H"
-
-#~ msgid "Main Area"
-#~ msgstr "Área principal"
-
-#~ msgctxt "Page (number) of (total)"
-#~ msgid "Page %1 of %2"
-#~ msgstr "Página %1 de %2"
-
-#~ msgid "Boolean Yes (true)"
-#~ msgstr "Sí booleano (verdadero)"
-
-#~ msgid "Boolean No (false)"
-#~ msgstr "No booleano (falso)"
-
-#~ msgid "Printing"
-#~ msgstr "Impresión"
-
-#~ msgid "%1 - Print Preview - %2"
-#~ msgstr "%1: Vista previa: %2"
-
-#~ msgid "Zoom In"
-#~ msgstr "Ampliar"
-
-#~ msgid "Zoom Out"
-#~ msgstr "Reducir"
-
-#~ msgid "First Page"
-#~ msgstr "Primera página"
-
-#~ msgid "Last Page"
-#~ msgstr "Última página"
-
-#~ msgid "Print Preview"
-#~ msgstr "Previsualización de la impresión"
-
-#~ msgid "Print Previe&w..."
-#~ msgstr "&Previsualización de la impresión..."
-
-#~ msgid "Changes font for title text."
-#~ msgstr "Cambia el tipo de letra del texto del título."
-
-#~ msgid "Open This Query"
-#~ msgstr "Abrir esta consulta"
-
-#~ msgid "<h2>Page setup for printing \"%1\" query data</h2>"
-#~ msgstr ""
-#~ "<h2>Configuración de página para imprimir los datos de la consulta «%1»</"
-#~ "h2>"
-
-#~ msgid "Shows data for table or query associated with this page setup."
-#~ msgstr ""
-#~ "Muestra los datos para la tabla o consulta asociada con esta "
-#~ "configuración de página."
-
-#~ msgid "Saves settings for this setup as default."
-#~ msgstr ""
-#~ "Guarda las preferencias de esta configuración como las predeterminadas."
-
-#~ msgid "Adds date and time to the header."
-#~ msgstr "Añade la fecha y la hora al encabezado."
-
-#~ msgid "Adds page numbers to the footer."
-#~ msgstr "Añade el número de página al pie."
-
-#~ msgid "Adds table borders."
-#~ msgstr "Añade bordes a la tabla."
-
-#~ msgid "Changes page size and margins."
-#~ msgstr "Cambia el tamaño y los márgenes de la página."
-
-#~ msgid "Portrait"
-#~ msgstr "Vertical"
-
-#~ msgid "Landscape"
-#~ msgstr "Apaisado"
-
-#~ msgid "margins:"
-#~ msgstr "márgenes:"
-
-#~ msgid "Recent Projects"
-#~ msgstr "Proyectos recientes"
-
-#~ msgid "Open recent project"
-#~ msgstr "Abrir un proyecto reciente"
-
-#~ msgid ""
-#~ "Opens one of the recently opened project. Currently opened project is not "
-#~ "affected."
-#~ msgstr ""
-#~ "Abre uno de los proyectos abiertos recientemente. El proyecto abierto "
-#~ "actualmente no se ve afectado."
-
-#~ msgid "."
-#~ msgstr "."
-
-#~ msgid "<h2>Page Setup for Printing \"%1\" Table Data</h2>"
-#~ msgstr ""
-#~ "<h2>Configuración de página para imprimir los datos de la tabla «%1»</h2>"
-
-#~ msgid "Set Font..."
-#~ msgstr "Definir el tipo de letra..."
-
-#~ msgid "Page title:"
-#~ msgstr "Título de página:"
-
-#~ msgid "Add page numbers"
-#~ msgstr "Añadir números de página"
-
-#~ msgid "Page Size && Margins"
-#~ msgstr "Tamaño y márgenes de página"
-
-#~ msgid "Change..."
-#~ msgstr "Cambiar..."
-
-#~ msgid "Save This Setup as Default"
-#~ msgstr "Guardar esta configuración como predeterminada"
-
-#~ msgid "Open This Table"
-#~ msgstr "Abrir esta tabla"
-
-#~ msgid "Related actions:"
-#~ msgstr "Acciones relacionadas:"
-
-#~ msgid "Add date and time"
-#~ msgstr "Añadir fecha y hora"
-
-#~ msgid "Add table borders"
-#~ msgstr "Añadir bordes de tablas"
-
-#~ msgid "Map Browser"
-#~ msgstr "Navegador de mapa"
-
-#~ msgid "Displays an interactive map."
-#~ msgstr "Muestra un mapa interactivo."
-
-#~ msgid "Back"
-#~ msgstr "Atrás"
-
-#~ msgid "Forward"
-#~ msgstr "Adelante"
-
-#~ msgid "Reload"
-#~ msgstr "Recargar"
-
-#~ msgid "Stop"
-#~ msgstr "Detener"
-
-#~ msgid "Web Browser"
-#~ msgstr "Navegador web"
-
-#~ msgctxt ""
-#~ "This string will be used to name widgets of this class. It must _not_ "
-#~ "contain white spaces and non latin1 characters."
-#~ msgid "webBrowser"
-#~ msgstr "navegadorWeb"
-
-#~ msgid "Web widget with browsing features."
-#~ msgstr "Elemento gráfico web con funcionalidad de navegación."
-
-#~ msgid "Zoom Factor"
-#~ msgstr "Factor de ampliación"
-
-#~ msgid "Url"
-#~ msgstr "Url"
-
-#~ msgid "Exports Kexi Forms to standard HTML pages"
-#~ msgstr "Exporta formularios Kexi a páginas HTML estándar"
-
-#~ msgid "Listen port"
-#~ msgstr "Puesto de escucha"
-
-#~ msgid "Web Root (used also as template root directory)"
-#~ msgstr "Raíz web (usada también como carpeta raíz de plantillas)"
-
-#~ msgid "Path to SSL certificate file (PEM encoded)"
-#~ msgstr "Ruta al archivo de certificado SSL (con codificación PEM)"
-
-#~ msgid "Path to Kexi database file"
-#~ msgstr "Ruta al archivo de base de datos de Kexi"
-
-#~ msgid "Database Files (*.kexi)"
-#~ msgstr "Archivos de base de datos (*.kexi)"
-
-#~ msgid "Enter a new Kexi project's file name:"
-#~ msgstr "Indique un nombre de archivo para el proyecto nuevo de Kexi:"
-
-#~ msgid "Select Project's Location"
-#~ msgstr "Elija la ubicación del proyecto"
-
-#~ msgid "Select server connection for a new project."
-#~ msgstr "Seleccione la conexión del servidor para un proyecto nuevo."
-
-#~ msgid "&Create Project"
-#~ msgstr "&Crear proyecto"
-
-#~ msgid "Open &Existing Project"
-#~ msgstr "Abrir proyecto &existente"
-
-#~ msgid "Open &Recent Project"
-#~ msgstr "Abrir proyecto &reciente"
-
-#~ msgctxt "Application name as menu entry"
-#~ msgid "Kexi"
-#~ msgstr "Kexi"
-
-#~ msgid "Open Recent"
-#~ msgstr "Abrir uno reciente"
-
-#~ msgid "Quits Kexi application. Kexi prompts you to save changes."
-#~ msgstr ""
-#~ "Sale de la aplicación Kexi. Kexi le pregunta si guardar los cambios."
-
-#~ msgid "Lets you configure Kexi."
-#~ msgstr "Le permite configurar Kexi."
-
-#~ msgid "Recently Opened Databases"
-#~ msgstr "Bases de datos abiertas recientemente"
-
-#~ msgid "Recently Connected Database Servers"
-#~ msgstr "Servidores de bases de datos con conexiones recientes"
-
-#~ msgid "Edit List of Items"
-#~ msgstr "Editar lista de elementos"
-
-#~ msgid "Row:"
-#~ msgstr "Fila:"
-
-#~ msgid "Query"
-#~ msgstr "Consulta"
-
-#~ msgid "Specified part does not exist"
-#~ msgstr "La parte especificada no existe"
-
-#~ msgid "Open Object"
-#~ msgstr "Abrir objeto"
-
-#~ msgid "Close Object"
-#~ msgstr "Cerrar objeto"
-
-#~ msgid "Delete Object"
-#~ msgstr "Borrar el objeto"
-
-#, fuzzy
-#~| msgctxt "Tab (HINT: for Focus)"
-#~| msgid "Tab"
-#~ msgid "Tab %1"
-#~ msgstr "Pestaña"
-
-#, fuzzy
-#~| msgctxt "Tab (HINT: for Focus)"
-#~| msgid "Tab"
-#~ msgctxt "Tab widget's tab"
-#~ msgid "Tab"
-#~ msgstr "Pestaña"
-
-#~ msgid "Command Button"
-#~ msgstr "Botón para órdenes"
