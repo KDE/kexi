@@ -672,10 +672,10 @@ msgid ""
 "project is opened using a shortcut file. Default user name is the same as "
 "the current login (<resource>%1</resource>)."
 msgstr ""
-"Nom del servidor (amfitrió) que es farà servir per a connectar amb un "
-"projecte de base de dades. S'ignora si s'hi posa una drecera cap a un nom de "
-"fitxer. El nom d'usuari predeterminat és el mateix que l'inici de sessió "
-"actual (<resource>%1</resource>)."
+"Nom del servidor que s'utilitzarà per a connectar amb un projecte de base de "
+"dades. S'ignora si s'hi posa una drecera cap a un nom de fitxer. El nom "
+"d'usuari predeterminat és el mateix que l'inici de sessió actual (<resource>"
+"%1</resource>)."
 
 #: core/KexiCommandLineOptions.cpp:154
 #, kde-kuit-format
@@ -685,9 +685,9 @@ msgid ""
 "project. Ignored if the project is opened using a shortcut file. Default "
 "host is the local computer."
 msgstr ""
-"Nom del servidor (amfitrió) que es farà servir per a connectar amb un "
-"projecte de base de dades. S'ignora si s'hi posa una drecera cap a un nom de "
-"fitxer. L'amfitrió predeterminat és l'ordinador local."
+"Nom del servidor que s'utilitzarà per a connectar amb un projecte de base de "
+"dades. S'ignora si s'hi posa una drecera cap a un nom de fitxer. L'amfitrió "
+"predeterminat és l'ordinador local."
 
 #: core/KexiCommandLineOptions.cpp:160
 #, kde-kuit-format
@@ -697,10 +697,10 @@ msgid ""
 "project. Ignored if the project is opened using a shortcut file. Defaults "
 "depend on the used server type (e.g. %1, %2)."
 msgstr ""
-"Número de port del servidor que es farà servir per a connectar amb un "
-"projecte de base de dades. S'ignora si s'hi posa una drecera cap a un nom de "
-"fitxer. De manera predeterminada, depén del tipus de servidor emprat (p. "
-"ex., %1, %2)."
+"Número de port del servidor que s'utilitzarà per a connectar amb un projecte "
+"de base de dades. S'ignora si s'hi posa una drecera cap a un nom de fitxer. "
+"De manera predeterminada, depén del tipus de servidor emprat (p. ex., %1, "
+"%2)."
 
 #: core/KexiCommandLineOptions.cpp:167
 #, kde-kuit-format
@@ -710,7 +710,7 @@ msgid ""
 "project. Ignored if the project is opened using a shortcut file. Defaults "
 "depend on the used server type (e.g. %1, %2)."
 msgstr ""
-"Nom del fitxer del sòcol de l'ordinador local que es farà servir per a "
+"Nom del fitxer del sòcol de l'ordinador local que s'utilitzarà per a "
 "connectar amb un projecte de base de dades. S'ignora si el projecte s'obri "
 "utilitzant un fitxer de drecera. De manera predeterminada, depén del tipus "
 "de servidor emprat (p. ex., %1, %2)."
@@ -1275,7 +1275,7 @@ msgstr ""
 #: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2749
 #, kde-kuit-format
 msgid "Switching to other view failed (%1)."
-msgstr "La commutació a una altra vista ha fallat (%1)."
+msgstr "El canvi a una altra vista ha fallat (%1)."
 
 #: core/KexiWindow.cpp:688
 #, kde-kuit-format
@@ -2113,32 +2113,32 @@ msgstr "Tanca la vista"
 msgid ""
 "&Select action to be executed after clicking <resource>%1</resource> button:"
 msgstr ""
-"&Selecciona l'acció que s'ha d'executar després de clicar el botó <resource>"
-"%1</resource>:"
+"&Selecciona l'acció que s'ha d'executar després de clicar damunt del botó "
+"<resource>%1</resource>:"
 
 #: formeditor/kexiactionselectiondialog.cpp:376
 #, kde-kuit-format
 msgid ""
 "&Select macro to be executed after clicking <resource>%1</resource> button:"
 msgstr ""
-"&Selecciona la macro que s'ha d'executar després de clicar el botó <resource>"
-"%1</resource>:"
+"&Selecciona la macro que s'ha d'executar després de clicar damunt del botó "
+"<resource>%1</resource>:"
 
 #: formeditor/kexiactionselectiondialog.cpp:379
 #, kde-kuit-format
 msgid ""
 "&Select script to be executed after clicking <resource>%1</resource> button:"
 msgstr ""
-"&Selecciona l'script que s'ha d'executar després de clicar el botó <resource>"
-"%1</resource>:"
+"&Selecciona l'script que s'ha d'executar després de clicar damunt del botó "
+"<resource>%1</resource>:"
 
 #: formeditor/kexiactionselectiondialog.cpp:382
 #, kde-kuit-format
 msgid ""
 "&Select object to be opened after clicking <resource>%1</resource> button:"
 msgstr ""
-"&Selecciona l'objecte que s'ha d'obrir després de clicar el botó <resource>"
-"%1</resource>:"
+"&Selecciona l'objecte que s'ha d'obrir després de clicar damunt del botó "
+"<resource>%1</resource>:"
 
 #: formeditor/kexiactionselectiondialog.cpp:436
 #, kde-kuit-format
@@ -3343,8 +3343,8 @@ msgid ""
 "interface>, you will not be able to undo the deletion.</note></para>"
 msgstr ""
 "<para>Voleu suprimir permanentment l'objecte següent?<nl/><nl/>%1 <resource>"
-"%2</resource></para><para><note>Si cliqueu <interface>Suprimix</interface>, "
-"no podreu desfer l'acció.</note></para>"
+"%2</resource></para><para><note>Si cliqueu damunt <interface>Suprimix</"
+"interface>, no podreu desfer l'acció.</note></para>"
 
 #: main/KexiMainWindow.cpp:3468
 #, kde-kuit-format
@@ -3569,7 +3569,7 @@ msgstr "Busca"
 #: main/startup/KexiAssistantMessageHandler.cpp:73
 #, kde-kuit-format
 msgid "Try Again"
-msgstr "Torna-ho a intentar"
+msgstr "Torneu-ho a provar"
 
 #: main/startup/KexiNewProjectAssistant.cpp:75
 #, kde-kuit-format
@@ -3625,8 +3625,7 @@ msgstr "Mètode d'emmagatzematge"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Select a storage method which will be used to store the new project."
-msgstr ""
-"Escolliu el mètode d'emmagatzematge que s'utilitzarà per al projecte nou."
+msgstr "Trieu el mètode d'emmagatzematge que s'utilitzarà per al projecte nou."
 
 #: main/startup/KexiNewProjectAssistant.cpp:196
 #, kde-kuit-format
@@ -3831,9 +3830,9 @@ msgid ""
 "para><para>Here you may also add, edit or delete connections from the list.</"
 "para>"
 msgstr ""
-"<para>Escolliu la connexió amb el servidor de base de dades amb el projecte "
-"que voleu obrir.</para><para>També podeu afegir, editar o suprimir "
-"connexions de la llista.</para>"
+"<para>Trieu la connexió del servidor de base de dades amb el projecte que "
+"voleu obrir.</para><para>També podeu afegir, editar o suprimir connexions de "
+"la llista.</para>"
 
 #: main/startup/KexiOpenProjectAssistant.cpp:148
 #, kde-kuit-format
@@ -4285,7 +4284,7 @@ msgid ""
 "Contact'>https://community.kde.org/Kexi/Contact</link> for more information."
 "</para><para>Thanks for your support!</para>"
 msgstr ""
-"<title>Kexi pot ser totalment gratuït, però el seu desenvolupament té un "
+"<title>Kexi pot ser totalment debades, però el seu desenvolupament té un "
 "cost.</title><para>Llum, maquinari, espai d'oficina, accés a Internet, "
 "viatges per reunions - tot té un preu.</para><para>La donació directa és la "
 "manera més senzilla i ràpida d'ajudar eficientment al projecte Kexi. Tothom, "
@@ -4397,8 +4396,8 @@ msgid ""
 "interface> button to exit this assistant.</para>"
 msgstr ""
 "<para>L'assistent d'importació de taules us permet importar una taula d'una "
-"base de dades existent en el projecte actual de Kexi.</para><para>Cliqueu en "
-"el botó <interface>Següent</interface> per a continuar o el botó "
+"base de dades existent en el projecte actual de Kexi.</para><para>Cliqueu "
+"damunt del botó <interface>Següent</interface> per a continuar o el botó "
 "<interface>Cancel·la</interface> per eixir d'este assistent.</para>"
 
 #: migration/importtablewizard.cpp:175
@@ -4486,7 +4485,7 @@ msgid ""
 "para><para><note>Depending on size of the table this may take some time.</"
 "note></para>"
 msgstr ""
-"<para>S'ha arreplegat tota la informació necessària. Cliqueu en el botó "
+"<para>S'ha arreplegat tota la informació necessària. Cliqueu damunt del botó "
 "<interface>Següent</interface> per a començar la importació de la taula "
 "<resource>%1</resource>.</para><para><note>Depenent de la mida de la base de "
 "dades, pot tardar algun temps.</note></para>"
@@ -4581,8 +4580,8 @@ msgid ""
 "<para>Click <interface>Next</interface> button to continue or "
 "<interface>Cancel</interface> button to exit this assistant.</para>"
 msgstr ""
-"<para>Feu clic en el botó <interface>Següent</interface> per a continuar o "
-"<interface>Cancel·la</interface> per a eixir d'este assistent.</para>"
+"<para>Cliqueu damunt del botó <interface>Següent</interface> per a continuar "
+"o <interface>Cancel·la</interface> per a eixir d'este assistent.</para>"
 
 #: migration/importwizard.cpp:275
 #, kde-kuit-format
@@ -4673,7 +4672,7 @@ msgid ""
 "issues.</para>"
 msgstr ""
 "<para>S'han trobat els problemes següents amb les dades introduïdes:</para>"
-"%1<para>Per favor, cliqueu en el botó <interface>Arrere</interface> i "
+"%1<para>Per favor, cliqueu damunt del botó <interface>Arrere</interface> i "
 "corregiu estos problemes.</para>"
 
 #: migration/importwizard.cpp:629
@@ -4684,7 +4683,7 @@ msgid ""
 "interface> button to start importing.</para><para><note>Depending on size of "
 "the database this may take some time.</note></para>"
 msgstr ""
-"<para>S'ha arreplegat tota la informació necessària. Cliqueu en el botó "
+"<para>S'ha arreplegat tota la informació necessària. Cliqueu damunt del botó "
 "<interface>Següent</interface> per a començar la importació.</"
 "para><para><note>Depenent de la mida de la base de dades, pot tardar algun "
 "temps.</note></para>"
@@ -4713,8 +4712,8 @@ msgid ""
 "<interface>Back</interface> button and try again.</para>"
 msgstr ""
 "<para>Ha fallat la importació.</para><para>%1</para><para>%2</"
-"para><para>Podeu clicar el botó <interface>Arrere</interface> i provar de "
-"nou.</para>"
+"para><para>Podeu clicar damunt del botó <interface>Arrere</interface> i "
+"provar de nou.</para>"
 
 #: migration/importwizard.cpp:951
 #, kde-kuit-format
@@ -6370,7 +6369,7 @@ msgstr "No hi ha cap connexió a bases de dades disponible."
 #: widget/KexiNameDialog.cpp:173
 #, kde-kuit-format
 msgid "Please choose other name."
-msgstr "Escolliu un altre nom."
+msgstr "Trieu un altre nom."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:502
 #, kde-kuit-format
@@ -6439,7 +6438,7 @@ msgstr "Taula &existent"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:716
 #, kde-kuit-format
 msgid "Choose Destination for Imported Data"
-msgstr "Escolliu la destinació per a les dades importades"
+msgstr "Trieu la destinació per a les dades importades"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:738
 #, kde-kuit-format
@@ -7812,7 +7811,7 @@ msgid ""
 "<para>Do you want to create primary key for current field? Click "
 "<interface>Cancel</interface> to cancel setting autonumber.</para>"
 msgstr ""
-"<para>Voleu crear la clau primària per al camp actual? Cliqueu "
+"<para>Voleu crear la clau primària per al camp actual? Cliqueu damunt "
 "<interface>Cancel·la</interface> per a cancel·lar la configuració de "
 "numeració automàtica.</para>"
 

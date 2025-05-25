@@ -1,17 +1,17 @@
 # Spanish translations for keximigrate_mdb.po package.
-# Copyright (C) 2016 This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-#
+# Copyright (C) 2016-2025 This file is copyright:
+# This file is distributed under the same license as the kexi package.
 # Automatically generated, 2016.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2016.
-# Sofia Priego <spriego@darksylvania.net>, 2016.
+#
+# SPDX-FileCopyrightText: 2016, 2025 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2016, 2025 Sofía Priego <spriego@darksylvania.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: keximigrate_mdb\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2019-08-30 07:37+0200\n"
-"PO-Revision-Date: 2016-11-22 21:58+0100\n"
-"Last-Translator: Sofia Priego <spriego@darksylvania.net>\n"
+"PO-Revision-Date: 2025-05-24 18:56+0100\n"
+"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -31,13 +31,3 @@ msgstr ""
 #, kde-kuit-format
 msgid "Source Database Non-Unicode Character Encoding"
 msgstr "Codificación de caracteres no Unicode de la base de datos de origen"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Character Encoding of Source Database Is Not of Unicode Standard"
-#~ msgstr ""
-#~ "La codificación de caracteres de la base de datos de origen no es Unicode "
-#~ "estándar"
-
-#~ msgctxt "(qtundo-format)"
-#~ msgid "Source Database Non-Unicode Character Encoding"
-#~ msgstr "Codificación de caracteres no Unicode de la base de datos de origen"
