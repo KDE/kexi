@@ -250,7 +250,7 @@
 ><guimenu
 >Kexi</guimenu
 ><guimenuitem
->Nuevo... (Ctrl+N)</guimenuitem
+>Nuevo… (Ctrl+N)</guimenuitem
 ></menuchoice
 >.</para
 ></listitem>
@@ -385,7 +385,7 @@
 ></term>
     <listitem>
     <para
->Contiene la lista de todos los objetos (tablas, consultas, formularios, ...) creados en el proyecto de base de datos que está abierto en ese momento. El navegador también contiene una pequeña barra de herramientas con las órdenes más utilizadas relacionadas con los objetos de la base de datos.</para>
+>Contiene la lista de todos los objetos (tablas, consultas, formularios, …) creados en el proyecto de base de datos que está abierto en ese momento. El navegador también contiene una pequeña barra de herramientas con las órdenes más utilizadas relacionadas con los objetos de la base de datos.</para>
      </listitem>
   </varlistentry>
   <varlistentry
@@ -667,7 +667,7 @@
 <listitem
 ><para
 >Si el proyecto no se encuentra en la página con los proyectos recientemente utilizados, seleccione <guibutton
->Abrir...</guibutton
+>Abrir…</guibutton
 > (<keycombo action="simul"
 >&Ctrl;<keycap
 >O</keycap
@@ -1015,7 +1015,7 @@
 ><inlinemediaobject
 > <imageobject
 > <imagedata fileref="Icon-help-about-desaturated.png" format="PNG"/> </imageobject
-> </inlinemediaobject
+></inlinemediaobject
 > - Información adicional sobre el campo.</para
 ></listitem>
 <listitem
@@ -1941,7 +1941,7 @@
 <listitem
 ><para
 >Desde el menú contextual seleccione la orden <guilabel
->Asignar acción...</guilabel
+>Asignar acción…</guilabel
 >.</para
 ></listitem>
 <listitem
@@ -1988,7 +1988,7 @@
 <listitem
 ><para
 >Las acciones solo funcionan en la vista de datos del formulario. No cualquier asignación de acción es razonable. Por ejemplo, la acción <guilabel
->Tipo de letra...</guilabel
+>Tipo de letra…</guilabel
 > está disponible en la vista de datos, pero solo si se tiene un elemento gráfico seleccionado en la vista de diseño. Si se realizan cambios a las preferencias del tipo de letra, dichos cambios se aplican al texto del elemento gráfico seleccionado.</para
 ></listitem>
 </itemizedlist>
@@ -2730,7 +2730,7 @@
 ><term
 ><emphasis role="bold"
 ><guilabel
->Importar, exportar o enviar...</guilabel
+>Importar, exportar o enviar…</guilabel
 ></emphasis
 ></term>
     <listitem>
@@ -9447,6 +9447,6 @@
 >Traducción a partir de la versión 2.4 por Raúl González<email
 >raulgf83@gmail.com</email
 ></para
->  &underFDL; </chapter>
+> &underFDL; </chapter>
 &documentation.index;
 </book>
