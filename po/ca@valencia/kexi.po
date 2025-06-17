@@ -7692,7 +7692,7 @@ msgstr "S'han iniciat l'execució de l'script <resource>%1</resource>."
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:330
 #, no-c-format, kde-kuit-format
 msgid "Successfully executed. Time elapsed: %1ms"
-msgstr "S'ha executat correctament. Temps transcorregut: %1 ms"
+msgstr "S'ha executat correctament. Temps transcorregut: %1ms"
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:70
 #, kde-kuit-format
