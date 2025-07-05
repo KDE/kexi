@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2024-07-15 15:26+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -1554,9 +1554,11 @@ msgstr "Svislé zarovnání"
 msgid "Vertical Alignment"
 msgstr "Svislé zarovnání"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: formeditor/form_p.cpp:270 formeditor/form_p.cpp:271
 #: plugins/tables/kexitabledesignerview.cpp:323
-#, kde-kuit-format
+#: widget/KexiConnectionSelector.ui:94
+#, kde-format, kde-kuit-format
 msgid "Name"
 msgstr "Jméno"
 
@@ -2367,6 +2369,113 @@ msgstr "Najít v <resource>%1</resource>"
 #, kde-kuit-format
 msgid "The search item was not found"
 msgstr "Hledaná položka nebyla nalezena"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: main/kexifinddialog.ui:20
+#, kde-format
+msgctxt "Look in field:"
+msgid "&Look in:"
+msgstr "H&ledat v:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2)
+#: main/kexifinddialog.ui:36
+#, kde-format
+msgid "&Search:"
+msgstr "&Hledat:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_wholeWords)
+#: main/kexifinddialog.ui:55
+#, kde-format
+msgctxt "Match: Whole words only"
+msgid "&Whole words only"
+msgstr "Pouze &celá slova"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: main/kexifinddialog.ui:62
+#, kde-format
+msgid "Fi&nd:"
+msgstr "&Najít:"
+
+#. i18n: ectx: property (text), widget (QLabel, m_replaceLbl)
+#: main/kexifinddialog.ui:110
+#, kde-format
+msgctxt "Replace all occurrences with"
+msgid "Re&place with:"
+msgstr "Na&hradit za:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_promptOnReplace)
+#: main/kexifinddialog.ui:129
+#, kde-format
+msgid "Prompt on replace"
+msgstr "Potvrzovat nahrazení"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_3)
+#: main/kexifinddialog.ui:152
+#, kde-format
+msgid "&Match:"
+msgstr "&Souhlasí:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_caseSensitive)
+#: main/kexifinddialog.ui:171
+#, kde-format
+msgctxt "Match: Case sensitive"
+msgid "C&ase sensitive"
+msgstr "Rozlišov&at velikost"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
+#: main/kexifinddialog.ui:182
+#, kde-format
+msgctxt "Match: Any Part of Field"
+msgid "Any Part of Field"
+msgstr "Jakákoliv část pole"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
+#: main/kexifinddialog.ui:187
+#, kde-format
+msgctxt "Match: Whole Field"
+msgid "Whole Field"
+msgstr "Celé pole"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
+#: main/kexifinddialog.ui:192
+#, kde-format
+msgctxt "Match: Start of Field"
+msgid "Start of Field"
+msgstr "Počátek pole"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
+#: main/kexifinddialog.ui:204
+#, kde-format
+msgctxt "Search Up"
+msgid "Up"
+msgstr "Nahoru"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
+#: main/kexifinddialog.ui:209
+#, kde-format
+msgctxt "Search Down"
+msgid "Down"
+msgstr "Dolů"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
+#: main/kexifinddialog.ui:214
+#, kde-format
+msgctxt "Look In All Rows"
+msgid "All Rows"
+msgstr "Všechny řady"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_btnReplace)
+#: main/kexifinddialog.ui:264 widget/KexiNameDialog.cpp:182
+#, kde-format, kde-kuit-format
+msgid "&Replace"
+msgstr "Nah&radit"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_btnReplaceAll)
+#: main/kexifinddialog.ui:277
+#, kde-format
+msgctxt "Replace All Occurrences"
+msgid "Replace All"
+msgstr "Nahradit vše"
 
 #: main/KexiMainWindow.cpp:193
 #, kde-kuit-format
@@ -3496,6 +3605,28 @@ msgstr ""
 msgid "Delete and Create New"
 msgstr "Smazat a vytvořit nové"
 
+#. i18n: ectx: property (text), widget (QLabel, lbl)
+#: main/startup/KexiOpenExistingFile.ui:31
+#, kde-format
+msgid "<b>Select existing Kexi project file to open:</b>\n"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_advanced)
+#: main/startup/KexiOpenExistingFile.ui:89
+#, kde-format
+msgid "&Advanced "
+msgstr "&Pokročilé"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: main/startup/KexiOpenExistingFile.ui:104
+#, kde-format
+msgid ""
+"Click \"Advanced\" button if you want to find an existing project on a "
+"server rather than a file."
+msgstr ""
+"Pokud si přejete vyhledávat existující projekt na serveru a ne v souboru, "
+"klikněte na tlačítko \"Pokročilé\""
+
 #: main/startup/KexiOpenProjectAssistant.cpp:41
 #: widget/KexiProjectSelectorWidget.cpp:304
 #, kde-kuit-format
@@ -3551,6 +3682,32 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Database Password"
 msgstr "Heslo databáze"
+
+#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_file)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:31
+#, kde-format
+msgctxt "New Project Stored in File"
+msgid "File"
+msgstr "Soubor"
+
+#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_file)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:37
+#, kde-format
+msgid "New Project Stored in File"
+msgstr "Nový projekt uložený v souboru"
+
+#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_server)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:47
+#, kde-format
+msgctxt "New Project Stored on Database Server"
+msgid "Server"
+msgstr "Server"
+
+#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_server)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:53
+#, kde-format
+msgid "New Project Stored on Database Server"
+msgstr "Nový projekt uložený na databázovém serveru"
 
 #: main/startup/KexiRecentProjectsModel.cpp:70
 #, kde-kuit-format
@@ -3629,6 +3786,18 @@ msgstr "%1 databáze"
 #, kde-kuit-format
 msgid "Last opened on %1"
 msgstr "Naposledy otevřeno na %1"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: main/startup/KexiServerDBNamePage.ui:31
+#, kde-format
+msgid "Project caption:"
+msgstr "Titulek projektu:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: main/startup/KexiServerDBNamePage.ui:60
+#, kde-format
+msgid "Project's database name:"
+msgstr "Název databáze projektu:"
 
 #: main/startup/KexiStartup.cpp:248
 #, kde-format
@@ -3934,9 +4103,11 @@ msgstr "Ne nyní"
 msgid "Column %1"
 msgstr "Sloupec %1"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: migration/AlterSchemaWidget.cpp:52
 #: plugins/tables/kexitabledesignerview.cpp:326
-#, kde-kuit-format
+#: widget/KexiConnectionSelector.ui:99 widget/KexiProjectSelector.ui:96
+#, kde-format, kde-kuit-format
 msgid "Type"
 msgstr "Typ"
 
@@ -5037,8 +5208,10 @@ msgstr "Datum"
 msgid "Arrow Visible"
 msgstr ""
 
+#. i18n: ectx: property (title), widget (QGroupBox, descGroupBox)
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
-#, kde-kuit-format
+#: widget/KexiConnectionSelector.ui:118
+#, kde-format, kde-kuit-format
 msgid "Description"
 msgstr "Popis"
 
@@ -7610,6 +7783,42 @@ msgctxt "Text encoding: Default"
 msgid "Default: %1"
 msgstr "Výchozí: %1"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widget/KexiConnectionSelector.ui:50
+#, kde-format
+msgid ""
+"<title>Select Existing Database Server's Connection From the List Below</"
+"title>\n"
+"<para>You will see existing Kexi projects available for the selected "
+"connection. Here you may also add, edit or delete connections from the list."
+"</para>\n"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#: widget/KexiConnectionSelector.ui:104
+#, kde-format
+msgid "Server Information"
+msgstr "Informace o serveru"
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_add)
+#: widget/KexiConnectionSelector.ui:155
+#, kde-format
+msgid "&Add..."
+msgstr "Přid&at..."
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_edit)
+#: widget/KexiConnectionSelector.ui:168
+#, kde-format
+msgid "&Edit..."
+msgstr "&Upravit..."
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_remove)
+#: widget/KexiConnectionSelector.ui:181
+#: widget/navigator/KexiProjectNavigator.cpp:172
+#, kde-format, kde-kuit-format
+msgid "&Delete..."
+msgstr "&Smazat..."
+
 #: widget/KexiConnectionSelectorWidget.cpp:62
 #, kde-kuit-format
 msgid "Add a new database connection"
@@ -7683,6 +7892,18 @@ msgstr ""
 msgid "Define Query..."
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widget/KexiDBCaptionPage.ui:31
+#, kde-format
+msgid "Pro&ject caption: "
+msgstr "Titulek pro&jektu: "
+
+#. i18n: ectx: property (text), widget (QLabel, label_requester)
+#: widget/KexiDBCaptionPage.ui:63
+#, kde-format
+msgid "Project file&name:"
+msgstr "&Název souboru projektu:"
+
 #: widget/kexidbconnectionwidget.cpp:90
 #, kde-kuit-format
 msgid "Load database list from the server"
@@ -7735,8 +7956,11 @@ msgstr ""
 msgid "Database Connection"
 msgstr "Databázové spojení"
 
-#: widget/kexidbconnectionwidget.cpp:160
-#, kde-kuit-format
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)
+#: widget/kexidbconnectionwidget.cpp:160 widget/kexidbconnectionwidget.ui:168
+#: widget/KexiProjectSelector.ui:85
+#, kde-format, kde-kuit-format
 msgid "Database"
 msgstr "Databáze"
 
@@ -7775,6 +7999,116 @@ msgstr "&Otevřít"
 msgid "Open Database Connection"
 msgstr "Otevřít databázové spojení"
 
+#. i18n: ectx: property (title), widget (QGroupBox, authenticationGBox)
+#: widget/kexidbconnectionwidget.ui:90
+#, kde-format
+msgid "Authentication"
+msgstr "Ověření"
+
+#. i18n: ectx: property (text), widget (QLabel, userLbl)
+#: widget/kexidbconnectionwidget.ui:96
+#, kde-format
+msgid "&Username:"
+msgstr "&Uživatelské jméno:"
+
+#. i18n: ectx: property (text), widget (QLabel, passwordLbl)
+#: widget/kexidbconnectionwidget.ui:116
+#, kde-format
+msgid "&Password:"
+msgstr "H&eslo:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, chkSavePassword)
+#: widget/kexidbconnectionwidget.ui:137
+#, kde-format
+msgid ""
+"<html><head/><body><p>Saves password in a <span style=\" font-style:italic;"
+"\">.kexic</span> or <span style=\" font-style:italic;\">.kexis</span> "
+"connection shortcut file using a simple encryption similar to ROT-47. It "
+"does not guarantee security, but simply makes it difficult for anyone to "
+"read, so generally it is not safe to make such files publicly accessible.</"
+"p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkSavePassword)
+#: widget/kexidbconnectionwidget.ui:140
+#, kde-format
+msgid "Save password"
+msgstr "Uložit heslo"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: widget/kexidbconnectionwidget.ui:174
+#, kde-format
+msgid "&Name:"
+msgstr "&Jméno:"
+
+#. i18n: ectx: property (text), widget (QLabel, titleLabel)
+#: widget/kexidbconnectionwidget.ui:193
+#, kde-format
+msgid "&Caption (optional):"
+msgstr "&Záhlaví okna (nepovinné):"
+
+#. i18n: ectx: property (title), widget (QGroupBox, locationBGrp)
+#: widget/kexidbconnectionwidget.ui:289
+#, kde-format
+msgid "Database Server"
+msgstr "Databázový server"
+
+#. i18n: ectx: property (text), widget (QLabel, lblEngine)
+#: widget/kexidbconnectionwidget.ui:298
+#, kde-format
+msgid "&Engine:"
+msgstr "&Databáze:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, localhostRBtn)
+#: widget/kexidbconnectionwidget.ui:335
+#, kde-format
+msgid "Local server"
+msgstr "Lokální server"
+
+#. i18n: ectx: property (text), widget (QRadioButton, remotehostRBtn)
+#: widget/kexidbconnectionwidget.ui:348
+#, kde-format
+msgid "Remote server"
+msgstr "Vzdálený server"
+
+#. i18n: ectx: property (text), widget (QLabel, hostLbl)
+#: widget/kexidbconnectionwidget.ui:357
+#, kde-format
+msgid "&Hostname:"
+msgstr "&Název počítače:"
+
+#. i18n: ectx: property (text), widget (QLabel, portLbl)
+#: widget/kexidbconnectionwidget.ui:383
+#, kde-format
+msgid "Port:"
+msgstr "Port:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkPortDefault)
+#: widget/kexidbconnectionwidget.ui:424
+#, kde-format
+msgctxt "port: default"
+msgid "Default"
+msgstr "Výchozí"
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkUseSocket)
+#: widget/kexidbconnectionwidgetdetails.ui:34
+#, kde-format
+msgid "Use socket &file instead of TCP/IP port:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkSocketDefault)
+#: widget/kexidbconnectionwidgetdetails.ui:80
+#, kde-format
+msgctxt "socket: default"
+msgid "Default"
+msgstr "Výchozí"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: widget/kexidbconnectionwidgetdetails.ui:140
+#, kde-format
+msgid "&Description:"
+msgstr "&Popis"
+
 #: widget/KexiDBPasswordDialog.cpp:58
 #, kde-kuit-format
 msgctxt "@title:window"
@@ -7792,8 +8126,9 @@ msgstr ""
 msgid "&Details >>"
 msgstr "Po&drobnosti >>"
 
-#: widget/KexiDBPasswordDialog.cpp:81
-#, kde-kuit-format
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: widget/KexiDBPasswordDialog.cpp:81 widget/KexiPasswordWidget.ui:138
+#, kde-format, kde-kuit-format
 msgid "Database server:"
 msgstr "Databázový server:"
 
@@ -7872,11 +8207,6 @@ msgstr "Soubor <filename>%1</filename> nelze číst."
 msgid "Do you want to replace it?"
 msgstr "Opravdu si jej přejete nahradit?"
 
-#: widget/KexiNameDialog.cpp:182
-#, kde-kuit-format
-msgid "&Replace"
-msgstr "Nah&radit"
-
 #: widget/KexiNameDialog.cpp:183
 #, kde-kuit-format
 msgid "Replace object"
@@ -7908,6 +8238,74 @@ msgstr "Prosím, zadejte nadpis."
 msgctxt "Object class \"objectName\", e.g. Text editor \"text\""
 msgid "%1 <resource>%2</resource>"
 msgstr "%1 <resource>%2</resource>"
+
+#. i18n: ectx: property (text), widget (QLabel, prompt)
+#: widget/KexiPasswordWidget.ui:49
+#, kde-format
+msgid "Supply a password below."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, userNameLabel)
+#: widget/KexiPasswordWidget.ui:87
+#, kde-format
+msgid "Username:"
+msgstr "Uživatelské jméno:"
+
+#. i18n: ectx: property (text), widget (QLabel, anonymousLabel)
+#: widget/KexiPasswordWidget.ui:104
+#, kde-format
+msgid "Anonymous:"
+msgstr "Anonymní:"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: widget/KexiPasswordWidget.ui:121
+#, kde-format
+msgid "Database name:"
+msgstr "Název databáze:"
+
+#. i18n: ectx: property (text), widget (QLabel, passwordLabel)
+#: widget/KexiPasswordWidget.ui:155
+#, kde-format
+msgid "Password:"
+msgstr "Heslo:"
+
+#. i18n: ectx: property (text), widget (QLabel, keepCheckBoxLabel)
+#: widget/KexiPasswordWidget.ui:185
+#, kde-format
+msgid "Remember password:"
+msgstr "Zapamatovat heslo:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, option_file)
+#: widget/kexiprjtypeselector.ui:51
+#, kde-format
+msgid "Projects stored in a file"
+msgstr "Projekt uložené v souboru"
+
+#. i18n: ectx: property (text), widget (QRadioButton, option_server)
+#: widget/kexiprjtypeselector.ui:86
+#, kde-format
+msgid "Projects stored on a database server"
+msgstr "Projekty uložené na databázovém serveru"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widget/KexiProjectSelector.ui:33
+#, kde-format
+msgid ""
+"<b>There are Kexi projects you have recently opened.</b> Select one you wish "
+"to open:\n"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#: widget/KexiProjectSelector.ui:74
+#, kde-format
+msgid "Project Name"
+msgstr "Jméno projektu"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#: widget/KexiProjectSelector.ui:107
+#, kde-format
+msgid "Connection"
+msgstr "Připojení"
 
 #: widget/KexiProjectSelectorWidget.cpp:94
 #, kde-kuit-format
@@ -7981,11 +8379,6 @@ msgstr "Otevřít objekt"
 #, kde-kuit-format
 msgid "Opens object selected in the list."
 msgstr ""
-
-#: widget/navigator/KexiProjectNavigator.cpp:172
-#, kde-kuit-format
-msgid "&Delete..."
-msgstr "&Smazat..."
 
 #: widget/navigator/KexiProjectNavigator.cpp:173
 #, kde-kuit-format
@@ -8386,178 +8779,3 @@ msgstr ""
 #, kde-kuit-format
 msgid "Moves cursor to new record and allows inserting."
 msgstr ""
-
-#~ msgctxt "Look in field:"
-#~ msgid "&Look in:"
-#~ msgstr "H&ledat v:"
-
-#~ msgid "&Search:"
-#~ msgstr "&Hledat:"
-
-#~ msgctxt "Match: Whole words only"
-#~ msgid "&Whole words only"
-#~ msgstr "Pouze &celá slova"
-
-#~ msgid "Fi&nd:"
-#~ msgstr "&Najít:"
-
-#~ msgctxt "Replace all occurrences with"
-#~ msgid "Re&place with:"
-#~ msgstr "Na&hradit za:"
-
-#~ msgid "Prompt on replace"
-#~ msgstr "Potvrzovat nahrazení"
-
-#~ msgid "&Match:"
-#~ msgstr "&Souhlasí:"
-
-#~ msgctxt "Match: Case sensitive"
-#~ msgid "C&ase sensitive"
-#~ msgstr "Rozlišov&at velikost"
-
-#~ msgctxt "Match: Any Part of Field"
-#~ msgid "Any Part of Field"
-#~ msgstr "Jakákoliv část pole"
-
-#~ msgctxt "Match: Whole Field"
-#~ msgid "Whole Field"
-#~ msgstr "Celé pole"
-
-#~ msgctxt "Match: Start of Field"
-#~ msgid "Start of Field"
-#~ msgstr "Počátek pole"
-
-#~ msgctxt "Search Up"
-#~ msgid "Up"
-#~ msgstr "Nahoru"
-
-#~ msgctxt "Search Down"
-#~ msgid "Down"
-#~ msgstr "Dolů"
-
-#~ msgctxt "Look In All Rows"
-#~ msgid "All Rows"
-#~ msgstr "Všechny řady"
-
-#~ msgctxt "Replace All Occurrences"
-#~ msgid "Replace All"
-#~ msgstr "Nahradit vše"
-
-#~ msgid "&Advanced "
-#~ msgstr "&Pokročilé"
-
-#~ msgid ""
-#~ "Click \"Advanced\" button if you want to find an existing project on a "
-#~ "server rather than a file."
-#~ msgstr ""
-#~ "Pokud si přejete vyhledávat existující projekt na serveru a ne v souboru, "
-#~ "klikněte na tlačítko \"Pokročilé\""
-
-#~ msgctxt "New Project Stored in File"
-#~ msgid "File"
-#~ msgstr "Soubor"
-
-#~ msgid "New Project Stored in File"
-#~ msgstr "Nový projekt uložený v souboru"
-
-#~ msgctxt "New Project Stored on Database Server"
-#~ msgid "Server"
-#~ msgstr "Server"
-
-#~ msgid "New Project Stored on Database Server"
-#~ msgstr "Nový projekt uložený na databázovém serveru"
-
-#~ msgid "Project caption:"
-#~ msgstr "Titulek projektu:"
-
-#~ msgid "Project's database name:"
-#~ msgstr "Název databáze projektu:"
-
-#~ msgid "Server Information"
-#~ msgstr "Informace o serveru"
-
-#~ msgid "&Add..."
-#~ msgstr "Přid&at..."
-
-#~ msgid "&Edit..."
-#~ msgstr "&Upravit..."
-
-#~ msgid "Pro&ject caption: "
-#~ msgstr "Titulek pro&jektu: "
-
-#~ msgid "Project file&name:"
-#~ msgstr "&Název souboru projektu:"
-
-#~ msgid "Authentication"
-#~ msgstr "Ověření"
-
-#~ msgid "&Username:"
-#~ msgstr "&Uživatelské jméno:"
-
-#~ msgid "&Password:"
-#~ msgstr "H&eslo:"
-
-#~ msgid "Save password"
-#~ msgstr "Uložit heslo"
-
-#~ msgid "&Name:"
-#~ msgstr "&Jméno:"
-
-#~ msgid "&Caption (optional):"
-#~ msgstr "&Záhlaví okna (nepovinné):"
-
-#~ msgid "Database Server"
-#~ msgstr "Databázový server"
-
-#~ msgid "&Engine:"
-#~ msgstr "&Databáze:"
-
-#~ msgid "Local server"
-#~ msgstr "Lokální server"
-
-#~ msgid "Remote server"
-#~ msgstr "Vzdálený server"
-
-#~ msgid "&Hostname:"
-#~ msgstr "&Název počítače:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgctxt "port: default"
-#~ msgid "Default"
-#~ msgstr "Výchozí"
-
-#~ msgctxt "socket: default"
-#~ msgid "Default"
-#~ msgstr "Výchozí"
-
-#~ msgid "&Description:"
-#~ msgstr "&Popis"
-
-#~ msgid "Username:"
-#~ msgstr "Uživatelské jméno:"
-
-#~ msgid "Anonymous:"
-#~ msgstr "Anonymní:"
-
-#~ msgid "Database name:"
-#~ msgstr "Název databáze:"
-
-#~ msgid "Password:"
-#~ msgstr "Heslo:"
-
-#~ msgid "Remember password:"
-#~ msgstr "Zapamatovat heslo:"
-
-#~ msgid "Projects stored in a file"
-#~ msgstr "Projekt uložené v souboru"
-
-#~ msgid "Projects stored on a database server"
-#~ msgstr "Projekty uložené na databázovém serveru"
-
-#~ msgid "Project Name"
-#~ msgstr "Jméno projektu"
-
-#~ msgid "Connection"
-#~ msgstr "Připojení"

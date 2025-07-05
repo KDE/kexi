@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2009-04-22 00:15+0530\n"
 "Last-Translator: Sangeeta Kumari <sangeeta09@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -1560,9 +1560,11 @@ msgstr ""
 msgid "Vertical Alignment"
 msgstr "लंबबत पंक्तिबद्धता"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: formeditor/form_p.cpp:270 formeditor/form_p.cpp:271
 #: plugins/tables/kexitabledesignerview.cpp:323
-#, kde-kuit-format
+#: widget/KexiConnectionSelector.ui:94
+#, kde-format, kde-kuit-format
 msgid "Name"
 msgstr "नाम"
 
@@ -2435,6 +2437,122 @@ msgstr ""
 #, kde-kuit-format
 msgid "The search item was not found"
 msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: main/kexifinddialog.ui:20
+#, fuzzy, kde-format
+#| msgid "&Look in:"
+msgctxt "Look in field:"
+msgid "&Look in:"
+msgstr "एकरामे देखू (&L):"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2)
+#: main/kexifinddialog.ui:36
+#, kde-format
+msgid "&Search:"
+msgstr "खोजू (&S):"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_wholeWords)
+#: main/kexifinddialog.ui:55
+#, fuzzy, kde-format
+#| msgid "&Whole words only"
+msgctxt "Match: Whole words only"
+msgid "&Whole words only"
+msgstr "केवल संपूर्ण अक्षर (&W)"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: main/kexifinddialog.ui:62
+#, kde-format
+msgid "Fi&nd:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, m_replaceLbl)
+#: main/kexifinddialog.ui:110
+#, fuzzy, kde-format
+#| msgid "Replace"
+msgctxt "Replace all occurrences with"
+msgid "Re&place with:"
+msgstr "बदलू"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_promptOnReplace)
+#: main/kexifinddialog.ui:129
+#, kde-format
+msgid "Prompt on replace"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_3)
+#: main/kexifinddialog.ui:152
+#, kde-format
+msgid "&Match:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_caseSensitive)
+#: main/kexifinddialog.ui:171
+#, fuzzy, kde-format
+#| msgid "C&ase sensitive"
+msgctxt "Match: Case sensitive"
+msgid "C&ase sensitive"
+msgstr "केस सेंसिटिव (&a)"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
+#: main/kexifinddialog.ui:182
+#, kde-format
+msgctxt "Match: Any Part of Field"
+msgid "Any Part of Field"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
+#: main/kexifinddialog.ui:187
+#, fuzzy, kde-format
+#| msgid "Field"
+msgctxt "Match: Whole Field"
+msgid "Whole Field"
+msgstr "क्षेत्र"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
+#: main/kexifinddialog.ui:192
+#, kde-format
+msgctxt "Match: Start of Field"
+msgid "Start of Field"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
+#: main/kexifinddialog.ui:204
+#, fuzzy, kde-format
+#| msgid "Up"
+msgctxt "Search Up"
+msgid "Up"
+msgstr "उप्पर"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
+#: main/kexifinddialog.ui:209
+#, fuzzy, kde-format
+#| msgid "Down"
+msgctxt "Search Down"
+msgid "Down"
+msgstr "नीच्चाँ"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
+#: main/kexifinddialog.ui:214
+#, fuzzy, kde-format
+#| msgid "Rows"
+msgctxt "Look In All Rows"
+msgid "All Rows"
+msgstr "पंक्ति"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_btnReplace)
+#: main/kexifinddialog.ui:264 widget/KexiNameDialog.cpp:182
+#, kde-format, kde-kuit-format
+msgid "&Replace"
+msgstr "बदलू (R)"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_btnReplaceAll)
+#: main/kexifinddialog.ui:277
+#, fuzzy, kde-format
+#| msgid "Replace All"
+msgctxt "Replace All Occurrences"
+msgid "Replace All"
+msgstr "सबहि बदलू"
 
 #: main/KexiMainWindow.cpp:193
 #, fuzzy, kde-kuit-format
@@ -3598,6 +3716,27 @@ msgstr ""
 msgid "Delete and Create New"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QLabel, lbl)
+#: main/startup/KexiOpenExistingFile.ui:31
+#, kde-format
+msgid "<b>Select existing Kexi project file to open:</b>\n"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_advanced)
+#: main/startup/KexiOpenExistingFile.ui:89
+#, fuzzy, kde-format
+#| msgid "Advanced Options"
+msgid "&Advanced "
+msgstr "उन्नत विकल्प"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: main/startup/KexiOpenExistingFile.ui:104
+#, kde-format
+msgid ""
+"Click \"Advanced\" button if you want to find an existing project on a "
+"server rather than a file."
+msgstr ""
+
 #: main/startup/KexiOpenProjectAssistant.cpp:41
 #: widget/KexiProjectSelectorWidget.cpp:304
 #, fuzzy, kde-kuit-format
@@ -3656,6 +3795,35 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Database Password"
 msgstr "डाटाबेस"
+
+#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_file)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:31
+#, fuzzy, kde-format
+#| msgid "File"
+msgctxt "New Project Stored in File"
+msgid "File"
+msgstr "फाइल"
+
+#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_file)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:37
+#, fuzzy, kde-format
+#| msgid "Project Properties"
+msgid "New Project Stored in File"
+msgstr "प्रोजेक्ट गुण"
+
+#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_server)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:47
+#, kde-format
+msgctxt "New Project Stored on Database Server"
+msgid "Server"
+msgstr ""
+
+#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_server)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:53
+#, fuzzy, kde-format
+#| msgid "Project Properties"
+msgid "New Project Stored on Database Server"
+msgstr "प्रोजेक्ट गुण"
 
 #: main/startup/KexiRecentProjectsModel.cpp:70
 #, kde-kuit-format
@@ -3732,6 +3900,20 @@ msgstr "डाटाबेस"
 #, kde-kuit-format
 msgid "Last opened on %1"
 msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: main/startup/KexiServerDBNamePage.ui:31
+#, fuzzy, kde-format
+#| msgid "Project Properties"
+msgid "Project caption:"
+msgstr "प्रोजेक्ट गुण"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: main/startup/KexiServerDBNamePage.ui:60
+#, fuzzy, kde-format
+#| msgid "Database"
+msgid "Project's database name:"
+msgstr "डाटाबेस"
 
 #: main/startup/KexiStartup.cpp:248
 #, fuzzy, kde-format
@@ -4042,9 +4224,11 @@ msgstr ""
 msgid "Column %1"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: migration/AlterSchemaWidget.cpp:52
 #: plugins/tables/kexitabledesignerview.cpp:326
-#, kde-kuit-format
+#: widget/KexiConnectionSelector.ui:99 widget/KexiProjectSelector.ui:96
+#, kde-format, kde-kuit-format
 msgid "Type"
 msgstr "प्रकार"
 
@@ -5212,8 +5396,10 @@ msgstr "दिनांक"
 msgid "Arrow Visible"
 msgstr "दृष्टिगोचर"
 
+#. i18n: ectx: property (title), widget (QGroupBox, descGroupBox)
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
-#, kde-kuit-format
+#: widget/KexiConnectionSelector.ui:118
+#, kde-format, kde-kuit-format
 msgid "Description"
 msgstr "विवरण"
 
@@ -7931,6 +8117,43 @@ msgctxt "Text encoding: Default"
 msgid "Default: %1"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widget/KexiConnectionSelector.ui:50
+#, kde-format
+msgid ""
+"<title>Select Existing Database Server's Connection From the List Below</"
+"title>\n"
+"<para>You will see existing Kexi projects available for the selected "
+"connection. Here you may also add, edit or delete connections from the list."
+"</para>\n"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#: widget/KexiConnectionSelector.ui:104
+#, kde-format
+msgid "Server Information"
+msgstr "सर्वरक सूचना"
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_add)
+#: widget/KexiConnectionSelector.ui:155
+#, kde-format
+msgid "&Add..."
+msgstr "जोड़ू (&A)..."
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_edit)
+#: widget/KexiConnectionSelector.ui:168
+#, kde-format
+msgid "&Edit..."
+msgstr "संपादित करु (&E)..."
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_remove)
+#: widget/KexiConnectionSelector.ui:181
+#: widget/navigator/KexiProjectNavigator.cpp:172
+#, fuzzy, kde-format, kde-kuit-format
+#| msgid "&Delete"
+msgid "&Delete..."
+msgstr "मेटाबू (&D)"
+
 #: widget/KexiConnectionSelectorWidget.cpp:62
 #, kde-kuit-format
 msgid "Add a new database connection"
@@ -8009,6 +8232,20 @@ msgstr ""
 msgid "Define Query..."
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widget/KexiDBCaptionPage.ui:31
+#, fuzzy, kde-format
+#| msgid "Project Properties"
+msgid "Pro&ject caption: "
+msgstr "प्रोजेक्ट गुण"
+
+#. i18n: ectx: property (text), widget (QLabel, label_requester)
+#: widget/KexiDBCaptionPage.ui:63
+#, fuzzy, kde-format
+#| msgid "Project Properties"
+msgid "Project file&name:"
+msgstr "प्रोजेक्ट गुण"
+
 #: widget/kexidbconnectionwidget.cpp:90
 #, kde-kuit-format
 msgid "Load database list from the server"
@@ -8063,8 +8300,11 @@ msgstr ""
 msgid "Database Connection"
 msgstr ""
 
-#: widget/kexidbconnectionwidget.cpp:160
-#, kde-kuit-format
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)
+#: widget/kexidbconnectionwidget.cpp:160 widget/kexidbconnectionwidget.ui:168
+#: widget/KexiProjectSelector.ui:85
+#, kde-format, kde-kuit-format
 msgid "Database"
 msgstr "डाटाबेस"
 
@@ -8106,6 +8346,121 @@ msgstr "खोलू (&O)"
 msgid "Open Database Connection"
 msgstr ""
 
+#. i18n: ectx: property (title), widget (QGroupBox, authenticationGBox)
+#: widget/kexidbconnectionwidget.ui:90
+#, kde-format
+msgid "Authentication"
+msgstr "सत्यापन"
+
+#. i18n: ectx: property (text), widget (QLabel, userLbl)
+#: widget/kexidbconnectionwidget.ui:96
+#, kde-format
+msgid "&Username:"
+msgstr "प्रयोक्ता नाम: (&U)"
+
+#. i18n: ectx: property (text), widget (QLabel, passwordLbl)
+#: widget/kexidbconnectionwidget.ui:116
+#, kde-format
+msgid "&Password:"
+msgstr "कूटशब्द: (&P)"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, chkSavePassword)
+#: widget/kexidbconnectionwidget.ui:137
+#, kde-format
+msgid ""
+"<html><head/><body><p>Saves password in a <span style=\" font-style:italic;"
+"\">.kexic</span> or <span style=\" font-style:italic;\">.kexis</span> "
+"connection shortcut file using a simple encryption similar to ROT-47. It "
+"does not guarantee security, but simply makes it difficult for anyone to "
+"read, so generally it is not safe to make such files publicly accessible.</"
+"p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkSavePassword)
+#: widget/kexidbconnectionwidget.ui:140
+#, fuzzy, kde-format
+#| msgid "Database"
+msgid "Save password"
+msgstr "डाटाबेस"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: widget/kexidbconnectionwidget.ui:174
+#, kde-format
+msgid "&Name:"
+msgstr "नाम (&N):"
+
+#. i18n: ectx: property (text), widget (QLabel, titleLabel)
+#: widget/kexidbconnectionwidget.ui:193
+#, kde-format
+msgid "&Caption (optional):"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, locationBGrp)
+#: widget/kexidbconnectionwidget.ui:289
+#, fuzzy, kde-format
+#| msgid "Database"
+msgid "Database Server"
+msgstr "डाटाबेस"
+
+#. i18n: ectx: property (text), widget (QLabel, lblEngine)
+#: widget/kexidbconnectionwidget.ui:298
+#, kde-format
+msgid "&Engine:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, localhostRBtn)
+#: widget/kexidbconnectionwidget.ui:335
+#, fuzzy, kde-format
+#| msgid "&Remove"
+msgid "Local server"
+msgstr "हटाबू (&R)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, remotehostRBtn)
+#: widget/kexidbconnectionwidget.ui:348
+#, fuzzy, kde-format
+#| msgid "&Remove"
+msgid "Remote server"
+msgstr "हटाबू (&R)"
+
+#. i18n: ectx: property (text), widget (QLabel, hostLbl)
+#: widget/kexidbconnectionwidget.ui:357
+#, fuzzy, kde-format
+#| msgid "&Username:"
+msgid "&Hostname:"
+msgstr "प्रयोक्ता नाम: (&U)"
+
+#. i18n: ectx: property (text), widget (QLabel, portLbl)
+#: widget/kexidbconnectionwidget.ui:383
+#, kde-format
+msgid "Port:"
+msgstr "पोर्टः"
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkPortDefault)
+#: widget/kexidbconnectionwidget.ui:424
+#, kde-format
+msgctxt "port: default"
+msgid "Default"
+msgstr "मूलभूत"
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkUseSocket)
+#: widget/kexidbconnectionwidgetdetails.ui:34
+#, kde-format
+msgid "Use socket &file instead of TCP/IP port:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkSocketDefault)
+#: widget/kexidbconnectionwidgetdetails.ui:80
+#, kde-format
+msgctxt "socket: default"
+msgid "Default"
+msgstr "मूलभूत"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: widget/kexidbconnectionwidgetdetails.ui:140
+#, kde-format
+msgid "&Description:"
+msgstr "विवरण (&D):"
+
 #: widget/KexiDBPasswordDialog.cpp:58
 #, fuzzy, kde-kuit-format
 #| msgid "Open Database"
@@ -8125,8 +8480,9 @@ msgstr ""
 msgid "&Details >>"
 msgstr "विवरण (&D)"
 
-#: widget/KexiDBPasswordDialog.cpp:81
-#, fuzzy, kde-kuit-format
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: widget/KexiDBPasswordDialog.cpp:81 widget/KexiPasswordWidget.ui:138
+#, fuzzy, kde-format, kde-kuit-format
 #| msgid "Database"
 msgid "Database server:"
 msgstr "डाटाबेस"
@@ -8210,11 +8566,6 @@ msgstr ""
 msgid "Do you want to replace it?"
 msgstr ""
 
-#: widget/KexiNameDialog.cpp:182
-#, kde-kuit-format
-msgid "&Replace"
-msgstr "बदलू (R)"
-
 #: widget/KexiNameDialog.cpp:183
 #, fuzzy, kde-kuit-format
 #| msgid "Delete object"
@@ -8247,6 +8598,81 @@ msgstr ""
 msgctxt "Object class \"objectName\", e.g. Text editor \"text\""
 msgid "%1 <resource>%2</resource>"
 msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, prompt)
+#: widget/KexiPasswordWidget.ui:49
+#, kde-format
+msgid "Supply a password below."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, userNameLabel)
+#: widget/KexiPasswordWidget.ui:87
+#, fuzzy, kde-format
+#| msgid "&Username:"
+msgid "Username:"
+msgstr "प्रयोक्ता नाम: (&U)"
+
+#. i18n: ectx: property (text), widget (QLabel, anonymousLabel)
+#: widget/KexiPasswordWidget.ui:104
+#, kde-format
+msgid "Anonymous:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: widget/KexiPasswordWidget.ui:121
+#, fuzzy, kde-format
+#| msgid "Database"
+msgid "Database name:"
+msgstr "डाटाबेस"
+
+#. i18n: ectx: property (text), widget (QLabel, passwordLabel)
+#: widget/KexiPasswordWidget.ui:155
+#, fuzzy, kde-format
+#| msgid "&Password:"
+msgid "Password:"
+msgstr "कूटशब्द: (&P)"
+
+#. i18n: ectx: property (text), widget (QLabel, keepCheckBoxLabel)
+#: widget/KexiPasswordWidget.ui:185
+#, fuzzy, kde-format
+#| msgid "Database"
+msgid "Remember password:"
+msgstr "डाटाबेस"
+
+#. i18n: ectx: property (text), widget (QRadioButton, option_file)
+#: widget/kexiprjtypeselector.ui:51
+#, fuzzy, kde-format
+#| msgid "Project Properties"
+msgid "Projects stored in a file"
+msgstr "प्रोजेक्ट गुण"
+
+#. i18n: ectx: property (text), widget (QRadioButton, option_server)
+#: widget/kexiprjtypeselector.ui:86
+#, fuzzy, kde-format
+#| msgid "Project Properties"
+msgid "Projects stored on a database server"
+msgstr "प्रोजेक्ट गुण"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widget/KexiProjectSelector.ui:33
+#, kde-format
+msgid ""
+"<b>There are Kexi projects you have recently opened.</b> Select one you wish "
+"to open:\n"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#: widget/KexiProjectSelector.ui:74
+#, fuzzy, kde-format
+#| msgid "Project Properties"
+msgid "Project Name"
+msgstr "प्रोजेक्ट गुण"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#: widget/KexiProjectSelector.ui:107
+#, kde-format
+msgid "Connection"
+msgstr "कनेक्शन"
 
 #: widget/KexiProjectSelectorWidget.cpp:94
 #, fuzzy, kde-kuit-format
@@ -8323,12 +8749,6 @@ msgstr ""
 #, kde-kuit-format
 msgid "Opens object selected in the list."
 msgstr ""
-
-#: widget/navigator/KexiProjectNavigator.cpp:172
-#, fuzzy, kde-kuit-format
-#| msgid "&Delete"
-msgid "&Delete..."
-msgstr "मेटाबू (&D)"
 
 #: widget/navigator/KexiProjectNavigator.cpp:173
 #, kde-kuit-format
@@ -8744,177 +9164,6 @@ msgstr ""
 #, kde-kuit-format
 msgid "Moves cursor to new record and allows inserting."
 msgstr ""
-
-#, fuzzy
-#~| msgid "&Look in:"
-#~ msgctxt "Look in field:"
-#~ msgid "&Look in:"
-#~ msgstr "एकरामे देखू (&L):"
-
-#~ msgid "&Search:"
-#~ msgstr "खोजू (&S):"
-
-#, fuzzy
-#~| msgid "&Whole words only"
-#~ msgctxt "Match: Whole words only"
-#~ msgid "&Whole words only"
-#~ msgstr "केवल संपूर्ण अक्षर (&W)"
-
-#, fuzzy
-#~| msgid "Replace"
-#~ msgctxt "Replace all occurrences with"
-#~ msgid "Re&place with:"
-#~ msgstr "बदलू"
-
-#, fuzzy
-#~| msgid "C&ase sensitive"
-#~ msgctxt "Match: Case sensitive"
-#~ msgid "C&ase sensitive"
-#~ msgstr "केस सेंसिटिव (&a)"
-
-#, fuzzy
-#~| msgid "Field"
-#~ msgctxt "Match: Whole Field"
-#~ msgid "Whole Field"
-#~ msgstr "क्षेत्र"
-
-#, fuzzy
-#~| msgid "Up"
-#~ msgctxt "Search Up"
-#~ msgid "Up"
-#~ msgstr "उप्पर"
-
-#, fuzzy
-#~| msgid "Down"
-#~ msgctxt "Search Down"
-#~ msgid "Down"
-#~ msgstr "नीच्चाँ"
-
-#, fuzzy
-#~| msgid "Rows"
-#~ msgctxt "Look In All Rows"
-#~ msgid "All Rows"
-#~ msgstr "पंक्ति"
-
-#, fuzzy
-#~| msgid "Replace All"
-#~ msgctxt "Replace All Occurrences"
-#~ msgid "Replace All"
-#~ msgstr "सबहि बदलू"
-
-#, fuzzy
-#~| msgid "Advanced Options"
-#~ msgid "&Advanced "
-#~ msgstr "उन्नत विकल्प"
-
-#, fuzzy
-#~| msgid "File"
-#~ msgctxt "New Project Stored in File"
-#~ msgid "File"
-#~ msgstr "फाइल"
-
-#, fuzzy
-#~| msgid "Project Properties"
-#~ msgid "New Project Stored in File"
-#~ msgstr "प्रोजेक्ट गुण"
-
-#, fuzzy
-#~| msgid "Project Properties"
-#~ msgid "Project caption:"
-#~ msgstr "प्रोजेक्ट गुण"
-
-#~ msgid "Server Information"
-#~ msgstr "सर्वरक सूचना"
-
-#~ msgid "&Add..."
-#~ msgstr "जोड़ू (&A)..."
-
-#~ msgid "&Edit..."
-#~ msgstr "संपादित करु (&E)..."
-
-#, fuzzy
-#~| msgid "Project Properties"
-#~ msgid "Pro&ject caption: "
-#~ msgstr "प्रोजेक्ट गुण"
-
-#, fuzzy
-#~| msgid "Project Properties"
-#~ msgid "Project file&name:"
-#~ msgstr "प्रोजेक्ट गुण"
-
-#~ msgid "Authentication"
-#~ msgstr "सत्यापन"
-
-#~ msgid "&Username:"
-#~ msgstr "प्रयोक्ता नाम: (&U)"
-
-#~ msgid "&Password:"
-#~ msgstr "कूटशब्द: (&P)"
-
-#, fuzzy
-#~| msgid "Database"
-#~ msgid "Save password"
-#~ msgstr "डाटाबेस"
-
-#~ msgid "&Name:"
-#~ msgstr "नाम (&N):"
-
-#, fuzzy
-#~| msgid "Database"
-#~ msgid "Database Server"
-#~ msgstr "डाटाबेस"
-
-#, fuzzy
-#~| msgid "&Remove"
-#~ msgid "Remote server"
-#~ msgstr "हटाबू (&R)"
-
-#, fuzzy
-#~| msgid "&Username:"
-#~ msgid "&Hostname:"
-#~ msgstr "प्रयोक्ता नाम: (&U)"
-
-#~ msgid "Port:"
-#~ msgstr "पोर्टः"
-
-#~ msgctxt "port: default"
-#~ msgid "Default"
-#~ msgstr "मूलभूत"
-
-#~ msgctxt "socket: default"
-#~ msgid "Default"
-#~ msgstr "मूलभूत"
-
-#~ msgid "&Description:"
-#~ msgstr "विवरण (&D):"
-
-#, fuzzy
-#~| msgid "&Username:"
-#~ msgid "Username:"
-#~ msgstr "प्रयोक्ता नाम: (&U)"
-
-#, fuzzy
-#~| msgid "Database"
-#~ msgid "Database name:"
-#~ msgstr "डाटाबेस"
-
-#, fuzzy
-#~| msgid "&Password:"
-#~ msgid "Password:"
-#~ msgstr "कूटशब्द: (&P)"
-
-#, fuzzy
-#~| msgid "Project Properties"
-#~ msgid "Projects stored in a file"
-#~ msgstr "प्रोजेक्ट गुण"
-
-#, fuzzy
-#~| msgid "Project Properties"
-#~ msgid "Project Name"
-#~ msgstr "प्रोजेक्ट गुण"
-
-#~ msgid "Connection"
-#~ msgstr "कनेक्शन"
 
 #, fuzzy
 #~| msgid "Project Properties"

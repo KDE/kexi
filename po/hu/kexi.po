@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KOffice 1.4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2014-05-04 15:46+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -1808,9 +1808,11 @@ msgstr "Függ. igazítás"
 msgid "Vertical Alignment"
 msgstr "Függőleges igazítás"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: formeditor/form_p.cpp:270 formeditor/form_p.cpp:271
 #: plugins/tables/kexitabledesignerview.cpp:323
-#, kde-kuit-format
+#: widget/KexiConnectionSelector.ui:94
+#, kde-format, kde-kuit-format
 msgid "Name"
 msgstr "Név"
 
@@ -2655,6 +2657,124 @@ msgstr "<resource>%1</resource> átnevezése"
 #, kde-kuit-format
 msgid "The search item was not found"
 msgstr "A keresési elem nem található"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: main/kexifinddialog.ui:20
+#, fuzzy, kde-format
+#| msgid "&Look in:"
+msgctxt "Look in field:"
+msgid "&Look in:"
+msgstr "&Keresés itt:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2)
+#: main/kexifinddialog.ui:36
+#, kde-format
+msgid "&Search:"
+msgstr "&Keresés:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_wholeWords)
+#: main/kexifinddialog.ui:55
+#, fuzzy, kde-format
+#| msgid "&Whole words only"
+msgctxt "Match: Whole words only"
+msgid "&Whole words only"
+msgstr "Csak egész sza&vakat"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: main/kexifinddialog.ui:62
+#, kde-format
+msgid "Fi&nd:"
+msgstr "Kere&sés:"
+
+#. i18n: ectx: property (text), widget (QLabel, m_replaceLbl)
+#: main/kexifinddialog.ui:110
+#, fuzzy, kde-format
+#| msgid "Re&place with:"
+msgctxt "Replace all occurrences with"
+msgid "Re&place with:"
+msgstr "Cse&re erre:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_promptOnReplace)
+#: main/kexifinddialog.ui:129
+#, kde-format
+msgid "Prompt on replace"
+msgstr "Megerősítés csere előtt"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_3)
+#: main/kexifinddialog.ui:152
+#, kde-format
+msgid "&Match:"
+msgstr "&Egyezés:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_caseSensitive)
+#: main/kexifinddialog.ui:171
+#, fuzzy, kde-format
+#| msgid "C&ase sensitive"
+msgctxt "Match: Case sensitive"
+msgid "C&ase sensitive"
+msgstr "N&agybetűérzékeny"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
+#: main/kexifinddialog.ui:182
+#, fuzzy, kde-format
+#| msgid "Any Part of Field"
+msgctxt "Match: Any Part of Field"
+msgid "Any Part of Field"
+msgstr "A mező bármely része"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
+#: main/kexifinddialog.ui:187
+#, fuzzy, kde-format
+#| msgid "Whole Field"
+msgctxt "Match: Whole Field"
+msgid "Whole Field"
+msgstr "A teljes mező"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
+#: main/kexifinddialog.ui:192
+#, fuzzy, kde-format
+#| msgid "Start of Field"
+msgctxt "Match: Start of Field"
+msgid "Start of Field"
+msgstr "A mező eleje"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
+#: main/kexifinddialog.ui:204
+#, fuzzy, kde-format
+#| msgid "Up"
+msgctxt "Search Up"
+msgid "Up"
+msgstr "Fel"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
+#: main/kexifinddialog.ui:209
+#, fuzzy, kde-format
+#| msgid "Down"
+msgctxt "Search Down"
+msgid "Down"
+msgstr "Le"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
+#: main/kexifinddialog.ui:214
+#, fuzzy, kde-format
+#| msgid "All Rows"
+msgctxt "Look In All Rows"
+msgid "All Rows"
+msgstr "Összes sor"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_btnReplace)
+#: main/kexifinddialog.ui:264 widget/KexiNameDialog.cpp:182
+#, kde-format, kde-kuit-format
+msgid "&Replace"
+msgstr "Cse&re"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_btnReplaceAll)
+#: main/kexifinddialog.ui:277
+#, fuzzy, kde-format
+#| msgid "Replace All"
+msgctxt "Replace All Occurrences"
+msgid "Replace All"
+msgstr "Összes cseréje"
 
 #: main/KexiMainWindow.cpp:193
 #, kde-kuit-format
@@ -3925,6 +4045,28 @@ msgstr ""
 msgid "Delete and Create New"
 msgstr "Törlés és új létrehozása"
 
+#. i18n: ectx: property (text), widget (QLabel, lbl)
+#: main/startup/KexiOpenExistingFile.ui:31
+#, kde-format
+msgid "<b>Select existing Kexi project file to open:</b>\n"
+msgstr "<b>Válassza ki a megnyitandó létező Kexi projektfájlt:</b>\n"
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_advanced)
+#: main/startup/KexiOpenExistingFile.ui:89
+#, kde-format
+msgid "&Advanced "
+msgstr "Spe&ciális "
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: main/startup/KexiOpenExistingFile.ui:104
+#, kde-format
+msgid ""
+"Click \"Advanced\" button if you want to find an existing project on a "
+"server rather than a file."
+msgstr ""
+"Kattintson a „Speciális” gombra, ha a létező projektet a kiszolgálón "
+"szeretné megkeresni, nem a helyi fájlrendszerben."
+
 #: main/startup/KexiOpenProjectAssistant.cpp:41
 #: widget/KexiProjectSelectorWidget.cpp:304
 #, fuzzy, kde-kuit-format
@@ -3997,6 +4139,32 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Database Password"
 msgstr "Adatbázis jelszó"
+
+#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_file)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:31
+#, kde-format
+msgctxt "New Project Stored in File"
+msgid "File"
+msgstr "Fájl"
+
+#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_file)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:37
+#, kde-format
+msgid "New Project Stored in File"
+msgstr "Új fájlban tárolt projekt"
+
+#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_server)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:47
+#, kde-format
+msgctxt "New Project Stored on Database Server"
+msgid "Server"
+msgstr "Kiszolgáló"
+
+#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_server)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:53
+#, kde-format
+msgid "New Project Stored on Database Server"
+msgstr "Új adatbázis-kiszolgálón tárolt projekt"
 
 #: main/startup/KexiRecentProjectsModel.cpp:70
 #, kde-kuit-format
@@ -4077,6 +4245,19 @@ msgstr "%1 adatbázis"
 #, kde-kuit-format
 msgid "Last opened on %1"
 msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: main/startup/KexiServerDBNamePage.ui:31
+#, fuzzy, kde-format
+#| msgid "Project caption"
+msgid "Project caption:"
+msgstr "A projekt felirata"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: main/startup/KexiServerDBNamePage.ui:60
+#, kde-format
+msgid "Project's database name:"
+msgstr "A projekt adatbázisneve:"
 
 #: main/startup/KexiStartup.cpp:248
 #, fuzzy, kde-format
@@ -4462,9 +4643,11 @@ msgstr ""
 msgid "Column %1"
 msgstr "%1. oszlop"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: migration/AlterSchemaWidget.cpp:52
 #: plugins/tables/kexitabledesignerview.cpp:326
-#, kde-kuit-format
+#: widget/KexiConnectionSelector.ui:99 widget/KexiProjectSelector.ui:96
+#, kde-format, kde-kuit-format
 msgid "Type"
 msgstr "Típus"
 
@@ -5756,8 +5939,10 @@ msgstr "Dátum"
 msgid "Arrow Visible"
 msgstr "Látható nyíl"
 
+#. i18n: ectx: property (title), widget (QGroupBox, descGroupBox)
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
-#, kde-kuit-format
+#: widget/KexiConnectionSelector.ui:118
+#, kde-format, kde-kuit-format
 msgid "Description"
 msgstr "Leírás"
 
@@ -8583,6 +8768,51 @@ msgctxt "Text encoding: Default"
 msgid "Default: %1"
 msgstr "Alapértelmezett: %1"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widget/KexiConnectionSelector.ui:50
+#, fuzzy, kde-format
+#| msgid ""
+#| "<b>Select Existing Database Server's Connection From the List Below</b>\n"
+#| "<p>You will see existing Kexi projects available for the selected "
+#| "connection. Here you may also add, edit or remove connections from the "
+#| "list.\n"
+msgid ""
+"<title>Select Existing Database Server's Connection From the List Below</"
+"title>\n"
+"<para>You will see existing Kexi projects available for the selected "
+"connection. Here you may also add, edit or delete connections from the list."
+"</para>\n"
+msgstr ""
+"</b>Válassza ki a meglévő adatbázis-kiszolgáló kapcsolatot a lenti listából</"
+"b>\n"
+"<p>Látni fogja az elérhető létező Kexi projekteket a kijelölt kapcsolathoz. "
+"Itt hozzáadhat, szerkeszthet vagy eltávolíthat kapcsolatokat a listából.\n"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#: widget/KexiConnectionSelector.ui:104
+#, kde-format
+msgid "Server Information"
+msgstr "Kiszolgáló információk"
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_add)
+#: widget/KexiConnectionSelector.ui:155
+#, kde-format
+msgid "&Add..."
+msgstr "&Hozzáadás…"
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_edit)
+#: widget/KexiConnectionSelector.ui:168
+#, kde-format
+msgid "&Edit..."
+msgstr "S&zerkesztés…"
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_remove)
+#: widget/KexiConnectionSelector.ui:181
+#: widget/navigator/KexiProjectNavigator.cpp:172
+#, kde-format, kde-kuit-format
+msgid "&Delete..."
+msgstr "&Törlés…"
+
 #: widget/KexiConnectionSelectorWidget.cpp:62
 #, kde-kuit-format
 msgid "Add a new database connection"
@@ -8666,6 +8896,20 @@ msgstr ""
 msgid "Define Query..."
 msgstr "Lekérdezés meghatározása…"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widget/KexiDBCaptionPage.ui:31
+#, fuzzy, kde-format
+#| msgid "Project caption"
+msgid "Pro&ject caption: "
+msgstr "A projekt felirata"
+
+#. i18n: ectx: property (text), widget (QLabel, label_requester)
+#: widget/KexiDBCaptionPage.ui:63
+#, fuzzy, kde-format
+#| msgid "Project filename:"
+msgid "Project file&name:"
+msgstr "Projekt fájlneve:"
+
 #: widget/kexidbconnectionwidget.cpp:90
 #, kde-kuit-format
 msgid "Load database list from the server"
@@ -8732,8 +8976,11 @@ msgstr ""
 msgid "Database Connection"
 msgstr "Adatbázis-kapcsolat"
 
-#: widget/kexidbconnectionwidget.cpp:160
-#, kde-kuit-format
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)
+#: widget/kexidbconnectionwidget.cpp:160 widget/kexidbconnectionwidget.ui:168
+#: widget/KexiProjectSelector.ui:85
+#, kde-format, kde-kuit-format
 msgid "Database"
 msgstr "Adatbázis"
 
@@ -8775,6 +9022,118 @@ msgstr "Meg&nyitás"
 msgid "Open Database Connection"
 msgstr "Adatbázis-kapcsolat megnyitása"
 
+#. i18n: ectx: property (title), widget (QGroupBox, authenticationGBox)
+#: widget/kexidbconnectionwidget.ui:90
+#, kde-format
+msgid "Authentication"
+msgstr "Hitelesítés"
+
+#. i18n: ectx: property (text), widget (QLabel, userLbl)
+#: widget/kexidbconnectionwidget.ui:96
+#, kde-format
+msgid "&Username:"
+msgstr "&Felhasználónév:"
+
+#. i18n: ectx: property (text), widget (QLabel, passwordLbl)
+#: widget/kexidbconnectionwidget.ui:116
+#, kde-format
+msgid "&Password:"
+msgstr "&Jelszó:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, chkSavePassword)
+#: widget/kexidbconnectionwidget.ui:137
+#, kde-format
+msgid ""
+"<html><head/><body><p>Saves password in a <span style=\" font-style:italic;"
+"\">.kexic</span> or <span style=\" font-style:italic;\">.kexis</span> "
+"connection shortcut file using a simple encryption similar to ROT-47. It "
+"does not guarantee security, but simply makes it difficult for anyone to "
+"read, so generally it is not safe to make such files publicly accessible.</"
+"p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkSavePassword)
+#: widget/kexidbconnectionwidget.ui:140
+#, fuzzy, kde-format
+#| msgid "Remember password"
+msgid "Save password"
+msgstr "Jelszó megjegyzése"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: widget/kexidbconnectionwidget.ui:174
+#, kde-format
+msgid "&Name:"
+msgstr "&Név:"
+
+#. i18n: ectx: property (text), widget (QLabel, titleLabel)
+#: widget/kexidbconnectionwidget.ui:193
+#, fuzzy, kde-format
+#| msgid "&Title (optional):"
+msgid "&Caption (optional):"
+msgstr "&Cím (opcionális):"
+
+#. i18n: ectx: property (title), widget (QGroupBox, locationBGrp)
+#: widget/kexidbconnectionwidget.ui:289
+#, kde-format
+msgid "Database Server"
+msgstr "Adatbázis-kiszolgáló"
+
+#. i18n: ectx: property (text), widget (QLabel, lblEngine)
+#: widget/kexidbconnectionwidget.ui:298
+#, kde-format
+msgid "&Engine:"
+msgstr "&Motor:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, localhostRBtn)
+#: widget/kexidbconnectionwidget.ui:335
+#, kde-format
+msgid "Local server"
+msgstr "Helyi kiszolgáló"
+
+#. i18n: ectx: property (text), widget (QRadioButton, remotehostRBtn)
+#: widget/kexidbconnectionwidget.ui:348
+#, kde-format
+msgid "Remote server"
+msgstr "Távoli kiszolgáló"
+
+#. i18n: ectx: property (text), widget (QLabel, hostLbl)
+#: widget/kexidbconnectionwidget.ui:357
+#, kde-format
+msgid "&Hostname:"
+msgstr "&Gépnév:"
+
+#. i18n: ectx: property (text), widget (QLabel, portLbl)
+#: widget/kexidbconnectionwidget.ui:383
+#, kde-format
+msgid "Port:"
+msgstr "Port:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkPortDefault)
+#: widget/kexidbconnectionwidget.ui:424
+#, kde-format
+msgctxt "port: default"
+msgid "Default"
+msgstr "Alapértelmezett"
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkUseSocket)
+#: widget/kexidbconnectionwidgetdetails.ui:34
+#, kde-format
+msgid "Use socket &file instead of TCP/IP port:"
+msgstr "&Foglalat használata TCP/IP port helyett:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkSocketDefault)
+#: widget/kexidbconnectionwidgetdetails.ui:80
+#, kde-format
+msgctxt "socket: default"
+msgid "Default"
+msgstr "Alapértelmezett"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: widget/kexidbconnectionwidgetdetails.ui:140
+#, kde-format
+msgid "&Description:"
+msgstr "&Leírás:"
+
 #: widget/KexiDBPasswordDialog.cpp:58
 #, kde-kuit-format
 msgctxt "@title:window"
@@ -8793,8 +9152,9 @@ msgstr "Adja meg a jelszót lent."
 msgid "&Details >>"
 msgstr "&Részletek"
 
-#: widget/KexiDBPasswordDialog.cpp:81
-#, kde-kuit-format
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: widget/KexiDBPasswordDialog.cpp:81 widget/KexiPasswordWidget.ui:138
+#, kde-format, kde-kuit-format
 msgid "Database server:"
 msgstr "Adatbázis-kiszolgáló:"
 
@@ -8884,11 +9244,6 @@ msgstr "A(z) <filename>%1</filename> fájl vagy könyvtár nem létezik."
 msgid "Do you want to replace it?"
 msgstr "Le szeretné cserélni?"
 
-#: widget/KexiNameDialog.cpp:182
-#, kde-kuit-format
-msgid "&Replace"
-msgstr "Cse&re"
-
 #: widget/KexiNameDialog.cpp:183
 #, kde-kuit-format
 msgid "Replace object"
@@ -8923,6 +9278,76 @@ msgstr "Adja meg a feliratot."
 msgctxt "Object class \"objectName\", e.g. Text editor \"text\""
 msgid "%1 <resource>%2</resource>"
 msgstr "%1 <resource>%2</resource>"
+
+#. i18n: ectx: property (text), widget (QLabel, prompt)
+#: widget/KexiPasswordWidget.ui:49
+#, kde-format
+msgid "Supply a password below."
+msgstr "Adja meg a jelszót lent."
+
+#. i18n: ectx: property (text), widget (QLabel, userNameLabel)
+#: widget/KexiPasswordWidget.ui:87
+#, kde-format
+msgid "Username:"
+msgstr "Felhasználónév:"
+
+#. i18n: ectx: property (text), widget (QLabel, anonymousLabel)
+#: widget/KexiPasswordWidget.ui:104
+#, kde-format
+msgid "Anonymous:"
+msgstr "Névtelen:"
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: widget/KexiPasswordWidget.ui:121
+#, kde-format
+msgid "Database name:"
+msgstr "Adatbázisnév:"
+
+#. i18n: ectx: property (text), widget (QLabel, passwordLabel)
+#: widget/KexiPasswordWidget.ui:155
+#, kde-format
+msgid "Password:"
+msgstr "Jelszó:"
+
+#. i18n: ectx: property (text), widget (QLabel, keepCheckBoxLabel)
+#: widget/KexiPasswordWidget.ui:185
+#, kde-format
+msgid "Remember password:"
+msgstr "Jelszó megjegyzése:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, option_file)
+#: widget/kexiprjtypeselector.ui:51
+#, kde-format
+msgid "Projects stored in a file"
+msgstr "Fájlban tárolt projektek"
+
+#. i18n: ectx: property (text), widget (QRadioButton, option_server)
+#: widget/kexiprjtypeselector.ui:86
+#, kde-format
+msgid "Projects stored on a database server"
+msgstr "Adatbázis-kiszolgálón tárolt projektek"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widget/KexiProjectSelector.ui:33
+#, kde-format
+msgid ""
+"<b>There are Kexi projects you have recently opened.</b> Select one you wish "
+"to open:\n"
+msgstr ""
+"<b>Van néhány nemrég használt Kexi-projekt.</b> Válassza ki, melyiket "
+"szeretné megnyitni:\n"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#: widget/KexiProjectSelector.ui:74
+#, kde-format
+msgid "Project Name"
+msgstr "Projektnév"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#: widget/KexiProjectSelector.ui:107
+#, kde-format
+msgid "Connection"
+msgstr "Kapcsolat"
 
 #: widget/KexiProjectSelectorWidget.cpp:94
 #, kde-kuit-format
@@ -9019,11 +9444,6 @@ msgstr "Objektum megnyitása"
 #, kde-kuit-format
 msgid "Opens object selected in the list."
 msgstr "Megnyitja a listából kijelölt objektumot."
-
-#: widget/navigator/KexiProjectNavigator.cpp:172
-#, kde-kuit-format
-msgid "&Delete..."
-msgstr "&Törlés…"
 
 #: widget/navigator/KexiProjectNavigator.cpp:173
 #, kde-kuit-format
@@ -9434,248 +9854,6 @@ msgstr "Áthelyezi a kurzort az utolsó rekordra."
 #, kde-kuit-format
 msgid "Moves cursor to new record and allows inserting."
 msgstr "Áthelyezi a kurzort az új rekordra, és lehetővé teszi a beszúrást."
-
-#, fuzzy
-#~| msgid "&Look in:"
-#~ msgctxt "Look in field:"
-#~ msgid "&Look in:"
-#~ msgstr "&Keresés itt:"
-
-#~ msgid "&Search:"
-#~ msgstr "&Keresés:"
-
-#, fuzzy
-#~| msgid "&Whole words only"
-#~ msgctxt "Match: Whole words only"
-#~ msgid "&Whole words only"
-#~ msgstr "Csak egész sza&vakat"
-
-#~ msgid "Fi&nd:"
-#~ msgstr "Kere&sés:"
-
-#, fuzzy
-#~| msgid "Re&place with:"
-#~ msgctxt "Replace all occurrences with"
-#~ msgid "Re&place with:"
-#~ msgstr "Cse&re erre:"
-
-#~ msgid "Prompt on replace"
-#~ msgstr "Megerősítés csere előtt"
-
-#~ msgid "&Match:"
-#~ msgstr "&Egyezés:"
-
-#, fuzzy
-#~| msgid "C&ase sensitive"
-#~ msgctxt "Match: Case sensitive"
-#~ msgid "C&ase sensitive"
-#~ msgstr "N&agybetűérzékeny"
-
-#, fuzzy
-#~| msgid "Any Part of Field"
-#~ msgctxt "Match: Any Part of Field"
-#~ msgid "Any Part of Field"
-#~ msgstr "A mező bármely része"
-
-#, fuzzy
-#~| msgid "Whole Field"
-#~ msgctxt "Match: Whole Field"
-#~ msgid "Whole Field"
-#~ msgstr "A teljes mező"
-
-#, fuzzy
-#~| msgid "Start of Field"
-#~ msgctxt "Match: Start of Field"
-#~ msgid "Start of Field"
-#~ msgstr "A mező eleje"
-
-#, fuzzy
-#~| msgid "Up"
-#~ msgctxt "Search Up"
-#~ msgid "Up"
-#~ msgstr "Fel"
-
-#, fuzzy
-#~| msgid "Down"
-#~ msgctxt "Search Down"
-#~ msgid "Down"
-#~ msgstr "Le"
-
-#, fuzzy
-#~| msgid "All Rows"
-#~ msgctxt "Look In All Rows"
-#~ msgid "All Rows"
-#~ msgstr "Összes sor"
-
-#, fuzzy
-#~| msgid "Replace All"
-#~ msgctxt "Replace All Occurrences"
-#~ msgid "Replace All"
-#~ msgstr "Összes cseréje"
-
-#~ msgid "<b>Select existing Kexi project file to open:</b>\n"
-#~ msgstr "<b>Válassza ki a megnyitandó létező Kexi projektfájlt:</b>\n"
-
-#~ msgid "&Advanced "
-#~ msgstr "Spe&ciális "
-
-#~ msgid ""
-#~ "Click \"Advanced\" button if you want to find an existing project on a "
-#~ "server rather than a file."
-#~ msgstr ""
-#~ "Kattintson a „Speciális” gombra, ha a létező projektet a kiszolgálón "
-#~ "szeretné megkeresni, nem a helyi fájlrendszerben."
-
-#~ msgctxt "New Project Stored in File"
-#~ msgid "File"
-#~ msgstr "Fájl"
-
-#~ msgid "New Project Stored in File"
-#~ msgstr "Új fájlban tárolt projekt"
-
-#~ msgctxt "New Project Stored on Database Server"
-#~ msgid "Server"
-#~ msgstr "Kiszolgáló"
-
-#~ msgid "New Project Stored on Database Server"
-#~ msgstr "Új adatbázis-kiszolgálón tárolt projekt"
-
-#, fuzzy
-#~| msgid "Project caption"
-#~ msgid "Project caption:"
-#~ msgstr "A projekt felirata"
-
-#~ msgid "Project's database name:"
-#~ msgstr "A projekt adatbázisneve:"
-
-#, fuzzy
-#~| msgid ""
-#~| "<b>Select Existing Database Server's Connection From the List Below</b>\n"
-#~| "<p>You will see existing Kexi projects available for the selected "
-#~| "connection. Here you may also add, edit or remove connections from the "
-#~| "list.\n"
-#~ msgid ""
-#~ "<title>Select Existing Database Server's Connection From the List Below</"
-#~ "title>\n"
-#~ "<para>You will see existing Kexi projects available for the selected "
-#~ "connection. Here you may also add, edit or delete connections from the "
-#~ "list.</para>\n"
-#~ msgstr ""
-#~ "</b>Válassza ki a meglévő adatbázis-kiszolgáló kapcsolatot a lenti "
-#~ "listából</b>\n"
-#~ "<p>Látni fogja az elérhető létező Kexi projekteket a kijelölt "
-#~ "kapcsolathoz. Itt hozzáadhat, szerkeszthet vagy eltávolíthat "
-#~ "kapcsolatokat a listából.\n"
-
-#~ msgid "Server Information"
-#~ msgstr "Kiszolgáló információk"
-
-#~ msgid "&Add..."
-#~ msgstr "&Hozzáadás…"
-
-#~ msgid "&Edit..."
-#~ msgstr "S&zerkesztés…"
-
-#, fuzzy
-#~| msgid "Project caption"
-#~ msgid "Pro&ject caption: "
-#~ msgstr "A projekt felirata"
-
-#, fuzzy
-#~| msgid "Project filename:"
-#~ msgid "Project file&name:"
-#~ msgstr "Projekt fájlneve:"
-
-#~ msgid "Authentication"
-#~ msgstr "Hitelesítés"
-
-#~ msgid "&Username:"
-#~ msgstr "&Felhasználónév:"
-
-#~ msgid "&Password:"
-#~ msgstr "&Jelszó:"
-
-#, fuzzy
-#~| msgid "Remember password"
-#~ msgid "Save password"
-#~ msgstr "Jelszó megjegyzése"
-
-#~ msgid "&Name:"
-#~ msgstr "&Név:"
-
-#, fuzzy
-#~| msgid "&Title (optional):"
-#~ msgid "&Caption (optional):"
-#~ msgstr "&Cím (opcionális):"
-
-#~ msgid "Database Server"
-#~ msgstr "Adatbázis-kiszolgáló"
-
-#~ msgid "&Engine:"
-#~ msgstr "&Motor:"
-
-#~ msgid "Local server"
-#~ msgstr "Helyi kiszolgáló"
-
-#~ msgid "Remote server"
-#~ msgstr "Távoli kiszolgáló"
-
-#~ msgid "&Hostname:"
-#~ msgstr "&Gépnév:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgctxt "port: default"
-#~ msgid "Default"
-#~ msgstr "Alapértelmezett"
-
-#~ msgid "Use socket &file instead of TCP/IP port:"
-#~ msgstr "&Foglalat használata TCP/IP port helyett:"
-
-#~ msgctxt "socket: default"
-#~ msgid "Default"
-#~ msgstr "Alapértelmezett"
-
-#~ msgid "&Description:"
-#~ msgstr "&Leírás:"
-
-#~ msgid "Supply a password below."
-#~ msgstr "Adja meg a jelszót lent."
-
-#~ msgid "Username:"
-#~ msgstr "Felhasználónév:"
-
-#~ msgid "Anonymous:"
-#~ msgstr "Névtelen:"
-
-#~ msgid "Database name:"
-#~ msgstr "Adatbázisnév:"
-
-#~ msgid "Password:"
-#~ msgstr "Jelszó:"
-
-#~ msgid "Remember password:"
-#~ msgstr "Jelszó megjegyzése:"
-
-#~ msgid "Projects stored in a file"
-#~ msgstr "Fájlban tárolt projektek"
-
-#~ msgid "Projects stored on a database server"
-#~ msgstr "Adatbázis-kiszolgálón tárolt projektek"
-
-#~ msgid ""
-#~ "<b>There are Kexi projects you have recently opened.</b> Select one you "
-#~ "wish to open:\n"
-#~ msgstr ""
-#~ "<b>Van néhány nemrég használt Kexi-projekt.</b> Válassza ki, melyiket "
-#~ "szeretné megnyitni:\n"
-
-#~ msgid "Project Name"
-#~ msgstr "Projektnév"
-
-#~ msgid "Connection"
-#~ msgstr "Kapcsolat"
 
 #~ msgid "Share"
 #~ msgstr "Megosztás"

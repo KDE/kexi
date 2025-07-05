@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: koffice/kexi.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2004-12-03 14:52-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -1588,9 +1588,11 @@ msgstr "Ailíniú Ingear."
 msgid "Vertical Alignment"
 msgstr "Ailíniú Ingearach"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: formeditor/form_p.cpp:270 formeditor/form_p.cpp:271
 #: plugins/tables/kexitabledesignerview.cpp:323
-#, kde-kuit-format
+#: widget/KexiConnectionSelector.ui:94
+#, kde-format, kde-kuit-format
 msgid "Name"
 msgstr "Ainm"
 
@@ -2426,6 +2428,124 @@ msgstr "Theip ar shábháil réad \"%1\"."
 #, kde-kuit-format
 msgid "The search item was not found"
 msgstr "mír chuardaigh gan aimsiú"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: main/kexifinddialog.ui:20
+#, fuzzy, kde-format
+#| msgid "&Look in:"
+msgctxt "Look in field:"
+msgid "&Look in:"
+msgstr "&Amharc i:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2)
+#: main/kexifinddialog.ui:36
+#, kde-format
+msgid "&Search:"
+msgstr "&Cuardach:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_wholeWords)
+#: main/kexifinddialog.ui:55
+#, fuzzy, kde-format
+#| msgid "&Whole words only"
+msgctxt "Match: Whole words only"
+msgid "&Whole words only"
+msgstr "&Focail iomláin amháin"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: main/kexifinddialog.ui:62
+#, kde-format
+msgid "Fi&nd:"
+msgstr "Ai&msigh:"
+
+#. i18n: ectx: property (text), widget (QLabel, m_replaceLbl)
+#: main/kexifinddialog.ui:110
+#, fuzzy, kde-format
+#| msgid "Re&place with:"
+msgctxt "Replace all occurrences with"
+msgid "Re&place with:"
+msgstr "&Ionadaigh le:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_promptOnReplace)
+#: main/kexifinddialog.ui:129
+#, kde-format
+msgid "Prompt on replace"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_3)
+#: main/kexifinddialog.ui:152
+#, kde-format
+msgid "&Match:"
+msgstr "&Comhoiriúnaigh:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_caseSensitive)
+#: main/kexifinddialog.ui:171
+#, fuzzy, kde-format
+#| msgid "C&ase sensitive"
+msgctxt "Match: Case sensitive"
+msgid "C&ase sensitive"
+msgstr "Cá&síogair"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
+#: main/kexifinddialog.ui:182
+#, fuzzy, kde-format
+#| msgid "Start of Field"
+msgctxt "Match: Any Part of Field"
+msgid "Any Part of Field"
+msgstr "Tús an Réimse"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
+#: main/kexifinddialog.ui:187
+#, fuzzy, kde-format
+#| msgid "Whole Field"
+msgctxt "Match: Whole Field"
+msgid "Whole Field"
+msgstr "An Réimse Iomlán"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
+#: main/kexifinddialog.ui:192
+#, fuzzy, kde-format
+#| msgid "Start of Field"
+msgctxt "Match: Start of Field"
+msgid "Start of Field"
+msgstr "Tús an Réimse"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
+#: main/kexifinddialog.ui:204
+#, fuzzy, kde-format
+#| msgid "Up"
+msgctxt "Search Up"
+msgid "Up"
+msgstr "Suas"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
+#: main/kexifinddialog.ui:209
+#, fuzzy, kde-format
+#| msgid "Down"
+msgctxt "Search Down"
+msgid "Down"
+msgstr "Síos"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
+#: main/kexifinddialog.ui:214
+#, fuzzy, kde-format
+#| msgid "All Rows"
+msgctxt "Look In All Rows"
+msgid "All Rows"
+msgstr "Gach Ró"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_btnReplace)
+#: main/kexifinddialog.ui:264 widget/KexiNameDialog.cpp:182
+#, kde-format, kde-kuit-format
+msgid "&Replace"
+msgstr "&Ionadaigh"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_btnReplaceAll)
+#: main/kexifinddialog.ui:277
+#, fuzzy, kde-format
+#| msgid "Replace All"
+msgctxt "Replace All Occurrences"
+msgid "Replace All"
+msgstr "Ionadaigh Uile"
 
 #: main/KexiMainWindow.cpp:193
 #, kde-kuit-format
@@ -3588,6 +3708,26 @@ msgstr ""
 msgid "Delete and Create New"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QLabel, lbl)
+#: main/startup/KexiOpenExistingFile.ui:31
+#, kde-format
+msgid "<b>Select existing Kexi project file to open:</b>\n"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_advanced)
+#: main/startup/KexiOpenExistingFile.ui:89
+#, kde-format
+msgid "&Advanced "
+msgstr "&Casta "
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: main/startup/KexiOpenExistingFile.ui:104
+#, kde-format
+msgid ""
+"Click \"Advanced\" button if you want to find an existing project on a "
+"server rather than a file."
+msgstr ""
+
 #: main/startup/KexiOpenProjectAssistant.cpp:41
 #: widget/KexiProjectSelectorWidget.cpp:304
 #, fuzzy, kde-kuit-format
@@ -3643,6 +3783,32 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Database Password"
 msgstr "Bunachar Sonraí"
+
+#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_file)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:31
+#, fuzzy, kde-format
+msgctxt "New Project Stored in File"
+msgid "File"
+msgstr "Comhad"
+
+#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_file)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:37
+#, fuzzy, kde-format
+msgid "New Project Stored in File"
+msgstr "Tionscadal Nua Stóráilte ar Fhreastalaí Bunachair Sonraí"
+
+#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_server)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:47
+#, fuzzy, kde-format
+msgctxt "New Project Stored on Database Server"
+msgid "Server"
+msgstr "Ón Fhreastalaí..."
+
+#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_server)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:53
+#, kde-format
+msgid "New Project Stored on Database Server"
+msgstr "Tionscadal Nua Stóráilte ar Fhreastalaí Bunachair Sonraí"
 
 #: main/startup/KexiRecentProjectsModel.cpp:70
 #, kde-kuit-format
@@ -3734,6 +3900,19 @@ msgstr "Bunachar sonraí nua"
 #, kde-kuit-format
 msgid "Last opened on %1"
 msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: main/startup/KexiServerDBNamePage.ui:31
+#, fuzzy, kde-format
+#| msgid "Project description"
+msgid "Project caption:"
+msgstr "Cur síos ar an tionscadal"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: main/startup/KexiServerDBNamePage.ui:60
+#, fuzzy, kde-format
+msgid "Project's database name:"
+msgstr "Ainm an Tionscadail"
 
 #: main/startup/KexiStartup.cpp:248
 #, fuzzy, kde-format
@@ -4066,9 +4245,11 @@ msgstr ""
 msgid "Column %1"
 msgstr "Colún %1"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: migration/AlterSchemaWidget.cpp:52
 #: plugins/tables/kexitabledesignerview.cpp:326
-#, kde-kuit-format
+#: widget/KexiConnectionSelector.ui:99 widget/KexiProjectSelector.ui:96
+#, kde-format, kde-kuit-format
 msgid "Type"
 msgstr "Cineál"
 
@@ -5259,8 +5440,10 @@ msgstr "Dáta"
 msgid "Arrow Visible"
 msgstr "Infheicthe"
 
+#. i18n: ectx: property (title), widget (QGroupBox, descGroupBox)
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
-#, kde-kuit-format
+#: widget/KexiConnectionSelector.ui:118
+#, kde-format, kde-kuit-format
 msgid "Description"
 msgstr "Cur Síos"
 
@@ -7971,6 +8154,42 @@ msgctxt "Text encoding: Default"
 msgid "Default: %1"
 msgstr "Réamhshocrú: %1"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widget/KexiConnectionSelector.ui:50
+#, kde-format
+msgid ""
+"<title>Select Existing Database Server's Connection From the List Below</"
+"title>\n"
+"<para>You will see existing Kexi projects available for the selected "
+"connection. Here you may also add, edit or delete connections from the list."
+"</para>\n"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#: widget/KexiConnectionSelector.ui:104
+#, kde-format
+msgid "Server Information"
+msgstr "Eolas faoin bhfreastalaí"
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_add)
+#: widget/KexiConnectionSelector.ui:155
+#, kde-format
+msgid "&Add..."
+msgstr "C&uir Leis..."
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_edit)
+#: widget/KexiConnectionSelector.ui:168
+#, kde-format
+msgid "&Edit..."
+msgstr "&Eagar..."
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_remove)
+#: widget/KexiConnectionSelector.ui:181
+#: widget/navigator/KexiProjectNavigator.cpp:172
+#, fuzzy, kde-format, kde-kuit-format
+msgid "&Delete..."
+msgstr "&Scrios"
+
 #: widget/KexiConnectionSelectorWidget.cpp:62
 #, kde-kuit-format
 msgid "Add a new database connection"
@@ -8049,6 +8268,19 @@ msgstr ""
 msgid "Define Query..."
 msgstr "Sainmhínigh Iarratas..."
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widget/KexiDBCaptionPage.ui:31
+#, fuzzy, kde-format
+#| msgid "Project description"
+msgid "Pro&ject caption: "
+msgstr "Cur síos ar an tionscadal"
+
+#. i18n: ectx: property (text), widget (QLabel, label_requester)
+#: widget/KexiDBCaptionPage.ui:63
+#, fuzzy, kde-format
+msgid "Project file&name:"
+msgstr "Ainm an Tionscadail"
+
 #: widget/kexidbconnectionwidget.cpp:90
 #, kde-kuit-format
 msgid "Load database list from the server"
@@ -8103,8 +8335,11 @@ msgstr ""
 msgid "Database Connection"
 msgstr "Ceangal Bunachair Sonraí"
 
-#: widget/kexidbconnectionwidget.cpp:160
-#, kde-kuit-format
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)
+#: widget/kexidbconnectionwidget.cpp:160 widget/kexidbconnectionwidget.ui:168
+#: widget/KexiProjectSelector.ui:85
+#, kde-format, kde-kuit-format
 msgid "Database"
 msgstr "Bunachar Sonraí"
 
@@ -8145,6 +8380,121 @@ msgstr "&Oscail"
 msgid "Open Database Connection"
 msgstr "Oscail Ceangal Bunachair Sonraí"
 
+#. i18n: ectx: property (title), widget (QGroupBox, authenticationGBox)
+#: widget/kexidbconnectionwidget.ui:90
+#, kde-format
+msgid "Authentication"
+msgstr "Fíordheimhniú"
+
+#. i18n: ectx: property (text), widget (QLabel, userLbl)
+#: widget/kexidbconnectionwidget.ui:96
+#, kde-format
+msgid "&Username:"
+msgstr "&Ainm Úsáideora:"
+
+#. i18n: ectx: property (text), widget (QLabel, passwordLbl)
+#: widget/kexidbconnectionwidget.ui:116
+#, kde-format
+msgid "&Password:"
+msgstr "&Focal Faire:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, chkSavePassword)
+#: widget/kexidbconnectionwidget.ui:137
+#, kde-format
+msgid ""
+"<html><head/><body><p>Saves password in a <span style=\" font-style:italic;"
+"\">.kexic</span> or <span style=\" font-style:italic;\">.kexis</span> "
+"connection shortcut file using a simple encryption similar to ROT-47. It "
+"does not guarantee security, but simply makes it difficult for anyone to "
+"read, so generally it is not safe to make such files publicly accessible.</"
+"p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkSavePassword)
+#: widget/kexidbconnectionwidget.ui:140
+#, fuzzy, kde-format
+#| msgid "Please enter the password."
+msgid "Save password"
+msgstr "Iontráil an focal faire, le do thoil."
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: widget/kexidbconnectionwidget.ui:174
+#, kde-format
+msgid "&Name:"
+msgstr "Ai&nm:"
+
+#. i18n: ectx: property (text), widget (QLabel, titleLabel)
+#: widget/kexidbconnectionwidget.ui:193
+#, fuzzy, kde-format
+#| msgid "&Title (optional):"
+msgid "&Caption (optional):"
+msgstr "&Teideal (roghnach):"
+
+#. i18n: ectx: property (title), widget (QGroupBox, locationBGrp)
+#: widget/kexidbconnectionwidget.ui:289
+#, kde-format
+msgid "Database Server"
+msgstr "Freastalaí Bunachair Sonraí"
+
+#. i18n: ectx: property (text), widget (QLabel, lblEngine)
+#: widget/kexidbconnectionwidget.ui:298
+#, kde-format
+msgid "&Engine:"
+msgstr "Inn&eall:"
+
+#. i18n: ectx: property (text), widget (QRadioButton, localhostRBtn)
+#: widget/kexidbconnectionwidget.ui:335
+#, kde-format
+msgid "Local server"
+msgstr "Freastalaí logánta"
+
+#. i18n: ectx: property (text), widget (QRadioButton, remotehostRBtn)
+#: widget/kexidbconnectionwidget.ui:348
+#, kde-format
+msgid "Remote server"
+msgstr "Freastalaí cianda"
+
+#. i18n: ectx: property (text), widget (QLabel, hostLbl)
+#: widget/kexidbconnectionwidget.ui:357
+#, kde-format
+msgid "&Hostname:"
+msgstr "Óst&ainm:"
+
+# #-#-#-#-#  tmp.XXXXK5LpVx (PACKAGE VERSION)  #-#-#-#-#
+# #-#-#-#-#  temp2.po (yudit 2.7.6)  #-#-#-#-#
+# OK as is
+#. i18n: ectx: property (text), widget (QLabel, portLbl)
+#: widget/kexidbconnectionwidget.ui:383
+#, kde-format
+msgid "Port:"
+msgstr "Port:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkPortDefault)
+#: widget/kexidbconnectionwidget.ui:424
+#, kde-format
+msgctxt "port: default"
+msgid "Default"
+msgstr "Réamhshocrú"
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkUseSocket)
+#: widget/kexidbconnectionwidgetdetails.ui:34
+#, kde-format
+msgid "Use socket &file instead of TCP/IP port:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkSocketDefault)
+#: widget/kexidbconnectionwidgetdetails.ui:80
+#, kde-format
+msgctxt "socket: default"
+msgid "Default"
+msgstr "Réamhshocrú"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: widget/kexidbconnectionwidgetdetails.ui:140
+#, kde-format
+msgid "&Description:"
+msgstr "&Cur Síos:"
+
 #: widget/KexiDBPasswordDialog.cpp:58
 #, fuzzy, kde-kuit-format
 #| msgid "Opening database"
@@ -8164,8 +8514,9 @@ msgstr ""
 msgid "&Details >>"
 msgstr "&Mionsonraí"
 
-#: widget/KexiDBPasswordDialog.cpp:81
-#, fuzzy, kde-kuit-format
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: widget/KexiDBPasswordDialog.cpp:81 widget/KexiPasswordWidget.ui:138
+#, fuzzy, kde-format, kde-kuit-format
 #| msgid "Database server: %1"
 msgid "Database server:"
 msgstr "Freastalaí bunachair sonraí: %1"
@@ -8259,11 +8610,6 @@ msgstr ""
 msgid "Do you want to replace it?"
 msgstr "An bhfuil fonn ort é a ionadú?"
 
-#: widget/KexiNameDialog.cpp:182
-#, kde-kuit-format
-msgid "&Replace"
-msgstr "&Ionadaigh"
-
 #: widget/KexiNameDialog.cpp:183
 #, fuzzy, kde-kuit-format
 msgid "Replace object"
@@ -8297,6 +8643,78 @@ msgstr ""
 msgctxt "Object class \"objectName\", e.g. Text editor \"text\""
 msgid "%1 <resource>%2</resource>"
 msgstr "Theip ar shábháil réad \"%1\"."
+
+#. i18n: ectx: property (text), widget (QLabel, prompt)
+#: widget/KexiPasswordWidget.ui:49
+#, kde-format
+msgid "Supply a password below."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, userNameLabel)
+#: widget/KexiPasswordWidget.ui:87
+#, fuzzy, kde-format
+#| msgid "&Username:"
+msgid "Username:"
+msgstr "&Ainm Úsáideora:"
+
+#. i18n: ectx: property (text), widget (QLabel, anonymousLabel)
+#: widget/KexiPasswordWidget.ui:104
+#, kde-format
+msgid "Anonymous:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: widget/KexiPasswordWidget.ui:121
+#, fuzzy, kde-format
+#| msgid "Database"
+msgid "Database name:"
+msgstr "Bunachar Sonraí"
+
+#. i18n: ectx: property (text), widget (QLabel, passwordLabel)
+#: widget/KexiPasswordWidget.ui:155
+#, fuzzy, kde-format
+#| msgid "&Password:"
+msgid "Password:"
+msgstr "&Focal Faire:"
+
+#. i18n: ectx: property (text), widget (QLabel, keepCheckBoxLabel)
+#: widget/KexiPasswordWidget.ui:185
+#, fuzzy, kde-format
+#| msgid "Please enter the password."
+msgid "Remember password:"
+msgstr "Iontráil an focal faire, le do thoil."
+
+#. i18n: ectx: property (text), widget (QRadioButton, option_file)
+#: widget/kexiprjtypeselector.ui:51
+#, fuzzy, kde-format
+msgid "Projects stored in a file"
+msgstr "Tionscadal Nua Stóráilte ar Fhreastalaí Bunachair Sonraí"
+
+#. i18n: ectx: property (text), widget (QRadioButton, option_server)
+#: widget/kexiprjtypeselector.ui:86
+#, fuzzy, kde-format
+msgid "Projects stored on a database server"
+msgstr "Tionscadal Nua Stóráilte ar Fhreastalaí Bunachair Sonraí"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widget/KexiProjectSelector.ui:33
+#, kde-format
+msgid ""
+"<b>There are Kexi projects you have recently opened.</b> Select one you wish "
+"to open:\n"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#: widget/KexiProjectSelector.ui:74
+#, kde-format
+msgid "Project Name"
+msgstr "Ainm an Tionscadail"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#: widget/KexiProjectSelector.ui:107
+#, kde-format
+msgid "Connection"
+msgstr "Ceangal"
 
 #: widget/KexiProjectSelectorWidget.cpp:94
 #, fuzzy, kde-kuit-format
@@ -8375,11 +8793,6 @@ msgstr "Oscail réad"
 #, kde-kuit-format
 msgid "Opens object selected in the list."
 msgstr "Oscail an réad atá roghnaithe sa liosta."
-
-#: widget/navigator/KexiProjectNavigator.cpp:172
-#, fuzzy, kde-kuit-format
-msgid "&Delete..."
-msgstr "&Scrios"
 
 #: widget/navigator/KexiProjectNavigator.cpp:173
 #, kde-kuit-format
@@ -8789,211 +9202,6 @@ msgstr "Bog an cúrsóir go dtí an ró deiridh."
 #, fuzzy, kde-kuit-format
 msgid "Moves cursor to new record and allows inserting."
 msgstr "Bog an cúrsóir go ró nua agus ceadaítear duit ionsá."
-
-#, fuzzy
-#~| msgid "&Look in:"
-#~ msgctxt "Look in field:"
-#~ msgid "&Look in:"
-#~ msgstr "&Amharc i:"
-
-#~ msgid "&Search:"
-#~ msgstr "&Cuardach:"
-
-#, fuzzy
-#~| msgid "&Whole words only"
-#~ msgctxt "Match: Whole words only"
-#~ msgid "&Whole words only"
-#~ msgstr "&Focail iomláin amháin"
-
-#~ msgid "Fi&nd:"
-#~ msgstr "Ai&msigh:"
-
-#, fuzzy
-#~| msgid "Re&place with:"
-#~ msgctxt "Replace all occurrences with"
-#~ msgid "Re&place with:"
-#~ msgstr "&Ionadaigh le:"
-
-#~ msgid "&Match:"
-#~ msgstr "&Comhoiriúnaigh:"
-
-#, fuzzy
-#~| msgid "C&ase sensitive"
-#~ msgctxt "Match: Case sensitive"
-#~ msgid "C&ase sensitive"
-#~ msgstr "Cá&síogair"
-
-#, fuzzy
-#~| msgid "Start of Field"
-#~ msgctxt "Match: Any Part of Field"
-#~ msgid "Any Part of Field"
-#~ msgstr "Tús an Réimse"
-
-#, fuzzy
-#~| msgid "Whole Field"
-#~ msgctxt "Match: Whole Field"
-#~ msgid "Whole Field"
-#~ msgstr "An Réimse Iomlán"
-
-#, fuzzy
-#~| msgid "Start of Field"
-#~ msgctxt "Match: Start of Field"
-#~ msgid "Start of Field"
-#~ msgstr "Tús an Réimse"
-
-#, fuzzy
-#~| msgid "Up"
-#~ msgctxt "Search Up"
-#~ msgid "Up"
-#~ msgstr "Suas"
-
-#, fuzzy
-#~| msgid "Down"
-#~ msgctxt "Search Down"
-#~ msgid "Down"
-#~ msgstr "Síos"
-
-#, fuzzy
-#~| msgid "All Rows"
-#~ msgctxt "Look In All Rows"
-#~ msgid "All Rows"
-#~ msgstr "Gach Ró"
-
-#, fuzzy
-#~| msgid "Replace All"
-#~ msgctxt "Replace All Occurrences"
-#~ msgid "Replace All"
-#~ msgstr "Ionadaigh Uile"
-
-#~ msgid "&Advanced "
-#~ msgstr "&Casta "
-
-#, fuzzy
-#~ msgctxt "New Project Stored in File"
-#~ msgid "File"
-#~ msgstr "Comhad"
-
-#, fuzzy
-#~ msgid "New Project Stored in File"
-#~ msgstr "Tionscadal Nua Stóráilte ar Fhreastalaí Bunachair Sonraí"
-
-#, fuzzy
-#~ msgctxt "New Project Stored on Database Server"
-#~ msgid "Server"
-#~ msgstr "Ón Fhreastalaí..."
-
-#~ msgid "New Project Stored on Database Server"
-#~ msgstr "Tionscadal Nua Stóráilte ar Fhreastalaí Bunachair Sonraí"
-
-#, fuzzy
-#~| msgid "Project description"
-#~ msgid "Project caption:"
-#~ msgstr "Cur síos ar an tionscadal"
-
-#, fuzzy
-#~ msgid "Project's database name:"
-#~ msgstr "Ainm an Tionscadail"
-
-#~ msgid "Server Information"
-#~ msgstr "Eolas faoin bhfreastalaí"
-
-#~ msgid "&Add..."
-#~ msgstr "C&uir Leis..."
-
-#~ msgid "&Edit..."
-#~ msgstr "&Eagar..."
-
-#, fuzzy
-#~| msgid "Project description"
-#~ msgid "Pro&ject caption: "
-#~ msgstr "Cur síos ar an tionscadal"
-
-#, fuzzy
-#~ msgid "Project file&name:"
-#~ msgstr "Ainm an Tionscadail"
-
-#~ msgid "Authentication"
-#~ msgstr "Fíordheimhniú"
-
-#~ msgid "&Username:"
-#~ msgstr "&Ainm Úsáideora:"
-
-#~ msgid "&Password:"
-#~ msgstr "&Focal Faire:"
-
-#, fuzzy
-#~| msgid "Please enter the password."
-#~ msgid "Save password"
-#~ msgstr "Iontráil an focal faire, le do thoil."
-
-#~ msgid "&Name:"
-#~ msgstr "Ai&nm:"
-
-#, fuzzy
-#~| msgid "&Title (optional):"
-#~ msgid "&Caption (optional):"
-#~ msgstr "&Teideal (roghnach):"
-
-#~ msgid "Database Server"
-#~ msgstr "Freastalaí Bunachair Sonraí"
-
-#~ msgid "&Engine:"
-#~ msgstr "Inn&eall:"
-
-#~ msgid "Local server"
-#~ msgstr "Freastalaí logánta"
-
-#~ msgid "Remote server"
-#~ msgstr "Freastalaí cianda"
-
-#~ msgid "&Hostname:"
-#~ msgstr "Óst&ainm:"
-
-# #-#-#-#-#  tmp.XXXXK5LpVx (PACKAGE VERSION)  #-#-#-#-#
-# #-#-#-#-#  temp2.po (yudit 2.7.6)  #-#-#-#-#
-# OK as is
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#~ msgctxt "port: default"
-#~ msgid "Default"
-#~ msgstr "Réamhshocrú"
-
-#~ msgctxt "socket: default"
-#~ msgid "Default"
-#~ msgstr "Réamhshocrú"
-
-#~ msgid "&Description:"
-#~ msgstr "&Cur Síos:"
-
-#, fuzzy
-#~| msgid "&Username:"
-#~ msgid "Username:"
-#~ msgstr "&Ainm Úsáideora:"
-
-#, fuzzy
-#~| msgid "Database"
-#~ msgid "Database name:"
-#~ msgstr "Bunachar Sonraí"
-
-#, fuzzy
-#~| msgid "&Password:"
-#~ msgid "Password:"
-#~ msgstr "&Focal Faire:"
-
-#, fuzzy
-#~ msgid "Projects stored in a file"
-#~ msgstr "Tionscadal Nua Stóráilte ar Fhreastalaí Bunachair Sonraí"
-
-#, fuzzy
-#~ msgid "Projects stored on a database server"
-#~ msgstr "Tionscadal Nua Stóráilte ar Fhreastalaí Bunachair Sonraí"
-
-#~ msgid "Project Name"
-#~ msgstr "Ainm an Tionscadail"
-
-#~ msgid "Connection"
-#~ msgstr "Ceangal"
 
 #, fuzzy
 #~ msgid "Project title: "

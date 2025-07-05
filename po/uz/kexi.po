@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 03:21+0000\n"
+"POT-Creation-Date: 2025-07-05 05:54+0000\n"
 "PO-Revision-Date: 2006-12-17 13:41+0000\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -1585,9 +1585,11 @@ msgstr ""
 msgid "Vertical Alignment"
 msgstr "&Boʻyiga"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: formeditor/form_p.cpp:270 formeditor/form_p.cpp:271
 #: plugins/tables/kexitabledesignerview.cpp:323
-#, kde-kuit-format
+#: widget/KexiConnectionSelector.ui:94
+#, kde-format, kde-kuit-format
 msgid "Name"
 msgstr "Nomi"
 
@@ -2445,6 +2447,113 @@ msgstr "\"%1\" obʼektini saqlab boʻlmadi."
 #, fuzzy, kde-kuit-format
 msgid "The search item was not found"
 msgstr "obʼekt topilmadi"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: main/kexifinddialog.ui:20
+#, kde-format
+msgctxt "Look in field:"
+msgid "&Look in:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2)
+#: main/kexifinddialog.ui:36
+#, kde-format
+msgid "&Search:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_wholeWords)
+#: main/kexifinddialog.ui:55
+#, kde-format
+msgctxt "Match: Whole words only"
+msgid "&Whole words only"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: main/kexifinddialog.ui:62
+#, kde-format
+msgid "Fi&nd:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, m_replaceLbl)
+#: main/kexifinddialog.ui:110
+#, fuzzy, kde-format
+msgctxt "Replace all occurrences with"
+msgid "Re&place with:"
+msgstr "&Almashtirish"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_promptOnReplace)
+#: main/kexifinddialog.ui:129
+#, fuzzy, kde-format
+msgid "Prompt on replace"
+msgstr "Al&mashtirilmasin"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_3)
+#: main/kexifinddialog.ui:152
+#, kde-format
+msgid "&Match:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_caseSensitive)
+#: main/kexifinddialog.ui:171
+#, kde-format
+msgctxt "Match: Case sensitive"
+msgid "C&ase sensitive"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
+#: main/kexifinddialog.ui:182
+#, fuzzy, kde-format
+msgctxt "Match: Any Part of Field"
+msgid "Any Part of Field"
+msgstr "Avto-yorliq"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
+#: main/kexifinddialog.ui:187
+#, fuzzy, kde-format
+msgctxt "Match: Whole Field"
+msgid "Whole Field"
+msgstr "Avto-yorliq"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
+#: main/kexifinddialog.ui:192
+#, fuzzy, kde-format
+msgctxt "Match: Start of Field"
+msgid "Start of Field"
+msgstr "yorliq"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
+#: main/kexifinddialog.ui:204
+#, kde-format
+msgctxt "Search Up"
+msgid "Up"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
+#: main/kexifinddialog.ui:209
+#, kde-format
+msgctxt "Search Down"
+msgid "Down"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
+#: main/kexifinddialog.ui:214
+#, fuzzy, kde-format
+msgctxt "Look In All Rows"
+msgid "All Rows"
+msgstr "Satr:"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_btnReplace)
+#: main/kexifinddialog.ui:264 widget/KexiNameDialog.cpp:182
+#, kde-format, kde-kuit-format
+msgid "&Replace"
+msgstr "&Almashtirish"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_btnReplaceAll)
+#: main/kexifinddialog.ui:277
+#, fuzzy, kde-format
+msgctxt "Replace All Occurrences"
+msgid "Replace All"
+msgstr "&Almashtirish"
 
 #: main/KexiMainWindow.cpp:193
 #, fuzzy, kde-kuit-format
@@ -3611,6 +3720,26 @@ msgstr ""
 msgid "Delete and Create New"
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QLabel, lbl)
+#: main/startup/KexiOpenExistingFile.ui:31
+#, kde-format
+msgid "<b>Select existing Kexi project file to open:</b>\n"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_advanced)
+#: main/startup/KexiOpenExistingFile.ui:89
+#, fuzzy, kde-format
+msgid "&Advanced "
+msgstr "Qoʻshimcha moslamalar"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: main/startup/KexiOpenExistingFile.ui:104
+#, kde-format
+msgid ""
+"Click \"Advanced\" button if you want to find an existing project on a "
+"server rather than a file."
+msgstr ""
+
 #: main/startup/KexiOpenProjectAssistant.cpp:41
 #: widget/KexiProjectSelectorWidget.cpp:304
 #, fuzzy, kde-kuit-format
@@ -3666,6 +3795,33 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Database Password"
 msgstr "Maʼlumot bazasi"
+
+#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_file)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:31
+#, fuzzy, kde-format
+msgctxt "New Project Stored in File"
+msgid "File"
+msgstr "fayl"
+
+#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_file)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:37
+#, fuzzy, kde-format
+msgid "New Project Stored in File"
+msgstr "Maʼlumot bazasi serveriga ulanish"
+
+#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_server)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:47
+#, fuzzy, kde-format
+#| msgid "From Server..."
+msgctxt "New Project Stored on Database Server"
+msgid "Server"
+msgstr "Serverdan"
+
+#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_server)
+#: main/startup/KexiProjectStorageTypeSelectionPage.ui:53
+#, fuzzy, kde-format
+msgid "New Project Stored on Database Server"
+msgstr "Maʼlumot bazasi serveriga ulanish"
 
 #: main/startup/KexiRecentProjectsModel.cpp:70
 #, kde-kuit-format
@@ -3738,6 +3894,19 @@ msgstr "Yangi maʼlumot bazasi"
 #, kde-kuit-format
 msgid "Last opened on %1"
 msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: main/startup/KexiServerDBNamePage.ui:31
+#, fuzzy, kde-format
+#| msgid "Project caption"
+msgid "Project caption:"
+msgstr "Loyiha sarlavhasi"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: main/startup/KexiServerDBNamePage.ui:60
+#, fuzzy, kde-format
+msgid "Project's database name:"
+msgstr "Manba maʼlumotlar baza fayl nomini tanlang."
 
 #: main/startup/KexiStartup.cpp:248
 #, fuzzy, kde-format
@@ -4060,9 +4229,11 @@ msgstr ""
 msgid "Column %1"
 msgstr "Ustun %1"
 
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: migration/AlterSchemaWidget.cpp:52
 #: plugins/tables/kexitabledesignerview.cpp:326
-#, kde-kuit-format
+#: widget/KexiConnectionSelector.ui:99 widget/KexiProjectSelector.ui:96
+#, kde-format, kde-kuit-format
 msgid "Type"
 msgstr "Turi"
 
@@ -5212,8 +5383,10 @@ msgstr "Sana"
 msgid "Arrow Visible"
 msgstr "Koʻrinadigan"
 
+#. i18n: ectx: property (title), widget (QGroupBox, descGroupBox)
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
-#, kde-kuit-format
+#: widget/KexiConnectionSelector.ui:118
+#, kde-format, kde-kuit-format
 msgid "Description"
 msgstr "Taʼrifi"
 
@@ -7903,6 +8076,42 @@ msgctxt "Text encoding: Default"
 msgid "Default: %1"
 msgstr "Andoza: %1"
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widget/KexiConnectionSelector.ui:50
+#, kde-format
+msgid ""
+"<title>Select Existing Database Server's Connection From the List Below</"
+"title>\n"
+"<para>You will see existing Kexi projects available for the selected "
+"connection. Here you may also add, edit or delete connections from the list."
+"</para>\n"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#: widget/KexiConnectionSelector.ui:104
+#, kde-format
+msgid "Server Information"
+msgstr "Server haqida maʼlumot"
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_add)
+#: widget/KexiConnectionSelector.ui:155
+#, kde-format
+msgid "&Add..."
+msgstr "&Qoʻshish..."
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_edit)
+#: widget/KexiConnectionSelector.ui:168
+#, kde-format
+msgid "&Edit..."
+msgstr "&Tahrirlash..."
+
+#. i18n: ectx: property (text), widget (QPushButton, btn_remove)
+#: widget/KexiConnectionSelector.ui:181
+#: widget/navigator/KexiProjectNavigator.cpp:172
+#, fuzzy, kde-format, kde-kuit-format
+msgid "&Delete..."
+msgstr "Satrni &olib tashlash"
+
 #: widget/KexiConnectionSelectorWidget.cpp:62
 #, kde-kuit-format
 msgid "Add a new database connection"
@@ -7977,6 +8186,20 @@ msgstr ""
 msgid "Define Query..."
 msgstr ""
 
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widget/KexiDBCaptionPage.ui:31
+#, fuzzy, kde-format
+#| msgid "Project caption"
+msgid "Pro&ject caption: "
+msgstr "Loyiha sarlavhasi"
+
+#. i18n: ectx: property (text), widget (QLabel, label_requester)
+#: widget/KexiDBCaptionPage.ui:63
+#, fuzzy, kde-format
+#| msgid "Project Name"
+msgid "Project file&name:"
+msgstr "Loyiha nomi"
+
 #: widget/kexidbconnectionwidget.cpp:90
 #, kde-kuit-format
 msgid "Load database list from the server"
@@ -8030,8 +8253,11 @@ msgstr ""
 msgid "Database Connection"
 msgstr "Ulanishni tekshirish"
 
-#: widget/kexidbconnectionwidget.cpp:160
-#, kde-kuit-format
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)
+#: widget/kexidbconnectionwidget.cpp:160 widget/kexidbconnectionwidget.ui:168
+#: widget/KexiProjectSelector.ui:85
+#, kde-format, kde-kuit-format
 msgid "Database"
 msgstr "Maʼlumot bazasi"
 
@@ -8073,6 +8299,117 @@ msgstr "&Ochish"
 msgid "Open Database Connection"
 msgstr "Maʼlumot bazasini ochish"
 
+#. i18n: ectx: property (title), widget (QGroupBox, authenticationGBox)
+#: widget/kexidbconnectionwidget.ui:90
+#, kde-format
+msgid "Authentication"
+msgstr "Tasdiqlash"
+
+#. i18n: ectx: property (text), widget (QLabel, userLbl)
+#: widget/kexidbconnectionwidget.ui:96
+#, kde-format
+msgid "&Username:"
+msgstr "F&oydalanuvchi:"
+
+#. i18n: ectx: property (text), widget (QLabel, passwordLbl)
+#: widget/kexidbconnectionwidget.ui:116
+#, kde-format
+msgid "&Password:"
+msgstr "&Maxfiy soʻz:"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, chkSavePassword)
+#: widget/kexidbconnectionwidget.ui:137
+#, kde-format
+msgid ""
+"<html><head/><body><p>Saves password in a <span style=\" font-style:italic;"
+"\">.kexic</span> or <span style=\" font-style:italic;\">.kexis</span> "
+"connection shortcut file using a simple encryption similar to ROT-47. It "
+"does not guarantee security, but simply makes it difficult for anyone to "
+"read, so generally it is not safe to make such files publicly accessible.</"
+"p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkSavePassword)
+#: widget/kexidbconnectionwidget.ui:140
+#, fuzzy, kde-format
+#| msgid "Please enter the password."
+msgid "Save password"
+msgstr "Iltimos maxfiy soʻzni kiriting."
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: widget/kexidbconnectionwidget.ui:174
+#, kde-format
+msgid "&Name:"
+msgstr "&Nomi:"
+
+#. i18n: ectx: property (text), widget (QLabel, titleLabel)
+#: widget/kexidbconnectionwidget.ui:193
+#, kde-format
+msgid "&Caption (optional):"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, locationBGrp)
+#: widget/kexidbconnectionwidget.ui:289
+#, kde-format
+msgid "Database Server"
+msgstr "Maʼlumotlar baza serveri"
+
+#. i18n: ectx: property (text), widget (QLabel, lblEngine)
+#: widget/kexidbconnectionwidget.ui:298
+#, kde-format
+msgid "&Engine:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, localhostRBtn)
+#: widget/kexidbconnectionwidget.ui:335
+#, kde-format
+msgid "Local server"
+msgstr "Lokal server"
+
+#. i18n: ectx: property (text), widget (QRadioButton, remotehostRBtn)
+#: widget/kexidbconnectionwidget.ui:348
+#, kde-format
+msgid "Remote server"
+msgstr "Masofadagi server"
+
+#. i18n: ectx: property (text), widget (QLabel, hostLbl)
+#: widget/kexidbconnectionwidget.ui:357
+#, fuzzy, kde-format
+msgid "&Hostname:"
+msgstr "F&oydalanuvchi:"
+
+#. i18n: ectx: property (text), widget (QLabel, portLbl)
+#: widget/kexidbconnectionwidget.ui:383
+#, kde-format
+msgid "Port:"
+msgstr "Port:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkPortDefault)
+#: widget/kexidbconnectionwidget.ui:424
+#, fuzzy, kde-format
+msgctxt "port: default"
+msgid "Default"
+msgstr "Andoza: %1"
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkUseSocket)
+#: widget/kexidbconnectionwidgetdetails.ui:34
+#, kde-format
+msgid "Use socket &file instead of TCP/IP port:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, chkSocketDefault)
+#: widget/kexidbconnectionwidgetdetails.ui:80
+#, fuzzy, kde-format
+msgctxt "socket: default"
+msgid "Default"
+msgstr "Andoza: %1"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: widget/kexidbconnectionwidgetdetails.ui:140
+#, kde-format
+msgid "&Description:"
+msgstr "&Taʼrifi:"
+
 #: widget/KexiDBPasswordDialog.cpp:58
 #, fuzzy, kde-kuit-format
 #| msgid "Opening database"
@@ -8092,8 +8429,9 @@ msgstr ""
 msgid "&Details >>"
 msgstr "&Tafsilotlar"
 
-#: widget/KexiDBPasswordDialog.cpp:81
-#, fuzzy, kde-kuit-format
+#. i18n: ectx: property (text), widget (QLabel, domainLabel)
+#: widget/KexiDBPasswordDialog.cpp:81 widget/KexiPasswordWidget.ui:138
+#, fuzzy, kde-format, kde-kuit-format
 #| msgid "Database server: %1"
 msgid "Database server:"
 msgstr "Maʼlumot baza serveri: %1"
@@ -8187,11 +8525,6 @@ msgstr ""
 msgid "Do you want to replace it?"
 msgstr "Uni almashtirishni istaysizmi?"
 
-#: widget/KexiNameDialog.cpp:182
-#, kde-kuit-format
-msgid "&Replace"
-msgstr "&Almashtirish"
-
 #: widget/KexiNameDialog.cpp:183
 #, fuzzy, kde-kuit-format
 #| msgid "Create object"
@@ -8225,6 +8558,77 @@ msgstr "Iltimos sarlavhani kiriting."
 msgctxt "Object class \"objectName\", e.g. Text editor \"text\""
 msgid "%1 <resource>%2</resource>"
 msgstr "\"%1\" obʼektini saqlab boʻlmadi."
+
+#. i18n: ectx: property (text), widget (QLabel, prompt)
+#: widget/KexiPasswordWidget.ui:49
+#, kde-format
+msgid "Supply a password below."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, userNameLabel)
+#: widget/KexiPasswordWidget.ui:87
+#, fuzzy, kde-format
+#| msgid "&Username:"
+msgid "Username:"
+msgstr "F&oydalanuvchi:"
+
+#. i18n: ectx: property (text), widget (QLabel, anonymousLabel)
+#: widget/KexiPasswordWidget.ui:104
+#, kde-format
+msgid "Anonymous:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: widget/KexiPasswordWidget.ui:121
+#, fuzzy, kde-format
+msgid "Database name:"
+msgstr "Maʼlumotlar baza serveri"
+
+#. i18n: ectx: property (text), widget (QLabel, passwordLabel)
+#: widget/KexiPasswordWidget.ui:155
+#, fuzzy, kde-format
+#| msgid "&Password:"
+msgid "Password:"
+msgstr "&Maxfiy soʻz:"
+
+#. i18n: ectx: property (text), widget (QLabel, keepCheckBoxLabel)
+#: widget/KexiPasswordWidget.ui:185
+#, fuzzy, kde-format
+#| msgid "Please enter the password."
+msgid "Remember password:"
+msgstr "Iltimos maxfiy soʻzni kiriting."
+
+#. i18n: ectx: property (text), widget (QRadioButton, option_file)
+#: widget/kexiprjtypeselector.ui:51
+#, fuzzy, kde-format
+msgid "Projects stored in a file"
+msgstr "Maʼlumot bazasi serveriga ulanish"
+
+#. i18n: ectx: property (text), widget (QRadioButton, option_server)
+#: widget/kexiprjtypeselector.ui:86
+#, fuzzy, kde-format
+msgid "Projects stored on a database server"
+msgstr "Maʼlumot bazasi serveriga ulanish"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widget/KexiProjectSelector.ui:33
+#, kde-format
+msgid ""
+"<b>There are Kexi projects you have recently opened.</b> Select one you wish "
+"to open:\n"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#: widget/KexiProjectSelector.ui:74
+#, kde-format
+msgid "Project Name"
+msgstr "Loyiha nomi"
+
+#. i18n: ectx: property (text), widget (QTreeWidget, list)
+#: widget/KexiProjectSelector.ui:107
+#, fuzzy, kde-format
+msgid "Connection"
+msgstr "Ulanish"
 
 #: widget/KexiProjectSelectorWidget.cpp:94
 #, fuzzy, kde-kuit-format
@@ -8304,11 +8708,6 @@ msgstr "Obʼektni ochish"
 #| msgid "Opens object selected in the list"
 msgid "Opens object selected in the list."
 msgstr "Roʻyxatdan tanlangan obʼektni ochish"
-
-#: widget/navigator/KexiProjectNavigator.cpp:172
-#, fuzzy, kde-kuit-format
-msgid "&Delete..."
-msgstr "Satrni &olib tashlash"
 
 #: widget/navigator/KexiProjectNavigator.cpp:173
 #, fuzzy, kde-kuit-format
@@ -8729,166 +9128,6 @@ msgstr "Birinchi satr"
 #, fuzzy, kde-kuit-format
 msgid "Moves cursor to new record and allows inserting."
 msgstr "Keyingi oyna"
-
-#, fuzzy
-#~ msgctxt "Replace all occurrences with"
-#~ msgid "Re&place with:"
-#~ msgstr "&Almashtirish"
-
-#, fuzzy
-#~ msgid "Prompt on replace"
-#~ msgstr "Al&mashtirilmasin"
-
-#, fuzzy
-#~ msgctxt "Match: Any Part of Field"
-#~ msgid "Any Part of Field"
-#~ msgstr "Avto-yorliq"
-
-#, fuzzy
-#~ msgctxt "Match: Whole Field"
-#~ msgid "Whole Field"
-#~ msgstr "Avto-yorliq"
-
-#, fuzzy
-#~ msgctxt "Match: Start of Field"
-#~ msgid "Start of Field"
-#~ msgstr "yorliq"
-
-#, fuzzy
-#~ msgctxt "Look In All Rows"
-#~ msgid "All Rows"
-#~ msgstr "Satr:"
-
-#, fuzzy
-#~ msgctxt "Replace All Occurrences"
-#~ msgid "Replace All"
-#~ msgstr "&Almashtirish"
-
-#, fuzzy
-#~ msgid "&Advanced "
-#~ msgstr "Qoʻshimcha moslamalar"
-
-#, fuzzy
-#~ msgctxt "New Project Stored in File"
-#~ msgid "File"
-#~ msgstr "fayl"
-
-#, fuzzy
-#~ msgid "New Project Stored in File"
-#~ msgstr "Maʼlumot bazasi serveriga ulanish"
-
-#, fuzzy
-#~| msgid "From Server..."
-#~ msgctxt "New Project Stored on Database Server"
-#~ msgid "Server"
-#~ msgstr "Serverdan"
-
-#, fuzzy
-#~ msgid "New Project Stored on Database Server"
-#~ msgstr "Maʼlumot bazasi serveriga ulanish"
-
-#, fuzzy
-#~| msgid "Project caption"
-#~ msgid "Project caption:"
-#~ msgstr "Loyiha sarlavhasi"
-
-#, fuzzy
-#~ msgid "Project's database name:"
-#~ msgstr "Manba maʼlumotlar baza fayl nomini tanlang."
-
-#~ msgid "Server Information"
-#~ msgstr "Server haqida maʼlumot"
-
-#~ msgid "&Add..."
-#~ msgstr "&Qoʻshish..."
-
-#~ msgid "&Edit..."
-#~ msgstr "&Tahrirlash..."
-
-#, fuzzy
-#~| msgid "Project caption"
-#~ msgid "Pro&ject caption: "
-#~ msgstr "Loyiha sarlavhasi"
-
-#, fuzzy
-#~| msgid "Project Name"
-#~ msgid "Project file&name:"
-#~ msgstr "Loyiha nomi"
-
-#~ msgid "Authentication"
-#~ msgstr "Tasdiqlash"
-
-#~ msgid "&Username:"
-#~ msgstr "F&oydalanuvchi:"
-
-#~ msgid "&Password:"
-#~ msgstr "&Maxfiy soʻz:"
-
-#, fuzzy
-#~| msgid "Please enter the password."
-#~ msgid "Save password"
-#~ msgstr "Iltimos maxfiy soʻzni kiriting."
-
-#~ msgid "&Name:"
-#~ msgstr "&Nomi:"
-
-#~ msgid "Database Server"
-#~ msgstr "Maʼlumotlar baza serveri"
-
-#~ msgid "Local server"
-#~ msgstr "Lokal server"
-
-#~ msgid "Remote server"
-#~ msgstr "Masofadagi server"
-
-#, fuzzy
-#~ msgid "&Hostname:"
-#~ msgstr "F&oydalanuvchi:"
-
-#~ msgid "Port:"
-#~ msgstr "Port:"
-
-#, fuzzy
-#~ msgctxt "port: default"
-#~ msgid "Default"
-#~ msgstr "Andoza: %1"
-
-#, fuzzy
-#~ msgctxt "socket: default"
-#~ msgid "Default"
-#~ msgstr "Andoza: %1"
-
-#~ msgid "&Description:"
-#~ msgstr "&Taʼrifi:"
-
-#, fuzzy
-#~| msgid "&Username:"
-#~ msgid "Username:"
-#~ msgstr "F&oydalanuvchi:"
-
-#, fuzzy
-#~ msgid "Database name:"
-#~ msgstr "Maʼlumotlar baza serveri"
-
-#, fuzzy
-#~| msgid "&Password:"
-#~ msgid "Password:"
-#~ msgstr "&Maxfiy soʻz:"
-
-#, fuzzy
-#~ msgid "Projects stored in a file"
-#~ msgstr "Maʼlumot bazasi serveriga ulanish"
-
-#, fuzzy
-#~ msgid "Projects stored on a database server"
-#~ msgstr "Maʼlumot bazasi serveriga ulanish"
-
-#~ msgid "Project Name"
-#~ msgstr "Loyiha nomi"
-
-#, fuzzy
-#~ msgid "Connection"
-#~ msgstr "Ulanish"
 
 #, fuzzy
 #~ msgid "Project title: "
