@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 02:28+0000\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2020-04-29 11:51+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <kde-et@lists.linux.ee>\n"
@@ -1658,11 +1658,9 @@ msgstr "Püstjoondus"
 msgid "Vertical Alignment"
 msgstr "Püstjoondus"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: formeditor/form_p.cpp:270 formeditor/form_p.cpp:271
 #: plugins/tables/kexitabledesignerview.cpp:323
-#: widget/KexiConnectionSelector.ui:94
-#, kde-format, kde-kuit-format
+#, kde-kuit-format
 msgid "Name"
 msgstr "Nimi"
 
@@ -2476,113 +2474,6 @@ msgstr "Otsimine - <resource>%1</resource>"
 #, kde-kuit-format
 msgid "The search item was not found"
 msgstr "Otsitavat elementi ei leitud"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: main/kexifinddialog.ui:20
-#, kde-format
-msgctxt "Look in field:"
-msgid "&Look in:"
-msgstr "Otsimis&koht:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2)
-#: main/kexifinddialog.ui:36
-#, kde-format
-msgid "&Search:"
-msgstr "Ot&sing:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_wholeWords)
-#: main/kexifinddialog.ui:55
-#, kde-format
-msgctxt "Match: Whole words only"
-msgid "&Whole words only"
-msgstr "&Ainult terved sõnad"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: main/kexifinddialog.ui:62
-#, kde-format
-msgid "Fi&nd:"
-msgstr "O&tsitav:"
-
-#. i18n: ectx: property (text), widget (QLabel, m_replaceLbl)
-#: main/kexifinddialog.ui:110
-#, kde-format
-msgctxt "Replace all occurrences with"
-msgid "Re&place with:"
-msgstr "&Asendus:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_promptOnReplace)
-#: main/kexifinddialog.ui:129
-#, kde-format
-msgid "Prompt on replace"
-msgstr "Asendamisel küsitakse"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_3)
-#: main/kexifinddialog.ui:152
-#, kde-format
-msgid "&Match:"
-msgstr "So&bivus:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_caseSensitive)
-#: main/kexifinddialog.ui:171
-#, kde-format
-msgctxt "Match: Case sensitive"
-msgid "C&ase sensitive"
-msgstr "Tõstutun&dlik"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
-#: main/kexifinddialog.ui:182
-#, kde-format
-msgctxt "Match: Any Part of Field"
-msgid "Any Part of Field"
-msgstr "Kõik välja osad"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
-#: main/kexifinddialog.ui:187
-#, kde-format
-msgctxt "Match: Whole Field"
-msgid "Whole Field"
-msgstr "Terve väli"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
-#: main/kexifinddialog.ui:192
-#, kde-format
-msgctxt "Match: Start of Field"
-msgid "Start of Field"
-msgstr "Välja algus"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
-#: main/kexifinddialog.ui:204
-#, kde-format
-msgctxt "Search Up"
-msgid "Up"
-msgstr "Üles"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
-#: main/kexifinddialog.ui:209
-#, kde-format
-msgctxt "Search Down"
-msgid "Down"
-msgstr "Alla"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
-#: main/kexifinddialog.ui:214
-#, kde-format
-msgctxt "Look In All Rows"
-msgid "All Rows"
-msgstr "Kõik read"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_btnReplace)
-#: main/kexifinddialog.ui:264 widget/KexiNameDialog.cpp:182
-#, kde-format, kde-kuit-format
-msgid "&Replace"
-msgstr "&Asenda"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_btnReplaceAll)
-#: main/kexifinddialog.ui:277
-#, kde-format
-msgctxt "Replace All Occurrences"
-msgid "Replace All"
-msgstr "Asenda kõik"
 
 #: main/KexiMainWindow.cpp:193
 #, kde-kuit-format
@@ -3762,28 +3653,6 @@ msgstr ""
 msgid "Delete and Create New"
 msgstr "Kustuta ja loo uus"
 
-#. i18n: ectx: property (text), widget (QLabel, lbl)
-#: main/startup/KexiOpenExistingFile.ui:31
-#, kde-format
-msgid "<b>Select existing Kexi project file to open:</b>\n"
-msgstr "<b>Avatav Kexi projektifail:</b>\n"
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_advanced)
-#: main/startup/KexiOpenExistingFile.ui:89
-#, kde-format
-msgid "&Advanced "
-msgstr "&Muud "
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: main/startup/KexiOpenExistingFile.ui:104
-#, kde-format
-msgid ""
-"Click \"Advanced\" button if you want to find an existing project on a "
-"server rather than a file."
-msgstr ""
-"Klõpsa \"Muud\", kui soovid olemasolevat projekti avada mitte failist, vaid "
-"serverist."
-
 #: main/startup/KexiOpenProjectAssistant.cpp:41
 #: widget/KexiProjectSelectorWidget.cpp:304
 #, kde-kuit-format
@@ -3842,32 +3711,6 @@ msgstr "Vali andmebaasiserveris <resource>%1 (%2)</resource> avatav projekt."
 msgctxt "@title:window"
 msgid "Database Password"
 msgstr "Andmebaasi parool"
-
-#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_file)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:31
-#, kde-format
-msgctxt "New Project Stored in File"
-msgid "File"
-msgstr "Fail"
-
-#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_file)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:37
-#, kde-format
-msgid "New Project Stored in File"
-msgstr "Uus faili salvestatud projekt"
-
-#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_server)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:47
-#, kde-format
-msgctxt "New Project Stored on Database Server"
-msgid "Server"
-msgstr "Server"
-
-#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_server)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:53
-#, kde-format
-msgid "New Project Stored on Database Server"
-msgstr "Uus andmebaasiserverisse salvestatud projekt"
 
 #: main/startup/KexiRecentProjectsModel.cpp:70
 #, kde-kuit-format
@@ -3941,18 +3784,6 @@ msgstr "%1 andmebaas"
 #, kde-kuit-format
 msgid "Last opened on %1"
 msgstr "Viimati avatud %1"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: main/startup/KexiServerDBNamePage.ui:31
-#, kde-format
-msgid "Project caption:"
-msgstr "Projekti pealdis:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: main/startup/KexiServerDBNamePage.ui:60
-#, kde-format
-msgid "Project's database name:"
-msgstr "Projekti andmebaasi nimi:"
 
 #: main/startup/KexiStartup.cpp:248
 #, kde-format
@@ -4318,11 +4149,9 @@ msgstr "Mitte praegu"
 msgid "Column %1"
 msgstr "Veerg %1"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: migration/AlterSchemaWidget.cpp:52
 #: plugins/tables/kexitabledesignerview.cpp:326
-#: widget/KexiConnectionSelector.ui:99 widget/KexiProjectSelector.ui:96
-#, kde-format, kde-kuit-format
+#, kde-kuit-format
 msgid "Type"
 msgstr "Tüüp"
 
@@ -5472,10 +5301,8 @@ msgstr "Kuupäev"
 msgid "Arrow Visible"
 msgstr "Nähtav nool"
 
-#. i18n: ectx: property (title), widget (QGroupBox, descGroupBox)
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
-#: widget/KexiConnectionSelector.ui:118
-#, kde-format, kde-kuit-format
+#, kde-kuit-format
 msgid "Description"
 msgstr "Kirjeldus"
 
@@ -8091,51 +7918,6 @@ msgctxt "Text encoding: Default"
 msgid "Default: %1"
 msgstr "Vaikimisi: %1"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widget/KexiConnectionSelector.ui:50
-#, fuzzy, kde-format
-#| msgid ""
-#| "<title>Select Existing Database Server's Connection From the List Below</"
-#| "title>\n"
-#| "<para>You will see existing Kexi projects available for the selected "
-#| "connection. Here you may also add, edit or remove connections from the "
-#| "list.</para>\n"
-msgid ""
-"<title>Select Existing Database Server's Connection From the List Below</"
-"title>\n"
-"<para>You will see existing Kexi projects available for the selected "
-"connection. Here you may also add, edit or delete connections from the list."
-"</para>\n"
-msgstr ""
-"<title>Nimekirjast olemasoleva andmebaasiserveri ühenduse valimine</title>\n"
-"<para>Näed valitud ühendusele kättesaadavaid olemasolevaid Kexi projekte. "
-"Ühendusi võib nimekirja ka lisada, neid sealt eemaldada või muuta.</para>\n"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: widget/KexiConnectionSelector.ui:104
-#, kde-format
-msgid "Server Information"
-msgstr "Serveri info"
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_add)
-#: widget/KexiConnectionSelector.ui:155
-#, kde-format
-msgid "&Add..."
-msgstr "&Lisa..."
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_edit)
-#: widget/KexiConnectionSelector.ui:168
-#, kde-format
-msgid "&Edit..."
-msgstr "&Muuda..."
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_remove)
-#: widget/KexiConnectionSelector.ui:181
-#: widget/navigator/KexiProjectNavigator.cpp:172
-#, kde-format, kde-kuit-format
-msgid "&Delete..."
-msgstr "&Kustuta..."
-
 #: widget/KexiConnectionSelectorWidget.cpp:62
 #, kde-kuit-format
 msgid "Add a new database connection"
@@ -8211,18 +7993,6 @@ msgstr ""
 msgid "Define Query..."
 msgstr "Määra päring..."
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widget/KexiDBCaptionPage.ui:31
-#, kde-format
-msgid "Pro&ject caption: "
-msgstr "Pro&jekti pealdis:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_requester)
-#: widget/KexiDBCaptionPage.ui:63
-#, kde-format
-msgid "Project file&name:"
-msgstr "Projekti faili&nimi:"
-
 #: widget/kexidbconnectionwidget.cpp:90
 #, kde-kuit-format
 msgid "Load database list from the server"
@@ -8280,11 +8050,8 @@ msgstr ""
 msgid "Database Connection"
 msgstr "Andmebaasiühendus"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)
-#: widget/kexidbconnectionwidget.cpp:160 widget/kexidbconnectionwidget.ui:168
-#: widget/KexiProjectSelector.ui:85
-#, kde-format, kde-kuit-format
+#: widget/kexidbconnectionwidget.cpp:160
+#, kde-kuit-format
 msgid "Database"
 msgstr "Andmebaas"
 
@@ -8323,122 +8090,6 @@ msgstr "&Ava"
 msgid "Open Database Connection"
 msgstr "Ava andmebaasiühendus"
 
-#. i18n: ectx: property (title), widget (QGroupBox, authenticationGBox)
-#: widget/kexidbconnectionwidget.ui:90
-#, kde-format
-msgid "Authentication"
-msgstr "Autentimine"
-
-#. i18n: ectx: property (text), widget (QLabel, userLbl)
-#: widget/kexidbconnectionwidget.ui:96
-#, kde-format
-msgid "&Username:"
-msgstr "Kas&utajanimi:"
-
-#. i18n: ectx: property (text), widget (QLabel, passwordLbl)
-#: widget/kexidbconnectionwidget.ui:116
-#, kde-format
-msgid "&Password:"
-msgstr "&Parool:"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, chkSavePassword)
-#: widget/kexidbconnectionwidget.ui:137
-#, kde-format
-msgid ""
-"<html><head/><body><p>Saves password in a <span style=\" font-style:italic;"
-"\">.kexic</span> or <span style=\" font-style:italic;\">.kexis</span> "
-"connection shortcut file using a simple encryption similar to ROT-47. It "
-"does not guarantee security, but simply makes it difficult for anyone to "
-"read, so generally it is not safe to make such files publicly accessible.</"
-"p></body></html>"
-msgstr ""
-"<html><head/><body><p>Parooli salvestamine <span style=\" font-style: italic;"
-"\">.kexic</span> või <span style=\" font-style:italic;\">.kexis</span> "
-"ühenduse kiirviida failis lihtsat ROT-47 laadis krüptimist kasutades. See ei "
-"taga turvalisust, vaid muudab parooli lugemise ainult mõnevõrra raskemaks, "
-"mistõttu sellist faili ei tohiks muuta avalikult kättesaadavaks.</p></body></"
-"html>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkSavePassword)
-#: widget/kexidbconnectionwidget.ui:140
-#, kde-format
-msgid "Save password"
-msgstr "Parool salvestatakse"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: widget/kexidbconnectionwidget.ui:174
-#, kde-format
-msgid "&Name:"
-msgstr "&Nimi:"
-
-#. i18n: ectx: property (text), widget (QLabel, titleLabel)
-#: widget/kexidbconnectionwidget.ui:193
-#, kde-format
-msgid "&Caption (optional):"
-msgstr "&Pealdis (pole kohustuslik):"
-
-#. i18n: ectx: property (title), widget (QGroupBox, locationBGrp)
-#: widget/kexidbconnectionwidget.ui:289
-#, kde-format
-msgid "Database Server"
-msgstr "Andmebaasiserver"
-
-#. i18n: ectx: property (text), widget (QLabel, lblEngine)
-#: widget/kexidbconnectionwidget.ui:298
-#, kde-format
-msgid "&Engine:"
-msgstr "Mooto&r:"
-
-#. i18n: ectx: property (text), widget (QRadioButton, localhostRBtn)
-#: widget/kexidbconnectionwidget.ui:335
-#, kde-format
-msgid "Local server"
-msgstr "Kohalik server"
-
-#. i18n: ectx: property (text), widget (QRadioButton, remotehostRBtn)
-#: widget/kexidbconnectionwidget.ui:348
-#, kde-format
-msgid "Remote server"
-msgstr "Võrguserver"
-
-#. i18n: ectx: property (text), widget (QLabel, hostLbl)
-#: widget/kexidbconnectionwidget.ui:357
-#, kde-format
-msgid "&Hostname:"
-msgstr "&Masinanimi:"
-
-#. i18n: ectx: property (text), widget (QLabel, portLbl)
-#: widget/kexidbconnectionwidget.ui:383
-#, kde-format
-msgid "Port:"
-msgstr "Port:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkPortDefault)
-#: widget/kexidbconnectionwidget.ui:424
-#, kde-format
-msgctxt "port: default"
-msgid "Default"
-msgstr "Vaikimisi"
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkUseSocket)
-#: widget/kexidbconnectionwidgetdetails.ui:34
-#, kde-format
-msgid "Use socket &file instead of TCP/IP port:"
-msgstr "TCP/IP pordi asemel kasutatakse pesa&faili:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkSocketDefault)
-#: widget/kexidbconnectionwidgetdetails.ui:80
-#, kde-format
-msgctxt "socket: default"
-msgid "Default"
-msgstr "Vaikimisi"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: widget/kexidbconnectionwidgetdetails.ui:140
-#, kde-format
-msgid "&Description:"
-msgstr "Kirjel&dus:"
-
 #: widget/KexiDBPasswordDialog.cpp:58
 #, kde-kuit-format
 msgctxt "@title:window"
@@ -8456,9 +8107,8 @@ msgstr "Anna allpool parool."
 msgid "&Details >>"
 msgstr "&Detailid >>"
 
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: widget/KexiDBPasswordDialog.cpp:81 widget/KexiPasswordWidget.ui:138
-#, kde-format, kde-kuit-format
+#: widget/KexiDBPasswordDialog.cpp:81
+#, kde-kuit-format
 msgid "Database server:"
 msgstr "Andmebaasiserver:"
 
@@ -8537,6 +8187,11 @@ msgstr "Fail <filename>%1</filename> ei ole loetav."
 msgid "Do you want to replace it?"
 msgstr "Kas see asendada?"
 
+#: widget/KexiNameDialog.cpp:182
+#, kde-kuit-format
+msgid "&Replace"
+msgstr "&Asenda"
+
 #: widget/KexiNameDialog.cpp:183
 #, kde-kuit-format
 msgid "Replace object"
@@ -8568,75 +8223,6 @@ msgstr "Palun anna pealdis."
 msgctxt "Object class \"objectName\", e.g. Text editor \"text\""
 msgid "%1 <resource>%2</resource>"
 msgstr "%1 <resource>%2</resource>"
-
-#. i18n: ectx: property (text), widget (QLabel, prompt)
-#: widget/KexiPasswordWidget.ui:49
-#, kde-format
-msgid "Supply a password below."
-msgstr "Anna allpool parool."
-
-#. i18n: ectx: property (text), widget (QLabel, userNameLabel)
-#: widget/KexiPasswordWidget.ui:87
-#, kde-format
-msgid "Username:"
-msgstr "Kasutajanimi:"
-
-#. i18n: ectx: property (text), widget (QLabel, anonymousLabel)
-#: widget/KexiPasswordWidget.ui:104
-#, kde-format
-msgid "Anonymous:"
-msgstr "Anonüümne:"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: widget/KexiPasswordWidget.ui:121
-#, kde-format
-msgid "Database name:"
-msgstr "Andmebaasi nimi:"
-
-#. i18n: ectx: property (text), widget (QLabel, passwordLabel)
-#: widget/KexiPasswordWidget.ui:155
-#, kde-format
-msgid "Password:"
-msgstr "Parool:"
-
-#. i18n: ectx: property (text), widget (QLabel, keepCheckBoxLabel)
-#: widget/KexiPasswordWidget.ui:185
-#, kde-format
-msgid "Remember password:"
-msgstr "Parool jäetakse meelde:"
-
-#. i18n: ectx: property (text), widget (QRadioButton, option_file)
-#: widget/kexiprjtypeselector.ui:51
-#, kde-format
-msgid "Projects stored in a file"
-msgstr "Faili salvestatud projektid"
-
-#. i18n: ectx: property (text), widget (QRadioButton, option_server)
-#: widget/kexiprjtypeselector.ui:86
-#, kde-format
-msgid "Projects stored on a database server"
-msgstr "Andmebaasiserverisse salvestatud projektid"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widget/KexiProjectSelector.ui:33
-#, kde-format
-msgid ""
-"<b>There are Kexi projects you have recently opened.</b> Select one you wish "
-"to open:\n"
-msgstr ""
-"<b>Need on viimati avatud Kexi projektid.</b> Vali see, mida soovid avada:\n"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: widget/KexiProjectSelector.ui:74
-#, kde-format
-msgid "Project Name"
-msgstr "Projekti nimi"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: widget/KexiProjectSelector.ui:107
-#, kde-format
-msgid "Connection"
-msgstr "Ühendus"
 
 #: widget/KexiProjectSelectorWidget.cpp:94
 #, kde-kuit-format
@@ -8717,6 +8303,11 @@ msgstr "Ava objekt"
 #, kde-kuit-format
 msgid "Opens object selected in the list."
 msgstr "Avab nimekirjas valitud objekti."
+
+#: widget/navigator/KexiProjectNavigator.cpp:172
+#, kde-kuit-format
+msgid "&Delete..."
+msgstr "&Kustuta..."
 
 #: widget/navigator/KexiProjectNavigator.cpp:173
 #, kde-kuit-format
@@ -9119,6 +8710,232 @@ msgstr "Kursori liigutamine viimasele kirjele."
 #, kde-kuit-format
 msgid "Moves cursor to new record and allows inserting."
 msgstr "Kursori liigutamine uuele kirjele ja lisamise lubamine."
+
+#~ msgctxt "Look in field:"
+#~ msgid "&Look in:"
+#~ msgstr "Otsimis&koht:"
+
+#~ msgid "&Search:"
+#~ msgstr "Ot&sing:"
+
+#~ msgctxt "Match: Whole words only"
+#~ msgid "&Whole words only"
+#~ msgstr "&Ainult terved sõnad"
+
+#~ msgid "Fi&nd:"
+#~ msgstr "O&tsitav:"
+
+#~ msgctxt "Replace all occurrences with"
+#~ msgid "Re&place with:"
+#~ msgstr "&Asendus:"
+
+#~ msgid "Prompt on replace"
+#~ msgstr "Asendamisel küsitakse"
+
+#~ msgid "&Match:"
+#~ msgstr "So&bivus:"
+
+#~ msgctxt "Match: Case sensitive"
+#~ msgid "C&ase sensitive"
+#~ msgstr "Tõstutun&dlik"
+
+#~ msgctxt "Match: Any Part of Field"
+#~ msgid "Any Part of Field"
+#~ msgstr "Kõik välja osad"
+
+#~ msgctxt "Match: Whole Field"
+#~ msgid "Whole Field"
+#~ msgstr "Terve väli"
+
+#~ msgctxt "Match: Start of Field"
+#~ msgid "Start of Field"
+#~ msgstr "Välja algus"
+
+#~ msgctxt "Search Up"
+#~ msgid "Up"
+#~ msgstr "Üles"
+
+#~ msgctxt "Search Down"
+#~ msgid "Down"
+#~ msgstr "Alla"
+
+#~ msgctxt "Look In All Rows"
+#~ msgid "All Rows"
+#~ msgstr "Kõik read"
+
+#~ msgctxt "Replace All Occurrences"
+#~ msgid "Replace All"
+#~ msgstr "Asenda kõik"
+
+#~ msgid "<b>Select existing Kexi project file to open:</b>\n"
+#~ msgstr "<b>Avatav Kexi projektifail:</b>\n"
+
+#~ msgid "&Advanced "
+#~ msgstr "&Muud "
+
+#~ msgid ""
+#~ "Click \"Advanced\" button if you want to find an existing project on a "
+#~ "server rather than a file."
+#~ msgstr ""
+#~ "Klõpsa \"Muud\", kui soovid olemasolevat projekti avada mitte failist, "
+#~ "vaid serverist."
+
+#~ msgctxt "New Project Stored in File"
+#~ msgid "File"
+#~ msgstr "Fail"
+
+#~ msgid "New Project Stored in File"
+#~ msgstr "Uus faili salvestatud projekt"
+
+#~ msgctxt "New Project Stored on Database Server"
+#~ msgid "Server"
+#~ msgstr "Server"
+
+#~ msgid "New Project Stored on Database Server"
+#~ msgstr "Uus andmebaasiserverisse salvestatud projekt"
+
+#~ msgid "Project caption:"
+#~ msgstr "Projekti pealdis:"
+
+#~ msgid "Project's database name:"
+#~ msgstr "Projekti andmebaasi nimi:"
+
+#, fuzzy
+#~| msgid ""
+#~| "<title>Select Existing Database Server's Connection From the List Below</"
+#~| "title>\n"
+#~| "<para>You will see existing Kexi projects available for the selected "
+#~| "connection. Here you may also add, edit or remove connections from the "
+#~| "list.</para>\n"
+#~ msgid ""
+#~ "<title>Select Existing Database Server's Connection From the List Below</"
+#~ "title>\n"
+#~ "<para>You will see existing Kexi projects available for the selected "
+#~ "connection. Here you may also add, edit or delete connections from the "
+#~ "list.</para>\n"
+#~ msgstr ""
+#~ "<title>Nimekirjast olemasoleva andmebaasiserveri ühenduse valimine</"
+#~ "title>\n"
+#~ "<para>Näed valitud ühendusele kättesaadavaid olemasolevaid Kexi projekte. "
+#~ "Ühendusi võib nimekirja ka lisada, neid sealt eemaldada või muuta.</"
+#~ "para>\n"
+
+#~ msgid "Server Information"
+#~ msgstr "Serveri info"
+
+#~ msgid "&Add..."
+#~ msgstr "&Lisa..."
+
+#~ msgid "&Edit..."
+#~ msgstr "&Muuda..."
+
+#~ msgid "Pro&ject caption: "
+#~ msgstr "Pro&jekti pealdis:"
+
+#~ msgid "Project file&name:"
+#~ msgstr "Projekti faili&nimi:"
+
+#~ msgid "Authentication"
+#~ msgstr "Autentimine"
+
+#~ msgid "&Username:"
+#~ msgstr "Kas&utajanimi:"
+
+#~ msgid "&Password:"
+#~ msgstr "&Parool:"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Saves password in a <span style=\" font-style:"
+#~ "italic;\">.kexic</span> or <span style=\" font-style:italic;\">.kexis</"
+#~ "span> connection shortcut file using a simple encryption similar to "
+#~ "ROT-47. It does not guarantee security, but simply makes it difficult for "
+#~ "anyone to read, so generally it is not safe to make such files publicly "
+#~ "accessible.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Parooli salvestamine <span style=\" font-style: "
+#~ "italic;\">.kexic</span> või <span style=\" font-style:italic;\">.kexis</"
+#~ "span> ühenduse kiirviida failis lihtsat ROT-47 laadis krüptimist "
+#~ "kasutades. See ei taga turvalisust, vaid muudab parooli lugemise ainult "
+#~ "mõnevõrra raskemaks, mistõttu sellist faili ei tohiks muuta avalikult "
+#~ "kättesaadavaks.</p></body></html>"
+
+#~ msgid "Save password"
+#~ msgstr "Parool salvestatakse"
+
+#~ msgid "&Name:"
+#~ msgstr "&Nimi:"
+
+#~ msgid "&Caption (optional):"
+#~ msgstr "&Pealdis (pole kohustuslik):"
+
+#~ msgid "Database Server"
+#~ msgstr "Andmebaasiserver"
+
+#~ msgid "&Engine:"
+#~ msgstr "Mooto&r:"
+
+#~ msgid "Local server"
+#~ msgstr "Kohalik server"
+
+#~ msgid "Remote server"
+#~ msgstr "Võrguserver"
+
+#~ msgid "&Hostname:"
+#~ msgstr "&Masinanimi:"
+
+#~ msgid "Port:"
+#~ msgstr "Port:"
+
+#~ msgctxt "port: default"
+#~ msgid "Default"
+#~ msgstr "Vaikimisi"
+
+#~ msgid "Use socket &file instead of TCP/IP port:"
+#~ msgstr "TCP/IP pordi asemel kasutatakse pesa&faili:"
+
+#~ msgctxt "socket: default"
+#~ msgid "Default"
+#~ msgstr "Vaikimisi"
+
+#~ msgid "&Description:"
+#~ msgstr "Kirjel&dus:"
+
+#~ msgid "Supply a password below."
+#~ msgstr "Anna allpool parool."
+
+#~ msgid "Username:"
+#~ msgstr "Kasutajanimi:"
+
+#~ msgid "Anonymous:"
+#~ msgstr "Anonüümne:"
+
+#~ msgid "Database name:"
+#~ msgstr "Andmebaasi nimi:"
+
+#~ msgid "Password:"
+#~ msgstr "Parool:"
+
+#~ msgid "Remember password:"
+#~ msgstr "Parool jäetakse meelde:"
+
+#~ msgid "Projects stored in a file"
+#~ msgstr "Faili salvestatud projektid"
+
+#~ msgid "Projects stored on a database server"
+#~ msgstr "Andmebaasiserverisse salvestatud projektid"
+
+#~ msgid ""
+#~ "<b>There are Kexi projects you have recently opened.</b> Select one you "
+#~ "wish to open:\n"
+#~ msgstr ""
+#~ "<b>Need on viimati avatud Kexi projektid.</b> Vali see, mida soovid "
+#~ "avada:\n"
+
+#~ msgid "Project Name"
+#~ msgstr "Projekti nimi"
+
+#~ msgid "Connection"
+#~ msgstr "Ühendus"
 
 #~ msgid "© 2002-%1, The KEXI Team"
 #~ msgstr "© 2002-%1: KEXI meeskond"

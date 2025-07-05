@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-12-01 02:28+0000\n"
+"POT-Creation-Date: 2025-07-05 03:21+0000\n"
 "PO-Revision-Date: 2024-04-23 21:12+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -1607,11 +1607,9 @@ msgstr "Ver. Alĝustigo"
 msgid "Vertical Alignment"
 msgstr "Vertikala alĝustigo"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: formeditor/form_p.cpp:270 formeditor/form_p.cpp:271
 #: plugins/tables/kexitabledesignerview.cpp:323
-#: widget/KexiConnectionSelector.ui:94
-#, kde-format, kde-kuit-format
+#, kde-kuit-format
 msgid "Name"
 msgstr "Nomo"
 
@@ -2421,113 +2419,6 @@ msgstr "Trovi en <resource>%1</resource>"
 #, kde-kuit-format
 msgid "The search item was not found"
 msgstr "La serĉaĵo ne estis trovita"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: main/kexifinddialog.ui:20
-#, kde-format
-msgctxt "Look in field:"
-msgid "&Look in:"
-msgstr "&Rigardi en:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2)
-#: main/kexifinddialog.ui:36
-#, kde-format
-msgid "&Search:"
-msgstr "&Serĉi:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_wholeWords)
-#: main/kexifinddialog.ui:55
-#, kde-format
-msgctxt "Match: Whole words only"
-msgid "&Whole words only"
-msgstr "&Nur tutvorte"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: main/kexifinddialog.ui:62
-#, kde-format
-msgid "Fi&nd:"
-msgstr "Tro&vi:"
-
-#. i18n: ectx: property (text), widget (QLabel, m_replaceLbl)
-#: main/kexifinddialog.ui:110
-#, kde-format
-msgctxt "Replace all occurrences with"
-msgid "Re&place with:"
-msgstr "Anstataŭigi &per:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_promptOnReplace)
-#: main/kexifinddialog.ui:129
-#, kde-format
-msgid "Prompt on replace"
-msgstr "Demando pri anstataŭigo"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_3)
-#: main/kexifinddialog.ui:152
-#, kde-format
-msgid "&Match:"
-msgstr "&Kongruo:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_caseSensitive)
-#: main/kexifinddialog.ui:171
-#, kde-format
-msgctxt "Match: Case sensitive"
-msgid "C&ase sensitive"
-msgstr "Usklec-disting&a"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
-#: main/kexifinddialog.ui:182
-#, kde-format
-msgctxt "Match: Any Part of Field"
-msgid "Any Part of Field"
-msgstr "Ajna Parto de Kampo"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
-#: main/kexifinddialog.ui:187
-#, kde-format
-msgctxt "Match: Whole Field"
-msgid "Whole Field"
-msgstr "Tuta Kampo"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
-#: main/kexifinddialog.ui:192
-#, kde-format
-msgctxt "Match: Start of Field"
-msgid "Start of Field"
-msgstr "Komenco de Kampo"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
-#: main/kexifinddialog.ui:204
-#, kde-format
-msgctxt "Search Up"
-msgid "Up"
-msgstr "Supren"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
-#: main/kexifinddialog.ui:209
-#, kde-format
-msgctxt "Search Down"
-msgid "Down"
-msgstr "Malsupren"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
-#: main/kexifinddialog.ui:214
-#, kde-format
-msgctxt "Look In All Rows"
-msgid "All Rows"
-msgstr "Ĉiuj Vicoj"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_btnReplace)
-#: main/kexifinddialog.ui:264 widget/KexiNameDialog.cpp:182
-#, kde-format, kde-kuit-format
-msgid "&Replace"
-msgstr "&Anstataŭigi"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_btnReplaceAll)
-#: main/kexifinddialog.ui:277
-#, kde-format
-msgctxt "Replace All Occurrences"
-msgid "Replace All"
-msgstr "Anstataŭigi ĉion"
 
 #: main/KexiMainWindow.cpp:193
 #, kde-kuit-format
@@ -3697,28 +3588,6 @@ msgstr ""
 msgid "Delete and Create New"
 msgstr "Forigi kaj Krei Novan"
 
-#. i18n: ectx: property (text), widget (QLabel, lbl)
-#: main/startup/KexiOpenExistingFile.ui:31
-#, kde-format
-msgid "<b>Select existing Kexi project file to open:</b>\n"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_advanced)
-#: main/startup/KexiOpenExistingFile.ui:89
-#, kde-format
-msgid "&Advanced "
-msgstr "&Altnivela "
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: main/startup/KexiOpenExistingFile.ui:104
-#, kde-format
-msgid ""
-"Click \"Advanced\" button if you want to find an existing project on a "
-"server rather than a file."
-msgstr ""
-"Alklaku la butonon \"Altnivela\" se vi volas trovi ekzistantan projekton en "
-"servilo prefere ol dosiero."
-
 #: main/startup/KexiOpenProjectAssistant.cpp:41
 #: widget/KexiProjectSelectorWidget.cpp:304
 #, kde-kuit-format
@@ -3779,32 +3648,6 @@ msgstr ""
 msgctxt "@title:window"
 msgid "Database Password"
 msgstr "Pasvorto de datumbazo"
-
-#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_file)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:31
-#, kde-format
-msgctxt "New Project Stored in File"
-msgid "File"
-msgstr "Dosiero"
-
-#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_file)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:37
-#, kde-format
-msgid "New Project Stored in File"
-msgstr "Nova Projekto Stokita en Dosiero"
-
-#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_server)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:47
-#, kde-format
-msgctxt "New Project Stored on Database Server"
-msgid "Server"
-msgstr "Servilo"
-
-#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_server)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:53
-#, kde-format
-msgid "New Project Stored on Database Server"
-msgstr "Nova Projekto Stokita sur Datumbaza Servilo"
 
 #: main/startup/KexiRecentProjectsModel.cpp:70
 #, kde-kuit-format
@@ -3878,18 +3721,6 @@ msgstr "%1 datumbazo"
 #, kde-kuit-format
 msgid "Last opened on %1"
 msgstr "Laste malfermita je %1"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: main/startup/KexiServerDBNamePage.ui:31
-#, kde-format
-msgid "Project caption:"
-msgstr "Titolo de la projekto:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: main/startup/KexiServerDBNamePage.ui:60
-#, kde-format
-msgid "Project's database name:"
-msgstr "Nomo de datumbazo de projekto:"
 
 #: main/startup/KexiStartup.cpp:248
 #, kde-format
@@ -4223,11 +4054,9 @@ msgstr "Ne nun"
 msgid "Column %1"
 msgstr "Kolumno %1"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: migration/AlterSchemaWidget.cpp:52
 #: plugins/tables/kexitabledesignerview.cpp:326
-#: widget/KexiConnectionSelector.ui:99 widget/KexiProjectSelector.ui:96
-#, kde-format, kde-kuit-format
+#, kde-kuit-format
 msgid "Type"
 msgstr "Tipo"
 
@@ -5369,10 +5198,8 @@ msgstr "Dato"
 msgid "Arrow Visible"
 msgstr "Sago Videbla"
 
-#. i18n: ectx: property (title), widget (QGroupBox, descGroupBox)
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
-#: widget/KexiConnectionSelector.ui:118
-#, kde-format, kde-kuit-format
+#, kde-kuit-format
 msgid "Description"
 msgstr "Priskribo"
 
@@ -8000,42 +7827,6 @@ msgctxt "Text encoding: Default"
 msgid "Default: %1"
 msgstr "Defaŭlta: %1"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widget/KexiConnectionSelector.ui:50
-#, kde-format
-msgid ""
-"<title>Select Existing Database Server's Connection From the List Below</"
-"title>\n"
-"<para>You will see existing Kexi projects available for the selected "
-"connection. Here you may also add, edit or delete connections from the list."
-"</para>\n"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: widget/KexiConnectionSelector.ui:104
-#, kde-format
-msgid "Server Information"
-msgstr "Servila informo"
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_add)
-#: widget/KexiConnectionSelector.ui:155
-#, kde-format
-msgid "&Add..."
-msgstr "&Aldoni..."
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_edit)
-#: widget/KexiConnectionSelector.ui:168
-#, kde-format
-msgid "&Edit..."
-msgstr "R&edakti..."
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_remove)
-#: widget/KexiConnectionSelector.ui:181
-#: widget/navigator/KexiProjectNavigator.cpp:172
-#, kde-format, kde-kuit-format
-msgid "&Delete..."
-msgstr "&Forigi..."
-
 #: widget/KexiConnectionSelectorWidget.cpp:62
 #, kde-kuit-format
 msgid "Add a new database connection"
@@ -8111,18 +7902,6 @@ msgstr ""
 msgid "Define Query..."
 msgstr "Difini Demandon..."
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widget/KexiDBCaptionPage.ui:31
-#, kde-format
-msgid "Pro&ject caption: "
-msgstr "Subtitolo de la pro&jekto:"
-
-#. i18n: ectx: property (text), widget (QLabel, label_requester)
-#: widget/KexiDBCaptionPage.ui:63
-#, kde-format
-msgid "Project file&name:"
-msgstr "Projektdosiero&nomo:"
-
 #: widget/kexidbconnectionwidget.cpp:90
 #, kde-kuit-format
 msgid "Load database list from the server"
@@ -8181,11 +7960,8 @@ msgstr ""
 msgid "Database Connection"
 msgstr "Datumbaza Konekto"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)
-#: widget/kexidbconnectionwidget.cpp:160 widget/kexidbconnectionwidget.ui:168
-#: widget/KexiProjectSelector.ui:85
-#, kde-format, kde-kuit-format
+#: widget/kexidbconnectionwidget.cpp:160
+#, kde-kuit-format
 msgid "Database"
 msgstr "Datumbazo"
 
@@ -8224,121 +8000,6 @@ msgstr "&Malfermi"
 msgid "Open Database Connection"
 msgstr "Malferma Datumbaza Konekto"
 
-#. i18n: ectx: property (title), widget (QGroupBox, authenticationGBox)
-#: widget/kexidbconnectionwidget.ui:90
-#, kde-format
-msgid "Authentication"
-msgstr "Aŭtentigo"
-
-#. i18n: ectx: property (text), widget (QLabel, userLbl)
-#: widget/kexidbconnectionwidget.ui:96
-#, kde-format
-msgid "&Username:"
-msgstr "&Uzantonomo:"
-
-#. i18n: ectx: property (text), widget (QLabel, passwordLbl)
-#: widget/kexidbconnectionwidget.ui:116
-#, kde-format
-msgid "&Password:"
-msgstr "&Pasvorto:"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, chkSavePassword)
-#: widget/kexidbconnectionwidget.ui:137
-#, kde-format
-msgid ""
-"<html><head/><body><p>Saves password in a <span style=\" font-style:italic;"
-"\">.kexic</span> or <span style=\" font-style:italic;\">.kexis</span> "
-"connection shortcut file using a simple encryption similar to ROT-47. It "
-"does not guarantee security, but simply makes it difficult for anyone to "
-"read, so generally it is not safe to make such files publicly accessible.</"
-"p></body></html>"
-msgstr ""
-"<html><head/><body><p>Konservas pasvorton en <span style=\" font-style:"
-"italic;\">.kexic</span> aŭ <span style=\" font-style:italic; ;\">.kexis</"
-"span> koneksa ŝparvoja dosiero uzante simplan ĉifradon similan al ROT-47. Ĝi "
-"ne garantias sekurecon, sed simple malfaciligas al iu ajn legi, do ĝenerale "
-"ne estas sekure fari tiajn dosierojn publike alireblaj.</p></body></html>"
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkSavePassword)
-#: widget/kexidbconnectionwidget.ui:140
-#, kde-format
-msgid "Save password"
-msgstr "Konservi pasvorton"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: widget/kexidbconnectionwidget.ui:174
-#, kde-format
-msgid "&Name:"
-msgstr "&Nomo:"
-
-#. i18n: ectx: property (text), widget (QLabel, titleLabel)
-#: widget/kexidbconnectionwidget.ui:193
-#, kde-format
-msgid "&Caption (optional):"
-msgstr "&Subtitolo (laŭvola):"
-
-#. i18n: ectx: property (title), widget (QGroupBox, locationBGrp)
-#: widget/kexidbconnectionwidget.ui:289
-#, kde-format
-msgid "Database Server"
-msgstr "Datumbaza Servilo"
-
-#. i18n: ectx: property (text), widget (QLabel, lblEngine)
-#: widget/kexidbconnectionwidget.ui:298
-#, kde-format
-msgid "&Engine:"
-msgstr "&Motoro:"
-
-#. i18n: ectx: property (text), widget (QRadioButton, localhostRBtn)
-#: widget/kexidbconnectionwidget.ui:335
-#, kde-format
-msgid "Local server"
-msgstr "Loka servilo"
-
-#. i18n: ectx: property (text), widget (QRadioButton, remotehostRBtn)
-#: widget/kexidbconnectionwidget.ui:348
-#, kde-format
-msgid "Remote server"
-msgstr "Fora servilo"
-
-#. i18n: ectx: property (text), widget (QLabel, hostLbl)
-#: widget/kexidbconnectionwidget.ui:357
-#, kde-format
-msgid "&Hostname:"
-msgstr "&Komputilnomo:"
-
-#. i18n: ectx: property (text), widget (QLabel, portLbl)
-#: widget/kexidbconnectionwidget.ui:383
-#, kde-format
-msgid "Port:"
-msgstr "Pordo:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkPortDefault)
-#: widget/kexidbconnectionwidget.ui:424
-#, kde-format
-msgctxt "port: default"
-msgid "Default"
-msgstr "Defaŭlta"
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkUseSocket)
-#: widget/kexidbconnectionwidgetdetails.ui:34
-#, kde-format
-msgid "Use socket &file instead of TCP/IP port:"
-msgstr "Uzi konektingan &dosieron anstataŭ TCP/IP-haveno:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkSocketDefault)
-#: widget/kexidbconnectionwidgetdetails.ui:80
-#, kde-format
-msgctxt "socket: default"
-msgid "Default"
-msgstr "Defaŭlta"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: widget/kexidbconnectionwidgetdetails.ui:140
-#, kde-format
-msgid "&Description:"
-msgstr "&Priskribo:"
-
 #: widget/KexiDBPasswordDialog.cpp:58
 #, kde-kuit-format
 msgctxt "@title:window"
@@ -8356,9 +8017,8 @@ msgstr "Provizu pasvorton sube."
 msgid "&Details >>"
 msgstr "&Detaloj >>"
 
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: widget/KexiDBPasswordDialog.cpp:81 widget/KexiPasswordWidget.ui:138
-#, kde-format, kde-kuit-format
+#: widget/KexiDBPasswordDialog.cpp:81
+#, kde-kuit-format
 msgid "Database server:"
 msgstr "Datumbaza servilo:"
 
@@ -8437,6 +8097,11 @@ msgstr "La dosiero <filename>%1</filename> ne estas legebla."
 msgid "Do you want to replace it?"
 msgstr "Ĉu vi volas anstataŭigi ĝin?"
 
+#: widget/KexiNameDialog.cpp:182
+#, kde-kuit-format
+msgid "&Replace"
+msgstr "&Anstataŭigi"
+
 #: widget/KexiNameDialog.cpp:183
 #, kde-kuit-format
 msgid "Replace object"
@@ -8468,74 +8133,6 @@ msgstr "Bonvolu enigi la bildotekston."
 msgctxt "Object class \"objectName\", e.g. Text editor \"text\""
 msgid "%1 <resource>%2</resource>"
 msgstr "%1 <resource>%2</resource>"
-
-#. i18n: ectx: property (text), widget (QLabel, prompt)
-#: widget/KexiPasswordWidget.ui:49
-#, kde-format
-msgid "Supply a password below."
-msgstr "Provizu pasvorton sube."
-
-#. i18n: ectx: property (text), widget (QLabel, userNameLabel)
-#: widget/KexiPasswordWidget.ui:87
-#, kde-format
-msgid "Username:"
-msgstr "Uzantnomo:"
-
-#. i18n: ectx: property (text), widget (QLabel, anonymousLabel)
-#: widget/KexiPasswordWidget.ui:104
-#, kde-format
-msgid "Anonymous:"
-msgstr "Anonima:"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: widget/KexiPasswordWidget.ui:121
-#, kde-format
-msgid "Database name:"
-msgstr "Datumbaza nomo:"
-
-#. i18n: ectx: property (text), widget (QLabel, passwordLabel)
-#: widget/KexiPasswordWidget.ui:155
-#, kde-format
-msgid "Password:"
-msgstr "Pasvorto:"
-
-#. i18n: ectx: property (text), widget (QLabel, keepCheckBoxLabel)
-#: widget/KexiPasswordWidget.ui:185
-#, kde-format
-msgid "Remember password:"
-msgstr "Memoru pasvorton:"
-
-#. i18n: ectx: property (text), widget (QRadioButton, option_file)
-#: widget/kexiprjtypeselector.ui:51
-#, kde-format
-msgid "Projects stored in a file"
-msgstr "Projektoj konservitaj en dosiero"
-
-#. i18n: ectx: property (text), widget (QRadioButton, option_server)
-#: widget/kexiprjtypeselector.ui:86
-#, kde-format
-msgid "Projects stored on a database server"
-msgstr "Projektoj stokitaj sur datumbaza servilo"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widget/KexiProjectSelector.ui:33
-#, kde-format
-msgid ""
-"<b>There are Kexi projects you have recently opened.</b> Select one you wish "
-"to open:\n"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: widget/KexiProjectSelector.ui:74
-#, kde-format
-msgid "Project Name"
-msgstr "Nomo de Projekto"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: widget/KexiProjectSelector.ui:107
-#, kde-format
-msgid "Connection"
-msgstr "Konekto"
 
 #: widget/KexiProjectSelectorWidget.cpp:94
 #, kde-kuit-format
@@ -8617,6 +8214,11 @@ msgstr "Malferma objekto"
 #, kde-kuit-format
 msgid "Opens object selected in the list."
 msgstr "Malfermas objekton elektitan en la listo."
+
+#: widget/navigator/KexiProjectNavigator.cpp:172
+#, kde-kuit-format
+msgid "&Delete..."
+msgstr "&Forigi..."
 
 #: widget/navigator/KexiProjectNavigator.cpp:173
 #, kde-kuit-format
@@ -9021,3 +8623,199 @@ msgstr "Movas kursoron al lasta rikordo."
 #, kde-kuit-format
 msgid "Moves cursor to new record and allows inserting."
 msgstr "Movas kursoron al nova registro kaj permesas enmeti."
+
+#~ msgctxt "Look in field:"
+#~ msgid "&Look in:"
+#~ msgstr "&Rigardi en:"
+
+#~ msgid "&Search:"
+#~ msgstr "&Serĉi:"
+
+#~ msgctxt "Match: Whole words only"
+#~ msgid "&Whole words only"
+#~ msgstr "&Nur tutvorte"
+
+#~ msgid "Fi&nd:"
+#~ msgstr "Tro&vi:"
+
+#~ msgctxt "Replace all occurrences with"
+#~ msgid "Re&place with:"
+#~ msgstr "Anstataŭigi &per:"
+
+#~ msgid "Prompt on replace"
+#~ msgstr "Demando pri anstataŭigo"
+
+#~ msgid "&Match:"
+#~ msgstr "&Kongruo:"
+
+#~ msgctxt "Match: Case sensitive"
+#~ msgid "C&ase sensitive"
+#~ msgstr "Usklec-disting&a"
+
+#~ msgctxt "Match: Any Part of Field"
+#~ msgid "Any Part of Field"
+#~ msgstr "Ajna Parto de Kampo"
+
+#~ msgctxt "Match: Whole Field"
+#~ msgid "Whole Field"
+#~ msgstr "Tuta Kampo"
+
+#~ msgctxt "Match: Start of Field"
+#~ msgid "Start of Field"
+#~ msgstr "Komenco de Kampo"
+
+#~ msgctxt "Search Up"
+#~ msgid "Up"
+#~ msgstr "Supren"
+
+#~ msgctxt "Search Down"
+#~ msgid "Down"
+#~ msgstr "Malsupren"
+
+#~ msgctxt "Look In All Rows"
+#~ msgid "All Rows"
+#~ msgstr "Ĉiuj Vicoj"
+
+#~ msgctxt "Replace All Occurrences"
+#~ msgid "Replace All"
+#~ msgstr "Anstataŭigi ĉion"
+
+#~ msgid "&Advanced "
+#~ msgstr "&Altnivela "
+
+#~ msgid ""
+#~ "Click \"Advanced\" button if you want to find an existing project on a "
+#~ "server rather than a file."
+#~ msgstr ""
+#~ "Alklaku la butonon \"Altnivela\" se vi volas trovi ekzistantan projekton "
+#~ "en servilo prefere ol dosiero."
+
+#~ msgctxt "New Project Stored in File"
+#~ msgid "File"
+#~ msgstr "Dosiero"
+
+#~ msgid "New Project Stored in File"
+#~ msgstr "Nova Projekto Stokita en Dosiero"
+
+#~ msgctxt "New Project Stored on Database Server"
+#~ msgid "Server"
+#~ msgstr "Servilo"
+
+#~ msgid "New Project Stored on Database Server"
+#~ msgstr "Nova Projekto Stokita sur Datumbaza Servilo"
+
+#~ msgid "Project caption:"
+#~ msgstr "Titolo de la projekto:"
+
+#~ msgid "Project's database name:"
+#~ msgstr "Nomo de datumbazo de projekto:"
+
+#~ msgid "Server Information"
+#~ msgstr "Servila informo"
+
+#~ msgid "&Add..."
+#~ msgstr "&Aldoni..."
+
+#~ msgid "&Edit..."
+#~ msgstr "R&edakti..."
+
+#~ msgid "Pro&ject caption: "
+#~ msgstr "Subtitolo de la pro&jekto:"
+
+#~ msgid "Project file&name:"
+#~ msgstr "Projektdosiero&nomo:"
+
+#~ msgid "Authentication"
+#~ msgstr "Aŭtentigo"
+
+#~ msgid "&Username:"
+#~ msgstr "&Uzantonomo:"
+
+#~ msgid "&Password:"
+#~ msgstr "&Pasvorto:"
+
+#~ msgid ""
+#~ "<html><head/><body><p>Saves password in a <span style=\" font-style:"
+#~ "italic;\">.kexic</span> or <span style=\" font-style:italic;\">.kexis</"
+#~ "span> connection shortcut file using a simple encryption similar to "
+#~ "ROT-47. It does not guarantee security, but simply makes it difficult for "
+#~ "anyone to read, so generally it is not safe to make such files publicly "
+#~ "accessible.</p></body></html>"
+#~ msgstr ""
+#~ "<html><head/><body><p>Konservas pasvorton en <span style=\" font-style:"
+#~ "italic;\">.kexic</span> aŭ <span style=\" font-style:italic; ;\">.kexis</"
+#~ "span> koneksa ŝparvoja dosiero uzante simplan ĉifradon similan al ROT-47. "
+#~ "Ĝi ne garantias sekurecon, sed simple malfaciligas al iu ajn legi, do "
+#~ "ĝenerale ne estas sekure fari tiajn dosierojn publike alireblaj.</p></"
+#~ "body></html>"
+
+#~ msgid "Save password"
+#~ msgstr "Konservi pasvorton"
+
+#~ msgid "&Name:"
+#~ msgstr "&Nomo:"
+
+#~ msgid "&Caption (optional):"
+#~ msgstr "&Subtitolo (laŭvola):"
+
+#~ msgid "Database Server"
+#~ msgstr "Datumbaza Servilo"
+
+#~ msgid "&Engine:"
+#~ msgstr "&Motoro:"
+
+#~ msgid "Local server"
+#~ msgstr "Loka servilo"
+
+#~ msgid "Remote server"
+#~ msgstr "Fora servilo"
+
+#~ msgid "&Hostname:"
+#~ msgstr "&Komputilnomo:"
+
+#~ msgid "Port:"
+#~ msgstr "Pordo:"
+
+#~ msgctxt "port: default"
+#~ msgid "Default"
+#~ msgstr "Defaŭlta"
+
+#~ msgid "Use socket &file instead of TCP/IP port:"
+#~ msgstr "Uzi konektingan &dosieron anstataŭ TCP/IP-haveno:"
+
+#~ msgctxt "socket: default"
+#~ msgid "Default"
+#~ msgstr "Defaŭlta"
+
+#~ msgid "&Description:"
+#~ msgstr "&Priskribo:"
+
+#~ msgid "Supply a password below."
+#~ msgstr "Provizu pasvorton sube."
+
+#~ msgid "Username:"
+#~ msgstr "Uzantnomo:"
+
+#~ msgid "Anonymous:"
+#~ msgstr "Anonima:"
+
+#~ msgid "Database name:"
+#~ msgstr "Datumbaza nomo:"
+
+#~ msgid "Password:"
+#~ msgstr "Pasvorto:"
+
+#~ msgid "Remember password:"
+#~ msgstr "Memoru pasvorton:"
+
+#~ msgid "Projects stored in a file"
+#~ msgstr "Projektoj konservitaj en dosiero"
+
+#~ msgid "Projects stored on a database server"
+#~ msgstr "Projektoj stokitaj sur datumbaza servilo"
+
+#~ msgid "Project Name"
+#~ msgstr "Nomo de Projekto"
+
+#~ msgid "Connection"
+#~ msgstr "Konekto"
