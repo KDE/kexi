@@ -3,13 +3,13 @@
 # Nuriddin Aminagha <nuriddin@haydarlinux.org>, 2003.
 # Nuriddin Aminagha <nuriddin@eminaga.de>, 2003.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
-# SPDX-FileCopyrightText: 2022, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:54+0000\n"
-"PO-Revision-Date: 2024-11-28 13:46+0400\n"
+"PO-Revision-Date: 2025-08-04 18:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -7467,7 +7467,7 @@ msgstr "افتراضي"
 #: plugins/tables/kexitabledesignerview.cpp:392
 #, kde-kuit-format
 msgid "Default Value"
-msgstr "القيمة الافتراضية"
+msgstr "القيمة المبدئية"
 
 #: plugins/tables/kexitabledesignerview.cpp:402
 #, kde-kuit-format
