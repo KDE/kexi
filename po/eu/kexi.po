@@ -1,26 +1,26 @@
 # Translation for kexi.po to Euskara/Basque (eu).
-# Copyright (c) 2005-2023 This file is copyright:
+# Copyright (c) 2005-2025 This file is copyright:
 # This file is distributed under the same license as the calligra package.
-# SPDX-FileCopyrightText: 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2024, 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 # Marcos  <marcos@euskalgnu.org>, 2005.
-# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2010, 2013, 2014, 2023.
+# Iñigo Salvador Azurmendi <xalba@euskalnet.net>, 2010, 2013, 2014, 2023, 2025.
 # Hizkuntza Politikarako Sailburuordetza <hizpol@ej-gv.es>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:54+0000\n"
-"PO-Revision-Date: 2024-08-23 23:53+0200\n"
+"PO-Revision-Date: 2025-08-06 22:48+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 25.04.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: core/kexi.cpp:141
@@ -484,7 +484,7 @@ msgid ""
 "kdb.sqlite\" to specify exact vendor of the driver."
 msgstr ""
 "Datu-base proiektu batera konektatzean erabili beharreko datu-base gidari "
-"baten izena (aukera lehenetsia \"sqlite\"). Ezikusi egiten zaio lasterbide "
+"baten izena (aukera lehenetsia \"sqlite\"). Ez da aintzat hartzen lasterbide "
 "fitxategi bat ematen bada. KDb-rako berariazko identifikatzaile global bakar "
 "osoa erabil daiteke, adib. \"org.kde.kdb.sqlite\" gidariaren hornitzaile "
 "zehatza adierazteko."
@@ -640,22 +640,13 @@ msgstr ""
 "Erabili \"\" karaktereak zuriuneak dituzten izenak zehazteko."
 
 #: core/KexiCommandLineOptions.cpp:125
-#, fuzzy, kde-kuit-format
-#| msgid "Start new object design of type 'object_type'."
+#, kde-kuit-format
 msgctxt "'new' command line option"
 msgid "Start design of a new object of type 'object_type'."
-msgstr "Abiarazi 'object_type' motako objektu-diseinu berria."
+msgstr "Hasi 'object_type' motako objektu berri baten diseinua."
 
 #: core/KexiCommandLineOptions.cpp:129
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "\n"
-#| "Open the Print dialog window for an object of type\n"
-#| "'object_type' and name 'object_name' in the specified\n"
-#| "project when the application starts, for quick printing\n"
-#| "of the object's data.\n"
-#| "'object_type' is optional; if omitted, table\n"
-#| "type is assumed. Object type can also be query."
+#, kde-kuit-format
 msgctxt "'print' command line option"
 msgid ""
 "Open the Print dialog window for an object of type 'object_type' and name "
@@ -663,25 +654,13 @@ msgid ""
 "printing of the object's data. 'object_type' is optional; if omitted, %1 "
 "type is assumed. Object type can also be %2."
 msgstr ""
-"\n"
-"Ireki inprimatzeko elkarrizketa-leihoa zehaztutako\n"
-"proiektuko 'object_name' izena duen 'object_type' motako\n"
-"objektu batentzat aplikazioa abiaraztean,\n"
-"objektuko datuak bizkor inprimatzeko.'object_type'\n"
-"aukerakoa da; datu hori adierazten ez bada,\n"
-"taula motakoa dela joko da.\n"
-"Objektu mota kontsulta ere izan liteke."
+"Ireki Inprimatzeko elkarrizketa-leihoa zehaztutako proiektuko 'object_type' "
+"mota eta 'object_name' izeneko objektu baterako aplikazioa abiatzen denean "
+"objektuaren datuak azkar inprimatzeko. 'object_type' aukerakoa da; jartzen "
+"ez bada, %1 mota dela suposatzen da. Objektu mota %2 ere izan daiteke."
 
 #: core/KexiCommandLineOptions.cpp:137
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "\n"
-#| "Open the Print dialog window for an object of type\n"
-#| "'object_type' and name 'object_name' in the specified\n"
-#| "project when the application starts, for quick printing\n"
-#| "of the object's data.\n"
-#| "'object_type' is optional; if omitted, table\n"
-#| "type is assumed. Object type can also be query."
+#, kde-kuit-format
 msgctxt "'print-preview' command line option"
 msgid ""
 "Open the Print Preview window for an object of type 'object_type' and name "
@@ -689,103 +668,72 @@ msgid ""
 "preview of the object's data printout. 'object_type' is optional; if "
 "omitted, %1 type is assumed. Object type can also be %2."
 msgstr ""
-"\n"
-"Ireki inprimatzeko elkarrizketa-leihoa zehaztutako\n"
-"proiektuko 'object_name' izena duen 'object_type' motako\n"
-"objektu batentzat aplikazioa abiaraztean,\n"
-"objektuko datuak bizkor inprimatzeko.'object_type'\n"
-"aukerakoa da; datu hori adierazten ez bada,\n"
-"taula motakoa dela joko da.\n"
-"Objektu mota kontsulta ere izan liteke."
+"Ireki inprimatze aurreikuspegi-leihoa zehaztutako proiektuko 'object_type' "
+"mota eta 'object_name' izeneko objektu batentzat aplikazioa abiatzen denean "
+"objektuaren datuen inprimaketaren aurreikuspegia ikusteko. 'object_type' "
+"aukerakoa da; jartzen ez bada, %1 mota dela suposatzen da. Objektu mota %2 "
+"ere izan daiteke."
 
 #: core/KexiCommandLineOptions.cpp:147
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Server (host) name to be used\n"
-#| "for connecting to a database project.\n"
-#| "Ignored if a shortcut filename\n"
-#| "is provided."
+#, kde-kuit-format
 msgctxt "'user' command line option"
 msgid ""
 "Database server's user name when connecting to a project. Ignored if the "
 "project is opened using a shortcut file. Default user name is the same as "
 "the current login (<resource>%1</resource>)."
 msgstr ""
-"Datu-base proiektu batera konektatzeko\n"
-"erabili beharreko zerbitzari-izena (ostalaria).\n"
-"Ez ikusi egiten zaio, fitxategi-izenaren\n"
-"lasterbide bat adierazten bada."
+"Proiektu batera konektatzean datu-base zerbitzariaren erabiltzaile-izena.Ez "
+"da aintzat hartzen proiektua lasterbide-fitxategi baten bidez irekitzen "
+"bada. Erabiltzaile-izen lehenetsia uneko saioko bera da (<resource>%1</"
+"resource>)."
 
 #: core/KexiCommandLineOptions.cpp:154
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Server (host) name to be used\n"
-#| "for connecting to a database project.\n"
-#| "Ignored if a shortcut filename\n"
-#| "is provided."
+#, kde-kuit-format
 msgctxt "'host' command line option"
 msgid ""
 "Network server's (host) name to be used when connecting to a database "
 "project. Ignored if the project is opened using a shortcut file. Default "
 "host is the local computer."
 msgstr ""
-"Datu-base proiektu batera konektatzeko\n"
-"erabili beharreko zerbitzari-izena (ostalaria).\n"
-"Ez ikusi egiten zaio, fitxategi-izenaren\n"
-"lasterbide bat adierazten bada."
+"Datu-base proiektu batera konektatzean erabili beharreko zerbitzari-izena "
+"(ostalaria). Ez da aintzat hartzen proiektua lasterbide-fitxategi baten "
+"bidez irekitzen bada. Ostalari lehenetsia ordenagailu lokala da."
 
 #: core/KexiCommandLineOptions.cpp:160
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Server's port number to be used\n"
-#| "for connecting to a database project.\n"
-#| "Ignored if a shortcut filename\n"
-#| "is provided."
+#, kde-kuit-format
 msgctxt "'port' command line option"
 msgid ""
 "Network server's port number to be used when connecting to a database "
 "project. Ignored if the project is opened using a shortcut file. Defaults "
 "depend on the used server type (e.g. %1, %2)."
 msgstr ""
-"Datu-base proiektu batera konektatzeko\n"
-"erabili beharreko zerbitzariaren ataka-zenbakia.\n"
-"Ez ikusi egiten zaio, fitxategi-izenaren\n"
-"lasterbide bat adierazten bada."
+"Datu-base proiektu batera konektatzean erabili beharreko zerbitzariaren "
+"ataka zenbakia. Ez da aintzat hartzen proiektua lasterbide-fitxategi baten "
+"bidez irekitzen bada. Lehenespenak erabilitako zerbitzari motaren "
+"araberakoak dira (adib. %1, %2)."
 
 #: core/KexiCommandLineOptions.cpp:167
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Server's local socket filename\n"
-#| "to be used for connecting to a database\n"
-#| "project. Ignored if a shortcut filename\n"
-#| "is provided."
+#, kde-kuit-format
 msgctxt "'local-socket' command line option"
 msgid ""
 "Local computer's socket filename to be used when connecting to a database "
 "project. Ignored if the project is opened using a shortcut file. Defaults "
 "depend on the used server type (e.g. %1, %2)."
 msgstr ""
-"Datu-base proiektu batera konektatzeko\n"
-"erabili beharreko zerbitzariaren socket\n"
-"lokalaren fitxategi-izena.\n"
-"Ez ikusi egiten zaio, fitxategi-izenaren\n"
-"lasterbide bat adierazten bada."
+"Datu-base proiektu batera konektatzean erabiliko den ordenagailu lokalaren "
+"socket-fitxategiaren izena. Ez da aintzat hartzen proiektua lasterbide-"
+"fitxategi baten bidez irekitzen bada. Lehenespenak erabilitako zerbitzari "
+"motaren araberakoak dira (adib. %1, %2)."
 
 #: core/KexiCommandLineOptions.cpp:176
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Skip displaying connection dialog window\n"
-#| "and connect directly. Available when\n"
-#| "opening .kexic or .kexis shortcut files."
+#, kde-kuit-format
 msgctxt "'skip-conn-dialog' command line option"
 msgid ""
 "Skip displaying connection dialog window and connect directly. Available "
 "when opening .kexic or .kexis shortcut files."
 msgstr ""
-"Saltatu konektatzeko elkarrizketa-leihoa\n"
-"bistaratzea eta konektatu zuzenean. .kexic edo\n"
-" .kexis laster-fitxategiak\n"
-"irekitzean soilik dago erabilgarri."
+"Ez erakutsi konexio elkarrizketa-leihoa eta konektatu zuzenean. Erabilgarri "
+"dago .kexic edo .kexis lasterbide-fitxategiak irekitzean."
 
 #: core/KexiCommandLineOptions.cpp:180
 #, fuzzy, kde-kuit-format
@@ -813,49 +761,37 @@ msgid ""
 msgstr ""
 
 #: core/kexidbconnectionset.cpp:76
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Could not open connection data file\n"
-#| "\"%1\"."
+#, kde-kuit-format
 msgid "Could not find location to save connection data file."
-msgstr ""
-"Ezin izan da ireki\n"
-"\"%1\" konexio-datuen fitxategia."
+msgstr "Ezin izan du konexio-datu fitxategia gordetzeko kokalekua aurkitu."
 
 #: core/kexidbconnectionset.cpp:88
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Could not read <filename>%1</filename>."
+#, kde-kuit-format
 msgid ""
 "Could not create folder <filename>%1</filename> for connection data file."
-msgstr "Ezin izan irakurri <filename>%1</filename> fitxategia."
+msgstr ""
+"Ezin izan du konexio-datu fitxategirako<filename>%1</filename> karpeta sortu."
 
 #: core/kexidbconnectionset.cpp:157
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Could not write <filename>%1</filename>."
+#, kde-kuit-format
 msgid "Could not remove connection file <filename>%1</filename>."
-msgstr "Ezin da idatzi <filename>%1</filename>."
+msgstr "Ezin izan du <filename>%1</filename> konexio-fitxategia kendu."
 
 #: core/KexiFileFilters.cpp:242 widget/KexiStartupFileHandler.cpp:287
-#, fuzzy, kde-kuit-format
-#| msgid "All Supported Files (%1)"
+#, kde-kuit-format
 msgid "All Supported Files"
-msgstr "Onartutako fitxategi guztiak (%1)"
+msgstr "Onartutako fitxategi guztiak"
 
 #: core/KexiFileFilters.cpp:246
-#, fuzzy, kde-kuit-format
-#| msgid "&Add File"
+#, kde-kuit-format
 msgid "All Files"
-msgstr "&Gehitu fitxategia"
+msgstr "Fitxategi guztiak"
 
 #: core/KexiGroupButton.cpp:143
-#, fuzzy, kde-format
-#| msgctxt "Identifier%1"
-#| msgid "Id%1"
+#, kde-format
 msgctxt "@info:tooltip of custom triple button"
 msgid "%1"
-msgstr "%1 IDa"
+msgstr "%1"
 
 #: core/kexiguimsghandler.cpp:175 core/kexitextmsghandler.cpp:92
 #: migration/importtablewizard.cpp:428
@@ -869,11 +805,11 @@ msgid "Details:"
 msgstr "Xehetasunak:"
 
 #: core/kexipart.cpp:74
-#, fuzzy, kde-kuit-format
-#| msgid "Object \"%1\" could not be opened in Design View."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Object <resource>%1</resource> could not be opened in Design View."
-msgstr "\"%1\" objektua ezin izan da diseinu-ikuspegian ireki."
+msgstr ""
+"<resource>%1</resource> objektua ezin izan da Diseinu Ikuspegian ireki."
 
 #: core/kexipart.cpp:75
 #, kde-kuit-format
@@ -916,11 +852,10 @@ msgid "Object design may be corrupted."
 msgstr "Baliteke objektu-diseinua hondatuta egotea."
 
 #: core/kexipart.cpp:277
-#, fuzzy, kde-kuit-format
-#| msgid "You can delete \"%1\" object and create it again."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "You can delete <resource>%1</resource> object and create it again."
-msgstr "\"%1\" objektua ezabatu eta berriz sor dezakezu."
+msgstr "<resource>%1</resource> objektua ezabatu eta berriz sor dezakezu."
 
 #: core/kexipart.cpp:358
 #, kde-kuit-format
@@ -928,26 +863,22 @@ msgid "Could not load object's data."
 msgstr "Ezin izan dira objektuaren datuak kargatu."
 
 #: core/kexipart.cpp:360
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:window Rename Object %1."
-#| msgid "Rename <resource>%1</resource>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Data identifier: <resource>%1</resource>."
-msgstr "Berrizendatu <resource>%1</resource>"
+msgstr "Datuen identifikatzailea: <resource>%1</resource>."
 
 #: core/kexipartinfo.cpp:112
-#, fuzzy, kde-kuit-format
-#| msgid "Create new object of type \"%1\""
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Create new object of type <resource>%1</resource>"
-msgstr "Sortu \"%1\" motako objektu berria"
+msgstr "Sortu <resource>%1</resource> motako objektu berria"
 
 #: core/kexipartinfo.cpp:115
-#, fuzzy, kde-kuit-format
-#| msgid "Creates new object of type \"%1\""
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Creates new object of type <resource>%1</resource>"
-msgstr "\"%1\" motako objektu berria sortzen du"
+msgstr "<resource>%1</resource> motako objektu berria sortzen du"
 
 #: core/kexipartmanager.cpp:112
 #, fuzzy, kde-kuit-format
@@ -2154,12 +2085,12 @@ msgstr "Automatikoa"
 #: formeditor/form_p.cpp:346
 #, kde-kuit-format
 msgid "Always Off"
-msgstr "Beti desaktibatuta"
+msgstr "Beti itzalita"
 
 #: formeditor/form_p.cpp:347
 #, kde-kuit-format
 msgid "Always On"
-msgstr "Beti aktibatuta"
+msgstr "Beti piztuta"
 
 #: formeditor/form_p.cpp:350
 #, kde-kuit-format
@@ -5307,15 +5238,12 @@ msgid "Show Form UI Code"
 msgstr "Erakutsi inprimakiaren erabiltzaile-interfazearen kodea"
 
 #: plugins/forms/kexiformmanager.cpp:388
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:window Rename Object %1."
-#| msgid "Rename <resource>%1</resource>"
+#, kde-kuit-format
 msgid "Set form's data source to <resource>%1</resource>"
-msgstr "Berrizendatu <resource>%1</resource>"
+msgstr "Ezarri inprimakiaren datu-sorburua <resource>%1</resource>(e)(r)a"
 
 #: plugins/forms/kexiformmanager.cpp:472
-#, fuzzy, kde-kuit-format
-#| msgid "Form's UI Code"
+#, kde-kuit-format
 msgctxt "@title:window"
 msgid "Form's UI Code"
 msgstr "Inprimakiaren erabiltzaile-interfazearen kodea"
@@ -5435,19 +5363,16 @@ msgid "To Widest"
 msgstr "Zabalenera"
 
 #: plugins/forms/kexiformpart.cpp:320
-#, fuzzy, kde-format
-#| msgid "Design of form \"%1\" has been modified."
+#, kde-format
 msgctxt "@info"
 msgid "Design of form <resource>%1</resource> has been modified."
-msgstr "\"%1\" inprimakiaren diseinua aldatu egin da."
+msgstr "<resource>%1</resource> inprimakiaren diseinua aldatu egin da."
 
 #: plugins/forms/kexiformpart.cpp:322
-#, fuzzy, kde-format
-#| msgctxt "@info Saving object failed"
-#| msgid "Saving <resource>%1</resource> object failed."
+#, kde-format
 msgctxt "@info"
 msgid "Form <resource>%1</resource> already exists."
-msgstr "<resource>%1</resource> objektua gordetzeak huts egin du."
+msgstr "<resource>%1</resource> inprimakia jada badago."
 
 #: plugins/forms/kexiformpart.cpp:377
 #, kde-kuit-format
@@ -5455,12 +5380,10 @@ msgid "Widgets"
 msgstr "Trepetak"
 
 #: plugins/forms/kexiformpart.cpp:464
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info Object \"objectname\""
-#| msgid "%1 <resource>%2</resource>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Form <resource>%1</resource>"
-msgstr "%1 <resource>%2</resource>"
+msgstr "<resource>%1</resource> inprimakia"
 
 #: plugins/forms/widgets/kexidbimagebox.cpp:511
 #, kde-kuit-format
@@ -5468,42 +5391,35 @@ msgid "Click to show actions for this image box"
 msgstr "Egin klik irudi-koadro honen ekintzak erakusteko"
 
 #: plugins/forms/widgets/kexidbimagebox.cpp:523
-#, fuzzy, kde-kuit-format
-#| msgid "Click to show actions for this image box"
+#, kde-kuit-format
 msgid "Click to show actions for <interface>%1</interface> image box"
-msgstr "Egin klik irudi-koadro honen ekintzak erakusteko"
+msgstr ""
+"Egin klik <interface>%1</interface> irudi-laukirako ekintzak erakusteko"
 
 #: plugins/forms/widgets/kexidbimagebox.cpp:649
-#, fuzzy, kde-kuit-format
-#| msgctxt "Unbound Auto Field"
-#| msgid "%1 (unbound)"
+#, kde-kuit-format
 msgctxt "Unbound Image Box"
 msgid "%1 (unbound)"
 msgstr "%1 (lotu gabe)"
 
 #: plugins/forms/widgets/kexidbimagebox.cpp:651
-#, fuzzy, kde-kuit-format
-#| msgctxt "Unbound Auto Field"
-#| msgid "%1 (unbound)"
+#, kde-kuit-format
 msgctxt "Unbound Image Box"
 msgid ""
 "%1\n"
 "(unbound)"
-msgstr "%1 (lotu gabe)"
+msgstr ""
+"%1\n"
+"(lotu gabe)"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:77
-#, fuzzy, kde-kuit-format
-#| msgid "Form"
+#, kde-kuit-format
 msgctxt "Form widget"
 msgid "Form"
 msgstr "Inprimakia"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:86
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "This string will be used to name widgets of this class. It must _not_ "
-#| "contain white spaces and non latin1 characters."
-#| msgid "form"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of forms. Based on that, identifiers such as form1, "
 "form2 are generated. This string can be used to refer the widget object as "
@@ -5516,24 +5432,18 @@ msgid "form"
 msgstr "inprimakia"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:87
-#, fuzzy, kde-kuit-format
-#| msgid "A simple form widget"
+#, kde-kuit-format
 msgid "A form widget"
-msgstr "Inprimaki-trepeta sinplea"
+msgstr "Inprimaki-trepeta bat"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:107
-#, fuzzy, kde-kuit-format
-#| msgid "Text Box"
+#, kde-kuit-format
 msgctxt "Text Box widget"
 msgid "Text Box"
-msgstr "Testu-koadroa"
+msgstr "Testu-laukia"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:116
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Widget name. This string will be used to name widgets of this class. It "
-#| "must _not_ contain white spaces and non latin1 characters."
-#| msgid "textBox"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of text box widgets. Based on that, identifiers "
 "such as textBox1, textBox2 are generated. This string can be used to refer "
@@ -5543,27 +5453,21 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "textBox"
-msgstr "testukoadroa"
+msgstr "testuLaukia"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:117
-#, fuzzy, kde-kuit-format
-#| msgid "A widget for entering and displaying text"
+#, kde-kuit-format
 msgid "A widget for entering and displaying line of text text"
-msgstr "Testua idazteko eta bistaratzeko trepeta"
+msgstr "Testu-lerro bat sartzeko eta erakusteko trepeta"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:129
-#, fuzzy, kde-kuit-format
-#| msgid "Text Editor"
+#, kde-kuit-format
 msgctxt "Text Editor widget"
 msgid "Text Editor"
 msgstr "Testu-editorea"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:138
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Widget name. This string will be used to name widgets of this class. It "
-#| "must _not_ contain white spaces and non latin1 characters."
-#| msgid "textEditor"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of text editor widgets. Based on that, identifiers "
 "such as textEditor1, textEditor2 are generated. This string can be used to "
@@ -5573,7 +5477,7 @@ msgctxt ""
 "with upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "textEditor"
-msgstr "testueditorea"
+msgstr "testuEditorea"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:139
 #, kde-kuit-format
@@ -5581,18 +5485,13 @@ msgid "A multiline text editor"
 msgstr "Lerro anitzeko testu-editorea"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:151
-#, fuzzy, kde-kuit-format
-#| msgid "Label"
+#, kde-kuit-format
 msgctxt "Text Label widget"
 msgid "Label"
 msgstr "Etiketa"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:160
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Widget name. This string will be used to name widgets of this class. It "
-#| "must _not_ contain white spaces and non latin1 characters."
-#| msgid "label"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of label widgets. Based on that, identifiers such "
 "as label1, label2 are generated. This string can be used to refer the widget "
@@ -5610,18 +5509,13 @@ msgid "A widget for displaying text"
 msgstr "Testua bistaratzeko trepeta"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:173
-#, fuzzy, kde-kuit-format
-#| msgid "Image Box"
+#, kde-kuit-format
 msgctxt "Image Box widget"
 msgid "Image Box"
-msgstr "Irudi Koadroa"
+msgstr "Irudi-laukia"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:182
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Widget name. This string will be used to name widgets of this class. It "
-#| "must _not_ contain white spaces and non latin1 characters."
-#| msgid "image"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of image box widgets. Based on that, identifiers "
 "such as image1, image2 are generated. This string can be used to refer the "
@@ -5639,18 +5533,13 @@ msgid "A widget for displaying images"
 msgstr "Irudiak bistaratzeko trepeta"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:199
-#, fuzzy, kde-kuit-format
-#| msgid "Combo Box"
+#, kde-kuit-format
 msgctxt "Combo Box widget"
 msgid "Combo Box"
-msgstr "Konbinazio-koadroa"
+msgstr "Lauki-konbinatua"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:208
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Widget name. This string will be used to name widgets of this class. It "
-#| "must _not_ contain white spaces and non latin1 characters."
-#| msgid "comboBox"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of combo box widgets. Based on that, identifiers "
 "such as comboBox1, comboBox2 are generated. This string can be used to refer "
@@ -5660,7 +5549,7 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "comboBox"
-msgstr "konbinaziokoadroa"
+msgstr "laukiKonbinatua"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:209
 #, kde-kuit-format
@@ -5668,18 +5557,13 @@ msgid "A combo box widget"
 msgstr "Konbinazio-koadroaren trepeta"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:218
-#, fuzzy, kde-kuit-format
-#| msgid "Check Box"
+#, kde-kuit-format
 msgctxt "Check Box widget"
 msgid "Check Box"
-msgstr "Kontrol-laukia"
+msgstr "Egiaztapen-laukia"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:227
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Widget name. This string will be used to name widgets of this class. It "
-#| "must _not_ contain white spaces and non latin1 characters."
-#| msgid "checkBox"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of combo box widgets. Based on that, identifiers "
 "such as checkBox1, checkBox2 are generated. This string can be used to refer "
@@ -5689,7 +5573,7 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "checkBox"
-msgstr "kontrollaukia"
+msgstr "egiaztapenLaukia"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:228
 #, kde-kuit-format
@@ -5697,18 +5581,13 @@ msgid "A check box with text label"
 msgstr "Testu-etiketa duen kontrol-laukia"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:255
-#, fuzzy, kde-kuit-format
-#| msgid "Button"
+#, kde-kuit-format
 msgctxt "Button widget"
 msgid "Button"
 msgstr "Botoia"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:264
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Widget name. This string will be used to name widgets of this class. It "
-#| "must _not_ contain white spaces and non latin1 characters."
-#| msgid "button"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of button widgets. Based on that, identifiers such "
 "as button1, button2 are generated. This string can be used to refer the "
@@ -5726,18 +5605,13 @@ msgid "A button for executing actions"
 msgstr "Ekintzak exekutatzeko botoia"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:273
-#, fuzzy, kde-kuit-format
-#| msgid "Link Button"
+#, kde-kuit-format
 msgctxt "Link Button widget"
 msgid "Link Button"
 msgstr "Esteka-botoia"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:282
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Widget name. This string will be used to name widgets of this class. It "
-#| "must _not_ contain white spaces and non latin1 characters."
-#| msgid "linkButton"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of link button widgets. Based on that, identifiers "
 "such as linkButton1, linkButton2 are generated. This string can be used to "
@@ -5747,7 +5621,7 @@ msgctxt ""
 "with upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "linkButton"
-msgstr "estekabotoia"
+msgstr "estekaBotoia"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:283
 #, kde-kuit-format
@@ -5755,18 +5629,13 @@ msgid "A Link button for executing actions"
 msgstr "Ekintzak exekutatzeko esteka-botoia"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:313
-#, fuzzy, kde-kuit-format
-#| msgid "Slider"
+#, kde-kuit-format
 msgctxt "Slider widget"
 msgid "Slider"
 msgstr "Graduatzailea"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:322
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Widget name. This string will be used to name widgets of this class. It "
-#| "must _not_ contain white spaces and non latin1 characters."
-#| msgid "slider"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of slider widgets. Based on that, identifiers such "
 "as slider1, slider2 are generated. This string can be used to refer the "
@@ -5784,18 +5653,13 @@ msgid "A Slider widget"
 msgstr "Graduatzaile-trepeta"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:331
-#, fuzzy, kde-kuit-format
-#| msgid "Progress Bar"
+#, kde-kuit-format
 msgctxt "Progress Bar widget"
 msgid "Progress Bar"
 msgstr "Aurrerapen-barra"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:340
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Widget name. This string will be used to name widgets of this class. It "
-#| "must _not_ contain white spaces and non latin1 characters."
-#| msgid "progressBar"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of progress bar widgets. Based on that, identifiers "
 "such as progressBar1, progressBar2 are generated. This string can be used to "
@@ -5805,7 +5669,7 @@ msgctxt ""
 "with upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "progressBar"
-msgstr "aurrerapenbarra"
+msgstr "aurrerapenBarra"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:341
 #, kde-kuit-format
@@ -5818,11 +5682,7 @@ msgid "Line"
 msgstr "Lerroa"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:358
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Widget name. This string will be used to name widgets of this class. It "
-#| "must _not_ contain white spaces and non latin1 characters."
-#| msgid "line"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of line widgets. Based on that, identifiers such as "
 "line1, line2 are generated. This string can be used to refer the widget "
@@ -5850,18 +5710,13 @@ msgid "Insert &Vertical Line"
 msgstr "Txertatu lerro &bertikala"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:374
-#, fuzzy, kde-kuit-format
-#| msgid "Date Picker"
+#, kde-kuit-format
 msgctxt "Date Picker widget"
 msgid "Date Picker"
 msgstr "Data-hautatzailea"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:383
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Widget name. This string will be used to name widgets of this class. It "
-#| "must _not_ contain white spaces and non latin1 characters."
-#| msgid "datePicker"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of date picker widgets. Based on that, identifiers "
 "such as datePicker1, datePicker2 are generated. This string can be used to "
@@ -5871,7 +5726,7 @@ msgctxt ""
 "with upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "datePicker"
-msgstr "datahautatzailea"
+msgstr "dataHautatzailea"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:384
 #, kde-kuit-format
@@ -5879,9 +5734,7 @@ msgid "A Date Picker widget"
 msgstr "Data hautatzeko trepeta"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:418
-#, fuzzy, kde-kuit-format
-#| msgctxt "Echo mode for Line Edit widget eg. Normal, NoEcho, Password"
-#| msgid "Echo Mode"
+#, kde-kuit-format
 msgctxt "Property: Echo mode for Line Edit widget eg. Normal, NoEcho, Password"
 msgid "Echo Mode"
 msgstr "Oihartzun modua"
@@ -5949,32 +5802,28 @@ msgid "Description"
 msgstr "Deskribapena"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:432
-#, fuzzy, kde-kuit-format
-#| msgid "Page Step"
+#, kde-kuit-format
 msgctxt "Property of slider widgets"
 msgid "Page Step"
-msgstr "Orri-urratsa"
+msgstr "Orrialde urratsa"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:433
-#, fuzzy, kde-kuit-format
-#| msgid "Single Step"
+#, kde-kuit-format
 msgctxt "Property of slider widgets"
 msgid "Single Step"
 msgstr "Urrats bakarra"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:434
-#, fuzzy, kde-kuit-format
-#| msgid "Tick Interval"
+#, kde-kuit-format
 msgctxt "Property of slider widgets"
 msgid "Tick Interval"
-msgstr "Marka-tartea"
+msgstr "Tik-marka tartea"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:435
-#, fuzzy, kde-kuit-format
-#| msgid "Tick Position"
+#, kde-kuit-format
 msgctxt "Property of slider widgets"
 msgid "Tick Position"
-msgstr "Marka-posizioa"
+msgstr "Tik-markaren posizioa"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:436
 #, kde-kuit-format
@@ -6007,9 +5856,7 @@ msgid "Spell Checking"
 msgstr "Ortografia zuzentzea"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:442
-#, fuzzy, kde-kuit-format
-#| msgctxt "Property: HTML value of text edit"
-#| msgid "HTML"
+#, kde-kuit-format
 msgctxt "Widget Property"
 msgid "HTML"
 msgstr "HTML"
@@ -6053,46 +5900,40 @@ msgid "Image"
 msgstr "Irudia"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:463
-#, fuzzy, kde-kuit-format
-#| msgid "No Ticks"
+#, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "No Ticks"
-msgstr "Markarik ez"
+msgstr "Tik-markarik ez"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:464
-#, fuzzy, kde-kuit-format
-#| msgid "Above"
+#, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Above"
-msgstr "Goian"
+msgstr "Gainean"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:465
-#, fuzzy, kde-kuit-format
-#| msgid "Left"
+#, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Left"
 msgstr "Ezkerrean"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:466
-#, fuzzy, kde-kuit-format
-#| msgid "Below"
+#, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Below"
-msgstr "Behean"
+msgstr "Azpian"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:467
-#, fuzzy, kde-kuit-format
-#| msgid "Right"
+#, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Right"
 msgstr "Eskuinean"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:468
-#, fuzzy, kde-kuit-format
-#| msgid "Both Sides"
+#, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "Both Sides"
-msgstr "Bi aldeetan"
+msgstr "Bi aldeak"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:481
 #, kde-kuit-format
@@ -6111,17 +5952,13 @@ msgid "Scaled Contents"
 msgstr "Eduki eskalatua"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:484
-#, fuzzy, kde-kuit-format
-#| msgctxt "Smoothing when contents are scaled"
-#| msgid "Smoothing"
+#, kde-kuit-format
 msgctxt "Property: Smoothing when contents are scaled"
 msgid "Smoothing"
 msgstr "Leuntzea"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:485
-#, fuzzy, kde-kuit-format
-#| msgctxt "Keep Aspect Ratio (short)"
-#| msgid "Keep Ratio"
+#, kde-kuit-format
 msgctxt "Property: Keep Aspect Ratio (keep short)"
 msgid "Keep Ratio"
 msgstr "Mantendu erlazioa"
@@ -6135,38 +5972,32 @@ msgid ""
 "Drop-Down\n"
 "Button Visible"
 msgstr ""
-"Goitibeherako\n"
+"Goitibehera\n"
 "botoia ikusgai"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:493
-#, fuzzy, kde-kuit-format
-#| msgctxt "Checked checkbox"
-#| msgid "Checked"
+#, kde-kuit-format
 msgctxt "Property: Checked checkbox"
 msgid "Checked"
-msgstr "Hautatuta"
+msgstr "Markatuta"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:494
-#, fuzzy, kde-kuit-format
-#| msgctxt "Tristate checkbox"
-#| msgid "Tristate"
+#, kde-kuit-format
 msgctxt "Property: Tristate checkbox"
 msgid "Tristate"
-msgstr "Hiru egoerakoa"
+msgstr "Hiru egoera"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:495
-#, fuzzy, kde-kuit-format
-#| msgid "Default"
+#, kde-kuit-format
 msgctxt "Value of \"Tristate\" property in checkbox: default"
 msgid "Default"
 msgstr "Lehenetsia"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:496
-#, fuzzy, kde-kuit-format
-#| msgid "Yes/No"
+#, kde-kuit-format
 msgctxt "Value of \"Tristate\" property in checkbox: yes"
 msgid "Yes"
-msgstr "Bai/Ez"
+msgstr "Bai"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:497
 #, kde-kuit-format
@@ -6320,9 +6151,7 @@ msgid "Placeholder Text"
 msgstr "Leku-markako testua"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:534
-#, fuzzy, kde-kuit-format
-#| msgctxt "Property: Show Clear Button"
-#| msgid "Clear Button"
+#, kde-kuit-format
 msgctxt "Property: Clear Button Enabled"
 msgid "Clear Button"
 msgstr "Garbitzeko botoia"
@@ -6334,9 +6163,7 @@ msgid "Password Mode"
 msgstr "Pasahitz modua"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:537
-#, fuzzy, kde-kuit-format
-#| msgctxt "Squeezed Text Mode for line edit"
-#| msgid "Squeezed Text"
+#, kde-kuit-format
 msgctxt "Property: Squeezed Text Mode for line edit"
 msgid "Squeezed Text"
 msgstr "Testu estutua"
@@ -6357,12 +6184,10 @@ msgid "Word Wrap Policy"
 msgstr "Ertzean egokitzeko politika"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:543
-#, fuzzy, kde-kuit-format
-#| msgctxt "For Word Wrap Policy"
-#| msgid "At Word Boundary"
+#, kde-kuit-format
 msgctxt "Property: For Word Wrap Policy"
 msgid "At Word Boundary"
-msgstr "Hitz-mugan"
+msgstr "Hitz mugan"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:544
 #, kde-kuit-format
@@ -6371,12 +6196,10 @@ msgid "Anywhere"
 msgstr "Edonon"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:545
-#, fuzzy, kde-kuit-format
-#| msgctxt "For Word Wrap Policy"
-#| msgid "At Word Boundary If Possible"
+#, kde-kuit-format
 msgctxt "Property: For Word Wrap Policy"
 msgid "At Word Boundary If Possible"
-msgstr "Hitz-mugan, ahal bada"
+msgstr "Hitz mugan, ahal bada"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:546
 #, kde-kuit-format
@@ -6428,26 +6251,22 @@ msgid "Vertical Scroll Bar"
 msgstr "Korritze-barra bertikala"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:556
-#, fuzzy, kde-kuit-format
-#| msgctxt "Show Scroll Bar As Needed"
-#| msgid "As Needed"
+#, kde-kuit-format
 msgctxt "Property: Show Scroll Bar As Needed"
 msgid "As Needed"
-msgstr "Behar izanez gero"
+msgstr "Behar den moduan"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:557
-#, fuzzy, kde-kuit-format
-#| msgid "Always Off"
+#, kde-kuit-format
 msgctxt "Property: Scroll Bar Always Off"
 msgid "Always Off"
-msgstr "Beti desaktibatuta"
+msgstr "Beti itzalita"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:558
-#, fuzzy, kde-kuit-format
-#| msgid "Always On"
+#, kde-kuit-format
 msgctxt "Property: Scroll Bar Always On"
 msgid "Always On"
-msgstr "Beti aktibatuta"
+msgstr "Beti piztuta"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:559
 #, kde-kuit-format
@@ -6467,11 +6286,7 @@ msgid "Tab Widget"
 msgstr "Fitxa-trepeta"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:579
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Widget name. This string will be used to name widgets of this class. It "
-#| "must _not_ contain white spaces and non latin1 characters."
-#| msgid "tabWidget"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of tab widgets. Based on that, identifiers such as "
 "tab1, tab2 are generated. This string can be used to refer the widget object "
@@ -6481,7 +6296,7 @@ msgctxt ""
 "letter. Example: smallCamelCase. Moreover, try to make this prefix as short "
 "as possible."
 msgid "tabWidget"
-msgstr "fitxatrepeta"
+msgstr "fitxaTrepeta"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:580
 #, kde-kuit-format
@@ -6518,11 +6333,7 @@ msgid "Group Box"
 msgstr "Talde-koadroa"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:626
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "Widget name. This string will be used to name widgets of this class. It "
-#| "must _not_ contain white spaces and non latin1 characters."
-#| msgid "groupBox"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of group box widgets. Based on that, identifiers "
 "such as groupBox1, groupBox2 are generated. This string can be used to refer "
@@ -6532,12 +6343,12 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "groupBox"
-msgstr "taldekoadroa"
+msgstr "taldeKoadroa"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:627
 #, kde-kuit-format
 msgid "A container to group some widgets"
-msgstr "Zenbait trepeta taldekatzeko edukitzailea"
+msgstr "Trepeta batzuk taldekatzeko edukiontzi bat"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:632
 #, kde-kuit-format
@@ -7047,13 +6858,7 @@ msgid "Format for column %1:"
 msgstr "%1 zutabearen formatua:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1841
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "No Primary Key (autonumber) has been defined.\n"
-#| "Should it be automatically defined on import (recommended)?\n"
-#| "\n"
-#| "Note: An imported table without a Primary Key may not be editable "
-#| "(depending on database type)."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "<para>No primary key (autonumber) has been defined.</para><para>Should it be "
@@ -7061,11 +6866,10 @@ msgid ""
 "table without a primary key may not be editable (depending on database type)."
 "</note></para>"
 msgstr ""
-"Ez da definitu lehen mailako gakorik (zenbaketa automatikoa).\n"
-"Inportatzean automatikoki definitzea nahi duzu (gomendatua)?\n"
-"\n"
-"Oharra: baliteke lehen mailako gakorik ez duen taula inportatu bat "
-"editagarria ez izatea (datu-base motaren araberakoa da hori)."
+"<para>Ez da gako nagusirik  (zenbakitze automatikoa) definitu.</"
+"para><para>Inportatzean automatikoki definitu beharko litzateke (gomendatua)?"
+"</para><para><note>Inportatutako taula bat gako nagusirik gabe baliteke "
+"editagarria ez izatea (datu-base motaren arabera).</note></para>"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1846
 #: plugins/tables/kexitabledesignerview.cpp:1196
@@ -7329,30 +7133,26 @@ msgstr ""
 "Lehenik, sortu diseinua."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:424
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:window Rename Object %1."
-#| msgid "Rename <resource>%1</resource>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Select column for table <resource>%1</resource>"
-msgstr "Berrizendatu <resource>%1</resource>"
+msgstr "Hautatu <resource>%1</resource> taularako zutabea"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:447
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1765
-#, fuzzy, kde-kuit-format
-#| msgid "Invalid criteria \"%1\""
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Invalid criteria <icode>%1</icode>"
-msgstr "\"%1\" irizpide baliogabea"
+msgstr "<icode>%1</icode> irizpide baliogabea"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:469
 #: plugins/queries/kexiquerydesignerguieditor.cpp:476
 #: plugins/queries/kexiquerydesignerguieditor.cpp:484
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1561
-#, fuzzy, kde-kuit-format
-#| msgid "Invalid expression \"%1\""
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Invalid expression <icode>%1</icode>"
-msgstr "\"%1\" adierazpen baliogabea"
+msgstr "<icode>%1</icode> adierazpen baliogabea"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:704
 #: plugins/queries/kexiquerydesignerguieditor.cpp:718
@@ -7379,11 +7179,12 @@ msgid "expr"
 msgstr "adier"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1541
-#, fuzzy, kde-kuit-format
-#| msgid "Entered column alias \"%1\" is not a valid identifier."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Entered column alias <resource>%1</resource> is not a valid identifier."
-msgstr "Idatzi duzun \"%1\" zutabe-aliasa ez da baliozko identifikatzailea."
+msgstr ""
+"Sartutako <resource>%1</resource> zutabe-ezizena ez da identifikatzaile "
+"balioduna."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1543
 #, kde-kuit-format
@@ -7397,12 +7198,10 @@ msgid "Could not set sorting for multiple columns (%1)"
 msgstr "Ezin izan da ordena ezarri hainbat zutabetarako (%1)"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1738
-#, fuzzy, kde-kuit-format
-#| msgctxt "@title:window Rename Object %1."
-#| msgid "Rename <resource>%1</resource>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Could not set criteria for <resource>%1</resource>"
-msgstr "Berrizendatu <resource>%1</resource>"
+msgstr "Ezin izan du <resource>%1</resource>(e)(r)ako irizpidea sortu"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1741
 #, kde-kuit-format
@@ -7410,8 +7209,7 @@ msgid "Could not set criteria for empty record"
 msgstr "Ezin izan da irizpidea ezarri erregistro hutserako"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1835
-#, fuzzy, kde-kuit-format
-#| msgid "Column"
+#, kde-kuit-format
 msgctxt "Query column"
 msgid "Column"
 msgstr "Zutabea"
@@ -7556,26 +7354,22 @@ msgid ""
 msgstr "Orain gorde nahi duzu diseinua?"
 
 #: plugins/queries/kexiquerypart.cpp:245 plugins/tables/kexitablepart.cpp:214
-#, fuzzy, kde-kuit-format
-#| msgid "Close window"
+#, kde-kuit-format
 msgctxt "@action:button Close all windows and save"
 msgid "Close Windows and Save"
-msgstr "Itxi leihoa"
+msgstr "Itxi leihoak eta gorde"
 
 #: plugins/queries/kexiquerypart.cpp:247 plugins/tables/kexitablepart.cpp:216
-#, fuzzy, kde-kuit-format
-#| msgid "Close window"
+#, kde-kuit-format
 msgctxt "@info:tooltip Close all windows and save design"
 msgid "Close all windows and save design"
-msgstr "Itxi leihoa"
+msgstr "Itxi leihoa guztiak eta gorde diseinua"
 
 #: plugins/queries/kexiquerypart.cpp:274
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info Object \"objectname\""
-#| msgid "%1 <resource>%2</resource>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Query <resource>%1</resource>"
-msgstr "%1 <resource>%2</resource>"
+msgstr "<resource>%1</resource> kontsulta"
 
 #: plugins/queries/kexiqueryview.cpp:97
 #, kde-kuit-format
@@ -7620,34 +7414,28 @@ msgid "Creates new report."
 msgstr "Txosten berria sortzen du."
 
 #: plugins/reports/kexireportpart.cpp:86
-#, fuzzy, kde-format
-#| msgid "Design of report \"%1\" has been modified."
+#, kde-format
 msgctxt "@info"
 msgid "Design of report <resource>%1</resource> has been modified."
-msgstr "\"%1\" txostenaren diseinua aldatu egin da."
+msgstr "<resource>%1</resource> txostenaren diseinua aldatu egin da."
 
 #: plugins/reports/kexireportpart.cpp:88
-#, fuzzy, kde-format
-#| msgctxt "@info Saving object failed"
-#| msgid "Saving <resource>%1</resource> object failed."
+#, kde-format
 msgctxt "@info"
 msgid "Report <resource>%1</resource> already exists."
-msgstr "<resource>%1</resource> objektua gordetzeak huts egin du."
+msgstr "<resource>%1</resource> txostena jada badago."
 
 #: plugins/reports/kexireportpart.cpp:184
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info Object \"objectname\""
-#| msgid "%1 <resource>%2</resource>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Report <resource>%1</resource>"
-msgstr "%1 <resource>%2</resource>"
+msgstr "<resource>%1</resource> txostena"
 
 #: plugins/reports/kexireportview.cpp:64
-#, fuzzy, kde-kuit-format
-#| msgid "Page:"
+#, kde-kuit-format
 msgctxt "Page selector label"
 msgid "Page:"
-msgstr "Orria:"
+msgstr "Orrialdea:"
 
 #: plugins/reports/kexireportview.cpp:65
 #, kde-kuit-format
@@ -7749,16 +7537,14 @@ msgid "PDF..."
 msgstr "PDF..."
 
 #: plugins/reports/kexireportview.cpp:118
-#, fuzzy, kde-kuit-format
-#| msgid "Opening object \"%1\" failed."
+#, kde-kuit-format
 msgid "Export as PDF"
-msgstr "Errorea \"%1\" proiektua irekitzean."
+msgstr "Esportatu PDF gisa"
 
 #: plugins/reports/kexireportview.cpp:119
-#, fuzzy, kde-kuit-format
-#| msgid "Prints the current report."
+#, kde-kuit-format
 msgid "Exports the current report as PDF."
-msgstr "Uneko txostena inprimatzen du."
+msgstr "Uneko txostena PDF gisa inprimatzen du."
 
 #: plugins/reports/kexireportview.cpp:128
 #, kde-kuit-format
@@ -7797,28 +7583,24 @@ msgid "Exports the report as a web page (in HTML format)."
 msgstr "Txostena web-orri gisa esportatzen du (HTML formatuan)"
 
 #: plugins/reports/kexireportview.cpp:181
-#, fuzzy, kde-kuit-format
-#| msgid "Row inserting on the server failed."
+#, kde-kuit-format
 msgid "Printing the report failed."
-msgstr "Errorea zerbitzarian lerroa txertatzean."
+msgstr "Txostena inprimatzea huts egin du."
 
 #: plugins/reports/kexireportview.cpp:182
-#, fuzzy, kde-kuit-format
-#| msgid "Export Failed"
+#, kde-kuit-format
 msgid "Print Failed"
-msgstr "Huts egin du esportatzean"
+msgstr "Inprimatzea huts egin du"
 
 #: plugins/reports/kexireportview.cpp:194
-#, fuzzy, kde-kuit-format
-#| msgid "Export Report as Web Page"
+#, kde-kuit-format
 msgid "Export Report as PDF"
-msgstr "Esportatu txostena web-orri gisa"
+msgstr "Esportatu txostena PDF gisa"
 
 #: plugins/reports/kexireportview.cpp:213
-#, fuzzy, kde-kuit-format
-#| msgid "Exporting the report as web page to %1 failed."
+#, kde-kuit-format
 msgid "Exporting the report as PDF to %1 failed."
-msgstr "Huts egin du txostena %1(e)ra web-orri gisa esportatzean."
+msgstr "Txostena PDF gisa %1(e)ra esportatzea huts egin du."
 
 #: plugins/reports/kexireportview.cpp:214
 #: plugins/reports/kexireportview.cpp:270
@@ -7829,10 +7611,9 @@ msgid "Export Failed"
 msgstr "Huts egin du esportatzean"
 
 #: plugins/reports/kexireportview.cpp:242
-#, fuzzy, kde-kuit-format
-#| msgid "Do you want to open it in Text View?"
+#, kde-kuit-format
 msgid "Do you want to open exported document?"
-msgstr "Testu-ikuspegian ireki nahi duzu?"
+msgstr "Esportatutako  dokumentua ireki nahi duzu?"
 
 #: plugins/reports/kexireportview.cpp:260
 #, kde-kuit-format
@@ -7869,15 +7650,13 @@ msgid ""
 msgstr ""
 
 #: plugins/reports/kexireportview.cpp:323
-#, fuzzy, kde-kuit-format
-#| msgid "Use CSS"
+#, kde-kuit-format
 msgctxt "@action:button"
 msgid "Use CSS"
 msgstr "Erabili CSS"
 
 #: plugins/reports/kexireportview.cpp:324
-#, fuzzy, kde-kuit-format
-#| msgid "Use Table"
+#, kde-kuit-format
 msgctxt "@action:button"
 msgid "Use Table"
 msgstr "Erabili taula"
@@ -7898,10 +7677,9 @@ msgid "Report schema appears to be invalid or corrupt"
 msgstr "Txosten-eskema baliozkoa ez dela edo hondatuta dagoela dirudi"
 
 #: plugins/reports/kexisourceselector.cpp:59
-#, fuzzy, kde-kuit-format
-#| msgid "Form's data source"
+#, kde-kuit-format
 msgid "Report's data source:"
-msgstr "Inprimakiaren datu-iturburua"
+msgstr "Txostenaren datu-sorburua:"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:134
 #, kde-kuit-format
@@ -8009,11 +7787,10 @@ msgid "The type of script"
 msgstr "Script mota"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:309
-#, fuzzy, kde-kuit-format
-#| msgid "Execution of the script \"%1\" started."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "Execution of the script <resource>%1</resource> started."
-msgstr "\"%1\" scripta exekutatzen hasi da."
+msgstr "<resource>%1</resource> gidoiaren exekuzioa hasi da."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:330
 #, no-c-format, kde-kuit-format
@@ -8058,19 +7835,16 @@ msgid "Kexi Script"
 msgstr "Scriptak"
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:163
-#, fuzzy, kde-format
-#| msgid "Design of script \"%1\" has been modified."
+#, kde-format
 msgctxt "@info"
 msgid "Design of script <resource>%1</resource> has been modified."
-msgstr "\"%1\" scriptaren diseinua aldatu egin da."
+msgstr "<resource>%1</resource> gidoiaren diseinua aldatu egin da."
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:165
-#, fuzzy, kde-format
-#| msgctxt "@info Saving object failed"
-#| msgid "Saving <resource>%1</resource> object failed."
+#, kde-format
 msgctxt "@info"
 msgid "Script <resource>%1</resource> already exists."
-msgstr "<resource>%1</resource> objektua gordetzeak huts egin du."
+msgstr "<resource>%1</resource> gidoia jada badago."
 
 #: plugins/tables/kexilookupcolumnpage.cpp:139
 #, kde-kuit-format
@@ -8253,7 +8027,7 @@ msgstr ""
 #: plugins/tables/kexitabledesignerview.cpp:411
 #, kde-kuit-format
 msgid "Autonumber"
-msgstr "Zenbaketa automatikoa"
+msgstr "Zenbakitze automatikoa"
 
 #: plugins/tables/kexitabledesignerview.cpp:415
 #, kde-kuit-format
@@ -8339,14 +8113,13 @@ msgid ""
 msgstr "Berrizendatu <resource>%1</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:894
-#, fuzzy, kde-kuit-format
-#| msgid "Setting autonumber requires primary key to be set for current field."
+#, kde-kuit-format
 msgid ""
 "<para>Setting autonumber requires primary key to be set for current field.</"
 "para>"
 msgstr ""
-"Zenbaketa automatikoa ezartzeko, uneko eremurako lehen mailako gakoa ezarri "
-"behar da."
+"<para>Zenbakitze automatikoa ezartzeko, uneko eremurako gako nagusia ezarri "
+"behar da.</para>"
 
 #: plugins/tables/kexitabledesignerview.cpp:896
 #, fuzzy, kde-kuit-format
@@ -8355,21 +8128,19 @@ msgid "<para>Previous primary key will be deleted.</para>"
 msgstr "Aurreko lehen mailako gakoa kendu egingo da."
 
 #: plugins/tables/kexitabledesignerview.cpp:897
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "Do you want to create primary key for current field? Click \"Cancel\" to "
-#| "cancel setting autonumber."
+#, kde-kuit-format
 msgid ""
 "<para>Do you want to create primary key for current field? Click "
 "<interface>Cancel</interface> to cancel setting autonumber.</para>"
 msgstr ""
-"Uneko eremurako lehen mailako gakoa sortu nahi duzu? Egin klik \"Utzi\" "
-"botoian zenbaketa automatikoa ezartzea bertan behera uzteko."
+"<para>Uneko eremurako gako nagusia sortu nahi duzu? Egin klik "
+"<interface>Utzi</interface> botoian zenbakitze automatikoa ezeztatzeko</"
+"para>."
 
 #: plugins/tables/kexitabledesignerview.cpp:901
 #, kde-kuit-format
 msgid "Setting Autonumber Field"
-msgstr "Zenbaketa automatikoaren eremua ezartzen"
+msgstr "Zenbakitze automatikoko eremua ezartzen"
 
 #: plugins/tables/kexitabledesignerview.cpp:902
 #, fuzzy, kde-kuit-format
@@ -8379,25 +8150,23 @@ msgid "Create &Primary Key"
 msgstr "Sortu lehen mailako &gakoa"
 
 #: plugins/tables/kexitabledesignerview.cpp:909
-#, fuzzy, kde-format
-#| msgctxt "@title:window Rename Object %1."
-#| msgid "Rename <resource>%1</resource>"
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Set autonumber for field <resource>%1</resource>"
-msgstr "Berrizendatu <resource>%1</resource>"
+msgstr "Ezarri zenbakitze automatikoa <resource>%1</resource> eremurako"
 
 #: plugins/tables/kexitabledesignerview.cpp:914
-#, fuzzy, kde-format
-#| msgid "Remove autonumber from field \"%1\""
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Delete autonumber from field <resource>%1</resource>"
-msgstr "Kendu zenbaketa automatikoa \"%1\" eremuari"
+msgstr "Ezabatu zenbakitze automatikoa <resource>%1</resource> eremutik"
 
 #: plugins/tables/kexitabledesignerview.cpp:932
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Set <resource>%1</resource> property for field <resource>%2</resource>"
 msgstr ""
+"Ezarri  <resource>%1</resource> propietatea <resource>%2</resource> eremurako"
 
 #: plugins/tables/kexitabledesignerview.cpp:973
 #, kde-format
@@ -8409,18 +8178,16 @@ msgstr ""
 "resource>(e)ra"
 
 #: plugins/tables/kexitabledesignerview.cpp:1013
-#, fuzzy, kde-format
-#| msgid "Set primary key for field \"%1\""
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Set primary key for field <resource>%1</resource>"
-msgstr "Ezarri lehen mailako gakoa \"%1\" eremuari"
+msgstr "Ezarri <resource>%1</resource> eremuaren lehen mailako gakoa."
 
 #: plugins/tables/kexitabledesignerview.cpp:1037
-#, fuzzy, kde-format
-#| msgid "Unset primary key for field \"%1\""
+#, kde-format
 msgctxt "(qtundo-format)"
 msgid "Unset primary key for field <resource>%1</resource>"
-msgstr "Kendu lehen mailako gakoa \"%1\" eremuari"
+msgstr "Kendu <resource>%1</resource> eremuaren lehen mailako gakoa."
 
 #: plugins/tables/kexitabledesignerview.cpp:1142
 #, kde-kuit-format
@@ -8935,6 +8702,12 @@ msgid ""
 "read, so generally it is not safe to make such files publicly accessible.</"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p>Pasahitza <span style=\" font-style:italic;\">.kexic</"
+"span> edo <span style=\" font-style:italic;\">.kexis</span> konexio "
+"lasterbide-fitxategi batean gordetzen du ROT-47 antzeko zifratze sinple bat "
+"erabiliz. Ez du segurtasuna bermatzen, baina edonork irakurtzea zailtzen du, "
+"eta, beraz, oro har, ez da segurua halako fitxategiak publikoki eskuragarri "
+"jartzea.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkSavePassword)
 #: widget/kexidbconnectionwidget.ui:140
@@ -9263,6 +9036,13 @@ msgid ""
 "filename>. Please note that your package names could vary slightly depending "
 "on the operating system you use.</para>"
 msgstr ""
+"<title>Ez da datu-base zerbitzari gidaririk aurkitu</title><para>Datu-base "
+"baterako konexioak gidari egokia behar du, zuk ez daukazu instalatuta ordea."
+"</para><subtitle>Xehetasunak</subtitle><para>Datu-base gidariak lortzeko, "
+"mesedez, erabili zure Pakete Kudeatzailea <filename>kdb-****-driver</"
+"filename> izeneko <emphasis>KDb gidariak</emphasis> deiturikoak bilatzeko "
+"eta instalatzeko. Mesedez, kontuan hartu erabiltzen duzun sistema "
+"eragilearen arabera pakete-izenak zertxobait alda daitezkeela.</para>"
 
 #: widget/KexiStartupFileHandler.cpp:483
 #, kde-kuit-format
