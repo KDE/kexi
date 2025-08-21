@@ -7888,7 +7888,7 @@ msgstr ""
 #: widget/KexiConnectionSelector.ui:104
 #, kde-format
 msgid "Server Information"
-msgstr "معلومات الخادوم"
+msgstr "معلومات الخادم"
 
 #. i18n: ectx: property (text), widget (QPushButton, btn_add)
 #: widget/KexiConnectionSelector.ui:155
