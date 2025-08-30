@@ -1,4 +1,4 @@
-# translation of kexi.po to 
+# translation of kexi.po to
 # KDE Hebrew Localization Project
 # Translation of kexi.po into Hebrew
 #
@@ -8,27 +8,21 @@
 #
 # This translation is subject to the same Open Source
 # license as the program which it accompanies.
-# , 2003
-# , 2003
-# , 2003
-# , 2003
-# , 2003
-# , 2003
-# , 2003
 #
+# SPDX-FileCopyrightText: 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 01:49+0000\n"
-"PO-Revision-Date: 2003-05-13 02:46+0300\n"
-"Last-Translator: \n"
-"Language-Team:  <C@li.org>\n"
+"PO-Revision-Date: 2025-08-29 08:12+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.0.1\n"
+"X-Generator: Lokalize 25.08.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: core/kexi.cpp:142
@@ -298,7 +292,7 @@ msgstr "מעצב טפסים, סגנון הממשק והרבה יותר"
 #: core/kexiaboutdata.cpp:88
 #, kde-kuit-format
 msgid "CQL++, SQL assistance"
-msgstr "עזרת SQL ו CQL++"
+msgstr "סיוע עם SQL ו־CQL++‎"
 
 #: core/kexiaboutdata.cpp:88
 #, kde-kuit-format
@@ -393,7 +387,7 @@ msgstr ""
 #: core/kexiaboutdata.cpp:109
 #, kde-kuit-format
 msgid "Initial design improvements"
-msgstr "שיפורי תכנון ראשוניים"
+msgstr "שיפורי תכנון ראשוני"
 
 #: core/kexiaboutdata.cpp:111
 #, fuzzy, kde-kuit-format
@@ -1558,7 +1552,7 @@ msgstr "הבא"
 #: formeditor/form_p.cpp:274
 #, kde-kuit-format
 msgid "Text"
-msgstr "מלל"
+msgstr "טקסט"
 
 #: formeditor/form_p.cpp:275
 #, fuzzy, kde-kuit-format
@@ -4088,7 +4082,7 @@ msgstr "אין אפשרות לפתוח את הקובץ"
 #: main/startup/KexiStartupDialog.cpp:96 main/startup/KexiStartupDialog.cpp:240
 #, kde-kuit-format
 msgid "Create Project"
-msgstr "יצירת פרוייקט"
+msgstr "יצירת מיזם"
 
 #: main/startup/KexiStartupDialog.cpp:98 main/startup/KexiStartupDialog.cpp:361
 #, fuzzy, kde-kuit-format
@@ -4210,7 +4204,7 @@ msgstr "סוג נתון"
 #: plugins/tables/kexitabledesignerview.cpp:398
 #, kde-kuit-format
 msgid "Primary Key"
-msgstr "מפתח ראשי"
+msgstr "מפתח עיקרי"
 
 #: migration/importoptionsdlg.cpp:46
 #, fuzzy, kde-kuit-format
@@ -7477,7 +7471,7 @@ msgstr ""
 #: plugins/tables/kexitabledesignerview.cpp:375
 #, kde-kuit-format
 msgid "Precision"
-msgstr "דיוק (נקודה עשרונית)"
+msgstr "דיוק"
 
 #: plugins/tables/kexitabledesignerview.cpp:380
 #, kde-kuit-format
@@ -8066,7 +8060,7 @@ msgstr ""
 #: widget/kexidbconnectionwidget.cpp:152
 #, kde-kuit-format
 msgid "Database Connection"
-msgstr "חיבור לבסיס הנתונים"
+msgstr "חיבור למסד נתונים"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)
@@ -8074,7 +8068,7 @@ msgstr "חיבור לבסיס הנתונים"
 #: widget/KexiProjectSelector.ui:85
 #, kde-format, kde-kuit-format
 msgid "Database"
-msgstr "בסיס נתונים"
+msgstr "מסד נתונים"
 
 #: widget/kexidbconnectionwidget.cpp:274
 #, fuzzy, kde-kuit-format
@@ -8115,7 +8109,7 @@ msgstr "חלה תקלה בעת החיבור לבסיס הנתונים"
 #: widget/kexidbconnectionwidget.ui:90
 #, kde-format
 msgid "Authentication"
-msgstr "אימות זהות"
+msgstr "אימות"
 
 #. i18n: ectx: property (text), widget (QLabel, userLbl)
 #: widget/kexidbconnectionwidget.ui:96
@@ -8193,7 +8187,7 @@ msgstr "מארח:"
 #: widget/kexidbconnectionwidget.ui:383
 #, kde-format
 msgid "Port:"
-msgstr "ערוץ חיבור:"
+msgstr "פתחה:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkPortDefault)
 #: widget/kexidbconnectionwidget.ui:424
