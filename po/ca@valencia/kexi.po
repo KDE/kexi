@@ -2113,7 +2113,7 @@ msgstr "Tanca la vista"
 msgid ""
 "&Select action to be executed after clicking <resource>%1</resource> button:"
 msgstr ""
-"&Selecciona l'acció que s'ha d'executar després de clicar damunt del botó "
+"&Tria l'acció que s'ha d'executar després de clicar damunt del botó "
 "<resource>%1</resource>:"
 
 #: formeditor/kexiactionselectiondialog.cpp:376
@@ -2121,7 +2121,7 @@ msgstr ""
 msgid ""
 "&Select macro to be executed after clicking <resource>%1</resource> button:"
 msgstr ""
-"&Selecciona la macro que s'ha d'executar després de clicar damunt del botó "
+"&Tria la macro que s'ha d'executar després de clicar damunt del botó "
 "<resource>%1</resource>:"
 
 #: formeditor/kexiactionselectiondialog.cpp:379
@@ -2129,7 +2129,7 @@ msgstr ""
 msgid ""
 "&Select script to be executed after clicking <resource>%1</resource> button:"
 msgstr ""
-"&Selecciona l'script que s'ha d'executar després de clicar damunt del botó "
+"&Tria l'script que s'ha d'executar després de clicar damunt del botó "
 "<resource>%1</resource>:"
 
 #: formeditor/kexiactionselectiondialog.cpp:382
@@ -2137,8 +2137,8 @@ msgstr ""
 msgid ""
 "&Select object to be opened after clicking <resource>%1</resource> button:"
 msgstr ""
-"&Selecciona l'objecte que s'ha d'obrir després de clicar damunt del botó "
-"<resource>%1</resource>:"
+"&Tria l'objecte que s'ha d'obrir després de clicar damunt del botó <resource>"
+"%1</resource>:"
 
 #: formeditor/kexiactionselectiondialog.cpp:436
 #, kde-kuit-format
@@ -3155,7 +3155,7 @@ msgstr "&Importa…"
 #, kde-kuit-format
 msgctxt "@window:title"
 msgid "Select New Project's Location"
-msgstr "Seleccioneu la ubicació del projecte nou"
+msgstr "Trieu la ubicació del projecte nou"
 
 #: main/KexiMainWindow.cpp:1548
 #, kde-kuit-format
@@ -3582,8 +3582,7 @@ msgstr "Projecte nou"
 msgctxt "@info"
 msgid "Kexi will create a new database project. Select blank database."
 msgstr ""
-"Kexi crearà un projecte nou de base de dades. Seleccioneu una base de dades "
-"buida."
+"Kexi crearà un projecte nou de base de dades. Trieu una base de dades buida."
 
 #: main/startup/KexiNewProjectAssistant.cpp:94
 #, kde-kuit-format
@@ -3692,9 +3691,9 @@ msgid ""
 "directory or change permissions so the file can be created.</note></para>"
 msgstr ""
 "<para>No s'ha pogut crear el fitxer de base de dades <filename>%1</filename>."
-"</para><para><note>No hi ha permís per a crear este fitxer. Seleccioneu un "
-"altre directori o canvieu els permisos perquè es puga crear el fitxer.</"
-"note></para>"
+"</para><para><note>No hi ha permís per a crear este fitxer. Trieu un altre "
+"directori o canvieu els permisos perquè es puga crear el fitxer.</note></"
+"para>"
 
 #: main/startup/KexiNewProjectAssistant.cpp:308
 #, kde-kuit-format
@@ -3722,9 +3721,9 @@ msgid ""
 "Kexi project.</para><para>Here you may also add, edit or delete connections "
 "from the list.</para>"
 msgstr ""
-"<para>Seleccioneu la connexió amb el servidor de base de dades que voleu "
-"utilitzar per a crear un projecte nou de Kexi.</para><para>També podeu "
-"afegir, editar o suprimir connexions de la llista.</para>"
+"<para>Trieu la connexió amb el servidor de base de dades que voleu utilitzar "
+"per a crear un projecte nou de Kexi.</para><para>També podeu afegir, editar "
+"o suprimir connexions de la llista.</para>"
 
 #: main/startup/KexiNewProjectAssistant.cpp:376
 #, kde-kuit-format
@@ -3775,7 +3774,7 @@ msgstr "Suprimix i crea una nova"
 #: main/startup/KexiOpenExistingFile.ui:31
 #, kde-format
 msgid "<b>Select existing Kexi project file to open:</b>\n"
-msgstr "<b>Seleccioneu un fitxer de projecte Kexi existent a obrir:</b>\n"
+msgstr "<b>Trieu un fitxer de projecte Kexi existent a obrir:</b>\n"
 
 #. i18n: ectx: property (text), widget (QPushButton, btn_advanced)
 #: main/startup/KexiOpenExistingFile.ui:89
@@ -3807,8 +3806,8 @@ msgid ""
 "Select project to open. You can choose project stored in file or on database "
 "server."
 msgstr ""
-"Seleccioneu un projecte que s'obrirà. Podeu seleccionar un projecte "
-"emmagatzemat en un fitxer o en un servidor de bases de dades."
+"Trieu un projecte que s'obrirà. Podeu seleccionar un projecte emmagatzemat "
+"en un fitxer o en un servidor de bases de dades."
 
 #: main/startup/KexiOpenProjectAssistant.cpp:57
 #, kde-kuit-format
@@ -3845,7 +3844,7 @@ msgstr "Obri un projecte en un servidor de bases de dades"
 msgctxt "@info"
 msgid "Select project on database server <resource>%1 (%2)</resource> to open."
 msgstr ""
-"Seleccioneu un projecte en el servidor de bases de dades <resource>%1 (%2)</"
+"Trieu un projecte en el servidor de bases de dades <resource>%1 (%2)</"
 "resource> que s'obrirà."
 
 #: main/startup/KexiPasswordPage.cpp:44
@@ -4263,7 +4262,7 @@ msgstr "Us donem la benvinguda a Kexi"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Select one of the recently used projects to open."
-msgstr "Seleccioneu un dels projectes utilitzats recentment per a obrir-lo."
+msgstr "Trieu un dels projectes utilitzats recentment per a obrir-lo."
 
 #: main/startup/KexiWelcomeStatusBar.cpp:751
 #, kde-kuit-format
@@ -4408,17 +4407,17 @@ msgstr "Us donem la benvinguda a l'assistent d'importació de taules"
 #: migration/importtablewizard.cpp:200 migration/importwizard.cpp:304
 #, kde-kuit-format
 msgid "Select Location for Source Database"
-msgstr "Seleccioneu la ubicació per a la base de dades d'origen"
+msgstr "Trieu la ubicació per a la base de dades d'origen"
 
 #: migration/importtablewizard.cpp:210 migration/importwizard.cpp:315
 #, kde-kuit-format
 msgid "Select Source Database"
-msgstr "Seleccioneu la base de dades d'origen"
+msgstr "Trieu la base de dades d'origen"
 
 #: migration/importtablewizard.cpp:227
 #, kde-kuit-format
 msgid "Select the Table to Import"
-msgstr "Seleccioneu la taula que s'ha d'importar"
+msgstr "Trieu la taula que s'ha d'importar"
 
 #: migration/importtablewizard.cpp:255 migration/importwizard.cpp:473
 #, kde-kuit-format
@@ -4454,7 +4453,7 @@ msgstr "Èxit"
 #: migration/importtablewizard.cpp:383 migration/importwizard.cpp:569
 #, kde-kuit-format
 msgid "Select source database you wish to import:"
-msgstr "Seleccioneu la bases de dades d'origen que voleu importar:"
+msgstr "Trieu la bases de dades d'origen que voleu importar:"
 
 #: migration/importtablewizard.cpp:465 migration/importtablewizard.cpp:479
 #, kde-kuit-format
@@ -4463,8 +4462,8 @@ msgid ""
 "Could not import table <resource>%1</resource>. Select different table or "
 "cancel importing."
 msgstr ""
-"No s'ha pogut importar la taula <resource>%1</resource>. Seleccioneu una "
-"taula diferent o cancel·leu la importació."
+"No s'ha pogut importar la taula <resource>%1</resource>. Trieu una taula "
+"diferent o cancel·leu la importació."
 
 #: migration/importtablewizard.cpp:497
 #, kde-kuit-format
@@ -4473,8 +4472,8 @@ msgid ""
 "No data has been found in table <resource>%1</resource>. Select different "
 "table or cancel importing."
 msgstr ""
-"No s'ha trobat cap dada en la taula <resource>%1</resource>. Seleccioneu una "
-"taula diferent o cancel·leu la importació."
+"No s'ha trobat cap dada en la taula <resource>%1</resource>. Trieu una taula "
+"diferent o cancel·leu la importació."
 
 #: migration/importtablewizard.cpp:521
 #, kde-kuit-format
@@ -4606,7 +4605,7 @@ msgstr "Projecte de base de dades emmagatzemat en un servidor"
 #: migration/importwizard.cpp:342
 #, kde-kuit-format
 msgid "Select Destination Database Type"
-msgstr "Seleccioneu el tipus de base de dades de destinació"
+msgstr "Trieu el tipus de base de dades de destinació"
 
 #: migration/importwizard.cpp:350
 #, kde-kuit-format
@@ -4626,7 +4625,7 @@ msgstr "Introduïu la llegenda del projecte de la base de dades de destinació"
 #: migration/importwizard.cpp:407
 #, kde-kuit-format
 msgid "Select Location for Destination Database Project"
-msgstr "Seleccioneu la ubicació del projecte de base de dades de destinació"
+msgstr "Trieu la ubicació del projecte de base de dades de destinació"
 
 #: migration/importwizard.cpp:425
 #, kde-kuit-format
@@ -4643,7 +4642,7 @@ msgstr "Només estructura"
 #: migration/importwizard.cpp:436
 #, kde-kuit-format
 msgid "Select Scope of Import"
-msgstr "Seleccioneu l'àmbit de la importació"
+msgstr "Trieu l'àmbit de la importació"
 
 #: migration/importwizard.cpp:503
 #, kde-kuit-format
@@ -4718,12 +4717,12 @@ msgstr ""
 #: migration/importwizard.cpp:951
 #, kde-kuit-format
 msgid "Select source database filename."
-msgstr "Selecciona el nom de fitxer de base de dades d'origen."
+msgstr "Tria el nom de fitxer de base de dades d'origen."
 
 #: migration/importwizard.cpp:957
 #, kde-kuit-format
 msgid "Select source database."
-msgstr "Selecciona la base de dades d'origen."
+msgstr "Tria la base de dades d'origen."
 
 #: migration/importwizard.cpp:971
 #, kde-kuit-format
@@ -4852,7 +4851,7 @@ msgid ""
 "Please select one of the following data types."
 msgstr ""
 "No s'ha pogut determinar el tipus de dades per al camp <resource>%1</"
-"resource>. Seleccioneu un dels tipus següents de dades."
+"resource>. Trieu un dels tipus següents de dades."
 
 #: migration/migratemanager.cpp:132
 #, kde-kuit-format
@@ -6386,7 +6385,7 @@ msgstr "S'estan carregant les dades CSV"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:583
 #, kde-kuit-format
 msgid "Select Import Filename"
-msgstr "Seleccioneu el nom de fitxer que s'ha d'importar"
+msgstr "Trieu el nom de fitxer que s'ha d'importar"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:593
 #, kde-kuit-format
@@ -6444,7 +6443,7 @@ msgstr "Trieu la destinació per a les dades importades"
 #, kde-kuit-format
 msgctxt "@label"
 msgid "Select existing table:"
-msgstr "Selecciona una taula existent:"
+msgstr "Tria una taula existent:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:759
 #, kde-kuit-format
@@ -6486,7 +6485,7 @@ msgstr "Camps:"
 #, kde-kuit-format
 msgctxt "@label"
 msgid "Choose Name of Destination Table"
-msgstr "Seleccioneu el nom de la taula de destinació"
+msgstr "Trieu el nom de la taula de destinació"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:790
 #, kde-kuit-format
@@ -6599,8 +6598,8 @@ msgid ""
 "<para>Field count does not match.</para><para>Please choose another table.</"
 "para>"
 msgstr ""
-"<para>El nombre de camps no coincidix.</para><para>Seleccioneu una altra "
-"taula.</para>"
+"<para>El nombre de camps no coincidix.</para><para>Trieu una altra taula.</"
+"para>"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1999
 #, kde-kuit-format
@@ -6831,7 +6830,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Select column for table <resource>%1</resource>"
-msgstr "Seleccioneu una columna per a la taula <resource>%1</resource>"
+msgstr "Trieu una columna per a la taula <resource>%1</resource>"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:447
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1765
@@ -8136,8 +8135,8 @@ msgid ""
 "connection. Here you may also add, edit or delete connections from the list."
 "</para>\n"
 msgstr ""
-"<title>Seleccioneu la connexió amb el servidor de base de dades existent de "
-"la llista inferior.</title>\n"
+"<title>Trieu la connexió amb el servidor de base de dades existent de la "
+"llista inferior.</title>\n"
 "<para>Veureu els projectes de Kexi disponibles per a la connexió "
 "seleccionada. També podeu afegir, editar o suprimir les connexions de la "
 "llista.</para>\n"
@@ -8530,7 +8529,7 @@ msgstr "Ves fins al directori superior"
 #: widget/KexiFileRequester.cpp:482
 #, kde-kuit-format
 msgid "Select directory"
-msgstr "Seleccioneu un directori"
+msgstr "Trieu un directori"
 
 #: widget/KexiFileRequester.cpp:507 widget/KexiNameWidget.cpp:98
 #, kde-kuit-format
@@ -8657,8 +8656,8 @@ msgid ""
 "<b>There are Kexi projects you have recently opened.</b> Select one you wish "
 "to open:\n"
 msgstr ""
-"<b>Hi ha projectes de Kexi oberts recentment.</b> Seleccioneu-ne un que "
-"vulgueu obrir:\n"
+"<b>Hi ha projectes de Kexi oberts recentment.</b> Trieu-ne un que vulgueu "
+"obrir:\n"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: widget/KexiProjectSelector.ui:74
@@ -8687,8 +8686,8 @@ msgstr "%1: %2"
 #, kde-kuit-format
 msgid "Select a project on <resource>%1</resource> database server to open:"
 msgstr ""
-"Seleccioneu un projecte per a obrir en el servidor de bases de dades "
-"<resource>%1</resource>:"
+"Trieu un projecte per a obrir en el servidor de bases de dades <resource>%1</"
+"resource>:"
 
 #: widget/kexiqueryparameters.cpp:42
 #, kde-kuit-format
