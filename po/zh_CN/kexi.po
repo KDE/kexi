@@ -3667,7 +3667,7 @@ msgid ""
 "para><para><note>There is no permission to create this file. Pick another "
 "directory or change permissions so the file can be created.</note></para>"
 msgstr ""
-"<para>无法创建数据库文件 <filename>%1</filename>.</para><para><note>没有创建"
+"<para>无法创建数据库文件 <filename>%1</filename>。</para><para><note>没有创建"
 "此文件的权限。选择另一个目录或改变权限，以便文件可以创建。</note></para>"
 
 #: main/startup/KexiNewProjectAssistant.cpp:311
