@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 01:49+0000\n"
-"PO-Revision-Date: 2025-08-23 10:19-0300\n"
+"PO-Revision-Date: 2025-09-13 14:37-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -732,8 +732,8 @@ msgid ""
 "Start KEXI in full screen mode to occupy the whole screen area by hiding "
 "window decorations such as title bars."
 msgstr ""
-"Inicia o KEXI no modo tela inteira para ocupar toda área de tela, ocultando "
-"as decorações da janela e as barras de título."
+"Inicia o KEXI no modo tela cheia para ocupar toda área de tela, ocultando as "
+"decorações da janela e as barras de título."
 
 #: core/KexiCommandLineOptions.cpp:188
 #, kde-kuit-format
