@@ -1,7 +1,7 @@
 # Translation of kexi.po to Brazilian Portuguese
 # Copyright (C) 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019 Free Software Foundation, Inc.
 #
-# Marcus Gama <marcus.gama@gmail.com>, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2011.
+# SPDX-FileCopyrightText: 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2011, 2025 Marcus Gama <marcus.gama@gmail.com>
 # Lisiane Sztoltz Teixeira <lisiane@conectiva.com.br>, 2004.
 # Diniz Bortolotto <diniz.bortolotto@gmail.com>, 2008.
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2008, 2009, 2010, 2011, 2016, 2017, 2019, 2020.
@@ -14,15 +14,15 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:54+0000\n"
-"PO-Revision-Date: 2020-03-10 11:33-0300\n"
-"Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
-"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"PO-Revision-Date: 2025-09-14 09:02-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 19.12.2\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #: core/kexi.cpp:141
 #, kde-kuit-format
@@ -732,8 +732,8 @@ msgid ""
 "Start Kexi in full screen mode to occupy the whole screen area by hiding "
 "window decorations such as title bars."
 msgstr ""
-"Inicia o Kexi no modo tela inteira para ocupar toda área de tela, ocultando "
-"as decorações da janela e as barras de título."
+"Inicia o Kexi no modo tela cheia para ocupar toda área de tela, ocultando as "
+"decorações da janela e as barras de título."
 
 #: core/KexiCommandLineOptions.cpp:188
 #, kde-kuit-format
