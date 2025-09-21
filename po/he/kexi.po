@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-07-05 05:54+0000\n"
-"PO-Revision-Date: 2025-08-29 08:12+0300\n"
+"PO-Revision-Date: 2025-09-20 15:52+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -3065,9 +3065,9 @@ msgid "Property Editor"
 msgstr "מאפיין"
 
 #: main/KexiMainWindow.cpp:2020 widget/utils/kexicontextmenuutils.cpp:85
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Properties"
-msgstr "מאפייני הפרוייקט"
+msgstr "מאפיינים"
 
 #: main/KexiMainWindow.cpp:2060
 #, kde-kuit-format
@@ -8543,21 +8543,21 @@ msgid "Insert From &File..."
 msgstr "טעינה מקובץ..."
 
 #: widget/utils/kexicontextmenuutils.cpp:76
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "&Clear"
-msgstr "לא"
+msgstr "&פינוי"
 
 #: widget/utils/kexicontextmenuutils.cpp:104
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title"
 msgid "Insert Image From File"
-msgstr "טעינה מקובץ..."
+msgstr "הוספת תמונה מקובץ"
 
 #: widget/utils/kexicontextmenuutils.cpp:148
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title"
 msgid "Save Image to File"
-msgstr "שמירה לקובץ..."
+msgstr "שמירת תמונה לקובץ"
 
 #: widget/utils/kexicontextmenuutils.cpp:159
 #, kde-kuit-format
@@ -8567,37 +8567,37 @@ msgid ""
 msgstr ""
 
 #: widget/utils/kexicontextmenuutils.cpp:162
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "&Don't Replace"
-msgstr "מרוחק"
+msgstr "&לא להחליף"
 
 #: widget/utils/kexicontextmenuutils.cpp:162
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action:button"
 msgid "&Replace"
-msgstr "מרוחק"
+msgstr "לה&חליף"
 
 #: widget/utils/kexicontextmenuutils.cpp:246
 #, kde-kuit-format
 msgctxt "Object name : Object type"
 msgid "%1 : %2"
-msgstr ""
+msgstr "%1 : %2"
 
 #: widget/utils/kexidisplayutils.cpp:61
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "Autonumber, make it as short as possible"
 msgid "(auto)"
-msgstr "שם הדו\"ח:"
+msgstr "(אוטו׳)"
 
 #: widget/utils/kexirecordnavigator.cpp:170
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Record:"
-msgstr "הוספת רשומה"
+msgstr "רשומה:"
 
 #: widget/utils/kexirecordnavigator.cpp:201
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Current record number"
-msgstr "מספר שלם (למשל 10)"
+msgstr "מספר הרשומה הנוכחית"
 
 #: widget/utils/kexirecordnavigator.cpp:203
 #, kde-kuit-format
@@ -8608,7 +8608,7 @@ msgstr ""
 #: widget/utils/kexirecordnavigator.cpp:227
 #, kde-kuit-format
 msgid "Number of records"
-msgstr ""
+msgstr "כמות הרשומות"
 
 #: widget/utils/kexirecordnavigator.cpp:598
 #, kde-kuit-format
@@ -8616,79 +8616,79 @@ msgid "Editing indicator"
 msgstr ""
 
 #: widget/utils/kexirecordnavigator.cpp:625
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "First record"
-msgstr "ראשון"
+msgstr "הרשומה הראשונה"
 
 #: widget/utils/kexirecordnavigator.cpp:625
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Go to first record"
-msgstr "ראשון"
+msgstr "מעבר לרשומה הראשונה"
 
 #: widget/utils/kexirecordnavigator.cpp:626
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Go to previous record"
-msgstr "קודם"
+msgstr "מעבר לרשומה הקודמת"
 
 #: widget/utils/kexirecordnavigator.cpp:626
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Previous record"
-msgstr "קודם"
+msgstr "הרשומה הקודמת"
 
 #: widget/utils/kexirecordnavigator.cpp:627
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Go to next record"
-msgstr "הבא"
+msgstr "מעבר לרשומה הבאה"
 
 #: widget/utils/kexirecordnavigator.cpp:627
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Next record"
-msgstr "הבא"
+msgstr "הרשומה הבאה"
 
 #: widget/utils/kexirecordnavigator.cpp:628
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Go to last record"
-msgstr "אחרון"
+msgstr "מעבר לרשומה האחרונה"
 
 #: widget/utils/kexirecordnavigator.cpp:628
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Last record"
-msgstr "אחרון"
+msgstr "הרשומה האחרונה"
 
 #: widget/utils/kexirecordnavigator.cpp:629
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Go to new record"
-msgstr "טופס חדש"
+msgstr "מעבר לרשומה חדשה"
 
 #: widget/utils/kexirecordnavigator.cpp:629
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "New record"
-msgstr "טופס חדש"
+msgstr "רשומה חדשה"
 
 #: widget/utils/kexirecordnavigator.cpp:630
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Moves cursor to first record."
-msgstr "ראשון"
+msgstr "מעבר הסמן לרשומה הראשונה."
 
 #: widget/utils/kexirecordnavigator.cpp:631
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Moves cursor to previous record."
-msgstr "קודם"
+msgstr "מעבר הסמן לרשומה הקודמת."
 
 #: widget/utils/kexirecordnavigator.cpp:632
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Moves cursor to next record."
-msgstr "הבא"
+msgstr "מעבר הסמן לרשומה הבאה."
 
 #: widget/utils/kexirecordnavigator.cpp:633
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Moves cursor to last record."
-msgstr "אחרון"
+msgstr "העברת הסמן לרשומה האחרונה."
 
 #: widget/utils/kexirecordnavigator.cpp:634
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Moves cursor to new record and allows inserting."
-msgstr "הבא"
+msgstr "העברת הסמן לרשומה חדשה ומתן האפשרות להוסיף."
 
 #, fuzzy
 #~ msgid "Project title: "
