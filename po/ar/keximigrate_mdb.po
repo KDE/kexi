@@ -1,0 +1,30 @@
+# POT_PART_NORMAL only
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the kexi package.
+# SPDX-FileCopyrightText: 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kexi\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-08-30 07:37+0200\n"
+"PO-Revision-Date: 2025-10-02 17:49+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
+
+#: src/keximdb/mdbmigrate.cpp:51
+#, kde-kuit-format
+msgid "Character Encoding of Source Database Is Not of Unicode Standard"
+msgstr "ترميز أحرف قاعدة البيانات المصدرية لا يتوافق مع معيار يونيكود"
+
+#: src/keximdb/mdbmigrate.cpp:53
+#, kde-kuit-format
+msgid "Source Database Non-Unicode Character Encoding"
+msgstr "قاعدة بيانات المصدر ترميز الأحرف غير المتوافقة مع يونيكود"
