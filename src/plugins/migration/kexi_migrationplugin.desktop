@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Migration
+Name[ar]=الترحيل
 Name[ca]=Migració
 Name[ca@valencia]=Migració
 Name[cs]=Migrace
@@ -29,6 +30,7 @@ Name[tr]=Göç
 Name[uk]=Перенесення
 Name[zh_CN]=迁移
 Comment=Kexi plugin for handling database migration
+Comment[ar]=ملحق كيس لمعالجة ترحيل قاعدة البيانات
 Comment[ca]=Connector del Kexi per a gestionar migracions de bases de dades
 Comment[ca@valencia]=Connector de Kexi per a gestionar migracions de bases de dades
 Comment[cs]=Modul Kexi pro provádění migrace databáze

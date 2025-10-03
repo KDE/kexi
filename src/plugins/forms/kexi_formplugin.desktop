@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Form
+Name[ar]=نموذج
 Name[ca]=Formulari
 Name[ca@valencia]=Formulari
 Name[cs]=Formulář
@@ -31,6 +32,7 @@ Name[tr]=Form
 Name[uk]=Форма
 Name[zh_CN]=表单
 Comment=Kexi plugin for handling forms
+Comment[ar]=ملحق كيس لمعالجة النماذج
 Comment[ca]=Connector del Kexi per a gestionar formularis
 Comment[ca@valencia]=Connector de Kexi per a gestionar formularis
 Comment[cs]=Modul Kexi pro práci s formuláři

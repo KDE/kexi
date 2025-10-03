@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Map Widget
+Name[ar]=وِدجِت الخريطة
 Name[ca]=Ginys de mapes
 Name[ca@valencia]=Ginys de mapes
 Name[de]=Karten-Bedienelement
@@ -28,6 +29,7 @@ Name[tr]=Harita Araç Takımı
 Name[uk]=Віджет карти
 Name[zh_CN]=地图部件
 Comment=Kexi plugin providing map browser form widget
+Comment[ar]=ملحق كيس يوفّر وِدجِت نموذج متصفح الخريطة
 Comment[ca]=Connector del Kexi que proporciona ginys de formularis de navegació de mapes
 Comment[ca@valencia]=Connector de Kexi que proporciona ginys de formularis de navegació de mapes
 Comment[de]=Kexi-Modul, das ein Karten-Bedienelement bereitstellt

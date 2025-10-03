@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Kexi
+Name[ar]=كيس
 Name[ast]=Kexi
 Name[ca]=Kexi
 Name[ca@valencia]=Kexi
@@ -39,6 +40,7 @@ Icon=kexi-3.2
 MimeType=application/x-kexiproject-sqlite;application/x-kexiproject-shortcut;application/x-kexiproject-sqlite3;application/x-sqlite3;application/x-kexi-connectiondata;text/csv;text/tab-separated-values;application/vnd.oasis.opendocument.spreadsheet;application/vnd.oasis.opendocument.text;application/x-msaccess;application/vnd.oasis.opendocument.database;
 Terminal=false
 GenericName=Visual database apps builder
+GenericName[ar]=بانٍ مرئيّ لتطبيقات قواعد البيانات
 GenericName[ca]=Constructor visual d'aplicacions de bases de dades
 GenericName[ca@valencia]=Constructor visual d'aplicacions de bases de dades
 GenericName[de]=Visuelle Erstellung von Datenbankanwendungen
@@ -67,6 +69,7 @@ GenericName[tr]=Görsel Veritabanı Uygulaması Yapıcısı
 GenericName[uk]=Програма для побудови візуальних обробників баз даних
 GenericName[zh_CN]=可视化数据库应用程序构建工具
 Comment=Visually develop database applications
+Comment[ar]=طوّر تطبيقات قواعد البيانات بصريًا
 Comment[ca]=Desenvolupament visual d'aplicacions de bases de dades
 Comment[ca@valencia]=Desenvolupament visual d'aplicacions de bases de dades
 Comment[cs]=Vyvíjejte vizuálně databázové aplikace

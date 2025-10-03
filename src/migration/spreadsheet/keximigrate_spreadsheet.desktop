@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Spreadsheet
+Name[ar]=جدول بيانات
 Name[ca]=Full de càlcul
 Name[ca@valencia]=Full de càlcul
 Name[cs]=Sešit
@@ -31,6 +32,7 @@ Name[tr]=Hesap Tablosu
 Name[uk]=Електронні таблиці
 Name[zh_CN]=数据表
 Comment=Spreadsheet Import Plugin for Kexi
+Comment[ar]=ملحق استيراد جدول البيانات لكيس
 Comment[ca]=Connector d'importació de fulls de dades per al Kexi
 Comment[ca@valencia]=Connector d'importació de fulls de dades per a Kexi
 Comment[de]=Tabellenkalkulation-Importmodul für Kexi
