@@ -1,5 +1,6 @@
 [Desktop Entry]
 GenericName=Scripts
+GenericName[ar]=سكربتات
 GenericName[ca]=Scripts
 GenericName[ca@valencia]=Scripts
 GenericName[cs]=Skripty
@@ -33,6 +34,7 @@ GenericName[uk]=Скрипти
 GenericName[zh_CN]=脚本
 
 Name=Script
+Name[ar]=سكربت
 Name[ca]=Script
 Name[ca@valencia]=Script
 Name[cs]=Skript

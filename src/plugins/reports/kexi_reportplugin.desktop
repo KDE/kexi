@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Report
+Name[ar]=تقرير
 Name[ca]=Informe
 Name[ca@valencia]=Informe
 Name[cs]=Hlášení
@@ -31,6 +32,7 @@ Name[tr]=Rapor
 Name[uk]=Звіт
 Name[zh_CN]=报表
 Comment=Kexi plugin for handling reports
+Comment[ar]=ملحق كيس لمعالجة التقارير
 Comment[ca]=Connector del Kexi per a gestionar informes
 Comment[ca@valencia]=Connector de Kexi per a gestionar informes
 Comment[cs]=Modul Kexi pro provádění hlášení

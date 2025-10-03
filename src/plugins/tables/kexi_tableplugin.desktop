@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Table
+Name[ar]=جدول
 Name[ca]=Taula
 Name[ca@valencia]=Taula
 Name[cs]=Tabulka
@@ -31,6 +32,7 @@ Name[tr]=Tablo
 Name[uk]=Таблиця
 Name[zh_CN]=表
 Comment=Kexi plugin for handling tables
+Comment[ar]=ملحق كيس لمعالجة الجداول
 Comment[ca]=Connector del Kexi per a gestionar taules
 Comment[ca@valencia]=Connector de Kexi per a gestionar taules
 Comment[cs]=Modul Kexi pro práci s tabulkami

@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=xBase
+Name[ar]=إكس بيس
 Name[ca]=xBase
 Name[ca@valencia]=xBase
 Name[cs]=xBase
@@ -32,6 +33,7 @@ Name[tr]=xBase
 Name[uk]=xBase
 Name[zh_CN]=xBase
 Comment=xBase Import Plugin for Kexi
+Comment[ar]=ملحق استيراد إكس بيس لكيس
 Comment[ca]=Connector d'importació xBase per al Kexi
 Comment[ca@valencia]=Connector d'importació xBase per a Kexi
 Comment[de]=xBase-Importmodul für Kexi

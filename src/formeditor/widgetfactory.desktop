@@ -2,6 +2,7 @@
 Type=ServiceType
 X-KDE-ServiceType=Kexi/WidgetFactory
 Comment=Widget Factory Base
+Comment[ar]=قاعدة مصنع الودجات
 Comment[ca]=Factoria base de ginys
 Comment[ca@valencia]=Factoria base de ginys
 Comment[de]=Basis für die Erstellung von Bedienelementen

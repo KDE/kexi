@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Query
+Name[ar]=استعلام
 Name[ca]=Consulta
 Name[ca@valencia]=Consulta
 Name[cs]=Dotaz
@@ -31,6 +32,7 @@ Name[tr]=Sorgu
 Name[uk]=Запит
 Name[zh_CN]=查询
 Comment=Kexi plugin for handling queries
+Comment[ar]=ملحق كيس لمعالجة الاستعلامات
 Comment[ca]=Connector del Kexi per a gestionar consultes
 Comment[ca@valencia]=Connector de Kexi per a gestionar consultes
 Comment[cs]=Modul Kexi pro provádění dotazů
