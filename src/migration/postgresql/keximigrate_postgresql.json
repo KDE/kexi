@@ -4,6 +4,7 @@
             {
                 "Email": "kexi@kde.org",
                 "Name": "Kexi Team",
+                "Name[ar]": "فريق كيس",
                 "Name[ca@valencia]": "L'equip de Kexi",
                 "Name[ca]": "L'equip del Kexi",
                 "Name[cs]": "Tým Kexi",
@@ -36,6 +37,7 @@
             "org.kde.kdb.postgresql"
         ],
         "Description": "PostgreSQL database import plugin for Kexi",
+        "Description[ar]": "ملحق استيراد قاعدة بيانات بوستجري إس كيو إل لـ كيس",
         "Description[ca@valencia]": "Connector d'importació de la base de dades PostgreSQL per a Kexi",
         "Description[ca]": "Connector d'importació de la base de dades PostgreSQL per al Kexi",
         "Description[cs]": "Modul Kexi pro import databáze PostgreSQL",
@@ -67,6 +69,7 @@
         "License": "LGPL",
         "MimeTypes": [],
         "Name": "PostgreSQL",
+        "Name[ar]": "بوستجري إس كيو إل",
         "Name[ca@valencia]": "PostgreSQL",
         "Name[ca]": "PostgreSQL",
         "Name[cs]": "PostgreSQL",
