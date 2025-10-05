@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>LGPL-2.0+</project_license>
   <name>Kexi</name>
+  <name xml:lang="ar">كيس</name>
   <name xml:lang="ast">Kexi</name>
   <name xml:lang="bs">Kexi</name>
   <name xml:lang="ca">Kexi</name>
@@ -37,6 +38,7 @@
   <name xml:lang="uk">Kexi</name>
   <name xml:lang="zh-CN">Kexi</name>
   <summary>Visual database apps builder</summary>
+  <summary xml:lang="ar">باني مرئي لتطبيقات قواعد البيانات</summary>
   <summary xml:lang="ca">Constructor visual d'aplicacions de bases de dades</summary>
   <summary xml:lang="ca-valencia">Constructor visual d'aplicacions de bases de dades</summary>
   <summary xml:lang="de">Visuelle Erstellung von Datenbankanwendungen</summary>
@@ -72,6 +74,7 @@
       to provide a custom interface to your data. All database objects - tables, queries, forms,
       reports, etc. - are stored in the database, making it easy to share data and design.
     </p>
+    <p xml:lang="ar">كيس هو بانٍ مرئي لتطبيقات قواعد البيانات. استخدمه لتصميم تطبيقات قواعد البيانات، وإدراج البيانات وتعديلها، وأداء الاستعلامات، ومعالجة البيانات. أنشئ نماذج لتوفير واجهة مخصّصة لبياناتك. كافة كائنات قاعدة البيانات - الجداول، الاستعلامات، النماذج، التقارير، إلخ. - تُخزَّن في قاعدة البيانات، ما يسهّل مشاركة البيانات والتصميم.</p>
     <p xml:lang="ca">El Kexi és un constructor visual de base de dades. Es pot utilitzar per dissenyar aplicacions de bases de dades, inserció i edició de dades, execució de consultes, i procés de dades. Es poden generar formularis per proporcionar una interfície personalitzada a les dades. Tots els objectes de les bases de dades -taules, consultes, formularis, informes, etc.- s'emmagatzemen en la base de dades, facilitant compartir les dades i el disseny.</p>
     <p xml:lang="ca-valencia">Kexi és un constructor visual de base de dades. Es pot utilitzar per dissenyar aplicacions de bases de dades, inserció i edició de dades, execució de consultes, i procés de dades. Es poden generar formularis per proporcionar una interfície personalitzada a les dades. Tots els objectes de les bases de dades -taules, consultes, formularis, informes, etc.- s'emmagatzemen en la base de dades, facilitant compartir les dades i el disseny.</p>
     <p xml:lang="de">Kexi ist ein visueller Generator für Datenbankanwendungen. Es kann für den Entwurf von Datenbankanwendungen, zum Einfügen und Bearbeiten von Daten, zur Durchführung von Abfragen und zur Verarbeitung von Daten verwendet werden. Formulare können erstellt werden, um eine eigene Schnittstelle zu Ihren Daten bereitzustellen. Alle Datenbankobjekte - Tabellen, Abfragen, Formulare, Berichte usw. - werden in der Datenbank gespeichert, was die gemeinsame Nutzung von Daten und Entwurf erleichtert.</p>
@@ -96,6 +99,7 @@
     <p xml:lang="uk">Kexi — програма для створення обробників баз даних у візуальному режимі. Цією програмою можна скористатися для створень мініпрограм для роботи з базами даних, додавання та редагування даних, виконання запитів та обробки даних. За допомогою створених програмою форм ви можете отримати потрібний вам режим доступу до ваших даних. Всі об’єкти баз даних — таблиці, запити, форми, звіти тощо, — зберігаються у самій базі даних, що спрощує поширення даних та представлення даних.</p>
     <p xml:lang="zh-CN">Kexi 是一款可视化的数据库应用程序构建工具。它可用于设计数据库应用程序、插入和编辑数据、执行查询、处理数据等。您可以创建表单作为数据的自定义接口。所有数据库对象——数据表、查询、表单、报告等——都存储在数据库中，方便数据共享和设计。</p>
     <p>Features:</p>
+    <p xml:lang="ar">الميزات:</p>
     <p xml:lang="bs">Osobine:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="ca-valencia">Característiques:</p>
@@ -130,6 +134,7 @@
     <p xml:lang="zh-CN">程序功能：</p>
     <ul>
       <li>Full visual designers for tables, queries, forms and reports</li>
+      <li xml:lang="ar">مصمّمات مرئية كاملة للجداول والاستعلامات والنماذج والتقارير</li>
       <li xml:lang="bs">Potpuni vizualni dizajneri za tablice , upite , obrasce i izvještaje</li>
       <li xml:lang="ca">Dissenyadors visuals complets per a taules, consultes, formularis i informes</li>
       <li xml:lang="ca-valencia">Dissenyadors visuals complets per a taules, consultes, formularis i informes</li>
@@ -160,6 +165,7 @@
       <li xml:lang="uk">Повноцінне візуальне середовище для створення таблиць, запитів, форм та звітів.</li>
       <li xml:lang="zh-CN">数据表、查询、表单和报告的完整可视化设计器</li>
       <li>Running queries, support for parametrized queries</li>
+      <li xml:lang="ar">نفّذ الاستعلامات، دعم للاستعلامات الوسيطية</li>
       <li xml:lang="bs">Potrebno upite , podršku za parametrizovan upite</li>
       <li xml:lang="ca">Execució de consultes, admet consultes paramètriques</li>
       <li xml:lang="ca-valencia">Execució de consultes, admet consultes paramètriques</li>
@@ -190,6 +196,7 @@
       <li xml:lang="uk">Виконання запитів, підтримка параметризованих запитів.</li>
       <li xml:lang="zh-CN">执行查询，支持参数化查询</li>
       <li>Supports SQLite, MySQL, PostgreSQL, xBase, and Sybase/MS SQL Server databases</li>
+      <li xml:lang="ar">يدعم قواعد بيانات SQLite و MySQL و PostgreSQL و xBase و Sybase/MS SQL Server</li>
       <li xml:lang="ca">Permet bases de dades SQLite, MySQL, PostgreSQL, xBase i Sybase/MS SQL Server</li>
       <li xml:lang="ca-valencia">Permet bases de dades SQLite, MySQL, PostgreSQL, xBase i Sybase/MS SQL Server</li>
       <li xml:lang="de">Unterstützt Datenbanken wie SQLite, MySQL, PostgreSQL, xBase und Sybase/MS SQL Server</li>
@@ -216,6 +223,7 @@
       <li xml:lang="uk">Підтримка баз даних SQLite, MySQL, PostgreSQL, xBase та Sybase/MS SQL.</li>
       <li xml:lang="zh-CN">支持 SQLite、MySQL、PostgreSQL、xBase 和 Sybase/MS SQL Server 等数据库</li>
       <li>The only multiplatform visual tool that can easily import data from MS Access databases</li>
+      <li xml:lang="ar">الأداة المرئية الوحيدة متعدّدة المنصّات التي تستطيع آلياً استيراد البيانات من قواعد بيانات MS Access</li>
       <li xml:lang="ca">L'única eina visual multiplataforma que pot importar fàcilment dades des de les bases de dades MS Access</li>
       <li xml:lang="ca-valencia">L'única eina visual multiplataforma que pot importar amb facilitat dades des de les bases de dades MS Access</li>
       <li xml:lang="de">Das einzige Programm mit grafischer Oberfläche für mehrere Plattformen, das Daten aus MS-Access-Datenbanken importieren kann.</li>
@@ -243,6 +251,7 @@
       <li xml:lang="uk">Єдиний візуальний багатоплатформовий інструмент, здатний без проблем імпортувати дані з баз даних MS Access.</li>
       <li xml:lang="zh-CN">唯一一款可以轻松导入 MS Access 数据库数据的跨平台可视化工具</li>
       <li>Support for query design in dedicated SQL view</li>
+      <li xml:lang="ar">دعم لتصميم الاستعلامات في عرض SQL مخصّص</li>
       <li xml:lang="ca">Permet el disseny de consultes en vistes SQL dedicades</li>
       <li xml:lang="ca-valencia">Permet el disseny de consultes en vistes SQL dedicades</li>
       <li xml:lang="de">Unterstützt Abfrageentwürfe in einer eigenen SQL-Ansicht</li>
@@ -270,6 +279,7 @@
       <li xml:lang="uk">Підтримка створення запитів за допомогою спеціальної панелі SQL.</li>
       <li xml:lang="zh-CN">支持专用 SQL 视图中的查询设计</li>
       <li>Designing and displaying relational data using combo boxes (lookup columns)</li>
+      <li xml:lang="ar">صمّم وعرض البيانات العلائقية باستخدام مربّعات التحرير والسرد (أعمدة البحث)</li>
       <li xml:lang="bs">Izrada i prikazivanje relacijskih podataka pomoću combo kutije ( pregledavanje kolone)</li>
       <li xml:lang="ca">Disseny i visualització de dades relacionals usant quadres combinats (columnes de cerca)</li>
       <li xml:lang="ca-valencia">Disseny i visualització de dades relacionals utilitzant quadros combinats (columnes de busca)</li>
@@ -300,6 +310,7 @@
       <li xml:lang="uk">Створення та показ пов’язаних даних за допомогою спадних списків (стовпчики пошуку).</li>
       <li xml:lang="zh-CN">使用下拉选单设计和显示关系数据 (查找列)</li>
       <li>Direct data entry or import using CSV format</li>
+      <li xml:lang="ar">إدخال مباشر للبيانات أو استيراد باستخدام صيغة CSV</li>
       <li xml:lang="bs">Unos podataka direktno  ili uvoz pomoću CSV formata</li>
       <li xml:lang="ca">Entrada directa de dades o importació usant el format CSV</li>
       <li xml:lang="ca-valencia">Entrada directa de dades o importació utilitzant el format CSV</li>
@@ -330,6 +341,7 @@
       <li xml:lang="uk">Безпосереднє введення даних або імпортування даних у форматі CSV.</li>
       <li xml:lang="zh-CN">使用 CSV 格式直接输入或导入数据</li>
       <li>Locked down User Mode, allowing you to switch off all commands related to editing your project's design</li>
+      <li xml:lang="ar">نمط مستخدم مُقيَّد، يسمح بإيقاف كافة الأوامر المتعلقة بتعديل تصميم مشروعك</li>
       <li xml:lang="bs">Zatvoreni  korisnički režim, omogućavajući vam da isključite sve naredbe koje se odnose na uređivanje dizajna vašeg projekta</li>
       <li xml:lang="ca">Mode reduït d'usuari, que permet inhabilitar totes les ordres relacionades amb l'edició del disseny del projecte</li>
       <li xml:lang="ca-valencia">Mode reduït d'usuari, que permet inhabilitar totes les ordres relacionades amb l'edició del disseny del projecte</li>
@@ -359,6 +371,7 @@
       <li xml:lang="uk">Заблокований режим користувача, у якому можна вимкнути усі пов’язані з командами редагування компонування вашого проєкту команди.</li>
       <li xml:lang="zh-CN">锁定用户模式，可以关闭所有与编辑项目设计相关的命令</li>
       <li>Scripting using JavaScript, Python or Ruby programming languages (experimental)</li>
+      <li xml:lang="ar">تنفيذ السكربتات باستعمال لغات البرمجة JavaScript أو Python أو Ruby (تجريبي)</li>
       <li xml:lang="bs">Scripting koristeći JavaScript, Python ili Ruby programskim jezicima (eksperimentalno)</li>
       <li xml:lang="ca">Crear scripts usant els llenguatges de programació JavaScript, Python o Ruby (experimental)</li>
       <li xml:lang="ca-valencia">Crear scripts utilitzant els llenguatges de programació JavaScript, Python o Ruby (experimental)</li>
@@ -398,6 +411,7 @@
     </screenshot>
     <screenshot>
       <caption>Tabular view</caption>
+      <caption xml:lang="ar">عرض جدولي</caption>
       <caption xml:lang="ca">Vista de taules</caption>
       <caption xml:lang="ca-valencia">Vista de taules</caption>
       <caption xml:lang="de">Tabellarische Ansicht</caption>
@@ -429,6 +443,7 @@
     </screenshot>
     <screenshot>
       <caption>Query Designer</caption>
+      <caption xml:lang="ar">مصمّم الاستعلامات</caption>
       <caption xml:lang="ca">Dissenyador de consultes</caption>
       <caption xml:lang="ca-valencia">Dissenyador de consultes</caption>
       <caption xml:lang="cs">Návrhář dotazů</caption>
@@ -461,6 +476,7 @@
     </screenshot>
     <screenshot>
       <caption>SQL Editor</caption>
+      <caption xml:lang="ar">محرّر SQL</caption>
       <caption xml:lang="ca">Editor de SQL</caption>
       <caption xml:lang="ca-valencia">Editor de SQL</caption>
       <caption xml:lang="cs">Editor SQL</caption>
@@ -493,6 +509,7 @@
     </screenshot>
     <screenshot>
       <caption>Form Designer</caption>
+      <caption xml:lang="ar">مصمّم النماذج</caption>
       <caption xml:lang="bs">Obrazac Designer</caption>
       <caption xml:lang="ca">Dissenyador de formularis</caption>
       <caption xml:lang="ca-valencia">Dissenyador de formularis</caption>
@@ -528,6 +545,7 @@
     </screenshot>
     <screenshot>
       <caption>Report Designer</caption>
+      <caption xml:lang="ar">مصمّم التقارير</caption>
       <caption xml:lang="ca">Dissenyador d'informes</caption>
       <caption xml:lang="ca-valencia">Dissenyador d'informes</caption>
       <caption xml:lang="cs">Návrhář hlášení</caption>
@@ -560,6 +578,7 @@
     </screenshot>
     <screenshot>
       <caption>MS Access database import</caption>
+      <caption xml:lang="ar">استيراد قاعدة بيانات MS Access</caption>
       <caption xml:lang="ca">Importació d'una base de dades de MS Access</caption>
       <caption xml:lang="ca-valencia">Importeu una base de dades de MS Access</caption>
       <caption xml:lang="cs">Import databáze MS Access</caption>
