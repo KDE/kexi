@@ -4,6 +4,7 @@
             {
                 "Email": "kexi@kde.org",
                 "Name": "KEXI Team",
+                "Name[ar]": "فريق كيس",
                 "Name[ca@valencia]": "L'equip de Kexi",
                 "Name[ca]": "L'equip del Kexi",
                 "Name[cs]": "Tým KEXI",
@@ -37,6 +38,7 @@
         "Category": "",
         "Dependencies": [],
         "Description": "Tab Separated Values (TSV) file import plugin for KEXI",
+        "Description[ar]": "ملحق استيراد ملف القيم المفصولة بألسنة (TSV) لـ كيس",
         "Description[ca@valencia]": "Connector d'importació de fitxers amb valors separats per tabuladors (TSV) per a Kexi",
         "Description[ca]": "Connector d'importació de fitxers amb valors separats per tabuladors (TSV) per al Kexi",
         "Description[cs]": "Importní modul KEXI pro hodnoty oddělené tabulátorem (Tab Separated Values - TSV)",
@@ -73,6 +75,7 @@
             "text/tab-separated-values"
         ],
         "Name": "TSV",
+        "Name[ar]": "TSV",
         "Name[ca@valencia]": "TSV",
         "Name[ca]": "TSV",
         "Name[cs]": "TSV",

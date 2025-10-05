@@ -4,6 +4,7 @@
             {
                 "Email": "kexi@kde.org",
                 "Name": "KEXI Team",
+                "Name[ar]": "فريق كيس",
                 "Name[ca@valencia]": "L'equip de Kexi",
                 "Name[ca]": "L'equip del Kexi",
                 "Name[cs]": "Tým KEXI",
@@ -37,6 +38,7 @@
         "Category": "",
         "Dependencies": [],
         "Description": "KEXI plugin providing web browser form widget",
+        "Description[ar]": "ملحق كيس يوفر ودجت نموذج متصفح الويب",
         "Description[ca@valencia]": "Connector de Kexi que proporciona ginys de formularis per al navegador web",
         "Description[ca]": "Connector del Kexi que proporciona ginys de formularis per al navegador web",
         "Description[cs]": "Modul KEXI poskytující widget pro webový formulář",
@@ -70,6 +72,7 @@
         "Id": "org.kexi-project.form.widgets.web-browser",
         "License": "LGPL",
         "Name": "Web browser widget",
+        "Name[ar]": "ودجت متصفح الويب",
         "Name[ca@valencia]": "Giny navegador web",
         "Name[ca]": "Giny navegador web",
         "Name[cs]": "Widget webového prohlížeče",

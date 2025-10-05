@@ -4,6 +4,7 @@
             {
                 "Email": "kexi@kde.org",
                 "Name": "KEXI Team",
+                "Name[ar]": "فريق كيس",
                 "Name[ca@valencia]": "L'equip de Kexi",
                 "Name[ca]": "L'equip del Kexi",
                 "Name[cs]": "Tým KEXI",
@@ -39,6 +40,7 @@
             "org.kde.kdb.mysql"
         ],
         "Description": "MySQL database import plugin for KEXI",
+        "Description[ar]": "ملحق استيراد قاعدة بيانات ماي إس كيو إل لـ كيس",
         "Description[ca@valencia]": "Connector d'importació de la base de dades MySQL per a Kexi",
         "Description[ca]": "Connector d'importació de la base de dades MySQL per al Kexi",
         "Description[cs]": "Modul KEXI pro import databáze MySQL",
@@ -73,6 +75,7 @@
         "License": "LGPL",
         "MimeTypes": [],
         "Name": "MySQL",
+        "Name[ar]": "ماي إس كيو إل",
         "Name[ca@valencia]": "MySQL",
         "Name[ca]": "MySQL",
         "Name[cs]": "MySQL",

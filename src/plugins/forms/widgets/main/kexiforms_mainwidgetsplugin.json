@@ -4,6 +4,7 @@
             {
                 "Email": "kexi@kde.org",
                 "Name": "KEXI Team",
+                "Name[ar]": "فريق كيس",
                 "Name[ca@valencia]": "L'equip de Kexi",
                 "Name[ca]": "L'equip del Kexi",
                 "Name[cs]": "Tým KEXI",
@@ -37,6 +38,7 @@
         "Category": "",
         "Dependencies": [],
         "Description": "KEXI plugin providing database form widgets",
+        "Description[ar]": "ملحق كيس يوفر ودجات نماذج قاعدة البيانات",
         "Description[ca@valencia]": "Connector de Kexi que proporciona ginys de formularis per a bases de dades",
         "Description[ca]": "Connector del Kexi que proporciona ginys de formularis per a bases de dades",
         "Description[cs]": "Modul KEXI pro provádění migrace databáze",
@@ -70,6 +72,7 @@
         "Id": "org.kexi-project.form.widgets.main",
         "License": "LGPL",
         "Name": "Main form widgets",
+        "Name[ar]": "ودجات النموذج الرئيسية",
         "Name[ca@valencia]": "Ginys de formularis principals",
         "Name[ca]": "Ginys de formularis principals",
         "Name[de]": "Haupt-Bedienungselemente",
