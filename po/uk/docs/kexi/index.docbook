@@ -1009,7 +1009,7 @@
 ><inlinemediaobject
 > <imageobject
 > <imagedata fileref="Icon-help-about-desaturated.png" format="PNG"/> </imageobject
-> </inlinemediaobject
+></inlinemediaobject
 > Піктограма інформації — додаткові дані щодо поля.</para
 ></listitem>
 <listitem
@@ -9588,6 +9588,6 @@
 >Переклад українською: Юрій Чорноіван <email
 >yurchor@ukr.net</email
 ></para
->  &underFDL; </chapter>
+> &underFDL; </chapter>
 &documentation.index;
 </book>
