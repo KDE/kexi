@@ -3072,12 +3072,12 @@ msgstr "Passer à la recherche générale"
 #: main/KexiMainWindow.cpp:928
 #, kde-kuit-format
 msgid "Switch to Global Search box"
-msgstr "Passe à la boîte de recherche générale"
+msgstr "Passe à la boite de recherche générale"
 
 #: main/KexiMainWindow.cpp:929
 #, kde-kuit-format
 msgid "Switches to Global Search box."
-msgstr "Passe à la boîte de recherche générale."
+msgstr "Passe à la boite de recherche générale."
 
 #: main/KexiMainWindow.cpp:933
 #, kde-kuit-format
@@ -5145,13 +5145,13 @@ msgstr "Formulaire <resource>%1</resource>"
 #: plugins/forms/widgets/kexidbimagebox.cpp:511
 #, kde-kuit-format
 msgid "Click to show actions for this image box"
-msgstr "Cliquer pour voir les actions de cette boîte à image."
+msgstr "Cliquer pour voir les actions de cette boite à image."
 
 #: plugins/forms/widgets/kexidbimagebox.cpp:523
 #, kde-kuit-format
 msgid "Click to show actions for <interface>%1</interface> image box"
 msgstr ""
-"Cliquer pour voir les actions de la boîte à image <interface>%1</interface>"
+"Cliquer pour voir les actions de la boite à image <interface>%1</interface>"
 
 #: plugins/forms/widgets/kexidbimagebox.cpp:649
 #, kde-kuit-format
@@ -5312,7 +5312,7 @@ msgstr "boiteCombinée"
 #, kde-kuit-format
 msgid "A combo box widget"
 msgstr ""
-"Un composant graphique de boîte combinée réunissant liste déroulante et zone "
+"Un composant graphique de boite combinée réunissant liste déroulante et zone "
 "de texte"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:218
@@ -6795,7 +6795,7 @@ msgstr "Enlever les espaces au début et à la fin des valeurs textes"
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:152
 #, kde-kuit-format
 msgid "Import missing text values as empty texts"
-msgstr "Importer les valeurs manquantes de texte comme des chaînes vides"
+msgstr "Importer les valeurs manquantes de texte comme des chaines vides"
 
 #: plugins/importexport/csv/kexicsvwidgets.cpp:88
 #, kde-kuit-format
@@ -8347,7 +8347,7 @@ msgid ""
 "<interface>Name</interface> combo box."
 msgstr ""
 "Charge la liste des bases de données depuis le serveur, afin que vous "
-"puissiez en sélectionner une en utilisant la boîte combinée <interface>Nom</"
+"puissiez en sélectionner une en utilisant la boite combinée <interface>Nom</"
 "interface>."
 
 #: widget/kexidbconnectionwidget.cpp:103
