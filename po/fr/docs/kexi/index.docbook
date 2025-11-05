@@ -180,7 +180,7 @@
 <listitem
 ><para
 ><link linkend="opening-a-database-file-in-the-open-existing-project-dialog"
->Ouvrir un fichier de base de données en utilisant la boîte de dialogue d'ouverture de projet</link
+>Ouvrir un fichier de base de données en utilisant la boite de dialogue d'ouverture de projet</link
 >&nbsp;</para
 ></listitem>
 <listitem
@@ -624,7 +624,7 @@
 ><para
 >Après avoir changé la valeur d'une propriété, un bouton spécial <guilabel
 >Annuler les changements</guilabel
-> apparaît à la droite de la liste de l'éditeur de propriétés. En cliquant dessus, vous pouvez redonner la valeur d'origine, extraite de la base de données lors de l'ouverture de l'objet, à la propriété. Le bouton n'est visible que lorsque la propriété est active.</para
+> apparait à la droite de la liste de l'éditeur de propriétés. En cliquant dessus, vous pouvez redonner la valeur d'origine, extraite de la base de données lors de l'ouverture de l'objet, à la propriété. Le bouton n'est visible que lorsque la propriété est active.</para
 ></listitem>
 </itemizedlist>
 </note
@@ -657,24 +657,24 @@
 >Il y a deux manières d'ouvrir un fichier de base de données &kexi; existant : </para>
 <sect2 id="opening-a-database-file-in-the-open-existing-project-dialog"
 ><title
->Ouvrir un fichier de base de données en utilisant la boîte de dialogue d'ouverture de projet</title
+>Ouvrir un fichier de base de données en utilisant la boite de dialogue d'ouverture de projet</title
 > 
 <itemizedlist>
 <listitem
 ><para
->Lancez &kexi;. Vous devriez voir la boîte de dialogue de démarrage <guilabel
+>Lancez &kexi;. Vous devriez voir la boite de dialogue de démarrage <guilabel
 >Bienvenu dans Kexi</guilabel
 >, qui vous permet de sélectionner l'un des projets récemment utilisés pour l'ouvrir.</para
 ></listitem>
 <listitem
 ><para
->Si le projet n'apparaît pas sur la page des projets récemment utilisés, choisissez <guibutton
+>Si le projet n'apparait pas sur la page des projets récemment utilisés, choisissez <guibutton
 >Ouvrir...</guibutton
 > (<keycombo action="simul"
 >&Ctrl;<keycap
 >O</keycap
 ></keycombo
->). Vous verrez la boîte de dialogue suivante :</para>
+>). Vous verrez la boite de dialogue suivante :</para>
 <para>
 <screenshot>
 <screeninfo
@@ -697,7 +697,7 @@
 ></listitem>
 <listitem
 ><para
->Vous pouvez soit choisir un fichier qui sera immédiatement ouvert. De façon alternative, vous pouvez saisir dans la boîte d'édition <guilabel
+>Vous pouvez soit choisir un fichier qui sera immédiatement ouvert. De façon alternative, vous pouvez saisir dans la boite d'édition <guilabel
 >Nom :</guilabel
 > et cliquez sur <guilabel
 >Suivant</guilabel
@@ -793,7 +793,7 @@
     <para
 >Sélectionnez <guilabel
 >Qu'est ce que c'est ? </guilabel
-> à partir du menu qui apparaît lorsque que vous cliquez <inlinemediaobject
+> à partir du menu qui apparait lorsque que vous cliquez <inlinemediaobject
 > <imageobject
 > <imagedata fileref="Icon-help-contents.png" format="PNG"/> </imageobject
 > </inlinemediaobject
@@ -994,7 +994,7 @@
 ></listitem>
 <listitem
 ><para
->La fenêtre du concepteur de tables apparaîtra. En regardant en haut de celle-ci, vous remarquerez que &kexi; vous propose un nom générique comme <guilabel
+>La fenêtre du concepteur de tables apparaitra. En regardant en haut de celle-ci, vous remarquerez que &kexi; vous propose un nom générique comme <guilabel
 >Table1</guilabel
 > pour la nouvelle table. La conception de la table n'est pas encore enregistrée, ainsi, vous pouvez lui donner un nom adapté plus tard. De plus, et pour la même raison, le nom de la table n'est pas encore visible dans le <guilabel
 >Navigateur de projets</guilabel
@@ -1129,7 +1129,7 @@
 >numéro-rue</replaceable
 > et cliquez sur le bouton avec une liste déroulante ou appuyez sur <keycap
 >F4</keycap
->. La liste des types de données apparaîtra. Vous pouvez aussi utiliser les touches de flèches <keysym
+>. La liste des types de données apparaitra. Vous pouvez aussi utiliser les touches de flèches <keysym
 >Haut</keysym
 > et <keysym
 >Bas</keysym
@@ -1149,7 +1149,7 @@
 <para
 >Comme la conception n'est pas encore enregistrée dans la base de données, la fenêtre de dialogue <guilabel
 >Enregistrer l'objet sous</guilabel
-> apparaît. Vous devez définir le nom pour cette nouvelle table. </para>
+> apparait. Vous devez définir le nom pour cette nouvelle table. </para>
 <para
 >&kexi; fournit un nom générique comme <guilabel
 >Table1</guilabel
@@ -1183,7 +1183,7 @@
 ><para
 >La table <replaceable
 >Personnes</replaceable
-> a été créée et ouverte dans l'affichage de données. Son nom apparaît dans le panneau du <guilabel
+> a été créée et ouverte dans l'affichage de données. Son nom apparait dans le panneau du <guilabel
 >Navigateur de projet</guilabel
 >.</para
 ></listitem>
@@ -1266,7 +1266,7 @@
 <itemizedlist>
 <listitem
 ><para
->Dès que vous saisissez le premier caractère, la ligne actuelle est en train d'être modifiée. Un symbole de stylo apparaît à gauche de la table.</para
+>Dès que vous saisissez le premier caractère, la ligne actuelle est en train d'être modifiée. Un symbole de stylo apparait à gauche de la table.</para
 ></listitem>
 <listitem
 ><para
@@ -1276,7 +1276,7 @@
 ></listitem>
 <listitem
 ><para
->Un appui sur la touche &Esc; lorsque le contenu d'une cellule est modifiée annule les modifications qui y ont été faites. Cependant, le symbole de crayon ne disparaîtra pas car vous pouvez encore vous déplacer vers une cellule différente de la ligne modifiée pour en modifier le contenu. Pour annuler les modifications faire sur toute la ligne modifiée, appuyez une fois de plus sur la touche &Esc;.</para
+>Un appui sur la touche &Esc; lorsque le contenu d'une cellule est modifiée annule les modifications qui y ont été faites. Cependant, le symbole de crayon ne disparaitra pas car vous pouvez encore vous déplacer vers une cellule différente de la ligne modifiée pour en modifier le contenu. Pour annuler les modifications faire sur toute la ligne modifiée, appuyez une fois de plus sur la touche &Esc;.</para
 ></listitem
 ><!--FIXME Esc does not work in master (2.4) as described here bug in docs or app?-->
 <listitem
@@ -1327,7 +1327,7 @@
 ><para
 >Créé une nouvelle requête vide en sélectionnant <guilabel
 >Requête</guilabel
-> à partir de la barre d'outils. La fenêtre de conception apparaîtra. La fenêtre est découpé en deux zones : la relation entre requête en haut et en dessous les colonnes de requête.</para
+> à partir de la barre d'outils. La fenêtre de conception apparaitra. La fenêtre est découpé en deux zones : la relation entre requête en haut et en dessous les colonnes de requête.</para
 ></listitem>
 <listitem
 ><para
@@ -1337,7 +1337,7 @@
 >Table : </guilabel
 > situé en haut de la fenêtre et cliquez sur le bouton <guilabel
 >Insérer</guilabel
->. Une représentation graphique de la table apparaîtra dans la zone des relations. Faites la même chose pour la table <replaceable
+>. Une représentation graphique de la table apparaitra dans la zone des relations. Faites la même chose pour la table <replaceable
 >Téléphones</replaceable
 > pour l'insérer aussi.</para
 ></listitem>
@@ -1593,7 +1593,7 @@
 ></listitem>
 <listitem
 ><para
->Un nouveau cadre va apparaître, vous pouvez re-dimensionner le formulaire en déplaçant les bordures. Le formulaire est couvert d'une grille qui simplifie le placement précis des composants graphiques.</para
+>Un nouveau cadre va apparaitre, vous pouvez re-dimensionner le formulaire en déplaçant les bordures. Le formulaire est couvert d'une grille qui simplifie le placement précis des composants graphiques.</para
 ></listitem>
 </orderedlist>
 <para
@@ -1727,7 +1727,7 @@
 ></listitem>
 <listitem
 ><para
->Si besoin est, vous pouvez déplacer le composant graphique inséré à la position désirée par un glisser &amp; déposer. Vous pouvez ensuite re-dimensionner le composant graphique en déplaçant une des petites boîtes apparaissant aux coins. Remarquez que ces boîtes ne sont visibles que lorsque le composant graphique est sélectionné. Si vous sélectionner un autre composant graphique ou la surface du formulaire, les boîtes vont disparaître.</para
+>Si besoin est, vous pouvez déplacer le composant graphique inséré à la position désirée par un glisser &amp; déposer. Vous pouvez ensuite re-dimensionner le composant graphique en déplaçant une des petites boites apparaissant aux coins. Remarquez que ces boites ne sont visibles que lorsque le composant graphique est sélectionné. Si vous sélectionner un autre composant graphique ou la surface du formulaire, les boites vont disparaitre.</para
 ></listitem>
 <listitem
 ><para
@@ -1864,7 +1864,7 @@
 > <imageobject
 > <imagedata fileref="Icon-edit-clear-locationbar-rtl.png" format="PNG"/> </imageobject
 > </inlinemediaobject
-> dans la boîte de dialogue <guilabel
+> dans la boite de dialogue <guilabel
 >Source de données du composant graphique</guilabel
 >.</para
 ></listitem>
@@ -1891,7 +1891,7 @@
 >Étiquette</guilabel
 > est utilisé. </para>
 <para
->Insérez trois composants graphiques d'étiquettes de texte sur le formulaire, en les plaçant sur le coté gauche des champs de texte (ou, sur le coté droit, si votre système d'exploitation utilise un disposition de droite vers la gauche). Lors de l'insertion d'une nouvelle étiquette, un curseur de texte apparaît à l'emplacement où vous pouvez saisir le titre souhaité. Saisissez successivement : <replaceable
+>Insérez trois composants graphiques d'étiquettes de texte sur le formulaire, en les plaçant sur le coté gauche des champs de texte (ou, sur le coté droit, si votre système d'exploitation utilise un disposition de droite vers la gauche). Lors de l'insertion d'une nouvelle étiquette, un curseur de texte apparait à l'emplacement où vous pouvez saisir le titre souhaité. Saisissez successivement : <replaceable
 >Nom</replaceable
 >, <replaceable
 >Nom de famille</replaceable
@@ -1944,9 +1944,9 @@
 ></listitem>
 <listitem
 ><para
->Une fenêtre de boîte de dialogue <guilabel
+>Une fenêtre de boite de dialogue <guilabel
 >Association d'une action à un bouton</guilabel
-> apparaîtra présentant une liste des actions disponibles. Une des actions est sélectionnée si le composant graphique est déjà associé à une action. sinon, la liste de <guilabel
+> apparaitra présentant une liste des actions disponibles. Une des actions est sélectionnée si le composant graphique est déjà associé à une action. sinon, la liste de <guilabel
 >Catégorie d'actions</guilabel
 > prend en compte l'élément <guilabel
 >Pas d'action</guilabel
@@ -1979,7 +1979,7 @@
 >Pas d'action</guilabel
 > à partir de la liste de <guilabel
 >Catégorie d'actions</guilabel
-> de la fenêtre de boîte de dialogue <guilabel
+> de la fenêtre de boite de dialogue <guilabel
 >Allocation d'une action à un bouton</guilabel
 >.</para
 ></listitem>
@@ -2937,7 +2937,7 @@
     <para
 ><guilabel
 >Chercher</guilabel
-> ouvre la boîte de dialogue <guilabel
+> ouvre la boite de dialogue <guilabel
 >Chercher</guilabel
 > pour chercher un texte spécifique dans les données d'une base de données.</para>
      </listitem>
@@ -2977,7 +2977,7 @@
     <para
 ><guilabel
 >Importer des données à partir d'un fichier</guilabel
-> affiche une boîte de dialogue qui vous permet d'importer des données à partir d'un fichier CSV ou de texte brut vers une nouvelle table de votre projet.</para>
+> affiche une boite de dialogue qui vous permet d'importer des données à partir d'un fichier CSV ou de texte brut vers une nouvelle table de votre projet.</para>
      </listitem>
   </varlistentry>
   <varlistentry
@@ -3015,7 +3015,7 @@
     <para
 ><guilabel
 >Exporter des données vers un fichier</guilabel
-> affiche une boîte de dialogue vous permettant d'exporter les données des tables courantes vers un fichier de texte brut ou CSV.</para>
+> affiche une boite de dialogue vous permettant d'exporter les données des tables courantes vers un fichier de texte brut ou CSV.</para>
      </listitem>
   </varlistentry>
 </variablelist>
@@ -3190,7 +3190,7 @@
     <listitem>
     <para
 >Une <guilabel
->boîte de dialogue à liste déroulante</guilabel
+>boite de dialogue à liste déroulante</guilabel
 > affiche une liste d'option dans lesquelles choisir.</para>
      </listitem>
   </varlistentry>
@@ -4169,7 +4169,7 @@
 >Accès concurrent</title
 > 
 <para
->La manipulation par plusieurs utilisateurs en même temps d'une même feuille de données paraît difficile à imaginer. Même si c'est techniquement possible dans les tableurs les plus récents, cela exige énormément de discipline et de connaissances de la part des utilisateurs, ce qu'on ne peut jamais garantir. </para>
+>La manipulation par plusieurs utilisateurs en même temps d'une même feuille de données parait difficile à imaginer. Même si c'est techniquement possible dans les tableurs les plus récents, cela exige énormément de discipline et de connaissances de la part des utilisateurs, ce qu'on ne peut jamais garantir. </para>
 <para
 >Un méthode classique de partage de données enregistrées dans un tableur est d'envoyer tout le fichier (habituellement par courrier électronique) ou distribuer le fichier sur un réseau. Cette façon de travailler n'est pas efficace pour de grands groupes d'utilisateurs – les données dont on a besoin à un instant donnée sont peut être verrouillées par une autre personne. </para>
 <para
