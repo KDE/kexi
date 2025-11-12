@@ -15,14 +15,14 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-16 01:49+0000\n"
-"PO-Revision-Date: 2025-09-20 15:52+0300\n"
+"PO-Revision-Date: 2025-11-11 08:40+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.08.0\n"
+"X-Generator: Lokalize 25.08.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: core/kexi.cpp:142
@@ -79,7 +79,7 @@ msgstr "חלה תקלה בעת החיבור לבסיס הנתונים"
 #: core/kexiaboutdata.cpp:37
 #, kde-kuit-format
 msgid "© 2002-%1, The KEXI Team"
-msgstr ""
+msgstr "© 2002‏-%1, צוות KEXI"
 
 #: core/kexiaboutdata.cpp:38
 #, kde-kuit-format
@@ -91,7 +91,7 @@ msgstr ""
 #: core/kexiaboutdata.cpp:48
 #, kde-kuit-format
 msgid "Jarosław Staniek"
-msgstr ""
+msgstr "ירוסלב סטנאייק"
 
 #: core/kexiaboutdata.cpp:48
 #, fuzzy, kde-kuit-format
@@ -101,17 +101,17 @@ msgstr "מפתח"
 #: core/kexiaboutdata.cpp:50
 #, kde-kuit-format
 msgid "OpenOffice Polska LLC"
-msgstr ""
+msgstr "‏OpenOffice פולין בע״מ"
 
 #: core/kexiaboutdata.cpp:50
 #, kde-kuit-format
 msgid "Sponsoring and support (employer of Jarosław Staniek in 2003-2007)"
-msgstr ""
+msgstr "מימון ותמיכה (המעסיקים של ירוסלב סטנאייק ב־2003‏-2007)"
 
 #: core/kexiaboutdata.cpp:52
 #, kde-kuit-format
 msgid "Adam Pigg"
-msgstr ""
+msgstr "אדם פיג"
 
 #: core/kexiaboutdata.cpp:52
 #, kde-kuit-format
@@ -420,16 +420,16 @@ msgid "Paweł Wirecki / OpenOffice Polska"
 msgstr ""
 
 #: core/kexiaboutdata.cpp:118
-#, fuzzy, kde-format, kde-kuit-format
+#, kde-format, kde-kuit-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "dovix2003@yahoo.com"
+msgstr "dovix2003@yahoo.com,kde-l10n-he@kde.org"
 
 #: core/kexiaboutdata.cpp:118
-#, fuzzy, kde-format, kde-kuit-format
+#, kde-format, kde-kuit-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "דוביקס"
+msgstr "דוביקס,צוות התרגום של KDE ישראל"
 
 #: core/KexiCommandLineOptions.cpp:38
 #, kde-kuit-format
@@ -8575,27 +8575,27 @@ msgid "&Create Object: %1..."
 msgstr "יצירת טבלה..."
 
 #: widget/navigator/KexiProjectNavigator.cpp:377
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "&Create Object..."
-msgstr "יצירת פרוייקט"
+msgstr "יצירת &פריט…"
 
 #: widget/navigator/KexiProjectNavigator.cpp:471
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@info Rename object %1:"
 msgid "Rename <resource>%1</resource>:"
-msgstr "פרוייקט"
+msgstr "שינוי השם של <resource>%1</resource>:"
 
 #: widget/navigator/KexiProjectNavigator.cpp:473
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@action:button Rename object"
 msgid "Rename"
-msgstr "מרוחק"
+msgstr "שינוי שם"
 
 #: widget/navigator/KexiProjectNavigator.cpp:483
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@title:window Rename Object %1."
 msgid "Rename <resource>%1</resource>"
-msgstr "פרוייקט"
+msgstr "שינוי השם של<resource>%1</resource>"
 
 #: widget/navigator/KexiProjectNavigator.cpp:639
 #, kde-kuit-format
@@ -8606,14 +8606,14 @@ msgid ""
 msgstr ""
 
 #: widget/properties/KexiPropertyEditorView.cpp:106
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "No field selected"
-msgstr "השאילתה נכשלה"
+msgstr "לא נבחר שדה"
 
 #: widget/properties/KexiPropertyPaneWidget.cpp:150
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "No object selected"
-msgstr "השאילתה נכשלה"
+msgstr "לא נבחר פריט"
 
 #: widget/relations/KexiRelationsScrollArea.cpp:120
 #, kde-kuit-format
@@ -8621,9 +8621,9 @@ msgid "&Hide Selected Table/Query"
 msgstr ""
 
 #: widget/relations/KexiRelationsScrollArea.cpp:122
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "&Delete Selected Relationship"
-msgstr "יצירת פרוייקט"
+msgstr "מחיקת ה&קשר הנבחר"
 
 #: widget/relations/KexiRelationsScrollArea.cpp:124
 #, kde-kuit-format
@@ -8631,9 +8631,9 @@ msgid "&Open Selected Table/Query"
 msgstr ""
 
 #: widget/relations/KexiRelationsView.cpp:86
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Table:"
-msgstr "טבלאות"
+msgstr "טבלה:"
 
 #: widget/relations/KexiRelationsView.cpp:92
 #, kde-kuit-format
@@ -8642,34 +8642,34 @@ msgid "&Insert"
 msgstr ""
 
 #: widget/relations/KexiRelationsView.cpp:109
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "&Hide Table"
-msgstr "טבלה חדשה"
+msgstr "ה&סתרת טבלה"
 
 #: widget/relations/KexiRelationsView.cpp:121
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "&Append Field"
-msgstr "&הוספה"
+msgstr "הוספת עמודה ל&סוף"
 
 #: widget/relations/KexiRelationsView.cpp:126
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "&Append Fields"
-msgstr "&הוספה"
+msgstr "הוספת עמודות ל&סוף"
 
 #: widget/relations/KexiRelationsView.cpp:131
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "&Open Table"
-msgstr "פתיחת טבלה"
+msgstr "&פתיחת טבלה"
 
 #: widget/relations/KexiRelationsView.cpp:136
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "&Design Table"
-msgstr "עיצוב טופס"
+msgstr "&עיצוב טבלה"
 
 #: widget/relations/KexiRelationsView.cpp:391
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Relationship"
-msgstr "יחסי טבלאות/שדות"
+msgstr "קשר"
 
 #: widget/tableview/kexiblobtableedit.cpp:83
 #, kde-kuit-format
@@ -8677,22 +8677,22 @@ msgid "Click to show available actions for this cell"
 msgstr ""
 
 #: widget/tableview/KexiTableScrollArea.cpp:2439
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Contains a pointer to the currently selected record."
-msgstr "יצירת פרוייקט"
+msgstr "מכיל מצביע לרשומה הנבחרת הנוכחית."
 
 #: widget/tableview/KexiTableScrollArea.cpp:2442
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Record navigator."
-msgstr "מאפייני הפרוייקט"
+msgstr "נווט רשומות."
 
 #: widget/tableview/KexiTableScrollArea.cpp:2449
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@info:whatsthis"
 msgid "Column <resource>%1</resource>."
-msgstr "פרוייקט"
+msgstr "עמודה<resource>%1</resource>."
 
 #: widget/undo/kundo2group.cpp:358 widget/undo/kundo2stack.cpp:1079
 #, kde-format
@@ -8732,9 +8732,9 @@ msgid "Undo"
 msgstr ""
 
 #: widget/utils/kexicontextmenuutils.cpp:61
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgid "Insert From &File..."
-msgstr "טעינה מקובץ..."
+msgstr "הוספה מקובץ…"
 
 #: widget/utils/kexicontextmenuutils.cpp:76
 #, kde-kuit-format
