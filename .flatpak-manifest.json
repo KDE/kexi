@@ -5,7 +5,9 @@
     "runtime-version": "5.15-24.08",
     "sdk": "org.kde.Sdk",
     "command": "kexi-3.3",
-    "tags": ["nightly"],
+    "tags": [
+        "nightly"
+    ],
     "rename-desktop-file": "org.kde.kexi-3.3.desktop",
     "desktop-file-name-suffix": " (Nightly)",
     "finish-args": [
@@ -15,45 +17,66 @@
         "--socket=wayland",
         "--system-talk-name=org.freedesktop.UDisks2"
     ],
-
     "modules": [
         {
             "name": "breeze-icons",
-            "config-opts": [ "-DSKIP_INSTALL_ICONS=ON" ],
+            "config-opts": [
+                "-DSKIP_INSTALL_ICONS=ON"
+            ],
             "buildsystem": "cmake-ninja",
             "builddir": true,
             "sources": [
                 {
                     "type": "git",
                     "url": "https://invent.kde.org/frameworks/breeze-icons.git",
-                    "tag": "v5.105.0",
+                    "tag": "v6.20.0",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^v([\\d.]+)$"
                     },
-                    "commit": "cf1647176626f87d1ec5bc25db3661bd27936adc"
+                    "commit": "f1b33eb4d9ae32f8852209e00ab5ffbafbd8da96"
                 }
             ]
         },
         {
             "name": "kdb",
             "buildsystem": "cmake-ninja",
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kdb.git" } ]
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/libraries/kdb.git"
+                }
+            ]
         },
         {
             "name": "kproperty",
             "buildsystem": "cmake-ninja",
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kproperty.git" } ]
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/libraries/kproperty.git"
+                }
+            ]
         },
         {
             "name": "kreport",
             "buildsystem": "cmake-ninja",
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/libraries/kreport.git" } ]
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/libraries/kreport.git"
+                }
+            ]
         },
         {
             "name": "kexi",
             "buildsystem": "cmake-ninja",
-            "sources": [ { "type": "dir", "path": "." } ]
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": "."
+                }
+            ]
         }
     ]
 }
