@@ -29,12 +29,12 @@
                 {
                     "type": "git",
                     "url": "https://invent.kde.org/frameworks/breeze-icons.git",
-                    "tag": "v5.116.0",
+                    "tag": "v6.20.0",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^v([\\d.]+)$"
                     },
-                    "commit": "433620b2c3523aa57e68ead5056492af3720341a"
+                    "commit": "f1b33eb4d9ae32f8852209e00ab5ffbafbd8da96"
                 }
             ]
         },
