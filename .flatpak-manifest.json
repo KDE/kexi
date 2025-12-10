@@ -32,7 +32,10 @@
                     "tag": "v5.116.0",
                     "x-checker-data": {
                         "type": "git",
-                        "tag-pattern": "^v([\\d.]+)$"
+                        "tag-pattern": "^v([\\d.]+)$",
+                        "versions": {
+                            "<": "5.117.0"
+                        }
                     },
                     "commit": "433620b2c3523aa57e68ead5056492af3720341a"
                 }
