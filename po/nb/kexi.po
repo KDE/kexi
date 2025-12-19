@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-07-05 05:54+0000\n"
+"POT-Creation-Date: 2025-11-17 16:18+0000\n"
 "PO-Revision-Date: 2015-06-01 10:32+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -438,8 +438,7 @@ msgstr "Paweł Wirecki / OpenOffice Polska"
 #, kde-format, kde-kuit-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
-"gluras@c2i.net,bjornst@skogkatt.homelinux.org,slx@nilsk.net,sunny@sunbase.org"
+msgstr "gluras@c2i.net,bjornst@skogkatt.homelinux.org,slx@nilsk.net,sunny@sunbase.org"
 
 #: core/kexiaboutdata.cpp:118
 #, kde-format, kde-kuit-format
@@ -476,8 +475,8 @@ msgctxt "'dbdriver' command line option"
 msgid ""
 "Name of a database driver to be used when connecting to a database project "
 "(\"sqlite\" by default). Ignored if a shortcut filename is provided. "
-"Complete KDb-specific globally unique identifier can be used, e.g. \"org.kde."
-"kdb.sqlite\" to specify exact vendor of the driver."
+"Complete KDb-specific globally unique identifier can be used, e.g. "
+"\"org.kde.kdb.sqlite\" to specify exact vendor of the driver."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:57
