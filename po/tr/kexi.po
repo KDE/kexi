@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2025-03-13 15:46+0300\n"
+"PO-Revision-Date: 2025-12-23 12:11+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -73,7 +73,7 @@ msgstr ""
 #: core/kexiaboutdata.cpp:28
 #, kde-format
 msgid "Visual database applications creator"
-msgstr "Sanal veritabanı uygulaması oluşturucu"
+msgstr "Sanal veri tabanı uygulaması oluşturucu"
 
 #: core/kexiaboutdata.cpp:37
 #, kde-kuit-format
@@ -121,7 +121,7 @@ msgid ""
 "PostgreSQL database driver, Migration and Reporting modules, numerous bug "
 "fixes"
 msgstr ""
-"PostgreSQL veritabanı sürücüsü, Yükseltme ve Aktarım modülleri, birçok hata "
+"PostgreSQL veri tabanı sürücüsü, Yükseltme ve Aktarım modülleri, birçok hata "
 "düzeltmesi"
 
 #: core/kexiaboutdata.cpp:54
@@ -247,7 +247,7 @@ msgstr "Julia Sanchez-Simon"
 #: core/kexiaboutdata.cpp:76
 #, kde-kuit-format
 msgid "Oracle database driver"
-msgstr "Oracle veritabanı sürücüsü"
+msgstr "Oracle veri tabanı sürücüsü"
 
 #: core/kexiaboutdata.cpp:78
 #, kde-kuit-format
@@ -267,7 +267,7 @@ msgstr "Matt Rogers"
 #: core/kexiaboutdata.cpp:80
 #, kde-kuit-format
 msgid "ODBC database driver"
-msgstr "ODBC veritabanı sürücüsü"
+msgstr "ODBC veri tabanı sürücüsü"
 
 #: core/kexiaboutdata.cpp:82
 #, kde-kuit-format
@@ -449,8 +449,8 @@ msgid ""
 "name and exit immediately. You will be asked for confirmation if overwriting "
 "is needed."
 msgstr ""
-"Belirtilen veritabanı sürücüsü ve veritabanı adını kullanarak yeni, boş bir "
-"proje oluşturun ve hemen çıkın. Üzerine yazmanın gerekli olup olmadığını "
+"Belirtilen veri tabanı sürücüsü ve veri tabanı adını kullanarak yeni, boş "
+"bir proje oluşturun ve hemen çıkın. Üzerine yazmanın gerekli olup olmadığını "
 "doğrulamanız istenecektir."
 
 #: core/KexiCommandLineOptions.cpp:43
@@ -458,7 +458,7 @@ msgstr ""
 msgctxt "'create-opendb' command line option"
 msgid "Like --createdb, but also open newly created database."
 msgstr ""
-"--createdb seçeneği gibi; ancak ayrıca oluşturulan yeni veritabanını açar."
+"--createdb seçeneği gibi; ancak ayrıca oluşturulan yeni veri tabanını açar."
 
 #: core/KexiCommandLineOptions.cpp:46
 #, kde-kuit-format
@@ -467,7 +467,7 @@ msgid ""
 "Drop (remove) a project using specified database driver and database name. "
 "You will be asked for confirmation."
 msgstr ""
-"Belirlenen veritabanı sunucusu ve veritabanı adı ile bir proje kaldırılır. "
+"Belirlenen veri tabanı sunucusu ve veri tabanı adı ile bir proje kaldırılır. "
 "Bu işlem için onay istenir."
 
 #: core/KexiCommandLineOptions.cpp:50
@@ -479,7 +479,7 @@ msgid ""
 "Complete KDb-specific globally unique identifier can be used, e.g. \"org.kde."
 "kdb.sqlite\" to specify exact vendor of the driver."
 msgstr ""
-"Bir veritabanı projesine bağlanırken kullanılacak bir veritabanı sürücüsü "
+"Bir veri tabanı projesine bağlanırken kullanılacak bir veri tabanı sürücüsü "
 "adı (öntanımlı olarak \"sqlite\"). Kısayolun dosya adı sağlanırsa yok "
 "sayılır. KDb'ye özgü, tamamen benzersiz tanımlayıcı, örn. sürücünün kesin "
 "üreticisini belirtmek için \"org.kde.kdb.sqlite\" olur."
@@ -506,7 +506,7 @@ msgstr ""
 "- \"project\" proje dosyası için (öntanımlı)\n"
 "- \"shortcut\" bir projeye işaret eden kısayol\n"
 "  kısayol dosyası için.\n"
-"- \"connection\" veritabanı bağlantı verileri için."
+"- \"connection\" veri tabanı bağlantı verileri için."
 
 #: core/KexiCommandLineOptions.cpp:69
 #, kde-kuit-format
@@ -518,7 +518,7 @@ msgid ""
 "Note: Options like --user, --host have precedence over settings defined in "
 "the shortcut file."
 msgstr ""
-"Bağlantı verisini içeren .kexic dosyası bir veritabanı bağlantı kısayolu "
+"Bağlantı verisini içeren .kexic dosyası bir veri tabanı bağlantı kısayolu "
 "belirtmeye yarar. --user, --host veya --port gibi seçenekler kullanmak "
 "yerine uyumluluk için --createdb veya --create-opendb ile kullanılabilir.\n"
 "Not: --user, --port içeriği gibi değerler kısayol dosyasında tanımlanan "
@@ -532,9 +532,9 @@ msgid ""
 "support. This option is ignored when \"createdb\" option is present, "
 "otherwise the database could not be created."
 msgstr ""
-"Herhangi bir veritabanı bağlantısının yazma desteği olmadan "
+"Herhangi bir veri tabanı bağlantısının yazma desteği olmadan "
 "gerçekleştirileceğini belirtir. \"Createdb\" seçeneği var olduğunda bu "
-"seçenek yok sayılır, aksi takdirde veritabanı oluşturulamaz."
+"seçenek yok sayılır, aksi takdirde veri tabanı oluşturulamaz."
 
 #: core/KexiCommandLineOptions.cpp:82
 #, kde-kuit-format
@@ -658,7 +658,7 @@ msgid ""
 "project is opened using a shortcut file. Default user name is the same as "
 "the current login (<resource>%1</resource>)."
 msgstr ""
-"Projeye bağlanırken kullanılacak veritabanı sunucusunun kullanıcı adı. Eğer "
+"Projeye bağlanırken kullanılacak veri tabanı sunucusunun kullanıcı adı. Eğer "
 "proje kısayol dosyası kullanılarak açılırsa yok sayılır. Öntanımlı kullanıcı "
 "adı, geçerli oturumun kullanıcı adı (<resource>%1</resource>) ile aynıdır."
 
@@ -670,7 +670,7 @@ msgid ""
 "project. Ignored if the project is opened using a shortcut file. Default "
 "host is the local computer."
 msgstr ""
-"Bir veritabanı projesine bağlanırken kullanılacak ağ sunucusunun (ana "
+"Bir veri tabanı projesine bağlanırken kullanılacak ağ sunucusunun (ana "
 "bilgisayar) adı. Proje kısayol dosyasını kullanarak açılırsa yok sayılır. "
 "Öntanımlı ana bilgisayar, yerel bilgisayardır."
 
@@ -682,7 +682,7 @@ msgid ""
 "project. Ignored if the project is opened using a shortcut file. Defaults "
 "depend on the used server type (e.g. %1, %2)."
 msgstr ""
-"Bir veritabanı projesine bağlanırken kullanılacak ağ sunucusunun bağlantı "
+"Bir veri tabanı projesine bağlanırken kullanılacak ağ sunucusunun bağlantı "
 "noktası numarası. Proje kısayol dosyasını kullanarak açılırsa yok sayılır. "
 "Öntanımlı değer, kullanılan sunucu türüne bağlıdır (örn. %1, %2)."
 
@@ -694,7 +694,7 @@ msgid ""
 "project. Ignored if the project is opened using a shortcut file. Defaults "
 "depend on the used server type (e.g. %1, %2)."
 msgstr ""
-"Bir veritabanı projesine bağlanırken kullanılacak yerel bilgisayarın yuva "
+"Bir veri tabanı projesine bağlanırken kullanılacak yerel bilgisayarın yuva "
 "dosya adı. Proje kısayol dosyasını kullanarak açılırsa yok sayılır. "
 "Öntanımlı değer, kullanılan sunucu türüne bağlıdır (ör. %1, %2)."
 
@@ -960,7 +960,7 @@ msgid ""
 "Database project %1 does not appear to have been created using Kexi and "
 "cannot be opened. It is an SQLite file created using other tools."
 msgstr ""
-"%1 veritabanı projesi Kexi kullanılarak oluşturulmuş gibi görünmüyor ve "
+"%1 veri tabanı projesi Kexi kullanılarak oluşturulmuş gibi görünmüyor ve "
 "açılamadı. Bu, başka araçlar kullanılarak oluşturulmuş bir SQLite dosyasıdır."
 
 #: core/kexiproject.cpp:372
@@ -1058,7 +1058,7 @@ msgid ""
 "Could not delete this project. Database connection for this project has been "
 "opened as read only."
 msgstr ""
-"Proje silinemiyor. Bu proje için olan veritabanı bağlantısı saltokunur "
+"Proje silinemiyor. Bu proje için olan veri tabanı bağlantısı saltokunur "
 "olarak açılmıştı."
 
 #: core/kexiproject.cpp:1524
@@ -1172,8 +1172,8 @@ msgid ""
 "Kexi database project filename, Kexi shortcut filename, or name of a Kexi "
 "database project on a server to open."
 msgstr ""
-"Kexi veritabanı proje dosya adı, Kexi kısayol dosya adı veya bir sunucu "
-"üzerinde açılacak Kexi veritabanı projesinin adı."
+"Kexi veri tabanı proje dosya adı, Kexi kısayol dosya adı veya bir sunucu "
+"üzerinde açılacak Kexi veri tabanı projesinin adı."
 
 #: core/KexiView.cpp:63
 #, kde-kuit-format
@@ -2758,17 +2758,17 @@ msgstr "<application>%1</application> uygulamasından çıkar."
 #: main/KexiMainWindow.cpp:553
 #, kde-kuit-format
 msgid "&Import Database..."
-msgstr "Ver&itabanı İçe Aktar..."
+msgstr "Veri Tabanı İç&e Aktar..."
 
 #: main/KexiMainWindow.cpp:554
 #, kde-kuit-format
 msgid "Import entire database as a KEXI project"
-msgstr "Tüm veritabanını, KEXI projesi olarak içe aktar"
+msgstr "Tüm veri tabanını, KEXI projesi olarak içe aktar"
 
 #: main/KexiMainWindow.cpp:556
 #, kde-kuit-format
 msgid "Imports entire database as a KEXI project."
-msgstr "Tüm veritabanını, KEXI projesi olarak içe aktarır."
+msgstr "Tüm veri tabanını, KEXI projesi olarak içe aktarır."
 
 #: main/KexiMainWindow.cpp:561
 #, kde-kuit-format
@@ -2788,12 +2788,12 @@ msgstr "Proje içine dış kaynaktan veri içe aktarır."
 #: main/KexiMainWindow.cpp:569
 #, kde-kuit-format
 msgid "&Compact Database..."
-msgstr "&Veritabanını Sıkıştır..."
+msgstr "&Veri Tabanını Sıkıştır..."
 
 #: main/KexiMainWindow.cpp:570
 #, kde-kuit-format
 msgid "Compact the current database project"
-msgstr "Geçerli veritabanı projesini sıkıştır"
+msgstr "Geçerli veri tabanı projesini sıkıştır"
 
 #: main/KexiMainWindow.cpp:572
 #, kde-kuit-format
@@ -2801,7 +2801,7 @@ msgid ""
 "Compacts the current database project, so it will take less space and work "
 "faster."
 msgstr ""
-"Geçerli veritabanı projesini sıkıştırıp daha az yer kaplamasını ve daha "
+"Geçerli veri tabanı projesini sıkıştırıp daha az yer kaplamasını ve daha "
 "hızlı çalışmasını sağlar."
 
 #: main/KexiMainWindow.cpp:582
@@ -3264,7 +3264,7 @@ msgid ""
 "Database project %1 does not appear to have been created using <application>"
 "%2</application>.<nl/>Do you want to import it as a new KEXI project?"
 msgstr ""
-"%1 veritabanı projesi, <application>%2</application> kullanılarak "
+"%1 veri tabanı projesi, <application>%2</application> kullanılarak "
 "oluşturulmuş gibi görünmüyor.<nl/>Onu, yeni bir KEXI projesi olarak içe "
 "aktarmak ister misiniz?"
 
@@ -3497,7 +3497,7 @@ msgstr "<resource>%1</resource> nesnesi için başlık ayarlanamadı."
 #, kde-kuit-format
 msgid "Compacting database file <filename>%1</filename> is not supported."
 msgstr ""
-"<filename>%1</filename> veritabanı dosyası için sıkıştırma işlemi "
+"<filename>%1</filename> veri tabanı dosyası için sıkıştırma işlemi "
 "desteklenmiyor."
 
 #: main/KexiMainWindow.cpp:3876
@@ -3514,7 +3514,7 @@ msgid ""
 "\n"
 "Do you want to continue?"
 msgstr ""
-"Geçerli proje, veritabanı sıkıştırılmadan kapatılmalıdır. Veritabanı "
+"Geçerli proje, veri tabanı sıkıştırılmadan kapatılmalıdır. veri tabanı "
 "sıkıştırma işlemi bitince yeniden açılacak.\n"
 "\n"
 "Sürdürmek istiyor musunuz?"
@@ -3648,8 +3648,8 @@ msgid ""
 "<application>%1</application> will create a new database project. Select "
 "blank database."
 msgstr ""
-"<application>%1</application> uygulaması, yeni bir veritabanı projesi "
-"oluşturacak. Boş bir veritabanı seçin."
+"<application>%1</application> uygulaması, yeni bir veri tabanı projesi "
+"oluşturacak. Boş bir veri tabanı seçin."
 
 #: main/startup/KexiNewProjectAssistant.cpp:97
 #, kde-kuit-format
@@ -3659,12 +3659,12 @@ msgstr "Boş Projeler"
 #: main/startup/KexiNewProjectAssistant.cpp:101
 #, kde-kuit-format
 msgid "Blank database"
-msgstr "Boş veritabanı"
+msgstr "Boş veri tabanı"
 
 #: main/startup/KexiNewProjectAssistant.cpp:102
 #, kde-kuit-format
 msgid "Database project without any objects"
-msgstr "Hiç nesnesi olmayan veritabanı projesi"
+msgstr "Hiç nesnesi olmayan veri tabanı projesi"
 
 #: main/startup/KexiNewProjectAssistant.cpp:114
 #, kde-kuit-format
@@ -3696,7 +3696,7 @@ msgstr "Yeni projeyi depolamak için kullanılacak depolama yöntemini seçin."
 #: main/startup/KexiNewProjectAssistant.cpp:199
 #, kde-kuit-format
 msgid "New database"
-msgstr "Yeni veritabanı"
+msgstr "Yeni veri tabanı"
 
 #: main/startup/KexiNewProjectAssistant.cpp:203
 #, kde-kuit-format
@@ -3754,7 +3754,7 @@ msgid ""
 "para><para><note>There is no permission to create this file. Pick another "
 "directory or change permissions so the file can be created.</note></para>"
 msgstr ""
-"<para><filename>%1</filename> veritabanı dosyası oluşturulamadı.</"
+"<para><filename>%1</filename> veri tabanı dosyası oluşturulamadı.</"
 "para><para><note>Dosyayı oluşturma izniniz yok. Dosyayı oluşturabilmek için "
 "ya başka bir dizin seçin ya da izinleri değiştirin.</note></para>"
 
@@ -3774,7 +3774,7 @@ msgstr "Proje oluşturulurken lütfen bekleyin."
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Database Connection"
-msgstr "Veritabanı Bağlantısı"
+msgstr "Veri Tabanı Bağlantısı"
 
 #: main/startup/KexiNewProjectAssistant.cpp:336
 #, kde-kuit-format
@@ -3784,7 +3784,7 @@ msgid ""
 "KEXI project.</para><para>Here you may also add, edit or delete connections "
 "from the list.</para>"
 msgstr ""
-"<para>Yeni bir KEXI projesi oluşturmak istediğiniz veritabanı sunucusu "
+"<para>Yeni bir KEXI projesi oluşturmak istediğiniz veri tabanı sunucusu "
 "bağlantısını seçin.</para><para>Burada ayrıca bağlantı ekleyebilir, "
 "çıkarabilir ve düzenleyebilirsiniz.</para>"
 
@@ -3792,7 +3792,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Project Caption & Database Name"
-msgstr "Proje Başlığı ve Veritabanı Adı"
+msgstr "Proje Başlığı ve Veri Tabanı Adı"
 
 #: main/startup/KexiNewProjectAssistant.cpp:380
 #, kde-kuit-format
@@ -3801,8 +3801,8 @@ msgid ""
 "Enter caption for the new project. Database name will be created "
 "automatically based on the caption. You can change the database name too."
 msgstr ""
-"Yeni bir proje başlığı girin. Veritabanı otomatik olarak bu başlığa göre "
-"oluşturulur. Veritabanı adını değiştirebilirsiniz."
+"Yeni bir proje başlığı girin. Veri tabanı otomatik olarak bu başlığa göre "
+"oluşturulur. Veri tabanı adını değiştirebilirsiniz."
 
 #: main/startup/KexiNewProjectAssistant.cpp:449
 #, kde-kuit-format
@@ -3810,12 +3810,12 @@ msgctxt "@info"
 msgid ""
 "Existing project databases on <resource>%1 (%2)</resource> database server:"
 msgstr ""
-"<resource>%1 (%2)</resource> veritabanı sunucusundaki var olan projeler:"
+"<resource>%1 (%2)</resource> veri tabanı sunucusundaki var olan projeler:"
 
 #: main/startup/KexiNewProjectAssistant.cpp:496
 #, kde-kuit-format
 msgid "Enter database name."
-msgstr "Veritabanı adını girin."
+msgstr "Veri tabanı adını girin."
 
 #: main/startup/KexiNewProjectAssistant.cpp:507
 #, kde-kuit-format
@@ -3823,7 +3823,7 @@ msgid ""
 "Database with this name already exists. Do you want to delete it and create "
 "a new one?"
 msgstr ""
-"Bu adda bir veritabanı zaten var. Silip yeni bir tane oluşturmak istiyor "
+"Bu adda bir veri tabanı zaten var. Silip yeni bir tane oluşturmak istiyor "
 "musunuz?"
 
 #: main/startup/KexiNewProjectAssistant.cpp:510
@@ -3867,7 +3867,7 @@ msgid ""
 "Select project to open. You can choose project stored in file or on database "
 "server."
 msgstr ""
-"Açmak için bir proje seçin. Proje, dosya veya veritabanı sunucusundan "
+"Açmak için bir proje seçin. Proje, dosya veya veri tabanı sunucusundan "
 "olabilir"
 
 #: main/startup/KexiOpenProjectAssistant.cpp:57
@@ -3880,7 +3880,7 @@ msgstr "Dosyada Depolanan Projeler"
 #, kde-kuit-format
 msgctxt "@title:tab"
 msgid "Projects Stored on Database Server"
-msgstr "Veritabanı Sunucusunda Depolanan Projeler"
+msgstr "Veri Tabanı Sunucusunda Depolanan Projeler"
 
 #: main/startup/KexiOpenProjectAssistant.cpp:107
 #, kde-kuit-format
@@ -3890,28 +3890,28 @@ msgid ""
 "para><para>Here you may also add, edit or delete connections from the list.</"
 "para>"
 msgstr ""
-"<para>Açmak istediğiniz projeyle veritabanı sunucusunun bağlantısını seçin.</"
-"para><para>Burada ayrıcı bağlantılar ekleyebilir, düzenleyebilir veya "
+"<para>Açmak istediğiniz projeyle veri tabanı sunucusunun bağlantısını seçin."
+"</para><para>Burada ayrıcı bağlantılar ekleyebilir, düzenleyebilir veya "
 "silebilirsiniz.</para>"
 
 #: main/startup/KexiOpenProjectAssistant.cpp:148
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Open Project on Database Server"
-msgstr "Veritabanı Sunucusunda Proje Aç"
+msgstr "Veri Tabanı Sunucusunda Proje Aç"
 
 #: main/startup/KexiOpenProjectAssistant.cpp:190
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Select project on database server <resource>%1 (%2)</resource> to open."
 msgstr ""
-"<resource>%1 (%2)</resource> veritabanı sunucusundan açılacak projeyi seçin."
+"<resource>%1 (%2)</resource> veri tabanı sunucusundan açılacak projeyi seçin."
 
 #: main/startup/KexiPasswordPage.cpp:44
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Database Password"
-msgstr "Veritabanı Parolası"
+msgstr "Veri Tabanı Parolası"
 
 #. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_file)
 #: main/startup/KexiProjectStorageTypeSelectionPage.ui:31
@@ -3937,7 +3937,7 @@ msgstr "Sunucu"
 #: main/startup/KexiProjectStorageTypeSelectionPage.ui:53
 #, kde-format
 msgid "New Project Stored on Database Server"
-msgstr "Veritabanı Sunucusunda Depolanan Yeni Proje"
+msgstr "Veri Tabanı Sunucusunda Depolanan Yeni Proje"
 
 #: main/startup/KexiRecentProjectsModel.cpp:70
 #, kde-kuit-format
@@ -3994,18 +3994,18 @@ msgstr "<resource>%1</resource> sunucusunda"
 #, kde-kuit-format
 msgctxt "@info File database <file>"
 msgid "File database <filename>%1</filename>"
-msgstr "<filename>%1</filename> dosya veritabanı"
+msgstr "<filename>%1</filename> dosya veri tabanı"
 
 #: main/startup/KexiRecentProjectsModel.cpp:138
 #, kde-kuit-format
 msgid "database"
-msgstr "veritabanı"
+msgstr "veri tabanı"
 
 #: main/startup/KexiRecentProjectsModel.cpp:140
 #, kde-kuit-format
 msgctxt "<type> database, e.g. PostgreSQL database, MySQL database"
 msgid "%1 database"
-msgstr "%1 veritabanı"
+msgstr "%1 veri tabanı"
 
 #: main/startup/KexiRecentProjectsModel.cpp:145
 #, kde-kuit-format
@@ -4022,7 +4022,7 @@ msgstr "Proje başlığı:"
 #: main/startup/KexiServerDBNamePage.ui:60
 #, kde-format
 msgid "Project's database name:"
-msgstr "Proje veritabanı adı:"
+msgstr "Proje veri tabanı adı:"
 
 #: main/startup/KexiStartup.cpp:248
 #, kde-format
@@ -4100,7 +4100,7 @@ msgstr "<icode>%1</icode>, geçerli bir kapı numarası değil."
 #: main/startup/KexiStartup.cpp:399
 #, kde-kuit-format
 msgid "Could not open database. No database driver specified."
-msgstr "Veritabanı açılamadı. Hiç veritabanı sürücüsü belirtilmedi."
+msgstr "veri tabanı açılamadı. Hiç veri tabanı sürücüsü belirtilmedi."
 
 #: main/startup/KexiStartup.cpp:412
 #, kde-kuit-format
@@ -4164,7 +4164,7 @@ msgid ""
 "These options will be ignored because they are not available while creating "
 "or dropping projects."
 msgstr ""
-"Açılış seçeneklerinde, otomatik açılacak çok az veritabanı nesnesi "
+"Açılış seçeneklerinde, otomatik açılacak çok az veri tabanı nesnesi "
 "seçtiniz. \n"
 "Seçiminiz iptal edilecek; çünkü bu durum proje oluşturma ve silme işlemleri "
 "için uygun değil."
@@ -4249,10 +4249,10 @@ msgid ""
 "%3</resource> database driver to be used.\n"
 "Do you want to use <resource>%4</resource> database driver?"
 msgstr ""
-"<filename>%1</filename> proje dosyasının, siz <resource>%3</resource> "
-"veritabanı sürücüsünü kullanmak isterken, <resource>%2</resource> veritabanı "
+"<filename>%1</filename> proje dosyasının, siz <resource>%3</resource> veri "
+"tabanı sürücüsünü kullanmak isterken, <resource>%2</resource> veri tabanı "
 "sürücüsü ile uyumlu olduğu fark edilmiştir.\n"
-"<resource>%4</resource> veritabanı sürücüsünü kullanmak istiyor musunuz?"
+"<resource>%4</resource> veri tabanı sürücüsünü kullanmak istiyor musunuz?"
 
 #: main/startup/KexiStartup.cpp:949
 #, kde-kuit-format
@@ -4296,7 +4296,7 @@ msgid ""
 "Could not load list of available projects for <resource>%1</resource> "
 "database server."
 msgstr ""
-"<resource>%1</resource> veritabanı sunucusundan kullanılabilir projelerin "
+"<resource>%1</resource> veri tabanı sunucusundan kullanılabilir projelerin "
 "listesi alınamadı."
 
 #: main/startup/KexiStartup.cpp:1037
@@ -4332,22 +4332,22 @@ msgstr "Sürdürmek için <interface>Tamam</interface> düğmesine tıklayın."
 #: main/startup/KexiStartupDialog.cpp:271
 #, kde-kuit-format
 msgid "Blank Database"
-msgstr "Boş Veritabanı"
+msgstr "Boş Veri Tabanı"
 
 #: main/startup/KexiStartupDialog.cpp:272
 #, kde-kuit-format
 msgid "New Blank Database Project"
-msgstr "Yeni Boş Veritabanı Projesi"
+msgstr "Yeni Boş Veri Tabanı Projesi"
 
 #: main/startup/KexiStartupDialog.cpp:277
 #, kde-kuit-format
 msgid "Kexi will create a new blank database project."
-msgstr "Kexi, yeni boş bir veritabanı oluşturacaktır."
+msgstr "Kexi, yeni boş bir veri tabanı oluşturacaktır."
 
 #: main/startup/KexiStartupDialog.cpp:287
 #, kde-kuit-format
 msgid "Import Existing Database"
-msgstr "Var Olan Veritabanını İçe Aktar"
+msgstr "Var Olan Veri Tabanını İçe Aktar"
 
 #: main/startup/KexiStartupDialog.cpp:289
 #, kde-kuit-format
@@ -4360,8 +4360,8 @@ msgid ""
 "Kexi will import the structure and data of an existing database as a new "
 "database project."
 msgstr ""
-"Kexi, var olan bir veritabanının yapısını ve verilerini, yeni bir veritabanı "
-"projesi olarak içe aktaracak."
+"Kexi, var olan bir veri tabanının yapısını ve verilerini, yeni bir veri "
+"tabanı projesi olarak içe aktaracak."
 
 #: main/startup/KexiWelcomeAssistant.cpp:47
 #, kde-kuit-format
@@ -4465,9 +4465,9 @@ msgid ""
 "encoding if the database was created on a computer with a different "
 "character set.</para>"
 msgstr ""
-"<title>Microsoft Access veritabanı için metin kodlaması</title>\n"
-"<para> <filename>%1</filename> veritabanı dosyası Microsoft Access 2000'den "
-"daha eski bir sürüme ait görünüyor.</para><para> Eğer veritabanı, farklı "
+"<title>Microsoft Access veri tabanı için metin kodlaması</title>\n"
+"<para> <filename>%1</filename> veri tabanı dosyası Microsoft Access 2000'den "
+"daha eski bir sürüme ait görünüyor.</para><para> Eğer veri tabanı, farklı "
 "metin kodlamasına sahip bir bilgisayarda kaydedilmişse ulusal karakterleri "
 "uygun bir şekilde içe aktarabilmeniz için uygun olan bir metin kodlamasını "
 "seçmeniz gerekebilir.</para>"
@@ -4507,9 +4507,9 @@ msgid ""
 "<interface>Next</interface> button to continue or <interface>Cancel</"
 "interface> button to exit this assistant.</para>"
 msgstr ""
-"<para>Tablo İçe Aktarma Yardımcısı, var olan bir veritabanından geçerli KEXI "
-"projesine bir tabloyu aktarmanıza yardımcı olur.</para><para>Sürdürmek için "
-"<interface>İleri</interface> düğmesine tıklayın veya <interface>İptal</"
+"<para>Tablo İçe Aktarma Yardımcısı, var olan bir veri tabanından geçerli "
+"KEXI projesine bir tabloyu aktarmanıza yardımcı olur.</para><para>Sürdürmek "
+"için <interface>İleri</interface> düğmesine tıklayın veya <interface>İptal</"
 "interface> düğmesiyle yardımcıdan çıkın.</para>"
 
 #: migration/importtablewizard.cpp:175
@@ -4520,12 +4520,12 @@ msgstr "Tablo İçe Aktarma Yardımcısına Hoş Geldiniz"
 #: migration/importtablewizard.cpp:200 migration/importwizard.cpp:304
 #, kde-kuit-format
 msgid "Select Location for Source Database"
-msgstr "Kaynak Veritabanının Yerini Seçin"
+msgstr "Kaynak Veri Tabanının Yerini Seç"
 
 #: migration/importtablewizard.cpp:210 migration/importwizard.cpp:315
 #, kde-kuit-format
 msgid "Select Source Database"
-msgstr "Kaynak Veritabanını Seçin"
+msgstr "Kaynak Veri Tabanını Seçin"
 
 #: migration/importtablewizard.cpp:227
 #, kde-kuit-format
@@ -4566,7 +4566,7 @@ msgstr "Başarılı"
 #: migration/importtablewizard.cpp:383 migration/importwizard.cpp:569
 #, kde-kuit-format
 msgid "Select source database you wish to import:"
-msgstr "İçe aktarılacak kaynak veritabanını seç:"
+msgstr "İçe aktarılacak kaynak veri tabanını seç:"
 
 #: migration/importtablewizard.cpp:465 migration/importtablewizard.cpp:479
 #, kde-kuit-format
@@ -4651,7 +4651,7 @@ msgstr "<resource>%1</resource> tablosu oluşturulamadı."
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Import Database"
-msgstr "Veritabanı İçe Aktar"
+msgstr "Veri Tabanı İçe Aktar"
 
 #: migration/importwizard.cpp:242
 #, kde-kuit-format
@@ -4660,7 +4660,7 @@ msgid ""
 "Database Importing Assistant is about to import <resource>%1</resource> "
 "database (connection <resource>%2</resource>) into a KEXI project."
 msgstr ""
-"Veritabanı İçe Aktarma Yardımcısı, <resource>%1</resource> veritabanını "
+"veri tabanı İçe Aktarma Yardımcısı, <resource>%1</resource> veri tabanını "
 "(<resource>%2</resource> bağlantısı ile), bir KEXI projesine içe aktaracak."
 
 #: migration/importwizard.cpp:257
@@ -4670,8 +4670,8 @@ msgid ""
 "Database Importing Assistant is about to import <filename>%1</filename> file "
 "of type <resource>%2</resource> into a KEXI project."
 msgstr ""
-"Veritabanı İçe Aktarma Yardımcısı, <resource>%2</resource> türünde <filename>"
-"%1</filename> dosyasını bir KEXI projesine içe aktaracak."
+"Veri Tabanı İçe Aktarma Yardımcısı, <resource>%2</resource> türünde "
+"<filename>%1</filename> dosyasını bir KEXI projesine içe aktaracak."
 
 #: migration/importwizard.cpp:263
 #, kde-kuit-format
@@ -4680,7 +4680,7 @@ msgid ""
 "Database Importing Assistant allows you to import an existing database into "
 "a KEXI project."
 msgstr ""
-"Veritabanı İçe Aktarma Yardımcısı, var olan bir veritabanını bir KEXI "
+"veri tabanı İçe Aktarma Yardımcısı, var olan bir veri tabanını bir KEXI "
 "projesine içe aktarmaya olanak sağlar."
 
 #: migration/importwizard.cpp:269
@@ -4696,27 +4696,27 @@ msgstr ""
 #: migration/importwizard.cpp:275
 #, kde-kuit-format
 msgid "Welcome to the Database Importing Assistant"
-msgstr "Veritabanı İçe Aktarma Yardımcısına Hoş Geldiniz"
+msgstr "Veri Tabanı İçe Aktarma Yardımcısına Hoş Geldiniz"
 
 #: migration/importwizard.cpp:330
 #, kde-kuit-format
 msgid "Destination database type:"
-msgstr "Oluşturulacak veritabanı türü:"
+msgstr "Oluşturulacak veri tabanı türü:"
 
 #: migration/importwizard.cpp:337
 #, kde-kuit-format
 msgid "Database project stored in a file"
-msgstr "Bir dosyada depolanan veritabanı projesi"
+msgstr "Bir dosyada depolanan veri tabanı projesi"
 
 #: migration/importwizard.cpp:338
 #, kde-kuit-format
 msgid "Database project stored on a server"
-msgstr "Bir sunucuda depolanan veritabanı projesi"
+msgstr "Bir sunucuda depolanan veri tabanı projesi"
 
 #: migration/importwizard.cpp:342
 #, kde-kuit-format
 msgid "Select Destination Database Type"
-msgstr "Hedef Veritabanı Türünü Seç"
+msgstr "Hedef Veri Tabanı Türünü Seç"
 
 #: migration/importwizard.cpp:350
 #, kde-kuit-format
@@ -4731,12 +4731,12 @@ msgstr "Hedef projenin adı:"
 #: migration/importwizard.cpp:371
 #, kde-kuit-format
 msgid "Enter Destination Database Project's Caption"
-msgstr "Hedef Veritabanı Projesinin Başlığını Gir"
+msgstr "Hedef Veri Tabanı Projesinin Başlığını Gir"
 
 #: migration/importwizard.cpp:407
 #, kde-kuit-format
 msgid "Select Location for Destination Database Project"
-msgstr "Hedef Veritabanı Projesi için Konum Seç"
+msgstr "Hedef Veri Tabanı Projesi için Konum Seç"
 
 #: migration/importwizard.cpp:425
 #, kde-kuit-format
@@ -4764,13 +4764,13 @@ msgstr "İçe aktarılan projeyi aç"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<para>No new database name was entered.</para>"
-msgstr "<para>Yeni veritabanı adı girilmedi.</para>"
+msgstr "<para>Yeni veri tabanı adı girilmedi.</para>"
 
 #: migration/importwizard.cpp:527
 #, kde-kuit-format
 msgctxt "@info"
 msgid "%1<para>Source database is the same as destination.</para>"
-msgstr "%1<para>Kaynak veritabanı, hedef ile aynı olamaz.</para>"
+msgstr "%1<para>Kaynak veri tabanı, hedef ile aynı olamaz.</para>"
 
 #: migration/importwizard.cpp:533
 #, kde-kuit-format
@@ -4793,7 +4793,7 @@ msgid ""
 "the database this may take some time.</note></para>"
 msgstr ""
 "<para>Gerekli tüm bilgi toplandı. <interface>İleri</interface> düğmesini "
-"tıklayarak içe aktarmayı başlatabilirsiniz.</para><para><note>Veritabanının "
+"tıklayarak içe aktarmayı başlatabilirsiniz.</para><para><note>Veri tabanının "
 "boyutuna göre işlem süresi değişir.</note></para>"
 
 #: migration/importwizard.cpp:877
@@ -4803,7 +4803,7 @@ msgid ""
 "<para>Database %1 already exists.</para><para>Do you want to replace it with "
 "a new one?</para>"
 msgstr ""
-"<para>%1 veritabanı zaten var.</para><para>Yenisiyle değiştirmek istiyor "
+"<para>%1 veri tabanı zaten var.</para><para>Yenisiyle değiştirmek istiyor "
 "musunuz?</para>"
 
 #: migration/importwizard.cpp:881
@@ -4826,17 +4826,17 @@ msgstr ""
 #: migration/importwizard.cpp:951
 #, kde-kuit-format
 msgid "Select source database filename."
-msgstr "Kaynak veritabanı adını seçin."
+msgstr "Kaynak veri tabanı adını seçin."
 
 #: migration/importwizard.cpp:957
 #, kde-kuit-format
 msgid "Select source database."
-msgstr "Kaynak veritabanını seçin."
+msgstr "Kaynak veri tabanını seçin."
 
 #: migration/importwizard.cpp:971
 #, kde-kuit-format
 msgid "Could not import database. This type is not supported."
-msgstr "Veritabanı içe aktarılamadı. Bu tür desteklenmiyor."
+msgstr "Veri tabanı içe aktarılamadı. Bu tür desteklenmiyor."
 
 #: migration/importwizard.cpp:973
 #, kde-kuit-format
@@ -4845,7 +4845,7 @@ msgid ""
 "Could not import database <resource>%1</resource>. This type is not "
 "supported."
 msgstr ""
-"<resource>%1</resource> veritabanı içe aktarılamadı. Bu tür desteklenmiyor."
+"<resource>%1</resource> veri tabanı içe aktarılamadı. Bu tür desteklenmiyor."
 
 #: migration/importwizard.cpp:1032
 #, kde-kuit-format
@@ -4856,7 +4856,7 @@ msgstr "İçe aktarma sürüyor..."
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Database has been imported into KEXI project <resource>%1</resource>."
-msgstr "Veritabanı, <resource>%1</resource> KEXI projesine içe aktarıldı."
+msgstr "Veri tabanı, <resource>%1</resource> KEXI projesine içe aktarıldı."
 
 #: migration/importwizard.cpp:1111 migration/importwizard.cpp:1122
 #, kde-kuit-format
@@ -4871,7 +4871,8 @@ msgstr "Verinin alınacağı konumu buradan seçebilirsiniz."
 #: migration/importwizard.cpp:1116
 #, kde-kuit-format
 msgid "Here you can choose the actual database to import data from."
-msgstr "Verilerin alınıp içe aktarılacağı veritabanını buradan seçebilirsiniz."
+msgstr ""
+"Verilerin alınıp içe aktarılacağı veri tabanını buradan seçebilirsiniz."
 
 #: migration/importwizard.cpp:1118
 #, kde-kuit-format
@@ -4884,29 +4885,29 @@ msgid ""
 "Here you can choose the location to save the data in and the new database "
 "name."
 msgstr ""
-"Verinin, yeni bir veritabanı adıyla kaydedileceği yeri buradan "
+"Verinin, yeni bir veri tabanı adıyla kaydedileceği yeri buradan "
 "seçebilirsiniz."
 
 #: migration/keximigrate.cpp:58
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not create database <resource>%1</resource>."
-msgstr "<resource>%1</resource> veritabanı oluşturulamadı."
+msgstr "<resource>%1</resource> veri tabanı oluşturulamadı."
 
 #: migration/keximigrate.cpp:217
 #, kde-kuit-format
 msgid "Could not connect to database %1."
-msgstr "\"%1\" veritabanına bağlanılamadı."
+msgstr "\"%1\" veri tabanına bağlanılamadı."
 
 #: migration/keximigrate.cpp:393
 #, kde-kuit-format
 msgid "Could not get a list of table names for database %1."
-msgstr "%1 veritabanından tablo listesi alınamadı."
+msgstr "%1 veri tabanından tablo listesi alınamadı."
 
 #: migration/keximigrate.cpp:403
 #, kde-kuit-format
 msgid "No tables have been found in database %1."
-msgstr "%1 veritabanında bir tablo bulunamadı."
+msgstr "%1 veri tabanında bir tablo bulunamadı."
 
 #: migration/keximigrate.cpp:463
 #, kde-kuit-format
@@ -4915,7 +4916,7 @@ msgid ""
 "Could not import project from database %1. Error reading table <resource>%2</"
 "resource>."
 msgstr ""
-"%1 veritabanından içe proje aktarılamıyor. <resource>%2</resource> tablosu "
+"%1 veri tabanından içe proje aktarılamıyor. <resource>%2</resource> tablosu "
 "okunurken hata oluştu."
 
 #: migration/keximigrate.cpp:513
@@ -4933,7 +4934,7 @@ msgstr "%1 veri kaynağından proje içe aktarılamıyor."
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not copy table <resource>%1</resource> to destination database."
-msgstr "<resource>%1</resource> tablosu hedef veritabanına kopyalanamıyor."
+msgstr "<resource>%1</resource> tablosu hedef veri tabanına kopyalanamıyor."
 
 #: migration/keximigrate.cpp:626
 #, kde-kuit-format
@@ -4959,7 +4960,7 @@ msgstr ""
 #: migration/migratemanager.cpp:132
 #, kde-kuit-format
 msgid "Could not find any migration database drivers."
-msgstr "Herhangi bir göç veritabanı sürücüsü bulunamadı."
+msgstr "Herhangi bir göç veri tabanı sürücüsü bulunamadı."
 
 #: plugins/forms/kexidatasourcepage.cpp:49
 #, kde-kuit-format
@@ -6478,7 +6479,7 @@ msgstr "İçe Aktar"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
 #, kde-kuit-format
 msgid "No database connection available."
-msgstr "Veritabanı bağlantısı yok."
+msgstr "Veri tabanı bağlantısı yok."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:448
 #: widget/KexiNameDialog.cpp:173
@@ -6678,7 +6679,7 @@ msgid ""
 msgstr ""
 "<para>Birincil anahtar (otomatik sayı) tanımlı değil.</para><para>İçe "
 "aktarma sırasında otomatik olarak tanımlansın mı? (önerilen)</"
-"para><para><note>Birincil anahtar olmadan içe aktarılan veritabanı (türüne "
+"para><para><note>Birincil anahtar olmadan içe aktarılan veri tabanı (türüne "
 "bağlı olarak) düzenlenemeyebilir.</note></para>"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1846
@@ -8026,11 +8027,11 @@ msgid ""
 "para>"
 msgstr ""
 "<resource>%1</resource> tablosunda birincil anahtar tanımlanmadı."
-"<para><note>Birincil anahtara gereksinim duymasanız da, veritabanı tabloları "
-"arasındaki ilişkilendirmeler için gereklidir. Kendiliğinden birincil anahtar "
-"eklenmesini istiyor musunuz?</note></para><para>Eğer daha sonra kendiniz "
-"tanımlamak isterseniz <interface>İptal</interface> ile tablo tasarım kaydını "
-"iptal edebilirsiniz.</para>"
+"<para><note>Birincil anahtara gereksinim duymasanız da, veri tabanı "
+"tabloları arasındaki ilişkilendirmeler için gereklidir. Kendiliğinden "
+"birincil anahtar eklenmesini istiyor musunuz?</note></para><para>Eğer daha "
+"sonra kendiniz tanımlamak isterseniz <interface>İptal</interface> ile tablo "
+"tasarım kaydını iptal edebilirsiniz.</para>"
 
 #: plugins/tables/kexitabledesignerview.cpp:1209
 #, kde-kuit-format
@@ -8262,7 +8263,7 @@ msgid ""
 "connection. Here you may also add, edit or delete connections from the list."
 "</para>\n"
 msgstr ""
-"<title>Aşağıdaki Listeden Var Olan Veritabanı Sunucusunun Bağlantısını "
+"<title>Aşağıdaki Listeden Var Olan Veri Tabanı Sunucusunun Bağlantısını "
 "Seçin</title>\n"
 "<para>Seçili bağlantı için var olan kullanılabilir KEXI projelerini "
 "göreceksiniz. Buradan, listeye bağlantılar ekleyebilir, düzenleyebilir veya "
@@ -8296,17 +8297,17 @@ msgstr "&Sil..."
 #: widget/KexiConnectionSelectorWidget.cpp:62
 #, kde-kuit-format
 msgid "Add a new database connection"
-msgstr "Yeni bir veritabanı bağlantısı ekle"
+msgstr "Yeni bir veri tabanı bağlantısı ekle"
 
 #: widget/KexiConnectionSelectorWidget.cpp:63
 #, kde-kuit-format
 msgid "Edit selected database connection"
-msgstr "Seçili veritabanı bağlantısını düzenle"
+msgstr "Seçili veri tabanı bağlantısını düzenle"
 
 #: widget/KexiConnectionSelectorWidget.cpp:64
 #, kde-kuit-format
 msgid "Delete selected database connections"
-msgstr "Seçili veritabanı bağlantısını sil"
+msgstr "Seçili veri tabanı bağlantısını sil"
 
 #: widget/KexiConnectionSelectorWidget.cpp:89
 #, kde-kuit-format
@@ -8328,13 +8329,13 @@ msgstr "&Ekle"
 #: widget/KexiConnectionSelectorWidget.cpp:387
 #, kde-kuit-format
 msgid "Add database connection"
-msgstr "Veritabanı bağlantısı ekle"
+msgstr "Veri tabanı bağlantısı ekle"
 
 #: widget/KexiConnectionSelectorWidget.cpp:388
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Add a New Database Connection"
-msgstr "Yeni Veritabanı Bağlantısı Ekle"
+msgstr "Yeni Veri Tabanı Bağlantısı Ekle"
 
 #: widget/KexiConnectionSelectorWidget.cpp:419
 #, kde-kuit-format
@@ -8345,13 +8346,13 @@ msgstr "&Kaydet"
 #: widget/KexiConnectionSelectorWidget.cpp:420
 #, kde-kuit-format
 msgid "Save changes made to this database connection"
-msgstr "Veritabanı bağlantısındaki değişiklikleri kaydet"
+msgstr "Veri tabanı bağlantısındaki değişiklikleri kaydet"
 
 #: widget/KexiConnectionSelectorWidget.cpp:421
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Edit Database Connection"
-msgstr "Veritabanı Bağlantısını Düzenle"
+msgstr "Veri Tabanı Bağlantısını Düzenle"
 
 #: widget/KexiConnectionSelectorWidget.cpp:447
 #, kde-kuit-format
@@ -8360,7 +8361,7 @@ msgid ""
 "Do you want to delete database connection <resource>%1</resource> from the "
 "list of available connections?"
 msgstr ""
-"<resource>%1</resource> veritabanı bağlantısını, kullanılabilir bağlantılar "
+"<resource>%1</resource> veri tabanı bağlantısını, kullanılabilir bağlantılar "
 "listesinden silmek istiyor musunuz?"
 
 #: widget/KexiDataSourceComboBox.cpp:125
@@ -8383,7 +8384,7 @@ msgstr "Proje &dosya adı:"
 #: widget/kexidbconnectionwidget.cpp:90
 #, kde-kuit-format
 msgid "Load database list from the server"
-msgstr "Sunucudan veritabanı listesini al"
+msgstr "Sunucudan veri tabanı listesini al"
 
 #: widget/kexidbconnectionwidget.cpp:92
 #, kde-kuit-format
@@ -8391,7 +8392,7 @@ msgid ""
 "Loads database list from the server, so you can select one using the "
 "<interface>Name</interface> combo box."
 msgstr ""
-"Sunucudan veritabanı listesini yükler, böylece <interface>Ad</interface> "
+"Sunucudan veri tabanı listesini yükler, böylece <interface>Ad</interface> "
 "çoklu kutusundan istediğinizi seçebilirsiniz."
 
 #: widget/kexidbconnectionwidget.cpp:103
@@ -8423,20 +8424,20 @@ msgstr "Bağlan&tıyı Sına"
 #: widget/kexidbconnectionwidget.cpp:117
 #, kde-kuit-format
 msgid "Test database connection"
-msgstr "Veritabanı bağlantısını sına"
+msgstr "Veri tabanı bağlantısını sına"
 
 #: widget/kexidbconnectionwidget.cpp:118
 #, kde-kuit-format
 msgid ""
 "Tests database connection. You can check validity of connection information."
 msgstr ""
-"Veritabanı bağlantısını sınar. Böylece bağlantı bilgisinin geçerliliğinden "
+"Veri tabanı bağlantısını sınar. Böylece bağlantı bilgisinin geçerliliğinden "
 "emin olabilirsiniz."
 
 #: widget/kexidbconnectionwidget.cpp:152
 #, kde-kuit-format
 msgid "Database Connection"
-msgstr "Veritabanı Bağlantısı"
+msgstr "Veri Tabanı Bağlantısı"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)
@@ -8444,7 +8445,7 @@ msgstr "Veritabanı Bağlantısı"
 #: widget/KexiProjectSelector.ui:85
 #, kde-format, kde-kuit-format
 msgid "Database"
-msgstr "Veritabanı"
+msgstr "Veri Tabanı"
 
 #: widget/kexidbconnectionwidget.cpp:274
 #, kde-kuit-format
@@ -8460,13 +8461,13 @@ msgstr "Ayrıntılar"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Open Database"
-msgstr "Veritabanı Aç"
+msgstr "Veri Tabanı Aç"
 
 #: widget/kexidbconnectionwidget.cpp:404
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Connect to a Database Server"
-msgstr "Bir Veritabanı Sunucusuna Bağlan"
+msgstr "Bir Veri Tabanı Sunucusuna Bağlan"
 
 #: widget/kexidbconnectionwidget.cpp:444
 #: widget/KexiProjectSelectorWidget.cpp:309
@@ -8479,7 +8480,7 @@ msgstr "&Aç"
 #: widget/KexiProjectSelectorWidget.cpp:310
 #, kde-kuit-format
 msgid "Open Database Connection"
-msgstr "Veritabanı Bağlantısı Aç"
+msgstr "Veri Tabanı Bağlantısı Aç"
 
 #. i18n: ectx: property (title), widget (QGroupBox, authenticationGBox)
 #: widget/kexidbconnectionwidget.ui:90
@@ -8538,7 +8539,7 @@ msgstr "&Başlık (isteğe bağlı):"
 #: widget/kexidbconnectionwidget.ui:289
 #, kde-format
 msgid "Database Server"
-msgstr "Veritabanı Sunucusu"
+msgstr "Veri Tabanı Sunucusu"
 
 #. i18n: ectx: property (text), widget (QLabel, lblEngine)
 #: widget/kexidbconnectionwidget.ui:298
@@ -8600,7 +8601,7 @@ msgstr "&Açıklama:"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Opening Database"
-msgstr "Veritabanı Açılıyor"
+msgstr "Veri Tabanı Açılıyor"
 
 #: widget/KexiDBPasswordDialog.cpp:59
 #, kde-kuit-format
@@ -8617,7 +8618,7 @@ msgstr "A&yrıntılar>>"
 #: widget/KexiDBPasswordDialog.cpp:81 widget/KexiPasswordWidget.ui:138
 #, kde-format, kde-kuit-format
 msgid "Database server:"
-msgstr "Veritabanı sunucusu:"
+msgstr "Veri tabanı sunucusu:"
 
 #: widget/KexiDBPasswordDialog.cpp:87
 #, kde-kuit-format
@@ -8748,7 +8749,7 @@ msgstr "Anonim:"
 #: widget/KexiPasswordWidget.ui:121
 #, kde-format
 msgid "Database name:"
-msgstr "Veritabanı adı:"
+msgstr "Veri tabanı adı:"
 
 #. i18n: ectx: property (text), widget (QLabel, passwordLabel)
 #: widget/KexiPasswordWidget.ui:155
@@ -8772,7 +8773,7 @@ msgstr "Dosyada depolanan projeler"
 #: widget/kexiprjtypeselector.ui:86
 #, kde-format
 msgid "Projects stored on a database server"
-msgstr "Bir veritabanı sunucusunda depolanan projeler"
+msgstr "Bir veri tabanı sunucusunda depolanan projeler"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widget/KexiProjectSelector.ui:33
@@ -8810,7 +8811,7 @@ msgstr "%1: %2"
 #: widget/KexiProjectSelectorWidget.cpp:314
 #, kde-kuit-format
 msgid "Select a project on <resource>%1</resource> database server to open:"
-msgstr "<b>%1</b> veritabanı sunucusunda açılacak projeyi seçin:"
+msgstr "<b>%1</b> veri tabanı sunucusunda açılacak projeyi seçin:"
 
 #: widget/kexiqueryparameters.cpp:42
 #, kde-kuit-format
@@ -8842,12 +8843,12 @@ msgid ""
 "filename>. Please note that your package names could vary slightly depending "
 "on the operating system you use.</para>"
 msgstr ""
-"<title>Bir veritabanı sunucu sürücülsü bulunamadı</title><para>Bir "
-"veritabanı sunucu bağlantısının gereksinim duyduğu uygun sürücüler sizde "
-"kurulu değil.</para><subtitle>Ayrıntılar</subtitle><para>Veri tabanı "
-"sürücülerini sağlamak için lütfen Paket Yöneticinizde <filename>kdb-****-"
-"driver</filename> adlı <emphasis>KDb sürücülerini</emphasis> aratın ve "
-"kurun. Kullandığınız işletim sistemine göre paket adları çok az değişiklik "
+"<title>Bir veri tabanı sunucu sürücülsü bulunamadı</title><para>Bir veri "
+"tabanı sunucu bağlantısının gereksinim duyduğu uygun sürücüler sizde kurulu "
+"değil.</para><subtitle>Ayrıntılar</subtitle><para>Veri tabanı sürücülerini "
+"sağlamak için lütfen Paket Yöneticinizde <filename>kdb-****-driver</"
+"filename> adlı <emphasis>KDb sürücülerini</emphasis> aratın ve kurun. "
+"Kullandığınız işletim sistemine göre paket adları çok az değişiklik "
 "gösterebilir.</para>"
 
 #: widget/KexiStartupFileHandler.cpp:483
