@@ -64,7 +64,7 @@
         "Description[sk]": "Kexi plugin poskytujúci widgety databázových formulárov",
         "Description[sl]": "Vtičnik KEXI gradnikov za obrazce podatkovne baze",
         "Description[sv]": "KEXI-insticksprogram som tillhandahåller komponenter för databasformulär",
-        "Description[tr]": "Veritabanı form araç takımları sağlayan KEXI eklentisi",
+        "Description[tr]": "Veri tabanı form araç takımları sağlayan KEXI eklentisi",
         "Description[uk]": "Додаток до KEXI, що забезпечує роботу віджетів форм бази даних",
         "Description[zh_CN]": "KEXI 数据库表单部件插件",
         "EnabledByDefault": true,

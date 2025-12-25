@@ -66,7 +66,7 @@
         "Description[sk]": "MySQL importný plugin pre Kexi",
         "Description[sl]": "Vtičnik uvoza iz MySQL v KEXI",
         "Description[sv]": "Importinsticksprogram av MySQL-databaser för KEXI",
-        "Description[tr]": "KEXI için MySQL veritabanı içe aktarma eklentisi",
+        "Description[tr]": "KEXI için MySQL veri tabanı içe aktarma eklentisi",
         "Description[uk]": "Додаток імпортування баз даних з MySQL для KEXI",
         "Description[zh_CN]": "KEXI MySQL 数据库导入插件",
         "EnabledByDefault": true,
