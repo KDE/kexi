@@ -3439,7 +3439,7 @@ msgstr "Guarda l'objecte com a"
 #, kde-kuit-format
 msgctxt "@info Saving object failed"
 msgid "Saving <resource>%1</resource> object failed."
-msgstr "No s'ha pogut guardar l'objecte <resource>%1</resource>."
+msgstr "Ha fallat mentre es guardava l'objecte <resource>%1</resource>."
 
 #: main/KexiMainWindow.cpp:3115
 #, kde-kuit-format
@@ -4360,8 +4360,8 @@ msgstr ""
 #, kde-kuit-format
 msgid "Failed saving connection data to <filename>%1</filename> file."
 msgstr ""
-"No s'han pogut guardar les dades de connexió en el fitxer <filename>%1</"
-"filename>."
+"Ha fallat mentre es guardaven les dades de connexió en el fitxer <filename>"
+"%1</filename>."
 
 #: main/startup/KexiStartupDialog.cpp:96 main/startup/KexiStartupDialog.cpp:240
 #, kde-kuit-format
@@ -4983,7 +4983,7 @@ msgid ""
 "resource>."
 msgstr ""
 "No s'ha pogut importar el projecte de la base de dades %1. S'ha produït un "
-"error en llegir la taula <resource>%2</resource>."
+"error mentre es llegia la taula <resource>%2</resource>."
 
 #: migration/keximigrate.cpp:513
 #, kde-kuit-format
@@ -7474,7 +7474,7 @@ msgstr "Exporta l'informe com una pàgina Web (en format HTML)."
 #: plugins/reports/kexireportview.cpp:184
 #, kde-kuit-format
 msgid "Printing the report failed."
-msgstr "No s'ha pogut imprimir l'informe."
+msgstr "Ha fallat mentre s'imprimia l'informe."
 
 #: plugins/reports/kexireportview.cpp:185
 #, kde-kuit-format
@@ -7512,7 +7512,7 @@ msgstr "Exporta com a full de càlcul"
 #: plugins/reports/kexireportview.cpp:272
 #, kde-kuit-format
 msgid "Failed to export the report as spreadsheet to %1."
-msgstr "No s'ha pogut exportar l'informe com a full de càlcul a %1."
+msgstr "Ha fallat mentre s'exportava l'informe com a full de càlcul a %1."
 
 #: plugins/reports/kexireportview.cpp:288
 #, kde-kuit-format
@@ -7721,7 +7721,7 @@ msgid ""
 "Error executing script at line %1:\n"
 "%2"
 msgstr ""
-"S'ha produït un error en executar l'script a la línia %1:\n"
+"S'ha produït un error mentre s'executava l'script a la línia %1:\n"
 "%2"
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:107
