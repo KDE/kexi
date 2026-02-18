@@ -1,6 +1,5 @@
 # translation of kexi.po to Romanian
 # Copyright (C) 2003 Free Software Foundation, Inc.
-# Sergiu Bivol <sbivol87@gmail.com>, 20008.
 # Sergiu Bivol <sergiu@cip.md>, 2008, 2012, 2021.
 # Cristian Oneț <onet.cristian@gmail.com>, 2011.
 #
