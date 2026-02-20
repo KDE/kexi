@@ -23,11 +23,7 @@ msgid "Map Browser"
 msgstr "Brabhsálaí Mapa"
 
 #: MapBrowserFactory.cpp:57
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "This string will be used to name widgets of this class. It must _not_ "
-#| "contain white spaces and non latin1 characters."
-#| msgid "mapBrowser"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of map browser widgets. Based on that, identifiers "
 "such as mapBrowser1, mapBrowser2 are generated. This string can be used to "
@@ -37,7 +33,7 @@ msgctxt ""
 "with upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "mapBrowser"
-msgstr "mapBrowser"
+msgstr ""
 
 #: MapBrowserFactory.cpp:58
 #, kde-kuit-format
