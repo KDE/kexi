@@ -1605,7 +1605,7 @@ msgstr "窗口标题"
 #: formeditor/form_p.cpp:274
 #, kde-kuit-format
 msgid "Text"
-msgstr "文字"
+msgstr "文本"
 
 #: formeditor/form_p.cpp:275
 #, kde-kuit-format
@@ -5416,7 +5416,7 @@ msgstr "方向"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:426
 #, kde-kuit-format
 msgid "Text Direction"
-msgstr "文字方向"
+msgstr "文本方向"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:427
 #, kde-kuit-format
@@ -6587,7 +6587,7 @@ msgstr "数据已成功导入到表 <resource>%1</resource>。"
 #, kde-kuit-format
 msgctxt "Text type for column"
 msgid "Text"
-msgstr "文字"
+msgstr "文本"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2080
 #, kde-kuit-format
@@ -6879,7 +6879,7 @@ msgstr "别名"
 #: plugins/queries/kexiquerydesignersql.cpp:102
 #, kde-kuit-format
 msgid "SQL Query Text"
-msgstr "SQL 查询文字"
+msgstr "SQL 查询文本"
 
 #: plugins/queries/kexiquerydesignersql.cpp:155
 #: plugins/queries/kexiquerydesignersql.cpp:158
