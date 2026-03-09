@@ -9113,7 +9113,7 @@ msgstr "(آليّ)"
 #: widget/utils/kexirecordnavigator.cpp:170
 #, kde-kuit-format
 msgid "Record:"
-msgstr "التسجّيل:"
+msgstr "التسجيل:"
 
 #: widget/utils/kexirecordnavigator.cpp:201
 #, kde-kuit-format
