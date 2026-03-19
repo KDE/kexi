@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2013, 2014, 2015, 2016, 2020, 2021, 2022, 2024 Giovanni Sora <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2013, 2014, 2015, 2016, 2020, 2021, 2022, 2024, 2026 Giovanni Sora <g.sora@tiscali.it>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:18+0000\n"
-"PO-Revision-Date: 2024-09-09 15:19+0200\n"
+"PO-Revision-Date: 2026-03-18 11:05+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -2408,12 +2408,10 @@ msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, m_match)
 #: main/kexifinddialog.ui:187
-#, fuzzy, kde-format
-#| msgctxt "Table field"
-#| msgid "Field"
+#, kde-format
 msgctxt "Match: Whole Field"
 msgid "Whole Field"
-msgstr "Campo"
+msgstr "Campo complete"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, m_match)
 #: main/kexifinddialog.ui:192
@@ -3761,10 +3759,9 @@ msgstr "Didascalia de projecto:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #: main/startup/KexiServerDBNamePage.ui:60
-#, fuzzy, kde-format
-#| msgid "Database name:"
+#, kde-format
 msgid "Project's database name:"
-msgstr "Nomine de base de datos:"
+msgstr "Nomine de base de datos de Projecto:"
 
 #: main/startup/KexiStartup.cpp:248
 #, kde-format
@@ -4054,7 +4051,7 @@ msgstr ""
 #: main/startup/KexiWelcomeStatusBar.cpp:763
 #, kde-kuit-format
 msgid "Donate to the Project"
-msgstr ""
+msgstr "Dona al projecto"
 
 #: main/startup/KexiWelcomeStatusBar.cpp:764
 #, kde-kuit-format
