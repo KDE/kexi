@@ -3,13 +3,13 @@
 # Nuriddin Aminagha <nuriddin@haydarlinux.org>, 2003.
 # Nuriddin Aminagha <nuriddin@eminaga.de>, 2003.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
-# SPDX-FileCopyrightText: 2022, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2024, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2025-10-05 10:33+0400\n"
+"PO-Revision-Date: 2026-03-24 10:59+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -153,7 +153,7 @@ msgstr "ديميتريوس ت. تانيس"
 #: core/kexiaboutdata.cpp:60
 #, kde-kuit-format
 msgid "Users Manual for KEXI 2, main window improvements, numerous bug reports"
-msgstr "دليل المستخدم لـ كيس 2، تحسينات النافذة الرئيسية، تقارير أخطاء عديدة"
+msgstr "دليل المستخدم لـ كيس 2، تحسينات النافذة الرئيسة، تقارير أخطاء عديدة"
 
 #: core/kexiaboutdata.cpp:62
 #, kde-kuit-format
@@ -548,8 +548,8 @@ msgid ""
 "Hide the main menu (the tabbed toolbar) completely. A number of commands "
 "from the main menu is still visible. This option is useful in User Mode."
 msgstr ""
-"أخفِ القائمة الرئيسية (شريط الأدوات المُبَوَّب) بالكامل. لا يزال عدد من الأوامر "
-"من القائمة الرئيسية مرئيًا. هذا الخيار مُفيد في وضع المُستخدم."
+"أخفِ القائمة الرئيسة (شريط الأدوات المُبَوَّب) بالكامل. لا يزال عدد من الأوامر من "
+"القائمة الرئيسة مرئيًا. هذا الخيار مُفيد في وضع المُستخدم."
 
 #: core/KexiCommandLineOptions.cpp:97
 #, kde-kuit-format
@@ -1861,7 +1861,7 @@ msgstr "سطر أفقي"
 #, kde-kuit-format
 msgctxt "Vertical Line (HINT: for Frame Shape)"
 msgid "Vertical Line"
-msgstr "خط رأسي"
+msgstr "خط عمودي"
 
 #: formeditor/form_p.cpp:326
 #, kde-kuit-format
@@ -1982,7 +1982,7 @@ msgstr "أفقي"
 #: formeditor/form_p.cpp:351
 #, kde-kuit-format
 msgid "Vertical"
-msgstr "رأسي"
+msgstr "عمودي"
 
 #: formeditor/form_p.cpp:354
 #, kde-kuit-format
@@ -2953,17 +2953,17 @@ msgstr "ينشّط جزء ملاح المشروع. لو كان مخفياً، ي
 #: main/KexiMainWindow.cpp:795
 #, kde-kuit-format
 msgid "Activate main area"
-msgstr "نشّط المساحة الرئيسية"
+msgstr "نشّط المساحة الرئيسة"
 
 #: main/KexiMainWindow.cpp:799
 #, kde-kuit-format
 msgid "Activate the main area"
-msgstr "نشّط المساحة الرئيسية"
+msgstr "نشّط المساحة الرئيسة"
 
 #: main/KexiMainWindow.cpp:800
 #, kde-kuit-format
 msgid "Activates the main area."
-msgstr "ينشّط المساحة الرئيسية."
+msgstr "ينشّط المساحة الرئيسة."
 
 #: main/KexiMainWindow.cpp:807
 #, kde-kuit-format
@@ -3541,7 +3541,7 @@ msgstr "زر صفحة كيس على تويتر على %1"
 #: main/KexiMenuWidget.cpp:2216
 #, kde-kuit-format
 msgid "Visit Calligra home page at %1"
-msgstr "زر صفحة كاليغرا الرئيسية على %1"
+msgstr "زر صفحة كاليغرا الرئيسة على %1"
 
 #: main/KexiRegisterResource_p.h:139
 #, kde-kuit-format
@@ -5451,7 +5451,7 @@ msgstr "أدخل خطًا &أفقيًا"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:365
 #, kde-kuit-format
 msgid "Insert &Vertical Line"
-msgstr "إدراج سطر &رأسي"
+msgstr "إدراج سطر &عمودي"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:374
 #, kde-kuit-format
@@ -5992,7 +5992,7 @@ msgstr "شريط تمرير أفقي"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:554
 #, kde-kuit-format
 msgid "Vertical Scroll Bar"
-msgstr "شريط تمرير رأسي"
+msgstr "شريط تمرير عمودي"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:556
 #, kde-kuit-format
