@@ -2571,7 +2571,7 @@ msgstr "يفتح مشروعاً موجوداً. المشروع المفتوح ح
 #: main/KexiMainWindow.cpp:587
 #, kde-kuit-format
 msgid "Welcome"
-msgstr "مرحباً"
+msgstr "مرحبًا"
 
 #: main/KexiMainWindow.cpp:591
 #, kde-kuit-format
