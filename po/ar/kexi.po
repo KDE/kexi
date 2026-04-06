@@ -2557,7 +2557,7 @@ msgstr "استبدل الكلّ"
 #, kde-kuit-format
 msgctxt "Welcome global view mode"
 msgid "Welcome"
-msgstr "مرحباً"
+msgstr "مرحبًا"
 
 #: main/KexiGlobalViewModeSelector.cpp:140
 #, kde-kuit-format
@@ -2632,7 +2632,7 @@ msgstr "يفتح مشروعاً مفتوحاً حديثاً."
 #: main/KexiMainWindow.cpp:484
 #, kde-kuit-format
 msgid "Welcome"
-msgstr "مرحباً"
+msgstr "مرحبًا"
 
 #: main/KexiMainWindow.cpp:488
 #, kde-kuit-format
