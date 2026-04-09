@@ -19,8 +19,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.12.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -6470,18 +6470,16 @@ msgstr ""
 "Súbor dát neobsahuje žiadne riadky. Želáte si naimportovať prázdnu tabuľku?"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
-#, fuzzy, kde-format
-#| msgid "Ready to Import"
+#, kde-format
 msgctxt "@action:button"
 msgid "Do not Import"
 msgstr "Pripravený na import"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
-#, fuzzy, kde-format
-#| msgid "Importing"
+#, kde-format
 msgctxt "@action:button"
 msgid "Import"
-msgstr "Importuje sa"
+msgstr "Importovať"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
@@ -9338,33 +9336,26 @@ msgstr "Presunie kurzor na nový riadok a povolí vkladanie."
 #~ msgstr "&Zrušiť zmeny v riadku"
 
 #, fuzzy
-#~| msgid "&Close Tab"
 #~ msgid "&Next Tab"
 #~ msgstr "&Zavrieť kartu"
 
 #, fuzzy
-#~| msgctxt "Button text: Next page in assistant (wizard)"
-#~| msgid "Next"
 #~ msgid "Next tab"
 #~ msgstr "Ďalej"
 
 #, fuzzy
-#~| msgid "Switches to the next window."
 #~ msgid "Switches to the next tab."
 #~ msgstr "Prepne do nasledujúceho okna."
 
 #, fuzzy
-#~| msgid "&Previous Window"
 #~ msgid "&Previous Tab"
 #~ msgstr "&Predchádzajúce okno"
 
 #, fuzzy
-#~| msgid "Previous window"
 #~ msgid "Previous tab"
 #~ msgstr "Predchádzajúce okno"
 
 #, fuzzy
-#~| msgid "Switches to the previous window."
 #~ msgid "Switches to the previous tab."
 #~ msgstr "Prepne do predchádzajúceho okna."
 
@@ -9382,19 +9373,16 @@ msgstr "Presunie kurzor na nový riadok a povolí vkladanie."
 #~ msgstr "Editor vlastností"
 
 #, fuzzy
-#~| msgid "Could not start %1 application."
 #~ msgctxt "@info:whatsthis"
 #~ msgid "Files a bug or wish for <application>%1</application> application."
 #~ msgstr "Nie je možné spustiť aplikáciu"
 
 #, fuzzy
-#~| msgid "Could not start %1 application."
 #~ msgctxt "@info:whatsthis"
 #~ msgid "Shows <application>%1</application> Handbook."
 #~ msgstr "Nie je možné spustiť aplikáciu"
 
 #, fuzzy
-#~| msgid "Could not start %1 application."
 #~ msgctxt "@info:whatsthis"
 #~ msgid "Shows information about <application>%1</application> application."
 #~ msgstr "Nie je možné spustiť aplikáciu"
@@ -9423,8 +9411,6 @@ msgstr "Presunie kurzor na nový riadok a povolí vkladanie."
 #~ msgstr "Vlastnosti"
 
 #, fuzzy
-#~| msgctxt "@info"
-#~| msgid "Could not read <filename>%1</filename>."
 #~ msgctxt "@info"
 #~ msgid "Could not open Kexi plugin <filename>%1</filename>."
 #~ msgstr "Nemôžem čítať <filename>%1</filename>."
@@ -9555,14 +9541,10 @@ msgstr "Presunie kurzor na nový riadok a povolí vkladanie."
 #~ msgstr "pm"
 
 #, fuzzy
-#~| msgctxt "<operating system>, <platform>"
-#~| msgid "%1, %2"
 #~ msgid "%1, %2"
 #~ msgstr "%1, %2"
 
 #, fuzzy
-#~| msgctxt "@info"
-#~| msgid "The file or directory <filename>%1</filename> does not exist."
 #~ msgctxt "@info"
 #~ msgid "The file <filename>%1<filename> is not readable."
 #~ msgstr "Súbor alebo adresár <filename>%1</filename> neexistuje."
@@ -9571,9 +9553,6 @@ msgstr "Presunie kurzor na nový riadok a povolí vkladanie."
 #~ msgstr "Dátový identifikátor: \"%1\"."
 
 #, fuzzy
-#~| msgid ""
-#~| "Could not open shortcut file\n"
-#~| "\"%1\"."
 #~ msgctxt "@info"
 #~ msgid "Could not load Kexi plugin file \"%1\"."
 #~ msgstr ""
@@ -9581,7 +9560,6 @@ msgstr "Presunie kurzor na nový riadok a povolí vkladanie."
 #~ "\"%1\"."
 
 #, fuzzy
-#~| msgid "Could not open project \"%1\"."
 #~ msgid "Could not open Kexi plugin \"%1\"."
 #~ msgstr "Nie je možné otvoriť projekt \"%1\"."
 
@@ -9595,14 +9573,12 @@ msgstr "Presunie kurzor na nový riadok a povolí vkladanie."
 #~ msgstr "Nie je možné vytvoriť projekt \"%1\"."
 
 #, fuzzy
-#~| msgid "Opening object \"%1\" failed."
 #~ msgid ""
 #~ "Opening object \"%1\" failed.\n"
 #~ "%2%3"
 #~ msgstr "Otvorenie objektu \"%1\" zlyhalo."
 
 #, fuzzy
-#~| msgid "Do you want to drop the project \"%1\"?"
 #~ msgid ""
 #~ "Do you want to delete the project \"%1\"?\n"
 #~ "%1"
@@ -9801,7 +9777,6 @@ msgstr "Presunie kurzor na nový riadok a povolí vkladanie."
 #~ "formát?"
 
 #, fuzzy
-#~| msgid "Save New Project As"
 #~ msgctxt "@window:title"
 #~ msgid "Save New Project As"
 #~ msgstr "Uložiť nový projekt ako"
