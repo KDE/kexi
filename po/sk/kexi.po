@@ -320,7 +320,7 @@ msgstr "Vyčistenie kódu"
 #: core/kexiaboutdata.cpp:92
 #, kde-kuit-format
 msgid "Bugfixes, original Table Widget"
-msgstr "Opravy chýb, pôbodný komponent pre tabuľky"
+msgstr "Opravy chýb, pôvodný komponent pre tabuľky"
 
 #: core/kexiaboutdata.cpp:92
 #, kde-kuit-format
@@ -400,7 +400,7 @@ msgstr "Vylepšenia pôvodného návrhu"
 #: core/kexiaboutdata.cpp:111
 #, kde-kuit-format
 msgid "Icons and user interface research"
-msgstr "Ikony a výzkum UI"
+msgstr "Ikony a výskum UI"
 
 #: core/kexiaboutdata.cpp:111
 #, kde-kuit-format
@@ -2764,7 +2764,7 @@ msgstr "Ukončí aplikáciu <application>%1</application>."
 #: main/KexiMainWindow.cpp:553
 #, kde-kuit-format
 msgid "&Import Database..."
-msgstr "&Impotovať databázu..."
+msgstr "&Importovať databázu..."
 
 #: main/KexiMainWindow.cpp:554
 #, kde-kuit-format
@@ -2794,7 +2794,7 @@ msgstr "Importuje dáta z externého zdroja do tohto projektu."
 #: main/KexiMainWindow.cpp:569
 #, kde-kuit-format
 msgid "&Compact Database..."
-msgstr "Z&hustit databázu..."
+msgstr "Z&hustiť databázu..."
 
 #: main/KexiMainWindow.cpp:570
 #, kde-kuit-format
@@ -2947,7 +2947,7 @@ msgstr "Vyprázdni tabuľku."
 #: main/KexiMainWindow.cpp:701
 #, kde-kuit-format
 msgid "Edit Item"
-msgstr "Ediovať prvok"
+msgstr "Editovať prvok"
 
 #: main/KexiMainWindow.cpp:704
 #, kde-kuit-format
@@ -3596,7 +3596,7 @@ msgstr "Navštívte Twitter stránku Kexi na %1"
 #: main/KexiMenuWidget.cpp:2216
 #, kde-kuit-format
 msgid "Visit Calligra home page at %1"
-msgstr "Navštívne domovskú stránku Calligra na %1"
+msgstr "Navštívte domovskú stránku Calligra na %1"
 
 #: main/KexiRegisterResource_p.h:139
 #, kde-kuit-format
@@ -3657,7 +3657,7 @@ msgstr ""
 #: main/startup/KexiNewProjectAssistant.cpp:97
 #, kde-kuit-format
 msgid "Blank Projects"
-msgstr "Prádzne projekty"
+msgstr "Prázdne projekty"
 
 #: main/startup/KexiNewProjectAssistant.cpp:101
 #, kde-kuit-format
@@ -5070,7 +5070,7 @@ msgctxt ""
 "character. If you cannot use latin characters in your language, use english "
 "word."
 msgid "form"
-msgstr "formular"
+msgstr "formulár"
 
 #: plugins/forms/kexiformpart.cpp:75
 #, kde-kuit-format
@@ -5609,7 +5609,7 @@ msgstr "Popis"
 #, kde-kuit-format
 msgctxt "Property of slider widgets"
 msgid "Page Step"
-msgstr "Skrok strany"
+msgstr "Skok strany"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:433
 #, kde-kuit-format
@@ -6370,7 +6370,7 @@ msgstr "(stĺpcov: %1)"
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:141
 #, kde-kuit-format
 msgid "Enter Name of File You Want to Save Data To"
-msgstr "Vložte meno súboru, do ktorého chcete ulložiť údaje."
+msgstr "Vložte meno súboru, do ktorého chcete uložiť údaje."
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:173
 #, kde-kuit-format
@@ -7072,7 +7072,8 @@ msgstr "Otázka (query) je nesprávna"
 msgid ""
 "Please enter your query and execute \"Check query\" function to verify it."
 msgstr ""
-"Vložte,prosim, vašu otázku (query) a spustite funkciu \"Skontrolovať otázku\""
+"Vložte, prosím, vašu otázku (query) a spustite funkciu \"Skontrolovať otázku"
+"\""
 
 #: plugins/queries/kexiquerydesignersql.cpp:233
 #, kde-kuit-format
@@ -7835,7 +7836,7 @@ msgid ""
 "Allow Zero\n"
 "Size"
 msgstr ""
-"Povoľ nlovú\n"
+"Povoľ nulovú\n"
 "dĺžku"
 
 #: plugins/tables/kexitabledesignerview.cpp:411
@@ -8764,7 +8765,7 @@ msgstr "Zapamätať heslo:"
 #: widget/kexiprjtypeselector.ui:51
 #, kde-format
 msgid "Projects stored in a file"
-msgstr "Projelty uložené v súboroch"
+msgstr "Projekty uložené v súboroch"
 
 #. i18n: ectx: property (text), widget (QRadioButton, option_server)
 #: widget/kexiprjtypeselector.ui:86
@@ -9206,7 +9207,7 @@ msgstr "Počet záznamov"
 #: widget/utils/kexirecordnavigator.cpp:598
 #, kde-kuit-format
 msgid "Editing indicator"
-msgstr "Indikátor módu upavovania"
+msgstr "Indikátor módu upravovania"
 
 #: widget/utils/kexirecordnavigator.cpp:625
 #, kde-kuit-format
