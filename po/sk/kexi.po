@@ -4322,7 +4322,7 @@ msgstr "Vytvoriť projekt"
 #: main/startup/KexiStartupDialog.cpp:98 main/startup/KexiStartupDialog.cpp:361
 #, kde-kuit-format
 msgid "Open Existing Project"
-msgstr "Otvoriť projekt"
+msgstr "Otvoriť existujúci projekt"
 
 #: main/startup/KexiStartupDialog.cpp:100
 #, kde-kuit-format
@@ -4928,7 +4928,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not import table <resource>%1</resource>."
-msgstr "Nepodarilo sa vytvoriť tabuľku <resource>%1</resource>."
+msgstr "Nepodarilo sa importovať tabuľku <resource>%1</resource>."
 
 #: migration/keximigrate.cpp:556
 #, kde-kuit-format
@@ -5316,7 +5316,7 @@ msgstr "Komponent na zobrazenie textu"
 #, kde-kuit-format
 msgctxt "Image Box widget"
 msgid "Image Box"
-msgstr "Obrázok"
+msgstr "Pole obrázka"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:182
 #, kde-format
@@ -6473,7 +6473,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Do not Import"
-msgstr "Pripravený na import"
+msgstr "Neimportovať"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:408
 #, kde-format
@@ -6885,7 +6885,7 @@ msgstr "Stĺpce otázky (query)"
 #, kde-kuit-format
 msgctxt "No query column selected in the Query Designer"
 msgid "No column selected"
-msgstr "Žiadne pole nie je označené"
+msgstr "Žiadny stĺpec nie je označený"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:244
 #, kde-kuit-format
@@ -7900,7 +7900,7 @@ msgstr "Uložiť dizajn a vymazať údaje tabuliek"
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Discard Design"
-msgstr "Zahodiť zmeny"
+msgstr "Zahodiť návrh"
 
 #: plugins/tables/kexitabledesignerview.cpp:643
 #, kde-format
