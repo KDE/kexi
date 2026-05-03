@@ -6,13 +6,13 @@
 # Özer Kavak <ozerkavak@gmail.com>, 2008.
 # obsoleteman <tulliana@gmail.com>, 2008-2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014, 2015, 2017.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2025-12-23 12:11+0300\n"
+"PO-Revision-Date: 2026-05-02 18:46+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -1027,7 +1027,7 @@ msgid ""
 "<para>The project %1 already exists.</para><para>Do you want to replace it "
 "with a new, blank one?</para><para><warning>%2</warning></para>"
 msgstr ""
-"<para>%1 projesi halihazırda var.</para><para>Yeni ve boş olanla değiştirmek "
+"<para>%1 projesi hâlihazırda var.</para><para>Yeni ve boş olanla değiştirmek "
 "istiyor musunuz?</para><para><warning>%2</warning></para>"
 
 #: core/kexiproject.cpp:1218
@@ -1614,7 +1614,7 @@ msgid ""
 "because a widget with the name <resource>%3</resource> already exists."
 msgstr ""
 "<resource>%1</resource> araç takımı, <resource>%2</resource> olarak yeniden "
-"adlandırılamadı; çünkü <resource>%3</resource> halihazırda kullanımda olan "
+"adlandırılamadı; çünkü <resource>%3</resource> hâlihazırda kullanımda olan "
 "bir araç takımı adı."
 
 #: formeditor/form.cpp:1449 formeditor/form.cpp:1718
@@ -2354,7 +2354,7 @@ msgid ""
 "<para>The file <filename>%1</filename> already exists.</para><para>Do you "
 "want to overwrite it?</para>"
 msgstr ""
-"<para><filename>%1</filename> dosyası halihazırda var.</para><para>Üzerine "
+"<para><filename>%1</filename> dosyası hâlihazırda var.</para><para>Üzerine "
 "yazmak istiyor musunuz?</para>"
 
 #: kexiutils/utils.cpp:761
@@ -4496,7 +4496,7 @@ msgstr ""
 #: migration/importtablewizard.cpp:128
 #, kde-kuit-format
 msgid "Name Already Used"
-msgstr "Ad Halihazırda Kullanımda"
+msgstr "Ad Hâlihazırda Kullanımda"
 
 #: migration/importtablewizard.cpp:168
 #, kde-kuit-format
@@ -7145,7 +7145,7 @@ msgstr "<resource>%1</resource> sorgusunun tasarımı değiştirildi."
 #, kde-format
 msgctxt "@info"
 msgid "Query <resource>%1</resource> already exists."
-msgstr "<resource>%1</resource> sorgusu halihazırda var."
+msgstr "<resource>%1</resource> sorgusu hâlihazırda var."
 
 #: plugins/queries/kexiquerypart.cpp:260 plugins/tables/kexitablepart.cpp:208
 #, kde-format
@@ -9158,7 +9158,7 @@ msgid ""
 "<para>File <filename>%1</filename> already exists.</para><para>Do you want "
 "to replace it with a new one?</para>"
 msgstr ""
-"<para><filename>%1</filename> dosyası halihazırda var.</para><para>Onu, yeni "
+"<para><filename>%1</filename> dosyası hâlihazırda var.</para><para>Onu, yeni "
 "bir dosyayla değiştirmek istiyor musunuz?</para>"
 
 #: widget/utils/kexicontextmenuutils.cpp:164
