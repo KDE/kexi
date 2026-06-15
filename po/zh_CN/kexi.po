@@ -672,7 +672,7 @@ msgid ""
 "Skip displaying connection dialog window and connect directly. Available "
 "when opening .kexic or .kexis shortcut files."
 msgstr ""
-"跳过显示连接对话框窗口并直接连接。打开.kexic或.kexis快捷方式文件时可用。"
+"跳过显示连接对话框窗口并直接连接。打开 .kexic 或 .kexis 快捷方式文件时可用。"
 
 #: core/KexiCommandLineOptions.cpp:180
 #, kde-kuit-format
