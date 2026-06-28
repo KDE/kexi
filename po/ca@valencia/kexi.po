@@ -564,8 +564,8 @@ msgstr ""
 msgctxt "'show-navigator' command line option"
 msgid "Show the Project Navigator side pane even if KEXI runs in User Mode."
 msgstr ""
-"Mostra la subfinestra lateral del quadro navegador del projecte encara que "
-"KEXI funcione en el mode usuari."
+"Mostra el quadro lateral del quadro navegador del projecte encara que KEXI "
+"funcione en el mode usuari."
 
 #: core/KexiCommandLineOptions.cpp:91
 #, kde-kuit-format
@@ -2514,7 +2514,7 @@ msgstr "Busca"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Find in <resource>%1</resource>"
-msgstr "Busca a <resource>%1</resource>"
+msgstr "Busca en <resource>%1</resource>"
 
 #: main/kexifinddialog.cpp:272
 #, kde-kuit-format
@@ -2526,7 +2526,7 @@ msgstr "no s'ha trobat l'element"
 #, kde-format
 msgctxt "Look in field:"
 msgid "&Look in:"
-msgstr "Bu&sca a:"
+msgstr "Bu&sca en:"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2)
 #: main/kexifinddialog.ui:36
@@ -3319,7 +3319,7 @@ msgstr "Trieu la ubicació del projecte nou"
 #: main/KexiMainWindow.cpp:1602
 #, kde-kuit-format
 msgid "cannot create object - unknown object type \"%1\""
-msgstr "no s'ha pogut crear l'objecte - tipus d'objecte «%1» desconegut"
+msgstr "no s'ha pogut crear l'objecte – tipus d'objecte «%1» desconegut"
 
 #: main/KexiMainWindow.cpp:1605
 #, kde-kuit-format
