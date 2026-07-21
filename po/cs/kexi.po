@@ -3,21 +3,22 @@
 # SPDX-FileCopyrightText: 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2024 Vít Pelčák <vit@pelcak.org>
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
 # SPDX-FileCopyrightText: 2021, 2023, 2024 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2024-07-15 15:26+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-07-20 22:23+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -55,8 +56,7 @@ msgctxt "@info"
 msgid ""
 "<resource>%1</resource> function is not available for version %2 of %3 "
 "application."
-msgstr ""
-" Funkce <resource>%1</resource> není dostupná pro verzi %2 aplikace %3."
+msgstr "Funkce <resource>%1</resource> není dostupná pro verzi %2 aplikace %3."
 
 #: core/kexi.cpp:405
 #, kde-kuit-format
@@ -65,11 +65,13 @@ msgid ""
 "<application>%1</application> could have been incorrectly installed or "
 "started. The application will be closed."
 msgstr ""
+"<application>%1</application> mohla být nesprávně nainstalována nebo "
+"spuštěna. Aplikace bude ukončena."
 
 #: core/kexiaboutdata.cpp:28
 #, kde-format
 msgid "Visual database applications creator"
-msgstr ""
+msgstr "Tvůrce vizuálních databázových aplikací"
 
 #: core/kexiaboutdata.cpp:37
 #, kde-kuit-format
@@ -122,7 +124,7 @@ msgstr ""
 #: core/kexiaboutdata.cpp:54
 #, kde-kuit-format
 msgid "Map elements for forms and reports, map flake shape"
-msgstr ""
+msgstr "Mapové prvky pro formuláře a přehledy, tvar mapového úseku"
 
 #: core/kexiaboutdata.cpp:54
 #, kde-kuit-format
@@ -153,6 +155,8 @@ msgstr "Dimitrios T. Tanis"
 #, kde-kuit-format
 msgid "Users Manual for KEXI 2, main window improvements, numerous bug reports"
 msgstr ""
+"Uživatelská příručka pro KEXI 2, vylepšení hlavního okna, četná hlášení o "
+"chybách"
 
 #: core/kexiaboutdata.cpp:62
 #, kde-kuit-format
@@ -162,7 +166,7 @@ msgstr "Oleg Kukharchuk"
 #: core/kexiaboutdata.cpp:62
 #, kde-kuit-format
 msgid "Several form widgets, porting to Qt 4, stabilization"
-msgstr ""
+msgstr "Několik formulářových widgetů, portování na Qt 4, stabilizace"
 
 #: core/kexiaboutdata.cpp:64
 #, kde-kuit-format
@@ -192,7 +196,7 @@ msgstr "Lorenzo Villani"
 #: core/kexiaboutdata.cpp:68
 #, kde-kuit-format
 msgid "Web Forms module"
-msgstr ""
+msgstr "Modul webových formulářů"
 
 #: core/kexiaboutdata.cpp:70
 #, kde-kuit-format
@@ -335,12 +339,12 @@ msgstr "Spousta hlášení chyb a testů"
 #: core/kexiaboutdata.cpp:97
 #, kde-kuit-format
 msgid "AppImage packages for Linux"
-msgstr ""
+msgstr "Balíčky AppImage pro Linux"
 
 #: core/kexiaboutdata.cpp:97
 #, kde-kuit-format
 msgid "Scarlett Gately Clark"
-msgstr ""
+msgstr "Scarlett Gately Clark"
 
 #: core/kexiaboutdata.cpp:99
 #, kde-kuit-format
@@ -360,7 +364,7 @@ msgstr "Robert Leleu"
 #: core/kexiaboutdata.cpp:103
 #, kde-kuit-format
 msgid "Bug fixes, build system improvements, code cleanups"
-msgstr ""
+msgstr "Opravy chyb, vylepšení systému sestavování, úprava kódu"
 
 #: core/kexiaboutdata.cpp:103
 #, kde-kuit-format
@@ -426,13 +430,13 @@ msgstr "Paweł Wirecki / OpenOffice Polska"
 #, kde-format, kde-kuit-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "lukas@kde.org,koty@seznam.cz,vit@pelcak.org"
+msgstr "lukas@kde.org,koty@seznam.cz,vit@pelcak.org,libor.filipek@gmail.com"
 
 #: core/kexiaboutdata.cpp:118
 #, kde-format, kde-kuit-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Lukáš Tinkl,Klára Cihlářová,Vít Pelčák"
+msgstr "Lukáš Tinkl,Klára Cihlářová,Vít Pelčák,Libor Filípek"
 
 #: core/KexiCommandLineOptions.cpp:38
 #, kde-kuit-format
@@ -471,6 +475,11 @@ msgid ""
 "Complete KDb-specific globally unique identifier can be used, e.g. \"org.kde."
 "kdb.sqlite\" to specify exact vendor of the driver."
 msgstr ""
+"Název ovladače databáze, který se má použít při připojení k databázovému "
+"projektu (výchozí hodnota je \"sqlite\"). Pokud je zadán název zkráceného "
+"souboru, bude tento parametr ignorován. Lze použít úplný globálně jedinečný "
+"identifikátor specifický pro KDb, např. \"org.kde.kdb.sqlite\", aby se určil "
+"přesný výrobce ovladače."
 
 #: core/KexiCommandLineOptions.cpp:57
 #, kde-kuit-format
@@ -519,9 +528,9 @@ msgid ""
 "support. This option is ignored when \"createdb\" option is present, "
 "otherwise the database could not be created."
 msgstr ""
-"Určuje že databázová spojení budou provedena bez podpory zápisu. Tato volba "
-"je ignorována pokud je použit parametr \"createdb\" což by znemožňovalo "
-"vytvoření databáze."
+"Určuje že databázová připojení budou provedena bez podpory zápisu. Tato "
+"volba je ignorována pokud je použit parametr \"createdb\" což by "
+"znemožňovalo vytvoření databáze."
 
 #: core/KexiCommandLineOptions.cpp:82
 #, kde-kuit-format
@@ -541,6 +550,8 @@ msgstr "Otevřít projekt v Návrhářském režimu bez ohledu na nastavení pro
 msgctxt "'show-navigator' command line option"
 msgid "Show the Project Navigator side pane even if KEXI runs in User Mode."
 msgstr ""
+"Zobrazit postranní panel Projektového navigátoru i v případě, že KEXI běží v "
+"uživatelském režimu."
 
 #: core/KexiCommandLineOptions.cpp:91
 #, kde-kuit-format
@@ -549,6 +560,9 @@ msgid ""
 "Hide the main menu (the tabbed toolbar) completely. A number of commands "
 "from the main menu is still visible. This option is useful in User Mode."
 msgstr ""
+"Úplně skrýt hlavní nabídku (nástrojovou lištu s kartami). Některé příkazy z "
+"hlavní nabídky zůstávají i nadále viditelné. Tato volba je užitečná v "
+"uživatelském režimu."
 
 #: core/KexiCommandLineOptions.cpp:97
 #, kde-kuit-format
@@ -561,6 +575,13 @@ msgid ""
 "Use \"\" characters to specify names containing spaces.\n"
 "Examples: --open MyTable, --open %2:\"My very big query\""
 msgstr ""
+"Při spuštění aplikace otevřít objekt typu 'object_type' a s názvem "
+"'object_name' ze zadaného projektu. 'object_type' je volitelný; pokud je "
+"vynechán, předpokládá se typ %1. Další typy objektů mohou být %2, %3, %4, "
+"%5. V závislosti na nainstalovaných pluginech KEXI může být k dispozici více "
+"či méně typů.\n"
+"K zadání názvů obsahujících mezery použijte znaky \"\".\n"
+"Příklady: --open MyTable, --open %2:\"Můj opravdu velký dotaz\""
 
 #: core/KexiCommandLineOptions.cpp:108
 #, kde-kuit-format
@@ -591,12 +612,17 @@ msgid ""
 "available depending on KEXI plugins installed.\n"
 "Use \"\" characters to specify names containing spaces."
 msgstr ""
+"Při spuštění aplikace spustit objekt typu 'object_type' s názvem "
+"'object_name'. 'object_type' je volitelný; pokud není zadán, předpokládá se "
+"typ %1. Typem objektu může být také %2. V závislosti na nainstalovaných "
+"pluginech KEXI může být k dispozici více či méně typů.\n"
+"K zadání názvů obsahujících mezery použijte znaky \"\"."
 
 #: core/KexiCommandLineOptions.cpp:125
 #, kde-kuit-format
 msgctxt "'new' command line option"
 msgid "Start design of a new object of type 'object_type'."
-msgstr ""
+msgstr "Zahájit návrh nového objektu typu 'object_type'."
 
 #: core/KexiCommandLineOptions.cpp:129
 #, kde-kuit-format
@@ -607,6 +633,10 @@ msgid ""
 "printing of the object's data. 'object_type' is optional; if omitted, %1 "
 "type is assumed. Object type can also be %2."
 msgstr ""
+"Při spuštění aplikace otevřít dialogové okno Tisk pro objekt typu "
+"'object_type' a s názvem 'object_name' v zadaném projektu, aby bylo možné "
+"rychle vytisknout data tohoto objektu. 'object_type' je volitelný; pokud "
+"není zadán, předpokládá se typ %1. Typem objektu může být také %2."
 
 #: core/KexiCommandLineOptions.cpp:137
 #, kde-kuit-format
@@ -617,6 +647,10 @@ msgid ""
 "preview of the object's data printout. 'object_type' is optional; if "
 "omitted, %1 type is assumed. Object type can also be %2."
 msgstr ""
+"Při spuštění aplikace otevřít okno Náhled tisku pro objekt typu "
+"'object_type' a s názvem 'object_name' v zadaném projektu, abyste si mohli "
+"prohlédnout náhled tisku dat tohoto objektu. 'object_type' je volitelný; "
+"pokud není zadán, předpokládá se typ %1. Typem objektu může být také %2."
 
 #: core/KexiCommandLineOptions.cpp:147
 #, kde-kuit-format
@@ -626,6 +660,10 @@ msgid ""
 "project is opened using a shortcut file. Default user name is the same as "
 "the current login (<resource>%1</resource>)."
 msgstr ""
+"Uživatelské jméno databázového serveru při připojení k projektu. Je-li "
+"projekt otevřen pomocí souboru zástupce, je toto jméno ignorováno. Výchozí "
+"uživatelské jméno je stejné jako aktuální přihlašovací jméno (<resource>%1</"
+"resource>)."
 
 #: core/KexiCommandLineOptions.cpp:154
 #, kde-kuit-format
@@ -635,6 +673,9 @@ msgid ""
 "project. Ignored if the project is opened using a shortcut file. Default "
 "host is the local computer."
 msgstr ""
+"Název síťového serveru (hostitele), který se má použít při připojování k "
+"databázovému projektu. Pokud je projekt otevřen pomocí souboru zástupce, je "
+"tento údaj ignorován. Výchozím hostitelem je místní počítač."
 
 #: core/KexiCommandLineOptions.cpp:160
 #, kde-kuit-format
@@ -644,6 +685,10 @@ msgid ""
 "project. Ignored if the project is opened using a shortcut file. Defaults "
 "depend on the used server type (e.g. %1, %2)."
 msgstr ""
+"Číslo portu síťového serveru, které se má použít při připojení k "
+"databázovému projektu. Pokud je projekt otevřen pomocí souboru zástupce, je "
+"tento parametr ignorován. Výchozí hodnoty závisí na typu použitého serveru "
+"(např. %1, %2)."
 
 #: core/KexiCommandLineOptions.cpp:167
 #, kde-kuit-format
@@ -653,6 +698,10 @@ msgid ""
 "project. Ignored if the project is opened using a shortcut file. Defaults "
 "depend on the used server type (e.g. %1, %2)."
 msgstr ""
+"Název souboru soketu místního počítače, který se použije při připojení k "
+"databázovému projektu. Tento údaj se ignoruje, pokud je projekt otevřen "
+"pomocí souboru zástupce. Výchozí hodnoty závisí na typu použitého serveru "
+"(např. %1, %2)."
 
 #: core/KexiCommandLineOptions.cpp:176
 #, kde-kuit-format
@@ -671,6 +720,8 @@ msgid ""
 "Start KEXI in full screen mode to occupy the whole screen area by hiding "
 "window decorations such as title bars."
 msgstr ""
+"Spustit KEXI v režimu celé obrazovky, aby program zabíral celou plochu "
+"obrazovky a skryly se prvky okna, jako jsou například záhlaví."
 
 #: core/KexiCommandLineOptions.cpp:188
 #, kde-kuit-format
@@ -679,22 +730,25 @@ msgid ""
 "Displays list of plugins available for KEXI with their name, description, "
 "version and filenames."
 msgstr ""
+"Zobrazit seznam modulů dostupných pro KEXI spolu s jejich názvem, popisem, "
+"verzí a názvy souborů."
 
 #: core/kexidbconnectionset.cpp:76
 #, kde-kuit-format
 msgid "Could not find location to save connection data file."
-msgstr ""
+msgstr "Nelze najít umístění pro uložení souboru s údaji o připojení."
 
 #: core/kexidbconnectionset.cpp:88
 #, kde-kuit-format
 msgid ""
 "Could not create folder <filename>%1</filename> for connection data file."
 msgstr ""
+"Nelze vytvořit složku <filename>%1</filename> pro soubor s údaji o připojení."
 
 #: core/kexidbconnectionset.cpp:157
 #, kde-kuit-format
 msgid "Could not remove connection file <filename>%1</filename>."
-msgstr ""
+msgstr "Nepodařilo se odstranit soubor připojení <filename>%1</filename>."
 
 #: core/KexiFileFilters.cpp:242 widget/KexiStartupFileHandler.cpp:287
 #, kde-kuit-format
@@ -789,12 +843,12 @@ msgstr "Datový identifikátor: <resource>%1</resource>."
 #: core/kexipart.cpp:447
 #, kde-kuit-format
 msgid "Design in SQL View"
-msgstr ""
+msgstr "Návrh v zobrazení SQL"
 
 #: core/kexipart.cpp:454
 #, kde-kuit-format
 msgid "Design in Text View"
-msgstr ""
+msgstr "Návrh v textovém zobrazení"
 
 #: core/kexipartinfo.cpp:114
 #, kde-kuit-format
@@ -815,6 +869,8 @@ msgid ""
 "Could not load plugin file <filename>%1</filename> for <application>%2</"
 "application>."
 msgstr ""
+"Nepodařilo se načíst soubor modulu <filename>%1</filename> pro <application>"
+"%2</application>."
 
 #: core/kexipartmanager.cpp:128
 #, kde-kuit-format
@@ -823,6 +879,8 @@ msgid ""
 "Could not open plugin <filename>%1</filename> for <application>%2</"
 "application>."
 msgstr ""
+"Nelze otevřít modul <filename>%1</filename> pro <application>%2</"
+"application>."
 
 #: core/kexipartmanager.cpp:231
 #, kde-kuit-format
@@ -833,6 +891,11 @@ msgid ""
 "will exit.</para><para><note>Please check if <application>%1</application> "
 "is properly installed.</note></para>"
 msgstr ""
+"<para>Nebylo možné najít žádné moduly pro <application>%1</application>, "
+"např. pro tabulky nebo formuláře. Aplikace <application>%1</application> by "
+"nefungovala správně, proto bude ukončena.</para><para><note>Zkontrolujte "
+"prosím, zda je aplikace <application>%1</application> správně nainstalována."
+"</note></para>"
 
 #: core/kexipartmanager.cpp:243
 #, kde-kuit-format
@@ -843,12 +906,16 @@ msgid ""
 "set up properly. Set the <envar>QT_PLUGIN_PATH</envar> environment variable "
 "properly before running <application>%2</application>.</note></para>"
 msgstr ""
+"<para><note>Nebyl nalezen žádný adresář <filename>%1</filename>, takže je "
+"možné, že byla požadována vlastní konfigurace modulu, ale není správně "
+"nastavena. Před spuštěním <application>%2</application> správně nastavte "
+"proměnnou prostředí <envar>QT_PLUGIN_PATH</envar>.</note></para>"
 
 #: core/kexipartmanager.cpp:304
 #, kde-kuit-format
 msgctxt "@info"
 msgid "No plugin for ID <resource>%1</resource>"
-msgstr ""
+msgstr "Pro ID <resource>%1</resource> neexistuje žádný modul"
 
 #: core/kexiproject.cpp:130 main/KexiMainWindow.cpp:3641
 #, kde-kuit-format
@@ -881,6 +948,8 @@ msgid ""
 "Could not open project. The project file <filename>%1</filename> does not "
 "exist."
 msgstr ""
+"Projekt se nepodařilo otevřít. Soubor projektu <filename>%1</filename> "
+"neexistuje."
 
 #: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
 #: main/startup/KexiStartup.cpp:808 main/startup/KexiStartup.cpp:817
@@ -897,6 +966,8 @@ msgid ""
 "Database project %1 does not appear to have been created using Kexi and "
 "cannot be opened. It is an SQLite file created using other tools."
 msgstr ""
+"Databázový projekt %1 zřejmě nebyl vytvořen pomocí programu Kexi a nelze jej "
+"otevřít. Jedná se o soubor SQLite vytvořený pomocí jiných nástrojů."
 
 #: core/kexiproject.cpp:372
 #, kde-kuit-format
@@ -927,7 +998,7 @@ msgstr "Popis projektu"
 #: core/kexiproject.cpp:824
 #, kde-kuit-format
 msgid "Could not load list of tables."
-msgstr ""
+msgstr "Nepodařilo se načíst seznam tabulek."
 
 #: core/kexiproject.cpp:1016
 #, kde-kuit-format
@@ -947,13 +1018,13 @@ msgstr "Tento projekt je otevřen pouze pro čtení."
 #: core/kexiproject.cpp:1069
 #, kde-kuit-format
 msgid "Could not delete object's user data."
-msgstr ""
+msgstr "Nepodařilo se odstranit uživatelská data objektu."
 
 #: core/kexiproject.cpp:1197
 #, kde-format
 msgctxt "warning"
 msgid "Entire project's data and design will be deleted."
-msgstr ""
+msgstr "Všechna data a návrh celého projektu budou smazány."
 
 #: core/kexiproject.cpp:1213
 #, kde-kuit-format
@@ -978,6 +1049,8 @@ msgid ""
 "<para>Do you want to delete the project <resource>%1</resource>?</"
 "para><para><warning>%2</warning></para>"
 msgstr ""
+"<para>Chcete smazat projekt <resource>%1</resource>?</para><para><warning>"
+"%2</warning></para>"
 
 #: core/kexiproject.cpp:1247
 #, kde-kuit-format
@@ -990,7 +1063,8 @@ msgstr "Smazat projekt"
 msgid ""
 "Could not delete this project. Database connection for this project has been "
 "opened as read only."
-msgstr "Projekt nelze smazat. Databázové spojení bylo otevřeno pouze ke čtení."
+msgstr ""
+"Projekt nelze smazat. Databázové připojení bylo otevřeno pouze ke čtení."
 
 #: core/kexiproject.cpp:1524
 #, kde-kuit-format
@@ -1004,6 +1078,8 @@ msgid ""
 "<para>Could not open file <filename>%1</filename> for reading and writing.</"
 "para><para>Do you want to open the file as read only?</para>"
 msgstr ""
+"<para>Nelze otevřít soubor <filename>%1</filename> pro čtení a zápis.</"
+"para><para>Chcete soubor otevřít pouze pro čtení?</para>"
 
 #: core/kexiprojectdata.cpp:169
 #, kde-kuit-format
@@ -1020,13 +1096,14 @@ msgstr "<resource>%1</resource>"
 #: core/kexiprojectdata.cpp:209
 #, kde-kuit-format
 msgid "File <filename>%1</filename> contains no connection information."
-msgstr ""
+msgstr "Soubor <filename>%1</filename> neobsahuje žádné informace o připojení."
 
 #: core/kexiprojectdata.cpp:217
 #, kde-kuit-format
 msgid ""
 "File <filename>%1</filename> does not contain group <resource>%2</resource>."
 msgstr ""
+"Soubor <filename>%1</filename> neobsahuje skupinu <resource>%2</resource>."
 
 #: core/kexiprojectdata.cpp:233
 #, kde-kuit-format
@@ -1034,6 +1111,8 @@ msgid ""
 "Invalid value <resource>%1</resource> type specified in group <resource>%2</"
 "resource> of file <filename>%3</filename>."
 msgstr ""
+"V souboru <filename>%3</filename> ve skupině <resource>%2</resource> byl "
+"zadán neplatný typ hodnoty <resource>%1</resource>."
 
 #: core/kexiprojectdata.cpp:241
 #, kde-kuit-format
@@ -1041,6 +1120,8 @@ msgid ""
 "No valid \"engine\" field specified in group <resource>%1</resource> of file "
 "<filename>%2</filename>."
 msgstr ""
+"Ve skupině <resource>%1</resource> souboru <filename>%2</filename> nebylo "
+"zadáno žádné platné pole \"engine\"."
 
 #: core/KexiRecentProjects.cpp:79
 #, kde-kuit-format
@@ -1048,6 +1129,8 @@ msgid ""
 "Could not create folder <filename>%1</filename> for storing recent projects "
 "information."
 msgstr ""
+"Nelze vytvořit složku <filename>%1</filename> pro ukládání informací o "
+"nedávných projektech."
 
 #: core/KexiStandardAction.cpp:47
 #, kde-format
@@ -1105,7 +1188,7 @@ msgstr "Přepnout na náhled vizuálního návrhu"
 #: core/KexiView.cpp:64
 #, kde-kuit-format
 msgid "Switches to visual design view."
-msgstr ""
+msgstr "Přepne na náhled vizuálního návrhu."
 
 #: core/KexiView.cpp:67
 #, kde-kuit-format
@@ -1121,12 +1204,12 @@ msgstr "Přepne se do textového pohledu."
 #, kde-kuit-format
 msgctxt "@info:tooltip"
 msgid "Menu for <resource>%1</resource>"
-msgstr ""
+msgstr "Nabídka pro <resource>%1</resource>"
 
 #: core/KexiView.cpp:118
 #, kde-kuit-format
 msgid "Shows context menu for the current view."
-msgstr ""
+msgstr "Zobrazí kontextové menu pro aktuální pohled."
 
 #: core/KexiView.cpp:270
 #, kde-kuit-format
@@ -1167,6 +1250,8 @@ msgid ""
 "para><para>Do you want to save these changes before switching to other view?"
 "</para>"
 msgstr ""
+"<para>V objektu <resource>%1</resource> jsou neuložené změny.</"
+"para><para>Chcete tyto změny uložit před přepnutím do jiného pohledu?</para>"
 
 #: core/KexiWindow.cpp:457
 #, kde-kuit-format
@@ -1334,17 +1419,17 @@ msgstr "Smazat stránku"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Edit Form Connections"
-msgstr "Upravit spojení formuláře"
+msgstr "Upravit připojení formuláře"
 
 #: formeditor/connectiondialog.cpp:117
 #, kde-kuit-format
 msgid "&New Connection"
-msgstr "&Nové spojení"
+msgstr "&Nové připojení"
 
 #: formeditor/connectiondialog.cpp:121
 #, kde-kuit-format
 msgid "&Delete Connection"
-msgstr "&Smazat spojení"
+msgstr "&Smazat připojení"
 
 #: formeditor/connectiondialog.cpp:141
 #, kde-kuit-format
@@ -1354,7 +1439,7 @@ msgstr "V pořádku?"
 #: formeditor/connectiondialog.cpp:144
 #, kde-kuit-format
 msgid "Connection correctness"
-msgstr "Správnost spojení"
+msgstr "Správnost připojení"
 
 #: formeditor/connectiondialog.cpp:147
 #, kde-kuit-format
@@ -1379,17 +1464,17 @@ msgstr "Slot"
 #: formeditor/connectiondialog.cpp:249
 #, kde-kuit-format
 msgid "The connection is OK."
-msgstr "Spojení je v pořádku."
+msgstr "Připojení je v pořádku."
 
 #: formeditor/connectiondialog.cpp:268
 #, kde-kuit-format
 msgid "The connection is invalid."
-msgstr "Spojení je neplatné."
+msgstr "Připojení je neplatné."
 
 #: formeditor/connectiondialog.cpp:359
 #, kde-kuit-format
 msgid "You have not selected item: <resource>%1</resource>."
-msgstr ""
+msgstr "Nevybrali jste položku: <resource>%1</resource>."
 
 #: formeditor/connectiondialog.cpp:372
 #, kde-kuit-format
@@ -1399,19 +1484,19 @@ msgstr "Argumenty signál/slot nejsou kompatibilní."
 #: formeditor/connectiondialog.cpp:432
 #, kde-kuit-format
 msgid "Do you want to delete this connection?"
-msgstr ""
+msgstr "Chcete toto připojení smazat?"
 
 #: formeditor/connectiondialog.cpp:434
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "&Delete Connection"
-msgstr "&Smazat spojení"
+msgstr "&Smazat připojení"
 
 #: formeditor/editlistviewdialog.cpp:47
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Edit Listview Contents"
-msgstr ""
+msgstr "Upravit obsah seznamu"
 
 #: formeditor/editlistviewdialog.cpp:50
 #, kde-kuit-format
@@ -1507,7 +1592,7 @@ msgstr ""
 #: formeditor/form.cpp:1313
 #, kde-kuit-format
 msgid "Widget name could not be empty."
-msgstr ""
+msgstr "Název widgetu nesmí být prázdný."
 
 #: formeditor/form.cpp:1321
 #, kde-kuit-format
@@ -1644,7 +1729,7 @@ msgstr "Vyplnit pozadí"
 #: formeditor/form_p.cpp:286
 #, kde-kuit-format
 msgid "Focus Policy"
-msgstr ""
+msgstr "Zásady zaměření"
 
 #: formeditor/form_p.cpp:287
 #, kde-kuit-format
@@ -1781,7 +1866,7 @@ msgstr "Dole"
 #, kde-kuit-format
 msgctxt "No Frame (HINT: for Frame Shape)"
 msgid "No Frame"
-msgstr ""
+msgstr "Žádný rámec"
 
 #: formeditor/form_p.cpp:321
 #, kde-kuit-format
@@ -1817,7 +1902,7 @@ msgstr "Svislá čára"
 #, kde-kuit-format
 msgctxt "Styled (HINT: for Frame Shape)"
 msgid "Styled"
-msgstr ""
+msgstr "Stylové"
 
 #: formeditor/form_p.cpp:327
 #, kde-kuit-format
@@ -1883,7 +1968,7 @@ msgstr "Vnitřní"
 #, kde-kuit-format
 msgctxt "No Focus (HINT: for Focus)"
 msgid "No Focus"
-msgstr ""
+msgstr "Žádné zaměření"
 
 #: formeditor/form_p.cpp:340
 #, kde-kuit-format
@@ -1901,13 +1986,13 @@ msgstr "Kliknutí"
 #, kde-kuit-format
 msgctxt "Tab/Click (HINT: for Focus)"
 msgid "Tab/Click"
-msgstr "Karta/kliknout"
+msgstr "Karta/Kliknutí"
 
 #: formeditor/form_p.cpp:343
 #, kde-kuit-format
 msgctxt "Tab/Click/MouseWheel (HINT: for Focus)"
 msgid "Tab/Click/Mouse Wheel"
-msgstr ""
+msgstr "Karta/Kliknutí/Kolečko myši"
 
 #: formeditor/form_p.cpp:345
 #, kde-kuit-format
@@ -2049,7 +2134,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Assigning Action to Button"
-msgstr "Přiřazuji tlačítku činnost"
+msgstr "Přiřazování činnosti tlačítku"
 
 #: formeditor/kexiactionselectiondialog.cpp:477
 #, kde-kuit-format
@@ -2152,7 +2237,7 @@ msgstr "Posunout widget dolů"
 #: formeditor/tabstopdialog.cpp:101
 #, kde-kuit-format
 msgid "Handle tab order automatically"
-msgstr ""
+msgstr "Automatické zpracování pořadí tabulatorů"
 
 #: formeditor/widgetfactory.cpp:157
 #, kde-kuit-format
@@ -2163,7 +2248,7 @@ msgstr "Upravit obsah %1"
 #: formeditor/widgetlibrary.cpp:194
 #, kde-format
 msgid "Could not find any form widget plugins."
-msgstr ""
+msgstr "Nepodařilo se najít žádné moduly pro formulářové widgety."
 
 #: formeditor/widgetlibrary.cpp:253
 #, kde-kuit-format
@@ -2172,6 +2257,8 @@ msgid ""
 "Could not load Form Widgets plugin file <filename>%1</filename> for "
 "<application>%2</application>."
 msgstr ""
+"Nepodařilo se načíst soubor pluginu pro formulářové widgety <filename>%1</"
+"filename> pro <application>%2</application>."
 
 #: formeditor/widgetlibrary.cpp:264
 #, kde-kuit-format
@@ -2180,6 +2267,8 @@ msgid ""
 "Could not open Form Widgets plugin <filename>%1</filename> for <application>"
 "%2</application>."
 msgstr ""
+"Nepodařilo se otevřít plugin pro formulářové widgety <filename>%1</filename> "
+"pro <application>%2</application>."
 
 #: formeditor/widgetlibrary.cpp:743
 #, kde-kuit-format
@@ -2246,6 +2335,9 @@ msgid ""
 "para><para><application>Kexi</application> will not start. Please check if "
 "<application>Kexi</application> is properly installed.</para>"
 msgstr ""
+"<para>Nepodařilo se najít styl aplikace <resource>%1</resource>.</"
+"para><para><application>Kexi</application> se nespustí. Zkontrolujte prosím, "
+"zda je <application>Kexi</application> správně nainstalován.</para>"
 
 #: kexiutils/utils.cpp:305 main/startup/KexiOpenProjectAssistant.cpp:154
 #, kde-format, kde-kuit-format
@@ -2277,19 +2369,19 @@ msgstr "Soubor nebo adresář <filename>%1</filename> neexistuje."
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Invalid hyperlink <link>%1</link>."
-msgstr ""
+msgstr "Neplatný odkaz <link>%1</link>."
 
 #: kexiutils/utils.cpp:776
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Executable <link>%1</link> not allowed."
-msgstr ""
+msgstr "Spustitelný soubor <link>%1</link> není povolen."
 
 #: kexiutils/utils.cpp:782
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Remote hyperlink <link>%1</link> not allowed."
-msgstr ""
+msgstr "Externí odkaz <link>%1</link> není povolen."
 
 #: kexiutils/utils.cpp:789
 #, kde-kuit-format
@@ -2298,6 +2390,8 @@ msgid ""
 "Do you want to run this file?<warning>Running executables can be dangerous.</"
 "warning>"
 msgstr ""
+"Chcete tento soubor spustit?<warning>Spouštění spustitelných souborů může "
+"být nebezpečné.</warning>"
 
 #: kexiutils/utils.cpp:792
 #, kde-kuit-format
@@ -2326,13 +2420,13 @@ msgstr " – "
 #, kde-kuit-format
 msgctxt "@info/plain Concatenated sentence1 sentence2 ..."
 msgid "<html>%1%2%3%4%5%6</html>"
-msgstr ""
+msgstr "<html>%1%2%3%4%5%6</html>"
 
 #: main/KexiBugReportDialog.cpp:50
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Report a Bug or Wish"
-msgstr ""
+msgstr "Nahlaste chyby a přání"
 
 #: main/KexiBugReportDialog.cpp:72
 #, kde-kuit-format
@@ -2573,12 +2667,12 @@ msgstr ""
 #: main/KexiMainWindow.cpp:478
 #, kde-kuit-format
 msgid "Open a project that was recently opened."
-msgstr ""
+msgstr "Otevřít projekt, který byl nedávno otevřen."
 
 #: main/KexiMainWindow.cpp:479
 #, kde-kuit-format
 msgid "Opens a project that was recently opened."
-msgstr ""
+msgstr "Otevře projekt, který byl nedávno otevřen."
 
 #: main/KexiMainWindow.cpp:484
 #, kde-kuit-format
@@ -2588,7 +2682,7 @@ msgstr "Vítejte"
 #: main/KexiMainWindow.cpp:488
 #, kde-kuit-format
 msgid "Show Welcome page"
-msgstr ""
+msgstr "Zobrazit uvítací stránku"
 
 #: main/KexiMainWindow.cpp:490
 #, kde-kuit-format
@@ -2596,6 +2690,8 @@ msgid ""
 "Shows Welcome page with list of recently opened projects and other "
 "information. "
 msgstr ""
+"Zobrazí uvítací stránku se seznamem naposledy otevřených projektů a dalšími "
+"informacemi."
 
 #: main/KexiMainWindow.cpp:495
 #, kde-kuit-format
@@ -2610,7 +2706,7 @@ msgstr "Uložení změn objektu z aktuálního vybraného okna."
 #: main/KexiMainWindow.cpp:500
 #, kde-kuit-format
 msgid "Save &As..."
-msgstr "Uložit j&ako"
+msgstr "Uložit j&ako..."
 
 #: main/KexiMainWindow.cpp:501
 #, kde-kuit-format
@@ -2757,7 +2853,7 @@ msgstr "Vložit data ze schránky jako tabulku"
 #: main/KexiMainWindow.cpp:647
 #, kde-kuit-format
 msgid "Pastes clipboard data as a table."
-msgstr "Vloží data ze schránky jako tabulku"
+msgstr "Vloží data ze schránky jako tabulku."
 
 #: main/KexiMainWindow.cpp:654
 #, kde-kuit-format
@@ -3008,7 +3104,7 @@ msgstr "&Písmo..."
 #: main/KexiMainWindow.cpp:872
 #, kde-kuit-format
 msgid "Change font for selected object"
-msgstr "Změnit písmo pro vybraný objekt."
+msgstr "Změnit písmo pro vybraný objekt"
 
 #: main/KexiMainWindow.cpp:873
 #, kde-kuit-format
@@ -3058,7 +3154,7 @@ msgstr "Zavřít současnou kartu"
 #: main/KexiMainWindow.cpp:894
 #, kde-kuit-format
 msgid "Closes the current tab."
-msgstr "Zavře současnou kartu"
+msgstr "Zavře současnou kartu."
 
 #: main/KexiMainWindow.cpp:897
 #, kde-kuit-format
@@ -3357,7 +3453,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window Delete Object %1."
 msgid "Delete <resource>%1</resource>?"
-msgstr "Smazat <interface>%1</interface>"
+msgstr "Smazat <interface>%1</interface>?"
 
 #: main/KexiMainWindow.cpp:3626
 #, kde-kuit-format
@@ -3647,7 +3743,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Database Connection"
-msgstr "Databázové spojení"
+msgstr "Databázové připojení"
 
 #: main/startup/KexiNewProjectAssistant.cpp:336
 #, kde-kuit-format
@@ -3708,7 +3804,7 @@ msgstr ""
 #: main/startup/KexiOpenExistingFile.ui:89
 #, kde-format
 msgid "&Advanced "
-msgstr "&Pokročilé"
+msgstr "&Pokročilé "
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: main/startup/KexiOpenExistingFile.ui:104
@@ -3718,7 +3814,7 @@ msgid ""
 "server rather than a file."
 msgstr ""
 "Pokud si přejete vyhledávat existující projekt na serveru a ne v souboru, "
-"klikněte na tlačítko \"Pokročilé\""
+"klikněte na tlačítko \"Pokročilé\"."
 
 #: main/startup/KexiOpenProjectAssistant.cpp:41
 #: widget/KexiProjectSelectorWidget.cpp:304
@@ -4353,7 +4449,7 @@ msgstr "Pokročilé možnosti"
 #: migration/importtablewizard.cpp:262 migration/importwizard.cpp:485
 #, kde-kuit-format
 msgid "Importing"
-msgstr "Importuji"
+msgstr "Probíhá import"
 
 #: migration/importtablewizard.cpp:278
 #, kde-kuit-format
@@ -4498,7 +4594,7 @@ msgstr ""
 #: migration/importwizard.cpp:330
 #, kde-kuit-format
 msgid "Destination database type:"
-msgstr "Typ umístění databáze"
+msgstr "Typ umístění databáze:"
 
 #: migration/importwizard.cpp:337
 #, kde-kuit-format
@@ -4614,7 +4710,7 @@ msgstr ""
 #: migration/importwizard.cpp:951
 #, kde-kuit-format
 msgid "Select source database filename."
-msgstr "Zvolte název souboru zdrojové databáze"
+msgstr "Zvolte název souboru zdrojové databáze."
 
 #: migration/importwizard.cpp:957
 #, kde-kuit-format
@@ -4624,7 +4720,7 @@ msgstr "Zvolte zdrojovou databázi."
 #: migration/importwizard.cpp:971
 #, kde-kuit-format
 msgid "Could not import database. This type is not supported."
-msgstr "Databázi nelze importovat. Tento typ není podporován,"
+msgstr "Databázi nelze importovat. Tento typ není podporován."
 
 #: migration/importwizard.cpp:973
 #, kde-kuit-format
@@ -4633,7 +4729,7 @@ msgid ""
 "Could not import database <resource>%1</resource>. This type is not "
 "supported."
 msgstr ""
-"Databázi nelze importovat <resource>%1</resource>. Tento typ není podporován,"
+"Databázi nelze importovat <resource>%1</resource>. Tento typ není podporován."
 
 #: migration/importwizard.cpp:1032
 #, kde-kuit-format
@@ -5053,7 +5149,7 @@ msgctxt ""
 "with upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "textEditor"
-msgstr "Editor textu"
+msgstr "editor_textu"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:139
 #, kde-kuit-format
@@ -5125,7 +5221,7 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "comboBox"
-msgstr "Rozbalovací seznam"
+msgstr "rozbalovací_seznam"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:209
 #, kde-kuit-format
@@ -5149,7 +5245,7 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "checkBox"
-msgstr "Zaškrtávací tlačítko"
+msgstr "zaškrtávací_tlačítko"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:228
 #, kde-kuit-format
@@ -5173,7 +5269,7 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "button"
-msgstr "Tlačítko"
+msgstr "tlačítko"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:265
 #, kde-kuit-format
@@ -5917,7 +6013,7 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "groupBox"
-msgstr "Skupinový rámeček"
+msgstr "skupinový_rámeček"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:627
 #, kde-kuit-format
@@ -5939,7 +6035,7 @@ msgstr "Plochý"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:636
 #, kde-kuit-format
 msgid "Auto-hide Tabs"
-msgstr ""
+msgstr "Automaticky skrývat karty"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:637
 #, kde-kuit-format
@@ -6254,7 +6350,7 @@ msgstr "Importovat"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
 #, kde-kuit-format
 msgid "No database connection available."
-msgstr "Není dostupné databázové spojení."
+msgstr "Není dostupné databázové připojení."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:448
 #: widget/KexiNameDialog.cpp:173
@@ -6398,7 +6494,7 @@ msgstr "Do tabulky:"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:810
 #, kde-kuit-format
 msgid "Ready to Import"
-msgstr "Připraven k importu:"
+msgstr "Připraven k importu"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:852
 #, kde-kuit-format
@@ -6491,7 +6587,7 @@ msgstr ""
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1999
 #, kde-kuit-format
 msgid "Importing data..."
-msgstr "Importuji data..."
+msgstr "Probíhá import dat..."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2014
 #, kde-kuit-format
@@ -6828,7 +6924,7 @@ msgstr "Dotaz je nesprávný"
 #, kde-kuit-format
 msgid ""
 "Please enter your query and execute \"Check query\" function to verify it."
-msgstr "Prosím, vložte váš dotaz a spusťte funkci \"Zkontrolovat dotaz\""
+msgstr "Prosím, vložte váš dotaz a spusťte funkci \"Zkontrolovat dotaz\"."
 
 #: plugins/queries/kexiquerydesignersql.cpp:233
 #, kde-kuit-format
@@ -7086,7 +7182,7 @@ msgstr "Exportovat:"
 #, kde-kuit-format
 msgctxt "open dialog to export as text document"
 msgid "Text Document..."
-msgstr "Textový dokument"
+msgstr "Textový dokument..."
 
 #: plugins/reports/kexireportview.cpp:108
 #, kde-kuit-format
@@ -7498,7 +7594,7 @@ msgstr "Komentáře"
 #: plugins/tables/kexitabledesignerview.cpp:150
 #, kde-kuit-format
 msgid "Describes additional comments for the field"
-msgstr "Popisuje Následující komponenty pole."
+msgstr "Popisuje následující komponenty pole"
 
 #: plugins/tables/kexitabledesignerview.cpp:177
 #, kde-kuit-format
@@ -8019,12 +8115,12 @@ msgstr "&Smazat..."
 #: widget/KexiConnectionSelectorWidget.cpp:62
 #, kde-kuit-format
 msgid "Add a new database connection"
-msgstr "Přidat nové databázové spojení"
+msgstr "Přidat nové databázové připojení"
 
 #: widget/KexiConnectionSelectorWidget.cpp:63
 #, kde-kuit-format
 msgid "Edit selected database connection"
-msgstr "Upravit vybrané databázové spojení"
+msgstr "Upravit vybrané databázové připojení"
 
 #: widget/KexiConnectionSelectorWidget.cpp:64
 #, kde-kuit-format
@@ -8051,13 +8147,13 @@ msgstr "Přid&at"
 #: widget/KexiConnectionSelectorWidget.cpp:387
 #, kde-kuit-format
 msgid "Add database connection"
-msgstr "Přidat databázové spojení"
+msgstr "Přidat databázové připojení"
 
 #: widget/KexiConnectionSelectorWidget.cpp:388
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Add a New Database Connection"
-msgstr "Přidat nové databázové spojení"
+msgstr "Přidat nové databázové připojení"
 
 #: widget/KexiConnectionSelectorWidget.cpp:419
 #, kde-kuit-format
@@ -8068,13 +8164,13 @@ msgstr "&Uložit"
 #: widget/KexiConnectionSelectorWidget.cpp:420
 #, kde-kuit-format
 msgid "Save changes made to this database connection"
-msgstr "Uložit změny provedené na tomto databázovém spojení"
+msgstr "Uložit změny provedené na tomto databázovém připojení"
 
 #: widget/KexiConnectionSelectorWidget.cpp:421
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Edit Database Connection"
-msgstr "Upravit databázové spojení"
+msgstr "Upravit databázové připojení"
 
 #: widget/KexiConnectionSelectorWidget.cpp:447
 #, kde-kuit-format
@@ -8135,12 +8231,12 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "&Test Connection"
-msgstr "O&testovat spojení"
+msgstr "O&testovat připojení"
 
 #: widget/kexidbconnectionwidget.cpp:117
 #, kde-kuit-format
 msgid "Test database connection"
-msgstr "Otestovat databázové spojení"
+msgstr "Otestovat databázové připojení"
 
 #: widget/kexidbconnectionwidget.cpp:118
 #, kde-kuit-format
@@ -8151,7 +8247,7 @@ msgstr ""
 #: widget/kexidbconnectionwidget.cpp:152
 #, kde-kuit-format
 msgid "Database Connection"
-msgstr "Databázové spojení"
+msgstr "Databázové připojení"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)
@@ -8194,7 +8290,7 @@ msgstr "&Otevřít"
 #: widget/KexiProjectSelectorWidget.cpp:310
 #, kde-kuit-format
 msgid "Open Database Connection"
-msgstr "Otevřít databázové spojení"
+msgstr "Otevřít databázové připojení"
 
 #. i18n: ectx: property (title), widget (QGroupBox, authenticationGBox)
 #: widget/kexidbconnectionwidget.ui:90
@@ -8304,7 +8400,7 @@ msgstr "Výchozí"
 #: widget/kexidbconnectionwidgetdetails.ui:140
 #, kde-format
 msgid "&Description:"
-msgstr "&Popis"
+msgstr "&Popis:"
 
 #: widget/KexiDBPasswordDialog.cpp:58
 #, kde-kuit-format
@@ -8316,7 +8412,7 @@ msgstr "Otevírám databázi"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Supply a password below."
-msgstr ""
+msgstr "Níže zadejte uživatelské heslo."
 
 #: widget/KexiDBPasswordDialog.cpp:68
 #, kde-kuit-format
@@ -8440,7 +8536,7 @@ msgstr "%1 <resource>%2</resource>"
 #: widget/KexiPasswordWidget.ui:49
 #, kde-format
 msgid "Supply a password below."
-msgstr ""
+msgstr "Níže zadejte uživatelské heslo."
 
 #. i18n: ectx: property (text), widget (QLabel, userNameLabel)
 #: widget/KexiPasswordWidget.ui:87
