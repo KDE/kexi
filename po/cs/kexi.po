@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:18+0000\n"
-"PO-Revision-Date: 2026-07-21 22:01+0200\n"
+"PO-Revision-Date: 2026-07-22 21:32+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #: core/kexi.cpp:141
 #, kde-kuit-format
@@ -4870,18 +4870,18 @@ msgstr "Nastaví současný styl pohledu."
 #: plugins/forms/kexiformmanager.cpp:203
 #, kde-kuit-format
 msgid "Show Form UI Code"
-msgstr ""
+msgstr "Zobrazit kód uživatelského rozhraní formuláře"
 
 #: plugins/forms/kexiformmanager.cpp:388
 #, kde-kuit-format
 msgid "Set form's data source to <resource>%1</resource>"
-msgstr ""
+msgstr "Nastavit zdroj dat formuláře na <resource>%1</resource>"
 
 #: plugins/forms/kexiformmanager.cpp:472
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Form's UI Code"
-msgstr ""
+msgstr "Kód uživatelského rozhraní formuláře"
 
 #: plugins/forms/kexiformmanager.cpp:475
 #, kde-kuit-format
@@ -4940,7 +4940,7 @@ msgstr "Poslat widget do pozadí"
 #: plugins/forms/kexiformpart.cpp:117
 #, kde-kuit-format
 msgid "Align Widgets Position"
-msgstr ""
+msgstr "Zarovnání pozice widgetů"
 
 #: plugins/forms/kexiformpart.cpp:120
 #, kde-kuit-format
@@ -5023,18 +5023,18 @@ msgstr "Formulář <resource>%1</resource>"
 #: plugins/forms/widgets/kexidbimagebox.cpp:511
 #, kde-kuit-format
 msgid "Click to show actions for this image box"
-msgstr ""
+msgstr "Kliknutím zobrazíte akce pro toto obrázkové pole"
 
 #: plugins/forms/widgets/kexidbimagebox.cpp:523
 #, kde-kuit-format
 msgid "Click to show actions for <interface>%1</interface> image box"
-msgstr ""
+msgstr "Kliknutím zobrazíte akce pro obrázkové pole <interface>%1</interface>"
 
 #: plugins/forms/widgets/kexidbimagebox.cpp:649
 #, kde-kuit-format
 msgctxt "Unbound Image Box"
 msgid "%1 (unbound)"
-msgstr ""
+msgstr "%1 (nezávazné)"
 
 #: plugins/forms/widgets/kexidbimagebox.cpp:651
 #, kde-kuit-format
@@ -5043,6 +5043,8 @@ msgid ""
 "%1\n"
 "(unbound)"
 msgstr ""
+"%1\n"
+"(nezávazné)"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:77
 #, kde-kuit-format
@@ -5072,7 +5074,7 @@ msgstr "Widget formuláře"
 #, kde-kuit-format
 msgctxt "Text Box widget"
 msgid "Text Box"
-msgstr "Textový rámeček"
+msgstr "Textové pole"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:116
 #, kde-format
@@ -5085,12 +5087,12 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "textBox"
-msgstr ""
+msgstr "textové_pole"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:117
 #, kde-kuit-format
 msgid "A widget for entering and displaying line of text text"
-msgstr ""
+msgstr "Widget pro zadávání a zobrazení řádku textu"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:129
 #, kde-kuit-format
@@ -5109,7 +5111,7 @@ msgctxt ""
 "with upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "textEditor"
-msgstr "editor_textu"
+msgstr "textový_editor"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:139
 #, kde-kuit-format
@@ -5138,13 +5140,13 @@ msgstr "popisek"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:161
 #, kde-kuit-format
 msgid "A widget for displaying text"
-msgstr ""
+msgstr "Widget pro zobrazení textu"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:173
 #, kde-kuit-format
 msgctxt "Image Box widget"
 msgid "Image Box"
-msgstr ""
+msgstr "Obrázkové pole"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:182
 #, kde-format
@@ -5162,13 +5164,13 @@ msgstr "obrázek"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:183
 #, kde-kuit-format
 msgid "A widget for displaying images"
-msgstr ""
+msgstr "Widget pro zobrazení obrázků"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:199
 #, kde-kuit-format
 msgctxt "Combo Box widget"
 msgid "Combo Box"
-msgstr "Kombinovaný seznam"
+msgstr "Rozbalovací seznam"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:208
 #, kde-format
@@ -5192,7 +5194,7 @@ msgstr "Widget kombinovaného seznamu"
 #, kde-kuit-format
 msgctxt "Check Box widget"
 msgid "Check Box"
-msgstr "Zaškrtávací tlačítko"
+msgstr "Zaškrtávací políčko"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:227
 #, kde-format
@@ -5205,12 +5207,12 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "checkBox"
-msgstr "zaškrtávací_tlačítko"
+msgstr "zaškrtávací_políčko"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:228
 #, kde-kuit-format
 msgid "A check box with text label"
-msgstr ""
+msgstr "Zaškrtávací políčko s textovým popiskem"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:255
 #, kde-kuit-format
@@ -5234,13 +5236,13 @@ msgstr "tlačítko"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:265
 #, kde-kuit-format
 msgid "A button for executing actions"
-msgstr ""
+msgstr "Tlačítko pro provádění akcí"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:273
 #, kde-kuit-format
 msgctxt "Link Button widget"
 msgid "Link Button"
-msgstr ""
+msgstr "Tlačítko s odkazem"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:282
 #, kde-format
@@ -5253,12 +5255,12 @@ msgctxt ""
 "with upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "linkButton"
-msgstr ""
+msgstr "tlačítko_s_odkazem"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:283
 #, kde-kuit-format
 msgid "A Link button for executing actions"
-msgstr ""
+msgstr "Tlačítko s odkazem pro provádění akcí"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:313
 #, kde-kuit-format
@@ -5282,7 +5284,7 @@ msgstr "posuvník"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:323
 #, kde-kuit-format
 msgid "A Slider widget"
-msgstr ""
+msgstr "Widget posuvníku"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:331
 #, kde-kuit-format
@@ -5301,7 +5303,7 @@ msgctxt ""
 "with upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "progressBar"
-msgstr "ukazatel průběhu"
+msgstr "ukazatel_průběhu"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:341
 #, kde-kuit-format
@@ -5345,7 +5347,7 @@ msgstr "Vložit s&vislou čáru"
 #, kde-kuit-format
 msgctxt "Date Picker widget"
 msgid "Date Picker"
-msgstr ""
+msgstr "Výběr data"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:383
 #, kde-format
@@ -5358,12 +5360,12 @@ msgctxt ""
 "with upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "datePicker"
-msgstr ""
+msgstr "výběr_data"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:384
 #, kde-kuit-format
 msgid "A Date Picker widget"
-msgstr ""
+msgstr "Widget pro výběr data"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:418
 #, kde-kuit-format
@@ -5409,7 +5411,7 @@ msgstr "Směr textu"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:427
 #, kde-kuit-format
 msgid "Text Visible"
-msgstr ""
+msgstr "Viditelnost textu"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:428
 #, kde-kuit-format
@@ -5424,7 +5426,7 @@ msgstr "Datum"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:430
 #, kde-kuit-format
 msgid "Arrow Visible"
-msgstr ""
+msgstr "Viditelnost šipky"
 
 #. i18n: ectx: property (title), widget (QGroupBox, descGroupBox)
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
@@ -5437,25 +5439,25 @@ msgstr "Popis"
 #, kde-kuit-format
 msgctxt "Property of slider widgets"
 msgid "Page Step"
-msgstr ""
+msgstr "Krok stránky"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:433
 #, kde-kuit-format
 msgctxt "Property of slider widgets"
 msgid "Single Step"
-msgstr ""
+msgstr "Jeden krok"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:434
 #, kde-kuit-format
 msgctxt "Property of slider widgets"
 msgid "Tick Interval"
-msgstr ""
+msgstr "Interval tiků"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:435
 #, kde-kuit-format
 msgctxt "Property of slider widgets"
 msgid "Tick Position"
-msgstr ""
+msgstr "Pozice tiků"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:436
 #, kde-kuit-format
@@ -5475,7 +5477,7 @@ msgstr "Na kliknutí"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:439
 #, kde-kuit-format
 msgid "On Click Option"
-msgstr ""
+msgstr "Možnost při kliknutí"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:440
 #, kde-kuit-format
@@ -5496,12 +5498,12 @@ msgstr "HTML"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:443
 #, kde-kuit-format
 msgid "Line Wrap At"
-msgstr ""
+msgstr "Zalamování řádků v"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:444
 #, kde-kuit-format
 msgid "Line Wrap Mode"
-msgstr ""
+msgstr "Režim zalamování řádků"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:445
 #, kde-kuit-format
@@ -5523,7 +5525,7 @@ msgstr "Text na více řádků"
 #, kde-kuit-format
 msgctxt "AutoField editor's type"
 msgid "Drop-Down List"
-msgstr ""
+msgstr "Rozbalovací seznam"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:460
 #, kde-kuit-format
@@ -5535,7 +5537,7 @@ msgstr "Obrázek"
 #, kde-kuit-format
 msgctxt "Possible value of slider widget's \"Tick position\" property"
 msgid "No Ticks"
-msgstr ""
+msgstr "Žádné tiky"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:464
 #, kde-kuit-format
@@ -5581,7 +5583,7 @@ msgstr "Obrázek"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:483
 #, kde-kuit-format
 msgid "Scaled Contents"
-msgstr ""
+msgstr "Měřítko obsahu"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:484
 #, kde-kuit-format
@@ -5604,6 +5606,8 @@ msgid ""
 "Drop-Down\n"
 "Button Visible"
 msgstr ""
+"Rozbalovací nabídka\n"
+"Viditelnost tlačítka"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:493
 #, kde-kuit-format
@@ -5645,7 +5649,7 @@ msgstr "Upravitelné"
 #, kde-kuit-format
 msgctxt "Property: Button is checkable"
 msgid "On/Off"
-msgstr ""
+msgstr "Zapnuto/Vypnuto"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:504
 #, kde-kuit-format
@@ -5657,13 +5661,13 @@ msgstr "Automaticky opakovat"
 #, kde-kuit-format
 msgctxt "Property: Auto Repeat Button's Delay"
 msgid "Auto Rep. Delay"
-msgstr ""
+msgstr "Zpoždění automatického odeslání"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:506
 #, kde-kuit-format
 msgctxt "Property: Auto Repeat Button's Interval"
 msgid "Auto Rep. Interval"
-msgstr ""
+msgstr "Interval automatického opakování"
 
 #. i18n("Auto Default"));
 #. unused (too advanced) setPropertyDescription("default", xi18nc("Property: Button is default", "Default"));
@@ -5683,31 +5687,31 @@ msgstr "Hypertextový odkaz"
 #, kde-kuit-format
 msgctxt "Type of hyperlink"
 msgid "Hyperlink Type"
-msgstr ""
+msgstr "Typ hypertextového odkazu"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:512
 #, kde-kuit-format
 msgctxt "Tool used for opening a hyperlink"
 msgid "Hyperlink Tool"
-msgstr ""
+msgstr "Nástroj pro hypertextové odkazy"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:513
 #, kde-kuit-format
 msgctxt "Allow to open remote hyperlinks"
 msgid "Remote Hyperlink"
-msgstr ""
+msgstr "Vzdálený hypertextový odkaz"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:514
 #, kde-kuit-format
 msgctxt "Allow to open executables"
 msgid "Executable Hyperlink"
-msgstr ""
+msgstr "Spustitelný hypertextový odkaz"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:516
 #, kde-kuit-format
 msgctxt "Hyperlink type, NoHyperlink"
 msgid "No Hyperlink"
-msgstr ""
+msgstr "Žádný hypertextový odkaz"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:517
 #, kde-kuit-format
@@ -5737,7 +5741,7 @@ msgstr "Prohlížeč"
 #, kde-kuit-format
 msgctxt "Hyperlink tool, MailerTool"
 msgid "Mailer"
-msgstr ""
+msgstr "Přenos pošty"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:525
 #, kde-kuit-format
@@ -5772,46 +5776,46 @@ msgstr "Záznam"
 #, kde-kuit-format
 msgctxt "property: Can open external links in label"
 msgid "Open Ext. Links"
-msgstr ""
+msgstr "Otevřít externí odkazy"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:533
 #, kde-kuit-format
 msgctxt "Property: line edit's placeholder text"
 msgid "Placeholder Text"
-msgstr ""
+msgstr "Zástupný text"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:534
 #, kde-kuit-format
 msgctxt "Property: Clear Button Enabled"
 msgid "Clear Button"
-msgstr ""
+msgstr "Tlačítko Vymazat"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:536
 #, kde-kuit-format
 msgctxt "Property: Password Mode for line edit"
 msgid "Password Mode"
-msgstr "Modul hesla"
+msgstr "Režim hesla"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:537
 #, kde-kuit-format
 msgctxt "Property: Squeezed Text Mode for line edit"
 msgid "Squeezed Text"
-msgstr ""
+msgstr "Zmenšený text"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:540
 #, kde-kuit-format
 msgid "Tab Stop Width"
-msgstr ""
+msgstr "Šířka tabulátoru"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:541
 #, kde-kuit-format
 msgid "Tab Changes Focus"
-msgstr ""
+msgstr "Změna zaměření karty"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:542
 #, kde-kuit-format
 msgid "Word Wrap Policy"
-msgstr ""
+msgstr "Zásady pro zalamování slov"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:543
 #, kde-kuit-format
@@ -5839,7 +5843,7 @@ msgstr "Zalamování slov"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:547
 #, kde-kuit-format
 msgid "Word Wrap Position"
-msgstr ""
+msgstr "Pozice zalomení slov"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:548
 #, kde-kuit-format
@@ -5851,7 +5855,7 @@ msgstr "Nic"
 #, kde-kuit-format
 msgctxt "Property: For Word Wrap Position"
 msgid "Widget's Width"
-msgstr ""
+msgstr "Šířka widgetu"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:550
 #, kde-kuit-format
@@ -5878,7 +5882,7 @@ msgstr "Vodorovný posuvník"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:554
 #, kde-kuit-format
 msgid "Vertical Scroll Bar"
-msgstr ""
+msgstr "Svislý posuvník"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:556
 #, kde-kuit-format
@@ -5926,7 +5930,7 @@ msgctxt ""
 "letter. Example: smallCamelCase. Moreover, try to make this prefix as short "
 "as possible."
 msgid "tabWidget"
-msgstr ""
+msgstr "widget_karet"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:580
 #, kde-kuit-format
@@ -5955,12 +5959,12 @@ msgstr "rámec"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:609
 #, kde-kuit-format
 msgid "A frame widget"
-msgstr ""
+msgstr "Widget rámce"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:617
 #, kde-kuit-format
 msgid "Group Box"
-msgstr "Skupinový box"
+msgstr "Skupinové políčko"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:626
 #, kde-format
@@ -5973,7 +5977,7 @@ msgctxt ""
 "upper case letter. Example: smallCamelCase. Moreover, try to make this "
 "prefix as short as possible."
 msgid "groupBox"
-msgstr "skupinový_rámeček"
+msgstr "skupinové_políčko"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:627
 #, kde-kuit-format
@@ -6017,23 +6021,23 @@ msgstr "Tvar karty"
 #, kde-kuit-format
 msgctxt "Tab Widget's Elide Mode property"
 msgid "Elide Mode"
-msgstr ""
+msgstr "Režim zkrácení"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:642
 #, kde-kuit-format
 msgctxt "Tab Widget's property: true if can use scroll buttons"
 msgid "Scroll Buttons"
-msgstr ""
+msgstr "Tlačítka pro posun"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:644
 #, kde-kuit-format
 msgid "Closable Tabs"
-msgstr ""
+msgstr "Uzavíratelné karty"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:645
 #, kde-kuit-format
 msgid "Movable Tabs"
-msgstr ""
+msgstr "Posuvné karty"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:646
 #, kde-kuit-format
@@ -6148,18 +6152,18 @@ msgstr "Zkopírovat data z tabulky do schránky"
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:105
 #, kde-kuit-format
 msgid "Copying data from table:"
-msgstr ""
+msgstr "Kopírování dat z tabulky:"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:99
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Export Data From Table to CSV File"
-msgstr ""
+msgstr "Exportovat data z tabulky do souboru CSV"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:100
 #, kde-kuit-format
 msgid "Exporting data from table:"
-msgstr ""
+msgstr "Export dat z tabulky:"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:104
 #, kde-kuit-format
@@ -6171,12 +6175,12 @@ msgstr "Zkopírovat z dotazu do schránky"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Export Data From Query to CSV File"
-msgstr ""
+msgstr "Exportovat data z dotazu do souboru CSV"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:108
 #, kde-kuit-format
 msgid "Exporting data from query:"
-msgstr ""
+msgstr "Export dat z dotazu:"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:112
 #, kde-kuit-format
@@ -6196,7 +6200,7 @@ msgstr "(sloupce: %1)"
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:141
 #, kde-kuit-format
 msgid "Enter Name of File You Want to Save Data To"
-msgstr ""
+msgstr "Zadejte název souboru, do kterého chcete data uložit"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:173
 #, kde-kuit-format
@@ -6229,7 +6233,7 @@ msgstr "Citace textu:"
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:232
 #, kde-kuit-format
 msgid "Add column names as the first row"
-msgstr ""
+msgstr "Přidejte názvy sloupců do prvního řádku"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:236
 #, kde-kuit-format
@@ -6239,12 +6243,12 @@ msgstr "Výchozí"
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:242
 #, kde-kuit-format
 msgid "Always use above options for copying"
-msgstr ""
+msgstr "Ke kopírování vždy používejte výše uvedené možnosti"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:243
 #, kde-kuit-format
 msgid "Always use above options for exporting"
-msgstr ""
+msgstr "K exportování vždy používejte výše uvedené možnosti"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:251
 #, kde-kuit-format
@@ -6254,7 +6258,7 @@ msgstr "Kopírování"
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:251
 #, kde-kuit-format
 msgid "Exporting"
-msgstr "Probíhá export"
+msgstr "Exportování"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:384
 #, kde-kuit-format
@@ -6293,6 +6297,7 @@ msgstr "&Importovat..."
 #, kde-kuit-format
 msgid "Data set contains no rows. Do you want to import empty table?"
 msgstr ""
+"Datový soubor neobsahuje žádné řádky. Chcete importovat prázdnou tabulku?"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:429
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1825
@@ -6321,17 +6326,17 @@ msgstr "Načítám data CSV"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:583
 #, kde-kuit-format
 msgid "Select Import Filename"
-msgstr ""
+msgstr "Vyberte název souboru pro import"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:593
 #, kde-kuit-format
 msgid "Preview of data from file:"
-msgstr ""
+msgstr "Náhled dat ze souboru:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:594
 #, kde-kuit-format
 msgid "Preview of data from clipboard"
-msgstr ""
+msgstr "Náhled dat ze schránky"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:615
 #, kde-kuit-format
@@ -6346,12 +6351,12 @@ msgstr "Primární klíč"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:668
 #, kde-kuit-format
 msgid "Ignore duplicated delimiters"
-msgstr ""
+msgstr "Ignorovat duplicitní oddělovače"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:673
 #, kde-kuit-format
 msgid "First row contains column names"
-msgstr ""
+msgstr "První řádek obsahuje názvy sloupců"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:693
 #, kde-kuit-format
@@ -6373,19 +6378,19 @@ msgstr "&Existující tabulka"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:716
 #, kde-kuit-format
 msgid "Choose Destination for Imported Data"
-msgstr "Vyberte cíl pro importovaná data"
+msgstr "Vybrat cíl pro importovaná data"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:738
 #, kde-kuit-format
 msgctxt "@label"
 msgid "Select existing table:"
-msgstr ""
+msgstr "Vyberte existující tabulku:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:759
 #, kde-kuit-format
 msgctxt "@label Preview of selected table"
 msgid "Table preview:"
-msgstr ""
+msgstr "Náhled tabulky:"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:760
 #, kde-kuit-format
@@ -6421,7 +6426,7 @@ msgstr "Pole:"
 #, kde-kuit-format
 msgctxt "@label"
 msgid "Choose Name of Destination Table"
-msgstr ""
+msgstr "Vybrat název cílové tabulky"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:790
 #, kde-kuit-format
@@ -6470,7 +6475,7 @@ msgstr "Sloupec"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "An error occurred during insert record."
-msgstr ""
+msgstr "Při vkládání záznamu došlo k chybě."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1713
 #: plugins/importexport/csv/kexicsvwidgets.cpp:190
@@ -6496,6 +6501,10 @@ msgid ""
 "table without a primary key may not be editable (depending on database type)."
 "</note></para>"
 msgstr ""
+"<para>Nebyl definován žádný primární klíč (automatické číslování).</"
+"para><para>Má být automaticky definován při importu (doporučeno)?</"
+"para><para><note>Importovaná tabulka bez primárního klíče nemusí být "
+"editovatelná (v závislosti na typu databáze).</note></para>"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1846
 #: plugins/tables/kexitabledesignerview.cpp:1196
@@ -6515,7 +6524,7 @@ msgstr "&Nepřidávat"
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1941
 #, kde-kuit-format
 msgid "Cannot add column."
-msgstr ""
+msgstr "Nelze přidat sloupec."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1897
 #: plugins/importexport/csv/KexiCSVImportDialogModel.cpp:114
@@ -6530,27 +6539,29 @@ msgid ""
 "<para>Field count does not match.</para><para>Please choose another table.</"
 "para>"
 msgstr ""
+"<para>Počet polí se neshoduje.</para><para>Vyberte prosím jinou tabulku.</"
+"para>"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1999
 #, kde-kuit-format
 msgid "Importing data..."
-msgstr "Probíhá import dat..."
+msgstr "Importování dat..."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2014
 #, kde-kuit-format
 msgid "Import has been canceled."
-msgstr ""
+msgstr "Import byl zrušen."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2016
 #, kde-kuit-format
 msgid "Error occurred during import."
-msgstr ""
+msgstr "Při importu došlo k chybě."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2051
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Data has been successfully imported to table <resource>%1</resource>."
-msgstr ""
+msgstr "Data byla úspěšně importována do tabulky <resource>%1</resource>."
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2078
 #, kde-kuit-format
@@ -6580,12 +6591,12 @@ msgstr "(řady: %1)"
 #, kde-kuit-format
 msgctxt "row count"
 msgid "(rows: more than %1)"
-msgstr ""
+msgstr "(řádky: více než %1)"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:2167
 #, kde-kuit-format
 msgid "Not all rows are visible on this preview"
-msgstr ""
+msgstr "V tomto náhledu nejsou zobrazeny všechny řádky"
 
 #: plugins/importexport/csv/KexiCSVImportDialogModel.cpp:77
 #, kde-kuit-format
@@ -6607,7 +6618,7 @@ msgstr "Kódování textu"
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:125
 #, kde-kuit-format
 msgid "Always use this encoding when importing CSV data files"
-msgstr ""
+msgstr "Při importu datových souborů CSV vždy používat toto kódování"
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:130
 #, kde-kuit-format
@@ -6646,12 +6657,12 @@ msgstr "Formát data:"
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:148
 #, kde-kuit-format
 msgid "Strip leading and trailing blanks off of text values"
-msgstr ""
+msgstr "Odstranit úvodní a koncové mezery z textových hodnot"
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:152
 #, kde-kuit-format
 msgid "Import missing text values as empty texts"
-msgstr ""
+msgstr "Importovat chybějící textové hodnoty jako prázdné texty"
 
 #: plugins/importexport/csv/kexicsvwidgets.cpp:88
 #, kde-kuit-format
@@ -6691,7 +6702,7 @@ msgstr "Sloupce dotazu"
 #: plugins/queries/kexiquerydesignerguieditor.cpp:241
 #, kde-kuit-format
 msgid "Describes field name or expression for the designed query."
-msgstr ""
+msgstr "Popisuje název pole nebo výraz pro daný dotaz."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:248
 #: widget/relations/KexiRelationsView.cpp:372
@@ -6702,17 +6713,17 @@ msgstr "Tabulka"
 #: plugins/queries/kexiquerydesignerguieditor.cpp:249
 #, kde-kuit-format
 msgid "Describes table for a given field. Can be empty."
-msgstr ""
+msgstr "Popisuje tabulku pro dané pole. Může být prázdné."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:254
 #, kde-kuit-format
 msgid "Visible"
-msgstr "Viditelné"
+msgstr "Viditelnost"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:255
 #, kde-kuit-format
 msgid "Describes visibility for a given field or expression."
-msgstr ""
+msgstr "Popisuje viditelnost daného pole nebo výrazu."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:274
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1874
@@ -6745,7 +6756,7 @@ msgstr "Kritérium"
 #: plugins/queries/kexiquerydesignerguieditor.cpp:285
 #, kde-kuit-format
 msgid "Describes the criteria for a given field or expression."
-msgstr ""
+msgstr "Popisuje kritéria pro dané pole nebo výraz."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:384
 #, kde-kuit-format
@@ -6753,12 +6764,14 @@ msgid ""
 "Cannot switch to data view, because query design is empty.\n"
 "First, please create your design."
 msgstr ""
+"Nelze přepnout do zobrazení dat, protože návrh dotazu je prázdný.\n"
+"Nejprve prosím vytvořte návrh."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:424
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Select column for table <resource>%1</resource>"
-msgstr ""
+msgstr "Vybrat sloupec pro tabulku <resource>%1</resource>"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:447
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1765
@@ -6782,7 +6795,7 @@ msgstr "Chybný výraz <icode>%1</icode>"
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1144
 #, kde-kuit-format
 msgid "Query definition loading failed."
-msgstr ""
+msgstr "Načtení definice dotazu se nezdařilo."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:705
 #, kde-kuit-format
@@ -6790,6 +6803,9 @@ msgid ""
 "Query design may be corrupted so it could not be opened even in text view.\n"
 "You can delete the query and create it again."
 msgstr ""
+"Návrh dotazu může být poškozen, takže jej nelze otevřít ani v textovém "
+"zobrazení.\n"
+"Dotaz můžete smazat a vytvořit jej znovu."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1335
 #, kde-kuit-format
@@ -6802,6 +6818,7 @@ msgstr "výr"
 msgctxt "@info"
 msgid "Entered column alias <resource>%1</resource> is not a valid identifier."
 msgstr ""
+"Zadaný alias sloupce <resource>%1</resource> není platný identifikátor."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1543
 #, kde-kuit-format
@@ -6822,7 +6839,7 @@ msgstr "Nelze nastavit kritérium <resource>%1</resource>"
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1741
 #, kde-kuit-format
 msgid "Could not set criteria for empty record"
-msgstr ""
+msgstr "Nelze nastavit kritéria pro prázdný záznam"
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:1835
 #, kde-kuit-format
@@ -6849,7 +6866,7 @@ msgstr "Překontrolovat dotaz"
 #: plugins/queries/kexiquerydesignersql.cpp:159
 #, kde-kuit-format
 msgid "Checks query for validity."
-msgstr ""
+msgstr "Zkontroluje platnost dotazu."
 
 #: plugins/queries/kexiquerydesignersql.cpp:182
 #, kde-kuit-format
@@ -6873,6 +6890,8 @@ msgid ""
 "<para>The query you entered is incorrect.</para><para>Do you want discard "
 "changes made to this SQL text and switch to the other view?</para>"
 msgstr ""
+"<para>Zadaný dotaz je nesprávný.</para><para>Chcete zrušit změny provedené v "
+"tomto SQL textu a přepnout na jiné zobrazení?</para>"
 
 #: plugins/queries/kexiquerydesignersql.cpp:236
 #, kde-kuit-format
@@ -6922,6 +6941,8 @@ msgid ""
 "<para>You are about to delete query <resource>%1</resource> but it is used "
 "by following opened windows:</para>"
 msgstr ""
+"<para>Chystáte se odstranit dotaz <resource>%1</resource>, který však "
+"používají následující otevřená okna:</para>"
 
 #: plugins/queries/kexiquerypart.cpp:187
 #, kde-format
@@ -6939,7 +6960,7 @@ msgstr "Dotaz <resource>%1</resource> již existuje."
 #, kde-format
 msgctxt "@info/plain Sentence1 Sentence2 Sentence3"
 msgid "%1%2%3"
-msgstr ""
+msgstr "%1%2%3"
 
 #: plugins/queries/kexiquerypart.cpp:240 plugins/tables/kexitablepart.cpp:209
 #, kde-kuit-format
@@ -6948,18 +6969,19 @@ msgid ""
 "<para>Do you want to close these windows and save the design or cancel "
 "saving?</para>"
 msgstr ""
+"<para>Chcete tato okna zavřít a návrh uložit, nebo uložení zrušit?</para>"
 
 #: plugins/queries/kexiquerypart.cpp:245 plugins/tables/kexitablepart.cpp:214
 #, kde-kuit-format
 msgctxt "@action:button Close all windows and save"
 msgid "Close Windows and Save"
-msgstr ""
+msgstr "Zavřít okna a uložit"
 
 #: plugins/queries/kexiquerypart.cpp:247 plugins/tables/kexitablepart.cpp:216
 #, kde-kuit-format
 msgctxt "@info:tooltip Close all windows and save design"
 msgid "Close all windows and save design"
-msgstr ""
+msgstr "Zavřít všechna okna a uložit návrh"
 
 #: plugins/queries/kexiquerypart.cpp:274
 #, kde-kuit-format
@@ -7119,11 +7141,13 @@ msgstr "Textový dokument..."
 #, kde-kuit-format
 msgid "Export the report as a text document (in OpenDocument Text format)"
 msgstr ""
+"Exportovat hlášení jako textový dokument (ve formátu OpenDocument Text)"
 
 #: plugins/reports/kexireportview.cpp:106
 #, kde-kuit-format
 msgid "Exports the report as a text document (in OpenDocument Text format)."
 msgstr ""
+"Exportuje hlášení jako textový dokument (ve formátu OpenDocument Text)."
 
 #: plugins/reports/kexireportview.cpp:115
 #, kde-kuit-format
@@ -7150,13 +7174,13 @@ msgstr "Sešit..."
 #: plugins/reports/kexireportview.cpp:131
 #, kde-kuit-format
 msgid "Export the report as a spreadsheet (in OpenDocument Spreadsheet format)"
-msgstr ""
+msgstr "Exportovat hlášení jako tabulku (ve formátu OpenDocument Spreadsheet)"
 
 #: plugins/reports/kexireportview.cpp:132
 #, kde-kuit-format
 msgid ""
 "Exports the report as a spreadsheet (in OpenDocument Spreadsheet format)."
-msgstr ""
+msgstr "Exportuje hlášení jako tabulku (ve formátu OpenDocument Spreadsheet)"
 
 #: plugins/reports/kexireportview.cpp:142
 #, kde-kuit-format
@@ -7177,7 +7201,7 @@ msgstr "Uloží hlášení jako webovou stranu (ve formátu HTML)."
 #: plugins/reports/kexireportview.cpp:181
 #, kde-kuit-format
 msgid "Printing the report failed."
-msgstr ""
+msgstr "Tisk hlášení se nezdařil."
 
 #: plugins/reports/kexireportview.cpp:182
 #, kde-kuit-format
@@ -7220,17 +7244,17 @@ msgstr "Selhal se export hlášení jako sešit do %1."
 #: plugins/reports/kexireportview.cpp:285
 #, kde-kuit-format
 msgid "Export Report as Text Document"
-msgstr ""
+msgstr "Exportovat hlášení jako textový dokument"
 
 #: plugins/reports/kexireportview.cpp:294
 #, kde-kuit-format
 msgid "Exporting the report as text document to %1 failed."
-msgstr ""
+msgstr "Export hlášení jako textového dokumentu do %1 se nezdařil."
 
 #: plugins/reports/kexireportview.cpp:305
 #, kde-kuit-format
 msgid "Export Report as Web Page"
-msgstr "Exportovat hlášení jako webovou stranu"
+msgstr "Exportovat hlášení jako webovou stránku"
 
 #: plugins/reports/kexireportview.cpp:319
 #, kde-kuit-format
@@ -7240,12 +7264,15 @@ msgid ""
 "page or use HTML tables?</para><para><note>CSS give output closer to the "
 "original.</note></para>"
 msgstr ""
+"<para>Chcete v exportované webové stránce použít kaskádové styly (CSS) nebo "
+"HTML tabulky?</para><para><note>CSS zajistí výstup, který se více blíží "
+"originálu.</note></para>"
 
 #: plugins/reports/kexireportview.cpp:323
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Use CSS"
-msgstr ""
+msgstr "Použít CSS"
 
 #: plugins/reports/kexireportview.cpp:324
 #, kde-kuit-format
@@ -7256,7 +7283,7 @@ msgstr "Použít tabulku"
 #: plugins/reports/kexireportview.cpp:334
 #, kde-kuit-format
 msgid "Exporting the report as web page to %1 failed."
-msgstr "Selhal export hlášení jako webovou stranu do %1."
+msgstr "Selhal export hlášení jako webovou stránky do %1."
 
 #: plugins/reports/kexireportview.cpp:396
 #, kde-kuit-format
@@ -7266,22 +7293,22 @@ msgstr "Otevření selhalo"
 #: plugins/reports/kexireportview.cpp:396
 #, kde-kuit-format
 msgid "Report schema appears to be invalid or corrupt"
-msgstr ""
+msgstr "Zdá se, že schéma hlášení je neplatné nebo poškozené"
 
 #: plugins/reports/kexisourceselector.cpp:59
 #, kde-kuit-format
 msgid "Report's data source:"
-msgstr ""
+msgstr "Zdroj dat v tomto hlášení:"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:134
 #, kde-kuit-format
 msgid "Execute the scripting code"
-msgstr ""
+msgstr "Spustit kód skriptu"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:135
 #, kde-kuit-format
 msgid "Executes the scripting code."
-msgstr ""
+msgstr "Spustí kód skriptu."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:144
 #, kde-kuit-format
@@ -7296,7 +7323,7 @@ msgstr "Upravit činnosti"
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:147
 #, kde-kuit-format
 msgid "Provides Edit menu."
-msgstr ""
+msgstr "Poskytuje nabídku Upravit."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:154
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:136
@@ -7307,12 +7334,12 @@ msgstr "Nastavit editor..."
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:156
 #, kde-kuit-format
 msgid "Configure the scripting editor"
-msgstr ""
+msgstr "Nastavit editor skriptů"
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:157
 #, kde-kuit-format
 msgid "Configures the scripting editor."
-msgstr ""
+msgstr "Nastaví editor skriptů."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:166
 #, kde-kuit-format
@@ -7366,7 +7393,7 @@ msgstr "Exportovat skript"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not write <filename>%1</filename>."
-msgstr ""
+msgstr "Nelze zapsat <filename>%1</filename>."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:271
 #, kde-kuit-format
@@ -7382,12 +7409,12 @@ msgstr "Typ skriptu"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Execution of the script <resource>%1</resource> started."
-msgstr ""
+msgstr "Proběhlo spuštění skriptu <resource>%1</resource>."
 
 #: plugins/scripting/kexiscripting/kexiscriptdesignview.cpp:330
 #, no-c-format, kde-kuit-format
 msgid "Successfully executed. Time elapsed: %1ms"
-msgstr ""
+msgstr "Úspěšně provedeno. Uplynulý čas: %1 ms"
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:70
 #, kde-kuit-format
@@ -7445,12 +7472,12 @@ msgstr "Zdroj záznamu:"
 #: plugins/tables/kexilookupcolumnpage.cpp:149
 #, kde-kuit-format
 msgid "Go to selected record source"
-msgstr ""
+msgstr "Přejít na zdroj vybraného záznamu"
 
 #: plugins/tables/kexilookupcolumnpage.cpp:160
 #, kde-kuit-format
 msgid "Bound column:"
-msgstr ""
+msgstr "Vázaný sloupec:"
 
 #: plugins/tables/kexilookupcolumnpage.cpp:174
 #, kde-kuit-format
@@ -7460,7 +7487,7 @@ msgstr "Viditelný sloupec:"
 #: plugins/tables/kexilookupcolumnpage.cpp:222
 #, kde-kuit-format
 msgid "No field selected"
-msgstr ""
+msgstr "Nebylo vybráno žádné pole"
 
 #: plugins/tables/kexitabledesignercommands.cpp:94
 #, kde-format
@@ -7476,13 +7503,13 @@ msgstr ""
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Delete table field <resource>%1</resource>"
-msgstr ""
+msgstr "Odstranit pole tabulky <resource>%1</resource>"
 
 #: plugins/tables/kexitabledesignercommands.cpp:162
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Delete empty row at position %1"
-msgstr ""
+msgstr "Odstranit prázdný řádek na pozici %1"
 
 #: plugins/tables/kexitabledesignercommands.cpp:212
 #, kde-format
@@ -7493,7 +7520,7 @@ msgstr "Vložit pole tabulky \"%1\""
 #: plugins/tables/kexitabledesignerview.cpp:119
 #, kde-kuit-format
 msgid "Additional information about the field"
-msgstr ""
+msgstr "Další informace o poli"
 
 #: plugins/tables/kexitabledesignerview.cpp:126
 #, kde-kuit-format
@@ -7503,7 +7530,7 @@ msgstr "Popisek pole"
 #: plugins/tables/kexitabledesignerview.cpp:127
 #, kde-kuit-format
 msgid "Describes caption for the field"
-msgstr ""
+msgstr "Popisuje popisek pole"
 
 #: plugins/tables/kexitabledesignerview.cpp:130
 #: widget/fields/KexiFieldListModel.cpp:147
@@ -7514,7 +7541,7 @@ msgstr "Datový typ"
 #: plugins/tables/kexitabledesignerview.cpp:131
 #, kde-kuit-format
 msgid "Describes data type for the field"
-msgstr ""
+msgstr "Popisuje datový typ pole"
 
 #: plugins/tables/kexitabledesignerview.cpp:149
 #, kde-kuit-format
@@ -7529,12 +7556,12 @@ msgstr "Popisuje následující komponenty pole"
 #: plugins/tables/kexitabledesignerview.cpp:176
 #, kde-kuit-format
 msgid "Sets or deletes primary key"
-msgstr ""
+msgstr "Nastaví nebo odstraní primární klíč"
 
 #: plugins/tables/kexitabledesignerview.cpp:177
 #, kde-kuit-format
 msgid "Sets or deletes primary key for currently selected field."
-msgstr ""
+msgstr "Nastaví nebo odstraní primární klíč pro aktuálně vybrané pole."
 
 #: plugins/tables/kexitabledesignerview.cpp:310
 #, kde-kuit-format
@@ -7572,7 +7599,7 @@ msgstr "Přesnost"
 #: plugins/tables/kexitabledesignerview.cpp:380
 #, kde-kuit-format
 msgid "Visible Decimal Places"
-msgstr ""
+msgstr "Počet zobrazených desetinných míst"
 
 #: plugins/tables/kexitabledesignerview.cpp:382
 #, kde-kuit-format
@@ -7637,7 +7664,7 @@ msgstr ""
 #: plugins/tables/kexitabledesignerview.cpp:431
 #, kde-kuit-format
 msgid "Bound Column"
-msgstr ""
+msgstr "Vázaný sloupec"
 
 #: plugins/tables/kexitabledesignerview.cpp:441
 #, kde-kuit-format
@@ -7665,13 +7692,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Save Design and Delete Table Data"
-msgstr ""
+msgstr "Uložit návrh a smazat data tabulky"
 
 #: plugins/tables/kexitabledesignerview.cpp:580
 #, kde-kuit-format
 msgctxt "@action:button"
 msgid "Discard Design"
-msgstr ""
+msgstr "Zahodit návrh"
 
 #: plugins/tables/kexitabledesignerview.cpp:643
 #, kde-format
@@ -7680,6 +7707,8 @@ msgid ""
 "Change <resource>%1</resource> field name to <resource>%2</resource> and "
 "caption from <resource>%3</resource> to <resource>%4</resource>"
 msgstr ""
+"Změnit název pole <resource>%1</resource> na <resource>%2</resource> a "
+"popisek z <resource>%3</resource> na <resource>%4</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:721
 #, kde-format
@@ -7695,6 +7724,8 @@ msgid ""
 "<para>Setting autonumber requires primary key to be set for current field.</"
 "para>"
 msgstr ""
+"<para>Nastavení automatického číslování vyžaduje, aby byl pro dané pole "
+"nastaven primární klíč.</para>"
 
 #: plugins/tables/kexitabledesignerview.cpp:896
 #, kde-kuit-format
@@ -7713,7 +7744,7 @@ msgstr ""
 #: plugins/tables/kexitabledesignerview.cpp:901
 #, kde-kuit-format
 msgid "Setting Autonumber Field"
-msgstr ""
+msgstr "Nastavení pole s automatickým číslováním"
 
 #: plugins/tables/kexitabledesignerview.cpp:902
 #, kde-kuit-format
@@ -7725,26 +7756,27 @@ msgstr "Vytvořit &primární klíč"
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Set autonumber for field <resource>%1</resource>"
-msgstr ""
+msgstr "Nastavit automatické číslování pro pole <resource>%1</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:914
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Delete autonumber from field <resource>%1</resource>"
-msgstr ""
+msgstr "Odstranit automatické číslování z pole <resource>%1</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:932
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid "Set <resource>%1</resource> property for field <resource>%2</resource>"
 msgstr ""
+"Nastavit vlastnost <resource>%1</resource> pro pole <resource>%2</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:973
 #, kde-format
 msgctxt "(qtundo-format)"
 msgid ""
 "Change type for field <resource>%1</resource> to <resource>%2</resource>"
-msgstr ""
+msgstr "Změnit typ pole <resource>%1</resource> na <resource>%2</resource>"
 
 #: plugins/tables/kexitabledesignerview.cpp:1013
 #, kde-format
@@ -7861,6 +7893,8 @@ msgid ""
 "<para>You are about to delete table <resource>%1</resource> but it is used "
 "by following opened windows:</para>"
 msgstr ""
+"<para>Chystáte se odstranit tabulku <resource>%1</resource>, která je však "
+"používána v následujících otevřených oknech:</para>"
 
 #: plugins/tables/kexitablepart.cpp:157
 #, kde-kuit-format
@@ -7868,6 +7902,8 @@ msgid ""
 "<para>You are about to rename table <resource>%1</resource> but it is used "
 "by following opened windows:</para>"
 msgstr ""
+"<para>Chystáte se přejmenovat tabulku <resource>%1</resource>, která je ale "
+"používána v následujících otevřených oknech:</para>"
 
 #: plugins/tables/kexitablepart.cpp:238
 #, kde-format
@@ -7888,6 +7924,8 @@ msgid ""
 "<warning>Any data in this table will be deleted upon design's saving!</"
 "warning>"
 msgstr ""
+"<warning>Všechna data v této tabulce budou při uložení návrhu smazána!</"
+"warning>"
 
 #: plugins/tables/kexitablepart.cpp:274
 #, kde-kuit-format
@@ -7909,23 +7947,24 @@ msgstr "Chyba: %1?"
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:865
 #, kde-kuit-format
 msgid "The column's constraint is declared as NOT NULL (required)."
-msgstr ""
+msgstr "Omezení sloupce je deklarováno jako NOT NULL (povinné)."
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:878
 #, kde-kuit-format
 msgid ""
 "The column's constraint is declared as NOT EMPTY (text should be filled)."
 msgstr ""
+"Omezení sloupce je deklarováno jako NOT EMPTY (pole by mělo být vyplněno)."
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:888
 #, kde-kuit-format
 msgid "The column's constraint is declared as NOT EMPTY and NOT NULL."
-msgstr ""
+msgstr "Omezení sloupce je deklarováno jako NOT EMPTY a NOT NULL."
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1083
 #, kde-kuit-format
 msgid "Do you want to delete selected record?"
-msgstr ""
+msgstr "Chcete smazat vybraný záznam?"
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1084
 #, kde-kuit-format
@@ -7977,8 +8016,14 @@ msgid_plural ""
 "by %1 characters.\n"
 "Fix the text or it will be truncated upon saving changes."
 msgstr[0] ""
+"Limit %2 znaků pro pole <resource>%3</resource> byl překročen o %1 znak.\n"
+"Opravte text, jinak bude při uložení změn zkrácen."
 msgstr[1] ""
+"Limit %2 znaků pro pole <resource>%3</resource> byl překročen o %1 znaky.\n"
+"Opravte text, jinak bude při uložení změn zkrácen."
 msgstr[2] ""
+"Limit %2 znaků pro pole <resource>%3</resource> byl překročen o %1 znaků.\n"
+"Opravte text, jinak bude při uložení změn zkrácen."
 
 #: widget/dataviewcommon/kexidataprovider.cpp:216
 #, kde-kuit-format
@@ -8011,6 +8056,11 @@ msgid ""
 "connection. Here you may also add, edit or delete connections from the list."
 "</para>\n"
 msgstr ""
+"<title>Vyberte připojení k existujícímu databázovému serveru z níže "
+"uvedeného seznamu</title>\n"
+"<para>Zobrazí se vám existující projekty Kexi dostupné pro vybrané "
+"připojení. Zde můžete také přidávat, upravovat nebo mazat připojení ze "
+"seznamu.</para>\n"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: widget/KexiConnectionSelector.ui:104
@@ -8050,7 +8100,7 @@ msgstr "Upravit vybrané databázové připojení"
 #: widget/KexiConnectionSelectorWidget.cpp:64
 #, kde-kuit-format
 msgid "Delete selected database connections"
-msgstr ""
+msgstr "Odstranit vybraná připojení k databázi"
 
 #: widget/KexiConnectionSelectorWidget.cpp:89
 #, kde-kuit-format
@@ -8061,7 +8111,7 @@ msgstr "Soubor"
 #, kde-kuit-format
 msgctxt "file (driver name)"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: widget/KexiConnectionSelectorWidget.cpp:387
 #, kde-kuit-format
@@ -8104,11 +8154,13 @@ msgid ""
 "Do you want to delete database connection <resource>%1</resource> from the "
 "list of available connections?"
 msgstr ""
+"Chcete odstranit databázové připojení <resource>%1</resource> ze seznamu "
+"dostupných připojení?"
 
 #: widget/KexiDataSourceComboBox.cpp:125
 #, kde-kuit-format
 msgid "Define Query..."
-msgstr ""
+msgstr "Definovat dotaz..."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widget/KexiDBCaptionPage.ui:31
@@ -8125,7 +8177,7 @@ msgstr "&Název souboru projektu:"
 #: widget/kexidbconnectionwidget.cpp:90
 #, kde-kuit-format
 msgid "Load database list from the server"
-msgstr ""
+msgstr "Načíst seznam databází ze serveru"
 
 #: widget/kexidbconnectionwidget.cpp:92
 #, kde-kuit-format
@@ -8133,6 +8185,8 @@ msgid ""
 "Loads database list from the server, so you can select one using the "
 "<interface>Name</interface> combo box."
 msgstr ""
+"Načte seznam databází ze serveru, takže si můžete jednu z nich vybrat pomocí "
+"rozevíracího seznamu <interface>Název</interface>."
 
 #: widget/kexidbconnectionwidget.cpp:103
 #, kde-kuit-format
@@ -8143,7 +8197,7 @@ msgstr "Uložit změny"
 #: widget/kexidbconnectionwidget.cpp:104
 #, kde-kuit-format
 msgid "Save all changes made to this connection information"
-msgstr ""
+msgstr "Uložit všechny změny provedené v těchto údajích o připojení"
 
 #: widget/kexidbconnectionwidget.cpp:105
 #, kde-kuit-format
@@ -8151,6 +8205,8 @@ msgid ""
 "Save all changes made to this connection information. You can later reuse "
 "this information."
 msgstr ""
+"Uložit všechny změny provedené v těchto údajích o připojení. Tyto údaje "
+"můžete později znovu použít."
 
 #: widget/kexidbconnectionwidget.cpp:116
 #, kde-kuit-format
@@ -8168,6 +8224,8 @@ msgstr "Otestovat databázové připojení"
 msgid ""
 "Tests database connection. You can check validity of connection information."
 msgstr ""
+"Otestuje připojení k databázi. Můžete zkontrolovat správnost údajů o "
+"připojení."
 
 #: widget/kexidbconnectionwidget.cpp:152
 #, kde-kuit-format
@@ -8246,6 +8304,11 @@ msgid ""
 "read, so generally it is not safe to make such files publicly accessible.</"
 "p></body></html>"
 msgstr ""
+"<html><head/><body><p>Ukládá heslo do souboru zástupce připojení <span style="
+"\" font-style:italic;\">.kexic</span> nebo <span style=\" font-style:italic;"
+"\">.kexis</span> pomocí jednoduchého šifrování podobného algoritmu ROT-47. "
+"Nezaručuje bezpečnost, ale pouze ztěžuje přečtení souboru, takže obecně není "
+"bezpečné tyto soubory zpřístupňovat veřejnosti. </p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkSavePassword)
 #: widget/kexidbconnectionwidget.ui:140
@@ -8312,7 +8375,7 @@ msgstr "Výchozí"
 #: widget/kexidbconnectionwidgetdetails.ui:34
 #, kde-format
 msgid "Use socket &file instead of TCP/IP port:"
-msgstr ""
+msgstr "Použít soubor soketu místo portu TCP/IP:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkSocketDefault)
 #: widget/kexidbconnectionwidgetdetails.ui:80
@@ -8512,6 +8575,8 @@ msgid ""
 "<b>There are Kexi projects you have recently opened.</b> Select one you wish "
 "to open:\n"
 msgstr ""
+"<b>Máte projekty Kexi, které jste otevřeli nedávno.</b> Vyberte ten, který "
+"chcete otevřít:\n"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: widget/KexiProjectSelector.ui:74
@@ -8540,6 +8605,8 @@ msgstr "%1: %2"
 #, kde-kuit-format
 msgid "Select a project on <resource>%1</resource> database server to open:"
 msgstr ""
+"Vybrat projekt na databázovém serveru <resource>%1</resource>, který chcete "
+"otevřít:"
 
 #: widget/kexiqueryparameters.cpp:42
 #, kde-kuit-format
@@ -8571,6 +8638,13 @@ msgid ""
 "filename>. Please note that your package names could vary slightly depending "
 "on the operating system you use.</para>"
 msgstr ""
+"<title>Nebyly nalezeny žádné ovladače databázového serveru</title><para>Pro "
+"připojení k databázovému serveru je zapotřebí příslušný ovladač, který "
+"nemáte nainstalovaný.</para><subtitle>Podrobnosti</subtitle><para>Chcete-li "
+"získat ovladače databáze, použijte prosím správce balíčků k vyhledání a "
+"instalaci balíčků s tzv. <emphasis>ovladači KDb</emphasis> s názvem "
+"<filename>kdb-****-driver</filename>. Upozorňujeme, že názvy balíčků se "
+"mohou mírně lišit v závislosti na operačním systému, který používáte.</para>"
 
 #: widget/KexiStartupFileHandler.cpp:483
 #, kde-kuit-format
@@ -8596,7 +8670,7 @@ msgstr "Otevřít objekt"
 #: widget/navigator/KexiProjectNavigator.cpp:161
 #, kde-kuit-format
 msgid "Opens object selected in the list."
-msgstr ""
+msgstr "Otevře objekt vybraný v seznamu."
 
 #: widget/navigator/KexiProjectNavigator.cpp:173
 #, kde-kuit-format
@@ -8621,7 +8695,7 @@ msgstr "Přejmenovat objekt"
 #: widget/navigator/KexiProjectNavigator.cpp:179
 #, kde-kuit-format
 msgid "Renames the object selected in the list."
-msgstr ""
+msgstr "Přejmenuje objekt vybraný v seznamu."
 
 #: widget/navigator/KexiProjectNavigator.cpp:188
 #, kde-kuit-format
@@ -8636,22 +8710,22 @@ msgstr "Navrhnout objekt"
 #: widget/navigator/KexiProjectNavigator.cpp:190
 #, kde-kuit-format
 msgid "Starts designing of the object selected in the list."
-msgstr ""
+msgstr "Spustí návrh objektu vybraného v seznamu."
 
 #: widget/navigator/KexiProjectNavigator.cpp:193
 #, kde-kuit-format
 msgid "Design in &Text View"
-msgstr ""
+msgstr "Návrh v &textovém zobrazení"
 
 #: widget/navigator/KexiProjectNavigator.cpp:194
 #, kde-kuit-format
 msgid "Design object in text view"
-msgstr ""
+msgstr "Návrh objektu v textovém zobrazení"
 
 #: widget/navigator/KexiProjectNavigator.cpp:195
 #, kde-kuit-format
 msgid "Starts designing of the object in the list in text view."
-msgstr ""
+msgstr "Spustí návrh objektu ze seznamu v textovém zobrazení."
 
 #: widget/navigator/KexiProjectNavigator.cpp:209
 #, kde-kuit-format
@@ -8667,13 +8741,13 @@ msgstr "Exportovat data do schránky"
 #: widget/navigator/KexiProjectNavigator.cpp:211
 #, kde-kuit-format
 msgid "Exports data from the currently selected table or query to clipboard."
-msgstr ""
+msgstr "Exportuje data z aktuálně vybrané tabulky nebo dotazu do schránky."
 
 #: widget/navigator/KexiProjectNavigator.cpp:216
 #, kde-kuit-format
 msgctxt "Export->To File As Data &Table... "
 msgid "To &File As Data Table..."
-msgstr ""
+msgstr "Do &souboru jako datovou tabulku..."
 
 #: widget/navigator/KexiProjectNavigator.cpp:217
 #, kde-kuit-format
@@ -8683,7 +8757,7 @@ msgstr "Exportovat data do souboru"
 #: widget/navigator/KexiProjectNavigator.cpp:218
 #, kde-kuit-format
 msgid "Exports data from the currently selected table or query to a file."
-msgstr ""
+msgstr "Exportuje data z aktuálně vybrané tabulky nebo dotazu do souboru."
 
 #: widget/navigator/KexiProjectNavigator.cpp:371
 #, kde-kuit-format
@@ -8720,6 +8794,8 @@ msgid ""
 "<nl/><nl/><img src=\"%1\" width=\"48\"/><nl/>Your project is empty...<nl/"
 ">Why not <b>create</b> something?"
 msgstr ""
+"<nl/><nl/><img src=\"%1\" width=\"48\"/><nl/>Váš projekt je prázdný...<nl/"
+">Co takhle <b>něco vytvořit</b>?"
 
 #: widget/properties/KexiPropertyEditorView.cpp:46
 #, kde-kuit-format
@@ -8730,17 +8806,17 @@ msgstr "Vlastnosti"
 #: widget/relations/KexiRelationsScrollArea.cpp:120
 #, kde-kuit-format
 msgid "&Hide Selected Table/Query"
-msgstr ""
+msgstr "S&krýt vybranou tabulku/dotaz"
 
 #: widget/relations/KexiRelationsScrollArea.cpp:122
 #, kde-kuit-format
 msgid "&Delete Selected Relationship"
-msgstr ""
+msgstr "&Smazat vybraný vztah"
 
 #: widget/relations/KexiRelationsScrollArea.cpp:124
 #, kde-kuit-format
 msgid "&Open Selected Table/Query"
-msgstr ""
+msgstr "&Otevřít vybranou tabulku/dotaz"
 
 #: widget/relations/KexiRelationsView.cpp:85
 #, kde-kuit-format
@@ -8786,7 +8862,7 @@ msgstr "Vztah"
 #: widget/tableview/kexiblobtableedit.cpp:83
 #, kde-kuit-format
 msgid "Click to show available actions for this cell"
-msgstr ""
+msgstr "Kliknutím zobrazíte dostupné akce pro tuto buňku"
 
 #: widget/tableview/KexiTableScrollArea.cpp:2439
 #, kde-kuit-format
@@ -8976,24 +9052,24 @@ msgstr "Nový záznam"
 #: widget/utils/kexirecordnavigator.cpp:630
 #, kde-kuit-format
 msgid "Moves cursor to first record."
-msgstr ""
+msgstr "Přesune kurzor na první záznam."
 
 #: widget/utils/kexirecordnavigator.cpp:631
 #, kde-kuit-format
 msgid "Moves cursor to previous record."
-msgstr ""
+msgstr "Přesune kurzor na předchozí záznam."
 
 #: widget/utils/kexirecordnavigator.cpp:632
 #, kde-kuit-format
 msgid "Moves cursor to next record."
-msgstr ""
+msgstr "Přesune kurzor na další záznam."
 
 #: widget/utils/kexirecordnavigator.cpp:633
 #, kde-kuit-format
 msgid "Moves cursor to last record."
-msgstr ""
+msgstr "Přesune kurzor na poslední záznam."
 
 #: widget/utils/kexirecordnavigator.cpp:634
 #, kde-kuit-format
 msgid "Moves cursor to new record and allows inserting."
-msgstr ""
+msgstr "Přesune kurzor na nový záznam a umožní vkládání."
