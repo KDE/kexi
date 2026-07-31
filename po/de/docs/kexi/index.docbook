@@ -91,7 +91,7 @@
 >Einleitung</title
 > 
 <para
->&kexi; ist ein Programm zur Verwaltung von Datenbanken. Sie können mit &kexi; Datenbanken erstellen, Daten darin einfügen, Abfragen stellen und Daten bearbeiten. Selbst entworfene Formulare ermöglichen ein angepasste Benutzerschnittstelle. Alle Datenbankobjekte - Tabellen, Abfragen und Formulare - werden in der Datenbank gespeichert, um Daten und deren Darstellung gemeinsam zu benutzen. </para>
+>&kexi; ist ein Programm zur Verwaltung von Datenbanken. Sie können mit &kexi; Datenbanken erstellen, Daten darin einfügen, Abfragen stellen und Daten bearbeiten. Selbst entworfene Formulare ermöglichen ein angepasste Benutzerschnittstelle. Alle Datenbankobjekte - Tabellen, Abfragen und Formulare - werden in der Datenbank gespeichert, um Daten und deren Darstellung gemeinsam zu verwenden. </para>
 <para
 >&kexi; ist Bestandteil des &calligra;-Büropakets von &kde;. </para>
 <para
@@ -200,9 +200,9 @@
 >&Microsoft; Excel</application
 > erzeugen Dateien, die als Dokumente bezeichnet werden. Auch &kexi; erzeugt Dateien, aber sie werden in diesem Handbuch &kexi;-Datenbankdateien, oder kürzer, Datenbankdateien genannt. </para>
 <para
->Zusätzlich zur Speicherung der Datenbank in Dateien kann &kexi; auch Datenbanken auf Datenbank-Servern benutzen, darum wird hier der Begriff Datenbankdateien verwendet, nicht einfach nur Datenbanken. </para>
+>Zusätzlich zur Speicherung der Datenbank in Dateien kann &kexi; auch Datenbanken auf Datenbank-Servern verwenden, darum wird hier der Begriff Datenbankdateien verwendet, nicht einfach nur Datenbanken. </para>
 <para
->Der Begriff &kexi;-Projekt, oder kürzer, Projekt wird hier auch für die &kexi;-Datenbank benutzt, unabhängig davon, ob die Daten in Dateien oder auf einem Datenbank-Server gespeichert werden. </para>
+>Der Begriff &kexi;-Projekt, oder kürzer, Projekt wird hier auch für die &kexi;-Datenbank verwendet, unabhängig davon, ob die Daten in Dateien oder auf einem Datenbank-Server gespeichert werden. </para>
 <para
 ><note
 ><para
@@ -234,7 +234,7 @@
 <orderedlist>
 <listitem
 ><para
->Starten Sie &kexi; oder benutzen Sie in einem bereits gestarteten Programm im Menü <menuchoice
+>Starten Sie &kexi; oder verwenden Sie in einem bereits gestarteten Programm im Menü <menuchoice
 > <shortcut
 > <keycombo action="simul"
 >&Ctrl;<keycap
@@ -401,7 +401,7 @@
 ></term>
     <listitem>
     <para
->Enthält Liste der Eigenschaften der aktuell geöffneten Datenbankobjekte. Für einige Objekte (z. B. Bedienelemente auf Formularen) werden hier auch mehrere Karteikarten angezeigt.</para>
+>Enthält Liste der Eigenschaften der aktuell geöffneten Datenbankobjekte. Für einige Objekte (z. B. Bedienelemente auf Formularen) werden hier auch mehrere Karteikarten angezeigt.</para>
      </listitem>
   </varlistentry>
 </variablelist>
@@ -646,7 +646,7 @@
 ></listitem>
 <listitem
 ><para
->das aktive Datenbankobjekt keine Eigenschaften hat, d. h. normalerweise, dass das Objekt in der <guilabel
+>das aktive Datenbankobjekt keine Eigenschaften hat, d. h. normalerweise, dass das Objekt in der <guilabel
 >Datenansicht</guilabel
 > und nicht in der <guilabel
 >Entwurfsansicht</guilabel
@@ -676,7 +676,7 @@
 ></listitem>
 <listitem
 ><para
->Wird das gesuchte Projekt nicht auf dieser Seite aufgeführt, benutzen Sie die Aktion <guibutton
+>Wird das gesuchte Projekt nicht auf dieser Seite aufgeführt, verwenden Sie die Aktion <guibutton
 >Öffnen ...</guibutton
 > (<keycombo action="simul"
 >&Ctrl;<keycap
@@ -762,7 +762,7 @@
 >Anmerkung</guilabel>
 </para>
 <para
->Anmerkung zum Zugriff auf Datenbankdateien auf entfernten Rechnern. Vielleicht möchten Sie eine Datenbankdatei auf einem entfernten Rechner öffnen (z. B. ein Web- oder FTP-Server oder auf einer MS-Windows-Netzwerkfreigabe) Mit KDE können Sie Dateien auf entfernten Rechnern direkt in Anwendungen laden und die Änderungen wieder zurück speichern, das funktioniert aber nicht mit Datenbankdateien. Wenn Sie eine Datenbankdatei auf einem entfernten Rechner öffnen, wird eine Kopie dieser Datei in einen temporären Ordner kopiert und alle Änderungen an den Daten werden in dieser lokalen Datei gespeichert. Die ursprüngliche entfernte Datei bleibt unverändert. Daher ist es erforderlich, zuerst die Datei auf Ihren Rechner zu kopieren (herunterzuladen), sie dann zur Bearbeitung zu öffnen und sie schließlich wieder auf den entfernten Rechner zurück zu kopieren, damit die ursprüngliche Datei aktualisiert wird. </para>
+>Anmerkung zum Zugriff auf Datenbankdateien auf entfernten Rechnern. Vielleicht möchten Sie eine Datenbankdatei auf einem entfernten Rechner öffnen (z. B. ein Web- oder FTP-Server oder auf einer MS-Windows-Netzwerkfreigabe) Mit KDE können Sie Dateien auf entfernten Rechnern direkt in Anwendungen laden und die Änderungen wieder zurück speichern, das funktioniert aber nicht mit Datenbankdateien. Wenn Sie eine Datenbankdatei auf einem entfernten Rechner öffnen, wird eine Kopie dieser Datei in einen temporären Ordner kopiert und alle Änderungen an den Daten werden in dieser lokalen Datei gespeichert. Die ursprüngliche entfernte Datei bleibt unverändert. Daher ist es erforderlich, zuerst die Datei auf Ihren Rechner zu kopieren (herunterzuladen), sie dann zur Bearbeitung zu öffnen und sie schließlich wieder auf den entfernten Rechner zurück zu kopieren, damit die ursprüngliche Datei aktualisiert wird. </para>
 </sect2>
 </sect1>
 <sect1 id="using-built-in-help"
@@ -805,7 +805,7 @@
 > <imageobject
 > <imagedata fileref="Icon-help-contents.png" format="PNG"/> </imageobject
 > </inlinemediaobject
-> geöffnet wird und klicken Sie dann auf einem Bereich des Programms, für den Sie Hilfen brauchen.</para>
+> geöffnet wird und klicken Sie dann auf einem Bereich des Programms, für den Sie Hilfen benötigen.</para>
      </listitem>
   </varlistentry>
 </variablelist>
@@ -938,7 +938,7 @@
 >Einleitung</title
 > 
 <para
->Um Grundkenntnisse für die Arbeit mit &kexi; zu erwerben, erstellen Sie eine einfache Datenbank, in der die grundlegenden Eigenschaften von &kexi; benutzt werden. Fortgeschrittene Themen zum Entwurf von Datenbanken werden dabei nicht behandelt. </para>
+>Um Grundkenntnisse für die Arbeit mit &kexi; zu erwerben, erstellen Sie eine einfache Datenbank, in der die grundlegenden Eigenschaften von &kexi; verwendet werden. Fortgeschrittene Themen zum Entwurf von Datenbanken werden dabei nicht behandelt. </para>
 <para
 >Beginnen Sie mit der Erstellung eines neuen leeren Telefonbuchs. </para>
 <para
@@ -998,7 +998,7 @@
 ><para
 >Wählen Sie <guilabel
 >Tabelle</guilabel
-> in der Werkzeugleiste oder benutzen Sie <guilabel
+> in der Werkzeugleiste oder verwenden Sie <guilabel
 >Objekt: Tabelle erstellen</guilabel
 > im Kontextmenü des <link linkend="project-navigator-pane"
 >Projekt-Navigator</link
@@ -1086,7 +1086,7 @@
 >Der Feldname wird intern von der Datenbank verwendet und ist normalerweise für die Benutzer nicht sichtbare
 >. Der Name darf keine Sonderzeichen (wie  ±, ¶, Ü) oder Leerzeichen, sondern nur lateinische Buchstaben, Zahlen und den Unterstrich <quote
 >_</quote
-> enthalten. Benutzen Sie den Unterstrich als Ersatz für Leerzeichen oder Bindestriche.</para
+> enthalten. Verwenden Sie den Unterstrich als Ersatz für Leerzeichen oder Bindestriche.</para
 ></listitem>
 <listitem
 ><para
@@ -1279,7 +1279,7 @@
 >ID</guilabel
 >. Diese Spalte hat die Eigenschaft automatische Nummerierung, das ist am blauen Text (Autonummerierung) in der letzten Zeile zu erkennen. Bei Spalten mit dieser Eigenschaft müssen Sie die Werte nicht von Hand eingeben, da die Zellen bei der Dateneingabe in einer neuen Zeile automatisch mit aufsteigenden Zahlen gefüllt werden. </para>
 <para
->In &kexi; unterscheidet sich das Einfügen von neuen Zeilen und die Eingabe von Daten von der Arbeitsweise bei Tabellenkalkulationen. Um Daten für eine neue Zeile einzugeben, müssen Sie die Pfeiltasten oder die Maus benutzen, um damit den Cursor in die besondere letzte leere Zeile mit dem Pluszeichen zu bewegen. Setzen Sie den Cursor in die (zweite) Spalte <replaceable
+>In &kexi; unterscheidet sich das Einfügen von neuen Zeilen und die Eingabe von Daten von der Arbeitsweise bei Tabellenkalkulationen. Um Daten für eine neue Zeile einzugeben, müssen Sie die Pfeiltasten oder die Maus verwenden, um damit den Cursor in die besondere letzte leere Zeile mit dem Pluszeichen zu bewegen. Setzen Sie den Cursor in die (zweite) Spalte <replaceable
 >Name</replaceable
 > und geben Sie den Vornamen einer Person ein, dann den Nachnamen, Straße, Hausnummer und Stadt. Nun bewegen Sie den Zellen-Cursor entweder mit der Taste <keycap
 >Pfeil runter</keycap
@@ -1308,7 +1308,7 @@
 ><para
 >Anstatt die Taste &Esc; zu drücken, können Sie auch auf den Knopf <guilabel
 >Datensatzänderung verwerfen</guilabel
-> in der Werkzeugleiste benutzen.</para
+> in der Werkzeugleiste verwenden.</para
 ></listitem>
 <listitem
 ><para
@@ -1336,7 +1336,7 @@
 <para
 >Mit Datenbankabfragen können Sie den Umfang der Daten auf einen vorgegebenen Satz von Zeilen und Spalten begrenzen und auch gleichzeitig dynamisch Daten aus mehreren Tabellen miteinander verbinden. </para>
 <para
->Um zu sehen, wie Abfragen in der Praxis benutzt werden, erstellen Sie eine Abfrage <replaceable
+>Um zu sehen, wie Abfragen in der Praxis verwendet werden, erstellen Sie eine Abfrage <replaceable
 >Kontakte</replaceable
 >, die die Daten aus zwei Tabellen <replaceable
 >Personen</replaceable
@@ -1528,7 +1528,7 @@
 ></term>
     <listitem>
     <para
->Entspricht einer Spalte in einer Tabelle oder Abfrage. Am häufigsten werden Felder zur Anzeige von Text und Zahlen benutzt. Die Eingabe eines neuen Wertes oder die Änderung von vorhandenen Werten in einem Feld verändern auch den Wert in der Spalte der mit dem Formular verbundenen Tabelle oder Abfrage, nachdem diese Änderungen übernommen wurden.</para>
+>Entspricht einer Spalte in einer Tabelle oder Abfrage. Am häufigsten werden Felder zur Anzeige von Text und Zahlen verwendet. Die Eingabe eines neuen Wertes oder die Änderung von vorhandenen Werten in einem Feld verändern auch den Wert in der Spalte der mit dem Formular verbundenen Tabelle oder Abfrage, nachdem diese Änderungen übernommen wurden.</para>
      </listitem>
   </varlistentry>
   <varlistentry
@@ -1552,11 +1552,11 @@
 <itemizedlist>
 <listitem
 ><para
->Bedienungselemente zur Anzeige von Informationen, z. B. ein Text- oder Bildfeld. Jedes Element dieser Art kann mit dem Feld einer Datenquelle (einer Spalte in einer Tabelle oder Abfrage) verbunden werden. Daher werden solche Bedienungselemente auch als Formularfelder bezeichnet.</para
+>Bedienungselemente zur Anzeige von Informationen, z. B. ein Text- oder Bildfeld. Jedes Element dieser Art kann mit dem Feld einer Datenquelle (einer Spalte in einer Tabelle oder Abfrage) verbunden werden. Daher werden solche Bedienungselemente auch als Formularfelder bezeichnet.</para
 ></listitem>
 <listitem
 ><para
->Bedienungselemente, die eine bestimmte Aktion auslösen können, z. B. ein Befehlsknopf, mit dem Sie ein Formular schließen können. In anderen Programmen werden diese Elemente manchmal auch Formularkontrolle genannt, weil mit ihnen vorher festgelegte Aktionen ausgeführt werden, die das Verhalten der Datenbankanwendung kontrollieren.</para
+>Bedienungselemente, die eine bestimmte Aktion auslösen können, z. B. ein Befehlsknopf, mit dem Sie ein Formular schließen können. In anderen Programmen werden diese Elemente manchmal auch Formularkontrolle genannt, weil mit ihnen vorher festgelegte Aktionen ausgeführt werden, die das Verhalten der Datenbankanwendung kontrollieren.</para
 ></listitem>
 <listitem
 ><para
@@ -1599,7 +1599,7 @@
 ></listitem>
 <listitem
 ><para
->Befehlsknöpfe können in Formularen für häufig gebrauchte Befehle benutzt werden, sodass die Benutzer Formulare wie eigenständige Programme bedienen können.</para
+>Befehlsknöpfe können in Formularen für häufig gebrauchte Befehle verwendet werden, sodass die Benutzer Formulare wie eigenständige Programme bedienen können.</para
 ></listitem>
 </itemizedlist>
 <para
@@ -1748,7 +1748,7 @@
 >Personen</replaceable
 >. </para>
 <para
->Wenn in dem Formular Daten aus der Datenbank angezeigt werden sollen, müssen Sie dazu entsprechende Felder einfügen. Dazu benutzen Sie einen der Knöpfe in der Werkzeugleiste <guilabel
+>Wenn in dem Formular Daten aus der Datenbank angezeigt werden sollen, müssen Sie dazu entsprechende Felder einfügen. Dazu verwenden Sie einen der Knöpfe in der Werkzeugleiste <guilabel
 >Bedienungselemente</guilabel
 >. Für jede Art von Element ist ein zugehöriger Knopf vorhanden. </para>
 <orderedlist>
@@ -1772,7 +1772,7 @@
 ><para
 >Klicken Sie noch einmal auf den Knopf <guibutton
 >Textfeld</guibutton
-> in der Werkzeugleiste und dann in das Formular, um ein weiteres Element einzufügen. Wiederholen Sie diese Aktion, bis Sie drei weitere Textfelder in das Formular eingefügt haben. Zur Vereinfachung werden nur fünf Felder benutzt.</para
+> in der Werkzeugleiste und dann in das Formular, um ein weiteres Element einzufügen. Wiederholen Sie diese Aktion, bis Sie drei weitere Textfelder in das Formular eingefügt haben. Zur Vereinfachung werden nur fünf Felder verwendet.</para
 ></listitem>
 </orderedlist>
 <para
@@ -1823,7 +1823,7 @@
 <para
 >Die von Ihnen eingefügten Felder sind noch nicht mit einer <emphasis
 >Datenquelle</emphasis
-> verbunden, daher können sie noch keine Informationen aus der Datenbank anzeigen. Dazu benutzen Sie die Karteikarte <inlinemediaobject
+> verbunden, daher können sie noch keine Informationen aus der Datenbank anzeigen. Dazu verwenden Sie die Karteikarte <inlinemediaobject
 > <imageobject
 > <imagedata fileref="Icon-server-database.png" format="PNG"/> </imageobject
 > </inlinemediaobject
@@ -1833,13 +1833,13 @@
 >Eigenschafteneditor</guilabel
 >. </para>
 <para
->Als ersten Schritt geben Sie die Datenquelle des Formulars ein, aus der die angezeigten Daten geholt werden. Wie bereits vorher erwähnt, benutzen Sie die Tabelle <replaceable
+>Als ersten Schritt geben Sie die Datenquelle des Formulars ein, aus der die angezeigten Daten geholt werden. Wie bereits vorher erwähnt, verwenden Sie die Tabelle <replaceable
 >Personen</replaceable
 > als Datenquelle für Ihr neues Formular. </para>
 <orderedlist>
 <listitem
 ><para
->Klicken Sie auf die Oberfläche des Formulars, da Sie seine Eigenschaften ändern wollen.</para
+>Klicken Sie auf die Oberfläche des Formulars, da Sie seine Eigenschaften ändern möchten.</para
 ></listitem>
 <listitem
 ><para
@@ -1907,7 +1907,7 @@
 <itemizedlist>
 <listitem
 ><para
->Wenn Sie die Verbindung eines Elements im Formular zur Datenquelle lösen wollen, klicken Sie auf das kleine schwarze Symbol mit dem weißen Kreuz <inlinemediaobject
+>Wenn Sie die Verbindung eines Elements im Formular zur Datenquelle lösen möchten, klicken Sie auf das kleine schwarze Symbol mit dem weißen Kreuz <inlinemediaobject
 > <imageobject
 > <imagedata fileref="Icon-edit-clear-locationbar-rtl.png" format="PNG"/> </imageobject
 > </inlinemediaobject
@@ -1936,7 +1936,7 @@
 >Einfügen von Beschriftungsfeldern</title
 > 
 <para
->Damit die Benutzer des Formulars die Bedeutung jedes Feldelements leichter erkennen, sollten Sie Beschriftungsfelder mit passenden Titeln hinzufügen. Dazu benutzen Sie das Bedienungselement <guilabel
+>Damit die Benutzer des Formulars die Bedeutung jedes Feldelements leichter erkennen, sollten Sie Beschriftungsfelder mit passenden Titeln hinzufügen. Dazu verwenden Sie das Bedienungselement <guilabel
 >Beschriftungsfeld</guilabel
 >. </para>
 <para
@@ -2011,7 +2011,7 @@
 ></listitem>
 <listitem
 ><para
->Wählen Sie eine Aktion aus der Liste (z. B. <guilabel
+>Wählen Sie eine Aktion aus der Liste (z. B. <guilabel
 >Ausgewähltes Objekt löschen</guilabel
 >).</para
 ></listitem>
@@ -2282,7 +2282,7 @@
 ></term>
     <listitem>
     <para
->die ursprüngliche Größe des Elements darf nicht vergrößert, jedoch soweit verkleinert werden, dass das Element noch lesbar ist und benutzbar bleibt, wenn andere Elemente mehr Platz brauchen.</para>
+>die ursprüngliche Größe des Elements darf nicht vergrößert, jedoch soweit verkleinert werden, dass das Element noch lesbar ist und benutzbar bleibt, wenn andere Elemente mehr Platz benötigen.</para>
      </listitem>
   </varlistentry>
   <varlistentry
@@ -2333,7 +2333,7 @@
 >Fest</guilabel
 > als senkrechte Größen-Regelung vorgegeben ist. </para>
 <para
->Die am häufigsten benutzen Einstellungen für die Größen-Regelung sind: <guilabel
+>Die am häufigsten verwenden Einstellungen für die Größen-Regelung sind: <guilabel
 >Bevorzugt</guilabel
 >, <guilabel
 >Minimum</guilabel
@@ -3528,7 +3528,7 @@
 <listitem
 ><para
 ><link linkend="who-needs-a-database"
->Wer braucht Datenbanken?</link
+>Wer benötigt Datenbanken?</link
 >&nbsp;</para
 ></listitem>
 <listitem
@@ -3630,7 +3630,7 @@
 >Tel-Nr</guilabel
 >. </para>
 <para
->In einfachen Fällen kann eine Datenbank aus einer einzelnen Tabelle bestehen, daher werden diese beiden Begriffe häufig in gleicher Bedeutung benutzt. <quote
+>In einfachen Fällen kann eine Datenbank aus einer einzelnen Tabelle bestehen, daher werden diese beiden Begriffe häufig in gleicher Bedeutung verwendet. <quote
 >Richtige</quote
 > Datenbanken bestehen aber normalerweise aus mehr als einer Tabelle. </para>
 <para
@@ -3657,7 +3657,7 @@
 >LibreOffice Calc</application
 > oder <application
 >&Microsoft; Excel gearbeitet</application
->. Sowohl Tabellenkalkulationen als auch Datenbanken bestehen aus Tabellen; warum also eine Datenbank benutzen? </para>
+>. Sowohl Tabellenkalkulationen als auch Datenbanken bestehen aus Tabellen; warum also eine Datenbank verwenden? </para>
 <para
 >Beim Vergleich von Tabellenkalkulation und Datenbank werden Sie auf folgende Probleme treffen, die später im Einzelnen behandelt werden. </para>
 <sect2 id="how-is-a-database-different-from-a-spreadsheet"
@@ -3916,7 +3916,7 @@
 ></listitem>
 <listitem
 ><para
->Vollständigkeit der Daten: Sicherstellen, dass keine Felder leer bleiben, z. B. es muss immer eine Hausnummer eingegeben werden.</para
+>Vollständigkeit der Daten: Sicherstellen, dass keine Felder leer bleiben, z. B. es muss immer eine Hausnummer eingegeben werden.</para
 ></listitem>
 </orderedlist>
 <para
@@ -4043,7 +4043,7 @@
 <para
 >Eine Tabellenkalkulation zeigt alle Zeilen und Spalten der Tabelle an, was bei großen Datenblättern lästig ist. Sie können natürlich Filter anwenden und Zeilen in Tabellenkalkulationen sortieren, müssen dabei aber sorgfältig vorgehen. Benutzer einer Tabellenkalkulation können leicht übersehen, dass die Datenansicht gefiltert ist, das kann zu Fehlern führen. Wenn Sie zum Beispiel Summen berechnen, können Sie leicht übersehen, dass zwar 100 Zeilen angezeigt werden, aber noch weitere 20 Zeilen ausgeblendet sind. </para>
 <para
->Wenn Sie mit einem kleinen Teil der Daten arbeiten wollen, um sie z. B. zur Bearbeitung an andere zu senden, können Sie diese Daten kopieren, sie in eine andere Tabelle und nach der Bearbeitung die geänderten Daten wieder zurück in die Haupttabelle einfügen. Solch eine <quote
+>Wenn Sie mit einem kleinen Teil der Daten arbeiten möchten, um sie z. B. zur Bearbeitung an andere zu senden, können Sie diese Daten kopieren, sie in eine andere Tabelle und nach der Bearbeitung die geänderten Daten wieder zurück in die Haupttabelle einfügen. Solch eine <quote
 >manuelle</quote
 > Bearbeitung kann zum Datenverlust oder falschen Berechnungen führen. </para>
 <para
@@ -4172,7 +4172,7 @@
 <para
 >Sie arbeiten vielleicht mit einem schnellen Rechner, aber das hilft nicht bei langsamen, großen Tabellenkalkulationen. Die geringe Leistungsfähigkeit wird vor allem durch das Fehlen von Indexen zu Beschleunigung von Suchprozessen verursacht; in Datenbanken sind Indexe vorhanden. Außerdem kann auch die Benutzung der Zwischenablage beim Kopieren von Daten sehr lange dauern. </para>
 <para
->Tabellenkalkulationen mit vielen Daten brauchen viel Zeit zum Öffnen der Datei. Eine Tabellenkalkulation lädt dabei viele Daten in den Arbeitsspeicher des Rechners. Die meisten Daten werden zurzeit wahrscheinlich für Ihre Arbeit gar nicht benötigt. Im Gegensatz dazu laden Datenbanken nur dann Daten vom Speichermedium, wenn sie auch benötigt werden. </para>
+>Tabellenkalkulationen mit vielen Daten benötigen viel Zeit zum Öffnen der Datei. Eine Tabellenkalkulation lädt dabei viele Daten in den Arbeitsspeicher des Rechners. Die meisten Daten werden zurzeit wahrscheinlich für Ihre Arbeit gar nicht benötigt. Im Gegensatz dazu laden Datenbanken nur dann Daten vom Speichermedium, wenn sie auch benötigt werden. </para>
 <para
 >In den meisten Fällen müssen Sie sich keine Gedanken darüber machen, wie die Daten in der Datenbank gespeichert werden. Im Gegensatz zur Tabellenkalkulation müssen Sie bei Datenbanken folgendes nicht berücksichtigen: </para>
 <itemizedlist>
@@ -4195,7 +4195,7 @@
 >Dateneingabe</title
 > 
 <para
->Mit den neuesten Versionen von Tabellenkalkulationsprogrammen können Sie Formulare zur Dateneingabe erstellen. Diese Formulare sind dann sinnvoll, wenn die Daten nicht in geeigneter Weise in der Tabellenansicht angezeigt werden können, z. B. wenn nicht mehr alle Spalten und Zeilen gleichzeitig auf den Bildschirm passen. </para>
+>Mit den neuesten Versionen von Tabellenkalkulationsprogrammen können Sie Formulare zur Dateneingabe erstellen. Diese Formulare sind dann sinnvoll, wenn die Daten nicht in geeigneter Weise in der Tabellenansicht angezeigt werden können, z. B. wenn nicht mehr alle Spalten und Zeilen gleichzeitig auf den Bildschirm passen. </para>
 <para
 >In diesem Fall ist die Arbeitsweise von Tabellenkalkulationen problematisch. Felder zur Eingabe von Daten können in der Tabellenkalkulation verschoben werden, es gibt häufig keine Absicherung gegen beabsichtigte oder unbeabsichtigte Veränderungen durch die Benutzer.  </para>
 </sect2>
@@ -4255,11 +4255,11 @@
 <para
 >Um solche Situationen zu vermeiden, <emphasis
 >planen sie Ihr Datenbankprojekt</emphasis
->, ehe Sie es im Rechner erstellen und bevor es benutzt wird. So sparen Sie durch den Aufwand am Anfang vielleicht viel Zeit bei der täglichen Arbeit  </para>
+>, ehe Sie es im Rechner erstellen und bevor es verwendet wird. So sparen Sie durch den Aufwand am Anfang vielleicht viel Zeit bei der täglichen Arbeit  </para>
 </sect1>
 <sect1 id="who-needs-a-database"
 ><title
->Wer braucht Datenbanken?</title
+>Wer benötigt Datenbanken?</title
 > 
 <sect2 id="stick-to-spreadsheets-if-"
 ><title
@@ -4272,17 +4272,17 @@
 ></listitem>
 <listitem
 ><para
->Sie die Methodik des Entwurfs von Datenbanken nicht verstehen. Sie können diese Aufgabe jedoch durch jemanden ausführen lassen oder einfachere Programme benutzen.</para
+>Sie die Methodik des Entwurfs von Datenbanken nicht verstehen. Sie können diese Aufgabe jedoch durch jemanden ausführen lassen oder einfachere Programme verwenden.</para
 ></listitem>
 <listitem
 ><para
->Sie komplizierte Tabellenkalkulationen benutzen und keine Zeit oder das Geld haben, um zu Datenbanken zu wechseln. Überprüfen Sie, ob das nicht in eine Sackgasse führt. Verlassen Sie sich nicht auf Konvertierungsprogramme, die Ihre Tabellenkalkulation in eine Datenbank umwandeln.</para
+>Sie komplizierte Tabellenkalkulationen verwenden und keine Zeit oder das Geld haben, um zu Datenbanken zu wechseln. Überprüfen Sie, ob das nicht in eine Sackgasse führt. Verlassen Sie sich nicht auf Konvertierungsprogramme, die Ihre Tabellenkalkulation in eine Datenbank umwandeln.</para
 ></listitem>
 </itemizedlist>
 </sect2>
 <sect2 id="consider-using-databases-if-"
 ><title
->Überlegen Sie Datenbanken zu benutzen, wenn:</title
+>Überlegen Sie Datenbanken zu verwenden, wenn:</title
 > 
 <itemizedlist>
 <listitem
@@ -4307,10 +4307,10 @@
 <para
 >Bis jetzt haben Sie die allgemeinen Merkmale von Datenbanken kennengelernt, ohne dabei auf Anwendungen zum Entwurf der Datenbanken einzugehen. </para>
 <para
->Die ersten Datenbanken wurden in den 60ern auf Großrechnern entwickelt, z. B. IBM System/360. Dies war vor dem Zeitalter der PCs und diese Datenbanken wurden durch hochqualifiziertes Fachpersonal bedient. Obwohl diese Rechner-Hardware unzuverlässig und unglaublich langsam war und eine geringe Speicherkapazität hatte, ist eine Eigenschaft dieser Datenbanken immer noch sehr wichtig: der Zugriff auf Daten durch viele Benutzer über ein Netzwerk. </para>
+>Die ersten Datenbanken wurden in den 60ern auf Großrechnern entwickelt, z. B. IBM System/360. Dies war vor dem Zeitalter der PCs und diese Datenbanken wurden durch hochqualifiziertes Fachpersonal bedient. Obwohl diese Rechner-Hardware unzuverlässig und unglaublich langsam war und eine geringe Speicherkapazität hatte, ist eine Eigenschaft dieser Datenbanken immer noch sehr wichtig: der Zugriff auf Daten durch viele Benutzer über ein Netzwerk. </para>
 <para
 >In den 70er Jahren entwickelten Forscher die Theorie relationaler Datenbanken (mit Begriffen wie Tabelle, Datensatz
->, Spalte (Feld), Relation und vielen anderen). Auf der Basis dieser Theorie erstellten IBM (DB2) und Oracle Datenbanken, die bis heute weiter entwickelt und benutzt werden. In der späten 70er Jahren wurden die ersten PCs konstruiert. Die Benutzer dieser Rechner konnten schrittweise viele Arten von Programmen anwenden, unter anderem auch Datenbanken. </para>
+>, Spalte (Feld), Relation und vielen anderen). Auf der Basis dieser Theorie erstellten IBM (DB2) und Oracle Datenbanken, die bis heute weiter entwickelt und verwendet werden. In der späten 70er Jahren wurden die ersten PCs konstruiert. Die Benutzer dieser Rechner konnten schrittweise viele Arten von Programmen anwenden, unter anderem auch Datenbanken. </para>
 <para
 >Für große Datenbanken in Firmen hat sich diese Situation nicht geändert: es sind immer noch leistungsfähige Rechner oder miteinander verbundene Rechner (Cluster) erforderlich. Dieses Thema wird in diesem Handbuch aber nicht behandelt. </para>
 <para
@@ -4538,7 +4538,7 @@
 <para
 ><tip
 ><para
->Wenn Sie trotzdem die reservierten Schlüsselwörter benutzen möchten, umschließen Sie sie mit doppelten Anführungszeichen <quote
+>Wenn Sie trotzdem die reservierten Schlüsselwörter verwenden möchten, umschließen Sie sie mit doppelten Anführungszeichen <quote
 ></quote
 >.</para
 ></tip>
@@ -9272,7 +9272,7 @@
 ></listitem>
 <listitem
 ><para
->Werte aus der ersten Zeile können als Spaltennamen benutzt werden,</para
+>Werte aus der ersten Zeile können als Spaltennamen verwendet werden,</para
 ></listitem>
 <listitem
 ><para
