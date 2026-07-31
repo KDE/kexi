@@ -675,7 +675,7 @@ msgstr ""
 "Benutzername am Datenbankserver beim Verbinden mit einem Projekt. Ist eine "
 "Verknüpfungsdatei angegeben, wird dieser Parameter ignoriert. Als "
 "Voreinstellung wird der Name bei der Anmeldung (<resource>%1</resource>) "
-"benutzt."
+"verwendet."
 
 #: core/KexiCommandLineOptions.cpp:154
 #, kde-kuit-format
@@ -687,7 +687,7 @@ msgid ""
 msgstr ""
 "Rechnername des Datenbankservers beim Verbinden mit einem Projekt. Ist eine "
 "Verknüpfungsdatei angegeben, wird dieser Parameter ignoriert. Als "
-"Voreinstellung wird der lokale Rechner benutzt."
+"Voreinstellung wird der lokale Rechner verwendet."
 
 #: core/KexiCommandLineOptions.cpp:160
 #, kde-kuit-format
@@ -699,7 +699,7 @@ msgid ""
 msgstr ""
 "Portnummer des Datenbankservers beim Verbinden mit einem Projekt. Ist eine "
 "Verknüpfungsdatei angegeben, wird dieser Parameter ignoriert. Die "
-"Voreinstellung hängt vom verwendeten Servertyp (z. B. %1, %2) ab."
+"Voreinstellung hängt vom verwendeten Servertyp (z. B. %1, %2) ab."
 
 #: core/KexiCommandLineOptions.cpp:167
 #, kde-kuit-format
@@ -711,7 +711,7 @@ msgid ""
 msgstr ""
 "Dateiname des Sockets des lokalen Rechners beim Verbinden mit einem Projekt. "
 "Ist eine Verknüpfungsdatei angegeben, wird dieser Parameter ignoriert. Die "
-"Voreinstellung hängt vom verwendeten Servertyp (z. B. %1, %2) ab."
+"Voreinstellung hängt vom verwendeten Servertyp (z. B. %1, %2) ab."
 
 #: core/KexiCommandLineOptions.cpp:176
 #, kde-kuit-format
@@ -731,7 +731,7 @@ msgid ""
 "window decorations such as title bars."
 msgstr ""
 "Startet Kexi im Vollbildmodus, um den gesamten Bildschirmbereich zu "
-"benutzen. Dazu werden Fensterdekoration wie z. B. Titelleisten ausgeblendet."
+"verwenden. Dazu werden Fensterdekoration wie z. B. Titelleisten ausgeblendet."
 
 #: core/KexiCommandLineOptions.cpp:188
 #, kde-kuit-format
@@ -888,7 +888,7 @@ msgid ""
 "not be functional so it will exit.</para><para><note>Please check if Kexi is "
 "properly installed.</note></para>"
 msgstr ""
-"<para>Es können keine Kexi-Module z. B. für Tabellen oder Formulare gefunden "
+"<para>Es können keine Kexi-Module z. B. für Tabellen oder Formulare gefunden "
 "werden. Kexi kann so nicht funktionieren, daher wird es beendet.</"
 "para><para><note>Bitte prüfen Sie, ob Kexi richtig installiert ist.</note></"
 "para>"
@@ -3637,7 +3637,7 @@ msgctxt "@info"
 msgid "Select a storage method which will be used to store the new project."
 msgstr ""
 "Wählen Sie die Speichermethode, die für die Speicherung des neuen Projektes "
-"benutzt wird."
+"verwendet wird."
 
 #: main/startup/KexiNewProjectAssistant.cpp:196
 #, kde-kuit-format
@@ -6729,7 +6729,7 @@ msgctxt ""
 "do not reorder placeholders, just translate e.g. and - to the separator used "
 "by dates in your language"
 msgid "%1, %2, %3 (e.g. %4-%5-%6)"
-msgstr "%1, %2, %3 (z. B. %4-%5-%6)"
+msgstr "%1, %2, %3 (z. B. %4-%5-%6)"
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:143
 #, kde-kuit-format
@@ -7949,7 +7949,7 @@ msgid ""
 "but following objects using this table are open:</para>"
 msgstr ""
 "<para>Sie ändern den Entwurf der Tabelle <resource>%1</resource>, aber "
-"folgende Objekte, die diese Tabelle benutzen, sind noch geöffnet:</para>"
+"folgende Objekte, die diese Tabelle verwenden, sind noch geöffnet:</para>"
 
 #: plugins/tables/kexitabledesignerview.cpp:1627
 #, kde-kuit-format
@@ -7998,7 +7998,7 @@ msgid ""
 "by following opened windows:</para>"
 msgstr ""
 "<para>Sie möchten die Tabelle <resource>%1</resource> löschen, aber sie wird "
-"in folgenden geöffneten Fenstern benutzt:</para>"
+"in folgenden geöffneten Fenstern verwendet:</para>"
 
 #: plugins/tables/kexitablepart.cpp:157
 #, kde-kuit-format
@@ -8007,7 +8007,7 @@ msgid ""
 "by following opened windows:</para>"
 msgstr ""
 "<para>Sie möchten die Tabelle <resource>%1</resource> umbenennen, aber sie "
-"wird in folgenden geöffneten Fenstern benutzt:</para>"
+"wird in folgenden geöffneten Fenstern verwendet:</para>"
 
 #: plugins/tables/kexitablepart.cpp:238
 #, kde-format
