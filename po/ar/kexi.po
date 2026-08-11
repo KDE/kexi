@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:18+0000\n"
-"PO-Revision-Date: 2026-03-24 10:59+0400\n"
+"PO-Revision-Date: 2026-08-10 18:11+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #: core/kexi.cpp:141
 #, kde-kuit-format
@@ -3593,7 +3593,7 @@ msgid ""
 msgstr ""
 "<para>لا يمكن إنشاء ملف قاعدة البيانات <filename>%1</filename>.</"
 "para><para><note>لا توجد صلاحية لإنشاء هذا الملف. اختر دليلاً آخر أو غيّر "
-"الصلاحيات كي يمكن إنشاء الملف.</note></para>"
+"الأذون كي يمكن إنشاء الملف.</note></para>"
 
 #: main/startup/KexiNewProjectAssistant.cpp:308
 #, kde-kuit-format
@@ -4050,8 +4050,8 @@ msgid ""
 "opened and locked by another application.</note></para>"
 msgstr ""
 "<para>لا يمكن فتح الملف <filename>%1</filename> للقراءة.</"
-"para><para><note>اضبط صلاحيات الملف و إن كان مفتوحاً و مقفلاً بالفعل بواسطة "
-"تطبيق آخر.</note></para>"
+"para><para><note>اضبط أذون الملف و إن كان مفتوحاً و مقفلاً بالفعل بواسطة تطبيق "
+"آخر.</note></para>"
 
 #: main/startup/KexiStartup.cpp:866
 #, kde-kuit-format
@@ -4062,7 +4062,7 @@ msgid ""
 "opened and locked by another application.</para>"
 msgstr ""
 "<para>لا يمكن فتح المشروع.</para><para>الملف <filename>%1</filename> غير "
-"قابل للقراءة. اضبط صلاحيات الملف و إن كان مفتوحاً و مقفلاً بالفعل بواسطة تطبيق "
+"قابل للقراءة. اضبط أذون الملف و إن كان مفتوحاً و مقفلاً بالفعل بواسطة تطبيق "
 "آخر.</para>"
 
 #: main/startup/KexiStartup.cpp:890
