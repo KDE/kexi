@@ -472,7 +472,7 @@ msgid ""
 msgstr ""
 "اسم مُشغِّل قاعدة البيانات المراد استخدامه عند الاتصال بمشروع قاعدة بيانات "
 "(\"sqlite\" مبدئيًا). يُتجاهَل إذا وُفِّر اسم ملف اختصار. يُمكن استخدام مُعرِّف KDb "
-"فريد عالميًا كاملاً، مثل \"org.kde.kdb.sqlite\" لتحديد المورِّد الدقيق للمُشغِّل."
+"فريد عالميًا كاملًا، مثل \"org.kde.kdb.sqlite\" لتحديد المورِّد الدقيق للمُشغِّل."
 
 #: core/KexiCommandLineOptions.cpp:57
 #, kde-kuit-format
@@ -507,7 +507,7 @@ msgid ""
 "the shortcut file."
 msgstr ""
 "حدِّد ملف اختصار اتصال قاعدة بيانات .kexic يحتوي على بيانات الاتصال. يُمكن "
-"استخدامه مع --createdb أو --create-opendb لِلتيسير بدلاً من استخدام خيارات مثل "
+"استخدامه مع --createdb أو --create-opendb لِلتيسير بدلًا من استخدام خيارات مثل "
 "--user أو --host أو --port.\n"
 "ملاحظة: الخيارات مثل --user و --host لها الأولوية على الإعدادات المُعرَّفة في "
 "ملف الاختصار."
@@ -2382,7 +2382,7 @@ msgstr "<html>%1%2%3%4%5%6</html>"
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Report a Bug or Wish"
-msgstr "أرسل تقريراً عن علة أو رغبة"
+msgstr "أرسل تقريرًا عن علة أو رغبة"
 
 #: main/KexiBugReportDialog.cpp:72
 #, kde-kuit-format
@@ -2444,7 +2444,7 @@ msgstr "ابحث في <resource>%1</resource>"
 #: main/kexifinddialog.cpp:272
 #, kde-kuit-format
 msgid "The search item was not found"
-msgstr "عنصر البحث ليس موجوداً"
+msgstr "عنصر البحث ليس موجودًا"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
 #: main/kexifinddialog.ui:20
@@ -2597,12 +2597,12 @@ msgstr "مشروع &جديد..."
 #: main/KexiMainWindow.cpp:460
 #, kde-kuit-format
 msgid "Create a new project"
-msgstr "أنشئ مشروعاً جديداً"
+msgstr "أنشئ مشروعًا جديدًا"
 
 #: main/KexiMainWindow.cpp:462
 #, kde-kuit-format
 msgid "Creates a new project. Currently opened project is not affected."
-msgstr "ينشئ مشروعاً جديداً. المشروع المفتوح حالياً ليس متأثراً."
+msgstr "ينشئ مشروعًا جديدًا. المشروع المفتوح حاليًا ليس متأثرًا."
 
 #: main/KexiMainWindow.cpp:468
 #, kde-kuit-format
@@ -2612,22 +2612,22 @@ msgstr "ا&فتح مشروعًا..."
 #: main/KexiMainWindow.cpp:470
 #, kde-kuit-format
 msgid "Open an existing project"
-msgstr "افتح مشروعاً موجوداً"
+msgstr "افتح مشروعًا موجودًا"
 
 #: main/KexiMainWindow.cpp:472
 #, kde-kuit-format
 msgid "Opens an existing project. Currently opened project is not affected."
-msgstr "يفتح مشروعاً موجوداً. المشروع المفتوح حالياً ليس متأثراً."
+msgstr "يفتح مشروعًا موجودًا. المشروع المفتوح حاليًا ليس متأثرًا."
 
 #: main/KexiMainWindow.cpp:478
 #, kde-kuit-format
 msgid "Open a project that was recently opened."
-msgstr "افتح مشروعاً مفتوحاً حديثاً."
+msgstr "افتح مشروعًا مفتوحًا حديثًا."
 
 #: main/KexiMainWindow.cpp:479
 #, kde-kuit-format
 msgid "Opens a project that was recently opened."
-msgstr "يفتح مشروعاً مفتوحاً حديثاً."
+msgstr "يفتح مشروعًا مفتوحًا حديثًا."
 
 #: main/KexiMainWindow.cpp:484
 #, kde-kuit-format
@@ -2644,7 +2644,7 @@ msgstr "أظهر صفحة الترحيب"
 msgid ""
 "Shows Welcome page with list of recently opened projects and other "
 "information. "
-msgstr "يُظهر صفحة الترحيب مع قائمة بالمشاريع المفتوحة حديثاً و معلومات أخرى. "
+msgstr "يُظهر صفحة الترحيب مع قائمة بالمشاريع المفتوحة حديثًا و معلومات أخرى. "
 
 #: main/KexiMainWindow.cpp:495
 #, kde-kuit-format
@@ -2654,7 +2654,7 @@ msgstr "احفظ تغييرات الكائن"
 #: main/KexiMainWindow.cpp:496
 #, kde-kuit-format
 msgid "Saves object changes from currently selected window."
-msgstr "يحفظ تغييرات الكائن من النافذة المختارة حالياً."
+msgstr "يحفظ تغييرات الكائن من النافذة المختارة حاليًا."
 
 #: main/KexiMainWindow.cpp:500
 #, kde-kuit-format
@@ -2671,7 +2671,7 @@ msgstr "احفظ الكائن باسم"
 msgid ""
 "Saves object from currently selected window under a new name (within the "
 "same project)."
-msgstr "يحفظ الكائن من النافذة المختارة حالياً تحت اسم جديد (ضمن المشروع نفسه)."
+msgstr "يحفظ الكائن من النافذة المختارة حاليًا تحت اسم جديد (ضمن المشروع نفسه)."
 
 #: main/KexiMainWindow.cpp:519
 #, kde-kuit-format
@@ -2858,7 +2858,7 @@ msgstr "احذف الكائن المختار"
 #: main/KexiMainWindow.cpp:688
 #, kde-kuit-format
 msgid "Deletes currently selected object."
-msgstr "يحذف الكائن المختار حالياً."
+msgstr "يحذف الكائن المختار حاليًا."
 
 #: main/KexiMainWindow.cpp:690
 #, kde-kuit-format
@@ -2898,27 +2898,27 @@ msgstr "حرّر العنصر"
 #: main/KexiMainWindow.cpp:704
 #, kde-kuit-format
 msgid "Edit currently selected item"
-msgstr "حرّر العنصر المختار حالياً"
+msgstr "حرّر العنصر المختار حاليًا"
 
 #: main/KexiMainWindow.cpp:705
 #, kde-kuit-format
 msgid "Edits currently selected item."
-msgstr "يحرّر العنصر المختار حالياً."
+msgstr "يحرّر العنصر المختار حاليًا."
 
 #: main/KexiMainWindow.cpp:707
 #, kde-kuit-format
 msgid "&Insert Empty Row"
-msgstr "&أدرج صفاً فارغاً"
+msgstr "&أدرج صفًا فارغًا"
 
 #: main/KexiMainWindow.cpp:711
 #, kde-kuit-format
 msgid "Insert one empty row above"
-msgstr "أدرج صفاً فارغاً واحداً للأعلى"
+msgstr "أدرج صفًا فارغًا واحدًا للأعلى"
 
 #: main/KexiMainWindow.cpp:713
 #, kde-kuit-format
 msgid "Inserts one empty row above currently selected table row."
-msgstr "يدرج صفاً فارغاً واحداً للأعلى من صف الجدول المختار حالياً."
+msgstr "يدرج صفًا فارغًا واحدًا للأعلى من صف الجدول المختار حاليًا."
 
 #: main/KexiMainWindow.cpp:770
 #, kde-kuit-format
@@ -2948,7 +2948,7 @@ msgstr "نشّط جزء ملاح المشروع"
 #: main/KexiMainWindow.cpp:787
 #, kde-kuit-format
 msgid "Activates the Project Navigator pane. If it is hidden, shows it first."
-msgstr "ينشّط جزء ملاح المشروع. لو كان مخفياً، يُظهره أولاً."
+msgstr "ينشّط جزء ملاح المشروع. لو كان مخفيًا، يُظهره أولًا."
 
 #: main/KexiMainWindow.cpp:795
 #, kde-kuit-format
@@ -2993,7 +2993,7 @@ msgstr "نشّط جزء الخاصيات"
 #: main/KexiMainWindow.cpp:821
 #, kde-kuit-format
 msgid "Activates the Property pane. If it is hidden, shows it first."
-msgstr "ينشّط جزء الخاصيات. لو كان مخفياً، يُظهره أولاً."
+msgstr "ينشّط جزء الخاصيات. لو كان مخفيًا، يُظهره أولًا."
 
 #: main/KexiMainWindow.cpp:829
 #, kde-kuit-format
@@ -3169,12 +3169,12 @@ msgstr "&نافذة"
 #, kde-kuit-format
 msgctxt "Report a bug or wish for KEXI application"
 msgid "Report a &Bug or Wish..."
-msgstr "أرسل تقريراً عن &علة أو رغبة..."
+msgstr "أرسل تقريرًا عن &علة أو رغبة..."
 
 #: main/KexiMainWindow.cpp:1263
 #, kde-kuit-format
 msgid "Files a bug or wish for KEXI application."
-msgstr "يرسل تقريراً عن علة أو رغبة لتطبيق كيس."
+msgstr "يرسل تقريرًا عن علة أو رغبة لتطبيق كيس."
 
 #: main/KexiMainWindow.cpp:1266
 #, kde-kuit-format
@@ -3260,22 +3260,22 @@ msgstr "يفتح"
 #: main/KexiMainWindow.cpp:1640
 #, kde-kuit-format
 msgid "table not found"
-msgstr "الجدول ليس موجوداً"
+msgstr "الجدول ليس موجودًا"
 
 #: main/KexiMainWindow.cpp:1642
 #, kde-kuit-format
 msgid "query not found"
-msgstr "الاستعلام ليس موجوداً"
+msgstr "الاستعلام ليس موجودًا"
 
 #: main/KexiMainWindow.cpp:1644
 #, kde-kuit-format
 msgid "macro not found"
-msgstr "الماكرو ليس موجوداً"
+msgstr "الماكرو ليس موجودًا"
 
 #: main/KexiMainWindow.cpp:1646
 #, kde-kuit-format
 msgid "script not found"
-msgstr "النص البرمجي ليس موجوداً"
+msgstr "النص البرمجي ليس موجودًا"
 
 #: main/KexiMainWindow.cpp:1648
 #, kde-kuit-format
@@ -3298,7 +3298,7 @@ msgid ""
 "You have requested selected objects to be automatically opened or processed "
 "on startup. Several objects cannot be opened or processed."
 msgstr ""
-"طلبت أن تُفتح الكائنات المختارة آلياً أو تُعالَج عند بدء التشغيل. لا يمكن فتح أو "
+"طلبت أن تُفتح الكائنات المختارة آليًا أو تُعالَج عند بدء التشغيل. لا يمكن فتح أو "
 "معالجة عدة كائنات."
 
 #: main/KexiMainWindow.cpp:2096
@@ -3321,13 +3321,13 @@ msgstr "من الخادم…"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Selected view is not supported for <resource>%1</resource> object."
-msgstr "العرض المختار ليس مدعوماً لكائن <resource>%1</resource>."
+msgstr "العرض المختار ليس مدعومًا لكائن <resource>%1</resource>."
 
 #: main/KexiMainWindow.cpp:2822
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Selected view (%1) is not supported by this object type (%2)."
-msgstr "العرض المختار (%1) ليس مدعوماً بنوع الكائن هذا (%2)."
+msgstr "العرض المختار (%1) ليس مدعومًا بنوع الكائن هذا (%2)."
 
 #: main/KexiMainWindow.cpp:2896
 #, kde-kuit-format
@@ -3402,7 +3402,7 @@ msgid ""
 "<resource>%2</resource></para><para><note>If you click <interface>Delete</"
 "interface>, you will not be able to undo the deletion.</note></para>"
 msgstr ""
-"<para>هل ترغب بحذف الكائن التالي حذفاً دائماً؟<nl/><nl/>%1 <resource>%2</"
+"<para>هل ترغب بحذف الكائن التالي حذفًا دائمًا؟<nl/><nl/>%1 <resource>%2</"
 "resource></para><para><note>لو نقرت <interface>حذف</interface>، لن تستطع "
 "التراجع عن الحذف.</note></para>"
 
@@ -3447,7 +3447,7 @@ msgstr "فشل تعيين التعليق للكائن <resource>%1</resource>."
 #: main/KexiMainWindow.cpp:3863
 #, kde-kuit-format
 msgid "Compacting database file <filename>%1</filename> is not supported."
-msgstr "ضغط ملف قاعدة البيانات <filename>%1</filename> ليس مدعوماً."
+msgstr "ضغط ملف قاعدة البيانات <filename>%1</filename> ليس مدعومًا."
 
 #: main/KexiMainWindow.cpp:3876
 #, kde-kuit-format
@@ -3552,7 +3552,7 @@ msgid ""
 "is properly installed.</para>"
 msgstr ""
 "<para>لا يمكن فتح ملف مورد الأيقونة <filename>%1</filename>.</"
-"para><para><application>%2</application> لن يبدأ. رجاءً اضبط إن كان مثبتاً "
+"para><para><application>%2</application> لن يبدأ. رجاءً اضبط إن كان مثبتًا "
 "بشكل صحيح.</para>"
 
 #: main/KexiRegisterResource_p.h:144 main/KexiRegisterResource_p.h:214
@@ -3569,7 +3569,7 @@ msgid ""
 "<application>%2</application> is properly installed."
 msgstr ""
 "لا يمكن فتح ملف مورد الأيقونة <filename>%1</filename>. رجاءً اضبط إن كان "
-"<application>%2</application> مثبتاً بشكل صحيح."
+"<application>%2</application> مثبتًا بشكل صحيح."
 
 #: main/KexiSearchLineEdit.cpp:440
 #, kde-kuit-format
@@ -3658,8 +3658,8 @@ msgid ""
 "Enter caption for the new project. Filename will be created automatically "
 "based on the caption. You can change the filename too."
 msgstr ""
-"أدخل تعليقاً للمشروع الجديد. سيُنشأ اسم الملف آلياً بناءً على التعليق. يمكنك "
-"تغيير اسم الملف أيضاً."
+"أدخل تعليقًا للمشروع الجديد. سيُنشأ اسم الملف آليًا بناءً على التعليق. يمكنك "
+"تغيير اسم الملف أيضًا."
 
 #: main/startup/KexiNewProjectAssistant.cpp:263
 #: main/startup/KexiNewProjectAssistant.cpp:488
@@ -3681,7 +3681,7 @@ msgstr ""
 #, kde-kuit-format
 msgid ""
 "Enter a valid project filename. The file should be located on this computer."
-msgstr "أدخل اسم ملف مشروع صالحاً. يجب أن يكون الملف موجوداً على حاسوبك هذا."
+msgstr "أدخل اسم ملف مشروع صالحًا. يجب أن يكون الملف موجودًا على حاسوبك هذا."
 
 #: main/startup/KexiNewProjectAssistant.cpp:286
 #, kde-kuit-format
@@ -3702,7 +3702,7 @@ msgid ""
 "directory or change permissions so the file can be created.</note></para>"
 msgstr ""
 "<para>لا يمكن إنشاء ملف قاعدة البيانات <filename>%1</filename>.</"
-"para><para><note>لا توجد صلاحية لإنشاء هذا الملف. اختر دليلاً آخر أو غيّر "
+"para><para><note>لا توجد صلاحية لإنشاء هذا الملف. اختر دليلًا آخر أو غيّر "
 "الأذون كي يمكن إنشاء الملف.</note></para>"
 
 #: main/startup/KexiNewProjectAssistant.cpp:311
@@ -3732,7 +3732,7 @@ msgid ""
 "from the list.</para>"
 msgstr ""
 "<para>اختر اتصال خادوم قاعدة البيانات الذي ترغب باستعماله لإنشاء مشروع كيس "
-"جديد.</para><para>هنا يمكنك أيضاً إضافة، تحرير أو حذف الاتصالات من القائمة.</"
+"جديد.</para><para>هنا يمكنك أيضًا إضافة، تحرير أو حذف الاتصالات من القائمة.</"
 "para>"
 
 #: main/startup/KexiNewProjectAssistant.cpp:379
@@ -3748,8 +3748,8 @@ msgid ""
 "Enter caption for the new project. Database name will be created "
 "automatically based on the caption. You can change the database name too."
 msgstr ""
-"أدخل تعليقاً للمشروع الجديد. سيُنشأ اسم قاعدة البيانات آلياً بناءً على التعليق. "
-"يمكنك تغيير اسم قاعدة البيانات أيضاً."
+"أدخل تعليقًا للمشروع الجديد. سيُنشأ اسم قاعدة البيانات آليًا بناءً على التعليق. "
+"يمكنك تغيير اسم قاعدة البيانات أيضًا."
 
 #: main/startup/KexiNewProjectAssistant.cpp:449
 #, kde-kuit-format
@@ -3776,7 +3776,7 @@ msgstr ""
 #: main/startup/KexiNewProjectAssistant.cpp:510
 #, kde-kuit-format
 msgid "Delete and Create New"
-msgstr "احذف و أنشئ جديداً"
+msgstr "احذف و أنشئ جديدًا"
 
 #. i18n: ectx: property (text), widget (QLabel, lbl)
 #: main/startup/KexiOpenExistingFile.ui:31
@@ -3796,7 +3796,7 @@ msgstr "&متقدّم "
 msgid ""
 "Click \"Advanced\" button if you want to find an existing project on a "
 "server rather than a file."
-msgstr "انقر زر \"متقدم\" لو أردت إيجاد مشروع موجود على خادوم بدلاً من ملف."
+msgstr "انقر زر \"متقدم\" لو أردت إيجاد مشروع موجود على خادوم بدلًا من ملف."
 
 #: main/startup/KexiOpenProjectAssistant.cpp:41
 #: widget/KexiProjectSelectorWidget.cpp:304
@@ -3835,7 +3835,7 @@ msgid ""
 "para>"
 msgstr ""
 "<para>اختر اتصال خادوم قاعدة البيانات الذي يحتوي على المشروع الذي ترغب بفتحه."
-"</para><para>هنا يمكنك أيضاً إضافة، تحرير أو حذف الاتصالات من القائمة.</para>"
+"</para><para>هنا يمكنك أيضًا إضافة، تحرير أو حذف الاتصالات من القائمة.</para>"
 
 #: main/startup/KexiOpenProjectAssistant.cpp:148
 #, kde-kuit-format
@@ -3917,7 +3917,7 @@ msgstr[0] "فتح البارحة"
 msgstr[1] "فتح قبل %1 يوم"
 msgstr[2] "فتح قبل يومين"
 msgstr[3] "فتح قبل %1 أيام"
-msgstr[4] "فتح قبل %1 يوماً"
+msgstr[4] "فتح قبل %1 يومًا"
 msgstr[5] "فتح قبل %1 يوم"
 
 #: main/startup/KexiRecentProjectsModel.cpp:80
@@ -3928,7 +3928,7 @@ msgstr[0] "فتح قبل أكثر من شهر"
 msgstr[1] "فتح قبل %1 شهر"
 msgstr[2] "فتح قبل شهرين"
 msgstr[3] "فتح قبل %1 أشهر"
-msgstr[4] "فتح قبل %1 شهراً"
+msgstr[4] "فتح قبل %1 شهرًا"
 msgstr[5] "فتح قبل %1 شهر"
 
 #: main/startup/KexiRecentProjectsModel.cpp:82
@@ -4040,7 +4040,7 @@ msgid ""
 "contents.</note></para>"
 msgstr ""
 "<para>لا يمكن قراءة معلومات الاتصال من ملف اختصار الاتصال <filename>%1</"
-"filename>.</para><para><note>اضبط إن كان محتوى الملف صالحاً.</note></para>"
+"filename>.</para><para><note>اضبط إن كان محتوى الملف صالحًا.</note></para>"
 
 #: main/startup/KexiStartup.cpp:351
 #, kde-kuit-format
@@ -4079,7 +4079,7 @@ msgid ""
 "Both <icode>createdb</icode> and <icode>dropdb</icode> used in startup "
 "options."
 msgstr ""
-"استعمال <icode>createdb</icode> و <icode>dropdb</icode> معاً في خيارات البدء."
+"استعمال <icode>createdb</icode> و <icode>dropdb</icode> معًا في خيارات البدء."
 
 #: main/startup/KexiStartup.cpp:424
 #, kde-kuit-format
@@ -4095,7 +4095,7 @@ msgid ""
 "Both <icode>user-mode</icode> and <icode>design-mode</icode> used in startup "
 "options."
 msgstr ""
-"استعمال <icode>user-mode</icode> و <icode>design-mode</icode> معاً في خيارات "
+"استعمال <icode>user-mode</icode> و <icode>design-mode</icode> معًا في خيارات "
 "البدء."
 
 #: main/startup/KexiStartup.cpp:485
@@ -4103,7 +4103,7 @@ msgstr ""
 msgctxt "@info"
 msgid ""
 "Could not delete project. The file <filename>%1</filename> does not exist."
-msgstr "لا يمكن حذف المشروع. الملف <filename>%1</filename> ليس موجوداً."
+msgstr "لا يمكن حذف المشروع. الملف <filename>%1</filename> ليس موجودًا."
 
 #: main/startup/KexiStartup.cpp:536
 #, kde-kuit-format
@@ -4125,7 +4125,7 @@ msgid ""
 "These options will be ignored because they are not available while creating "
 "or dropping projects."
 msgstr ""
-"حدّدت بعض كائنات قاعدة البيانات لتُفتح آلياً، باستخدام خيارات البدء.\n"
+"حدّدت بعض كائنات قاعدة البيانات لتُفتح آليًا، باستخدام خيارات البدء.\n"
 "ستُتجاهل هذه الخيارات لأنها ليست متاحة أثناء إنشاء المشاريع أو إسقاطها."
 
 #: main/startup/KexiStartup.cpp:676
@@ -4150,7 +4150,7 @@ msgstr "لا يمكن فتح الملف. اسم الملف مفقود."
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Could not open file. The file <filename>%1</filename> does not exist."
-msgstr "لا يمكن فتح الملف. الملف <filename>%1</filename> ليس موجوداً."
+msgstr "لا يمكن فتح الملف. الملف <filename>%1</filename> ليس موجودًا."
 
 #: main/startup/KexiStartup.cpp:824
 #, kde-kuit-format
@@ -4161,7 +4161,7 @@ msgid ""
 "opened and locked by another application.</note></para>"
 msgstr ""
 "<para>لا يمكن فتح الملف <filename>%1</filename> للقراءة.</"
-"para><para><note>اضبط أذون الملف و إن كان مفتوحاً و مقفلاً بالفعل بواسطة تطبيق "
+"para><para><note>اضبط أذون الملف و إن كان مفتوحًا و مقفلًا بالفعل بواسطة تطبيق "
 "آخر.</note></para>"
 
 #: main/startup/KexiStartup.cpp:867
@@ -4173,7 +4173,7 @@ msgid ""
 "opened and locked by another application.</para>"
 msgstr ""
 "<para>لا يمكن فتح المشروع.</para><para>الملف <filename>%1</filename> غير "
-"قابل للقراءة. اضبط أذون الملف و إن كان مفتوحاً و مقفلاً بالفعل بواسطة تطبيق "
+"قابل للقراءة. اضبط أذون الملف و إن كان مفتوحًا و مقفلًا بالفعل بواسطة تطبيق "
 "آخر.</para>"
 
 #: main/startup/KexiStartup.cpp:891
@@ -4224,7 +4224,7 @@ msgid ""
 "The file <filename>%1</filename> is not recognized as being supported by "
 "<application>%2</application>."
 msgstr ""
-"الملف <filename>%1</filename> ليس معروفاً كدعم بواسطة <application>%2</"
+"الملف <filename>%1</filename> ليس معروفًا كدعم بواسطة <application>%2</"
 "application>."
 
 #: main/startup/KexiStartup.cpp:960
@@ -6109,7 +6109,7 @@ msgstr "مسطح"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:636
 #, kde-kuit-format
 msgid "Auto-hide Tabs"
-msgstr "أخفِ الألسنة آليّاً"
+msgstr "أخفِ الألسنة آليًّا"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:637
 #, kde-kuit-format
@@ -6622,9 +6622,9 @@ msgid ""
 "table without a primary key may not be editable (depending on database type)."
 "</note></para>"
 msgstr ""
-"@info: <para>لم يُعرَّف مفتاح أساسي (ترقيم آلي).</para><para>هل يجب تعريفه آلياً "
+"@info: <para>لم يُعرَّف مفتاح أساسي (ترقيم آلي).</para><para>هل يجب تعريفه آليًا "
 "عند الاستيراد (موصى به)؟</para><para><note>جدول مُستورد بلا مفتاح أساسي قد لا "
-"يكون قابلاً للتحرير (اعتماداً على نوع قاعدة البيانات).</note></para>"
+"يكون قابلًا للتحرير (اعتمادًا على نوع قاعدة البيانات).</note></para>"
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1846
 #: plugins/tables/kexitabledesignerview.cpp:1197
@@ -6890,7 +6890,7 @@ msgid ""
 "First, please create your design."
 msgstr ""
 "لا يمكن التحويل إلى عرض البيانات، لأن تصميم الاستعلام فارغ.\n"
-"الرجاء إنشاء التصميم أولاً."
+"الرجاء إنشاء التصميم أولًا."
 
 #: plugins/queries/kexiquerydesignerguieditor.cpp:427
 #, kde-kuit-format
@@ -7809,7 +7809,7 @@ msgid ""
 "First, please create your design."
 msgstr ""
 "لا يمكن التحويل إلى عرض البيانات، لأن تصميم الجدول فارغ.\n"
-"الرجاء إنشاء التصميم أولاً."
+"الرجاء إنشاء التصميم أولًا."
 
 #: plugins/tables/kexitabledesignerview.cpp:569
 #, kde-kuit-format
@@ -8442,7 +8442,7 @@ msgstr ""
 "<html><head/><body><p>يحفظ كلمة المرور في ملف اختصار اتصال <span style=\" "
 "font-style:italic;\">.kexic</span> أو <span style=\" font-style:italic;\">."
 "kexis</span> باستخدام تعمية بسيطة شبيهة بـ ROT-47. هذا لا يضمن الأمان، ولكنه "
-"يجعل القراءة صعبة على أي شخص، ولذلك لا يعد آمناً بشكل عام أن تجعل هذه الملفات "
+"يجعل القراءة صعبة على أي شخص، ولذلك لا يعد آمنًا بشكل عام أن تجعل هذه الملفات "
 "متاحة علنًا.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkSavePassword)
@@ -8510,7 +8510,7 @@ msgstr "المبدئيّ"
 #: widget/kexidbconnectionwidgetdetails.ui:34
 #, kde-format
 msgid "Use socket &file instead of TCP/IP port:"
-msgstr "استخدم &ملف مقبس بدلاً من منفذ TCP/IP:"
+msgstr "استخدم &ملف مقبس بدلًا من منفذ TCP/IP:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkSocketDefault)
 #: widget/kexidbconnectionwidgetdetails.ui:80
@@ -8774,7 +8774,7 @@ msgstr ""
 "para><subtitle>التفاصيل</subtitle><para>للحصول على برامج تشغيل قاعدة "
 "البيانات، الرجاء استخدم مدير الحزم للبحث عن وتثبيت الحزم التي تحتوي على ما "
 "يسمى <emphasis>برامج تشغيل KDb</emphasis> واسمها <filename>kdb-****-driver</"
-"filename>. الرجاء لاحظ أن أسماء حزمك يمكن أن تختلف قليلاً اعتمادًا على نظام "
+"filename>. الرجاء لاحظ أن أسماء حزمك يمكن أن تختلف قليلًا اعتمادًا على نظام "
 "التشغيل الذي تستخدمه.</para>"
 
 #: widget/KexiStartupFileHandler.cpp:483
@@ -8889,12 +8889,12 @@ msgstr "يصدّر البيانات من الجدول أو الاستعلام ا
 #: widget/navigator/KexiProjectNavigator.cpp:371
 #, kde-kuit-format
 msgid "&Create Object: %1..."
-msgstr "أ&نشئ كائناً: %1..."
+msgstr "أ&نشئ كائنًا: %1..."
 
 #: widget/navigator/KexiProjectNavigator.cpp:377
 #, kde-kuit-format
 msgid "&Create Object..."
-msgstr "أ&نشئ كائناً: ..."
+msgstr "أ&نشئ كائنًا: ..."
 
 #: widget/navigator/KexiProjectNavigator.cpp:471
 #, kde-kuit-format
