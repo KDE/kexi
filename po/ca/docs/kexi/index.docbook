@@ -2191,7 +2191,7 @@
 ></term>
     <listitem>
     <para
->aquest valor vol dir que el giny no es redimensionarà automàticament; es mantindrà constant la mida definida en el moment del disseny (amplada o alçada),</para>
+>aquest valor vol dir que el giny no es redimensionarà automàticament; es mantindrà constant la mida definida en el moment del disseny (amplada o altura),</para>
      </listitem>
   </varlistentry>
   <varlistentry
@@ -2201,7 +2201,7 @@
 ></term>
     <listitem>
     <para
->aquest valor vol dir que la mida original del giny està arranjada al mínim, és suficient i no cal expandir el giny, però s'expandirà si cal. Aquest tipus de política es pot usar per a expandir a tota l'amplada o l'alçada, especialment si arrangeu un valor d'estirament més gran de 0.</para>
+>aquest valor vol dir que la mida original del giny està arranjada al mínim, és suficient i no cal expandir el giny, però s'expandirà si cal. Aquest tipus de política es pot usar per a expandir a tota l'amplada o l'altura, especialment si arrangeu un valor d'estirament més gran de 0.</para>
      </listitem>
   </varlistentry>
   <varlistentry
