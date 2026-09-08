@@ -1941,7 +1941,7 @@ msgstr "Pas de cadre"
 #, kde-kuit-format
 msgctxt "Box (HINT: for Frame Shape)"
 msgid "Box"
-msgstr "Boîte"
+msgstr "Boite"
 
 #: formeditor/form_p.cpp:322
 #, kde-kuit-format
@@ -1995,7 +1995,7 @@ msgstr "Barre d'outils"
 #, kde-kuit-format
 msgctxt "Text Box (HINT: for Frame Shape)"
 msgid "Text Box"
-msgstr "Boîte de texte"
+msgstr "Boite de texte"
 
 #: formeditor/form_p.cpp:331
 #, kde-kuit-format
@@ -2007,7 +2007,7 @@ msgstr "Composant graphique d'onglet"
 #, kde-kuit-format
 msgctxt "Group Box (HINT: for Frame Shape)"
 msgid "Group Box"
-msgstr "Boîte de groupe"
+msgstr "Boite de groupe"
 
 #: formeditor/form_p.cpp:334
 #, kde-kuit-format
@@ -5440,7 +5440,7 @@ msgstr "Un composant graphique affichant du texte"
 #, kde-kuit-format
 msgctxt "Image Box widget"
 msgid "Image Box"
-msgstr "Boîte à image"
+msgstr "Boite à image"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:182
 #, kde-format
@@ -5464,7 +5464,7 @@ msgstr "Un composant graphique affichant des images"
 #, kde-kuit-format
 msgctxt "Combo Box widget"
 msgid "Combo Box"
-msgstr "Boîte combinée"
+msgstr "Boite combinée"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:208
 #, kde-format
@@ -6261,7 +6261,7 @@ msgstr "Un composant graphique de cadre"
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:617
 #, kde-kuit-format
 msgid "Group Box"
-msgstr "Boîte de groupe"
+msgstr "Boite de groupe"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:626
 #, kde-format
