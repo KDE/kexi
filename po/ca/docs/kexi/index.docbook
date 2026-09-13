@@ -117,7 +117,7 @@
 >web mateix del Kexi</ulink
 >. </para>
 <para
->Si teniu preguntes sobre el &kexi;, hi ha dues llistes de correu que podeu usar. La llista de correu del &kexi; es pot usar per a preguntar sobre l'ús del &kexi; o el projecte &kexi;. La llista de desenvolupament del &kexi; es pot usar per preguntes sobre el desenvolupament del &kexi;. Podeu trobar més informació sobre com subscriure-us a les llistes, juntament amb altres maneres de contactar els desenvolupadors del &kexi; <ulink url="http://www.kexi-project.org/support.html"
+>Si teniu preguntes sobre el &kexi;, hi ha dues llistes de correu que podeu usar. La llista de correu del &kexi; es pot usar per a preguntar sobre l'ús del &kexi; o el projecte &kexi;. La llista de desenvolupament del &kexi; es pot usar per preguntes sobre el desenvolupament del &kexi;. Podeu trobar més informació sobre com subscriure-us a les llistes, juntament amb altres maneres de contactar amb els desenvolupadors del &kexi; <ulink url="http://www.kexi-project.org/support.html"
 >aquí</ulink
 >. </para>
 <para
@@ -371,7 +371,7 @@
 ></term>
     <listitem>
     <para
->Conté una llista de cada objecte (taules, consultes, formularis,...) creat al projecte de bases de dades obert. El navegador també conté una petita barra d'eines amb les ordres més usades relatives als objectes de la base de dades.</para>
+>Conté una llista de cada objecte (taules, consultes, formularis...) creat al projecte de bases de dades obert. El navegador també conté una petita barra d'eines amb les ordres més usades relatives als objectes de la base de dades.</para>
      </listitem>
   </varlistentry>
   <varlistentry
@@ -1768,7 +1768,7 @@
 >Assignar fonts de dades</title
 > 
 <para
->Els camps que heu inserit encara no tenen cap font de dades assignada, i per tant, no poden mostrar informació de la base de dades. Per a assignar una font de dades, useu la <inlinemediaobject
+>Els camps que heu inserit encara no tenen cap font de dades assignada i, per tant, no poden mostrar informació de la base de dades. Per a assignar una font de dades, useu la <inlinemediaobject
 > <imageobject
 > <imagedata fileref="Icon-server-database.png" format="PNG"/> </imageobject
 > </inlinemediaobject
