@@ -2,13 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Yuri Efremov <yur.arh@gmail.com>, 2011.
+# SPDX-FileCopyrightText: 2026 Alexander Yavorsky <kekcuha@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2011-10-14 20:59+0400\n"
-"Last-Translator: Yuri Efremov <yur.arh@gmail.com>\n"
+"PO-Revision-Date: 2026-09-27 09:50+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -27,11 +28,7 @@ msgid "Map Browser"
 msgstr "Просмотр карты"
 
 #: MapBrowserFactory.cpp:57
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "This string will be used to name widgets of this class. It must _not_ "
-#| "contain white spaces and non latin1 characters."
-#| msgid "mapBrowser"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of map browser widgets. Based on that, identifiers "
 "such as mapBrowser1, mapBrowser2 are generated. This string can be used to "
@@ -46,24 +43,24 @@ msgstr "mapBrowser"
 #: MapBrowserFactory.cpp:58
 #, kde-kuit-format
 msgid "Displays an interactive map."
-msgstr "Отображение интерактивной карты."
+msgstr "Показ интерактивной карты."
 
 #: MapBrowserFactory.cpp:118 MapBrowserFactory.cpp:119
 #, kde-kuit-format
 msgid "Latitude"
-msgstr ""
+msgstr "Широта"
 
 #: MapBrowserFactory.cpp:129 MapBrowserFactory.cpp:130
 #, kde-kuit-format
 msgid "Longitude"
-msgstr ""
+msgstr "Долгота"
 
 #: MapBrowserFactory.cpp:143 MapBrowserFactory.cpp:144
 #, kde-kuit-format
 msgid "Theme"
-msgstr ""
+msgstr "Оформление"
 
 #: MapBrowserFactory.cpp:151 MapBrowserFactory.cpp:152
 #, kde-kuit-format
 msgid "Zoom"
-msgstr ""
+msgstr "Масштаб"

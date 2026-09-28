@@ -2,13 +2,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Yuri Efremov <yur.arh@gmail.com>, 2011.
+# SPDX-FileCopyrightText: 2026 Alexander Yavorsky <kekcuha@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2011-10-14 20:59+0400\n"
-"Last-Translator: Yuri Efremov <yur.arh@gmail.com>\n"
+"PO-Revision-Date: 2026-09-27 09:50+0300\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -27,11 +28,7 @@ msgid "Web Browser"
 msgstr "Веб-браузер"
 
 #: WebBrowserFactory.cpp:53
-#, fuzzy, kde-format
-#| msgctxt ""
-#| "This string will be used to name widgets of this class. It must _not_ "
-#| "contain white spaces and non latin1 characters."
-#| msgid "webBrowser"
+#, kde-format
 msgctxt ""
 "A prefix for identifiers of web browser widgets. Based on that, identifiers "
 "such as webBrowser1, webBrowser2 are generated. This string can be used to "
@@ -51,7 +48,7 @@ msgstr "Виджет веб-браузера"
 #: WebBrowserFactory.cpp:58
 #, kde-kuit-format
 msgid "Text Scale"
-msgstr ""
+msgstr "Масштаб текста"
 
 #: WebBrowserFactory.cpp:59
 #, kde-kuit-format
