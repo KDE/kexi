@@ -1,0 +1,9488 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Russian "INCLUDE">
+  <!ENTITY calligra "Calligra">
+  <!ENTITY ged.vertaald           '<othercredit role="translator"
+><firstname
+>Dit document is nog maar gedeeltelijk vertaald.</firstname
+> <surname
+>Wilt u meehelpen, stuur een bericht naar:</surname
+><affiliation
+><address
+> <email
+>kde-i18n-nl@kde.org</email
+></address
+></affiliation
+> <contrib
+>Nieuwe vertaler</contrib
+></othercredit
+>'>
+]>
+<book id="kexi" lang="&language;">
+<bookinfo>
+<title
+>Руководство пользователя &kexi;</title>
+<authorgroup>
+<author>
+<personname
+><firstname
+>Эта документация преобразована 14.09.2012 со страницы KDE UserBase <ulink url="http://userbase.kde.org/Kexi/Handbook/Introduction"
+>Kexi/Handbook</ulink
+>.</firstname
+> <surname
+></surname
+> </personname>
+      </author>
+<author>
+<personname
+><firstname
+>Обновление до версии 2.4 выполнено командой документирования &kde;</firstname
+> <surname
+></surname
+> </personname>
+ </author>
+<othercredit role="translator"
+><firstname
+>Дмитрий</firstname
+> <othername
+>DJm00n</othername
+> <surname
+>Рязанцев</surname
+> <affiliation
+><address
+><email
+>DJm00n@rambler.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Анатолий</firstname
+> <surname
+>Дунаев</surname
+><affiliation
+><address
+><email
+></email
+>dunaev@gmx.de</address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Леонид</firstname
+> <surname
+>Моргун</surname
+><affiliation
+><address
+><email
+>morgunl@gmail.com</email
+></address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Ирина</firstname
+> <surname
+>Тишко</surname
+> <affiliation
+><address
+><email
+>aredhel@voliacable.com</email
+></address
+></affiliation
+> <contrib
+>Перевод на русский</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Николай</firstname
+> <surname
+>Шафоростов</surname
+><affiliation
+><address
+><email
+>shafff@ukr.net</email
+></address
+></affiliation
+> <contrib
+>Редактирование перевода</contrib
+></othercredit
+>  
+      </authorgroup>
+<legalnotice
+>&FDLNotice;</legalnotice>
+<date
+>14 сентября 2012 г.</date>
+      <releaseinfo
+>2.5</releaseinfo>
+<abstract>
+  <para
+>&kexi; — приложение для создания баз данных и управления данными из офисного пакета &calligra;. </para>
+</abstract>
+
+<!-- Keywords -->
+<keywordset>
+  <keyword
+>KDE</keyword>
+  <keyword
+>Calligra</keyword>
+  <keyword
+>Kexi</keyword>
+  <keyword
+>база данных</keyword>
+</keywordset>
+</bookinfo>
+<!--userbase <timestamp
+>2012-09-14T07:13:33Z</timestamp
+>-->
+
+<!--userbase-content-->
+<chapter id="introduction"
+><title
+>Введение</title
+> 
+<para
+>&kexi; - это программа управления базами данных. Она может использоваться для создания баз данных, вставки данных, произведения запросов и обработки данных. Также могут создаваться формы, для предоставления пользовательского интерфейса вашим данным. Все объекты базы данных - таблицы, запросы и формы хранятся в базе данных, делая простым обмен и распространение данных и дизайна. </para>
+<para
+>&kexi; входит в офисный пакет &calligra; от KDE. </para>
+<para
+>Помимо хранения баз данных &kexi; в файлах, &kexi; умеет хранить данные на сервере баз данных. Сервер баз данных позволяет открыть доступ к базе другим людям и работать с ней одновременно нескольким пользователям. &kexi; поддерживает следующие серверы баз данных: </para>
+<itemizedlist>
+<listitem
+><para
+><ulink url="http://www.mysql.com/"
+>MySQL</ulink
+></para
+></listitem>
+<listitem
+><para
+><ulink url="http://www.postgresql.org/"
+>PostgreSQL</ulink
+></para
+></listitem>
+</itemizedlist>
+<para
+>Подробнее о &kexi; — на <ulink url="http://www.calligra-suite.org/kexi/"
+>странице &kexi; на веб-сайте Calligra</ulink
+> и на <ulink url="http://www.kexi-project.org/about.html"
+>собственном веб-сайте Kexi</ulink
+>. </para>
+<para
+>Вопросы о &kexi; можно задать в одном из двух списков рассылки. В списке рассылки пользователей &kexi; спрашивают о работе с &kexi; и о проекте &kexi;, в списке рассылки разработчиков &kexi; — о разработке &kexi;. Как подписаться на эти списки и как ещё можно связаться с разработчиками &kexi;, рассказано <ulink url="http://www.kexi-project.org/support.html"
+>здесь</ulink
+>. </para>
+<para
+><note
+><para
+>Это руководство по &kexi; 2.5 задумано на основе руководства &kexi; для Kexi 1.1. Любую работу над ним согласовывайте с Jarosław Staniek, адрес электронной почты: kexi at kde.org</para
+></note>
+</para>
+</chapter>
+<chapter id="kexi-basics"
+><title
+>Основы Kexi</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="kexi-databases"
+>Базы данных Kexi</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="creating-a-new-database-file"
+>Создание нового файла базы данных</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-kexi-main-window"
+>Главное окно Kexi</link
+>&nbsp;<itemizedlist
+> <listitem
+><para
+><link linkend="main-application-elements"
+>Основные элементы приложения</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+<listitem
+><para
+><link linkend="opening-an-existing-kexi-database-file"
+>Открытие существующего файла базы данных Kexi</link
+>&nbsp;<itemizedlist>
+<listitem
+><para
+><link linkend="opening-a-database-file-in-the-open-existing-project-dialog"
+>Открытие файла базы данных в диалоге открытия проекта</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="opening-an-existing-kexi-database-file-by-clicking-on--kexi-files-icon"
+>Открытие файла базы данных Kexi щелчком по значку файла .kexi</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+<listitem
+><para
+><link linkend="using-built-in-help"
+>Встроенная справка</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="kexi-databases"
+><title
+>Базы данных Kexi</title
+> 
+<para
+>Многие приложения, например <trademark class="registered"
+>OpenOffice.org</trademark
+>, <trademark class="registered"
+>LibreOffice</trademark
+> или <application
+>&Microsoft; Excel</application
+>, создают файлы, которые называются документами. &kexi; тоже создаёт файлы, но здесь мы называем их файлами баз данных &kexi; или просто файлами баз данных. </para>
+<para
+>Помимо хранения баз данных в файлах, &kexi; умеет работать и с базами данных на серверах, поэтому мы говорим именно «файлы баз данных», а не просто «базы данных». </para>
+<para
+>Термин «проект &kexi;» или просто «проект» тоже обозначает базу данных &kexi;, независимо от того, хранится она в файле или на сервере баз данных. </para>
+<para
+><note
+><para
+>Файлы баз данных &kexi; обычно имеют расширение <filename
+>.kexi</filename
+></para
+></note>
+</para>
+</sect1>
+<sect1 id="creating-a-new-database-file"
+><title
+>Создание нового файла базы данных</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="newproject.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<orderedlist>
+<listitem
+><para
+>Запустите &kexi; или, если приложение уже запущено, выберите <menuchoice
+><guimenu
+>Kexi</guimenu
+><guimenuitem
+>Создать... (Ctrl+N)</guimenuitem
+></menuchoice
+>.</para
+></listitem>
+<listitem
+><para
+>На странице <guilabel
+>Создание нового проекта</guilabel
+> в разделе <guilabel
+>Пустые проекты</guilabel
+> выберите <guilabel
+>Пустая база данных</guilabel
+>. <screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="projectstorage.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot
+></para
+></listitem>
+<listitem
+><para
+>На странице <guilabel
+>Способ хранения</guilabel
+> выберите <guilabel
+>Файл</guilabel
+>. <screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="projectfilename.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot
+></para
+></listitem>
+<listitem
+><para
+>На странице <guilabel
+>Название проекта и имя файла</guilabel
+> задайте название проекта и имя его файла.</para
+></listitem>
+<listitem
+><para
+>Нажмите <guilabel
+>Далее</guilabel
+>, чтобы создать проект.</para
+></listitem>
+</orderedlist>
+<para
+><note>
+<itemizedlist>
+<listitem
+><para
+>При изменении названия проекта предлагаемое имя файла меняется автоматически.</para
+></listitem>
+<listitem
+><para
+>Папку для сохранения файла базы данных возможно выбрать в обзоре файлов.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+</sect1>
+<sect1 id="the-kexi-main-window"
+><title
+>Главное окно Kexi</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_mainwindow.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+><guilabel
+>Панель инструментов с вкладками</guilabel
+> вверху даёт доступ к основным действиям и командам. </para>
+<para
+>Панели <guilabel
+>Проект</guilabel
+> и <guilabel
+>Свойства</guilabel
+> расположены по обе стороны от дочернего окна. Их размер возможно менять, а сами панели — скрывать. Чтобы скрыть панель, нажмите маленький крестик в её верхней части (сразу под панелью инструментов). </para>
+<para
+>Объекты базы данных (таблицы, запросы и т. д.), перечисленные на панели <guilabel
+>Проект</guilabel
+>, открываются щелчком (или двойным щелчком — в зависимости от общих параметров KDE) по их именам. </para>
+<sect2 id="main-application-elements"
+><title
+>Основные элементы приложения</title
+> 
+<para
+>Основными элементами окна приложения &kexi; являются: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Панель инструментов с вкладками</emphasis
+></term>
+    <listitem>
+    <para
+>Содержит доступные команды приложения. Подробное описание команд приведено в <link linkend="command-reference"
+>приложении</link
+>.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Панель «Проект»</emphasis
+></term>
+    <listitem>
+    <para
+>Содержит список всех объектов (таблиц, запросов, форм...), созданных в открытом проекте базы данных. На панели есть также небольшая панель инструментов с самыми востребованными командами для объектов базы данных.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Область открытых объектов базы данных / окна на вкладках</emphasis
+></term>
+    <listitem>
+      <para
+>Центральная область приложения, занимающая большую часть экрана. В ней расположены переключаемые вкладки с окнами, всегда развёрнутыми на всю область.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Панель «Свойства»</emphasis
+></term>
+    <listitem>
+    <para
+>Содержит список свойств активного объекта базы данных. Для некоторых объектов (например, виджетов формы) на ней может быть несколько вкладок.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect2>
+<sect2 id="tabbed-toolbar"
+><title
+>Панель инструментов с вкладками</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_tabbedtoolbar.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>Панель инструментов даёт доступ к большинству команд и действий &kexi;. </para>
+<para
+>С помощью действий на разных вкладках панели инструментов возможно: </para>
+<itemizedlist>
+<listitem
+><para
+>создавать, открывать и закрывать проекты Kexi;</para
+></listitem>
+<listitem
+><para
+>создавать объекты базы данных;</para
+></listitem>
+<listitem
+><para
+>импортировать и экспортировать данные.</para
+></listitem>
+</itemizedlist>
+<para
+>В зависимости от контекста могут появляться дополнительные вкладки: </para>
+<itemizedlist>
+<listitem
+><para
+>вкладка <guilabel
+>Дизайн формы</guilabel
+> видна при работе в конструкторе форм;</para
+></listitem>
+<listitem
+><para
+>вкладка <guilabel
+>Макет отчёта</guilabel
+> видна при работе в конструкторе отчётов.</para
+></listitem>
+</itemizedlist>
+</sect2>
+<sect2 id="project-navigator-pane"
+><title
+>Панель «Проект»</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_projectnavigator.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>Панель <guilabel
+>Проект</guilabel
+> — один из самых используемых элементов главного окна &kexi;. Она содержит список всех объектов, созданных в открытом проекте базы данных Kexi. Объекты разбиты на группы: таблицы, запросы, формы, отчёты и сценарии. </para>
+<para
+>На панели «Проект» есть также небольшая панель инструментов с самыми частыми командами (слева направо): <guilabel
+>Открыть</guilabel
+> выбранный объект, <guilabel
+>Дизайн</guilabel
+> выбранного объекта и <guilabel
+>Удалить</guilabel
+> выбранный объект. </para>
+<para
+>Для каждого объекта в списке правой кнопкой мыши вызывается контекстное меню. </para>
+<para
+>Двойной щелчок левой кнопкой мыши по имени объекта в списке открывает объект в режиме <guilabel
+>Данные</guilabel
+>. Если окно объекта уже открыто, оно просто становится активным, без смены режима просмотра. </para>
+<para
+><note
+><para
+>Даже если операционная система или диспетчер окон настроены на одинарный щелчок, на панели <guilabel
+>Проект</guilabel
+> &kexi; использует двойной — чтобы случайно не открыть большой набор данных и не выполнить запрос.</para
+></note>
+</para>
+</sect2>
+<sect2 id="opened-database-objects-area---tabbed-windows"
+><title
+>Область открытых объектов базы данных / окна на вкладках</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_windowtabs.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>Объект, по которому дважды щёлкнули на панели «Проект», открывается в <guilabel
+>области открытых объектов базы данных</guilabel
+>. У каждого окна в &kexi; своя вкладка. </para>
+<para
+>Вкладки возможно переставлять перетаскиванием и закрывать кнопкой <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-tab-close.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> у правого края полосы вкладок. </para>
+<para
+><note
+><para
+>Позже появится возможность откреплять вкладки, получая нечто похожее на многооконный интерфейс (MDI). Это может пригодиться для специальных решений или при нескольких мониторах.</para
+></note>
+</para>
+</sect2>
+<sect2 id="property-editor-pane"
+><title
+>Панель «Свойства»</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_propertyeditor.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>На панели <guilabel
+>Свойства</guilabel
+> возможно менять свойства объекта, показанного в активном окне. В зависимости от контекста панель состоит из одной или нескольких вкладок. Первая, всегда видимая вкладка <guilabel
+>Параметры</guilabel
+> содержит список доступных свойств. </para>
+<para
+>Правила работы с панелью <guilabel
+>Свойства</guilabel
+>: </para>
+<itemizedlist>
+<listitem
+><para
+>Каждая запись содержит только один параметр.</para
+></listitem>
+<listitem
+><para
+>Вы можете использовать мышь или клавиатуру, чтобы изменить значение отдельно взятого параметра.</para
+></listitem>
+<listitem
+><para
+>Наиболее используемые типы значений параметров:<itemizedlist>
+<listitem
+><para
+>число — значение возможно ввести напрямую или увеличивать и уменьшать щелчками левой кнопкой мыши по стрелкам;</para
+></listitem>
+<listitem
+><para
+>текст</para
+></listitem>
+<listitem
+><para
+>раскрывающийся список параметров</para
+></listitem>
+<listitem
+><para
+>да/нет — значение переключается нажатием кнопки; «Да» (true) означает, что кнопка включена, «Нет» (false) — что выключена.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</itemizedlist
+><para
+><note>
+<itemizedlist>
+<listitem
+><para
+>Подтверждать изменённое значение не нужно: изменения видны сразу после перехода на другую строку списка свойств или нажатия клавиши &Enter;.</para
+></listitem>
+<listitem
+><para
+>Названия измененных параметров, которые еще не были сохранены в базе данных, выделяются курсивом.</para
+></listitem>
+<listitem
+><para
+>После изменения значения свойства справа в списке свойств появляется особая кнопка <guilabel
+>Отменить изменения</guilabel
+>. Нажав её, возможно вернуть исходное значение свойства, загруженное из базы данных при открытии объекта. Кнопка видна, только когда свойство выделено.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+<para
+>Панель <guilabel
+>Свойства</guilabel
+> пуста, если: </para>
+<itemizedlist>
+<listitem
+><para
+>не открыт ни один объект базы данных;</para
+></listitem>
+<listitem
+><para
+>окно активного объекта базы данных не предлагает свойств; обычно так бывает, когда объект открыт в режиме <guilabel
+>Данные</guilabel
+>, а не <guilabel
+>Конструктор</guilabel
+>.</para
+></listitem>
+</itemizedlist>
+</sect2>
+</sect1>
+<sect1 id="opening-an-existing-kexi-database-file"
+><title
+>Открытие существующего файла базы данных Kexi</title
+> 
+<para
+>Открыть существующий файл базы данных &kexi; возможно двумя способами: </para>
+<sect2 id="opening-a-database-file-in-the-open-existing-project-dialog"
+><title
+>Открытие файла базы данных в диалоге открытия проекта</title
+> 
+<itemizedlist>
+<listitem
+><para
+>Запустите &kexi;. Появится начальный диалог <guilabel
+>Добро пожаловать в Kexi</guilabel
+>, в котором возможно выбрать для открытия один из недавно использованных проектов.</para
+></listitem>
+<listitem
+><para
+>Если проекта нет на странице недавних проектов, выберите <guibutton
+>Открыть...</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>). Появится следующий диалог:</para>
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_openproject.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+</listitem>
+<listitem
+><para
+>В строке адреса выберите папку, в которой находится нужный файл.</para
+></listitem>
+<listitem
+><para
+>Можно выбрать файл — он сразу откроется. Или введите его имя в поле <guilabel
+>Имя:</guilabel
+> и нажмите <guilabel
+>Далее</guilabel
+>.</para
+></listitem>
+</itemizedlist>
+<para
+><guilabel
+>Примечания</guilabel>
+</para>
+<itemizedlist>
+<listitem
+><para
+>По умолчанию в раскрывающемся списке <guilabel
+>Фильтр:</guilabel
+> выбрано <guilabel
+>Все поддерживаемые файлы (*.kexi, *.kexic, *.kexis, *.mdb)</guilabel
+>. Если у нужного файла другое расширение, выберите в списке <guilabel
+>Фильтр:</guilabel
+> пункт <guilabel
+>Все файлы</guilabel
+>, чтобы показать все файлы независимо от расширения.</para
+></listitem>
+<listitem
+><para
+>Если выбран файл другого формата, например файл <guilabel
+>MS Access</guilabel
+> <filename
+>.mdb</filename
+>, &kexi; предложит импортировать его.</para
+></listitem>
+<listitem
+><para
+>Если выбран файл параметров подключения (с расширением <filename
+>.kexic</filename
+>) или файл ссылки на проект на сервере баз данных (с расширением <filename
+>.kexis</filename
+>), &kexi; покажет соответствующие диалоги.</para
+></listitem>
+</itemizedlist>
+</sect2>
+<sect2 id="opening-an-existing-kexi-database-file-by-clicking-on--kexi-files-icon"
+><title
+>Открытие файла базы данных Kexi щелчком по значку файла .kexi</title
+> 
+<itemizedlist>
+<listitem
+><para
+>Щёлкните (дважды, если система настроена нестандартным образом) на значке файла базы данных в проводнике или на рабочем столе. &kexi; автоматически откроет эту базу данных.</para
+></listitem>
+</itemizedlist>
+<para
+><guilabel
+>Примечания</guilabel>
+</para>
+<para
+>Замечание об удалённом доступе к файлам баз данных. Возможно, понадобится открыть файл базы данных из удалённого источника (например, с веб- или FTP-сервера либо из общей папки сети MS Windows). KDE позволяет открывать файлы из удалённых источников прямо в приложениях и сохранять изменения обратно, но к файлам баз данных это не относится. При щелчке по файлу базы данных в удалённом источнике копия файла загружается во временный каталог на вашем компьютере, и все изменения вносятся в эту локальную копию. Удалённый оригинал остаётся без изменений, поэтому рекомендуется сначала скопировать (загрузить) файл на свой компьютер, открыть его, а затем, чтобы обновить оригинал, скопировать обратно в удалённый источник. </para>
+</sect2>
+</sect1>
+<sect1 id="using-built-in-help"
+><title
+>Встроенная справка</title
+> 
+<para
+>Возможны следующие варианты встроенной справки в &kexi;: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Руководство пользователя в электронном формате.</emphasis
+></term>
+    <listitem>
+    <para
+>Руководство открывается клавишей <keycap
+>F1</keycap
+> или щелчком по <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-help-contents.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> в строке меню с выбором пункта <guilabel
+>Справка</guilabel
+>.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Подсказки <emphasis
+>«Что это?»</emphasis
+>.</emphasis
+></term>
+    <listitem>
+    <para
+>Выберите <guilabel
+>Что это?</guilabel
+> в меню, которое появляется при щелчке по <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-help-contents.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+>, а затем щёлкните по области приложения, чтобы получить подсказку о ней.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+</chapter>
+<chapter id="building-simple-databases"
+><title
+>Создание простых баз данных</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="building-simple-databases"
+>Введение</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="designing-database-tables"
+>Создание таблиц базы данных</link
+>&nbsp;<itemizedlist
+> <listitem
+><para
+><link linkend="the-table-designer-window"
+>Окно конструктора таблиц</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+<listitem
+><para
+><link linkend="entering-data-into-tables"
+>Ввод данных в таблицы</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="designing-database-queries"
+>Создание запросов к базе данных</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="designing-forms"
+>Создание форм</link
+>&nbsp;<itemizedlist>
+<listitem
+><para
+><link linkend="most-important-terms"
+>Важнейшие понятия</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="forms-versus-tables"
+>Формы и таблицы</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="working-with-form-design"
+>Работа с дизайном формы</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="using-the-widgets-tab"
+>Вкладка «Виджеты»</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="inserting-widgets---text-fields"
+>Вставка виджетов: текстовые поля</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="assigning-data-sources"
+>Назначение источников данных</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="inserting-text-labels"
+>Вставка текстовых надписей</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="actions"
+>Действия</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="widget-layouts"
+>Размещение виджетов</link
+>&nbsp;</para
+></listitem>
+<!--FIXME not implemented in kexi 2.4
+<listitem
+><para
+><link linkend="setting-widgets-size-and-position-by-hand"
+>Setting widgets size and position by hand</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="setting-the-tab-order"
+>Setting the tab order</link
+>&nbsp;</para
+></listitem>
+-->
+</itemizedlist>
+</para
+></listitem>
+<listitem
+><para
+><link linkend="entering-data-using-forms"
+>Ввод данных с помощью форм</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="introduction0"
+><title
+>Введение</title
+> 
+<para
+>Для того чтобы изучить основы работы с &kexi;, вы можете создать простую базу данных, задействуюя только самые основные функции &kexi;. Чтобы сделать этот раздел более понятным, здесь не будут рассматриваться вопросы создания сложных баз данных. </para>
+<para
+>Начните с создания новой пустой телефонной книги. </para>
+<para
+>Создав новую пустую базу данных, выполните следующие действия: </para>
+<orderedlist>
+<listitem
+><para
+>Создайте таблицы базы данных. Прочитайте раздел <link linkend="designing-database-tables"
+>«Создание таблиц базы данных»</link
+>.</para
+></listitem>
+<listitem
+><para
+>Введите данные в таблицы. Прочитайте раздел <link linkend="entering-data-into-tables"
+>«Ввод данных в таблицы»</link
+>.</para
+></listitem>
+<listitem
+><para
+>Создайте запросы к базе данных. Прочитайте раздел <link linkend="designing-database-queries"
+>«Создание запросов к базе данных»</link
+>.</para
+></listitem>
+<listitem
+><para
+>Создайте формы. Прочитайте раздел <link linkend="designing-forms"
+>«Создание форм»</link
+>.</para
+></listitem>
+<listitem
+><para
+>Вводите данные с помощью форм. Прочитайте раздел <link linkend="entering-data-using-forms"
+>«Ввод данных с помощью форм»</link
+>.</para
+></listitem>
+</orderedlist>
+</sect1>
+<sect1 id="designing-database-tables"
+><title
+>Создание таблиц базы данных</title
+> 
+<!--FIXME to refer to these two tables later, sometimes the caption "Persons"/"Phones" and sometimes the Name "persons"/"phone_numbers" are used; together with different markup guilabel/replaceable, make that consistent. It is really confusing-->
+<para
+>Сначала в базу данных будут добавлены две таблицы: <replaceable
+>Persons</replaceable
+> и <replaceable
+>Phones</replaceable
+>. Это те самые таблицы, которые описаны в главе <link linkend="database-and-spreadsheet"
+>«База данных и электронная таблица»</link
+>. Структура таблицы <replaceable
+>Persons</replaceable
+> приведена в разделе <link linkend="data-integrity-and-validity"
+>«Целостность и корректность данных»</link
+> той же главы. </para>
+<orderedlist>
+<listitem
+><para
+>Выберите <guilabel
+>Таблица</guilabel
+> на панели инструментов. Можно также воспользоваться пунктом <guilabel
+>Создать объект: таблица</guilabel
+> в контекстном меню элемента <guilabel
+>Таблицы</guilabel
+> на панели «Проект».</para
+></listitem>
+<listitem
+><para
+>Появится окно конструктора таблиц. В его верхней части видно, что &kexi; предложил для новой таблицы типовое имя вроде <guilabel
+>Таблица1</guilabel
+>. Структура таблицы ещё не сохранена, поэтому более подходящее имя возможно задать позже. По той же причине имени таблицы пока нет на панели <guilabel
+>Проект</guilabel
+>.</para
+></listitem>
+</orderedlist>
+<sect2 id="the-table-designer-window"
+><title
+>Окно конструктора таблиц</title
+> 
+<sect3 id="table-designer-window-consists-of-following-columns-"
+><title
+>Окно Конструктора таблиц состоит из следующих колонок:</title
+> 
+<itemizedlist>
+<listitem
+><para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-help-about-desaturated.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> — дополнительные сведения о поле.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>Заголовок поля</guilabel
+> - название поля, которое отображается при вводе данных.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>Тип данных</guilabel
+> - комбинированный список, включающий названия типов данных, позволяет определить основное правило для вводимых данных для отдельно взятого поля. Например, когда для поля установлен тип данных целое число, то пользователь не сможет ввести в это поле буквенные символы.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>Комментарий</guilabel
+> - вы можете ввести сюда любую информацию, которая помогает понять, для чего предназначено данное поле. Эти дополнительные данные будут сохранены в структуре таблицы и будут видны только в режиме конструктора.</para
+></listitem>
+</itemizedlist>
+<para
+>Каждая строка в окне конструктора таблиц соответствует одному полю таблицы. То, что вы в режиме конструктора, видно по нажатой кнопке <guilabel
+>Дизайн</guilabel
+> на панели инструментов конструктора таблиц. </para>
+</sect3>
+<sect3 id="designing-the-persons-table"
+><title
+>Создание таблицы Persons</title
+> 
+<para
+>В первой строке щёлкните по ячейке столбца <guilabel
+>Имя</guilabel
+> и введите <replaceable
+>Name</replaceable
+> в качестве заголовка поля. При заполнении этого столбца автоматически заполняется свойство <guilabel
+>Имя</guilabel
+>, которое видно на панели <guilabel
+>Свойства</guilabel
+>. </para>
+<para
+>Замечания по названиям и подписям полей </para>
+<itemizedlist>
+<listitem
+><para
+>У каждого поля таблицы должны быть непустые имя и заголовок.</para
+></listitem>
+<listitem
+><para
+>Имя поля — слово, которое использует база данных; пользователи приложения его обычно не видят. Имя не может содержать специальные (национальные) символы (вроде ±, ¶, Ü) и пробелы. В нём допустимы только латинские буквы, цифры и знак подчёркивания <quote
+>_</quote
+>, который используйте вместо пробелов и дефисов.</para
+></listitem>
+<listitem
+><para
+>Имя поля должно начинаться с буквы или знака подчёркивания <quote
+>_</quote
+>, но не с цифры.</para
+></listitem>
+<listitem
+><para
+>Регистр букв значения не имеет: для &kexi; имена полей <replaceable
+>Persons</replaceable
+> и <replaceable
+>persons</replaceable
+> одинаковы.</para
+></listitem>
+<listitem
+><para
+>В заголовке поля разрешается использовать любые буквы и специальные знаки. Заголовок отображается для пользователей.</para
+></listitem>
+</itemizedlist>
+<para
+>Создайте следующие ниже поля в таблице: </para>
+<itemizedlist>
+<listitem
+><para
+><replaceable
+>surname</replaceable
+></para
+></listitem>
+<listitem
+><para
+><replaceable
+>street</replaceable
+></para
+></listitem>
+<listitem
+><para
+><replaceable
+>house_number</replaceable
+></para
+></listitem>
+<listitem
+><para
+><replaceable
+>city</replaceable
+></para
+></listitem>
+</itemizedlist>
+<para
+>Все перечисленные поля, кроме <replaceable
+>house_number</replaceable
+>, текстовые. Смените тип поля <replaceable
+>house_number</replaceable
+> на целое число: щёлкните по ячейке столбца <guilabel
+>Тип данных</guilabel
+> в строке <replaceable
+>house_number</replaceable
+>, затем нажмите кнопку раскрывающегося списка или клавишу <keycap
+>F4</keycap
+>. Появится список типов данных; выбирать тип возможно и клавишами со стрелками <keysym
+>Up</keysym
+> и <keysym
+>Down</keysym
+>. Выберите тип <guilabel
+>Целое число</guilabel
+>. </para>
+<para
+>Теперь поле <replaceable
+>house_number</replaceable
+> принимает только числа. </para>
+<para
+>Структура таблицы Persons готова. Нажмите кнопку <guilabel
+>Данные</guilabel
+> на панели инструментов, чтобы закончить работу в конструкторе и перейти к режиму <guilabel
+>Данные</guilabel
+> таблицы. В нём в таблицу возможно вводить данные. </para>
+<para
+>Поскольку структура ещё не сохранена в базе данных, появляется диалог <guilabel
+>Сохранить объект как</guilabel
+>. Укажите имя новой таблицы. </para>
+<para
+>&kexi; предлагает типовое имя вроде <guilabel
+>Таблица1</guilabel
+>. Чтобы сменить его, введите <replaceable
+>Persons</replaceable
+> в поле <guilabel
+>Заголовок</guilabel
+> и нажмите клавишу &Enter; или кнопку <keycap
+>OK</keycap
+>. Заголовок используется для показа таблицы конечным пользователям базы данных, например, в форме. В отличие от имени, заголовок может содержать любые символы, в том числе пробелы и специальные символы. </para>
+<para
+>При заполнении поля <guilabel
+>Заголовок</guilabel
+> автоматически заполняется поле <guilabel
+>Имя</guilabel
+>; для удобства в нём соблюдается правило «только буквы, цифры и символ <quote
+>_</quote
+>». Содержимое поля <guilabel
+>Имя</guilabel
+> возможно изменить. </para>
+<orderedlist>
+<listitem
+><para
+>Появится предложение автоматически добавить в таблицу первичный ключ. Нажмите кнопку <guilabel
+>Добавить первичный ключ</guilabel
+>, чтобы продолжить.</para
+></listitem>
+<listitem
+><para
+>Таблица <replaceable
+>Persons</replaceable
+> создана и открыта в режиме данных. Её имя появилось на панели <guilabel
+>Проект</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Создайте таблицу <replaceable
+>Phones</replaceable
+> так же, как таблицу <replaceable
+>Persons</replaceable
+>.</para
+></listitem>
+<listitem
+><para
+>Создайте поле <replaceable
+>person</replaceable
+> типа <guilabel
+>Целое</guilabel
+> число и поле <replaceable
+>phone</replaceable
+> типа <guilabel
+>Текст</guilabel
+>. Числовой тип здесь не подходит: телефонные номера записываются по-разному и с разными префиксами.</para
+></listitem>
+<listitem
+><para
+>Нажмите кнопку <guilabel
+>Данные</guilabel
+> на панели инструментов и введите заголовок таблицы <replaceable
+>Phones</replaceable
+>. Как и для предыдущей таблицы, разрешите &kexi; автоматически создать первичный ключ.</para
+></listitem>
+</orderedlist>
+</sect3>
+</sect2>
+</sect1>
+<sect1 id="entering-data-into-tables"
+><title
+>Ввод данных в таблицы</title
+> 
+<para
+>Вы создали две таблицы — <replaceable
+>Persons</replaceable
+> и <replaceable
+>Phones</replaceable
+>. Данных в них пока нет. В этой главе рассказано, как быстро и удобно их ввести. </para>
+<para
+>Начните с таблицы <replaceable
+>Persons</replaceable
+>. Откройте её в режиме данных пунктом <guilabel
+>Открыть</guilabel
+> в контекстном меню панели <guilabel
+>Проект</guilabel
+> или кнопкой на панели инструментов. Текущая ячейка отмечена более толстой (обычно чёрной) рамкой — курсором ячейки. Содержимое ячейки, если оно есть, выделено другим цветом. Текущая строка, то есть та, в которой стоит прямоугольный курсор, отмечена слева стрелкой. </para>
+<para
+>Вы можете совершать переходить по ячейкам таблицы используя клавиши со стрелками, <keycap
+>Page Down</keycap
+>, <keycap
+>Page Down</keycap
+>, <keycap
+>Home</keycap
+>, <keycap
+>End</keycap
+>. Также можно использовать мышку. </para>
+<para
+>Сразу после открытия таблицы <replaceable
+>Persons</replaceable
+> курсор стоит в столбце <replaceable
+>Id</replaceable
+>. У этого столбца задано свойство автонумерации, отмеченное синим текстом (autonumber) в последней строке. Поэтому при вводе новой строки значения здесь вводить вручную не нужно: ячейка автоматически заполняется очередным номером. </para>
+<para
+>Добавление строк и ввод данных в &kexi; устроены иначе, чем в электронных таблицах. Чтобы ввести новую строку, переведите курсор клавишами со стрелками или мышью на особую пустую последнюю строку, отмеченную знаком «плюс». Поставьте курсор во (второй) столбец <replaceable
+>name</replaceable
+> и введите имя человека. Введите также фамилию, улицу, номер дома и город. Затем переведите курсор ячейки на последнюю пустую строку клавишей <keycap
+>Down</keycap
+> или щелчком мыши, чтобы добавить ещё одну строку. </para>
+<sect2 id="details-about-actions-available-while-entering-data-into-tables"
+><title
+>Подробно о доступных действиях при добавлении данных в таблицу</title
+> 
+<itemizedlist>
+<listitem
+><para
+>Как только вы введёте первый символ, текущая строка станет редактируемой. Символ карандаша появится с левой стороны таблицы.</para
+></listitem>
+<listitem
+><para
+>Правку текущей строки начинает также двойной щелчок по ячейке левой кнопкой мыши или нажатие клавиши &Enter; либо <keycap
+>F2</keycap
+>.</para
+></listitem>
+<listitem
+><para
+>Клавиша &Esc; во время правки ячейки отменяет её изменения. Однако значок карандаша не исчезает: можно перейти к другой ячейке редактируемой строки и изменить её. Чтобы отменить изменения всей строки, нажмите &Esc; ещё раз.</para
+></listitem
+><!--FIXME Esc does not work in master (2.4) as described here bug in docs or app?-->
+<listitem
+><para
+>Вместо клавиши &Esc; можно нажать кнопку <guilabel
+>Отменить изменения записи</guilabel
+> на панели инструментов.</para
+></listitem>
+<listitem
+><para
+>Комбинация <keycombo
+>&Shift;&Enter;</keycombo
+> принимает изменения во всех ячейках редактируемой строки.</para
+></listitem>
+</itemizedlist>
+<para
+>Заполните данными таблицу <replaceable
+>Phones</replaceable
+>. В столбце <replaceable
+>person</replaceable
+> указывается номер <replaceable
+>Id</replaceable
+> человека из таблицы <replaceable
+>Persons</replaceable
+>. </para>
+</sect2>
+</sect1>
+<sect1 id="designing-database-queries"
+><title
+>Создание запросов к базе данных</title
+> 
+<para
+>Главное назначение базы данных — хранить сведения и помогать находить нужное. В отличие от записей на бумаге, база данных &kexi; позволяет задавать больше условий поиска, а результаты возвращаются быстро даже на больших наборах данных. В этом сила баз данных, но чтобы составлять эффективные запросы, нужно научиться объяснять базе данных, что вы ищете. </para>
+<para
+>С помощью запросов возможно ограничить данные из таблицы заданным набором строк и столбцов, а также динамически объединять данные из нескольких таблиц. </para>
+<para
+>Чтобы посмотреть, как запросы работают на практике, создадим запрос контактов, объединяющий данные двух таблиц — <replaceable
+>Persons</replaceable
+> и <replaceable
+>Phones</replaceable
+> (они созданы <link linkend="designing-database-tables"
+>здесь</link
+> и заполнены данными <link linkend="entering-data-into-tables"
+>здесь</link
+>). </para>
+<orderedlist>
+<listitem
+><para
+>Создайте новый пустой запрос, выбрав <guilabel
+>Запрос</guilabel
+> на панели инструментов. Появится окно конструктора, разделённое на две области: связи запроса вверху и столбцы запроса внизу.</para
+></listitem>
+<listitem
+><para
+>Выберите таблицу <replaceable
+>Persons</replaceable
+> в раскрывающемся списке <guilabel
+>Таблица:</guilabel
+> вверху окна и нажмите кнопку <guilabel
+>Вставить</guilabel
+>. В области связей появится графическое изображение таблицы. Так же вставьте таблицу <replaceable
+>Phones</replaceable
+>.</para
+></listitem>
+<listitem
+><para
+>Добавьте связь в запрос перетаскиванием мышью (drag &amp; drop): нажмите на поле <replaceable
+>id</replaceable
+> в таблице <replaceable
+>persons</replaceable
+> и перетащите его на поле <replaceable
+>person</replaceable
+> таблицы <replaceable
+>Phones</replaceable
+>. Будет создана новая связь, объединяющая оба поля.</para
+></listitem>
+<listitem
+><para
+>Дважды щёлкните по полю <replaceable
+>name</replaceable
+> в таблице <replaceable
+>Persons</replaceable
+>, чтобы добавить его как столбец запроса. Так же добавьте поля <replaceable
+>surname</replaceable
+>, <replaceable
+>street</replaceable
+>, <replaceable
+>house_number</replaceable
+>, <replaceable
+>city</replaceable
+> из таблицы <replaceable
+>Persons</replaceable
+> и <replaceable
+>phone</replaceable
+> из таблицы <replaceable
+>Phones</replaceable
+>.</para
+></listitem>
+<listitem
+><para
+>Запрос готов к проверке. Нажмите кнопку <guilabel
+>Данные</guilabel
+> на панели инструментов, чтобы перейти из конструктора к просмотру данных — результатов запроса.</para
+></listitem>
+<listitem
+><para
+>Сохраните запрос для дальнейшего использования кнопкой <guilabel
+>Сохранить</guilabel
+> на панели инструментов. Поскольку запрос ещё не сохранялся, будет предложено ввести его имя. Введите <replaceable
+>Contacts</replaceable
+> в поле заголовка и нажмите кнопку <guilabel
+>OK</guilabel
+>.</para
+></listitem>
+</orderedlist>
+</sect1>
+<sect1 id="designing-forms"
+><title
+>Создание форм</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="most-important-terms"
+>Важнейшие понятия</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="forms-versus-tables"
+>Формы и таблицы</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="working-with-form-design"
+>Работа с дизайном формы</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="using-the-widgets-tab"
+>Вкладка «Виджеты»</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="inserting-widgets---text-fields"
+>Вставка виджетов: текстовые поля</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="assigning-data-sources"
+>Назначение источников данных</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="inserting-text-labels"
+>Вставка текстовых надписей</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="actions"
+>Действия</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="widget-layouts"
+>Размещение виджетов</link
+>&nbsp;</para
+></listitem>
+<!--FIXME not implemented in kexi 2.4
+<listitem
+><para
+><link linkend="setting-widgets-size-and-position-by-hand"
+>Setting widgets size and position by hand</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="setting-the-tab-order"
+>Setting the tab order</link
+>&nbsp;</para
+></listitem>
+-->
+</itemizedlist>
+<sect2 id="most-important-terms"
+><title
+>Важнейшие понятия</title
+> 
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Форма</emphasis
+></term>
+    <listitem>
+    <para
+>Окно для удобного ввода и представления данных на экране компьютера.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Источник данных формы</emphasis
+></term>
+    <listitem>
+    <para
+>Таблица или запрос базы данных, поставляющие данные, которые показываются в форме. Источник данных нужен потому, что формы — лишь средство показа и ввода данных, а сами данные берутся из таблиц и запросов. У новой пустой формы источника данных нет, поэтому данные из базы она не показывает, пока ей не назначить источник.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Поле формы</emphasis
+></term>
+    <listitem>
+    <para
+>Прямой аналог столбца таблицы или запроса. Чаще всего используются поля для показа текста и чисел. Ввод нового или изменение существующего значения такого поля изменяет (после подтверждения) связанный столбец таблицы или запроса.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Дизайн формы</emphasis
+></term>
+    <listitem>
+    <para
+>Действия, которыми определяются внешний вид и функции формы: задание источника данных, вставка полей формы различных типов и их размещение в нужных местах.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Виджет формы</emphasis
+></term>
+    <listitem>
+    <para
+>Элемент формы. Основные типы виджетов:</para>
+<itemizedlist>
+<listitem
+><para
+>Виджеты, показывающие информацию, например, поле ввода или рисунок. Каждый такой виджет возможно связать с полем источника данных (столбцом таблицы или запроса), поэтому их коротко называют полями формы.</para
+></listitem>
+<listitem
+><para
+>Виджеты, выполняющие заданное действие, например, кнопка, закрывающая текущую форму. В других приложениях такие виджеты иногда называют элементами управления формы, поскольку они выполняют заранее заданное действие, управляющее поведением приложения базы данных.</para
+></listitem>
+<listitem
+><para
+>Прочие виджеты, украшающие форму, например, виджет «линия», визуально разделяющий две области формы.</para
+></listitem>
+</itemizedlist>
+
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Виджет-контейнер</emphasis
+></term>
+    <listitem>
+    <para
+>Виджет, внутри которого могут находиться другие виджеты. Например, контейнерами являются панель и панель с вкладками; сама поверхность формы — тоже контейнер. Кнопку контейнером не назовёшь: вставить в неё виджет нельзя. В более сложных случаях контейнеры возможно вставлять в контейнеры, то есть допускается вложенность.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect2>
+<sect2 id="forms-versus-tables"
+><title
+>Формы и таблицы</title
+> 
+<para
+>В главе <link linkend="entering-data-into-tables"
+>«Ввод данных в таблицы»</link
+> рассказано, как вводить данные прямо в таблицы в табличном представлении. Однако во многих случаях для ввода данных лучше подходят формы: </para>
+<itemizedlist>
+<listitem
+><para
+>в таблице может быть слишком много столбцов, чтобы уместить их на экране, а форма может показать такие данные в несколько строк;</para
+></listitem>
+<listitem
+><para
+>в форме поля данных возможно наглядно разбить на логические группы, что облегчает восприятие; можно добавить надписи с пояснениями, как пользоваться формой или что означают поля;</para
+></listitem>
+<listitem
+><para
+>в формы возможно поместить кнопки для частых команд, чтобы пользователи работали с формами так же, как с привычными самостоятельными приложениями;</para
+></listitem>
+</itemizedlist>
+<para
+>показывать многострочный текст или изображения в табличном представлении так же просто, как в формах. </para>
+</sect2>
+<sect2 id="working-with-form-design"
+><title
+>Работа с дизайном формы</title
+> 
+<para
+>Как и для таблиц и запросов, есть режим данных и режим конструктора. Форма создаётся в режиме конструктора; окно дизайна формы мы будем часто называть <emphasis
+>конструктором форм</emphasis
+>. </para>
+<orderedlist>
+<listitem
+><para
+>Чтобы создать новую пустую форму, выберите <guilabel
+>Форма</guilabel
+> на панели инструментов. Можно также воспользоваться командой <guilabel
+>Создать объект: форма</guilabel
+> в раскрывающемся меню кнопки на панели инструментов панели «Проект» или командой <guilabel
+>Создать объект: форма</guilabel
+> в контекстном меню панели «Проект».</para
+></listitem>
+<listitem
+><para
+>Появится новая рамка; размер формы меняется перетаскиванием её границ. Форма покрыта сеткой, которая облегчает точное размещение виджетов.</para
+></listitem>
+</orderedlist>
+<para
+>Как и в конструкторе таблиц, в конструкторе форм есть панель <guilabel
+>Свойства</guilabel
+>. Для экономии места на экране у неё три вкладки, относящиеся к выбранной форме: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Вкладка «Параметры»</emphasis
+></term>
+    <listitem>
+    <para
+>Содержит список свойств выбранного виджета.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Вкладка «Источник данных» <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-server-database.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+></emphasis
+></term>
+    <listitem>
+    <para
+>Содержит свойства, относящиеся именно к источнику данных выбранного виджета или самой формы.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Вкладка «Виджеты» <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-action-widgets.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+></emphasis
+></term>
+    <listitem>
+    <para
+>Содержит иерархию всех виджетов формы. Список облегчает поиск виджетов по имени и переход между ними.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+>На первой и второй вкладках показаны имя и тип выбранного виджета. </para>
+<para
+>Есть также дополнительные панели инструментов: </para>
+<itemizedlist>
+<listitem
+><para
+>панель <guilabel
+>Виджеты</guilabel
+> для вставки новых виджетов в форму. Чтобы показать её, выберите <guibutton
+>Дизайн формы</guibutton
+>.</para
+></listitem>
+<!--FIXME no Format toolbar and Format menu in master/2.4
+<listitem
+><para
+>The <guilabel
+>Format</guilabel
+> toolbar used to format form's elements (&eg; adjusting widget's size, grouping). Formatting commands are also available in the <guilabel
+>Format</guilabel
+> menu.</para
+></listitem
+>-->
+</itemizedlist>
+</sect2>
+<sect2 id="using-the-widgets-tab"
+><title
+>Вкладка «Виджеты»</title
+> 
+<para
+>Вкладка виджетов <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-action-widgets.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> на панели <guilabel
+>Параметры</guilabel
+> содержит список виджетов формы и их иерархию. Каждый виджет показан рядом с другими виджетами того же уровня (того же родительского контейнера). Дочерние виджеты (внутри контейнеров) показаны с отступом. </para>
+<para
+>Для каждого виджета показаны его имя и тип. У типа есть и значок — тот же, что на панели инструментов, используемой при создании формы. </para>
+<para
+><note>
+<itemizedlist>
+<listitem
+><para
+>Выбор в списке меняет выделение и в создаваемой форме. Это облегчает поиск виджетов по имени и переход между ними. Например, возможно выбрать виджет по имени, а затем перейти на вкладку <guilabel
+>Параметры</guilabel
+>, чтобы изменить его свойства.</para
+></listitem>
+<listitem
+><para
+>Если при выборе в списке виджетов удерживать клавишу &Ctrl;, возможно выбрать сразу несколько виджетов, а с клавишей &Shift; — целые диапазоны списка.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+<para
+>Давать виджетам осмысленные имена полезно, но не обязательно. Имя виджета — свойство, которое пользователь формы не видит; он видит только текст виджета, заданный свойством <guilabel
+>Строка</guilabel
+> или подобным. </para>
+</sect2>
+<sect2 id="inserting-widgets---text-fields"
+><title
+>Вставка виджетов: текстовые поля</title
+> 
+<para
+>Создадим форму со сведениями о людях, то есть форму, связанную с таблицей <replaceable
+>Persons</replaceable
+>. </para>
+<para
+>Если форма должна показывать данные из базы, на неё нужно поместить соответствующие поля. Для этого служат кнопки панели <guilabel
+>Виджеты</guilabel
+>; каждая кнопка соответствует одному типу виджета. </para>
+<orderedlist>
+<listitem
+><para
+>Нажмите кнопку <guilabel
+>Поле ввода</guilabel
+> на панели <guilabel
+>Виджеты</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Щёлкните левой кнопкой мыши по поверхности формы — в месте щелчка появится новый виджет «Поле ввода». Не отпуская кнопку, возможно протянуть мышь, чтобы задать нужный размер виджета.</para
+></listitem>
+<listitem
+><para
+>При необходимости перетащите вставленный виджет (drag &amp; drop) в нужное место. Размер виджета затем меняется перетаскиванием одного из маленьких квадратиков у его углов. Квадратики видны, только пока виджет выделен; если выделить другой виджет или поверхность формы, они исчезают.</para
+></listitem>
+<listitem
+><para
+>Снова нажмите кнопку <guilabel
+>Поле ввода</guilabel
+> и щёлкните по поверхности формы, чтобы вставить ещё один виджет. Повторяйте, пока в форме не окажется ещё три поля ввода. Для простоты ограничимся пятью полями данных.</para
+></listitem>
+</orderedlist>
+<para
+><note>
+<itemizedlist>
+  <listitem
+><para
+>В режиме дизайна формы щелчок правой кнопкой мыши по виджету или поверхности формы открывает контекстное меню с командами <guilabel
+>Вырезать</guilabel
+>, <guilabel
+>Копировать</guilabel
+>, <guilabel
+>Вставить</guilabel
+>, <guilabel
+>Удалить</guilabel
+> и другими, более сложными. Для этих команд есть и комбинации клавиш. Некоторые команды доступны только для определённых типов виджетов.</para
+></listitem>
+<listitem
+><para
+>Команды <guilabel
+>Вырезать</guilabel
+>, <guilabel
+>Копировать</guilabel
+> и <guilabel
+>Вставить</guilabel
+> позволяют перемещать и копировать виджеты между формами, даже между разными проектами баз данных.</para
+></listitem>
+<listitem
+><para
+>Щелчки по виджетам с нажатой клавишей &Ctrl; позволяют выделить несколько виджетов.</para
+></listitem>
+<listitem
+><para
+>Чтобы продублировать виджет в той же форме, вместо команд <guilabel
+>Копировать</guilabel
+> и <guilabel
+>Вставить</guilabel
+> возможно перетаскивать виджет с нажатой клавишей &Ctrl;. После отпускания кнопки мыши виджет не переместится, а скопируется в новое место.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+</sect2>
+<sect2 id="assigning-data-sources"
+><title
+>Назначение источников данных</title
+> 
+<para
+>У вставленных полей ещё нет источника данных, поэтому показывать сведения из базы они не могут. Источник данных назначается на вкладке <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-server-database.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> (источник данных) панели <guilabel
+>Свойства</guilabel
+>. </para>
+<para
+>Первым делом задайте источник данных формы, то есть откуда будут браться показываемые данные. Как сказано выше, источником данных новой формы будет таблица <replaceable
+>Persons</replaceable
+>. </para>
+<orderedlist>
+<listitem
+><para
+>Щёлкните по поверхности формы — менять будем её свойства.</para
+></listitem>
+<listitem
+><para
+>Перейдите на вкладку <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-server-database.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> (источник данных) и введите имя таблицы <replaceable
+>persons</replaceable
+> в раскрывающемся списке <guilabel
+>Форма</guilabel
+> либо выберите это имя в списке.</para
+></listitem>
+</orderedlist>
+<para
+>Источник данных формы назначен. Теперь нужно задать источники данных виджетов. </para>
+<orderedlist>
+<listitem
+><para
+>Щёлкните по первому текстовому полю вверху формы.</para
+></listitem>
+<listitem
+><para
+>На вкладке <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-server-database.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> (источник данных) панели свойств введите имя поля <replaceable
+>name</replaceable
+> в раскрывающемся списке <guilabel
+>Виджет</guilabel
+> либо выберите это имя в списке.</para
+></listitem>
+<listitem
+><para
+>Щёлкните по следующему текстовому полю и введите источник данных <replaceable
+>surname</replaceable
+>.</para
+></listitem>
+<listitem
+><para
+>Так же задайте источники данных для текстовых полей street, house_number и city.</para
+></listitem>
+</orderedlist>
+<para
+>Теперь дизайн формы возможно сохранить (для проверки формы в работе это не обязательно). Нажмите кнопку <guilabel
+>Сохранить</guilabel
+> на панели инструментов — будет предложено ввести имя формы. Введите заголовок <replaceable
+>Persons</replaceable
+> и нажмите <guilabel
+>OK</guilabel
+>; имя формы заполнится автоматически. </para>
+<para
+>Самое время проверить форму. Нажмите кнопку <guilabel
+>Данные</guilabel
+> на панели инструментов. Если источники данных заданы без ошибок, поля формы заполнятся данными из таблицы <replaceable
+>Persons</replaceable
+>. </para>
+<para
+><note>
+<itemizedlist>
+<listitem
+><para
+>Чтобы убрать у виджета формы назначенный источник данных, нажмите кнопку <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-edit-clear-locationbar-rtl.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> в поле <guilabel
+>Виджет</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Кнопка <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-go-jump.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> («Перейти к источнику данных») выбирает на панели <guilabel
+>Проект</guilabel
+> соответствующую таблицу или запрос, чтобы быстро открыть таблицу или запрос — источник данных формы.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+</sect2>
+<sect2 id="inserting-text-labels"
+><title
+>Вставка текстовых надписей</title
+> 
+<para
+>Чтобы пользователю формы было проще понять назначение каждого поля, к полям стоит добавить текстовые надписи с подходящими названиями. Для этого служит виджет <guilabel
+>Надпись</guilabel
+>. </para>
+<para
+>Вставьте в форму виджеты надписей слева от текстовых полей (или справа, если в системе используется письмо справа налево). При вставке надписи в ней появляется текстовый курсор, и можно сразу ввести нужное название. Введите по очереди: <replaceable
+>Name</replaceable
+>, <replaceable
+>Surname</replaceable
+>, <replaceable
+>Street</replaceable
+>, <replaceable
+>House Number</replaceable
+> и <replaceable
+>City</replaceable
+>. Кроме того, вверху формы вставьте ещё одну надпись с названием формы, то есть <replaceable
+>Persons</replaceable
+>. Увеличьте размер этой надписи и размер шрифта свойством <guilabel
+>Шрифт</guilabel
+> на вкладке <guilabel
+>Параметры</guilabel
+>. </para>
+</sect2>
+<sect2 id="actions"
+><title
+>Действия</title
+> 
+<para
+>Действие — отдельная операция приложения, которую может выполнить пользователь. Действие может выполняться и автоматически, в ответ на определённое событие (например, после открытия формы). </para>
+<sect3 id="assigning-actions-to-form-buttons"
+><title
+>Назначение действий кнопкам формы</title
+> 
+<para
+>Кнопке формы возможно назначить одно из множества действий. Назначенное действие выполняется при нажатии кнопки. </para>
+<para
+>Чтобы назначить действие: </para>
+<orderedlist>
+<listitem
+><para
+>Перейдите в режим конструктора формы, если ещё не сделали этого.</para
+></listitem>
+<listitem
+><para
+>Выделите существующую кнопку щелчком или поместите в форму новую кнопку. Для новой кнопки введите её название и нажмите клавишу &Enter;.</para
+></listitem>
+<listitem
+><para
+>Щёлкните по кнопке правой кнопкой мыши, чтобы открыть контекстное меню.</para
+></listitem>
+<listitem
+><para
+>Выберите в контекстном меню команду <guilabel
+>Назначить действие...</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Появится диалог <guilabel
+>Назначение действия кнопке</guilabel
+> со списком доступных действий. Если кнопке уже назначено действие, оно будет выбрано; иначе в списке <guilabel
+>Тип действия</guilabel
+> выбран пункт <guilabel
+>Нет действия</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Выберите в списке <guilabel
+>Тип действия</guilabel
+> пункт <guilabel
+>Стандартные действия</guilabel
+> — появится список действий, общих для всего приложения.</para
+></listitem>
+<listitem
+><para
+>Выберите одно из действий в списке (например, <guilabel
+>Удалить выделенный объект</guilabel
+>).</para
+></listitem>
+<!--dialog closes immediately after clicking an action in the list-->
+</orderedlist>
+<para
+>Перейдя в режим данных формы, возможно проверить, работает ли действие. </para>
+<para
+><note>
+<itemizedlist>
+<listitem
+><para
+>Чтобы отменить назначение действия, выберите пункт <guilabel
+>Нет действия</guilabel
+> в списке <guilabel
+>Тип действия</guilabel
+> диалога <guilabel
+>Назначение действия кнопке</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Действия работают только в режиме данных формы, и не всякое назначение действия имеет смысл. Например, действие <guilabel
+>Шрифт...</guilabel
+> доступно в режиме данных, но только если в режиме конструктора выделен виджет; изменения параметров шрифта применяются к тексту этого виджета.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+</sect3>
+</sect2>
+<sect2 id="widget-layouts"
+><title
+>Размещение виджетов</title
+> 
+<para
+>Обычно виджеты формы нужно удобно расположить и выровнять. Размещать, выравнивать и менять размер виджетов вручную непросто, а при изменении пользователем размера формы эти параметры не подстраиваются. Более того, нельзя заранее рассчитывать, что форме хватит определённого места: у пользователей разные размеры шрифтов и разрешения экрана. </para>
+<para
+>Автоматически разместить виджеты формы помогает особое средство — размещение виджетов. Размещение группирует два или более виджета так, чтобы они были удачно расположены и имели подходящие размеры. </para>
+<para
+>Размещение улучшает выравнивание в форме и позволяет лучше использовать её площадь: текстовые поля стоят ближе друг к другу, промежутки между ними одинаковы. </para>
+<!--FIXME not implemented in kexi 2.4
+<para
+>There are two methods to create widget layout.
+</para>
+<itemizedlist>
+<listitem
+><para
+>Select two or more widgets that should be placed in a common layout, and select one of the layout types from the context menu item <guilabel
+>Layout Widgets</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Click a container widget (or a form surface itself), where widgets are inserted and select one of the layout types from the context menu item <guilabel
+>Layout Widgets</guilabel
+>. All widgets existing within the container or within the form, being on the same level will be put into a single common layout.</para
+></listitem>
+</itemizedlist>
+<para
+>In each of these cases you can also use <menuchoice
+><guimenu
+>Format</guimenu
+><guimenuitem
+>Layout Widgets</guimenuitem
+></menuchoice
+> menu.
+</para>
+<para
+>Widget layout is presented in the design view using a blue, green or red box drawn with a broken line. This line is displayed only in the form's design view.
+</para>
+<para
+>Besides the grid type, there are other widget layout types.
+</para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>vertical</emphasis
+></term>
+    <listitem>
+    <para
+>Vertical widget layout</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>horizontal</emphasis
+></term>
+    <listitem>
+    <para
+>Horizontal widget layout</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<sect3 id="springs-in-widget-layouts"
+><title
+>Springs in widget layouts</title
+> 
+<para
+>A spring in widget layouts is a special, invisible element allowing to adjust widget's position and size within layouts. Such a spring stretches or squeezes a widget on the right, top, bottom or left hand, so it can have desired size and position.
+</para>
+<para
+>To use a spring:
+</para>
+<orderedlist>
+<listitem
+><para
+>Select spring icon on the <guilabel
+>Widgets</guilabel
+> toolbar.</para
+></listitem>
+<listitem
+><para
+>Click on a selected point of the form to insert the spring.</para
+></listitem>
+</orderedlist>
+<para
+>To make springs work you need to create a global widget layout, &ie; a layout for the form itself. Then, springs can use edges of the form as a boundary for expanding.
+</para>
+</sect3>
+<sect3 id="removing-widget-layouts"
+><title
+>Removing widget layouts</title
+> 
+<para
+>To remove widget layout without removing widgets, perform one of these actions:
+</para>
+<itemizedlist>
+<listitem
+><para
+>Click with the right mouse button on the layout's border and select <guilabel
+>Break Layout</guilabel
+> command from the context menu.</para
+></listitem>
+<listitem
+><para
+>Click with the left mouse button on the layout's border and select <menuchoice
+><guimenu
+>Format</guimenu
+><guimenuitem
+>Break Layout</guimenuitem
+></menuchoice
+> menu command.</para
+></listitem>
+</itemizedlist>
+<para
+><note
+><para
+>Removing widget layout using the Break Layout command will not remove widgets contained in the layout. If you want to remove the widgets as well, just select the layout by clicking on its border and press <keycap
+>Delete</keycap
+> key or use <menuchoice
+><guimenu
+>Edit</guimenu
+><guimenuitem
+>Delete</guimenuitem
+></menuchoice
+> menu command or context menu command.</para
+></note>
+</para>
+</sect3>
+-->
+<sect3 id="size-policies-for-widgets-within-a-layout"
+><title
+>Правила изменения размера виджетов в размещении</title
+> 
+<para
+>Вместо фиксированного размера виджетов в &kexi; возможно выбрать одно из правил изменения размера. Правило изменения размера — гибкий способ задать, как виджет растягивается (или сжимается) в зависимости от соседних виджетов и свободного места в форме. </para>
+<para
+>Виджеты, помещённые в один ряд, подгоняются по размеру под видимый текст. </para>
+<para
+>Для каждого вставленного в форму виджета на панели <guilabel
+>Свойства</guilabel
+> есть параметры изменения размера — группа свойств <guilabel
+>Изменение размера</guilabel
+>. </para>
+<para
+>В эту группу входят: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Правило по горизонтали</emphasis
+></term>
+    <listitem>
+    <para
+>определяет размер виджета по горизонтали;</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Правило по вертикали</emphasis
+></term>
+    <listitem>
+    <para
+>определяет размер виджета по вертикали;</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Растяжение по горизонтали</emphasis
+></term>
+    <listitem>
+    <para
+>определяет силу действия правила по горизонтали;</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Растяжение по вертикали</emphasis
+></term>
+    <listitem>
+    <para
+>определяет силу действия правила по вертикали.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect3>
+<sect3 id="values-of-size-policies"
+><title
+>Значения правил изменения размера</title
+> 
+<para
+>В раскрывающихся списках свойств <guilabel
+>Гор. размер</guilabel
+> и <guilabel
+>Верт. размер</guilabel
+> на панели <guilabel
+>Свойства</guilabel
+> доступны следующие значения: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Фиксированный</emphasis
+></term>
+    <listitem>
+    <para
+>размер виджета нельзя менять автоматически; он сохраняет постоянный размер (ширину или высоту), заданный при создании формы;</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Минимальный</emphasis
+></term>
+    <listitem>
+    <para
+>исходный размер виджета — наименьший допустимый; его достаточно, и расширять виджет не нужно, но при необходимости он будет расширен. Это правило позволяет заставить виджет растянуться на всю ширину или высоту, особенно если задать растяжение больше 0;</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Максимальный</emphasis
+></term>
+    <listitem>
+    <para
+>исходный размер виджета — наибольший допустимый; если другим виджетам нужно больше места, его можно уменьшить без ущерба для удобства и читаемости;</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Предпочитаемый</emphasis
+></term>
+    <listitem>
+    <para
+>исходный размер виджета — наилучший, предпочтительный; однако виджет может сжиматься и расширяться, оставаясь читаемым;</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Расширяемый</emphasis
+></term>
+    <listitem>
+    <para
+>исходный размер виджета разумен, но виджет может сжиматься, а также расширяться, занимая как можно больше места;</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Минимально расширяемый</emphasis
+></term>
+    <listitem>
+    <para
+>исходный размер виджета допустим; виджет может расширяться, занимая как можно больше места;</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Игнорируется</emphasis
+></term>
+    <listitem>
+    <para
+>исходный размер виджета не учитывается; виджет может расширяться, занимая как можно больше места, но другие виджеты обычно этого не позволяют.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+>У разных типов виджетов разные правила по умолчанию; например, у кнопок по умолчанию правило <guilabel
+>Минимальный</guilabel
+> (в обоих направлениях), а у текстовых полей по вертикали — <guilabel
+>Фиксированный</guilabel
+>. </para>
+<para
+>Чаще всего используются правила <guilabel
+>Предпочитаемый</guilabel
+>, <guilabel
+>Минимальный</guilabel
+> и <guilabel
+>Максимальный</guilabel
+>. </para>
+</sect3>
+<sect3 id="vertical-and-horizontal-stretch"
+><title
+>Растяжение по вертикали и горизонтали</title
+> 
+<para
+>Свойства <guilabel
+>Верт. растяжение</guilabel
+> и <guilabel
+>Гор. растяжение</guilabel
+> принимают целые значения от 0 и выше и позволяют точно настроить действие правил изменения размера. По умолчанию они равны 0. Чем больше значение растяжения, тем сильнее расширяется виджет по сравнению с виджетами с меньшим значением. </para>
+</sect3>
+</sect2>
+<!--FIXME No in master/2.4
+<sect2 id="setting-widgets-size-and-position-by-hand"
+><title
+>Setting widgets size and position by hand</title
+> 
+<para
+>In case when your form has no main layout set for auto-positioning and auto-resizing its widgets, you will probably want to modify the position and size of widgets so the form can look cleaner and be easier to use. The &kexi; form designer simplifies this task by offering the following groups of commands:
+</para>
+<itemizedlist>
+<listitem
+><para
+>Adjusting sizes of selected widgets. The commands are available in the <menuchoice
+><guimenu
+>Format</guimenu
+><guimenuitem
+>Adjust Widgets Size</guimenuitem
+></menuchoice
+> submenu of the menubar and in the <guilabel
+>Adjust Widgets Size</guilabel
+> submenu of the context menu. The toolbar's drop down button <guilabel
+>Adjust Widgets Size</guilabel
+> is also available.</para
+></listitem>
+</itemizedlist>
+<itemizedlist>
+<listitem
+><para
+>Aligning positions of the selected widgets. The commands are available in the <menuchoice
+><guimenu
+>Format</guimenu
+><guimenuitem
+>Align Widgets Position</guimenuitem
+></menuchoice
+> submenu of the menubar and in the <guilabel
+>Align Widgets Position</guilabel
+> submenu of the context menu. The toolbar's drop down button <guilabel
+>Align Widgets Position</guilabel
+> is also available.</para
+></listitem>
+</itemizedlist>
+
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Fit</emphasis
+></term>
+    <listitem>
+    <para
+>The size of the selected widgets will be altered so each widget will be resized to its preferred size and its contents; for example, a text label's size will be changed to fit its text. The position of the widgets will not be changed.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Grid</emphasis
+></term>
+    <listitem>
+    <para
+>The size of the selected widgets will be altered so each widget's corner will be placed on the form's (or other container's) grid point. The widget's position can be slightly altered.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Shortest</emphasis
+></term>
+    <listitem>
+    <para
+>The height of the selected widgets will be altered so that each of them will have the same height as the shortest one. The position of the widgets will not be changed.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Tallest</emphasis
+></term>
+    <listitem>
+    <para
+>The height of the selected widgets will be altered so that each of them will have the same height as the tallest one. The position of the widgets will not be changed.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Narrowest</emphasis
+></term>
+    <listitem>
+    <para
+>The width of the selected widgets will be altered so that each of them will have the same height as the narrowest one. The position of the widgets will not be changed.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Widest</emphasis
+></term>
+    <listitem>
+    <para
+>The width of the selected widgets will be altered so that each of them will have the same height as the widest one. The position of the widgets will not be changed.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Left</emphasis
+></term>
+    <listitem>
+    <para
+>All the selected widgets' left positions will be moved to the position of the leftmost widget's left edge.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Right</emphasis
+></term>
+    <listitem>
+    <para
+>All the selected widgets' right positions will be moved to the position of the rightmost widget's right edge.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Top</emphasis
+></term>
+    <listitem>
+    <para
+>All the selected widgets' top positions will be moved to the position of the uppermost widget's upper edge.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Bottom</emphasis
+></term>
+    <listitem>
+    <para
+>All the selected widgets' bottom positions will be moved to the position of the bottommost widget's bottom edge.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Grid</emphasis
+></term>
+    <listitem>
+    <para
+>All the selected widgets' top-left corners will be moved so that they are positioned in the nearest grid point.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+>None of the above commands resizes the widgets.
+</para>
+<para
+>There are also additional commands available: <guilabel
+>Bring Widget to Front</guilabel
+> (&ie; above all other widgets) and <guilabel
+>Send Widget to Back</guilabel
+> (&ie; below all other widgets). These two commands are rarely used, as it is not common to place one widget on top of an other (except when a container widget contains other widget inside). Also note that clicking a widget with a mouse button is enough to bring the widget to front.
+</para>
+</sect2>
+<sect2 id="setting-the-tab-order"
+><title
+>Setting the tab order</title
+> 
+<para
+>A widget's focus determines that widget's activity available using keyboard. Focus is related to widgets displayed in the form's data view. Exactly one form widget can have focus at the same time. The most frequent use of focus is text entry (when a given text field is active, &ie; it is focused). An other example is a button widget - when focused, it is possible to “press” it using the &Enter; or <keycap
+>Space</keycap
+> key instead of a mouse button.
+</para>
+<para
+>There are a few methods of making the widgets active (moving the focus to the widget): clicking with a mouse button, rotating the mouse wheel over the widget, or using the &Tab; key. The latter method is often used because of its speed and convenience for users. Availability of the focusing methods is controlled by <guilabel
+>Focus Policy</guilabel
+> property of a given widget.
+</para>
+<para
+>There is a relationship between focusing (activating) widgets using &Tab; key and tab order setting of a form. After pressing the &Tab; key, the next widget should be focused, so the form should know about the tab order.
+</para>
+<para
+>To alter tab order for a form's widget:
+</para>
+<orderedlist>
+<listitem
+><para
+>Switch to design view of the form.</para
+></listitem>
+<listitem
+><para
+>Execute <menuchoice
+><guimenu
+>Edit</guimenu
+><guimenuitem
+>Edit Tab Order...</guimenuitem
+></menuchoice
+> menu command. The <guilabel
+>Edit Tab Order</guilabel
+> dialog will appear with settings for this form.The window contains a list with two columns: the first column displays widget names, the second - types of the widgets. To make it easier to recognize meaning of the names and types for the user, icons related to the types are also displayed. The list contains only widgets having focus policy allowing to use the &Tab; key. The window allows you to change the tab order or set the automatic tab order.</para
+></listitem>
+<listitem
+><para
+>To change tab order, either:<itemizedlist>
+<listitem
+><para
+>Click a selected widget name in the widgets list and drag it to a desired position (up or down) using the mouse.</para
+></listitem>
+<listitem
+><para
+>Click a selected widget name on the widgets list and use <guilabel
+>Move Up</guilabel
+> or <guilabel
+>Move Down</guilabel
+> buttons, to move the widgets to a desired position.</para
+></listitem>
+<listitem
+><para
+>Click the <guilabel
+>Handle tab order automatically</guilabel
+> check box to set the automatic tab order for the form. If this option has been switched on, any changes made to the list of widgets by hand are not taken into account - &kexi; will be handling the tab orders on its own. The automatic ordering means that the top-left widget will be focused first (or the top-right if your operating system uses right-to-left layout), and the order comes from the left to right (from the right to left, respectively) and from the top to bottom.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</orderedlist>
+<para
+>Click the <guilabel
+>OK</guilabel
+> button to accept the changes or <guilabel
+>Cancel</guilabel
+> button to dismiss the changes.
+</para>
+</sect2>
+-->
+</sect1>
+<sect1 id="entering-data-using-forms"
+><title
+>Ввод данных с помощью форм</title
+> 
+<para
+>Ввод и редактирование данных обычно является задачей пользователя базы данных. Дизайнер базы данных должен следить за тем, чтобы форма не позволяла вводить некорректные данные. </para>
+<para
+>Чтобы проверить форму, перейдите в её режим данных. Будет показана одна строка (запись) базы данных. Переходить между полями возможно левой кнопкой мыши или клавишами &Tab; и <keycombo
+>&Shift;&Tab;</keycombo
+>. Во время правки рядом с навигатором записей виден значок карандаша. Введя данные строки (записи), нажмите <keycombo
+>&Shift;&Enter;</keycombo
+> или кнопку <guilabel
+>Сохранить запись</guilabel
+> на панели инструментов, чтобы принять изменения. Кнопка <guilabel
+>Отменить изменения записи</guilabel
+> отбрасывает изменения текущей строки и восстанавливает содержимое полей. Кнопкой навигатора записей возможно перейти к новой строке. Все функции навигатора работают так же, как в табличном представлении данных. </para>
+</sect1>
+</chapter>
+<chapter id="configuring-kexi"
+><title
+>Настройка Kexi</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="docking-and-undocking-side-panels"
+>Закрепление и открепление боковых панелей</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="docking-and-undocking-side-panels"
+><title
+>Закрепление и открепление боковых панелей</title
+> 
+<para
+>Боковые панели <guilabel
+>Проект</guilabel
+> и <guilabel
+>Свойства</guilabel
+> открепляются одним из способов: </para>
+<itemizedlist>
+<listitem
+><para
+>двойным щелчком по полосе захвата вверху панели или</para
+></listitem>
+<listitem
+><para
+>одним щелчком по ромбовидной кнопке вверху панели рядом с крестиком.</para
+></listitem>
+</itemizedlist>
+<para
+>Отсоединённые панели можно прикрепить обратно аналогичным образом: </para>
+<itemizedlist>
+<listitem
+><para
+>двойным щелчком по полосе захвата вверху окна или</para
+></listitem>
+<listitem
+><para
+>одним щелчком по ромбовидной кнопке вверху панели рядом с крестиком.</para
+></listitem>
+</itemizedlist>
+<para
+><tip
+><para
+>При откреплении панели &kexi; запоминает, где она была закреплена, и при повторном закреплении возвращает её на то же место.</para
+></tip>
+</para>
+</sect1>
+</chapter>
+<chapter id="command-reference"
+><title
+>Список команд</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="the-kexi-tab"
+>Вкладка «Kexi»</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-create-tab"
+>Вкладка «Создать»</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-data-tab"
+>Вкладка «Данные»</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-external-data-tab"
+>Вкладка «Внешние данные»</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-tools-tab"
+>Вкладка «Сервис»</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-form-design-tab"
+>Вкладка «Дизайн формы»</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-report-design-tab"
+>Вкладка «Макет отчёта»</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="the-kexi-tab"
+><title
+>Вкладка «Kexi»</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_kexi_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>На вкладке &kexi; выполняется работа с проектами &kexi;. </para>
+<para
+>При выборе действия рядом с меню открывается экран с параметрами выбранного действия. </para>
+<para
+>Доступные варианты: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Добро пожаловать</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Здесь возможно открыть проект, с которым вы недавно работали.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Открыть</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Здесь возможно открыть проект &kexi;, хранящийся в файле или на сервере баз данных.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Закрыть</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Закрывает открытый проект &kexi;.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Создать</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Здесь с помощью мастера возможно создать новый проект &kexi;.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Импортировать, экспортировать или отправить…</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Здесь с помощью мастера возможно импортировать существующие данные в открытый проект &kexi;.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Выход</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Завершает работу &kexi;.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="the-create-tab"
+><title
+>Вкладка «Создать»</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_create_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>На вкладке <guilabel
+>Создать</guilabel
+> создаются объекты, добавляемые в проект. </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Таблица</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Пункт <guilabel
+>Таблица</guilabel
+> открывает конструктор таблиц в режиме конструктора, где в таблицу добавляются описания полей.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Запрос</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Пункт <guilabel
+>Запрос</guilabel
+> открывает конструктор запросов в режиме конструктора, где составляется запрос для получения нужных результатов из таблиц проекта.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Форма</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Пункт <guilabel
+>Форма</guilabel
+> открывает конструктор форм в режиме конструктора, где в форму добавляются виджеты.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Отчёт</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Пункт <guilabel
+>Отчёт</guilabel
+> открывает конструктор отчётов в режиме конструктора, где в отчёт добавляются элементы.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Сценарий</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Пункт <guilabel
+>Сценарий</guilabel
+> открывает редактор сценариев, где для проекта и/или объектов пишется собственный код.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="the-data-tab"
+><title
+>Вкладка «Данные»</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_data_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>На вкладке <guilabel
+>Данные</guilabel
+> выполняются действия с данными в таблицах и с виджетами в объектах (формах, отчётах и т. д.) </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Вырезать</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Вырезать</guilabel
+> — помещает данные или виджет в буфер обмена и удаляет их с прежнего места.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Копировать</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Копировать</guilabel
+> — помещает данные или виджет в буфер обмена, не удаляя их с прежнего места.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Вставить</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Вставить</guilabel
+> — вставляет данные или виджет из буфера обмена в таблицу или объект.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Специальная вставка</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Специальная вставка</guilabel
+> — вставляет произвольные данные из буфера обмена в таблицу предсказуемым образом, так чтобы они корректно легли в соответствии со структурой таблицы.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Поиск</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Поиск</guilabel
+> — открывает диалог <guilabel
+>Поиск</guilabel
+> для поиска текста в данных базы.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="the-external-data-tab"
+><title
+>Вкладка «Внешние данные»</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_external_data_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>На вкладке «Внешние данные» в проект &kexi; импортируются данные из других источников. </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Импорт данных из файла</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Импорт данных из файла</guilabel
+> — открывает диалог импорта данных из файлов CSV или обычного текста в новую таблицу проекта.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Импорт таблиц</guilabel
+></emphasis
+></term>
+    <listitem>
+      <para
+><guilabel
+>Импорт таблиц</guilabel
+> — открывает <guilabel
+>мастер импорта таблиц</guilabel
+>, позволяющий импортировать в новую таблицу проекта данные из файла <filename
+>fods</filename
+>, <filename
+>mdb</filename
+>, <filename
+>ods</filename
+>, <filename
+>tsv</filename
+> или с другого сервера баз данных.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Экспорт данных в файл</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Экспорт данных в файл</guilabel
+> — открывает диалог экспорта данных текущей таблицы в файл обычного текста или CSV.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+><note
+><para
+>Чтобы экспортировать данные таблицы в файл, таблица должна быть открыта.</para
+></note>
+</para>
+</sect1>
+<sect1 id="the-tools-tab"
+><title
+>Вкладка «Сервис»</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_tools_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>На вкладке <guilabel
+>Сервис</guilabel
+> выполняются операции с проектами. </para>
+<variablelist>
+  <!--FIXME no aktion Import Database in the toolbar in kexi 2.7 here
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Import Database</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Import Database</guilabel
+>, opens the <guilabel
+>Database Importing Wizard</guilabel
+> that allows to import complete data from an <filename
+>mdb</filename
+> file or another database server.</para>
+     </listitem>
+  </varlistentry>
+  -->
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Упаковать</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Упаковать</guilabel
+> — проверяет базу данных на мелкие ошибки и уменьшает её размер.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+><note
+><para
+>Регулярно упаковывайте базу данных, чтобы поддерживать её в хорошем состоянии, особенно после массовых операций с записями (добавления, удаления)</para
+></note>
+</para>
+</sect1>
+<sect1 id="the-form-design-tab"
+><title
+>Вкладка «Дизайн формы»</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_form_design_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>На вкладке <guilabel
+>Дизайн формы</guilabel
+> выбираются виджеты для добавления в форму. </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Указатель</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Указатель</guilabel
+> — переключает в режим выделения виджетов.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+><note
+><para
+>Выбор любого виджета включает режим добавления: затем щёлкните в любом месте формы, чтобы поместить туда виджет.</para
+></note>
+</para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Надпись</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Виджет <guilabel
+>Надпись</guilabel
+> показывает в форме заранее заданный текст. Обычно он служит подписью к другим виджетам, связанным с данными.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Поле ввода</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Поле ввода</guilabel
+> — однострочное поле для данных из таблицы.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Многострочное поле ввода</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Многострочное поле ввода</guilabel
+> — многострочное поле для данных из таблицы.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Поле со списком</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Поле со списком</guilabel
+> показывает список вариантов для выбора.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Флажок</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Флажок</guilabel
+> хранит два или три состояния данных (например, вкл./выкл.)</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Рисунок</guilabel
+></emphasis
+></term>
+    <listitem>
+      <para
+><guilabel
+>Рисунок</guilabel
+> содержит изображение, связанное с полем таблицы.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Кнопка</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Кнопка</guilabel
+> позволяет задать действия, выполняемые при её нажатии.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Панель</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Панель</guilabel
+> служит контейнером для других виджетов.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Группа виджетов</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Группа виджетов</guilabel
+> служит для группировки других виджетов и управления их состоянием.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Панель с вкладками</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Панель с вкладками</guilabel
+> служит контейнером для других виджетов и может содержать несколько страниц с разными виджетами.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Линия</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Линия</guilabel
+> служит логическим разделителем между частями формы.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Веб-браузер</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Веб-браузер</guilabel
+> — виджет, показывающий веб-страницу внутри формы.</para>
+     </listitem>
+     <!--FIXME missing Map Browser + Slider + Progress Bar + Link Button + Date Picker-->
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Назначить действие</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Назначить действие</guilabel
+> — назначает действие, выполняемое при наступлении события (например, нажатии кнопки).</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="the-report-design-tab"
+><title
+>Вкладка «Макет отчёта»</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_report_design_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>На вкладке <guilabel
+>Макет отчёта</guilabel
+> выбираются элементы для добавления в отчёт. </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Надпись</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Элемент <guilabel
+>Надпись</guilabel
+> показывает в отчёте заранее заданный текст. Обычно он служит подписью к другим элементам, связанным с данными.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Поле</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Элемент <guilabel
+>Поле</guilabel
+> — однострочное поле для данных из таблицы.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Текст</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Элемент <guilabel
+>Текст</guilabel
+> — многострочное поле для данных из таблицы.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Изображение</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Элемент <guilabel
+>Изображение</guilabel
+> содержит изображение, связанное с полем таблицы.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Флажок</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>Элемент <guilabel
+>Флажок</guilabel
+> хранит два или три состояния данных (например, вкл./выкл.)</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Линия</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Линия</guilabel
+> служит логическим разделителем между частями формы.</para>
+     </listitem>
+  </varlistentry>
+  <!--FIXME no Shape in 2.7
+  <varlistentry
+><term
+><emphasis role="bold"
+>Shape</emphasis
+></term>
+    <listitem>
+    <para
+>A <guilabel
+>Shape</guilabel
+> widget is used to add special shape visuals to your report.</para>
+     </listitem>
+  </varlistentry>
+  -->
+  <varlistentry
+><term
+><emphasis role="bold"
+>Диаграмма</emphasis
+></term>
+    <listitem>
+    <para
+>Элемент <guilabel
+>Диаграмма</guilabel
+> служит для наглядного представления данных в виде графика.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Веб</emphasis
+></term>
+    <listitem>
+    <para
+>Элемент <guilabel
+>Веб</guilabel
+> — простейший компонент веб-браузера для вывода в отчёт сведений с локального или удалённого веб-сайта.</para>
+     </listitem>
+     <!--FIXME missing Map-->
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>Штрихкод</emphasis
+></term>
+    <listitem>
+    <para
+>Элемент <guilabel
+>Штрихкод</guilabel
+> создаёт для печати в отчёте штрихкод из данных поля.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+</chapter>
+<chapter id="appendix-a--introduction-to-databases"
+><title
+>Приложение A. Введение в базы данных</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="what-is-a-database"
+>Что такое база данных?</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="database-and-spreadsheet"
+>База данных и электронная таблица</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="database-design"
+>Проектирование базы данных</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="who-needs-a-database"
+>Кому нужна база данных?</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="database-creation-software"
+>Программы для создания баз данных</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="what-is-a-database"
+><title
+>Что такое база данных?</title
+> 
+<para
+>Базу данных можно определить как набор данных с одной тематикой, организованных способом, позволяющим легко их просматривать, изменять и добавлять новые. </para>
+<para
+>На схеме выше приведен пример базы данных: простая телефонная книга. </para>
+
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="contact-example.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+
+<para
+>На рисунке выше показаны два контакта, каждый из которых размещён на отдельной карточке. Для каждой карточки можно выделить по одной строке в таблице: </para>
+<para>
+<table>
+  <title
+><emphasis
+>Таблица Contacts </emphasis
+></title>
+  <tgroup cols="2">
+  <thead>
+  <row>
+    <entry
+><guilabel
+>Имя</guilabel
+></entry>
+    <entry
+><guilabel
+>Tel No. (номер телефона)</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>Joan</para>
+    </entry>
+    <entry>
+    <para
+>699 23 43 12</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Adam</para>
+    </entry>
+    <entry>
+    <para
+>711 19 77 21</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+<para
+>Термины и определения. Отдельная единица данных, входящая в более крупный набор, называется <emphasis
+>строкой</emphasis
+>, или, профессиональнее, <emphasis
+>записью</emphasis
+>. Сам набор обычно называют <emphasis
+>таблицей</emphasis
+>. Естественнее всего назвать таблицу по хранящимся в ней данным — «Контакты». Каждая строка таблицы состоит из столбцов, которые часто называют также <emphasis
+>полями</emphasis
+>. В таблице <replaceable
+>Contacts</replaceable
+> два столбца (поля): <guilabel
+>Имя</guilabel
+> и <guilabel
+>Телефон</guilabel
+>. </para>
+<para
+>В простых случаях база данных может состоять из одной таблицы, и многие считают эти понятия равнозначными. Но, как вы увидите, в настоящих базах данных обычно нужна не одна таблица. </para>
+<para
+>Итак, у вас уже есть простая база данных из одной таблицы <replaceable
+>Contacts</replaceable
+>. </para>
+<para
+><note
+><para
+>Смотрите материал по адресу <ulink url="https://www.zoho.com/creator/database-software-vs-spreadsheet.html"
+></ulink
+></para
+></note>
+</para>
+</sect1>
+<sect1 id="database-and-spreadsheet"
+><title
+>База данных и электронная таблица</title
+> 
+<para
+>Скорее всего, вы уже работали с электронными таблицами — <guilabel
+>Calligra Sheets</guilabel
+>, <guilabel
+>LibreOffice Calc</guilabel
+> или <application
+>&Microsoft; Excel</application
+>. Тогда вы, вероятно, спросите: раз таблицы есть и там и там, зачем нужны базы данных? </para>
+<para
+>При сравнении электронных таблиц и баз данных всплывают следующие вопросы, подробнее рассмотренные ниже. </para>
+<sect2 id="how-is-a-database-different-from-a-spreadsheet"
+><title
+>Чем базы данных отличаются от электронных таблиц?</title
+> 
+<para
+>Постепенно выходя за пределы возможностей мобильного телефона, расширьте таблицу <replaceable
+>Contacts</replaceable
+>, добавив столбец (поле) <replaceable
+>Address</replaceable
+>. Добавьте каждому человеку дополнительные номера (рабочий, домашний), а к именам — фамилии. Для простоты допустим, что: </para>
+<itemizedlist>
+<listitem
+><para
+>в таблице только два человека (в настоящей базе их, конечно, могут быть сотни и тысячи);</para
+></listitem>
+<listitem
+><para
+>нет двух людей с одинаковыми именем и фамилией.</para
+></listitem>
+</itemizedlist>
+<para>
+<table>
+  <title
+><emphasis
+>Таблица Contacts </emphasis
+></title>
+  <tgroup cols="3">
+  <thead>
+  <row>
+    <entry
+><guilabel
+>Name and surname (Имя и фамилия)</guilabel
+></entry>
+    <entry
+><guilabel
+>Телефон</guilabel
+></entry>
+    <entry
+><guilabel
+>Address (Адрес)</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>Joan Smith</para>
+    </entry>
+    <entry>
+    <para
+>699 23 43 12</para>
+    </entry>
+    <entry>
+    <para
+>Western Gate 1, Warsaw</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Adam Willson</para>
+    </entry>
+    <entry>
+    <para
+>711 19 77 21</para>
+    </entry>
+    <entry>
+    <para
+>London, Frogs Drive 5</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Joan Smith</para>
+    </entry>
+    <entry>
+    <para
+>110 98 98 00</para>
+    </entry>
+    <entry>
+    <para
+>Western Gate 1</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Smith Joan</para>
+    </entry>
+    <entry>
+    <para
+>312 43 42 22</para>
+    </entry>
+    <entry>
+    <para
+>Warsaw, Western Gate 1</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>ADAM Willson</para>
+    </entry>
+    <entry>
+    <para
+>231 83 02 04</para>
+    </entry>
+    <entry>
+    <para
+>Frogs Drive 5, London</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+<para
+>Такую таблицу можно сделать и в электронной таблице, и в базе данных; в электронной таблице, конечно, очень просто. С какими трудностями мы столкнёмся на этом этапе? </para>
+</sect2>
+<sect2 id="referential-data-integrity"
+><title
+>Ссылочная целостность данных</title
+> 
+<para
+>Допустим, в электронной таблице нужно изменить адрес хотя бы одного человека. Возникает небольшая трудность: адрес часто приходится менять во многих строках. Например, Joan занимает три строки. Настоящая проблема появится, если забыть изменить одну из них: адрес человека станет неоднозначным, то есть данные потеряют целостность. </para>
+<para
+>Кроме того, простого способа удалить человека из таблицы нет: нужно не забыть удалить все связанные с ним строки. </para>
+</sect2>
+<sect2 id="data-redundancy"
+><title
+>Избыточность данных</title
+> 
+<para
+>Это прямо связано с предыдущей проблемой. В поля «Имя и фамилия» и «Адрес» одни и те же данные вводятся многократно. Такое неэффективное хранение типично для электронных таблиц: объём данных растёт без нужды и требует больше ресурсов компьютера (больше места и медленнее доступ). </para>
+<para
+>Как решить эти проблемы с помощью базы данных? Можно разбить сведения на части, создав дополнительную таблицу <replaceable
+>Persons</replaceable
+> всего с двумя столбцами: <replaceable
+>Name and surname</replaceable
+> и <replaceable
+>Address</replaceable
+>: </para>
+<para>
+<table>
+  <title
+><emphasis
+>Таблица Persons</emphasis
+></title>
+  <tgroup cols="2">
+  <thead>
+  <row>
+    <entry
+><guilabel
+>Name and surname (Имя и фамилия)</guilabel
+></entry>
+    <entry
+><guilabel
+>Address (Адрес)</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>Joan Smith</para>
+    </entry>
+    <entry>
+    <para
+>Western Gate 1, Warsaw</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Adam Willson</para>
+    </entry>
+    <entry>
+    <para
+>Frogs Drive 5, London</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+<para
+>Каждая строка таблицы <replaceable
+>Persons</replaceable
+> соответствует одному человеку. Таблица <replaceable
+>Contacts</replaceable
+> теперь связана с таблицей <replaceable
+>Persons</replaceable
+>. </para>
+</sect2>
+<sect2 id="data-integrity-and-validity"
+><title
+>Целостность и корректность данных</title
+> 
+<para
+>Обратите внимание, как данные вводятся в поля <replaceable
+>Name and surname</replaceable
+> и <replaceable
+>Address</replaceable
+>. Люди, вводящие данные, ошибаются, а порой и небрежны. В нашем примере встречается разный порядок имени и фамилии (Joan Smith и Smith Joan; Adam и ADAM) и множество вариантов записи одного адреса. Наверняка вы придумаете и другие. </para>
+<para
+>Из-за этого, например, при поиске телефона человека с адресом <quote
+>Western Gate 1, Warsaw</quote
+> полного результата не получить: найдётся одна строка вместо трёх. Не найдутся и все телефоны при поиске значения <quote
+>Joan Smith</quote
+> в поле <replaceable
+>Name and surname</replaceable
+>, потому что <quote
+>Smith Joan</quote
+> не совпадает с <quote
+>Joan Smith</quote
+>. </para>
+<para
+>Как решить эти проблемы с помощью базы данных? Изменить структуру таблицы <replaceable
+>Persons</replaceable
+>: </para>
+<orderedlist>
+<listitem
+><para
+>разделить данные поля <guilabel
+>Имя и фамилия</guilabel
+> на два отдельных поля: <replaceable
+>Name</replaceable
+> и <replaceable
+>Surname</replaceable
+>;</para
+></listitem>
+<listitem
+><para
+>разделить данные поля <replaceable
+>Address</replaceable
+> на три отдельных поля: <replaceable
+>Street</replaceable
+>, <replaceable
+>House number</replaceable
+> и <replaceable
+>City</replaceable
+>;</para
+></listitem>
+<listitem
+><para
+>обеспечить корректность данных — не допускать пустых полей, например, номер дома вводить обязательно.</para
+></listitem>
+</orderedlist>
+<para
+>Модифицированная таблица будет выглядеть так: </para>
+<para>
+<table>
+  <title
+><emphasis
+>Таблица Persons</emphasis
+></title>
+  <tgroup cols="5">
+  <thead>
+  <row>
+    <entry
+><guilabel
+>Имя</guilabel
+></entry>
+    <entry
+><guilabel
+>Surname (фамилия)</guilabel
+></entry>
+    <entry
+><guilabel
+>Street (улица)</guilabel
+></entry>
+    <entry
+><guilabel
+>House number (номер дома)</guilabel
+></entry>
+    <entry
+><guilabel
+>City (город)</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>Joan</para>
+    </entry>
+    <entry>
+    <para
+>Smith</para>
+    </entry>
+    <entry>
+    <para
+>Western Gate</para>
+    </entry>
+    <entry>
+    <para
+>1</para>
+    </entry>
+    <entry>
+    <para
+>Warsaw</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Adam</para>
+    </entry>
+    <entry>
+    <para
+>Willson</para>
+    </entry>
+    <entry>
+    <para
+>Frogs Drive</para>
+    </entry>
+    <entry>
+    <para
+>5</para>
+    </entry>
+    <entry>
+    <para
+>London</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+><emphasis
+>Условия</emphasis
+></para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>необходимое поле</para>
+    </entry>
+    <entry>
+    <para
+>необходимое поле</para>
+    </entry>
+    <entry>
+    <para
+>необходимое поле</para>
+    </entry>
+    <entry>
+    <para
+>необходимое поле</para>
+    </entry>
+    <entry>
+    <para
+>необходимое поле</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+<para
+>Благодаря условию «обязательное поле» можно быть уверенным, что введённые данные полны. В других таблицах, разумеется, возможно разрешить не заполнять некоторые поля. </para>
+</sect2>
+<sect2 id="limiting-data-view"
+><title
+>Ограничение представления данных</title
+> 
+<para
+>Электронная таблица, в которой показаны сразу все строки и столбцы, выглядит громоздко, особенно если она очень большая. Строки можно фильтровать и сортировать, но делать это нужно очень осторожно. Пользователь заранее должен помнить обо всех изменениях, иначе возникают ошибки. Например, вы можете просуммировать 100 строк, забыв, что ещё 20 были спрятаны. </para>
+<para
+>Если нужно поработать с небольшой частью данных, например, отправить её кому-то на правку, её можно скопировать в другую электронную таблицу, а после правки вставить изменённые данные обратно в основную. Такая <quote
+>ручная</quote
+> правка чревата потерей данных или неверными расчётами. </para>
+<para
+>Для ограничения представления данных в приложениях баз данных есть запросы, формы и отчёты. </para>
+<para
+>Очень практичный пример ограничения — следующая расширенная версия описанной выше таблицы <replaceable
+>Persons</replaceable
+>: </para>
+<para>
+<table>
+  <title
+><emphasis
+>Таблица Persons</emphasis
+></title>
+  <tgroup cols="6">
+  <thead>
+  <row>
+    <entry
+><guilabel
+>Имя</guilabel
+></entry>
+    <entry
+><guilabel
+>Surname (фамилия)</guilabel
+></entry>
+    <entry
+><guilabel
+>Street (улица)</guilabel
+></entry>
+    <entry
+><guilabel
+>House number (номер дома)</guilabel
+></entry>
+    <entry
+><guilabel
+>City (город)</guilabel
+></entry>
+    <entry
+><guilabel
+>Income (доход)</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>Joan</para>
+    </entry>
+    <entry>
+    <para
+>Smith</para>
+    </entry>
+    <entry>
+    <para
+>Western Gate</para>
+    </entry>
+    <entry>
+    <para
+>1</para>
+    </entry>
+    <entry>
+    <para
+>Warsaw</para>
+    </entry>
+    <entry>
+    <para
+>2300</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Adam</para>
+    </entry>
+    <entry>
+    <para
+>Willson</para>
+    </entry>
+    <entry>
+    <para
+>Frogs Drive</para>
+    </entry>
+    <entry>
+    <para
+>5</para>
+    </entry>
+    <entry>
+    <para
+>London</para>
+    </entry>
+    <entry>
+    <para
+>1900</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+<para
+>Допустим, в новом столбце «Доход» хранятся конфиденциальные сведения. Как поделиться с коллегами, например, контактными данными людей, не раскрывая их доходы? Для этого достаточно открыть доступ не ко всей таблице, а только к запросу, выбирающему все столбцы, кроме «Дохода». В мире баз данных такой запрос часто называют представлением. </para>
+</sect2>
+<sect2 id="performance-and-capacity"
+><title
+>Производительность и ёмкость</title
+> 
+<para
+>Ваш компьютер, наверное, довольно быстрый, но легко убедиться, что с большими медленными электронными таблицами это не помогает. Их низкая эффективность объясняется прежде всего отсутствием индексов, ускоряющих поиск (в базах данных они есть). А при работе через системный буфер обмена со временем затруднительным становится даже копирование данных. </para>
+<para
+>Электронные таблицы с большими наборами данных могут открываться целую вечность: при открытии в память загружается масса данных, большая часть которых сейчас, скорее всего, не нужна. Базы данных, в отличие от электронных таблиц, загружают данные с диска только по мере необходимости. </para>
+<para
+>Как правило, беспокоиться о том, как база данных хранит данные, не придётся. В отличие от электронных таблиц, базам данных безразличен: </para>
+<itemizedlist>
+<listitem
+><para
+>порядок строк — их возможно упорядочить как угодно, а одни и те же данные просматривать во многих представлениях с разным порядком;</para
+></listitem>
+<listitem
+><para
+>то же касается столбцов (полей) таблицы.</para
+></listitem>
+</itemizedlist>
+<para
+>Вместе с описанным выше <link linkend="limiting-data-view"
+>ограничением представления данных</link
+> эти свойства составляют преимущество баз данных. </para>
+</sect2>
+<sect2 id="data-entry"
+><title
+>Ввод данных</title
+> 
+<para
+>Новейшие версии программ электронных таблиц позволяют создавать формы ввода данных. Такие формы особенно полезны, когда данные неудобно показывать в табличном виде, например, если текст занимает слишком много строк или столбцы не помещаются на экране. </para>
+<para
+>Здесь проблемой становится само устройство электронной таблицы: поля ввода разбросаны по ней и зачастую не защищены от (намеренного или случайного) вмешательства пользователя. </para>
+</sect2>
+<sect2 id="reports"
+><title
+>Отчёты</title
+> 
+<para
+>Базы данных позволяют группировать, отбирать и подытоживать данные в виде отчёта. Электронные таблицы обычно печатаются небольшими таблицами без полностью автоматического управления разбиением на страницы и расположением полей. </para>
+</sect2>
+<sect2 id="programming"
+><title
+>Программирование</title
+> 
+<para
+>В приложениях для создания баз данных часто есть полноценные языки программирования. В новых электронных таблицах такая возможность тоже есть, но вычисления сводятся к изменению ячеек и простому копированию данных без учёта правил целостности, о которых шла речь выше. </para>
+<para
+>Обработка данных в электронной таблице обычно идёт через графический интерфейс, что может её замедлять. Базы данных умеют работать в фоне, вне графического интерфейса. </para>
+</sect2>
+<sect2 id="multiuse"
+><title
+>Совместная работа</title
+> 
+<para
+>Совместную работу нескольких человек с одной электронной таблицей представить трудно. Даже если новейшие программы технически это позволяют, от пользователей требуются дисциплина, внимательность и знания, которые никто не гарантирует. </para>
+<para
+>Классический способ поделиться данными электронной таблицы — отправить файл целиком (обычно по электронной почте) или выложить его в сети. Для больших групп людей это неэффективно: нужные в данный момент данные могут быть заблокированы кем-то другим. </para>
+<para
+>Базы данных же изначально проектировались в расчёте на многопользовательский доступ. Даже в простейшем случае возможна блокировка на уровне отдельной строки таблицы, что упрощает совместное использование данных. </para>
+</sect2>
+<sect2 id="security"
+><title
+>Безопасность</title
+> 
+<para
+>Защита электронной таблицы или её частей паролем — мера скорее символическая. Если файл выложен в сети, любой, кто может его скопировать, может попытаться взломать пароль. Иногда это нетрудно, ведь пароль хранится в том же файле. </para>
+<para
+>Столь же легко обойти и запрет правки или копирования электронной таблицы (или её части). </para>
+<para
+>Базы данных (кроме хранящихся в файле, а не на сервере) не обязаны быть доступны одним файлом. Доступ к ним идёт по сети, обычно по имени пользователя и паролю, и вы получаете доступ только к тем областям (таблицам, формам или даже отдельным строкам и столбцам), которые вам разрешены правами доступа. </para>
+<para
+>Права доступа могут разрешать правку данных или только чтение. Недоступные вам данные даже не передаются на ваш компьютер, поэтому скопировать их так же легко, как файл электронной таблицы, не получится. </para>
+</sect2>
+</sect1>
+<sect1 id="database-design"
+><title
+>Проектирование базы данных</title
+> 
+<para
+>Проектирование базы данных требует тщательного планирования. Предложенная в разделе <link linkend="data-integrity-and-validity"
+>«Целостность и корректность данных»</link
+> перестройка таблицы <replaceable
+>Persons</replaceable
+> может создать трудности, если таблица уже заполнена. Например, переименовать поле просто, а разделить поле <replaceable
+>Address</replaceable
+> на отдельные поля — кропотливая и утомительная работа. </para>
+<para
+>Чтобы избежать таких ситуаций, продумайте проект базы данных до того, как создадите её на компьютере и ею начнут пользоваться. Потратив немного времени вначале, вы, скорее всего, сэкономите его в повседневной работе. </para>
+</sect1>
+<sect1 id="who-needs-a-database"
+><title
+>Кому нужна база данных?</title
+> 
+<sect2 id="stick-to-spreadsheets-if-"
+><title
+>Оставайтесь с электронными таблицами, если:</title
+> 
+<itemizedlist>
+<listitem
+><para
+>ваши потребности ограничены и данных никогда не станет много (а вы можете сейчас это предсказать?);</para
+></listitem>
+<listitem
+><para
+>у вас нет возможности освоить методы построения баз данных (впрочем, можно поручить эту задачу кому-то другому или воспользоваться более простыми средствами);</para
+></listitem>
+<listitem
+><para
+>вы работаете со сложными электронными таблицами, и на переход к базам данных нет времени или денег. Подумайте или спросите знающих людей, не ведёт ли это в тупик. Не надейтесь на волшебные средства, которые превратят электронную таблицу (как бы хорошо она ни была сделана) в базу данных.</para
+></listitem>
+</itemizedlist>
+</sect2>
+<sect2 id="consider-using-databases-if-"
+><title
+>Подумайте о базе данных, если:</title
+> 
+<itemizedlist>
+<listitem
+><para
+>объём ваших данных растёт каждую неделю;</para
+></listitem>
+<listitem
+><para
+>вы часто создаёте новые электронные таблицы, копируете данные между ними и чувствуете, что работа становится всё утомительнее — тогда усилия по переходу на базы данных легко окупятся;</para
+></listitem>
+<listitem
+><para
+>вы готовите отчёты и сводки, для которых табличный вид электронной таблицы не подходит — тогда стоит перейти на базу данных с формами.</para
+></listitem>
+</itemizedlist>
+</sect2>
+</sect1>
+<sect1 id="database-creation-software"
+><title
+>Программы для создания баз данных</title
+> 
+<para
+>До сих пор речь шла об общих свойствах баз данных, без подробностей о конкретных программах для их создания. </para>
+<para
+>Первые базы данных создавались в 60-е годы вместе с большими мейнфреймами, например, IBM System/360. Персональных компьютеров тогда не было, и такие базы требовали узкоспециализированного персонала. Хотя старые компьютеры были ненадёжны, несравнимо медленнее и располагали меньшей памятью, одно свойство баз данных остаётся самым привлекательным до сих пор: доступ к данным многих пользователей по сети. </para>
+<para
+>В 70-е годы учёные создали теорию реляционных баз данных (с понятиями таблицы, записи, столбца (поля), реляционности и многими другими). На её основе появились базы данных IBM DB2 и Oracle, которые развиваются и используются до сих пор. В конце 70-х были созданы первые персональные компьютеры, и их пользователям (постепенно) стали доступны многие виды приложений, в том числе для создания баз данных. </para>
+<para
+>С большими базами данных в компаниях положение не изменилось: им по-прежнему нужны мощные компьютеры или вычислительные комплексы — кластеры. Впрочем, это выходит за рамки данного руководства. </para>
+<para
+>Среди <quote
+>доступных</quote
+> баз данных с графическим интерфейсом для персональных компьютеров есть следующие: </para>
+<itemizedlist>
+<listitem
+><para
+><ulink url="http://www.dbase.com"
+>DBase</ulink
+> — популярная в 80-е годы программа для работы с базами данных под DOS. Благодаря простоте файлы формата DBase до сих пор используются в отдельных случаях.</para
+></listitem>
+<listitem
+><para
+><ulink url="http://msdn.microsoft.com/vfoxpro/"
+>FoxPro</ulink
+> — приложение, похожее на DBase (начало 90-х). После перехода к Microsoft в нём появился графический интерфейс, и его стали использовать для создания баз данных на персональных компьютерах. Продукт всё ещё предлагается, хотя выглядит несколько устаревшим.</para
+></listitem>
+<listitem
+><para
+><ulink url="http://office.microsoft.com/access/"
+>Microsoft Access</ulink
+> — приложение для баз данных (проектирования данных и графического интерфейса) со множеством упрощений, поэтому подходящее для начинающих; создано в конце 80-х на основе 16-битной архитектуры. Продукт предлагается и широко используется до сих пор, особенно небольшими компаниями с невысокими требованиями к производительности и многопользовательской работе.</para
+></listitem>
+<listitem
+><para
+><ulink url="http://www.filemaker.com"
+>FileMaker</ulink
+> — популярное приложение, сопоставимое по простоте с MS Access, работает на платформах Windows и Macintosh, выпускается с 1985 года.</para
+></listitem>
+<listitem
+><para
+><ulink url="http://www.calligra-suite.org/kexi"
+>Kexi</ulink
+> — многоплатформенное приложение (&UNIX;/&Linux;, Windows, &MacOS; X), созданное в 2003 году и развиваемое по принципам открытого исходного кода в рамках всемирного сообщества KDE, которое, помимо прочего, создаёт графическую среду для систем &UNIX;/&Linux;. Значительный вклад в развитие Kexi вносит компания OpenOffice Poland.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+<chapter id="appendix-b--comparing-kexi-to-other-database-applications"
+><title
+>Приложение B. Сравнение Kexi с другими приложениями баз данных</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="data-types"
+>Типы данных</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="data-types"
+><title
+>Типы данных</title
+> 
+<para
+>Хотя разные приложения баз данных предлагают похожие возможности, терминология у них часто различается. Для удобства в этом приложении показано, как термины &kexi; соответствуют терминам других приложений баз данных. Эта глава может пригодиться при переносе баз данных из одного приложения в другое. </para>
+<para
+>В таблице ниже показано соответствие типов данных &kexi; типам данных других приложений. </para>
+<para
+>Некоторые из перечисленных типов являются подтипами других. Например, тип <guilabel
+>Длинный текст</guilabel
+> — подтип типа <guilabel
+>Текст</guilabel
+>. Чтобы использовать подтип в &kexi;, выберите в конструкторе таблиц соответствующий основной тип (здесь <guilabel
+>Текст</guilabel
+>), а затем подтип в параметре <guilabel
+>Подтип</guilabel
+> на панели <guilabel
+>Свойства</guilabel
+>. </para>
+<para>
+<table>
+  <title
+><emphasis
+>Сравнение типов данных Kexi и других приложений баз данных</emphasis
+></title>
+  <tgroup cols="4">
+  <thead>
+  <row>
+    <entry
+>&kexi;</entry>
+    <entry
+><guilabel
+>MS Access</guilabel
+></entry>
+    <entry
+><guilabel
+>dBase/FoxPro</guilabel
+></entry>
+    <entry
+><guilabel
+>Paradox</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>Текст (Text)</para>
+    </entry>
+    <entry>
+    <para
+>Text</para>
+    </entry>
+    <entry>
+    <para
+>Character</para>
+    </entry>
+    <entry>
+    <para
+>Alphanumeric</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Длинный текст (Long text)</para>
+    </entry>
+    <entry>
+    <para
+>Memo</para>
+    </entry>
+    <entry>
+    <para
+>Memo</para>
+    </entry>
+    <entry>
+    <para
+>Memo</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Дата/время (Date/Time)</para>
+    </entry>
+    <entry>
+    <para
+>Date, Time</para>
+    </entry>
+    <entry>
+    <para
+>Date</para>
+    </entry>
+    <entry>
+    <para
+>DateTime</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Целое число (Integer Number)</para>
+    </entry>
+    <entry>
+    <para
+>Number (Integer)</para>
+    </entry>
+    <entry>
+    <para
+>Numeric</para>
+    </entry>
+    <entry>
+    <para
+>Integer</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Длинное целое число (Big Integer Number)</para>
+    </entry>
+    <entry>
+    <para
+>Long Integer</para>
+    </entry>
+    <entry>
+    <para
+>Numeric</para>
+    </entry>
+    <entry>
+    <para
+>Long Integer</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>Число с плавающей точкой (Floating Point Number)</para>
+    </entry>
+    <entry>
+    <para
+>Single/Double precision number</para>
+    </entry>
+    <entry>
+    <para
+>Float</para>
+    </entry>
+    <entry>
+    <para
+>Number</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+</sect1>
+</chapter>
+<chapter id="reserved-words-for-sql"
+><title
+>Приложение C. Зарезервированные слова SQL</title
+> 
+<para
+>В следующих списках перечислены слова, которые &kexi; использует для внутренних нужд при работе с источниками данных. </para>
+<para
+><warning
+><para
+>При проектировании базы данных всеми силами избегайте этих зарезервированных слов, иначе возможны проблемы с файлом базы данных вплоть до его повреждения.</para
+></warning>
+</para>
+<para
+><tip
+><para
+>Если всё же нужно использовать зарезервированные слова, заключайте их в двойные кавычки <quote
+></quote
+>.</para
+></tip>
+</para>
+<sect1 id="kexi-sql-reserved-words"
+><title
+>Зарезервированные слова Kexi SQL</title
+> 
+<para
+>Ключевые слова, зарезервированные в Kexi SQL: </para>
+<itemizedlist>
+<listitem
+><para
+>AFTER</para
+></listitem>
+<listitem
+><para
+>ALL</para
+></listitem>
+<listitem
+><para
+>ASC</para
+></listitem>
+<listitem
+><para
+>BEFORE</para
+></listitem>
+<listitem
+><para
+>BEGIN</para
+></listitem>
+<listitem
+><para
+>BETWEEN</para
+></listitem>
+<listitem
+><para
+>BY</para
+></listitem>
+<listitem
+><para
+>CASCADE</para
+></listitem>
+<listitem
+><para
+>CASE</para
+></listitem>
+<listitem
+><para
+>CHECK</para
+></listitem>
+<listitem
+><para
+>COLLATE</para
+></listitem>
+<listitem
+><para
+>COMMIT</para
+></listitem>
+<listitem
+><para
+>CONSTRAINT</para
+></listitem>
+<listitem
+><para
+>CROSS</para
+></listitem>
+<listitem
+><para
+>DATABASE</para
+></listitem>
+<listitem
+><para
+>DEFAULT</para
+></listitem>
+<listitem
+><para
+>DELETE</para
+></listitem>
+<listitem
+><para
+>DESC</para
+></listitem>
+<listitem
+><para
+>DISTINCT</para
+></listitem>
+<listitem
+><para
+>DROP</para
+></listitem>
+<listitem
+><para
+>END</para
+></listitem>
+<listitem
+><para
+>ELSE</para
+></listitem>
+<listitem
+><para
+>EXPLAIN</para
+></listitem>
+<listitem
+><para
+>FOR</para
+></listitem>
+<listitem
+><para
+>FOREIGN</para
+></listitem>
+<listitem
+><para
+>FULL</para
+></listitem>
+<listitem
+><para
+>GROUP</para
+></listitem>
+<listitem
+><para
+>HAVING</para
+></listitem>
+<listitem
+><para
+>IGNORE</para
+></listitem>
+<listitem
+><para
+>INDEX</para
+></listitem>
+<listitem
+><para
+>INNER</para
+></listitem>
+<listitem
+><para
+>INSERT</para
+></listitem>
+<listitem
+><para
+>INTO</para
+></listitem>
+<listitem
+><para
+>KEY</para
+></listitem>
+<listitem
+><para
+>LIMIT</para
+></listitem>
+<listitem
+><para
+>MATCH</para
+></listitem>
+<listitem
+><para
+>NATURAL</para
+></listitem>
+<listitem
+><para
+>OFFSET</para
+></listitem>
+<listitem
+><para
+>ORDER</para
+></listitem>
+<listitem
+><para
+>OUTER</para
+></listitem>
+<listitem
+><para
+>PRIMARY</para
+></listitem>
+<listitem
+><para
+>REFERENCES</para
+></listitem>
+<listitem
+><para
+>REPLACE</para
+></listitem>
+<listitem
+><para
+>RESTRICT</para
+></listitem>
+<listitem
+><para
+>ROLLBACK</para
+></listitem>
+<listitem
+><para
+>ROW</para
+></listitem>
+<listitem
+><para
+>SET</para
+></listitem>
+<listitem
+><para
+>TEMPORARY</para
+></listitem>
+<listitem
+><para
+>THEN</para
+></listitem>
+<listitem
+><para
+>TRANSACTION</para
+></listitem>
+<listitem
+><para
+>UNION</para
+></listitem>
+<listitem
+><para
+>UNIQUE</para
+></listitem>
+<listitem
+><para
+>UPDATE</para
+></listitem>
+<listitem
+><para
+>USING</para
+></listitem>
+<listitem
+><para
+>VALUES</para
+></listitem>
+<listitem
+><para
+>WHEN</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-sqlite-driver-reserved-words"
+><title
+>Зарезервированные слова драйвера SQLite для Kexi</title
+> 
+<para
+>Ключевые слова, зарезервированные драйвером SQLite для Kexi: </para>
+<itemizedlist>
+<listitem
+><para
+>ABORT</para
+></listitem>
+<listitem
+><para
+>ATTACH</para
+></listitem>
+<listitem
+><para
+>CLUSTER</para
+></listitem>
+<listitem
+><para
+>CONFLICT</para
+></listitem>
+<listitem
+><para
+>DEFERRED</para
+></listitem>
+<listitem
+><para
+>DEFERRABLE</para
+></listitem>
+<listitem
+><para
+>DETACH</para
+></listitem>
+<listitem
+><para
+>EACH</para
+></listitem>
+<listitem
+><para
+>EXCEPT</para
+></listitem>
+<listitem
+><para
+>FAIL</para
+></listitem>
+<listitem
+><para
+>GLOB</para
+></listitem>
+<listitem
+><para
+>IMMEDIATE</para
+></listitem>
+<listitem
+><para
+>INITIALLY</para
+></listitem>
+<listitem
+><para
+>INSTEAD</para
+></listitem>
+<listitem
+><para
+>INTERSECT</para
+></listitem>
+<listitem
+><para
+>ISNULL</para
+></listitem>
+<listitem
+><para
+>NOTNULL</para
+></listitem>
+<listitem
+><para
+>OF</para
+></listitem>
+<listitem
+><para
+>PRAGMA</para
+></listitem>
+<listitem
+><para
+>RAISE</para
+></listitem>
+<listitem
+><para
+>STATEMENT</para
+></listitem>
+<listitem
+><para
+>TEMP</para
+></listitem>
+<listitem
+><para
+>TRIGGER</para
+></listitem>
+<listitem
+><para
+>VACUUM</para
+></listitem>
+<listitem
+><para
+>VIEW</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-mysql-driver-reserved-words"
+><title
+>Зарезервированные слова драйвера MySQL для Kexi</title
+> 
+<para
+>Ключевые слова, зарезервированные драйвером MySQL для Kexi: </para>
+<itemizedlist>
+<listitem
+><para
+>ACTION</para
+></listitem>
+<listitem
+><para
+>ADD</para
+></listitem>
+<listitem
+><para
+>AGAINST</para
+></listitem>
+<listitem
+><para
+>AGGREGATE</para
+></listitem>
+<listitem
+><para
+>ALTER</para
+></listitem>
+<listitem
+><para
+>ANALYZE</para
+></listitem>
+<listitem
+><para
+>ANY</para
+></listitem>
+<listitem
+><para
+>ASCII</para
+></listitem>
+<listitem
+><para
+>AUTO_INCREMENT</para
+></listitem>
+<listitem
+><para
+>AVG</para
+></listitem>
+<listitem
+><para
+>AVG_ROW_LENGTH</para
+></listitem>
+<listitem
+><para
+>BACKUP</para
+></listitem>
+<listitem
+><para
+>BDB</para
+></listitem>
+<listitem
+><para
+>BERKELEYDB</para
+></listitem>
+<listitem
+><para
+>BIGINT</para
+></listitem>
+<listitem
+><para
+>BINARY</para
+></listitem>
+<listitem
+><para
+>BINLOG</para
+></listitem>
+<listitem
+><para
+>BIT</para
+></listitem>
+<listitem
+><para
+>BLOB</para
+></listitem>
+<listitem
+><para
+>BOOL</para
+></listitem>
+<listitem
+><para
+>BOOLEAN</para
+></listitem>
+<listitem
+><para
+>BOTH</para
+></listitem>
+<listitem
+><para
+>BTREE</para
+></listitem>
+<listitem
+><para
+>BYTE</para
+></listitem>
+<listitem
+><para
+>CACHE</para
+></listitem>
+<listitem
+><para
+>CHANGE</para
+></listitem>
+<listitem
+><para
+>CHANGED</para
+></listitem>
+<listitem
+><para
+>CHAR</para
+></listitem>
+<listitem
+><para
+>CHARACTER</para
+></listitem>
+<listitem
+><para
+>CHARSET</para
+></listitem>
+<listitem
+><para
+>CHECKSUM</para
+></listitem>
+<listitem
+><para
+>CIPHER</para
+></listitem>
+<listitem
+><para
+>CLIENT</para
+></listitem>
+<listitem
+><para
+>CLOSE</para
+></listitem>
+<listitem
+><para
+>COLLATION</para
+></listitem>
+<listitem
+><para
+>COLUMN</para
+></listitem>
+<listitem
+><para
+>COLUMNS</para
+></listitem>
+<listitem
+><para
+>COMMENT</para
+></listitem>
+<listitem
+><para
+>COMMITTED</para
+></listitem>
+<listitem
+><para
+>COMPRESSED</para
+></listitem>
+<listitem
+><para
+>CONCURRENT</para
+></listitem>
+<listitem
+><para
+>CONVERT</para
+></listitem>
+<listitem
+><para
+>CUBE</para
+></listitem>
+<listitem
+><para
+>CURRENT_DATE</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIME</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>CURRENT_USER</para
+></listitem>
+<listitem
+><para
+>DATA</para
+></listitem>
+<listitem
+><para
+>DATABASES</para
+></listitem>
+<listitem
+><para
+>DATE</para
+></listitem>
+<listitem
+><para
+>DATETIME</para
+></listitem>
+<listitem
+><para
+>DAY</para
+></listitem>
+<listitem
+><para
+>DAY_HOUR</para
+></listitem>
+<listitem
+><para
+>DAY_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>DAY_MINUTE</para
+></listitem>
+<listitem
+><para
+>DAY_SECOND</para
+></listitem>
+<listitem
+><para
+>DEALLOCATE</para
+></listitem>
+<listitem
+><para
+>DEC</para
+></listitem>
+<listitem
+><para
+>DECIMAL</para
+></listitem>
+<listitem
+><para
+>DELAYED</para
+></listitem>
+<listitem
+><para
+>DELAY_KEY_WRITE</para
+></listitem>
+<listitem
+><para
+>DESCRIBE</para
+></listitem>
+<listitem
+><para
+>DES_KEY_FILE</para
+></listitem>
+<listitem
+><para
+>DIRECTORY</para
+></listitem>
+<listitem
+><para
+>DISABLE</para
+></listitem>
+<listitem
+><para
+>DISCARD</para
+></listitem>
+<listitem
+><para
+>DISTINCTROW</para
+></listitem>
+<listitem
+><para
+>DIV</para
+></listitem>
+<listitem
+><para
+>DO</para
+></listitem>
+<listitem
+><para
+>DOUBLE</para
+></listitem>
+<listitem
+><para
+>DUAL</para
+></listitem>
+<listitem
+><para
+>DUMPFILE</para
+></listitem>
+<listitem
+><para
+>DUPLICATE</para
+></listitem>
+<listitem
+><para
+>DYNAMIC</para
+></listitem>
+<listitem
+><para
+>ENABLE</para
+></listitem>
+<listitem
+><para
+>ENCLOSED</para
+></listitem>
+<listitem
+><para
+>ENGINE</para
+></listitem>
+<listitem
+><para
+>ENGINES</para
+></listitem>
+<listitem
+><para
+>ENUM</para
+></listitem>
+<listitem
+><para
+>ERRORS</para
+></listitem>
+<listitem
+><para
+>ESCAPE</para
+></listitem>
+<listitem
+><para
+>ESCAPED</para
+></listitem>
+<listitem
+><para
+>EVENTS</para
+></listitem>
+<listitem
+><para
+>EXECUTE</para
+></listitem>
+<listitem
+><para
+>EXISTS</para
+></listitem>
+<listitem
+><para
+>EXPANSION</para
+></listitem>
+<listitem
+><para
+>EXTENDED</para
+></listitem>
+<listitem
+><para
+>FALSE</para
+></listitem>
+<listitem
+><para
+>FAST</para
+></listitem>
+<listitem
+><para
+>FIELDS</para
+></listitem>
+<listitem
+><para
+>FILE</para
+></listitem>
+<listitem
+><para
+>FIRST</para
+></listitem>
+<listitem
+><para
+>FIXED</para
+></listitem>
+<listitem
+><para
+>FLOAT</para
+></listitem>
+<listitem
+><para
+>FLOAT4</para
+></listitem>
+<listitem
+><para
+>FLOAT8</para
+></listitem>
+<listitem
+><para
+>FLUSH</para
+></listitem>
+<listitem
+><para
+>FORCE</para
+></listitem>
+<listitem
+><para
+>FULLTEXT</para
+></listitem>
+<listitem
+><para
+>FUNCTION</para
+></listitem>
+<listitem
+><para
+>GEOMETRY</para
+></listitem>
+<listitem
+><para
+>GEOMETRYCOLLECTION</para
+></listitem>
+<listitem
+><para
+>GET_FORMAT</para
+></listitem>
+<listitem
+><para
+>GLOBAL</para
+></listitem>
+<listitem
+><para
+>GRANT</para
+></listitem>
+<listitem
+><para
+>GRANTS</para
+></listitem>
+<listitem
+><para
+>HANDLER</para
+></listitem>
+<listitem
+><para
+>HASH</para
+></listitem>
+<listitem
+><para
+>HELP</para
+></listitem>
+<listitem
+><para
+>HIGH_PRIORITY</para
+></listitem>
+<listitem
+><para
+>HOSTS</para
+></listitem>
+<listitem
+><para
+>HOUR</para
+></listitem>
+<listitem
+><para
+>HOUR_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>HOUR_MINUTE</para
+></listitem>
+<listitem
+><para
+>HOUR_SECOND</para
+></listitem>
+<listitem
+><para
+>IDENTIFIED</para
+></listitem>
+<listitem
+><para
+>IF</para
+></listitem>
+<listitem
+><para
+>IMPORT</para
+></listitem>
+<listitem
+><para
+>INDEXES</para
+></listitem>
+<listitem
+><para
+>INFILE</para
+></listitem>
+<listitem
+><para
+>INNOBASE</para
+></listitem>
+<listitem
+><para
+>INNODB</para
+></listitem>
+<listitem
+><para
+>INSERT_METHOD</para
+></listitem>
+<listitem
+><para
+>INT</para
+></listitem>
+<listitem
+><para
+>INT1</para
+></listitem>
+<listitem
+><para
+>INT2</para
+></listitem>
+<listitem
+><para
+>INT3</para
+></listitem>
+<listitem
+><para
+>INT4</para
+></listitem>
+<listitem
+><para
+>INT8</para
+></listitem>
+<listitem
+><para
+>INTERVAL</para
+></listitem>
+<listitem
+><para
+>IO_THREAD</para
+></listitem>
+<listitem
+><para
+>ISOLATION</para
+></listitem>
+<listitem
+><para
+>ISSUER</para
+></listitem>
+<listitem
+><para
+>KEYS</para
+></listitem>
+<listitem
+><para
+>KILL</para
+></listitem>
+<listitem
+><para
+>LAST</para
+></listitem>
+<listitem
+><para
+>LEADING</para
+></listitem>
+<listitem
+><para
+>LEAVES</para
+></listitem>
+<listitem
+><para
+>LEVEL</para
+></listitem>
+<listitem
+><para
+>LINES</para
+></listitem>
+<listitem
+><para
+>LINESTRING</para
+></listitem>
+<listitem
+><para
+>LOAD</para
+></listitem>
+<listitem
+><para
+>LOCAL</para
+></listitem>
+<listitem
+><para
+>LOCALTIME</para
+></listitem>
+<listitem
+><para
+>LOCALTIMESTAMP</para
+></listitem>
+<listitem
+><para
+>LOCK</para
+></listitem>
+<listitem
+><para
+>LOCKS</para
+></listitem>
+<listitem
+><para
+>LOGS</para
+></listitem>
+<listitem
+><para
+>LONG</para
+></listitem>
+<listitem
+><para
+>LONGBLOB</para
+></listitem>
+<listitem
+><para
+>LONGTEXT</para
+></listitem>
+<listitem
+><para
+>LOW_PRIORITY</para
+></listitem>
+<listitem
+><para
+>MASTER</para
+></listitem>
+<listitem
+><para
+>MASTER_CONNECT_RETRY</para
+></listitem>
+<listitem
+><para
+>MASTER_HOST</para
+></listitem>
+<listitem
+><para
+>MASTER_LOG_FILE</para
+></listitem>
+<listitem
+><para
+>MASTER_LOG_POS</para
+></listitem>
+<listitem
+><para
+>MASTER_PASSWORD</para
+></listitem>
+<listitem
+><para
+>MASTER_PORT</para
+></listitem>
+<listitem
+><para
+>MASTER_SERVER_ID</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CA</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CAPATH</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CERT</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CIPHER</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_KEY</para
+></listitem>
+<listitem
+><para
+>MASTER_USER</para
+></listitem>
+<listitem
+><para
+>MAX_CONNECTIONS_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MAX_QUERIES_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MAX_ROWS</para
+></listitem>
+<listitem
+><para
+>MAX_UPDATES_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MEDIUM</para
+></listitem>
+<listitem
+><para
+>MEDIUMBLOB</para
+></listitem>
+<listitem
+><para
+>MEDIUMINT</para
+></listitem>
+<listitem
+><para
+>MEDIUMTEXT</para
+></listitem>
+<listitem
+><para
+>MICROSECOND</para
+></listitem>
+<listitem
+><para
+>MIDDLEINT</para
+></listitem>
+<listitem
+><para
+>MINUTE</para
+></listitem>
+<listitem
+><para
+>MINUTE_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>MINUTE_SECOND</para
+></listitem>
+<listitem
+><para
+>MIN_ROWS</para
+></listitem>
+<listitem
+><para
+>MOD</para
+></listitem>
+<listitem
+><para
+>MODE</para
+></listitem>
+<listitem
+><para
+>MODIFY</para
+></listitem>
+<listitem
+><para
+>MONTH</para
+></listitem>
+<listitem
+><para
+>MULTILINESTRING</para
+></listitem>
+<listitem
+><para
+>MULTIPOINT</para
+></listitem>
+<listitem
+><para
+>MULTIPOLYGON</para
+></listitem>
+<listitem
+><para
+>NAMES</para
+></listitem>
+<listitem
+><para
+>NATIONAL</para
+></listitem>
+<listitem
+><para
+>NDB</para
+></listitem>
+<listitem
+><para
+>NDBCLUSTER</para
+></listitem>
+<listitem
+><para
+>NCHAR</para
+></listitem>
+<listitem
+><para
+>NEW</para
+></listitem>
+<listitem
+><para
+>NEXT</para
+></listitem>
+<listitem
+><para
+>NO</para
+></listitem>
+<listitem
+><para
+>NONE</para
+></listitem>
+<listitem
+><para
+>NO_WRITE_TO_BINLOG</para
+></listitem>
+<listitem
+><para
+>NUMERIC</para
+></listitem>
+<listitem
+><para
+>NVARCHAR</para
+></listitem>
+<listitem
+><para
+>OLD_PASSWORD</para
+></listitem>
+<listitem
+><para
+>ONE_SHOT</para
+></listitem>
+<listitem
+><para
+>OPEN</para
+></listitem>
+<listitem
+><para
+>OPTIMIZE</para
+></listitem>
+<listitem
+><para
+>OPTION</para
+></listitem>
+<listitem
+><para
+>OPTIONALLY</para
+></listitem>
+<listitem
+><para
+>OUTFILE</para
+></listitem>
+<listitem
+><para
+>PACK_KEYS</para
+></listitem>
+<listitem
+><para
+>PARTIAL</para
+></listitem>
+<listitem
+><para
+>PASSWORD</para
+></listitem>
+<listitem
+><para
+>POINT</para
+></listitem>
+<listitem
+><para
+>POLYGON</para
+></listitem>
+<listitem
+><para
+>PRECISION</para
+></listitem>
+<listitem
+><para
+>PREPARE</para
+></listitem>
+<listitem
+><para
+>PREV</para
+></listitem>
+<listitem
+><para
+>PRIVILEGES</para
+></listitem>
+<listitem
+><para
+>PROCEDURE</para
+></listitem>
+<listitem
+><para
+>PROCESS</para
+></listitem>
+<listitem
+><para
+>PROCESSLIST</para
+></listitem>
+<listitem
+><para
+>PURGE</para
+></listitem>
+<listitem
+><para
+>QUERY</para
+></listitem>
+<listitem
+><para
+>QUICK</para
+></listitem>
+<listitem
+><para
+>RAID0</para
+></listitem>
+<listitem
+><para
+>RAID_CHUNKS</para
+></listitem>
+<listitem
+><para
+>RAID_CHUNKSIZE</para
+></listitem>
+<listitem
+><para
+>RAID_TYPE</para
+></listitem>
+<listitem
+><para
+>READ</para
+></listitem>
+<listitem
+><para
+>REAL</para
+></listitem>
+<listitem
+><para
+>REGEXP</para
+></listitem>
+<listitem
+><para
+>RELAY_LOG_FILE</para
+></listitem>
+<listitem
+><para
+>RELAY_LOG_POS</para
+></listitem>
+<listitem
+><para
+>RELAY_THREAD</para
+></listitem>
+<listitem
+><para
+>RELOAD</para
+></listitem>
+<listitem
+><para
+>RENAME</para
+></listitem>
+<listitem
+><para
+>REPAIR</para
+></listitem>
+<listitem
+><para
+>REPEATABLE</para
+></listitem>
+<listitem
+><para
+>REPLICATION</para
+></listitem>
+<listitem
+><para
+>REQUIRE</para
+></listitem>
+<listitem
+><para
+>RESET</para
+></listitem>
+<listitem
+><para
+>RESTORE</para
+></listitem>
+<listitem
+><para
+>RETURNS</para
+></listitem>
+<listitem
+><para
+>REVOKE</para
+></listitem>
+<listitem
+><para
+>RLIKE</para
+></listitem>
+<listitem
+><para
+>ROLLUP</para
+></listitem>
+<listitem
+><para
+>ROWS</para
+></listitem>
+<listitem
+><para
+>ROW_FORMAT</para
+></listitem>
+<listitem
+><para
+>RTREE</para
+></listitem>
+<listitem
+><para
+>SAVEPOINT</para
+></listitem>
+<listitem
+><para
+>SECOND</para
+></listitem>
+<listitem
+><para
+>SECOND_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>SEPARATOR</para
+></listitem>
+<listitem
+><para
+>SERIAL</para
+></listitem>
+<listitem
+><para
+>SERIALIZABLE</para
+></listitem>
+<listitem
+><para
+>SESSION</para
+></listitem>
+<listitem
+><para
+>SHARE</para
+></listitem>
+<listitem
+><para
+>SHOW</para
+></listitem>
+<listitem
+><para
+>SHUTDOWN</para
+></listitem>
+<listitem
+><para
+>SIGNED</para
+></listitem>
+<listitem
+><para
+>SIMPLE</para
+></listitem>
+<listitem
+><para
+>SLAVE</para
+></listitem>
+<listitem
+><para
+>SMALLINT</para
+></listitem>
+<listitem
+><para
+>SOME</para
+></listitem>
+<listitem
+><para
+>SONAME</para
+></listitem>
+<listitem
+><para
+>SOUNDS</para
+></listitem>
+<listitem
+><para
+>SPATIAL</para
+></listitem>
+<listitem
+><para
+>SQL_BIG_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_BUFFER_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_CACHE</para
+></listitem>
+<listitem
+><para
+>SQL_CALC_FOUND_ROWS</para
+></listitem>
+<listitem
+><para
+>SQL_NO_CACHE</para
+></listitem>
+<listitem
+><para
+>SQL_SMALL_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_THREAD</para
+></listitem>
+<listitem
+><para
+>SSL</para
+></listitem>
+<listitem
+><para
+>START</para
+></listitem>
+<listitem
+><para
+>STARTING</para
+></listitem>
+<listitem
+><para
+>STATUS</para
+></listitem>
+<listitem
+><para
+>STOP</para
+></listitem>
+<listitem
+><para
+>STORAGE</para
+></listitem>
+<listitem
+><para
+>STRAIGHT_JOIN</para
+></listitem>
+<listitem
+><para
+>STRING</para
+></listitem>
+<listitem
+><para
+>STRIPED</para
+></listitem>
+<listitem
+><para
+>SUBJECT</para
+></listitem>
+<listitem
+><para
+>SUPER</para
+></listitem>
+<listitem
+><para
+>TABLES</para
+></listitem>
+<listitem
+><para
+>TABLESPACE</para
+></listitem>
+<listitem
+><para
+>TERMINATED</para
+></listitem>
+<listitem
+><para
+>TEXT</para
+></listitem>
+<listitem
+><para
+>TIME</para
+></listitem>
+<listitem
+><para
+>TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>TINYBLOB</para
+></listitem>
+<listitem
+><para
+>TINYINT</para
+></listitem>
+<listitem
+><para
+>TINYTEXT</para
+></listitem>
+<listitem
+><para
+>TRAILING</para
+></listitem>
+<listitem
+><para
+>TRUE</para
+></listitem>
+<listitem
+><para
+>TRUNCATE</para
+></listitem>
+<listitem
+><para
+>TYPE</para
+></listitem>
+<listitem
+><para
+>TYPES</para
+></listitem>
+<listitem
+><para
+>UNCOMMITTED</para
+></listitem>
+<listitem
+><para
+>UNICODE</para
+></listitem>
+<listitem
+><para
+>UNLOCK</para
+></listitem>
+<listitem
+><para
+>UNSIGNED</para
+></listitem>
+<listitem
+><para
+>UNTIL</para
+></listitem>
+<listitem
+><para
+>USAGE</para
+></listitem>
+<listitem
+><para
+>USE</para
+></listitem>
+<listitem
+><para
+>USER</para
+></listitem>
+<listitem
+><para
+>USER_RESOURCES</para
+></listitem>
+<listitem
+><para
+>USE_FRM</para
+></listitem>
+<listitem
+><para
+>UTC_DATE</para
+></listitem>
+<listitem
+><para
+>UTC_TIME</para
+></listitem>
+<listitem
+><para
+>UTC_TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>VALUE</para
+></listitem>
+<listitem
+><para
+>VARBINARY</para
+></listitem>
+<listitem
+><para
+>VARCHAR</para
+></listitem>
+<listitem
+><para
+>VARCHARACTER</para
+></listitem>
+<listitem
+><para
+>VARIABLES</para
+></listitem>
+<listitem
+><para
+>VARYING</para
+></listitem>
+<listitem
+><para
+>WARNINGS</para
+></listitem>
+<listitem
+><para
+>WITH</para
+></listitem>
+<listitem
+><para
+>WORK</para
+></listitem>
+<listitem
+><para
+>WRITE</para
+></listitem>
+<listitem
+><para
+>X509</para
+></listitem>
+<listitem
+><para
+>YEAR</para
+></listitem>
+<listitem
+><para
+>YEAR_MONTH</para
+></listitem>
+<listitem
+><para
+>ZEROFILL</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-postgresql-driver-reserved-words"
+><title
+>Зарезервированные слова драйвера PostgreSQL для Kexi</title
+> 
+<para
+>Ключевые слова, зарезервированные драйвером pqxx для Kexi: </para>
+<itemizedlist>
+<listitem
+><para
+>ABORT</para
+></listitem>
+<listitem
+><para
+>ABSOLUTE</para
+></listitem>
+<listitem
+><para
+>ACCESS</para
+></listitem>
+<listitem
+><para
+>ACTION</para
+></listitem>
+<listitem
+><para
+>ADD</para
+></listitem>
+<listitem
+><para
+>AGGREGATE</para
+></listitem>
+<listitem
+><para
+>ALTER</para
+></listitem>
+<listitem
+><para
+>ANALYSE</para
+></listitem>
+<listitem
+><para
+>ANALYZE</para
+></listitem>
+<listitem
+><para
+>ANY</para
+></listitem>
+<listitem
+><para
+>ARRAY</para
+></listitem>
+<listitem
+><para
+>ASSERTION</para
+></listitem>
+<listitem
+><para
+>ASSIGNMENT</para
+></listitem>
+<listitem
+><para
+>AT</para
+></listitem>
+<listitem
+><para
+>AUTHORIZATION</para
+></listitem>
+<listitem
+><para
+>BACKWARD</para
+></listitem>
+<listitem
+><para
+>BIGINT</para
+></listitem>
+<listitem
+><para
+>BINARY</para
+></listitem>
+<listitem
+><para
+>BIT</para
+></listitem>
+<listitem
+><para
+>BOOLEAN</para
+></listitem>
+<listitem
+><para
+>BOTH</para
+></listitem>
+<listitem
+><para
+>CACHE</para
+></listitem>
+<listitem
+><para
+>CALLED</para
+></listitem>
+<listitem
+><para
+>CAST</para
+></listitem>
+<listitem
+><para
+>CHAIN</para
+></listitem>
+<listitem
+><para
+>CHAR</para
+></listitem>
+<listitem
+><para
+>CHARACTER</para
+></listitem>
+<listitem
+><para
+>CHARACTERISTICS</para
+></listitem>
+<listitem
+><para
+>CHECKPOINT</para
+></listitem>
+<listitem
+><para
+>CLASS</para
+></listitem>
+<listitem
+><para
+>CLOSE</para
+></listitem>
+<listitem
+><para
+>CLUSTER</para
+></listitem>
+<listitem
+><para
+>COALESCE</para
+></listitem>
+<listitem
+><para
+>COLUMN</para
+></listitem>
+<listitem
+><para
+>COMMENT</para
+></listitem>
+<listitem
+><para
+>COMMITTED</para
+></listitem>
+<listitem
+><para
+>CONSTRAINTS</para
+></listitem>
+<listitem
+><para
+>CONVERSION</para
+></listitem>
+<listitem
+><para
+>CONVERT</para
+></listitem>
+<listitem
+><para
+>COPY</para
+></listitem>
+<listitem
+><para
+>CREATEDB</para
+></listitem>
+<listitem
+><para
+>CREATEUSER</para
+></listitem>
+<listitem
+><para
+>CURRENT_DATE</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIME</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>CURRENT_USER</para
+></listitem>
+<listitem
+><para
+>CURSOR</para
+></listitem>
+<listitem
+><para
+>CYCLE</para
+></listitem>
+<listitem
+><para
+>DAY</para
+></listitem>
+<listitem
+><para
+>DEALLOCATE</para
+></listitem>
+<listitem
+><para
+>DEC</para
+></listitem>
+<listitem
+><para
+>DECIMAL</para
+></listitem>
+<listitem
+><para
+>DECLARE</para
+></listitem>
+<listitem
+><para
+>DEFAULTS</para
+></listitem>
+<listitem
+><para
+>DEFERRABLE</para
+></listitem>
+<listitem
+><para
+>DEFERRED</para
+></listitem>
+<listitem
+><para
+>DEFINER</para
+></listitem>
+<listitem
+><para
+>DELIMITER</para
+></listitem>
+<listitem
+><para
+>DELIMITERS</para
+></listitem>
+<listitem
+><para
+>DO</para
+></listitem>
+<listitem
+><para
+>DOMAIN</para
+></listitem>
+<listitem
+><para
+>DOUBLE</para
+></listitem>
+<listitem
+><para
+>EACH</para
+></listitem>
+<listitem
+><para
+>ENCODING</para
+></listitem>
+<listitem
+><para
+>ENCRYPTED</para
+></listitem>
+<listitem
+><para
+>ESCAPE</para
+></listitem>
+<listitem
+><para
+>EXCEPT</para
+></listitem>
+<listitem
+><para
+>EXCLUDING</para
+></listitem>
+<listitem
+><para
+>EXCLUSIVE</para
+></listitem>
+<listitem
+><para
+>EXECUTE</para
+></listitem>
+<listitem
+><para
+>EXISTS</para
+></listitem>
+<listitem
+><para
+>EXTERNAL</para
+></listitem>
+<listitem
+><para
+>EXTRACT</para
+></listitem>
+<listitem
+><para
+>FALSE</para
+></listitem>
+<listitem
+><para
+>FETCH</para
+></listitem>
+<listitem
+><para
+>FIRST</para
+></listitem>
+<listitem
+><para
+>FLOAT</para
+></listitem>
+<listitem
+><para
+>FORCE</para
+></listitem>
+<listitem
+><para
+>FORWARD</para
+></listitem>
+<listitem
+><para
+>FREEZE</para
+></listitem>
+<listitem
+><para
+>FUNCTION</para
+></listitem>
+<listitem
+><para
+>GLOBAL</para
+></listitem>
+<listitem
+><para
+>GRANT</para
+></listitem>
+<listitem
+><para
+>HANDLER</para
+></listitem>
+<listitem
+><para
+>HOLD</para
+></listitem>
+<listitem
+><para
+>HOUR</para
+></listitem>
+<listitem
+><para
+>ILIKE</para
+></listitem>
+<listitem
+><para
+>IMMEDIATE</para
+></listitem>
+<listitem
+><para
+>IMMUTABLE</para
+></listitem>
+<listitem
+><para
+>IMPLICIT</para
+></listitem>
+<listitem
+><para
+>INCLUDING</para
+></listitem>
+<listitem
+><para
+>INCREMENT</para
+></listitem>
+<listitem
+><para
+>INHERITS</para
+></listitem>
+<listitem
+><para
+>INITIALLY</para
+></listitem>
+<listitem
+><para
+>INOUT</para
+></listitem>
+<listitem
+><para
+>INPUT</para
+></listitem>
+<listitem
+><para
+>INSENSITIVE</para
+></listitem>
+<listitem
+><para
+>INSTEAD</para
+></listitem>
+<listitem
+><para
+>INT</para
+></listitem>
+<listitem
+><para
+>INTERSECT</para
+></listitem>
+<listitem
+><para
+>INTERVAL</para
+></listitem>
+<listitem
+><para
+>INVOKER</para
+></listitem>
+<listitem
+><para
+>ISNULL</para
+></listitem>
+<listitem
+><para
+>ISOLATION</para
+></listitem>
+<listitem
+><para
+>LANCOMPILER</para
+></listitem>
+<listitem
+><para
+>LANGUAGE</para
+></listitem>
+<listitem
+><para
+>LAST</para
+></listitem>
+<listitem
+><para
+>LEADING</para
+></listitem>
+<listitem
+><para
+>LEVEL</para
+></listitem>
+<listitem
+><para
+>LISTEN</para
+></listitem>
+<listitem
+><para
+>LOAD</para
+></listitem>
+<listitem
+><para
+>LOCAL</para
+></listitem>
+<listitem
+><para
+>LOCALTIME</para
+></listitem>
+<listitem
+><para
+>LOCALTIMESTAMP</para
+></listitem>
+<listitem
+><para
+>LOCATION</para
+></listitem>
+<listitem
+><para
+>LOCK</para
+></listitem>
+<listitem
+><para
+>MAXVALUE</para
+></listitem>
+<listitem
+><para
+>MINUTE</para
+></listitem>
+<listitem
+><para
+>MINVALUE</para
+></listitem>
+<listitem
+><para
+>MODE</para
+></listitem>
+<listitem
+><para
+>MONTH</para
+></listitem>
+<listitem
+><para
+>MOVE</para
+></listitem>
+<listitem
+><para
+>NAMES</para
+></listitem>
+<listitem
+><para
+>NATIONAL</para
+></listitem>
+<listitem
+><para
+>NCHAR</para
+></listitem>
+<listitem
+><para
+>NEW</para
+></listitem>
+<listitem
+><para
+>NEXT</para
+></listitem>
+<listitem
+><para
+>NO</para
+></listitem>
+<listitem
+><para
+>NOCREATEDB</para
+></listitem>
+<listitem
+><para
+>NOCREATEUSER</para
+></listitem>
+<listitem
+><para
+>NONE</para
+></listitem>
+<listitem
+><para
+>NOTHING</para
+></listitem>
+<listitem
+><para
+>NOTIFY</para
+></listitem>
+<listitem
+><para
+>NOTNULL</para
+></listitem>
+<listitem
+><para
+>NULLIF</para
+></listitem>
+<listitem
+><para
+>NUMERIC</para
+></listitem>
+<listitem
+><para
+>OF</para
+></listitem>
+<listitem
+><para
+>OFF</para
+></listitem>
+<listitem
+><para
+>OIDS</para
+></listitem>
+<listitem
+><para
+>OLD</para
+></listitem>
+<listitem
+><para
+>ONLY</para
+></listitem>
+<listitem
+><para
+>OPERATOR</para
+></listitem>
+<listitem
+><para
+>OPTION</para
+></listitem>
+<listitem
+><para
+>OUT</para
+></listitem>
+<listitem
+><para
+>OVERLAPS</para
+></listitem>
+<listitem
+><para
+>OVERLAY</para
+></listitem>
+<listitem
+><para
+>OWNER</para
+></listitem>
+<listitem
+><para
+>PARTIAL</para
+></listitem>
+<listitem
+><para
+>PASSWORD</para
+></listitem>
+<listitem
+><para
+>PATH</para
+></listitem>
+<listitem
+><para
+>PENDANT</para
+></listitem>
+<listitem
+><para
+>PLACING</para
+></listitem>
+<listitem
+><para
+>POSITION</para
+></listitem>
+<listitem
+><para
+>PRECISION</para
+></listitem>
+<listitem
+><para
+>PREPARE</para
+></listitem>
+<listitem
+><para
+>PRESERVE</para
+></listitem>
+<listitem
+><para
+>PRIOR</para
+></listitem>
+<listitem
+><para
+>PRIVILEGES</para
+></listitem>
+<listitem
+><para
+>PROCEDURAL</para
+></listitem>
+<listitem
+><para
+>PROCEDURE</para
+></listitem>
+<listitem
+><para
+>READ</para
+></listitem>
+<listitem
+><para
+>REAL</para
+></listitem>
+<listitem
+><para
+>RECHECK</para
+></listitem>
+<listitem
+><para
+>REINDEX</para
+></listitem>
+<listitem
+><para
+>RELATIVE</para
+></listitem>
+<listitem
+><para
+>RENAME</para
+></listitem>
+<listitem
+><para
+>RESET</para
+></listitem>
+<listitem
+><para
+>RESTART</para
+></listitem>
+<listitem
+><para
+>RETURNS</para
+></listitem>
+<listitem
+><para
+>REVOKE</para
+></listitem>
+<listitem
+><para
+>ROWS</para
+></listitem>
+<listitem
+><para
+>RULE</para
+></listitem>
+<listitem
+><para
+>SCHEMA</para
+></listitem>
+<listitem
+><para
+>SCROLL</para
+></listitem>
+<listitem
+><para
+>SECOND</para
+></listitem>
+<listitem
+><para
+>SECURITY</para
+></listitem>
+<listitem
+><para
+>SEQUENCE</para
+></listitem>
+<listitem
+><para
+>SERIALIZABLE</para
+></listitem>
+<listitem
+><para
+>SESSION</para
+></listitem>
+<listitem
+><para
+>SESSION_USER</para
+></listitem>
+<listitem
+><para
+>SETOF</para
+></listitem>
+<listitem
+><para
+>SHARE</para
+></listitem>
+<listitem
+><para
+>SHOW</para
+></listitem>
+<listitem
+><para
+>SIMPLE</para
+></listitem>
+<listitem
+><para
+>SMALLINT</para
+></listitem>
+<listitem
+><para
+>SOME</para
+></listitem>
+<listitem
+><para
+>STABLE</para
+></listitem>
+<listitem
+><para
+>START</para
+></listitem>
+<listitem
+><para
+>STATEMENT</para
+></listitem>
+<listitem
+><para
+>STATISTICS</para
+></listitem>
+<listitem
+><para
+>STDIN</para
+></listitem>
+<listitem
+><para
+>STDOUT</para
+></listitem>
+<listitem
+><para
+>STORAGE</para
+></listitem>
+<listitem
+><para
+>STRICT</para
+></listitem>
+<listitem
+><para
+>SUBSTRING</para
+></listitem>
+<listitem
+><para
+>SYSID</para
+></listitem>
+<listitem
+><para
+>TEMP</para
+></listitem>
+<listitem
+><para
+>TEMPLATE</para
+></listitem>
+<listitem
+><para
+>TIME</para
+></listitem>
+<listitem
+><para
+>TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>TOAST</para
+></listitem>
+<listitem
+><para
+>TRAILING</para
+></listitem>
+<listitem
+><para
+>TREAT</para
+></listitem>
+<listitem
+><para
+>TRIGGER</para
+></listitem>
+<listitem
+><para
+>TRIM</para
+></listitem>
+<listitem
+><para
+>TRUE</para
+></listitem>
+<listitem
+><para
+>TRUNCATE</para
+></listitem>
+<listitem
+><para
+>TRUSTED</para
+></listitem>
+<listitem
+><para
+>TYPE</para
+></listitem>
+<listitem
+><para
+>UNENCRYPTED</para
+></listitem>
+<listitem
+><para
+>UNKNOWN</para
+></listitem>
+<listitem
+><para
+>UNLISTEN</para
+></listitem>
+<listitem
+><para
+>UNTIL</para
+></listitem>
+<listitem
+><para
+>USAGE</para
+></listitem>
+<listitem
+><para
+>USER</para
+></listitem>
+<listitem
+><para
+>VACUUM</para
+></listitem>
+<listitem
+><para
+>VALID</para
+></listitem>
+<listitem
+><para
+>VALIDATOR</para
+></listitem>
+<listitem
+><para
+>VARCHAR</para
+></listitem>
+<listitem
+><para
+>VARYING</para
+></listitem>
+<listitem
+><para
+>VERBOSE</para
+></listitem>
+<listitem
+><para
+>VERSION</para
+></listitem>
+<listitem
+><para
+>VIEW</para
+></listitem>
+<listitem
+><para
+>VOLATILE</para
+></listitem>
+<listitem
+><para
+>WITH</para
+></listitem>
+<listitem
+><para
+>WITHOUT</para
+></listitem>
+<listitem
+><para
+>WORK</para
+></listitem>
+<listitem
+><para
+>WRITE</para
+></listitem>
+<listitem
+><para
+>YEAR</para
+></listitem>
+<listitem
+><para
+>ZONE</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-oracle-driver-reserved-words"
+><title
+>Зарезервированные слова драйвера Oracle для Kexi</title
+> 
+<para
+>Ключевые слова, зарезервированные драйвером Oracle для Kexi: </para>
+<itemizedlist>
+<listitem
+><para
+>ADMIN</para
+></listitem>
+<listitem
+><para
+>AFTER</para
+></listitem>
+<listitem
+><para
+>ALLOCATE</para
+></listitem>
+<listitem
+><para
+>ANALYZE</para
+></listitem>
+<listitem
+><para
+>ARCHIVE</para
+></listitem>
+<listitem
+><para
+>ARCHIVELOG</para
+></listitem>
+<listitem
+><para
+>AUTHORIZATION</para
+></listitem>
+<listitem
+><para
+>AVG</para
+></listitem>
+<listitem
+><para
+>BACKUP</para
+></listitem>
+<listitem
+><para
+>BECOME</para
+></listitem>
+<listitem
+><para
+>BEFORE</para
+></listitem>
+<listitem
+><para
+>BEGIN</para
+></listitem>
+<listitem
+><para
+>BLOCK</para
+></listitem>
+<listitem
+><para
+>BODY</para
+></listitem>
+<listitem
+><para
+>CACHE</para
+></listitem>
+<listitem
+><para
+>CANCEL</para
+></listitem>
+<listitem
+><para
+>CASCADE</para
+></listitem>
+<listitem
+><para
+>CHANGE</para
+></listitem>
+<listitem
+><para
+>CHARACTER</para
+></listitem>
+<listitem
+><para
+>CHECKPOINT</para
+></listitem>
+<listitem
+><para
+>CLOSE</para
+></listitem>
+<listitem
+><para
+>COBOL</para
+></listitem>
+<listitem
+><para
+>COMMIT</para
+></listitem>
+<listitem
+><para
+>COMPILE</para
+></listitem>
+<listitem
+><para
+>CONSTRAINT</para
+></listitem>
+<listitem
+><para
+>CONSTRAINTS</para
+></listitem>
+<listitem
+><para
+>CONTENTS</para
+></listitem>
+<listitem
+><para
+>CONTINUE</para
+></listitem>
+<listitem
+><para
+>CONTROLFILE</para
+></listitem>
+<listitem
+><para
+>COUNT</para
+></listitem>
+<listitem
+><para
+>CURSOR</para
+></listitem>
+<listitem
+><para
+>CYCLE</para
+></listitem>
+<listitem
+><para
+>DATABASE</para
+></listitem>
+<listitem
+><para
+>DATAFILE</para
+></listitem>
+<listitem
+><para
+>DATE</para
+></listitem>
+<listitem
+><para
+>DBA</para
+></listitem>
+<listitem
+><para
+>DEC</para
+></listitem>
+<listitem
+><para
+>DECLARE</para
+></listitem>
+<listitem
+><para
+>DISABLE</para
+></listitem>
+<listitem
+><para
+>DISMOUNT</para
+></listitem>
+<listitem
+><para
+>DOUBLE</para
+></listitem>
+<listitem
+><para
+>DUMP</para
+></listitem>
+<listitem
+><para
+>EACH</para
+></listitem>
+<listitem
+><para
+>ENABLE</para
+></listitem>
+<listitem
+><para
+>END</para
+></listitem>
+<listitem
+><para
+>ESCAPE</para
+></listitem>
+<listitem
+><para
+>EVENTS</para
+></listitem>
+<listitem
+><para
+>EXCEPT</para
+></listitem>
+<listitem
+><para
+>EXCEPTIONS</para
+></listitem>
+<listitem
+><para
+>EXEC</para
+></listitem>
+<listitem
+><para
+>EXECUTE</para
+></listitem>
+<listitem
+><para
+>EXPLAIN</para
+></listitem>
+<listitem
+><para
+>EXTENT</para
+></listitem>
+<listitem
+><para
+>EXTERNALLY</para
+></listitem>
+<listitem
+><para
+>FETCH</para
+></listitem>
+<listitem
+><para
+>FLUSH</para
+></listitem>
+<listitem
+><para
+>FORCE</para
+></listitem>
+<listitem
+><para
+>FOREIGN</para
+></listitem>
+<listitem
+><para
+>FORTRAN</para
+></listitem>
+<listitem
+><para
+>FOUND</para
+></listitem>
+<listitem
+><para
+>FREELIST</para
+></listitem>
+<listitem
+><para
+>FREELISTS</para
+></listitem>
+<listitem
+><para
+>FUNCTION</para
+></listitem>
+<listitem
+><para
+>GO</para
+></listitem>
+<listitem
+><para
+>GOTO</para
+></listitem>
+<listitem
+><para
+>GROUPS</para
+></listitem>
+<listitem
+><para
+>INCLUDING</para
+></listitem>
+<listitem
+><para
+>INDICATOR</para
+></listitem>
+<listitem
+><para
+>INITRANS</para
+></listitem>
+<listitem
+><para
+>INSTANCE</para
+></listitem>
+<listitem
+><para
+>INT</para
+></listitem>
+<listitem
+><para
+>KEY</para
+></listitem>
+<listitem
+><para
+>LANGUAGE</para
+></listitem>
+<listitem
+><para
+>LAYER</para
+></listitem>
+<listitem
+><para
+>LINK</para
+></listitem>
+<listitem
+><para
+>LISTS</para
+></listitem>
+<listitem
+><para
+>LOGFILE</para
+></listitem>
+<listitem
+><para
+>MANAGE</para
+></listitem>
+<listitem
+><para
+>MANUAL</para
+></listitem>
+<listitem
+><para
+>MAX</para
+></listitem>
+<listitem
+><para
+>MAXDATAFILES</para
+></listitem>
+<listitem
+><para
+>MAXINSTANCES</para
+></listitem>
+<listitem
+><para
+>MAXLOGFILES</para
+></listitem>
+<listitem
+><para
+>MAXLOGHISTORY</para
+></listitem>
+<listitem
+><para
+>MAXLOGMEMBERS</para
+></listitem>
+<listitem
+><para
+>MAXTRANS</para
+></listitem>
+<listitem
+><para
+>MAXVALUE</para
+></listitem>
+<listitem
+><para
+>MIN</para
+></listitem>
+<listitem
+><para
+>MINEXTENTS</para
+></listitem>
+<listitem
+><para
+>MINVALUE</para
+></listitem>
+<listitem
+><para
+>MODULE</para
+></listitem>
+<listitem
+><para
+>MOUNT</para
+></listitem>
+<listitem
+><para
+>NEW</para
+></listitem>
+<listitem
+><para
+>NEXT</para
+></listitem>
+<listitem
+><para
+>NOARCHIVELOG</para
+></listitem>
+<listitem
+><para
+>NOCACHE</para
+></listitem>
+<listitem
+><para
+>NOCYCLE</para
+></listitem>
+<listitem
+><para
+>NOMAXVALUE</para
+></listitem>
+<listitem
+><para
+>NOMINVALUE</para
+></listitem>
+<listitem
+><para
+>NONE</para
+></listitem>
+<listitem
+><para
+>NOORDER</para
+></listitem>
+<listitem
+><para
+>NORESETLOGS</para
+></listitem>
+<listitem
+><para
+>NORMAL</para
+></listitem>
+<listitem
+><para
+>NOSORT</para
+></listitem>
+<listitem
+><para
+>NUMERIC</para
+></listitem>
+<listitem
+><para
+>OFF</para
+></listitem>
+<listitem
+><para
+>OLD</para
+></listitem>
+<listitem
+><para
+>ONLY</para
+></listitem>
+<listitem
+><para
+>OPEN</para
+></listitem>
+<listitem
+><para
+>OPTIMAL</para
+></listitem>
+<listitem
+><para
+>OWN</para
+></listitem>
+<listitem
+><para
+>PACKAGE</para
+></listitem>
+<listitem
+><para
+>PARALLEL</para
+></listitem>
+<listitem
+><para
+>PCTINCREASE</para
+></listitem>
+<listitem
+><para
+>PCTUSED</para
+></listitem>
+<listitem
+><para
+>PLAN</para
+></listitem>
+<listitem
+><para
+>PLI</para
+></listitem>
+<listitem
+><para
+>PRECISION</para
+></listitem>
+<listitem
+><para
+>PRIMARY</para
+></listitem>
+<listitem
+><para
+>PRIVATE</para
+></listitem>
+<listitem
+><para
+>PROCEDURE</para
+></listitem>
+<listitem
+><para
+>PROFILE</para
+></listitem>
+<listitem
+><para
+>QUOTA</para
+></listitem>
+<listitem
+><para
+>READ</para
+></listitem>
+<listitem
+><para
+>REAL</para
+></listitem>
+<listitem
+><para
+>RECOVER</para
+></listitem>
+<listitem
+><para
+>REFERENCES</para
+></listitem>
+<listitem
+><para
+>REFERENCING</para
+></listitem>
+<listitem
+><para
+>RESETLOGS</para
+></listitem>
+<listitem
+><para
+>RESTRICTED</para
+></listitem>
+<listitem
+><para
+>REUSE</para
+></listitem>
+<listitem
+><para
+>ROLE</para
+></listitem>
+<listitem
+><para
+>ROLES</para
+></listitem>
+<listitem
+><para
+>ROLLBACK</para
+></listitem>
+<listitem
+><para
+>SAVEPOINT</para
+></listitem>
+<listitem
+><para
+>SCHEMA</para
+></listitem>
+<listitem
+><para
+>SCN</para
+></listitem>
+<listitem
+><para
+>SECTION</para
+></listitem>
+<listitem
+><para
+>SEGMENT</para
+></listitem>
+<listitem
+><para
+>SEQUENCE</para
+></listitem>
+<listitem
+><para
+>SHARED</para
+></listitem>
+<listitem
+><para
+>SNAPSHOT</para
+></listitem>
+<listitem
+><para
+>SOME</para
+></listitem>
+<listitem
+><para
+>SORT</para
+></listitem>
+<listitem
+><para
+>SQL</para
+></listitem>
+<listitem
+><para
+>SQLCODE</para
+></listitem>
+<listitem
+><para
+>SQLERROR</para
+></listitem>
+<listitem
+><para
+>SQLSTATE</para
+></listitem>
+<listitem
+><para
+>STATEMENT_ID</para
+></listitem>
+<listitem
+><para
+>STATISTICS</para
+></listitem>
+<listitem
+><para
+>STOP</para
+></listitem>
+<listitem
+><para
+>STORAGE</para
+></listitem>
+<listitem
+><para
+>SUM</para
+></listitem>
+<listitem
+><para
+>SWITCH</para
+></listitem>
+<listitem
+><para
+>SYSTEM</para
+></listitem>
+<listitem
+><para
+>TABLES</para
+></listitem>
+<listitem
+><para
+>TABLESPACE</para
+></listitem>
+<listitem
+><para
+>TEMPORARY</para
+></listitem>
+<listitem
+><para
+>THREAD</para
+></listitem>
+<listitem
+><para
+>TIME</para
+></listitem>
+<listitem
+><para
+>TRACING</para
+></listitem>
+<listitem
+><para
+>TRANSACTION</para
+></listitem>
+<listitem
+><para
+>TRIGGERS</para
+></listitem>
+<listitem
+><para
+>TRUNCATE</para
+></listitem>
+<listitem
+><para
+>UNDER</para
+></listitem>
+<listitem
+><para
+>UNLIMITED</para
+></listitem>
+<listitem
+><para
+>UNTIL</para
+></listitem>
+<listitem
+><para
+>USE</para
+></listitem>
+<listitem
+><para
+>USING</para
+></listitem>
+<listitem
+><para
+>WHEN</para
+></listitem>
+<listitem
+><para
+>WORK</para
+></listitem>
+<listitem
+><para
+>WRITE</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-sybase-driver-reserved-words"
+><title
+>Зарезервированные слова драйвера Sybase для Kexi</title
+> 
+<para
+>Ключевые слова, зарезервированные драйвером Sybase для Kexi: </para>
+<itemizedlist>
+<listitem
+><para
+>ACTION</para
+></listitem>
+<listitem
+><para
+>ADD</para
+></listitem>
+<listitem
+><para
+>AGAINST</para
+></listitem>
+<listitem
+><para
+>AGGREGATE</para
+></listitem>
+<listitem
+><para
+>ALTER</para
+></listitem>
+<listitem
+><para
+>ANALYZE</para
+></listitem>
+<listitem
+><para
+>ANY</para
+></listitem>
+<listitem
+><para
+>ASCII</para
+></listitem>
+<listitem
+><para
+>AUTOINCREMENT</para
+></listitem>
+<listitem
+><para
+>AVG</para
+></listitem>
+<listitem
+><para
+>AVG_ROW_LENGTH</para
+></listitem>
+<listitem
+><para
+>BACKUP</para
+></listitem>
+<listitem
+><para
+>BDB</para
+></listitem>
+<listitem
+><para
+>BERKELEYDB</para
+></listitem>
+<listitem
+><para
+>BIGINT</para
+></listitem>
+<listitem
+><para
+>BINARY</para
+></listitem>
+<listitem
+><para
+>BINLOG</para
+></listitem>
+<listitem
+><para
+>BIT</para
+></listitem>
+<listitem
+><para
+>BLOB</para
+></listitem>
+<listitem
+><para
+>BOOL</para
+></listitem>
+<listitem
+><para
+>BOOLEAN</para
+></listitem>
+<listitem
+><para
+>BOTH</para
+></listitem>
+<listitem
+><para
+>BTREE</para
+></listitem>
+<listitem
+><para
+>BYTE</para
+></listitem>
+<listitem
+><para
+>CACHE</para
+></listitem>
+<listitem
+><para
+>CHANGE</para
+></listitem>
+<listitem
+><para
+>CHANGED</para
+></listitem>
+<listitem
+><para
+>CHAR</para
+></listitem>
+<listitem
+><para
+>CHARACTER</para
+></listitem>
+<listitem
+><para
+>CHARSET</para
+></listitem>
+<listitem
+><para
+>CHECKSUM</para
+></listitem>
+<listitem
+><para
+>CIPHER</para
+></listitem>
+<listitem
+><para
+>CLIENT</para
+></listitem>
+<listitem
+><para
+>CLOSE</para
+></listitem>
+<listitem
+><para
+>COLLATION</para
+></listitem>
+<listitem
+><para
+>COLUMN</para
+></listitem>
+<listitem
+><para
+>COLUMNS</para
+></listitem>
+<listitem
+><para
+>COMMENT</para
+></listitem>
+<listitem
+><para
+>COMMITTED</para
+></listitem>
+<listitem
+><para
+>COMPRESSED</para
+></listitem>
+<listitem
+><para
+>CONCURRENT</para
+></listitem>
+<listitem
+><para
+>CONVERT</para
+></listitem>
+<listitem
+><para
+>CUBE</para
+></listitem>
+<listitem
+><para
+>CURRENT_DATE</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIME</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>CURRENT_USER</para
+></listitem>
+<listitem
+><para
+>DATA</para
+></listitem>
+<listitem
+><para
+>DATABASES</para
+></listitem>
+<listitem
+><para
+>DATE</para
+></listitem>
+<listitem
+><para
+>DATETIME</para
+></listitem>
+<listitem
+><para
+>DAY</para
+></listitem>
+<listitem
+><para
+>DAY_HOUR</para
+></listitem>
+<listitem
+><para
+>DAY_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>DAY_MINUTE</para
+></listitem>
+<listitem
+><para
+>DAY_SECOND</para
+></listitem>
+<listitem
+><para
+>DEALLOCATE</para
+></listitem>
+<listitem
+><para
+>DEC</para
+></listitem>
+<listitem
+><para
+>DECIMAL</para
+></listitem>
+<listitem
+><para
+>DELAYED</para
+></listitem>
+<listitem
+><para
+>DELAY_KEY_WRITE</para
+></listitem>
+<listitem
+><para
+>DESCRIBE</para
+></listitem>
+<listitem
+><para
+>DES_KEY_FILE</para
+></listitem>
+<listitem
+><para
+>DIRECTORY</para
+></listitem>
+<listitem
+><para
+>DISABLE</para
+></listitem>
+<listitem
+><para
+>DISCARD</para
+></listitem>
+<listitem
+><para
+>DISTINCTROW</para
+></listitem>
+<listitem
+><para
+>DIV</para
+></listitem>
+<listitem
+><para
+>DO</para
+></listitem>
+<listitem
+><para
+>DOUBLE</para
+></listitem>
+<listitem
+><para
+>DUAL</para
+></listitem>
+<listitem
+><para
+>DUMPFILE</para
+></listitem>
+<listitem
+><para
+>DUPLICATE</para
+></listitem>
+<listitem
+><para
+>DYNAMIC</para
+></listitem>
+<listitem
+><para
+>ENABLE</para
+></listitem>
+<listitem
+><para
+>ENCLOSED</para
+></listitem>
+<listitem
+><para
+>ENGINE</para
+></listitem>
+<listitem
+><para
+>ENGINES</para
+></listitem>
+<listitem
+><para
+>ENUM</para
+></listitem>
+<listitem
+><para
+>ERRORS</para
+></listitem>
+<listitem
+><para
+>ESCAPE</para
+></listitem>
+<listitem
+><para
+>ESCAPED</para
+></listitem>
+<listitem
+><para
+>EVENTS</para
+></listitem>
+<listitem
+><para
+>EXECUTE</para
+></listitem>
+<listitem
+><para
+>EXISTS</para
+></listitem>
+<listitem
+><para
+>EXPANSION</para
+></listitem>
+<listitem
+><para
+>EXTENDED</para
+></listitem>
+<listitem
+><para
+>FALSE</para
+></listitem>
+<listitem
+><para
+>FAST</para
+></listitem>
+<listitem
+><para
+>FIELDS</para
+></listitem>
+<listitem
+><para
+>FILE</para
+></listitem>
+<listitem
+><para
+>FIRST</para
+></listitem>
+<listitem
+><para
+>FIXED</para
+></listitem>
+<listitem
+><para
+>FLOAT</para
+></listitem>
+<listitem
+><para
+>FLOAT4</para
+></listitem>
+<listitem
+><para
+>FLOAT8</para
+></listitem>
+<listitem
+><para
+>FLUSH</para
+></listitem>
+<listitem
+><para
+>FORCE</para
+></listitem>
+<listitem
+><para
+>FULLTEXT</para
+></listitem>
+<listitem
+><para
+>FUNCTION</para
+></listitem>
+<listitem
+><para
+>GEOMETRY</para
+></listitem>
+<listitem
+><para
+>GEOMETRYCOLLECTION</para
+></listitem>
+<listitem
+><para
+>GET_FORMAT</para
+></listitem>
+<listitem
+><para
+>GLOBAL</para
+></listitem>
+<listitem
+><para
+>GRANT</para
+></listitem>
+<listitem
+><para
+>GRANTS</para
+></listitem>
+<listitem
+><para
+>HANDLER</para
+></listitem>
+<listitem
+><para
+>HASH</para
+></listitem>
+<listitem
+><para
+>HELP</para
+></listitem>
+<listitem
+><para
+>HIGH_PRIORITY</para
+></listitem>
+<listitem
+><para
+>HOSTS</para
+></listitem>
+<listitem
+><para
+>HOUR</para
+></listitem>
+<listitem
+><para
+>HOUR_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>HOUR_MINUTE</para
+></listitem>
+<listitem
+><para
+>HOUR_SECOND</para
+></listitem>
+<listitem
+><para
+>IDENTIFIED</para
+></listitem>
+<listitem
+><para
+>IF</para
+></listitem>
+<listitem
+><para
+>IMPORT</para
+></listitem>
+<listitem
+><para
+>INDEXES</para
+></listitem>
+<listitem
+><para
+>INFILE</para
+></listitem>
+<listitem
+><para
+>INNOBASE</para
+></listitem>
+<listitem
+><para
+>INNODB</para
+></listitem>
+<listitem
+><para
+>INSERT_METHOD</para
+></listitem>
+<listitem
+><para
+>INT</para
+></listitem>
+<listitem
+><para
+>INT1</para
+></listitem>
+<listitem
+><para
+>INT2</para
+></listitem>
+<listitem
+><para
+>INT3</para
+></listitem>
+<listitem
+><para
+>INT4</para
+></listitem>
+<listitem
+><para
+>INT8</para
+></listitem>
+<listitem
+><para
+>INTERVAL</para
+></listitem>
+<listitem
+><para
+>IO_THREAD</para
+></listitem>
+<listitem
+><para
+>ISOLATION</para
+></listitem>
+<listitem
+><para
+>ISSUER</para
+></listitem>
+<listitem
+><para
+>KEYS</para
+></listitem>
+<listitem
+><para
+>KILL</para
+></listitem>
+<listitem
+><para
+>LAST</para
+></listitem>
+<listitem
+><para
+>LEADING</para
+></listitem>
+<listitem
+><para
+>LEAVES</para
+></listitem>
+<listitem
+><para
+>LEVEL</para
+></listitem>
+<listitem
+><para
+>LINES</para
+></listitem>
+<listitem
+><para
+>LINESTRING</para
+></listitem>
+<listitem
+><para
+>LOAD</para
+></listitem>
+<listitem
+><para
+>LOCAL</para
+></listitem>
+<listitem
+><para
+>LOCALTIME</para
+></listitem>
+<listitem
+><para
+>LOCALTIMESTAMP</para
+></listitem>
+<listitem
+><para
+>LOCK</para
+></listitem>
+<listitem
+><para
+>LOCKS</para
+></listitem>
+<listitem
+><para
+>LOGS</para
+></listitem>
+<listitem
+><para
+>LONG</para
+></listitem>
+<listitem
+><para
+>LONGBLOB</para
+></listitem>
+<listitem
+><para
+>LONGTEXT</para
+></listitem>
+<listitem
+><para
+>LOW_PRIORITY</para
+></listitem>
+<listitem
+><para
+>MASTER</para
+></listitem>
+<listitem
+><para
+>MASTER_CONNECT_RETRY</para
+></listitem>
+<listitem
+><para
+>MASTER_HOST</para
+></listitem>
+<listitem
+><para
+>MASTER_LOG_FILE</para
+></listitem>
+<listitem
+><para
+>MASTER_LOG_POS</para
+></listitem>
+<listitem
+><para
+>MASTER_PASSWORD</para
+></listitem>
+<listitem
+><para
+>MASTER_PORT</para
+></listitem>
+<listitem
+><para
+>MASTER_SERVER_ID</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CA</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CAPATH</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CERT</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CIPHER</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_KEY</para
+></listitem>
+<listitem
+><para
+>MASTER_USER</para
+></listitem>
+<listitem
+><para
+>MAX_CONNECTIONS_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MAX_QUERIES_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MAX_ROWS</para
+></listitem>
+<listitem
+><para
+>MAX_UPDATES_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MEDIUM</para
+></listitem>
+<listitem
+><para
+>MEDIUMBLOB</para
+></listitem>
+<listitem
+><para
+>MEDIUMINT</para
+></listitem>
+<listitem
+><para
+>MEDIUMTEXT</para
+></listitem>
+<listitem
+><para
+>MICROSECOND</para
+></listitem>
+<listitem
+><para
+>MIDDLEINT</para
+></listitem>
+<listitem
+><para
+>MINUTE</para
+></listitem>
+<listitem
+><para
+>MINUTE_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>MINUTE_SECOND</para
+></listitem>
+<listitem
+><para
+>MIN_ROWS</para
+></listitem>
+<listitem
+><para
+>MOD</para
+></listitem>
+<listitem
+><para
+>MODE</para
+></listitem>
+<listitem
+><para
+>MODIFY</para
+></listitem>
+<listitem
+><para
+>MONTH</para
+></listitem>
+<listitem
+><para
+>MULTILINESTRING</para
+></listitem>
+<listitem
+><para
+>MULTIPOINT</para
+></listitem>
+<listitem
+><para
+>MULTIPOLYGON</para
+></listitem>
+<listitem
+><para
+>NAMES</para
+></listitem>
+<listitem
+><para
+>NATIONAL</para
+></listitem>
+<listitem
+><para
+>NDB</para
+></listitem>
+<listitem
+><para
+>NDBCLUSTER</para
+></listitem>
+<listitem
+><para
+>NCHAR</para
+></listitem>
+<listitem
+><para
+>NEW</para
+></listitem>
+<listitem
+><para
+>NEXT</para
+></listitem>
+<listitem
+><para
+>NO</para
+></listitem>
+<listitem
+><para
+>NONE</para
+></listitem>
+<listitem
+><para
+>NO_WRITE_TO_BINLOG</para
+></listitem>
+<listitem
+><para
+>NUMERIC</para
+></listitem>
+<listitem
+><para
+>NVARCHAR</para
+></listitem>
+<listitem
+><para
+>OLD_PASSWORD</para
+></listitem>
+<listitem
+><para
+>ONE_SHOT</para
+></listitem>
+<listitem
+><para
+>OPEN</para
+></listitem>
+<listitem
+><para
+>OPTIMIZE</para
+></listitem>
+<listitem
+><para
+>OPTION</para
+></listitem>
+<listitem
+><para
+>OPTIONALLY</para
+></listitem>
+<listitem
+><para
+>OUTFILE</para
+></listitem>
+<listitem
+><para
+>PACK_KEYS</para
+></listitem>
+<listitem
+><para
+>PARTIAL</para
+></listitem>
+<listitem
+><para
+>PASSWORD</para
+></listitem>
+<listitem
+><para
+>POINT</para
+></listitem>
+<listitem
+><para
+>POLYGON</para
+></listitem>
+<listitem
+><para
+>PRECISION</para
+></listitem>
+<listitem
+><para
+>PREPARE</para
+></listitem>
+<listitem
+><para
+>PREV</para
+></listitem>
+<listitem
+><para
+>PRIVILEGES</para
+></listitem>
+<listitem
+><para
+>PROCEDURE</para
+></listitem>
+<listitem
+><para
+>PROCESS</para
+></listitem>
+<listitem
+><para
+>PROCESSLIST</para
+></listitem>
+<listitem
+><para
+>PURGE</para
+></listitem>
+<listitem
+><para
+>QUERY</para
+></listitem>
+<listitem
+><para
+>QUICK</para
+></listitem>
+<listitem
+><para
+>RAID0</para
+></listitem>
+<listitem
+><para
+>RAID_CHUNKS</para
+></listitem>
+<listitem
+><para
+>RAID_CHUNKSIZE</para
+></listitem>
+<listitem
+><para
+>RAID_TYPE</para
+></listitem>
+<listitem
+><para
+>READ</para
+></listitem>
+<listitem
+><para
+>REAL</para
+></listitem>
+<listitem
+><para
+>REGEXP</para
+></listitem>
+<listitem
+><para
+>RELAY_LOG_FILE</para
+></listitem>
+<listitem
+><para
+>RELAY_LOG_POS</para
+></listitem>
+<listitem
+><para
+>RELAY_THREAD</para
+></listitem>
+<listitem
+><para
+>RELOAD</para
+></listitem>
+<listitem
+><para
+>RENAME</para
+></listitem>
+<listitem
+><para
+>REPAIR</para
+></listitem>
+<listitem
+><para
+>REPEATABLE</para
+></listitem>
+<listitem
+><para
+>REPLICATION</para
+></listitem>
+<listitem
+><para
+>REQUIRE</para
+></listitem>
+<listitem
+><para
+>RESET</para
+></listitem>
+<listitem
+><para
+>RESTORE</para
+></listitem>
+<listitem
+><para
+>RETURNS</para
+></listitem>
+<listitem
+><para
+>REVOKE</para
+></listitem>
+<listitem
+><para
+>RLIKE</para
+></listitem>
+<listitem
+><para
+>ROLLUP</para
+></listitem>
+<listitem
+><para
+>ROWS</para
+></listitem>
+<listitem
+><para
+>ROW_FORMAT</para
+></listitem>
+<listitem
+><para
+>RTREE</para
+></listitem>
+<listitem
+><para
+>SAVEPOINT</para
+></listitem>
+<listitem
+><para
+>SECOND</para
+></listitem>
+<listitem
+><para
+>SECOND_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>SEPARATOR</para
+></listitem>
+<listitem
+><para
+>SERIAL</para
+></listitem>
+<listitem
+><para
+>SERIALIZABLE</para
+></listitem>
+<listitem
+><para
+>SESSION</para
+></listitem>
+<listitem
+><para
+>SHARE</para
+></listitem>
+<listitem
+><para
+>SHOW</para
+></listitem>
+<listitem
+><para
+>SHUTDOWN</para
+></listitem>
+<listitem
+><para
+>SIGNED</para
+></listitem>
+<listitem
+><para
+>SIMPLE</para
+></listitem>
+<listitem
+><para
+>SLAVE</para
+></listitem>
+<listitem
+><para
+>SMALLINT</para
+></listitem>
+<listitem
+><para
+>SOME</para
+></listitem>
+<listitem
+><para
+>SONAME</para
+></listitem>
+<listitem
+><para
+>SOUNDS</para
+></listitem>
+<listitem
+><para
+>SPATIAL</para
+></listitem>
+<listitem
+><para
+>SQL_BIG_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_BUFFER_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_CACHE</para
+></listitem>
+<listitem
+><para
+>SQL_CALC_FOUND_ROWS</para
+></listitem>
+<listitem
+><para
+>SQL_NO_CACHE</para
+></listitem>
+<listitem
+><para
+>SQL_SMALL_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_THREAD</para
+></listitem>
+<listitem
+><para
+>SSL</para
+></listitem>
+<listitem
+><para
+>START</para
+></listitem>
+<listitem
+><para
+>STARTING</para
+></listitem>
+<listitem
+><para
+>STATUS</para
+></listitem>
+<listitem
+><para
+>STOP</para
+></listitem>
+<listitem
+><para
+>STORAGE</para
+></listitem>
+<listitem
+><para
+>STRAIGHT_JOIN</para
+></listitem>
+<listitem
+><para
+>STRING</para
+></listitem>
+<listitem
+><para
+>STRIPED</para
+></listitem>
+<listitem
+><para
+>SUBJECT</para
+></listitem>
+<listitem
+><para
+>SUPER</para
+></listitem>
+<listitem
+><para
+>TABLES</para
+></listitem>
+<listitem
+><para
+>TABLESPACE</para
+></listitem>
+<listitem
+><para
+>TERMINATED</para
+></listitem>
+<listitem
+><para
+>TEXT</para
+></listitem>
+<listitem
+><para
+>TIME</para
+></listitem>
+<listitem
+><para
+>TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>TINYBLOB</para
+></listitem>
+<listitem
+><para
+>TINYINT</para
+></listitem>
+<listitem
+><para
+>TINYTEXT</para
+></listitem>
+<listitem
+><para
+>TRAILING</para
+></listitem>
+<listitem
+><para
+>TRUE</para
+></listitem>
+<listitem
+><para
+>TRUNCATE</para
+></listitem>
+<listitem
+><para
+>TYPE</para
+></listitem>
+<listitem
+><para
+>TYPES</para
+></listitem>
+<listitem
+><para
+>UNCOMMITTED</para
+></listitem>
+<listitem
+><para
+>UNICODE</para
+></listitem>
+<listitem
+><para
+>UNLOCK</para
+></listitem>
+<listitem
+><para
+>UNSIGNED</para
+></listitem>
+<listitem
+><para
+>UNTIL</para
+></listitem>
+<listitem
+><para
+>USAGE</para
+></listitem>
+<listitem
+><para
+>USE</para
+></listitem>
+<listitem
+><para
+>USER</para
+></listitem>
+<listitem
+><para
+>USER_RESOURCES</para
+></listitem>
+<listitem
+><para
+>USE_FRM</para
+></listitem>
+<listitem
+><para
+>UTC_DATE</para
+></listitem>
+<listitem
+><para
+>UTC_TIME</para
+></listitem>
+<listitem
+><para
+>UTC_TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>VALUE</para
+></listitem>
+<listitem
+><para
+>VARBINARY</para
+></listitem>
+<listitem
+><para
+>VARCHAR</para
+></listitem>
+<listitem
+><para
+>VARCHARACTER</para
+></listitem>
+<listitem
+><para
+>VARIABLES</para
+></listitem>
+<listitem
+><para
+>VARYING</para
+></listitem>
+<listitem
+><para
+>WARNINGS</para
+></listitem>
+<listitem
+><para
+>WITH</para
+></listitem>
+<listitem
+><para
+>WORK</para
+></listitem>
+<listitem
+><para
+>WRITE</para
+></listitem>
+<listitem
+><para
+>X509</para
+></listitem>
+<listitem
+><para
+>YEAR</para
+></listitem>
+<listitem
+><para
+>YEAR_MONTH</para
+></listitem>
+<listitem
+><para
+>ZEROFILL</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-xbase-driver-reserved-words"
+><title
+>Зарезервированные слова драйвера xBase для Kexi</title
+> 
+<para
+>Ключевые слова, зарезервированные драйвером xBase для Kexi: </para>
+<itemizedlist>
+<listitem
+><para
+>ABORT</para
+></listitem>
+<listitem
+><para
+>ATTACH</para
+></listitem>
+<listitem
+><para
+>CLUSTER</para
+></listitem>
+<listitem
+><para
+>CONFLICT</para
+></listitem>
+<listitem
+><para
+>DEFERRED</para
+></listitem>
+<listitem
+><para
+>DEFERRABLE</para
+></listitem>
+<listitem
+><para
+>DETACH</para
+></listitem>
+<listitem
+><para
+>EACH</para
+></listitem>
+<listitem
+><para
+>EXCEPT</para
+></listitem>
+<listitem
+><para
+>FAIL</para
+></listitem>
+<listitem
+><para
+>GLOB</para
+></listitem>
+<listitem
+><para
+>IMMEDIATE</para
+></listitem>
+<listitem
+><para
+>INITIALLY</para
+></listitem>
+<listitem
+><para
+>INSTEAD</para
+></listitem>
+<listitem
+><para
+>INTERSECT</para
+></listitem>
+<listitem
+><para
+>ISNULL</para
+></listitem>
+<listitem
+><para
+>NOTNULL</para
+></listitem>
+<listitem
+><para
+>OF</para
+></listitem>
+<listitem
+><para
+>PRAGMA</para
+></listitem>
+<listitem
+><para
+>RAISE</para
+></listitem>
+<listitem
+><para
+>STATEMENT</para
+></listitem>
+<listitem
+><para
+>TEMP</para
+></listitem>
+<listitem
+><para
+>TRIGGER</para
+></listitem>
+<listitem
+><para
+>VACUUM</para
+></listitem>
+<listitem
+><para
+>VIEW</para
+></listitem>
+</itemizedlist>
+<para
+><note
+><para
+>Зарезервированные слова приведены отдельно для каждого драйвера, чтобы их можно было использовать и как справочник.</para
+></note>
+</para>
+</sect1>
+</chapter>
+<chapter id="supported-file-formats"
+><title
+>Приложение D. Поддерживаемые форматы файлов</title
+> 
+<sect1 id="comma-separated-values-format-csv"
+><title
+>Формат CSV (значения, разделённые запятыми)</title
+> 
+<para
+>&kexi; умеет импортировать и экспортировать данные в различных вариантах формата значений, разделённых запятыми (файлы CSV). Большинство программ электронных таблиц и баз данных умеют импортировать и экспортировать этот формат, поэтому он удобен для переноса текстовых данных между приложениями. </para>
+<para
+>Кроме того, перед импортом в &kexi; настраивается ряд параметров: </para>
+<itemizedlist>
+<listitem
+><para
+>тип данных каждого столбца;</para
+></listitem>
+<listitem
+><para
+>другие разделители полей, например табуляция;</para
+></listitem>
+<listitem
+><para
+>различные кавычки для текста;</para
+></listitem>
+<listitem
+><para
+>пропуск заданного числа записей;</para
+></listitem>
+<listitem
+><para
+>пропуск повторяющихся разделителей;</para
+></listitem>
+<listitem
+><para
+>использование значений первой строки в качестве имён столбцов;</para
+></listitem>
+<listitem
+><para
+>кодировка текста (по умолчанию UTF-8);</para
+></listitem>
+<listitem
+><para
+>формат даты (по умолчанию — заданный в операционной системе);</para
+></listitem>
+<listitem
+><para
+>удаление начальных и конечных пробелов в текстовых значениях.</para
+></listitem>
+</itemizedlist>
+<para
+>При импорте &kexi; показывает предварительный вид импортируемых данных, а наиболее подходящий набор параметров &kexi; подбирает по файлу CSV сам. </para>
+</sect1>
+<sect1 id="microsoft-access-mdb-file-format"
+><title
+>Формат файлов Microsoft Access (MDB)</title
+> 
+<sect2 id="overview"
+><title
+>Обзор</title
+> 
+<para
+>Поддержка импорта баз данных <guilabel
+>Microsoft Access</guilabel
+> (версии 2003 и старше) встроена в &kexi;. Базы данных <guilabel
+>Access</guilabel
+> возможно только <emphasis
+>импортировать</emphasis
+> в базу данных &kexi;: править такую базу или экспортировать в формат <guilabel
+>Access</guilabel
+> нельзя. Импортироваться должны и базы данных других приложений, использующих движок JET. Импорт баз <filename
+>.accdb</filename
+>, появившихся в MS <guilabel
+>Access</guilabel
+> 2007, сейчас не поддерживается. </para>
+<para
+>Чтобы импортировать базу данных: </para>
+<orderedlist>
+<listitem
+><para
+>В меню &kexi; выберите команду <guilabel
+>Импортировать, экспортировать или отправить…</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Нажмите кнопку <guilabel
+>Импорт базы данных</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Выберите в мастере импорта нужный файл .mdb.</para
+></listitem>
+</orderedlist>
+</sect2>
+<sect2 id="capabilities"
+><title
+>Возможности</title
+> 
+<para
+>С помощью этой функции успешно импортирована хорошо известная пользователям MS <guilabel
+>Access</guilabel
+> база данных <emphasis
+>Northwind</emphasis
+>. Импортируются и многие другие шаблонные базы данных <guilabel
+>Access</guilabel
+>. </para>
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_northwind.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+</sect2>
+<sect2 id="supported-features"
+><title
+>Поддерживаемые возможности</title
+> 
+<para
+>Импорт следующих типов полей проверен и в целом работает хорошо: </para>
+<itemizedlist>
+<listitem
+><para
+>текстовые поля;</para
+></listitem>
+<listitem
+><para
+>поля Memo;</para
+></listitem>
+<listitem
+><para
+>поля дат;</para
+></listitem>
+<listitem
+><para
+>числовые значения.</para
+></listitem>
+</itemizedlist>
+</sect2>
+<sect2 id="unsupported-features"
+><title
+>Неподдерживаемые возможности</title
+> 
+<para
+>Сейчас импортируются только таблицы. При импорте &kexi; пропускает следующие объекты: </para>
+<itemizedlist>
+<listitem
+><para
+>запросы;</para
+></listitem>
+<listitem
+><para
+>формы;</para
+></listitem>
+<listitem
+><para
+>сценарии;</para
+></listitem>
+<listitem
+><para
+>отчёты.</para
+></listitem>
+</itemizedlist>
+<para
+>Не проверялось: </para>
+<itemizedlist>
+<listitem
+><para
+>импортирование двоичных объектов.</para
+></listitem>
+</itemizedlist>
+</sect2>
+</sect1>
+</chapter>
+<chapter id="credits-and-license"
+><title
+>Авторские права и лицензия</title
+> 
+<para
+>&kexi; © Команда Kexi, 2002-2012 </para>
+<para
+>Разработчики Kexi: </para>
+<itemizedlist>
+<listitem
+><para
+>Jaroslaw Staniek (staniek kde.org)</para
+></listitem>
+<listitem
+><para
+>OpenOffice Polska, LLC (info openoffice.com.pl)</para
+></listitem>
+<listitem
+><para
+>Lucijan Busch (lucijan kde.org)</para
+></listitem>
+<listitem
+><para
+>Cedric Pasteur (cedric.pasteur free.fr)</para
+></listitem>
+<listitem
+><para
+>Adam Pigg (adam piggz.fsnet.co.uk)</para
+></listitem>
+<listitem
+><para
+>Martin Ellis (martin.ellis kdemail.net)</para
+></listitem>
+<listitem
+><para
+>Sebastian Sauer (mail dipe.org)</para
+></listitem>
+<listitem
+><para
+>Christian Nitschkowski (segfault_ii web.de)</para
+></listitem>
+<listitem
+><para
+>Peter Simonsson (psn linux.se)</para
+></listitem>
+<listitem
+><para
+>Joseph Wenninger (jowenn kde.org)</para
+></listitem>
+<listitem
+><para
+>Seth Kurzenberg (seth cql.com)</para
+></listitem>
+<listitem
+><para
+>Laurent Montel (montel kde.org)</para
+></listitem>
+<listitem
+><para
+>Till Busch (till bux.at)</para
+></listitem>
+</itemizedlist>
+<para
+>Документация: Martin A. Ellis (martin.ellis kdemail.net), Jaroslaw Staniek (staniek kde.org) при участии Anne-Marie Mahfouf, Raphael Langerhorst, Michal Kubicki и Aron Stansvik. </para>
+<para
+>Эта программа распространяется на условиях <ulink url="http://docs.kde.org/stable/common/lgpl-license.html"
+>Стандартной общественной лицензии ограниченного применения GNU</ulink
+>. </para>
+
+<!--userbase-content-->
+<para
+>Перевод на русский язык: Дмитрий Рязанцев, Александр Яворский <email
+>kekcuha@gmail.com</email
+></para
+> &underFDL; </chapter>
+&documentation.index;
+</book>
