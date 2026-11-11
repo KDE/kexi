@@ -6,13 +6,13 @@
 # Özer Kavak <ozerkavak@gmail.com>, 2008.
 # obsoleteman <tulliana@gmail.com>, 2008-2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014, 2015, 2017.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2026-05-02 18:46+0300\n"
+"PO-Revision-Date: 2026-11-10 21:42+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #: core/kexi.cpp:142
 #, kde-kuit-format
@@ -1746,7 +1746,7 @@ msgstr "Saltokunur"
 #: formeditor/form_p.cpp:289
 #, kde-kuit-format
 msgid "Style Sheet"
-msgstr "Biçem Sayfası"
+msgstr "Stil Sayfası"
 
 #: formeditor/form_p.cpp:290
 #, kde-kuit-format
@@ -1904,7 +1904,7 @@ msgstr "Dikey Çizgi"
 #, kde-kuit-format
 msgctxt "Styled (HINT: for Frame Shape)"
 msgid "Styled"
-msgstr "Biçemlendirilmiş"
+msgstr "Stillendirilmiş"
 
 #: formeditor/form_p.cpp:327
 #, kde-kuit-format
@@ -2332,7 +2332,7 @@ msgid ""
 "para><para><application>Kexi</application> will not start. Please check if "
 "<application>Kexi</application> is properly installed.</para>"
 msgstr ""
-"<para><resource>%1</resource> uygulama biçemi bulunamadı.</"
+"<para><resource>%1</resource> uygulama stili bulunamadı.</"
 "para><para><application>Kexi</application> başlatılmayacak. "
 "<application>Kexi</application> uygulamasının düzgünce kurulu olup "
 "olmadığını denetleyin.</para>"
@@ -5023,12 +5023,12 @@ msgstr "Kılavuza Yapıştır"
 #: plugins/forms/kexiformmanager.cpp:175
 #, kde-kuit-format
 msgid "Style"
-msgstr "Biçem"
+msgstr "Stil"
 
 #: plugins/forms/kexiformmanager.cpp:194
 #, kde-kuit-format
 msgid "Set the current view style."
-msgstr "Geçerli görünüm biçemini ayarla."
+msgstr "Geçerli görünüm stilini ayarla."
 
 #: plugins/forms/kexiformmanager.cpp:203
 #, kde-kuit-format
