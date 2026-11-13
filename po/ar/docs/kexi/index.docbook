@@ -1,0 +1,9434 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Arabic "INCLUDE">
+  <!ENTITY calligra "Calligra">
+  <!ENTITY ged.vertaald           '<othercredit role="translator"
+><firstname
+>Dit document is nog maar gedeeltelijk vertaald.</firstname
+> <surname
+>Wilt u meehelpen, stuur een bericht naar:</surname
+><affiliation
+><address
+> <email
+>kde-i18n-nl@kde.org</email
+></address
+></affiliation
+> <contrib
+>Nieuwe vertaler</contrib
+></othercredit
+>'>
+]>
+<book id="kexi" lang="&language;">
+<bookinfo>
+<title
+>دليل كيس</title>
+<authorgroup>
+<author>
+<personname
+><firstname
+>هذه الوثائق حُوّلت من صفحة دليل مستخدم كيدي <ulink url="http://userbase.kde.org/Kexi/Handbook/Introduction"
+>كيس/Handbook</ulink
+> بتاريخ 2012-09-14.</firstname
+> <surname
+></surname
+> </personname>
+      </author>
+<author>
+<personname
+><firstname
+>حدّثه إلى 2.4 فريق توثيق كيدي</firstname
+> <surname
+></surname
+> </personname>
+ </author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+      </authorgroup>
+<legalnotice
+>&FDLNotice;</legalnotice>
+<date
+>2012-09-14</date>
+      <releaseinfo
+>2.5</releaseinfo>
+<abstract>
+  <para
+>كيس هو تطبيق لإنشاء قواعد البيانات وإدارة البيانات في حزمة الإنتاجية كاليغرا. </para>
+</abstract>
+
+<!-- Keywords -->
+<keywordset>
+  <keyword
+>كيدي</keyword>
+  <keyword
+>كاليغرا</keyword>
+  <keyword
+>كيس</keyword>
+  <keyword
+>قاعدة بيانات</keyword>
+</keywordset>
+</bookinfo>
+<!--userbase <timestamp
+>2012-09-14T07:13:33Z</timestamp
+>-->
+
+<!--userbase-content-->
+<chapter id="introduction"
+><title
+>مقدمة</title
+> 
+<para
+>كيس هو تطبيق لإدارة قواعد البيانات. يمكن استخدامه لإنشاء قواعد البيانات، وإدراج البيانات، وتنفيذ الاستعلامات، ومعالجة البيانات. يمكن إنشاء نماذج لتوفير واجهة مخصصة لبياناتك. جميع كائنات قاعدة البيانات - الجداول والاستعلامات والنماذج - تُخزَّن في قاعدة البيانات، مما يسهل مشاركة البيانات والتصميم. </para>
+<para
+>كيس هو جزء من حزمة الإنتاجية كاليغرا من كيدي. </para>
+<para
+>بالإضافة إلى تخزين قواعد بيانات كيس في ملفات، يمكن لـ كيس أيضًا تخزين بياناتك على خادم قاعدة بيانات. استخدام خادم قاعدة بيانات يسمح لك بمشاركة قاعدة بياناتك مع أشخاص آخرين، ويسمح أيضًا لأكثر من شخص باستخدام قاعدة البيانات في وقت واحد. خوادم قواعد البيانات التالية مدعومة بواسطة كيس: </para>
+<itemizedlist>
+<listitem
+><para
+><ulink url="http://www.mysql.com/"
+>ماي إس كيو إل</ulink
+></para
+></listitem>
+<listitem
+><para
+><ulink url="http://www.postgresql.org/"
+>بوستجري إس كيو إل</ulink
+></para
+></listitem>
+</itemizedlist>
+<para
+>يمكن العثور على مزيد من المعلومات حول كيس على <ulink url="http://www.calligra-suite.org/kexi/"
+>صفحة كيس على موقع Calligra</ulink
+>، وعلى <ulink url="http://www.kexi-project.org/about.html"
+>موقع كيس نفسه</ulink
+>. </para>
+<para
+>إذا كانت لديك أي أسئلة حول كيس، فهناك قائمتان بريديتان يمكنك استخدامهما. يمكن استخدام القائمة البريدية لمستخدمي كيس لطرح أسئلة حول استخدام كيس أو حول مشروع كيس. يمكن استخدام القائمة البريدية لتطوير كيس لطرح أسئلة حول تطوير كيس. يمكن العثور على مزيد من المعلومات حول كيفية الاشتراك في هذه القوائم، بالإضافة إلى بعض الطرق الأخرى للاتصال بمطوري كيس، <ulink url="http://www.kexi-project.org/support.html"
+>هنا</ulink
+>. </para>
+<para
+><note
+><para
+>هذا الدليل لـ كيس 2.5 يُقصد به أن يكون مبنيًا على دليل كيس لـ كيس 1.1. يُرجى تنسيق أي جهد مع Jarosław Staniek، البريد الإلكتروني: kexi at kde.org</para
+></note>
+</para>
+</chapter>
+<chapter id="kexi-basics"
+><title
+>أساسيات كيس</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="kexi-databases"
+>قواعد بيانات كيس</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="creating-a-new-database-file"
+>إنشاء ملف قاعدة بيانات جديد</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-kexi-main-window"
+>النافذة الرئيسة لكيس</link
+>&nbsp;<itemizedlist
+> <listitem
+><para
+><link linkend="main-application-elements"
+>عناصر التطبيق الرئيسة</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+<listitem
+><para
+><link linkend="opening-an-existing-kexi-database-file"
+>فتح ملف قاعدة بيانات كيس موجود</link
+>&nbsp;<itemizedlist>
+<listitem
+><para
+><link linkend="opening-a-database-file-in-the-open-existing-project-dialog"
+>فتح ملف قاعدة بيانات في حوار فتح مشروع موجود</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="opening-an-existing-kexi-database-file-by-clicking-on--kexi-files-icon"
+>فتح ملف قاعدة بيانات كيس موجود بالنقر على أيقونة ملف .kexi</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+<listitem
+><para
+><link linkend="using-built-in-help"
+>استخدام المساعدة المدمجة</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="kexi-databases"
+><title
+>قواعد بيانات كيس</title
+> 
+<para
+>العديد من التطبيقات مثل <trademark class="registered"
+>OpenOffice.org</trademark
+> أو <trademark class="registered"
+>LibreOffice</trademark
+> أو <application
+>&Microsoft; Excel</application
+> تنشئ ملفات تُسمى مستندات. كيس ينشئ ملفات أيضًا، لكننا نشير إليها كملفات قاعدة بيانات كيس، أو ببساطة ملفات قاعدة بيانات هنا. </para>
+<para
+>بالإضافة إلى تخزين قواعد بياناتك في ملفات قاعدة بيانات، يمكن لـ كيس أيضًا استخدام قواعد بيانات على خوادم قواعد بيانات، ولهذا نشير إليها كملفات قاعدة بيانات، وليس ببساطة كقواعد بيانات. </para>
+<para
+>المصطلح مشروع كيس، أو ببساطة مشروع، يُستخدم أيضًا للإشارة إلى قاعدة بيانات كيس، بغض النظر عن تخزينها في ملف أو على خادم قاعدة بيانات. </para>
+<para
+><note
+><para
+>ملفات قاعدة بيانات كيس عادةً ما يكون لها الامتداد <filename
+>.kexi</filename
+></para
+></note>
+</para>
+</sect1>
+<sect1 id="creating-a-new-database-file"
+><title
+>إنشاء ملف قاعدة بيانات جديد</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="newproject.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<orderedlist>
+<listitem
+><para
+>شغّل كيس، أو إذا كان قيد التشغيل بالفعل، استخدم <menuchoice
+><guimenu
+>كيس</guimenu
+><guimenuitem
+>جديد... (Ctrl+N)</guimenuitem
+></menuchoice
+>.</para
+></listitem>
+<listitem
+><para
+>في صفحة <guilabel
+>مشروع جديد</guilabel
+>، تحت قسم <guilabel
+>مشاريع فارغة</guilabel
+>، اختر <guilabel
+>قاعدة بيانات فارغة</guilabel
+>. <screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="projectstorage.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot
+></para
+></listitem>
+<listitem
+><para
+>في صفحة <guilabel
+>طريقة التخزين</guilabel
+>، انقر <guilabel
+>ملف</guilabel
+>. <screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="projectfilename.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot
+></para
+></listitem>
+<listitem
+><para
+>في صفحة <guilabel
+>عنوان المشروع واسم الملف</guilabel
+>، حدد عنوانًا واسم ملف للمشروع.</para
+></listitem>
+<listitem
+><para
+>انقر <guilabel
+>التالي</guilabel
+> لإنشاء المشروع.</para
+></listitem>
+</orderedlist>
+<para
+><note>
+<itemizedlist>
+<listitem
+><para
+>عند تغيير عنوان المشروع، يتغير اسم الملف المقترح تلقائيًا وفقًا لذلك.</para
+></listitem>
+<listitem
+><para
+>يمكنك استخدام متصفح الملفات لاختيار مجلد حيث ترغب في حفظ ملف قاعدة بياناتك.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+</sect1>
+<sect1 id="the-kexi-main-window"
+><title
+>نافذة كيس الرئيسة</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_mainwindow.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>شريط الأدوات المبوب <guilabel
+>في الأعلى</guilabel
+> يتيح الوصول إلى الإجراءات والأوامر الشائعة. </para>
+<para
+>يُعرض <guilabel
+>متصفح المشروع</guilabel
+> و<guilabel
+>محرر الخصائص</guilabel
+> في ألواح على جانبي النافذة الفرعية. يمكن تغيير حجم هذه الألواح أو إخفاؤها حسب الحاجة. يمكن إخفاء اللوح بالنقر على العلامة الصغيرة في أعلى اللوح (أسفل شريط الأدوات مباشرة). </para>
+<para
+>يمكن فتح كائنات قاعدة البيانات (الجداول، الاستعلامات، إلخ…) المدرجة في <guilabel
+>متصفح المشروع</guilabel
+> بالنقر (أو النقر المزدوج، حسب إعدادات كيدي العامة) على أسمائها. </para>
+<sect2 id="main-application-elements"
+><title
+>عناصر التطبيق الرئيسة</title
+> 
+<para
+>العناصر الرئيسة لنافذة تطبيق كيس هي: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>شريط الأدوات المبوب</emphasis
+></term>
+    <listitem>
+    <para
+>يحتوي على الأوامر المتاحة للتطبيق. ستجد وصفًا مفصلًا لأي من الأوامر في <link linkend="command-reference"
+>الملحق</link
+>.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>لوح متصفح المشروع</emphasis
+></term>
+    <listitem>
+    <para
+>يحتوي على قائمة بأي كائن (جداول، استعلامات، نماذج، ...) تم إنشاؤه ضمن مشروع قاعدة البيانات المفتوح حاليًا. يحتوي المتصفح أيضًا على شريط أدوات صغير بأكثر الأوامر استخدامًا المتعلقة بكائنات قاعدة البيانات.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>منطقة كائنات قاعدة البيانات المفتوحة / النوافذ المبوبة</emphasis
+></term>
+    <listitem>
+      <para
+>منطقة مركزية من التطبيق تشغل معظم مساحة الشاشة. تحتوي واجهة المستخدم على ألسنة قابلة للتبديل مع نوافذ دائمًا ما تكون مكبرة.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>لوح محرر الخصائص</emphasis
+></term>
+    <listitem>
+    <para
+>يحتوي على قائمة بخصائص كائن قاعدة البيانات المنشط حاليًا. بالنسبة لكائنات معينة (مثل أدوات النموذج) يمكن أن يحتوي على عدة ألسنة.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect2>
+<sect2 id="tabbed-toolbar"
+><title
+>شريط الأدوات المبوب</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_tabbedtoolbar.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>شريط الأدوات هو المكان الذي يتيح لك الوصول إلى معظم أوامر وإجراءات كيس. </para>
+<para
+>باستخدام الإجراءات الموجودة في الألسنة المختلفة على شريط الأدوات يمكنك: </para>
+<itemizedlist>
+<listitem
+><para
+>إنشاء / فتح / إغلاق مشاريع كيس</para
+></listitem>
+<listitem
+><para
+>إنشاء كائنات قاعدة بيانات</para
+></listitem>
+<listitem
+><para
+>استيراد / تصدير بيانات</para
+></listitem>
+</itemizedlist>
+<para
+>تبعًا للسياق، يمكن أن تظهر ألسنة إضافية: </para>
+<itemizedlist>
+<listitem
+><para
+>اللسان <guilabel
+>تصميم النموذج</guilabel
+> يظهر إذا كان مصمم النماذج قيد الاستخدام فعليًا.</para
+></listitem>
+<listitem
+><para
+>اللسان <guilabel
+>تصميم التقرير</guilabel
+> يظهر إذا كان مصمم التقارير قيد الاستخدام فعليًا.</para
+></listitem>
+</itemizedlist>
+</sect2>
+<sect2 id="project-navigator-pane"
+><title
+>لوح متصفح المشروع</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_projectnavigator.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>لوح <guilabel
+>متصفح المشروع</guilabel
+> هو أحد أكثر عناصر النافذة الرئيسة لـ كيس استخدامًا. يحتوي اللوح على قائمة بجميع الكائنات التي تم إنشاؤها ضمن مشروع قاعدة بيانات كيس المفتوح حاليًا. تُقسم الكائنات إلى مجموعات: جداول، استعلامات، نماذج، تقارير ونصوص برمجية. </para>
+<para
+>يحتوي لوح متصفح المشروع أيضًا على شريط أدوات صغير للأوامر الأكثر استخدامًا (من اليسار إلى اليمين): <guilabel
+>فتح</guilabel
+> الكائن المحدد، <guilabel
+>تصميم</guilabel
+> الكائن المحدد، و<guilabel
+>حذف</guilabel
+> الكائن المحدد. </para>
+<para
+>لكل كائن في القائمة تتوفر قائمة سياق باستخدام زر الفأرة الأيمن. </para>
+<para
+>النقر المزدوج بزر الفأرة الأيسر على اسم الكائن في القائمة يفتح الكائن في <guilabel
+>عرض البيانات</guilabel
+>. إذا كانت نافذة الكائن مفتوحة بالفعل، فإن الإجراء ينشط النافذة فقط دون تبديل وضع عرضها. </para>
+<para
+><note
+><para
+>على الرغم من أن نظام التشغيل أو مدير النوافذ قد يكون مضبوطًا للتعامل مع النقرات المفردة بدلًا من النقرات المزدوجة، فإن كيس يستخدم النقرات المزدوجة في <guilabel
+>متصفح المشروع</guilabel
+> لتجنب فتح مجموعات بيانات كبيرة أو تنفيذ استعلامات عن طريق الخطأ.</para
+></note>
+</para>
+</sect2>
+<sect2 id="opened-database-objects-area---tabbed-windows"
+><title
+>منطقة كائنات قاعدة البيانات المفتوحة / النوافذ المبوبة</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_windowtabs.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>عندما تنقر نقرًا مزدوجًا على كائن في متصفح المشروع، يُفتح في <guilabel
+>منطقة كائنات قاعدة البيانات المفتوحة</guilabel
+>. لكل نافذة لسانها الخاص في كيس. </para>
+<para
+>يمكنك إعادة ترتيب الألسنة بالسحب والإفلات وإغلاقها باستخدام الزر <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-tab-close.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> الموجود في أقصى يمين شريط الألسنة. </para>
+<para
+><note
+><para
+>لاحقًا سيكون هناك خيار لفصل الألسنة، مما يُنشئ شيئًا مشابهًا لواجهة MDI. قد يكون ذلك مفيدًا للحلول المخصصة أو الشاشات المتعددة.</para
+></note>
+</para>
+</sect2>
+<sect2 id="property-editor-pane"
+><title
+>جزء محرر الخصائص</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_propertyeditor.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>في جزء <guilabel
+>محرر الخصائص</guilabel
+> يمكنك تغيير خصائص الكائن المعروض في النافذة النشطة. اعتمادًا على السياق، يتكون الجزء من لسان أو أكثر. اللسان الأول، الظاهر دائمًا، <guilabel
+>خصائص</guilabel
+>، يحتوي على قائمة الخصائص المتاحة. </para>
+<para
+>قواعد استخدام <guilabel
+>محرر الخصائص</guilabel
+>: </para>
+<itemizedlist>
+<listitem
+><para
+>كل صف يحتوي على خاصية واحدة.</para
+></listitem>
+<listitem
+><para
+>يمكنك استخدام الفأرة أو لوحة المفاتيح لتغيير قيم خصائص معينة.</para
+></listitem>
+<listitem
+><para
+>أكثر أنواع قيم الخصائص استخدامًا هي:<itemizedlist>
+<listitem
+><para
+>رقم؛ يمكنك إدخال القيمة مباشرة أو زيادتها أو تقليلها بالنقر بزر الفأرة الأيسر على الأسهم.</para
+></listitem>
+<listitem
+><para
+>نص</para
+></listitem>
+<listitem
+><para
+>قائمة منسدلة من القيم</para
+></listitem>
+<listitem
+><para
+>نعم/لا؛ يمكنك تبديل القيمة بالنقر على الزر؛ نعم (صحيح) تعني أن الزر مُفعّل، لا (خطأ) تعني أن الزر مُعطّل.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</itemizedlist
+><para
+><note>
+<itemizedlist>
+<listitem
+><para
+>ليست هناك حاجة لتأكيد قيمة مُغيّرة: التغييرات تظهر فورًا بعد الانتقال إلى صف مختلف في قائمة محرر الخصائص أو بالضغط على مفتاح &Enter;.</para
+></listitem>
+<listitem
+><para
+>أسماء الخصائص التي غُيّرت مؤخرًا ولم تُخزّن بعد في قاعدة البيانات مُعلّمة بخط عريض.</para
+></listitem>
+<listitem
+><para
+>بعد تغيير قيمة خاصية، يظهر زر خاص <guilabel
+>تراجع عن التغييرات</guilabel
+> على الجانب الأيمن من قائمة محرر الخصائص. بالنقر عليه يمكنك إعادة قيمة الخاصية إلى القيمة الأصلية التي حُمّلت من قاعدة البيانات عند فتح كائن قاعدة البيانات. الزر يظهر فقط عندما تكون الخاصية محددة فعليًا.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+<para
+>جزء <guilabel
+>محرر الخصائص</guilabel
+> فارغ إذا: </para>
+<itemizedlist>
+<listitem
+><para
+>لم تُفتح نافذة كائن قاعدة بيانات واحد، أو</para
+></listitem>
+<listitem
+><para
+>نافذة كائن قاعدة البيانات النشطة لا تقدم خصائص؛ وهذا عادةً ما يكون الحال عندما تكون مفتوحة في <guilabel
+>عرض البيانات</guilabel
+> بدلًا من <guilabel
+>عرض التصميم</guilabel
+>.</para
+></listitem>
+</itemizedlist>
+</sect2>
+</sect1>
+<sect1 id="opening-an-existing-kexi-database-file"
+><title
+>فتح ملف قاعدة بيانات كيس موجود</title
+> 
+<para
+>هناك طريقتان لفتح ملف قاعدة بيانات كيس موجود: </para>
+<sect2 id="opening-a-database-file-in-the-open-existing-project-dialog"
+><title
+>فتح ملف قاعدة بيانات في حوار فتح المشروع</title
+> 
+<itemizedlist>
+<listitem
+><para
+>شغّل كيس. يجب أن ترى حوار البدء <guilabel
+>مرحبًا بك في كيس</guilabel
+>، الذي يسمح لك باختيار أحد المشاريع المستخدمة مؤخرًا لفتحه.</para
+></listitem>
+<listitem
+><para
+>إذا لم يكن المشروع في الصفحة التي تحتوي على المشاريع المستخدمة مؤخرًا، اختر <guibutton
+>فتح...</guibutton
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+>). سترى الحوار التالي:</para>
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_openproject.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+</listitem>
+<listitem
+><para
+>من شريط الموقع، اختر مجلدًا يحتوي على الملف الذي تبحث عنه.</para
+></listitem>
+<listitem
+><para
+>يمكنك إما اختيار ملف يُفتح فورًا. أو بدلًا من ذلك، أدخل اسمه في مربع <guilabel
+>الاسم:</guilabel
+> وانقر على <guilabel
+>التالي</guilabel
+>.</para
+></listitem>
+</itemizedlist>
+<para
+><guilabel
+>ملاحظات</guilabel>
+</para>
+<itemizedlist>
+<listitem
+><para
+>افتراضيًا، القائمة المنسدلة <guilabel
+>المرشح:</guilabel
+> لديها <guilabel
+>جميع الملفات المدعومة (*.kexi, *.kexic, *.kexis, *.mdb)</guilabel
+> محددة. في حال كان للملف الذي تبحث عنه امتداد آخر، يمكنك تغيير اختيار القائمة المنسدلة <guilabel
+>المرشح:</guilabel
+> إلى <guilabel
+>جميع الملفات</guilabel
+> لعرض جميع الملفات المتاحة (بغض النظر عن الامتداد).</para
+></listitem>
+<listitem
+><para
+>إذا اخترت ملفًا من نوع خارجي، مثل ملف <guilabel
+>MS Access</guilabel
+> <filename
+>.mdb</filename
+>، سيوفر لك كيس خيار استيراد الملف.</para
+></listitem>
+<listitem
+><para
+>إذا اخترت ملف بيانات اتصال (بامتداد <filename
+>.kexic</filename
+>) أو اختصارًا لمشروع على خادم قاعدة بيانات (بامتداد <filename
+>.kexis</filename
+>)، سيعرض كيس الحوارات المناسبة.</para
+></listitem>
+</itemizedlist>
+</sect2>
+<sect2 id="opening-an-existing-kexi-database-file-by-clicking-on--kexi-files-icon"
+><title
+>فتح ملف قاعدة بيانات كيس موجود بالنقر على أيقونة ملف .kexi</title
+> 
+<itemizedlist>
+<listitem
+><para
+>انقر على أيقونة الملف باستخدام مدير الملفات أو سطح المكتب. سيفتح كيس مشروع قاعدة البيانات هذا آليًا.</para
+></listitem>
+</itemizedlist>
+<para
+><guilabel
+>ملاحظات</guilabel>
+</para>
+<para
+>ملاحظة حول ملفات قواعد البيانات التي يُوصَل إليها عن بُعد. قد ترغب في فتح ملف قاعدة بيانات موجود على مصدر بعيد (مثل خادم ويب أو FTP أو مشاركة شبكة ويندوز). يتيح لك كيدي فتح الملفات من مصادر بعيدة مباشرة في التطبيقات وحفظ التغييرات مرة أخرى إلى المصدر، لكن هذا ليس هو الحال مع ملفات قواعد البيانات. بالنقر على ملف قاعدة بيانات موجود على مصدر بعيد، سيُحمل نسخة من الملف إلى دليل مؤقت على حاسوبك وستُجرى جميع تغييراتك على هذا الملف المحلي. سيبقى الأصل البعيد للملف دون تغيير، لذا يُوصى بنسخ (تحميل) الملف إلى حاسوبك أولًا، ثم فتح الملف ونسخه مرة أخرى إلى المصدر البعيد إذا أردت جعله محدثًا. </para>
+</sect2>
+</sect1>
+<sect1 id="using-built-in-help"
+><title
+>استخدام المساعدة المضمنة</title
+> 
+<para
+>الطرق التالية للحصول على المساعدة المضمنة في كيدي متاحة: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>الدليل في شكل مستند إلكتروني.</emphasis
+></term>
+    <listitem>
+    <para
+>الدليل متاح بالضغط على مفتاح <keycap
+>F1</keycap
+> أو النقر على <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-help-contents.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> في شريط القوائم واختيار <guilabel
+>مساعدة</guilabel
+>.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>تلميحات <emphasis
+>ما هذا؟</emphasis
+>.</emphasis
+></term>
+    <listitem>
+    <para
+>اختر <guilabel
+>ما هذا؟</guilabel
+> من القائمة التي تظهر عند النقر على <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-help-contents.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> ثم انقر على منطقة من التطبيق للحصول على تلميحات عنها.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+</chapter>
+<chapter id="building-simple-databases"
+><title
+>بناء قواعد بيانات بسيطة</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="building-simple-databases"
+>مقدمة</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="designing-database-tables"
+>تصميم جداول قاعدة البيانات</link
+>&nbsp;<itemizedlist
+> <listitem
+><para
+><link linkend="the-table-designer-window"
+>نافذة مصمم الجدول</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+<listitem
+><para
+><link linkend="entering-data-into-tables"
+>إدخال البيانات في الجداول</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="designing-database-queries"
+>تصميم استعلامات قاعدة البيانات</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="designing-forms"
+>تصميم النماذج</link
+>&nbsp;<itemizedlist>
+<listitem
+><para
+><link linkend="most-important-terms"
+>أهم المصطلحات</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="forms-versus-tables"
+>النماذج مقابل الجداول</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="working-with-form-design"
+>العمل مع تصميم النموذج</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="using-the-widgets-tab"
+>استخدام لسان الأدوات</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="inserting-widgets---text-fields"
+>إدراج الأدوات - حقول النص</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="assigning-data-sources"
+>تعيين مصادر البيانات</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="inserting-text-labels"
+>إدراج تسميات النص</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="actions"
+>الإجراءات</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="widget-layouts"
+>تخطيطات الأدوات</link
+>&nbsp;</para
+></listitem>
+<!--FIXME not implemented in kexi 2.4
+<listitem
+><para
+><link linkend="setting-widgets-size-and-position-by-hand"
+>Setting widgets size and position by hand</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="setting-the-tab-order"
+>Setting the tab order</link
+>&nbsp;</para
+></listitem>
+-->
+</itemizedlist>
+</para
+></listitem>
+<listitem
+><para
+><link linkend="entering-data-using-forms"
+>إدخال البيانات باستخدام النماذج</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="introduction0"
+><title
+>مقدمة</title
+> 
+<para
+>لتتعلم أساسيات كيدي، يمكنك بناء قاعدة بيانات بسيطة تستخدم معظم ميزات كيدي الأولية. لتبسيط الأمور، لن تُغطى موضوعات تصميم قواعد البيانات المتقدمة هنا. </para>
+<para
+>ابدأ بإنشاء دفتر هاتف فارغ جديد. </para>
+<para
+>بوجود مشروع قاعدة بيانات فارغ جديد، نفذ الخطوات التالية: </para>
+<orderedlist>
+<listitem
+><para
+>صمم جداول قاعدة البيانات. اقرأ القسم المسمى <link linkend="designing-database-tables"
+>تصميم جداول قاعدة البيانات</link
+>.</para
+></listitem>
+<listitem
+><para
+>أدخل البيانات في الجداول. اقرأ القسم المسمى <link linkend="entering-data-into-tables"
+>إدخال البيانات في الجداول</link
+>.</para
+></listitem>
+<listitem
+><para
+>صمم استعلامات قاعدة البيانات. اقرأ القسم المسمى <link linkend="designing-database-queries"
+>تصميم استعلامات قاعدة البيانات</link
+>.</para
+></listitem>
+<listitem
+><para
+>صمم النماذج. اقرأ القسم المسمى <link linkend="designing-forms"
+>تصميم النماذج</link
+>.</para
+></listitem>
+<listitem
+><para
+>استخدم النماذج لإدخال البيانات. اقرأ القسم المسمى <link linkend="entering-data-using-forms"
+>إدخال البيانات باستخدام النماذج</link
+>.</para
+></listitem>
+</orderedlist>
+</sect1>
+<sect1 id="designing-database-tables"
+><title
+>تصميم جداول قاعدة البيانات</title
+> 
+<!--FIXME to refer to these two tables later, sometimes the caption "Persons"/"Phones" and sometimes the Name "persons"/"phone_numbers" are used; together with different markup guilabel/replaceable, make that consistent. It is really confusing-->
+<para
+>أولًا، ستُضاف جدولان إلى قاعدة بياناتك: <replaceable
+>الأشخاص</replaceable
+> و<replaceable
+>الهواتف</replaceable
+>. هذان هما نفس الجدولين الموصوفين في الفصل <link linkend="database-and-spreadsheet"
+>قاعدة البيانات وجدول البيانات</link
+>. يمكن العثور على تخطيط لـ<replaceable
+>الأشخاص</replaceable
+> في القسم <link linkend="data-integrity-and-validity"
+>تكامل البيانات وصلاحيتها</link
+> في ذلك الفصل. </para>
+<orderedlist>
+<listitem
+><para
+>اختر <guilabel
+>جدول</guilabel
+> من شريط الأدوات. يمكنك أيضًا استخدام <guilabel
+>إنشاء كائن: جدول</guilabel
+> في قائمة السياق لعنصر <guilabel
+>الجداول</guilabel
+> في متصفح المشروع.</para
+></listitem>
+<listitem
+><para
+>ستظهر نافذة مصمم الجدول. بالنظر إلى أعلى نافذة المصمم ستلاحظ أن كيس اقترح اسمًا عامًا مثل <guilabel
+>جدول1</guilabel
+> للجدول الجديد. تصميم الجدول لم يُحفظ بعد لذا ستتمكن من تعيين اسم أكثر ملاءمة لاحقًا. علاوة على ذلك، لنفس السبب، اسم الجدول غير ظاهر بعد في <guilabel
+>متصفح المشروع</guilabel
+>.</para
+></listitem>
+</orderedlist>
+<sect2 id="the-table-designer-window"
+><title
+>نافذة مصمم الجدول</title
+> 
+<sect3 id="table-designer-window-consists-of-following-columns-"
+><title
+>تتكون نافذة مصمم الجدول من الأعمدة التالية:</title
+> 
+<itemizedlist>
+<listitem
+><para
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-help-about-desaturated.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> - معلومات إضافية عن الحقل.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>تسمية الحقل</guilabel
+> - تسمية الحقل التي ستُعرض أثناء إدخال البيانات.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>نوع البيانات</guilabel
+> - مربع تحرير وسرد يحتوي على قائمة بأنواع البيانات، مما يسمح بتعيين قاعدة رئيسة للبيانات المدخلة لحقل معين. على سبيل المثال، عند تعيين نوع بيانات عدد صحيح لحقل، لن يتمكن مستخدم قاعدة البيانات من إدخال أحرف أبجدية في هذا الحقل.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>تعليقات</guilabel
+> - يمكنك إدخال أي معلومات مفيدة هنا لفهم ما يوفره الحقل المحدد من أجله. سيُحفظ هذا النص الإضافي ضمن تصميم الجدول ولن يكون مرئيًا إلا في وضع التصميم.</para
+></listitem>
+</itemizedlist>
+<para
+>في نافذة مصمم الجدول، كل صف يقابل حقل جدول واحد. يمكنك التعرف على أنك في وضع التصميم لأن زر <guilabel
+>تصميم</guilabel
+> مُشغّل في شريط أدوات نافذة مصمم الجدول. </para>
+</sect3>
+<sect3 id="designing-the-persons-table"
+><title
+>تصميم جدول الأشخاص</title
+> 
+<para
+>في الصف الأول، انقر على الخلية في عمود <guilabel
+>تسمية الحقل</guilabel
+> وأدخل <replaceable
+>الاسم</replaceable
+> كتسمية حقل. ملء حقل <guilabel
+>تسمية الحقل</guilabel
+> يملأ آليًا حقل <guilabel
+>الاسم</guilabel
+> كما يُرى في جزء <guilabel
+>محرر الخصائص</guilabel
+>. </para>
+<para
+>ملاحظات حول أسماء الحقول وتسمياتها </para>
+<itemizedlist>
+<listitem
+><para
+>يجب أن يكون لكل حقل جدول اسم وتسمية، ولا يمكن أن يكونا فارغين.</para
+></listitem>
+<listitem
+><para
+>اسم الحقل هو كلمة تستخدمها قاعدة البيانات، وعادةً لا تكون مرئية لمستخدمي تطبيق قاعدة البيانات. قد لا يحتوي الاسم على أحرف خاصة (وطنية) (مثل ±, ¶, Ü) أو مسافات. يجب أن يحتوي الاسم فقط على أحرف رومانية وأرقام وعلامة الشرطة السفلية <quote
+>_</quote
+>. استخدم الأخيرة بدلًا من المسافات أو الشرطات.</para
+></listitem>
+<listitem
+><para
+>يجب أن تبدأ أسماء الحقول بحرف أو علامة شرطة سفلية <quote
+>_</quote
+>، وليس برقم أبدًا.</para
+></listitem>
+<listitem
+><para
+>لا يهم ما إذا كنت تستخدم أحرفًا صغيرة أو كبيرة. بالنسبة لـكيس، اسم الحقل <replaceable
+>الأشخاص</replaceable
+> هو نفسه <replaceable
+>persons</replaceable
+>.</para
+></listitem>
+<listitem
+><para
+>تسمية الحقل، من ناحية أخرى، تسمح لك بإدخال أي أحرف وأحرف خاصة. ستُعرض لمستخدمي تطبيق قاعدة البيانات.</para
+></listitem>
+</itemizedlist>
+<para
+>بطريقة مماثلة، أدخل الحقول التالية في تصميم الجدول: </para>
+<itemizedlist>
+<listitem
+><para
+><replaceable
+>اسم العائلة</replaceable
+></para
+></listitem>
+<listitem
+><para
+><replaceable
+>الشارع</replaceable
+></para
+></listitem>
+<listitem
+><para
+><replaceable
+>رقم_المنزل</replaceable
+></para
+></listitem>
+<listitem
+><para
+><replaceable
+>المدينة</replaceable
+></para
+></listitem>
+</itemizedlist>
+<para
+>جميع الحقول أعلاه، باستثناء <replaceable
+>رقم_المنزل</replaceable
+>، من نوع نص. غيّر نوع حقل <replaceable
+>رقم_المنزل</replaceable
+> إلى عدد صحيح. للقيام بذلك، انقر على خلية في عمود <guilabel
+>نوع البيانات</guilabel
+>، صف <replaceable
+>رقم_المنزل</replaceable
+> ثم انقر على زر القائمة المنسدلة أو اضغط <keycap
+>F4</keycap
+>. ستظهر قائمة أنواع البيانات. يمكنك أيضًا استخدام مفتاحي الأسهم <keysym
+>أعلى</keysym
+> و<keysym
+>أسفل</keysym
+> لتحديد نوع آخر. اختر نوع <guilabel
+>عدد صحيح</guilabel
+>. </para>
+<para
+>من الآن فصاعدًا، يقبل حقل <replaceable
+>رقم_المنزل</replaceable
+> الأرقام فقط. </para>
+<para
+>تصميم جدول الأشخاص جاهز. انقر على زر <guilabel
+>بيانات</guilabel
+> في شريط الأدوات لإنهاء التصميم والتبديل إلى <guilabel
+>عرض البيانات</guilabel
+> للجدول. يتيح لك ذلك إدخال البيانات في الجدول. </para>
+<para
+>بما أن التصميم لم يُحفظ بعد في قاعدة البيانات، تظهر نافذة حوار <guilabel
+>حفظ الكائن باسم</guilabel
+>. تحتاج إلى تحديد اسم للجدول الجديد. </para>
+<para
+>يقدم كيس اسمًا عامًا مثل <guilabel
+>جدول1</guilabel
+>. لتغيير الاسم، أدخل <replaceable
+>الأشخاص</replaceable
+> في حقل <guilabel
+>التسمية</guilabel
+> واضغط على مفتاح &Enter; أو انقر على زر <keycap
+>موافق</keycap
+>. سيُستخدم حقل <guilabel
+>التسمية</guilabel
+> لعرض الجدول على المستخدمين النهائيين لقاعدة البيانات، مثل كنموذج. على عكس الاسم، يمكن أن تحتوي التسمية على أي أحرف بما في ذلك المسافات والأحرف الخاصة. </para>
+<para
+>لاحظ أن ملء حقل <guilabel
+>التسمية</guilabel
+> يملأ آليًا حقل <guilabel
+>الاسم</guilabel
+>. لراحتك، تُحفظ قاعدة استخدام الأحرف والأرقام وعلامة <quote
+>_</quote
+> فقط. يمكنك تغيير محتويات حقل <guilabel
+>الاسم</guilabel
+> إذا أردت. </para>
+<orderedlist>
+<listitem
+><para
+>يُسأل عن الموافقة على الإضافة الآلية لمفتاح رئيس للجدول. انقر على زر <guilabel
+>أضف مفتاحًا رئيسًا</guilabel
+> للمتابعة.</para
+></listitem>
+<listitem
+><para
+>جُدول <replaceable
+>الأشخاص</replaceable
+> وأنشئ وفُتح في عرض البيانات. يظهر اسمه في جزء <guilabel
+>متصفح المشروع</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>أنشئ جدول <replaceable
+>الهواتف</replaceable
+>، بطريقة مشابهة لجدول <replaceable
+>الأشخاص</replaceable
+>.</para
+></listitem>
+<listitem
+><para
+>أنشئ حقل <replaceable
+>شخص</replaceable
+> من نوع رقم <guilabel
+>صحيح</guilabel
+> وحقل <replaceable
+>هاتف</replaceable
+> من نوع <guilabel
+>نص</guilabel
+>. لا تستخدم نوع الرقم هنا لأن أرقام الهواتف قد تتخذ أشكالًا وبوادئ مختلفة كثيرة.</para
+></listitem>
+<listitem
+><para
+>انقر زر <guilabel
+>بيانات</guilabel
+> في شريط الأدوات وأدخل تسمية <replaceable
+>الهواتف</replaceable
+> للجدول. كما فعلت مع جدولك السابق، اسمح لـكيس بإنشاء مفتاح رئيس آليًا.</para
+></listitem>
+</orderedlist>
+</sect3>
+</sect2>
+</sect1>
+<sect1 id="entering-data-into-tables"
+><title
+>إدخال البيانات في الجداول</title
+> 
+<para
+>لقد صممت الجدولين <replaceable
+>الأشخاص</replaceable
+> و<replaceable
+>الهواتف</replaceable
+>. لا يحتوي أي منهما على بيانات بعد. يمكنك إدخال بعضها، وفي هذا الفصل ستتعلم كيفية فعل ذلك بسرعة وفعالية. </para>
+<para
+>ابدأ بجدول <replaceable
+>الأشخاص</replaceable
+>. افتحه في عرض البيانات باستخدام <guilabel
+>فتح</guilabel
+> في قائمة السياق لـ<guilabel
+>متصفح المشروع</guilabel
+> أو زر شريط الأدوات. الخلية الحالية محددة بحد أكثر سمكًا (أسود عادةً)، مؤشر خلية. محتويات الخلية، إن وُجدت، مظللة بلون مختلف. الصف الحالي، أي الصف الذي وضعت فيه المؤشر المستطيل، مُعلّم على اليسار برمز سهم. </para>
+<para
+>يمكنك التنقل بين خلايا الجدول باستخدام مفاتيح الأسهم، <keycap
+>صفحة لأسفل</keycap
+>، <keycap
+>صفحة لأعلى</keycap
+>، <keycap
+>الصفحة الرئيسية</keycap
+>، <keycap
+>النهاية</keycap
+>؛ يمكنك أيضًا النقر بالماوس في خلية لتحديدها. </para>
+<para
+>بدايةً، بعد فتح جدول <replaceable
+>الأشخاص</replaceable
+>، يُوضع المؤشر في عمود <replaceable
+>المعرف</replaceable
+>. للعمود خاصية ترقيم تلقائي محددة، مُعلّمة بنص أزرق (ترقيم تلقائي) في الصف الأخير. هذا يعني أنك لست مضطرًا لإدخال قيم هناك يدويًا عند إدخال بيانات لصف جديد لأن الخلية ستمتلئ تلقائيًا بأرقام متتالية. </para>
+<para
+>إدراج صفوف جديدة وإدخال بيانات لها في كيس يختلف عن طريقة فعل ذلك في جداول البيانات. لإدخال بيانات لصف جديد، تحتاج إلى استخدام مفاتيح الأسهم أو الماوس، لتحريك المؤشر إلى الصف الفارغ الأخير الخاص المُعلّم بعلامة زائد. ضع المؤشر في عمود <replaceable
+>الاسم</replaceable
+> (الثاني) وأدخل اسم شخص. أدخل أيضًا اللقب والشارع ورقم المنزل والمدينة. عند الانتهاء، انقل مؤشر الخلية إلى الصف الفارغ الأخير إما باستخدام مفتاح <keycap
+>لأسفل</keycap
+> أو بالنقر في الصف الأخير بالماوس لإلحاق صف جديد. </para>
+<sect2 id="details-about-actions-available-while-entering-data-into-tables"
+><title
+>تفاصيل حول الإجراءات المتاحة أثناء إدخال البيانات في الجداول</title
+> 
+<itemizedlist>
+<listitem
+><para
+>بمجرد إدخال الحرف الأول، يُحرر الصف الحالي. يظهر رمز قلم رصاص على الجانب الأيسر من جدول البيانات.</para
+></listitem>
+<listitem
+><para
+>النقر المزدوج على خلية بزر الماوس الأيسر أو الضغط على &Enter; أو مفتاح <keycap
+>F2</keycap
+> يبدأ أيضًا تحرير الصف الحالي.</para
+></listitem>
+<listitem
+><para
+>الضغط على مفتاح &Esc; عند تحرير محتويات خلية يلغي التغييرات التي أُجريت على هذه الخلية. ومع ذلك، لن يختفي رمز قلم الرصاص لأنه لا يزال بإمكانك الانتقال إلى خلية مختلفة من الصف المُحرر لتغيير محتوياتها. لإلغاء التغييرات التي أُجريت على الصف المُحرر بأكمله، اضغط على مفتاح &Esc; مرة أخرى.</para
+></listitem
+><!--FIXME Esc does not work in master (2.4) as described here bug in docs or app?-->
+<listitem
+><para
+>بدلًا من الضغط على مفتاح &Esc;، يمكنك النقر على زر شريط الأدوات <guilabel
+>إلغاء تغييرات السجل</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>اضغط على المفتاحين <keycombo
+>&Shift;&Enter;</keycombo
+> لقبول التغييرات التي أُجريت على جميع الخلايا في الصف المُحرر حاليًا.</para
+></listitem>
+</itemizedlist>
+<para
+>املأ جدول <replaceable
+>الهواتف</replaceable
+> بالبيانات. في عمود <replaceable
+>شخص</replaceable
+> تحتاج إلى تقديم رقم <replaceable
+>المعرف</replaceable
+> للشخص الموجود في جدول <replaceable
+>الأشخاص</replaceable
+>. </para>
+</sect2>
+</sect1>
+<sect1 id="designing-database-queries"
+><title
+>تصميم استعلامات قاعدة البيانات</title
+> 
+<para
+>الغرض الأساسي من قاعدة البيانات هو تخزين المعلومات التي تبحث عنها والمساعدة في استخراجها. على عكس قواعد البيانات المكتوبة على أوراق، تسمح لك قاعدة بيانات كيس بتحديد معايير بحث أكثر. تُعاد النتائج بشكل أسرع حتى لمجموعات البيانات الكبيرة. كل هذه قوة قواعد البيانات، ومع ذلك لتتمكن من تنفيذ استعلامات فعالة في قاعدة بياناتك، تحتاج إلى تعلم كيفية إخبار قاعدة البيانات بما تبحث عنه. </para>
+<para
+>باستعلامات قاعدة البيانات يمكنك تحديد البيانات القادمة من جدول إلى مجموعة محددة مسبقًا من الصفوف والأعمدة بالإضافة إلى ربط البيانات القادمة من جداول متعددة ديناميكيًا. </para>
+<para
+>لرؤية كيفية عمل الاستعلامات عمليًا، ستنشئ استعلام جهات اتصال يربط البيانات من جدولين: <replaceable
+>الأشخاص</replaceable
+> و<replaceable
+>الهواتف</replaceable
+> (المصممة <link linkend="designing-database-tables"
+>هنا</link
+> والمملوءة بالبيانات <link linkend="entering-data-into-tables"
+>هنا</link
+>). </para>
+<orderedlist>
+<listitem
+><para
+>أنشئ استعلامًا فارغًا جديدًا بتحديد <guilabel
+>استعلام</guilabel
+> من شريط الأدوات. ستظهر نافذة التصميم. النافذة مقسمة إلى منطقتين: علاقات الاستعلام في الأعلى وأعمدة الاستعلام في الأسفل.</para
+></listitem>
+<listitem
+><para
+>حدد جدول <replaceable
+>الأشخاص</replaceable
+> في القائمة المنسدلة <guilabel
+>جدول:</guilabel
+> الموجودة في أعلى النافذة وانقر زر <guilabel
+>إدراج</guilabel
+>. سيظهر تمثيل رسومي للجدول في منطقة العلاقات. افعل نفس الشيء لجدول <replaceable
+>الهواتف</replaceable
+> لإدراجه أيضًا.</para
+></listitem>
+<listitem
+><para
+>أضف علاقة استعلام باستخدام تقنية السحب والإفلات بالماوس: انقر على حقل <replaceable
+>المعرف</replaceable
+> في جدول <replaceable
+>الأشخاص</replaceable
+>، واسحبه وأفلته في حقل <replaceable
+>شخص</replaceable
+> لجدول <replaceable
+>الهواتف</replaceable
+>. سيربط هذا كلا الحقلين بإنشاء علاقة جديدة.</para
+></listitem>
+<listitem
+><para
+>انقر نقرًا مزدوجًا على حقل <replaceable
+>الاسم</replaceable
+> في جدول <replaceable
+>الأشخاص</replaceable
+>، لإضافة الحقل كعمود استعلام. بطريقة مماثلة، أضف الحقول <replaceable
+>اللقب</replaceable
+> و<replaceable
+>الشارع</replaceable
+> و<replaceable
+>رقم_المنزل</replaceable
+> و<replaceable
+>المدينة</replaceable
+> من جدول <replaceable
+>الأشخاص</replaceable
+> وحقل <replaceable
+>الهاتف</replaceable
+> من جدول <replaceable
+>الهواتف</replaceable
+>.</para
+></listitem>
+<listitem
+><para
+>تصميم الاستعلام جاهز الآن للاختبار. انقر زر <guilabel
+>بيانات</guilabel
+> في شريط الأدوات، للتبديل من التصميم إلى عرض البيانات المقدمة كنتائج استعلام.</para
+></listitem>
+<listitem
+><para
+>احفظ تصميم الاستعلام للاستخدام لاحقًا بالنقر على زر <guilabel
+>حفظ</guilabel
+> في شريط الأدوات. نظرًا لأن تصميم الاستعلام لم يُحفظ بعد، سيُطلب منك تحديد اسم له. أدخل نص <replaceable
+>جهات الاتصال</replaceable
+> في حقل التسمية وانقر زر <guilabel
+>موافق</guilabel
+>.</para
+></listitem>
+</orderedlist>
+</sect1>
+<sect1 id="designing-forms"
+><title
+>تصميم النماذج</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="most-important-terms"
+>أهم المصطلحات</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="forms-versus-tables"
+>النماذج مقابل الجداول</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="working-with-form-design"
+>العمل مع تصميم النموذج</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="using-the-widgets-tab"
+>استخدام لسان الأدوات</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="inserting-widgets---text-fields"
+>إدراج الأدوات - حقول النص</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="assigning-data-sources"
+>تعيين مصادر البيانات</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="inserting-text-labels"
+>إدراج تسميات النص</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="actions"
+>الإجراءات</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="widget-layouts"
+>تخطيطات الأدوات</link
+>&nbsp;</para
+></listitem>
+<!--FIXME not implemented in kexi 2.4
+<listitem
+><para
+><link linkend="setting-widgets-size-and-position-by-hand"
+>Setting widgets size and position by hand</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="setting-the-tab-order"
+>Setting the tab order</link
+>&nbsp;</para
+></listitem>
+-->
+</itemizedlist>
+<sect2 id="most-important-terms"
+><title
+>أهم المصطلحات</title
+> 
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>النموذج</emphasis
+></term>
+    <listitem>
+    <para
+>نافذة مقدمة لإدخال البيانات وعرضها بسهولة على شاشة الحاسوب.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>مصدر بيانات النموذج</emphasis
+></term>
+    <listitem>
+    <para
+>جدول قاعدة بيانات أو استعلام يوفر البيانات المعروضة في النموذج. مصدر البيانات ضروري لأن النماذج نفسها هي فقط أدوات لعرض وإدخال البيانات، بينما الجداول والاستعلامات هي مصدر البيانات. النماذج الجديدة الفارغة ليس لها مصدر بيانات معين، لذا فهي لا تعرض أي بيانات من قاعدة بياناتك ما لم تعين لها مصدر بيانات.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>حقل النموذج</emphasis
+></term>
+    <listitem>
+    <para
+>المكافئ المباشر لعمود في جدول أو استعلام. الحقول الأكثر استخدامًا هي لعرض النصوص والأرقام. إدخال قيمة جديدة أو تغيير القيمة الحالية لمثل هذا الحقل يُسبب تغييرًا في عمود الجدول أو الاستعلام المرتبط (بعد قبول التغيير).</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>تصميم النموذج</emphasis
+></term>
+    <listitem>
+    <para
+>المهام التي تؤديها لتحديد مظهر ووظائف النموذج. للقيام بذلك، تحتاج إلى توفير مصدر بيانات، وإدراج حقول النموذج من أنواع مختلفة ووضعها في الموقع المناسب.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>ودجة النموذج</emphasis
+></term>
+    <listitem>
+    <para
+>عنصر النموذج. أنواع الودجات الرئيسة هي:</para>
+<itemizedlist>
+<listitem
+><para
+>ودجات تعرض معلومات، مثل: مربع نص أو مربع صورة. يمكن ربط كل ودجة من هذا النوع بحقل مصدر بيانات (عمود جدول أو استعلام). لذلك، تُسمى هذه الودجات باختصار حقول النموذج.</para
+></listitem>
+<listitem
+><para
+>ودجات قادرة على تنفيذ إجراء محدد، مثل: زر ضغط يمكنه إغلاق النموذج الحالي. في التطبيقات الأخرى، يُسمى هذا النوع من الودجات أحيانًا عنصر تحكم النموذج لأنه يمكنه تنفيذ إجراء محدد مسبقًا للتحكم في سلوك تطبيق قاعدة البيانات الخاص بك.</para
+></listitem>
+<listitem
+><para
+>ودجات أخرى تسمح بإثراء مظهر النموذج، مثل: 'ودجة خط' يمكنها فصل منطقتين في النموذج بصريًا.</para
+></listitem>
+</itemizedlist>
+
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>ودجة حاوية</emphasis
+></term>
+    <listitem>
+    <para
+>ودجة يمكنها احتواء ودجات أخرى داخل مساحتها. على سبيل المثال، ودجة الإطار أو ودجة التبويب هي حاويات. سطح النموذج نفسه هو أيضًا حاوية. لا يمكن تسمية زر الأوامر حاوية لأنه لا يمكن إدراج ودجة داخله. في الحالات الأكثر تعقيدًا، يمكن إدراج ودجات حاوية داخل حاوية، لذا فالتداخل ممكن.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect2>
+<sect2 id="forms-versus-tables"
+><title
+>النماذج مقابل الجداول</title
+> 
+<para
+>في الفصل <link linkend="entering-data-into-tables"
+>إدخال البيانات في الجداول</link
+> تعلمت كيفية إدخال البيانات مباشرة في الجداول باستخدام عرض جدول البيانات الخاص بها. ومع ذلك، في كثير من الحالات تكون النماذج أكثر ملاءمة لإدخال البيانات: </para>
+<itemizedlist>
+<listitem
+><para
+>يمكن أن يحتوي الجدول على عدد كبير جدًا من الأعمدة لعرضها على شاشتك. يمكن للنموذج عرض هذه البيانات باستخدام صفوف متعددة.</para
+></listitem>
+<listitem
+><para
+>يسمح النموذج بتقسيم حقول البيانات بصريًا إلى مجموعات منطقية، مما يزيد من قابلية القراءة. يمكن إدراج تسميات بمعلومات إضافية لإعطاء المستخدمين مزيدًا من التلميحات حول كيفية استخدام النموذج أو معنى حقول البيانات المعطاة.</para
+></listitem>
+<listitem
+><para
+>يمكن استخدام أزرار الأوامر داخل النماذج للأوامر شائعة الاستخدام حتى يتمكن المستخدمون من استخدام النماذج بطريقة مشابهة للتطبيقات المستقلة التي يعرفونها.</para
+></listitem>
+</itemizedlist>
+<para
+>في عرض جدول البيانات، عرض حقول النص أو الصور متعددة الصفوف سهل كما هو الحال داخل النماذج. </para>
+</sect2>
+<sect2 id="working-with-form-design"
+><title
+>العمل مع تصميم النموذج</title
+> 
+<para
+>كما هو الحال مع تصميم الجدول أو الاستعلام، يمكنك استخدام عرض البيانات وعرض التصميم. يتم تصميم النموذج في عرض التصميم. سنشير غالبًا إلى نافذة تصميم النموذج باسم <emphasis
+>مصمم النماذج</emphasis
+>. </para>
+<orderedlist>
+<listitem
+><para
+>لإنشاء نموذج فارغ جديد، اختر <guilabel
+>نموذج</guilabel
+> من شريط الأدوات. اختياريًا، يمكنك استخدام الأمر <guilabel
+>إنشاء كائن: نموذج</guilabel
+> من الزر المنسدل على شريط أدوات متصفح المشروع أو الأمر <guilabel
+>إنشاء كائن: نموذج</guilabel
+> من القائمة السياقية لمتصفح المشروع.</para
+></listitem>
+<listitem
+><para
+>سيظهر إطار جديد، يمكنك تغيير حجم النموذج بتحريك الحدود. النموذج مغطى بشبكة تبسط تحديد المواقع الدقيق للودجات.</para
+></listitem>
+</orderedlist>
+<para
+>كما هو الحال مع تصميم الجدول، يوفر مصمم النماذج جزء <guilabel
+>محرر الخصائص</guilabel
+>. لتوفير بعض المساحة على الشاشة، يحتوي الجزء على ثلاث علامات تبويب تتعلق بالنموذج المحدد حاليًا: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>لَوح الخصائص</emphasis
+></term>
+    <listitem>
+    <para
+>يحتوي على قائمة بالخصائص للودجة المحددة حاليًا.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>علامة التبويب مصدر البيانات <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-server-database.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+></emphasis
+></term>
+    <listitem>
+    <para
+>يحتوي على خصائص تتعلق تحديدًا بمصدر بيانات الودجة المحددة حاليًا أو النموذج نفسه.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>علامة التبويب الودجات <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-action-widgets.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+></emphasis
+></term>
+    <listitem>
+    <para
+>يحتوي على تسلسل هرمي لجميع ودجات النموذج. القائمة تبسط البحث عن الودجات بالاسم والتنقل بينها.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+>توجد معلومات حول اسم ونوع الودجة المحددة حاليًا معروضة في علامة التبويب الأولى والثانية. </para>
+<para
+>أشرطة أدوات إضافية متاحة أيضًا: </para>
+<itemizedlist>
+<listitem
+><para
+>شريط الأدوات <guilabel
+>الودجات</guilabel
+> المستخدم لإدراج ودجات جديدة في النموذج. اختر <guibutton
+>تصميم النموذج</guibutton
+> لعرضه.</para
+></listitem>
+<!--FIXME no Format toolbar and Format menu in master/2.4
+<listitem
+><para
+>The <guilabel
+>Format</guilabel
+> toolbar used to format form's elements (&eg; adjusting widget's size, grouping). Formatting commands are also available in the <guilabel
+>Format</guilabel
+> menu.</para
+></listitem
+>-->
+</itemizedlist>
+</sect2>
+<sect2 id="using-the-widgets-tab"
+><title
+>استخدام علامة التبويب الودجات</title
+> 
+<para
+>توفّر لسان الأدوات <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-action-widgets.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> في جزء <guilabel
+>الخصائص</guilabel
+> قائمةً بأدوات النموذج وتسلسلها الهرمي. تُعرض كل أداة ضمن التسلسل الهرمي إلى جانب أدوات أخرى في المستوى نفسه (الحاوية الأم نفسها). تُعرض الأدوات الفرعية (داخل الحاويات) باستخدام أسماء ذات مسافة بادئة. </para>
+<para
+>تعرض كل أداة اسمها ونوعها. كما يُعرض للنوع أيقونة - وهي نفس الأيقونة المعروضة على شريط الأدوات المستخدم أثناء تصميم النموذج. </para>
+<para
+><note>
+<itemizedlist>
+<listitem
+><para
+>يؤدي تغيير التحديد الحالي في القائمة إلى تحديد مناسب في النموذج المُصمَّم. يسمح هذا بسهولة البحث عن الأداة بالاسم وسهولة التنقل. على سبيل المثال، يمكن تحديد أداة بالاسم، ثم التبديل إلى لسان <guilabel
+>الخصائص</guilabel
+> لتغيير خصائص الأداة.</para
+></listitem>
+<listitem
+><para
+>يسمح الضغط باستمرار على المفتاح &Ctrl; أثناء تحديد عنصر في قائمة الأدوات بتحديد أدوات متعددة في وقت واحد. يسمح الضغط باستمرار على المفتاح &Shift; بتحديد قوائم كاملة من الأدوات.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+<para
+>قد يكون إعطاء الأدوات أسماءً معقولة مفيدًا ولكنه ليس إلزاميًا. لاحظ أن اسم الأداة هو خاصية غير مرئية لمستخدم نموذجك. سيرى المستخدمون فقط نص الأداة، الذي توفره خاصية <guilabel
+>النص</guilabel
+> أو ما شابهها. </para>
+</sect2>
+<sect2 id="inserting-widgets---text-fields"
+><title
+>إدراج الأدوات - حقول النص</title
+> 
+<para
+>لننشئ نموذجًا يقدم معلومات عن الأشخاص، أي نموذجًا متصلًا بجدول <replaceable
+>الأشخاص</replaceable
+>. </para>
+<para
+>إذا كان النموذج المُصمَّم يجب أن يعرض بيانات مستحصلة من قاعدة البيانات، فستحتاج إلى وضع الحقول المناسبة فيه. لفعل ذلك، استخدم الأزرار في شريط أدوات <guilabel
+>الأدوات</guilabel
+>. يقابل كل زر نوع أداة واحد. </para>
+<orderedlist>
+<listitem
+><para
+>انقر زر <guilabel
+>مربع النص</guilabel
+> في شريط أدوات <guilabel
+>الأدوات</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>انقر على سطح النموذج بزر الفأرة الأيسر. سيُوضع مربع نص جديد في النقطة التي نقرت فيها. قبل أن تحرر، يمكنك سحب الفأرة لتحديد حجم مرغوب للأداة.</para
+></listitem>
+<listitem
+><para
+>إذا لزم الأمر، انقل الأداة المُدرجة باستخدام السحب والإفلات إلى موضع مرغوب. يمكنك تغيير حجم الأداة بعد ذلك بسحب أحد المربعات الصغيرة الظاهرة بالقرب من زواياها. لاحظ أن المربعات تظهر فقط عند تحديد الأداة. إذا حددت أداة أخرى أو سطح النموذج، تختفي المربعات.</para
+></listitem>
+<listitem
+><para
+>انقر زر شريط أدوات <guilabel
+>مربع النص</guilabel
+> مرة أخرى وانقر على سطح النموذج لإدراج أداة أخرى. كرر هذا الإجراء مرة أخرى حتى تحصل على ثلاثة مربعات نص إضافية مُدرجة في نموذجك. من أجل البساطة، سنقتصر على خمسة حقول بيانات.</para
+></listitem>
+</orderedlist>
+<para
+><note>
+<itemizedlist>
+  <listitem
+><para
+>توجد قائمة سياقية متاحة في وضع تصميم النموذج، تُفعَّل بالنقر بزر الفأرة الأيمن على الأداة المرغوبة أو سطح النموذج. تقدم القائمة أوامر مثل <guilabel
+>قص</guilabel
+> و<guilabel
+>نسخ</guilabel
+> و<guilabel
+>لصق</guilabel
+> و<guilabel
+>حذف</guilabel
+> وغيرها من الأوامر الأكثر تعقيدًا. تتوفر أيضًا اختصارات لوحة المفاتيح لهذه الأوامر. بعض الأوامر متاحة فقط لأنواع معينة من الأدوات.</para
+></listitem>
+<listitem
+><para
+>تجعل الأوامر <guilabel
+>قص</guilabel
+> و<guilabel
+>نسخ</guilabel
+> و<guilabel
+>لصق</guilabel
+> من الممكن نقل أو نسخ الأدوات بين النماذج، حتى بين مشاريع قاعدة بيانات منفصلة.</para
+></listitem>
+<listitem
+><para
+>يسمح الضغط باستمرار على المفتاح &Ctrl; أثناء النقر على أداة بتحديد أدوات متعددة.</para
+></listitem>
+<listitem
+><para
+>بدلًا من استخدام أوامر <guilabel
+>نسخ</guilabel
+> و<guilabel
+>لصق</guilabel
+>، لتكرار أداة داخل النموذج نفسه، يمكنك الضغط باستمرار على المفتاح &Ctrl; أثناء تحريك الأداة. بعد تحرير زر الفأرة، لن تُنقل الأداة المسحوبة بل ستُنسخ في الموقع الجديد.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+</sect2>
+<sect2 id="assigning-data-sources"
+><title
+>تعيين مصادر البيانات</title
+> 
+<para
+>الحقول التي أدخلتها ليس لها مصدر بيانات معين بعد، لذا فهي غير قادرة على عرض المعلومات من قاعدة البيانات. لتعيين مصدر بيانات، استخدم لسان <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-server-database.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> (مصدر البيانات) في جزء <guilabel
+>محرر الخصائص</guilabel
+>. </para>
+<para
+>الخطوة الأولى هي تحديد مصدر بيانات النموذج، أي المكان الذي ستُجلب منه البيانات المعروضة. كما ذكر أعلاه، ستستخدم جدول <replaceable
+>الأشخاص</replaceable
+> كمصدر بيانات لنموذجك الجديد. </para>
+<orderedlist>
+<listitem
+><para
+>انقر على سطح النموذج، حيث ستغير خصائصه.</para
+></listitem>
+<listitem
+><para
+>انتقل إلى لسان <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-server-database.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> (مصدر البيانات) وأدخل اسم جدول <replaceable
+>persons</replaceable
+> في القائمة المنسدلة <guilabel
+>مصدر بيانات النموذج</guilabel
+>. بدلًا من ذلك، يمكنك تحديد هذا الاسم من القائمة المنسدلة.</para
+></listitem>
+</orderedlist>
+<para
+>لقد عيّنت مصدر بيانات النموذج. الآن تحتاج إلى تحديد مصدر بيانات الأداة. </para>
+<orderedlist>
+<listitem
+><para
+>انقر على أول أداة حقل نص في أعلى النموذج.</para
+></listitem>
+<listitem
+><para
+>في لسان <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-server-database.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> (مصدر البيانات) من جزء الخصائص، أدخل اسم الحقل <replaceable
+>name</replaceable
+> في القائمة المنسدلة <guilabel
+>مصدر بيانات الأداة</guilabel
+>. بدلًا من ذلك، يمكنك تحديد هذا الاسم من القائمة المنسدلة.</para
+></listitem>
+<listitem
+><para
+>انقر على أداة حقل النص التالية وأدخل <replaceable
+>surname</replaceable
+> كمصدر بيانات.</para
+></listitem>
+<listitem
+><para
+>أدخل مصادر البيانات لحقول النص street و house_number و city بطريقة مماثلة.</para
+></listitem>
+</orderedlist>
+<para
+>يمكنك الآن حفظ تصميم النموذج (هذا ليس إلزاميًا لاختبار النموذج عمليًا). للحفظ، انقر زر شريط أدوات <guilabel
+>حفظ</guilabel
+>. عند الحفظ، سيُطلب منك إدخال اسم النموذج. أدخل <replaceable
+>الأشخاص</replaceable
+> كتسمية توضيحية وانقر زر <guilabel
+>موافق</guilabel
+>. سيُملأ اسم النموذج آليًا. </para>
+<para
+>هذه هي اللحظة المناسبة لاختبار نموذجك. انقر زر شريط أدوات <guilabel
+>بيانات</guilabel
+>. ما لم ترتكب خطأً أثناء إدخال مصادر البيانات، يجب أن ترى حقول النموذج مملوءة ببيانات من جدول <replaceable
+>الأشخاص</replaceable
+>. </para>
+<para
+><note>
+<itemizedlist>
+<listitem
+><para
+>إذا أردت إزالة تعيين مصدر بيانات أداة لأداة نموذج، يمكنك استخدام زر <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-edit-clear-locationbar-rtl.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> في مربع <guilabel
+>مصدر بيانات الأداة</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>استخدم زر <inlinemediaobject
+> <imageobject
+> <imagedata fileref="Icon-go-jump.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> (الانتقال إلى مصدر بيانات النموذج المحدد) لتحديد الجدول أو الاستعلام المناسب في <guilabel
+>مستكشف المشروع</guilabel
+>، لتتمكن من فتح جدول أو استعلام سريعًا يكون مصدر بيانات النموذج.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+</sect2>
+<sect2 id="inserting-text-labels"
+><title
+>إدراج لصائق النص</title
+> 
+<para
+>لتسهيل التعرف على معنى كل أداة حقل على مستخدم النموذج، يجب إضافة لصائق نصية بعناوين مناسبة. لإنشاء لصائق النص، يُستخدم أداة <guilabel
+>لصيقة</guilabel
+>. </para>
+<para
+>أدرج ثلاث أدوات لصائق نصية في النموذج، واضعًا إياها على الجانب الأيسر من حقول النص (أو على الجانب الأيمن إذا كان نظام تشغيلك يستخدم تخطيطًا من اليمين إلى اليسار). عند إدراج لصيقة جديدة، يظهر مؤشر نص في الموقع حيث يمكنك إدخال العنوان المطلوب. أدخل بالتتابع: <replaceable
+>الاسم</replaceable
+>، <replaceable
+>اللقب</replaceable
+>، <replaceable
+>الشارع</replaceable
+>، <replaceable
+>رقم المنزل</replaceable
+> و<replaceable
+>المدينة</replaceable
+>. بالإضافة إلى ذلك، في أعلى النموذج، أدرج لصيقة أخرى تعرض اسم النموذج، أي <replaceable
+>الأشخاص</replaceable
+>. كبّر حجم هذه اللصيقة وزد حجم الخط باستخدام <guilabel
+>الخط</guilabel
+> في لسان <guilabel
+>الخصائص</guilabel
+>. </para>
+</sect2>
+<sect2 id="actions"
+><title
+>الإجراءات</title
+> 
+<para
+>الإجراء هو نشاط فردي معزول في التطبيق، متاح للمستخدم لتنفيذه. يمكن أيضًا تنفيذه آليًا كرد فعل لحدث معين (مثل بعد فتح نموذج). </para>
+<sect3 id="assigning-actions-to-form-buttons"
+><title
+>تعيين الإجراءات لأزرار النموذج</title
+> 
+<para
+>يمكن تعيين العديد من الإجراءات لزر النموذج. يُنفّذ الإجراء المعيّن بعد النقر على الزر. </para>
+<para
+>لتعيين إجراء: </para>
+<orderedlist>
+<listitem
+><para
+>انتقل إلى عرض التصميم للنموذج إذا لم تفعل ذلك بعد.</para
+></listitem>
+<listitem
+><para
+>حدد أداة الزر الموجودة بالنقر عليها أو ضع أداة زر جديدة في النموذج. إذا أدخلت زرًا جديدًا، أدخل عنوانه واضغط على مفتاح &Enter;.</para
+></listitem>
+<listitem
+><para
+>انقر على أداة الزر بزر الفأرة الأيمن لعرض قائمة السياق.</para
+></listitem>
+<listitem
+><para
+>من قائمة السياق، اختر الأمر <guilabel
+>تعيين إجراء...</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>ستظهر نافذة حوار <guilabel
+>تعيين إجراء للزر</guilabel
+> تعرض قائمة بالإجراءات المتاحة. يُحدد أحد الإجراءات إذا كانت الأداة تحتوي بالفعل على إجراء معيّن. وإلا، فإن قائمة <guilabel
+>فئة الإجراء</guilabel
+> تحتوي على العنصر <guilabel
+>لا يوجد إجراء</guilabel
+> محددًا.</para
+></listitem>
+<listitem
+><para
+>من قائمة <guilabel
+>فئة الإجراء</guilabel
+>، اختر العنصر <guilabel
+>إجراءات التطبيق</guilabel
+>. ستُعرض الإجراءات المتاحة على مستوى التطبيق.</para
+></listitem>
+<listitem
+><para
+>اختر أحد الإجراءات من القائمة (مثل <guilabel
+>حذف الكائن المحدد</guilabel
+>).</para
+></listitem>
+<!--dialog closes immediately after clicking an action in the list-->
+</orderedlist>
+<para
+>بعد التبديل إلى عرض البيانات للنموذج، يمكنك تجربة ما إذا كان الإجراء يعمل. </para>
+<para
+><note>
+<itemizedlist>
+<listitem
+><para
+>لإزالة تعيين إجراء، اختر العنصر <guilabel
+>لا يوجد إجراء</guilabel
+> من قائمة <guilabel
+>فئة الإجراء</guilabel
+> في نافذة الحوار <guilabel
+>تعيين إجراء للزر</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>تعمل الإجراءات فقط في عرض البيانات للنموذج. ليس كل تعيين إجراء معقولًا. على سبيل المثال، إجراء <guilabel
+>الخط...</guilabel
+> متاح في عرض البيانات، ولكن فقط إذا كان لديك أداة محددة في عرض التصميم. إذا أجريت تغييرات على إعدادات الخط، تُطبق التغييرات على نص تلك الأداة المحددة.</para
+></listitem>
+</itemizedlist>
+</note
+></para>
+</sect3>
+</sect2>
+<sect2 id="widget-layouts"
+><title
+>تخطيطات الأدوات</title
+> 
+<para
+>في معظم الحالات، يجب ترتيب أدوات النموذج ومحاذاتها بشكل ملائم. تحديد الموضع والمحاذاة وتغيير حجم الأدوات يدويًا ليس سهلًا، وهذه المعلمات لا تُضبط عندما يغير المستخدم حجم النموذج. في الواقع، الوضع أسوأ لأنه لا يمكنك افتراض أن نموذجًا معينًا يتطلب مساحة معينة لأن المستخدمين لديهم أحجام خطوط ودقة شاشة مختلفة. </para>
+<para
+>استخدام أداة خاصة تسمى تخطيطات الأدوات يمكن أن يساعد في ترتيب أدوات النموذج آليًا. تخطيط الأداة هو إجراء تجميع أداتين أو أكثر بحيث تكون موضوعة بشكل جيد ولها أحجام مناسبة. </para>
+<para
+>استخدام التخطيط في النموذج يحسن المحاذاة. علاوة على ذلك، تُستخدم مساحته بشكل أفضل. حقول النص أقرب إلى بعضها البعض، والتباعد ثابت. </para>
+<!--FIXME not implemented in kexi 2.4
+<para
+>There are two methods to create widget layout.
+</para>
+<itemizedlist>
+<listitem
+><para
+>Select two or more widgets that should be placed in a common layout, and select one of the layout types from the context menu item <guilabel
+>Layout Widgets</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Click a container widget (or a form surface itself), where widgets are inserted and select one of the layout types from the context menu item <guilabel
+>Layout Widgets</guilabel
+>. All widgets existing within the container or within the form, being on the same level will be put into a single common layout.</para
+></listitem>
+</itemizedlist>
+<para
+>In each of these cases you can also use <menuchoice
+><guimenu
+>Format</guimenu
+><guimenuitem
+>Layout Widgets</guimenuitem
+></menuchoice
+> menu.
+</para>
+<para
+>Widget layout is presented in the design view using a blue, green or red box drawn with a broken line. This line is displayed only in the form's design view.
+</para>
+<para
+>Besides the grid type, there are other widget layout types.
+</para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>vertical</emphasis
+></term>
+    <listitem>
+    <para
+>Vertical widget layout</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>horizontal</emphasis
+></term>
+    <listitem>
+    <para
+>Horizontal widget layout</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<sect3 id="springs-in-widget-layouts"
+><title
+>Springs in widget layouts</title
+> 
+<para
+>A spring in widget layouts is a special, invisible element allowing to adjust widget's position and size within layouts. Such a spring stretches or squeezes a widget on the right, top, bottom or left hand, so it can have desired size and position.
+</para>
+<para
+>To use a spring:
+</para>
+<orderedlist>
+<listitem
+><para
+>Select spring icon on the <guilabel
+>Widgets</guilabel
+> toolbar.</para
+></listitem>
+<listitem
+><para
+>Click on a selected point of the form to insert the spring.</para
+></listitem>
+</orderedlist>
+<para
+>To make springs work you need to create a global widget layout, &ie; a layout for the form itself. Then, springs can use edges of the form as a boundary for expanding.
+</para>
+</sect3>
+<sect3 id="removing-widget-layouts"
+><title
+>Removing widget layouts</title
+> 
+<para
+>To remove widget layout without removing widgets, perform one of these actions:
+</para>
+<itemizedlist>
+<listitem
+><para
+>Click with the right mouse button on the layout's border and select <guilabel
+>Break Layout</guilabel
+> command from the context menu.</para
+></listitem>
+<listitem
+><para
+>Click with the left mouse button on the layout's border and select <menuchoice
+><guimenu
+>Format</guimenu
+><guimenuitem
+>Break Layout</guimenuitem
+></menuchoice
+> menu command.</para
+></listitem>
+</itemizedlist>
+<para
+><note
+><para
+>Removing widget layout using the Break Layout command will not remove widgets contained in the layout. If you want to remove the widgets as well, just select the layout by clicking on its border and press <keycap
+>Delete</keycap
+> key or use <menuchoice
+><guimenu
+>Edit</guimenu
+><guimenuitem
+>Delete</guimenuitem
+></menuchoice
+> menu command or context menu command.</para
+></note>
+</para>
+</sect3>
+-->
+<sect3 id="size-policies-for-widgets-within-a-layout"
+><title
+>سياسات الحجم للأدوات داخل التخطيط</title
+> 
+<para
+>بدلًا من تعيين حجم ثابت لأدواتك، في كيس يمكنك الاختيار بين سياسات حجم مختلفة للأداة. سياسة الحجم هي استراتيجية مرنة للتحكم في كيفية تمدد الأداة (أو تقلصها) اعتمادًا على الأدوات المجاورة الأخرى والمساحة المتاحة داخل النموذج. </para>
+<para
+>بعد وضع الأدوات في سطر، سيُعاد تحجيمها لتناسب نصها المرئي. </para>
+<para
+>لكل أداة مُدرجة في النموذج، توجد إعدادات لسياسة الحجم متاحة في <guilabel
+>محرر الخصائص</guilabel
+>. تُعرض الإعدادات كمجموعة من الخصائص تسمى <guilabel
+>سياسة الحجم</guilabel
+>. </para>
+<para
+>تحتوي هذه المجموعة من الخصائص على: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>سياسة الحجم الأفقية</emphasis
+></term>
+    <listitem>
+    <para
+>تحدد الحجم الأفقي للأداة،</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>سياسة الحجم العمودية</emphasis
+></term>
+    <listitem>
+    <para
+>تحدد الحجم العمودي للأداة،</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>توسيع أفقيّ</emphasis
+></term>
+    <listitem>
+    <para
+>تحديد قوة نشاط سياسة الحجم الأفقي،</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>توسيع عموديّ</emphasis
+></term>
+    <listitem>
+    <para
+>تحديد قوة نشاط سياسة الحجم العمودي</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect3>
+<sect3 id="values-of-size-policies"
+><title
+>قيم سياسات الحجم</title
+> 
+<para
+>القيم التالية متاحة في القائمة المنسدلة لـ <guilabel
+>السياسة الأف.</guilabel
+> و <guilabel
+>السياسة العمود.</guilabel
+> الظاهرتين في <guilabel
+>محرر الخصائص</guilabel
+>: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>ثابت</emphasis
+></term>
+    <listitem>
+    <para
+>تعني هذه القيمة أن العنصر الواجهاتي لا يمكن تغيير حجمه آليًا؛ يجب أن يحافظ على الحجم الثابت المحدد في وقت التصميم (العرض أو الارتفاع)،</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>الحد الأدنى</emphasis
+></term>
+    <listitem>
+    <para
+>تعني هذه القيمة أن الحجم الأصلي للعنصر الواجهاتي مضبوط كحد أدنى مسموح به، وهو كاف ولا حاجة لتوسيع العنصر، لكن العنصر سيُوسع إذا لزم الأمر. يمكن استخدام هذا النوع من السياسات لإجبار العنصر على التوسع إلى العرض أو الارتفاع الكامل، خاصة إذا ضبطت قيمة تمدد أكبر من 0.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>الحد الأعلى</emphasis
+></term>
+    <listitem>
+    <para
+>تعني هذه القيمة أن الحجم الأصلي للعنصر الواجهاتي مضبوط كحد أقصى مسموح به ويمكن تقليصه دون الإخلال بقابلية استخدام العنصر وقراءته إذا احتاجت عناصر أخرى مساحة أكبر،</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>مفضل</emphasis
+></term>
+    <listitem>
+    <para
+>تعني هذه القيمة أن الحجم الأصلي للعنصر الواجهاتي هو الأفضل والمفضل؛ يمكن تقليص العنصر أو توسيعه مع ذلك وسيبقى مقروءًا،</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>مُتوسِّع</emphasis
+></term>
+    <listitem>
+    <para
+>تعني هذه القيمة أن الحجم الأصلي للعنصر الواجهاتي معقول لكن يمكن أيضًا تقليصه؛ يمكن توسيعه أيضًا لأخذ أكبر قدر ممكن من المساحة،</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>توسُّع أدنى</emphasis
+></term>
+    <listitem>
+    <para
+>تعني هذه القيمة أن الحجم الأصلي للعنصر الواجهاتي مسموح به؛ يمكن توسيعه لأخذ أكبر قدر ممكن من المساحة،</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>مُتجاهَل</emphasis
+></term>
+    <listitem>
+    <para
+>تعني هذه القيمة أن الحجم الأصلي للعنصر الواجهاتي متجاهل؛ يمكن توسيعه لأخذ أكبر قدر ممكن من المساحة لكن العناصر الأخرى عادة لن تسمح بذلك</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+>أنواع العناصر الواجهاتية المختلفة لها سياسات حجم مبدئية متنوعة؛ على سبيل المثال، عناصر الأزرار لها سياسة حجم مبدئية مضبوطة على <guilabel
+>أدنى</guilabel
+> (في كلا الاتجاهين)، بينما عناصر حقول النص لها سياسة حجم عمودية مضبوطة على <guilabel
+>ثابت</guilabel
+>. </para>
+<para
+>سياسات الحجم الأكثر استخدامًا هي <guilabel
+>مفضل</guilabel
+> و <guilabel
+>أدنى</guilabel
+> و <guilabel
+>أقصى</guilabel
+>. </para>
+</sect3>
+<sect3 id="vertical-and-horizontal-stretch"
+><title
+>التمدد العمودي والأفقي</title
+> 
+<para
+>تقبل خاصيتا <guilabel
+>التمدد العمودي</guilabel
+> و <guilabel
+>التمدد الأفقي</guilabel
+> قيمًا صحيحة أكبر من أو تساوي 0. تسمح هاتان الخاصيتان بضبط سلوك سياسات الحجم بدقة. القيمة المبدئية للخاصيتين هي 0. القيمة الأعلى للتمدد تعني أن العنصر الواجهاتي سيُوسع أكثر من العناصر التي ضبطت لها قيمة تمدد أقل. </para>
+</sect3>
+</sect2>
+<!--FIXME No in master/2.4
+<sect2 id="setting-widgets-size-and-position-by-hand"
+><title
+>Setting widgets size and position by hand</title
+> 
+<para
+>In case when your form has no main layout set for auto-positioning and auto-resizing its widgets, you will probably want to modify the position and size of widgets so the form can look cleaner and be easier to use. The &kexi; form designer simplifies this task by offering the following groups of commands:
+</para>
+<itemizedlist>
+<listitem
+><para
+>Adjusting sizes of selected widgets. The commands are available in the <menuchoice
+><guimenu
+>Format</guimenu
+><guimenuitem
+>Adjust Widgets Size</guimenuitem
+></menuchoice
+> submenu of the menubar and in the <guilabel
+>Adjust Widgets Size</guilabel
+> submenu of the context menu. The toolbar's drop down button <guilabel
+>Adjust Widgets Size</guilabel
+> is also available.</para
+></listitem>
+</itemizedlist>
+<itemizedlist>
+<listitem
+><para
+>Aligning positions of the selected widgets. The commands are available in the <menuchoice
+><guimenu
+>Format</guimenu
+><guimenuitem
+>Align Widgets Position</guimenuitem
+></menuchoice
+> submenu of the menubar and in the <guilabel
+>Align Widgets Position</guilabel
+> submenu of the context menu. The toolbar's drop down button <guilabel
+>Align Widgets Position</guilabel
+> is also available.</para
+></listitem>
+</itemizedlist>
+
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Fit</emphasis
+></term>
+    <listitem>
+    <para
+>The size of the selected widgets will be altered so each widget will be resized to its preferred size and its contents; for example, a text label's size will be changed to fit its text. The position of the widgets will not be changed.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Grid</emphasis
+></term>
+    <listitem>
+    <para
+>The size of the selected widgets will be altered so each widget's corner will be placed on the form's (or other container's) grid point. The widget's position can be slightly altered.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Shortest</emphasis
+></term>
+    <listitem>
+    <para
+>The height of the selected widgets will be altered so that each of them will have the same height as the shortest one. The position of the widgets will not be changed.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Tallest</emphasis
+></term>
+    <listitem>
+    <para
+>The height of the selected widgets will be altered so that each of them will have the same height as the tallest one. The position of the widgets will not be changed.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Narrowest</emphasis
+></term>
+    <listitem>
+    <para
+>The width of the selected widgets will be altered so that each of them will have the same height as the narrowest one. The position of the widgets will not be changed.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Widest</emphasis
+></term>
+    <listitem>
+    <para
+>The width of the selected widgets will be altered so that each of them will have the same height as the widest one. The position of the widgets will not be changed.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Left</emphasis
+></term>
+    <listitem>
+    <para
+>All the selected widgets' left positions will be moved to the position of the leftmost widget's left edge.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Right</emphasis
+></term>
+    <listitem>
+    <para
+>All the selected widgets' right positions will be moved to the position of the rightmost widget's right edge.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Top</emphasis
+></term>
+    <listitem>
+    <para
+>All the selected widgets' top positions will be moved to the position of the uppermost widget's upper edge.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Bottom</emphasis
+></term>
+    <listitem>
+    <para
+>All the selected widgets' bottom positions will be moved to the position of the bottommost widget's bottom edge.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>To Grid</emphasis
+></term>
+    <listitem>
+    <para
+>All the selected widgets' top-left corners will be moved so that they are positioned in the nearest grid point.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+>None of the above commands resizes the widgets.
+</para>
+<para
+>There are also additional commands available: <guilabel
+>Bring Widget to Front</guilabel
+> (&ie; above all other widgets) and <guilabel
+>Send Widget to Back</guilabel
+> (&ie; below all other widgets). These two commands are rarely used, as it is not common to place one widget on top of an other (except when a container widget contains other widget inside). Also note that clicking a widget with a mouse button is enough to bring the widget to front.
+</para>
+</sect2>
+<sect2 id="setting-the-tab-order"
+><title
+>Setting the tab order</title
+> 
+<para
+>A widget's focus determines that widget's activity available using keyboard. Focus is related to widgets displayed in the form's data view. Exactly one form widget can have focus at the same time. The most frequent use of focus is text entry (when a given text field is active, &ie; it is focused). An other example is a button widget - when focused, it is possible to “press” it using the &Enter; or <keycap
+>Space</keycap
+> key instead of a mouse button.
+</para>
+<para
+>There are a few methods of making the widgets active (moving the focus to the widget): clicking with a mouse button, rotating the mouse wheel over the widget, or using the &Tab; key. The latter method is often used because of its speed and convenience for users. Availability of the focusing methods is controlled by <guilabel
+>Focus Policy</guilabel
+> property of a given widget.
+</para>
+<para
+>There is a relationship between focusing (activating) widgets using &Tab; key and tab order setting of a form. After pressing the &Tab; key, the next widget should be focused, so the form should know about the tab order.
+</para>
+<para
+>To alter tab order for a form's widget:
+</para>
+<orderedlist>
+<listitem
+><para
+>Switch to design view of the form.</para
+></listitem>
+<listitem
+><para
+>Execute <menuchoice
+><guimenu
+>Edit</guimenu
+><guimenuitem
+>Edit Tab Order...</guimenuitem
+></menuchoice
+> menu command. The <guilabel
+>Edit Tab Order</guilabel
+> dialog will appear with settings for this form.The window contains a list with two columns: the first column displays widget names, the second - types of the widgets. To make it easier to recognize meaning of the names and types for the user, icons related to the types are also displayed. The list contains only widgets having focus policy allowing to use the &Tab; key. The window allows you to change the tab order or set the automatic tab order.</para
+></listitem>
+<listitem
+><para
+>To change tab order, either:<itemizedlist>
+<listitem
+><para
+>Click a selected widget name in the widgets list and drag it to a desired position (up or down) using the mouse.</para
+></listitem>
+<listitem
+><para
+>Click a selected widget name on the widgets list and use <guilabel
+>Move Up</guilabel
+> or <guilabel
+>Move Down</guilabel
+> buttons, to move the widgets to a desired position.</para
+></listitem>
+<listitem
+><para
+>Click the <guilabel
+>Handle tab order automatically</guilabel
+> check box to set the automatic tab order for the form. If this option has been switched on, any changes made to the list of widgets by hand are not taken into account - &kexi; will be handling the tab orders on its own. The automatic ordering means that the top-left widget will be focused first (or the top-right if your operating system uses right-to-left layout), and the order comes from the left to right (from the right to left, respectively) and from the top to bottom.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</orderedlist>
+<para
+>Click the <guilabel
+>OK</guilabel
+> button to accept the changes or <guilabel
+>Cancel</guilabel
+> button to dismiss the changes.
+</para>
+</sect2>
+-->
+</sect1>
+<sect1 id="entering-data-using-forms"
+><title
+>إدخال البيانات باستخدام النماذج</title
+> 
+<para
+>إدخال البيانات وتحريرها عادة ما يكون مهمة مستخدم تطبيق قاعدة البيانات. يجب على مصمم قاعدة البيانات فحص النموذج من حيث إدخال البيانات الصحيح، ومعرفة ما إذا كان النموذج يعمل كما هو متوقع. </para>
+<para
+>لاختبار نموذجك، انتقل إلى عرض بياناته. سيُعرض صف واحد من قاعدة البيانات (سجل). يمكنك التنقل بين الحقول باستخدام زر الفأرة الأيسر أو مفتاحي &Tab; و <keycombo
+>&Shift;&Tab;</keycombo
+>. أثناء التحرير، سيكون هناك أيقونة قلم رصاص ظاهرة بالقرب من متصفح السجلات. بعد إدخال بيانات الصف (السجل) يمكنك الضغط على مفتاحي <keycombo
+>&Shift;&Enter;</keycombo
+> أو النقر على زر شريط الأدوات <guilabel
+>حفظ السجل</guilabel
+> لقبول التغييرات التي أُجريت على الصف الحالي. النقر على زر شريط الأدوات <guilabel
+>إلغاء تغييرات السجل</guilabel
+> يتجاهل التغييرات التي أُجريت على الصف الحالي ويستعيد محتويات حقول البيانات. يمكنك استخدام زر متصفح السجلات للانتقال إلى صف جديد. جميع وظائف المتصفح متاحة أيضًا بطريقة مماثلة كما في عرض جدول البيانات. </para>
+</sect1>
+</chapter>
+<chapter id="configuring-kexi"
+><title
+>ضبط كيس</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="docking-and-undocking-side-panels"
+>إرساء وفك إرساء الألواح الجانبية</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="docking-and-undocking-side-panels"
+><title
+>إرساء وفك إرساء الألواح الجانبية</title
+> 
+<para
+>يمكن فك إرساء لوحي <guilabel
+>متصفح المشروع</guilabel
+> و <guilabel
+>محرر الخصائص</guilabel
+> الجانبيين إما عن طريق: </para>
+<itemizedlist>
+<listitem
+><para
+>النقر المزدوج على شريط 'القبضة' في أعلى اللوحة؛ أو</para
+></listitem>
+<listitem
+><para
+>النقر مرة واحدة على زر الماسة في أعلى اللوحة، بجانب زر x.</para
+></listitem>
+</itemizedlist>
+<para
+>بمجرد فك الإرساء، يمكن إرساء نوافذ اللوحة في النافذة الرئيسة مرة أخرى بشكل مشابه لفك الإرساء: </para>
+<itemizedlist>
+<listitem
+><para
+>النقر المزدوج على شريط 'القبضة' في أعلى النافذة؛ أو</para
+></listitem>
+<listitem
+><para
+>النقر مرة واحدة على زر الماسة في أعلى اللوحة، بجانب زر x.</para
+></listitem>
+</itemizedlist>
+<para
+><tip
+><para
+>عند فك إرساء لوحة، يتذكر كيس آخر موقع إرساء بحيث عند إرساء اللوحة مرة أخرى ستوضع في الموقع الذي أُرسيت فيه آخر مرة.</para
+></tip>
+</para>
+</sect1>
+</chapter>
+<chapter id="command-reference"
+><title
+>مرجع الأوامر</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="the-kexi-tab"
+>اللسان كيس</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-create-tab"
+>اللسان إنشاء</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-data-tab"
+>اللسان بيانات</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-external-data-tab"
+>التبويب 'بيانات خارجية'</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-tools-tab"
+>التبويب 'أدوات'</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-form-design-tab"
+>التبويب 'تصميم النموذج'</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="the-report-design-tab"
+>التبويب 'تصميم التقرير'</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="the-kexi-tab"
+><title
+>التبويب 'كيس'</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_kexi_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>التبويب كيس هو المكان الذي تتفاعل فيه مع مشاريع كيس. </para>
+<para
+>سيؤدي اختيار إجراء إلى فتح شاشة بجوار القائمة مباشرة، تقدم خيارات حول الإجراء الذي اخترته. </para>
+<para
+>الخيارات المقدمة هي: </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>مرحبًا</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>هنا يمكنك اختيار فتح مشروع عملت عليه مؤخرًا.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>افتح</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>هنا يمكنك اختيار فتح مشروع كيس سواء كان مخزّنًا في ملف أو خادم قاعدة بيانات.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>أغلق</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>يغلق هذا الإجراء مشروع كيس المفتوح حاليًا.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>جديد</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>هنا يمكنك متابعة المعالج لإنشاء مشروع كيس جديد.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>استورد، صدّر أو أرسل...</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>هنا يمكنك متابعة المعالج لاستيراد بيانات موجودة إلى مشروع كيس المفتوح حاليًا.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>أنهِ</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>يغلق كيس.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="the-create-tab"
+><title
+>التبويب 'إنشاء'</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_create_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>من التبويب <guilabel
+>إنشاء</guilabel
+> يمكنك إنشاء كائنات ستُضاف إلى مشروعك. </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>جدول</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>سيأخذك اختيار <guilabel
+>جدول</guilabel
+> إلى مصمم الجداول في عرض التصميم للسماح لك بإضافة تعريفات حقول إلى جدولك.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>استعلام</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>سيأخذك اختيار <guilabel
+>استعلام</guilabel
+> إلى مصمم الاستعلامات في عرض التصميم للسماح لك بتصميم استعلام للحصول على نتائج مخصصة من جداولك في مشروعك.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>استمارة</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>سيأخذك اختيار <guilabel
+>نموذج</guilabel
+> إلى مصمم النماذج في عرض التصميم للسماح لك بإضافة ودجات إلى نموذجك.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>تقرير</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>سيأخذك اختيار <guilabel
+>تقرير</guilabel
+> إلى مصمم التقارير في عرض التصميم للسماح لك بإضافة ودجات إلى تقريرك.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>سكربت</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>سيأخذك اختيار <guilabel
+>نص برمجي</guilabel
+> إلى محرر النصوص البرمجية للسماح لك بإضافة كود مخصص لمشروعك و/أو كائناتك.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="the-data-tab"
+><title
+>التبويب 'بيانات'</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_data_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>من التبويب <guilabel
+>بيانات</guilabel
+> يمكنك التلاعب بالبيانات في جداولك أو الودجات في كائناتك (نماذج، تقارير، إلخ). </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>قصّ</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>قص</guilabel
+>، يضع البيانات/الودجة على الحافظة ويزيلها من موضعها الحالي.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>انسخ</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>نسخ</guilabel
+>، يضع البيانات/الودجة على الحافظة دون إزالتها من موضعها الحالي.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>ألصق</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>لصق</guilabel
+>، يضع البيانات/الودجة الموجودة على الحافظة في الجدول/الكائن وفقًا لذلك.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>لصق خاص</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>لصق خاص</guilabel
+>، يُستخدم لوضع بيانات عشوائية موجودة على الحافظة في جدول، بطريقة يمكن التنبؤ بها بحيث تُضاف بشكل صحيح وفقًا لتعريف الجدول.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>اعثر</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>بحث</guilabel
+>، يفتح حوار <guilabel
+>بحث</guilabel
+> للبحث عن نص محدد في بيانات قاعدة البيانات.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="the-external-data-tab"
+><title
+>التبويب 'بيانات خارجية'</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_external_data_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>من التبويب 'بيانات خارجية' يمكنك استيراد بيانات من مصادر أخرى إلى مشروع كيس الخاص بك. </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>استورد البيانات من ملف</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>استيراد بيانات من ملف</guilabel
+>، يعرض حوارًا يتيح لك استيراد بيانات من ملفات CSV أو نص عادي إلى جدول جديد في مشروعك.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>استورد الجداول</guilabel
+></emphasis
+></term>
+    <listitem>
+      <para
+><guilabel
+>استيراد جداول</guilabel
+>، يفتح <guilabel
+>معالج استيراد الجداول</guilabel
+> الذي يتيح لك استيراد البيانات إما من ملف <filename
+>fods</filename
+> أو <filename
+>mdb</filename
+> أو <filename
+>ods</filename
+> أو <filename
+>tsv</filename
+> أو من خادم قاعدة بيانات آخر، إلى جدول جديد في مشروعك.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>صدّر البيانات إلى ملف</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>تصدير بيانات إلى ملف</guilabel
+>، يعرض حوارًا يتيح لك تصدير بيانات الجداول الحالية إلى ملف نص عادي أو CSV.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+><note
+><para
+>يجب أن يكون الجدول مفتوحًا لتتمكن من تصدير البيانات منه إلى ملف.</para
+></note>
+</para>
+</sect1>
+<sect1 id="the-tools-tab"
+><title
+>لسان الأدوات</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_tools_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>من لسان <guilabel
+>الأدوات</guilabel
+> يمكنك التعامل مع مشاريعك. </para>
+<variablelist>
+  <!--FIXME no aktion Import Database in the toolbar in kexi 2.7 here
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>Import Database</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>Import Database</guilabel
+>, opens the <guilabel
+>Database Importing Wizard</guilabel
+> that allows to import complete data from an <filename
+>mdb</filename
+> file or another database server.</para>
+     </listitem>
+  </varlistentry>
+  -->
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>ضغط قاعدة البيانات</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>ضغط قاعدة البيانات</guilabel
+>، يتحقق من الأخطاء الطفيفة في قاعدة البيانات ويقلل حجمها.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+><note
+><para
+>ينبغي ضغط قاعدة بياناتك بانتظام للحفاظ عليها بحالة جيدة، خاصة بعد عمليات السجلات المكثفة (إضافة جماعية، حذف).</para
+></note>
+</para>
+</sect1>
+<sect1 id="the-form-design-tab"
+><title
+>لسان تصميم النموذج</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_form_design_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>من لسان <guilabel
+>تصميم النموذج</guilabel
+> يمكنك اختيار ودجات لإضافتها إلى نموذجك. </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>المؤشر</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>مؤشر</guilabel
+>، يتحول إلى وضع تحديد الودجات.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+<para
+><note
+><para
+>اختيار أي ودجة سيحول إلى وضع إضافة الودجات. ثم يمكنك النقر في أي مكان على النموذج لوضع الودجة.</para
+></note>
+</para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>اللصيقة</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>ودجة <guilabel
+>لصيقة</guilabel
+> تعرض معلومات محددة مسبقًا على نموذج. عادةً تُستخدم كتسمية بجانب ودجات أخرى واعية بالبيانات.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>مربع نص</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>مربع نص</guilabel
+> هو حاوية سطر واحد للبيانات الموجودة في جدولك.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>محرّر نصوص</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>محرر نص</guilabel
+> هو حاوية متعددة الأسطر للبيانات الموجودة في جدولك.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>مربع مركّب</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>مربع قائمة منسدلة</guilabel
+> يعرض قائمة خيارات للاختيار منها.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>خانة اختيار</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>مربع اختيار</guilabel
+> يحمل حالتين أو ثلاث حالات من البيانات (مثل: تشغيل/إيقاف).</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>مربع صورة</guilabel
+></emphasis
+></term>
+    <listitem>
+      <para
+><guilabel
+>مربع صورة</guilabel
+> يحمل صورة، مرتبطة بحقل في جدول.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>الزر</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>زر</guilabel
+> يتيح لك تعريف إجراءات تُنفذ عند النقر عليه.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>الإطار</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>إطار</guilabel
+> يُستخدم كحاوية لودجات أخرى.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>مربع مجموعة</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>مربع مجموعة</guilabel
+> يُستخدم لتجميع ودجات أخرى والتحكم في حالتها.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>وِدجَة اللسان</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>ودجة لسان</guilabel
+> تُستخدم كحاوية لودجات أخرى ويمكن أن تحتوي على عدة صفحات تحتوي ودجات مختلفة.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>الخط</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>خط</guilabel
+> يُستخدم كفاصل منطقي بين أجزاء مختلفة من النموذج.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>متصفّح وبّ</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>متصفح ويب</guilabel
+> هو ودجة تتيح عرض صفحة ويب داخل النموذج.</para>
+     </listitem>
+     <!--FIXME missing Map Browser + Slider + Progress Bar + Link Button + Date Picker-->
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>أسنِد إجراءً</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>تعيين إجراء</guilabel
+> يُستخدم لتعيين إجراء يُنفذ عند حدوث حدث (مثل: النقر على زر).</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="the-report-design-tab"
+><title
+>لسان تصميم التقرير</title
+> 
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_report_design_tab.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+<para
+>من لسان <guilabel
+>تصميم التقرير</guilabel
+> يمكنك اختيار ودجات لإضافتها إلى تقريرك. </para>
+<variablelist>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>اللصيقة</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>ودجة <guilabel
+>لصيقة</guilabel
+> تعرض معلومات محددة مسبقًا على تقرير. عادةً تُستخدم كتسمية بجانب ودجات أخرى واعية بالبيانات.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>حقل</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>ودجة <guilabel
+>حقل</guilabel
+> هي حاوية سطر واحد للبيانات الموجودة في جدولك.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>النص</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>ودجة <guilabel
+>نص</guilabel
+> هي حاوية متعددة الأسطر للبيانات الموجودة في جدولك.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>الصورة</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>أداة <guilabel
+>صورة</guilabel
+> تحمل صورة، مربوطة بحقل في جدول.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>اختيار</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+>أداة <guilabel
+>اختيار</guilabel
+> تحمل حالتين أو ثلاث حالات من البيانات (مثل تشغيل/إيقاف)</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+><guilabel
+>الخط</guilabel
+></emphasis
+></term>
+    <listitem>
+    <para
+><guilabel
+>خط</guilabel
+> يُستخدم كفاصل منطقي بين أجزاء مختلفة من النموذج.</para>
+     </listitem>
+  </varlistentry>
+  <!--FIXME no Shape in 2.7
+  <varlistentry
+><term
+><emphasis role="bold"
+>Shape</emphasis
+></term>
+    <listitem>
+    <para
+>A <guilabel
+>Shape</guilabel
+> widget is used to add special shape visuals to your report.</para>
+     </listitem>
+  </varlistentry>
+  -->
+  <varlistentry
+><term
+><emphasis role="bold"
+>المخطط البياني</emphasis
+></term>
+    <listitem>
+    <para
+>أداة <guilabel
+>مخطط</guilabel
+> تُستخدم لإضافة تمثيل مرئي لبياناتك معروضة على رسم بياني.</para>
+     </listitem>
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>الوبّ</emphasis
+></term>
+    <listitem>
+    <para
+>أداة <guilabel
+>ويب</guilabel
+> تُستخدم لتوفير مكون متصفح ويب بسيط وطباعة معلومات من موقع محلي أو موقع ويب على تقرير.</para>
+     </listitem>
+     <!--FIXME missing Map-->
+  </varlistentry>
+  <varlistentry
+><term
+><emphasis role="bold"
+>رمز شريطي</emphasis
+></term>
+    <listitem>
+    <para
+>أداة <guilabel
+>رمز شريطي</guilabel
+> تُستخدم لإنشاء رمز شريطي يُطبع على تقرير، من بيانات محفوظة في حقل.</para>
+     </listitem>
+  </varlistentry>
+</variablelist>
+</sect1>
+</chapter>
+<chapter id="appendix-a--introduction-to-databases"
+><title
+>ملحق أ. مقدمة إلى قواعد البيانات</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="what-is-a-database"
+>ما هي قاعدة البيانات؟</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="database-and-spreadsheet"
+>قاعدة البيانات وجدول البيانات</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="database-design"
+>تصميم قاعدة البيانات</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="who-needs-a-database"
+>من يحتاج إلى قاعدة بيانات؟</link
+>&nbsp;</para
+></listitem>
+<listitem
+><para
+><link linkend="database-creation-software"
+>برامج إنشاء قواعد البيانات</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="what-is-a-database"
+><title
+>ما هي قاعدة البيانات؟</title
+> 
+<para
+>يمكنك تعريف قاعدة البيانات على أنها مجموعة من البيانات حول موضوع واحد. إنها منظمة بطريقة تسمح بتصفح المعلومات بسهولة، أو إجراء تغييرات، أو إضافة عناصر جديدة. </para>
+<para
+>انظر إلى هذا الرسم البياني لأحد الأمثلة أعلاه: دليل هاتف بسيط. </para>
+
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="contact-example.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+
+<para
+>الصورة أعلاه تظهر مجموعة من متراسلَين، كل منهما معروض على بطاقة منفصلة. يبدو أن مثل هذه البطاقة يمكن أن تشكل صفًا واحدًا في جدول: </para>
+<para>
+<table>
+  <title
+><emphasis
+>جدول المتراسلين</emphasis
+></title>
+  <tgroup cols="2">
+  <thead>
+  <row>
+    <entry
+><guilabel
+>الاسم</guilabel
+></entry>
+    <entry
+><guilabel
+>رقم الهاتف</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>جوان</para>
+    </entry>
+    <entry>
+    <para
+>699 23 43 12</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>آدم</para>
+    </entry>
+    <entry>
+    <para
+>711 19 77 21</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+<para
+>المصطلحات والتعريفات: يمكن تسمية بيانات فردية تشكل جزءًا من مجموعة أكبر <emphasis
+>صفًا</emphasis
+> أو بشكل أكثر احترافية <emphasis
+>سجلًا</emphasis
+>. المجموعة تُسمى عادةً <emphasis
+>جدولًا</emphasis
+>. علاوة على ذلك، الاسم الأكثر طبيعية للجدول هو الذي يصف البيانات التي يقدمها/يخزنها، وهو المتراسلون. بالإضافة إلى ذلك، يتكون كل صف في الجدول من أعمدة تُسمى غالبًا <emphasis
+>حقولًا</emphasis
+>. في الجدول <replaceable
+>المتراسلون</replaceable
+> يوجد عمودان (حقلان): <guilabel
+>الاسم</guilabel
+> و<guilabel
+>رقم الهاتف</guilabel
+>. </para>
+<para
+>للاستخدامات البسيطة، يمكن لجدول واحد أن يشكل قاعدة بيانات. يعتبر الكثيرون هذين المفهومين متكافئين. كما سترى، لقواعد البيانات الحقيقية نحتاج عادةً إلى أكثر من جدول واحد. </para>
+<para
+>للختام، لقد حصلت بالفعل على قاعدة بيانات بسيطة بجدول واحد <replaceable
+>المتراسلون</replaceable
+>. </para>
+<para
+><note
+><para
+>تحقق من المحتوى على <ulink url="https://www.zoho.com/creator/database-software-vs-spreadsheet.html"
+></ulink
+></para
+></note>
+</para>
+</sect1>
+<sect1 id="database-and-spreadsheet"
+><title
+>قاعدة البيانات وجدول البيانات</title
+> 
+<para
+>من المحتمل جدًا أنك استخدمت تطبيقات جداول بيانات مثل <guilabel
+>Calligra Sheets</guilabel
+> أو <guilabel
+>LibreOffice Calc</guilabel
+> أو <application
+>&Microsoft; Excel</application
+>. إذا كان الأمر كذلك، فستتساءل على الأرجح: بما أن كلًا من جداول البيانات وقواعد البيانات تحتوي على جداول، فلماذا يجب أن أستخدم الأخيرة؟ </para>
+<para
+>أثناء مقارنة جداول البيانات وقواعد البيانات، قد تواجه القضايا التالية التي ستراها لاحقًا بتفصيل أكبر. </para>
+<sect2 id="how-is-a-database-different-from-a-spreadsheet"
+><title
+>كيف تختلف قاعدة البيانات عن جدول البيانات؟</title
+> 
+<para
+>بتجاوز سعة الهاتف المحمول تدريجيًا، وسّع جدولك <replaceable
+>المتراسلون</replaceable
+> بإضافة عمود (حقل) <replaceable
+>العنوان</replaceable
+>. أضف أرقام هواتف أكثر (مكتب، منزل) لكل شخص وأضف ألقابًا إلى الأسماء. لتبسيط الأمر، نفترض ما يلي: </para>
+<itemizedlist>
+<listitem
+><para
+>الجدول محدود لشخصين (من الواضح، قد يكون هناك مئات وآلاف منهم في قاعدة بيانات حقيقية)</para
+></listitem>
+<listitem
+><para
+>لا يوجد شخصان بنفس الاسم واللقب</para
+></listitem>
+</itemizedlist>
+<para>
+<table>
+  <title
+><emphasis
+>جدول المتراسلين</emphasis
+></title>
+  <tgroup cols="3">
+  <thead>
+  <row>
+    <entry
+><guilabel
+>الاسم واللقب</guilabel
+></entry>
+    <entry
+><guilabel
+>الهاتف</guilabel
+></entry>
+    <entry
+><guilabel
+>العنوان</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>جوان سميث</para>
+    </entry>
+    <entry>
+    <para
+>699 23 43 12</para>
+    </entry>
+    <entry>
+    <para
+>البوابة الغربية 1، وارسو</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>آدم ويلسون</para>
+    </entry>
+    <entry>
+    <para
+>711 19 77 21</para>
+    </entry>
+    <entry>
+    <para
+>لندن، شارع الضفادع 5</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>جوان سميث</para>
+    </entry>
+    <entry>
+    <para
+>110 98 98 00</para>
+    </entry>
+    <entry>
+    <para
+>البوابة الغربية 1</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>سميث جوان</para>
+    </entry>
+    <entry>
+    <para
+>312 43 42 22</para>
+    </entry>
+    <entry>
+    <para
+>وارسو، البوابة الغربية 1</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>آدم ويلسون</para>
+    </entry>
+    <entry>
+    <para
+>231 83 02 04</para>
+    </entry>
+    <entry>
+    <para
+>شارع الضفادع 5، لندن</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+<para
+>يمكن إنشاء مثل هذا الجدول في كل من جدول بيانات وقاعدة بيانات. استخدام جدول البيانات سهل جدًا بالطبع. ما المشكلات التي نواجهها في هذه المرحلة؟ </para>
+</sect2>
+<sect2 id="referential-data-integrity"
+><title
+>تكامل البيانات المرجعي</title
+> 
+<para
+>افترض أنك تستخدم جدول بيانات وتحتاج إلى تغيير عنوان شخص واحد على الأقل. لديك مشكلة صغيرة: غالبًا ما تضطر إلى تغيير العنوان في عدة صفوف. على سبيل المثال، تشغل جوان ثلاثة صفوف. ستظهر مشكلة حقيقية إذا نسيت تغيير أحد الصفوف - سيصبح العنوان المخصص لهذا الشخص غامضًا، وبالتالي تفقد بياناتك التكامل. </para>
+<para
+>علاوة على ذلك، لا توجد طريقة بسيطة لحذف شخص مختار من الجدول حيث يجب عليك تذكر حذف جميع الصفوف المرتبطة به أو بها. </para>
+</sect2>
+<sect2 id="data-redundancy"
+><title
+>تكرار البيانات</title
+> 
+<para
+>هذا مرتبط مباشرة بالمشكلة السابقة. في حقلي الاسم واللقب والعنوان، تُدخل نفس البيانات عدة مرات. هذا نموذجي لطريقة تخزين البيانات غير الفعالة في جداول البيانات لأن قاعدة البيانات تنمو دون داعٍ، مما يتطلب موارد حاسوبية أكثر (حجم بيانات أكبر ووصول أبطأ). </para>
+<para
+>كيف يمكنك حل هذه المشكلات باستخدام قاعدة بيانات؟ يمكنك تقسيم المعلومات إلى أجزاء أصغر عن طريق إنشاء جدول إضافي <replaceable
+>الأشخاص</replaceable
+> بعمودين فقط: <replaceable
+>الاسم واللقب</replaceable
+> و <replaceable
+>العنوان</replaceable
+>: </para>
+<para>
+<table>
+  <title
+><emphasis
+>جدول الأشخاص</emphasis
+></title>
+  <tgroup cols="2">
+  <thead>
+  <row>
+    <entry
+><guilabel
+>الاسم واللقب</guilabel
+></entry>
+    <entry
+><guilabel
+>العنوان</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>جوان سميث</para>
+    </entry>
+    <entry>
+    <para
+>البوابة الغربية 1، وارسو</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>آدم ويلسون</para>
+    </entry>
+    <entry>
+    <para
+>شارع الضفادع 5، لندن</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+<para
+>كل صف في الجدول <replaceable
+>الأشخاص</replaceable
+> يتوافق مع شخص واحد. الجدول <replaceable
+>جهات الاتصال</replaceable
+> من الآن فصاعدًا هو علاقة بالجدول <replaceable
+>الأشخاص</replaceable
+>. </para>
+</sect2>
+<sect2 id="data-integrity-and-validity"
+><title
+>تكامل البيانات وصلاحيتها</title
+> 
+<para
+>لاحظ طريقة إدخال البيانات في الحقلين <replaceable
+>الاسم واللقب</replaceable
+> و <replaceable
+>العنوان</replaceable
+>. يمكن للأشخاص الذين يدخلون البيانات أن يكونوا عرضة للخطأ، وأحيانًا مهملين. في بياناتنا النموذجية، لدينا تسلسل مختلف لإدخال الاسم واللقب (جوان سميث وسميث جوان؛ آدم وآدم) والعديد من الطرق الأخرى لإدخال نفس العنوان. بالتأكيد يمكنك التفكير في العديد من الطرق الأخرى. </para>
+<para
+>المشكلة أعلاه تظهر أن مثل عند البحث عن رقم هاتف شخص عنوانه <quote
+>البوابة الغربية 1، وارسو</quote
+> لن تحصل على نتيجة كاملة. ستحصل على صف واحد فقط بدلًا من ثلاثة. علاوة على ذلك، لن تجد أيضًا جميع أرقام الهواتف بالبحث عن القيمة <quote
+>جوان سميث</quote
+> في الحقل <replaceable
+>الاسم واللقب</replaceable
+>، لأن <quote
+>سميث جوان</quote
+> لن يتطابق مع <quote
+>جوان سميث</quote
+>. </para>
+<para
+>كيف يمكنك حل هذه المشكلات باستخدام قاعدة بيانات؟ يمكنك فعل ذلك بتغيير تصميم الجدول <replaceable
+>الأشخاص</replaceable
+> عن طريق: </para>
+<orderedlist>
+<listitem
+><para
+>تقسيم البيانات في الحقل <guilabel
+>الاسم واللقب</guilabel
+> إلى حقلين منفصلين: <replaceable
+>الاسم</replaceable
+> و <replaceable
+>اللقب</replaceable
+>.</para
+></listitem>
+<listitem
+><para
+>تقسيم البيانات في الحقل <replaceable
+>العنوان</replaceable
+> إلى ثلاثة حقول منفصلة: <replaceable
+>الشارع</replaceable
+> و <replaceable
+>رقم المنزل</replaceable
+> و <replaceable
+>المدينة</replaceable
+>.</para
+></listitem>
+<listitem
+><para
+>ضمان صحة البيانات: بضمان عدم وجود حقول فارغة، مثل يجب عليك دائمًا إدخال رقم المنزل.</para
+></listitem>
+</orderedlist>
+<para
+>يبدو الجدول المعدل هكذا: </para>
+<para>
+<table>
+  <title
+><emphasis
+>جدول الأشخاص</emphasis
+></title>
+  <tgroup cols="5">
+  <thead>
+  <row>
+    <entry
+><guilabel
+>الاسم</guilabel
+></entry>
+    <entry
+><guilabel
+>اسم العائلة</guilabel
+></entry>
+    <entry
+><guilabel
+>الشارع</guilabel
+></entry>
+    <entry
+><guilabel
+>رقم المنزل</guilabel
+></entry>
+    <entry
+><guilabel
+>المدينة</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>جوان</para>
+    </entry>
+    <entry>
+    <para
+>سميث</para>
+    </entry>
+    <entry>
+    <para
+>البوابة الغربية</para>
+    </entry>
+    <entry>
+    <para
+>1</para>
+    </entry>
+    <entry>
+    <para
+>وارسو</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>آدم</para>
+    </entry>
+    <entry>
+    <para
+>ويلسون</para>
+    </entry>
+    <entry>
+    <para
+>طريق الضفادع</para>
+    </entry>
+    <entry>
+    <para
+>5</para>
+    </entry>
+    <entry>
+    <para
+>لندن</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+><emphasis
+>الشروط</emphasis
+></para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>الحقل المطلوب</para>
+    </entry>
+    <entry>
+    <para
+>الحقل المطلوب</para>
+    </entry>
+    <entry>
+    <para
+>الحقل المطلوب</para>
+    </entry>
+    <entry>
+    <para
+>الحقل المطلوب</para>
+    </entry>
+    <entry>
+    <para
+>الحقل المطلوب</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+<para
+>بفضل إدخال شرط الحقل المطلوب، يمكننا التأكد من أن البيانات المدخلة كاملة. في حالة الجداول الأخرى، يمكنك بالطبع السماح بتجاهل بعض الحقول أثناء إدخال البيانات. </para>
+</sect2>
+<sect2 id="limiting-data-view"
+><title
+>تحديد عرض البيانات</title
+> 
+<para
+>يعرض جدول البيانات جميع الصفوف والأعمدة في الجدول، وهو أمر مزعج في حالة جداول البيانات الكبيرة جدًا. يمكنك بالطبع تصفية الصفوف وفرزها في جداول البيانات، لكن يجب أن تكون حذرًا للغاية أثناء ذلك. يتعرض مستخدمو جداول البيانات لخطر نسيان أن عرض بياناتهم قد تمت تصفيته، مما قد يؤدي إلى أخطاء. على سبيل المثال، عند حساب المجاميع، قد تظن أن لديك 100 صف من البيانات بينما في الواقع هناك 20 صفًا إضافيًا مخفيًا. </para>
+<para
+>إذا كنت تريد العمل على مجموعة فرعية صغيرة من البيانات، مثل إرسالها للآخرين لتحريرها، يمكنك نسخها ولصقها في جدول بيانات آخر، وبعد التحرير، لصق البيانات المعدلة مرة أخرى في جدول البيانات الرئيس. قد يتسبب هذا التحرير <quote
+>اليدوي</quote
+> في فقدان البيانات أو حسابات غير صحيحة. </para>
+<para
+>لتحديد عرض البيانات، تقدم تطبيقات قواعد البيانات الاستعلامات والنماذج والتقارير. </para>
+<para
+>طريقة عملية جدًا للتحديد هي النسخة الموسعة التالية من الجدول <replaceable
+>الأشخاص</replaceable
+> الموصوف سابقًا: </para>
+<para>
+<table>
+  <title
+><emphasis
+>جدول الأشخاص</emphasis
+></title>
+  <tgroup cols="6">
+  <thead>
+  <row>
+    <entry
+><guilabel
+>الاسم</guilabel
+></entry>
+    <entry
+><guilabel
+>اسم العائلة</guilabel
+></entry>
+    <entry
+><guilabel
+>الشارع</guilabel
+></entry>
+    <entry
+><guilabel
+>رقم المنزل</guilabel
+></entry>
+    <entry
+><guilabel
+>المدينة</guilabel
+></entry>
+    <entry
+><guilabel
+>الدخل</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>جوان</para>
+    </entry>
+    <entry>
+    <para
+>سميث</para>
+    </entry>
+    <entry>
+    <para
+>البوابة الغربية</para>
+    </entry>
+    <entry>
+    <para
+>1</para>
+    </entry>
+    <entry>
+    <para
+>وارسو</para>
+    </entry>
+    <entry>
+    <para
+>2300</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>آدم</para>
+    </entry>
+    <entry>
+    <para
+>ويلسون</para>
+    </entry>
+    <entry>
+    <para
+>طريق الضفادع</para>
+    </entry>
+    <entry>
+    <para
+>5</para>
+    </entry>
+    <entry>
+    <para
+>لندن</para>
+    </entry>
+    <entry>
+    <para
+>1900</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+<para
+>لنفترض أن العمود المُضاف حديثًا، الدخل، يحتوي على بيانات سرية. كيف يمكنك مشاركة تفاصيل الاتصال بالأشخاص مع زملائك في العمل دون الكشف عن دخلهم؟ هذا ممكن إذا شاركت استعلامًا فقط وليس الجدول بأكمله. يمكن للاستعلام تحديد جميع الأعمدة باستثناء عمود الدخل. في عالم قواعد البيانات، يُعرف هذا الاستعلام غالبًا باسم عرض. </para>
+</sect2>
+<sect2 id="performance-and-capacity"
+><title
+>الأداء والسعة</title
+> 
+<para
+>من المحتمل أن حاسوبك سريع جدًا، لكنك ستلاحظ بسهولة أن ذلك لا يساعد مع جداول البيانات البطيئة والكبيرة. يرجع انخفاض كفاءتها أولًا إلى نقص الفهارس التي تسرع عملية البحث عن البيانات (تقدمها قواعد البيانات). علاوة على ذلك، إذا كنت تستخدم أشياء مثل حافظة النظام، فقد يصبح حتى نسخ البيانات مزعجًا مع مرور الوقت. </para>
+<para
+>قد تستغرق جداول البيانات التي تحتوي على مجموعات بيانات كبيرة وقتًا طويلًا لفتحها. يقوم جدول البيانات بتحميل الكثير من البيانات إلى ذاكرة الحاسوب أثناء الفتح. معظم البيانات المحملة ربما تكون عديمة الفائدة/غير ضرورية لك في الوقت الحالي. على عكس جداول البيانات، تقوم قواعد البيانات بتحميل البيانات من تخزين الحاسوب فقط عند الحاجة. </para>
+<para
+>في معظم الحالات، لن تضطر إلى القلق بشأن كيفية تخزين قاعدة البيانات لبياناتها. هذا يعني أنه على عكس جداول البيانات، لا تهتم قواعد البيانات بـ: </para>
+<itemizedlist>
+<listitem
+><para
+>تسلسل الصفوف، حيث يمكنك ترتيب الصفوف وفقًا لاحتياجاتك. علاوة على ذلك، يمكنك عرض نفس البيانات في عروض متعددة بترتيبات مختلفة.</para
+></listitem>
+<listitem
+><para
+>ينطبق الشيء نفسه على الأعمدة (الحقول) في الجدول.</para
+></listitem>
+</itemizedlist>
+<para
+>جنبًا إلى جنب مع <link linkend="limiting-data-view"
+>تحديد عرض البيانات</link
+> الموصوف في الفقرة السابقة، تشكل هذه الصفات ميزة قواعد البيانات. </para>
+</sect2>
+<sect2 id="data-entry"
+><title
+>مدخلة البيانات</title
+> 
+<para
+>تتيح لك أحدث إصدارات تطبيقات إنشاء جداول البيانات تصميم نماذج إدخال البيانات. تكون هذه النماذج مفيدة للغاية إذا لم يكن من الممكن عرض بياناتك بشكل ملائم في عرض جدولي، مثل إذا كان النص يشغل عددًا كبيرًا جدًا من الصفوف أو إذا كانت جميع الأعمدة لا تتناسب مع الشاشة. </para>
+<para
+>في هذه الحالة، طريقة عمل جدول البيانات نفسها إشكالية. توضع حقول إدخال البيانات بشكل فضفاض داخل جدول البيانات، وغالبًا ما تكون غير آمنة ضد تدخل المستخدم (المتعمد أو العرضي). </para>
+</sect2>
+<sect2 id="reports"
+><title
+>التقارير</title
+> 
+<para
+>تتيح قواعد البيانات تجميع البيانات وتحديدها وتجميعها في شكل تقرير. عادةً ما تُطبع جداول البيانات في شكل جداول صغيرة دون تحكم آلي كامل في تقسيم الصفحات وتخطيط الحقول. </para>
+</sect2>
+<sect2 id="programming"
+><title
+>برمجة</title
+> 
+<para
+>غالبًا ما تحتوي تطبيقات إنشاء قواعد البيانات على لغات برمجة كاملة. تمتلك جداول البيانات الأحدث هذه القدرة أيضًا، لكن الحسابات تنحصر في تعديل حقول جدول البيانات ونسخ البيانات البسيط، بغض النظر عن قواعد الصلة والتكامل المذكورة في الفقرات السابقة. </para>
+<para
+>عادةً ما تتم معالجة البيانات داخل جدول البيانات عبر واجهة مستخدم رسومية، مما قد يبطئ سرعة معالجة البيانات. قواعد البيانات قادرة على العمل في الخلفية، خارج الواجهات الرسومية. </para>
+</sect2>
+<sect2 id="multiuse"
+><title
+>الاستخدام المتعدد</title
+> 
+<para
+>من الصعب تصور استخدام متعدد لجداول بيانات واحدة. حتى لو كان ذلك ممكنًا تقنيًا في حالة التطبيقات الحديثة، فإنه يتطلب انضباطًا واهتمامًا ومعرفة كبيرين من المستخدمين، وهذه الأمور لا يمكن ضمانها. </para>
+<para
+>الطريقة التقليدية لمشاركة البيانات المحفوظة في جدول بيانات مع شخص آخر هي إرسال الملف كاملًا (عادةً باستخدام البريد الإلكتروني) أو توفير ملف جدول بيانات في شبكة حاسوبية. طريقة العمل هذه غير فعالة للمجموعات الأكبر من الأشخاص - فقد تكون البيانات المطلوبة في وقت معين مقفلة حاليًا من قبل شخص آخر. </para>
+<para
+>من ناحية أخرى، صُممت قواعد البيانات بشكل أساسي مع مراعاة الوصول متعدد المستخدمين. حتى في أبسط الإصدارات، يمكن القفل على مستوى صف معين في جدول، مما يسهل مشاركة بيانات الجدول. </para>
+</sect2>
+<sect2 id="security"
+><title
+>الأمن</title
+> 
+<para
+>تأمين جدول بيانات أو أقسام معينة منه بكلمة مرور هو نشاط رمزي فقط. بعد توفير ملف جدول بيانات في شبكة حاسوبية، يمكن لكل شخص قادر على نسخ الملف محاولة كسر كلمة المرور. وهذا ليس صعبًا أحيانًا لأن كلمة المرور مخزنة في نفس ملف جدول البيانات. </para>
+<para
+>ميزات قفل التحرير أو قفل النسخ لجدول بيانات (أو جزء منه) سهلة الاختراق بالمثل. </para>
+<para
+>قواعد البيانات (باستثناء تلك المحفوظة في ملف بدلًا من خادم) لا تحتاج إلى أن تكون متاحة في ملف واحد. أنت تصل إليها باستخدام شبكة حاسوبية، عادةً بتوفير اسم مستخدم وكلمة مرور. أنت تحصل على وصول فقط إلى هذه المناطق (الجداول، النماذج، أو حتى الصفوف والأعمدة المحددة) التي خُصصت لك من خلال تعيين حقوق الوصول المناسبة. </para>
+<para
+>حقوق الوصول يمكن أن تؤثر على القدرة على تحرير البيانات أو قراءتها فقط. إذا كانت أي بيانات غير متاحة لك، فلن تُرسل حتى إلى حاسوبك، لذا لا توجد إمكانية لعمل نسخة من البيانات بهذه الطريقة السهلة كما في حالة ملفات جداول البيانات. </para>
+</sect2>
+</sect1>
+<sect1 id="database-design"
+><title
+>تصميم قاعدة البيانات</title
+> 
+<para
+>تصميم قاعدة البيانات يحتاج إلى تخطيط دقيق. لاحظ أن إعادة تصميم جدول <replaceable
+>الأشخاص</replaceable
+> المقترحة في القسم <link linkend="data-integrity-and-validity"
+>تكامل البيانات وصلاحيتها</link
+> يمكن أن تولد مشاكل عندما يمتلئ الجدول بالبيانات. على سبيل المثال، إعادة تسمية حقل هي مهمة بسيطة، لكن تقسيم حقل <replaceable
+>العنوان</replaceable
+> إلى حقول منفصلة يتطلب عملًا دقيقًا ومضنيًا. </para>
+<para
+>لتجنب مثل هذه المواقف، أعد التفكير في مشروع قاعدة البيانات الخاص بك قبل إنشائه على حاسوبك، وقبل أن تبدأ أنت والآخرون في استخدامه. وهكذا، باستثمار بعض الوقت مبدئيًا، ستوفر وقتك على الأرجح في الاستخدام اليومي. </para>
+</sect1>
+<sect1 id="who-needs-a-database"
+><title
+>من يحتاج إلى قاعدة بيانات؟</title
+> 
+<sect2 id="stick-to-spreadsheets-if-"
+><title
+>التزم بجداول البيانات إذا:</title
+> 
+<itemizedlist>
+<listitem
+><para
+>احتياجاتك محدودة ولن تنمو بياناتك أبدًا إلى أحجام كبيرة (هل يمكنك التنبؤ بذلك الآن فعليًا؟)</para
+></listitem>
+<listitem
+><para
+>أنت غير قادر على اكتساب منهجية بناء قاعدة البيانات. قد تفكر مع ذلك في إسناد هذه المهمة لشخص آخر أو استخدام أدوات أبسط.</para
+></listitem>
+<listitem
+><para
+>أنت تستخدم جداول بيانات معقدة وتفتقر إلى الوقت أو المال للتحول إلى قواعد البيانات. فكر أو اسأل شخصًا ما إذا كان هذا لا يؤدي إلى طريق مسدود. لا تعتمد على أدوات سحرية من شأنها تحويل جدول البيانات الخاص بك (بغض النظر عن جودته) إلى قاعدة بيانات.</para
+></listitem>
+</itemizedlist>
+</sect2>
+<sect2 id="consider-using-databases-if-"
+><title
+>فكر في استخدام قواعد البيانات إذا:</title
+> 
+<itemizedlist>
+<listitem
+><para
+>مجموعة بياناتك تتوسع كل أسبوع.</para
+></listitem>
+<listitem
+><para
+>غالبًا ما تنشئ جداول بيانات جديدة، وتنسخ داخلها وتشعر أن هذا العمل يصبح أكثر إرهاقًا. في هذه الحالة، جهد التحول إلى قواعد البيانات يؤتي ثماره بسهولة.</para
+></listitem>
+<listitem
+><para
+>تنشئ تقارير وبيانات لا يناسبها عرض الجدول لجداول البيانات. يمكنك عندها التفكير في التحول إلى استخدام قاعدة بيانات مع عروض النماذج.</para
+></listitem>
+</itemizedlist>
+</sect2>
+</sect1>
+<sect1 id="database-creation-software"
+><title
+>برمجيات إنشاء قواعد البيانات</title
+> 
+<para
+>حتى الآن تعلمت الخصائص العامة لقواعد البيانات دون الخوض في تفاصيل كثيرة حول التطبيقات المحددة لتصميمها. </para>
+<para
+>بُنيت قواعد البيانات الأولى مع حواسيب رئيسية كبيرة في الستينيات، &eg; IBM System/360. لم تكن تلك أيام الحواسيب الشخصية، لذلك تطلبت قواعد البيانات هذه موظفين متخصصين للغاية. على الرغم من أن أجهزة الحواسيب القديمة كانت غير موثوقة، وأبطأ بشكل لا يُقاس ولديها سعة تخزين أقل، إلا أن ميزة واحدة لقواعد البيانات لا تزال الأكثر جاذبية: الوصول إلى البيانات من قبل العديد من المستخدمين عبر شبكة. </para>
+<para
+>في السبعينيات، شكل العلماء نظرية قواعد البيانات العلائقية (مصطلحات مثل: جدول، سجل، عمود (حقل) والعلائقية وغيرها الكثير). على أساس هذه النظرية، أُنشئت قواعد بيانات IBM DB2 وOracle، التي طُورت واستُخدمت حتى اليوم. في أواخر السبعينيات، صُنعت أول حواسيب شخصية. تمكن مستخدموها (تدريجيًا) من استخدام العديد من أنواع التطبيقات، بما في ذلك تلك الخاصة ببناء قواعد البيانات. </para>
+<para
+>عندما يتعلق الأمر بقواعد البيانات الكبيرة في الشركات، لم يتغير الوضع: فهي لا تزال تتطلب حواسيب قوية أو مجمعات حواسيب تُسمى عناقيد. هذا، مع ذلك، يتجاوز موضوع هذا الدليل. </para>
+<para
+>في مجال قواعد البيانات <quote
+>المتاحة</quote
+> بواجهة مستخدم رسومية للحواسيب الشخصية، يمكنك الاختيار من بين التالي: </para>
+<itemizedlist>
+<listitem
+><para
+><ulink url="http://www.dbase.com"
+>DBase</ulink
+> - أداة لتشغيل قواعد البيانات لنظام DOS شائعة في الثمانينيات. لا تزال ملفات تنسيق DBase مستخدمة في بعض الحالات المحددة بسبب بساطتها.</para
+></listitem>
+<listitem
+><para
+><ulink url="http://msdn.microsoft.com/vfoxpro/"
+>FoxPro</ulink
+> - تطبيق مشابه لـ DBase (أوائل التسعينيات). بعد الاستحواذ عليه من قبل Microsoft، أُدخلت واجهات مستخدم رسومية ولذلك يُستخدم لإنشاء قواعد البيانات على الحواسيب الشخصية. هذا المنتج لا يزال معروضًا، رغم أنه يبدو قديمًا بعض الشيء.</para
+></listitem>
+<listitem
+><para
+><ulink url="http://office.microsoft.com/access/"
+>Microsoft Access</ulink
+> - تطبيق لقواعد البيانات (تصميم البيانات والواجهة الرسومية) مع العديد من التبسيطات، لذلك مناسب للمبتدئين، صُمم في أواخر الثمانينيات، مبني على بنية 16-بت. هذا المنتج معروض ومستخدم على نطاق واسع حتى اليوم، خاصة من قبل الشركات الصغيرة، حيث متطلبات الكفاءة والمستخدمين المتعددين ليست عالية جدًا.</para
+></listitem>
+<listitem
+><para
+><ulink url="http://www.filemaker.com"
+>FileMaker</ulink
+> - تطبيق شائع مشابه لـ MS Access في البساطة، يعمل على منصتي Windows وMacintosh، معروض منذ 1985.</para
+></listitem>
+<listitem
+><para
+><ulink url="http://www.calligra-suite.org/kexi"
+>كيس</ulink
+> - تطبيق متعدد المنصات (&UNIX;/&Linux;, Windows, &MacOS; X) صُمم في 2003، طُور وفقًا لمبادئ المصدر المفتوح، جزء من مجتمع كيدي العالمي، الذي يوفر من بين أمور أخرى بيئة رسومية لأنظمة &UNIX;/&Linux;. مساهم كبير في تطوير كيس هو شركة OpenOffice Poland.</para
+></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+<chapter id="appendix-b--comparing-kexi-to-other-database-applications"
+><title
+>الملحق ب. مقارنة كيس بتطبيقات قواعد البيانات الأخرى</title
+> 
+<itemizedlist>
+<listitem
+><para
+><link linkend="data-types"
+>أنواع البيانات</link
+>&nbsp;</para
+></listitem>
+</itemizedlist>
+<sect1 id="data-types"
+><title
+>أنواع البيانات</title
+> 
+<para
+>على الرغم من أن تطبيقات قواعد البيانات المختلفة تميل إلى توفير وظائف متشابهة، إلا أنها غالبًا ما تستخدم مصطلحات مختلفة. لتيسير الأمر عليك، يوضح هذا الملحق كيفية توافق المصطلحات المستخدمة في كيس مع تلك المستخدمة في تطبيقات قواعد البيانات الأخرى. وبالتالي، قد يكون هذا الفصل مفيدًا عند ترحيل قواعد البيانات من تطبيق إلى آخر. </para>
+<para
+>يوضح الجدول أدناه كيفية توافق أنواع البيانات في كيس مع أنواع البيانات في تطبيقات قواعد البيانات الأخرى. </para>
+<para
+>بعض أنواع البيانات المدرجة هنا هي أنواع فرعية لأنواع أخرى. على سبيل المثال، نوع <guilabel
+>نص طويل</guilabel
+> هو نوع فرعي من نوع <guilabel
+>نص</guilabel
+>. لاستخدام نوع فرعي في كيس، يجب تحديد النوع الأساسي المقابل (في هذه الحالة، <guilabel
+>نص</guilabel
+>) في مصمم الجداول، ثم تحديد النوع الفرعي باستخدام إعداد <guilabel
+>النوع الفرعي</guilabel
+> في <guilabel
+>محرر الخصائص</guilabel
+>. </para>
+<para>
+<table>
+  <title
+><emphasis
+>مقارنة أنواع البيانات المستخدمة في كيس وتطبيقات قواعد البيانات الأخرى</emphasis
+></title>
+  <tgroup cols="4">
+  <thead>
+  <row>
+    <entry
+>كيس</entry>
+    <entry
+><guilabel
+>ميكروسوفت أكسس</guilabel
+></entry>
+    <entry
+><guilabel
+>dBase/FoxPro</guilabel
+></entry>
+    <entry
+><guilabel
+>Paradox</guilabel
+></entry>
+  </row>
+  </thead>
+  <tbody>
+  <row>
+    <entry>
+    <para
+>نص (نص)</para>
+    </entry>
+    <entry>
+    <para
+>النص</para>
+    </entry>
+    <entry>
+    <para
+>حرف</para>
+    </entry>
+    <entry>
+    <para
+>هجائي عددي</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>نص طويل (نص طويل)</para>
+    </entry>
+    <entry>
+    <para
+>مذكرة</para>
+    </entry>
+    <entry>
+    <para
+>مذكرة</para>
+    </entry>
+    <entry>
+    <para
+>مذكرة</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>تاريخ/وقت (تاريخ/وقت)</para>
+    </entry>
+    <entry>
+    <para
+>التّاريخ، الوقت</para>
+    </entry>
+    <entry>
+    <para
+>التاريخ</para>
+    </entry>
+    <entry>
+    <para
+>التاريخ والوقت</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>عدد صحيح (عدد صحيح)</para>
+    </entry>
+    <entry>
+    <para
+>عدد (عدد صحيح)</para>
+    </entry>
+    <entry>
+    <para
+>رقميّ</para>
+    </entry>
+    <entry>
+    <para
+>عدد صحيح</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>عدد صحيح كبير (عدد صحيح كبير)</para>
+    </entry>
+    <entry>
+    <para
+>عدد صحيح طويل</para>
+    </entry>
+    <entry>
+    <para
+>رقميّ</para>
+    </entry>
+    <entry>
+    <para
+>عدد صحيح طويل</para>
+    </entry>
+  </row>
+  <row>
+    <entry>
+    <para
+>عدد فاصل عائم (عدد فاصل عائم)</para>
+    </entry>
+    <entry>
+    <para
+>عدد بدقة مفردة/مزدوجة</para>
+    </entry>
+    <entry>
+    <para
+>عائم</para>
+    </entry>
+    <entry>
+    <para
+>عدد</para
+></entry>
+  </row>
+  </tbody>
+  </tgroup>
+</table>
+</para>
+</sect1>
+</chapter>
+<chapter id="reserved-words-for-sql"
+><title
+>ملحق ج. الكلمات المحجوزة لـ SQL</title
+> 
+<para
+>تحتوي القوائم التالية على كلمات تُستخدم داخليًا بواسطة كيس عند التعامل مع مصادر البيانات. </para>
+<para
+><warning
+><para
+>عند تصميم قاعدة البيانات الخاصة بك، يجب أن تبذل قصارى جهدك لتجنب استخدام هذه الكلمات المحجوزة، وإلا فقد تواجه مشاكل مع ملف قاعدة البيانات أو حتى تتلفه.</para
+></warning>
+</para>
+<para
+><tip
+><para
+>إذا كنت لا تزال ترغب في استخدام الكلمات المحجوزة، فضعها بين علامتي اقتباس مزدوجتين <quote
+></quote
+>.</para
+></tip>
+</para>
+<sect1 id="kexi-sql-reserved-words"
+><title
+>كلمات SQL المحجوزة في كيس</title
+> 
+<para
+>تحتوي هذه القائمة على كلمات رئيسية محجوزة للاستخدام في SQL كيس: </para>
+<itemizedlist>
+<listitem
+><para
+>AFTER</para
+></listitem>
+<listitem
+><para
+>ALL</para
+></listitem>
+<listitem
+><para
+>ASC</para
+></listitem>
+<listitem
+><para
+>BEFORE</para
+></listitem>
+<listitem
+><para
+>BEGIN</para
+></listitem>
+<listitem
+><para
+>BETWEEN</para
+></listitem>
+<listitem
+><para
+>BY</para
+></listitem>
+<listitem
+><para
+>CASCADE</para
+></listitem>
+<listitem
+><para
+>CASE</para
+></listitem>
+<listitem
+><para
+>CHECK</para
+></listitem>
+<listitem
+><para
+>COLLATE</para
+></listitem>
+<listitem
+><para
+>COMMIT</para
+></listitem>
+<listitem
+><para
+>CONSTRAINT</para
+></listitem>
+<listitem
+><para
+>CROSS</para
+></listitem>
+<listitem
+><para
+>DATABASE</para
+></listitem>
+<listitem
+><para
+>DEFAULT</para
+></listitem>
+<listitem
+><para
+>DELETE</para
+></listitem>
+<listitem
+><para
+>DESC</para
+></listitem>
+<listitem
+><para
+>DISTINCT</para
+></listitem>
+<listitem
+><para
+>DROP</para
+></listitem>
+<listitem
+><para
+>END</para
+></listitem>
+<listitem
+><para
+>ELSE</para
+></listitem>
+<listitem
+><para
+>EXPLAIN</para
+></listitem>
+<listitem
+><para
+>FOR</para
+></listitem>
+<listitem
+><para
+>FOREIGN</para
+></listitem>
+<listitem
+><para
+>FULL</para
+></listitem>
+<listitem
+><para
+>GROUP</para
+></listitem>
+<listitem
+><para
+>HAVING</para
+></listitem>
+<listitem
+><para
+>IGNORE</para
+></listitem>
+<listitem
+><para
+>INDEX</para
+></listitem>
+<listitem
+><para
+>INNER</para
+></listitem>
+<listitem
+><para
+>INSERT</para
+></listitem>
+<listitem
+><para
+>INTO</para
+></listitem>
+<listitem
+><para
+>KEY</para
+></listitem>
+<listitem
+><para
+>LIMIT</para
+></listitem>
+<listitem
+><para
+>MATCH</para
+></listitem>
+<listitem
+><para
+>NATURAL</para
+></listitem>
+<listitem
+><para
+>OFFSET</para
+></listitem>
+<listitem
+><para
+>ORDER</para
+></listitem>
+<listitem
+><para
+>OUTER</para
+></listitem>
+<listitem
+><para
+>PRIMARY</para
+></listitem>
+<listitem
+><para
+>REFERENCES</para
+></listitem>
+<listitem
+><para
+>REPLACE</para
+></listitem>
+<listitem
+><para
+>RESTRICT</para
+></listitem>
+<listitem
+><para
+>ROLLBACK</para
+></listitem>
+<listitem
+><para
+>ROW</para
+></listitem>
+<listitem
+><para
+>SET</para
+></listitem>
+<listitem
+><para
+>TEMPORARY</para
+></listitem>
+<listitem
+><para
+>THEN</para
+></listitem>
+<listitem
+><para
+>TRANSACTION</para
+></listitem>
+<listitem
+><para
+>UNION</para
+></listitem>
+<listitem
+><para
+>UNIQUE</para
+></listitem>
+<listitem
+><para
+>UPDATE</para
+></listitem>
+<listitem
+><para
+>USING</para
+></listitem>
+<listitem
+><para
+>VALUES</para
+></listitem>
+<listitem
+><para
+>WHEN</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-sqlite-driver-reserved-words"
+><title
+>الكلمات المحجوزة لبرنامج تشغيل SQLite في كيس</title
+> 
+<para
+>تحتوي هذه القائمة على كلمات رئيسية محجوزة للاستخدام بواسطة برنامج تشغيل SQLite في كيس: </para>
+<itemizedlist>
+<listitem
+><para
+>ABORT</para
+></listitem>
+<listitem
+><para
+>ATTACH</para
+></listitem>
+<listitem
+><para
+>CLUSTER</para
+></listitem>
+<listitem
+><para
+>CONFLICT</para
+></listitem>
+<listitem
+><para
+>DEFERRED</para
+></listitem>
+<listitem
+><para
+>DEFERRABLE</para
+></listitem>
+<listitem
+><para
+>DETACH</para
+></listitem>
+<listitem
+><para
+>EACH</para
+></listitem>
+<listitem
+><para
+>EXCEPT</para
+></listitem>
+<listitem
+><para
+>FAIL</para
+></listitem>
+<listitem
+><para
+>GLOB</para
+></listitem>
+<listitem
+><para
+>IMMEDIATE</para
+></listitem>
+<listitem
+><para
+>INITIALLY</para
+></listitem>
+<listitem
+><para
+>INSTEAD</para
+></listitem>
+<listitem
+><para
+>INTERSECT</para
+></listitem>
+<listitem
+><para
+>ISNULL</para
+></listitem>
+<listitem
+><para
+>NOTNULL</para
+></listitem>
+<listitem
+><para
+>OF</para
+></listitem>
+<listitem
+><para
+>PRAGMA</para
+></listitem>
+<listitem
+><para
+>RAISE</para
+></listitem>
+<listitem
+><para
+>STATEMENT</para
+></listitem>
+<listitem
+><para
+>TEMP</para
+></listitem>
+<listitem
+><para
+>TRIGGER</para
+></listitem>
+<listitem
+><para
+>VACUUM</para
+></listitem>
+<listitem
+><para
+>VIEW</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-mysql-driver-reserved-words"
+><title
+>الكلمات المحجوزة لبرنامج تشغيل MySQL في كيس</title
+> 
+<para
+>تحتوي هذه القائمة على كلمات رئيسية محجوزة للاستخدام بواسطة برنامج تشغيل MySQL في كيس: </para>
+<itemizedlist>
+<listitem
+><para
+>ACTION</para
+></listitem>
+<listitem
+><para
+>ADD</para
+></listitem>
+<listitem
+><para
+>AGAINST</para
+></listitem>
+<listitem
+><para
+>AGGREGATE</para
+></listitem>
+<listitem
+><para
+>ALTER</para
+></listitem>
+<listitem
+><para
+>ANALYZE</para
+></listitem>
+<listitem
+><para
+>ANY</para
+></listitem>
+<listitem
+><para
+>ASCII</para
+></listitem>
+<listitem
+><para
+>AUTO_INCREMENT</para
+></listitem>
+<listitem
+><para
+>AVG</para
+></listitem>
+<listitem
+><para
+>AVG_ROW_LENGTH</para
+></listitem>
+<listitem
+><para
+>BACKUP</para
+></listitem>
+<listitem
+><para
+>BDB</para
+></listitem>
+<listitem
+><para
+>BERKELEYDB</para
+></listitem>
+<listitem
+><para
+>BIGINT</para
+></listitem>
+<listitem
+><para
+>BINARY</para
+></listitem>
+<listitem
+><para
+>BINLOG</para
+></listitem>
+<listitem
+><para
+>BIT</para
+></listitem>
+<listitem
+><para
+>BLOB</para
+></listitem>
+<listitem
+><para
+>BOOL</para
+></listitem>
+<listitem
+><para
+>BOOLEAN</para
+></listitem>
+<listitem
+><para
+>BOTH</para
+></listitem>
+<listitem
+><para
+>BTREE</para
+></listitem>
+<listitem
+><para
+>BYTE</para
+></listitem>
+<listitem
+><para
+>CACHE</para
+></listitem>
+<listitem
+><para
+>CHANGE</para
+></listitem>
+<listitem
+><para
+>CHANGED</para
+></listitem>
+<listitem
+><para
+>CHAR</para
+></listitem>
+<listitem
+><para
+>CHARACTER</para
+></listitem>
+<listitem
+><para
+>CHARSET</para
+></listitem>
+<listitem
+><para
+>CHECKSUM</para
+></listitem>
+<listitem
+><para
+>CIPHER</para
+></listitem>
+<listitem
+><para
+>CLIENT</para
+></listitem>
+<listitem
+><para
+>CLOSE</para
+></listitem>
+<listitem
+><para
+>COLLATION</para
+></listitem>
+<listitem
+><para
+>COLUMN</para
+></listitem>
+<listitem
+><para
+>COLUMNS</para
+></listitem>
+<listitem
+><para
+>COMMENT</para
+></listitem>
+<listitem
+><para
+>COMMITTED</para
+></listitem>
+<listitem
+><para
+>COMPRESSED</para
+></listitem>
+<listitem
+><para
+>CONCURRENT</para
+></listitem>
+<listitem
+><para
+>CONVERT</para
+></listitem>
+<listitem
+><para
+>CUBE</para
+></listitem>
+<listitem
+><para
+>CURRENT_DATE</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIME</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>CURRENT_USER</para
+></listitem>
+<listitem
+><para
+>DATA</para
+></listitem>
+<listitem
+><para
+>DATABASES</para
+></listitem>
+<listitem
+><para
+>DATE</para
+></listitem>
+<listitem
+><para
+>DATETIME</para
+></listitem>
+<listitem
+><para
+>DAY</para
+></listitem>
+<listitem
+><para
+>DAY_HOUR</para
+></listitem>
+<listitem
+><para
+>DAY_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>DAY_MINUTE</para
+></listitem>
+<listitem
+><para
+>DAY_SECOND</para
+></listitem>
+<listitem
+><para
+>DEALLOCATE</para
+></listitem>
+<listitem
+><para
+>DEC</para
+></listitem>
+<listitem
+><para
+>DECIMAL</para
+></listitem>
+<listitem
+><para
+>DELAYED</para
+></listitem>
+<listitem
+><para
+>DELAY_KEY_WRITE</para
+></listitem>
+<listitem
+><para
+>DESCRIBE</para
+></listitem>
+<listitem
+><para
+>DES_KEY_FILE</para
+></listitem>
+<listitem
+><para
+>DIRECTORY</para
+></listitem>
+<listitem
+><para
+>DISABLE</para
+></listitem>
+<listitem
+><para
+>DISCARD</para
+></listitem>
+<listitem
+><para
+>DISTINCTROW</para
+></listitem>
+<listitem
+><para
+>DIV</para
+></listitem>
+<listitem
+><para
+>DO</para
+></listitem>
+<listitem
+><para
+>DOUBLE</para
+></listitem>
+<listitem
+><para
+>DUAL</para
+></listitem>
+<listitem
+><para
+>DUMPFILE</para
+></listitem>
+<listitem
+><para
+>DUPLICATE</para
+></listitem>
+<listitem
+><para
+>DYNAMIC</para
+></listitem>
+<listitem
+><para
+>ENABLE</para
+></listitem>
+<listitem
+><para
+>ENCLOSED</para
+></listitem>
+<listitem
+><para
+>ENGINE</para
+></listitem>
+<listitem
+><para
+>ENGINES</para
+></listitem>
+<listitem
+><para
+>ENUM</para
+></listitem>
+<listitem
+><para
+>ERRORS</para
+></listitem>
+<listitem
+><para
+>ESCAPE</para
+></listitem>
+<listitem
+><para
+>ESCAPED</para
+></listitem>
+<listitem
+><para
+>EVENTS</para
+></listitem>
+<listitem
+><para
+>EXECUTE</para
+></listitem>
+<listitem
+><para
+>EXISTS</para
+></listitem>
+<listitem
+><para
+>EXPANSION</para
+></listitem>
+<listitem
+><para
+>EXTENDED</para
+></listitem>
+<listitem
+><para
+>FALSE</para
+></listitem>
+<listitem
+><para
+>FAST</para
+></listitem>
+<listitem
+><para
+>FIELDS</para
+></listitem>
+<listitem
+><para
+>FILE</para
+></listitem>
+<listitem
+><para
+>FIRST</para
+></listitem>
+<listitem
+><para
+>FIXED</para
+></listitem>
+<listitem
+><para
+>FLOAT</para
+></listitem>
+<listitem
+><para
+>FLOAT4</para
+></listitem>
+<listitem
+><para
+>FLOAT8</para
+></listitem>
+<listitem
+><para
+>FLUSH</para
+></listitem>
+<listitem
+><para
+>FORCE</para
+></listitem>
+<listitem
+><para
+>FULLTEXT</para
+></listitem>
+<listitem
+><para
+>FUNCTION</para
+></listitem>
+<listitem
+><para
+>GEOMETRY</para
+></listitem>
+<listitem
+><para
+>GEOMETRYCOLLECTION</para
+></listitem>
+<listitem
+><para
+>GET_FORMAT</para
+></listitem>
+<listitem
+><para
+>GLOBAL</para
+></listitem>
+<listitem
+><para
+>GRANT</para
+></listitem>
+<listitem
+><para
+>GRANTS</para
+></listitem>
+<listitem
+><para
+>HANDLER</para
+></listitem>
+<listitem
+><para
+>HASH</para
+></listitem>
+<listitem
+><para
+>HELP</para
+></listitem>
+<listitem
+><para
+>HIGH_PRIORITY</para
+></listitem>
+<listitem
+><para
+>HOSTS</para
+></listitem>
+<listitem
+><para
+>HOUR</para
+></listitem>
+<listitem
+><para
+>HOUR_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>HOUR_MINUTE</para
+></listitem>
+<listitem
+><para
+>HOUR_SECOND</para
+></listitem>
+<listitem
+><para
+>IDENTIFIED</para
+></listitem>
+<listitem
+><para
+>IF</para
+></listitem>
+<listitem
+><para
+>IMPORT</para
+></listitem>
+<listitem
+><para
+>INDEXES</para
+></listitem>
+<listitem
+><para
+>INFILE</para
+></listitem>
+<listitem
+><para
+>INNOBASE</para
+></listitem>
+<listitem
+><para
+>INNODB</para
+></listitem>
+<listitem
+><para
+>INSERT_METHOD</para
+></listitem>
+<listitem
+><para
+>INT</para
+></listitem>
+<listitem
+><para
+>INT1</para
+></listitem>
+<listitem
+><para
+>INT2</para
+></listitem>
+<listitem
+><para
+>INT3</para
+></listitem>
+<listitem
+><para
+>INT4</para
+></listitem>
+<listitem
+><para
+>INT8</para
+></listitem>
+<listitem
+><para
+>INTERVAL</para
+></listitem>
+<listitem
+><para
+>IO_THREAD</para
+></listitem>
+<listitem
+><para
+>ISOLATION</para
+></listitem>
+<listitem
+><para
+>ISSUER</para
+></listitem>
+<listitem
+><para
+>KEYS</para
+></listitem>
+<listitem
+><para
+>KILL</para
+></listitem>
+<listitem
+><para
+>LAST</para
+></listitem>
+<listitem
+><para
+>LEADING</para
+></listitem>
+<listitem
+><para
+>LEAVES</para
+></listitem>
+<listitem
+><para
+>LEVEL</para
+></listitem>
+<listitem
+><para
+>LINES</para
+></listitem>
+<listitem
+><para
+>LINESTRING</para
+></listitem>
+<listitem
+><para
+>LOAD</para
+></listitem>
+<listitem
+><para
+>LOCAL</para
+></listitem>
+<listitem
+><para
+>LOCALTIME</para
+></listitem>
+<listitem
+><para
+>LOCALTIMESTAMP</para
+></listitem>
+<listitem
+><para
+>LOCK</para
+></listitem>
+<listitem
+><para
+>LOCKS</para
+></listitem>
+<listitem
+><para
+>LOGS</para
+></listitem>
+<listitem
+><para
+>LONG</para
+></listitem>
+<listitem
+><para
+>LONGBLOB</para
+></listitem>
+<listitem
+><para
+>LONGTEXT</para
+></listitem>
+<listitem
+><para
+>LOW_PRIORITY</para
+></listitem>
+<listitem
+><para
+>MASTER</para
+></listitem>
+<listitem
+><para
+>MASTER_CONNECT_RETRY</para
+></listitem>
+<listitem
+><para
+>MASTER_HOST</para
+></listitem>
+<listitem
+><para
+>MASTER_LOG_FILE</para
+></listitem>
+<listitem
+><para
+>MASTER_LOG_POS</para
+></listitem>
+<listitem
+><para
+>MASTER_PASSWORD</para
+></listitem>
+<listitem
+><para
+>MASTER_PORT</para
+></listitem>
+<listitem
+><para
+>MASTER_SERVER_ID</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CA</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CAPATH</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CERT</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CIPHER</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_KEY</para
+></listitem>
+<listitem
+><para
+>MASTER_USER</para
+></listitem>
+<listitem
+><para
+>MAX_CONNECTIONS_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MAX_QUERIES_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MAX_ROWS</para
+></listitem>
+<listitem
+><para
+>MAX_UPDATES_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MEDIUM</para
+></listitem>
+<listitem
+><para
+>MEDIUMBLOB</para
+></listitem>
+<listitem
+><para
+>MEDIUMINT</para
+></listitem>
+<listitem
+><para
+>MEDIUMTEXT</para
+></listitem>
+<listitem
+><para
+>MICROSECOND</para
+></listitem>
+<listitem
+><para
+>MIDDLEINT</para
+></listitem>
+<listitem
+><para
+>MINUTE</para
+></listitem>
+<listitem
+><para
+>MINUTE_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>MINUTE_SECOND</para
+></listitem>
+<listitem
+><para
+>MIN_ROWS</para
+></listitem>
+<listitem
+><para
+>MOD</para
+></listitem>
+<listitem
+><para
+>MODE</para
+></listitem>
+<listitem
+><para
+>MODIFY</para
+></listitem>
+<listitem
+><para
+>MONTH</para
+></listitem>
+<listitem
+><para
+>MULTILINESTRING</para
+></listitem>
+<listitem
+><para
+>MULTIPOINT</para
+></listitem>
+<listitem
+><para
+>MULTIPOLYGON</para
+></listitem>
+<listitem
+><para
+>NAMES</para
+></listitem>
+<listitem
+><para
+>NATIONAL</para
+></listitem>
+<listitem
+><para
+>NDB</para
+></listitem>
+<listitem
+><para
+>NDBCLUSTER</para
+></listitem>
+<listitem
+><para
+>NCHAR</para
+></listitem>
+<listitem
+><para
+>NEW</para
+></listitem>
+<listitem
+><para
+>NEXT</para
+></listitem>
+<listitem
+><para
+>NO</para
+></listitem>
+<listitem
+><para
+>NONE</para
+></listitem>
+<listitem
+><para
+>NO_WRITE_TO_BINLOG</para
+></listitem>
+<listitem
+><para
+>NUMERIC</para
+></listitem>
+<listitem
+><para
+>NVARCHAR</para
+></listitem>
+<listitem
+><para
+>OLD_PASSWORD</para
+></listitem>
+<listitem
+><para
+>ONE_SHOT</para
+></listitem>
+<listitem
+><para
+>OPEN</para
+></listitem>
+<listitem
+><para
+>OPTIMIZE</para
+></listitem>
+<listitem
+><para
+>OPTION</para
+></listitem>
+<listitem
+><para
+>OPTIONALLY</para
+></listitem>
+<listitem
+><para
+>OUTFILE</para
+></listitem>
+<listitem
+><para
+>PACK_KEYS</para
+></listitem>
+<listitem
+><para
+>PARTIAL</para
+></listitem>
+<listitem
+><para
+>PASSWORD</para
+></listitem>
+<listitem
+><para
+>POINT</para
+></listitem>
+<listitem
+><para
+>POLYGON</para
+></listitem>
+<listitem
+><para
+>PRECISION</para
+></listitem>
+<listitem
+><para
+>PREPARE</para
+></listitem>
+<listitem
+><para
+>PREV</para
+></listitem>
+<listitem
+><para
+>PRIVILEGES</para
+></listitem>
+<listitem
+><para
+>PROCEDURE</para
+></listitem>
+<listitem
+><para
+>PROCESS</para
+></listitem>
+<listitem
+><para
+>PROCESSLIST</para
+></listitem>
+<listitem
+><para
+>PURGE</para
+></listitem>
+<listitem
+><para
+>QUERY</para
+></listitem>
+<listitem
+><para
+>QUICK</para
+></listitem>
+<listitem
+><para
+>RAID0</para
+></listitem>
+<listitem
+><para
+>RAID_CHUNKS</para
+></listitem>
+<listitem
+><para
+>RAID_CHUNKSIZE</para
+></listitem>
+<listitem
+><para
+>RAID_TYPE</para
+></listitem>
+<listitem
+><para
+>READ</para
+></listitem>
+<listitem
+><para
+>REAL</para
+></listitem>
+<listitem
+><para
+>REGEXP</para
+></listitem>
+<listitem
+><para
+>RELAY_LOG_FILE</para
+></listitem>
+<listitem
+><para
+>RELAY_LOG_POS</para
+></listitem>
+<listitem
+><para
+>RELAY_THREAD</para
+></listitem>
+<listitem
+><para
+>RELOAD</para
+></listitem>
+<listitem
+><para
+>RENAME</para
+></listitem>
+<listitem
+><para
+>REPAIR</para
+></listitem>
+<listitem
+><para
+>REPEATABLE</para
+></listitem>
+<listitem
+><para
+>REPLICATION</para
+></listitem>
+<listitem
+><para
+>REQUIRE</para
+></listitem>
+<listitem
+><para
+>RESET</para
+></listitem>
+<listitem
+><para
+>RESTORE</para
+></listitem>
+<listitem
+><para
+>RETURNS</para
+></listitem>
+<listitem
+><para
+>REVOKE</para
+></listitem>
+<listitem
+><para
+>RLIKE</para
+></listitem>
+<listitem
+><para
+>ROLLUP</para
+></listitem>
+<listitem
+><para
+>ROWS</para
+></listitem>
+<listitem
+><para
+>ROW_FORMAT</para
+></listitem>
+<listitem
+><para
+>RTREE</para
+></listitem>
+<listitem
+><para
+>SAVEPOINT</para
+></listitem>
+<listitem
+><para
+>SECOND</para
+></listitem>
+<listitem
+><para
+>SECOND_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>SEPARATOR</para
+></listitem>
+<listitem
+><para
+>SERIAL</para
+></listitem>
+<listitem
+><para
+>SERIALIZABLE</para
+></listitem>
+<listitem
+><para
+>SESSION</para
+></listitem>
+<listitem
+><para
+>SHARE</para
+></listitem>
+<listitem
+><para
+>SHOW</para
+></listitem>
+<listitem
+><para
+>SHUTDOWN</para
+></listitem>
+<listitem
+><para
+>SIGNED</para
+></listitem>
+<listitem
+><para
+>SIMPLE</para
+></listitem>
+<listitem
+><para
+>SLAVE</para
+></listitem>
+<listitem
+><para
+>SMALLINT</para
+></listitem>
+<listitem
+><para
+>SOME</para
+></listitem>
+<listitem
+><para
+>SONAME</para
+></listitem>
+<listitem
+><para
+>SOUNDS</para
+></listitem>
+<listitem
+><para
+>SPATIAL</para
+></listitem>
+<listitem
+><para
+>SQL_BIG_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_BUFFER_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_CACHE</para
+></listitem>
+<listitem
+><para
+>SQL_CALC_FOUND_ROWS</para
+></listitem>
+<listitem
+><para
+>SQL_NO_CACHE</para
+></listitem>
+<listitem
+><para
+>SQL_SMALL_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_THREAD</para
+></listitem>
+<listitem
+><para
+>SSL</para
+></listitem>
+<listitem
+><para
+>START</para
+></listitem>
+<listitem
+><para
+>STARTING</para
+></listitem>
+<listitem
+><para
+>STATUS</para
+></listitem>
+<listitem
+><para
+>STOP</para
+></listitem>
+<listitem
+><para
+>STORAGE</para
+></listitem>
+<listitem
+><para
+>STRAIGHT_JOIN</para
+></listitem>
+<listitem
+><para
+>STRING</para
+></listitem>
+<listitem
+><para
+>STRIPED</para
+></listitem>
+<listitem
+><para
+>SUBJECT</para
+></listitem>
+<listitem
+><para
+>SUPER</para
+></listitem>
+<listitem
+><para
+>TABLES</para
+></listitem>
+<listitem
+><para
+>TABLESPACE</para
+></listitem>
+<listitem
+><para
+>TERMINATED</para
+></listitem>
+<listitem
+><para
+>TEXT</para
+></listitem>
+<listitem
+><para
+>TIME</para
+></listitem>
+<listitem
+><para
+>TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>TINYBLOB</para
+></listitem>
+<listitem
+><para
+>TINYINT</para
+></listitem>
+<listitem
+><para
+>TINYTEXT</para
+></listitem>
+<listitem
+><para
+>TRAILING</para
+></listitem>
+<listitem
+><para
+>TRUE</para
+></listitem>
+<listitem
+><para
+>TRUNCATE</para
+></listitem>
+<listitem
+><para
+>TYPE</para
+></listitem>
+<listitem
+><para
+>TYPES</para
+></listitem>
+<listitem
+><para
+>UNCOMMITTED</para
+></listitem>
+<listitem
+><para
+>UNICODE</para
+></listitem>
+<listitem
+><para
+>UNLOCK</para
+></listitem>
+<listitem
+><para
+>UNSIGNED</para
+></listitem>
+<listitem
+><para
+>UNTIL</para
+></listitem>
+<listitem
+><para
+>USAGE</para
+></listitem>
+<listitem
+><para
+>USE</para
+></listitem>
+<listitem
+><para
+>USER</para
+></listitem>
+<listitem
+><para
+>USER_RESOURCES</para
+></listitem>
+<listitem
+><para
+>USE_FRM</para
+></listitem>
+<listitem
+><para
+>UTC_DATE</para
+></listitem>
+<listitem
+><para
+>UTC_TIME</para
+></listitem>
+<listitem
+><para
+>UTC_TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>VALUE</para
+></listitem>
+<listitem
+><para
+>VARBINARY</para
+></listitem>
+<listitem
+><para
+>VARCHAR</para
+></listitem>
+<listitem
+><para
+>VARCHARACTER</para
+></listitem>
+<listitem
+><para
+>VARIABLES</para
+></listitem>
+<listitem
+><para
+>VARYING</para
+></listitem>
+<listitem
+><para
+>WARNINGS</para
+></listitem>
+<listitem
+><para
+>WITH</para
+></listitem>
+<listitem
+><para
+>WORK</para
+></listitem>
+<listitem
+><para
+>WRITE</para
+></listitem>
+<listitem
+><para
+>X509</para
+></listitem>
+<listitem
+><para
+>YEAR</para
+></listitem>
+<listitem
+><para
+>YEAR_MONTH</para
+></listitem>
+<listitem
+><para
+>ZEROFILL</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-postgresql-driver-reserved-words"
+><title
+>الكلمات المحجوزة لبرنامج تشغيل PostgreSQL في كيس</title
+> 
+<para
+>تحتوي هذه القائمة على كلمات رئيسية محجوزة للاستخدام بواسطة برنامج تشغيل pqxx في كيس: </para>
+<itemizedlist>
+<listitem
+><para
+>ABORT</para
+></listitem>
+<listitem
+><para
+>ABSOLUTE</para
+></listitem>
+<listitem
+><para
+>ACCESS</para
+></listitem>
+<listitem
+><para
+>ACTION</para
+></listitem>
+<listitem
+><para
+>ADD</para
+></listitem>
+<listitem
+><para
+>AGGREGATE</para
+></listitem>
+<listitem
+><para
+>ALTER</para
+></listitem>
+<listitem
+><para
+>ANALYSE</para
+></listitem>
+<listitem
+><para
+>ANALYZE</para
+></listitem>
+<listitem
+><para
+>ANY</para
+></listitem>
+<listitem
+><para
+>ARRAY</para
+></listitem>
+<listitem
+><para
+>ASSERTION</para
+></listitem>
+<listitem
+><para
+>ASSIGNMENT</para
+></listitem>
+<listitem
+><para
+>AT</para
+></listitem>
+<listitem
+><para
+>AUTHORIZATION</para
+></listitem>
+<listitem
+><para
+>BACKWARD</para
+></listitem>
+<listitem
+><para
+>BIGINT</para
+></listitem>
+<listitem
+><para
+>BINARY</para
+></listitem>
+<listitem
+><para
+>BIT</para
+></listitem>
+<listitem
+><para
+>BOOLEAN</para
+></listitem>
+<listitem
+><para
+>BOTH</para
+></listitem>
+<listitem
+><para
+>CACHE</para
+></listitem>
+<listitem
+><para
+>CALLED</para
+></listitem>
+<listitem
+><para
+>CAST</para
+></listitem>
+<listitem
+><para
+>CHAIN</para
+></listitem>
+<listitem
+><para
+>CHAR</para
+></listitem>
+<listitem
+><para
+>CHARACTER</para
+></listitem>
+<listitem
+><para
+>CHARACTERISTICS</para
+></listitem>
+<listitem
+><para
+>CHECKPOINT</para
+></listitem>
+<listitem
+><para
+>CLASS</para
+></listitem>
+<listitem
+><para
+>CLOSE</para
+></listitem>
+<listitem
+><para
+>CLUSTER</para
+></listitem>
+<listitem
+><para
+>COALESCE</para
+></listitem>
+<listitem
+><para
+>COLUMN</para
+></listitem>
+<listitem
+><para
+>COMMENT</para
+></listitem>
+<listitem
+><para
+>COMMITTED</para
+></listitem>
+<listitem
+><para
+>CONSTRAINTS</para
+></listitem>
+<listitem
+><para
+>CONVERSION</para
+></listitem>
+<listitem
+><para
+>CONVERT</para
+></listitem>
+<listitem
+><para
+>COPY</para
+></listitem>
+<listitem
+><para
+>CREATEDB</para
+></listitem>
+<listitem
+><para
+>CREATEUSER</para
+></listitem>
+<listitem
+><para
+>CURRENT_DATE</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIME</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>CURRENT_USER</para
+></listitem>
+<listitem
+><para
+>CURSOR</para
+></listitem>
+<listitem
+><para
+>CYCLE</para
+></listitem>
+<listitem
+><para
+>DAY</para
+></listitem>
+<listitem
+><para
+>DEALLOCATE</para
+></listitem>
+<listitem
+><para
+>DEC</para
+></listitem>
+<listitem
+><para
+>DECIMAL</para
+></listitem>
+<listitem
+><para
+>DECLARE</para
+></listitem>
+<listitem
+><para
+>DEFAULTS</para
+></listitem>
+<listitem
+><para
+>DEFERRABLE</para
+></listitem>
+<listitem
+><para
+>DEFERRED</para
+></listitem>
+<listitem
+><para
+>DEFINER</para
+></listitem>
+<listitem
+><para
+>DELIMITER</para
+></listitem>
+<listitem
+><para
+>DELIMITERS</para
+></listitem>
+<listitem
+><para
+>DO</para
+></listitem>
+<listitem
+><para
+>DOMAIN</para
+></listitem>
+<listitem
+><para
+>DOUBLE</para
+></listitem>
+<listitem
+><para
+>EACH</para
+></listitem>
+<listitem
+><para
+>ENCODING</para
+></listitem>
+<listitem
+><para
+>ENCRYPTED</para
+></listitem>
+<listitem
+><para
+>ESCAPE</para
+></listitem>
+<listitem
+><para
+>EXCEPT</para
+></listitem>
+<listitem
+><para
+>EXCLUDING</para
+></listitem>
+<listitem
+><para
+>EXCLUSIVE</para
+></listitem>
+<listitem
+><para
+>EXECUTE</para
+></listitem>
+<listitem
+><para
+>EXISTS</para
+></listitem>
+<listitem
+><para
+>EXTERNAL</para
+></listitem>
+<listitem
+><para
+>EXTRACT</para
+></listitem>
+<listitem
+><para
+>FALSE</para
+></listitem>
+<listitem
+><para
+>FETCH</para
+></listitem>
+<listitem
+><para
+>FIRST</para
+></listitem>
+<listitem
+><para
+>FLOAT</para
+></listitem>
+<listitem
+><para
+>FORCE</para
+></listitem>
+<listitem
+><para
+>FORWARD</para
+></listitem>
+<listitem
+><para
+>FREEZE</para
+></listitem>
+<listitem
+><para
+>FUNCTION</para
+></listitem>
+<listitem
+><para
+>GLOBAL</para
+></listitem>
+<listitem
+><para
+>GRANT</para
+></listitem>
+<listitem
+><para
+>HANDLER</para
+></listitem>
+<listitem
+><para
+>HOLD</para
+></listitem>
+<listitem
+><para
+>HOUR</para
+></listitem>
+<listitem
+><para
+>ILIKE</para
+></listitem>
+<listitem
+><para
+>IMMEDIATE</para
+></listitem>
+<listitem
+><para
+>IMMUTABLE</para
+></listitem>
+<listitem
+><para
+>IMPLICIT</para
+></listitem>
+<listitem
+><para
+>INCLUDING</para
+></listitem>
+<listitem
+><para
+>INCREMENT</para
+></listitem>
+<listitem
+><para
+>INHERITS</para
+></listitem>
+<listitem
+><para
+>INITIALLY</para
+></listitem>
+<listitem
+><para
+>INOUT</para
+></listitem>
+<listitem
+><para
+>INPUT</para
+></listitem>
+<listitem
+><para
+>INSENSITIVE</para
+></listitem>
+<listitem
+><para
+>INSTEAD</para
+></listitem>
+<listitem
+><para
+>INT</para
+></listitem>
+<listitem
+><para
+>INTERSECT</para
+></listitem>
+<listitem
+><para
+>INTERVAL</para
+></listitem>
+<listitem
+><para
+>INVOKER</para
+></listitem>
+<listitem
+><para
+>ISNULL</para
+></listitem>
+<listitem
+><para
+>ISOLATION</para
+></listitem>
+<listitem
+><para
+>LANCOMPILER</para
+></listitem>
+<listitem
+><para
+>LANGUAGE</para
+></listitem>
+<listitem
+><para
+>LAST</para
+></listitem>
+<listitem
+><para
+>LEADING</para
+></listitem>
+<listitem
+><para
+>LEVEL</para
+></listitem>
+<listitem
+><para
+>LISTEN</para
+></listitem>
+<listitem
+><para
+>LOAD</para
+></listitem>
+<listitem
+><para
+>LOCAL</para
+></listitem>
+<listitem
+><para
+>LOCALTIME</para
+></listitem>
+<listitem
+><para
+>LOCALTIMESTAMP</para
+></listitem>
+<listitem
+><para
+>LOCATION</para
+></listitem>
+<listitem
+><para
+>LOCK</para
+></listitem>
+<listitem
+><para
+>MAXVALUE</para
+></listitem>
+<listitem
+><para
+>MINUTE</para
+></listitem>
+<listitem
+><para
+>MINVALUE</para
+></listitem>
+<listitem
+><para
+>MODE</para
+></listitem>
+<listitem
+><para
+>MONTH</para
+></listitem>
+<listitem
+><para
+>MOVE</para
+></listitem>
+<listitem
+><para
+>NAMES</para
+></listitem>
+<listitem
+><para
+>NATIONAL</para
+></listitem>
+<listitem
+><para
+>NCHAR</para
+></listitem>
+<listitem
+><para
+>NEW</para
+></listitem>
+<listitem
+><para
+>NEXT</para
+></listitem>
+<listitem
+><para
+>NO</para
+></listitem>
+<listitem
+><para
+>NOCREATEDB</para
+></listitem>
+<listitem
+><para
+>NOCREATEUSER</para
+></listitem>
+<listitem
+><para
+>NONE</para
+></listitem>
+<listitem
+><para
+>NOTHING</para
+></listitem>
+<listitem
+><para
+>NOTIFY</para
+></listitem>
+<listitem
+><para
+>NOTNULL</para
+></listitem>
+<listitem
+><para
+>NULLIF</para
+></listitem>
+<listitem
+><para
+>NUMERIC</para
+></listitem>
+<listitem
+><para
+>OF</para
+></listitem>
+<listitem
+><para
+>OFF</para
+></listitem>
+<listitem
+><para
+>OIDS</para
+></listitem>
+<listitem
+><para
+>OLD</para
+></listitem>
+<listitem
+><para
+>ONLY</para
+></listitem>
+<listitem
+><para
+>OPERATOR</para
+></listitem>
+<listitem
+><para
+>OPTION</para
+></listitem>
+<listitem
+><para
+>OUT</para
+></listitem>
+<listitem
+><para
+>OVERLAPS</para
+></listitem>
+<listitem
+><para
+>OVERLAY</para
+></listitem>
+<listitem
+><para
+>OWNER</para
+></listitem>
+<listitem
+><para
+>PARTIAL</para
+></listitem>
+<listitem
+><para
+>PASSWORD</para
+></listitem>
+<listitem
+><para
+>PATH</para
+></listitem>
+<listitem
+><para
+>PENDANT</para
+></listitem>
+<listitem
+><para
+>PLACING</para
+></listitem>
+<listitem
+><para
+>POSITION</para
+></listitem>
+<listitem
+><para
+>PRECISION</para
+></listitem>
+<listitem
+><para
+>PREPARE</para
+></listitem>
+<listitem
+><para
+>PRESERVE</para
+></listitem>
+<listitem
+><para
+>PRIOR</para
+></listitem>
+<listitem
+><para
+>PRIVILEGES</para
+></listitem>
+<listitem
+><para
+>PROCEDURAL</para
+></listitem>
+<listitem
+><para
+>PROCEDURE</para
+></listitem>
+<listitem
+><para
+>READ</para
+></listitem>
+<listitem
+><para
+>REAL</para
+></listitem>
+<listitem
+><para
+>RECHECK</para
+></listitem>
+<listitem
+><para
+>REINDEX</para
+></listitem>
+<listitem
+><para
+>RELATIVE</para
+></listitem>
+<listitem
+><para
+>RENAME</para
+></listitem>
+<listitem
+><para
+>RESET</para
+></listitem>
+<listitem
+><para
+>RESTART</para
+></listitem>
+<listitem
+><para
+>RETURNS</para
+></listitem>
+<listitem
+><para
+>REVOKE</para
+></listitem>
+<listitem
+><para
+>ROWS</para
+></listitem>
+<listitem
+><para
+>RULE</para
+></listitem>
+<listitem
+><para
+>SCHEMA</para
+></listitem>
+<listitem
+><para
+>SCROLL</para
+></listitem>
+<listitem
+><para
+>SECOND</para
+></listitem>
+<listitem
+><para
+>SECURITY</para
+></listitem>
+<listitem
+><para
+>SEQUENCE</para
+></listitem>
+<listitem
+><para
+>SERIALIZABLE</para
+></listitem>
+<listitem
+><para
+>SESSION</para
+></listitem>
+<listitem
+><para
+>SESSION_USER</para
+></listitem>
+<listitem
+><para
+>SETOF</para
+></listitem>
+<listitem
+><para
+>SHARE</para
+></listitem>
+<listitem
+><para
+>SHOW</para
+></listitem>
+<listitem
+><para
+>SIMPLE</para
+></listitem>
+<listitem
+><para
+>SMALLINT</para
+></listitem>
+<listitem
+><para
+>SOME</para
+></listitem>
+<listitem
+><para
+>STABLE</para
+></listitem>
+<listitem
+><para
+>START</para
+></listitem>
+<listitem
+><para
+>STATEMENT</para
+></listitem>
+<listitem
+><para
+>STATISTICS</para
+></listitem>
+<listitem
+><para
+>STDIN</para
+></listitem>
+<listitem
+><para
+>STDOUT</para
+></listitem>
+<listitem
+><para
+>STORAGE</para
+></listitem>
+<listitem
+><para
+>STRICT</para
+></listitem>
+<listitem
+><para
+>SUBSTRING</para
+></listitem>
+<listitem
+><para
+>SYSID</para
+></listitem>
+<listitem
+><para
+>TEMP</para
+></listitem>
+<listitem
+><para
+>TEMPLATE</para
+></listitem>
+<listitem
+><para
+>TIME</para
+></listitem>
+<listitem
+><para
+>TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>TOAST</para
+></listitem>
+<listitem
+><para
+>TRAILING</para
+></listitem>
+<listitem
+><para
+>TREAT</para
+></listitem>
+<listitem
+><para
+>TRIGGER</para
+></listitem>
+<listitem
+><para
+>TRIM</para
+></listitem>
+<listitem
+><para
+>TRUE</para
+></listitem>
+<listitem
+><para
+>TRUNCATE</para
+></listitem>
+<listitem
+><para
+>TRUSTED</para
+></listitem>
+<listitem
+><para
+>TYPE</para
+></listitem>
+<listitem
+><para
+>UNENCRYPTED</para
+></listitem>
+<listitem
+><para
+>UNKNOWN</para
+></listitem>
+<listitem
+><para
+>UNLISTEN</para
+></listitem>
+<listitem
+><para
+>UNTIL</para
+></listitem>
+<listitem
+><para
+>USAGE</para
+></listitem>
+<listitem
+><para
+>USER</para
+></listitem>
+<listitem
+><para
+>VACUUM</para
+></listitem>
+<listitem
+><para
+>VALID</para
+></listitem>
+<listitem
+><para
+>VALIDATOR</para
+></listitem>
+<listitem
+><para
+>VARCHAR</para
+></listitem>
+<listitem
+><para
+>VARYING</para
+></listitem>
+<listitem
+><para
+>VERBOSE</para
+></listitem>
+<listitem
+><para
+>VERSION</para
+></listitem>
+<listitem
+><para
+>VIEW</para
+></listitem>
+<listitem
+><para
+>VOLATILE</para
+></listitem>
+<listitem
+><para
+>WITH</para
+></listitem>
+<listitem
+><para
+>WITHOUT</para
+></listitem>
+<listitem
+><para
+>WORK</para
+></listitem>
+<listitem
+><para
+>WRITE</para
+></listitem>
+<listitem
+><para
+>YEAR</para
+></listitem>
+<listitem
+><para
+>ZONE</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-oracle-driver-reserved-words"
+><title
+>الكلمات المحجوزة لبرنامج تشغيل Oracle في كيس</title
+> 
+<para
+>تحتوي هذه القائمة على كلمات رئيسية محجوزة للاستخدام بواسطة برنامج تشغيل Oracle في كيس: </para>
+<itemizedlist>
+<listitem
+><para
+>ADMIN</para
+></listitem>
+<listitem
+><para
+>AFTER</para
+></listitem>
+<listitem
+><para
+>ALLOCATE</para
+></listitem>
+<listitem
+><para
+>ANALYZE</para
+></listitem>
+<listitem
+><para
+>ARCHIVE</para
+></listitem>
+<listitem
+><para
+>ARCHIVELOG</para
+></listitem>
+<listitem
+><para
+>AUTHORIZATION</para
+></listitem>
+<listitem
+><para
+>AVG</para
+></listitem>
+<listitem
+><para
+>BACKUP</para
+></listitem>
+<listitem
+><para
+>BECOME</para
+></listitem>
+<listitem
+><para
+>BEFORE</para
+></listitem>
+<listitem
+><para
+>BEGIN</para
+></listitem>
+<listitem
+><para
+>BLOCK</para
+></listitem>
+<listitem
+><para
+>BODY</para
+></listitem>
+<listitem
+><para
+>CACHE</para
+></listitem>
+<listitem
+><para
+>CANCEL</para
+></listitem>
+<listitem
+><para
+>CASCADE</para
+></listitem>
+<listitem
+><para
+>CHANGE</para
+></listitem>
+<listitem
+><para
+>CHARACTER</para
+></listitem>
+<listitem
+><para
+>CHECKPOINT</para
+></listitem>
+<listitem
+><para
+>CLOSE</para
+></listitem>
+<listitem
+><para
+>COBOL</para
+></listitem>
+<listitem
+><para
+>COMMIT</para
+></listitem>
+<listitem
+><para
+>COMPILE</para
+></listitem>
+<listitem
+><para
+>CONSTRAINT</para
+></listitem>
+<listitem
+><para
+>CONSTRAINTS</para
+></listitem>
+<listitem
+><para
+>CONTENTS</para
+></listitem>
+<listitem
+><para
+>CONTINUE</para
+></listitem>
+<listitem
+><para
+>CONTROLFILE</para
+></listitem>
+<listitem
+><para
+>COUNT</para
+></listitem>
+<listitem
+><para
+>CURSOR</para
+></listitem>
+<listitem
+><para
+>CYCLE</para
+></listitem>
+<listitem
+><para
+>DATABASE</para
+></listitem>
+<listitem
+><para
+>DATAFILE</para
+></listitem>
+<listitem
+><para
+>DATE</para
+></listitem>
+<listitem
+><para
+>DBA</para
+></listitem>
+<listitem
+><para
+>DEC</para
+></listitem>
+<listitem
+><para
+>DECLARE</para
+></listitem>
+<listitem
+><para
+>DISABLE</para
+></listitem>
+<listitem
+><para
+>DISMOUNT</para
+></listitem>
+<listitem
+><para
+>DOUBLE</para
+></listitem>
+<listitem
+><para
+>DUMP</para
+></listitem>
+<listitem
+><para
+>EACH</para
+></listitem>
+<listitem
+><para
+>ENABLE</para
+></listitem>
+<listitem
+><para
+>END</para
+></listitem>
+<listitem
+><para
+>ESCAPE</para
+></listitem>
+<listitem
+><para
+>EVENTS</para
+></listitem>
+<listitem
+><para
+>EXCEPT</para
+></listitem>
+<listitem
+><para
+>EXCEPTIONS</para
+></listitem>
+<listitem
+><para
+>EXEC</para
+></listitem>
+<listitem
+><para
+>EXECUTE</para
+></listitem>
+<listitem
+><para
+>EXPLAIN</para
+></listitem>
+<listitem
+><para
+>EXTENT</para
+></listitem>
+<listitem
+><para
+>EXTERNALLY</para
+></listitem>
+<listitem
+><para
+>FETCH</para
+></listitem>
+<listitem
+><para
+>FLUSH</para
+></listitem>
+<listitem
+><para
+>FORCE</para
+></listitem>
+<listitem
+><para
+>FOREIGN</para
+></listitem>
+<listitem
+><para
+>FORTRAN</para
+></listitem>
+<listitem
+><para
+>FOUND</para
+></listitem>
+<listitem
+><para
+>FREELIST</para
+></listitem>
+<listitem
+><para
+>FREELISTS</para
+></listitem>
+<listitem
+><para
+>FUNCTION</para
+></listitem>
+<listitem
+><para
+>GO</para
+></listitem>
+<listitem
+><para
+>GOTO</para
+></listitem>
+<listitem
+><para
+>GROUPS</para
+></listitem>
+<listitem
+><para
+>INCLUDING</para
+></listitem>
+<listitem
+><para
+>INDICATOR</para
+></listitem>
+<listitem
+><para
+>INITRANS</para
+></listitem>
+<listitem
+><para
+>INSTANCE</para
+></listitem>
+<listitem
+><para
+>INT</para
+></listitem>
+<listitem
+><para
+>KEY</para
+></listitem>
+<listitem
+><para
+>LANGUAGE</para
+></listitem>
+<listitem
+><para
+>LAYER</para
+></listitem>
+<listitem
+><para
+>LINK</para
+></listitem>
+<listitem
+><para
+>LISTS</para
+></listitem>
+<listitem
+><para
+>LOGFILE</para
+></listitem>
+<listitem
+><para
+>MANAGE</para
+></listitem>
+<listitem
+><para
+>MANUAL</para
+></listitem>
+<listitem
+><para
+>MAX</para
+></listitem>
+<listitem
+><para
+>MAXDATAFILES</para
+></listitem>
+<listitem
+><para
+>MAXINSTANCES</para
+></listitem>
+<listitem
+><para
+>MAXLOGFILES</para
+></listitem>
+<listitem
+><para
+>MAXLOGHISTORY</para
+></listitem>
+<listitem
+><para
+>MAXLOGMEMBERS</para
+></listitem>
+<listitem
+><para
+>MAXTRANS</para
+></listitem>
+<listitem
+><para
+>MAXVALUE</para
+></listitem>
+<listitem
+><para
+>MIN</para
+></listitem>
+<listitem
+><para
+>MINEXTENTS</para
+></listitem>
+<listitem
+><para
+>MINVALUE</para
+></listitem>
+<listitem
+><para
+>MODULE</para
+></listitem>
+<listitem
+><para
+>MOUNT</para
+></listitem>
+<listitem
+><para
+>NEW</para
+></listitem>
+<listitem
+><para
+>NEXT</para
+></listitem>
+<listitem
+><para
+>NOARCHIVELOG</para
+></listitem>
+<listitem
+><para
+>NOCACHE</para
+></listitem>
+<listitem
+><para
+>NOCYCLE</para
+></listitem>
+<listitem
+><para
+>NOMAXVALUE</para
+></listitem>
+<listitem
+><para
+>NOMINVALUE</para
+></listitem>
+<listitem
+><para
+>NONE</para
+></listitem>
+<listitem
+><para
+>NOORDER</para
+></listitem>
+<listitem
+><para
+>NORESETLOGS</para
+></listitem>
+<listitem
+><para
+>NORMAL</para
+></listitem>
+<listitem
+><para
+>NOSORT</para
+></listitem>
+<listitem
+><para
+>NUMERIC</para
+></listitem>
+<listitem
+><para
+>OFF</para
+></listitem>
+<listitem
+><para
+>OLD</para
+></listitem>
+<listitem
+><para
+>ONLY</para
+></listitem>
+<listitem
+><para
+>OPEN</para
+></listitem>
+<listitem
+><para
+>OPTIMAL</para
+></listitem>
+<listitem
+><para
+>OWN</para
+></listitem>
+<listitem
+><para
+>PACKAGE</para
+></listitem>
+<listitem
+><para
+>PARALLEL</para
+></listitem>
+<listitem
+><para
+>PCTINCREASE</para
+></listitem>
+<listitem
+><para
+>PCTUSED</para
+></listitem>
+<listitem
+><para
+>PLAN</para
+></listitem>
+<listitem
+><para
+>PLI</para
+></listitem>
+<listitem
+><para
+>PRECISION</para
+></listitem>
+<listitem
+><para
+>PRIMARY</para
+></listitem>
+<listitem
+><para
+>PRIVATE</para
+></listitem>
+<listitem
+><para
+>PROCEDURE</para
+></listitem>
+<listitem
+><para
+>PROFILE</para
+></listitem>
+<listitem
+><para
+>QUOTA</para
+></listitem>
+<listitem
+><para
+>READ</para
+></listitem>
+<listitem
+><para
+>REAL</para
+></listitem>
+<listitem
+><para
+>RECOVER</para
+></listitem>
+<listitem
+><para
+>REFERENCES</para
+></listitem>
+<listitem
+><para
+>REFERENCING</para
+></listitem>
+<listitem
+><para
+>RESETLOGS</para
+></listitem>
+<listitem
+><para
+>RESTRICTED</para
+></listitem>
+<listitem
+><para
+>REUSE</para
+></listitem>
+<listitem
+><para
+>ROLE</para
+></listitem>
+<listitem
+><para
+>ROLES</para
+></listitem>
+<listitem
+><para
+>ROLLBACK</para
+></listitem>
+<listitem
+><para
+>SAVEPOINT</para
+></listitem>
+<listitem
+><para
+>SCHEMA</para
+></listitem>
+<listitem
+><para
+>SCN</para
+></listitem>
+<listitem
+><para
+>SECTION</para
+></listitem>
+<listitem
+><para
+>SEGMENT</para
+></listitem>
+<listitem
+><para
+>SEQUENCE</para
+></listitem>
+<listitem
+><para
+>SHARED</para
+></listitem>
+<listitem
+><para
+>SNAPSHOT</para
+></listitem>
+<listitem
+><para
+>SOME</para
+></listitem>
+<listitem
+><para
+>SORT</para
+></listitem>
+<listitem
+><para
+>SQL</para
+></listitem>
+<listitem
+><para
+>SQLCODE</para
+></listitem>
+<listitem
+><para
+>SQLERROR</para
+></listitem>
+<listitem
+><para
+>SQLSTATE</para
+></listitem>
+<listitem
+><para
+>STATEMENT_ID</para
+></listitem>
+<listitem
+><para
+>STATISTICS</para
+></listitem>
+<listitem
+><para
+>STOP</para
+></listitem>
+<listitem
+><para
+>STORAGE</para
+></listitem>
+<listitem
+><para
+>SUM</para
+></listitem>
+<listitem
+><para
+>SWITCH</para
+></listitem>
+<listitem
+><para
+>SYSTEM</para
+></listitem>
+<listitem
+><para
+>TABLES</para
+></listitem>
+<listitem
+><para
+>TABLESPACE</para
+></listitem>
+<listitem
+><para
+>TEMPORARY</para
+></listitem>
+<listitem
+><para
+>THREAD</para
+></listitem>
+<listitem
+><para
+>TIME</para
+></listitem>
+<listitem
+><para
+>TRACING</para
+></listitem>
+<listitem
+><para
+>TRANSACTION</para
+></listitem>
+<listitem
+><para
+>TRIGGERS</para
+></listitem>
+<listitem
+><para
+>TRUNCATE</para
+></listitem>
+<listitem
+><para
+>UNDER</para
+></listitem>
+<listitem
+><para
+>UNLIMITED</para
+></listitem>
+<listitem
+><para
+>UNTIL</para
+></listitem>
+<listitem
+><para
+>USE</para
+></listitem>
+<listitem
+><para
+>USING</para
+></listitem>
+<listitem
+><para
+>WHEN</para
+></listitem>
+<listitem
+><para
+>WORK</para
+></listitem>
+<listitem
+><para
+>WRITE</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-sybase-driver-reserved-words"
+><title
+>كلمات كيس المحجوزة لبرنامج تشغيل Sybase</title
+> 
+<para
+>تحتوي هذه القائمة على كلمات رئيسية محجوزة للاستخدام بواسطة برنامج تشغيل كيس Sybase: </para>
+<itemizedlist>
+<listitem
+><para
+>ACTION</para
+></listitem>
+<listitem
+><para
+>ADD</para
+></listitem>
+<listitem
+><para
+>AGAINST</para
+></listitem>
+<listitem
+><para
+>AGGREGATE</para
+></listitem>
+<listitem
+><para
+>ALTER</para
+></listitem>
+<listitem
+><para
+>ANALYZE</para
+></listitem>
+<listitem
+><para
+>ANY</para
+></listitem>
+<listitem
+><para
+>ASCII</para
+></listitem>
+<listitem
+><para
+>AUTOINCREMENT</para
+></listitem>
+<listitem
+><para
+>AVG</para
+></listitem>
+<listitem
+><para
+>AVG_ROW_LENGTH</para
+></listitem>
+<listitem
+><para
+>BACKUP</para
+></listitem>
+<listitem
+><para
+>BDB</para
+></listitem>
+<listitem
+><para
+>BERKELEYDB</para
+></listitem>
+<listitem
+><para
+>BIGINT</para
+></listitem>
+<listitem
+><para
+>BINARY</para
+></listitem>
+<listitem
+><para
+>BINLOG</para
+></listitem>
+<listitem
+><para
+>BIT</para
+></listitem>
+<listitem
+><para
+>BLOB</para
+></listitem>
+<listitem
+><para
+>BOOL</para
+></listitem>
+<listitem
+><para
+>BOOLEAN</para
+></listitem>
+<listitem
+><para
+>BOTH</para
+></listitem>
+<listitem
+><para
+>BTREE</para
+></listitem>
+<listitem
+><para
+>BYTE</para
+></listitem>
+<listitem
+><para
+>CACHE</para
+></listitem>
+<listitem
+><para
+>CHANGE</para
+></listitem>
+<listitem
+><para
+>CHANGED</para
+></listitem>
+<listitem
+><para
+>CHAR</para
+></listitem>
+<listitem
+><para
+>CHARACTER</para
+></listitem>
+<listitem
+><para
+>CHARSET</para
+></listitem>
+<listitem
+><para
+>CHECKSUM</para
+></listitem>
+<listitem
+><para
+>CIPHER</para
+></listitem>
+<listitem
+><para
+>CLIENT</para
+></listitem>
+<listitem
+><para
+>CLOSE</para
+></listitem>
+<listitem
+><para
+>COLLATION</para
+></listitem>
+<listitem
+><para
+>COLUMN</para
+></listitem>
+<listitem
+><para
+>COLUMNS</para
+></listitem>
+<listitem
+><para
+>COMMENT</para
+></listitem>
+<listitem
+><para
+>COMMITTED</para
+></listitem>
+<listitem
+><para
+>COMPRESSED</para
+></listitem>
+<listitem
+><para
+>CONCURRENT</para
+></listitem>
+<listitem
+><para
+>CONVERT</para
+></listitem>
+<listitem
+><para
+>CUBE</para
+></listitem>
+<listitem
+><para
+>CURRENT_DATE</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIME</para
+></listitem>
+<listitem
+><para
+>CURRENT_TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>CURRENT_USER</para
+></listitem>
+<listitem
+><para
+>DATA</para
+></listitem>
+<listitem
+><para
+>DATABASES</para
+></listitem>
+<listitem
+><para
+>DATE</para
+></listitem>
+<listitem
+><para
+>DATETIME</para
+></listitem>
+<listitem
+><para
+>DAY</para
+></listitem>
+<listitem
+><para
+>DAY_HOUR</para
+></listitem>
+<listitem
+><para
+>DAY_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>DAY_MINUTE</para
+></listitem>
+<listitem
+><para
+>DAY_SECOND</para
+></listitem>
+<listitem
+><para
+>DEALLOCATE</para
+></listitem>
+<listitem
+><para
+>DEC</para
+></listitem>
+<listitem
+><para
+>DECIMAL</para
+></listitem>
+<listitem
+><para
+>DELAYED</para
+></listitem>
+<listitem
+><para
+>DELAY_KEY_WRITE</para
+></listitem>
+<listitem
+><para
+>DESCRIBE</para
+></listitem>
+<listitem
+><para
+>DES_KEY_FILE</para
+></listitem>
+<listitem
+><para
+>DIRECTORY</para
+></listitem>
+<listitem
+><para
+>DISABLE</para
+></listitem>
+<listitem
+><para
+>DISCARD</para
+></listitem>
+<listitem
+><para
+>DISTINCTROW</para
+></listitem>
+<listitem
+><para
+>DIV</para
+></listitem>
+<listitem
+><para
+>DO</para
+></listitem>
+<listitem
+><para
+>DOUBLE</para
+></listitem>
+<listitem
+><para
+>DUAL</para
+></listitem>
+<listitem
+><para
+>DUMPFILE</para
+></listitem>
+<listitem
+><para
+>DUPLICATE</para
+></listitem>
+<listitem
+><para
+>DYNAMIC</para
+></listitem>
+<listitem
+><para
+>ENABLE</para
+></listitem>
+<listitem
+><para
+>ENCLOSED</para
+></listitem>
+<listitem
+><para
+>ENGINE</para
+></listitem>
+<listitem
+><para
+>ENGINES</para
+></listitem>
+<listitem
+><para
+>ENUM</para
+></listitem>
+<listitem
+><para
+>ERRORS</para
+></listitem>
+<listitem
+><para
+>ESCAPE</para
+></listitem>
+<listitem
+><para
+>ESCAPED</para
+></listitem>
+<listitem
+><para
+>EVENTS</para
+></listitem>
+<listitem
+><para
+>EXECUTE</para
+></listitem>
+<listitem
+><para
+>EXISTS</para
+></listitem>
+<listitem
+><para
+>EXPANSION</para
+></listitem>
+<listitem
+><para
+>EXTENDED</para
+></listitem>
+<listitem
+><para
+>FALSE</para
+></listitem>
+<listitem
+><para
+>FAST</para
+></listitem>
+<listitem
+><para
+>FIELDS</para
+></listitem>
+<listitem
+><para
+>FILE</para
+></listitem>
+<listitem
+><para
+>FIRST</para
+></listitem>
+<listitem
+><para
+>FIXED</para
+></listitem>
+<listitem
+><para
+>FLOAT</para
+></listitem>
+<listitem
+><para
+>FLOAT4</para
+></listitem>
+<listitem
+><para
+>FLOAT8</para
+></listitem>
+<listitem
+><para
+>FLUSH</para
+></listitem>
+<listitem
+><para
+>FORCE</para
+></listitem>
+<listitem
+><para
+>FULLTEXT</para
+></listitem>
+<listitem
+><para
+>FUNCTION</para
+></listitem>
+<listitem
+><para
+>GEOMETRY</para
+></listitem>
+<listitem
+><para
+>GEOMETRYCOLLECTION</para
+></listitem>
+<listitem
+><para
+>GET_FORMAT</para
+></listitem>
+<listitem
+><para
+>GLOBAL</para
+></listitem>
+<listitem
+><para
+>GRANT</para
+></listitem>
+<listitem
+><para
+>GRANTS</para
+></listitem>
+<listitem
+><para
+>HANDLER</para
+></listitem>
+<listitem
+><para
+>HASH</para
+></listitem>
+<listitem
+><para
+>HELP</para
+></listitem>
+<listitem
+><para
+>HIGH_PRIORITY</para
+></listitem>
+<listitem
+><para
+>HOSTS</para
+></listitem>
+<listitem
+><para
+>HOUR</para
+></listitem>
+<listitem
+><para
+>HOUR_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>HOUR_MINUTE</para
+></listitem>
+<listitem
+><para
+>HOUR_SECOND</para
+></listitem>
+<listitem
+><para
+>IDENTIFIED</para
+></listitem>
+<listitem
+><para
+>IF</para
+></listitem>
+<listitem
+><para
+>IMPORT</para
+></listitem>
+<listitem
+><para
+>INDEXES</para
+></listitem>
+<listitem
+><para
+>INFILE</para
+></listitem>
+<listitem
+><para
+>INNOBASE</para
+></listitem>
+<listitem
+><para
+>INNODB</para
+></listitem>
+<listitem
+><para
+>INSERT_METHOD</para
+></listitem>
+<listitem
+><para
+>INT</para
+></listitem>
+<listitem
+><para
+>INT1</para
+></listitem>
+<listitem
+><para
+>INT2</para
+></listitem>
+<listitem
+><para
+>INT3</para
+></listitem>
+<listitem
+><para
+>INT4</para
+></listitem>
+<listitem
+><para
+>INT8</para
+></listitem>
+<listitem
+><para
+>INTERVAL</para
+></listitem>
+<listitem
+><para
+>IO_THREAD</para
+></listitem>
+<listitem
+><para
+>ISOLATION</para
+></listitem>
+<listitem
+><para
+>ISSUER</para
+></listitem>
+<listitem
+><para
+>KEYS</para
+></listitem>
+<listitem
+><para
+>KILL</para
+></listitem>
+<listitem
+><para
+>LAST</para
+></listitem>
+<listitem
+><para
+>LEADING</para
+></listitem>
+<listitem
+><para
+>LEAVES</para
+></listitem>
+<listitem
+><para
+>LEVEL</para
+></listitem>
+<listitem
+><para
+>LINES</para
+></listitem>
+<listitem
+><para
+>LINESTRING</para
+></listitem>
+<listitem
+><para
+>LOAD</para
+></listitem>
+<listitem
+><para
+>LOCAL</para
+></listitem>
+<listitem
+><para
+>LOCALTIME</para
+></listitem>
+<listitem
+><para
+>LOCALTIMESTAMP</para
+></listitem>
+<listitem
+><para
+>LOCK</para
+></listitem>
+<listitem
+><para
+>LOCKS</para
+></listitem>
+<listitem
+><para
+>LOGS</para
+></listitem>
+<listitem
+><para
+>LONG</para
+></listitem>
+<listitem
+><para
+>LONGBLOB</para
+></listitem>
+<listitem
+><para
+>LONGTEXT</para
+></listitem>
+<listitem
+><para
+>LOW_PRIORITY</para
+></listitem>
+<listitem
+><para
+>MASTER</para
+></listitem>
+<listitem
+><para
+>MASTER_CONNECT_RETRY</para
+></listitem>
+<listitem
+><para
+>MASTER_HOST</para
+></listitem>
+<listitem
+><para
+>MASTER_LOG_FILE</para
+></listitem>
+<listitem
+><para
+>MASTER_LOG_POS</para
+></listitem>
+<listitem
+><para
+>MASTER_PASSWORD</para
+></listitem>
+<listitem
+><para
+>MASTER_PORT</para
+></listitem>
+<listitem
+><para
+>MASTER_SERVER_ID</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CA</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CAPATH</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CERT</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_CIPHER</para
+></listitem>
+<listitem
+><para
+>MASTER_SSL_KEY</para
+></listitem>
+<listitem
+><para
+>MASTER_USER</para
+></listitem>
+<listitem
+><para
+>MAX_CONNECTIONS_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MAX_QUERIES_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MAX_ROWS</para
+></listitem>
+<listitem
+><para
+>MAX_UPDATES_PER_HOUR</para
+></listitem>
+<listitem
+><para
+>MEDIUM</para
+></listitem>
+<listitem
+><para
+>MEDIUMBLOB</para
+></listitem>
+<listitem
+><para
+>MEDIUMINT</para
+></listitem>
+<listitem
+><para
+>MEDIUMTEXT</para
+></listitem>
+<listitem
+><para
+>MICROSECOND</para
+></listitem>
+<listitem
+><para
+>MIDDLEINT</para
+></listitem>
+<listitem
+><para
+>MINUTE</para
+></listitem>
+<listitem
+><para
+>MINUTE_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>MINUTE_SECOND</para
+></listitem>
+<listitem
+><para
+>MIN_ROWS</para
+></listitem>
+<listitem
+><para
+>MOD</para
+></listitem>
+<listitem
+><para
+>MODE</para
+></listitem>
+<listitem
+><para
+>MODIFY</para
+></listitem>
+<listitem
+><para
+>MONTH</para
+></listitem>
+<listitem
+><para
+>MULTILINESTRING</para
+></listitem>
+<listitem
+><para
+>MULTIPOINT</para
+></listitem>
+<listitem
+><para
+>MULTIPOLYGON</para
+></listitem>
+<listitem
+><para
+>NAMES</para
+></listitem>
+<listitem
+><para
+>NATIONAL</para
+></listitem>
+<listitem
+><para
+>NDB</para
+></listitem>
+<listitem
+><para
+>NDBCLUSTER</para
+></listitem>
+<listitem
+><para
+>NCHAR</para
+></listitem>
+<listitem
+><para
+>NEW</para
+></listitem>
+<listitem
+><para
+>NEXT</para
+></listitem>
+<listitem
+><para
+>NO</para
+></listitem>
+<listitem
+><para
+>NONE</para
+></listitem>
+<listitem
+><para
+>NO_WRITE_TO_BINLOG</para
+></listitem>
+<listitem
+><para
+>NUMERIC</para
+></listitem>
+<listitem
+><para
+>NVARCHAR</para
+></listitem>
+<listitem
+><para
+>OLD_PASSWORD</para
+></listitem>
+<listitem
+><para
+>ONE_SHOT</para
+></listitem>
+<listitem
+><para
+>OPEN</para
+></listitem>
+<listitem
+><para
+>OPTIMIZE</para
+></listitem>
+<listitem
+><para
+>OPTION</para
+></listitem>
+<listitem
+><para
+>OPTIONALLY</para
+></listitem>
+<listitem
+><para
+>OUTFILE</para
+></listitem>
+<listitem
+><para
+>PACK_KEYS</para
+></listitem>
+<listitem
+><para
+>PARTIAL</para
+></listitem>
+<listitem
+><para
+>PASSWORD</para
+></listitem>
+<listitem
+><para
+>POINT</para
+></listitem>
+<listitem
+><para
+>POLYGON</para
+></listitem>
+<listitem
+><para
+>PRECISION</para
+></listitem>
+<listitem
+><para
+>PREPARE</para
+></listitem>
+<listitem
+><para
+>PREV</para
+></listitem>
+<listitem
+><para
+>PRIVILEGES</para
+></listitem>
+<listitem
+><para
+>PROCEDURE</para
+></listitem>
+<listitem
+><para
+>PROCESS</para
+></listitem>
+<listitem
+><para
+>PROCESSLIST</para
+></listitem>
+<listitem
+><para
+>PURGE</para
+></listitem>
+<listitem
+><para
+>QUERY</para
+></listitem>
+<listitem
+><para
+>QUICK</para
+></listitem>
+<listitem
+><para
+>RAID0</para
+></listitem>
+<listitem
+><para
+>RAID_CHUNKS</para
+></listitem>
+<listitem
+><para
+>RAID_CHUNKSIZE</para
+></listitem>
+<listitem
+><para
+>RAID_TYPE</para
+></listitem>
+<listitem
+><para
+>READ</para
+></listitem>
+<listitem
+><para
+>REAL</para
+></listitem>
+<listitem
+><para
+>REGEXP</para
+></listitem>
+<listitem
+><para
+>RELAY_LOG_FILE</para
+></listitem>
+<listitem
+><para
+>RELAY_LOG_POS</para
+></listitem>
+<listitem
+><para
+>RELAY_THREAD</para
+></listitem>
+<listitem
+><para
+>RELOAD</para
+></listitem>
+<listitem
+><para
+>RENAME</para
+></listitem>
+<listitem
+><para
+>REPAIR</para
+></listitem>
+<listitem
+><para
+>REPEATABLE</para
+></listitem>
+<listitem
+><para
+>REPLICATION</para
+></listitem>
+<listitem
+><para
+>REQUIRE</para
+></listitem>
+<listitem
+><para
+>RESET</para
+></listitem>
+<listitem
+><para
+>RESTORE</para
+></listitem>
+<listitem
+><para
+>RETURNS</para
+></listitem>
+<listitem
+><para
+>REVOKE</para
+></listitem>
+<listitem
+><para
+>RLIKE</para
+></listitem>
+<listitem
+><para
+>ROLLUP</para
+></listitem>
+<listitem
+><para
+>ROWS</para
+></listitem>
+<listitem
+><para
+>ROW_FORMAT</para
+></listitem>
+<listitem
+><para
+>RTREE</para
+></listitem>
+<listitem
+><para
+>SAVEPOINT</para
+></listitem>
+<listitem
+><para
+>SECOND</para
+></listitem>
+<listitem
+><para
+>SECOND_MICROSECOND</para
+></listitem>
+<listitem
+><para
+>SEPARATOR</para
+></listitem>
+<listitem
+><para
+>SERIAL</para
+></listitem>
+<listitem
+><para
+>SERIALIZABLE</para
+></listitem>
+<listitem
+><para
+>SESSION</para
+></listitem>
+<listitem
+><para
+>SHARE</para
+></listitem>
+<listitem
+><para
+>SHOW</para
+></listitem>
+<listitem
+><para
+>SHUTDOWN</para
+></listitem>
+<listitem
+><para
+>SIGNED</para
+></listitem>
+<listitem
+><para
+>SIMPLE</para
+></listitem>
+<listitem
+><para
+>SLAVE</para
+></listitem>
+<listitem
+><para
+>SMALLINT</para
+></listitem>
+<listitem
+><para
+>SOME</para
+></listitem>
+<listitem
+><para
+>SONAME</para
+></listitem>
+<listitem
+><para
+>SOUNDS</para
+></listitem>
+<listitem
+><para
+>SPATIAL</para
+></listitem>
+<listitem
+><para
+>SQL_BIG_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_BUFFER_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_CACHE</para
+></listitem>
+<listitem
+><para
+>SQL_CALC_FOUND_ROWS</para
+></listitem>
+<listitem
+><para
+>SQL_NO_CACHE</para
+></listitem>
+<listitem
+><para
+>SQL_SMALL_RESULT</para
+></listitem>
+<listitem
+><para
+>SQL_THREAD</para
+></listitem>
+<listitem
+><para
+>SSL</para
+></listitem>
+<listitem
+><para
+>START</para
+></listitem>
+<listitem
+><para
+>STARTING</para
+></listitem>
+<listitem
+><para
+>STATUS</para
+></listitem>
+<listitem
+><para
+>STOP</para
+></listitem>
+<listitem
+><para
+>STORAGE</para
+></listitem>
+<listitem
+><para
+>STRAIGHT_JOIN</para
+></listitem>
+<listitem
+><para
+>STRING</para
+></listitem>
+<listitem
+><para
+>STRIPED</para
+></listitem>
+<listitem
+><para
+>SUBJECT</para
+></listitem>
+<listitem
+><para
+>SUPER</para
+></listitem>
+<listitem
+><para
+>TABLES</para
+></listitem>
+<listitem
+><para
+>TABLESPACE</para
+></listitem>
+<listitem
+><para
+>TERMINATED</para
+></listitem>
+<listitem
+><para
+>TEXT</para
+></listitem>
+<listitem
+><para
+>TIME</para
+></listitem>
+<listitem
+><para
+>TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>TINYBLOB</para
+></listitem>
+<listitem
+><para
+>TINYINT</para
+></listitem>
+<listitem
+><para
+>TINYTEXT</para
+></listitem>
+<listitem
+><para
+>TRAILING</para
+></listitem>
+<listitem
+><para
+>TRUE</para
+></listitem>
+<listitem
+><para
+>TRUNCATE</para
+></listitem>
+<listitem
+><para
+>TYPE</para
+></listitem>
+<listitem
+><para
+>TYPES</para
+></listitem>
+<listitem
+><para
+>UNCOMMITTED</para
+></listitem>
+<listitem
+><para
+>UNICODE</para
+></listitem>
+<listitem
+><para
+>UNLOCK</para
+></listitem>
+<listitem
+><para
+>UNSIGNED</para
+></listitem>
+<listitem
+><para
+>UNTIL</para
+></listitem>
+<listitem
+><para
+>USAGE</para
+></listitem>
+<listitem
+><para
+>USE</para
+></listitem>
+<listitem
+><para
+>USER</para
+></listitem>
+<listitem
+><para
+>USER_RESOURCES</para
+></listitem>
+<listitem
+><para
+>USE_FRM</para
+></listitem>
+<listitem
+><para
+>UTC_DATE</para
+></listitem>
+<listitem
+><para
+>UTC_TIME</para
+></listitem>
+<listitem
+><para
+>UTC_TIMESTAMP</para
+></listitem>
+<listitem
+><para
+>VALUE</para
+></listitem>
+<listitem
+><para
+>VARBINARY</para
+></listitem>
+<listitem
+><para
+>VARCHAR</para
+></listitem>
+<listitem
+><para
+>VARCHARACTER</para
+></listitem>
+<listitem
+><para
+>VARIABLES</para
+></listitem>
+<listitem
+><para
+>VARYING</para
+></listitem>
+<listitem
+><para
+>WARNINGS</para
+></listitem>
+<listitem
+><para
+>WITH</para
+></listitem>
+<listitem
+><para
+>WORK</para
+></listitem>
+<listitem
+><para
+>WRITE</para
+></listitem>
+<listitem
+><para
+>X509</para
+></listitem>
+<listitem
+><para
+>YEAR</para
+></listitem>
+<listitem
+><para
+>YEAR_MONTH</para
+></listitem>
+<listitem
+><para
+>ZEROFILL</para
+></listitem>
+</itemizedlist>
+</sect1>
+<sect1 id="kexi-xbase-driver-reserved-words"
+><title
+>كلمات كيس المحجوزة لبرنامج تشغيل xBase</title
+> 
+<para
+>تحتوي هذه القائمة على كلمات رئيسية محجوزة للاستخدام بواسطة برنامج تشغيل كيس xBase: </para>
+<itemizedlist>
+<listitem
+><para
+>ABORT</para
+></listitem>
+<listitem
+><para
+>ATTACH</para
+></listitem>
+<listitem
+><para
+>CLUSTER</para
+></listitem>
+<listitem
+><para
+>CONFLICT</para
+></listitem>
+<listitem
+><para
+>DEFERRED</para
+></listitem>
+<listitem
+><para
+>DEFERRABLE</para
+></listitem>
+<listitem
+><para
+>DETACH</para
+></listitem>
+<listitem
+><para
+>EACH</para
+></listitem>
+<listitem
+><para
+>EXCEPT</para
+></listitem>
+<listitem
+><para
+>FAIL</para
+></listitem>
+<listitem
+><para
+>GLOB</para
+></listitem>
+<listitem
+><para
+>IMMEDIATE</para
+></listitem>
+<listitem
+><para
+>INITIALLY</para
+></listitem>
+<listitem
+><para
+>INSTEAD</para
+></listitem>
+<listitem
+><para
+>INTERSECT</para
+></listitem>
+<listitem
+><para
+>ISNULL</para
+></listitem>
+<listitem
+><para
+>NOTNULL</para
+></listitem>
+<listitem
+><para
+>OF</para
+></listitem>
+<listitem
+><para
+>PRAGMA</para
+></listitem>
+<listitem
+><para
+>RAISE</para
+></listitem>
+<listitem
+><para
+>STATEMENT</para
+></listitem>
+<listitem
+><para
+>TEMP</para
+></listitem>
+<listitem
+><para
+>TRIGGER</para
+></listitem>
+<listitem
+><para
+>VACUUM</para
+></listitem>
+<listitem
+><para
+>VIEW</para
+></listitem>
+</itemizedlist>
+<para
+><note
+><para
+>تُحفظ الكلمات المحجوزة منفصلة لكل برنامج تشغيل بحيث يمكن استخدامها أيضًا كمرجع.</para
+></note>
+</para>
+</sect1>
+</chapter>
+<chapter id="supported-file-formats"
+><title
+>الملحق د. صيغ الملفات المدعومة</title
+> 
+<sect1 id="comma-separated-values-format-csv"
+><title
+>صيغة القيم المفصولة بفاصلة (CSV)</title
+> 
+<para
+>يستطيع كيس استيراد وتصدير البيانات من/إلى مجموعة متنوعة من صيغ القيم المفصولة بفاصلة (ملفات CSV). تستطيع معظم تطبيقات جداول البيانات وقواعد البيانات الاستيراد والتصدير بهذه الصيغة، مما يجعلها صيغة مناسبة لنقل البيانات النصية بين التطبيقات المختلفة. </para>
+<para
+>يدعم كيس أيضًا عددًا من الخيارات التي يمكن ضبطها قبل تنفيذ الاستيراد: </para>
+<itemizedlist>
+<listitem
+><para
+>نوع البيانات لكل عمود،</para
+></listitem>
+<listitem
+><para
+>محددات حقول أخرى مثل علامات التبويب،</para
+></listitem>
+<listitem
+><para
+>علامات اقتباس نصية مختلفة،</para
+></listitem>
+<listitem
+><para
+>يمكن تخطي عدد معين من السجلات إذا لزم الأمر،</para
+></listitem>
+<listitem
+><para
+>يمكن تخطي المحددات المكررة،</para
+></listitem>
+<listitem
+><para
+>يمكن استخدام القيم من الصف الأول لتعيين أسماء الأعمدة،</para
+></listitem>
+<listitem
+><para
+>ترميز النص (UTF-8 هو المبدئي)،</para
+></listitem>
+<listitem
+><para
+>صيغة التاريخ (المعرفة بواسطة نظام التشغيل هي المبدئية)،</para
+></listitem>
+<listitem
+><para
+>إزالة المسافات البادئة واللاحقة من القيم النصية.</para
+></listitem>
+</itemizedlist>
+<para
+>عند الاستيراد، يعرض كيس معاينة للبيانات المستوردة. يُكتشف تلقائيًا أنسب مجموعة من الخيارات بواسطة كيس بناءً على ملف CSV المقدم. </para>
+</sect1>
+<sect1 id="microsoft-access-mdb-file-format"
+><title
+>صيغة ملف Microsoft Access (MDB)</title
+> 
+<sect2 id="overview"
+><title
+>نظرة عامة</title
+> 
+<para
+>دعم استيراد قواعد بيانات <guilabel
+>Microsoft Access</guilabel
+> (2003 أو أقدم) مدمج في كيس. يمكن <emphasis
+>استيراد</emphasis
+> قواعد بيانات <guilabel
+>Access</guilabel
+> إلى قاعدة بيانات كيس فقط. لا يمكن استخدامه لتحرير قاعدة البيانات، ولا للتصدير إلى قاعدة بيانات <guilabel
+>Access</guilabel
+>. ومع ذلك، يجب أن يكون قادرًا أيضًا على استيراد قواعد البيانات التي أنشأتها تطبيقات أخرى تستخدم محرك قاعدة بيانات JET. استيراد قواعد بيانات <filename
+>.accdb</filename
+> المقدمة في MS <guilabel
+>Access</guilabel
+> 2007 غير مدعوم حاليًا. </para>
+<para
+>لاستيراد قاعدة بيانات: </para>
+<orderedlist>
+<listitem
+><para
+>في قائمة كيس، اختر الأمر <guilabel
+>استيراد، تصدير أو إرسال..</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>انقر زر <guilabel
+>استيراد قاعدة بيانات</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>استخدم معالج الاستيراد بتحديد ملف .mdb المطلوب.</para
+></listitem>
+</orderedlist>
+</sect2>
+<sect2 id="capabilities"
+><title
+>الإمكانيات</title
+> 
+<para
+>استُخدمت وظيفة الاستيراد بنجاح لاستيراد قاعدة بيانات <emphasis
+>Northwind</emphasis
+> المعروفة لمستخدمي MS <guilabel
+>Access</guilabel
+>. يمكن أيضًا استيراد العديد من قواعد بيانات القوالب الأخرى لـ <guilabel
+>Access</guilabel
+>. </para>
+<para>
+<screenshot>
+<screeninfo
+></screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="kexi_northwind.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase
+></phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+</para>
+</sect2>
+<sect2 id="supported-features"
+><title
+>الميزات المدعومة</title
+> 
+<para
+>اختُبر استيراد أنواع الحقول التالية، ويعمل بشكل جيد عمومًا: </para>
+<itemizedlist>
+<listitem
+><para
+>حقول نصية</para
+></listitem>
+<listitem
+><para
+>حقول المذكرة</para
+></listitem>
+<listitem
+><para
+>حقول التاريخ</para
+></listitem>
+<listitem
+><para
+>قيم رقمية</para
+></listitem>
+</itemizedlist>
+</sect2>
+<sect2 id="unsupported-features"
+><title
+>الميزات غير المدعومة</title
+> 
+<para
+>حاليًا، تُستورد الجداول فقط. أثناء الاستيراد، يتجاوز كيس الكائنات التالية: </para>
+<itemizedlist>
+<listitem
+><para
+>الاستعلامات</para
+></listitem>
+<listitem
+><para
+>النماذج</para
+></listitem>
+<listitem
+><para
+>السّكربتات</para
+></listitem>
+<listitem
+><para
+>التقارير</para
+></listitem>
+</itemizedlist>
+<para
+>ما يلي غير مُختبر: </para>
+<itemizedlist>
+<listitem
+><para
+>استيراد الكائنات الثنائية</para
+></listitem>
+</itemizedlist>
+</sect2>
+</sect1>
+</chapter>
+<chapter id="credits-and-license"
+><title
+>الحقوق والترخيص</title
+> 
+<para
+>حقوق نشر كيس 2002-2012 لفريق كيس </para>
+<para
+>مطوّرو كيس: </para>
+<itemizedlist>
+<listitem
+><para
+>ياروسلاف ستانيك (staniek kde.org)</para
+></listitem>
+<listitem
+><para
+>أوبن أوفيس بولسكا، ذ.م.م (info openoffice.com.pl)</para
+></listitem>
+<listitem
+><para
+>لوسيان بوش (lucijan kde.org)</para
+></listitem>
+<listitem
+><para
+>سيدريك باستور (cedric.pasteur free.fr)</para
+></listitem>
+<listitem
+><para
+>آدم بيغ (adam piggz.fsnet.co.uk)</para
+></listitem>
+<listitem
+><para
+>مارتن إليس (martin.ellis kdemail.net)</para
+></listitem>
+<listitem
+><para
+>سيباستيان ساور (mail dipe.org)</para
+></listitem>
+<listitem
+><para
+>كريستيان نيتشكوفسكي (segfault_ii web.de)</para
+></listitem>
+<listitem
+><para
+>بيتر سيمونسون (psn linux.se)</para
+></listitem>
+<listitem
+><para
+>جوزيف وينينغر (jowenn kde.org)</para
+></listitem>
+<listitem
+><para
+>سيث كورزنبرغ (seth cql.com)</para
+></listitem>
+<listitem
+><para
+>لوران مونتيل (montel kde.org)</para
+></listitem>
+<listitem
+><para
+>تيل بوش (till bux.at)</para
+></listitem>
+</itemizedlist>
+<para
+>التوثيق من مارتن أ. إليس (martin.ellis kdemail.net)، ياروسلاف ستانيك (staniek kde.org) بمساهمات من آن-ماري محفوظ، رافائيل لانغيرهورست، ميشال كوبيكي وآرون ستانسفيك. </para>
+<para
+>هذا البرنامج مُرخّص بموجب أحكام <ulink url="http://docs.kde.org/stable/common/lgpl-license.html"
+>رخصة جنو العمومية الصغرى</ulink
+>. </para>
+
+<!--userbase-content-->
+<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; </chapter>
+&documentation.index;
+</book>
