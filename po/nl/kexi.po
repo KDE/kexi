@@ -10,7 +10,7 @@
 # Maarten Rütten <maartenrutten@kde.nl>, 2005.
 # Natalie Koning <nat@switch.demon.nl>, 2006.
 # Freek de Kruijf <f.de.kruijf@hetnet.nl>, 2008, 2009.
-# Freek de Kruijf <freek@opensuse.org>, 2009.
+# SPDX-FileCopyrightText: 2009, 2026 Freek de Kruijf <freek@opensuse.org>
 # Kristof Bal <kristof.bal@gmail.com>, 2009.
 # Freek de Kruijf <freekdekruijf@kde.nl>, 2009, 2010.
 # Freek de Kruijf <freekdekruijf@kde.nl>, 2010, 2011, 2012.
@@ -20,14 +20,14 @@ msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:18+0000\n"
-"PO-Revision-Date: 2023-02-03 12:22+0100\n"
-"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"PO-Revision-Date: 2026-11-18 13:31+0100\n"
+"Last-Translator: freek <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 26.04.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: core/kexi.cpp:141
@@ -4326,7 +4326,7 @@ msgstr "Aan het project doneren"
 #, kde-kuit-format
 msgctxt "@action:button Go to Donation"
 msgid "Proceed to the Donation Web Page"
-msgstr "Verder gaan naar de webpagina over doneren"
+msgstr "Doorgaan naar de webpagina over doneren"
 
 #: main/startup/KexiWelcomeStatusBar.cpp:765
 #, kde-kuit-format
