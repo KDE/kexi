@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: calligra-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:01+0000\n"
-"PO-Revision-Date: 2026-11-18 18:14+0300\n"
+"PO-Revision-Date: 2026-11-22 19:50+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -480,9 +480,9 @@ msgid ""
 "kdb.sqlite\" to specify exact vendor of the driver."
 msgstr ""
 "Bir veri tabanı projesine bağlanırken kullanılacak bir veri tabanı sürücüsü "
-"adı (öntanımlı olarak “sqlite”). Kısayolun dosya adı sağlanırsa yok sayılır. "
-"KDb’ye özgü, tamamen benzersiz tanımlayıcı, örn. sürücünün kesin üreticisini "
-"belirtmek için “org.kde.kdb.sqlite” olur."
+"adı (varsayılan olarak “sqlite”). Kısayolun dosya adı sağlanırsa yok "
+"sayılır. KDb’ye özgü, tamamen benzersiz tanımlayıcı, örn. sürücünün kesin "
+"üreticisini belirtmek için “org.kde.kdb.sqlite” olur."
 
 #: core/KexiCommandLineOptions.cpp:57
 #, kde-kuit-format
@@ -503,7 +503,7 @@ msgstr ""
 "türü net bir şekilde belirlenemiyorsa kullanışlıdır. Herhangi bir dosya "
 "argüman olarak belirtilmezse bu seçenek yok sayılır.\n"
 "Kullanılabilir dosya türleri:\n"
-"- “project” proje dosyası için (öntanımlı)\n"
+"- “project” proje dosyası için (varsayılan)\n"
 "- “shortcut” bir projeye işaret eden kısayol, kısayol dosyası için\n"
 "- “connection” veri tabanı bağlantı verileri için"
 
@@ -658,8 +658,9 @@ msgid ""
 "the current login (<resource>%1</resource>)."
 msgstr ""
 "Projeye bağlanırken kullanılacak veri tabanı sunucusunun kullanıcı adı. Eğer "
-"proje kısayol dosyası kullanılarak açılırsa yok sayılır. Öntanımlı kullanıcı "
-"adı, geçerli oturumun kullanıcı adı (<resource>%1</resource>) ile aynıdır."
+"proje kısayol dosyası kullanılarak açılırsa yok sayılır. Varsayılan "
+"kullanıcı adı, geçerli oturumun kullanıcı adı (<resource>%1</resource>) ile "
+"aynıdır."
 
 #: core/KexiCommandLineOptions.cpp:154
 #, kde-kuit-format
@@ -671,7 +672,7 @@ msgid ""
 msgstr ""
 "Bir veri tabanı projesine bağlanırken kullanılacak ağ sunucusunun (ana "
 "bilgisayar) adı. Proje kısayol dosyasını kullanarak açılırsa yok sayılır. "
-"Öntanımlı ana bilgisayar, yerel bilgisayardır."
+"Varsayılan ana bilgisayar, yerel bilgisayardır."
 
 #: core/KexiCommandLineOptions.cpp:160
 #, kde-kuit-format
@@ -683,7 +684,7 @@ msgid ""
 msgstr ""
 "Bir veri tabanı projesine bağlanırken kullanılacak ağ sunucusunun bağlantı "
 "noktası numarası. Proje kısayol dosyasını kullanarak açılırsa yok sayılır. "
-"Öntanımlı değer, kullanılan sunucu türüne bağlıdır (örn. %1, %2)."
+"Varsayılan değer, kullanılan sunucu türüne bağlıdır (örn. %1, %2)."
 
 #: core/KexiCommandLineOptions.cpp:167
 #, kde-kuit-format
@@ -695,7 +696,7 @@ msgid ""
 msgstr ""
 "Bir veri tabanı projesine bağlanırken kullanılacak yerel bilgisayarın yuva "
 "dosya adı. Proje kısayol dosyasını kullanarak açılırsa yok sayılır. "
-"Öntanımlı değer, kullanılan sunucu türüne bağlıdır (ör. %1, %2)."
+"Varsayılan değer, kullanılan sunucu türüne bağlıdır (ör. %1, %2)."
 
 #: core/KexiCommandLineOptions.cpp:176
 #, kde-kuit-format
@@ -5789,7 +5790,7 @@ msgstr "Üç Durumlu"
 #, kde-kuit-format
 msgctxt "Value of \"Tristate\" property in checkbox: default"
 msgid "Default"
-msgstr "Öntanımlı"
+msgstr "Varsayılan"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:496
 #, kde-kuit-format
@@ -5893,7 +5894,7 @@ msgstr "Devingen"
 #, kde-kuit-format
 msgctxt "Hyperlink tool, DefaultTool"
 msgid "Default"
-msgstr "Öntanımlı"
+msgstr "Varsayılan"
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:521
 #, kde-kuit-format
@@ -6234,7 +6235,7 @@ msgstr "&Eylem Ata…"
 #, kde-kuit-format
 msgctxt "default indent value"
 msgid "default"
-msgstr "öntanımlı"
+msgstr "varsayılan"
 
 #: plugins/forms/widgets/main/KexiStandardContainerFormWidgets.cpp:242
 #, kde-kuit-format
@@ -6402,7 +6403,7 @@ msgstr "İlk satır olarak sütun adlarını ekle"
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:236
 #, kde-kuit-format
 msgid "Defaults"
-msgstr "Öntanımlılar"
+msgstr "Varsayılanlar"
 
 #: plugins/importexport/csv/kexicsvexportwizard.cpp:242
 #, kde-kuit-format
@@ -7802,12 +7803,12 @@ msgstr "Otomatik"
 #: plugins/tables/kexitabledesignerview.cpp:386
 #, kde-kuit-format
 msgid "Default Width"
-msgstr "Öntanımlı Genişlik"
+msgstr "Varsayılan Genişlik"
 
 #: plugins/tables/kexitabledesignerview.cpp:392
 #, kde-kuit-format
 msgid "Default Value"
-msgstr "Öntanımlı değer"
+msgstr "Varsayılan değer"
 
 #: plugins/tables/kexitabledesignerview.cpp:402
 #, kde-kuit-format
@@ -8250,7 +8251,7 @@ msgstr "*(Tüm Sütunlar)"
 #, kde-kuit-format
 msgctxt "Text encoding: Default"
 msgid "Default: %1"
-msgstr "Öntanımlı: %1"
+msgstr "Varsayılan: %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widget/KexiConnectionSelector.ui:50
@@ -8575,7 +8576,7 @@ msgstr "Kapı:"
 #, kde-format
 msgctxt "port: default"
 msgid "Default"
-msgstr "Öntanımlı"
+msgstr "Varsayılan"
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkUseSocket)
 #: widget/kexidbconnectionwidgetdetails.ui:34
@@ -8588,7 +8589,7 @@ msgstr "TCP/IP kapısı yerine yuva &dosyası kullan"
 #, kde-format
 msgctxt "socket: default"
 msgid "Default"
-msgstr "Öntanımlı"
+msgstr "Varsayılan"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #: widget/kexidbconnectionwidgetdetails.ui:140
