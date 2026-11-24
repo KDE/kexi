@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 09:01+0000\n"
+"POT-Creation-Date: 2026-11-24 03:11+0000\n"
 "PO-Revision-Date: 2004-11-22 01:23-0800\n"
 "Last-Translator: Tamil PC <tamilpc@ambalam.com>\n"
 "Language-Team:  <ta@li.org>\n"
@@ -1668,11 +1668,9 @@ msgstr "செங்குத்து அளவு"
 msgid "Vertical Alignment"
 msgstr "செங்குத்து அளவு"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: formeditor/form_p.cpp:270 formeditor/form_p.cpp:271
 #: plugins/tables/kexitabledesignerview.cpp:323
-#: widget/KexiConnectionSelector.ui:94
-#, kde-format, kde-kuit-format
+#, kde-kuit-format
 msgid "Name"
 msgstr "சட்டம்"
 
@@ -2534,113 +2532,6 @@ msgstr "\"%1\" பொருளை சேமிக்க முடியவில
 #, fuzzy, kde-kuit-format
 msgid "The search item was not found"
 msgstr "பொருள் கிடைக்கவில்லை"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: main/kexifinddialog.ui:20
-#, kde-format
-msgctxt "Look in field:"
-msgid "&Look in:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2)
-#: main/kexifinddialog.ui:36
-#, kde-format
-msgid "&Search:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_wholeWords)
-#: main/kexifinddialog.ui:55
-#, kde-format
-msgctxt "Match: Whole words only"
-msgid "&Whole words only"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: main/kexifinddialog.ui:62
-#, kde-format
-msgid "Fi&nd:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, m_replaceLbl)
-#: main/kexifinddialog.ui:110
-#, fuzzy, kde-format
-msgctxt "Replace all occurrences with"
-msgid "Re&place with:"
-msgstr "&மறுபெயரிடு"
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_promptOnReplace)
-#: main/kexifinddialog.ui:129
-#, fuzzy, kde-format
-msgid "Prompt on replace"
-msgstr "&மறுபெயரிடு"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_3)
-#: main/kexifinddialog.ui:152
-#, kde-format
-msgid "&Match:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_caseSensitive)
-#: main/kexifinddialog.ui:171
-#, kde-format
-msgctxt "Match: Case sensitive"
-msgid "C&ase sensitive"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
-#: main/kexifinddialog.ui:182
-#, fuzzy, kde-format
-msgctxt "Match: Any Part of Field"
-msgid "Any Part of Field"
-msgstr "புலம் சேரிடம்"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
-#: main/kexifinddialog.ui:187
-#, fuzzy, kde-format
-msgctxt "Match: Whole Field"
-msgid "Whole Field"
-msgstr "புலம் சேரிடம்"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
-#: main/kexifinddialog.ui:192
-#, fuzzy, kde-format
-msgctxt "Match: Start of Field"
-msgid "Start of Field"
-msgstr "புலம் சேரிடம்"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
-#: main/kexifinddialog.ui:204
-#, kde-format
-msgctxt "Search Up"
-msgid "Up"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
-#: main/kexifinddialog.ui:209
-#, fuzzy, kde-format
-msgctxt "Search Down"
-msgid "Down"
-msgstr "உருப்படியை கீழே நகர்த்து"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
-#: main/kexifinddialog.ui:214
-#, fuzzy, kde-format
-msgctxt "Look In All Rows"
-msgid "All Rows"
-msgstr "வரிசை"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_btnReplace)
-#: main/kexifinddialog.ui:264 widget/KexiNameDialog.cpp:182
-#, fuzzy, kde-format, kde-kuit-format
-msgid "&Replace"
-msgstr "&மறுபெயரிடு"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_btnReplaceAll)
-#: main/kexifinddialog.ui:277
-#, fuzzy, kde-format
-msgctxt "Replace All Occurrences"
-msgid "Replace All"
-msgstr "&மறுபெயரிடு"
 
 #: main/KexiGlobalViewModeSelector.cpp:131
 #, kde-kuit-format
@@ -3918,29 +3809,6 @@ msgstr ""
 msgid "Delete and Create New"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, lbl)
-#: main/startup/KexiOpenExistingFile.ui:31
-#, fuzzy, kde-format
-#| msgid "<b>Select existing Kexi project file to open:</b>\n"
-msgid "<b>Select existing KEXI project file to open:</b>\n"
-msgstr "<b>இருக்கும் கிஸ்கித் திட்டக் கோப்பினைத் தேர்ந்தெடுத்துத் திறக்கவும்:</b>\n"
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_advanced)
-#: main/startup/KexiOpenExistingFile.ui:89
-#, kde-format
-msgid "&Advanced "
-msgstr "&உயர்நிலை"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: main/startup/KexiOpenExistingFile.ui:104
-#, kde-format
-msgid ""
-"Click \"Advanced\" button if you want to find an existing project on a "
-"server rather than a file."
-msgstr ""
-"தற்பொழுதுள்ளச் சேவையகத்தில் உள்ள அட்டவணையைக் கோப்புக்குப் பதிலாக வேண்டினால் \"உயர்நிலை\" "
-"பொத்தானைச் சொடுக்கவும்."
-
 #: main/startup/KexiOpenProjectAssistant.cpp:41
 #: widget/KexiProjectSelectorWidget.cpp:304
 #, fuzzy, kde-kuit-format
@@ -4002,33 +3870,6 @@ msgstr "தரவுத்தள சேவையகத்தில் இரு�
 msgctxt "@title:window"
 msgid "Database Password"
 msgstr "தரவுத்தளம்"
-
-#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_file)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:31
-#, fuzzy, kde-format
-msgctxt "New Project Stored in File"
-msgid "File"
-msgstr "கோப்பு"
-
-#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_file)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:37
-#, fuzzy, kde-format
-msgid "New Project Stored in File"
-msgstr "புதிய திட்டப்பணியினை கோப்பில் சேமி  "
-
-#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_server)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:47
-#, fuzzy, kde-format
-#| msgid "Server result name:"
-msgctxt "New Project Stored on Database Server"
-msgid "Server"
-msgstr "சேவையக தீர்வு பெயர் "
-
-#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_server)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:53
-#, fuzzy, kde-format
-msgid "New Project Stored on Database Server"
-msgstr "தரவுத்தள சேவையகத்தில் சேமிக்கப்பட்டுள்ள புதிய திட்டம்"
 
 #: main/startup/KexiRecentProjectsModel.cpp:70
 #, kde-kuit-format
@@ -4106,19 +3947,6 @@ msgstr "புதிய தரவுத்தளத்தை"
 #, kde-kuit-format
 msgid "Last opened on %1"
 msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: main/startup/KexiServerDBNamePage.ui:31
-#, fuzzy, kde-format
-msgid "Project caption:"
-msgstr "திட்டப்பணியின் தலைப்பு உள்ளீடு"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: main/startup/KexiServerDBNamePage.ui:60
-#, fuzzy, kde-format
-#| msgid "Project's database name: "
-msgid "Project's database name:"
-msgstr "திட்டப்பணியின் தரவுத்தின் பெயரை உள்ளீடு"
 
 #: main/startup/KexiStartup.cpp:248
 #, fuzzy, kde-format
@@ -4516,11 +4344,9 @@ msgstr ""
 msgid "Column %1"
 msgstr "நெடுவரிசை"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: migration/AlterSchemaWidget.cpp:52
 #: plugins/tables/kexitabledesignerview.cpp:326
-#: widget/KexiConnectionSelector.ui:99 widget/KexiProjectSelector.ui:96
-#, kde-format, kde-kuit-format
+#, kde-kuit-format
 msgid "Type"
 msgstr "வகை"
 
@@ -5698,10 +5524,8 @@ msgstr "தேதி"
 msgid "Arrow Visible"
 msgstr "காண கூடிய"
 
-#. i18n: ectx: property (title), widget (QGroupBox, descGroupBox)
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
-#: widget/KexiConnectionSelector.ui:118
-#, fuzzy, kde-format, kde-kuit-format
+#, fuzzy, kde-kuit-format
 msgid "Description"
 msgstr "வடிவமை"
 
@@ -8439,45 +8263,6 @@ msgctxt "Text encoding: Default"
 msgid "Default: %1"
 msgstr "முன்னிருப்பு துறை:"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widget/KexiConnectionSelector.ui:50
-#, fuzzy, kde-format
-msgid ""
-"<title>Select Existing Database Server's Connection From the List Below</"
-"title>\n"
-"<para>You will see existing KEXI projects available for the selected "
-"connection. Here you may also add, edit or delete connections from the list."
-"</para>\n"
-msgstr ""
-"<b>புதிய Kexi  திட்டத்தை துவக்க தேவையான தரவுத்தள சேவையகத்தை தேர்ந்தெடுக்க க்ளிக் \"OK"
-"\".</b>\n"
-"<p>பட்டியலிலிருந்து சேர்க்க, திருத்த நீக்க வேண்டிய இணைப்புகளை இங்கே உள்ளது.\n"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: widget/KexiConnectionSelector.ui:104
-#, kde-format
-msgid "Server Information"
-msgstr "சேவையக தகவல்"
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_add)
-#: widget/KexiConnectionSelector.ui:155
-#, fuzzy, kde-format
-msgid "&Add..."
-msgstr "சேர்"
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_edit)
-#: widget/KexiConnectionSelector.ui:168
-#, fuzzy, kde-format
-msgid "&Edit..."
-msgstr "இறக்குமதி"
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_remove)
-#: widget/KexiConnectionSelector.ui:181
-#: widget/navigator/KexiProjectNavigator.cpp:172
-#, fuzzy, kde-format, kde-kuit-format
-msgid "&Delete..."
-msgstr "அறிக்கையை நீக்கு"
-
 #: widget/KexiConnectionSelectorWidget.cpp:62
 #, fuzzy, kde-kuit-format
 msgid "Add a new database connection"
@@ -8552,19 +8337,6 @@ msgstr "\"%2\" தொகுப்பில் இருந்து \"%1\" உ�
 msgid "Define Query..."
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widget/KexiDBCaptionPage.ui:31
-#, fuzzy, kde-format
-msgid "Pro&ject caption: "
-msgstr "திட்டப்பணியின் தலைப்பு உள்ளீடு"
-
-#. i18n: ectx: property (text), widget (QLabel, label_requester)
-#: widget/KexiDBCaptionPage.ui:63
-#, fuzzy, kde-format
-#| msgid "Project Name"
-msgid "Project file&name:"
-msgstr "திட்டம்"
-
 #: widget/kexidbconnectionwidget.cpp:90
 #, fuzzy, kde-kuit-format
 msgid "Load database list from the server"
@@ -8617,11 +8389,8 @@ msgstr ""
 msgid "Database Connection"
 msgstr "தரவுத்தளத்தின் இணைப்பு"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)
-#: widget/kexidbconnectionwidget.cpp:160 widget/kexidbconnectionwidget.ui:168
-#: widget/KexiProjectSelector.ui:85
-#, kde-format, kde-kuit-format
+#: widget/kexidbconnectionwidget.cpp:160
+#, kde-kuit-format
 msgid "Database"
 msgstr "தரவுத்தளம்"
 
@@ -8661,116 +8430,6 @@ msgstr "&திற"
 msgid "Open Database Connection"
 msgstr "தரவுத்தளம் இணைப்பில் பிழை"
 
-#. i18n: ectx: property (title), widget (QGroupBox, authenticationGBox)
-#: widget/kexidbconnectionwidget.ui:90
-#, kde-format
-msgid "Authentication"
-msgstr "உறுதிப்படுத்தல் "
-
-#. i18n: ectx: property (text), widget (QLabel, userLbl)
-#: widget/kexidbconnectionwidget.ui:96
-#, fuzzy, kde-format
-msgid "&Username:"
-msgstr "பயனர்:"
-
-#. i18n: ectx: property (text), widget (QLabel, passwordLbl)
-#: widget/kexidbconnectionwidget.ui:116
-#, fuzzy, kde-format
-msgid "&Password:"
-msgstr "கடவுச்சொல்:"
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, chkSavePassword)
-#: widget/kexidbconnectionwidget.ui:137
-#, kde-format
-msgid ""
-"<html><head/><body><p>Saves password in a <span style=\" font-style:italic;"
-"\">.kexic</span> or <span style=\" font-style:italic;\">.kexis</span> "
-"connection shortcut file using a simple encryption similar to ROT-47. It "
-"does not guarantee security, but simply makes it difficult for anyone to "
-"read, so generally it is not safe to make such files publicly accessible.</"
-"p></body></html>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkSavePassword)
-#: widget/kexidbconnectionwidget.ui:140
-#, fuzzy, kde-format
-msgid "Save password"
-msgstr "கடவுச்சொல்லை சேமி"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: widget/kexidbconnectionwidget.ui:174
-#, kde-format
-msgid "&Name:"
-msgstr "&பெயர்:"
-
-#. i18n: ectx: property (text), widget (QLabel, titleLabel)
-#: widget/kexidbconnectionwidget.ui:193
-#, kde-format
-msgid "&Caption (optional):"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, locationBGrp)
-#: widget/kexidbconnectionwidget.ui:289
-#, fuzzy, kde-format
-msgid "Database Server"
-msgstr "தரவுத்தள சேவகன்: %1"
-
-#. i18n: ectx: property (text), widget (QLabel, lblEngine)
-#: widget/kexidbconnectionwidget.ui:298
-#, fuzzy, kde-format
-msgid "&Engine:"
-msgstr "பொறி "
-
-#. i18n: ectx: property (text), widget (QRadioButton, localhostRBtn)
-#: widget/kexidbconnectionwidget.ui:335
-#, fuzzy, kde-format
-msgid "Local server"
-msgstr "உள்ளார்ந்த தரவுத்தள சேவகன்"
-
-#. i18n: ectx: property (text), widget (QRadioButton, remotehostRBtn)
-#: widget/kexidbconnectionwidget.ui:348
-#, fuzzy, kde-format
-msgid "Remote server"
-msgstr "தொலைநிலை"
-
-#. i18n: ectx: property (text), widget (QLabel, hostLbl)
-#: widget/kexidbconnectionwidget.ui:357
-#, fuzzy, kde-format
-msgid "&Hostname:"
-msgstr "புரவண்"
-
-#. i18n: ectx: property (text), widget (QLabel, portLbl)
-#: widget/kexidbconnectionwidget.ui:383
-#, kde-format
-msgid "Port:"
-msgstr "துறை:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkPortDefault)
-#: widget/kexidbconnectionwidget.ui:424
-#, fuzzy, kde-format
-msgctxt "port: default"
-msgid "Default"
-msgstr "முன்னிருப்பு துறை:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkUseSocket)
-#: widget/kexidbconnectionwidgetdetails.ui:34
-#, kde-format
-msgid "Use socket &file instead of TCP/IP port:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkSocketDefault)
-#: widget/kexidbconnectionwidgetdetails.ui:80
-#, fuzzy, kde-format
-msgctxt "socket: default"
-msgid "Default"
-msgstr "முன்னிருப்பு துறை:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: widget/kexidbconnectionwidgetdetails.ui:140
-#, fuzzy, kde-format
-msgid "&Description:"
-msgstr "வடிவமை"
-
 #: widget/KexiDBPasswordDialog.cpp:58
 #, fuzzy, kde-kuit-format
 msgctxt "@title:window"
@@ -8788,9 +8447,8 @@ msgstr ""
 msgid "&Details >>"
 msgstr "&தேதி"
 
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: widget/KexiDBPasswordDialog.cpp:81 widget/KexiPasswordWidget.ui:138
-#, fuzzy, kde-format, kde-kuit-format
+#: widget/KexiDBPasswordDialog.cpp:81
+#, fuzzy, kde-kuit-format
 #| msgid "Database server: %1"
 msgid "Database server:"
 msgstr "தரவுத்தள சேவகன்: %1"
@@ -8885,6 +8543,11 @@ msgstr ""
 msgid "Do you want to replace it?"
 msgstr "நீக்க வேண்டுமா:"
 
+#: widget/KexiNameDialog.cpp:182
+#, fuzzy, kde-kuit-format
+msgid "&Replace"
+msgstr "&மறுபெயரிடு"
+
 #: widget/KexiNameDialog.cpp:183
 #, fuzzy, kde-kuit-format
 msgid "Replace object"
@@ -8917,79 +8580,6 @@ msgstr "தயவு செய்து தலைப்பை நுழையு
 msgctxt "Object class \"objectName\", e.g. Text editor \"text\""
 msgid "%1 <resource>%2</resource>"
 msgstr "\"%1\" பொருளை சேமிக்க முடியவில்லை"
-
-#. i18n: ectx: property (text), widget (QLabel, prompt)
-#: widget/KexiPasswordWidget.ui:49
-#, kde-format
-msgid "Supply a password below."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, userNameLabel)
-#: widget/KexiPasswordWidget.ui:87
-#, fuzzy, kde-format
-msgid "Username:"
-msgstr "பயனர்:"
-
-#. i18n: ectx: property (text), widget (QLabel, anonymousLabel)
-#: widget/KexiPasswordWidget.ui:104
-#, kde-format
-msgid "Anonymous:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: widget/KexiPasswordWidget.ui:121
-#, fuzzy, kde-format
-msgid "Database name:"
-msgstr "தரவுத்தள சேவகன்: %1"
-
-#. i18n: ectx: property (text), widget (QLabel, passwordLabel)
-#: widget/KexiPasswordWidget.ui:155
-#, fuzzy, kde-format
-msgid "Password:"
-msgstr "கடவுச்சொல்:"
-
-#. i18n: ectx: property (text), widget (QLabel, keepCheckBoxLabel)
-#: widget/KexiPasswordWidget.ui:185
-#, fuzzy, kde-format
-msgid "Remember password:"
-msgstr "கடவுச்சொல்லை சேமி"
-
-#. i18n: ectx: property (text), widget (QRadioButton, option_file)
-#: widget/kexiprjtypeselector.ui:51
-#, fuzzy, kde-format
-msgid "Projects stored in a file"
-msgstr "புதிய திட்டப்பணியினை கோப்பில் சேமி  "
-
-#. i18n: ectx: property (text), widget (QRadioButton, option_server)
-#: widget/kexiprjtypeselector.ui:86
-#, fuzzy, kde-format
-msgid "Projects stored on a database server"
-msgstr "தரவுத்தள சேவையகத்தில் சேமிக்கப்பட்டுள்ள புதிய திட்டம்"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widget/KexiProjectSelector.ui:33
-#, fuzzy, kde-format
-#| msgid ""
-#| "<b>There are Kexi projects you have recently opened.</b> Select one you "
-#| "wish to open:\n"
-msgid ""
-"<b>There are KEXI projects you have recently opened.</b> Select one you wish "
-"to open:\n"
-msgstr ""
-"<b>கெக்ஸி திட்டப்பணிகளை நீங்கள் கடைசியாக திறந்து உள்ளீர்.</b> நீங்கள் திறக்க விரும்பும் ஒன்றை "
-"தேர்ந்தெடுக்கவும்:\n"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: widget/KexiProjectSelector.ui:74
-#, kde-format
-msgid "Project Name"
-msgstr "திட்டம்"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: widget/KexiProjectSelector.ui:107
-#, kde-format
-msgid "Connection"
-msgstr "தரவுத்தளத்தின் இணைப்பு"
 
 #: widget/KexiProjectSelectorWidget.cpp:94
 #, fuzzy, kde-kuit-format
@@ -9071,6 +8661,11 @@ msgstr "பொருளைத் திற"
 #| msgid "Deletes currently selected object."
 msgid "Opens object selected in the list."
 msgstr "தற்பொழுதிலுள்ள தேர்ந்தெடுத்த பொருளை அழிக்கவும்."
+
+#: widget/navigator/KexiProjectNavigator.cpp:172
+#, fuzzy, kde-kuit-format
+msgid "&Delete..."
+msgstr "அறிக்கையை நீக்கு"
 
 #: widget/navigator/KexiProjectNavigator.cpp:173
 #, fuzzy, kde-kuit-format
@@ -9500,6 +9095,216 @@ msgstr "கடைசி வரிசை"
 #, fuzzy, kde-kuit-format
 msgid "Moves cursor to new record and allows inserting."
 msgstr "அடுத்த வரிசை"
+
+#, fuzzy
+#~ msgctxt "Replace all occurrences with"
+#~ msgid "Re&place with:"
+#~ msgstr "&மறுபெயரிடு"
+
+#, fuzzy
+#~ msgid "Prompt on replace"
+#~ msgstr "&மறுபெயரிடு"
+
+#, fuzzy
+#~ msgctxt "Match: Any Part of Field"
+#~ msgid "Any Part of Field"
+#~ msgstr "புலம் சேரிடம்"
+
+#, fuzzy
+#~ msgctxt "Match: Whole Field"
+#~ msgid "Whole Field"
+#~ msgstr "புலம் சேரிடம்"
+
+#, fuzzy
+#~ msgctxt "Match: Start of Field"
+#~ msgid "Start of Field"
+#~ msgstr "புலம் சேரிடம்"
+
+#, fuzzy
+#~ msgctxt "Search Down"
+#~ msgid "Down"
+#~ msgstr "உருப்படியை கீழே நகர்த்து"
+
+#, fuzzy
+#~ msgctxt "Look In All Rows"
+#~ msgid "All Rows"
+#~ msgstr "வரிசை"
+
+#, fuzzy
+#~ msgctxt "Replace All Occurrences"
+#~ msgid "Replace All"
+#~ msgstr "&மறுபெயரிடு"
+
+#, fuzzy
+#~| msgid "<b>Select existing Kexi project file to open:</b>\n"
+#~ msgid "<b>Select existing KEXI project file to open:</b>\n"
+#~ msgstr "<b>இருக்கும் கிஸ்கித் திட்டக் கோப்பினைத் தேர்ந்தெடுத்துத் திறக்கவும்:</b>\n"
+
+#~ msgid "&Advanced "
+#~ msgstr "&உயர்நிலை"
+
+#~ msgid ""
+#~ "Click \"Advanced\" button if you want to find an existing project on a "
+#~ "server rather than a file."
+#~ msgstr ""
+#~ "தற்பொழுதுள்ளச் சேவையகத்தில் உள்ள அட்டவணையைக் கோப்புக்குப் பதிலாக வேண்டினால் \"உயர்நிலை"
+#~ "\" பொத்தானைச் சொடுக்கவும்."
+
+#, fuzzy
+#~ msgctxt "New Project Stored in File"
+#~ msgid "File"
+#~ msgstr "கோப்பு"
+
+#, fuzzy
+#~ msgid "New Project Stored in File"
+#~ msgstr "புதிய திட்டப்பணியினை கோப்பில் சேமி  "
+
+#, fuzzy
+#~| msgid "Server result name:"
+#~ msgctxt "New Project Stored on Database Server"
+#~ msgid "Server"
+#~ msgstr "சேவையக தீர்வு பெயர் "
+
+#, fuzzy
+#~ msgid "New Project Stored on Database Server"
+#~ msgstr "தரவுத்தள சேவையகத்தில் சேமிக்கப்பட்டுள்ள புதிய திட்டம்"
+
+#, fuzzy
+#~ msgid "Project caption:"
+#~ msgstr "திட்டப்பணியின் தலைப்பு உள்ளீடு"
+
+#, fuzzy
+#~| msgid "Project's database name: "
+#~ msgid "Project's database name:"
+#~ msgstr "திட்டப்பணியின் தரவுத்தின் பெயரை உள்ளீடு"
+
+#, fuzzy
+#~ msgid ""
+#~ "<title>Select Existing Database Server's Connection From the List Below</"
+#~ "title>\n"
+#~ "<para>You will see existing KEXI projects available for the selected "
+#~ "connection. Here you may also add, edit or delete connections from the "
+#~ "list.</para>\n"
+#~ msgstr ""
+#~ "<b>புதிய Kexi  திட்டத்தை துவக்க தேவையான தரவுத்தள சேவையகத்தை தேர்ந்தெடுக்க க்ளிக் "
+#~ "\"OK\".</b>\n"
+#~ "<p>பட்டியலிலிருந்து சேர்க்க, திருத்த நீக்க வேண்டிய இணைப்புகளை இங்கே உள்ளது.\n"
+
+#~ msgid "Server Information"
+#~ msgstr "சேவையக தகவல்"
+
+#, fuzzy
+#~ msgid "&Add..."
+#~ msgstr "சேர்"
+
+#, fuzzy
+#~ msgid "&Edit..."
+#~ msgstr "இறக்குமதி"
+
+#, fuzzy
+#~ msgid "Pro&ject caption: "
+#~ msgstr "திட்டப்பணியின் தலைப்பு உள்ளீடு"
+
+#, fuzzy
+#~| msgid "Project Name"
+#~ msgid "Project file&name:"
+#~ msgstr "திட்டம்"
+
+#~ msgid "Authentication"
+#~ msgstr "உறுதிப்படுத்தல் "
+
+#, fuzzy
+#~ msgid "&Username:"
+#~ msgstr "பயனர்:"
+
+#, fuzzy
+#~ msgid "&Password:"
+#~ msgstr "கடவுச்சொல்:"
+
+#, fuzzy
+#~ msgid "Save password"
+#~ msgstr "கடவுச்சொல்லை சேமி"
+
+#~ msgid "&Name:"
+#~ msgstr "&பெயர்:"
+
+#, fuzzy
+#~ msgid "Database Server"
+#~ msgstr "தரவுத்தள சேவகன்: %1"
+
+#, fuzzy
+#~ msgid "&Engine:"
+#~ msgstr "பொறி "
+
+#, fuzzy
+#~ msgid "Local server"
+#~ msgstr "உள்ளார்ந்த தரவுத்தள சேவகன்"
+
+#, fuzzy
+#~ msgid "Remote server"
+#~ msgstr "தொலைநிலை"
+
+#, fuzzy
+#~ msgid "&Hostname:"
+#~ msgstr "புரவண்"
+
+#~ msgid "Port:"
+#~ msgstr "துறை:"
+
+#, fuzzy
+#~ msgctxt "port: default"
+#~ msgid "Default"
+#~ msgstr "முன்னிருப்பு துறை:"
+
+#, fuzzy
+#~ msgctxt "socket: default"
+#~ msgid "Default"
+#~ msgstr "முன்னிருப்பு துறை:"
+
+#, fuzzy
+#~ msgid "&Description:"
+#~ msgstr "வடிவமை"
+
+#, fuzzy
+#~ msgid "Username:"
+#~ msgstr "பயனர்:"
+
+#, fuzzy
+#~ msgid "Database name:"
+#~ msgstr "தரவுத்தள சேவகன்: %1"
+
+#, fuzzy
+#~ msgid "Password:"
+#~ msgstr "கடவுச்சொல்:"
+
+#, fuzzy
+#~ msgid "Remember password:"
+#~ msgstr "கடவுச்சொல்லை சேமி"
+
+#, fuzzy
+#~ msgid "Projects stored in a file"
+#~ msgstr "புதிய திட்டப்பணியினை கோப்பில் சேமி  "
+
+#, fuzzy
+#~ msgid "Projects stored on a database server"
+#~ msgstr "தரவுத்தள சேவையகத்தில் சேமிக்கப்பட்டுள்ள புதிய திட்டம்"
+
+#, fuzzy
+#~| msgid ""
+#~| "<b>There are Kexi projects you have recently opened.</b> Select one you "
+#~| "wish to open:\n"
+#~ msgid ""
+#~ "<b>There are KEXI projects you have recently opened.</b> Select one you "
+#~ "wish to open:\n"
+#~ msgstr ""
+#~ "<b>கெக்ஸி திட்டப்பணிகளை நீங்கள் கடைசியாக திறந்து உள்ளீர்.</b> நீங்கள் திறக்க விரும்பும் "
+#~ "ஒன்றை தேர்ந்தெடுக்கவும்:\n"
+
+#~ msgid "Project Name"
+#~ msgstr "திட்டம்"
+
+#~ msgid "Connection"
+#~ msgstr "தரவுத்தளத்தின் இணைப்பு"
 
 #, fuzzy
 #~| msgid "Project caption: "

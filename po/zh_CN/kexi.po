@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 09:01+0000\n"
+"POT-Creation-Date: 2026-11-24 03:11+0000\n"
 "PO-Revision-Date: 2024-04-22 16:04\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1589,11 +1589,9 @@ msgstr "垂直对齐"
 msgid "Vertical Alignment"
 msgstr "垂直对齐"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: formeditor/form_p.cpp:270 formeditor/form_p.cpp:271
 #: plugins/tables/kexitabledesignerview.cpp:323
-#: widget/KexiConnectionSelector.ui:94
-#, kde-format, kde-kuit-format
+#, kde-kuit-format
 msgid "Name"
 msgstr "名称"
 
@@ -2417,113 +2415,6 @@ msgstr "在 <resource>%1</resource> 中查找"
 #, kde-kuit-format
 msgid "The search item was not found"
 msgstr "搜索的项目未找到"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: main/kexifinddialog.ui:20
-#, kde-format
-msgctxt "Look in field:"
-msgid "&Look in:"
-msgstr "查找于(&L)："
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2)
-#: main/kexifinddialog.ui:36
-#, kde-format
-msgid "&Search:"
-msgstr "搜索(&S)："
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_wholeWords)
-#: main/kexifinddialog.ui:55
-#, kde-format
-msgctxt "Match: Whole words only"
-msgid "&Whole words only"
-msgstr "只对应整个单词(&W)"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: main/kexifinddialog.ui:62
-#, kde-format
-msgid "Fi&nd:"
-msgstr "查找(&N)："
-
-#. i18n: ectx: property (text), widget (QLabel, m_replaceLbl)
-#: main/kexifinddialog.ui:110
-#, kde-format
-msgctxt "Replace all occurrences with"
-msgid "Re&place with:"
-msgstr "替换为(&P)："
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_promptOnReplace)
-#: main/kexifinddialog.ui:129
-#, kde-format
-msgid "Prompt on replace"
-msgstr "替换时提示"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_3)
-#: main/kexifinddialog.ui:152
-#, kde-format
-msgid "&Match:"
-msgstr "匹配(&M)："
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_caseSensitive)
-#: main/kexifinddialog.ui:171
-#, kde-format
-msgctxt "Match: Case sensitive"
-msgid "C&ase sensitive"
-msgstr "区分大小写(&A)"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
-#: main/kexifinddialog.ui:182
-#, kde-format
-msgctxt "Match: Any Part of Field"
-msgid "Any Part of Field"
-msgstr "字段的任何部分"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
-#: main/kexifinddialog.ui:187
-#, kde-format
-msgctxt "Match: Whole Field"
-msgid "Whole Field"
-msgstr "整个字段"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
-#: main/kexifinddialog.ui:192
-#, kde-format
-msgctxt "Match: Start of Field"
-msgid "Start of Field"
-msgstr "字段开始"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
-#: main/kexifinddialog.ui:204
-#, kde-format
-msgctxt "Search Up"
-msgid "Up"
-msgstr "上箭头"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
-#: main/kexifinddialog.ui:209
-#, kde-format
-msgctxt "Search Down"
-msgid "Down"
-msgstr "下箭头"
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
-#: main/kexifinddialog.ui:214
-#, kde-format
-msgctxt "Look In All Rows"
-msgid "All Rows"
-msgstr "所有行"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_btnReplace)
-#: main/kexifinddialog.ui:264 widget/KexiNameDialog.cpp:182
-#, kde-format, kde-kuit-format
-msgid "&Replace"
-msgstr "替换(&R)"
-
-#. i18n: ectx: property (text), widget (QPushButton, m_btnReplaceAll)
-#: main/kexifinddialog.ui:277
-#, kde-format
-msgctxt "Replace All Occurrences"
-msgid "Replace All"
-msgstr "全部替换"
 
 #: main/KexiGlobalViewModeSelector.cpp:131
 #, kde-kuit-format
@@ -3737,26 +3628,6 @@ msgstr "此名称的数据库的已经存在。您是否想删除它并创建新
 msgid "Delete and Create New"
 msgstr "删除并创建"
 
-#. i18n: ectx: property (text), widget (QLabel, lbl)
-#: main/startup/KexiOpenExistingFile.ui:31
-#, kde-format
-msgid "<b>Select existing KEXI project file to open:</b>\n"
-msgstr "<b>选择要打开的已有 KEXI 项目文件：</b>\n"
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_advanced)
-#: main/startup/KexiOpenExistingFile.ui:89
-#, kde-format
-msgid "&Advanced "
-msgstr "高级(&A)"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: main/startup/KexiOpenExistingFile.ui:104
-#, kde-format
-msgid ""
-"Click \"Advanced\" button if you want to find an existing project on a "
-"server rather than a file."
-msgstr "如果您想要查找服务器而非文件中的已有工程，请单击“高级”按钮。"
-
 #: main/startup/KexiOpenProjectAssistant.cpp:41
 #: widget/KexiProjectSelectorWidget.cpp:304
 #, kde-kuit-format
@@ -3812,32 +3683,6 @@ msgstr "选择并打开<resource>%1 (%2)</resource>数据库服务器上的项�
 msgctxt "@title:window"
 msgid "Database Password"
 msgstr "数据库密码"
-
-#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_file)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:31
-#, kde-format
-msgctxt "New Project Stored in File"
-msgid "File"
-msgstr "文件"
-
-#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_file)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:37
-#, kde-format
-msgid "New Project Stored in File"
-msgstr "新建存储到文件的工程"
-
-#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_server)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:47
-#, kde-format
-msgctxt "New Project Stored on Database Server"
-msgid "Server"
-msgstr "服务器"
-
-#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_server)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:53
-#, kde-format
-msgid "New Project Stored on Database Server"
-msgstr "新建存储到数据库服务器的工程"
 
 #: main/startup/KexiRecentProjectsModel.cpp:70
 #, kde-kuit-format
@@ -3906,18 +3751,6 @@ msgstr "%1 数据库"
 #, kde-kuit-format
 msgid "Last opened on %1"
 msgstr "最后打开 %1"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: main/startup/KexiServerDBNamePage.ui:31
-#, kde-format
-msgid "Project caption:"
-msgstr "工程标题:"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: main/startup/KexiServerDBNamePage.ui:60
-#, kde-format
-msgid "Project's database name:"
-msgstr "工程数据库名称："
 
 #: main/startup/KexiStartup.cpp:248
 #, kde-format
@@ -4306,11 +4139,9 @@ msgstr "现在不要"
 msgid "Column %1"
 msgstr "列 %1"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: migration/AlterSchemaWidget.cpp:52
 #: plugins/tables/kexitabledesignerview.cpp:326
-#: widget/KexiConnectionSelector.ui:99 widget/KexiProjectSelector.ui:96
-#, kde-format, kde-kuit-format
+#, kde-kuit-format
 msgid "Type"
 msgstr "类型"
 
@@ -5438,10 +5269,8 @@ msgstr "日期"
 msgid "Arrow Visible"
 msgstr "箭头可见"
 
-#. i18n: ectx: property (title), widget (QGroupBox, descGroupBox)
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
-#: widget/KexiConnectionSelector.ui:118
-#, kde-format, kde-kuit-format
+#, kde-kuit-format
 msgid "Description"
 msgstr "描述"
 
@@ -8054,45 +7883,6 @@ msgctxt "Text encoding: Default"
 msgid "Default: %1"
 msgstr "默认：%1"
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widget/KexiConnectionSelector.ui:50
-#, kde-format
-msgid ""
-"<title>Select Existing Database Server's Connection From the List Below</"
-"title>\n"
-"<para>You will see existing KEXI projects available for the selected "
-"connection. Here you may also add, edit or delete connections from the list."
-"</para>\n"
-msgstr ""
-"<title>从下面的列表中选择已有数据库服务器的连接</title>\n"
-"<para>您将看到选中连接下可用的 KEXI 项目。您还可以在此添加、编辑或删除列表中"
-"的连接。</para>\n"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: widget/KexiConnectionSelector.ui:104
-#, kde-format
-msgid "Server Information"
-msgstr "服务器信息"
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_add)
-#: widget/KexiConnectionSelector.ui:155
-#, kde-format
-msgid "&Add..."
-msgstr "添加(&A)..."
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_edit)
-#: widget/KexiConnectionSelector.ui:168
-#, kde-format
-msgid "&Edit..."
-msgstr "编辑(&E)..."
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_remove)
-#: widget/KexiConnectionSelector.ui:181
-#: widget/navigator/KexiProjectNavigator.cpp:172
-#, kde-format, kde-kuit-format
-msgid "&Delete..."
-msgstr "删除(&D)..."
-
 #: widget/KexiConnectionSelectorWidget.cpp:62
 #, kde-kuit-format
 msgid "Add a new database connection"
@@ -8166,18 +7956,6 @@ msgstr "您是否想要从可用连接列表中删除数据库连接<resource>%1
 msgid "Define Query..."
 msgstr "定义查询..."
 
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widget/KexiDBCaptionPage.ui:31
-#, kde-format
-msgid "Pro&ject caption: "
-msgstr "工程标题："
-
-#. i18n: ectx: property (text), widget (QLabel, label_requester)
-#: widget/KexiDBCaptionPage.ui:63
-#, kde-format
-msgid "Project file&name:"
-msgstr "项目名称："
-
 #: widget/kexidbconnectionwidget.cpp:90
 #, kde-kuit-format
 msgid "Load database list from the server"
@@ -8232,11 +8010,8 @@ msgstr "测试数据库连接。您可以保证所提供的连接信息有效。
 msgid "Database Connection"
 msgstr "数据库连接"
 
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)
-#: widget/kexidbconnectionwidget.cpp:160 widget/kexidbconnectionwidget.ui:168
-#: widget/KexiProjectSelector.ui:85
-#, kde-format, kde-kuit-format
+#: widget/kexidbconnectionwidget.cpp:160
+#, kde-kuit-format
 msgid "Database"
 msgstr "数据库"
 
@@ -8275,116 +8050,6 @@ msgstr "打开(&O)"
 msgid "Open Database Connection"
 msgstr "打开数据库连接"
 
-#. i18n: ectx: property (title), widget (QGroupBox, authenticationGBox)
-#: widget/kexidbconnectionwidget.ui:90
-#, kde-format
-msgid "Authentication"
-msgstr "身份验证"
-
-#. i18n: ectx: property (text), widget (QLabel, userLbl)
-#: widget/kexidbconnectionwidget.ui:96
-#, kde-format
-msgid "&Username:"
-msgstr "用户名(&U)："
-
-#. i18n: ectx: property (text), widget (QLabel, passwordLbl)
-#: widget/kexidbconnectionwidget.ui:116
-#, kde-format
-msgid "&Password:"
-msgstr "密码(&P)："
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, chkSavePassword)
-#: widget/kexidbconnectionwidget.ui:137
-#, kde-format
-msgid ""
-"<html><head/><body><p>Saves password in a <span style=\" font-style:italic;"
-"\">.kexic</span> or <span style=\" font-style:italic;\">.kexis</span> "
-"connection shortcut file using a simple encryption similar to ROT-47. It "
-"does not guarantee security, but simply makes it difficult for anyone to "
-"read, so generally it is not safe to make such files publicly accessible.</"
-"p></body></html>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkSavePassword)
-#: widget/kexidbconnectionwidget.ui:140
-#, kde-format
-msgid "Save password"
-msgstr "保存密码"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: widget/kexidbconnectionwidget.ui:174
-#, kde-format
-msgid "&Name:"
-msgstr "名称(&N)："
-
-#. i18n: ectx: property (text), widget (QLabel, titleLabel)
-#: widget/kexidbconnectionwidget.ui:193
-#, kde-format
-msgid "&Caption (optional):"
-msgstr "说明 (可选) (&C)："
-
-#. i18n: ectx: property (title), widget (QGroupBox, locationBGrp)
-#: widget/kexidbconnectionwidget.ui:289
-#, kde-format
-msgid "Database Server"
-msgstr "数据库服务器"
-
-#. i18n: ectx: property (text), widget (QLabel, lblEngine)
-#: widget/kexidbconnectionwidget.ui:298
-#, kde-format
-msgid "&Engine:"
-msgstr "引擎(&E)："
-
-#. i18n: ectx: property (text), widget (QRadioButton, localhostRBtn)
-#: widget/kexidbconnectionwidget.ui:335
-#, kde-format
-msgid "Local server"
-msgstr "本地服务器"
-
-#. i18n: ectx: property (text), widget (QRadioButton, remotehostRBtn)
-#: widget/kexidbconnectionwidget.ui:348
-#, kde-format
-msgid "Remote server"
-msgstr "远程服务器"
-
-#. i18n: ectx: property (text), widget (QLabel, hostLbl)
-#: widget/kexidbconnectionwidget.ui:357
-#, kde-format
-msgid "&Hostname:"
-msgstr "主机名(&H)："
-
-#. i18n: ectx: property (text), widget (QLabel, portLbl)
-#: widget/kexidbconnectionwidget.ui:383
-#, kde-format
-msgid "Port:"
-msgstr "端口："
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkPortDefault)
-#: widget/kexidbconnectionwidget.ui:424
-#, kde-format
-msgctxt "port: default"
-msgid "Default"
-msgstr "默认"
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkUseSocket)
-#: widget/kexidbconnectionwidgetdetails.ui:34
-#, kde-format
-msgid "Use socket &file instead of TCP/IP port:"
-msgstr "使用套接字而不是 TCP/IP 端口(&F)："
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkSocketDefault)
-#: widget/kexidbconnectionwidgetdetails.ui:80
-#, kde-format
-msgctxt "socket: default"
-msgid "Default"
-msgstr "默认"
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: widget/kexidbconnectionwidgetdetails.ui:140
-#, kde-format
-msgid "&Description:"
-msgstr "描述(&D)："
-
 #: widget/KexiDBPasswordDialog.cpp:58
 #, kde-kuit-format
 msgctxt "@title:window"
@@ -8402,9 +8067,8 @@ msgstr "在下面提供密码。"
 msgid "&Details >>"
 msgstr "&详细信息 >>"
 
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: widget/KexiDBPasswordDialog.cpp:81 widget/KexiPasswordWidget.ui:138
-#, kde-format, kde-kuit-format
+#: widget/KexiDBPasswordDialog.cpp:81
+#, kde-kuit-format
 msgid "Database server:"
 msgstr "数据库服务器："
 
@@ -8487,6 +8151,11 @@ msgstr ""
 msgid "Do you want to replace it?"
 msgstr "您真的想要替换吗？"
 
+#: widget/KexiNameDialog.cpp:182
+#, kde-kuit-format
+msgid "&Replace"
+msgstr "替换(&R)"
+
 #: widget/KexiNameDialog.cpp:183
 #, kde-kuit-format
 msgid "Replace object"
@@ -8518,74 +8187,6 @@ msgstr "请输入标题。"
 msgctxt "Object class \"objectName\", e.g. Text editor \"text\""
 msgid "%1 <resource>%2</resource>"
 msgstr "%1 <resource>%2</resource>"
-
-#. i18n: ectx: property (text), widget (QLabel, prompt)
-#: widget/KexiPasswordWidget.ui:49
-#, kde-format
-msgid "Supply a password below."
-msgstr "在下面提供密码。"
-
-#. i18n: ectx: property (text), widget (QLabel, userNameLabel)
-#: widget/KexiPasswordWidget.ui:87
-#, kde-format
-msgid "Username:"
-msgstr "用户名："
-
-#. i18n: ectx: property (text), widget (QLabel, anonymousLabel)
-#: widget/KexiPasswordWidget.ui:104
-#, kde-format
-msgid "Anonymous:"
-msgstr "匿名:"
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: widget/KexiPasswordWidget.ui:121
-#, kde-format
-msgid "Database name:"
-msgstr "数据库名称："
-
-#. i18n: ectx: property (text), widget (QLabel, passwordLabel)
-#: widget/KexiPasswordWidget.ui:155
-#, kde-format
-msgid "Password:"
-msgstr "密码："
-
-#. i18n: ectx: property (text), widget (QLabel, keepCheckBoxLabel)
-#: widget/KexiPasswordWidget.ui:185
-#, kde-format
-msgid "Remember password:"
-msgstr "记住密码:"
-
-#. i18n: ectx: property (text), widget (QRadioButton, option_file)
-#: widget/kexiprjtypeselector.ui:51
-#, kde-format
-msgid "Projects stored in a file"
-msgstr "存储于文件的工程"
-
-#. i18n: ectx: property (text), widget (QRadioButton, option_server)
-#: widget/kexiprjtypeselector.ui:86
-#, kde-format
-msgid "Projects stored on a database server"
-msgstr "存储于数据库服务器的工程"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widget/KexiProjectSelector.ui:33
-#, kde-format
-msgid ""
-"<b>There are KEXI projects you have recently opened.</b> Select one you wish "
-"to open:\n"
-msgstr "<b>您最近打开过 KEXI 项目。</b>请选择要打开的项目：\n"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: widget/KexiProjectSelector.ui:74
-#, kde-format
-msgid "Project Name"
-msgstr "工程名称"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: widget/KexiProjectSelector.ui:107
-#, kde-format
-msgid "Connection"
-msgstr "连接"
 
 #: widget/KexiProjectSelectorWidget.cpp:94
 #, kde-kuit-format
@@ -8659,6 +8260,11 @@ msgstr "打开对象"
 #, kde-kuit-format
 msgid "Opens object selected in the list."
 msgstr "打开列表中选中的对象。"
+
+#: widget/navigator/KexiProjectNavigator.cpp:172
+#, kde-kuit-format
+msgid "&Delete..."
+msgstr "删除(&D)..."
 
 #: widget/navigator/KexiProjectNavigator.cpp:173
 #, kde-kuit-format
@@ -9065,3 +8671,201 @@ msgstr "将光标移至尾条记录。"
 #, kde-kuit-format
 msgid "Moves cursor to new record and allows inserting."
 msgstr "将光标移至新记录并允许插入。"
+
+#~ msgctxt "Look in field:"
+#~ msgid "&Look in:"
+#~ msgstr "查找于(&L)："
+
+#~ msgid "&Search:"
+#~ msgstr "搜索(&S)："
+
+#~ msgctxt "Match: Whole words only"
+#~ msgid "&Whole words only"
+#~ msgstr "只对应整个单词(&W)"
+
+#~ msgid "Fi&nd:"
+#~ msgstr "查找(&N)："
+
+#~ msgctxt "Replace all occurrences with"
+#~ msgid "Re&place with:"
+#~ msgstr "替换为(&P)："
+
+#~ msgid "Prompt on replace"
+#~ msgstr "替换时提示"
+
+#~ msgid "&Match:"
+#~ msgstr "匹配(&M)："
+
+#~ msgctxt "Match: Case sensitive"
+#~ msgid "C&ase sensitive"
+#~ msgstr "区分大小写(&A)"
+
+#~ msgctxt "Match: Any Part of Field"
+#~ msgid "Any Part of Field"
+#~ msgstr "字段的任何部分"
+
+#~ msgctxt "Match: Whole Field"
+#~ msgid "Whole Field"
+#~ msgstr "整个字段"
+
+#~ msgctxt "Match: Start of Field"
+#~ msgid "Start of Field"
+#~ msgstr "字段开始"
+
+#~ msgctxt "Search Up"
+#~ msgid "Up"
+#~ msgstr "上箭头"
+
+#~ msgctxt "Search Down"
+#~ msgid "Down"
+#~ msgstr "下箭头"
+
+#~ msgctxt "Look In All Rows"
+#~ msgid "All Rows"
+#~ msgstr "所有行"
+
+#~ msgctxt "Replace All Occurrences"
+#~ msgid "Replace All"
+#~ msgstr "全部替换"
+
+#~ msgid "<b>Select existing KEXI project file to open:</b>\n"
+#~ msgstr "<b>选择要打开的已有 KEXI 项目文件：</b>\n"
+
+#~ msgid "&Advanced "
+#~ msgstr "高级(&A)"
+
+#~ msgid ""
+#~ "Click \"Advanced\" button if you want to find an existing project on a "
+#~ "server rather than a file."
+#~ msgstr "如果您想要查找服务器而非文件中的已有工程，请单击“高级”按钮。"
+
+#~ msgctxt "New Project Stored in File"
+#~ msgid "File"
+#~ msgstr "文件"
+
+#~ msgid "New Project Stored in File"
+#~ msgstr "新建存储到文件的工程"
+
+#~ msgctxt "New Project Stored on Database Server"
+#~ msgid "Server"
+#~ msgstr "服务器"
+
+#~ msgid "New Project Stored on Database Server"
+#~ msgstr "新建存储到数据库服务器的工程"
+
+#~ msgid "Project caption:"
+#~ msgstr "工程标题:"
+
+#~ msgid "Project's database name:"
+#~ msgstr "工程数据库名称："
+
+#~ msgid ""
+#~ "<title>Select Existing Database Server's Connection From the List Below</"
+#~ "title>\n"
+#~ "<para>You will see existing KEXI projects available for the selected "
+#~ "connection. Here you may also add, edit or delete connections from the "
+#~ "list.</para>\n"
+#~ msgstr ""
+#~ "<title>从下面的列表中选择已有数据库服务器的连接</title>\n"
+#~ "<para>您将看到选中连接下可用的 KEXI 项目。您还可以在此添加、编辑或删除列表"
+#~ "中的连接。</para>\n"
+
+#~ msgid "Server Information"
+#~ msgstr "服务器信息"
+
+#~ msgid "&Add..."
+#~ msgstr "添加(&A)..."
+
+#~ msgid "&Edit..."
+#~ msgstr "编辑(&E)..."
+
+#~ msgid "Pro&ject caption: "
+#~ msgstr "工程标题："
+
+#~ msgid "Project file&name:"
+#~ msgstr "项目名称："
+
+#~ msgid "Authentication"
+#~ msgstr "身份验证"
+
+#~ msgid "&Username:"
+#~ msgstr "用户名(&U)："
+
+#~ msgid "&Password:"
+#~ msgstr "密码(&P)："
+
+#~ msgid "Save password"
+#~ msgstr "保存密码"
+
+#~ msgid "&Name:"
+#~ msgstr "名称(&N)："
+
+#~ msgid "&Caption (optional):"
+#~ msgstr "说明 (可选) (&C)："
+
+#~ msgid "Database Server"
+#~ msgstr "数据库服务器"
+
+#~ msgid "&Engine:"
+#~ msgstr "引擎(&E)："
+
+#~ msgid "Local server"
+#~ msgstr "本地服务器"
+
+#~ msgid "Remote server"
+#~ msgstr "远程服务器"
+
+#~ msgid "&Hostname:"
+#~ msgstr "主机名(&H)："
+
+#~ msgid "Port:"
+#~ msgstr "端口："
+
+#~ msgctxt "port: default"
+#~ msgid "Default"
+#~ msgstr "默认"
+
+#~ msgid "Use socket &file instead of TCP/IP port:"
+#~ msgstr "使用套接字而不是 TCP/IP 端口(&F)："
+
+#~ msgctxt "socket: default"
+#~ msgid "Default"
+#~ msgstr "默认"
+
+#~ msgid "&Description:"
+#~ msgstr "描述(&D)："
+
+#~ msgid "Supply a password below."
+#~ msgstr "在下面提供密码。"
+
+#~ msgid "Username:"
+#~ msgstr "用户名："
+
+#~ msgid "Anonymous:"
+#~ msgstr "匿名:"
+
+#~ msgid "Database name:"
+#~ msgstr "数据库名称："
+
+#~ msgid "Password:"
+#~ msgstr "密码："
+
+#~ msgid "Remember password:"
+#~ msgstr "记住密码:"
+
+#~ msgid "Projects stored in a file"
+#~ msgstr "存储于文件的工程"
+
+#~ msgid "Projects stored on a database server"
+#~ msgstr "存储于数据库服务器的工程"
+
+#~ msgid ""
+#~ "<b>There are KEXI projects you have recently opened.</b> Select one you "
+#~ "wish to open:\n"
+#~ msgstr "<b>您最近打开过 KEXI 项目。</b>请选择要打开的项目：\n"
+
+#~ msgid "Project Name"
+#~ msgstr "工程名称"
+
+#~ msgid "Connection"
+#~ msgstr "连接"
