@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kexi\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 09:01+0000\n"
+"POT-Creation-Date: 2026-11-24 03:11+0000\n"
 "PO-Revision-Date: 2026-10-10 12:35+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -55,17 +55,13 @@ msgstr ""
 #: core/kexi.cpp:352
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"<resource>%1</resource> function is not available for version %2 of %3 "
-"application."
+msgid "<resource>%1</resource> function is not available for version %2 of %3 application."
 msgstr ""
 
 #: core/kexi.cpp:405
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"<application>%1</application> could have been incorrectly installed or "
-"started. The application will be closed."
+msgid "<application>%1</application> could have been incorrectly installed or started. The application will be closed."
 msgstr ""
 
 #: core/kexiaboutdata.cpp:28
@@ -80,9 +76,7 @@ msgstr ""
 
 #: core/kexiaboutdata.cpp:38
 #, kde-kuit-format
-msgid ""
-"This software is developed by KEXI Team - an international group of "
-"independent developers. They form a part of the Calligra Project."
+msgid "This software is developed by KEXI Team - an international group of independent developers. They form a part of the Calligra Project."
 msgstr ""
 
 #: core/kexiaboutdata.cpp:48
@@ -112,9 +106,7 @@ msgstr ""
 
 #: core/kexiaboutdata.cpp:52
 #, kde-kuit-format
-msgid ""
-"PostgreSQL database driver, Migration and Reporting modules, numerous bug "
-"fixes"
+msgid "PostgreSQL database driver, Migration and Reporting modules, numerous bug fixes"
 msgstr ""
 
 #: core/kexiaboutdata.cpp:54
@@ -199,9 +191,7 @@ msgstr ""
 
 #: core/kexiaboutdata.cpp:70
 #, kde-kuit-format
-msgid ""
-"Sybase/MS SQL Server/ODBC database drivers, xBase migration plugin, "
-"improvements for KexiDB"
+msgid "Sybase/MS SQL Server/ODBC database drivers, xBase migration plugin, improvements for KexiDB"
 msgstr ""
 
 #: core/kexiaboutdata.cpp:72
@@ -216,9 +206,7 @@ msgstr ""
 
 #: core/kexiaboutdata.cpp:74
 #, kde-kuit-format
-msgid ""
-"Contributions for MySQL and KexiDB, fixes, Migration module, MS Access file "
-"format support"
+msgid "Contributions for MySQL and KexiDB, fixes, Migration module, MS Access file format support"
 msgstr ""
 
 #: core/kexiaboutdata.cpp:74
@@ -431,10 +419,7 @@ msgstr ""
 #: core/KexiCommandLineOptions.cpp:38
 #, kde-kuit-format
 msgctxt "'createdb' command line option"
-msgid ""
-"Create a new, blank project using specified database driver and database "
-"name and exit immediately. You will be asked for confirmation if overwriting "
-"is needed."
+msgid "Create a new, blank project using specified database driver and database name and exit immediately. You will be asked for confirmation if overwriting is needed."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:43
@@ -446,29 +431,20 @@ msgstr ""
 #: core/KexiCommandLineOptions.cpp:46
 #, kde-kuit-format
 msgctxt "'dropdb' command line option"
-msgid ""
-"Drop (remove) a project using specified database driver and database name. "
-"You will be asked for confirmation."
+msgid "Drop (remove) a project using specified database driver and database name. You will be asked for confirmation."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:50
 #, kde-kuit-format
 msgctxt "'dbdriver' command line option"
-msgid ""
-"Name of a database driver to be used when connecting to a database project "
-"(\"sqlite\" by default). Ignored if a shortcut filename is provided. "
-"Complete KDb-specific globally unique identifier can be used, e.g. "
-"\"org.kde.kdb.sqlite\" to specify exact vendor of the driver."
+msgid "Name of a database driver to be used when connecting to a database project (\"sqlite\" by default). Ignored if a shortcut filename is provided. Complete KDb-specific globally unique identifier can be used, e.g. \"org.kde.kdb.sqlite\" to specify exact vendor of the driver."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:57
 #, kde-kuit-format
 msgctxt "'type' command line option"
 msgid ""
-"Specify the type of file provided as an argument. This option is only useful "
-"if the filename does not have a valid extension set and its type cannot be "
-"determined unambiguously by examining its contents. This option is ignored "
-"if no file is specified as an argument.\n"
+"Specify the type of file provided as an argument. This option is only useful if the filename does not have a valid extension set and its type cannot be determined unambiguously by examining its contents. This option is ignored if no file is specified as an argument.\n"
 "Available file types are:\n"
 "- \"project\" for a project file (the default)\n"
 "- \"shortcut\" for a shortcut file pointing to a\n"
@@ -480,20 +456,14 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "'connection' command line option"
 msgid ""
-"Specify a database connection shortcut .kexic file containing connection "
-"data. Can be used with --createdb or --create-opendb for convenience instead "
-"of using options such as --user, --host or --port.\n"
-"Note: Options like --user, --host have precedence over settings defined in "
-"the shortcut file."
+"Specify a database connection shortcut .kexic file containing connection data. Can be used with --createdb or --create-opendb for convenience instead of using options such as --user, --host or --port.\n"
+"Note: Options like --user, --host have precedence over settings defined in the shortcut file."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:77
 #, kde-kuit-format
 msgctxt "'readonly' command line option"
-msgid ""
-"Specify that any database connections will be performed without write "
-"support. This option is ignored when \"createdb\" option is present, "
-"otherwise the database could not be created."
+msgid "Specify that any database connections will be performed without write support. This option is ignored when \"createdb\" option is present, otherwise the database could not be created."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:82
@@ -517,19 +487,14 @@ msgstr ""
 #: core/KexiCommandLineOptions.cpp:91
 #, kde-kuit-format
 msgctxt "'hide-menu' command line option"
-msgid ""
-"Hide the main menu (the tabbed toolbar) completely. A number of commands "
-"from the main menu is still visible. This option is useful in User Mode."
+msgid "Hide the main menu (the tabbed toolbar) completely. A number of commands from the main menu is still visible. This option is useful in User Mode."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:97
 #, kde-kuit-format
 msgctxt "'open' command line option"
 msgid ""
-"Open object of type 'object_type' and name 'object_name' from specified "
-"project on application start. 'object_type' is optional, if omitted - %1 "
-"type is assumed. Other object types can be %2, %3, %4, %5. There may by more "
-"or less types available depending on KEXI plugins installed.\n"
+"Open object of type 'object_type' and name 'object_name' from specified project on application start. 'object_type' is optional, if omitted - %1 type is assumed. Other object types can be %2, %3, %4, %5. There may by more or less types available depending on KEXI plugins installed.\n"
 "Use \"\" characters to specify names containing spaces.\n"
 "Examples: --open MyTable, --open %2:\"My very big query\""
 msgstr ""
@@ -537,26 +502,20 @@ msgstr ""
 #: core/KexiCommandLineOptions.cpp:108
 #, kde-kuit-format
 msgctxt "'design' command line option"
-msgid ""
-"Like --open, but the object will be opened in Design Mode, if one is "
-"available."
+msgid "Like --open, but the object will be opened in Design Mode, if one is available."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:112
 #, kde-kuit-format
 msgctxt "'edittext' command line option"
-msgid ""
-"Like --open, but the object will be opened in Text Mode, if one is available."
+msgid "Like --open, but the object will be opened in Text Mode, if one is available."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:116
 #, kde-kuit-format
 msgctxt "'execute' command line option"
 msgid ""
-"Start execution of object of type 'object_type' and name 'object_name' on "
-"application start. 'object_type' is optional, if omitted - %1 type is "
-"assumed. Object type can be also %2. There may by more or less types "
-"available depending on KEXI plugins installed.\n"
+"Start execution of object of type 'object_type' and name 'object_name' on application start. 'object_type' is optional, if omitted - %1 type is assumed. Object type can be also %2. There may by more or less types available depending on KEXI plugins installed.\n"
 "Use \"\" characters to specify names containing spaces."
 msgstr ""
 
@@ -569,81 +528,55 @@ msgstr ""
 #: core/KexiCommandLineOptions.cpp:129
 #, kde-kuit-format
 msgctxt "'print' command line option"
-msgid ""
-"Open the Print dialog window for an object of type 'object_type' and name "
-"'object_name' in the specified project when the application starts for quick "
-"printing of the object's data. 'object_type' is optional; if omitted, %1 "
-"type is assumed. Object type can also be %2."
+msgid "Open the Print dialog window for an object of type 'object_type' and name 'object_name' in the specified project when the application starts for quick printing of the object's data. 'object_type' is optional; if omitted, %1 type is assumed. Object type can also be %2."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:137
 #, kde-kuit-format
 msgctxt "'print-preview' command line option"
-msgid ""
-"Open the Print Preview window for an object of type 'object_type' and name "
-"'object_name' in the specified project when the application starts to see "
-"preview of the object's data printout. 'object_type' is optional; if "
-"omitted, %1 type is assumed. Object type can also be %2."
+msgid "Open the Print Preview window for an object of type 'object_type' and name 'object_name' in the specified project when the application starts to see preview of the object's data printout. 'object_type' is optional; if omitted, %1 type is assumed. Object type can also be %2."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:147
 #, kde-kuit-format
 msgctxt "'user' command line option"
-msgid ""
-"Database server's user name when connecting to a project. Ignored if the "
-"project is opened using a shortcut file. Default user name is the same as "
-"the current login (<resource>%1</resource>)."
+msgid "Database server's user name when connecting to a project. Ignored if the project is opened using a shortcut file. Default user name is the same as the current login (<resource>%1</resource>)."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:154
 #, kde-kuit-format
 msgctxt "'host' command line option"
-msgid ""
-"Network server's (host) name to be used when connecting to a database "
-"project. Ignored if the project is opened using a shortcut file. Default "
-"host is the local computer."
+msgid "Network server's (host) name to be used when connecting to a database project. Ignored if the project is opened using a shortcut file. Default host is the local computer."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:160
 #, kde-kuit-format
 msgctxt "'port' command line option"
-msgid ""
-"Network server's port number to be used when connecting to a database "
-"project. Ignored if the project is opened using a shortcut file. Defaults "
-"depend on the used server type (e.g. %1, %2)."
+msgid "Network server's port number to be used when connecting to a database project. Ignored if the project is opened using a shortcut file. Defaults depend on the used server type (e.g. %1, %2)."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:167
 #, kde-kuit-format
 msgctxt "'local-socket' command line option"
-msgid ""
-"Local computer's socket filename to be used when connecting to a database "
-"project. Ignored if the project is opened using a shortcut file. Defaults "
-"depend on the used server type (e.g. %1, %2)."
+msgid "Local computer's socket filename to be used when connecting to a database project. Ignored if the project is opened using a shortcut file. Defaults depend on the used server type (e.g. %1, %2)."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:176
 #, kde-kuit-format
 msgctxt "'skip-conn-dialog' command line option"
-msgid ""
-"Skip displaying connection dialog window and connect directly. Available "
-"when opening .kexic or .kexis shortcut files."
+msgid "Skip displaying connection dialog window and connect directly. Available when opening .kexic or .kexis shortcut files."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:180
 #, kde-kuit-format
 msgctxt "'fullscreen' command line option"
-msgid ""
-"Start KEXI in full screen mode to occupy the whole screen area by hiding "
-"window decorations such as title bars."
+msgid "Start KEXI in full screen mode to occupy the whole screen area by hiding window decorations such as title bars."
 msgstr ""
 
 #: core/KexiCommandLineOptions.cpp:188
 #, kde-kuit-format
 msgctxt "'list-plugins' command line option"
-msgid ""
-"Displays list of plugins available for KEXI with their name, description, "
-"version and filenames."
+msgid "Displays list of plugins available for KEXI with their name, description, version and filenames."
 msgstr ""
 
 #: core/kexidbconnectionset.cpp:76
@@ -653,8 +586,7 @@ msgstr ""
 
 #: core/kexidbconnectionset.cpp:88
 #, kde-kuit-format
-msgid ""
-"Could not create folder <filename>%1</filename> for connection data file."
+msgid "Could not create folder <filename>%1</filename> for connection data file."
 msgstr ""
 
 #: core/kexidbconnectionset.cpp:157
@@ -707,11 +639,7 @@ msgstr ""
 
 #: core/kexipart.cpp:116
 #, kde-kuit-format
-msgctxt ""
-"Translate this word using only lowercase alphanumeric characters (a..z, "
-"0..9). Use '_' character instead of spaces. First character should be a..z "
-"character. If you cannot use latin characters in your language, use english "
-"word."
+msgctxt "Translate this word using only lowercase alphanumeric characters (a..z, 0..9). Use '_' character instead of spaces. First character should be a..z character. If you cannot use latin characters in your language, use english word."
 msgid "object"
 msgstr ""
 
@@ -777,37 +705,27 @@ msgstr ""
 #: core/kexipartmanager.cpp:112
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Could not load plugin file <filename>%1</filename> for <application>%2</"
-"application>."
+msgid "Could not load plugin file <filename>%1</filename> for <application>%2</application>."
 msgstr ""
 
 #: core/kexipartmanager.cpp:128
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Could not open plugin <filename>%1</filename> for <application>%2</"
-"application>."
+msgid "Could not open plugin <filename>%1</filename> for <application>%2</application>."
 msgstr ""
 
 #: core/kexipartmanager.cpp:231
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Could not find any plugins for <application>%1</application>, e.g. for "
-"tables or forms. <application>%1</application> would not be functional so it "
-"will exit.</para><para><note>Please check if <application>%1</application> "
-"is properly installed.</note></para>"
+"<para>Could not find any plugins for <application>%1</application>, e.g. for tables or forms. <application>%1</application> would not be functional so it will exit.</para>"
+"<para><note>Please check if <application>%1</application> is properly installed.</note></para>"
 msgstr ""
 
 #: core/kexipartmanager.cpp:243
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"<para><note>No single <filename>%1</filename> directory has been located so "
-"it is possible that custom plugin configuration was requested but it is not "
-"set up properly. Set the <envar>QT_PLUGIN_PATH</envar> environment variable "
-"properly before running <application>%2</application>.</note></para>"
+msgid "<para><note>No single <filename>%1</filename> directory has been located so it is possible that custom plugin configuration was requested but it is not set up properly. Set the <envar>QT_PLUGIN_PATH</envar> environment variable properly before running <application>%2</application>.</note></para>"
 msgstr ""
 
 #: core/kexipartmanager.cpp:304
@@ -842,9 +760,7 @@ msgstr ""
 #: core/kexiproject.cpp:306
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Could not open project. The project file <filename>%1</filename> does not "
-"exist."
+msgid "Could not open project. The project file <filename>%1</filename> does not exist."
 msgstr ""
 
 #: core/kexiproject.cpp:309 core/kexiproject.cpp:1530
@@ -858,9 +774,7 @@ msgstr ""
 #: core/kexiproject.cpp:345
 #, kde-kuit-format
 msgctxt "@info (don't add tags around %1, it's done already)"
-msgid ""
-"Database project %1 does not appear to have been created using Kexi and "
-"cannot be opened. It is an SQLite file created using other tools."
+msgid "Database project %1 does not appear to have been created using Kexi and cannot be opened. It is an SQLite file created using other tools."
 msgstr ""
 
 #: core/kexiproject.cpp:372
@@ -922,8 +836,9 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info (don't add tags around %1, it's done already)"
 msgid ""
-"<para>The project %1 already exists.</para><para>Do you want to replace it "
-"with a new, blank one?</para><para><warning>%2</warning></para>"
+"<para>The project %1 already exists.</para>"
+"<para>Do you want to replace it with a new, blank one?</para>"
+"<para><warning>%2</warning></para>"
 msgstr ""
 
 #: core/kexiproject.cpp:1218
@@ -936,8 +851,8 @@ msgstr "Byt ut"
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Do you want to delete the project <resource>%1</resource>?</"
-"para><para><warning>%2</warning></para>"
+"<para>Do you want to delete the project <resource>%1</resource>?</para>"
+"<para><warning>%2</warning></para>"
 msgstr ""
 
 #: core/kexiproject.cpp:1247
@@ -948,9 +863,7 @@ msgstr ""
 
 #: core/kexiproject.cpp:1261
 #, kde-kuit-format
-msgid ""
-"Could not delete this project. Database connection for this project has been "
-"opened as read only."
+msgid "Could not delete this project. Database connection for this project has been opened as read only."
 msgstr ""
 
 #: core/kexiproject.cpp:1524
@@ -962,8 +875,8 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Could not open file <filename>%1</filename> for reading and writing.</"
-"para><para>Do you want to open the file as read only?</para>"
+"<para>Could not open file <filename>%1</filename> for reading and writing.</para>"
+"<para>Do you want to open the file as read only?</para>"
 msgstr ""
 
 #: core/kexiprojectdata.cpp:169
@@ -985,29 +898,22 @@ msgstr ""
 
 #: core/kexiprojectdata.cpp:217
 #, kde-kuit-format
-msgid ""
-"File <filename>%1</filename> does not contain group <resource>%2</resource>."
+msgid "File <filename>%1</filename> does not contain group <resource>%2</resource>."
 msgstr ""
 
 #: core/kexiprojectdata.cpp:233
 #, kde-kuit-format
-msgid ""
-"Invalid value <resource>%1</resource> type specified in group <resource>%2</"
-"resource> of file <filename>%3</filename>."
+msgid "Invalid value <resource>%1</resource> type specified in group <resource>%2</resource> of file <filename>%3</filename>."
 msgstr ""
 
 #: core/kexiprojectdata.cpp:241
 #, kde-kuit-format
-msgid ""
-"No valid \"engine\" field specified in group <resource>%1</resource> of file "
-"<filename>%2</filename>."
+msgid "No valid \"engine\" field specified in group <resource>%1</resource> of file <filename>%2</filename>."
 msgstr ""
 
 #: core/KexiRecentProjects.cpp:79
 #, kde-kuit-format
-msgid ""
-"Could not create folder <filename>%1</filename> for storing recent projects "
-"information."
+msgid "Could not create folder <filename>%1</filename> for storing recent projects information."
 msgstr ""
 
 #: core/KexiStandardAction.cpp:47
@@ -1022,9 +928,7 @@ msgstr ""
 
 #: core/KexiStandardAction.cpp:49
 #, kde-format
-msgid ""
-"Sorts data in ascending order (from A to Z and from 0 to 9). Data from "
-"selected column is used for sorting."
+msgid "Sorts data in ascending order (from A to Z and from 0 to 9). Data from selected column is used for sorting."
 msgstr ""
 
 #: core/KexiStandardAction.cpp:51
@@ -1039,17 +943,13 @@ msgstr ""
 
 #: core/KexiStandardAction.cpp:53
 #, kde-format
-msgid ""
-"Sorts data in descending (from Z to A and from 9 to 0). Data from selected "
-"column is used for sorting."
+msgid "Sorts data in descending (from Z to A and from 9 to 0). Data from selected column is used for sorting."
 msgstr ""
 
 #: core/kexistartupdata.cpp:232
 #, kde-kuit-format
 msgctxt "<file> argument description for the command line"
-msgid ""
-"Kexi database project filename, Kexi shortcut filename, or name of a Kexi "
-"database project on a server to open."
+msgid "Kexi database project filename, Kexi shortcut filename, or name of a Kexi database project on a server to open."
 msgstr ""
 
 #: core/KexiView.cpp:63
@@ -1118,9 +1018,8 @@ msgstr "Ikkje endra"
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>There are unsaved changes in object <resource>%1</resource>.</"
-"para><para>Do you want to save these changes before switching to other view?"
-"</para>"
+"<para>There are unsaved changes in object <resource>%1</resource>.</para>"
+"<para>Do you want to save these changes before switching to other view?</para>"
 msgstr ""
 
 #: core/KexiWindow.cpp:457
@@ -1130,8 +1029,7 @@ msgstr ""
 
 #: core/KexiWindow.cpp:481
 #, kde-kuit-format
-msgid ""
-"Design has been changed. You must save it before switching to other view."
+msgid "Design has been changed. You must save it before switching to other view."
 msgstr ""
 
 #: core/KexiWindow.cpp:563 main/KexiMainWindow.cpp:2834
@@ -1164,8 +1062,7 @@ msgstr ""
 #: formeditor/commands.cpp:169
 #, kde-format
 msgctxt "(qtundo-format)"
-msgid ""
-"Change <resource>%1</resource> property for widget <resource>%2</resource>"
+msgid "Change <resource>%1</resource> property for widget <resource>%2</resource>"
 msgstr ""
 
 #: formeditor/commands.cpp:340
@@ -1242,9 +1139,7 @@ msgstr ""
 #: formeditor/commands.cpp:961
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Could not insert widget of type <resource>%1</resource>. A problem with "
-"widget's creation encountered."
+msgid "Could not insert widget of type <resource>%1</resource>. A problem with widget's creation encountered."
 msgstr ""
 
 #: formeditor/commands.cpp:1130
@@ -1450,8 +1345,7 @@ msgstr ""
 #: formeditor/form.cpp:755
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Renaming widget <resource>%1</resource> to <resource>%2</resource> failed."
+msgid "Renaming widget <resource>%1</resource> to <resource>%2</resource> failed."
 msgstr ""
 
 #: formeditor/form.cpp:1313
@@ -1462,18 +1356,13 @@ msgstr ""
 #: formeditor/form.cpp:1321
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Could not rename widget <resource>%1</resource> to <resource>%2</resource> "
-"because <resource>%3</resource> is not a valid name (identifier) for a "
-"widget."
+msgid "Could not rename widget <resource>%1</resource> to <resource>%2</resource> because <resource>%3</resource> is not a valid name (identifier) for a widget."
 msgstr ""
 
 #: formeditor/form.cpp:1332
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Could not rename widget <resource>%1</resource> to <resource>%2</resource> "
-"because a widget with the name <resource>%3</resource> already exists."
+msgid "Could not rename widget <resource>%1</resource> to <resource>%2</resource> because a widget with the name <resource>%3</resource> already exists."
 msgstr ""
 
 #: formeditor/form.cpp:1449 formeditor/form.cpp:1718
@@ -1513,11 +1402,9 @@ msgstr ""
 msgid "Vertical Alignment"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: formeditor/form_p.cpp:270 formeditor/form_p.cpp:271
 #: plugins/tables/kexitabledesignerview.cpp:323
-#: widget/KexiConnectionSelector.ui:94
-#, kde-format, kde-kuit-format
+#, kde-kuit-format
 msgid "Name"
 msgstr "Namn"
 
@@ -1957,26 +1844,22 @@ msgstr ""
 
 #: formeditor/kexiactionselectiondialog.cpp:375
 #, kde-kuit-format
-msgid ""
-"&Select action to be executed after clicking <resource>%1</resource> button:"
+msgid "&Select action to be executed after clicking <resource>%1</resource> button:"
 msgstr ""
 
 #: formeditor/kexiactionselectiondialog.cpp:379
 #, kde-kuit-format
-msgid ""
-"&Select macro to be executed after clicking <resource>%1</resource> button:"
+msgid "&Select macro to be executed after clicking <resource>%1</resource> button:"
 msgstr ""
 
 #: formeditor/kexiactionselectiondialog.cpp:382
 #, kde-kuit-format
-msgid ""
-"&Select script to be executed after clicking <resource>%1</resource> button:"
+msgid "&Select script to be executed after clicking <resource>%1</resource> button:"
 msgstr ""
 
 #: formeditor/kexiactionselectiondialog.cpp:385
 #, kde-kuit-format
-msgid ""
-"&Select object to be opened after clicking <resource>%1</resource> button:"
+msgid "&Select object to be opened after clicking <resource>%1</resource> button:"
 msgstr ""
 
 #: formeditor/kexiactionselectiondialog.cpp:439
@@ -2102,17 +1985,13 @@ msgstr ""
 #: formeditor/widgetlibrary.cpp:253
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Could not load Form Widgets plugin file <filename>%1</filename> for "
-"<application>%2</application>."
+msgid "Could not load Form Widgets plugin file <filename>%1</filename> for <application>%2</application>."
 msgstr ""
 
 #: formeditor/widgetlibrary.cpp:264
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Could not open Form Widgets plugin <filename>%1</filename> for "
-"<application>%2</application>."
+msgid "Could not open Form Widgets plugin <filename>%1</filename> for <application>%2</application>."
 msgstr ""
 
 #: formeditor/widgetlibrary.cpp:743
@@ -2176,9 +2055,8 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Could not find application style <resource>%1</resource>.</"
-"para><para><application>Kexi</application> will not start. Please check if "
-"<application>Kexi</application> is properly installed.</para>"
+"<para>Could not find application style <resource>%1</resource>.</para>"
+"<para><application>Kexi</application> will not start. Please check if <application>Kexi</application> is properly installed.</para>"
 msgstr ""
 
 #: kexiutils/utils.cpp:305 main/startup/KexiOpenProjectAssistant.cpp:154
@@ -2195,8 +2073,8 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>The file <filename>%1</filename> already exists.</para><para>Do you "
-"want to overwrite it?</para>"
+"<para>The file <filename>%1</filename> already exists.</para>"
+"<para>Do you want to overwrite it?</para>"
 msgstr ""
 
 #: kexiutils/utils.cpp:761
@@ -2226,9 +2104,7 @@ msgstr ""
 #: kexiutils/utils.cpp:789
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Do you want to run this file?<warning>Running executables can be dangerous.</"
-"warning>"
+msgid "Do you want to run this file?<warning>Running executables can be dangerous.</warning>"
 msgstr ""
 
 #: kexiutils/utils.cpp:792
@@ -2328,113 +2204,6 @@ msgstr ""
 msgid "The search item was not found"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
-#: main/kexifinddialog.ui:20
-#, kde-format
-msgctxt "Look in field:"
-msgid "&Look in:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2)
-#: main/kexifinddialog.ui:36
-#, kde-format
-msgid "&Search:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_wholeWords)
-#: main/kexifinddialog.ui:55
-#, kde-format
-msgctxt "Match: Whole words only"
-msgid "&Whole words only"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: main/kexifinddialog.ui:62
-#, kde-format
-msgid "Fi&nd:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, m_replaceLbl)
-#: main/kexifinddialog.ui:110
-#, kde-format
-msgctxt "Replace all occurrences with"
-msgid "Re&place with:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_promptOnReplace)
-#: main/kexifinddialog.ui:129
-#, kde-format
-msgid "Prompt on replace"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_3)
-#: main/kexifinddialog.ui:152
-#, kde-format
-msgid "&Match:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, m_caseSensitive)
-#: main/kexifinddialog.ui:171
-#, kde-format
-msgctxt "Match: Case sensitive"
-msgid "C&ase sensitive"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
-#: main/kexifinddialog.ui:182
-#, kde-format
-msgctxt "Match: Any Part of Field"
-msgid "Any Part of Field"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
-#: main/kexifinddialog.ui:187
-#, kde-format
-msgctxt "Match: Whole Field"
-msgid "Whole Field"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_match)
-#: main/kexifinddialog.ui:192
-#, kde-format
-msgctxt "Match: Start of Field"
-msgid "Start of Field"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
-#: main/kexifinddialog.ui:204
-#, kde-format
-msgctxt "Search Up"
-msgid "Up"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
-#: main/kexifinddialog.ui:209
-#, kde-format
-msgctxt "Search Down"
-msgid "Down"
-msgstr ""
-
-#. i18n: ectx: property (text), item, widget (KComboBox, m_search)
-#: main/kexifinddialog.ui:214
-#, kde-format
-msgctxt "Look In All Rows"
-msgid "All Rows"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, m_btnReplace)
-#: main/kexifinddialog.ui:264 widget/KexiNameDialog.cpp:182
-#, kde-format, kde-kuit-format
-msgid "&Replace"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, m_btnReplaceAll)
-#: main/kexifinddialog.ui:277
-#, kde-format
-msgctxt "Replace All Occurrences"
-msgid "Replace All"
-msgstr ""
-
 #: main/KexiGlobalViewModeSelector.cpp:131
 #, kde-kuit-format
 msgctxt "Welcome global view mode"
@@ -2523,9 +2292,7 @@ msgstr ""
 
 #: main/KexiMainWindow.cpp:490
 #, kde-kuit-format
-msgid ""
-"Shows Welcome page with list of recently opened projects and other "
-"information. "
+msgid "Shows Welcome page with list of recently opened projects and other information. "
 msgstr ""
 
 #: main/KexiMainWindow.cpp:495
@@ -2550,9 +2317,7 @@ msgstr ""
 
 #: main/KexiMainWindow.cpp:503
 #, kde-kuit-format
-msgid ""
-"Saves object from currently selected window under a new name (within the "
-"same project)."
+msgid "Saves object from currently selected window under a new name (within the same project)."
 msgstr ""
 
 #: main/KexiMainWindow.cpp:519
@@ -2633,9 +2398,7 @@ msgstr ""
 
 #: main/KexiMainWindow.cpp:572
 #, kde-kuit-format
-msgid ""
-"Compacts the current database project, so it will take less space and work "
-"faster."
+msgid "Compacts the current database project, so it will take less space and work faster."
 msgstr ""
 
 #: main/KexiMainWindow.cpp:582
@@ -3088,16 +2851,17 @@ msgstr ""
 
 #: main/KexiMainWindow.cpp:1430
 #, kde-kuit-format
-msgid "<br/>(reason: <i>%1</i>)"
+msgid ""
+"<br/>"
+"(reason: <i>%1</i>)"
 msgstr ""
 
 #: main/KexiMainWindow.cpp:1456
 #, kde-kuit-format
 msgctxt "@info (don't add tags around %1, it's done already)"
 msgid ""
-"Database project %1 does not appear to have been created using "
-"<application>%2</application>.<nl/>Do you want to import it as a new KEXI "
-"project?"
+"Database project %1 does not appear to have been created using <application>%2</application>.<nl/>"
+"Do you want to import it as a new KEXI project?"
 msgstr ""
 
 #: main/KexiMainWindow.cpp:1460
@@ -3175,9 +2939,7 @@ msgstr "klarte ikkje opna objekt"
 
 #: main/KexiMainWindow.cpp:1713
 #, kde-kuit-format
-msgid ""
-"You have requested selected objects to be automatically opened or processed "
-"on startup. Several objects cannot be opened or processed."
+msgid "You have requested selected objects to be automatically opened or processed on startup. Several objects cannot be opened or processed."
 msgstr ""
 
 #: main/KexiMainWindow.cpp:2096
@@ -3276,9 +3038,10 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info Delete <objecttype> <objectname>?"
 msgid ""
-"<para>Do you want to permanently delete the following object?<nl/><nl/>%1 "
-"<resource>%2</resource></para><para><note>If you click <interface>Delete</"
-"interface>, you will not be able to undo the deletion.</note></para>"
+"<para>Do you want to permanently delete the following object?<nl/>"
+"<nl/>"
+"%1 <resource>%2</resource></para>"
+"<para><note>If you click <interface>Delete</interface>, you will not be able to undo the deletion.</note></para>"
 msgstr ""
 
 #: main/KexiMainWindow.cpp:3573
@@ -3296,8 +3059,8 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Before renaming object <resource>%1</resource> it should be closed.</"
-"para><para>Do you want to close it?</para>"
+"<para>Before renaming object <resource>%1</resource> it should be closed.</para>"
+"<para>Do you want to close it?</para>"
 msgstr ""
 
 #: main/KexiMainWindow.cpp:3653
@@ -3331,8 +3094,7 @@ msgstr ""
 #: main/KexiMainWindow.cpp:3878
 #, kde-kuit-format
 msgid ""
-"The current project has to be closed before compacting the database. It will "
-"be open again after compacting.\n"
+"The current project has to be closed before compacting the database. It will be open again after compacting.\n"
 "\n"
 "Do you want to continue?"
 msgstr ""
@@ -3340,10 +3102,7 @@ msgstr ""
 #: main/KexiMainWindow.cpp:4013
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Design of query <resource>%1</resource> that you want to export data from is "
-"changed and has not yet been saved. Do you want to use data from the changed "
-"query for exporting or from its original (saved) version?"
+msgid "Design of query <resource>%1</resource> that you want to export data from is changed and has not yet been saved. Do you want to use data from the changed query for exporting or from its original (saved) version?"
 msgstr ""
 
 #: main/KexiMainWindow.cpp:4018
@@ -3414,9 +3173,8 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Could not open icon resource file <filename>%1</filename>.</"
-"para><para><application>%2</application> will not start. Please check if it "
-"is properly installed.</para>"
+"<para>Could not open icon resource file <filename>%1</filename>.</para>"
+"<para><application>%2</application> will not start. Please check if it is properly installed.</para>"
 msgstr ""
 
 #: main/KexiRegisterResource_p.h:144 main/KexiRegisterResource_p.h:214
@@ -3428,9 +3186,7 @@ msgstr ""
 #: main/KexiRegisterResource_p.h:210
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Could not open icon resource file <filename>%1</filename>. Please check if "
-"<application>%2</application> is properly installed."
+msgid "Could not open icon resource file <filename>%1</filename>. Please check if <application>%2</application> is properly installed."
 msgstr ""
 
 #: main/KexiSearchLineEdit.cpp:440
@@ -3453,9 +3209,7 @@ msgstr ""
 #: main/startup/KexiNewProjectAssistant.cpp:76
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"<application>%1</application> will create a new database project. Select "
-"blank database."
+msgid "<application>%1</application> will create a new database project. Select blank database."
 msgstr ""
 
 #: main/startup/KexiNewProjectAssistant.cpp:97
@@ -3514,9 +3268,7 @@ msgstr ""
 #: main/startup/KexiNewProjectAssistant.cpp:204
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Enter caption for the new project. Filename will be created automatically "
-"based on the caption. You can change the filename too."
+msgid "Enter caption for the new project. Filename will be created automatically based on the caption. You can change the filename too."
 msgstr ""
 
 #: main/startup/KexiNewProjectAssistant.cpp:263
@@ -3529,31 +3281,29 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para><filename>%1</filename> is a relative path.</para><para><note>Enter "
-"absolute path of a file to be created.</note></para>"
+"<para><filename>%1</filename> is a relative path.</para>"
+"<para><note>Enter absolute path of a file to be created.</note></para>"
 msgstr ""
 
 #: main/startup/KexiNewProjectAssistant.cpp:280
 #, kde-kuit-format
-msgid ""
-"Enter a valid project filename. The file should be located on this computer."
+msgid "Enter a valid project filename. The file should be located on this computer."
 msgstr ""
 
 #: main/startup/KexiNewProjectAssistant.cpp:286
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para><filename>%1</filename> is a directory name.</para><para><note>Enter "
-"name of a file to be created.</note></para>"
+"<para><filename>%1</filename> is a directory name.</para>"
+"<para><note>Enter name of a file to be created.</note></para>"
 msgstr ""
 
 #: main/startup/KexiNewProjectAssistant.cpp:298
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Could not create database file <filename>%1</filename>.</"
-"para><para><note>There is no permission to create this file. Pick another "
-"directory or change permissions so the file can be created.</note></para>"
+"<para>Could not create database file <filename>%1</filename>.</para>"
+"<para><note>There is no permission to create this file. Pick another directory or change permissions so the file can be created.</note></para>"
 msgstr ""
 
 #: main/startup/KexiNewProjectAssistant.cpp:311
@@ -3578,9 +3328,8 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Select database server's connection you wish to use to create a new "
-"KEXI project.</para><para>Here you may also add, edit or delete connections "
-"from the list.</para>"
+"<para>Select database server's connection you wish to use to create a new KEXI project.</para>"
+"<para>Here you may also add, edit or delete connections from the list.</para>"
 msgstr ""
 
 #: main/startup/KexiNewProjectAssistant.cpp:379
@@ -3592,16 +3341,13 @@ msgstr ""
 #: main/startup/KexiNewProjectAssistant.cpp:380
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Enter caption for the new project. Database name will be created "
-"automatically based on the caption. You can change the database name too."
+msgid "Enter caption for the new project. Database name will be created automatically based on the caption. You can change the database name too."
 msgstr ""
 
 #: main/startup/KexiNewProjectAssistant.cpp:449
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Existing project databases on <resource>%1 (%2)</resource> database server:"
+msgid "Existing project databases on <resource>%1 (%2)</resource> database server:"
 msgstr ""
 
 #: main/startup/KexiNewProjectAssistant.cpp:496
@@ -3611,37 +3357,13 @@ msgstr ""
 
 #: main/startup/KexiNewProjectAssistant.cpp:507
 #, kde-kuit-format
-msgid ""
-"Database with this name already exists. Do you want to delete it and create "
-"a new one?"
+msgid "Database with this name already exists. Do you want to delete it and create a new one?"
 msgstr ""
 
 #: main/startup/KexiNewProjectAssistant.cpp:510
 #, kde-kuit-format
 msgid "Delete and Create New"
 msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lbl)
-#: main/startup/KexiOpenExistingFile.ui:31
-#, kde-format
-msgid "<b>Select existing KEXI project file to open:</b>\n"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_advanced)
-#: main/startup/KexiOpenExistingFile.ui:89
-#, kde-format
-msgid "&Advanced "
-msgstr "&Avansert"
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: main/startup/KexiOpenExistingFile.ui:104
-#, kde-format
-msgid ""
-"Click \"Advanced\" button if you want to find an existing project on a "
-"server rather than a file."
-msgstr ""
-"Trykk «Avansert» for å finna eksisterande prosjekt på tenar i staden for i "
-"fil."
 
 #: main/startup/KexiOpenProjectAssistant.cpp:41
 #: widget/KexiProjectSelectorWidget.cpp:304
@@ -3653,9 +3375,7 @@ msgstr ""
 #: main/startup/KexiOpenProjectAssistant.cpp:42
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Select project to open. You can choose project stored in file or on database "
-"server."
+msgid "Select project to open. You can choose project stored in file or on database server."
 msgstr ""
 
 #: main/startup/KexiOpenProjectAssistant.cpp:57
@@ -3674,9 +3394,8 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Select database server's connection with project you wish to open.</"
-"para><para>Here you may also add, edit or delete connections from the list.</"
-"para>"
+"<para>Select database server's connection with project you wish to open.</para>"
+"<para>Here you may also add, edit or delete connections from the list.</para>"
 msgstr ""
 
 #: main/startup/KexiOpenProjectAssistant.cpp:148
@@ -3695,32 +3414,6 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@title:window"
 msgid "Database Password"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_file)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:31
-#, kde-format
-msgctxt "New Project Stored in File"
-msgid "File"
-msgstr ""
-
-#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_file)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:37
-#, kde-format
-msgid "New Project Stored in File"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (KexiCommandLinkButton, btn_server)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:47
-#, kde-format
-msgctxt "New Project Stored on Database Server"
-msgid "Server"
-msgstr ""
-
-#. i18n: ectx: property (description), widget (KexiCommandLinkButton, btn_server)
-#: main/startup/KexiProjectStorageTypeSelectionPage.ui:53
-#, kde-format
-msgid "New Project Stored on Database Server"
 msgstr ""
 
 #: main/startup/KexiRecentProjectsModel.cpp:70
@@ -3796,18 +3489,6 @@ msgstr ""
 msgid "Last opened on %1"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, textLabel1)
-#: main/startup/KexiServerDBNamePage.ui:31
-#, kde-format
-msgid "Project caption:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: main/startup/KexiServerDBNamePage.ui:60
-#, kde-format
-msgid "Project's database name:"
-msgstr ""
-
 #: main/startup/KexiStartup.cpp:248
 #, kde-format
 msgctxt "Plugin name"
@@ -3856,18 +3537,14 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Could not read connection information from connection shortcut file "
-"<filename>%1</filename>.</para><para><note>Check whether the file has valid "
-"contents.</note></para>"
+"<para>Could not read connection information from connection shortcut file <filename>%1</filename>.</para>"
+"<para><note>Check whether the file has valid contents.</note></para>"
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:351
 #, kde-kuit-format
 msgctxt "Please don't translate the \"type\" word, it's constant."
-msgid ""
-"<icode>%1</icode> is not valid value for <icode>--type</icode> command-line "
-"option. Possible value can be <icode>%2</icode>, <icode>%3</icode> or "
-"<icode>%4</icode>"
+msgid "<icode>%1</icode> is not valid value for <icode>--type</icode> command-line option. Possible value can be <icode>%2</icode>, <icode>%3</icode> or <icode>%4</icode>"
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:394
@@ -3888,12 +3565,8 @@ msgstr ""
 
 #: main/startup/KexiStartup.cpp:418
 #, kde-kuit-format
-msgctxt ""
-"Please don't translate the \"createdb\" and \"dropdb\" words, these are "
-"constants."
-msgid ""
-"Both <icode>createdb</icode> and <icode>dropdb</icode> used in startup "
-"options."
+msgctxt "Please don't translate the \"createdb\" and \"dropdb\" words, these are constants."
+msgid "Both <icode>createdb</icode> and <icode>dropdb</icode> used in startup options."
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:424
@@ -3903,19 +3576,14 @@ msgstr ""
 
 #: main/startup/KexiStartup.cpp:463
 #, kde-kuit-format
-msgctxt ""
-"Please don't translate the <icode>user-mode</icode> and <icode>design-mode</"
-"icode> words, these are constants."
-msgid ""
-"Both <icode>user-mode</icode> and <icode>design-mode</icode> used in startup "
-"options."
+msgctxt "Please don't translate the <icode>user-mode</icode> and <icode>design-mode</icode> words, these are constants."
+msgid "Both <icode>user-mode</icode> and <icode>design-mode</icode> used in startup options."
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:485
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Could not delete project. The file <filename>%1</filename> does not exist."
+msgid "Could not delete project. The file <filename>%1</filename> does not exist."
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:536
@@ -3933,10 +3601,8 @@ msgstr ""
 #: main/startup/KexiStartup.cpp:659
 #, kde-kuit-format
 msgid ""
-"You have specified a few database objects to be opened automatically, using "
-"startup options.\n"
-"These options will be ignored because they are not available while creating "
-"or dropping projects."
+"You have specified a few database objects to be opened automatically, using startup options.\n"
+"These options will be ignored because they are not available while creating or dropping projects."
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:676
@@ -3967,27 +3633,24 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Could not open file <filename>%1</filename> for reading.</"
-"para><para><note>Check the file's permissions and whether it is already "
-"opened and locked by another application.</note></para>"
+"<para>Could not open file <filename>%1</filename> for reading.</para>"
+"<para><note>Check the file's permissions and whether it is already opened and locked by another application.</note></para>"
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:867
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Could not open project.</para><para>The file <filename>%1</filename> "
-"is not readable. Check the file's permissions and whether it is already "
-"opened and locked by another application.</para>"
+"<para>Could not open project.</para>"
+"<para>The file <filename>%1</filename> is not readable. Check the file's permissions and whether it is already opened and locked by another application.</para>"
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:891
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para><filename>%1</filename> is an external file of type <resource>%2</"
-"resource>.</para><para>Do you want to import the file as a KEXI project?</"
-"para>"
+"<para><filename>%1</filename> is an external file of type <resource>%2</resource>.</para>"
+"<para>Do you want to import the file as a KEXI project?</para>"
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:894
@@ -4005,9 +3668,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"The project file <filename>%1</filename> is recognized as compatible with "
-"<resource>%2</resource> database driver, while you have asked for "
-"<resource>%3</resource> database driver to be used.\n"
+"The project file <filename>%1</filename> is recognized as compatible with <resource>%2</resource> database driver, while you have asked for <resource>%3</resource> database driver to be used.\n"
 "Do you want to use <resource>%4</resource> database driver?"
 msgstr ""
 
@@ -4019,33 +3680,29 @@ msgstr ""
 #: main/startup/KexiStartup.cpp:955
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"The file <filename>%1</filename> is not recognized as being supported by "
-"<application>%2</application>."
+msgid "The file <filename>%1</filename> is not recognized as being supported by <application>%2</application>."
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:960
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Could not find plugin supporting for this file type.</"
-"para><para>Detected MIME type is <resource>%1</resource>%2.</para>"
+"<para>Could not find plugin supporting for this file type.</para>"
+"<para>Detected MIME type is <resource>%1</resource>%2.</para>"
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:964
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Could not find plugin supporting for this file type.</"
-"para><para>Detected MIME type is <resource>%1</resource>%2.</para><para>%3</"
-"para>"
+"<para>Could not find plugin supporting for this file type.</para>"
+"<para>Detected MIME type is <resource>%1</resource>%2.</para>"
+"<para>%3</para>"
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:996
 #, kde-kuit-format
-msgid ""
-"Could not load list of available projects for <resource>%1</resource> "
-"database server."
+msgid "Could not load list of available projects for <resource>%1</resource> database server."
 msgstr ""
 
 #: main/startup/KexiStartup.cpp:1037
@@ -4105,9 +3762,7 @@ msgstr ""
 
 #: main/startup/KexiStartupDialog.cpp:294
 #, kde-kuit-format
-msgid ""
-"Kexi will import the structure and data of an existing database as a new "
-"database project."
+msgid "Kexi will import the structure and data of an existing database as a new database project."
 msgstr ""
 
 #: main/startup/KexiWelcomeAssistant.cpp:47
@@ -4126,20 +3781,13 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info donate to the project"
 msgid ""
-"<title>KEXI may be totally free, but its development is costly.</"
-"title><para>Power, hardware, office space, internet access, traveling for "
-"meetings - everything costs.</para><para>Direct donation is the easiest and "
-"fastest way to efficiently support the KEXI Project. Everyone, regardless of "
-"any degree of involvement can do so.</para><para>What do you receive for "
-"your donation? KEXI will become more feature-full and stable as contributors "
-"will be able to devote more time to KEXI. Not only you can expect new "
-"features, but you can also have an influence on what features are added!</"
-"para><para>Currently we are accepting donations through "
-"<emphasis>BountySource</emphasis> (a funding platform for open-source "
-"software) using secure PayPal, Bitcoin and Google Wallet transfers.</"
-"para><para>Contact us at <link url='https://community.kde.org/Kexi/"
-"Contact'>https://community.kde.org/Kexi/Contact</link> for more information."
-"</para><para>Thanks for your support!</para>"
+"<title>KEXI may be totally free, but its development is costly.</title>"
+"<para>Power, hardware, office space, internet access, traveling for meetings - everything costs.</para>"
+"<para>Direct donation is the easiest and fastest way to efficiently support the KEXI Project. Everyone, regardless of any degree of involvement can do so.</para>"
+"<para>What do you receive for your donation? KEXI will become more feature-full and stable as contributors will be able to devote more time to KEXI. Not only you can expect new features, but you can also have an influence on what features are added!</para>"
+"<para>Currently we are accepting donations through <emphasis>BountySource</emphasis> (a funding platform for open-source software) using secure PayPal, Bitcoin and Google Wallet transfers.</para>"
+"<para>Contact us at <link url='https://community.kde.org/Kexi/Contact'>https://community.kde.org/Kexi/Contact</link> for more information.</para>"
+"<para>Thanks for your support!</para>"
 msgstr ""
 
 #: main/startup/KexiWelcomeStatusBar.cpp:763
@@ -4165,11 +3813,9 @@ msgstr ""
 msgid "Column %1"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
 #: migration/AlterSchemaWidget.cpp:52
 #: plugins/tables/kexitabledesignerview.cpp:326
-#: widget/KexiConnectionSelector.ui:99 widget/KexiProjectSelector.ui:96
-#, kde-format, kde-kuit-format
+#, kde-kuit-format
 msgid "Type"
 msgstr "Type"
 
@@ -4190,12 +3836,10 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<title>Text encoding for Microsoft Access database</title>\n"
-"<para>Database file <filename>%1</filename> appears to be created by a "
-"version of Microsoft Access older than 2000.</para><para>In order to "
-"properly import national characters, you may need to choose a proper text "
-"encoding if the database was created on a computer with a different "
-"character set.</para>"
+"<title>Text encoding for Microsoft Access database</title>"
+"\n"
+"<para>Database file <filename>%1</filename> appears to be created by a version of Microsoft Access older than 2000.</para>"
+"<para>In order to properly import national characters, you may need to choose a proper text encoding if the database was created on a computer with a different character set.</para>"
 msgstr ""
 
 #: migration/importoptionsdlg.cpp:74
@@ -4212,9 +3856,7 @@ msgstr ""
 #: migration/importtablewizard.cpp:125
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"<resource>%1</resource> name is already used by an existing table. Enter "
-"different table name to continue."
+msgid "<resource>%1</resource> name is already used by an existing table. Enter different table name to continue."
 msgstr ""
 
 #: migration/importtablewizard.cpp:128
@@ -4226,10 +3868,8 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Table Importing Assistant allows you to import a table from an "
-"existing database into the current KEXI project.</para><para>Click "
-"<interface>Next</interface> button to continue or <interface>Cancel</"
-"interface> button to exit this assistant.</para>"
+"<para>Table Importing Assistant allows you to import a table from an existing database into the current KEXI project.</para>"
+"<para>Click <interface>Next</interface> button to continue or <interface>Cancel</interface> button to exit this assistant.</para>"
 msgstr ""
 
 #: migration/importtablewizard.cpp:175
@@ -4291,27 +3931,21 @@ msgstr ""
 #: migration/importtablewizard.cpp:465 migration/importtablewizard.cpp:479
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Could not import table <resource>%1</resource>. Select different table or "
-"cancel importing."
+msgid "Could not import table <resource>%1</resource>. Select different table or cancel importing."
 msgstr ""
 
 #: migration/importtablewizard.cpp:497
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"No data has been found in table <resource>%1</resource>. Select different "
-"table or cancel importing."
+msgid "No data has been found in table <resource>%1</resource>. Select different table or cancel importing."
 msgstr ""
 
 #: migration/importtablewizard.cpp:521
 #, kde-kuit-format
 msgctxt "@info Table import wizard, final message"
 msgid ""
-"<para>All required information has now been gathered. Click <interface>Next</"
-"interface> button to start importing table <resource>%1</resource>.</"
-"para><para><note>Depending on size of the table this may take some time.</"
-"note></para>"
+"<para>All required information has now been gathered. Click <interface>Next</interface> button to start importing table <resource>%1</resource>.</para>"
+"<para><note>Depending on size of the table this may take some time.</note></para>"
 msgstr ""
 
 #: migration/importtablewizard.cpp:552
@@ -4368,33 +4002,25 @@ msgstr ""
 #: migration/importwizard.cpp:242
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Database Importing Assistant is about to import <resource>%1</resource> "
-"database (connection <resource>%2</resource>) into a KEXI project."
+msgid "Database Importing Assistant is about to import <resource>%1</resource> database (connection <resource>%2</resource>) into a KEXI project."
 msgstr ""
 
 #: migration/importwizard.cpp:257
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Database Importing Assistant is about to import <filename>%1</filename> file "
-"of type <resource>%2</resource> into a KEXI project."
+msgid "Database Importing Assistant is about to import <filename>%1</filename> file of type <resource>%2</resource> into a KEXI project."
 msgstr ""
 
 #: migration/importwizard.cpp:263
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Database Importing Assistant allows you to import an existing database into "
-"a KEXI project."
+msgid "Database Importing Assistant allows you to import an existing database into a KEXI project."
 msgstr ""
 
 #: migration/importwizard.cpp:269
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"<para>Click <interface>Next</interface> button to continue or "
-"<interface>Cancel</interface> button to exit this assistant.</para>"
+msgid "<para>Click <interface>Next</interface> button to continue or <interface>Cancel</interface> button to exit this assistant.</para>"
 msgstr ""
 
 #: migration/importwizard.cpp:275
@@ -4473,33 +4099,34 @@ msgstr ""
 #: migration/importwizard.cpp:527
 #, kde-kuit-format
 msgctxt "@info"
-msgid "%1<para>Source database is the same as destination.</para>"
+msgid ""
+"%1"
+"<para>Source database is the same as destination.</para>"
 msgstr ""
 
 #: migration/importwizard.cpp:533
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Following issues were found with the data you entered:</"
-"para>%1<para>Please click <interface>Back</interface> button and correct "
-"these issues.</para>"
+"<para>Following issues were found with the data you entered:</para>"
+"%1"
+"<para>Please click <interface>Back</interface> button and correct these issues.</para>"
 msgstr ""
 
 #: migration/importwizard.cpp:629
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>All required information has now been gathered. Click <interface>Next</"
-"interface> button to start importing.</para><para><note>Depending on size of "
-"the database this may take some time.</note></para>"
+"<para>All required information has now been gathered. Click <interface>Next</interface> button to start importing.</para>"
+"<para><note>Depending on size of the database this may take some time.</note></para>"
 msgstr ""
 
 #: migration/importwizard.cpp:877
 #, kde-kuit-format
 msgctxt "@info (don't add tags around %1, it's done already)"
 msgid ""
-"<para>Database %1 already exists.</para><para>Do you want to replace it with "
-"a new one?</para>"
+"<para>Database %1 already exists.</para>"
+"<para>Do you want to replace it with a new one?</para>"
 msgstr ""
 
 #: migration/importwizard.cpp:881
@@ -4512,8 +4139,10 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Import failed.</para><para>%1</para><para>%2</para><para>You can click "
-"<interface>Back</interface> button and try again.</para>"
+"<para>Import failed.</para>"
+"<para>%1</para>"
+"<para>%2</para>"
+"<para>You can click <interface>Back</interface> button and try again.</para>"
 msgstr ""
 
 #: migration/importwizard.cpp:951
@@ -4534,9 +4163,7 @@ msgstr ""
 #: migration/importwizard.cpp:973
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Could not import database <resource>%1</resource>. This type is not "
-"supported."
+msgid "Could not import database <resource>%1</resource>. This type is not supported."
 msgstr ""
 
 #: migration/importwizard.cpp:1032
@@ -4572,9 +4199,7 @@ msgstr ""
 
 #: migration/importwizard.cpp:1120
 #, kde-kuit-format
-msgid ""
-"Here you can choose the location to save the data in and the new database "
-"name."
+msgid "Here you can choose the location to save the data in and the new database name."
 msgstr ""
 
 #: migration/keximigrate.cpp:58
@@ -4601,9 +4226,7 @@ msgstr ""
 #: migration/keximigrate.cpp:463
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Could not import project from database %1. Error reading table <resource>%2</"
-"resource>."
+msgid "Could not import project from database %1. Error reading table <resource>%2</resource>."
 msgstr ""
 
 #: migration/keximigrate.cpp:513
@@ -4637,9 +4260,7 @@ msgstr ""
 #: migration/keximigrate.cpp:706
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"The data type for field <resource>%1</resource> could not be determined. "
-"Please select one of the following data types."
+msgid "The data type for field <resource>%1</resource> could not be determined. Please select one of the following data types."
 msgstr ""
 
 #: migration/migratemanager.cpp:132
@@ -4743,11 +4364,7 @@ msgstr ""
 
 #: plugins/forms/kexiformpart.cpp:74
 #, kde-kuit-format
-msgctxt ""
-"Translate this word using only lowercase alphanumeric characters (a..z, "
-"0..9). Use '_' character instead of spaces. First character should be a..z "
-"character. If you cannot use latin characters in your language, use english "
-"word."
+msgctxt "Translate this word using only lowercase alphanumeric characters (a..z, 0..9). Use '_' character instead of spaces. First character should be a..z character. If you cannot use latin characters in your language, use english word."
 msgid "form"
 msgstr ""
 
@@ -4900,14 +4517,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:86
 #, kde-format
-msgctxt ""
-"A prefix for identifiers of forms. Based on that, identifiers such as form1, "
-"form2 are generated. This string can be used to refer the widget object as "
-"variables in programming languages or macros so it must _not_ contain white "
-"spaces and non latin1 characters, should start with lower case letter and if "
-"there are subsequent words, these should start with upper case letter. "
-"Example: smallCamelCase. Moreover, try to make this prefix as short as "
-"possible."
+msgctxt "A prefix for identifiers of forms. Based on that, identifiers such as form1, form2 are generated. This string can be used to refer the widget object as variables in programming languages or macros so it must _not_ contain white spaces and non latin1 characters, should start with lower case letter and if there are subsequent words, these should start with upper case letter. Example: smallCamelCase. Moreover, try to make this prefix as short as possible."
 msgid "form"
 msgstr ""
 
@@ -4924,14 +4534,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:116
 #, kde-format
-msgctxt ""
-"A prefix for identifiers of text box widgets. Based on that, identifiers "
-"such as textBox1, textBox2 are generated. This string can be used to refer "
-"the widget object as variables in programming languages or macros so it must "
-"_not_ contain white spaces and non latin1 characters, should start with "
-"lower case letter and if there are subsequent words, these should start with "
-"upper case letter. Example: smallCamelCase. Moreover, try to make this "
-"prefix as short as possible."
+msgctxt "A prefix for identifiers of text box widgets. Based on that, identifiers such as textBox1, textBox2 are generated. This string can be used to refer the widget object as variables in programming languages or macros so it must _not_ contain white spaces and non latin1 characters, should start with lower case letter and if there are subsequent words, these should start with upper case letter. Example: smallCamelCase. Moreover, try to make this prefix as short as possible."
 msgid "textBox"
 msgstr ""
 
@@ -4948,14 +4551,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:138
 #, kde-format
-msgctxt ""
-"A prefix for identifiers of text editor widgets. Based on that, identifiers "
-"such as textEditor1, textEditor2 are generated. This string can be used to "
-"refer the widget object as variables in programming languages or macros so "
-"it must _not_ contain white spaces and non latin1 characters, should start "
-"with lower case letter and if there are subsequent words, these should start "
-"with upper case letter. Example: smallCamelCase. Moreover, try to make this "
-"prefix as short as possible."
+msgctxt "A prefix for identifiers of text editor widgets. Based on that, identifiers such as textEditor1, textEditor2 are generated. This string can be used to refer the widget object as variables in programming languages or macros so it must _not_ contain white spaces and non latin1 characters, should start with lower case letter and if there are subsequent words, these should start with upper case letter. Example: smallCamelCase. Moreover, try to make this prefix as short as possible."
 msgid "textEditor"
 msgstr ""
 
@@ -4972,14 +4568,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:160
 #, kde-format
-msgctxt ""
-"A prefix for identifiers of label widgets. Based on that, identifiers such "
-"as label1, label2 are generated. This string can be used to refer the widget "
-"object as variables in programming languages or macros so it must _not_ "
-"contain white spaces and non latin1 characters, should start with lower case "
-"letter and if there are subsequent words, these should start with upper case "
-"letter. Example: smallCamelCase. Moreover, try to make this prefix as short "
-"as possible."
+msgctxt "A prefix for identifiers of label widgets. Based on that, identifiers such as label1, label2 are generated. This string can be used to refer the widget object as variables in programming languages or macros so it must _not_ contain white spaces and non latin1 characters, should start with lower case letter and if there are subsequent words, these should start with upper case letter. Example: smallCamelCase. Moreover, try to make this prefix as short as possible."
 msgid "label"
 msgstr ""
 
@@ -4996,14 +4585,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:182
 #, kde-format
-msgctxt ""
-"A prefix for identifiers of image box widgets. Based on that, identifiers "
-"such as image1, image2 are generated. This string can be used to refer the "
-"widget object as variables in programming languages or macros so it must "
-"_not_ contain white spaces and non latin1 characters, should start with "
-"lower case letter and if there are subsequent words, these should start with "
-"upper case letter. Example: smallCamelCase. Moreover, try to make this "
-"prefix as short as possible."
+msgctxt "A prefix for identifiers of image box widgets. Based on that, identifiers such as image1, image2 are generated. This string can be used to refer the widget object as variables in programming languages or macros so it must _not_ contain white spaces and non latin1 characters, should start with lower case letter and if there are subsequent words, these should start with upper case letter. Example: smallCamelCase. Moreover, try to make this prefix as short as possible."
 msgid "image"
 msgstr ""
 
@@ -5020,14 +4602,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:208
 #, kde-format
-msgctxt ""
-"A prefix for identifiers of combo box widgets. Based on that, identifiers "
-"such as comboBox1, comboBox2 are generated. This string can be used to refer "
-"the widget object as variables in programming languages or macros so it must "
-"_not_ contain white spaces and non latin1 characters, should start with "
-"lower case letter and if there are subsequent words, these should start with "
-"upper case letter. Example: smallCamelCase. Moreover, try to make this "
-"prefix as short as possible."
+msgctxt "A prefix for identifiers of combo box widgets. Based on that, identifiers such as comboBox1, comboBox2 are generated. This string can be used to refer the widget object as variables in programming languages or macros so it must _not_ contain white spaces and non latin1 characters, should start with lower case letter and if there are subsequent words, these should start with upper case letter. Example: smallCamelCase. Moreover, try to make this prefix as short as possible."
 msgid "comboBox"
 msgstr ""
 
@@ -5044,14 +4619,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:227
 #, kde-format
-msgctxt ""
-"A prefix for identifiers of combo box widgets. Based on that, identifiers "
-"such as checkBox1, checkBox2 are generated. This string can be used to refer "
-"the widget object as variables in programming languages or macros so it must "
-"_not_ contain white spaces and non latin1 characters, should start with "
-"lower case letter and if there are subsequent words, these should start with "
-"upper case letter. Example: smallCamelCase. Moreover, try to make this "
-"prefix as short as possible."
+msgctxt "A prefix for identifiers of combo box widgets. Based on that, identifiers such as checkBox1, checkBox2 are generated. This string can be used to refer the widget object as variables in programming languages or macros so it must _not_ contain white spaces and non latin1 characters, should start with lower case letter and if there are subsequent words, these should start with upper case letter. Example: smallCamelCase. Moreover, try to make this prefix as short as possible."
 msgid "checkBox"
 msgstr ""
 
@@ -5068,14 +4636,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:264
 #, kde-format
-msgctxt ""
-"A prefix for identifiers of button widgets. Based on that, identifiers such "
-"as button1, button2 are generated. This string can be used to refer the "
-"widget object as variables in programming languages or macros so it must "
-"_not_ contain white spaces and non latin1 characters, should start with "
-"lower case letter and if there are subsequent words, these should start with "
-"upper case letter. Example: smallCamelCase. Moreover, try to make this "
-"prefix as short as possible."
+msgctxt "A prefix for identifiers of button widgets. Based on that, identifiers such as button1, button2 are generated. This string can be used to refer the widget object as variables in programming languages or macros so it must _not_ contain white spaces and non latin1 characters, should start with lower case letter and if there are subsequent words, these should start with upper case letter. Example: smallCamelCase. Moreover, try to make this prefix as short as possible."
 msgid "button"
 msgstr ""
 
@@ -5092,14 +4653,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:282
 #, kde-format
-msgctxt ""
-"A prefix for identifiers of link button widgets. Based on that, identifiers "
-"such as linkButton1, linkButton2 are generated. This string can be used to "
-"refer the widget object as variables in programming languages or macros so "
-"it must _not_ contain white spaces and non latin1 characters, should start "
-"with lower case letter and if there are subsequent words, these should start "
-"with upper case letter. Example: smallCamelCase. Moreover, try to make this "
-"prefix as short as possible."
+msgctxt "A prefix for identifiers of link button widgets. Based on that, identifiers such as linkButton1, linkButton2 are generated. This string can be used to refer the widget object as variables in programming languages or macros so it must _not_ contain white spaces and non latin1 characters, should start with lower case letter and if there are subsequent words, these should start with upper case letter. Example: smallCamelCase. Moreover, try to make this prefix as short as possible."
 msgid "linkButton"
 msgstr ""
 
@@ -5116,14 +4670,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:322
 #, kde-format
-msgctxt ""
-"A prefix for identifiers of slider widgets. Based on that, identifiers such "
-"as slider1, slider2 are generated. This string can be used to refer the "
-"widget object as variables in programming languages or macros so it must "
-"_not_ contain white spaces and non latin1 characters, should start with "
-"lower case letter and if there are subsequent words, these should start with "
-"upper case letter. Example: smallCamelCase. Moreover, try to make this "
-"prefix as short as possible."
+msgctxt "A prefix for identifiers of slider widgets. Based on that, identifiers such as slider1, slider2 are generated. This string can be used to refer the widget object as variables in programming languages or macros so it must _not_ contain white spaces and non latin1 characters, should start with lower case letter and if there are subsequent words, these should start with upper case letter. Example: smallCamelCase. Moreover, try to make this prefix as short as possible."
 msgid "slider"
 msgstr ""
 
@@ -5140,14 +4687,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:340
 #, kde-format
-msgctxt ""
-"A prefix for identifiers of progress bar widgets. Based on that, identifiers "
-"such as progressBar1, progressBar2 are generated. This string can be used to "
-"refer the widget object as variables in programming languages or macros so "
-"it must _not_ contain white spaces and non latin1 characters, should start "
-"with lower case letter and if there are subsequent words, these should start "
-"with upper case letter. Example: smallCamelCase. Moreover, try to make this "
-"prefix as short as possible."
+msgctxt "A prefix for identifiers of progress bar widgets. Based on that, identifiers such as progressBar1, progressBar2 are generated. This string can be used to refer the widget object as variables in programming languages or macros so it must _not_ contain white spaces and non latin1 characters, should start with lower case letter and if there are subsequent words, these should start with upper case letter. Example: smallCamelCase. Moreover, try to make this prefix as short as possible."
 msgid "progressBar"
 msgstr ""
 
@@ -5163,14 +4703,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:358
 #, kde-format
-msgctxt ""
-"A prefix for identifiers of line widgets. Based on that, identifiers such as "
-"line1, line2 are generated. This string can be used to refer the widget "
-"object as variables in programming languages or macros so it must _not_ "
-"contain white spaces and non latin1 characters, should start with lower case "
-"letter and if there are subsequent words, these should start with upper case "
-"letter. Example: smallCamelCase. Moreover, try to make this prefix as short "
-"as possible."
+msgctxt "A prefix for identifiers of line widgets. Based on that, identifiers such as line1, line2 are generated. This string can be used to refer the widget object as variables in programming languages or macros so it must _not_ contain white spaces and non latin1 characters, should start with lower case letter and if there are subsequent words, these should start with upper case letter. Example: smallCamelCase. Moreover, try to make this prefix as short as possible."
 msgid "line"
 msgstr ""
 
@@ -5197,14 +4730,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:383
 #, kde-format
-msgctxt ""
-"A prefix for identifiers of date picker widgets. Based on that, identifiers "
-"such as datePicker1, datePicker2 are generated. This string can be used to "
-"refer the widget object as variables in programming languages or macros so "
-"it must _not_ contain white spaces and non latin1 characters, should start "
-"with lower case letter and if there are subsequent words, these should start "
-"with upper case letter. Example: smallCamelCase. Moreover, try to make this "
-"prefix as short as possible."
+msgctxt "A prefix for identifiers of date picker widgets. Based on that, identifiers such as datePicker1, datePicker2 are generated. This string can be used to refer the widget object as variables in programming languages or macros so it must _not_ contain white spaces and non latin1 characters, should start with lower case letter and if there are subsequent words, these should start with upper case letter. Example: smallCamelCase. Moreover, try to make this prefix as short as possible."
 msgid "datePicker"
 msgstr ""
 
@@ -5274,10 +4800,8 @@ msgstr "Dato"
 msgid "Arrow Visible"
 msgstr ""
 
-#. i18n: ectx: property (title), widget (QGroupBox, descGroupBox)
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:431
-#: widget/KexiConnectionSelector.ui:118
-#, kde-format, kde-kuit-format
+#, kde-kuit-format
 msgid "Description"
 msgstr ""
 
@@ -5445,9 +4969,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:490
 #, kde-kuit-format
-msgctxt ""
-"Drop-Down Button for Image Box Visible (a property name, keep the text "
-"narrow!)"
+msgctxt "Drop-Down Button for Image Box Visible (a property name, keep the text narrow!)"
 msgid ""
 "Drop-Down\n"
 "Button Visible"
@@ -5765,14 +5287,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:579
 #, kde-format
-msgctxt ""
-"A prefix for identifiers of tab widgets. Based on that, identifiers such as "
-"tab1, tab2 are generated. This string can be used to refer the widget object "
-"as variables in programming languages or macros so it must _not_ contain "
-"white spaces and non latin1 characters, should start with lower case letter "
-"and if there are subsequent words, these should start with upper case "
-"letter. Example: smallCamelCase. Moreover, try to make this prefix as short "
-"as possible."
+msgctxt "A prefix for identifiers of tab widgets. Based on that, identifiers such as tab1, tab2 are generated. This string can be used to refer the widget object as variables in programming languages or macros so it must _not_ contain white spaces and non latin1 characters, should start with lower case letter and if there are subsequent words, these should start with upper case letter. Example: smallCamelCase. Moreover, try to make this prefix as short as possible."
 msgid "tabWidget"
 msgstr ""
 
@@ -5789,14 +5304,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:608
 #, kde-format
-msgctxt ""
-"A prefix for identifiers of frame widgets. Based on that, identifiers such "
-"as frame1, frame2 are generated. This string can be used to refer the widget "
-"object as variables in programming languages or macros so it must _not_ "
-"contain white spaces and non latin1 characters, should start with lower case "
-"letter and if there are subsequent words, these should start with upper case "
-"letter. Example: smallCamelCase. Moreover, try to make this prefix as short "
-"as possible."
+msgctxt "A prefix for identifiers of frame widgets. Based on that, identifiers such as frame1, frame2 are generated. This string can be used to refer the widget object as variables in programming languages or macros so it must _not_ contain white spaces and non latin1 characters, should start with lower case letter and if there are subsequent words, these should start with upper case letter. Example: smallCamelCase. Moreover, try to make this prefix as short as possible."
 msgid "frame"
 msgstr ""
 
@@ -5812,14 +5320,7 @@ msgstr ""
 
 #: plugins/forms/widgets/main/KexiMainFormWidgetsFactory.cpp:626
 #, kde-format
-msgctxt ""
-"A prefix for identifiers of group box widgets. Based on that, identifiers "
-"such as groupBox1, groupBox2 are generated. This string can be used to refer "
-"the widget object as variables in programming languages or macros so it must "
-"_not_ contain white spaces and non latin1 characters, should start with "
-"lower case letter and if there are subsequent words, these should start with "
-"upper case letter. Example: smallCamelCase. Moreover, try to make this "
-"prefix as short as possible."
+msgctxt "A prefix for identifiers of group box widgets. Based on that, identifiers such as groupBox1, groupBox2 are generated. This string can be used to refer the widget object as variables in programming languages or macros so it must _not_ contain white spaces and non latin1 characters, should start with lower case letter and if there are subsequent words, these should start with upper case letter. Example: smallCamelCase. Moreover, try to make this prefix as short as possible."
 msgid "groupBox"
 msgstr ""
 
@@ -6351,10 +5852,9 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>No primary key (autonumber) has been defined.</para><para>Should it be "
-"automatically defined on import (recommended)?</para><para><note>An imported "
-"table without a primary key may not be editable (depending on database type)."
-"</note></para>"
+"<para>No primary key (autonumber) has been defined.</para>"
+"<para>Should it be automatically defined on import (recommended)?</para>"
+"<para><note>An imported table without a primary key may not be editable (depending on database type).</note></para>"
 msgstr ""
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1846
@@ -6388,8 +5888,8 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Field count does not match.</para><para>Please choose another table.</"
-"para>"
+"<para>Field count does not match.</para>"
+"<para>Please choose another table.</para>"
 msgstr ""
 
 #: plugins/importexport/csv/kexicsvimportdialog.cpp:1999
@@ -6494,9 +5994,7 @@ msgstr ""
 
 #: plugins/importexport/csv/kexicsvimportoptionsdlg.cpp:134
 #, kde-kuit-format
-msgctxt ""
-"do not reorder placeholders, just translate e.g. and - to the separator used "
-"by dates in your language"
+msgctxt "do not reorder placeholders, just translate e.g. and - to the separator used by dates in your language"
 msgid "%1, %2, %3 (e.g. %4-%5-%6)"
 msgstr ""
 
@@ -6731,16 +6229,15 @@ msgstr ""
 
 #: plugins/queries/kexiquerydesignersql.cpp:195
 #, kde-kuit-format
-msgid ""
-"Please enter your query and execute \"Check query\" function to verify it."
+msgid "Please enter your query and execute \"Check query\" function to verify it."
 msgstr ""
 
 #: plugins/queries/kexiquerydesignersql.cpp:233
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>The query you entered is incorrect.</para><para>Do you want discard "
-"changes made to this SQL text and switch to the other view?</para>"
+"<para>The query you entered is incorrect.</para>"
+"<para>Do you want discard changes made to this SQL text and switch to the other view?</para>"
 msgstr ""
 
 #: plugins/queries/kexiquerydesignersql.cpp:236
@@ -6756,16 +6253,14 @@ msgstr ""
 #: plugins/queries/kexiquerydesignersql.cpp:413
 #, kde-kuit-format
 msgctxt "@info"
-msgid "<para>This query is invalid.</para><para>Do you want to save it?</para>"
+msgid ""
+"<para>This query is invalid.</para>"
+"<para>Do you want to save it?</para>"
 msgstr ""
 
 #: plugins/queries/kexiquerypart.cpp:57
 #, kde-kuit-format
-msgctxt ""
-"Translate this word using only lowercase alphanumeric characters (a..z, "
-"0..9). Use '_' character instead of spaces. First character should be a..z "
-"character. If you cannot use latin characters in your language, use english "
-"word."
+msgctxt "Translate this word using only lowercase alphanumeric characters (a..z, 0..9). Use '_' character instead of spaces. First character should be a..z character. If you cannot use latin characters in your language, use english word."
 msgid "query"
 msgstr ""
 
@@ -6796,9 +6291,7 @@ msgstr ""
 #: plugins/queries/kexiquerypart.cpp:121
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"<para>You are about to delete query <resource>%1</resource> but it is used "
-"by following opened windows:</para>"
+msgid "<para>You are about to delete query <resource>%1</resource> but it is used by following opened windows:</para>"
 msgstr ""
 
 #: plugins/queries/kexiquerypart.cpp:200
@@ -6822,9 +6315,7 @@ msgstr ""
 #: plugins/queries/kexiquerypart.cpp:263 plugins/tables/kexitablepart.cpp:211
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"<para>Do you want to close these windows and save the design or cancel "
-"saving?</para>"
+msgid "<para>Do you want to close these windows and save the design or cancel saving?</para>"
 msgstr ""
 
 #: plugins/queries/kexiquerypart.cpp:268 plugins/tables/kexitablepart.cpp:216
@@ -6867,11 +6358,7 @@ msgstr ""
 
 #: plugins/reports/kexireportpart.cpp:65
 #, kde-kuit-format
-msgctxt ""
-"Translate this word using only lowercase alphanumeric characters (a..z, "
-"0..9). Use '_' character instead of spaces. First character should be a..z "
-"character. If you cannot use latin characters in your language, use english "
-"word."
+msgctxt "Translate this word using only lowercase alphanumeric characters (a..z, 0..9). Use '_' character instead of spaces. First character should be a..z character. If you cannot use latin characters in your language, use english word."
 msgid "report"
 msgstr ""
 
@@ -7032,8 +6519,7 @@ msgstr ""
 
 #: plugins/reports/kexireportview.cpp:135
 #, kde-kuit-format
-msgid ""
-"Exports the report as a spreadsheet (in OpenDocument Spreadsheet format)."
+msgid "Exports the report as a spreadsheet (in OpenDocument Spreadsheet format)."
 msgstr ""
 
 #: plugins/reports/kexireportview.cpp:145
@@ -7114,9 +6600,8 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Would you like to use Cascading Style Sheets (CSS) in the exported web "
-"page or use HTML tables?</para><para><note>CSS give output closer to the "
-"original.</note></para>"
+"<para>Would you like to use Cascading Style Sheets (CSS) in the exported web page or use HTML tables?</para>"
+"<para><note>CSS give output closer to the original.</note></para>"
 msgstr ""
 
 #: plugins/reports/kexireportview.cpp:326
@@ -7269,11 +6754,7 @@ msgstr ""
 
 #: plugins/scripting/kexiscripting/kexiscriptpart.cpp:70
 #, kde-kuit-format
-msgctxt ""
-"Translate this word using only lowercase alphanumeric characters (a..z, "
-"0..9). Use '_' character instead of spaces. First character should be a..z "
-"character. If you cannot use latin characters in your language, use english "
-"word."
+msgctxt "Translate this word using only lowercase alphanumeric characters (a..z, 0..9). Use '_' character instead of spaces. First character should be a..z character. If you cannot use latin characters in your language, use english word."
 msgid "script"
 msgstr ""
 
@@ -7336,9 +6817,7 @@ msgstr ""
 #: plugins/tables/kexitabledesignercommands.cpp:94
 #, kde-format
 msgctxt "(qtundo-format)"
-msgid ""
-"Change <resource>%1</resource> property for table field from <resource>%2</"
-"resource> to <resource>%3</resource>"
+msgid "Change <resource>%1</resource> property for table field from <resource>%2</resource> to <resource>%3</resource>"
 msgstr ""
 
 #: plugins/tables/kexitabledesignercommands.cpp:160
@@ -7526,7 +7005,8 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>Saving changes for existing table design is now required.</para>%1"
+"<para>Saving changes for existing table design is now required.</para>"
+"%1"
 msgstr ""
 
 #: plugins/tables/kexitabledesignerview.cpp:579
@@ -7544,24 +7024,19 @@ msgstr ""
 #: plugins/tables/kexitabledesignerview.cpp:643
 #, kde-format
 msgctxt "(qtundo-format)"
-msgid ""
-"Change <resource>%1</resource> field name to <resource>%2</resource> and "
-"caption from <resource>%3</resource> to <resource>%4</resource>"
+msgid "Change <resource>%1</resource> field name to <resource>%2</resource> and caption from <resource>%3</resource> to <resource>%4</resource>"
 msgstr ""
 
 #: plugins/tables/kexitabledesignerview.cpp:721
 #, kde-format
 msgctxt "(qtundo-format)"
-msgid ""
-"Change data type for field <resource>%1</resource> to <resource>%2</resource>"
+msgid "Change data type for field <resource>%1</resource> to <resource>%2</resource>"
 msgstr ""
 
 #: plugins/tables/kexitabledesignerview.cpp:893
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"<para>Setting autonumber requires primary key to be set for current field.</"
-"para>"
+msgid "<para>Setting autonumber requires primary key to be set for current field.</para>"
 msgstr ""
 
 #: plugins/tables/kexitabledesignerview.cpp:896
@@ -7573,9 +7048,7 @@ msgstr ""
 #: plugins/tables/kexitabledesignerview.cpp:898
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"<para>Do you want to create primary key for current field? Click "
-"<interface>Cancel</interface> to cancel setting autonumber.</para>"
+msgid "<para>Do you want to create primary key for current field? Click <interface>Cancel</interface> to cancel setting autonumber.</para>"
 msgstr ""
 
 #: plugins/tables/kexitabledesignerview.cpp:902
@@ -7610,8 +7083,7 @@ msgstr ""
 #: plugins/tables/kexitabledesignerview.cpp:974
 #, kde-format
 msgctxt "(qtundo-format)"
-msgid ""
-"Change type for field <resource>%1</resource> to <resource>%2</resource>"
+msgid "Change type for field <resource>%1</resource> to <resource>%2</resource>"
 msgstr ""
 
 #: plugins/tables/kexitabledesignerview.cpp:1014
@@ -7642,8 +7114,8 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>You have added <resource>%1</resource> field name twice.</"
-"para><para>Field names cannot be repeated. Correct name of the field.</para>"
+"<para>You have added <resource>%1</resource> field name twice.</para>"
+"<para>Field names cannot be repeated. Correct name of the field.</para>"
 msgstr ""
 
 #: plugins/tables/kexitabledesignerview.cpp:1190
@@ -7651,11 +7123,8 @@ msgstr ""
 msgctxt "@info"
 msgid ""
 "Table <resource>%1</resource> has no primary key defined."
-"<para><note>Although a primary key is not required, it is needed for "
-"creating relations between database tables. Do you want a primary key to be "
-"automatically added now?</note></para><para>If you want to add a primary key "
-"by hand, press <interface>Cancel</interface> to cancel saving table design.</"
-"para>"
+"<para><note>Although a primary key is not required, it is needed for creating relations between database tables. Do you want a primary key to be automatically added now?</note></para>"
+"<para>If you want to add a primary key by hand, press <interface>Cancel</interface> to cancel saving table design.</para>"
 msgstr ""
 
 #: plugins/tables/kexitabledesignerview.cpp:1209
@@ -7667,9 +7136,7 @@ msgstr ""
 #: plugins/tables/kexitabledesignerview.cpp:1430
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"<para>You are about to change the design of table <resource>%1</resource> "
-"but following objects using this table are open:</para>"
+msgid "<para>You are about to change the design of table <resource>%1</resource> but following objects using this table are open:</para>"
 msgstr ""
 
 #: plugins/tables/kexitabledesignerview.cpp:1628
@@ -7687,16 +7154,14 @@ msgstr ""
 #: plugins/tables/kexitabledesignerview_p.cpp:227
 #, kde-kuit-format
 msgctxt "@info"
-msgid "<para>Do you want to save the design now?</para>%1"
+msgid ""
+"<para>Do you want to save the design now?</para>"
+"%1"
 msgstr ""
 
 #: plugins/tables/kexitablepart.cpp:62
 #, kde-kuit-format
-msgctxt ""
-"Translate this word using only lowercase alphanumeric characters (a..z, "
-"0..9). Use '_' character instead of spaces. First character should be a..z "
-"character. If you cannot use latin characters in your language, use english "
-"word."
+msgctxt "Translate this word using only lowercase alphanumeric characters (a..z, 0..9). Use '_' character instead of spaces. First character should be a..z character. If you cannot use latin characters in your language, use english word."
 msgid "table"
 msgstr ""
 
@@ -7715,17 +7180,13 @@ msgstr ""
 #: plugins/tables/kexitablepart.cpp:137
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"<para>You are about to delete table <resource>%1</resource> but it is used "
-"by following opened windows:</para>"
+msgid "<para>You are about to delete table <resource>%1</resource> but it is used by following opened windows:</para>"
 msgstr ""
 
 #: plugins/tables/kexitablepart.cpp:159
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"<para>You are about to rename table <resource>%1</resource> but it is used "
-"by following opened windows:</para>"
+msgid "<para>You are about to rename table <resource>%1</resource> but it is used by following opened windows:</para>"
 msgstr ""
 
 #: plugins/tables/kexitablepart.cpp:240
@@ -7743,9 +7204,7 @@ msgstr ""
 #: plugins/tables/kexitablepart.cpp:247
 #, kde-format
 msgctxt "@info"
-msgid ""
-"<warning>Any data in this table will be deleted upon design's saving!</"
-"warning>"
+msgid "<warning>Any data in this table will be deleted upon design's saving!</warning>"
 msgstr ""
 
 #: plugins/tables/kexitablepart.cpp:275
@@ -7772,8 +7231,7 @@ msgstr ""
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:878
 #, kde-kuit-format
-msgid ""
-"The column's constraint is declared as NOT EMPTY (text should be filled)."
+msgid "The column's constraint is declared as NOT EMPTY (text should be filled)."
 msgstr ""
 
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:888
@@ -7828,12 +7286,10 @@ msgstr ""
 #: widget/dataviewcommon/kexidataawareobjectiface.cpp:1950
 #, kde-kuit-format
 msgid ""
-"Limit of %2 characters for <resource>%3</resource> field has been exceeded "
-"by %1 character.\n"
+"Limit of %2 characters for <resource>%3</resource> field has been exceeded by %1 character.\n"
 "Fix the text or it will be truncated upon saving changes."
 msgid_plural ""
-"Limit of %2 characters for <resource>%3</resource> field has been exceeded "
-"by %1 characters.\n"
+"Limit of %2 characters for <resource>%3</resource> field has been exceeded by %1 characters.\n"
 "Fix the text or it will be truncated upon saving changes."
 msgstr[0] ""
 msgstr[1] ""
@@ -7857,42 +7313,6 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "Text encoding: Default"
 msgid "Default: %1"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widget/KexiConnectionSelector.ui:50
-#, kde-format
-msgid ""
-"<title>Select Existing Database Server's Connection From the List Below</"
-"title>\n"
-"<para>You will see existing KEXI projects available for the selected "
-"connection. Here you may also add, edit or delete connections from the list."
-"</para>\n"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: widget/KexiConnectionSelector.ui:104
-#, kde-format
-msgid "Server Information"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_add)
-#: widget/KexiConnectionSelector.ui:155
-#, kde-format
-msgid "&Add..."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_edit)
-#: widget/KexiConnectionSelector.ui:168
-#, kde-format
-msgid "&Edit..."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QPushButton, btn_remove)
-#: widget/KexiConnectionSelector.ui:181
-#: widget/navigator/KexiProjectNavigator.cpp:172
-#, kde-format, kde-kuit-format
-msgid "&Delete..."
 msgstr ""
 
 #: widget/KexiConnectionSelectorWidget.cpp:62
@@ -7958,26 +7378,12 @@ msgstr ""
 #: widget/KexiConnectionSelectorWidget.cpp:447
 #, kde-kuit-format
 msgctxt "@info"
-msgid ""
-"Do you want to delete database connection <resource>%1</resource> from the "
-"list of available connections?"
+msgid "Do you want to delete database connection <resource>%1</resource> from the list of available connections?"
 msgstr ""
 
 #: widget/KexiDataSourceComboBox.cpp:125
 #, kde-kuit-format
 msgid "Define Query..."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widget/KexiDBCaptionPage.ui:31
-#, kde-format
-msgid "Pro&ject caption: "
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label_requester)
-#: widget/KexiDBCaptionPage.ui:63
-#, kde-format
-msgid "Project file&name:"
 msgstr ""
 
 #: widget/kexidbconnectionwidget.cpp:90
@@ -7987,9 +7393,7 @@ msgstr ""
 
 #: widget/kexidbconnectionwidget.cpp:92
 #, kde-kuit-format
-msgid ""
-"Loads database list from the server, so you can select one using the "
-"<interface>Name</interface> combo box."
+msgid "Loads database list from the server, so you can select one using the <interface>Name</interface> combo box."
 msgstr ""
 
 #: widget/kexidbconnectionwidget.cpp:103
@@ -8005,9 +7409,7 @@ msgstr ""
 
 #: widget/kexidbconnectionwidget.cpp:105
 #, kde-kuit-format
-msgid ""
-"Save all changes made to this connection information. You can later reuse "
-"this information."
+msgid "Save all changes made to this connection information. You can later reuse this information."
 msgstr ""
 
 #: widget/kexidbconnectionwidget.cpp:116
@@ -8023,8 +7425,7 @@ msgstr ""
 
 #: widget/kexidbconnectionwidget.cpp:118
 #, kde-kuit-format
-msgid ""
-"Tests database connection. You can check validity of connection information."
+msgid "Tests database connection. You can check validity of connection information."
 msgstr ""
 
 #: widget/kexidbconnectionwidget.cpp:152
@@ -8032,11 +7433,8 @@ msgstr ""
 msgid "Database Connection"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#. i18n: ectx: property (title), widget (QGroupBox, dbGroupBox)
-#: widget/kexidbconnectionwidget.cpp:160 widget/kexidbconnectionwidget.ui:168
-#: widget/KexiProjectSelector.ui:85
-#, kde-format, kde-kuit-format
+#: widget/kexidbconnectionwidget.cpp:160
+#, kde-kuit-format
 msgid "Database"
 msgstr "Database"
 
@@ -8075,116 +7473,6 @@ msgstr ""
 msgid "Open Database Connection"
 msgstr ""
 
-#. i18n: ectx: property (title), widget (QGroupBox, authenticationGBox)
-#: widget/kexidbconnectionwidget.ui:90
-#, kde-format
-msgid "Authentication"
-msgstr "Autentisering"
-
-#. i18n: ectx: property (text), widget (QLabel, userLbl)
-#: widget/kexidbconnectionwidget.ui:96
-#, kde-format
-msgid "&Username:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, passwordLbl)
-#: widget/kexidbconnectionwidget.ui:116
-#, kde-format
-msgid "&Password:"
-msgstr ""
-
-#. i18n: ectx: property (whatsThis), widget (QCheckBox, chkSavePassword)
-#: widget/kexidbconnectionwidget.ui:137
-#, kde-format
-msgid ""
-"<html><head/><body><p>Saves password in a <span style=\" font-style:italic;"
-"\">.kexic</span> or <span style=\" font-style:italic;\">.kexis</span> "
-"connection shortcut file using a simple encryption similar to ROT-47. It "
-"does not guarantee security, but simply makes it difficult for anyone to "
-"read, so generally it is not safe to make such files publicly accessible.</"
-"p></body></html>"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkSavePassword)
-#: widget/kexidbconnectionwidget.ui:140
-#, kde-format
-msgid "Save password"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: widget/kexidbconnectionwidget.ui:174
-#, kde-format
-msgid "&Name:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, titleLabel)
-#: widget/kexidbconnectionwidget.ui:193
-#, kde-format
-msgid "&Caption (optional):"
-msgstr ""
-
-#. i18n: ectx: property (title), widget (QGroupBox, locationBGrp)
-#: widget/kexidbconnectionwidget.ui:289
-#, kde-format
-msgid "Database Server"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, lblEngine)
-#: widget/kexidbconnectionwidget.ui:298
-#, kde-format
-msgid "&Engine:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, localhostRBtn)
-#: widget/kexidbconnectionwidget.ui:335
-#, kde-format
-msgid "Local server"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, remotehostRBtn)
-#: widget/kexidbconnectionwidget.ui:348
-#, kde-format
-msgid "Remote server"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, hostLbl)
-#: widget/kexidbconnectionwidget.ui:357
-#, kde-format
-msgid "&Hostname:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, portLbl)
-#: widget/kexidbconnectionwidget.ui:383
-#, kde-format
-msgid "Port:"
-msgstr "Port:"
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkPortDefault)
-#: widget/kexidbconnectionwidget.ui:424
-#, kde-format
-msgctxt "port: default"
-msgid "Default"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkUseSocket)
-#: widget/kexidbconnectionwidgetdetails.ui:34
-#, kde-format
-msgid "Use socket &file instead of TCP/IP port:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QCheckBox, chkSocketDefault)
-#: widget/kexidbconnectionwidgetdetails.ui:80
-#, kde-format
-msgctxt "socket: default"
-msgid "Default"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: widget/kexidbconnectionwidgetdetails.ui:140
-#, kde-format
-msgid "&Description:"
-msgstr ""
-
 #: widget/KexiDBPasswordDialog.cpp:58
 #, kde-kuit-format
 msgctxt "@title:window"
@@ -8202,9 +7490,8 @@ msgstr ""
 msgid "&Details >>"
 msgstr ""
 
-#. i18n: ectx: property (text), widget (QLabel, domainLabel)
-#: widget/KexiDBPasswordDialog.cpp:81 widget/KexiPasswordWidget.ui:138
-#, kde-format, kde-kuit-format
+#: widget/KexiDBPasswordDialog.cpp:81
+#, kde-kuit-format
 msgid "Database server:"
 msgstr ""
 
@@ -8283,6 +7570,11 @@ msgstr ""
 msgid "Do you want to replace it?"
 msgstr ""
 
+#: widget/KexiNameDialog.cpp:182
+#, kde-kuit-format
+msgid "&Replace"
+msgstr ""
+
 #: widget/KexiNameDialog.cpp:183
 #, kde-kuit-format
 msgid "Replace object"
@@ -8314,74 +7606,6 @@ msgstr ""
 msgctxt "Object class \"objectName\", e.g. Text editor \"text\""
 msgid "%1 <resource>%2</resource>"
 msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, prompt)
-#: widget/KexiPasswordWidget.ui:49
-#, kde-format
-msgid "Supply a password below."
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, userNameLabel)
-#: widget/KexiPasswordWidget.ui:87
-#, kde-format
-msgid "Username:"
-msgstr "Brukarnamn:"
-
-#. i18n: ectx: property (text), widget (QLabel, anonymousLabel)
-#: widget/KexiPasswordWidget.ui:104
-#, kde-format
-msgid "Anonymous:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: widget/KexiPasswordWidget.ui:121
-#, kde-format
-msgid "Database name:"
-msgstr "Databasenamn:"
-
-#. i18n: ectx: property (text), widget (QLabel, passwordLabel)
-#: widget/KexiPasswordWidget.ui:155
-#, kde-format
-msgid "Password:"
-msgstr "Passord:"
-
-#. i18n: ectx: property (text), widget (QLabel, keepCheckBoxLabel)
-#: widget/KexiPasswordWidget.ui:185
-#, kde-format
-msgid "Remember password:"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, option_file)
-#: widget/kexiprjtypeselector.ui:51
-#, kde-format
-msgid "Projects stored in a file"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QRadioButton, option_server)
-#: widget/kexiprjtypeselector.ui:86
-#, kde-format
-msgid "Projects stored on a database server"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: widget/KexiProjectSelector.ui:33
-#, kde-format
-msgid ""
-"<b>There are KEXI projects you have recently opened.</b> Select one you wish "
-"to open:\n"
-msgstr ""
-
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: widget/KexiProjectSelector.ui:74
-#, kde-format
-msgid "Project Name"
-msgstr "Prosjektnamn"
-
-#. i18n: ectx: property (text), widget (QTreeWidget, list)
-#: widget/KexiProjectSelector.ui:107
-#, kde-format
-msgid "Connection"
-msgstr "Tilkopling"
 
 #: widget/KexiProjectSelectorWidget.cpp:94
 #, kde-kuit-format
@@ -8421,13 +7645,10 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<title>No database server drivers found</title><para>Connection to a "
-"database server requires an appropriate driver which you do not have "
-"installed.</para><subtitle>Details</subtitle><para>To obtain database "
-"drivers please use your Package Manager to search and install packages with "
-"so-called <emphasis>KDb drivers</emphasis> named <filename>kdb-****-driver</"
-"filename>. Please note that your package names could vary slightly depending "
-"on the operating system you use.</para>"
+"<title>No database server drivers found</title>"
+"<para>Connection to a database server requires an appropriate driver which you do not have installed.</para>"
+"<subtitle>Details</subtitle>"
+"<para>To obtain database drivers please use your Package Manager to search and install packages with so-called <emphasis>KDb drivers</emphasis> named <filename>kdb-****-driver</filename>. Please note that your package names could vary slightly depending on the operating system you use.</para>"
 msgstr ""
 
 #: widget/KexiStartupFileHandler.cpp:483
@@ -8454,6 +7675,11 @@ msgstr ""
 #: widget/navigator/KexiProjectNavigator.cpp:161
 #, kde-kuit-format
 msgid "Opens object selected in the list."
+msgstr ""
+
+#: widget/navigator/KexiProjectNavigator.cpp:172
+#, kde-kuit-format
+msgid "&Delete..."
 msgstr ""
 
 #: widget/navigator/KexiProjectNavigator.cpp:173
@@ -8571,8 +7797,11 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info Message for empty state in project navigator"
 msgid ""
-"<nl/><nl/><img src=\"%1\" width=\"48\"/><nl/>Your project is empty...<nl/"
-">Why not <b>create</b> something?"
+"<nl/>"
+"<nl/>"
+"<img src=\"%1\" width=\"48\"/><nl/>"
+"Your project is empty...<nl/>"
+"Why not <b>create</b> something?"
 msgstr ""
 
 #: widget/properties/KexiPropertyEditorView.cpp:106
@@ -8732,8 +7961,8 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
-"<para>File <filename>%1</filename> already exists.</para><para>Do you want "
-"to replace it with a new one?</para>"
+"<para>File <filename>%1</filename> already exists.</para>"
+"<para>Do you want to replace it with a new one?</para>"
 msgstr ""
 
 #: widget/utils/kexicontextmenuutils.cpp:164

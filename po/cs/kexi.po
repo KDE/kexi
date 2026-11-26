@@ -8940,6 +8940,8 @@ msgstr "Přesune kurzor na nový záznam a umožní vkládání."
 #~ msgid "Replace All"
 #~ msgstr "Nahradit vše"
 
+#, fuzzy
+#~| msgid "<b>Select existing KEXI project file to open:</b>\n"
 #~ msgid "<b>Select existing KEXI project file to open:</b>\n"
 #~ msgstr ""
 #~ "<b>Vyberte existující soubor projektu KEXI, který chcete otevřít:</b>\n"
@@ -8974,6 +8976,13 @@ msgstr "Přesune kurzor na nový záznam a umožní vkládání."
 #~ msgid "Project's database name:"
 #~ msgstr "Název databáze projektu:"
 
+#, fuzzy
+#~| msgid ""
+#~| "<title>Select Existing Database Server's Connection From the List Below</"
+#~| "title>\n"
+#~| "<para>You will see existing KEXI projects available for the selected "
+#~| "connection. Here you may also add, edit or delete connections from the "
+#~| "list.</para>\n"
 #~ msgid ""
 #~ "<title>Select Existing Database Server's Connection From the List Below</"
 #~ "title>\n"
@@ -9091,6 +9100,10 @@ msgstr "Přesune kurzor na nový záznam a umožní vkládání."
 #~ msgid "Projects stored on a database server"
 #~ msgstr "Projekty uložené na databázovém serveru"
 
+#, fuzzy
+#~| msgid ""
+#~| "<b>There are KEXI projects you have recently opened.</b> Select one you "
+#~| "wish to open:\n"
 #~ msgid ""
 #~ "<b>There are KEXI projects you have recently opened.</b> Select one you "
 #~ "wish to open:\n"
